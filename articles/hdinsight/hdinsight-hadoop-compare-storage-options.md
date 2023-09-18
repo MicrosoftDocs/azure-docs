@@ -4,7 +4,7 @@ description: Provides an overview of storage types and how they work with Azure 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 05/30/2022
+ms.date: 06/12/2023
 ---
 
 # Compare storage options for use with Azure HDInsight clusters

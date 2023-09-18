@@ -70,7 +70,7 @@ Modify `appsettings.json` to specify your search service and [query API key](sea
 }
 ```
 
-You can get the [service URL and API key](search-get-started-dotnet.md#copy-a-key-and-endpoint) from the portal. Because this code is querying an index and not creating one, you can use a query key instead of an admin key.
+You can get the service URL and API key from the portal. Because this code is querying an index and not creating one, you can use a query key instead of an admin key.
 
 Make sure to specify the search service that has the hotels-sample-index.
 
@@ -485,7 +485,7 @@ Use the Azure portal to add a scoring profile to the existing hotels-sample-inde
 
 In this tutorial, you created an ASP.NET Core (MVC) project that connected to a search service and called Search APIs for server-side filtering and sorting.
 
-If you want to explore client-side code that respond to user actions, consider adding a React template to your solution:
+If you want to explore client-side code that responds to user actions, consider adding a React template to your solution:
 
 > [!div class="nextstepaction"]
 > [C# Tutorial: Add search to a website with .NET](tutorial-csharp-overview.md)

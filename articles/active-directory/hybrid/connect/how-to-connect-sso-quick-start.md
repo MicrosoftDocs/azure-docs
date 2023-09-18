@@ -34,7 +34,6 @@ Ensure that the following prerequisites are in place:
     > [!NOTE]
     >
     > - Azure AD Connect versions 1.1.557.0, 1.1.558.0, 1.1.561.0, and 1.1.614.0 have a problem related to password hash sync. If you *don't* intend to use password hash sync in conjunction with pass-through authentication, review the [Azure AD Connect release notes](./reference-connect-version-history.md) to learn more.
-    > - If you have an outgoing HTTP proxy, make sure that the URL `autologon.microsoftazuread-sso.com` is on your allowlist. You should specify this URL explicitly because the wildcard might not be accepted.
 
 - **Use a supported Azure AD Connect topology**: Ensure that you're using one of the Azure AD Connect [supported topologies](plan-connect-topologies.md).
 
@@ -50,7 +49,12 @@ Ensure that the following prerequisites are in place:
 
 - **Use the latest versions of Microsoft 365 clients**: To get a silent sign-on experience with Microsoft 365 clients (for example, with Outlook, Word, or Excel), your users must use versions 16.0.8730.xxxx or later.
 
+> [!NOTE]
+> If you have an outgoing HTTP proxy, make sure that the URL `autologon.microsoftazuread-sso.com` is on your allowlist. You should specify this URL explicitly because the wildcard might not be accepted.
+
 ## Enable the feature
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Enable Seamless SSO through [Azure AD Connect](../whatis-hybrid-identity.md).
 
@@ -80,9 +84,8 @@ When you complete the wizard, Seamless SSO is enabled on your tenant.
 
 To verify that you have enabled Seamless SSO correctly:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with the Hybrid Identity Administrator account credentials for your tenant.
-1. In the left menu, select **Azure Active Directory**.
-1. Select **Azure AD Connect**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
+2. Browse to **Identity** > **Hybrid management** > **Azure AD Connect** > **Connect sync**.
 1. Verify that **Seamless single sign-on** is set to **Enabled**.
 
 :::image type="content" source="media/how-to-connect-sso-quick-start/sso10.png" alt-text="Screenshot that shows the Azure AD Connect pane in the admin portal.":::

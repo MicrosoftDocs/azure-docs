@@ -3,7 +3,7 @@ title: Child resources in templates
 description: Describes how to set the name and type for child resources in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 01/19/2022
+ms.date: 06/22/2023
 ---
 
 # Set name and type for child resources
@@ -47,7 +47,7 @@ The following example shows a virtual network and with a subnet. Notice that the
 "resources": [
   {
     "type": "Microsoft.Network/virtualNetworks",
-    "apiVersion": "2018-10-01",
+    "apiVersion": "2022-11-01",
     "name": "VNet1",
     "location": "[parameters('location')]",
     "properties": {
@@ -60,7 +60,7 @@ The following example shows a virtual network and with a subnet. Notice that the
     "resources": [
       {
         "type": "subnets",
-        "apiVersion": "2018-10-01",
+        "apiVersion": "2022-11-01",
         "name": "Subnet1",
         "dependsOn": [
           "VNet1"
@@ -106,7 +106,7 @@ The following example shows a virtual network and subnet that are both defined a
 "resources": [
   {
     "type": "Microsoft.Network/virtualNetworks",
-    "apiVersion": "2018-10-01",
+    "apiVersion": "2022-11-01",
     "name": "VNet1",
     "location": "[parameters('location')]",
     "properties": {
@@ -119,7 +119,7 @@ The following example shows a virtual network and subnet that are both defined a
   },
   {
     "type": "Microsoft.Network/virtualNetworks/subnets",
-    "apiVersion": "2018-10-01",
+    "apiVersion": "2022-11-01",
     "name": "VNet1/Subnet1",
     "dependsOn": [
       "VNet1"

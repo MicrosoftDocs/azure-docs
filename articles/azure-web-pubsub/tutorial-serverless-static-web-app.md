@@ -1,19 +1,19 @@
 ---
-title: Tutorial - Create a serverless chat app with Azure Web PubSub service and Azure Static Web Apps
+title: Integrate - Create a chat app using Azure Web PubSub and deploy to Azure Static Web Apps
 description: A tutorial about how to use Azure Web PubSub service and Azure Static Web Apps to build a serverless chat application.
 author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 06/03/2022
+ms.date: 05/16/2022
 ---
 
 # Tutorial: Create a serverless chat app with Azure Web PubSub service and Azure Static Web Apps
 
-Azure Web PubSub service helps you build real-time messaging web applications using WebSockets. By using Azure Static Web Apps, you can automatically build and deploy full-stack web apps to Azure from a code repository. In this tutorial, you'll learn how to use Web PubSub service and Static Web Apps to build a serverless, real-time chat room messaging application.  
+Azure Web PubSub helps you build real-time messaging web applications using WebSocket. Azure Static Web Apps helps you build and deploy full-stack web apps automatically to Azure from a code repository. In this tutorial, you learn how to use Web PubSub and Static Web Apps together to build a real-time chat room application.  
 
-In this tutorial, you'll learn how to:
+More specifically,  you learn how to:
 
 > [!div class="checklist"]
 > * Build a serverless chat app
@@ -28,9 +28,9 @@ GitHub or Azure Repos provide source control for Static Web Apps. Azure monitors
 
 The sample chat room application provided with this tutorial has the following workflow.
 
-1. When a user signs in to the app, the Azure Functions `login` API will be triggered to generate a Web PubSub service client connection URL.
+1. When a user signs in to the app, the Azure Functions `login` API is triggered to generate a Web PubSub service client connection URL.
 1. When the client initializes the connection request to Web PubSub, the service sends a system `connect` event that triggers the Functions `connect` API to authenticate the user.
-1. When a client sends a message to Azure Web PubSub service, the service will respond with a user `message` event and the Functions `message` API will be triggered to broadcast the message to all the connected clients.
+1. When a client sends a message to Azure Web PubSub service, the service responds with a user `message` event and the Functions `message` API is triggered to broadcast, the message to all the connected clients.
 1. The Functions `validate` API is triggered periodically for [CloudEvents Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) when the events in Azure Web PubSub are configured with predefined parameter `{event}`, that is, https://$STATIC_WEB_APP/api/{event}.
 
 > [!NOTE]
@@ -84,7 +84,7 @@ The sample chat room application provided with this tutorial has the following w
 
 ## Create a repository
 
-This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app that you will deploy to Azure Static Web Apps.
+This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app that you deploy to Azure Static Web Apps.
 
 1. Go to [https://github.com/Azure/awps-swa-sample/generate](https://github.com/login?return_to=/Azure/awps-swa-sample/generate) to create a new repo for this tutorial.
 1. Select yourself as **Owner** and name your repository **my-awps-swa-app**.
@@ -176,7 +176,7 @@ Before you can navigate to your new static site, the deployment build must first
 
 ## Configure the Web PubSub event handler
 
-You're very close to complete. The last step is to configure Web PubSub transfer client requests to your function APIs.
+You're very close to complete. The last step is to configure Web PubSub so that client requests are transferred to your function APIs.
 
 1. Run the following command to configure Web PubSub service events. It maps functions under the `api` folder in your repo to the Web PubSub event handler.
 
@@ -200,13 +200,12 @@ az group delete --name my-awps-swa-group
 
 ## Next steps
 
-In this quickstart, you learned how to run a serverless chat application. Now, you could start to build your own application.
+In this quickstart, you learned how to develop and deploy a serverless chat application. Now, you can start building your own application.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Client streaming using subprotocol](tutorial-subprotocol.md)
+> [Have fun with playable demos](https://azure.github.io/azure-webpubsub/)
 
 > [!div class="nextstepaction"]
 > [Azure Web PubSub bindings for Azure Functions](reference-functions-bindings.md)
 
-> [!div class="nextstepaction"]
-> [Explore more Azure Web PubSub samples](https://github.com/Azure/azure-webpubsub/tree/main/samples)
+

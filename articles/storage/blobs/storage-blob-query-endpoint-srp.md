@@ -6,10 +6,9 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 03/24/2023
-ms.subservice: blobs
+ms.date: 06/07/2023
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python
 ---
 
@@ -21,6 +20,11 @@ A Blob Storage endpoint forms the base address for all objects within a storage 
 - An [Azure DNS zone endpoint (preview)](../common/storage-account-overview.md#azure-dns-zone-endpoints-preview) dynamically selects an Azure DNS zone and assigns it to the storage account when it's created. The format of an Azure DNS Zone endpoint is `https://<storage-account>.z[00-99].blob.storage.azure.net`. 
 
 When your application creates a service client object that connects to Blob Storage data resources, you pass a URI referencing the endpoint to the service client constructor. You can construct the URI string manually, or you can query for the service endpoint at runtime using the Azure Storage management library.
+
+> [!IMPORTANT]
+> When referencing a service endpoint in a client application, it's recommended that you avoid taking a dependency on a cached IP address. The storage account IP address is subject to change, and relying on a cached IP address may result in unexpected behavior.
+>
+> Additionally, it's recommended that you honor the time-to-live (TTL) of the DNS record and avoid overriding it. Overriding the DNS TTL may result in unexpected behavior.
 
 The Azure Storage management library provides programmatic access to the [Azure Storage resource provider](/rest/api/storagerp). The resource provider is the Azure Storage implementation of the Azure Resource Manager. The management library enables developers to manage storage accounts and account configuration, as well as configure lifecycle management policies, object replication policies, and immutability policies.
 

@@ -25,7 +25,7 @@ Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefi
 
 * Manage identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
 
-To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](../manage-apps/f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](../manage-apps/f5-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Scenario description
 
@@ -41,7 +41,7 @@ The SHA solution for this scenario is made up of the following:
 
 **SAP ERP application:** BIG-IP published service to be protected by and Azure AD SHA.
 
-**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP.
+**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access, and SAML based SSO to the BIG-IP.
 
 **BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the SAP service.
 
@@ -99,7 +99,7 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 
 The Easy Button client must also be registered in Azure AD, before it is allowed to establish a trust between each SAML SP instance of a BIG-IP published application, and Azure AD as the SAML IdP.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com/) using an account with Application Administrative rights
+1. Sign in to the [Azure portal](https://portal.azure.com/) using an account with Application Administrative rights
 
 2. From the left navigation pane, select the **Azure Active Directory** service
 
@@ -243,9 +243,9 @@ The **Additional User Attributes** tab can support a variety of distributed syst
 
 #### Conditional Access Policy
 
-CA policies are enforced post Azure AD pre-authentication, to control access based on device, application, location, and risk signals.
+Conditional Access policies are enforced post Azure AD pre-authentication, to control access based on device, application, location, and risk signals.
 
-The **Available Policies** view, by default, will list all CA policies that do not include user based actions.
+The **Available Policies** view, by default, will list all Conditional Access policies that do not include user based actions.
 
 The **Selected Policies** view, by default, displays all policies targeting All cloud apps. These policies cannot be deselected or moved to the Available Policies list as they are enforced at a tenant level.
 
@@ -256,7 +256,7 @@ To select a policy to be applied to the application being published:
 
 Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced.
 
-![ Screenshot for CA policies](./media/f5-big-ip-easy-button-sap-erp/conditional-access-policy.png)
+![Screenshot for Conditional Access policies](./media/f5-big-ip-easy-button-sap-erp/conditional-access-policy.png)
 
 >[!NOTE]
 >The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed. 
@@ -273,7 +273,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 4. The Client SSL Profile enables the virtual server for HTTPS, so that client connections are encrypted over TLS. Select the **Client SSL Profile** you created as part of the prerequisites or leave the default whilst testing
 
-  ![ Screenshot for Virtual server](./media/f5-big-ip-easy-button-sap-erp/virtual-server.png)
+  ![Screenshot for Virtual server](./media/f5-big-ip-easy-button-sap-erp/virtual-server.png)
 
 ### Pool Properties
 
@@ -285,7 +285,7 @@ The **Application Pool tab** details the services behind a BIG-IP, represented a
 
 3. For **Pool Servers** select an existing server node or specify an IP and port for the backend node hosting the header-based application
 
-   ![ Screenshot for Application pool](./media/f5-big-ip-easy-button-sap-erp/application-pool.png)
+   ![Screenshot for Application pool](./media/f5-big-ip-easy-button-sap-erp/application-pool.png)
 
 #### Single Sign-On & HTTP Headers
 
@@ -311,10 +311,10 @@ Enable **Kerberos** and **Show Advanced Setting** to enter the following:
    
 ### Session Management
 
-The BIG-IPs session management settings are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and corresponding user info. Consult [F5 documentation]( https://support.f5.com/csp/article/K18390492) for details on these settings.
+The BIG-IPs session management settings are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and corresponding user info. Consult [F5 documentation](https://support.f5.com/csp/article/K18390492) for details on these settings.
 
 What isn’t covered however is Single Log-Out (SLO) functionality, which ensures all sessions between the IdP, the BIG-IP, and the user agent are terminated as users log off.
- When the Easy Button deploys a SAML application to your Azure AD tenant, it also populates the Logout Url with the APM’s SLO endpoint. That way IdP initiated sign-outs from the Microsoft [MyApps portal]( https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) also terminate the session between the BIG-IP and a client.
+ When the Easy Button deploys a SAML application to your Azure AD tenant, it also populates the Logout Url with the APM’s SLO endpoint. That way IdP initiated sign-outs from the Microsoft [MyApps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) also terminate the session between the BIG-IP and a client.
 
 During deployment, the SAML federation metadata for the published application is imported from your tenant, providing the APM the SAML logout endpoint for Azure AD. This helps SP initiated sign-outs terminate the session between a client and Azure AD.
 
@@ -379,4 +379,4 @@ If you don’t see a BIG-IP error page, then the issue is probably more related 
 
 2. Select the link for your active session. The **View Variables** link in this location may also help determine root cause KCD issues, particularly if the BIG-IP APM fails to obtain the right user and domain identifiers from session variables
 
-See [BIG-IP APM variable assign examples]( https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107) and [F5 BIG-IP session variables reference]( https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html) for more info.
+See [BIG-IP APM variable assign examples](https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107) and [F5 BIG-IP session variables reference](https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html) for more info.

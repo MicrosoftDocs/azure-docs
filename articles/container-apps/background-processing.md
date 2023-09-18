@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: joarteir
-ms.custom: devx-track-azurecli, event-tier1-build-2022, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, event-tier1-build-2022, devx-track-azurepowershell, build-2023, devx-track-linux
 ---
 
 # Tutorial: Deploy a background processing application with Azure Container Apps
@@ -17,7 +17,6 @@ Using Azure Container Apps allows you to deploy applications without requiring t
 You learn how to:
 
 > [!div class="checklist"]
-
 > * Create a Container Apps environment to deploy your container apps
 > * Create an Azure Storage Queue to send messages to the container app
 > * Deploy your background processing application as a container app

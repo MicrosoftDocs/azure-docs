@@ -44,17 +44,23 @@ When [onboarding a new OT sensor](onboard-sensors.md) to the Defender for IoT, y
 
 Enterprise IoT sensors are all automatically added to the same site, named **Enterprise network**.
 
-To edit a site's details, select the site's name on the **Sites and sensors** page. In the **Edit site** pane that opens on the right, modify any of the following values:
+**To edit a site from the Azure portal**:
 
-- **Display name**: Enter a meaningful name for your site.
+1. Select the site's name on the **Sites and sensors** page. In the **Edit site** pane that opens on the right, modify any of the following values:
 
-- **Tags**: (Optional) Enter values for the **Key** and **Value** fields for each new tag you want to add to your site. Select **+ Add** to add a new tag.
+    |Option |Description  |
+    |---------|---------|
+    |**Display name**| Enter a meaningful name for your site. |
+    | **Owner** | **For OT sites only**. Enter one or more email addresses for the user you want to designate as the owner of the devices at this site. The site owner is inherited by all devices at the site, and is shown on the IoT device entity pages and in incident details in Microsoft Sentinel.<br><br>    In Microsoft Sentinel, use the **AD4IoT-SendEmailtoIoTOwner** and **AD4IoT-CVEAutoWorkflow** playbooks to automatically notify device owners about important alerts or incidents. For more information, see [Investigate and detect threats for IoT devices](../../sentinel/iot-advanced-threat-monitoring.md).|
+    |**Tags** | (Optional) Enter values for the **Key** and **Value** fields for each new tag you want to add to your site. Select **+ Add** to add a new tag. |
 
-- **Owner**: For sites with OT sensors only. Enter one or more email addresses for the user you want to designate as the owner of the devices at this site. The site owner is inherited by all devices at the site, and is shown on the IoT device entity pages and in incident details in Microsoft Sentinel.
+1. **For OT sites only**: To define specified permissions per site, select **Manage site access control (Preview)**. 
 
-    In Microsoft Sentinel, use the **AD4IoT-SendEmailtoIoTOwner** and **AD4IoT-CVEAutoWorkflow** playbooks to automatically notify device owners about important alerts or incidents. For more information, see [Investigate and detect threats for IoT devices](../../sentinel/iot-advanced-threat-monitoring.md).
+    For example, you might do this as part of a Zero Trust security strategy to add a level of granularity to your Azure access policies. Defender for IoT sites generally reflect many devices grouped in a specific geographical location, such as the devices in an office building at a specific address. 
 
-When you're done, select **Save** to save your changes.
+    For more information, see [Manage site-based access control](manage-users-portal.md#manage-site-based-access-control-public-preview).
+
+1. When you're done, select **Save** to save your changes.
 
 ## Sensor management options from the Azure portal
 
@@ -129,9 +135,9 @@ If you're updating your OT sensor version from a legacy version to 22.1.x or hig
 Make sure that you've started with the relevant updates steps for this update. For more information, see [Update OT system software](update-ot-software.md).
 
 > [!NOTE]
-> After upgrading to version 22.1.x, the new upgrade log is accessible by the *cyberx_host* user on the sensor at the following path: `/opt/sensor/logs/legacy-upgrade.log`. To access the update log, sign into the sensor via SSH with the *cyberx_host* user.
+> After upgrading to version 22.1.x, the new upgrade log is accessible by the *support* user on the sensor at the following path: `/opt/sensor/logs/legacy-upgrade.log`. To access the update log, sign into the sensor via SSH with the *support* user.
 >
-> For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+> For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users). 
 
 ## Understand sensor health
 

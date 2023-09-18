@@ -215,13 +215,13 @@ To specify your Azure AD B2C user flows, do the following:
 
 1. Replace `B2C_1_SUSI` with your sign-in Azure AD B2C Policy name.
 1. Replace `B2C_1_EditProfile` with your edit profile Azure AD B2C policy name.
-1. Replace all instances of `contoso` with your [Azure AD B2C tenant name](./ tenant-management-read-tenant-name.md#get-your-tenant-name).
+1. Replace all instances of `contoso` with your [Azure AD B2C tenant name](./tenant-management-read-tenant-name.md#get-your-tenant-name).
 
 ## Step 7: Use the MSAL to sign in the user
 
 In this step, implement the methods to initialize the sign-in flow, API access token acquisition, and the sign-out methods. 
 
-For more information, see the [MSAL PublicClientApplication class reference](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html), and [Use the Microsoft Authentication Library (MSAL) to sign in the user](../active-directory/develop/tutorial-v2-javascript-spa.md#use-the-msal-to-sign-in-the-user) articles.
+For more information, see the [Use the Microsoft Authentication Library (MSAL) to sign in the user](../active-directory/develop/tutorial-v2-javascript-spa.md#use-the-msal-to-sign-in-the-user) article.
 
 To sign in the user, do the following:
 

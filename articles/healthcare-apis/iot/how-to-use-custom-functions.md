@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 08/01/2023
 ms.author: jasteppe
 ---
 
@@ -14,10 +14,10 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-Many functions are available when using **JMESPath** as the expression language. Besides the functions available as part of the JMESPath specification, many more custom functions may also be used. This article describes the MedTech service-specific custom functions for use with the MedTech service [device mapping](overview-of-device-mapping.md) during the device data [normalization](overview-of-device-data-processing-stages.md#normalize) processing stage.
+Many functions are available when using **JMESPath** as the expression language. Besides the built-in functions available as part of the [JMESPath specification](https://jmespath.org/specification.html#built-in-functions), many more custom functions may also be used. This article describes how to use the MedTech service-specific custom functions with the MedTech service [device mapping](overview-of-device-mapping.md).
 
 > [!TIP]
-> For more information on JMESPath functions, see the [JMESPath specification](https://jmespath.org/specification.html#built-in-functions).
+> You can use the MedTech service [Mapping debugger](how-to-use-mapping-debugger.md) for assistance creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.
 
 ## Function signature
 
@@ -31,6 +31,35 @@ The signature indicates the valid types for the arguments. If an invalid type is
 
 > [!IMPORTANT]
 > When math-related functions are done, the end result must be able to fit within a [C# long](/dotnet/csharp/language-reference/builtin-types/integral-numeric-types#characteristics-of-the-integral-types) value. If the end result is unable to fit within a C# long value, then a mathematical error will occur.
+
+As stated previously, these functions may only be used when specifying **JmesPath** as the expression language. By default, the expression language is **JsonPath**. The expression language can be changed when defining the expression. 
+
+For example:
+
+```json
+"templateType": "CalculatedContent",
+    "template": {
+        "typeName": "heartrate",
+        "patientIdExpression": {
+            "value": "insertString('123', 'patient', `0`) ",
+            "language": "JmesPath"
+        },
+        ...
+    }
+```
+
+This example uses the [insertString](#insertstring) expression to generate the patient ID `patient123`.
+
+## Literal values
+
+Constant values may be supplied to functions.
+
+- Numeric values should be enclosed within backticks: \`
+  - Example: add(\`10\`, \`10\`)
+- String values should be enclosed within single quotes: '
+  - Example: insertString('mple', 'sa', \`0\`)
+
+For more information, see the [JMESPath specification](https://jmespath.org/specification.html#built-in-functions).
 
 ## Exception handling
 
@@ -55,11 +84,11 @@ Returns the result of adding the left argument to the right argument.
 
 Examples:
 
-| Given                       | Expression       | Result |
-|-----------------------------|------------------|--------|
-| n/a                         | add(10, 10)      | 20     |
-| {"left": 40, "right": 50}   | add(left, right) | 90     |
-| {"left": 0, "right": 50}    | add(left, right) | 50     |
+| Given                       | Expression          | Result |
+|-----------------------------|---------------------|--------|
+| n/a                         | add(\`10\`, \`10\`) | 20     |
+| {"left": 40, "right": 50}   | add(left, right)    | 90     |
+| {"left": 0, "right": 50}    | add(left, right)    | 50     |
 
 ### divide
 
@@ -71,12 +100,12 @@ Returns the result of dividing the left argument by the right argument.
 
 Examples:
 
-| Given                       | Expression          | Result                           |
-|-----------------------------|---------------------|----------------------------------|
-| n/a                         | divide(10, 10)      | 1                                |
-| {"left": 40, "right": 50}   | divide(left, right) | 0.8                              |
-| {"left": 0, "right": 50}    | divide(left, right) | 0                                |
-| {"left": 50, "right": 0}    | divide(left, right) | mathematic error: divide by zero |
+| Given                       | Expression             | Result                            |
+|-----------------------------|------------------------|-----------------------------------|
+| n/a                         | divide(\`10\`, \`10\`) | 1                                 |
+| {"left": 40, "right": 50}   | divide(left, right)    | 0.8                               |
+| {"left": 0, "right": 50}    | divide(left, right)    | 0                                 |
+| {"left": 50, "right": 0}    | divide(left, right)    | mathematic error: divide by zero  |
 
 ### multiply
 
@@ -88,11 +117,11 @@ Returns the result of multiplying the left argument with the right argument.
 
 Examples:
 
-| Given                       | Expression            | Result |
-|-----------------------------|-----------------------|--------|
-| n/a                         | multiply(10, 10)      | 100    |
-| {"left": 40, "right": 50}   | multiply(left, right) | 2000   |
-| {"left": 0, "right": 50}    | multiply(left, right) | 0      |
+| Given                       | Expression               | Result |
+|-----------------------------|--------------------------|--------|
+| n/a                         | multiply(\`10\`, \`10\`) | 100    |
+| {"left": 40, "right": 50}   | multiply(left, right)    | 2000   |
+| {"left": 0, "right": 50}    | multiply(left, right)    | 0      |
 
 ### pow
 
@@ -104,12 +133,12 @@ Returns the result of raising the left argument to the power of the right argume
 
 Examples:
 
-| Given                         | Expression       | Result                     |
-|-------------------------------|------------------|----------------------------|
-| n/a                           | pow(10, 10)      | 10000000000                |
-| {"left": 40, "right": 50}     | pow(left, right) | mathematic error: overflow |
-| {"left": 0, "right": 50}      | pow(left, right) | 0                          |
-| {"left": 100, "right": 0.5}   | pow(left, right) | 10                         |
+| Given                         | Expression          | Result                      |
+|-------------------------------|---------------------|-----------------------------|
+| n/a                           | pow(\`10\`, \`10\`) | 10000000000                 |
+| {"left": 40, "right": 50}     | pow(left, right)    | mathematic error: overflow  |
+| {"left": 0, "right": 50}      | pow(left, right)    | 0                           |
+| {"left": 100, "right": 0.5}   | pow(left, right)    | 10                          |
 
 ### subtract
 
@@ -121,11 +150,11 @@ Returns the result of subtracting the right argument from the left argument.
 
 Examples:
 
-| Given                       | Expression            | Result |
-|-----------------------------|-----------------------|--------|
-| n/a                         | subtract(10, 10)      | 0      |
-| {"left": 40, "right": 50}   | subtract(left, right) | -10    |
-| {"left": 0, "right": 50}    | subtract(left, right) | -50    |
+| Given                       | Expression               | Result |
+|-----------------------------|--------------------------|--------|
+| n/a                         | subtract(\`10\`, \`10\`) | 0      |
+| {"left": 40, "right": 50}   | subtract(left, right)    | -10    |
+| {"left": 0, "right": 50}    | subtract(left, right)    | -50    |
 
 ## String functions
 
@@ -145,12 +174,10 @@ Examples:
 
 | Given                                                     | Expression                                         | Result              |
 |-----------------------------------------------------------|----------------------------------------------------|---------------------|
+| n/a                                                       | insertString('mple', 'sa', `0`)                    | "sample"            |
 | {"original": "mple", "toInsert": "sa", "pos": 0}          | insertString(original, toInsert, pos)              | "sample"            |
 | {"original": "suess", "toInsert": "cc", "pos": 2}         | insertString(original, toInsert, pos)              | "success"           |
 | {"original": "myString", "toInsert": "!!", "pos": 8}      | insertString(original, toInsert, pos)              | "myString!!"        |
-| {"original": "myString", "toInsert": "!!"}                | insertString(original, toInsert, length(original)) | "myString!!"        |
-| {"original": "myString", "toInsert": "!!", "pos": 100}    | insertString(original, toInsert, pos)              | error: out of range |
-| {"original": "myString", "toInsert": "!!", "pos": -1}     | insertString(original, toInsert, pos)              | error: out of range |
 
 ## Date functions
 
@@ -160,14 +187,14 @@ Examples:
 string fromUnixTimestamp(number $unixTimestampInSeconds)
 ```
 
-Produces an [ISO 8061](https://en.wikipedia.org/wiki/ISO_8601) compliant time stamp from the given Unix timestamp. The timestamp is represented as the number of seconds since the Epoch (January 1 1970).
+Produces an [ISO 8061](https://www.iso.org/iso-8601-date-and-time-format.html) compliant time stamp from the given Unix timestamp. The timestamp is represented as the number of seconds since the Epoch (January 1 1970).
 
 Examples:
 
 | Given                 | Expression              | Result                  |
 |-----------------------|-------------------------|-------------------------|
-| {"unix": 1625677200} | fromUnixTimestamp(unix)  | "2021-07-07T17:00:00+0" |
-| {"unix": 0}          | fromUnixTimestamp(unix)  | "1970-01-01T00:00:00+0" |
+| {"unix": 1625677200}  | fromUnixTimestamp(unix) | "2021-07-07T17:00:00+0" |
+| {"unix": 0}           | fromUnixTimestamp(unix) | "1970-01-01T00:00:00+0" |
 
 ### fromUnixTimestampMs
 
@@ -175,7 +202,7 @@ Examples:
 string fromUnixTimestampMs(number $unixTimestampInMs)
 ```
 
-Produces an [ISO 8061](https://en.wikipedia.org/wiki/ISO_8601) compliant time stamp from the given Unix timestamp. The timestamp is represented as the number of milliseconds since the Epoch (January 1 1970).
+Produces an [ISO 8061](https://www.iso.org/iso-8601-date-and-time-format.html) compliant time stamp from the given Unix timestamp. The timestamp is represented as the number of milliseconds since the Epoch (January 1 1970).
 
 Examples:
 
@@ -195,5 +222,15 @@ For an overview of the MedTech service device mapping, see
 
 > [!div class="nextstepaction"]
 > [Overview of the MedTech service device mapping](overview-of-device-mapping.md)
+
+For an overview of the MedTech service FHIR destination mapping, see
+
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
+
+For an overview of the MedTech service scenario-based mappings samples, see
+
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

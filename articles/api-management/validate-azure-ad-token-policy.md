@@ -13,7 +13,7 @@ ms.author: danlep
 
 # Validate Azure Active Directory token
 
-The `validate-azure-ad-token` policy enforces the existence and validity of a JSON web token (JWT) that was provided by the Azure Active Directory service. The JWT can be extracted from a specified HTTP header, query parameter, or value provided using a policy expression or context variable.
+The `validate-azure-ad-token` policy enforces the existence and validity of a JSON web token (JWT) that was provided by the Azure Active Directory service for a specified set of principals in the directory. The JWT can be extracted from a specified HTTP header, query parameter, or value provided using a policy expression or context variable.
 
 > [!NOTE]
 > To validate a JWT that was provided by another identity provider, API Management also provides the generic [`validate-jwt`](validate-jwt-policy.md) policy. 
@@ -66,18 +66,14 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 | failed-validation-error-message | Error message to return in the HTTP response body if the JWT doesn't pass validation. This message must have any special characters properly escaped. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                | No                                                                               | Default error message depends on validation issue, for example "JWT not present." |
 | output-token-variable-name      | String. Name of context variable that will receive token value as an object of type [`Jwt`](api-management-policy-expressions.md) upon successful token validation. Policy expressions aren't allowed.                                                                                                                                                                                                                                                                                     | No                                                                               | N/A                                                                               |
 
-
-
-
-
 ## Elements
 
 | Element             | Description                                                                                                                                                                                                                                                                                                                                           | Required |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| audiences           | Contains a list of acceptable audience claims that can be present on the token. If multiple audience values are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds. At least one audience must be specified.                                                                     | No       |
-| backend-application-ids | Contains a list of acceptable backend application IDs.  This is only required in advanced cases for the configuration of options and can generally be removed. | No |
-| client-application-ids | Contains a list of acceptable client application IDs.  If multiple application-id elements are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds.  At least one application-id must be specified. | Yes |
-| required-claims     | Contains a list of `claim` elements for claim values expected to be present on the token for it to be considered valid. When the `match` attribute is set to `all`, every claim value in the policy must be present in the token for validation to succeed. When the `match` attribute is set to `any`, at least one claim must be present in the token for validation to succeed. | No       |
+| audiences           | Contains a list of acceptable audience claims that can be present on the token. If multiple audience values are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds. At least one audience must be specified. Policy expressions are allowed.                                                                    | No       |
+| backend-application-ids | Contains a list of acceptable backend application IDs.  This is only required in advanced cases for the configuration of options and can generally be removed. Policy expressions aren't allowed. | No |
+| client-application-ids | Contains a list of acceptable client application IDs.  If multiple application-id elements are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds.  At least one application-id must be specified. Policy expressions aren't allowed. | Yes |
+| required-claims     | Contains a list of `claim` elements for claim values expected to be present on the token for it to be considered valid. When the `match` attribute is set to `all`, every claim value in the policy must be present in the token for validation to succeed. When the `match` attribute is set to `any`, at least one claim must be present in the token for validation to succeed. Policy expressions are allowed. | No       |
 
 ### claim attributes
 
@@ -96,6 +92,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 ### Usage notes
 
 * You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with Azure AD authentication by applying the `validate-azure-ad-token` policy on the API level, or you can apply it on the API operation level and use `claims` for more granular control.
+* When using a custom header (`header-name`), the header value cannot be prefixed with `Bearer ` and should be removed.
 
 ## Examples
 

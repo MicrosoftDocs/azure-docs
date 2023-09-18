@@ -1,17 +1,17 @@
 ---
-title: Comparison of migration tools in Azure File Migration Program
-description: Basic functionality and comparison between migration tools supported by Azure File Migration Program
+title: Comparison of migration tools in Azure Storage Migration Program
+description: Basic functionality and comparison between migration tools supported by Azure Storage Migration Program
 author: dukicn
 ms.author: nikoduki
 ms.topic: conceptual
 ms.date: 03/24/2022
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
-# Comparison Matrix for Azure File Migration Program participants
+# Comparison Matrix for Azure Storage Migration Program participants
 
-The following comparison matrix shows basic functionality, and comparison of migration tools that participate in [Azure File Migration Program](https://azure.microsoft.com/blog/migrating-your-files-to-azure-has-never-been-easier/).
+The following comparison matrix shows basic functionality, and comparison of migration tools that participate in [Azure Storage Migration Program](https://azure.microsoft.com/blog/migrating-your-files-to-azure-has-never-been-easier/).
 &nbsp;
 
 ## Supported Azure services
@@ -152,7 +152,7 @@ The following comparison matrix shows basic functionality, and comparison of mig
 
 ## Next steps
 
-- [Azure File Migration Program](https://www.microsoft.com/en-us/us-partner-blog/2022/02/23/new-azure-file-migration-program-streamlines-unstructured-data-migration/)
+- [Azure Storage Migration Program](https://www.microsoft.com/en-us/us-partner-blog/2022/02/23/new-azure-file-migration-program-streamlines-unstructured-data-migration/)
 - [Storage migration overview](../../../common/storage-migration-overview.md)
 - [Choose an Azure solution for data transfer](../../../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json)
 - [Migrate to Azure file shares](../../../files/storage-files-migration-overview.md)

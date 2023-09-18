@@ -93,8 +93,6 @@
         href: core/concepts-device-templates.md      
       - name: Connect IoT Edge devices
         href: core/concepts-iot-edge.md
-      - name: Message payloads
-        href: core/concepts-telemetry-properties-commands.md
 
     - name: Device management guide
       href: core/overview-iot-central-operator.md

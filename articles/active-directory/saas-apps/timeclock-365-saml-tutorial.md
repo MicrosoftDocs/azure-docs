@@ -108,15 +108,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Timeclock 365 SAML SSO
 
-1. To automate the configuration within Timeclock 365 SAML, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Set up Timeclock 365 SAML** will direct you to the Timeclock 365 SAML application. From there, provide the admin credentials to sign into Timeclock 365 SAML. The browser extension will automatically configure the application for you and automate steps 3-4.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to set up Timeclock 365 SAML manually, in a different web browser window, sign in to your Timeclock 365 SAML company site as an administrator.
+1. In a different web browser window, sign in to your up Timeclock 365 SAML company site as an administrator
 
 1. Perform the below mentioned steps.
 
@@ -134,11 +129,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to the **Users > Add new user**.
 
-    ![Create test user1 ](./media/timeclock-365-saml-tutorial/add-user-1.png)
+    ![Create test user1](./media/timeclock-365-saml-tutorial/add-user-1.png)
 
 1. Provide all the required information  in the **User information** page and click on **Save**.
 
-    ![Create test user2 ](./media/timeclock-365-saml-tutorial/add-user-2.png)
+    ![Create test user2](./media/timeclock-365-saml-tutorial/add-user-2.png)
 
 1. Click on **Create** button to create the test user.
 

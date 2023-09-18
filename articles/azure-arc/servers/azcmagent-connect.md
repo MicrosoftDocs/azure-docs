@@ -20,19 +20,23 @@ azcmagent connect [authentication] --subscription-id [subscription] --resource-g
 Connect a server using the default login method (interactive browser or device code).
 
 ```
-azcmagent connect --subscription "Production" --resource-group "HybridServers" --location "eastus"
+azcmagent connect --subscription-id "Production" --resource-group "HybridServers" --location "eastus"
+```
+
+```
+azcmagent connect --subscription-id "Production" --resource-group "HybridServers" --location "eastus" --use-device-code
 ```
 
 Connect a server using a service principal.
 
 ```
-azcmagent connect --subscription "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" --resource-group "HybridServers" --location "australiaeast" --service-principal-id "ID" --service-principal-secret "SECRET" --tenant-id "TENANT"
+azcmagent connect --subscription-id "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" --resource-group "HybridServers" --location "australiaeast" --service-principal-id "ID" --service-principal-secret "SECRET" --tenant-id "TENANT"
 ```
 
 Connect a server using a private endpoint and device code login method.
 
 ```
-azcmagent connect --subscription "Production" --resource-group "HybridServers" --location "koreacentral" --use-device-code --private-link-scope "/subscriptions/.../Microsoft.HybridCompute/privateLinkScopes/ScopeName"
+azcmagent connect --subscription-id "Production" --resource-group "HybridServers" --location "koreacentral" --use-device-code --private-link-scope "/subscriptions/.../Microsoft.HybridCompute/privateLinkScopes/ScopeName"
 ```
 
 ## Authentication options
@@ -83,7 +87,7 @@ Supported values:
 
 * AzureCloud (public regions)
 * AzureUSGovernment (Azure US Government regions)
-* AzureChinaCloud (Azure China regions)
+* AzureChinaCloud (Microsoft Azure operated by 21Vianet regions)
 
 `--correlation-id`
 
@@ -91,7 +95,7 @@ Identifies the mechanism being used to connect the server to Azure Arc. For exam
 
 `--ignore-network-check`
 
-Instructs the agent to continue onboarding even if the network check for required endpoints fails. You should only use this option if you're sure that the network check results are incorrect. In most cases, a failed network check indicates that the Arc agent won't function correctly on the server.
+Instructs the agent to continue onboarding even if the network check for required endpoints fails. You should only use this option if you're sure that the network check results are incorrect. In most cases, a failed network check indicates that the Azure Connected Machine agent won't function correctly on the server.
 
 `-l`, `--location`
 

@@ -2,7 +2,7 @@
 title: 'IT Service Management Connector: Secure Webhook in Azure Monitor - Azure configurations'
 description: This article shows you how to configure Azure to connect your ITSM products or services with Secure Webhook in Azure Monitor to centrally monitor and manage ITSM work items.
 ms.topic: conceptual
-ms.date: 04/28/2022
+ms.date: 06/19/2023
 ms.reviewer: nolavime
 
 ---
@@ -17,7 +17,7 @@ To register the application with Azure Active Directory (Azure AD):
 
 1. Follow the steps in [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 1. In Azure AD, select **Expose application**.
-1. Select **Set** for **Application ID URI**.
+1. Select **Add** for **Application ID URI**.
 
    [![Screenshot that shows the option for setting the U R I of the application I D.](media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad.png)](media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad-expand.png#lightbox)
 1. Select **Save**.

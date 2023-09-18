@@ -2,6 +2,7 @@
 title: Azure Event Grid subscriptions through portal
 description: This article describes how to create Event Grid subscriptions for the supported sources, such as Azure Blob Storage, by using the Azure portal.
 ms.topic: conceptual
+ms.custom: build-2023
 ms.date: 09/12/2022
 ---
 
@@ -11,7 +12,7 @@ This article describes how to create Event Grid subscriptions through the portal
 
 ## Create event subscriptions
 
-To create an Event Grid subscription for any of the supported [event sources](overview.md#event-sources), use the following steps. This article shows how to create an Event Grid subscription for an Azure subscription.
+To create an Event Grid subscription for any of the supported [event sources](concepts.md#event-sources), use the following steps. This article shows how to create an Event Grid subscription for an Azure subscription.
 
 1. Select **All services**.
 

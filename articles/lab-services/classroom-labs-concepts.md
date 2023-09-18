@@ -21,7 +21,7 @@ The following conceptual diagram shows how the different Azure Lab Services comp
 
 In Azure Lab Services, a lab plan is an Azure resource and serves as a collection of configurations and settings that apply to all the labs created from it. For example, lab plans specify the networking setup, the list of available VM images and VM sizes, and if [Canvas integration](lab-services-within-canvas-overview.md) can be used for a lab. Learn more about [planning your lab plan settings](./lab-plan-setup-guide.md#plan-your-lab-plan-settings).
 
-You can associate a lab plan with zero or more [labs](#lab). Each lab uses the configuration settings from the lab plan. Azure Lab Services uses Azure RBAC roles to grant permissions for creating labs. Learn more about [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles). 
+You can associate a lab plan with zero or more [labs](#lab). Each lab uses the configuration settings from the lab plan. Azure Lab Services uses Azure RBAC roles to grant permissions for creating labs. Learn more about [Azure Lab Services built-in roles](./concept-lab-services-role-based-access-control.md). 
 
 ## Lab
 
@@ -31,11 +31,11 @@ You can further configure the lab behavior by creating [lab schedules](#schedule
 
 When you publish a lab, Azure Lab Services provisions the lab VMs. All lab VMs for a lab share the same configuration and are identical.
 
-To create labs in Azure Lab Services, your Azure account needs to have the Lab Creator Azure RBAC role, or you need to be the owner of the corresponding lab plan. Learn more about [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
+To create labs in Azure Lab Services, your Azure account needs to have the Lab Creator Azure RBAC role, or you need to be the owner of the corresponding lab plan. Learn more about [Azure Lab Services built-in roles](./concept-lab-services-role-based-access-control.md).
 
 You use the Azure Lab Services website (https://labs.azure.com) to create labs for a lab plan. Alternately, you can also [configure Microsoft Teams integration](./how-to-configure-teams-for-lab-plans.md) or [Canvas integration](./how-to-configure-canvas-for-lab-plans.md) with Azure Lab Services to create labs directly in Microsoft Teams or Canvas.
 
-By default, access to lab virtual machines is restricted. For a lab, you can [configure the list of lab users](./how-to-configure-student-usage.md) that have access to the lab.
+By default, access to lab virtual machines is restricted. For a lab, you can [configure the list of lab users](./how-to-manage-lab-users.md) that have access to the lab.
 
 Get started by [creating a lab using the Azure portal](quick-create-connect-lab.md).
 

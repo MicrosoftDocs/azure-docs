@@ -3,12 +3,13 @@ title: Deployment considerations for Azure AD Multi-Factor Authentication
 description: Learn about deployment considerations and strategy for successful implementation of Azure AD Multi-Factor Authentication
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 03/06/2023
+ms.date: 09/13/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: michmcla
+ms.reviewer: jpettere
 ms.collection: M365-identity-device-management
 ---
 # Plan an Azure Active Directory Multi-Factor Authentication deployment 
@@ -73,9 +74,9 @@ Azure AD Multi-Factor Authentication is enforced with Conditional Access policie
 
 ![Conceptual Conditional Access process flow](media/howto-mfa-getstarted/conditional-access-overview-how-it-works.png)
 
-In the Azure portal, you configure Conditional Access policies under **Azure Active Directory** > **Security** > **Conditional Access**.
+In the Microsoft Entra admin center, you configure Conditional Access policies under **Protection** > **Conditional Access**.
 
-To learn more about creating Conditional Access policies, see [Conditional Access policy to prompt for Azure AD Multi-Factor Authentication when a user signs in to the Azure portal](tutorial-enable-azure-mfa.md). This helps you to:
+To learn more about creating Conditional Access policies, see [Conditional Access policy to prompt for Azure AD Multi-Factor Authentication when a user signs in](tutorial-enable-azure-mfa.md). This helps you to:
 
 - Become familiar with the user interface
 - Get a first impression of how Conditional Access works
@@ -90,7 +91,7 @@ Common use cases to require Azure AD Multi-Factor Authentication include:
 - To [specific applications](tutorial-enable-azure-mfa.md)
 - For [all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 - For [Azure management](../conditional-access/howto-conditional-access-policy-azure-management.md)
-- From [network locations you don't trust](../conditional-access/untrusted-networks.md)
+- From [network locations you don't trust](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 
 ### Named locations
 
@@ -169,7 +170,7 @@ If you use Azure AD Identity Protection, [configure the Azure AD MFA registratio
 
 If you don't have licenses that enable Azure AD Identity Protection, users are prompted to register the next time that MFA is required at sign-in. 
 To require users to use MFA, you can use Conditional Access policies and target frequently used applications like HR systems. 
-If a user's password is compromised, it could be used to register for MFA, taking control of their account. We therefore recommend [securing the security registration process with conditional access policies](../conditional-access/howto-conditional-access-policy-registration.md) requiring trusted devices and locations. 
+If a user's password is compromised, it could be used to register for MFA, taking control of their account. We therefore recommend [securing the security registration process with Conditional Access policies](../conditional-access/howto-conditional-access-policy-registration.md) requiring trusted devices and locations. 
 You can further secure the process by also requiring a [Temporary Access Pass](howto-authentication-temporary-access-pass.md). A time-limited passcode issued by an admin that satisfies strong authentication requirements and can be used to onboard other authentication methods, including Passwordless ones.
 
 ### Increase the security of registered users
@@ -182,7 +183,7 @@ As mentioned before, ensure users are registered for more than one MFA method, s
 If the user does not have a backup method available, you can: 
 
 - Provide them a Temporary Access Pass so that they can manage their own authentication methods. You can also provide a Temporary Access Pass to enable temporary access to resources. 
-- Update their methods as an administrator. To do so, select the user in the Azure portal, then select Authentication methods and update their methods.
+- Update their methods as an administrator. To do so, select the user in the Microsoft Entra admin center, then select **Protection** > **Authentication methods** and update their methods.
 
 
 ## Plan integration with on-premises systems
@@ -238,11 +239,11 @@ Azure AD has reports that provide technical and business insights, follow the pr
 
 You can monitor authentication method registration and usage across your organization using the [Authentication Methods Activity dashboard](howto-authentication-methods-activity.md). This helps you understand what methods are being registered and how they're being used.
 
-#### Sign in report to review MFA events
+#### Sign-in report to review MFA events
 
 The Azure AD sign-in reports include authentication details for events when a user is prompted for MFA, and if any Conditional Access policies were in use. You can also use PowerShell for reporting on users registered for Azure AD Multi-Factor Authentication. 
 
-NPS extension and AD FS logs for cloud MFA activity are now included in the [Sign-in logs](../reports-monitoring/concept-sign-ins.md), and no longer published to **Security** > **MFA** > **Activity report**.
+NPS extension and AD FS logs for cloud MFA activity are now included in the [Sign-in logs](../reports-monitoring/concept-sign-ins.md), and no longer published to the **Activity report**.
 
 For more information, and additional Azure AD Multi-Factor Authentication reports, see [Review Azure AD Multi-Factor Authentication events](howto-mfa-reporting.md#view-the-azure-ad-sign-ins-report).
 
@@ -255,4 +256,4 @@ For a guided walkthrough of many of the recommendations in this article, see the
 
 ## Next steps
 
-[Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
+[Deploy other identity features](../architecture/deployment-plans.md)

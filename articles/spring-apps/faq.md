@@ -1,12 +1,12 @@
 ---
 title: Frequently asked questions about Azure Spring Apps | Microsoft Docs
 description: This article answers frequently asked questions about Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, ignite-2022, devx-track-dotnet
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -23,7 +23,7 @@ This article answers frequently asked questions about Azure Spring Apps.
 
 ### Why Azure Spring Apps?
 
-Azure Spring Apps provides a platform as a service (PaaS) for Spring developers. Azure Spring Apps manages your application infrastructure so that you can focus on application code and business logic. Core features built into Azure Spring Apps include Eureka, Config Server, Service Registry Server, VMware Tanzu® Build Service™, Blue-green deployment, and more. This service also enables developers to bind their applications with other Azure services, such as Azure Cosmos DB, Azure Database for MySQL, and Azure Cache for Redis.
+Azure Spring Apps provides a platform as a service (PaaS) for Spring developers. Azure Spring Apps manages your application infrastructure so that you can focus on application code and business logic. Core features built into Azure Spring Apps include Eureka, Config Server, Service Registry Server, VMware Tanzu Build Service, Blue-green deployment, and more. This service also enables developers to bind their applications with other Azure services, such as Azure Cosmos DB, Azure Database for MySQL, and Azure Cache for Redis.
 
 Azure Spring Apps enhances the application diagnostics experience for developers and operators by integrating Azure Monitor, Application Insights, and Log Analytics.
 
@@ -41,11 +41,11 @@ Each service instance in Azure Spring Apps is backed by Azure Kubernetes Service
 
 Azure Spring Apps intelligently schedules your applications on the underlying Kubernetes worker nodes. To provide high availability, Azure Spring Apps distributes applications with two or more instances on different nodes.
 
-### In which regions is Azure Spring Apps Basic/Standard tier available?
+### In which regions is the Azure Spring Apps Basic/Standard plan available?
 
 East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, UK West, Sweden Central, Southeast Asia, Australia East, Canada Central, Canada East, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, Germany West Central, Switzerland North, China East 2, China North 2, and China North 3. [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
-### In which regions is Azure Spring Apps Enterprise tier available?
+### In which regions is the Azure Spring Apps Enterprise plan available?
 
 East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, UK West, Sweden Central, Southeast Asia, Australia East, Canada Central, Canada East, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, Germany West Central, and Switzerland North.
 
@@ -61,11 +61,11 @@ Azure Spring Apps has the following known limitations:
 * `server.port` defaults to port 1025. If any other value is applied, it's overridden, so don't specify a server port in your code.
 * The Azure portal, Azure Resource Manager templates, and Terraform don't support uploading application packages. You can upload application packages by deploying the application using the Azure CLI, Azure DevOps, Maven Plugin for Azure Spring Apps, Azure Toolkit for IntelliJ, and the Visual Studio Code extension for Azure Spring Apps.
 
-### What pricing tiers are available?
+### What pricing plans are available?
 
-Which one should I use and what are the limits within each tier?
+Which one should I use and what are the limits within each plan?
 
-* Azure Spring Apps offers three pricing tiers: Basic, Standard, and Enterprise. The Basic tier is targeted for Dev/Test and trying out Azure Spring Apps. The Standard tier is optimized to run general purpose production traffic. The Enterprise tier is for production workloads with VMware Tanzu components. See [Azure Spring Apps pricing details](https://azure.microsoft.com/pricing/details/spring-apps/) for limits and feature level comparison.
+* Azure Spring Apps offers three pricing plans: Basic, Standard, and Enterprise. The Basic plan is targeted for Dev/Test and trying out Azure Spring Apps. The Standard plan is optimized to run general purpose production traffic. The Enterprise plan is for production workloads with VMware Tanzu components. See [Azure Spring Apps pricing details](https://azure.microsoft.com/pricing/details/spring-apps/) for limits and feature level comparison.
 
 ### What's the difference between Service Binding and Service Connector?
 
@@ -75,12 +75,12 @@ We're not actively developing more capabilities for Service Binding. Instead, th
 
 If you encounter any issues with Azure Spring Apps, create an [Azure Support Request](../azure-portal/supportability/how-to-create-azure-support-request.md). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
 
-### How do I get VMware Spring Runtime support (Enterprise tier only)
+### How do I get VMware Spring Runtime support (Enterprise plan only)
 
-Enterprise tier has built-in VMware Spring Runtime Support, so you can open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in the scope of VMware Spring Runtime Support. To better understand VMware Spring Runtime Support itself, see the [VMware Spring Runtime](https://tanzu.vmware.com/spring-runtime). To understand the details about how to register and use this support service, see the Support section in the [Enterprise tier FAQ from VMware](https://aka.ms/EnterpriseTierFAQ). For any other issues, open support tickets with Microsoft.
+The Enterprise plan has built-in VMware Spring Runtime Support, so you can open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in the scope of VMware Spring Runtime Support. To better understand VMware Spring Runtime Support itself, see the [VMware Spring Runtime](https://tanzu.vmware.com/spring-runtime). To understand the details about how to register and use this support service, see the Support section in the [Enterprise plan FAQ from VMware](https://aka.ms/EnterpriseTierFAQ). For any other issues, open support tickets with Microsoft.
 
 > [!IMPORTANT]
-> After you create an Enterprise tier instance, your entitlement is ready within ten business days. If you encounter any exceptions, raise a support ticket with Microsoft to get help with it.
+> After you create an Enterprise plan instance, your entitlement is ready within ten business days. If you encounter any exceptions, raise a support ticket with Microsoft to get help with it.
 
 ## Development
 
@@ -136,12 +136,12 @@ Yes.
 
 ### How many outbound public IP addresses does an Azure Spring Apps instance have?
 
-The number of outbound public IP addresses may vary according to the tiers and other factors.
+The number of outbound public IP addresses may vary according to the plans and other factors.
 
 | Azure Spring Apps instance type    | Default number of outbound public IP addresses |
 |------------------------------------|------------------------------------------------|
-| Basic tier instances               | 1                                              |
-| Standard/Enterprise tier instances | 2                                              |
+| Basic plan instances               | 1                                              |
+| Standard/Enterprise plan instances | 2                                              |
 | VNet injection instances           | 1                                              |
 
 ### Can I increase the number of outbound public IP addresses?

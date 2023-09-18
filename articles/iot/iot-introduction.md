@@ -21,17 +21,18 @@ The following diagram shows a high-level view of the components in a typical IoT
 
 ## Solution options
 
-To build an IoT solution for your business, you typically evaluate your solution by using the *managed app platform* approach and build your enterprise solution by using the *platform services*.
+To build an IoT solution for your business, you typically evaluate your solution by using the *managed app platform* approach. You can build your enterprise solution by using either the *platform services* or the *managed app platform* approach.
 
 A managed app platform lets you quickly evaluate your IoT solution by reducing the number of decisions needed to achieve results. The managed app platform takes care of most infrastructure elements in your solution, letting you focus on adding industry knowledge and evaluating the solution. Azure IoT Central is a managed app platform.
 
-Platform services provide all the building blocks for customized and flexible IoT applications. You have more options to choose and code when you connect your devices, and ingest, store, and analyze your data. Azure IoT platform services include Azure IoT Hub, Device Provisioning Service, and Azure Digital Twins.
+Platform services provide all the building blocks for customized and flexible IoT applications. You have more options to choose and code when you connect your devices, and ingest, store, and analyze your data. Azure IoT platform services include Azure IoT Hub, Device Provisioning Service, and Azure Digital Twins. Other platform services that may be part of your IoT solution include Azure Data Explorer, Azure Storage platform, and Azure Functions.
 
 | Managed app platform | Platform services |
 |----------------------|-------------------|
 | Take advantage of a platform that handles the security and management of your IoT applications and devices. | Have full control over the underlying services in your solution. For example: </br> Scaling and securing services to meet your needs. </br> Using in-house or partner expertise to onboard devices and provision services. |
 | Customize branding, dashboards, user roles, devices, and telemetry. However, you can't customize the underlying IoT services. | Fully customize and control your IoT solution. |
 | Has a simple, predictable pricing structure. | Let you fine-tune services to control overall costs. |
+| Solution can be a single Azure service. | Solution is a collection of Azure services such as Azure IoT Hub, Device Provisioning Service, Azure Digital Twins, Azure Data Explorer, Azure Storage platform, and Azure Function. |
 
 To learn more, see [What Azure technologies and services can you use to create IoT solutions?](iot-services-and-technologies.md).
 
@@ -108,7 +109,7 @@ To learn more, see:
 
 Any IoT solution must address the following solution-wide concerns:
 
-* [Security](iot-security-best-practices.md) including physical security, authentication, authorization, and encryption
+* [Security](iot-overview-security.md) including physical security, authentication, authorization, and encryption
 * [Solution management](iot-overview-solution-management.md) including deployment and monitoring.
 * High availability and disaster recovery for all the components in your solution.
 * Scalability for all the services in your solution.

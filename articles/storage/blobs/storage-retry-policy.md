@@ -4,10 +4,10 @@ titleSuffix: Azure Storage
 description: Learn about retry policies and how to implement them for Blob Storage. This article helps you set up a retry policy for Blob Storage requests using the Azure Storage client library for .NET. 
 author: pauljewellmsft
 ms.author: pauljewell
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/14/2022
-ms.subservice: blobs
+ms.custom: devx-track-dotnet
 ---
 
 # Implement a retry policy with the Azure Storage client library for .NET

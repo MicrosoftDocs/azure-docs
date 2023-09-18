@@ -5,7 +5,7 @@ ms.date: 02/09/2023
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions-temp
 ms.devlang: csharp, javascript, python
-ms.custom: mode-ui, vscode-azure-extension-update-completed, ignite-2022
+ms.custom: mode-ui, vscode-azure-extension-update-completed, ignite-2022, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Connect Azure Functions to Azure Cosmos DB using Visual Studio Code
@@ -95,12 +95,12 @@ Because you're using an Azure Cosmos DB output binding, you must have the corres
 Except for HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Azure Cosmos DB extension package to your project.
 
 # [In-process](#tab/in-process)
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB 
+```command
+dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.10
 ```
 # [Isolated process](#tab/isolated-process)
-```bash
-dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB
+```command
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB --version 3.0.9
 ```
 ---
 ::: zone-end
@@ -118,14 +118,8 @@ Extension bundles usage is enabled in the *host.json* file at the root of the pr
 Now, you can add the Azure Cosmos DB output binding to your project.
 
 ## Add an output binding
-
-In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the *function.json* file. The way you define these attributes depends on the language of your function app.
-
 ::: zone pivot="programming-language-csharp"
-
-In a C# class library project, the bindings are defined as binding attributes on the function method. The *function.json* file required by Functions is then auto-generated based on these attributes.
-
-
+In a C# class library project, the bindings are defined as binding attributes on the function method. 
 
 # [In-process](#tab/in-process)
 Open the *HttpExample.cs* project file and add the following parameter to the `Run` method definition:
@@ -397,7 +391,7 @@ app = func.FunctionApp()
 @app.function_name(name="HttpTrigger1")
 @app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
 @app.queue_output(arg_name="msg", queue_name="outqueue", connection="AzureWebJobsStorage")
-@app.cosmos_db_output(arg_name="outputDocument", database_name="my-database", collection_name="my-container" connection_string_setting="CosmosDbConnectionString")
+@app.cosmos_db_output(arg_name="outputDocument", database_name="my-database", collection_name="my-container", connection_string_setting="CosmosDbConnectionString")
 def test_function(req: func.HttpRequest, msg: func.Out[func.QueueMessage],
     outputDocument: func.Out[func.Document]) -> func.HttpResponse:
      logging.info('Python HTTP trigger function processed a request.')

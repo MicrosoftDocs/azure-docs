@@ -120,7 +120,7 @@ Azure Maps also supports:
 Azure Maps also supports:
 
 * `typeahead` - Specifies if the query is interpreted as a partial input and the search enters predictive mode (autosuggest/autocomplete).
-* `countrySet` – A comma-separated list of ISO2 countries codes in which to limit the search to.
+* `countrySet` – A comma-separated list of ISO2 country codes in which to limit the search to.
 * `lat`/`lon`, `topLeft`/`btmRight`, `radius` – Specify user location and area to make the results more locally relevant.
 * `ofs` - Page through the results in combination with `maxResults` parameter.
 
@@ -219,7 +219,7 @@ The following table cross-references the Bing Maps API parameters with the compa
 | `culture` (`c`)                                    | `language` – For more information, see [Localization support in Azure Maps]. |
 | `userRegion` (`ur`)                                | `view` – For more information, see [Azure Maps supported views]. |
 
-The Azure Maps routing API also supports truck routing within the same API. The following table cross-references the additional Bing Maps truck routing parameters with the comparable API parameters in Azure Maps.
+The Azure Maps routing API also supports truck routing within the same API. The following table cross-references the other Bing Maps truck routing parameters with the comparable API parameters in Azure Maps.
 
 | Bing Maps API parameter                  | Comparable Azure Maps API parameter        |
 |------------------------------------------|--------------------------------------------|
@@ -285,7 +285,7 @@ The following table cross-references the Bing Maps API parameters with the compa
 | `culture` (`c`)            | `language` – For more information, see [Localization support in Azure Maps].   |
 | `userRegion` (`ur`)        | `view` – For more information, see [Azure Maps supported views].   |
 
-The Azure Maps routing API also supports truck routing parameter within the same API to ensure logical paths are calculated. The following table cross-references the additional Bing Maps truck routing parameters with the comparable API parameters in Azure Maps.
+The Azure Maps routing API also supports truck routing parameter within the same API to ensure logical paths are calculated. The following table cross-references the other Bing Maps truck routing parameters with the comparable API parameters in Azure Maps.
 
 | Bing Maps API parameter                 | Comparable Azure Maps API parameter        |
 |-----------------------------------------|--------------------------------------------|
@@ -313,7 +313,7 @@ The Azure Maps route directions API doesn't currently return speed limit data, h
 
 The Azure Maps Web SDK uses vector tiles to render the maps. These vector tiles contain the raw road geometry information and can be used to calculate the nearest road to a coordinate for simple snapping of individual coordinates. This is useful when you want the coordinates to visually appear over roads and you're already using the Azure Maps Web SDK to visualize the data.
 
-This approach however will only snap to the road segments that are loaded within the map view. When zoomed out at country level there may be no road data, so snapping can’t be done, however at that zoom level a single pixel can represent the area of several city blocks so snapping isn’t needed. To address this, the snapping logic can be applied every time the map has finished moving.  To see a fully functional example of this snapping logic, see the [Basic snap to road logic] sample in the Azure Maps samples.
+This approach however only snaps to the road segments that are loaded within the map view. When zoomed out at country/region level there may be no road data, so snapping can’t be done, however at that zoom level a single pixel can represent the area of several city blocks so snapping isn’t needed. To address this, the snapping logic can be applied every time the map has finished moving.  To see a fully functional example of this snapping logic, see the [Basic snap to road logic] sample in the Azure Maps samples.
 
 **Using the Azure Maps vector tiles directly to snap coordinates**
 
@@ -384,7 +384,7 @@ In Azure Maps, pushpins can also be added to a static map image by specifying th
 
 > `&pins=iconType|pinStyles||pinLocation1|pinLocation2|...`
 
-Additional styles can be used by adding more `pins` parameters to the URL with a different style and set of locations.
+More styles can be used by adding more `pins` parameters to the URL with a different style and set of locations.
 
 Regarding pin locations, Azure Maps requires the coordinates to be in `longitude latitude` format whereas Bing Maps uses `latitude,longitude` format. Also note that **there is a space, not a comma** separating longitude and latitude in Azure Maps.
 
@@ -428,7 +428,7 @@ In Bing Maps, lines, and polygons can be added to a static map image by using th
 
 > `&drawCurve=shapeType,styleType,location1,location2...`
 
-More styles can be used by adding additional `drawCurve` parameters to the URL with a different style and set of locations.
+More styles can be used by adding more `drawCurve` parameters to the URL with a different style and set of locations.
 
 Locations in Bing Maps are specified with the format `latitude1,longitude1_latitude2,longitude2_…`. Locations can also be encoded.
 
@@ -611,21 +611,27 @@ Batch geocoding is the process of taking a large number of addresses or places, 
 
 Bing Maps allows up to 200,000 addresses to be passed in a single batch geocode request. This request goes into a queue and usually processes over a period of time, anywhere from a few minutes to a few hours depending on the size of the data set and the load on the service. Each address in the request generated a transaction.
 
-Azure Maps has a batch geocoding service, however it allows up to 10,000 addresses to be passed in a single request and is processed over seconds to a few minutes depending on the size of the data set and the load on the service. Each address in the request generated a transaction. In Azure Maps, the batch geocoding service is only available the Gen 2 or S1 pricing tier. For more information on pricing tiers, see [Choose the right pricing tier in Azure Maps].
+Azure Maps has a batch geocoding service, however it allows up to 10,000 addresses to be passed in a single request and is processed over seconds to a few minutes depending on the size of the data set and the load on the service. Each address in the request generated a transaction.
 
-Another option for geocoding a large number addresses with Azure Maps is to make parallel requests to the standard search APIs. These services only accept a single address per request but can be used with the S0 tier that also provides free usage limits. The S0 tier allows up to 50 requests per second to the Azure Maps platform from a single account. So if you process limit these to stay within that limit, it's possible to geocode upwards of 180,000 address an hour. The Gen 2 or S1 pricing tier doesn’t have a documented limit on the number of queries per second that can be made from an account, so a lot more data can be processed faster when using that pricing tier, however using the batch geocoding service helps reduce the total amount of data transferred, reducing network traffic.
+Another option for geocoding a large number addresses with Azure Maps is to make parallel requests to the standard search APIs. These services only accept a single address per request but can be used with the S0 tier that also provides free usage limits. The S0 tier allows up to 50 requests per second to the Azure Maps platform from a single account. So if you process limit these to stay within that limit, it's possible to geocode upwards of 180,000 address an hour. The Gen2 or Gen1 (S1) pricing tier doesn’t have a documented limit on the number of queries per second that can be made from an account, so a lot more data can be processed faster when using that pricing tier, however using the batch geocoding service helps reduce the total amount of data transferred, reducing network traffic.
+
+> [!NOTE]
+>
+> **Azure Maps Gen1 pricing tier retirement**
+>
+> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1). If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing tier before it’s retired, otherwise it will automatically be updated. For more information on the Gen1 pricing tier retirement, see [Manage the pricing tier of your Azure Maps account].
 
 * [Free-form address geocoding]: Specify a single address string (like `"1 Microsoft way, Redmond, WA"`) and process the request immediately. This service is recommended if you need to geocode individual addresses quickly.
-* [Structured address geocoding]: Specify the parts of a single address, such as the street name, city, country, and postal code and process the request immediately. This service is recommended if you need to geocode individual addresses quickly and the data is already parsed into its individual address parts.
+* [Structured address geocoding]: Specify the parts of a single address, such as the street name, city, country/region, and postal code and process the request immediately. This service is recommended if you need to geocode individual addresses quickly and the data is already parsed into its individual address parts.
 * [Batch address geocoding]: Create a request containing up to 10,000 addresses and have them processed over a period of time. All the addresses are geocoded in parallel on the server and when completed the full result set can be downloaded. This service is recommended for geocoding large data sets.
 * [Fuzzy search]: This API combines address geocoding with point of interest search. This API takes in a free-form string that can be an address, place, landmark, point of interest, or point of interest category and process the request immediately. This API is recommended for applications where users can search for addresses or points of interest from the same textbox.
 * **[Fuzzy batch search]**: Create a request containing up to 10,000 addresses, places, landmarks, or point of interests and have them processed over a period of time. All the data is processed in parallel on the server and when completed the full result set can be downloaded.
 
 ### Get administrative boundary data
 
-In Bing Maps, administrative boundaries for countries, states, counties, cities, and postal codes are made available via the Geodata API. This API takes in either a coordinate or query to geocode. If a query is passed in, it's geocoded and the coordinates from the first result is used. This API takes the coordinates and retrieves the boundary of the specified entity type that intersects the coordinate. This API didn't necessarily return the boundary for the query that was passed in. If a query for `"Seattle, WA"` is passed in, but the entity type value is set to country region, the boundary for the USA would be returned.
+In Bing Maps, administrative boundaries for countries/regions, states, counties, cities, and postal codes are made available via the Geodata API. This API takes in either a coordinate or query to geocode. If a query is passed in, it's geocoded and the coordinates from the first result is used. This API takes the coordinates and retrieves the boundary of the specified entity type that intersects the coordinate. This API didn't necessarily return the boundary for the query that was passed in. If a query for `"Seattle, WA"` is passed in, but the entity type value is set to country/region, the boundary for the USA would be returned.
 
-Azure Maps also provides access to administrative boundaries (countries, states, counties, cities, and postal codes). To retrieve a boundary, you must query one of the search APIs for the boundary you want (such as `Seattle, WA`). If the search result has an associated boundary, a geometry ID is provided in the result response. The search polygon API can then be used to retrieve the exact boundaries for one or more geometry IDs. This is a bit different than Bing Maps as Azure Maps returns the boundary for what was searched for, whereas Bing Maps returns a boundary for a specified entity type at a specified coordinate. Additionally, the boundary data returned by Azure Maps is in GeoJSON format.
+Azure Maps also provides access to administrative boundaries (countries/regions, states, counties, cities, and postal codes). To retrieve a boundary, you must query one of the search APIs for the boundary you want (such as `Seattle, WA`). If the search result has an associated boundary, a geometry ID is provided in the result response. The search polygon API can then be used to retrieve the exact boundaries for one or more geometry IDs. This is a bit different than Bing Maps as Azure Maps returns the boundary for what was searched for, whereas Bing Maps returns a boundary for a specified entity type at a specified coordinate. Additionally, the boundary data returned by Azure Maps is in GeoJSON format.
 
 To recap:
 
@@ -674,84 +680,68 @@ Learn more about the Azure Maps REST services.
 > [!div class="nextstepaction"]
 > [Best practices for using the search service](how-to-use-best-practices-for-search.md)
 
+[Address reverse geocoder]: /rest/api/maps/search/getsearchaddressreverse
+[Authentication with Azure Maps]: azure-maps-authentication.md
+[Azure Cosmos DB geospatial capabilities overview]: ../cosmos-db/sql-query-geospatial-intro.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-
-[Search]: /rest/api/maps/search
+[Azure Maps Creator]: creator-indoor-maps.md
+[Azure Maps supported views]: supported-languages.md#azure-maps-supported-views
+[Azure SQL Spatial – Query nearest neighbor]: /sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor
+[Azure SQL Spatial Data Types overview]: /sql/relational-databases/spatial/spatial-data-types-overview
+[Basic snap to road logic]: https://samples.azuremaps.com/?sample=basic-snap-to-road-logic
+[Batch address geocoding]: /rest/api/maps/search/postsearchaddressbatchpreview
+[Batch address reverse geocoder]: /rest/api/maps/search/postsearchaddressreversebatchpreview
+[Batch route]: /rest/api/maps/route/postroutedirectionsbatchpreview
+[Batch routing]: /rest/api/maps/route/postroutedirectionsbatchpreview
+[Best practices for Azure Maps Route service]: how-to-use-best-practices-for-routing.md
+[Best practices for Azure Maps Search service]: how-to-use-best-practices-for-search.md
+[Calculate route]: /rest/api/maps/route/getroutedirections
+[Cross street reverse geocoder]: /rest/api/maps/search/getsearchaddressreversecrossstreet
+[free account]: https://azure.microsoft.com/free/
+[Free-form address geocoding]: /rest/api/maps/search/getsearchaddress
+[Fuzzy batch search]: /rest/api/maps/search/postsearchfuzzybatchpreview
+[Fuzzy search]: /rest/api/maps/search/getsearchfuzzy
+[Geolocation API]: /rest/api/maps/geolocation/get-ip-to-location
+[Localization support in Azure Maps]: supported-languages.md
+[manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
+[Map image render]: /rest/api/maps/render/getmapimagerytile
+[Map imagery tile]: /rest/api/maps/render/getmapimagerytile
+[Map Tiles]: /rest/api/maps/render/getmaptile
+[nearby search]: /rest/api/maps/search/getsearchnearby
+[NetTopologySuite]: https://github.com/NetTopologySuite/NetTopologySuite
+[POI category search]: /rest/api/maps/search/get-search-poi-category
+[POI search]: /rest/api/maps/search/get-search-poi
+[POST Route directions]: /rest/api/maps/route/postroutedirections
+[quadtree tile pyramid math]: zoom-levels-and-tile-grid.md
+[Render custom data on a raster map]: how-to-render-custom-data.md
+[Render]: /rest/api/maps/render/getmapimage
 [Route directions]: /rest/api/maps/route/getroutedirections
 [Route Matrix]: /rest/api/maps/route/postroutematrixpreview
-[Render]: /rest/api/maps/render/getmapimage
 [Route Range]: /rest/api/maps/route/getrouterange
-[POST Route directions]: /rest/api/maps/route/postroutedirections
 [Route]: /rest/api/maps/route
-[Time Zone]: /rest/api/maps/timezone
-
-[Azure Maps Creator]: creator-indoor-maps.md
-[Spatial operations]: /rest/api/maps/spatial
-[Map Tiles]: /rest/api/maps/render/getmaptile
-[Map imagery tile]: /rest/api/maps/render/getmapimagerytile
-[Batch routing]: /rest/api/maps/route/postroutedirectionsbatchpreview
-[Traffic]: /rest/api/maps/traffic
-[Geolocation API]: /rest/api/maps/geolocation/get-ip-to-location
-[Weather services]: /rest/api/maps/weather
-
-[Best practices for Azure Maps Search service]: how-to-use-best-practices-for-search.md
-[Best practices for Azure Maps Route service]: how-to-use-best-practices-for-routing.md
-
-[free account]: https://azure.microsoft.com/free/
-[manage authentication in Azure Maps]: how-to-manage-authentication.md
-
-[Free-form address geocoding]: /rest/api/maps/search/getsearchaddress
-[Structured address geocoding]: /rest/api/maps/search/getsearchaddressstructured
-[Batch address geocoding]: /rest/api/maps/search/postsearchaddressbatchpreview
-[Fuzzy search]: /rest/api/maps/search/getsearchfuzzy
-[Fuzzy batch search]: /rest/api/maps/search/postsearchfuzzybatchpreview
-
-[Authentication with Azure Maps]: azure-maps-authentication.md
-[Localization support in Azure Maps]: supported-languages.md
-[Azure Maps supported views]: supported-languages.md#azure-maps-supported-views
-
-[Address reverse geocoder]: /rest/api/maps/search/getsearchaddressreverse
-[Cross street reverse geocoder]: /rest/api/maps/search/getsearchaddressreversecrossstreet
-[Batch address reverse geocoder]: /rest/api/maps/search/postsearchaddressreversebatchpreview
-
-[POI search]: /rest/api/maps/search/get-search-poi
-[POI category search]: /rest/api/maps/search/get-search-poi-category
-[Calculate route]: /rest/api/maps/route/getroutedirections
-[Batch route]: /rest/api/maps/route/postroutedirectionsbatchpreview
-
-[Snap points to logical route path]: https://samples.azuremaps.com/?sample=snap-points-to-logical-route-path
-[Basic snap to road logic]: https://samples.azuremaps.com/?sample=basic-snap-to-road-logic
-
-[quadtree tile pyramid math]: zoom-levels-and-tile-grid.md
-[turf js]: https://turfjs.org
-[NetTopologySuite]: https://github.com/NetTopologySuite/NetTopologySuite
-
-[Map image render]: /rest/api/maps/render/getmapimagerytile
-[Supported map styles]: supported-map-styles.md
-[Render custom data on a raster map]: how-to-render-custom-data.md
-
 [Search along route]: /rest/api/maps/search/postsearchalongroute
-[Search within geometry]: /rest/api/maps/search/postsearchinsidegeometry
-[nearby search]: /rest/api/maps/search/getsearchnearby
-[Search Polygon API]: /rest/api/maps/search/getsearchpolygon
 [Search for a location using Azure Maps Search services]: how-to-search-for-address.md
-
+[Search Polygon API]: /rest/api/maps/search/getsearchpolygon
+[Search within geometry]: /rest/api/maps/search/postsearchinsidegeometry
+[Search]: /rest/api/maps/search
+[Snap points to logical route path]: https://samples.azuremaps.com/?sample=snap-points-to-logical-route-path
+[Spatial operations]: /rest/api/maps/spatial
+[Structured address geocoding]: /rest/api/maps/search/getsearchaddressstructured
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Supported map styles]: supported-map-styles.md
+[Time zone by coordinate]: /rest/api/maps/timezone/gettimezonebycoordinates
+[Time zone by ID]: /rest/api/maps/timezone/gettimezonebyid
+[Time zone Enum IANA]: /rest/api/maps/timezone/gettimezoneenumiana
+[Time zone Enum Windows]: /rest/api/maps/timezone/gettimezoneenumwindows
+[Time zone IANA version]: /rest/api/maps/timezone/gettimezoneianaversion
+[Time zone Windows to IANA]: /rest/api/maps/timezone/gettimezonewindowstoiana
+[Time Zone]: /rest/api/maps/timezone
 [Traffic flow segments]: /rest/api/maps/traffic/gettrafficflowsegment
 [Traffic flow tiles]: /rest/api/maps/traffic/gettrafficflowtile
 [Traffic incident details]: /rest/api/maps/traffic/gettrafficincidentdetail
 [Traffic incident tiles]: /rest/api/maps/traffic/gettrafficincidenttile
 [Traffic incident viewport]: /rest/api/maps/traffic/gettrafficincidentviewport
-
-[Time zone by ID]: /rest/api/maps/timezone/gettimezonebyid
-[Time zone Windows to IANA]: /rest/api/maps/timezone/gettimezonewindowstoiana
-[Time zone Enum IANA]: /rest/api/maps/timezone/gettimezoneenumiana
-[Time zone Enum Windows]: /rest/api/maps/timezone/gettimezoneenumwindows
-[Time zone IANA version]: /rest/api/maps/timezone/gettimezoneianaversion
-[Time zone by coordinate]: /rest/api/maps/timezone/gettimezonebycoordinates
-
-[Choose the right pricing tier in Azure Maps]: choose-pricing-tier.md
-
-[Azure SQL Spatial Data Types overview]: /sql/relational-databases/spatial/spatial-data-types-overview
-[Azure SQL Spatial – Query nearest neighbor]: /sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor
-[Azure Cosmos DB geospatial capabilities overview]: ../cosmos-db/sql-query-geospatial-intro.md
+[Traffic]: /rest/api/maps/traffic
+[turf js]: https://turfjs.org
+[Weather services]: /rest/api/maps/weather

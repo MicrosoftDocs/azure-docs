@@ -3,14 +3,14 @@ title: "Illumio Core connector for Microsoft Sentinel"
 description: "Learn how to install the connector Illumio Core to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Illumio Core connector for Microsoft Sentinel
 
-The [Illumio Core](https://www.illumio.com/products/illumio-core) data connector provides the capability to ingest Illumio Core logs into Microsoft Sentinel.
+The [Illumio Core](https://www.illumio.com/products/) data connector provides the capability to ingest Illumio Core logs into Microsoft Sentinel.
 
 ## Connector attributes
 
@@ -38,8 +38,7 @@ IllumioCoreEvent
 ## Vendor installation instructions
 
 
-> [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-IllumioCore-parser) to create the Kusto Functions alias, **IllumioCoreEvent**
+**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias IllumioCoreEvent and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Illumio%20Core/Parsers/IllumioCoreEvent.txt).The function usually takes 10-15 minutes to activate after solution installation/update and maps Illumio Core events to Microsoft Sentinel Information Model (ASIM).
 
 1. Linux Syslog agent configuration
 
@@ -61,7 +60,7 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 
    Run the following command to install and apply the CEF collector:
 
-   sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py python cef_installer.py {0} {1}
+   `sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}`
 
 2. Configure Ilumio Core to send logs using CEF
 
@@ -103,7 +102,7 @@ If the logs are not received, run the following connectivity validation script:
 
    Run the following command to validate your connectivity:
 
-   sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py python cef_troubleshoot.py  {0}
+   `sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py  {0}`
 
 4. Secure your machine 
 

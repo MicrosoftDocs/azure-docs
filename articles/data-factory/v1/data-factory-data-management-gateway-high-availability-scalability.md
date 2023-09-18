@@ -182,7 +182,7 @@ Available memory | Available memory on a gateway node. This value is a near real
 CPU utilization | CPU utilization of a gateway node. This value is a near real-time snapshot. 
 Networking (In/Out) | Network utilization of a gateway node. This value is a near real-time snapshot. 
 Concurrent Jobs (Running/ Limit) | Number of jobs or tasks running on each node. This value is a near real-time snapshot. Limit signifies the maximum concurrent jobs for each node. This value is defined based on the machine size. You can increase the limit to scale up concurrent job execution in advanced scenarios, where CPU/ memory/ network is under-utilized, but activities are timing out. This capability is also available with a single-node gateway (even when the scalability and availability feature is not enabled). For more information, see [scale considerations](#scale-considerations) section. 
-Role | There are two types of roles – Dispatcher and worker. All nodes are workers, which means they can all be used to execute jobs. There is only one dispatcher node, which is used to pull tasks/jobs from cloud services and dispatch them to different worker nodes (including itself). 
+Role | There are two types of roles - Dispatcher and worker. All nodes are workers, which means they can all be used to execute jobs. There is only one dispatcher node, which is used to pull tasks/jobs from cloud services and dispatch them to different worker nodes (including itself). 
 
 :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring-advanced.png" alt-text="Data Management Gateway - advanced multiple node monitoring":::
 

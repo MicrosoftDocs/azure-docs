@@ -1,9 +1,8 @@
 ---
  title: include file
  description: include file
- services: storage
  author: roygara
- ms.service: storage
+ ms.service: azure-disk-storage
  ms.topic: include
  ms.date: 11/18/2022
  ms.author: rogarana

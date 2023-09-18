@@ -6,7 +6,7 @@ ms.author: bstrassner
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 02/09/2023
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Cluster metrics configuration
@@ -72,7 +72,7 @@ az networkcloud cluster metricsconfiguration create \
  --resource-group "<RESOURCE_GROUP>"
 ```
 
-Here, <path-to-yaml-or-json-file> can be ./enabled-metrics.json or ./enabled-metrics.yaml (place the file under current working directory) before performing the action.
+Here, \<path-to-yaml-or-json-file\> can be ./enabled-metrics.json or ./enabled-metrics.yaml (place the file under current working directory) before performing the action.
 
 To see all available parameters and their description run the command:
 ```azurecli
@@ -151,5 +151,3 @@ az networkcloud cluster metricsconfiguration delete \
 ```
 
 Specifying `--no-wait --debug` options in az command results in the execution of this command asynchronously. For more information, see [how to track asynchronous operations](howto-track-async-operations-cli.md).
-
-

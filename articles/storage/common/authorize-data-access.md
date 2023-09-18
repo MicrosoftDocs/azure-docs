@@ -3,14 +3,14 @@ title: Authorize operations for data access
 titleSuffix: Azure Storage
 description: Learn about the different ways to authorize access to data in Azure Storage. Azure Storage supports authorization with Azure Active Directory, Shared Key authorization, or shared access signatures (SAS), and also supports anonymous access to blobs.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 04/11/2023
-ms.author: tamram
+ms.date: 05/31/2023
+ms.author: akashdubey
 ms.reviewer: nachakra
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Authorize access to data in Azure Storage
@@ -24,8 +24,8 @@ The following table describes the options that Azure Storage offers for authoriz
 | Azure artifact | Shared Key (storage account key) | Shared access signature (SAS) | Azure Active Directory (Azure AD) | On-premises Active Directory Domain Services | Anonymous public read access | Storage Local Users |
 |--|--|--|--|--|--|--|
 | Azure Blobs | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | [Supported](../blobs/authorize-access-azure-active-directory.md) | Not supported | [Supported but not recommended](../blobs/anonymous-read-access-overview.md) | [Supported, only for SFTP](../blobs/secure-file-transfer-protocol-support-how-to.md) |
-| Azure Files (SMB) | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | Not supported | [Supported, only with Azure AD Domain Services](../files/storage-files-active-directory-overview.md) | [Supported, credentials must be synced to Azure AD](../files/storage-files-active-directory-overview.md) | Not supported | Not supported |
-| Azure Files (REST) | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | Not supported | Not supported | Not supported | Not supported |
+| Azure Files (SMB) | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | Not supported | Supported, only with [Azure AD Domain Services](../files/storage-files-identity-auth-active-directory-domain-service-enable.md) for cloud-only or [Azure AD Kerberos](../files/storage-files-identity-auth-azure-active-directory-enable.md) for hybrid identities | [Supported, credentials must be synced to Azure AD](../files/storage-files-active-directory-overview.md) | Not supported | Not supported |
+| Azure Files (REST) | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | [Supported](../files/authorize-oauth-rest.md) | Not supported | Not supported | Not supported |
 | Azure Queues | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | [Supported](../queues/authorize-access-azure-active-directory.md) | Not Supported | Not supported | Not supported |
 | Azure Tables | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | [Supported](../tables/authorize-access-azure-active-directory.md) | Not supported | Not supported | Not supported |
 

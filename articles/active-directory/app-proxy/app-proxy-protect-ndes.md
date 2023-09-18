@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2023
+ms.date: 09/13/2023
 ms.author: kenwith
 ---
 
@@ -26,10 +26,11 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 
 ## Install and register the connector on the NDES server
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an application administrator of the directory that uses Application Proxy. For example, if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other admin alias on that domain.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
-1. In left navigation panel, select **Azure Active Directory**.
-1. Under **Manage**, select **Application proxy**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.
 1. Select **Download connector service**.
 
     ![Download connector service to see the Terms of Service](./media/app-proxy-protect-ndes/application-proxy-download-connector-service.png)
@@ -49,14 +50,14 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
    * If Internet Explorer Enhanced Security Configuration is turned on for the server where you install the connector, the registration screen might be blocked. To allow access, follow the instructions in the error message, or turn off Internet Explorer Enhanced Security during the install process.
    * If connector registration fails, see [Troubleshoot Application Proxy](application-proxy-troubleshoot.md).
 1. At the end of the setup, a note is shown for environments with an outbound proxy. To configure the Azure AD Application Proxy connector to work through the outbound proxy, run the provided script, such as `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`.
-1. On the Application proxy page in the Azure portal, the new connector is listed with a status of *Active*, as shown in the following example:
+1. On the Application proxy page in the Microsoft Entra admin center, the new connector is listed with a status of *Active*, as shown in the following example:
 
-    ![The new Azure AD Application Proxy connector shown as active in the Azure portal](./media/app-proxy-protect-ndes/connected-app-proxy.png)
+    ![The new Azure AD Application Proxy connector shown as active in the Microsoft Entra admin center](./media/app-proxy-protect-ndes/connected-app-proxy.png)
 
     > [!NOTE]
     > To provide high availability for applications authenticating through the Azure AD Application Proxy, you can install connectors on multiple VMs. Repeat the same steps listed in the previous section to install the connector on other servers joined to the Azure AD DS managed domain.
 
-1. After successful installation, go back to the Azure portal.
+1. After successful installation, go back to the Microsoft Entra admin center.
 
 1. Select **Enterprise applications**.
 

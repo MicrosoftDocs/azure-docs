@@ -29,10 +29,10 @@ You need the following to use Azure AD Connect cloud sync:
 A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management, the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Azure AD Connect Cloud Sync supports and uses a gMSA for running the agent.  You will be prompted for administrative credentials during setup, in order to create this account.  The account will appear as (domain\provAgentgMSA$).  For more information on a gMSA, see [group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 ### Prerequisites for gMSA:
-1.	The Active Directory schema in the gMSA domain's forest needs to be updated to Windows Server 2012 or later.
-2.	[PowerShell RSAT modules](/windows-server/remote/remote-server-administration-tools) on a domain controller
-3.	At least one domain controller in the domain must be running Windows Server 2012 or later.
-4.	A domain joined server where the agent is being installed needs to be either Windows Server 2016 or later.
+1. The Active Directory schema in the gMSA domain's forest needs to be updated to Windows Server 2012 or later.
+2. [PowerShell RSAT modules](/windows-server/remote/remote-server-administration-tools) on a domain controller
+3. At least one domain controller in the domain must be running Windows Server 2012 or later.
+4. A domain joined server where the agent is being installed needs to be either Windows Server 2016 or later.
 
 ### Custom gMSA account
 If you are creating a custom gMSA account, you need to ensure that the account has the following permissions.
@@ -52,9 +52,9 @@ For steps on how to upgrade an existing agent to use a gMSA account see [group M
 
 For more information on how to prepare your Active Directory for group Managed Service Account, see [group Managed Service Accounts Overview](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
 
-### In the Azure portal
+### In the Entra portal
 
-1. Create a cloud-only hybrid identity administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant if your on-premises services fail or become unavailable. Learn about how to [add a cloud-only hybrid identity administrator account](../../fundamentals/add-users-azure-active-directory.md). Finishing this step is critical to ensure that you don't get locked out of your tenant.
+1. Create a cloud-only hybrid identity administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant if your on-premises services fail or become unavailable. Learn about how to [add a cloud-only hybrid identity administrator account](../../fundamentals/add-users.md). Finishing this step is critical to ensure that you don't get locked out of your tenant.
 1. Add one or more [custom domain names](../../fundamentals/add-custom-domain.md) to your Azure AD tenant. Your users can sign in with one of these domain names.
 
 ### In your directory in Active Directory
@@ -105,7 +105,7 @@ If there's a firewall between your servers and Azure AD, configure the following
    | --- | --- |
    | **80** | Downloads the certificate revocation lists (CRLs) while validating the TLS/SSL certificate.  |
    | **443** | Handles all outbound communication with the service. |
-   | **8080** (optional) | Agents report their status every 10 minutes over port 8080, if port 443 is unavailable. This status is displayed in the Azure portal. |
+   | **8080** (optional) | Agents report their status every 10 minutes over port 8080, if port 443 is unavailable. This status is displayed in the Entra portal. |
  
 - If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
 - If your firewall or proxy allows you to specify safe suffixes, add connections: 

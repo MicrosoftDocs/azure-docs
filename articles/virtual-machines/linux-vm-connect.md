@@ -5,11 +5,11 @@ author: mattmcinnes
 ms.collection: linux
 ms.service: virtual-machines
 ms.workload: infrastructure-services
+ms.custom: devx-track-linux
 ms.topic: article
 ms.date: 04/06/2023
 ms.author: mattmcinnes
 ms.reviewer: jamesser
-
 ---
 # Connect to a Linux VM
 

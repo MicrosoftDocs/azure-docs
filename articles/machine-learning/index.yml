@@ -75,8 +75,6 @@ landingContent:
             url: tutorial-pipeline-python-sdk.md
           - text: Use automated ML in studio
             url: tutorial-first-experiment-automated-ml.md
-          - text: Use designer (drag-n-drop) in studio
-            url: tutorial-designer-automobile-price-train-score.md
           - text: Train with R
             url: how-to-r-train-model.md
   # Card

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: This tutorial covers how to deploy a model to production using Azure Machine Learning Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: tutorial
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
 ms.date: 03/15/2023
-ms.custom: mlops #add more custom tags
+ms.custom: mlops, devx-track-python #add more custom tags
 #Customer intent: This tutorial is intended to show users what is needed for deployment and present a high-level overview of how Azure Machine Learning handles deployment. Deployment isn't typically done by a data scientist, so the tutorial won't use Azure CLI examples. We will link to existing articles that use Azure CLI as needed. The code in the tutorial will use SDK v2. The tutorial will continue where the "Create reusable pipelines" tutorial stops.
 ---
 
 # Deploy a model as an online endpoint
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 Learn to deploy a model to an online endpoint, using Azure Machine Learning Python SDK v2.
 
 In this tutorial, we use a model trained to predict the likelihood of defaulting on a credit card payment. The goal is to deploy this model and show its use.
@@ -48,6 +48,9 @@ The steps you'll take are:
 1. View your VM quota and ensure you have enough quota available to create online deployments. In this tutorial, you will need at least 8 cores of `STANDARD_DS3_v2` and 12 cores of `STANDARD_F4s_v2`. To view your VM quota usage and request quota increases, see [Manage resource quotas](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
 
 [!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
+
+> [!NOTE]
+>- Serverless Spark Compute does not have `Python 3.10 - SDK v2` installed by default. It is recommended that users create a compute instance and select it before proceeding with the tutorial.
 
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/main/tutorials/get-started-notebooks/deploy-model.ipynb -->
 
@@ -251,6 +254,8 @@ from azure.ai.ml.entities import ManagedOnlineDeployment
 model = ml_client.models.get(name=registered_model_name, version=latest_model_version)
 
 # define an online deployment
+# if you run into an out of quota error, change the instance_type to a comparable VM that is available.\
+# Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
 blue_deployment = ManagedOnlineDeployment(
     name="blue",
     endpoint_name=online_endpoint_name,
@@ -367,6 +372,8 @@ Deploy the model as a second deployment called `green`. In practice, you can cre
 model = ml_client.models.get(name=registered_model_name, version=latest_model_version)
 
 # define an online deployment using a more powerful instance type
+# if you run into an out of quota error, change the instance_type to a comparable VM that is available.\
+# Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
 green_deployment = ManagedOnlineDeployment(
     name="green",
     endpoint_name=online_endpoint_name,
@@ -479,12 +486,12 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name).result()
 
 Use these steps to delete your Azure Machine Learning workspace and all compute resources.
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 ## Next Steps
 
 - [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
-- [Test the deployment with mirrored traffic (preview)](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic-preview)
+- [Test the deployment with mirrored traffic](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic)
 - [Monitor online endpoints](how-to-monitor-online-endpoints.md)
 - [Autoscale an online endpoint](how-to-autoscale-endpoints.md)
 - [Customize MLflow model deployments with scoring script](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments)

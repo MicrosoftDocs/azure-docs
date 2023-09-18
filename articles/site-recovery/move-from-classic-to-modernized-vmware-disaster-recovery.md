@@ -1,9 +1,9 @@
 ---
 title: Move from classic to modernized VMware disaster recovery.
-description: Learn about the architecture, necessary infrastructure, and FAQs about moving your VMware replications from classic to modernized protection architecture.
+description: Learn about the architecture, necessary infrastructure, and FAQs about moving your VMware or Physical machine replications from classic to modernized protection architecture.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/16/2023
+ms.date: 08/01/2023
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23
 ---
@@ -17,7 +17,7 @@ This article provides information about the architecture, necessary infrastructu
 
 ## Architecture  
 
-The components involved in the migration of replicated items of a VMware machine are summarized in the following table:  
+The components involved in the migration of replicated items of a VMware or Physical machine are summarized in the following table:  
 
 | **Component** | **Requirement**
 |---------|-----------
@@ -57,7 +57,7 @@ Ensure the following for the replicated items you're planning to move:
 - The replicated item isn't replicating the data from Azure to on-premises.  
 - The initial replication isn't under progress and has already been completed.   
 - The replicated item isn't in the ‘resynchronization’ state.  
-- The configuration server’s version is 9.50 or later and its health is in a non critical state.  
+- The configuration server’s version is 9.50 or later and its health is in a noncritical state.  
 - The configuration server has a healthy heartbeat.  
 - The mobility service agent’s version, installed on the source machine, is 9.50 or later.  
 - The Recovery Services vaults with MSI enabled are supported.  
@@ -101,9 +101,9 @@ The same formula is used to calculate time for migration and is shown on the por
 
 ## How to define required infrastructure 
 
-When migrating machines from classic to modernized architecture, you'll need to make sure that the required infrastructure has already been registered in the modernized Recovery Services vault. Refer to the replication appliance’s [sizing and capacity details](./deploy-vmware-azure-replication-appliance-modernized.md#sizing-and-capacity) to help define the required infrastructure.  
+When migrating machines from classic to modernized architecture, you'll need to make sure that the required infrastructure has already been registered in the modernized Recovery Services vault. Refer to the replication appliance’s [sizing and capacity details](./replication-appliance-support-matrix.md#sizing-and-capacity) to help define the required infrastructure.  
 
-As a rule, you should set up the same number of replication appliances, as the number of process servers in your classic Recovery Services vault. In the classic vault, if there was one configuration server and four process servers, then you should set up four replication appliances in the modernized Recovery Services vault.  
+As a rule, you should setup the same number of replication appliances, as the number of process servers in your classic Recovery Services vault. In the classic vault, if there was one configuration server and four process servers, then you should setup four replication appliances in the modernized Recovery Services vault.  
 
 ## Pricing 
 
@@ -139,7 +139,7 @@ It is important to note that the classic architecture for disaster recovery will
 
 ### What machines should be migrated to the modernized architecture?
 
-All VMware machines that are replicated using a configuration server should be migrated to the modernized architecture. Currently, we’ve released support for VMware machines.
+All VMware or physical machines that are replicated using a configuration server should be migrated to the modernized architecture. 
 
 ### Where should my modernized Recovery Services vault be created?
 
@@ -155,9 +155,9 @@ Migration operation will only be marked complete once the first recovery point h
 
 ### What operations can be performed from my classic Recovery Services vault, after migration is done?  
 
-You can only perform failover and disable replication from your classic vault after the migration. The failover operation is possible via the classic vault until the recovery points are available in the older vault.
+You can perform failover from your classic vault after the migration. The failover operation will continue to be available in the classic vault until the recovery points expire.
 
-For example, if the retention period for a replicated item is 72 hours (three days), the latest recovery point on the classic vault will continue to be available for 72 hours (three days), after a successful post migration. After the stipulated time, Azure Site Recovery will trigger a purge replication operation on the replicated item and perform the cleanup of all associated storage and billing-causing items.   
+For example, if the retention period for a replicated item is 72 hours (three days), the latest recovery point on the classic vault will continue to be available for 72 hours (three days), after a successful migration. After the stipulated time, Azure Site Recovery will automatically trigger a purge replication operation on the replicated item and perform the cleanup of all associated storage and billing-causing items.   
 
 ### What if a disaster strikes my machine while the migration operation is in progress?
 

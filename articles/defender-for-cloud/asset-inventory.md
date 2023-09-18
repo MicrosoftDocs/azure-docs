@@ -1,7 +1,7 @@
 ---
-title: Using the asset inventory to view your security posture with Microsoft Defender for Cloud
+title: Using the asset inventory to view your security posture
 description: Learn about Microsoft Defender for Cloud's asset management experience providing full visibility over all your Defender for Cloud monitored resources.
-ms.date: 01/03/2023
+ms.date: 06/14/2023
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
@@ -26,8 +26,7 @@ The security recommendations on the asset inventory page are also shown in the *
 |Release state:|General availability (GA)|
 |Pricing:|Free<br> Some features of the inventory page, such as the [software inventory](#access-a-software-inventory) require paid solutions to be in-place|
 |Required roles and permissions:|All users|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) <br> <br> Software inventory isn't currently supported in national clouds.|
-
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet) <br> <br> Software inventory isn't currently supported in national clouds.|
 
 ## What are the key features of asset inventory?
 
@@ -184,24 +183,6 @@ Examples of using Azure Resource Graph Explorer to access and explore software i
         ) on vmId
         ```
 
-## FAQ - Inventory
-
-### Why aren't all of my resources shown, such as subscriptions, machines, storage accounts?
-
-The inventory view lists your Defender for Cloud connected resources from a Cloud Security Posture Management (CSPM) perspective. The filters show only the resources with active recommendations.
-
-For example, if you have access to eight subscriptions but only seven currently have recommendations, filter by **Resource type = Subscriptions** shows only the seven subscriptions with active recommendations:
-
-:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Not all subscriptions returned when there are no active recommendations." lightbox="./media/asset-inventory/filtered-subscriptions-some.png":::
-
-### Why do some of my resources show blank values in the Defender for Cloud or monitoring agent columns?
-
-Not all Defender for Cloud monitored resources require agents. For example, Defender for Cloud doesn't require agents to monitor Azure Storage accounts or PaaS resources, such as disks, Logic Apps, Data Lake Analysis, and Event Hubs.
-
-When pricing or agent monitoring isn't relevant for a resource, nothing will be shown in those columns of inventory.
-
-:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Some resources show blank info in the monitoring agent  or Defender for Cloud columns." lightbox="./media/asset-inventory/agent-pricing-blanks.png":::
-
 ## Next steps
 
 This article described the asset inventory page of Microsoft Defender for Cloud.
@@ -210,3 +191,4 @@ For more information on related tools, see the following pages:
 
 - [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml)
 - [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/)
+- View common question about [asset inventory](faq-defender-for-servers.yml)

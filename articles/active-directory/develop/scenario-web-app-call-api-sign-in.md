@@ -38,6 +38,10 @@ The ASP.NET sample doesn't remove accounts from the cache on global sign-out.
 
 The Java sample doesn't remove accounts from the cache on global sign-out.
 
+# [Node.js](#tab/nodejs)
+
+The Node sample doesn't remove accounts from the cache on global sign-out.
+
 # [Python](#tab/python)
 
 The Python sample doesn't remove accounts from the cache on global sign-out.
@@ -60,6 +64,11 @@ Move on to the next article in this scenario,
 
 Move on to the next article in this scenario,
 [Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=java).
+
+# [Node.js](#tab/nodejs)
+
+Move on to the next article in this scenario,
+[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=nodejs).
 
 # [Python](#tab/python)
 

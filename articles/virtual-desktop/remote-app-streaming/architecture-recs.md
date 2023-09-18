@@ -21,7 +21,7 @@ This article will provide guidance for your Azure Virtual Desktop deployment str
 
 If you're making an Azure Virtual Desktop deployment for users inside your organization, you can host all your users and resources in the same Azure tenant. You can also use Azure Virtual Desktop's currently supported identity management methods to keep your users secure.
 
-These are the most basic requirements for an Azure Virtual Desktop deployment that can serve RemoteApps and desktops to users within your organization:
+These are the most basic requirements for an Azure Virtual Desktop deployment that can serve desktops and applications to users within your organization:
 
 - One host pool to host user sessions
 - One Azure subscription to host the host pool

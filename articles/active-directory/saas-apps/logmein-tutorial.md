@@ -115,19 +115,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure LogMeIn SSO
 
-1. To automate the configuration within LogMeIn, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up LogMeIn** will direct you to the LogMeIn application. From there, provide the admin credentials to sign into LogMeIn. The browser extension will automatically configure the application for you and automate steps 3-5.
 
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to setup LogMeIn manually, in a different web browser window, sign in to your LogMeIn company site as an administrator.
+1. In a different web browser window, sign in to your LogMeIn company site as an administrator
 
 1. Go to the **Identity Provider** tab and in the **Metadata url** textbox, paste the **Federation Metadata URL**, which you have copied from the Azure portal.
 
-    ![Screenshot for Federation Metadata URL. ](./media/logmein-tutorial/configuration.png)
+    ![Screenshot for Federation Metadata URL.](./media/logmein-tutorial/configuration.png)
 
 1. Click **Save**.
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: In this article, learn how to author scoring scripts to perform batch inference in batch deployments.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.topic: conceptual
 author: santiagxf
 ms.author: fasantia
@@ -15,7 +15,7 @@ ms.custom: how-to
 
 # Author scoring scripts for batch deployments
 
-[!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-dev-v2.md)]
 
 Batch endpoints allow you to deploy models to perform long-running inference at scale. When deploying models, you need to create and specify a scoring script (also known as batch driver script) to indicate how we should use it over the input data to create predictions. In this article, you will learn how to use scoring scripts in model deployments for different scenarios and their best practices.
 
@@ -33,15 +33,17 @@ The scoring script is a Python file (`.py`) that contains the logic about how to
 
 __deployment.yml__
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml" range="8-10":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml" range="9-11":::
 
 # [Python](#tab/python)
 
 ```python
-deployment = BatchDeployment(
+deployment = ModelBatchDeployment(
     ...
-    code_path="code",
-    scoring_script="batch_driver.py",
+    code_configuration=CodeConfiguration(
+        code="src",
+        scoring_script="batch_driver.py"
+    ),
     ...
 )
 ```
@@ -102,7 +104,7 @@ The method receives a list of file paths as a parameter (`mini_batch`). You can 
 > 
 > Batch deployments distribute work at the file level, which means that a folder containing 100 files with mini-batches of 10 files will generate 10 batches of 10 files each. Notice that this will happen regardless of the size of the files involved. If your files are too big to be processed in large mini-batches we suggest to either split the files in smaller files to achieve a higher level of parallelism or to decrease the number of files per mini-batch. At this moment, batch deployment can't account for skews in the file's size distribution.
 
-The `run()` method should return a Pandas `DataFrame` or an array/list. Each returned output element indicates one successful run of an input element in the input `mini_batch`. For file datasets, each row/element represents a single file processed. For a tabular dataset, each row/element represents a row in a processed file.
+The `run()` method should return a Pandas `DataFrame` or an array/list. Each returned output element indicates one successful run of an input element in the input `mini_batch`. For file or folder data assets, each row/element returned represents a single file processed. For a tabular data asset, each row/element returned represents a row in a processed file.
 
 > [!IMPORTANT]
 > __How to write predictions?__
@@ -112,7 +114,7 @@ The `run()` method should return a Pandas `DataFrame` or an array/list. Each ret
 > If you need to write predictions in a different way, you can [customize outputs in batch deployments](how-to-deploy-model-custom-output.md).
 
 > [!WARNING]
-> Do not not output complex data types (or lists of complex data types) in the `run` function. Those outputs will be transformed to string and they will be hard to read.
+> Do not not output complex data types (or lists of complex data types) rather than `pandas.DataFrame` in the `run` function. Those outputs will be transformed to string and they will be hard to read.
 
 The resulting DataFrame or array is appended to the output file indicated. There's no requirement on the cardinality of the results (1 file can generate 1 or many rows/elements in the output). All elements in the result DataFrame or array are written to the output file as-is (considering the `output_action` isn't `summary_only`).
 
@@ -131,7 +133,7 @@ Refer to [Create a batch deployment](how-to-use-batch-endpoint.md#create-a-batch
 By default, the batch deployment writes the model's predictions in a single file as indicated in the deployment. However, there are some cases where you need to write the predictions in multiple files. For instance, if the input data is partitioned, you typically would want to generate your output partitioned too. On those cases you can [Customize outputs in batch deployments](how-to-deploy-model-custom-output.md) to indicate:
 
 > [!div class="checklist"]
-> * The file format used (CSV, parquet, json, etc).
+> * The file format used (CSV, parquet, json, etc) to write predictions.
 > * The way data is partitioned in the output.
 
 Read the article [Customize outputs in batch deployments](how-to-deploy-model-custom-output.md) for an example about how to achieve it.
@@ -190,7 +192,7 @@ For an example about how to achieve it see [Text processing with batch deploymen
 
 ### Using models that are folders
 
-The environment variable `AZUREML_MODEL_DIR` contains the path to where the selected model is located and it is typically used in the `init()` function to load the model into memory. However, some models may contain its files inside of a folder. When reading the files in this variable, you may need to account for that. You can identify the folder where your MLflow model is placed as follows:
+The environment variable `AZUREML_MODEL_DIR` contains the path to where the selected model is located and it is typically used in the `init()` function to load the model into memory. However, some models may contain their files inside of a folder and you may need to account for that when loading them. You can identify the folder structure of your model as follows:
 
 1. Go to [Azure Machine Learning portal](https://ml.azure.com).
 

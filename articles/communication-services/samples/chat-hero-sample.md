@@ -2,11 +2,11 @@
 title: Chat Hero Sample
 titleSuffix: An Azure Communication Services sample overview
 description: Overview of chat hero sample using Azure Communication Services to enable developers to learn more about the inner workings of the sample and learn how to modify it.
-author: ddematheu2
+author: RinaRish
 manager: chpalm
 services: azure-communication-services
 
-ms.author: dademath
+ms.author: ektrishi
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
@@ -26,7 +26,7 @@ In this Sample quickstart, we'll learn how the sample works before we run the sa
 
 ## Overview
 
-The sample has both a client-side application and a server-side application. The **client-side application** is a React/Redux web application that uses Microsoft's Fluent UI framework. This application sends requests to an ASP.NET Core **server-side application** that helps the client-side application connect to Azure.
+The sample has both a client-side application and a server-side application. The **client-side application** is a React/Redux web application that uses Microsoft's Fluent UI framework. This application sends requests to a Node.js **server-side application** that helps the client-side application connect to Azure.
 
 Here's what the sample looks like:
 
@@ -80,7 +80,7 @@ You can test the sample locally by opening multiple browser sessions with the UR
 
 ## Publish the sample to Azure
 
-1. Under the root director, run these commands:
+1. Under the root directory, run these commands:
 ```
 npm run setup
 npm run build

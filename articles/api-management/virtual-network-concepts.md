@@ -23,7 +23,7 @@ The following table compares virtual networking options. For more information, s
 
 |Networking model  |Supported tiers  |Supported components  |Supported traffic  |Usage scenario |
 |---------|---------|---------|---------|----|
-|**[Virtual network - external](#virtual-network-integration)**     | Developer, Premium       | Azure portal, gateway, management plane, and Git repository        | Inbound and outbound traffic can be allowed to internet, peered virtual networks, Express Route, and S2S VPN connections.     | External access to private and on-premises backends
+|**[Virtual network - external](#virtual-network-integration)**     | Developer, Premium       | Developer portal, gateway, management plane, and Git repository        | Inbound and outbound traffic can be allowed to internet, peered virtual networks, Express Route, and S2S VPN connections.     | External access to private and on-premises backends
 |**[Virtual network - internal](#virtual-network-integration)**     |  Developer, Premium      |  Developer portal, gateway, management plane, and Git repository.       |  Inbound and outbound traffic can be allowed to peered virtual networks, Express Route, and S2S VPN connections.       | Internal access to private and on-premises backends
 |**[Inbound private endpoint](#inbound-private-endpoint)**   | Developer, Basic, Standard, Premium        |   Gateway only (managed gateway supported, self-hosted gateway not supported).      |    Only inbound traffic can be allowed from internet, peered virtual networks, Express Route, and S2S VPN connections.     | Secure client connection to API Management gateway |    
 
@@ -106,6 +106,9 @@ The minimum size of the subnet in which API Management can be deployed is /29, w
   * **/26 subnet**: 64 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 56 remaining IP addresses left for twenty-eight scale-out units (2 IP addresses/scale-out unit) for a total of twenty-nine units. It is possible, with an Azure Support ticket, to scale the Premium SKU past twelve units. If you foresee such high demand, consider the /26 subnet.  
   
   * **/25 subnet**: 128 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 120 remaining IP addresses left for sixty scale-out units (2 IP addresses/scale-out unit) for a total of sixty-one units. This is an extremely large, theoretical number of scale-out units. 
+
+> [!IMPORTANT]
+> The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning may cause a change in the private IP address.
 
 ### Routing
 

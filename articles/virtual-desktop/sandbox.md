@@ -15,7 +15,7 @@ This topic will walk you through how to publish Windows Sandbox for your users i
 
 ## Prerequisites
 
-Before you get started, here's what you need to configureWindows Sandbox in Azure Virtual Desktop:
+Before you get started, here's what you need to configure Windows Sandbox in Azure Virtual Desktop:
 
 - A working Azure profile that can access the Azure portal.
 - A functioning Azure Virtual Desktop deployment. To learn how to deploy Azure Virtual Desktop (classic), see [Create a tenant in Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Azure Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
@@ -23,7 +23,7 @@ Before you get started, here's what you need to configureWindows Sandbox in Azur
 
 ## Prepare the VHD image for Azure
 
-First, you'll need to create a master VHD image. If you haven't created your master VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there. When you're given the option to select an operating system (OS) for your master image, select either Windows 10 or Windows 11.
+First, you'll need to create a custom VHD image. If you haven't created your custom VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there. When you're given the option to select an operating system (OS) for your master image, select either Windows 10 or Windows 11.
 
 When customizing your master image, you'll need to enable the **Containers-DisposableClientVM** feature by running the following command:
 
@@ -67,7 +67,7 @@ To publish Windows Sandbox to your host pool using PowerShell:
 1. Connect to Azure using one of the following methods:
 
    - Open a PowerShell prompt on your local device. Run the `Connect-AzAccount` cmdlet to sign in to your Azure account. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
-   - Sign in to [the Azure portal](https://portal.azure.com/) and open [Azure Cloud Shell](../cloud-shell/overview.md) with PowerShell as the shell type.
+   - Sign in to the [Azure portal](https://portal.azure.com) and open [Azure Cloud Shell](../cloud-shell/overview.md) with PowerShell as the shell type.
 
 1. Run the following cmdlet to get a list of all the Azure tenants your account has access to:
 
@@ -97,7 +97,7 @@ To publish Windows Sandbox to your host pool using PowerShell:
    Set-AzContext -Tenant $tenantId -Subscription <subscription name or id>
    ```
 
-1. Run the following command to create a Sandbox remote app:
+1. Run the following command to create a Sandbox RemoteApp:
 
    ```azurepowershell-interactive
    New-AzWvdApplication -ResourceGroupName <Resource Group Name> -GroupName <Application Group Name> -FilePath C:\windows\system32\WindowsSandbox.exe -IconIndex 0 -IconPath C:\windows\system32\WindowsSandbox.exe -CommandLineSetting 'Allow' -ShowInPortal:$true -SubscriptionId <Workspace Subscription ID>
@@ -108,7 +108,7 @@ To publish Windows Sandbox to your host pool using PowerShell:
 
 ---
 
-That's it! Leave the rest of the options default. You should now have Windows Sandbox Remote App published for your users.
+That's it! Leave the rest of the options default. You should now have Windows Sandbox published as a RemoteApp for your users.
 
 ## Next steps
 

@@ -3,21 +3,21 @@ title: "Citrix ADC (former NetScaler) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Citrix ADC (former NetScaler) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Citrix ADC (former NetScaler) connector for Microsoft Sentinel
 
-The [Citrix ADC (former NetScaler)](https://www.citrix.com/products/citrix-adc/) data connector provides the capability to ingest Citrix ADC logs into Microsoft Sentinel.
+The [Citrix ADC (former NetScaler)](https://www.citrix.com/products/citrix-adc/) data connector provides the capability to ingest Citrix ADC logs into Microsoft Sentinel. If you want to ingest Citrix WAF logs into Microsoft Sentinel, refer this [documentation](/azure/sentinel/data-connectors/citrix-waf-web-app-firewall).
 
 ## Connector attributes
 
 | Connector attribute | Description |
 | --- | --- |
-| **Log Analytics table(s)** | CommonSecurityLog (Citrix ADC)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Log Analytics table(s)** | Syslog<br/> |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples
@@ -39,35 +39,31 @@ CitrixADCEvent
 
 
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-CitrixADC-parser) to create the Kusto Functions alias, **CitrixADCEvent**
+>  1. This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias CitrixADCEvent and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Citrix%20ADC/Parsers/CitrixADCEvent.txt), this function maps Citrix ADC (former NetScaler) events to Advanced Security Information Model [ASIM](/azure/sentinel/normalization). The function usually takes 10-15 minutes to activate after solution installation/update. 
+>  2. This parser requires a watchlist named **`Sources_by_SourceType`** 
 
-1. Linux Syslog agent configuration
+> i. If you don't have watchlist already created, please click [here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Sentinel%2Fmaster%2FASIM%2Fdeploy%2FWatchlists%2FASimSourceType.json) to create. 
 
-Install and configure the Linux agent to collect your Common Event Format (CEF) Syslog messages and forward them to Microsoft Sentinel.
+> ii. Open watchlist **`Sources_by_SourceType`** and add entries for this data source.
 
-> Notice that the data from all regions will be stored in the selected workspace
+> iii. The SourceType value for CitrixADC is **`CitrixADC`**. 
 
-1.1 Select or create a Linux machine
+> You can refer [this](/azure/sentinel/normalization-manage-parsers?WT.mc_id=Portal-fx#configure-the-sources-relevant-to-a-source-specific-parser) documentation for more details
 
-Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-prem environment, Azure or other clouds.
+1. Install and onboard the agent for Linux
 
-1.2 Install the CEF collector on the Linux machine
+Typically, you should install the agent on a different computer from the one on which the logs are generated.
 
-Install the Microsoft Monitoring Agent on your Linux machine and configure the machine to listen on the necessary port and forward messages to your Microsoft Sentinel workspace. The CEF collector collects CEF messages on port 514 TCP.
+>  Syslog logs are collected only from **Linux** agents.
 
-> 1. Make sure that you have Python on your machine using the following command: python -version.
 
-> 2. You must have elevated permissions (sudo) on your machine.
+2. Configure the logs to be collected
 
-   Run the following command to install and apply the CEF collector:
+Configure the facilities you want to collect and their severities.
+ 1. Under workspace advanced settings **Configuration**, select **Data** and then **Syslog**.
+ 2. Select **Apply below configuration to my machines** and select the facilities and severities.
+ 3.  Click **Save**.
 
-   sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py python cef_installer.py {0} {1}
-
-2. Configure Citrix ADC to use CEF logging
-
-At the command prompt type the following command: 
-
->**set appfw settings CEFLogging on**
 
 3. Configure Citrix ADC to forward logs via Syslog
 
@@ -79,30 +75,13 @@ At the command prompt type the following command:
 
  3.4 Set **Transport type** as **TCP** or **UDP** depending on your remote Syslog server configuration.
 
-4. Validate connection
+ 3.5 You can refer Citrix ADC (former NetScaler) [documentation](https://docs.netscaler.com/) for more details.
 
-Follow the instructions to validate your connectivity:
+4. Check logs in Microsoft Sentinel
 
-Open Log Analytics to check if the logs are received using the CommonSecurityLog schema.
+Open Log Analytics to check if the logs are received using the Syslog schema.
 
->It may take about 20 minutes until the connection streams data to your workspace.
-
-If the logs are not received, run the following connectivity validation script:
-
-> 1. Make sure that you have Python on your machine using the following command: python -version
-
->2. You must have elevated permissions (sudo) on your machine
-
-   Run the following command to validate your connectivity:
-
-   sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py python cef_troubleshoot.py  {0}
-
-5. Secure your machine 
-
-Make sure to configure the machine's security according to your organization's security policy
-
-
-[Learn more >](https://aka.ms/SecureCEF)
+>**NOTE:** It may take up to 15 minutes before new logs will appear in Syslog table.
 
 
 

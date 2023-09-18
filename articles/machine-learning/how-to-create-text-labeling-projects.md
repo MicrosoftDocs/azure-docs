@@ -10,6 +10,7 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.date: 02/08/2023
 ms.custom: data4ml, ignite-fall-2021
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Set up a text labeling project and export labels
@@ -39,11 +40,11 @@ These data formats are available for text data:
 
 You use these items to set up text labeling in Azure Machine Learning:
 
-[!INCLUDE [prerequisites](../../includes/machine-learning-data-labeling-prerequisites.md)]
+[!INCLUDE [prerequisites](includes/machine-learning-data-labeling-prerequisites.md)]
 
 ## Create a text labeling project
 
-[!INCLUDE [start](../../includes/machine-learning-data-labeling-start.md)]
+[!INCLUDE [start](includes/machine-learning-data-labeling-start.md)]
 
 1. To create a project, select **Add project**.
 
@@ -65,7 +66,7 @@ You use these items to set up text labeling in Azure Machine Learning:
 
 ## Add workforce (optional)
 
-[!INCLUDE [outsource](../../includes/machine-learning-data-labeling-outsource.md)]
+[!INCLUDE [outsource](includes/machine-learning-data-labeling-outsource.md)]
 
 ## Select or create a dataset
 
@@ -117,25 +118,25 @@ To directly upload your data:
 
 ## Configure incremental refresh
 
-[!INCLUDE [refresh](../../includes/machine-learning-data-labeling-refresh.md)]
+[!INCLUDE [refresh](includes/machine-learning-data-labeling-refresh.md)]
 
 > [!NOTE]
 > Projects that use tabular (*.csv* or *.tsv*) dataset input can use incremental refresh. But incremental refresh only adds new tabular files. The refresh doesn't recognize changes to existing tabular files.
 
 ## Specify label categories
 
-[!INCLUDE [classes](../../includes/machine-learning-data-labeling-classes.md)]
+[!INCLUDE [classes](includes/machine-learning-data-labeling-classes.md)]
 
 ## Describe the text labeling task
 
-[!INCLUDE [describe](../../includes/machine-learning-data-labeling-describe.md)]
+[!INCLUDE [describe](includes/machine-learning-data-labeling-describe.md)]
 
 > [!NOTE]
 > Labelers can select the first nine labels by using number keys 1 through 9.
 
 ## Quality control (preview)
 
-[!INCLUDE [describe](../../includes/machine-learning-data-labeling-quality-control.md)]
+[!INCLUDE [describe](includes/machine-learning-data-labeling-quality-control.md)]
 
 ## Use ML-assisted data labeling
 
@@ -170,11 +171,11 @@ After you train the machine learning model on your manually labeled data, the mo
 
 ## Initialize the text labeling project
 
-[!INCLUDE [initialize](../../includes/machine-learning-data-labeling-initialize.md)]
+[!INCLUDE [initialize](includes/machine-learning-data-labeling-initialize.md)]
 
 ## Run and monitor the project
 
-[!INCLUDE [run](../../includes/machine-learning-data-labeling-run.md)]
+[!INCLUDE [run](includes/machine-learning-data-labeling-run.md)]
 
 ### Dashboard
 
@@ -232,7 +233,7 @@ View and change details of your project. On this tab, you can:
 
 ### Language Studio tab
 
-If your project was created from [Cognitive Services Language Studio](../cognitive-services/language-service/custom/azure-machine-learning-labeling.md), you'll also see a **Language Studio** tab.  
+If your project was created from [Language Studio](../ai-services/language-service/custom/azure-machine-learning-labeling.md), you'll also see a **Language Studio** tab.  
 
 * If labeling is active in Language Studio, you can't also label in Azure Machine Learning.  In that case, Language Studio is the only tab available.  Select **View in Language Studio** to go to the active labeling project in Language Studio.  From there, you can switch to labeling in Azure Machine Learning if you wish.
 
@@ -247,15 +248,15 @@ If labeling is active in Azure Machine Learning, you have two choices:
 
 ### Access for labelers
 
-[!INCLUDE [access](../../includes/machine-learning-data-labeling-access.md)]
+[!INCLUDE [access](includes/machine-learning-data-labeling-access.md)]
 
 ## Add new labels to a project
 
-[!INCLUDE [add-label](../../includes/machine-learning-data-labeling-add-label.md)]
+[!INCLUDE [add-label](includes/machine-learning-data-labeling-add-label.md)]
 
 ## Start an ML-assisted labeling task
 
-[!INCLUDE [start-ml-assist](../../includes/machine-learning-data-labeling-start-ml-assist.md)]
+[!INCLUDE [start-ml-assist](includes/machine-learning-data-labeling-start-ml-assist.md)]
 
 ## Export the labels
 
@@ -263,23 +264,37 @@ To export the labels, on the **Project details** page of your labeling project, 
 
 For all project types except **Text Named Entity Recognition**, you can export label data as:
 
-* A CSV file. The Azure Machine Learning workspace creates the CSV file in a folder inside *Labeling/export/csv*.
+:::moniker range="azureml-api-1"
+* A CSV file. Azure Machine Learning creates the CSV file in a folder inside *Labeling/export/csv*.
 * An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
+:::moniker-end
+:::moniker range="azureml-api-2"
+* A CSV file. Azure Machine Learning creates the CSV file in a folder inside *Labeling/export/csv*.
+* An [Azure MLTable data asset](./how-to-mltable.md). 
+:::moniker-end
 
 For **Text Named Entity Recognition** projects, you can export label data as:
 
+:::moniker range="azureml-api-1"
 * An [Azure Machine Learning dataset (v1) with labels](v1/how-to-use-labeled-dataset.md).
-* A CoNLL file. For this export, you must assign a compute resource. The export process runs offline, and it generates the file as part of an experiment run. When the file is ready to download, a notification is shown in the Azure Machine Learning studio global controls. Select that notification to see a link to the file.
+* A CoNLL file.  For this export, you'll also have to assign a compute resource. The export process runs offline and generates the file as part of an experiment run. Azure Machine Learning creates the CoNLL file in a folder inside*Labeling/export/conll*. 
+:::moniker-end
+:::moniker range="azureml-api-2"
+* An [Azure MLTable data asset](./how-to-mltable.md).
+* A CoNLL file.  For this export, you'll also have to assign a compute resource. The export process runs offline and generates the file as part of an experiment run. Azure Machine Learning creates the CoNLL file in a folder inside*Labeling/export/conll*. 
+:::moniker-end
 
-    :::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Screenshot that shows the notification for the file download.":::
+When you export a CSV or CoNLL file, a notification appears briefly when the file is ready to download. Select the **Download file** link to download your results. You'll also find the notification in the **Notification** section on the top bar:
 
-Access exported Azure Machine Learning datasets in the **Datasets** section of Machine Learning. The dataset details page also provides sample code you can use to access your labels by using Python.
+:::image type="content" source="media/how-to-create-labeling-projects/download-file.png" alt-text="Screenshot that shows the notification for the file download.":::
+
+Access exported Azure Machine Learning datasets and data assets in the **Data** section of Machine Learning. The data details page also provides sample code you can use to access your labels by using Python.
 
 :::image type="content" source="media/how-to-create-labeling-projects/exported-dataset.png" alt-text="Screenshot that shows an example of the dataset details page in Machine Learning.":::
 
 ## Troubleshoot issues
 
-[!INCLUDE [troubleshooting](../../includes/machine-learning-data-labeling-troubleshooting.md)]
+[!INCLUDE [troubleshooting](includes/machine-learning-data-labeling-troubleshooting.md)]
 
 ## Next steps
 

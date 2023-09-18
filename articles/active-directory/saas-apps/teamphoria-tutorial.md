@@ -120,15 +120,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Teamphoria SSO
 
-1. To automate the configuration within Teamphoria, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Set up Teamphoria** will direct you to the Teamphoria application. From there, provide the admin credentials to sign into Teamphoria. The browser extension will automatically configure the application for you and automate steps 3-6.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup Teamphoria manually, open a new web browser window and sign into your Teamphoria company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your Teamphoria company site as an administrator
 
 4. Go to **ADMIN SETTINGS** option in the left toolbar and under the Configure Tab click on **SINGLE SIGN-ON** to open the SSO configuration window.
 
@@ -188,8 +183,8 @@ When you click the Teamphoria tile in the Access Panel, you should be automatica
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

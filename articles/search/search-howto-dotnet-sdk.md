@@ -10,7 +10,7 @@ ms.devlang: csharp
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 10/04/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # How to use Azure.Search.Documents in a C# .NET Application
@@ -105,7 +105,7 @@ The client library uses three client types for various operations: [`SearchIndex
 
 At a minimum, all of the clients require the service name or endpoint, and an API key. It's common to provide this information in a configuration file, similar to what you find in the `appsettings.json` file of the [DotNetHowTo sample application](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo). To read from the configuration file, add `using Microsoft.Extensions.Configuration;` to your program.
 
-The following statement creates the index client used to create, update, or delete indexes. It takes a search endpoint and admin API key.
+The following statement creates the index client used to create, update, or delete indexes. It takes a service endpoint and admin API key.
 
 ```csharp
 private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
@@ -450,7 +450,7 @@ UploadDocuments(searchClient);
 
 ## Run queries
 
-First, set up a `SearchClient` that reads the search endpoint and query API key from **appsettings.json**:
+First, set up a `SearchClient` that reads the service endpoint and query API key from **appsettings.json**:
 
 ```csharp
 private static SearchClient CreateSearchClientForQueries(string indexName, IConfigurationRoot configuration)

@@ -5,7 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Example PowerShell scripts

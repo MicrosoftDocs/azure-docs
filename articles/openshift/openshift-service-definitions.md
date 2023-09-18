@@ -5,7 +5,7 @@ ms.service: azure-redhat-openshift
 ms.topic: article
 author: johnmarco
 ms.author: johnmarc
-ms.date: 02/01/2022
+ms.date: 08/24/2023
 keywords: azure, openshift, aro, red hat, service, definition
 #Customer intent: I need to understand Azure Red Hat OpenShift service definitions to manage my subscription.
 ---
@@ -172,6 +172,10 @@ No monitoring of these private network connections is provided by Red Hat SRE. M
 
 Azure Red Hat OpenShift customers can specify their own DNS servers. For more information, see [Configure custom DNS for your Azure Red Hat OpenShift cluster](./howto-custom-dns.md).
 
+### Container Network Interface
+
+Azure Red Hat OpenShift comes with OVN (Open Virtual Network) as the Container Network Interface (CNI). Replacing the CNI is not a supported operation. For more information, see [OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters](concepts-ovn-kubernetes.md).
+
 ## Storage
 
 The following sections provide information about Azure Red Hat OpenShift storage.
@@ -209,11 +213,11 @@ Application and application data backups aren't an automated part of the Azure R
 ### DaemonSets
 Customers can create and run DaemonSets on Azure Red Hat OpenShift. To restrict DaemonSets to only running on worker nodes, use the following nodeSelector:
 
-...
+```
 spec:
   nodeSelector:
     node-role.kubernetes.io/worker: ""
-...
+```
 
 ### Azure Red Hat OpenShift version
 

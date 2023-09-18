@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to deploy a training pipeline under a batch endpoint.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
@@ -16,7 +16,7 @@ ms.custom: how-to, devplatv2, event-tier1-build-2023
 
 # How to operationalize a training pipeline with batch endpoints (preview)
 
-[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you'll learn how to operationalize a training pipeline under a batch endpoint. The pipeline uses multiple components (or steps) that include model training, data preprocessing, and model evaluation.
 
@@ -28,7 +28,7 @@ You'll learn to:
 > * Modify the pipeline and create a new deployment in the same endpoint
 > * Test the new deployment and set it as the default deployment
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## About this example
 
@@ -38,7 +38,7 @@ A visualization of the pipeline is as follows:
 
 :::image type="content" source="media/how-to-use-batch-training-pipeline/pipeline-overview.png" alt-text="A screenshot of the pipeline showing the preprocessing and training components." lightbox="media/how-to-use-batch-training-pipeline/pipeline-overview.png":::
 
-[!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
+[!INCLUDE [machine-learning-batch-clone](includes/azureml-batch-clone-samples.md)]
 
 The files for this example are in:
 
@@ -52,7 +52,7 @@ You can follow along with the Python SDK version of this example by opening the 
 
 ## Prerequisites
 
-[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
+[!INCLUDE [machine-learning-batch-prereqs](includes/azureml-batch-prereqs.md)]
 
 ## Create the training pipeline component
 
@@ -64,7 +64,7 @@ The components in this example will use an environment with the `XGBoost` and `s
 
 __environment/conda.yml__
 
-:::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/environment/conda.yml" :::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/environment/conda.yml" :::
 
 Create the environment as follows:
 
@@ -74,21 +74,21 @@ Create the environment as follows:
 
     __environment/xgboost-sklearn-py38.yml__
     
-    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/environment/xgboost-sklearn-py38.yml" :::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/environment/xgboost-sklearn-py38.yml" :::
     
     # [Python](#tab/python)
     
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_environment)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_environment)]
 
 1. Create the environment: 
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_environment" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_environment" :::
     
     # [Python](#tab/python)
     
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_environment)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_environment)]
 
 ### Create a compute cluster
 
@@ -96,11 +96,11 @@ Batch endpoints and deployments run on compute clusters. They can run on any Azu
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_compute" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_compute" :::
 
 # [Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_compute)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_compute)]
 ---
 
 ### Register the training data as a data asset
@@ -109,19 +109,19 @@ Our training data is represented in CSV files. To mimic a more production-level 
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_data_asset":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_data_asset":::
 
 # [Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_data_asset)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_data_asset)]
 
 Create the data asset:
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_data_asset)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_data_asset)]
 
 Let's get a reference to the new data asset:
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=get_data_asset)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=get_data_asset)]
 
 ---
 
@@ -144,7 +144,7 @@ The pipeline configuration is defined in the `deployment-ordinal/pipeline.yml` f
 
 __deployment-ordinal/pipeline.yml__
 
-:::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deployment-ordinal/pipeline.yml" :::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deployment-ordinal/pipeline.yml" :::
 
 > [!NOTE]
 > In the `pipeline.yml` file, the `transformations` input is missing from the `preprocess_job`; therefore, the script will learn the transformation parameters from the input data.
@@ -153,11 +153,11 @@ __deployment-ordinal/pipeline.yml__
 
 The configurations for the pipeline components are in the `prepare.yml` and `train_xgb.yml` files. Load the components:
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=load_component)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=load_component)]
 
 Construct the pipeline:
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_pipeline)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_pipeline)]
 
 > [!NOTE]
 > In the pipeline, the `transformations` input is missing; therefore, the script will learn the parameters from the input data.
@@ -178,16 +178,16 @@ The following `pipeline-job.yml` file contains the configuration for the pipelin
 
 __deployment-ordinal/pipeline-job.yml__
 
-:::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deployment-ordinal/pipeline-job.yml" :::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deployment-ordinal/pipeline-job.yml" :::
 
 
 # [Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_pipeline_job)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_pipeline_job)]
 
 Now, we'll configure some run settings to run the test:
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_pipeline_job_defaults)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_pipeline_job_defaults)]
 
 ---
 
@@ -195,11 +195,11 @@ Create the test job:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="test_pipeline" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="test_pipeline" :::
 
 # [Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=test_pipeline)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=test_pipeline)]
 
 ---
 
@@ -209,11 +209,11 @@ Create the test job:
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="name_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="name_endpoint" :::
 
     # [Python](#tab/python)
 
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=name_endpoint)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=name_endpoint)]
 
 1. Configure the endpoint:
 
@@ -223,31 +223,31 @@ Create the test job:
 
     __endpoint.yml__
     
-    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/endpoint.yml" :::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/endpoint.yml" :::
 
     # [Python](#tab/python)
 
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_endpoint)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_endpoint)]
 
 1. Create the endpoint:
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_endpoint" :::
 
     # [Python](#tab/python)
 
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_endpoint)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_endpoint)]
 
 1. Query the endpoint URI:
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="query_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="query_endpoint" :::
 
     # [Python](#tab/python)
 
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=query_endpoint)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=query_endpoint)]
 
 ## Deploy the pipeline component
 
@@ -257,21 +257,21 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
 
     # [Azure CLI](#tab/cli)
     
-    The `deployment-ordinal/deployment.yml` file contains the deployment's configuration.
+    The `deployment-ordinal/deployment.yml` file contains the deployment's configuration. You can check the [full batch endpoint YAML schema](reference-yaml-endpoint-batch.md) for extra properties.
 
     __deployment-ordinal/deployment.yml__
 
-    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deployment-ordinal/deployment.yml" :::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deployment-ordinal/deployment.yml" :::
     
     # [Python](#tab/python)
 
     Our pipeline is defined in a function. To transform it to a component, you'll use the `build()` method. Pipeline components are reusable compute graphs that can be included in batch deployments or used to compose more complex pipelines.
 
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=build_pipeline_component)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=build_pipeline_component)]
     
     Now we can define the deployment:
     
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_deployment)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_deployment)]
 
 1. Create the deployment:
 
@@ -279,7 +279,7 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
 
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_deployment" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_deployment" :::
 
     > [!TIP]
     > Notice the use of the `--set-default` flag to indicate that this new deployment is now the default.
@@ -288,11 +288,11 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
 
     This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_deployment)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_deployment)]
     
     Once created, let's configure this new deployment as the default one:
 
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=update_default_deployment)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=update_default_deployment)]
 
 1. Your deployment is ready for use.
 
@@ -308,13 +308,13 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
     
     __inputs.yml__
     
-    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/inputs.yml" :::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/inputs.yml" :::
     
     # [Python](#tab/python)
     
     Define the input data asset:
     
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_inputs)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_inputs)]
 
     ---
     
@@ -325,25 +325,25 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="invoke_deployment_file" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="invoke_deployment_file" :::
     
     # [Python](#tab/python)
     
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=invoke_deployment)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=invoke_deployment)]
     
 1. You can monitor the progress of the show and stream the logs using:
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="stream_job_logs" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="stream_job_logs" :::
     
     # [Python](#tab/python)
     
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=get_job)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=get_job)]
     
     To wait for the job to finish, run the following code:
     
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=stream_job_logs)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=stream_job_logs)]
 
 It's worth mentioning that only the pipeline's inputs are published as inputs in the batch endpoint. For instance, `categorical_encoding` is an input of a step of the pipeline, but not an input in the pipeline itself. Use this fact to control which inputs you want to expose to your clients and which ones you want to hide.
 
@@ -357,11 +357,11 @@ You can download the associated results using:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="download_outputs" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="download_outputs" :::
 
 # [Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=download_outputs)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=download_outputs)]
 
 ---
 
@@ -391,31 +391,31 @@ By default, we used `ordinal` previously. Let's now change the categorical encod
     
     __deployment-onehot/pipeline.yml__
     
-    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deployment-onehot/pipeline.yml" highlight="29" :::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deployment-onehot/pipeline.yml" highlight="29" :::
     
     # [Python](#tab/python)
     
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_nondefault_pipeline)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_nondefault_pipeline)]
 
 1. Configure the deployment:
 
     # [Azure CLI](#tab/cli)
     
-    The `deployment-onehot/deployment.yml` file contains the deployment's configuration.
+    The `deployment-onehot/deployment.yml` file contains the deployment's configuration. You can check the [full batch endpoint YAML schema](reference-yaml-endpoint-batch.md) for extra properties.
 
     __deployment-onehot/deployment.yml__
 
-    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deployment-onehot/deployment.yml" :::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deployment-onehot/deployment.yml" :::
     
     # [Python](#tab/python)
 
     Our pipeline is defined in a function. To transform it to a component, you'll use the `build()` method. Pipeline components are reusable compute graphs that can be included in batch deployments or used to compose more complex pipelines.
 
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=build_nondefault_pipeline)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=build_nondefault_pipeline)]
     
     Now we can define the deployment:
     
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_nondefault_deployment)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_nondefault_deployment)]
     
 1. Create the deployment:
 
@@ -423,7 +423,7 @@ By default, we used `ordinal` previously. Let's now change the categorical encod
     
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_nondefault_deployment" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_nondefault_deployment" :::
 
     Your deployment is ready for use.   
 
@@ -431,7 +431,7 @@ By default, we used `ordinal` previously. Let's now change the categorical encod
 
     This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_nondefault_deployment)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_nondefault_deployment)]
 
 1. Your deployment is ready for use.
 
@@ -443,25 +443,25 @@ Once the deployment is created, it's ready to receive jobs. We can test it in th
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="invoke_nondefault_deployment_file" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="invoke_nondefault_deployment_file" :::
     
     # [Python](#tab/python)
     
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=invoke_nondefault_deployment)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=invoke_nondefault_deployment)]
     
 1. You can monitor the progress of the show and stream the logs using:
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="stream_job_logs" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="stream_job_logs" :::
     
     # [Python](#tab/python)
     
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=get_nondefault_job)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=get_nondefault_job)]
     
     To wait for the job to finish, run the following code:
     
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=stream_nondefault_job_logs)]
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=stream_nondefault_job_logs)]
 
 
 ### Configure the new deployment as the default one
@@ -470,11 +470,11 @@ Once we're satisfied with the performance of the new deployment, we can set this
 
 # [Azure CLI](#tab/cli)
     
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="update_default_deployment" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="update_default_deployment" :::
 
 # [Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=update_default_deployment)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=update_default_deployment)]
 ---
 
 ### Delete the old deployment
@@ -483,11 +483,11 @@ Once you're done, you can delete the old deployment if you don't need it anymore
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="delete_deployment" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="delete_deployment" :::
 
 # [Python](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=delete_deployment)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=delete_deployment)]
 ---
 
 ## Clean up resources
@@ -498,13 +498,13 @@ Once you're done, delete the associated resources from the workspace:
 
 Run the following code to delete the batch endpoint and its underlying deployment. `--yes` is used to confirm the deletion.
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="delete_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="delete_endpoint" :::
 
 # [Python](#tab/python)
 
 Delete the endpoint:
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=delete_endpoint)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=delete_endpoint)]
 ---
 
 (Optional) Delete compute, unless you plan to reuse your compute cluster with later deployments.

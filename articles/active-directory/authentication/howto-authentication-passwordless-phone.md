@@ -6,8 +6,9 @@ description: Enable passwordless sign-in to Azure AD using Microsoft Authenticat
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 09/13/2023
 
 
 ms.author: justinha
@@ -50,13 +51,12 @@ To use passwordless phone sign-in with Microsoft Authenticator, the following pr
 - For iOS, the device must be registered with each tenant where it's used to sign in. For example, the following device must be registered with Contoso and Wingtiptoys to allow all accounts to sign in:
   - balas@contoso.com
   - balas@wingtiptoys.com and bsandhu@wingtiptoys
-- For iOS, we recommend enabling the option in Microsoft Authenticator to allow Microsoft to gather usage data. It's not enabled by default. To enable it in Microsoft Authenticator, go to **Settings** > **Usage Data**.
-  
-  :::image type="content" border="true" source="./media/howto-authentication-passwordless-phone/telemetry.png" alt-text="Screenshot of Usage Data in Microsoft Authenticator.":::
 
 To use passwordless authentication in Azure AD, first enable the combined registration experience, then enable users for the passwordless method.
 
 ## Enable passwordless phone sign-in authentication methods
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Azure AD lets you choose which authentication methods can be used during the sign-in process. Users then register for the methods they'd like to use. The **Microsoft Authenticator** authentication method policy manages both the traditional push MFA method and the passwordless authentication method. 
 
@@ -65,8 +65,8 @@ Azure AD lets you choose which authentication methods can be used during the sig
 
 To enable the authentication method for passwordless phone sign-in, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an *Authentication Policy Administrator* account.
-1. Search for and select *Azure Active Directory*, then browse to **Security** > **Authentication methods** > **Policies**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Policies**.
 1. Under **Microsoft Authenticator**, choose the following options:
    1. **Enable** - Yes or No
    1. **Target** - All users or Select users
@@ -90,6 +90,9 @@ Users can register for passwordless phone sign-in directly within the Microsoft 
 6. Once signed-in, continue following the additional steps to set up phone sign-in. 
 
 ### Guided registration with My Sign-ins 
+> [!NOTE]
+> Users will only be able to register Microsoft Authenticator via combined registration if the Microsoft Authenticator authentication mode is to  Any or Push. 
+
 To register the Microsoft Authenticator app, follow these steps:
 
 1. Browse to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo).
@@ -97,7 +100,7 @@ To register the Microsoft Authenticator app, follow these steps:
 1. Follow the instructions to install and configure the Microsoft Authenticator app on your device.
 1. Select **Done** to complete Microsoft Authenticator configuration.
 
-### Enable phone sign-in
+#### Enable phone sign-in
 
 After users registered themselves for the Microsoft Authenticator app, they need to enable phone sign-in: 
 
@@ -139,7 +142,7 @@ Admins can also configure parameters to better control how Microsoft Authenticat
 
 Global Administrators can also manage Microsoft Authenticator on a tenant-wide basis by using legacy MFA and SSPR policies. These policies allow Microsoft Authenticator to be enabled or disabled for all users in the tenant. There are no options to include or exclude anyone, or control how Microsoft Authenticator can be used for sign-in. 
 
-## Known Issues
+## Known issues
 
 The following known issues exist.
 
@@ -154,7 +157,11 @@ To resolve this scenario, follow these steps:
 
 Then the user can continue to use passwordless phone sign-in.
 
-### Federated Accounts
+### AuthenticatorAppSignInPolicy not supported
+
+The AuthenticatorAppSignInPolicy is a legacy policy that is not supported with Microsoft Authenticator. In order to enable your users for push notifications or passwordless phone sign-in with the Authenticator app, use the [Authentication Methods policy](concept-authentication-methods-manage.md). 
+
+### Federated accounts
 
 When a user has enabled any passwordless credential, the Azure AD login process stops using the login\_hint. Therefore the process no longer accelerates the user toward a federated login location.
 

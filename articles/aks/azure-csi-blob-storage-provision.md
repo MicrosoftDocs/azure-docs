@@ -3,8 +3,8 @@ title: Create a persistent volume with Azure Blob storage in Azure Kubernetes Se
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 05/02/2023
-
+ms.custom: devx-track-linux
+ms.date: 09/06/2023
 ---
 
 # Create and use a volume with Azure Blob storage in Azure Kubernetes Service (AKS)
@@ -24,9 +24,10 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 - [Enable the Blob storage CSI driver][enable-blob-csi-driver] on your AKS cluster.
 
-- Regarding the support for Azure DataLake storage account when using blobfuse mount
-   - To create an ADLS account using the driver in dynamic provisioning, you need to specify `isHnsEnabled: "true"` in the storage class parameters.
-   - To enable blobfuse access to an ADLS account in static provisioning, you need to specify the mount option `--use-adls=true` in the persistent volume.
+- To support an [Azure DataLake Gen2 storage account][azure-datalake-storage-account] when using blobfuse mount, you'll need to do the following:
+
+   - To create an ADLS account using the driver in dynamic provisioning, specify `isHnsEnabled: "true"` in the storage class parameters.
+   - To enable blobfuse access to an ADLS account in static provisioning, specify the mount option `--use-adls=true` in the persistent volume.
 
 ## Dynamically provision a volume
 
@@ -40,6 +41,7 @@ This section provides guidance for cluster administrators who want to provision 
 |location | Specify an Azure location. | `eastus` | No | If empty, driver will use the same location name as current cluster.|
 |resourceGroup | Specify an Azure resource group name. | myResourceGroup | No | If empty, driver will use the same resource group name as current cluster.|
 |storageAccount | Specify an Azure storage account name.| storageAccountName | - No for blobfuse mount </br> - Yes for NFSv3 mount. |  - For blobfuse mount: if empty, driver finds a suitable storage account that matches `skuName` in the same resource group. If a storage account name is provided, storage account must exist. </br>  - For NFSv3 mount, storage account name must be provided.|
+|networkEndpointType| Specify network endpoint type for the storage account created by driver. If privateEndpoint is specified, a [private endpoint][storage-account-private-endpoint] is created for the storage account. For other cases, a service endpoint will be created for NFS protocol.<sup>1</sup> | `privateEndpoint` | No | For an AKS cluster, add the AKS cluster name to the Contributor role in the resource group hosting the VNET.|
 |protocol | Specify blobfuse mount or NFSv3 mount. | `fuse`, `nfs` | No | `fuse`|
 |containerName | Specify the existing container (directory) name. | container | No | If empty, driver creates a new container name, starting with `pvc-fuse` for blobfuse or `pvc-nfs` for NFS v3. |
 |containerNamePrefix | Specify Azure storage directory prefix created by driver. | my |Can only contain lowercase letters, numbers, hyphens, and length should be fewer than 21 characters. | No |
@@ -56,6 +58,8 @@ This section provides guidance for cluster administrators who want to provision 
 |isHnsEnabled | Enable `Hierarchical namespace` for Azure Data Lake storage account. | `true`,`false` | No | `false`|
 |--- | **Following parameters are only for NFS protocol** | --- | --- |--- |
 |mountPermissions | Specify mounted folder permissions. |The default is `0777`. If set to `0`, driver won't perform `chmod` after mount. | `0777` | No |
+
+<sup>1</sup> If the storage account is created by the driver, then you only need to specify `networkEndpointType: privateEndpoint` parameter in storage class. The CSI driver creates the private endpoint together with the account. If you bring your own storage account, then you need to [create the private endpoint][storage-account-private-endpoint] for the storage account.
 
 ### Create a persistent volume claim using built-in storage class
 
@@ -236,7 +240,7 @@ This section provides guidance for cluster administrators who want to create one
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | ---|
-|volumeHandle | Specify a value the driver can use to uniquely identify the storage blob container in the cluster. | A recommended way to produce a unique value is to combine the globally unique storage account name and container name: `{account-name}_{container-name}`.<br> Note: The `#` character is reserved for internal use and can't be used in a volume handle. | Yes ||
+|volumeHandle | Specify a value the driver can use to uniquely identify the storage blob container in the cluster. | A recommended way to produce a unique value is to combine the globally unique storage account name and container name: `{account-name}_{container-name}`.<br> Note: The `#`, `/` character are reserved for internal use and can't be used in a volume handle. | Yes ||
 |volumeAttributes.resourceGroup | Specify Azure resource group name. | myResourceGroup | No | If empty, driver uses the same resource group name as current cluster.|
 |volumeAttributes.storageAccount | Specify an existing Azure storage account name. | storageAccountName | Yes ||
 |volumeAttributes.containerName | Specify existing container name. | container | Yes ||
@@ -268,7 +272,7 @@ This section provides guidance for cluster administrators who want to create one
 
 ### Create a Blob storage container
 
-When you create an Azure Blob storage resource for use with AKS, you can create the resource in the node resource group. This approach allows the AKS cluster to access and manage the blob storage resource. If instead you create the blob storage resource in a separate resource group, you must grant the Azure Kubernetes Service managed identity for your cluster the [Contributor][rbac-contributor-role] role to the blob storage resource group.
+When you create an Azure Blob storage resource for use with AKS, you can create the resource in the node resource group. This approach allows the AKS cluster to access and manage the blob storage resource.
 
 For this article, create the container in the node resource group. First, get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster named **myAKSCluster** in the resource group named **myResourceGroup**:
 
@@ -298,7 +302,7 @@ The following example demonstrates how to mount a Blob storage container as a pe
 
    > [!NOTE]
    > `volumeHandle` value should be a unique volumeID for every identical storage blob container in the cluster.
-   > The character `#` is reserved for internal use and cannot be used.
+   > The character `#` and `/` are reserved for internal use and cannot be used.
 
     ```yml
     apiVersion: v1
@@ -318,7 +322,7 @@ The following example demonstrates how to mount a Blob storage container as a pe
         driver: blob.csi.azure.com
         readOnly: false
         # make sure volumeid is unique for every identical storage blob container in the cluster
-        # character `#` is reserved for internal use and cannot be used in volumehandle
+        # character `#` and `/` are reserved for internal use and cannot be used in volumehandle
         volumeHandle: unique-volumeid
         volumeAttributes:
           resourceGroup: resourceGroupName
@@ -388,7 +392,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 
    > [!NOTE]
    > `volumeHandle` value should be a unique volumeID for every identical storage blob container in the cluster.
-   > The character `#` is reserved for internal use and cannot be used.
+   > The character `#` and `/` are reserved for internal use and cannot be used.
 
     ```yml
     apiVersion: v1
@@ -411,7 +415,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
         driver: blob.csi.azure.com
         readOnly: false
         # volumeid has to be unique for every identical storage blob container in the cluster
-        # character `#` is reserved for internal use and cannot be used in volumehandle
+        # character `#`and `/` are reserved for internal use and cannot be used in volumehandle
         volumeHandle: unique-volumeid
         volumeAttributes:
           containerName: containerName
@@ -511,6 +515,7 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubernets-secret]: https://kubernetes.io/docs/concepts/configuration/secret
 
 <!-- LINKS - internal -->
 [operator-best-practices-storage]: operator-best-practices-storage.md
@@ -520,3 +525,6 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 [enable-blob-csi-driver]: azure-blob-csi.md#before-you-begin
 [az-tags]: ../azure-resource-manager/management/tag-resources.md
 [sas-tokens]: ../storage/common/storage-sas-overview.md
+[azure-datalake-storage-account]: ../storage/blobs/upgrade-to-data-lake-storage-gen2-how-to.md
+[storage-account-private-endpoint]: ../storage/common/storage-private-endpoints.md
+[manage-blob-storage]: ../storage/blobs/blob-containers-cli.md

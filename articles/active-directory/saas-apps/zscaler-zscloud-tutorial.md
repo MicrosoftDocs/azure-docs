@@ -154,16 +154,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
    > Default access role is not supported as this will break provisioning, so the default role cannot be selected while assigning user.
 
 ## Configure Zscaler ZSCloud SSO
-
-1. To automate the configuration within Zscaler ZSCloud, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
-
-   ![My apps extension](common/install-myappssecure-extension.png)
-
-2. After adding extension to the browser, click on **Setup Zscaler ZSCloud** will direct you to the Zscaler ZSCloud application. From there, provide the admin credentials to sign into Zscaler ZSCloud. The browser extension will automatically configure the application for you and automate steps 3-6.
-
-   ![Setup sso](common/setup-sso.png)
-
-3. If you want to setup Zscaler ZSCloud manually, open a new web browser window and sign into your Zscaler ZSCloud company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your Zscaler ZSCloud company site as an administrator
 
 4. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
 
@@ -251,7 +242,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Zscaler ZSCloud Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Zscaler ZSCloud tile in the My Apps, this will redirect to Zscaler ZSCloud Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Zscaler ZSCloud tile in the My Apps, this will redirect to Zscaler ZSCloud Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

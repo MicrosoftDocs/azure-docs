@@ -23,11 +23,11 @@ Learn to secure Oracle E-Business Suite (EBS) using Azure Active Directory (Azur
   * See, [Zero Trust security](../../security/fundamentals/zero-trust.md)
 * Full SSO between Azure AD and BIG-IP published services
 * Managed identities and access from one control plane
-  * See, the [Azure portal](https://azure.microsoft.com/features/azure-portal)
+  * See, the [Microsoft Entra admin center](https://entra.microsoft.com)
 
 Learn more:
 
-* [Integrate F5 BIG-IP with Azure AD](./f5-aad-integration.md)
+* [Integrate F5 BIG-IP with Azure AD](./f5-integration.md)
 * [Enable SSO for an enterprise application](add-application-portal-setup-sso.md)
 
 ## Scenario description
@@ -70,16 +70,16 @@ You need the following components:
 
 * An Azure subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
-* For the account, have Azure AD Application Administrator permissions
+* Global Administrator, Cloud Application Administrator, or Application Administrator.
 * A BIG-IP or deploy a BIG-IP Virtual Edition (VE) in Azure
   * See, [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
 * Any of the following F5 BIG-IP license SKUs:
-  * F5 BIG-IP® Best bundle
-  * F5 BIG-IP Access Policy Manager™ (APM) standalone license
-  * F5 BIG-IP Access Policy Manager™ (APM) add-on license on a BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
+  * F5 BIG-IP&reg; Best bundle
+  * F5 BIG-IP Access Policy Manager&trade; (APM) standalone license
+  * F5 BIG-IP Access Policy Manager&trade; (APM) add-on license on a BIG-IP F5 BIG-IP&reg; Local Traffic Manager&trade; (LTM)
   * 90-day BIG-IP full feature trial. See, [Free Trials](https://www.f5.com/trial/big-ip-trial.php).
 * User identities synchronized from an on-premises directory to Azure AD
-  * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
+  * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/connect/how-to-connect-sync-whatis.md)
 * An SSL certificate to publish services over HTTPS, or use default certificates while testing
   * See, [SSL profile](./f5-bigip-deployment-guide.md#ssl-profile)
 * An Oracle EBS, Oracle AccessGate, and an LDAP-enabled Oracle Internet Database (OID)
@@ -93,15 +93,16 @@ This tutorial uses the Guided Configuration v16.1 Easy Button template. With the
 
 ## Register the Easy Button
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before a client or service accesses Microsoft Graph, the Microsoft identity platform must trust it.
 
 Learn more: [Quickstart: Register an application with the Microsoft identity platform](../develop/quickstart-register-app.md)
 
 Create a tenant app registration to authorize the Easy Button access to Graph. The BIG-IP pushes configurations to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with Application Administrative permissions.
-2. In the left navigation pane, select the **Azure Active Directory** service.
-3. Under **Manage**, select **App registrations > New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+2. Browse to **Identity** > **Applications** > **App registrations** > **New registration**.
 4. Enter an application **Name**. For example, F5 BIG-IP Easy Button.
 5. Specify who can use the application > **Accounts in this organizational directory only**.
 6. Select **Register**.
@@ -154,7 +155,7 @@ To reduce time and effort, reuse global settings to publish other applications.
 4. Confirm the BIG-IP connects to your tenant.
 5. Select **Next**.
 
-   ![ Screenshot of input on the Configuration Properties dialog.](./media/f5-big-ip-oracle/configuration-general-and-service-account-properties.png)
+   ![Screenshot of input on the Configuration Properties dialog.](./media/f5-big-ip-oracle/configuration-general-and-service-account-properties.png)
 
 ### Service Provider
 
@@ -165,7 +166,7 @@ Use Service Provider settings for the properties of the SAML SP instance of the 
 
    ![Screenshot for Service Provider input and options.](./media/f5-big-ip-oracle/service-provider-settings.png)
 
-3. (Optional) In **Security Settings**, select or clear the **Enable Encrypted Assertion** option. Encrypting assertions between Azure AD and the BIG-IP APM means the content tokens can’t be intercepted, nor personal or corporate data compromised.
+3. (Optional) In **Security Settings**, select or clear the **Enable Encrypted Assertion** option. Encrypting assertions between Azure AD and the BIG-IP APM means the content tokens can't be intercepted, nor personal or corporate data compromised.
 4. From the **Assertion Decryption Private Key** list, select **Create New**
 
    ![Screenshot of Create New options in the Assertion Decryption Private Key dropdown.](./media/f5-big-ip-oracle/configure-security-create-new.png)
@@ -301,7 +302,7 @@ The Easy Button wizard supports Kerberos, OAuth Bearer, and HTTP authorization h
 6. For **Header Name**, enter **USER_ORCLGUID**.
 7. For **Header Value**, enter **%{session.ldap.last.attr.orclguid}**.
 
-   ![ Screenshot of entries and selections for Header Operation, Header Name, and Header Value.](./media/f5-big-ip-oracle/sso-and-http-headers.png)
+   ![Screenshot of entries and selections for Header Operation, Header Name, and Header Value.](./media/f5-big-ip-oracle/sso-and-http-headers.png)
 
    >[!NOTE] 
    >APM session variables in curly brackets are case-sensitive.
@@ -318,7 +319,7 @@ See, Microsoft [My Apps](https://myapplications.microsoft.com/)
 
 The SAML federation metadata for the published application is imported from the tenant. This action provides the APM with the SAML sign out endpoint for Azure AD. Then, SP-initiated sign out terminates the client and Azure AD session. Ensure the APM knows when a user signs out.
 
-If you use the BIG-IP webtop portal to access published applications, APM processes a sign out to call the Azure AD sign out endpoint. If you don't use the BIG-IP webtop portal, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious to the action. Ensure SP-initiated sign out triggers secure sessions termination. Add an SLO function to the applications **Sign out** button to redirect the client to the Azure AD SAML or BIG-IP sign out endpoint. Find the SAML sign out endpoint URL for your tenant in **App Registrations > Endpoints**.
+If you use the BIG-IP webtop portal to access published applications, APM processes a sign out to call the Azure AD sign-out endpoint. If you don't use the BIG-IP webtop portal, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious to the action. Ensure SP-initiated sign out triggers secure sessions termination. Add an SLO function to the applications **Sign out** button to redirect the client to the Azure AD SAML or BIG-IP sign out endpoint. Find the SAML sign out endpoint URL for your tenant in **App Registrations > Endpoints**.
 
 If you can't change the app, have the BIG-IP listen for the application sign out call and then trigger SLO. 
 
@@ -326,7 +327,7 @@ Learn more:
 
 * [PeopleSoft SLO Logout](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout)
 * Go to support.f5.com for: 
-  * [K42052145: Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145
+  * [K42052145: Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145)
   * [K12056: Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056)
 
 ## Deploy
@@ -338,7 +339,7 @@ Learn more:
 
 1. From a browser, connect to the Oracle EBS application external URL, or select the application icon in the [My Apps](https://myapps.microsoft.com/). 
 2. Authenticate to Azure AD.
-3. You’re redirected to the BIG-IP virtual server for the application and signed in by SSO.
+3. You're redirected to the BIG-IP virtual server for the application and signed in by SSO.
 
 For increased security, block direct application access, thereby enforcing a path through the BIG-IP.
 
@@ -346,7 +347,7 @@ For increased security, block direct application access, thereby enforcing a pat
 
 Sometimes, the Guided Configuration templates lack flexibility for requirements. 
 
-Learn more: [Tutorial: Configure F5 BIG-IP’s Access Policy Manager for header-based SSO](./f5-big-ip-header-advanced.md). 
+Learn more: [Tutorial: Configure F5 BIG-IP's Access Policy Manager for header-based SSO](./f5-big-ip-header-advanced.md). 
 
 ### Manually change configurations
 
@@ -411,7 +412,7 @@ Learn more:
 
 Use the following bash shell command to validate the APM service account for LDAP queries. The command authenticates and queries user objects.
 
-```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=oraclef5,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)" ```
+```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=oraclef5,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)"```
 
 Learn more:
 

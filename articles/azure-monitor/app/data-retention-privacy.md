@@ -2,14 +2,14 @@
 title: Data retention and storage in Application Insights | Microsoft Docs
 description: Retention and privacy policy statement for Application Insights.
 ms.topic: conceptual
-ms.date: 03/22/2023
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.date: 07/10/2023
+ms.custom: devx-track-csharp
 ms.reviewer: saars
 ---
 
 # Data collection, retention, and storage in Application Insights
 
-When you install the [Application Insights][start] SDK in your app, it sends telemetry about your app to the cloud. As a responsible developer, you want to know exactly what data is sent, what happens to the data, and how you can keep control of it. In particular, could sensitive data be sent, where is it stored, and how secure is it?
+When you install the [Application Insights][start] SDK in your app, it sends telemetry about your app to the [cloud](create-workspace-resource.md). As a responsible developer, you want to know exactly what data is sent, what happens to the data, and how you can keep control of it. In particular, could sensitive data be sent, where is it stored, and how secure is it?
 
 First, the short answer:
 
@@ -25,7 +25,7 @@ The rest of this article discusses these points more fully. The article is self-
 
 [Application Insights][start] is a service provided by Microsoft that helps you improve the performance and usability of your live application. It monitors your application all the time it's running, both during testing and after you've published or deployed it. Application Insights creates charts and tables that show you informative metrics. For example, you might see what times of day you get most users, how responsive the app is, and how well it's served by any external services that it depends on. If there are failures or performance issues, you can search through the telemetry data to diagnose the cause. The service sends you emails if there are any changes in the availability and performance of your app.
 
-To get this functionality, you install an Application Insights SDK in your application, which becomes part of its code. When your app is running, the SDK monitors its operation and sends telemetry to Application Insights, which is a cloud service hosted by [Microsoft Azure](https://azure.com). Application Insights also works for any applications, not just applications that are hosted in Azure.
+To get this functionality, you install an Application Insights SDK in your application, which becomes part of its code. When your app is running, the SDK monitors its operation and sends telemetry to an [Application Insights Log Analytics workspace](create-workspace-resource.md), which is a cloud service hosted by [Microsoft Azure](https://azure.com). Application Insights also works for any applications, not just applications that are hosted in Azure.
 
 Application Insights stores and analyzes the telemetry. To see the analysis or search through the stored telemetry, you sign in to your Azure account and open the Application Insights resource for your application. You can also share access to the data with other members of your team, or with specified Azure subscribers.
 
@@ -85,7 +85,7 @@ You'll need to write a [telemetry processor plug-in](./api-filtering-sampling.md
 
 ## How long is the data kept?
 
-Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table) of 30, 60, 90, 120, 180, 270, 365, 550, or 730 days. If you need to keep data longer than 730 days, you can use [Continuous Export](./export-telemetry.md) to copy it to a storage account during data ingestion.
+Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](../logs/data-retention-archive.md#configure-retention-and-archive-at-the-table-level) of 30, 60, 90, 120, 180, 270, 365, 550, or 730 days. If you need to keep data longer than 730 days, you can use [diagnostic settings](../essentials/diagnostic-settings.md#diagnostic-settings-in-azure-monitor).
 
 Data kept longer than 90 days incurs extra charges. For more information about Application Insights pricing, see the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -320,6 +320,22 @@ You can [switch off some of the data by editing ApplicationInsights.config][conf
 ## Can I modify or update data after it has been collected?
 
 No. Data is read-only and can only be deleted via the purge functionality. To learn more, see [Guidance for personal data stored in Log Analytics and Application Insights](../logs/personal-data-mgmt.md#delete).
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### What happens to Application Insight telemetry when a server or device loses connection with Azure?
+
+All of our SDKs, including the web SDK, include *reliable transport* or *robust transport*. When the server or device loses connection with Azure, telemetry is [stored locally on the file system](./data-retention-privacy.md#does-the-sdk-create-temporary-local-storage) (Server SDKs) or in HTML5 Session Storage (Web SDK). The SDK periodically retries to send this telemetry until our ingestion service considers it "stale" (48 hours for logs, 30 minutes for metrics). Stale telemetry is dropped. In some cases, such as when local storage is full, retry won't occur.
+
+### Is personal data sent in the telemetry?
+
+You can send personal data if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. Learn more about [data retention and privacy](./data-retention-privacy.md).
+          
+*All* octets of the client web address are always set to 0 after the geolocation attributes are looked up.
+          
+The [Application Insights JavaScript SDK](./javascript.md) doesn't include any personal data in its autocompletion, by default. However, some personal data used in your application might be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry initializer](./api-filtering-sampling.md#javascript-web-applications).   
 
 <!--Link references-->
 

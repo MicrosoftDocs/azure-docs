@@ -42,7 +42,9 @@ AVNM automatically maintains the desired topology you defined in the connectivit
 ## Security
 
 With Azure Virtual Network Manager, you create [security admin rules](concept-security-admins.md) to enforce security policies across virtual networks in your organization. Security admin rules take precedence over rules defined by network security groups, and they're applied first when analyzing traffic as seen in the following diagram:
-:::image type="content" source="media/concept-use-cases/sec-admin-rule-evaluation.png" alt-text="This diagram shows the order of network traffic evaluation when using network admin rules and network security group rules.":::
+
+:::image type="content" source="media/concept-security-admins/traffic-evaluation.png" alt-text="Diagram showing order of evaluation for network traffic with security admin rules and network security rules.":::
+
 Common uses include:
 
 - Create standard rules that must be applied and enforced on all existing VNets and newly created VNets.
@@ -56,6 +58,7 @@ For a walk-through of use cases, see [Securing Your Virtual Networks with Azure 
 
 ## Next steps
 - Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance using the Azure portal.
+- Deploy an [Azure Virtual Network Manager](create-virtual-network-manager-terraform.md) instance using Terraform.
 - Learn more about [network groups](concept-network-groups.md) in Azure Virtual Network Manager.
 - Learn what you can do with a [connectivity configuration](concept-connectivity-configuration.md).
 - Learn more about [security admin configurations](concept-security-admins.md).

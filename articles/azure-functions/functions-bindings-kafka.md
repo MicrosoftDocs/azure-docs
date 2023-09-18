@@ -2,6 +2,7 @@
 title: Apache Kafka bindings for Azure Functions
 description: Learn to integrate Azure Functions with an Apache Kafka stream.
 ms.topic: reference
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 01/12/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---

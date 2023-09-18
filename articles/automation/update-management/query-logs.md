@@ -3,7 +3,7 @@ title: Query Azure Automation Update Management logs
 description: This article tells how to query the logs for Update Management in your Log Analytics workspace.
 services: automation
 ms.subservice: update-management
-ms.date: 12/13/2022
+ms.date: 06/28/2022
 ms.topic: conceptual
 ---
 
@@ -87,7 +87,7 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 | SucceededOnRetry | Value indicating if the update execution failed on the first attempt and the current operation is a retry attempt. |
 | ErrorResult | Windows Update error code generated if an update fails to install. |
 | UpdateRunName| Name of the update schedule.| 
-| InstallationStatus | The possible installation states of an update on the client computer,<br> `NotStarted` - job not triggered yet.<br> `Failed` - job started but failed with an exception.<br> `InProgress` - job in progress.<br> `MaintenanceWindowExceeded` - if execution was remaining but maintenance window interval reached.<br> `Succeeded` - job succeeded.<br> `InstallFailed` - update failed to install successfully.<br> `NotIncluded` - the corresponding update's classification doesn't match with customer's entries in input classification list.<br> `Excluded` - user enters a KBID in excluded list. While patching, if KBID in excluded list matches with the system detected update KB ID, it is marked as excluded.  |
+| InstallationStatus | The possible installation states of an update on the client computer,<br> `NotStarted` - job not triggered yet.<br> `Failed` - job started but failed with an exception.<br> `InProgress` - job in progress.<br> `MaintenanceWindowExceeded` - if execution was remaining but maintenance window interval reached.<br> `Succeeded` - job succeeded.<br> `Install Failed` - update failed to install successfully.<br> `NotIncluded` - the corresponding update's classification doesn't match with customer's entries in input classification list.<br> `Excluded` - user enters a KBID in excluded list. While patching, if KBID in excluded list matches with the system detected update KB ID, it is marked as excluded.  |
 | Computer | Fully-qualified domain name of reporting machine. |
 | Title | The title of the update. |
 | Product | The products for which the update is applicable. |

@@ -4,7 +4,7 @@ description: Learn how to connect Azure Functions to an Azure Storage queue by a
 ms.date: 02/07/2020
 ms.topic: quickstart
 ms.devlang: csharp, java, javascript, powershell, python, typescript
-ms.custom: devx-track-python, mode-other, devx-track-azurepowershell
+ms.custom: devx-track-python, mode-other, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
 ---
 

@@ -1,15 +1,15 @@
 ### YamlMime:FAQ
 metadata:
-  title: Microsoft Defender for Cloud FAQ - General questions
+  title: Common questions -  General questions
   description: Frequently asked general questions about Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats
   services: defender-for-cloud
-  author: elkrieger
-  ms.author: elkrieger
+  author: dcurwin
+  ms.author: dacurwin
   manager: raynew
   ms.topic: faq
   ms.custom: ignite-2022
-  ms.date: 01/24/2023
-title: FAQ - General questions about Microsoft Defender for Cloud
+  ms.date: 06/18/2023
+title: Common questions - General questions
 summary: |
 
 sections:
@@ -94,7 +94,7 @@ sections:
         answer: |
           The Microsoft Security Response Center (MSRC) performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties. When MSRC becomes aware that customer data has been accessed by an unlawful or unauthorized party or that the customer’s use of Azure does not comply with the terms for Acceptable Use, a security incident manager notifies the customer. Notification typically occurs by sending an email to the security contacts specified in Microsoft Defender for Cloud or the Azure subscription owner if a security contact is not specified.
           
-          Defender for Cloud is an Azure service that continuously monitors the customer’s Azure, multicloud, and on-premises environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the workload protection dashboard.
+          Defender for Cloud is an Azure service that continuously monitors the customer's Azure, multicloud, and on-premises environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the workload protection dashboard.
 
 
       - question: |
@@ -107,3 +107,243 @@ sections:
           If the user's info isn't listed in the **Event initiated by** column, explore the event's JSON for the relevant details.
 
           :::image type="content" source="media/faq-general/tracking-pricing-changes-in-activity-log.png" alt-text="Screenshot of Azure Activity log JSON explorer.":::
+
+
+      - question: |
+          What happens when one recommendation is in multiple policy initiatives?
+        answer: |
+          Sometimes, a security recommendation appears in more than one policy initiative. If you've got multiple instances of the same recommendation assigned to the same subscription, and you create an exemption for the recommendation, it will affect all of the initiatives that you have permission to edit.
+
+          If you try to create an exemption for this recommendation, you'll see one of the two following messages:
+
+          - If you **have** the necessary permissions to edit both initiatives, you'll see:
+
+              *This recommendation is included in several policy initiatives: [initiative names separated by comma]. Exemptions will be created on all of them.*  
+
+          - If you **don't have** sufficient permissions on both initiatives, you'll see this message instead:
+
+              *You have limited permissions to apply the exemption on all the policy initiatives, the exemptions will be created only on the initiatives with sufficient permissions.*
+
+
+      - question: |
+          Are there any recommendations that don't support exemption?
+        answer: |
+          These generally available recommendations don't support exemption:
+
+          - All advanced threat protection types should be enabled in SQL managed instance advanced data security settings
+          - All advanced threat protection types should be enabled in SQL server advanced data security settings
+          - Container CPU and memory limits should be enforced
+          - Container images should be deployed from trusted registries only
+          - Container with privilege escalation should be avoided
+          - Containers sharing sensitive host namespaces should be avoided
+          - Containers should listen on allowed ports only
+          - Default IP Filter Policy should be Deny
+          - Immutable (read-only) root filesystem should be enforced for containers
+          - IoT Devices - Open Ports On Device
+          - IoT Devices - Permissive firewall policy in one of the chains was found
+          - IoT Devices - Permissive firewall rule in the input chain was found
+          - IoT Devices - Permissive firewall rule in the output chain was found
+          - IP Filter rule large IP range
+          - Least privileged Linux capabilities should be enforced for containers
+          - Overriding or disabling of containers AppArmor profile should be restricted
+          - Privileged containers should be avoided
+          - Running containers as root user should be avoided
+          - Services should listen on allowed ports only
+          - SQL servers should have an Azure Active Directory administrator provisioned
+          - Usage of host networking and ports should be restricted
+          - Usage of pod HostPath volume mounts should be restricted to a known list to restrict node access from compromised containers
+
+
+      - question: |
+          We're already using conditional access (CA) policy to enforce MFA. Why do we still get the Defender for Cloud recommendations?
+        answer: |
+          To investigate why the recommendations are still being generated, verify the following configuration options in your MFA CA policy:
+
+          - You've included the accounts in the **Users** section of your MFA CA policy (or one of the groups in the **Groups** section)
+          - The Azure Management app ID (797f4846-ba00-4fd7-ba43-dac1f8f63013), or all apps, are included in the **Apps** section of your MFA CA policy
+          - The Azure Management app ID isn't excluded in the **Apps** section of your MFA CA policy
+          - OR condition is used with only MFA, or AND condition is used with MFA 
+ 
+      - question: |
+          We're using a third-party MFA tool to enforce MFA. Why do we still get the Defender for Cloud recommendations?
+        answer: |
+          Defender for Cloud's MFA recommendations doesn't support third-party MFA tools (for example, DUO).
+
+          If the recommendations are irrelevant for your organization, consider marking them as "mitigated" as described in [Exempting resources and recommendations from your secure score](exempt-resource.md). You can also [disable a recommendation](tutorial-security-policy.md#disable-a-security-recommendation).
+
+ 
+      - question: |
+          Why does Defender for Cloud show user accounts without permissions on the subscription as "requiring MFA"?
+        answer: |
+          Defender for Cloud's MFA recommendations refers to [Azure RBAC](../role-based-access-control/role-definitions-list.md) roles and the [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md) role. Verify that none of the accounts have such roles.
+
+ 
+      - question: |
+          We're enforcing MFA with PIM. Why are PIM accounts shown as noncompliant?
+        answer: |
+          Defender for Cloud's MFA recommendations currently doesn't support PIM accounts. You can add these accounts to a CA Policy in the Users/Group section.
+
+ 
+      - question: |
+          Can I exempt or dismiss some of the accounts?
+        answer: |
+          The capability to exempt some accounts that don't use MFA is available on the new recommendations in preview:
+
+          - Accounts with owner permissions on Azure resources should be MFA enabled
+          - Accounts with write permissions on Azure resources should be MFA enabled
+          - Accounts with read permissions on Azure resources should be MFA enabled
+
+          To exempt account(s), follow these steps:
+
+          1. Select an MFA recommendation associated with an unhealthy account.
+          1. In the Accounts tab, select an account to exempt.
+          1. Select the three dots button, then select **Exempt account**.
+          1. Select a scope and exemption reason. 
+
+          If you would like to see which accounts are exempt, navigate to **Exempted accounts** for each recommendation.
+
+          > [!TIP]
+          > When you exempt an account, it won't be shown as unhealthy and won't cause a subscription to appear unhealthy.
+
+  
+      - question: |
+          Are there any limitations to Defender for Cloud's identity and access protections?
+        answer: |
+          There are some limitations to Defender for Cloud's identity and access protections:
+
+          - Identity recommendations aren't available for subscriptions with more than 6,000 accounts. In these cases, these types of subscriptions will be listed under Not applicable tab.
+          - Identity recommendations aren't available for Cloud Solution Provider (CSP) partner's admin agents.
+          - Identity recommendations don't identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you might see inaccurate results in the **Manage access and permissions** control.
+          - Identity recommendations don't support Azure AD conditional access policies with included Directory Roles instead of users and groups.
+ 
+  
+      - question: |
+          What operating systems for my EC2 instances are supported?
+        answer: |
+          For a list of the AMIs with the SSM Agent preinstalled see [this page in the AWS docs](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent).
+
+          For other operating systems, the SSM Agent should be installed manually using the following instructions:
+
+          - [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
+          - [Install SSM Agent for a hybrid environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
+
+  
+      - question: |
+          For the CSPM plan, what IAM permissions are needed to discover AWS resources?
+        answer: |
+          The following IAM permissions are needed to discover AWS resources:
+
+          | DataCollector | AWS Permissions  |
+          |--|--|
+          | API Gateway | `apigateway:GET` |
+          | Application Auto Scaling | `application-autoscaling:Describe*` |
+          | Auto scaling | `autoscaling-plans:Describe*` <br> `autoscaling:Describe*` |
+          | Certificate manager | `acm-pca:Describe*` <br> `acm-pca:List*` <br> `acm:Describe*` <br> `acm:List*` |
+          | CloudFormation | `cloudformation:Describe*` <br> `cloudformation:List*` |
+          | CloudFront | `cloudfront:DescribeFunction` <br> `cloudfront:GetDistribution` <br> `cloudfront:GetDistributionConfig` <br> `cloudfront:List*` |
+          | CloudTrail | `cloudtrail:Describe*` <br> `cloudtrail:GetEventSelectors` <br> `cloudtrail:List*` <br> `cloudtrail:LookupEvents` |
+          | CloudWatch | `cloudwatch:Describe*` <br> `cloudwatch:List*` |
+          | CloudWatch logs | `logs:DescribeLogGroups` <br> `logs:DescribeMetricFilters` |
+          | CodeBuild | `codebuild:DescribeCodeCoverages` <br> `codebuild:DescribeTestCases` <br> `codebuild:List*` |
+          | Config Service | `config:Describe*` <br> `config:List*` |
+          | DMS – database migration service | `dms:Describe*` <br> `dms:List*` |
+          | DAX | `dax:Describe*` |
+          | DynamoDB | `dynamodb:Describe*` <br> `dynamodb:List*` |
+          | Ec2 | `ec2:Describe*` <br> `ec2:GetEbsEncryptionByDefault` |
+          | ECR | `ecr:Describe*` <br> `ecr:List*` |
+          | ECS | `ecs:Describe*` <br> `ecs:List*` |
+          | EFS | `elasticfilesystem:Describe*` |
+          | EKS | `eks:Describe*` <br> `eks:List*` |
+          | Elastic Beanstalk | `elasticbeanstalk:Describe*` <br> `elasticbeanstalk:List*` |
+          | ELB – elastic load balancing (v1/2) | `elasticloadbalancing:Describe*` |
+          | Elastic search | `es:Describe*` <br> `es:List*` |
+          | EMR – elastic map reduce | `elasticmapreduce:Describe*` <br> `elasticmapreduce:GetBlockPublicAccessConfiguration` <br> `elasticmapreduce:List*` <br> `elasticmapreduce:View*` |
+          | GuardDuty | `guardduty:DescribeOrganizationConfiguration` <br> `guardduty:DescribePublishingDestination` <br> `guardduty:List*` |
+          | IAM | `iam:Generate*` <br> `iam:Get*` <br> `iam:List*` <br> `iam:Simulate*` |
+          | KMS | `kms:Describe*` <br> `kms:List*` |
+          | Lambda | `lambda:GetPolicy` <br> `lambda:List*` |
+          | Network firewall | `network-firewall:DescribeFirewall` <br> `network-firewall:DescribeFirewallPolicy` <br> `network-firewall:DescribeLoggingConfiguration` <br> `network-firewall:DescribeResourcePolicy` <br> `network-firewall:DescribeRuleGroup` <br> `network-firewall:DescribeRuleGroupMetadata` <br> `network-firewall:ListFirewallPolicies` <br> `network-firewall:ListFirewalls` <br> `network-firewall:ListRuleGroups` <br> `network-firewall:ListTagsForResource` |
+          | RDS | `rds:Describe*` <br> `rds:List*` |
+          | RedShift | `redshift:Describe*` |
+          | S3 and S3Control | `s3:DescribeJob` <br> `s3:GetEncryptionConfiguration` <br> `s3:GetBucketPublicAccessBlock` <br> `s3:GetBucketTagging` <br> `s3:GetBucketLogging` <br> `s3:GetBucketAcl` <br> `s3:GetBucketLocation` <br> `s3:GetBucketPolicy` <br> `s3:GetReplicationConfiguration` <br> `s3:GetAccountPublicAccessBlock` <br> `s3:GetObjectAcl` <br> `s3:GetObjectTagging` <br> `s3:List*` |
+          | SageMaker | `sagemaker:Describe*` <br> `sagemaker:GetSearchSuggestions` <br> `sagemaker:List*` <br> `sagemaker:Search` |
+          | Secret manager | `secretsmanager:Describe*` <br> `secretsmanager:List*` |
+          | Simple notification service – SNS | `sns:Check*` <br> `sns:List*` |
+          | SSM | `ssm:Describe*` <br> `ssm:List*` |
+          | SQS | `sqs:List*` <br> `sqs:Receive*` |
+          | STS | `sts:GetCallerIdentity` |
+          | WAF | `waf-regional:Get*` <br> `waf-regional:List*` <br> `waf:List*` <br> `wafv2:CheckCapacity` <br> `wafv2:Describe*` <br> `wafv2:List*` |
+       
+    
+      - question: |
+          Is there an API for connecting my GCP resources to Defender for Cloud?
+        answer: |
+          Yes. To create, edit, or delete Defender for Cloud cloud connectors with a REST API, see the details of the [Connectors API](/rest/api/defenderforcloud/security-connectors).
+
+    
+      - question: |
+          What GCP regions are supported by Defender for Cloud?
+        answer: |
+          Defender for Cloud supports and scans all available regions on GCP public cloud.
+
+    
+      - question: |
+          Does workflow automation support any business continuity or disaster recovery (BCDR) scenarios?
+        answer: |
+          When preparing your environment for BCDR scenarios, where the target resource is experiencing an outage or other disaster, it's the organization's responsibility to prevent data loss by establishing backups according to the guidelines from Azure Event Hubs, Log Analytics workspace, and Logic Apps.
+
+          For every active automation, we recommend you create an identical (disabled) automation and store it in a different location. When there's an outage, you can enable these backup automations and maintain normal operations.
+
+          Learn more about [Business continuity and disaster recovery for Azure Logic Apps](../logic-apps/business-continuity-disaster-recovery-guidance.md).
+
+
+      - question: |
+          What are the costs involved in exporting data?
+        answer: |
+          There's no cost for enabling a continuous export. Costs might be incurred for ingestion and retention of data in your Log Analytics workspace, depending on your configuration there.
+
+          Many alerts are only provided when you've enabled Defender plans for your resources. A good way to preview the alerts you'll get in your exported data is to see the alerts shown in Defender for Cloud's pages in the Azure portal.
+
+          Learn more about [Log Analytics workspace pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+          Learn more about [Azure Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
+
+          For general information about Defender for Cloud pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+      
+      
+      - question: |
+          Does the continuous export include data about the current state of all resources?
+        answer: |
+          No. Continuous export is built for streaming of **events**:
+
+          - **Alerts** received before you enabled export won't be exported.
+          - **Recommendations** are sent whenever a resource's compliance state changes. For example, when a resource turns from healthy to unhealthy. Therefore, as with alerts, recommendations for resources that haven't changed state since you enabled export won't be exported.
+          - **Secure score** per security control or subscription is sent when a security control's score changes by 0.01 or more.
+          - **Regulatory compliance status** is sent when the status of the resource's compliance changes.
+
+
+      - question: |
+          Why are recommendations sent at different intervals?
+        answer: |
+          Different recommendations have different compliance evaluation intervals, which can range from every few minutes to every few days. So, the amount of time that it takes for recommendations to appear in your exports varies.
+
+      - question: |
+          How can I get an example query for a recommendation?
+        answer: |
+          To get an example query for a recommendation, open the recommendation in Defender for Cloud, select **Open query**, and then select **Query returning security findings**.
+
+          :::image type="content" source="media/faq-general/recommendation-example-query.png" alt-text="Screenshot of how to create example query for recommendation.":::
+
+      - question: |
+          Does continuous export support any business continuity or disaster recovery (BCDR) scenarios?
+        answer: |
+          Continuous export can be helpful in to prepare for BCDR scenarios where the target resource is experiencing an outage or other disaster. However, it's the organization's responsibility to prevent data loss by establishing backups according to the guidelines from Azure Event Hubs, Log Analytics workspace, and Logic App.
+
+          Learn more in [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md).
+
+additionalContent: |
+
+  ## Next steps
+  
+  [Learn about what's new in Defender for Cloud](release-notes.md)
+  

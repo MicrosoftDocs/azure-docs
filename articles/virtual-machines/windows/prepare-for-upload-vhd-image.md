@@ -240,13 +240,15 @@ Make sure the following settings are configured correctly for remote access:
 
    ```powershell
    Enable-PSRemoting -Force
-   Set-NetFirewallRule -Name WINRM-HTTP-In-TCP, WINRM-HTTP-In-TCP-PUBLIC -Enabled True
    ```
+   
+> [!NOTE]
+> When this command runs, it enables the appropriate firewall rules automatically.
 
 1. Enable the following firewall rules to allow the RDP traffic:
 
    ```powershell
-   Set-NetFirewallRule -Group '@FirewallAPI.dll,-28752' -Enabled True
+   Get-NetFirewallRule -DisplayGroup 'Remote Desktop' | Set-NetFirewallRule -Enabled True
    ```
 
 1. Enable the rule for file and printer sharing so the VM can respond to ping requests inside the
@@ -262,6 +264,9 @@ Make sure the following settings are configured correctly for remote access:
    New-NetFirewallRule -DisplayName AzurePlatform -Direction Inbound -RemoteAddress 168.63.129.16 -Profile Any -Action Allow -EdgeTraversalPolicy Allow
    New-NetFirewallRule -DisplayName AzurePlatform -Direction Outbound -RemoteAddress 168.63.129.16 -Profile Any -Action Allow
    ```
+  
+ > [!IMPORTANT]
+ > 168.63.129.16 is a special public IP address that is owned by Microsoft for Azure. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 1. If the VM is part of a domain, check the following Azure AD policies to make sure the previous
    settings aren't reverted.
@@ -641,6 +646,18 @@ configured them.
   - We recommend disabling script blockers that might be provided by antivirus software. They might
     interfere and block the Windows Provisioning Agent scripts executed when you deploy a new VM
     from your image.
+
+> [!TIP]
+> **Optional** Use [DISM](/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) to optimize your image and reduce your VM's first boot time.
+>
+> To optimize your image, mount your VHD by double-clicking on it in Windows explorer, and then run DISM with the `/optimize-image` parameter.
+>
+> ```cmd
+> DISM /image:D:\ /optimize-image /boot
+> ```
+> Where D: is the mounted VHD's path.
+>
+> Running `DISM /optimize-image` should be the last modification you make to your VHD. If you make any changes to your VHD prior to deployment, you'll have to run `DISM /optimize-image` again.
 
 ## Next steps
 

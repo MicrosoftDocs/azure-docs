@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 09/14/2023
 
 ms.author: justinha
 author: justinha
@@ -14,7 +14,7 @@ manager: amycolannino
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom: has-azure-ad-ps-ref
 ---
 # Pre-populate user authentication contact information for Azure Active Directory self-service password reset (SSPR)
 
@@ -23,7 +23,7 @@ To use Azure Active Directory (Azure AD) self-service password reset (SSPR), aut
 You can pre-populate authentication contact information if you meet the following requirements:
 
 * You have properly formatted the data in your on-premises directory.
-* You have configured [Azure AD Connect](../hybrid/how-to-connect-install-express.md) for your Azure AD tenant.
+* You have configured [Azure AD Connect](../hybrid/connect/how-to-connect-install-express.md) for your Azure AD tenant.
 
 Phone numbers must be in the format *+CountryCode PhoneNumber*, such  as *+1 4251234567*.
 
@@ -45,9 +45,9 @@ After a user verifies their mobile phone number, the *Phone* field under **Authe
 
 ## Authentication contact info
 
-On the **Authentication methods** page for an Azure AD user in the Azure portal, a Global Administrator can manually set the authentication contact information. You can review existing methods under the *Usable authentication methods* section, or **+Add authentication methods**, as shown in the following example screenshot:
+On the **Authentication methods** page for an Azure AD user in the Microsoft Entra admin center, a Global Administrator can manually set the authentication contact information. You can review existing methods under the *Usable authentication methods* section, or **+Add authentication methods**, as shown in the following example screenshot:
 
-:::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="Manage authentication methods from the Azure portal":::
+:::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="Screenshot of how to manage authentication methods":::
 
 The following considerations apply for this authentication contact info:
 
@@ -56,7 +56,7 @@ The following considerations apply for this authentication contact info:
 
 ## Security questions and answers
 
-The security questions and answers are stored securely in your Azure AD tenant and are only accessible to users via the [SSPR registration portal](https://aka.ms/ssprsetup). Administrators can't see, set, or modify the contents of another users' questions and answers.
+The security questions and answers are stored securely in your Azure AD tenant and are only accessible to users via My Security-Info's [Combined registration experience](https://aka.ms/mfasetup). Administrators can't see, set, or modify the contents of another users' questions and answers.
 
 ## What happens when a user registers
 

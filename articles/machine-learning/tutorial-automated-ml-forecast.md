@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: manashgoswami 
 ms.author: magoswam
 ms.reviewer: ssalgado 
-ms.date: 10/21/2021
+ms.date: 06/12/2023
 ms.custom: automl, ignite-2022
 #Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
@@ -36,7 +36,7 @@ Also try automated machine learning for these other model types:
 
 * An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md). 
 
-* Download the [bike-no.csv](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv) data file
+* Download the [bike-no.csv](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv) data file
 
 ## Sign in to the studio
 
@@ -66,7 +66,7 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. Select **Upload files** from the **Upload** drop-down.. 
     
-    1. Choose the **bike-no.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv).
+    1. Choose the **bike-no.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv).
 
     1. Select **Next**
 
@@ -182,9 +182,9 @@ Navigate to the **Models** tab to see the algorithms (models) tested. By default
 
 While you wait for all of the experiment models to finish, select the **Algorithm name** of a completed model to explore its performance details. 
 
-The following example navigates through the **Details** and the **Metrics** tabs to view the selected model's properties, metrics and performance charts. 
+The following example navigates to select a model from the list of models that the job created. Then, you select the **Overview** and the **Metrics** tabs to view the selected model's properties, metrics and performance charts. 
 
-![Run detail](./media/tutorial-automated-ml-forecast/explore-models.gif)
+![Run Overview](./media/tutorial-automated-ml-forecast/explore-models.gif)
 
 ## Deploy the model
 
@@ -238,7 +238,7 @@ Delete just the deployment instance from the Azure Machine Learning studio, if y
 
 ### Delete the resource group
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 ## Next steps
 

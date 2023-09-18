@@ -50,10 +50,10 @@ Register-AzProviderFeature -FeatureName AllowPeeringService -ProviderNamespace M
 
 ## List Peering Service locations and service providers 
 
-Use [Get-AzPeeringServiceCountry](/powershell/module/az.peering/get-azpeeringservicecountry) to list the countries where Peering Service is available and [Get-AzPeeringServiceLocation](/powershell/module/az.peering/get-azpeeringservicelocation) to list the available metro locations in each country where you can get the Peering Service: 
+Use [Get-AzPeeringServiceCountry](/powershell/module/az.peering/get-azpeeringservicecountry) to list the countries/regions where Peering Service is available and [Get-AzPeeringServiceLocation](/powershell/module/az.peering/get-azpeeringservicelocation) to list the available metro locations in each country/region where you can get the Peering Service: 
 
 ```azurepowershell-interactive
-# List the countries available for Peering Service.
+# List the countries/regions available for Peering Service.
 Get-AzPeeringServiceCountry 
 # List metro locations serviced in a country
 Get-AzPeeringServiceLocation -Country "United States"
@@ -106,6 +106,5 @@ Remove-AzPeeringServicePrefix -ResourceGroupName myResourceGroup -Name myPeering
 
 ## Next steps
 
-- To learn more about Peering Service connection, see [Peering Service connection](connection.md).
-- To learn more about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-- To measure Peering Service connection telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+- To learn more about Peering Service connections, see [Peering Service connection](connection.md).
+- To learn more about Peering Service connection telemetry, see [Access Peering Service connection telemetry](connection-telemetry.md).

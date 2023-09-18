@@ -1,12 +1,12 @@
 ---
 title: Set up a staging environment in Azure Spring Apps
 description: Learn how to use blue-green deployment with Azure Spring Apps
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: karler
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Set up a staging environment in Azure Spring Apps
@@ -22,7 +22,7 @@ This article explains how to set up a staging deployment by using the blue-green
 
 ## Prerequisites
 
-- An existing Azure Spring Apps instance on a Standard pricing tier.
+- An existing Azure Spring Apps instance on the Standard plan.
 - [Azure CLI](/cli/azure/install-azure-cli).
 
 This article uses an application built from Spring Initializr. If you want to use a different application for this example, make a change in a public-facing portion of the application to differentiate your staging deployment from the production deployment.

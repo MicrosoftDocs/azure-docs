@@ -3,6 +3,7 @@ title: Upgrade Durable Functions extension version
 description: Learn why it's important to use the latest version of the Durable Functions extension and how to upgrade to the latest.
 author: lilyjma
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 02/15/2023
 ms.author: azfuncdf
 ---
@@ -52,15 +53,11 @@ func extensions install
 However, if you **only** wish to install the latest Durable Functions extension release, you would run the following command: 
 
 ```console
-func extensions install Microsoft.Azure.WebJobs.Extensions.DurableTask -v <version>
+func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v <version>
 ```
 
 For example:
 
 ```console
-func extensions install Microsoft.Azure.WebJobs.Extensions.DurableTask -v 2.9.1
+func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 2.9.1
 ```
-
-
-
-

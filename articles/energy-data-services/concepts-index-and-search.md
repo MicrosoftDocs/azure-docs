@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Data Manager for Energy Preview - index and search workflow concepts
+title: Microsoft Azure Data Manager for Energy - index and search workflow concepts
 description: Learn how to use indexing and search workflows
 author: vivekkalra
 ms.author: vivekkalra
@@ -10,11 +10,9 @@ ms.custom: template-concept
 
 #Customer intent: As a developer, I want to understand indexing and search workflows so that I could search for ingested data in the platform.
 ---
-# Azure Data Manager for Energy Preview indexing and search workflows
+# Azure Data Manager for Energy indexing and search workflows
 
 All data and associated metadata ingested into the platform are indexed to enable search. The metadata is accessible to ensure awareness even when the data isn't available.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Indexer Service
 

@@ -116,15 +116,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Way We Do SSO
 
-1. To automate the configuration within Way We Do, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Setup Way We Do** will direct you to the Way We Do application. From there, provide the admin credentials to sign into Way We Do. The browser extension will automatically configure the application for you and automate steps 3-6.
 
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to setup Way We Do manually, open a new web browser window and sign into your Way We Do company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your Way We Do company site as an administrator
 
 1. Click the **person icon** in the top right corner of any page in Way We Do, then click **Account** in the dropdown menu.
 
@@ -174,7 +169,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Way We Do Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Way We Do tile in the My Apps, this will redirect to Way We Do Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Way We Do tile in the My Apps, this will redirect to Way We Do Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

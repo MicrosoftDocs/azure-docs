@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 ms.author: justinha
 
 #Customer intent: As an server administrator, I want to learn how to join a Windows Server VM to an Azure Active Directory Domain Services managed domain to provide centralized identity and policy.
@@ -43,9 +43,9 @@ To complete this tutorial, you need the following resources:
 
 If you already have a VM that you want to domain-join, skip to the section to [join the VM to the managed domain](#join-the-vm-to-the-managed-domain).
 
-## Sign in to the Azure portal
+## Sign in to the Microsoft Entra admin center
 
-In this tutorial, you create a Windows Server VM to join to your managed domain using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+In this tutorial, you create a Windows Server VM to join to your managed domain using the Microsoft Entra admin center. To get started, first sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 ## Create a Windows Server virtual machine
 
@@ -53,11 +53,11 @@ To see how to join a computer to a managed domain, let's create a Windows Server
 
 If you already have a VM that you want to domain-join, skip to the section to [join the VM to the managed domain](#join-the-vm-to-the-managed-domain).
 
-1. From the Azure portal menu or from the **Home** page, select **Create a resource**.
+1. From the Microsoft Entra admin center menu or from the **Home** page, select **Create a resource**.
 
 1. From **Get started**, choose **Windows Server 2016 Datacenter**.
 
-    ![Choose to create a Windows Server 2016 Datacenter VM in the Azure portal](./media/join-windows-vm/select-vm-image.png)
+    ![Choose to create a Windows Server 2016 Datacenter VM](./media/join-windows-vm/select-vm-image.png)
 
 1. In the **Basics** window, configure the core settings for the virtual machine. Leave the defaults for *Availability options*, *Image*, and *Size*.
 
@@ -67,11 +67,11 @@ If you already have a VM that you want to domain-join, skip to the section to [j
     | Virtual machine name | Enter a name for the VM, such as *myVM* |
     | Region               | Choose the region to create your VM in, such as *East US* |
     | Username             | Enter a username for the local administrator account to create on the VM, such as *azureuser* |
-    | Password             | Enter, and then confirm, a secure password for the local administrator to create on the VM. Don't specify a domain user account's credentials. |
+    | Password             | Enter, and then confirm, a secure password for the local administrator to create on the VM. Don't specify a domain user account's credentials. [Windows LAPS](/windows-server/identity/laps/laps-overview) isn't supported. |
 
 1. By default, VMs created in Azure are accessible from the Internet using RDP. When RDP is enabled, automated sign-in attacks are likely to occur, which may disable accounts with common names such as *admin* or *administrator* due to multiple failed successive sign-in attempts.
 
-    RDP should only be enabled when required, and limited to a set of authorized IP ranges. This configuration helps improve the security of the VM and reduces the area for potential attack. Or, create and use an Azure Bastion host that allows access only through the Azure portal over TLS. In the next step of this tutorial, you use an Azure Bastion host to securely connect to the VM.
+    RDP should only be enabled when required, and limited to a set of authorized IP ranges. This configuration helps improve the security of the VM and reduces the area for potential attack. Or, create and use an Azure Bastion host that allows access only through the Microsoft Entra admin center over TLS. In the next step of this tutorial, you use an Azure Bastion host to securely connect to the VM.
 
     Under **Public inbound ports**, select *None*.
 
@@ -89,7 +89,7 @@ If you already have a VM that you want to domain-join, skip to the section to [j
     In the **Networking** pane, select the virtual network in which your managed domain is deployed, such as *aaads-vnet*
 1. In this example, the existing *aaads-subnet* is shown that the managed domain is connected to. Don't connect your VM to this subnet. To create a subnet for the VM, select **Manage subnet configuration**.
 
-    ![Choose to manage the subnet configuration in the Azure portal](./media/join-windows-vm/manage-subnet.png)
+    ![Choose to manage the subnet configuration](./media/join-windows-vm/manage-subnet.png)
 
 1. In the left-hand menu of the virtual network window, select **Address space**. The virtual network is created with a single address space of *10.0.2.0/24*, which is used by the default subnet. Other subnets, such as for *workloads* or Azure Bastion may also already exist.
 
@@ -97,13 +97,13 @@ If you already have a VM that you want to domain-join, skip to the section to [j
 
     In the following example, an additional IP address range of *10.0.5.0/24* is added. When ready, select **Save**.
 
-    ![Add an additional virtual network IP address range in the Azure portal](./media/join-windows-vm/add-vnet-address-range.png)
+    ![Add an additional virtual network IP address range](./media/join-windows-vm/add-vnet-address-range.png)
 
 1. Next, in the left-hand menu of the virtual network window, select **Subnets**, then choose **+ Subnet** to add a subnet.
 
 1. Select **+ Subnet**, then enter a name for the subnet, such as *management*. Provide an **Address range (CIDR block)**, such as *10.0.5.0/24*. Make sure that this IP address range doesn't overlap with any other existing Azure or on-premises address ranges. Leave the other options as their default values, then select **OK**.
 
-    ![Create a subnet configuration in the Azure portal](./media/join-windows-vm/create-subnet.png)
+    ![Create a subnet configuration](./media/join-windows-vm/create-subnet.png)
 
 1. It takes a few seconds to create the subnet. Once it's created, select the *X* to close the subnet window.
 1. Back in the **Networking** pane to create a VM, choose the subnet you created from the drop-down menu, such as *management*. Again, make sure you choose the correct subnet and don't deploy your VM in the same subnet as your managed domain.
@@ -112,23 +112,23 @@ If you already have a VM that you want to domain-join, skip to the section to [j
 1. Set **Boot diagnostics** to *Off*. Leave the other options as their default values, then select **Review + create**.
 1. Review the VM settings, then select **Create**.
 
-It takes a few minutes to create the VM. The Azure portal shows the status of the deployment. Once the VM is ready, select **Go to resource**.
+It takes a few minutes to create the VM. The Microsoft Entra admin center shows the status of the deployment. Once the VM is ready, select **Go to resource**.
 
-![Go to the VM resource in the Azure portal once it's successfully created](./media/join-windows-vm/vm-created.png)
+![Go to the VM resource once it's successfully created](./media/join-windows-vm/vm-created.png)
 
 ## Connect to the Windows Server VM
 
-To securely connect to your VMs, use an Azure Bastion host. With Azure Bastion, a managed host is deployed into your virtual network and provides web-based RDP or SSH connections to VMs. No public IP addresses are required for the VMs, and you don't need to open network security group rules for external remote traffic. You connect to VMs using the Azure portal from your web browser. If needed, [create an Azure Bastion host][azure-bastion].
+To securely connect to your VMs, use an Azure Bastion host. With Azure Bastion, a managed host is deployed into your virtual network and provides web-based RDP or SSH connections to VMs. No public IP addresses are required for the VMs, and you don't need to open network security group rules for external remote traffic. You connect to VMs using the Microsoft Entra admin center from your web browser. If needed, [create an Azure Bastion host][azure-bastion].
 
 To use a Bastion host to connect to your VM, complete the following steps:
 
 1. In the **Overview** pane for your VM, select **Connect**, then **Bastion**.
 
-    ![Connect to Windows virtual machine using Bastion in the Azure portal](./media/join-windows-vm/connect-to-vm.png)
+    ![Connect to Windows virtual machine using Bastion](./media/join-windows-vm/connect-to-vm.png)
 
 1. Enter the credentials for your VM that you specified in the previous section, then select **Connect**.
 
-   ![Connect through the Bastion host in the Azure portal](./media/join-windows-vm/connect-to-bastion.png)
+   ![Connect through the Bastion host](./media/join-windows-vm/connect-to-bastion.png)
 
 If needed, allow your web browser to open pop-ups for the Bastion connection to be displayed. It takes a few seconds to make the connection to your VM.
 

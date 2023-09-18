@@ -246,7 +246,7 @@ Variable Costs = $0.008  * ( 2 (Instance Units) * 10 (capacity units) * 730 (Hou
 
 DDoS Network Protection Cost = $2,944 * 1 (month) = $2,944
 
-Total Costs = $179.58 + $11.68 + $2,944 = $3,135.26
+Total Costs = $179.58 + $116.8 + $2,944 = $3,240.38
 
 
 ## V1 SKUs

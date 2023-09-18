@@ -4,7 +4,7 @@ description: Learn how VNet peering and Azure Bastion can be used together to co
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 12/06/2021
+ms.date: 06/23/2023
 ms.author: cherylmc
 
 ---
@@ -53,7 +53,7 @@ Verify the following permissions when working with this architecture:
   * Reader role on the virtual machine.
   * Reader role on the NIC with private IP of the virtual machine.
   * Reader role on the Azure Bastion resource.
-  * Reader role on the virtual network (for peered virtual networks).
+  * Reader role on the virtual networks of the target virtual machines.
 
 ## <a name="FAQ"></a>Bastion VNet peering FAQ
 

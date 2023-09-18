@@ -3,7 +3,7 @@ title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/06/2022
+ms.date: 09/11/2023
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -19,7 +19,13 @@ Bicep is a declarative language, which means the elements can appear in any orde
 A Bicep file has the following elements.
 
 ```bicep
+metadata <metadata-name> = ANY
+
 targetScope = '<scope>'
+
+type <user-defined-data-type-name> = <type-expression>
+
+func <user-defined-function-name> (<argument-name> <data-type>, <argument-name> <data-type>, ...) <function-data-type> => <expression>
 
 @<decorator>(<argument>)
 param <parameter-name> <parameter-data-type> = <default-value>
@@ -43,6 +49,9 @@ output <output-name> <output-data-type> = <output-value>
 The following example shows an implementation of these elements.
 
 ```bicep
+metadata description = 'Creates a storage account and a web app'
+
+@description('The prefix to use for the storage account name.')
 @minLength(3)
 @maxLength(11)
 param storagePrefix string
@@ -52,7 +61,7 @@ param location string = resourceGroup().location
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2019-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -71,9 +80,11 @@ module webModule './webApp.bicep' = {
     location: location
   }
 }
-
-output storageEndpoint object = stg.properties.primaryEndpoints
 ```
+
+## Metadata
+
+Metadata in Bicep is an untyped value that can be included in Bicep files. It allows you to provide supplementary information about your Bicep files, including details like its name, description, author, creation date, and more.
 
 ## Target scope
 
@@ -87,6 +98,52 @@ The allowed values are:
 * **tenant** - used for [tenant deployments](deploy-to-tenant.md).
 
 In a module, you can specify a scope that is different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#set-module-scope)
+
+## Types
+
+You can use the `type` statement to define user-defined data types.
+
+```bicep
+param location string = resourceGroup().location
+
+type storageAccountSkuType = 'Standard_LRS' | 'Standard_GRS'
+
+type storageAccountConfigType = {
+  name: string
+  sku: storageAccountSkuType
+}
+
+param storageAccountConfig storageAccountConfigType = {
+  name: 'storage${uniqueString(resourceGroup().id)}'
+  sku: 'Standard_LRS'
+}
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+  name: storageAccountConfig.name
+  location: location
+  sku: {
+    name: storageAccountConfig.sku
+  }
+  kind: 'StorageV2'
+}
+```
+
+For more information, see [User-defined data types](./user-defined-data-types.md).
+
+## Functions (Preview)
+
+> [!NOTE]
+> To enable the preview feature, see [Enable experimental features](./bicep-config.md#enable-experimental-features).
+
+In your Bicep file, you can create your own functions in addition to using the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that are used repeatedly in your Bicep files.
+
+```bicep
+func buildUrl(https bool, hostname string, path string) string => '${https ? 'https' : 'http'}://${hostname}${empty(path) ? '' : '/${path}'}'
+
+output azureUrl string = buildUrl(true, 'microsoft.com', 'azure')
+```
+
+For more information, see [User-defined functions](./user-defined-functions.md).
 
 ## Parameters
 
@@ -110,7 +167,7 @@ For more information, see [Parameters in Bicep](./parameters.md).
 
 ## Parameter decorators
 
-You can add one or more decorators for each parameter. These decorators describe the parameter and define constraints for the values that are passed in. The following example shows one decorator but many others are available. 
+You can add one or more decorators for each parameter. These decorators describe the parameter and define constraints for the values that are passed in. The following example shows one decorator but many others are available.
 
 ```bicep
 @allowed([
@@ -143,7 +200,7 @@ For more information, see [Variables in Bicep](./variables.md).
 
 ## Resources
 
-Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You'll use this symbolic name in other parts of the Bicep file to get a value from the resource.
+Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You use this symbolic name in other parts of the Bicep file to get a value from the resource.
 
 The resource declaration includes the resource type and API version. Within the body of the resource declaration, include properties that are specific to the resource type.
 

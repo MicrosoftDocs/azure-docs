@@ -33,7 +33,7 @@ Microsoft offers the following [three passwordless authentication options](conce
 
 ## Use the passwordless methods wizard
 
-The [Azure portal](https://portal.azure.com/) now has a passwordless methods wizard that will help you to select the appropriate method for each of your audiences. If you haven't yet determined the appropriate methods, see [https://aka.ms/passwordlesswizard](https://aka.ms/passwordlesswizard), then return to this article to continue planning for your selected methods. **You need administrator rights to access this wizard.**
+The [Microsoft Entra admin center](https://entra.microsoft.com) has a passwordless methods wizard that will help you to select the appropriate method for each of your audiences. If you haven't yet determined the appropriate methods, see [https://aka.ms/passwordlesswizard](https://aka.ms/passwordlesswizard), then return to this article to continue planning for your selected methods. **You need administrator rights to access this wizard.**
 
 ## Passwordless authentication scenarios
 
@@ -95,11 +95,11 @@ The wizard will use your inputs to craft a step-by-step plan for you to follow.
 
 ## Plan the project
 
-When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood.
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../architecture/deployment-plans.md) and that stakeholder roles in the project are well understood.
 
 ### Plan a pilot
 
-When you deploy passwordless authentication, you should first enable one or more pilot groups. You can create groups specifically for this purpose. Add the users who will participate in the pilot to the groups. Then, enable new passwordless authentication methods for the selected groups. See [best practices for a pilot](../fundamentals/active-directory-deployment-plans.md).
+When you deploy passwordless authentication, you should first enable one or more pilot groups. You can create groups specifically for this purpose. Add the users who will participate in the pilot to the groups. Then, enable new passwordless authentication methods for the selected groups. See [best practices for a pilot](../architecture/deployment-plans.md).
 
 ### Plan communications
 
@@ -154,7 +154,7 @@ The following are sample test cases for passwordless authentication with the Aut
 | User can register the Authenticator app.| User can register app from https://aka.ms/mysecurityinfo. |
 | User can enable phone sign-in| Phone sign-in configured for work account. |
 | User can access an app with phone sign-in.| User goes through phone sign-in flow and reaches application. |
-| Test rolling back phone sign-in registration by turning off passwordless sign-in in the Authenticator app. Do this within the Authentication methods screen in the Azure portal| Previously enabled users unable to use passwordless sign-in from the Authenticator app. |
+| Test rolling back phone sign-in registration by turning off passwordless sign-in in the Authenticator app. Do this within the Authentication methods screen in the [Microsoft Entra admin center](https://entra.microsoft.com)| Previously enabled users unable to use passwordless sign-in from the Authenticator app. |
 | Removing phone sign-in from the Authenticator app| Work account no longer available on the Authenticator app. |
 
 
@@ -287,7 +287,7 @@ Here are the sample test cases for passwordless authentication with security key
 | The user can register FIDO2 device at aka.ms/mysecurityinfo using Firefox| Registration should succeed |
 | The user can sign in to OneDrive online using FIDO2 device using Microsoft Edge| Sign-in should succeed |
 | The user can sign in to OneDrive online using FIDO2 device using Firefox| Sign-in should succeed |
-| Test rolling back FIDO2 device registration by turning off FIDO2 Security Keys within the Authentication method window in the Azure portal| Users will: <li> be prompted to sign in using their security key <li> successfully sign in and see an error: "Your company policy requires that you use a different method to sign in". <li>be able to select a different method and successfully sign in. Close the window and sign in again to verify they do not see the same error message. |
+| Test rolling back FIDO2 device registration by turning off FIDO2 Security Keys within the Authentication method window in the [Microsoft Entra admin center](https://entra.microsoft.com)| Users will: <li> be prompted to sign in using their security key <li> successfully sign in and see an error: "Your company policy requires that you use a different method to sign in". <li>be able to select a different method and successfully sign in. Close the window and sign in again to verify they do not see the same error message. |
 
 
 ### Troubleshoot security key sign-in
@@ -304,7 +304,7 @@ Here are the sample test cases for passwordless authentication with security key
 
 ## Manage passwordless authentication
 
-To manage your user's passwordless authentication methods in the [Azure portal](https://portal.azure.com/), select your user account, and then select Authentication methods.
+To manage your user's passwordless authentication methods in the [Microsoft Entra admin center](https://entra.microsoft.com), select your user account, and then select Authentication methods.
 
 ### Microsoft Graph APIs 
 
@@ -320,9 +320,11 @@ For more information on what authentication methods can be managed in Microsoft 
 
 ### Rollback
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Though passwordless authentication is a lightweight feature with minimal impact on end users, it may be necessary to roll back.
 
-Rolling back requires the administrator to sign in to the Azure portal, select the desired strong authentication methods, and change the enable option to No. This process turns off the passwordless functionality for all users.
+Rolling back requires the administrator to sign in to the [Microsoft Entra admin center](https://entra.microsoft.com), select the desired strong authentication methods, and change the enable option to No. This process turns off the passwordless functionality for all users.
 
 ![Passwordless rollback](media/howto-authentication-passwordless-deployment/passwordless-rollback.png)
 
@@ -352,11 +354,11 @@ Azure AD adds entries to the audit logs when:
 
 * A user enables or disables their account on a security key or resets the second factor for the security key on their Win 10 machine. See event IDs: 4670 and 5382.
 
-**Azure AD keeps most auditing data for 30 days** and makes the data available via Azure Admin portal or API for you to download into your analysis systems. If you require longer retention, export and consume logs in a SIEM tool such as [Microsoft Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or Sumo Logic. We recommend longer retention for auditing, trend analysis, and other business needs as applicable
+**Azure AD keeps most auditing data for 30 days** and makes the data available by using the [Microsoft Entra admin center](https://entra.microsoft.com) or API for you to download into your analysis systems. If you require longer retention, export and consume logs in a SIEM tool such as [Microsoft Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or Sumo Logic. We recommend longer retention for auditing, trend analysis, and other business needs as applicable
 
 There are two tabs in the Authentication methods activity dashboard - Registration and Usage.
 
-The [Registration tab](https://portal.azure.com/) shows the number of users capable of passwordless authentication as well as other authentication methods. This tab displays two graphs:
+The **Registration** tab shows the number of users capable of passwordless authentication as well as other authentication methods. This tab displays two graphs:
 
 * Users registered by authentication method.
 
@@ -364,7 +366,7 @@ The [Registration tab](https://portal.azure.com/) shows the number of users capa
 
 ![Registration tab to view auth methods](media/howto-authentication-passwordless-deployment/monitoring-registration-tab.png)
 
-The [Usage tab](https://portal.azure.com/)shows the sign-ins by authentication method.
+The **Usage** tab shows the sign-ins by authentication method.
 
 ![Usage tab to view auth methods](media/howto-authentication-passwordless-deployment/monitoring-usage-tab.png)
 
@@ -382,4 +384,4 @@ Select the user row, and then select the **Authentication Details** tab to view 
 
 * [Learn how passwordless authentication works](concept-authentication-passwordless.md)
 
-* [Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
+* [Deploy other identity features](../architecture/deployment-plans.md)

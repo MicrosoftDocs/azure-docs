@@ -9,7 +9,7 @@ ms.subservice: mongodb
 ms.devlang: python
 ms.topic: how-to
 ms.date: 11/18/2022
-ms.custom: devx-track-js, ignite-2022
+ms.custom: ignite-2022, devx-track-python
 ---
 
 # Get started with Azure Cosmos DB for MongoDB and Python

@@ -4,6 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to set up a lab VM in Azure Lab Services to teach data science using Python and Jupyter Notebooks. 
 services: lab-services
 ms.service: lab-services
+ms.custom: devx-track-python
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to

@@ -116,15 +116,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Screencast-O-Matic SSO
 
-1. To automate the configuration within Screencast-O-Matic, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up Screencast-O-Matic** will direct you to the Screencast-O-Matic application. From there, provide the admin credentials to sign into Screencast-O-Matic. The browser extension will automatically configure the application for you and automate steps 3-10.
 
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to setup Screencast-O-Matic manually, open a new web browser window and sign into your Screencast-O-Matic company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your Screencast-O-Matic company site as an administrator
 
 1. Click on **Subscription**.
 
@@ -160,7 +155,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Screencast-O-Matic Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Screencast-O-Matic tile in the My Apps, this will redirect to Screencast-O-Matic Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Screencast-O-Matic tile in the My Apps, this will redirect to Screencast-O-Matic Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

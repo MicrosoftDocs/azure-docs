@@ -33,8 +33,8 @@ Here are the couple of scenarios supported by this feature:
 - Image must be replicated to the same region as the lab plan.
 
 ## Save an image to a compute gallery
-
-After a compute gallery is attached, an educator can save an image to the compute gallery so that it can be reused by other educators.
+> [!IMPORTANT]
+> Images can only be saved from labs that were created in the same region as their lab plan.
 
 1. On the **Template** page for the lab, select **Export to Azure Compute Gallery** on the toolbar.
 

@@ -49,13 +49,27 @@ We recommend that you keep feature flags outside the application and manage them
 
 The easiest way to connect your Spring Boot application to App Configuration is through the configuration provider:
 
+### [Spring Boot 3](#tab/spring-boot-3)
+
 ```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-    <version>4.7.0</version>
+    <version>5.4.0</version>
 </dependency>
 ```
+
+### [Spring Boot 2](#tab/spring-boot-2)
+
+```xml
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>4.10.0</version>
+</dependency>
+```
+
+---
 
 ## Feature flag declaration
 

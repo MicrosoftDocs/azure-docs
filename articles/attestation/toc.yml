@@ -7,6 +7,8 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Terraform
+    href: quickstart-terraform.md
   - name: Bicep
     displayName: Resource Manager, ARM
     href: quickstart-bicep.md

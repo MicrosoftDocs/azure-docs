@@ -4,6 +4,7 @@ description: This article provides instructions for resizing ADE encrypted disks
 author: jofrance
 ms.service: virtual-machines
 ms.subservice: disks
+ms.custom: devx-track-linux
 ms.topic: article
 ms.author: jofrance
 ms.date: 04/11/2023

@@ -3,7 +3,7 @@ title: Create & deploy template specs in Bicep
 description: Describes how to create template specs in Bicep and share them with other users in your organization.
 ms.topic: conceptual
 ms.custom: ignite-2022, devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
-ms.date: 11/17/2022
+ms.date: 05/26/2023
 ---
 
 # Azure Resource Manager template specs in Bicep
@@ -43,10 +43,10 @@ In addition, you also need the permissions for deploying a Bicep file. See [Depl
 
 Template specs provide the following benefits:
 
-* You use standard ARM templates or Bicep files for your template spec.
-* You manage access through Azure RBAC, rather than SAS tokens.
-* Users can deploy the template spec without having write access to the Bicep file.
-* You can integrate the template spec into existing deployment process, such as PowerShell script or DevOps pipeline.
+- You use standard ARM templates or Bicep files for your template spec.
+- You manage access through Azure RBAC, rather than SAS tokens.
+- Users can deploy the template spec without having write access to the Bicep file.
+- You can integrate the template spec into existing deployment process, such as PowerShell script or DevOps pipeline.
 
 Template specs enable you to create canonical templates and share them with teams in your organization. The template specs are secure because they're available to Azure Resource Manager for deployment, but not accessible to users without the correct permission. Users only need read access to the template spec to deploy its template, so you can share the template without allowing others to modify it.
 
@@ -154,11 +154,11 @@ resource createTemplateSpecVersion 'Microsoft.Resources/templateSpecs/versions@2
 
 The JSON template embedded in the Bicep file needs to make these changes:
 
-* Remove the commas at the end of the lines.
-* Replace double quotes to single quotes.
-* Escape the single quotes within the expressions. For example, **'name': '[parameters(&#92;'storageAccountType&#92;')]'**.
-* To access the parameters and variables defined in the Bicep file, you can directly use the parameter names and the variable names. To access the parameters and variables defined in `mainTemplate`, you still need to use the ARM JSON template syntax.  For example, **'name': '[parameters(&#92;'storageAccountType&#92;')]'**.
-* Use the Bicep syntax to call Bicep functions.  For example, **'location': resourceGroup().location**.
+- Remove the commas at the end of the lines.
+- Replace double quotes to single quotes.
+- Escape the single quotes within the expressions. For example, **'name': '[parameters(&#92;'storageAccountType&#92;')]'**.
+- To access the parameters and variables defined in the Bicep file, you can directly use the parameter names and the variable names. To access the parameters and variables defined in `mainTemplate`, you still need to use the ARM JSON template syntax.  For example, **'name': '[parameters(&#92;'storageAccountType&#92;')]'**.
+- Use the Bicep syntax to call Bicep functions.  For example, **'location': resourceGroup().location**.
 
 The size of a template spec is limited to approximated 2 MB. If a template spec size exceeds the limit, you'll get the **TemplateSpecTooLarge** error code. The error message says:
 
@@ -205,7 +205,7 @@ az ts show \
 
 After you've created the template spec, users with the [Template Specs Reader](#required-permissions) role can deploy it. In addition, you also need the permissions for deploying an ARM template. See [Deploy - CLI](./deploy-cli.md#required-permissions) or [Deploy - PowerShell](./deploy-powershell.md#required-permissions).
 
-Template specs can be deployed through the portal, PowerShell, Azure CLI, or as a Bicep module in a larger template deployment. Users in an organization can deploy a template spec to any scope in Azure (resource group, subscription, management group, or tenant).
+Template specs can be deployed through the portal, PowerShell, Azure CLI, or as a [Bicep module](#link-to-template-specs) in a larger template deployment. Users in an organization can deploy a template spec to any scope in Azure (resource group, subscription, management group, or tenant).
 
 Instead of passing in a path or URI for a Bicep file, you deploy a template spec by providing its resource ID. The resource ID has the following format:
 
@@ -403,7 +403,7 @@ Both the template and its versions can have tags. The tags are applied or inheri
 
 ## Link to template specs
 
-After creating a template spec, you can link to that template spec in a Bicep module. For more information, see [File in template spec](./modules.md#path-to-module).
+After creating a template spec, you can link to that template spec in a Bicep module. The template spec is deployed when you deploy the Bicep file containing that module. For more information, see [File in template spec](./modules.md#path-to-module).
 
 ## Next steps
 

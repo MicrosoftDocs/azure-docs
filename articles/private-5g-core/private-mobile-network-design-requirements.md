@@ -70,7 +70,7 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-2-network.png" alt-text="Diagram of a layer 2 network." lightbox="media/private-mobile-network-design-requirements/layer-2-network.png":::
 
 - Layer 3 network with multiple data networks
-  - AP5GC can support multiple attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
+  - AP5GC can support up to three attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
   - This topology requires that the N6 interface is split into one subnet for each data network or one subnet for all data networks. This option therefore requires careful planning and configuration to prevent overlapping data network IP ranges or UE IP ranges.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png" alt-text="Diagram of layer 3 network topology with multiple data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png":::
 
@@ -102,7 +102,7 @@ You need to agree with the enterprise team which IP subnets and addresses will b
 
 The RAN that you use to broadcast the signal across the enterprise site must comply with local regulations. For example, this could mean:
 
-- The RAN units have completed the process of homologation and received regulatory approval for their use on a certain frequency band in a country.
+- The RAN units have completed the process of homologation and received regulatory approval for their use on a certain frequency band in a country/region.
 - You have received permission for the RAN to broadcast using spectrum in a certain location, for example, by grant from a telecom operator, regulatory authority or via a technological solution such as a Spectrum Access System (SAS).
 - The RAN units in a site have access to high-precision timing sources, such as Precision Time Protocol (PTP) and GPS location services.
 
@@ -126,7 +126,7 @@ If you are affected by this issue, it is strongly recommended to configure the R
 
 The UEs must be able to communicate with the RAN from any location at the site. This means that the signals must propagate effectively in the environment, including accounting for obstructions and equipment, to support UEs moving around the site (for example, between indoor and outdoor areas).
 
-You should perform a site survey with your RAN partner and the enterprise to make sure that the coverage is adequate. Make sure that you understand the RAN units’ capabilities in different environments and any limits (for example, on the number of attached UEs that a single unit can support). If your UEs are going to move around the site, you should also confirm that the RAN supports X2 (4G) or Xn (5G) handover, which allows for the UE to transition seamlessly between the coverage provided by two RAN units. Note that UEs cannot use these handover techniques to roam between a private enterprise network and the public cellular network offered by a telecommunications operator.
+You should perform a site survey with your RAN partner and the enterprise to make sure that the coverage is adequate. Make sure that you understand the RAN units’ capabilities in different environments and any limits (for example, on the number of attached UEs that a single unit can support). If your UEs are going to move around the site, you should also confirm that the RAN supports X2 (4G) or Xn (5G) handover, which allows for the UE to transition seamlessly between the coverage provided by two RAN units. If the RAN doesn't support X2 (4G) or Xn (5G), then RAN must support S1 (4G) and N2 (5G) for UE mobility. Note that UEs cannot use these handover techniques to roam between a private enterprise network and the public cellular network offered by a telecommunications operator.
 
 ### SIMs
 

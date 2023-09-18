@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
 ---
 
 # Spring Data Azure Cosmos DB v3 for API for NoSQL: Release notes and resources
@@ -23,17 +23,17 @@ The [Spring Framework](https://spring.io/projects/spring-framework) is a program
 
 You can use Spring Data Azure Cosmos DB in your applications hosted in [Azure Spring Apps](https://azure.microsoft.com/services/spring-apps/).
 
-## Version Support Policy
+## Version support policy
 
-### Spring Boot Version Support
+### Spring Boot version support
 
 This project supports multiple Spring Boot Versions. Visit [spring boot support policy](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos#spring-boot-support-policy) for more information. Maven users can inherit from the `spring-boot-starter-parent` project to obtain a dependency management section to let Spring manage the versions for dependencies. Visit [spring boot version support](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos#spring-boot-version-support) for more information.
 
-### Spring Data Version Support
+### Spring Data version support
 
 This project supports different spring-data-commons versions. Visit [spring data version support](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos#spring-data-version-support) for more information.
 
-### Which Version of Azure Spring Data Azure Cosmos DB Should I Use
+### Which version of Azure Spring Data Azure Cosmos DB should I use
 
 Azure Spring Data Azure Cosmos DB library supports multiple versions of Spring Boot / Spring Cloud. Refer to [azure Spring Data Azure Cosmos DB version mapping](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#which-version-of-azure-spring-data-cosmos-should-i-use) for detailed information on which version of Azure Spring Data Azure Cosmos DB to use with Spring Boot / Spring Cloud version.
 

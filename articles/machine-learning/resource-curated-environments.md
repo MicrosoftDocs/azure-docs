@@ -9,12 +9,13 @@ ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.date: 10/21/2021
+ms.date: 09/10/2023
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Azure Machine Learning Curated Environments
 
-This article lists the curated environments with latest framework versions in Azure Machine Learning. Curated environments are provided by Azure Machine Learning and are available in your workspace by default. They're backed by cached Docker images that use the latest version of the Azure Machine Learning SDK, reducing the run preparation cost and allowing for faster deployment time. Use these environments to quickly get started with various machine learning frameworks.
+This article lists the curated environments with latest framework versions in Azure Machine Learning. Curated environments are provided by Azure Machine Learning and are available in your workspace by default. The curated environments rely on cached Docker images that use the latest version of the Azure Machine Learning SDK. Using a curated environment can reduce the run preparation cost and allow for faster deployment time. Use these environments to quickly get started with various machine learning frameworks.
 
 > [!NOTE]
 > Use the [Python SDK](how-to-use-environments.md), [CLI](/cli/azure/ml/environment#az-ml-environment-list), or Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) to get the full list of environments and their dependencies. For more information, see the [environments article](how-to-use-environments.md#use-a-curated-environment).
@@ -34,7 +35,7 @@ This article lists the curated environments with latest framework versions in Az
 
 ### Azure Container for PyTorch (ACPT)
 
-**Description**: Recommended environment for Deep Learning with PyTorch on Azure containing the Azure Machine Learning SDK with the latest compatible versions of Ubuntu, Python, PyTorch, CUDA\RocM, and NebulaML combined with optimizers like ORT Training, +DeepSpeed+MSCCL+ORT MoE, and checkpointing using NebulaML and more.
+**Description**: Recommended environment for Deep Learning with PyTorch on Azure. It contains the Azure Machine Learning SDK with the latest compatible versions of Ubuntu, Python, PyTorch, CUDA\RocM, and NebulaML. It also provides optimizers like ORT Training, +DeepSpeed+MSCCL+ORT MoE, and checkpointing using NebulaML and more.
 
 To learn more, see [Azure Container for PyTorch (ACPT)](resource-azure-container-for-pytorch.md).
 
@@ -97,7 +98,7 @@ Azure Machine Learning pipeline training workflows that use AutoML automatically
 | AzureML-AutoML-GPU | GPU | No |
 | AzureML-AutoML-DNN-GPU | GPU | Yes |
 
-For more information on AutoML and Azure Machine Learning pipelines, see [use automated ML in an Azure Machine Learning pipeline in Python](v1/how-to-use-automlstep-in-pipelines.md).
+For more information on AutoML and Azure Machine Learning pipelines, see [use automated ML in an Azure Machine Learning pipeline in Python SDK v1](v1/how-to-use-automlstep-in-pipelines.md).
 
 ## Support
-Version updates for supported environments, including the base images they reference, are released every two weeks to address vulnerabilities no older than 30 days. Based on usage, some environments may be deprecated (hidden from the product but usable) to support more common machine learning scenarios.
+Version updates for supported environments, including the base images they reference, are released every quarter to address vulnerabilities. Based on usage, some environments may be deprecated (hidden from the product but usable) to support more common machine learning scenarios.

@@ -81,6 +81,8 @@ You can edit the network features option of existing volumes from *Basic* to *St
 
 You can also revert the option from *Standard* back to *Basic* network features, but considerations apply and require careful planning. For example, you might need to change configurations for Network Security Groups (NSGs), user-defined routes (UDRs), and IP limits if you revert. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#constraints) for constraints and supported network topologies about Standard and Basic network features.
 
+See [regions supported for this feature](azure-netapp-files-network-topologies.md#regions-edit-network-features).
+
 This feature currently doesn't support SDK.
 
 > [!IMPORTANT]

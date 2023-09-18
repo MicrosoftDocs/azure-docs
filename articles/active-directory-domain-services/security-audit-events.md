@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 09/15/2023
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
@@ -19,7 +19,7 @@ ms.custom: devx-track-azurepowershell
 
 Azure Active Directory Domain Services (Azure AD DS) security and DNS audits let Azure stream events to targeted resources. These resources include Azure Storage, Azure Log Analytics workspaces, or Azure Event Hub. After you enable security audit events, Azure AD DS sends all the audited events for the selected category to the targeted resource.
 
-You can archive events into Azure storage and stream events into security information and event management (SIEM) software (or equivalent) using Azure Event Hubs, or do your own analysis and using Azure Log Analytics workspaces from the Azure portal.
+You can archive events into Azure storage and stream events into security information and event management (SIEM) software (or equivalent) using Azure Event Hubs, or do your own analysis and using Azure Log Analytics workspaces from the Microsoft Entra admin center.
 
 ## Security audit destinations
 
@@ -28,23 +28,23 @@ You can use Azure Storage, Azure Event Hubs, or Azure Log Analytics workspaces a
 The following table outlines scenarios for each destination resource type.
 
 > [!IMPORTANT]
-> You need to create the target resource before you enable Azure AD DS security audits. You can create these resources using the Azure portal, Azure PowerShell, or the Azure CLI.
+> You need to create the target resource before you enable Azure AD DS security audits. You can create these resources using the Microsoft Entra admin center, Azure PowerShell, or the Azure CLI.
 
 | Target Resource | Scenario |
 |:---|:---|
 |Azure Storage| This target should be used when your primary need is to store security audit events for archival purposes. Other targets can be used for archival purposes, however those targets provide capabilities beyond the primary need of archiving. <br /><br />Before you enable Azure AD DS security audit events, first [Create an Azure Storage account](../storage/common/storage-account-create.md).|
-|Azure Event Hubs| This target should be used when your primary need is to share security audit events with additional software such as data analysis software or security information & event management (SIEM) software.<br /><br />Before you enable Azure AD DS security audit events, [Create an event hub using Azure portal](../event-hubs/event-hubs-create.md)|
-|Azure Log Analytics Workspace| This target should be used when your primary need is to analyze and review secure audits from the Azure portal directly.<br /><br />Before you enable Azure AD DS security audit events, [Create a Log Analytics workspace in the Azure portal.](../azure-monitor/logs/quick-create-workspace.md)|
+|Azure Event Hubs| This target should be used when your primary need is to share security audit events with additional software such as data analysis software or security information & event management (SIEM) software.<br /><br />Before you enable Azure AD DS security audit events, [Create an event hub using Microsoft Entra admin center](../event-hubs/event-hubs-create.md)|
+|Azure Log Analytics Workspace| This target should be used when your primary need is to analyze and review secure audits from the Microsoft Entra admin center directly.<br /><br />Before you enable Azure AD DS security audit events, [Create a Log Analytics workspace in the Microsoft Entra admin center.](../azure-monitor/logs/quick-create-workspace.md)|
 
-## Enable security audit events using the Azure portal
+## Enable security audit events using the Microsoft Entra admin center
 
-To enable Azure AD DS security audit events using the Azure portal, complete the following steps.
+To enable Azure AD DS security audit events using the Microsoft Entra admin center, complete the following steps.
 
 > [!IMPORTANT]
 > Azure AD DS security audits aren't retroactive. You can't retrieve or replay events from the past. Azure AD DS can only send events that occur after security audits are enabled.
 
-1. Sign in to the Azure portal.
-1. At the top of the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Global Administrator.
+1. Search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
 1. In the Azure AD DS window, select **Diagnostic settings** on the left-hand side.
 1. No diagnostics are configured by default. To get started, select **Add diagnostic setting**.
 
@@ -214,7 +214,7 @@ The following audit event categories are available:
 |:---|:---|
 | Account Logon|Audits attempts to authenticate account data on a domain controller or on a local Security Accounts Manager (SAM).<br>-Logon and Logoff policy settings and events track attempts to access a particular computer. Settings and events in this category focus on the account database that is used. This category includes the following subcategories:<br>-[Audit Credential Validation](/windows/security/threat-protection/auditing/audit-credential-validation)<br>-[Audit Kerberos Authentication Service](/windows/security/threat-protection/auditing/audit-kerberos-authentication-service)<br>-[Audit Kerberos Service Ticket Operations](/windows/security/threat-protection/auditing/audit-kerberos-service-ticket-operations)<br>-[Audit Other Logon/Logoff Events](/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)|
 | Account Management|Audits changes to user and computer accounts and groups. This category includes the following subcategories:<br>-[Audit Application Group Management](/windows/security/threat-protection/auditing/audit-application-group-management)<br>-[Audit Computer Account Management](/windows/security/threat-protection/auditing/audit-computer-account-management)<br>-[Audit Distribution Group Management](/windows/security/threat-protection/auditing/audit-distribution-group-management)<br>-[Audit Other Account Management](/windows/security/threat-protection/auditing/audit-other-account-management-events)<br>-[Audit Security Group Management](/windows/security/threat-protection/auditing/audit-security-group-management)<br>-[Audit User Account Management](/windows/security/threat-protection/auditing/audit-user-account-management)|
-| DNS Server|Audits changes to DNS environments. This category includes the following subcategories: <br>- [DNSServerAuditsDynamicUpdates (preview)](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#audit-and-analytic-event-logging)<br>- [DNSServerAuditsGeneral (preview)](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#audit-and-analytic-event-logging)| 
+| DNS Server|Audits changes to DNS environments. This category includes the following subcategories: <br>- [DNSServerAuditsDynamicUpdates (preview)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#audit-and-analytic-event-logging)<br>- [DNSServerAuditsGeneral (preview)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#audit-and-analytic-event-logging)| 
 | Detail Tracking|Audits activities of individual applications and users on that computer, and to understand how a computer is being used. This category includes the following subcategories:<br>-[Audit DPAPI Activity](/windows/security/threat-protection/auditing/audit-dpapi-activity)<br>-[Audit PNP activity](/windows/security/threat-protection/auditing/audit-pnp-activity)<br>-[Audit Process Creation](/windows/security/threat-protection/auditing/audit-process-creation)<br>-[Audit Process Termination](/windows/security/threat-protection/auditing/audit-process-termination)<br>-[Audit RPC Events](/windows/security/threat-protection/auditing/audit-rpc-events)|
 | Directory Services Access|Audits attempts to access and modify objects in Active Directory Domain Services (AD DS). These audit events are logged only on domain controllers. This category includes the following subcategories:<br>-[Audit Detailed Directory Service Replication](/windows/security/threat-protection/auditing/audit-detailed-directory-service-replication)<br>-[Audit Directory Service Access](/windows/security/threat-protection/auditing/audit-directory-service-access)<br>-[Audit Directory Service Changes](/windows/security/threat-protection/auditing/audit-directory-service-changes)<br>-[Audit Directory Service Replication](/windows/security/threat-protection/auditing/audit-directory-service-replication)|
 | Logon-Logoff|Audits attempts to log on to a computer interactively or over a network. These events are useful for tracking user activity and identifying potential attacks on network resources. This category includes the following subcategories:<br>-[Audit Account Lockout](/windows/security/threat-protection/auditing/audit-account-lockout)<br>-[Audit User/Device Claims](/windows/security/threat-protection/auditing/audit-user-device-claims)<br>-[Audit IPsec Extended Mode](/windows/security/threat-protection/auditing/audit-ipsec-extended-mode)<br>-[Audit Group Membership](/windows/security/threat-protection/auditing/audit-group-membership)<br>-[Audit IPsec Main Mode](/windows/security/threat-protection/auditing/audit-ipsec-main-mode)<br>-[Audit IPsec Quick Mode](/windows/security/threat-protection/auditing/audit-ipsec-quick-mode)<br>-[Audit Logoff](/windows/security/threat-protection/auditing/audit-logoff)<br>-[Audit Logon](/windows/security/threat-protection/auditing/audit-logon)<br>-[Audit Network Policy Server](/windows/security/threat-protection/auditing/audit-network-policy-server)<br>-[Audit Other Logon/Logoff Events](/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)<br>-[Audit Special Logon](/windows/security/threat-protection/auditing/audit-special-logon)|
@@ -249,6 +249,3 @@ For specific information on Kusto, see the following articles:
 * [Kusto tutorial](/azure/kusto/query/tutorial) to familiarize you with query basics.
 * [Sample queries](/azure/kusto/query/samples) that help you learn new ways to see your data.
 * Kusto [best practices](/azure/kusto/query/best-practices) to optimize your queries for success.
-
-<!-- LINKS - Internal -->
-[migrate-azure-adds]: migrate-from-classic-vnet.md

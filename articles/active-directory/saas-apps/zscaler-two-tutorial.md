@@ -148,16 +148,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Zscaler Two SSO
-
-1. To automate the configuration within Zscaler Two, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
-
-   ![My apps extension](common/install-myappssecure-extension.png)
-
-2. After adding extension to the browser, click on **Setup Zscaler Two** will direct you to the Zscaler Two application. From there, provide the admin credentials to sign into Zscaler Two. The browser extension will automatically configure the application for you and automate steps 3-6.
-
-   ![Setup sso](common/setup-sso.png)
-
-3. If you want to setup Zscaler Two manually, open a new web browser window and sign into your Zscaler Two company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your Zscaler Two company site as an administrator
 
 4. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
 
@@ -245,7 +236,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Zscaler Two Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Zscaler Two tile in the My Apps, this will redirect to Zscaler Two Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Zscaler Two tile in the My Apps, this will redirect to Zscaler Two Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

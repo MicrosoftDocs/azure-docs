@@ -1,12 +1,12 @@
 ---
 title: "Tutorial - Use Circuit Breaker Dashboard with Azure Spring Apps"
 description: Learn how to use circuit Breaker Dashboard with Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: tutorial
 ms.date: 04/06/2020
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Tutorial: Use Circuit Breaker Dashboard with Azure Spring Apps
@@ -19,12 +19,12 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
-Spring [Cloud Netflix Turbine](https://github.com/Netflix/Turbine) is widely used to aggregate multiple [Hystrix](https://github.com/Netflix/Hystrix) metrics streams so that streams can be monitored in a single view using Hystrix dashboard. This tutorial demonstrates how to use them on Azure Spring Apps.
+This article shows you how to use Netflix Turbine and Netflix Hystrix on Azure Spring Apps. Spring Cloud [Netflix Turbine](https://github.com/Netflix/Turbine) is widely used to aggregate multiple [Netflix Hystrix](https://github.com/Netflix/Hystrix) metrics streams so that streams can be monitored in a single view using Hystrix dashboard.
 
 > [!NOTE]
-> Netflix Hystrix is widely used in many existing Spring apps but it is no longer in active development. If you are developing new project, use instead Spring Cloud Circuit Breaker implementations like [resilience4j](https://github.com/resilience4j/resilience4j). Different from Turbine shown in this tutorial, the new Spring Cloud Circuit Breaker framework unifies all implementations of its metrics data pipeline into Micrometer, which is also supported by Azure Spring Apps. [Learn More](./how-to-circuit-breaker-metrics.md).
+> Netflix Hystrix is widely used in many existing Spring apps but it's no longer in active development. If you're developing a new project, you should use Spring Cloud Circuit Breaker implementations like [resilience4j](https://github.com/resilience4j/resilience4j) instead. Different from Turbine shown in this tutorial, the new Spring Cloud Circuit Breaker framework unifies all implementations of its metrics data pipeline into Micrometer, which is also supported by Azure Spring Apps. For more information, see [Collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer (Preview)](./how-to-circuit-breaker-metrics.md).
 
 ## Prepare your sample applications
 
@@ -37,10 +37,10 @@ git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples.git
 cd Azure-Spring-Cloud-Samples/hystrix-turbine-sample
 ```
 
-Build the 3 applications that will be used in this tutorial:
+Build the three applications that are in this tutorial:
 
 * user-service: A simple REST service that has a single endpoint of /personalized/{id}
-* recommendation-service: A simple REST service that has a single endpoint of /recommendations, which will be called by user-service.
+* recommendation-service: A simple REST service that has a single endpoint of /recommendations, which is called by user-service.
 * hystrix-turbine: A Hystrix dashboard service to display Hystrix streams and a Turbine service aggregating Hystrix metrics stream from other services.
 
 ```bash
@@ -51,22 +51,30 @@ mvn clean package -D skipTests -f hystrix-turbine/pom.xml
 
 ## Provision your Azure Spring Apps instance
 
-Follow the procedure, [Provision a service instance on the Azure CLI](./quickstart.md#provision-an-instance-of-azure-spring-apps).
+Follow the steps in the [Provision an instance of Azure Spring Apps](./quickstart.md#32-create-an-azure-spring-apps-instance) section of [Quickstart: Deploy your first application to Azure Spring Apps](quickstart.md).
 
 ## Deploy your applications to Azure Spring Apps
 
-These apps do not use **Config Server**, so there is no need to set up **Config Server** for Azure Spring Apps.  Create and deploy as follows:
+These apps don't use **Config Server**, so there's no need to set up **Config Server** for Azure Spring Apps.  Create and deploy as follows:
 
 ```azurecli
-az configure --defaults group=<resource-group-name> spring=<Azure-Spring-Apps-instance-name>
+az configure --defaults \
+    group=<resource-group-name> \
+    spring=<Azure-Spring-Apps-instance-name>
 
 az spring app create --name user-service --assign-endpoint
 az spring app create --name recommendation-service
 az spring app create --name hystrix-turbine --assign-endpoint
 
-az spring app deploy --name user-service --artifact-path user-service/target/user-service.jar
-az spring app deploy --name recommendation-service --artifact-path recommendation-service/target/recommendation-service.jar
-az spring app deploy --name hystrix-turbine --artifact-path hystrix-turbine/target/hystrix-turbine.jar
+az spring app deploy \
+    --name user-service \
+    --artifact-path user-service/target/user-service.jar
+az spring app deploy \
+    --name recommendation-service \
+    --artifact-path recommendation-service/target/recommendation-service.jar
+az spring app deploy \
+    --name hystrix-turbine \
+    --artifact-path hystrix-turbine/target/hystrix-turbine.jar
 ```
 
 ## Verify your apps
@@ -85,12 +93,11 @@ Verify using public endpoints or private test endpoints.
 
 Access hystrix-turbine with the path `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/hystrix` from your browser.  The following figure shows the Hystrix dashboard running in this app.
 
-![Hystrix dashboard](media/spring-cloud-circuit-breaker/hystrix-dashboard.png)
+:::image type="content" source="media/spring-cloud-circuit-breaker/hystrix-dashboard.png" alt-text="Screenshot of the Hystrix dashboard.":::
 
-Copy the Turbine stream url `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/turbine.stream?cluster=default` into the text box, and select **Monitor Stream**.  This will display the dashboard. If nothing shows in the viewer, hit the `user-service` endpoints to generate streams.
+Copy the Turbine stream url `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/turbine.stream?cluster=default` into the text box, and select **Monitor Stream**.  This action displays the dashboard. If nothing shows in the viewer, hit the `user-service` endpoints to generate streams.
 
-![Hystrix stream](media/spring-cloud-circuit-breaker/hystrix-stream.png)
-Now you can experiment with the Circuit Breaker Dashboard.
+:::image type="content" source="media/spring-cloud-circuit-breaker/hystrix-stream.png" alt-text="Screenshot of the Hystrix stream page." lightbox="media/spring-cloud-circuit-breaker/hystrix-stream.png":::
 
 > [!NOTE]
 > In production, the Hystrix dashboard and metrics stream should not be exposed to the Internet.
@@ -99,11 +106,11 @@ Now you can experiment with the Circuit Breaker Dashboard.
 
 Hystrix metrics streams are also accessible from `test-endpoint`. As a backend service, we didn't assign a public end-point for `recommendation-service`, but we can show its metrics with test-endpoint at `https://primary:<KEY>@<SERVICE-NAME>.test.azuremicroservices.io/recommendation-service/default/actuator/hystrix.stream`
 
-![Hystrix test-endpoint stream](media/spring-cloud-circuit-breaker/hystrix-test-endpoint-stream.png)
+:::image type="content" source="media/spring-cloud-circuit-breaker/hystrix-test-endpoint-stream.png" alt-text="Screenshot of the Hystrix test-endpoint stream page." lightbox="media/spring-cloud-circuit-breaker/hystrix-test-endpoint-stream.png":::
 
-As a web app, Hystrix dashboard should be working on `test-endpoint`. If it is not working properly, there may be two reasons: first, using `test-endpoint` changed the base URL from `/` to `/<APP-NAME>/<DEPLOYMENT-NAME>`, or, second, the web app is using absolute path for static resource. To get it working on `test-endpoint`, you might need to manually edit the `<base>` in the front-end files.
+As a web app, Hystrix dashboard should be working on `test-endpoint`. If it isn't working properly, there may be two reasons: first, using `test-endpoint` changed the base URL from `/` to `/<APP-NAME>/<DEPLOYMENT-NAME>`, or, second, the web app is using absolute path for static resource. To get it working on `test-endpoint`, you might need to manually edit the `<base>` in the front-end files.
 
 ## Next steps
 
-* [Provision a service instance on the Azure CLI](./quickstart.md#provision-an-instance-of-azure-spring-apps)
+* [Provision an instance of Azure Spring Apps](./quickstart.md#32-create-an-azure-spring-apps-instance) section of [Quickstart: Deploy your first application to Azure Spring Apps](quickstart.md).
 * [Prepare a Java Spring application for deployment in Azure Spring Apps](how-to-prepare-app-deployment.md)

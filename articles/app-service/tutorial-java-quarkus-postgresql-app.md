@@ -6,7 +6,7 @@ ms.author: dbrittain
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 5/27/2022
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity
 ---
 
 # Tutorial: Build a Quarkus web app with Azure App Service on Linux and PostgreSQL
@@ -207,7 +207,7 @@ You can access Quarkus app locally by typing the `w` character into the console,
 If you see exceptions in the output, double-check that the configuration values for `%dev` are correct.
 
 > [!TIP]
-> You can enable continuous testing by typing `r` into the terminal. This will continously run tests as you develop the application. You can also use Quarkus' *Live Coding* to see changes to your Java or `pom.xml` immediately. Simlply edit code and reload the browser.
+> You can enable continuous testing by typing `r` into the terminal. This will continuously run tests as you develop the application. You can also use Quarkus' *Live Coding* to see changes to your Java or `pom.xml` immediately. Simlply edit code and reload the browser.
 
 When you're done testing locally, shut down the application with `CTRL-C` or type `q` in the terminal.
 

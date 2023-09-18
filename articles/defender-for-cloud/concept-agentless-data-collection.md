@@ -1,15 +1,15 @@
 ---
-title: Agentless scanning of cloud machines using Microsoft Defender for Cloud
+title: Learn about agentless scanning for VMs
 description: Learn how Defender for Cloud can gather information about your multicloud compute resources without installing an agent on your machines.
 author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 08/15/2023
 ms.custom: template-concept, ignite-2022
 ---
 
-# Agentless scanning for machines
+# Learn about agentless scanning
 
 Microsoft Defender for Cloud maximizes coverage on OS posture issues and extends beyond the reach of agent-based assessments. With agentless scanning for VMs, you can get frictionless, wide, and instant visibility on actionable posture issues without installed agents, network connectivity requirements, or machine performance impact.
 
@@ -21,11 +21,11 @@ Agentless scanning for VMs provides vulnerability assessment and software invent
 |---------|---------|
 |Release state:| GA |
 |Pricing:|Requires either [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) or [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features)|
-| Supported use cases:| :::image type="icon" source="./media/icons/yes-icon.png"::: Vulnerability assessment (powered by Defender Vulnerability Management)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Software inventory (powered by Defender Vulnerability Management) | 
-| Clouds:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Commercial clouds<br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected GCP accounts        |
+| Supported use cases:| :::image type="icon" source="./media/icons/yes-icon.png"::: Vulnerability assessment (powered by Defender Vulnerability Management)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Software inventory (powered by Defender Vulnerability Management)<br />:::image type="icon" source="./media/icons/yes-icon.png":::Secret scanning (Preview) |
+| Clouds:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Commercial clouds<br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP projects        |
 | Operating systems:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Windows<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Linux        |
-| Instance types:    | **Azure**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Standard VMs<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Virtual machine scale set - Flex<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual machine scale set - Uniform<br><br>**AWS**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: EC2<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Auto Scale instances<br>:::image type="icon" source="./media/icons/no-icon.png"::: Instances with a ProductCode (Paid AMIs)        |
-| Encryption: | **Azure**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Unencrypted<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Encrypted – managed disks using [Azure Storage encryption](../virtual-machines/disk-encryption.md) with platform-managed keys (PMK)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Encrypted – other scenarios using platform-managed keys (PMK)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Encrypted – customer-managed keys (CMK)<br><br>**AWS**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Unencrypted<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Encrypted - PMK<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Encrypted - CMK |
+| Instance and disk types:    | **Azure**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Standard VMs<br>:::image type="icon" source="./media/icons/no-icon.png"::: Unmanaged disks<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Virtual machine scale set - Flex<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual machine scale set - Uniform<br><br>**AWS**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: EC2<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Auto Scale instances<br>:::image type="icon" source="./media/icons/no-icon.png"::: Instances with a ProductCode (Paid AMIs)<br><br>**GCP**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Compute instances<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Instance groups (managed and unmanaged)       |
+| Encryption: | **Azure**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Unencrypted<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Encrypted – managed disks using [Azure Storage encryption](../virtual-machines/disk-encryption.md) with platform-managed keys (PMK)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Encrypted – other scenarios using platform-managed keys (PMK)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Encrypted – customer-managed keys (CMK)<br><br>**AWS**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Unencrypted<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Encrypted - PMK<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Encrypted - CMK<br><br>**GCP**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Google-managed encryption key<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Customer-managed encryption key (CMEK)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Customer-supplied encryption key (CSEK)  |
 
 ## How agentless scanning for VMs works
 
@@ -37,114 +37,10 @@ The scanning environment where disks are analyzed is regional, volatile, isolate
 
 :::image type="content" source="media/concept-agentless-data-collection/agentless-scanning-process.png" alt-text="Diagram of the process for collecting operating system data through agentless scanning.":::
 
-## FAQ
-
-### How does scanning affect the instances?
-Since the scanning process is an out-of-band analysis of snapshots, it doesn't impact the actual workloads and isn't visible by the guest operating system.
-
-### How does scanning affect the account/subscription?
-
-The scanning process has minimal footprint on your accounts and subscriptions.
-
-| Cloud provider  | Changes  |
-|---------|---------|
-| Azure    | - Adds a “VM Scanner Operator” role assignment<br>- Adds a “vmScanners” resource with the relevant configurations used to manage the scanning process        |
-| AWS     | - Adds role assignment<br>- Adds authorized audience to OpenIDConnect provider<br>- Snapshots are created next to the scanned volumes, in the same account, during the scan (typically for a few minutes)        |
-
-### What is the scan freshness?
-
-Each VM is scanned every 24 hours.
-
-### Which permissions are used by agentless scanning?
-
-The roles and permissions used by Defender for Cloud to perform agentless scanning on your Azure and AWS environments are listed here. In Azure, these permissions are automatically added to your subscriptions when you enable agentless scanning. In AWS, these permissions are [added to the CloudFormation stack in your AWS connector](enable-vulnerability-assessment-agentless.md#agentless-vulnerability-assessment-on-aws).
-
-- Azure	permissions - The built-in role “VM scanner operator” has read-only permissions for VM disks which are required for the snapshot process. The detailed list of permissions is:
-
-    - `Microsoft.Compute/disks/read`
-    - `Microsoft.Compute/disks/beginGetAccess/action`
-    - `Microsoft.Compute/virtualMachines/instanceView/read`
-    - `Microsoft.Compute/virtualMachines/read`
-    - `Microsoft.Compute/virtualMachineScaleSets/instanceView/read`
-    - `Microsoft.Compute/virtualMachineScaleSets/read`
-    - `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read`
-    - `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/instanceView/read`
-
-- AWS permissions - The role “VmScanner” is assigned to the scanner when you enable agentless scanning. This role has the minimal permission set to create and clean up snapshots (scoped by tag) and to verify the current state of the VM. The detailed permissions are:
-
-    | Attribute | Value |
-    |---------|---------|
-    | SID | **VmScannerDeleteSnapshotAccess** |
-    | Actions | ec2:DeleteSnapshot |
-    | Conditions | "StringEquals":{"ec2:ResourceTag/CreatedBy”:<br>"Microsoft Defender for Cloud"} |
-    | Resources | arn:aws:ec2:::snapshot/ |
-    | Effect | Allow |
-
-    | Attribute | Value |
-    |---------|---------|
-    | SID | **VmScannerAccess** |
-    | Actions | ec2:ModifySnapshotAttribute <br> ec2:DeleteTags <br> ec2:CreateTags <br> ec2:CreateSnapshots <br> ec2:CopySnapshots <br> ec2:CreateSnapshot |
-    | Conditions | None |
-    | Resources | arn:aws:ec2:::instance/ <br> arn:aws:ec2:::snapshot/ <br> arn:aws:ec2:::volume/ |
-    | Effect | Allow |
-    
-    | Attribute | Value |
-    |---------|---------|
-    | SID | **VmScannerVerificationAccess** |
-    | Actions | ec2:DescribeSnapshots <br> ec2:DescribeInstanceStatus |
-    | Conditions | None |
-    | Resources | * |
-    | Effect | Allow |
-       
-    | Attribute | Value |
-    |---------|---------|
-    | SID | **VmScannerEncryptionKeyCreation** |
-    | Actions | kms:CreateKey |
-    | Conditions | None |
-    | Resources | * |
-    | Effect | Allow |
-    
-    | Attribute | Value |
-    |---------|---------|
-    | SID | **VmScannerEncryptionKeyManagement** |
-    | Actions | kms:TagResource <br> kms:GetKeyRotationStatus <br> kms:PutKeyPolicy <br> kms:GetKeyPolicy <br> kms:CreateAlias <br> kms:ListResourceTags |
-    | Conditions | None |
-    | Resources | arn:aws:kms::${AWS::AccountId}:key/ <br> arn:aws:kms:*:${AWS::AccountId}:alias/DefenderForCloudKey |
-    | Effect | Allow |
-    
-    | Attribute | Value |
-    |---------|---------|
-    | SID | **VmScannerEncryptionKeyUsage** |
-    | Actions | kms:GenerateDataKeyWithoutPlaintext <br> kms:DescribeKey <br> kms:RetireGrant <br> kms:CreateGrant <br> kms:ReEncryptFrom |
-    | Conditions | None |
-    | Resources | arn:aws:kms::${AWS::AccountId}:key/ |
-    | Effect | Allow |
-
-
-### Which data is collected from snapshots?
-
-Agentless scanning collects data similar to the data an agent collects to perform the same analysis. Raw data, PIIs or sensitive business data isn't collected, and only metadata results are sent to Defender for Cloud.
-
-### What are the costs related to agentless scanning?
-
-Agentless scanning is included in Defender Cloud Security Posture Management (CSPM) and Defender for Servers P2 plans. No other costs will incur to Defender for Cloud when enabling it.
-
-> [!NOTE]
-> AWS charges for retention of disk snapshots. Defender for Cloud scanning process actively tries to minimize the period during which a snapshot is stored in your account (typically up to a few minutes), but you may be charged by AWS a minimal overhead cost for the disk snapshots storage.
-
-### How are VM snapshots secured?
-
-Agentless scanning protects disk snapshots according to Microsoft’s highest security standards. To ensure VM snapshots are private and secure during the analysis process, some of the measures taken are:
-
-- Data is encrypted at rest and in-transit.
-- Snapshots are immediately deleted when the analysis process is complete.
-- Snapshots remain within their original AWS or Azure region. EC2 snapshots aren't copied to Azure.
-- Isolation of environments per customer account/subscription.
-- Only metadata containing scan results is sent outside the isolated scanning environment.
-- All operations are audited.
-
 ## Next steps
 
 This article explains how agentless scanning works and how it helps you collect data from your machines.
 
-Learn more about how to [enable vulnerability assessment with agentless scanning](enable-vulnerability-assessment-agentless.md).
+- Learn more about how to [enable agentless scanning for VMs](enable-vulnerability-assessment-agentless.md).
+
+- Check out common questions about agentless scanning and [how it affects the subscription/account](faq-cspm.yml#how-does-scanning-affect-the-account-subscription-), [agentless data collection](faq-data-collection-agents.yml#agentless), and [permissions used by agentless scanning](faq-permissions.yml#which-permissions-are-used-by-agentless-scanning-).

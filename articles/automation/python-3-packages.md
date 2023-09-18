@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/08/2023
 ms.topic: conceptual
-ms.custom: has-adal-ref, references_regions, devx-track-azurepowershell
+ms.custom: has-adal-ref, references_regions, devx-track-azurepowershell, devx-track-python
 ---
 
 # Manage Python 3 packages in Azure Automation

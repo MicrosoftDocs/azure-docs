@@ -10,7 +10,7 @@ ms.date: 06/26/2020
 Schedules allow you to configure a lab such that VMs in the lab automatically start and shut down at a specified time. You can define a one-time schedule or a recurring schedule. The following procedures give you steps to create and manage schedules for a lab:
 
 > [!IMPORTANT]
-> The scheduled running time of VMs does not count against the [quota allotted to a user](how-to-configure-student-usage.md#set-quotas-for-users). The quota is for the time outside of schedule hours that a student spends on VMs.
+> The scheduled running time of VMs does not count against the [quota allotted to a user](how-to-manage-lab-users.md#set-quotas-for-users). The quota is for the time outside of schedule hours that a student spends on VMs.
 
 ## Set a schedule for the lab
 
@@ -75,5 +75,5 @@ See the following articles:
 
 - [As an admin, create and manage lab plans](how-to-manage-lab-plans.md)
 - [As a lab owner, create and manage labs](how-to-manage-labs.md)
-- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
+- [As a lab owner, configure and control usage of a lab](how-to-manage-lab-users.md)
 - [As a lab user, access labs](how-to-use-lab.md)

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 07/06/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with ArcGIS Online
@@ -74,14 +74,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<companyname>.maps.arcgis.com`
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `<COMPANY_NAME>.maps.arcgis.com`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `<companyname>.maps.arcgis.com`
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.maps.arcgis.com/sharing/rest/oauth2/saml/signin`
+
+    c. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<COMPANY_NAME>.maps.arcgis.com`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [ArcGIS Online Client support team](https://support.esri.com/en/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [ArcGIS Online Client support team](https://support.esri.com/en/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -119,31 +122,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure ArcGIS Online SSO
 
-1. To automate the configuration within ArcGIS Online, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
-
-	![My apps extension](common/install-myappssecure-extension.png)
-
-1. After adding extension to the browser, click on **Set up ArcGIS Online** will direct you to the ArcGIS Online application. From there, provide the admin credentials to sign in to ArcGIS Online. The browser extension will automatically configure the application for you and automate steps 3-7.
-
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to setup ArcGIS Online manually, open a new web browser window and log into your ArcGIS Online company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your ArcGIS Online company site as an administrator
 
 2. Go to the **Organization** -> **Settings**. 
 
-    ![Edit Settings](./media/arcgis-tutorial/settings.png "Edit Settings")
+    ![Screenshot shows Edit Settings.](./media/arcgis-tutorial/settings.png "Edit Settings")
 
 3. In the left menu, click **Security** and select **New SAML login** in the Logins tab.
 
-    ![screenshot for Security](./media/arcgis-tutorial/security.png)
+    ![Screenshot shows Security.](./media/arcgis-tutorial/security.png)
 
 4. In the **Set SAML login** window, choose the configuration as **One identity provider** and click **Next**.
 
-    ![Enterprise Logins](./media/arcgis-tutorial/identity-provider.png "Enterprise Logins")
+    ![Screenshot shows Enterprise Logins.](./media/arcgis-tutorial/identity-provider.png "Enterprise Logins")
 
 5. On the **Specify properties** tab, perform the following steps:
 
-    ![Set Identity Provider](./media/arcgis-tutorial/set-saml-login.png "Set Identity Provider")
+    ![Screenshot shows Set Identity Provider.](./media/arcgis-tutorial/set-saml-login.png "Set Identity Provider")
 
     a. In the **Name** textbox, type your organization’s name.
 
@@ -164,17 +159,17 @@ In the case of ArcGIS Online, provisioning is a manual task.
 
 2. Go to the **Organization** -> **Members** and click **Invite members**.
 
-    ![Invite Members](./media/arcgis-tutorial/invite.png "Invite Members")
+    ![Screenshot shows Invite Members.](./media/arcgis-tutorial/invite.png "Invite Members")
 
 3. Select **Add members without sending invitations** method, and then click **Next**.
 
-    ![Add Members Automatically](./media/arcgis-tutorial/add-members.png "Add Members Automatically")
+    ![Screenshot shows Add Members Automatically.](./media/arcgis-tutorial/add-members.png "Add Members Automatically")
 
 1. In the **Compile member list**, select **New member** and click **Next**.
 
 4. Fill the required fields in the following page and click **Next**.
 
-    ![Add and review](./media/arcgis-tutorial/review.png "Add and review")
+    ![Screenshot shows Add and review.](./media/arcgis-tutorial/review.png "Add and review")
 
 5. In the next page, select the member you want to add and click **Next**. 
 
@@ -182,7 +177,7 @@ In the case of ArcGIS Online, provisioning is a manual task.
 
 1. In the **Confirm and complete** tab, click **Add members** .
 
-    ![Add member](./media/arcgis-tutorial/add.png "Add member")
+    ![Screenshot shows Add member.](./media/arcgis-tutorial/add.png "Add member")
 
     > [!NOTE]
     > The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.

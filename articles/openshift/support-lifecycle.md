@@ -5,7 +5,7 @@ author: joharder
 ms.author: joharder
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 03/13/2023
+ms.date: 08/10/2023
 ---
 
 # Support lifecycle for Azure Red Hat OpenShift 4
@@ -25,7 +25,7 @@ Red Hat OpenShift Container Platform uses semantic versioning. Semantic versioni
 Each number in the version indicates general compatibility with the previous version:
 
 * **Major version**: No major version releases are planned at this time. Major versions change when incompatible API changes or backwards compatibility may be broken.
-* **Minor version**: Released approximately every three months. Minor version upgrades can include feature additions, enhancements, deprecations, removals, bug fixes, security enhancements, and other improvements.
+* **Minor version**: Released approximately every four months. Minor version upgrades can include feature additions, enhancements, deprecations, removals, bug fixes, security enhancements, and other improvements.
 * **Patches**: Typically released each week, or as needed. Patch version upgrades can include bug fixes, security enhancements, and other improvements.
 
 Customers should aim to run the latest minor release of the major version they're running. For example, if your production cluster is on 4.9, and 4.10 is the latest generally available minor version for the 4 series, you should upgrade to 4.10 as soon as you can. 
@@ -68,7 +68,7 @@ When a new minor version is introduced, the oldest minor version is deprecated a
 
 ## Release and deprecation process
 
-You can reference upcoming version releases and deprecations on the Azure Red Hat OpenShift Release Calendar.
+You can reference upcoming version releases and deprecations on the [Azure Red Hat OpenShift release calendar](#azure-red-hat-openshift-release-calendar).
 
 For new minor versions of Red Hat OpenShift Container Platform:
 * The Azure Red Hat OpenShift SRE team publishes a pre-announcement with the planned date of a new version release, and respective old version deprecation, in the [Azure Red Hat OpenShift Release notes](https://github.com/Azure/OpenShift/releases) at least 30 days prior to removal.
@@ -103,7 +103,11 @@ See the following guide for the [past Red Hat OpenShift Container Platform (upst
 |4.9|November 2021| February 1 2022|4.11 GA|
 |4.10|March 2022| June 21 2022|4.12 GA|
 |4.11|August 2022| March 2 2023|4.13 GA|
+|4.12|January 2023| August 19 2023|October 19 2024|
 
+> [!IMPORTANT]
+> Starting with ARO version 4.12, the support lifecycle for new versions will be set to 14 months from the day of general availability. That means that the end date for support of each version will no longer be dependent on the previous version (as shown in the table above for version 4.12.) This does not affect support for the previous version; two generally available (GA) minor versions of Red Hat OpenShift Container Platform will continue to be supported, as [explained previously](#red-hat-openshift-container-platform-version-support-policy).
+> 
 ## FAQ
 
 **What happens when a user upgrades an OpenShift cluster with a minor version that is not supported?**

@@ -1,6 +1,6 @@
 ---
-title: Azure Structured Firewall Logs (preview)
-description: Learn about Azure Structured Firewall Logs (preview)
+title: Azure Structured Firewall Logs
+description: Learn about Azure Structured Firewall Logs
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -9,31 +9,31 @@ ms.date: 01/25/2023
 ms.author: victorh
 ---
 
-# Azure Structured Firewall Logs (preview)
+# Azure Structured Firewall Logs
 
+Structured logs are a type of log data that are organized in a specific format. They use a predefined schema to structure log data in a way that makes it easy to search, filter, and analyze. Unlike unstructured logs, which consist of free-form text, structured logs have a consistent format that machines can parse and analyze.
 
-> [!IMPORTANT]
-> This feature is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+Azure Firewall's structured logs provide a more detailed view of firewall events. They include information such as source and destination IP addresses, protocols, port numbers, and action taken by the firewall. They also include more metadata, such as the time of the event and the name of the Azure Firewall instance.
 
 Currently, the following diagnostic log categories are available for Azure Firewall:
 - Application rule log
 - Network rule log
 - DNS proxy log
 
-These log categories use [Azure diagnostics mode](../azure-monitor/essentials/resource-logs.md#azure-diagnostics-mode). In this mode, all data from any diagnostic setting will be collected in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table.
+These log categories use [Azure diagnostics mode](../azure-monitor/essentials/resource-logs.md#azure-diagnostics-mode). In this mode, all data from any diagnostic setting is collected in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table.
 
-With this new feature, you'll be able to choose to use [Resource Specific Tables](../azure-monitor/essentials/resource-logs.md#resource-specific) instead of the existing [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. In case both sets of logs are required, at least two diagnostic settings need to be created per firewall.
+With structured logs, you're able to choose to use [Resource Specific Tables](../azure-monitor/essentials/resource-logs.md#resource-specific) instead of the existing [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. In case both sets of logs are required, at least two diagnostic settings need to be created per firewall.
 
 ## Resource specific mode
 
 In **Resource specific** mode, individual tables in the selected workspace are created for each category selected in the diagnostic setting. This method is recommended since it:
+- May reduce overall logging costs by up to 80%.
 - makes it much easier to work with the data in log queries
 - makes it easier to discover schemas and their structure
 - improves performance across both ingestion latency and query times
 - allows you to grant Azure RBAC rights on a specific table
 
-New resource specific tables are now available in Diagnostic setting that allows you to utilize the following newly added categories:
+New resource specific tables are now available in Diagnostic setting that allows you to utilize the following categories:
 
 - [Network rule log](/azure/azure-monitor/reference/tables/azfwnetworkrule) - Contains all Network Rule log data. Each match between data plane and network rule creates a log entry with the data plane packet and the matched rule's attributes.
 - [NAT rule log](/azure/azure-monitor/reference/tables/azfwnatrule) - Contains all DNAT (Destination Network Address Translation) events log data. Each match between data plane and DNAT rule creates a log entry with the data plane packet and the matched rule's attributes.
@@ -46,42 +46,30 @@ New resource specific tables are now available in Diagnostic setting that allows
 - [Network rule aggregation log](/azure/azure-monitor/reference/tables/azfwnetworkruleaggregation) - Contains aggregated Network rule log data for Policy Analytics.
 - [NAT rule aggregation log](/azure/azure-monitor/reference/tables/azfwnatruleaggregation) - Contains aggregated NAT rule log data for Policy Analytics.
 - [Top flow log (preview)](/azure/azure-monitor/reference/tables/azfwfatflow) - The Top Flows (Fat Flows) log shows the top connections that are contributing to the highest throughput through the firewall.
-- [Flow trace (preview)](/azure/azure-monitor/reference/tables/azfwflowtrace) - Contains flow information, flags, and the time period when the flows were recorded. You'll be able to see full flow information such as SYN, SYN-ACK, FIN, FIN-ACK, RST, INVALID (flows).
+- [Flow trace (preview)](/azure/azure-monitor/reference/tables/azfwflowtrace) - Contains flow information, flags, and the time period when the flows were recorded. You can see full flow information such as SYN, SYN-ACK, FIN, FIN-ACK, RST, INVALID (flows).
 
-## Enable/disable structured logs
+## Enable structured logs
 
-By default, the new resource specific tables are disabled. 
+To enable Azure Firewall structured logs, you must first configure a Log Analytics workspace in your Azure subscription. This workspace is used to store the structured logs generated by Azure Firewall.
 
-Run the following Azure PowerShell commands to enable Azure Firewall Structured logs:
-
-
-```azurepowershell
-Connect-AzAccount 
-Select-AzSubscription -Subscription "subscription_id or subscription_name" 
-Register-AzProviderFeature -FeatureName AFWEnableStructuredLogs -ProviderNamespace Microsoft.Network
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
+Once you configure the Log Analytics workspace, you can enable structured logs in Azure Firewall by navigating to the Firewall's **Diagnostic settings** page in the Azure portal. From there, you must select the **Resource specific** destination table and select the type of events you want to log.
 
 > [!NOTE]
-> It can take several minutes for this to take effect. Run the following Azure PowerShell command to see the `RegistrationState`:
->
-> `Get-AzProviderFeature -FeatureName "AFWEnableStructuredLogs" -ProviderNamespace "Microsoft.Network"`
->
->When the `RegistrationState` is *Registered*, consider performing an update on Azure Firewall for the change to take effect immediately.
+> There's no requirement to enable this feature with a feature flag or Azure PowerShell commands.
 
+:::image type="content" source="media/firewall-structured-logs/diagnostics-setting-resource-specific.png" alt-text="Screenshot of Diagnostics settings page.":::
 
-Run the following Azure PowerShell command to turn this feature off:
+## Structured log queries
 
-```azurepowershell
-Unregister-AzProviderFeature -FeatureName AFWEnableStructuredLogs -ProviderNamespace Microsoft.Network 
-```
+A list of predefined queries is available in the Azure portal. This list has a predefined KQL (Kusto Query Language) log query for each category and joined query showing the entire Azure firewall logging events in single view.
 
-In addition, when setting up your log analytics workspace, you must select whether you want to work with the AzureDiagnostics table (default) or with Resource Specific Tables.
+:::image type="content" source="media/firewall-structured-logs/firewall-queries.png" alt-text="Screenshot showing Azure Firewall queries." lightbox="media/firewall-structured-logs/firewall-queries.png" :::
 
-Additional KQL log queries were added to query structured firewall logs.
+## Azure Firewall Workbook
 
-> [!NOTE]
-> Existing Workbooks and any Sentinel integration will be adjusted to support the new structured logs when **Resource Specific** mode is selected.
+[Azure Firewall Workbook](firewall-workbook.md) provides a flexible canvas for Azure Firewall data analysis. You can use it to create rich visual reports within the Azure portal. You can tap into multiple firewalls deployed across Azure and combine them into unified interactive experiences.
+
+To deploy the new workbook that uses  Azure Firewall Structured Logs, see [Azure Monitor Workbook for Azure Firewall](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Workbook%20-%20Azure%20Firewall%20Monitor%20Workbook).
 
 ## Next steps
 

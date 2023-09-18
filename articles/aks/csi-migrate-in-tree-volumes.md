@@ -2,7 +2,7 @@
 title: Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)
 description: Learn how to migrate from in-tree persistent volume to the Container Storage Interface (CSI) driver in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 03/23/2023
+ms.date: 07/26/2023
 author: mgoedtel
 
 ---
@@ -20,6 +20,9 @@ To make this process as simple as possible, and to ensure no data loss, this art
 
 ## Migrate Disk volumes
 
+> [!NOTE]
+> The labels `failure-domain.beta.kubernetes.io/zone` and `failure-domain.beta.kubernetes.io/region` have been deprecated in AKS 1.24 and removed in 1.28. If your existing persistent volumes are still using nodeAffinity matching these two labels, you need to change them to `topology.kubernetes.io/zone` and `topology.kubernetes.io/region` labels in the new persistent volume setting.
+
 Migration from in-tree to CSI is supported using two migration options:
 
 * Create a static volume
@@ -36,7 +39,7 @@ The benefits of this approach are:
 * It's simple and can be automated.
 * No need to clean up original configuration using in-tree storage class.
 * Low risk as you're only performing a logical deletion of Kubernetes PV/PVC, the actual physical data isn't deleted.
-* No extra costs as the result of not having to create more objects such as disk, snapshots, etc.
+* No extra cost incurred as the result of not having to create additional Azure objects, such as disk, snapshots, etc.
 
 The following are important considerations to evaluate:
 
@@ -54,11 +57,11 @@ The following are important considerations to evaluate:
     Replace **pvName** with the name of your selected PersistentVolume. Alternatively, if you want to update the reclaimPolicy for multiple PVs, create a file named **patchReclaimPVs.sh** and copy in the following code.
 
     ```bash
-    #!/bin/sh
+    #!/bin/bash
     # Patch the Persistent Volume in case ReclaimPolicy is Delete
     NAMESPACE=$1
     i=1
-    for PVC in $(kubectl get pvc -n $namespace | awk '{ print $1}'); do
+    for PVC in $(kubectl get pvc -n $NAMESPACE | awk '{ print $1}'); do
       # Ignore first record as it contains header
       if [ $i -eq 1 ]; then
         i=$((i + 1))
@@ -91,7 +94,7 @@ The following are important considerations to evaluate:
     * Creates a new PVC with the PV name you specify.
 
     ```bash
-    #!/bin/sh
+    #!/bin/bash
     #kubectl get pvc -n <namespace> --sort-by=.metadata.creationTimestamp -o custom-columns=NAME:.metadata.name,CreationTime:.metadata.creationTimestamp,StorageClass:.spec.storageClassName,Size:.spec.resources.requests.storage
     # TimeFormat 2022-04-20T13:19:56Z
     NAMESPACE=$1
@@ -246,7 +249,7 @@ Before proceeding, verify the following:
     * Creates a new file with the filename `<namespace>-timestamp`, which contains a list of all old resources that needs to be cleaned up.
 
     ```bash
-    #!/bin/sh
+    #!/bin/bash
     #kubectl get pvc -n <namespace> --sort-by=.metadata.creationTimestamp -o custom-columns=NAME:.metadata.name,CreationTime:.metadata.creationTimestamp,StorageClass:.spec.storageClassName,Size:.spec.resources.requests.storage
     # TimeFormat 2022-04-20T13:19:56Z
     NAMESPACE=$1
@@ -276,10 +279,11 @@ Before proceeding, verify the following:
               DISK_URI="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.azureDisk.diskURI}')"
               TARGET_RESOURCE_GROUP="$(cut -d'/' -f5 <<<"$DISK_URI")"
               echo $DISK_URI
+              SUBSCRIPTION_ID="$(echo $DISK_URI | grep -o 'subscriptions/[^/]*' | sed 's#subscriptions/##g')"
               echo $TARGET_RESOURCE_GROUP
               PERSISTENT_VOLUME_RECLAIM_POLICY="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
-              az snapshot create --resource-group $TARGET_RESOURCE_GROUP --name $PVC-$FILENAME --source "$DISK_URI"
-              SNAPSHOT_PATH=$(az snapshot list --resource-group $TARGET_RESOURCE_GROUP --query "[?name == '$PVC-$FILENAME'].id | [0]")
+              az snapshot create --resource-group $TARGET_RESOURCE_GROUP --name $PVC-$FILENAME --source "$DISK_URI" --subscription ${SUBSCRIPTION_ID}
+              SNAPSHOT_PATH=$(az snapshot list --resource-group $TARGET_RESOURCE_GROUP --query "[?name == '$PVC-$FILENAME'].id | [0]" --subscription ${SUBSCRIPTION_ID})
               SNAPSHOT_HANDLE=$(echo "$SNAPSHOT_PATH" | tr -d '"')
               echo $SNAPSHOT_HANDLE
               sleep 10
@@ -358,7 +362,10 @@ Before proceeding, verify the following:
 
 ## Migrate File share volumes
 
-Migration from in-tree to CSI is supported by creating a static volume.
+Migration from in-tree to CSI is supported by creating a static volume:
+* No need to clean up original configuration using in-tree storage class.
+* Low risk as you're only performing a logical deletion of Kubernetes PV/PVC, the actual physical data isn't deleted.
+* No extra cost incurred as the result of not having to create additional Azure objects, such as file shares, etc.
 
 ### Migration
 
@@ -371,7 +378,7 @@ Migration from in-tree to CSI is supported by creating a static volume.
     Replace **pvName** with the name of your selected PersistentVolume. Alternatively, if you want to update the reclaimPolicy for multiple PVs, create a file named **patchReclaimPVs.sh** and copy in the following code.
 
     ```bash
-    #!/bin/sh
+    #!/bin/bash
     # Patch the Persistent Volume in case ReclaimPolicy is Delete
     namespace=$1
     i=1
@@ -504,8 +511,8 @@ Migration from in-tree to CSI is supported by creating a static volume.
 
 ## Next steps
 
-For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][aks-storage-backups-best-practices].
-
+- For more information about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][aks-storage-backups-best-practices].
+- Protect your newly migrated CSI Driver based PVs by [backing them up using Azure Backup for AKS](../backup/azure-kubernetes-service-cluster-backup.md).
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-rbac-cluster-admin-role]: manage-azure-rbac.md#create-role-assignments-for-users-to-access-the-cluster

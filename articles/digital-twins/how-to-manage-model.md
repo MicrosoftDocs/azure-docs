@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to manage DTDL models within Azure Digital Twins, including how to create, edit, and delete them.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 04/05/2023
+ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -91,7 +91,7 @@ If you're using the [REST APIs](/rest/api/azure-digitaltwins/) or [Azure CLI](/c
 
 ### Upload large model sets with the Jobs API
 
-For large model sets, you can use the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api) (currently in preview) to upload many models at once in a single API call. The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for models and bulk jobs.
+For large model sets, you can use the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api) to upload many models at once in a single API call. The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for models and bulk jobs.
 
 >[!TIP]
 >The Jobs API also allows twins and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk with the Jobs API](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk-with-the-jobs-api).
@@ -100,7 +100,7 @@ To import models in bulk, you'll need to structure your models (and any other re
 
 [!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
 
-Then, the file can be used in an [Jobs API](/rest/api/digital-twins/dataplane/import-jobs) call. You'll provide the blob storage URL of the input file, as well as a new blob storage URL to indicate where you'd like the output log to be stored when it's created by the service.
+Then, the file can be used in an [Jobs API](/rest/api/digital-twins/dataplane/jobs) call. You'll provide the blob storage URL of the input file, as well as a new blob storage URL to indicate where you'd like the output log to be stored when it's created by the service.
 
 ## Retrieve models
 
@@ -207,7 +207,7 @@ The sections linked above contain example code and considerations for decommissi
 
 Instead of incrementing the version of a model, you can delete a model completely and reupload an edited model to the instance.
 
-Azure Digital Twins doesn't remember the old model was ever uploaded, so this action will be like uploading an entirely new model. Twins in the graph that use the model will automatically switch over to the new definition once it's available. Depending on how the new definition differs from the old one, these twins may have properties and relationships that match the deleted definition and aren't valid with the new one, so you may need to patch them to make sure they remain valid.
+Azure Digital Twins doesn't remember the old model was ever uploaded, so this action will be like uploading an entirely new model. Twins that use the model will automatically switch over to the new definition once it's available. Depending on how the new definition differs from the old one, these twins may have properties and relationships that match the deleted definition and aren't valid with the new one, so you may need to patch them to make sure they remain valid.
 
 To use this strategy, follow the steps below.
 
@@ -321,6 +321,22 @@ After a model has been deleted, you may decide later to upload a new model with 
 * If there are any remaining twins in the graph referencing the deleted model, they're no longer orphaned; this model ID is valid again with the new definition. However, if the new definition for the model is different than the model definition that was deleted, these twins may have properties and relationships that match the deleted definition and aren't valid with the new one.
 
 Azure Digital Twins doesn't prevent this state, so be careful to patch twins appropriately to make sure they remain valid through the model definition switch.
+
+## Convert v2 models to v3
+
+Azure Digital Twins supports [DTDL versions 2 and 3](concepts-models.md#supported-dtdl-versions) (shortened in the documentation to v2 and v3, respectively).  V3 is the recommended choice based on its expanded capabilities. This section explains how to update an existing DTDL v2 model to DTDL v3.
+
+1. **Update the context.** The main feature that identifies a model as v2 or v3 is the `@context` field on the interface. To convert a model from v2 to v3, change the `dtmi:dtdl:context;2` context value to `dtmi:dtdl:context;3`. For many models, this will be the only required change.
+    1. Value in v2: `"@context": "dtmi:dtdl:context;2"`
+    1. Value in v3: `"@context": "dtmi:dtdl:context;3"`.
+1. **If needed, update semantic types.** In DTDL v2, [semantic types](concepts-models.md#dtdl-v2-semantic-type-example) are natively supported. In DTDL v3, they are included with the [QuantitativeTypes feature extension](concepts-models.md#quantitativetypes-extension). So, if your v2 model used semantic types, you'll need to add the feature extension when converting the model to v3. To do this, first change the `@context` field on the interface from a single value to an array of values, then add the value `dtmi:dtdl:extension:quantitativeTypes;1`.
+    1. Value in v2: `"@context": "dtmi:dtdl:context;2"` 
+    1. Value in v3: `"@context": ["dtmi:dtdl:context;3", "dtmi:dtdl:extension:quantitativeTypes;1"]`
+1. **If needed, consider size limits**. V2 and v3 have different size limits, so if your interface is very large, you may want to review the limits in the [differences between DTDL v2 and v3](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#changes-from-version-2). 
+
+After these changes, a former DTDL v2 model has been converted to a DTDL v3 model.
+
+You might also want to consider [new capabilities of DTDL v3](concepts-models.md#supported-dtdl-versions), such as array-type properties, version relaxation, and additional feature extensions, to see if any of them would be beneficial additions. For a complete list of differences between DTDL v2 and v3, see [Changes from Version 2 in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#changes-from-version-2).
 
 ## Next steps
 

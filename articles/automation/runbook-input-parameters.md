@@ -3,7 +3,7 @@ title: Configure runbook input parameters in Azure Automation
 description: This article tells how to configure runbook input parameters, which allow data to be passed to a runbook when it's started.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/03/2023
+ms.date: 08/18/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -16,7 +16,7 @@ You can configure input parameters for PowerShell, PowerShell Workflow, graphica
 
 You assign values to the input parameters for a runbook when you start it. You can start a runbook from the Azure portal, a web service, or PowerShell. You can also start one as a child runbook that is called inline in another runbook.
 
-### Configure input parameters in PowerShell runbooks
+## Configure input parameters in PowerShell runbooks
 
 PowerShell and PowerShell Workflow runbooks in Azure Automation support input parameters that are defined through the following properties. 
 
@@ -73,9 +73,9 @@ For PowerShell 7.1 runbooks, provide array input parameters in below format:
 
 To illustrate the configuration of input parameters for a graphical runbook, let's create a runbook that outputs details about virtual machines, either a single VM or all VMs within a resource group. For details, see [My first graphical runbook](./learn/powershell-runbook-managed-identity.md).
 
-A graphical runbook uses these these major runbook activities:
+A graphical runbook uses these major runbook activities:
 
-* Configuration of the Azure Run As account to authenticate with Azure. 
+* Authenticate with Azure using managed identity configured for automation account. 
 * Definition of a [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet to get VM properties.
 * Use of the [Write-Output](/powershell/module/microsoft.powershell.utility/write-output) activity to output the VM names. 
 
@@ -153,7 +153,7 @@ In the label beneath the input box, you can see the properties that have been se
      Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
    ```
 
-* **Azure classic deployment model cmdlets:** You can start an automation runbook that was created in a default resource group by using [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure.service/start-azureautomationrunbook).
+* **Azure classic deployment model cmdlets:** You can start an automation runbook that was created in a default resource group by using [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
   
    ```powershell
      $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}

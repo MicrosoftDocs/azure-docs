@@ -121,15 +121,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure OneDesk SSO
 
-1. To automate the configuration within OneDesk, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up OneDesk** will direct you to the OneDesk application. From there, provide the admin credentials to sign into OneDesk. The browser extension will automatically configure the application for you and automate steps 3-5.
 
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to setup OneDesk manually, open a new web browser window and sign into your OneDesk company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your OneDesk company site as an administrator
 
 1. Click on the **Integrations** tab.
 
@@ -157,7 +152,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the OneDesk for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the OneDesk tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the OneDesk for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the OneDesk tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the OneDesk for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

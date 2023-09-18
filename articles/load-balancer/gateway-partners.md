@@ -1,15 +1,15 @@
 ---
 title: Azure Gateway Load Balancer partners
-description: Learn about partners offering their network appliances for use with this service.
+description: Learn about partners offering their network appliances for use with Azure Gateway Load Balancer.
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 05/11/2022
+ms.date: 05/22/2023
 ms.author: mbender
 ms.custom: template-concept
 ---
 
-# Gateway Load Balancer partners
+# Azure Gateway Load Balancer partners
 
 Azure has a growing ecosystem of partners offering their network appliances for use with Gateway Load Balancer.
 
@@ -90,8 +90,6 @@ Azure has a growing ecosystem of partners offering their network appliances for 
 “Glasnostic is proud to be a partner for Azure Gateway Load Balancer. With Azure’s new Gateway Load Balancer, using Glasnostic to make applications reliable and secure couldn’t be any easier. Adding Glasnostic as an NVA to your Azure deployments provides you instantly with the holistic visibility and control you need to optimize performance, maximize reliability and enforce security.” 
 
 **Tobias Kunze - Co-founder & CEO** 
-
-[Learn more](https://glasnostic.com/blog/announcing-glasnostic-for-azure-gwlb)
 
 ### Palo Alto Networks
 

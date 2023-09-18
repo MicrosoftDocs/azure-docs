@@ -6,11 +6,11 @@ ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
 ms.reviewer: ivankh
-ms.date: 05/31/2022
+ms.date: 07/17/2023
 ---
 
 # Tutorial: Editing Data Collection Rules
-This tutorial will describe how to edit the definition of Data Collection Rule (DCR) that has been already provisioned using command line tools. 
+This tutorial describes how to edit the definition of Data Collection Rule (DCR) that has been already provisioned using command line tools. 
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -31,7 +31,7 @@ While going through the wizard on the portal is the simplest way to set up the i
 -	Update data parsing or filtering logic for your data stream
 -	Change data destination (e.g. send data to an Azure table, as this option is not directly offered as part of the DCR-based custom log wizard)
 
-In this tutorial, you will, first, set up ingestion of a custom log, then. you will modify the KQL transformation for your custom log to include additional filtering and apply the changes to your DCR. Finally, we are going to combine all editing operations into a single PowerShell script, which can be used to edit any DCR for any of the above mentioned reasons.
+In this tutorial, you first set up ingestion of a custom log. Then you modify the KQL transformation for your custom log to include additional filtering and apply the changes to your DCR. Finally, we're going to combine all editing operations into a single PowerShell script, which can be used to edit any DCR for any of the above mentioned reasons.
 
 ## Set up new custom log
 Start by setting up a new custom log. Follow [Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)]( ../logs/tutorial-logs-ingestion-portal.md). Note the resource ID of the DCR created.
@@ -117,7 +117,7 @@ Remove-Item $FilePath
 .\DCREditor.ps1 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/foo/providers/Microsoft.Insights/dataCollectionRules/bar"
 ```
 
-DCR content will open in embedded code editor. Once editing is complete, entering "Y" on script prompt will apply changes back to the DCR.
+DCR content opens in embedded code editor. Once editing is complete, entering "Y" on script prompt applies changes back to the DCR.
 
 ## Next steps
 

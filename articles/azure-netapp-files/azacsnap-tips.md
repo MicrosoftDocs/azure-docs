@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 07/30/2023
 ms.author: phjensen
 ---
 
@@ -26,12 +26,12 @@ AzAcSnap 8 introduced a new global settings file (`.azacsnaprc`) which must be l
 
 Settings, which can be controlled by adding/editing the global settings file are:
 
-- **MAINLOG_LOCATION** which sets the location of the "mainlog" output file, which is called `azacsnap.log` and was introduced in AzAcSnap 8.  Values should be absolute paths, for example:
+- **MAINLOG_LOCATION** which sets the location of the "main-log" output file, which is called `azacsnap.log` and was introduced in AzAcSnap 8.  Values should be absolute paths, for example:
   - `MAINLOG_LOCATION=/home/azacsnap/bin/logs`
 
-## Mainlog parsing
+## Main-log parsing
 
-AzAcSnap 8 introduced a new "mainlog" to provide simpler parsing of runs of AzAcSnap.  The inspiration for this file is the SAP HANA backup catalog, which shows when AzAcSnap was started, how long it took, and what the snapshot name is.  With AzAcSnap, this idea has been taken further to include information for each of the AzAcSnap commands, specifically the `-c` options, and the file has the following headers:
+AzAcSnap 8 introduced a new "main-log" to provide simpler parsing of runs of AzAcSnap.  The inspiration for this file is the SAP HANA backup catalog, which shows when AzAcSnap was started, how long it took, and what the snapshot name is.  With AzAcSnap, this idea has been taken further to include information for each of the AzAcSnap commands, specifically the `-c` options, and the file has the following headers:
 
 ```output
 DATE_TIME,OPERATION_NAME,STATUS,SID,DATABASE_TYPE,DURATION,SNAPSHOT_NAME,AZACSNAP_VERSION,AZACSNAP_CONFIG_FILE,VOLUME
@@ -57,7 +57,18 @@ This format makes the file parse-able with the Linux commands `watch`, `grep`, `
 # Monitor execution of AzAcSnap backup commands
 #
 # These values can be modified as appropriate.
-HEADER_VALUES_TO_EXCLUDE="AZACSNAP_VERSION,VOLUME,AZACSNAP_CONFIG_FILE"
+# Mainlog header fields:
+#       1. DATE_TIME,
+#       2. OPERATION_NAME,
+#       3. STATUS,
+#       4. SID,
+#       5. DATABASE_TYPE,
+#       6. DURATION,
+#       7. SNAPSHOT_NAME,
+#       8. AZACSNAP_VERSION,
+#       9. AZACSNAP_CONFIG_FILE,
+#       10. VOLUME
+FIELDS_TO_INCLUDE="1,2,3,4,5,6,7"
 SCREEN_REFRESH_SECS=2
 #
 # Use AzAcSnap global settings file (.azacsnaprc) if available,
@@ -74,6 +85,7 @@ echo "Changing current working directory to ${MAINLOG_LOCATION}"
 # Default MAINLOG filename.
 MAINLOG_FILENAME="azacsnap.log"
 #
+echo "Parsing '${MAINLOG_FILENAME}'"
 # High-level explanation of how commands used.
 # `watch` - continuously monitoring the command output.
 # `column` - provide pretty output.
@@ -84,16 +96,10 @@ watch -t -n ${SCREEN_REFRESH_SECS} \
   echo -n "Monitoring AzAcSnap @  "; \
   date ; \
   echo ; \
-  column -N"$(head -n1 ${MAINLOG_FILENAME})" \
-      -d -H "${HEADER_VALUES_TO_EXCLUDE}" \
-      -s"," -t ${MAINLOG_FILENAME} \
-    | head -n1 ; \
-  grep -e "DATE" -e "backup" ${MAINLOG_FILENAME} \
-    | column -N"$(head -n1 ${MAINLOG_FILENAME})" \
-      -d -H "${HEADER_VALUES_TO_EXCLUDE}" \
-      -s"," -t \
-    | tail -n +2 \
-    | tail -n 12 \
+  cat ${MAINLOG_FILENAME} \
+    | grep  -e "DATE" -e ",backup," \
+    | ( sleep 1; head -n1 - ; sleep 1; tail -n+2 - | tail -n20; sleep 1 ) \
+    | cut -f${FIELDS_TO_INCLUDE} -d"," | column -s"," -t
   "
 ```
 
@@ -232,7 +238,7 @@ compress
 }
 ```
 
-After creating the `logrotate.conf` file, the `logrotate` command should be run regularly to archive AzAcSnap log files accordingly. Automating the `logrotate` command can be done using cron. The following output is one line of the azacsnap user's crontab, this example runs logrotate daily using the configuration file `~/logrotate.conf`.
+After the `logrotate.conf` file has been created, the `logrotate` command should be run regularly to archive AzAcSnap log files accordingly. Automating the `logrotate` command can be done using cron. The following output is one line of the azacsnap user's crontab, this example runs logrotate daily using the configuration file `~/logrotate.conf`.
 
 ```output
 @daily /usr/sbin/logrotate -s ~/logrotate.state ~/logrotate.conf >> ~/logrotate.log
@@ -263,7 +269,7 @@ ls -ltra ~/bin/logs
 The following conditions should be monitored to ensure a healthy system:
 
 1. Available disk space. Snapshots slowly consume disk space based on the block-level change rate, as keeping older disk blocks are retained in the snapshot.
-    1. To help automate disk space management, use the `--retention` and `--trim` options to automatically cleanup the old snapshots and database log files.
+    1. To help automate disk space management, use the `--retention` and `--trim` options to automatically clean up the old snapshots and database log files.
 1. Successful execution of the snapshot tools
     1. Check the `*.result` file for the success or failure of the latest running of `azacsnap`.
     1. Check `/var/log/messages` for output from the `azacsnap` command.
@@ -447,7 +453,7 @@ A 'boot' snapshot can be recovered as follows:
 1. The customer needs to shut down the server.
 1. After the Server is shut down, the customer will need to open a service request that contains the Machine ID and Snapshot to restore.
     > Customers can open a service request via the [Azure portal](https://portal.azure.com).
-1. Microsoft restores the Operating System LUN using the specified Machine ID and Snapshot, and then boot the Server.
+1. Microsoft restores the Operating System LUN using the specified Machine ID and Snapshot, and then boots the Server.
 1. The customer then needs to confirm Server is booted and healthy.
 
 No other steps to be performed after the restore.

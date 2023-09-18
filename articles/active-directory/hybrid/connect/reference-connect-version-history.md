@@ -9,8 +9,8 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 7/6/2022
 ms.subservice: hybrid
-ms.author: rodejo
-ms.custom: has-adal-ref
+ms.author: billmath
+ms.custom: has-adal-ref, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -24,7 +24,7 @@ This article helps you keep track of the versions that have been released and un
 
 You can upgrade your Azure AD Connect server from all supported versions with the latest versions:
 
-You can download the latest version of Azure AD Connect 2.0 from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47594). See the [release notes for the latest V2.0 release](reference-connect-version-history.md#20280).\
+You can download the latest version of Azure AD Connect 2.0 from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47594). See the [release notes for the latest V2.0 release](reference-connect-version-history.md#21200).\
 
 Get notified about when to revisit this page for updates by copying and pasting this URL: `https://aka.ms/aadconnectrss` into your ![RSS feed reader icon](media/reference-connect-version-history/feed-icon-16x16.png) feed reader.
 
@@ -37,27 +37,17 @@ Required permissions | For permissions required to apply an update, see [Azure A
 
 ## Retiring Azure AD Connect 1.x versions
 > [!IMPORTANT]
-> *As of August 31, 2022, all 1.x versions of Azure AD Connect are retired because they include SQL Server 2012 components that will no longer be supported.* Upgrade to the most recent version of Azure AD Connect (2.x version) by that date or [evaluate and switch to Azure AD cloud sync](../cloud-sync/what-is-cloud-sync.md).
-> AADConnect V1.x may stop working on December 31st, due to the retirement of the ADAL library service on that date.
+> Action required: Synchronization will stop working on October 1, 2023, for any customers still running Azure AD Connect Sync V1.  Customers using cloud sync or Azure AD Connect V2 will remain fully operational with no action required. For more information and next step guidance, see [Decommission Azure AD Connect V1](https://aka.ms/DecommissionAADConnectV1) if an upgrade is required.
 
 ## Retiring Azure AD Connect 2.x versions
 > [!IMPORTANT]
 > We will begin retiring past versions of Azure AD Connect Sync 2.x 12 months from the date they are superseded by a newer version. 
 > This policy will go into effect on 15 March 2023, when we will retire all versions that are superseded by a newer version on 15 March 2022.
 > 
-> The following versions will retire on 15 March 2023:
->
-> - 2.0.89.0
-> - 2.0.88.0
-> - 2.0.28.0
-> - 2.0.25.1
-> - 2.0.10.0
-> - 2.0.9.0
-> - 2.0.8.0
-> - 2.0.3.0
+> Currently only builds 2.1.16.0 (release August 8th 2022) or later are supported.
 > 
 > If you are not already using the latest release version of Azure AD Connect Sync, you should upgrade your Azure AD Connect Sync software before that date. 
-> 
+
 
 If you run a retired version of Azure AD Connect, it might unexpectedly stop working. You also might not have the latest security fixes, performance improvements, troubleshooting and diagnostic tools, and service enhancements. If you require support, we might not be able to provide you with the level of service your organization needs.
 
@@ -70,13 +60,32 @@ For version history information on retired versions, see [Azure AD Connect: Vers
 > [!NOTE]
 > Releasing a new version of Azure AD Connect requires several quality-control steps to ensure the operation functionality of the service. While we go through this process, the version number of a new release and the release status are updated to reflect the most recent state.
 
-Not all releases of Azure AD Connect are made available for auto-upgrade. The release status indicates whether a release is made available for auto-upgrade or for download only. If auto-upgrade was enabled on your Azure AD Connect server, that server automatically upgrades to the latest version of Azure AD Connect that's released for auto-upgrade. Not all Azure AD Connect configurations are eligible for auto-upgrade.
+Not all releases of Azure AD Connect are made available for autoupgrade. The release status indicates whether a release is made available for autoupgrade or for download only. If autoupgrade was enabled on your Azure AD Connect server, that server automatically upgrades to the latest version of Azure AD Connect that's released for autoupgrade. Not all Azure AD Connect configurations are eligible for autoupgrade.
 
-Auto-upgrade is meant to push all important updates and critical fixes to you. It isn't necessarily the latest version because not all versions will require or include a fix to a critical security issue. (This example is just one of many.) Critical issues are usually addressed with a new version provided via auto-upgrade. If there are no such issues, there are no updates pushed out by using auto-upgrade. In general, if you're using the latest auto-upgrade version, you should be good.
+Auto-upgrade is meant to push all important updates and critical fixes to you. It isn't necessarily the latest version because not all versions will require or include a fix to a critical security issue. (This example is just one of many.) Critical issues are usually addressed with a new version provided via autoupgrade. If there are no such issues, there are no updates pushed out by using autoupgrade. In general, if you're using the latest autoupgrade version, you should be good.
 
 If you want all the latest features and updates, check this page and install what you need.
 
-To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
+To read more about autoupgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
+
+## 2.2.1.0
+
+### Release status
+6/19/2023: Released for download.
+
+### Functional Changes
+ - We have enabled Auto Upgrade for tenants with custom synchronization rules. Note that deleted (not disabled) default rules will be re-created and enabled upon Auto Upgrade.
+ - We have added Microsoft Azure AD Connect Agent Updater service to the install. This new service will be used for future auto upgrades.
+ - We have removed the Synchronization Service WebService Connector Config program from the install.
+ - Default sync rule “In from AD – User Common” was updated to flow the employeeType attribute.
+
+### Bug Fixes
+ - We have made improvements to accessibility.
+ - We have made the Microsoft Privacy Statement accessible in more places.
+
+
+
+
 
 ## 2.1.20.0
 
@@ -85,7 +94,7 @@ To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-t
 
 ### Bug fixes
 
- - We fixed a bug where the new employeeLeaveDateTime attribute was not syncing correctly in version 2.1.19.0. Note that if the incorrect attribute was already used in a rule, then the rule must be updated with the new attribute and any objects in the AAD connector space that have the incorrect attribute must be removed with the "Remove-ADSyncCSObject" cmdlet, and then a full sync cycle must be run.
+ - We fixed a bug where the new employeeLeaveDateTime attribute wasn't syncing correctly in version 2.1.19.0. Note that if the incorrect attribute was already used in a rule, then the rule must be updated with the new attribute and any objects in the AAD connector space that have the incorrect attribute must be removed with the "Remove-ADSyncCSObject" cmdlet, and then a full sync cycle must be run.
 
 ## 2.1.19.0
 
@@ -112,21 +121,21 @@ To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-t
 ## 2.1.16.0
 
 ### Release status
-8/2/2022: Released for download and auto-upgrade.
+8/2/2022: Released for download and autoupgrade.
 
 ### Bug fixes
- - We fixed a bug where auto-upgrade fails when the service account is in "UPN" format.
+ - We fixed a bug where autoupgrade fails when the service account is in "UPN" format.
 
 ## 2.1.15.0
 
 ### Release status
-7/6/2022: Released for download, will be made available for auto-upgrade soon.
+7/6/2022: Released for download, will be made available for autoupgrade soon.
 
 > [!IMPORTANT] 
 > We have discovered a security vulnerability in the Azure AD Connect Admin Agent. If you have installed the Admin Agent previously it is important that you update your Azure AD Connect server(s) to this version to mitigate the vulnerability.
 
 ### Functional changes
- - We have removed the public preview functionality for the Admin Agent from Azure AD Connect. We will not provide this functionality going forward.
+ - We have removed the public preview functionality for the Admin Agent from Azure AD Connect. We won't provide this functionality going forward.
  - We added support for two new attributes: employeeOrgDataCostCenter and employeeOrgDataDivision.
  - We added CertificateUserIds attribute to AAD Connector static schema.
  - The AAD Connect wizard will now abort if write event logs permission is missing.
@@ -145,11 +154,11 @@ To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-t
  - We made the following Accessibility fixes:
    - Fixed a bug where Focus is lost during keyboard navigation on Domain and OU Filtering page.
    - We updated the accessible name of Clear Runs drop down.
-   - We fixed a bug where the tooltip of the "Help" button is not accessible through keyboard if navigated with arrow keys. 
+   - We fixed a bug where the tooltip of the "Help" button isn't accessible through keyboard if navigated with arrow keys. 
    - We fixed a bug where the underline of hyperlinks was missing on the Welcome page of the wizard.
-   - We fixed a bug in Sync Service Manager's About dialog where the Screen reader is not announcing the information about the data appearing under the "About" dialog box.
-   - We fixed a bug where the Management Agent Name was not mentioned in logs when an error occurred while validating MA Name.
-   - We fixed several accessibility issues with the keyboard navigation and custom control type fixes. The Tooltip of the "help" button is not collapsing by pressing "Esc" key. There was an Illogical keyboard focus on the User Sign In radio buttons and there was an invalid control type on the help popups.
+   - We fixed a bug in Sync Service Manager's About dialog where the Screen reader isn't announcing the information about the data appearing under the "About" dialog box.
+   - We fixed a bug where the Management Agent Name wasn't mentioned in logs when an error occurred while validating MA Name.
+   - We fixed several accessibility issues with the keyboard navigation and custom control type fixes. The Tooltip of the "help" button isn't collapsing by pressing "Esc" key. There was an Illogical keyboard focus on the User Sign In radio buttons and there was an invalid control type on the help popups.
    - We fixed a bug where an empty label was causing an accessibility error.
 
 ## 2.1.1.0
@@ -158,8 +167,8 @@ To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-t
 3/24/2022: Released for download only, not available for auto upgrade
 
 ### Bug fixes
- - Fixed an issue where some sync rule functions were not parsing surrogate pairs properly.
- - Fixed an issue where, under certain circumstances, the sync service would not start due to a model db corruption. You can read more about the model db corruption issue in [this article](/troubleshoot/azure/active-directory/resolve-model-database-corruption-sqllocaldb)
+ - Fixed an issue where some sync rule functions weren't parsing surrogate pairs properly.
+ - Fixed an issue where, under certain circumstances, the sync service wouldn't start due to a model db corruption. You can read more about the model db corruption issue in [this article](/troubleshoot/azure/active-directory/resolve-model-database-corruption-sqllocaldb)
 
 ## 2.0.91.0
 
@@ -189,7 +198,7 @@ To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-t
 
 ### Release status
 
-12/15/2021: Released for download only, not available for auto-upgrade
+12/15/2021: Released for download only, not available for autoupgrade
 
 ### Bug fixes
 
@@ -221,11 +230,11 @@ To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-t
 
 ### Release status
 
-10/13/2021: Released for download and auto-upgrade
+10/13/2021: Released for download and autoupgrade
 
 ### Bug fixes
 
-- We fixed a bug where the auto-upgrade process attempted to upgrade Azure AD Connect servers that are running older Windows OS version 2008 or 2008 R2 and failed. These versions of Windows Server are no longer supported. In this release, we only attempt auto-upgrade on machines that run Windows Server 2012 or newer.
+- We fixed a bug where the autoupgrade process attempted to upgrade Azure AD Connect servers that are running older Windows OS version 2008 or 2008 R2 and failed. These versions of Windows Server are no longer supported. In this release, we only attempt autoupgrade on machines that run Windows Server 2012 or newer.
 - We fixed an issue where, under certain conditions, miisserver failed because of an access violation exception.
 
 ### Known issues
@@ -239,7 +248,7 @@ When you upgrade to this V1.6 build or any newer builds, the group membership li
 
 ### Release status
 
-9/30/2021: Released for download only, not available for auto-upgrade
+9/30/2021: Released for download only, not available for autoupgrade
 
 ### Bug fixes
 
@@ -264,7 +273,7 @@ When you upgrade to this V1.6 build or any newer builds, the group membership li
 
 ### Release status
 
-9/21/2021: Released for download and auto-upgrade
+9/21/2021: Released for download and autoupgrade
 
 ### Functional changes
 
@@ -283,7 +292,7 @@ When you upgrade to this V1.6 build or any newer builds, the group membership li
 
 ### Release status
 
-9/14/2021: Released for download only, not available for auto-upgrade
+9/14/2021: Released for download only, not available for autoupgrade
 
 ### Bug fixes
 
@@ -291,7 +300,7 @@ When you upgrade to this V1.6 build or any newer builds, the group membership li
 - We fixed an import configuration issue with writeback enabled when you use the existing Azure AD Connector account.
 - We fixed an issue in Set-ADSyncExchangeHybridPermissions and other related cmdlets, which were broken from V1.6 because of an invalid inheritance type.
 - We fixed an issue with the cmdlet we published in a previous release to set the TLS version. The cmdlet overwrote the keys, which destroyed any values that were in them. Now a new key is created only if one doesn't already exist. We added a warning to let users know the TLS registry changes aren't exclusive to Azure AD Connect and might affect other applications on the same server.
-- We added a check to enforce auto-upgrade for V2.0 to require Windows Server 2016 or newer.
+- We added a check to enforce autoupgrade for V2.0 to require Windows Server 2016 or newer.
 - We added the Replicating Directory Changes permission in the Set-ADSyncBasicReadPermissions cmdlet.
 - We made a change to prevent UseExistingDatabase and import configuration from being used together because they could contain conflicting configuration settings.
 - We made a change to allow a user with the Application Admin role to change the App Proxy service configuration.
@@ -308,14 +317,14 @@ When you upgrade to this V1.6 build or any newer builds, the group membership li
 
 ### Release status
 
-8/19/2021: Released for download only, not available for auto-upgrade
+8/19/2021: Released for download only, not available for autoupgrade
 
 > [!NOTE]
 > This is a hotfix update release of Azure AD Connect. This release requires Windows Server 2016 or newer. This hotfix addresses an issue that's present in version 2.0 and in Azure AD Connect version 1.6. If you're running Azure AD Connect on an older Windows server, install the [1.6.13.0](#16130) build instead.
 
 ### Release status
 
-8/19/2021: Released for download only, not available for auto-upgrade
+8/19/2021: Released for download only, not available for autoupgrade
 
 ### Known issues
 
@@ -323,18 +332,18 @@ Under certain circumstances, the installer for this version displays an error th
 
 ### Bug fixes
 
-We fixed a bug that occurred when a domain was renamed and Password Hash Sync failed with an error that indicated "a specified cast is not valid" in the Event log. This regression is from earlier builds.
+We fixed a bug that occurred when a domain was renamed and Password Hash Sync failed with an error that indicated "a specified cast isn't valid" in the Event log. This regression is from earlier builds.
 
 ## 1.6.13.0
 
 > [!NOTE]
 > This release is a hotfix update release of Azure AD Connect. It's intended to be used by customers who are running Azure AD Connect on a server with Windows Server 2012 or 2012 R2.
 
-8/19/2021: Released for download only, not available for auto-upgrade
+8/19/2021: Released for download only, not available for autoupgrade
 
 ### Bug fixes
 
-We fixed a bug that occurred when a domain was renamed and Password Hash Sync failed with an error that indicated "a specified cast is not valid" in the Event log. This regression is from earlier builds.
+We fixed a bug that occurred when a domain was renamed and Password Hash Sync failed with an error that indicated "a specified cast isn't valid" in the Event log. This regression is from earlier builds.
 
 ### Functional changes
 
@@ -344,7 +353,7 @@ There are no functional changes in this release.
 
 ### Release status
 
-8/17/2021: Released for download only, not available for auto-upgrade
+8/17/2021: Released for download only, not available for autoupgrade
 
 ### Bug fixes
 
@@ -364,7 +373,7 @@ To download the latest version of Azure AD Connect 2.0, see the [Microsoft Downl
 
 ### Release status
 
-8/10/2021: Released for download only, not available for auto-upgrade
+8/10/2021: Released for download only, not available for autoupgrade
 
 ### Functional changes
 
@@ -379,7 +388,7 @@ This release addresses a vulnerability as documented in [this CVE](https://msrc.
 
 ### Release status
 
-8/10/2021: Released for download only, not available for auto-upgrade
+8/10/2021: Released for download only, not available for autoupgrade
 
 ### Functional changes
 
@@ -392,7 +401,7 @@ There are no functional changes in this release.
 
 ### Release status
 
-7/20/2021: Released for download only, not available for auto-upgrade
+7/20/2021: Released for download only, not available for autoupgrade
 
 ### Functional changes
 
@@ -484,14 +493,14 @@ You can use these cmdlets to retrieve the TLS 1.2 enablement status or set it as
 > The Azure AD Connect sync V2 endpoint API is now available in these Azure environments:
 >
 > - Azure Commercial
-> - Azure China cloud
+> - Microsoft Azure operated by 21Vianet
 > - Azure US Government cloud
 >
 > This release won't be made available in the Azure German cloud.
 
 ### Release status
 
-3/31/2021: Released for download only, not available for auto-upgrade
+3/31/2021: Released for download only, not available for autoupgrade
 
 ### Bug fixes
 
@@ -509,7 +518,7 @@ This release fixes a bug that occurred in version 1.6.2.4. After upgrade to that
 
 ### Release status
 
-3/19/2021: Released for download, not available for auto-upgrade
+3/19/2021: Released for download, not available for autoupgrade
 
 ### Functional changes
 

@@ -1,5 +1,5 @@
 ---
-title: Driving your organization to remediate security issues with recommendation governance in Microsoft Defender for Cloud
+title: Driving your organization to remediate security issues with recommendation governance
 description: Learn how to assign owners and due dates to security recommendations and create rules to automatically assign owners and due dates
 services: defender-for-cloud
 ms.service: defender-for-cloud
@@ -7,13 +7,14 @@ ms.topic: how-to
 ms.date: 01/23/2023
 ---
 
-# Drive your organization to remediate security recommendations with governance
+# Drive remediation with security governance
 
 Security teams are responsible for improving the security posture of their organizations but they may not have the resources or authority to actually implement security recommendations. [Assigning owners with due dates](#manually-assigning-owners-and-due-dates-for-recommendation-remediation) and [defining governance rules](#building-an-automated-process-for-improving-security-with-governance-rules) creates accountability and transparency so you can drive the process of improving the security posture in your organization.
 
 Stay on top of the progress on the recommendations in the security posture. Weekly email notifications to the owners and managers make sure that they take timely action on the recommendations that can improve your security posture and recommendations.
 
 You can learn more by watching this video from the Defender for Cloud in the Field video series:
+
 - [Remediate Security Recommendations with Governance](episode-fifteen.md)
 
 ## Building an automated process for improving security with governance rules
@@ -27,15 +28,16 @@ You can then review the progress of the tasks by subscription, recommendation, o
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-| Prerequisite: | Requires the [Defender Cloud Security Posture Management (CSPM) plan](concept-cloud-security-posture-management.md) to be enabled.|
+|Prerequisite: | Requires the [Defender Cloud Security Posture Management (CSPM) plan](concept-cloud-security-posture-management.md) to be enabled.|
 |Required roles and permissions:|Azure - **Contributor**, **Security Admin**, or **Owner** on the subscription<br>AWS, GCP – **Contributor**, **Security Admin**, or **Owner** on the connector|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP accounts|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP accounts|
 
 > [!NOTE]
 > Starting January 1, 2023, governance capabilities will require Defender Cloud Security Posture Management (CSPM) plan enablement.
 > Customers deciding to keep Defender CSPM plan off on scopes with governance content:
-> -	Existing assignments remain as is and continue to work with no customization option or ability to create new ones.
-> -	Existing rules will remain as is but won’t trigger new assignments creation.
+>
+> - Existing assignments remain as is and continue to work with no customization option or ability to create new ones.
+> - Existing rules will remain as is but won’t trigger new assignments creation.
 
 ### Defining governance rules to automatically set the owner and due date of recommendations
 
@@ -85,13 +87,14 @@ If there are existing recommendations that match the definition of the governanc
 
 > [!TIP]
 > Here are some sample use-cases for the at-scale experience:
-> -	View and manage all governance rules effective in the organization using a single page.
-> -	Create and apply rules on multiple scopes at once using management scopes cross cloud.
-> -	Check effective rules on selected scope using the scope filter.
+>
+> - View and manage all governance rules effective in the organization using a single page.
+> - Create and apply rules on multiple scopes at once using management scopes cross cloud.
+> - Check effective rules on selected scope using the scope filter.
 
 To view the effect of rules on a specific scope, use the Scope filter to select a specific scope.
 
-Conflicting rules are applied in priority order. For example, rules on a management scope (Azure management groups, AWS accounts and GCP organizations), take effect before rules on scopes (for example, Azure subscriptions, AWS accounts, or GCP projects). 
+Conflicting rules are applied in priority order. For example, rules on a management scope (Azure management groups, AWS accounts and GCP organizations), take effect before rules on scopes (for example, Azure subscriptions, AWS accounts, or GCP projects).
 
 ## Manually assigning owners and due dates for recommendation remediation
 
@@ -165,3 +168,5 @@ You can see the list of owners and recommendations for the selected rules, and t
 In this article, you learned how to set up a process for assigning owners and due dates to tasks so that owners are accountable for taking steps to improve your security posture.
 
 Check out how owners can [set ETAs for tasks](review-security-recommendations.md#manage-the-owner-and-eta-of-recommendations-that-are-assigned-to-you) so that they can manage their progress.
+
+Learn how to [Implement security recommendations in Microsoft Defender for Cloud](implement-security-recommendations.md).

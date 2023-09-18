@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 
 ms.author: justinha
 author: justinha
@@ -49,7 +49,7 @@ For a list of supported providers, see [FIDO2 security keys providers](concept-a
 
 ### What if I lose my security key?
 
-You can remove keys in the Azure portal by navigating to the **Security info** page and removing the FIDO2 security key.
+You can remove keys by navigating to the **Security info** page and removing the FIDO2 security key.
 
 ### How is the data protected on the FIDO2 security key?
 
@@ -106,7 +106,7 @@ For a full list of endpoints needed to use Microsoft online products, see [Offic
 To check if the Windows 10 client device has the right domain join type, use the following command:
 
 ```console
-Dsregcmd/status
+Dsregcmd /status
 ```
 
 The following sample output shows that the device is Azure AD joined as *AzureADJoined* is set to *YES*:

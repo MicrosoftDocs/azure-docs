@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: compliance
 ms.topic: overview
 ms.workload: identity
-ms.date: 04/28/2023
+ms.date: 08/24/2023
 ms.author: billmath
 ms.custom: contperf-fy21q3-portal
 ms.reviewer: amycolannino
@@ -67,7 +67,7 @@ Microsoft Entra identity governance can be integrated with many other applicatio
 | [Atmos](../../active-directory/saas-apps/atmos-provisioning-tutorial.md) | ● |  |
 | [AuditBoard](../../active-directory/saas-apps/auditboard-provisioning-tutorial.md) | ● |  |
 | [Autodesk SSO](../../active-directory/saas-apps/autodesk-sso-provisioning-tutorial.md) | ● | ● |
-| [Azure Databricks SCIM Connector](https://learn.microsoft.com/azure/databricks/administration-guide/users-groups/scim/aad) | ● |  |
+| [Azure Databricks SCIM Connector](/azure/databricks/administration-guide/users-groups/scim/aad) | ● |  |
 | [AWS IAM Identity Center](../../active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial.md) | ● | ● |
 | [BambooHR](../../active-directory/saas-apps/bamboo-hr-tutorial.md) |  | ● |
 | [BenQ IAM](../../active-directory/saas-apps/benq-iam-provisioning-tutorial.md) | ● | ● |
@@ -268,11 +268,11 @@ Microsoft Entra identity governance can be integrated with many other applicatio
 | SAML-based apps | | ●  |
 | [SAP Analytics Cloud](../../active-directory/saas-apps/sap-analytics-cloud-provisioning-tutorial.md) | ● | ● |
 | [SAP Cloud Platform](../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md) | ● | ● |
-| SAP R/3 | ● |  |
+| [SAP R/3 and ERP](../../active-directory/app-provisioning/on-premises-sap-connector-configure.md) | ● |  |
 | [SAP HANA](../../active-directory/saas-apps/saphana-tutorial.md) | ● | ● |
 | [SAP SuccessFactors to Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) | ● | ● |
 | [SAP SuccessFactors to Azure Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) | ● | ● |
-| [SAP SuccessFactors Writeback ](../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md) | ● | ● |
+| [SAP SuccessFactors Writeback](../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md) | ● | ● |
 | [SchoolStream ASA](../../active-directory/saas-apps/schoolstream-asa-provisioning-tutorial.md) | ● | ● |
 | [SCIM-based apps in the cloud](../app-provisioning/use-scim-to-provision-users-and-groups.md) | ● |  |
 | [SCIM-based apps on-premises](../app-provisioning/on-premises-scim-provisioning.md) | ● |  |

@@ -29,7 +29,7 @@ You can configure the Azure AD Connect Health service to send email notification
 >
 
 ### To enable Azure AD Connect Health email notifications
-1. In the Azure Portal, search for Azure AD Connect Health
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for Azure AD Connect Health
 2. Select **Sync errors**
 3. Select **Notification Settings**.
 5. At the email notification switch, select **ON**.
@@ -40,7 +40,7 @@ You can configure the Azure AD Connect Health service to send email notification
 >[!NOTE] 
 > When there are issues processing synchronization requests in our backend service, this service sends a notification email with the details of the error to the administrative contact email address(es) of your tenant. We heard feedback from customers that in certain cases the volume of these messages is prohibitively large so we are changing the way we send these messages. 
 >
-> Instead of sending a message for every sync error every time it occurs we will send out a daily digest of all errors the backend service has returned. This enables customers to process these errors in a more efficient manner and reduces the number of duplicate error messages.
+> Instead of sending a message for every sync error every time it occurs we will send out a daily digest of all errors the backend service has returned. Sync error emails are sent once a day, based on the previous day's unresolved errors. So if the customer triggers an error, but resolves it fairly quickly, they will not get an email the following day. This enables customers to process these errors in a more efficient manner and reduces the number of duplicate error messages.
 
 ## Delete a server or service instance
 

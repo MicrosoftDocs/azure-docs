@@ -5,14 +5,14 @@ description: Use Azure Storage and .NET to create a stored access policy. Exerci
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: pauljewell
 ms.reviewer: ozgun
-ms.subservice: common
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Create a stored access policy with .NET

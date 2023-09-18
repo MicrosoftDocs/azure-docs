@@ -192,7 +192,7 @@ When the `properties.provisioningState` is `Succeeded` and `properties.status` (
 
 At this point, the private endpoint between Azure Web PubSub Service and Azure Function is established.
 
-### Step 4: Verify upstream calls are from a private IP
+## Step 4: Verify upstream calls are from a private IP
 
 Once the private endpoint is set up, you can verify incoming calls are from a private IP by checking the `X-Forwarded-For` header at upstream side.
 

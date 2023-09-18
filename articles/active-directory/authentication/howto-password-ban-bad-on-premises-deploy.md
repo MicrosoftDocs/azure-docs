@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 09/14/2023
 
 ms.author: justinha
 author: justinha
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Plan and deploy on-premises Azure Active Directory Password Protection
 
-Users often create passwords that use common local words such as a school, sports team, or famous person. These passwords are easy to guess, and weak against dictionary-based attacks. To enforce strong passwords in your organization, Azure Active Directory (Azure AD) Password Protection provides a global and custom banned password list. A password change request fails if there's a match in these banned password list.
+Users often create passwords that use common local words such as a school, sports team, or famous person. These passwords are easy to guess, and weak against dictionary-based attacks. To enforce strong passwords in your organization, Azure Active Directory (Azure AD) Password Protection provides a global and custom banned password list. A password change request fails if there's a match in this banned password list.
 
 To protect your on-premises Active Directory Domain Services (AD DS) environment, you can install and configure Azure AD Password Protection to work with your on-prem DC. This article shows you how to install and register the Azure AD Password Protection proxy service and Azure AD Password Protection DC agent in your on-premises environment.
 
@@ -92,10 +92,11 @@ The following core requirements apply:
     | --- | --- |
     |`https://login.microsoftonline.com`|Authentication requests|
     |`https://enterpriseregistration.windows.net`|Azure AD Password Protection functionality|
+    |`https://autoupdate.msappproxy.net` | Azure AD Password Protection auto-upgrade functionality |
 
 > [!NOTE]
 > Some endpoints, such as the CRL endpoint, are not addressed in this article. For a list of all supported endpoints, see [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
->In addition, other endpoints are required for Azure portal authentication. For more information, see [Azure portal URLs for proxy bypass](/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud#azure-portal-urls-for-proxy-bypass).
+>In addition, other endpoints are required for Microsoft Entra admin center authentication. For more information, see [Microsoft Entra admin center URLs for proxy bypass](/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud#azure-portal-urls-for-proxy-bypass).
 
 ### Azure AD Password Protection DC agent
 
@@ -164,6 +165,7 @@ Choose one or more servers to host the Azure AD Password Protection proxy servic
 * You can run the Azure AD Password Protection proxy service on a domain controller for testing, but that domain controller then requires internet connectivity. This connectivity can be a security concern. We recommend this configuration for testing only.
 * We recommend at least two Azure AD Password Protection proxy servers per forest for redundancy, as noted in the previous section on [high availability considerations](#high-availability-considerations).
 * It's not supported to run the Azure AD Password Protection proxy service on a read-only domain controller.
+* If necessary, you can remove the proxy service by using **Add or remove programs**. No manual cleanup of the state that the proxy service maintains is needed.
 
 To install the Azure AD Password Protection proxy service, complete the following steps:
 
@@ -241,7 +243,7 @@ To install the Azure AD Password Protection proxy service, complete the followin
         >
         > You may also see MFA required if Azure Device Registration (which is used under the covers by Azure AD Password Protection) has been configured to globally require MFA. To workaround this requirement you may use a different account that supports MFA with one of the previous two authentication modes, or you may also temporarily relax the Azure Device Registration MFA requirement.
         >
-        > To make this change, search for and select **Azure Active Directory** in the Azure portal, then select **Devices > Device Settings**. Set **Require Multi-Factor Auth to join devices** to *No*. Be sure to reconfigure this setting back to *Yes* once registration is complete.
+        > To make this change, select **Identity** in the [Microsoft Entra admin center](https://entra.microsoft.com), then select **Devices** > **Device Settings**. Set **Require Multi-Factor Auth to join devices** to *No*. Be sure to reconfigure this setting back to *Yes* once registration is complete.
         >
         > We recommend that MFA requirements be bypassed for test purposes only.
 
@@ -294,7 +296,7 @@ To install the Azure AD Password Protection proxy service, complete the followin
         >
         > You may also see MFA required if Azure Device Registration (which is used under the covers by Azure AD Password Protection) has been configured to globally require MFA. To workaround this requirement you may use a different account that supports MFA with one of the previous two authentication modes, or you may also temporarily relax the Azure Device Registration MFA requirement.
         >
-        > To make this change, search for and select **Azure Active Directory** in the Azure portal, then select **Devices > Device Settings**. Set **Require Multi-Factor Auth to join devices** to *No*. Be sure to reconfigure this setting back to *Yes* once registration is complete.
+        > To make this change, select **Identity** in the [Microsoft Entra admin center](https://entra.microsoft.com), then select **Devices** > **Device Settings**. Set **Require Multi-Factor Auth to join devices** to *No*. Be sure to reconfigure this setting back to *Yes* once registration is complete.
         >
         > We recommend that MFA requirements be bypassed for test purposes only.
 
@@ -398,7 +400,7 @@ The software installation, or uninstallation, requires a restart. This requireme
 
 The installation of on-prem Azure AD Password Protection is complete after the DC agent software is installed on a domain controller, and that computer is rebooted. No other configuration is required or possible. Password change events against the on-prem DCs use the configured banned password lists from Azure AD.
 
-To enable on-prem Azure AD Password Protection from the Azure portal or configure custom banned passwords, see [Enable on-premises Azure AD Password Protection](howto-password-ban-bad-on-premises-operations.md).
+To enable on-prem Azure AD Password Protection or configure custom banned passwords, see [Enable on-premises Azure AD Password Protection](howto-password-ban-bad-on-premises-operations.md).
 
 > [!TIP]
 > You can install the Azure AD Password Protection DC agent on a machine that's not yet a domain controller. In this case, the service starts and runs but remain inactive until the machine is promoted to be a domain controller.
@@ -434,4 +436,4 @@ The `Get-AzureADPasswordProtectionDCAgent` cmdlet may be used to query the softw
 
 ## Next steps
 
-Now that you've installed the services that you need for Azure AD Password Protection on your on-premises servers, [enable on-prem Azure AD Password Protection in the Azure portal](howto-password-ban-bad-on-premises-operations.md) to complete your deployment.
+Now that you've installed the services that you need for Azure AD Password Protection on your on-premises servers, [enable on-prem Azure AD Password Protection](howto-password-ban-bad-on-premises-operations.md) to complete your deployment.

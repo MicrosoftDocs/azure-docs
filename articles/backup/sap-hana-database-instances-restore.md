@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 10/05/2022
 ms.service: backup
 ms.custom: ignite-2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore SAP HANA database instance snapshots on Azure VMs (preview)

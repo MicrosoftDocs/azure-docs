@@ -150,7 +150,7 @@ e. In the **Claim mapping** section, fill the following fields.
 f. Click **Test single sign-on** to test the configuration and **Save** it.
 
 > [!NOTE]
-> For more information on how to configure the SSO at MURAL, please follow [this](https://support.mural.co/articles/6224385-mural-s-azure-ad-integration) support page.
+> For more information on how to configure the SSO at MURAL, please follow [this](https://support.mural.co/s/article/configure-sso-with-mural-and-azure-ad) support page.
 
 ### Create Mural Identity test user
 
@@ -170,7 +170,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Mural Identity for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Mural Identity tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Mural Identity for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Mural Identity tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Mural Identity for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Change log
 

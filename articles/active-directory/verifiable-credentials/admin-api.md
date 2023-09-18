@@ -418,7 +418,7 @@ Content-type: application/json
 
 ### Remarks
 
->You can create multiple authorities with their own DID and private keys, these will not be visible in the UI of the azure portal. Currently we only support having 1 authority. We have not fully tested all scenarios with multiple created authorities. If you are trying this please let us know your experience.
+>You can create multiple authorities with their own DID and private keys, these will not be visible in the UI of the Azure portal. Currently we only support having 1 authority. We have not fully tested all scenarios with multiple created authorities. If you are trying this please let us know your experience.
 
 ### Update authority
 
@@ -924,6 +924,7 @@ If the property `customStatusEndpoint` property isn't specified, then the `anony
 | -------- | -------- | -------- |
 | `url` | string (url)| the url of the custom status endpoint |
 | `type` | string | the type of the endpoint |
+
 example:
 
 ```
@@ -986,9 +987,8 @@ example:
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`uri`| string (uri) | uri of the logo (optional if image is specified) |
+|`uri`| string (uri) | uri of the logo |
 |`description` | string | the description of the logo |
-|`image` | string | the base-64 encoded image (optional if uri is specified) |
 
 #### displayConsent type
 
@@ -1228,14 +1228,15 @@ You are able to [search](how-to-issuer-revoke.md) for verifiable credentials wit
 
 ```csharp
   string claimvalue = "Bowen";
-  string contractid = "ZjViZjJmYzYtNzEzNS00ZDk0LWE2ZmUtYzI2ZTQ1NDNiYzVhdGVzdDM";
+  string contractid = "<...your-contract-id-value...>";
   string output;
-		
+
   using (var sha256 = SHA256.Create())
   {
-	var input = contractid + claimvalue;
-	byte[] inputasbytes = Encoding.UTF8.GetBytes(input);
-	hashedsearchclaimvalue = Convert.ToBase64String(sha256.ComputeHash(inputasbytes));
+    var input = contractid + claimvalue;
+    byte[] inputasbytes = Encoding.UTF8.GetBytes(input);
+    hashedsearchclaimvalue = Convert.ToBase64String(sha256.ComputeHash(inputasbytes));
+    output = System.Net.WebUtility.UrlEncode( hashedsearchclaimvalue );
   }
 ```
 

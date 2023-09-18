@@ -8,10 +8,10 @@ ms.author: aahi
 
 ## Configure an environment variable for authentication
 
-Your application must be authenticated to access Cognitive Services resources. For production, use a secure way of storing and accessing your credentials. For example, after you have a key for your resource, write it to a new environment variable on the local machine running the application.
+Your application must be authenticated to access Azure AI services resources. For production, use a secure way of storing and accessing your credentials. For example, after you have a key for your resource, write it to a new environment variable on the local machine running the application.
 
 > [!TIP]
-> Don't include the key directly in your code, and never post it publicly. See the Cognitive Services [security](../articles/cognitive-services/security-features.md) article for more authentication options like [Azure Key Vault](../articles/cognitive-services/use-key-vault.md). 
+> Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](../articles/cognitive-services/security-features.md) article for more authentication options like [Azure Key Vault](../articles/cognitive-services/use-key-vault.md). 
 
 To set the environment variable for your resource key, open a console window, and follow the instructions for your operating system and development environment. To set the `COGNITIVE_SERVICE_KEY` environment variable, replace `your-key` with one of the keys for your resource.
 

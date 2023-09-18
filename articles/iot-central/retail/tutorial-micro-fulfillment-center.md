@@ -1,6 +1,5 @@
 ---
 title: "Tutorial: Azure IoT Micro-fulfillment center"
-titleSuffix: Azure IoT Central
 description: This tutorial shows you how to deploy and use the micro-fulfillment center application template for Azure IoT Central
 author: dominicbetts
 ms.author: dobett 
@@ -64,11 +63,25 @@ An active Azure subscription. If you don't have an Azure subscription, create a 
 
 ## Create micro-fulfillment application
 
-Create the application using following steps:
+To create your IoT Central application:
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the navigation bar and then select the **Retail** tab.
+1. Navigate to the [Create IoT Central Application](https://portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal. If prompted, sign in with your Azure account.
 
-1. Select **Create app** under **micro-fulfillment center**.
+1. Enter the following information:
+
+    | Field | Description |
+    | ----- | ----------- |
+    | Subscription | The Azure subscription you want to use. |
+    | Resource group | The resource group you want to use.  You can create a new resource group or use an existing one. |
+    | Resource name | A valid Azure resource name. |
+    | Application URL | The URL subdomain for your application. The URL for an IoT Central application looks like `https://yoursubdomain.azureiotcentral.com`. |
+    | Template | **Micro-fulfillment Center** |
+    | Region | The Azure region you want to use. |
+    | Pricing plan | The pricing plan you want to use. |
+
+1. Select **Review + create**. Then select **Create**.
+
+[!INCLUDE [iot-central-navigate-from-portal](../../../includes/iot-central-navigate-from-portal.md)]
 
 ## Walk through the application
 

@@ -230,8 +230,6 @@ The following XML snippet is an example of a RESTful technical profile configure
 
 ## OAuth2 bearer authentication 
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 Bearer token authentication is defined in [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). In bearer token authentication, Azure AD B2C sends an HTTP request with a token in the authorization header.
 
 ```http
@@ -242,7 +240,6 @@ A bearer token is an opaque string. It can be a JWT access token or any string t
 
 - **Bearer token**. To be able to send the bearer token in the Restful technical profile, your policy needs to first acquire the bearer token and then use it in the RESTful technical profile.  
 - **Static bearer token**. Use this approach when your REST API issues a long-term access token. To use a static bearer token, create a policy key and make a reference from the RESTful technical profile to your policy key. 
-
 
 ## Using OAuth2 Bearer  
 
@@ -488,15 +485,18 @@ Add the validation technical profile reference to the sign up technical profile,
 
 
 
+
+
 For example:
-    ```XML
-    <ValidationTechnicalProfiles>
-       ....
-       <ValidationTechnicalProfile ReferenceId="REST-AcquireAccessToken" />
-       ....
-    </ValidationTechnicalProfiles>
-    ```
-    
+```ruby
+```XML
+<ValidationTechnicalProfiles>
+   ....
+   <ValidationTechnicalProfile ReferenceId="REST-AcquireAccessToken" />
+   ....
+</ValidationTechnicalProfiles>
+```
+```
 
 ::: zone-end
 
@@ -530,7 +530,6 @@ To configure a REST API technical profile with API key authentication, create th
 1. In the **Secret** box, enter the REST API key.
 1. For **Key usage**, select **Encryption**.
 1. Select **Create**.
-
 
 ### Configure your REST API technical profile to use API key authentication
 
@@ -584,3 +583,4 @@ The following XML snippet is an example of a RESTful technical profile configure
 ::: zone pivot="b2c-custom-policy"
 - Learn more about the [Restful technical profile](restful-technical-profile.md) element in the custom policy reference.
 ::: zone-end
+

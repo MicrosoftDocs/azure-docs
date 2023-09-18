@@ -4,7 +4,7 @@ description: This article provides information on Web Application Firewall exclu
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 06/13/2022
+ms.date: 05/17/2023
 ms.author: victorh
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
@@ -39,7 +39,19 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Contains**: This operator matches all request fields that contain the specified selector value.
 - **Equals any**: This operator matches all request fields. * will be the selector value.
 
-When processing exclusions, any WAF engine running CRS 3.2 and above will perform a case sensitive match for all fields other than request headers. Depending on your application, the names, and values, of your headers, cookies and query args can be case sensitive or insensitive. If your WAF engine is running CRS 3.1 and below, all fields are case insensitive. Regardless of which CRS version you are running regular expressions aren't allowed as selectors and XML request bodies are not supported.
+When processing exclusions the WAF engine performs a case sensitive/insensitive match based on the below table. Additionally, regular expressions aren't allowed as selectors and XML request bodies aren't supported.
+
+| Request Body Part | CRS 3.1 and Earlier | CRS 3.2 and Later |
+|-|-|-|
+| Header* | Case Insensitive | Case Insensitive |
+| Cookie* | Case Insensitive | Case Sensitive |
+| Query String* | Case Insensitive | Case Sensitive |
+| URL-Encoded Body | Case Insensitive | Case Sensitive |
+| JSON Body | Case Insensitive | Case Sensitive |
+| XML Body | Not Supported | Not Supported |
+| Multipart Body | Case Insensitive | Case Sensitive |
+
+*Depending on your application, the names, and values, of your headers, cookies and query args can be case sensitive or insensitive.
 
 > [!NOTE]
 > For more information and troubleshooting help, see [WAF troubleshooting](web-application-firewall-troubleshoot.md).
@@ -54,7 +66,7 @@ For example, suppose your requests include this header:
 My-Header: 1=1
 ```
 
-The value of the header (`1=1`) might be detected as an attack by the WAF. But if you know this is a legitimate value for your scenario, you can configure an exclusion for the *value* of the header. To do so, you use the **RequestHeaderValues** match variable, the operator **contains**, and the selector (`My-Header`).
+The value of the header (`1=1`) might be detected as an attack by the WAF. But if you know this is a legitimate value for your scenario, you can configure an exclusion for the *value* of the header. To do so, you use the **RequestHeaderValues** match variable, the operator **contains**, and the selector (`My-Header`). This configuration stops evaluation of all values for the header `My-Header`.
 
 > [!NOTE]
 > Request attributes by key and values are only available in CRS 3.2 or newer and Bot Manager 1.0 or newer.
@@ -62,6 +74,38 @@ The value of the header (`1=1`) might be detected as an attack by the WAF. But i
 > Request attributes by names work the same way as request attributes by values, and are included for backward compatibility with CRS 3.1 and earlier versions. We recommend you use request attributes by values instead of attributes by names. For example, use **RequestHeaderValues** instead of **RequestHeaderNames**.
 
 In contrast, if your WAF detects the header's name (`My-Header`) as an attack, you could configure an exclusion for the header *key* by using the **RequestHeaderKeys** request attribute. The **RequestHeaderKeys** attribute is only available in CRS 3.2 or newer and Bot Manager 1.0 or newer.
+
+#### Request attribute examples
+
+The below table shows some examples of how you might structure your exclusion for a given match variable.
+
+| Attribute to Exclude | matchVariable | selectorMatchOperator | Example selector | Example request | What gets excluded |
+|-|-|-|-|-|-|
+| Query string | RequestArgKeys | Equals | `/etc/passwd` | Uri: `http://localhost:8080/?/etc/passwd=test` | `/etc/passwd` |
+| Query string | RequestArgKeys | EqualsAny | "" | Uri: `http://localhost:8080/?/etc/passwd=test&.htaccess=test2` | `/etc/passwd` and `.htaccess` |
+| Query string | RequestArgNames | Equals | `text` | Uri: `http://localhost:8080/?text=/etc/passwd` | `/etc/passwd` |
+| Query string | RequestArgNames | EqualsAny | "" | Uri: `http://localhost:8080/?text=/etc/passwd&text2=.cshrc` | `/etc/passwd` and `.cshrc` |
+| Query string | RequestArgValues | Equals | `text` | Uri: `http://localhost:8080/?text=/etc/passwd` | `/etc/passwd` |
+| Query string | RequestArgValues | EqualsAny | "" | Uri: `http://localhost:8080/?text=/etc/passwd&text2=.cshrc` | `/etc/passwd` and `.cshrc` |
+| Request body | RequestArgKeys | Contains | `sleep` | Request body: `{"sleep(5)": "test"}` | `sleep(5)` |
+| Request body | RequestArgKeys | EqualsAny | "" | Request body: `{".zshrc": "value", "sleep(5)":"value2"}` | `.zshrc` and `sleep(5)` |
+| Request body | RequestArgNames | Equals | `test` | Request body: `{"test": ".zshrc"}` | `.zshrc` |
+| Request body | RequestArgNames | EqualsAny | "" | Request body: `{"key1": ".zshrc", "key2":"sleep(5)"}` | `.zshrc` and `sleep(5)` |
+| Request body | RequestArgValues | Equals | `test` | Request body: `{"test": ".zshrc"}` | `.zshrc` |
+| Request body | RequestArgValues | EqualsAny | "" | Request body: `{"key1": ".zshrc", "key2":"sleep(5)"}` | `.zshrc` and `sleep(5)` |
+| Header | RequestHeaderKeys | Equals | `X-Scanner` | Header: `{"X-Scanner": "test"}` | `X-scanner` |
+| Header | RequestHeaderKeys | EqualsAny | "" | Header: `{"X-Scanner": "test", "x-ratproxy-loop": "value"}` | `X-Scanner` and `x-ratproxy-loop` |
+| Header | RequestHeaderNames | Equals | `head1` | Header: `{"head1": "X-Scanner"}` | `X-scanner` |
+| Header | RequestHeaderNames | EqualsAny | "" | Header: `{"head1": "myvar=1234", "User-Agent": "(hydra)"}` | `myvar=1234` and `(hydra)` |
+| Header | RequestHeaderValues | Equals | `head1` | Header: `{"head1": "X-Scanner"}` | `X-scanner` |
+| Header | RequestHeaderValues | EqualsAny | "" | Header: `{"head1": "myvar=1234", "User-Agent": "(hydra)"}` | `myvar=1234` and `(hydra)` |
+| Cookie | RequestCookieKeys | Contains | `/etc/passwd` | Header: `{"Cookie": "/etc/passwdtest=hello1"}` | `/etc/passwdtest` |
+| Cookie | RequestCookieKeys | EqualsAny | "" | Header: `{"Cookie": "/etc/passwdtest=hello1", "Cookie": ".htaccess=test1"}` | `/etc/passwdtest` and `.htaccess` |
+| Cookie | RequestCookieNames | Equals | `arg1` | Header: `{"Cookie": "arg1=/etc/passwd"}` | `/etc/passwd` |
+| Cookie | RequestCookieNames | EqualsAny | "" | Header: `{"Cookie": "arg1=/etc/passwd", "Cookie": "arg1=.cshrc"}` | `/etc/passwd` and `.cshrc` |
+| Cookie | RequestCookieValues | Equals | `arg1` | Header: `{"Cookie": "arg1=/etc/passwd"}` | `/etc/passwd` |
+| Cookie | RequestCookieValues | EqualsAny | "" | Header: `{"Cookie": "arg1=/etc/passwd", "Cookie": "arg1=.cshrc"}` | `/etc/passwd` and `.cshrc` |
+
 
 ## Exclusion scopes
 
@@ -234,6 +278,7 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
 }
 ```
 
+
 ---
 
 You can also exclude the `User-Agent` header from evaluation just by rule 942270:
@@ -371,6 +416,7 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
 }
 ```
 
+
 ---
 
 ### Global exclusions
@@ -475,10 +521,12 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
 }
 ```
 
+
 ---
 
-So if the URL `http://www.contoso.com/?user%3c%3e=joe` is scanned by the WAF, it won't evaluate the string **joe**, but it will still evaluate the parameter name **user%3c%3e**. 
+So if the URL `http://www.contoso.com/?user%3c%3e=joe` is scanned by the WAF, it won't evaluate the string **joe**, but it still evaluates the parameter name **user%3c%3e**. 
 
 ## Next steps
 
-After you configure your WAF settings, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
+- After you configure your WAF settings, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
+- [Learn more about Azure network security](../../networking/security/index.yml)

@@ -9,10 +9,10 @@ ms.subservice: msi
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/24/2022
+ms.date: 05/10/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, has-azure-ad-ps-ref
 ---
 
 # Configure managed identities for Azure resources on an Azure VM using PowerShell
@@ -35,7 +35,7 @@ In this article, using PowerShell, you learn how to perform the following manage
 
 ## System-assigned managed identity
 
-In this section, you'll learn how to enable and disable the system-assigned managed identity using Azure PowerShell.
+In this section, we go over how to enable and disable the system-assigned managed identity using Azure PowerShell.
 
 ### Enable system-assigned managed identity during creation of an Azure VM
 
@@ -95,7 +95,7 @@ If you have a Virtual Machine that no longer needs the system-assigned managed i
 
    ```azurepowershell-interactive
    $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType "UserAssigned"
+   Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType "UserAssigned" -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."
    ```
 
 If you have a virtual machine that no longer needs system-assigned managed identity and it has no user-assigned managed identities, use the following commands:
@@ -151,7 +151,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
 
 To remove a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.
 
-If your VM has multiple user-assigned managed identities, you can remove all but the last one using the following commands. Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY NAME>` is the user-assigned managed identity's name property, which should remain on the VM. This information can be found by querying the `Identity` property of the VM object.  For example, `$vm.Identity`:
+If your VM has multiple user-assigned managed identities, you can remove all but the last one using the following commands. Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY NAME>` is the user-assigned managed identity's name property, which should remain on the VM. This information is discoverable using a query to search for the `Identity` property of the VM object.  For example, `$vm.Identity`:
 
 ```azurepowershell-interactive
 $vm = Get-AzVm -ResourceGroupName myResourceGroup -Name myVm

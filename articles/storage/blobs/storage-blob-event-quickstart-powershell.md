@@ -6,8 +6,7 @@ ms.author: normesta
 ms.reviewer: dastanfo
 ms.date: 08/23/2018
 ms.topic: article
-ms.service: storage
-ms.subservice: blobs 
+ms.service: azure-blob-storage
 ms.custom: devx-track-azurepowershell
 ---
 

@@ -48,4 +48,5 @@ When you commit a deployment of configuration(s), you're describing the goal sta
 
 ## Next steps
 
-Learn how to [create an Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md).
+- Learn how to [create an Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md) in the Azure portal.
+- Deploy an [Azure Virtual Network Manager](create-virtual-network-manager-terraform.md) instance using Terraform.

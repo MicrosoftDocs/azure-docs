@@ -2,11 +2,10 @@
 title: Azure Files scalability and performance targets
 description: Learn about the capacity, IOPS, and throughput rates for Azure file shares.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 11/2/2022
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Azure Files scalability and performance targets
@@ -59,7 +58,7 @@ Azure file share scale targets apply at the file share level.
 | Maximum size of a file share | <ul><li>100 TiB, with large file share feature enabled<sup>2</sup></li><li>5 TiB, default</li></ul> | 100 TiB |
 | Maximum number of files in a file share | No limit | No limit |
 | Maximum request rate (Max IOPS) | <ul><li>20,000, with large file share feature enabled<sup>2</sup></li><li>1,000 or 100 requests per 100 ms, default</li></ul> | <ul><li>Baseline IOPS: 3000 + 1 IOPS per GiB, up to 100,000</li><li>IOPS bursting: Max (10000, 3x IOPS per GiB), up to 100,000</li></ul> |
-| Throughput (ingress + egress) for a single file share (MiB/sec) | <ul><li>Up to 300 MiB/sec, with large file share feature enabled<sup>2</sup></li><li>Up to 60 MiB/sec, default</li></ul> | 100 + CEILING(0.04 * ProvisionedStorageGiB) + CEILING(0.06 * ProvisionedStorageGiB) |
+| Throughput (ingress + egress) for a single file share (MiB/sec) | <ul><li>Up to storage account limits, with large file share feature enabled<sup>2</sup></li><li>Up to 60 MiB/sec, default</li></ul> | 100 + CEILING(0.04 * ProvisionedStorageGiB) + CEILING(0.06 * ProvisionedStorageGiB) |
 | Maximum number of share snapshots | 200 snapshots | 200 snapshots |
 | Maximum object name length<sup>3</sup> (full pathname including all directories, file names, and backslash characters) | 2,048 characters | 2,048 characters |
 | Maximum length of individual pathname component<sup>3</sup> (in the path \A\B\C\D, each letter represents a directory or file that is an individual component) | 255 characters | 255 characters |
@@ -82,13 +81,14 @@ File scale targets apply to individual files stored in Azure file shares.
 | Maximum concurrent request rate | 1,000 IOPS | Up to 8,000<sup>1</sup> |
 | Maximum ingress for a file | 60 MiB/sec | 200 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup> |
 | Maximum egress for a file | 60 MiB/sec | 300 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup> |
-| Maximum concurrent handles per file, directory, and share root<sup>3</sup> | 2,000 handles | 2,000 handles  |
+| Maximum concurrent handles for root directory<sup>3</sup> | 10,000 handles | 10,000 handles  |
+| Maximum concurrent handles per file and directory<sup>3</sup> | 2,000 handles | 2,000 handles |
 
 <sup>1 Applies to read and write I/Os (typically smaller I/O sizes less than or equal to 64 KiB). Metadata operations, other than reads and writes, may be lower. These are soft limits, and throttling can occur beyond these limits.</sup>
 
-<sup>2 Subject to machine network limits, available bandwidth, I/O sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./storage-files-smb-multichannel-performance.md).</sup>
+<sup>2 Subject to machine network limits, available bandwidth, I/O sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./smb-performance.md).</sup>
 
-<sup>3 Azure Files supports 2,000 open handles per share, and in practice can go higher. However, if an application keeps an open handle on the root of the share, the share root limit will be reached before the per-file or per-directory limit is reached.</sup>
+<sup>3 Azure Files supports 10,000 open handles on the root directory and 2,000 open handles per file and directory within the share. The number of active users supported per share is dependent on the applications that are accessing the share. If your applications are not opening a handle on the root directory, Azure Files can support more than 10,000 active users per share.</sup>
 
 ## Azure File Sync scale targets
 The following table indicates which targets are soft, representing the Microsoft tested boundary, and hard, indicating an enforced maximum:

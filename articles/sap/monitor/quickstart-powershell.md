@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Monitor for SAP solutions with Azure PowerShell
-description: Deploy Azure Monitor for SAP solutions with Azure PowerShell
+title: Deploy Azure Monitor for SAP solutions by using Azure PowerShell
+description: Learn how to use Azure PowerShell to deploy Azure Monitor for SAP solutions.
 author: sameeksha91
 ms.author: sakhare
 ms.topic: quickstart
@@ -9,50 +9,50 @@ ms.subservice: sap-monitor
 ms.date: 10/19/2022
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell, mode-api
-# Customer intent: As a developer, I want to deploy Azure Monitor for SAP solutions with PowerShell so that I can create resources with PowerShell.
+# Customer intent: As a developer, I want to deploy Azure Monitor for SAP solutions by using PowerShell so that I can create resources by using PowerShell.
 ---
 
-# Quickstart: deploy Azure Monitor for SAP solutions with PowerShell
+# Quickstart: Deploy Azure Monitor for SAP solutions by using PowerShell
 
-Get started with Azure Monitor for SAP solutions by using the [Az.Workloads](/powershell/module/az.workloads) PowerShell module to create Azure Monitor for SAP solutions resources. You create a resource group, set up monitoring, and create a provider instance.
+In this quickstart, get started with Azure Monitor for SAP solutions by using the [Az.Workloads](/powershell/module/az.workloads) PowerShell module to create Azure Monitor for SAP solutions resources. You create a resource group, set up monitoring, and create a provider instance.
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-- If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module.Connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps). Alternately, you can use [Azure Cloud Shell](../../cloud-shell/overview.md).
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module. Connect to your Azure account by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps). Alternately, you can use [Azure Cloud Shell](../../cloud-shell/overview.md).
 
-Install **Az.Workloads** PowerShell module by running command.
+  Install the **Az.Workloads** PowerShell module by running this command:
 
-```azurepowershell-interactive
-Install-Module -Name Az.Workloads
-```
+  ```azurepowershell-interactive
+  Install-Module -Name Az.Workloads
+  ```
 
-- If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription using the
-[Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
+- If you have multiple Azure subscriptions, select the subscription in which the resources should be billed by using the
+[Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet:
 
-```azurepowershell-interactive
-Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
-```
+  ```azurepowershell-interactive
+  Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+  ```
 
-- Create or Use an existing Virtual Network for Azure Monitor for SAP solutions(AMS), which has access to the Source SAP systems Virtual Network.
-- Create a new subnet with address range of IPv4/25 or larger in AMS associated virtual network with subnet delegation assigned to "Microsoft.Web/serverFarms".
+- Create or choose a virtual network for Azure Monitor for SAP solutions that has access to the source SAP system's virtual network.
+- Create a subnet with an address range of IPv4/25 or larger in the virtual network that's associated with Azure Monitor for SAP solutions, with subnet delegation assigned to **Microsoft.Web/serverFarms**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot that shows Subnet creation for Azure Monitor for SAP solutions.](./media/quickstart-powershell/subnet-creation.png)
+   > ![Screenshot that shows subnet creation for Azure Monitor for SAP solutions.](./media/quickstart-powershell/subnet-creation.png)
 
 ## Create a resource group
 
 Create an [Azure resource group](../../azure-resource-manager/management/overview.md) by using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as a group.
 
-The following example creates a resource group with the specified name and in the specified location.
+The following example creates a resource group with the specified name and in the specified location:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name Contoso-AMS-RG -Location <myResourceLocation>
 ```
 
-## Azure Monitor for SAP: Monitor Creation
+## Create an SAP monitor
 
-To create an SAP monitor, use the [New-AzWorkloadsMonitor](/powershell/module/az.workloads/new-azworkloadsmonitor) cmdlet. The following example creates an SAP monitor for the specified subscription, resource group, and resource name.
+To create an SAP monitor, use the [New-AzWorkloadsMonitor](/powershell/module/az.workloads/new-azworkloadsmonitor) cmdlet. The following example creates an SAP monitor for the specified subscription, resource group, and resource name:
 
 ```azurepowershell-interactive
 $monitor_name = 'Contoso-AMS-Monitor'
@@ -66,26 +66,23 @@ $route_all = 'RouteAll'
 New-AzWorkloadsMonitor -Name $monitor_name -ResourceGroupName $rg_name -SubscriptionId $subscription_id -Location $location -AppLocation $location -ManagedResourceGroupName $managed_rg_name -MonitorSubnet $subnet_id -RoutingPreference $route_all
 ```
 
-To retrieve the properties of an SAP monitor, use the [Get-AzWorkloadsMonitor](/powershell/module/az.workloads/get-azworkloadsmonitor) cmdlet. The following example gets properties of an SAP monitor for the specified subscription, resource group, and resource name.
+To get the properties of an SAP monitor, use the [Get-AzWorkloadsMonitor](/powershell/module/az.workloads/get-azworkloadsmonitor) cmdlet. The following example gets the properties of an SAP monitor for the specified subscription, resource group, and resource name:
 
 ```azurepowershell-interactive
 Get-AzWorkloadsMonitor -ResourceGroupName Contoso-AMS-RG -Name Contoso-AMS-Monitor
 ```
 
-## Azure Monitor for SAP - Provider's Creation
+## Create a provider
 
-### SAP NetWeaver Provider Creation
+### Create an SAP NetWeaver provider
 
-To create an SAP NetWeaver provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a NetWeaver provider for the specified subscription, resource group, and resource name.
+To create an SAP NetWeaver provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a NetWeaver provider for the specified subscription, resource group, and resource name:
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 ```
 
-> [!NOTE]
->
-> - hostname is SAP WebDispatcher or application server hostname/IP address
-> - SapHostFileEntry is IP,FQDN,Hostname of every instance that gets listed in [GetSystemInstanceList](./provider-netweaver.md#determine-all-hostname-associated-with-an-sap-system)
+In the following code, `hostname` is the host name or IP address for SAP Web Dispatcher or the application server. `SapHostFileEntry` is the IP address, fully qualified domain name, or host name of every instance that's listed in [GetSystemInstanceList](./provider-netweaver.md#adding-netweaver-provider) point 6 (xi).
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -107,9 +104,9 @@ New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name 
 
 ```
 
-### SAP HANA Provider Creation
+### Create an SAP HANA provider
 
-To create an SAP HANA provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a HANA provider for the specified subscription, resource group, and resource name.
+To create an SAP HANA provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a HANA provider for the specified subscription, resource group, and resource name:
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -128,9 +125,9 @@ $providerSetting = New-AzWorkloadsProviderHanaDbInstanceObject -Name $dbName -Pa
 New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name -ResourceGroupName $rg_name -SubscriptionId $subscription_id -ProviderSetting $providerSetting
 ```
 
-### Operating System Provider Creation
+### Create an operating system provider
 
-To create an Operating System provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates an OS provider for the specified subscription, resource group, and resource name.
+To create an operating system provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates an operating system provider for the specified subscription, resource group, and resource name:
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -145,9 +142,9 @@ $providerSetting = New-AzWorkloadsProviderPrometheusOSInstanceObject -Prometheus
 New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name -ResourceGroupName $rg_name -SubscriptionId $subscription_id -ProviderSetting $providerSetting
 ```
 
-### High Availability Cluster Provider Creation
+### Create a high-availability cluster provider
 
-To create  High Availability Cluster provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a High Availability Cluster provider for the specified subscription, resource group, and resource name.
+To create a high-availability cluster provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a high-availability cluster provider for the specified subscription, resource group, and resource name:
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -164,9 +161,9 @@ $providerSetting = New-AzWorkloadsProviderPrometheusHaClusterInstanceObject -Clu
 New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name -ResourceGroupName $rg_name -SubscriptionId $subscription_id -ProviderSetting $providerSetting
 ```
 
-### SQL Database Provider Creation
+### Create a Microsoft SQL Server provider
 
-To create an SQL Database provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a SQL Database provider for the specified subscription, resource group, and resource name.
+To create a Microsoft SQL Server provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a SQL Server provider for the specified subscription, resource group, and resource name:
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -184,9 +181,9 @@ $providerSetting = New-AzWorkloadsProviderSqlServerInstanceObject -Password $pas
 New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name -ResourceGroupName $rg_name -SubscriptionId $subscription_id -ProviderSetting $providerSetting
 ```
 
-### IBM Db2 Provider Creation
+### Create an IBM Db2 provider
 
-To create an IBM Db2 provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a NetWeaver provider for the specified subscription, resource group, and resource name.
+To create an IBM Db2 provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates an IBM Db2 provider for the specified subscription, resource group, and resource name:
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -206,25 +203,27 @@ $providerSetting = New-AzWorkloadsProviderDB2InstanceObject -Name $dbName -Passw
 New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name -ResourceGroupName $rg_name -SubscriptionId $subscription_id -ProviderSetting $providerSetting
 ```
 
-To retrieve properties of a provider instance, use the [Get-AzWorkloadsProviderInstance](/powershell/module/az.workloads/get-azworkloadsproviderinstance) cmdlet. The following example gets properties of:
+### Get properties of a provider instance
 
-- A provider instance for the specified subscription
-- The resource group
-- The SapMonitor name
-- The resource name
+To get the properties of a provider instance, use the [Get-AzWorkloadsProviderInstance](/powershell/module/az.workloads/get-azworkloadsproviderinstance) cmdlet. The following example gets the properties of:
+
+- A provider instance for the specified subscription.
+- The resource group.
+- The SAP monitor name.
+- The resource name.
 
 ```azurepowershell-interactive
 Get-AzWorkloadsProviderInstance -ResourceGroupName Contoso-AMS-RG -SapMonitorName Contoso-AMS-Monitor
 ```
 
-## Clean up of resources
+## Clean up resources
 
-If the resources created in this article aren't needed, you can delete them by running the following examples.
+If you don't need the resources that you created in this article, you can delete them by using the following examples.
 
 ### Delete the provider instance
 
 To remove a provider instance, use the
-[Remove-AzWorkloadsProviderInstance](/powershell/module/az.workloads/remove-azworkloadsproviderinstance) cmdlet. The following example is for IBM DB2 provider instance deletion for the specified subscription, resource group, SapMonitor name, and resource name.
+[Remove-AzWorkloadsProviderInstance](/powershell/module/az.workloads/remove-azworkloadsproviderinstance) cmdlet. The following example deletes an IBM DB2 provider instance for the specified subscription, resource group, SAP monitor name, and resource name:
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'
@@ -237,7 +236,7 @@ Remove-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_na
 
 ### Delete the SAP monitor
 
-To remove an SAP monitor, use the [Remove-AzWorkloadsMonitor](/powershell/module/az.workloads/remove-azworkloadsmonitor) cmdlet. The following example deletes an SAP monitor for the specified subscription, resource group, and monitor name.
+To remove an SAP monitor, use the [Remove-AzWorkloadsMonitor](/powershell/module/az.workloads/remove-azworkloadsmonitor) cmdlet. The following example deletes an SAP monitor for the specified subscription, resource group, and monitor name:
 
 ```azurepowershell
 $monitor_name = 'Contoso-AMS-Monitor'
@@ -247,11 +246,12 @@ $subscription_id = '00000000-0000-0000-0000-000000000000'
 Remove-AzWorkloadsMonitor -Name $monitor_name -ResourceGroupName $rg_name -SubscriptionId $subscription_id
 ```
 
-- ### Delete the resource group
+### Delete the resource group
+
+The following example deletes the specified resource group and all the resources in it.
 
 > [!CAUTION]
-> The following example deletes the specified resource group and all resources contained within it.
-> If resources outside the scope of this article exist in the specified resource group, they will also be deleted.
+> If resources outside the scope of this article exist in the specified resource group, they'll also be deleted.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name Contoso-AMS-RG

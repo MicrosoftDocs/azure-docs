@@ -8,9 +8,9 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.custom: devx-track-arm-template
+ms.custom: devx-track-arm-template, has-azure-ad-ps-ref
 ms.topic: sample
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 ms.author: justinha 
 ---
 # Create an Azure Active Directory Domain Services managed domain using an Azure Resource Manager template
@@ -67,10 +67,10 @@ First, register the Azure AD Domain Services resource provider using the [Regist
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-Create an Azure AD service principal using the [New-AzureADServicePrincipal][New-AzureADServicePrincipal] cmdlet for Azure AD DS to communicate and authenticate itself. A specific application ID is used named *Domain Controller Services* with an ID of *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Don't change this application ID.
+Create an Azure AD service principal using the [New-AzureADServicePrincipal][New-AzureADServicePrincipal] cmdlet for Azure AD DS to communicate and authenticate itself. A specific application ID is used named *Domain Controller Services* with an ID of *2565bd9d-da50-47d4-8b85-4c97f669dc36* for Azure Global. For other Azure clouds, search for AppId value *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. 
 
 ```powershell
-New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
+New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
 Now create an Azure AD group named *AAD DC Administrators* using the [New-AzureADGroup][New-AzureADGroup] cmdlet. Users added to this group are then granted permissions to perform administration tasks on the managed domain.
@@ -315,15 +315,15 @@ The following complete Resource Manager sample template creates a managed domain
 }
 ```
 
-This template can be deployed using your preferred deployment method, such as the [Azure portal][portal-deploy], [Azure PowerShell][powershell-deploy], or a CI/CD pipeline. The following example uses the [New-AzResourceGroupDeployment][New-AzResourceGroupDeployment] cmdlet. Specify your own resource group name and template filename:
+This template can be deployed using your preferred deployment method, such as the [Microsoft Entra admin center][portal-deploy], [Azure PowerShell][powershell-deploy], or a CI/CD pipeline. The following example uses the [New-AzResourceGroupDeployment][New-AzResourceGroupDeployment] cmdlet. Specify your own resource group name and template filename:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "myResourceGroup" -TemplateFile <path-to-template>
 ```
 
-It takes a few minutes to create the resource and return control to the PowerShell prompt. The managed domain continues to be provisioned in the background, and can take up to an hour to complete the deployment. In the Azure portal, the **Overview** page for your managed domain shows the current status throughout this deployment stage.
+It takes a few minutes to create the resource and return control to the PowerShell prompt. The managed domain continues to be provisioned in the background, and can take up to an hour to complete the deployment. In the Microsoft Entra admin center, the **Overview** page for your managed domain shows the current status throughout this deployment stage.
 
-When the Azure portal shows that the managed domain has finished provisioning, the following tasks need to be completed:
+When the Microsoft Entra admin center shows that the managed domain has finished provisioning, the following tasks need to be completed:
 
 * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
     * To configure DNS, select your managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.

@@ -1,13 +1,13 @@
 ---
 title: "Quickstart - Integrate with Azure Database for PostgreSQL and Azure Cache for Redis"
-titleSuffix: Azure Spring Apps Enterprise tier
-description: Explains how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running Azure Spring Apps Enterprise tier.
+titleSuffix: Azure Spring Apps Enterprise plan
+description: Explains how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 05/31/2022
-ms.custom: devx-track-java, service-connector, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, service-connector, devx-track-azurecli
 ---
 
 # Quickstart: Integrate with Azure Database for PostgreSQL and Azure Cache for Redis
@@ -15,21 +15,21 @@ ms.custom: devx-track-java, service-connector, devx-track-azurecli
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This quickstart shows you how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running in Azure Spring Apps Enterprise tier.
+This quickstart shows you how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running in the Azure Spring Apps Enterprise plan.
 
 This article uses these services for demonstration purposes. You can connect your application to any backing service of your choice by using instructions similar to the ones in the [Create Service Connectors](#create-service-connectors) section later in this article.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise Tier in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
+- Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
-- Complete the steps in [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+- Complete the steps in [Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 
 ## Provision services
 
@@ -110,13 +110,13 @@ The following instructions describe how to provision an Azure Cache for Redis an
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-You can find the template used in this quickstart in the [fitness store sample GitHub repository](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure/templates/azuredeploy.json).
+You can find the template used in this quickstart in the [fitness store sample GitHub repository](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-spring-apps-enterprise/resources/json/deploy/azuredeploy.json).
 
 To deploy this template, follow these steps:
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Cache for Redis and an Azure Database for PostgreSQL Flexible Server.
 
-   :::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Facme-fitness-store%2FAzure%2Fazure%2Ftemplates%2Fazuredeploy.json":::
+   :::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Facme-fitness-store%2FAzure%2Fazure-spring-apps-enterprise%2Fresources%2Fjson%2Fdeploy%2Fazuredeploy.json":::
 
 1. Enter values for the following fields:
 
@@ -133,7 +133,7 @@ To deploy this template, follow these steps:
 
 ## Create Service Connectors
 
-The following steps show how to bind applications running in Azure Spring Apps Enterprise tier to other Azure services by using Service Connectors.
+The following steps show how to bind applications running in the Azure Spring Apps Enterprise plan to other Azure services by using Service Connectors.
 
 1. Use the following command to create a service connector to Azure Database for PostgreSQL for the Order Service application:
 
@@ -194,7 +194,7 @@ The following steps show how to bind applications running in Azure Spring Apps E
 1. Use the following command to retrieve the database connection information:
 
    ```azurecli
-   POSTGRES_CONNECTION_STR=$(az spring connection show \
+   export POSTGRES_CONNECTION_STR=$(az spring connection show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> \
        --deployment default \
@@ -219,7 +219,7 @@ The following steps show how to bind applications running in Azure Spring Apps E
 1. Use the following commands to retrieve Redis connection information and update the Cart Service application:
 
    ```azurecli
-   REDIS_CONN_STR=$(az spring connection show \
+   export REDIS_CONN_STR=$(az spring connection show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> \
        --deployment default \
@@ -238,7 +238,7 @@ The following steps show how to bind applications running in Azure Spring Apps E
 Retrieve the URL for Spring Cloud Gateway and explore the updated application. You can use the output from the following command to explore the application:
 
 ```azurecli
-GATEWAY_URL=$(az spring gateway show \
+export GATEWAY_URL=$(az spring gateway show \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/13/2023
+ms.date: 05/29/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Kintone
@@ -138,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. In the **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
-	b. In the **Logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+	b. In the **Logout URL** textbox, paste the value: `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`.
 
 	c. Click **Browse** to upload your downloaded certificate file from Azure portal.
 
@@ -187,7 +187,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Kintone Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Kintone tile in the My Apps, this will redirect to Kintone Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Kintone tile in the My Apps, this will redirect to Kintone Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

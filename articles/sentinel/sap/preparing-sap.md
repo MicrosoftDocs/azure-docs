@@ -49,15 +49,19 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. **Prepare SAP environment (*You are here*)**
 
-1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
+1. [Configure auditing](configure-audit.md)
 
-1. [Deploy SAP security content](deploy-sap-security-content.md)
+1. [Deploy the solution content from the content hub](deploy-sap-security-content.md)
+
+1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
 
 1. [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md)
 
-1. Optional deployment steps
-   - [Configure auditing](configure-audit.md)
+1. Optional deployment steps   
    - [Configure data connector to use SNC](configure-snc.md)
+   - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
+   - [Configure audit log monitoring rules](configure-audit-log-rules.md)
+   - [Deploy SAP connector manually](sap-solution-deploy-alternate.md)
    - [Select SAP ingestion profiles](select-ingestion-profiles.md)
 
 To deploy the CRs, follow the steps outlined below. The steps below may differ according to the version of the SAP system and should be considered for demonstration purposes only.
@@ -129,10 +133,7 @@ To deploy the CRs, follow the steps outlined below. The steps below may differ a
 
     In the **SAP Easy Access** screen, type `STMS_IMPORT` in the field in the upper left corner of the screen and press the **Enter** key.
 
-    :::image type="content" source="media/preparing-sap/stms-import.png" alt-text="Screenshot of running the S T M S import transaction.":::
-
-    > [!CAUTION]
-    > If an error occurs at this step, then you need to configure the SAP transport management system before proceeding any further. [**See this article for instructions**](configure-transport.md).
+    :::image type="content" source="media/preparing-sap/stms-import.png" alt-text="Screenshot of running the S T M S import transaction.":::    
 
 1. In the **Import Queue** window that appears, select **More > Extras > Other Requests > Add**.
 
@@ -408,7 +409,7 @@ If the job exists and is configured correctly, no further steps are needed.
 
 You have now fully prepared your SAP environment. The required CRs have been deployed, a role and profile have been provisioned, and a user account has been created and assigned the proper role profile.
 
-Now you are ready to deploy the data connector agent container.
+Now you are ready to enable and configure SAP auditing for Microsoft Sentinel.
 
 > [!div class="nextstepaction"]
-> [Deploy and configure the container hosting the data connector agent](deploy-data-connector-agent-container.md)
+> [Enable and configure SAP auditing for Microsoft Sentinel](configure-audit.md)

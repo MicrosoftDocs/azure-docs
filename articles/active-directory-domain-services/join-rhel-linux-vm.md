@@ -9,10 +9,10 @@ ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 07/13/2020
 ms.author: justinha
-
 ---
 # Join a Red Hat Enterprise Linux virtual machine to an Azure Active Directory Domain Services managed domain
 
@@ -39,7 +39,7 @@ If you have an existing RHEL Linux VM in Azure, connect to it using SSH, then co
 
 If you need to create a RHEL Linux VM, or want to create a test VM for use with this article, you can use one of the following methods:
 
-* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Microsoft Entra admin center](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -311,13 +311,13 @@ To verify that the VM has been successfully joined to the managed domain, start 
 1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@aaddscontoso.com` and then enter the address of your VM, such as *rhel.aaddscontoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
 
     ```bash
-    sudo ssh -l contosoadmin@AADDSCONTOSO.com rhel.aaddscontoso.com
+    ssh -l contosoadmin@AADDSCONTOSO.com rhel.aaddscontoso.com
     ```
 
 1. When you've successfully connected to the VM, verify that the home directory was initialized correctly:
 
     ```bash
-    sudo pwd
+    pwd
     ```
 
     You should be in the */home* directory with your own directory that matches the user account.
@@ -325,7 +325,7 @@ To verify that the VM has been successfully joined to the managed domain, start 
 1. Now check that the group memberships are being resolved correctly:
 
     ```bash
-    sudo id
+    id
     ```
 
     You should see your group memberships from the managed domain.

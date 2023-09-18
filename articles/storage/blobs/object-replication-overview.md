@@ -4,11 +4,10 @@ titleSuffix: Azure Storage
 description: Object replication asynchronously copies block blobs between a source storage account and a destination account. Use object replication to minimize latency on read requests, to increase efficiency for compute workloads, to optimize data distribution, and to minimize costs.
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 05/04/2023
 ms.author: normesta
-ms.subservice: blobs
 ms.custom: engagement-fy23
 ---
 
@@ -43,6 +42,8 @@ Object replication is supported for accounts that are encrypted with either micr
 Object replication isn't supported for blobs in the source account that are encrypted with a customer-provided key. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 
 Customer-managed failover isn't supported for either the source or the destination account in an object replication policy.
+
+Object replication is not supported for blobs that are uploaded by using [Data Lake Storage Gen2](/rest/api/storageservices/data-lake-storage-gen2) APIs.
 
 ## How object replication works
 
@@ -106,6 +107,9 @@ You can also specify one or more filters as part of a replication rule to filter
 The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, write operations to the destination container aren't permitted. Any attempts to write to the destination container fail with error code 409 (Conflict). To write to a destination container for which a replication rule is configured, you must either delete the rule that is configured for that container, or remove the replication policy. Read and delete operations to the destination container are permitted when the replication policy is active.
 
 You can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md#archive-access-tier).
+
+> [!NOTE]
+> Changing the access tier of a blob in the source account won't change the access tier of that blob in the destination account. 
 
 ## Policy definition file
 
@@ -206,7 +210,7 @@ If the replication status for a blob in the source account indicates failure, th
 
 ## Billing
 
-There's not cost to configure object replication. This includes the task of enabling change feed, enabling versioning, as well as adding replication policies. However, object replication incurs costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed. 
+There is no cost to configure object replication. This includes the task of enabling change feed, enabling versioning, as well as adding replication policies. However, object replication incurs costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed. 
 
 Here's a breakdown of the costs. To find the price of each cost component, see [Azure Blob Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -219,11 +223,13 @@ Here's a breakdown of the costs. To find the price of each cost component, see [
 ||Cost of network egress<sup>2</sup>|
 
 
+
 <sup>1</sup>    See [Blob versioning pricing and Billing](versioning-overview.md#pricing-and-billing).
 
 <sup>2</sup>    This includes only blob versions created since the last replication completed.
 
 <sup>3</sup>    See [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
+
 
 
 ## Next steps
@@ -232,3 +238,5 @@ Here's a breakdown of the costs. To find the price of each cost component, see [
 - [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md)
 - [Blob versioning](versioning-overview.md)
 - [Change feed support in Azure Blob Storage](storage-blob-change-feed.md)
+
+

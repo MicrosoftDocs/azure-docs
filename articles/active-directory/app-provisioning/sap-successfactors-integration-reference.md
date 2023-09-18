@@ -15,7 +15,7 @@ ms.reviewer: chmutali
 
 # How Azure Active Directory provisioning integrates with SAP SuccessFactors 
 
-[Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [SAP SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) to manage the identity life cycle of users. Azure Active Directory offers three prebuilt integrations: 
+[Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [SAP SuccessFactors Employee Central](https://www.sap.com/products/hcm/employee-central-payroll.html) to manage the identity life cycle of users. Azure Active Directory offers three prebuilt integrations: 
 
 * [SuccessFactors to on-premises Active Directory user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 * [SuccessFactors to Azure Active Directory user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
@@ -36,7 +36,7 @@ To further secure the connectivity between Azure AD provisioning service and Suc
 
 1. Copy all IP address ranges listed within the element *addressPrefixes* and use the range to build your IP address restriction list.
 1. Translate the CIDR values to IP ranges.  
-1. Log in to SuccessFactors admin portal to add IP ranges to the allowlist. Refer to SAP [support note 2253200](https://apps.support.sap.com/sap/support/knowledge/en/2253200). You can now [enter IP ranges](https://answers.sap.com/questions/12882263/whitelisting-sap-cloud-platform-ip-address-range-i.html) in this tool. 
+1. Log in to SuccessFactors admin portal to add IP ranges to the allowlist. Refer to SAP [support note 2253200](https://userapps.support.sap.com/sap/support/knowledge/2253200). You can now [enter IP ranges](https://answers.sap.com/questions/12882263/whitelisting-sap-cloud-platform-ip-address-range-i.html) in this tool. 
 
 ## Supported entities
 For every user in SuccessFactors, Azure AD provisioning service retrieves the following entities. Each entity is expanded using the OData API *$expand* query parameter as outlined in the *Retrieval rule* column. Some entities are expanded by default, while some entities are expanded only if a specific attribute is present in the mapping. 
@@ -123,6 +123,28 @@ https://[SuccessFactorsAPIEndpoint]/odata/v2/PerPerson/$count?$format=json&$filt
 (employmentNav/userNav/lastModifiedDateTime ge datetimeoffset'<LastExecutionTimestamp>' and employmentNav/userNav/lastModifiedDateTime le datetimeoffset'<CurrentExecutionTime>'))
 &$expand=employmentNav/userNav,employmentNav/jobInfoNav,personalInfoNav,personEmpTerminationInfoNav,phoneNav,emailNav,employmentNav/userNav/manager/empInfo,employmentNav/jobInfoNav/companyNav,employmentNav/jobInfoNav/departmentNav,employmentNav/jobInfoNav/locationNav,employmentNav/jobInfoNav/locationNav/addressNavDEFLT,employmentNav/jobInfoNav/locationNav/addressNavDEFLT/stateNav&customPageSize=100
 ```
+
+## How pre-hire processing works
+
+This section explains how the SAP SuccessFactors connector processes pre-hire records (workers with hire date / start date in future). 
+Let's say there is a pre-hire with employeeId "1234" in SuccessFactors Employee Central with start date on 1-June-2023. Let's further assume that this pre-hire record was first created either in Employee Central or in the Onboarding module on 15-May-2023. When the provisioning service first observes this record on 15-May-2023 (either as part of full sync or incremental sync), this record is still in pre-hire state. Due to this, SuccessFactors does not send the provisioning service all attributes (example: userNav/username) associated with the user. Only bare minimum data about the user such as `companyName`, `personIdExternal`, `firstname`, `lastname` and `startDate` is available. To process pre-hires successfully, the following pre-requisites must be met: 
+
+1) The `personIdExternal` attribute must be set as the primary matching identifier (joining property). If you configure a different attribute (example: userName) as the joining property then the provisioning service will not be able to retrieve the pre-hire information. 
+2) The `startDate` attribute must be available and it's JSONPath must be set to either `$.employmentNav.results[0].startDate` or `$.employmentNav.results[-1:].startDate`.
+3) The pre-hire record must be in one of the following states in Employee Central: 'active' (t), 'inactive' (f), or 'active_external_suite' (e). For details about these states refer to the [SAP support note 2736579](https://launchpad.support.sap.com/#/notes/0002736579).
+
+> [!NOTE] 
+> For a  pre-hire who has no history with the organization, both the [0] and [-1:] index will work for `startDate`. For a pre-hire who is a re-hire or conversion, we cannot deterministically tell the order and this may cause certain rehire/converted workers to get processed on their actual start date. This is a known limitation in the connector.
+
+During full sync or incremental sync or on-demand provisioning, when the provisioning service encounters a pre-hire record, it sends the following OData query to SuccessFactors with "asOfDate" filter set to the startDate of the user (e.g., asOfDate=2023-06-01). 
+
+``` 
+https://[SuccessFactorsAPIEndpoint]/odata/v2/PerPerson?$format=json&$
+filter=(personIdExternal in '1234' and employmentNav/userNav/status in 't','f','e')&asOfDate=2023-06-01&$
+expand=employmentNav/userNav,employmentNav/jobInfoNav,personalInfoNav,personEmpTerminationInfoNav,phoneNav,emailNav,employmentNav/userNav/manager/empInfo,employmentNav/jobInfoNav/companyNav,employmentNav/jobInfoNav/costCenterNav,employmentNav/jobInfoNav/divisionNav,employmentNav/jobInfoNav/departmentNav,employmentNav/
+```
+
+If you are observing issues with pre-hire processing, you can use the above OData request format to query your SuccessFactors instance replacing the API endpoint, `personIdExternal` and `asOfDate` filter with values corresponding to your test scenario. 
 
 ## Reading attribute data
 
@@ -241,8 +263,8 @@ Use the steps to update your mapping to retrieve these codes.
 
     | Provisioning Job                                     | Account status attribute | Mapping expression       |
     | ---------------------------------------------------- | ------------------------ | ------------------------------------------------------------------------ |
-    | SuccessFactors to Active Directory User Provisioning | `accountDisabled`          | `Switch(\[emplStatus\], "True", "A", "False", "U", "False", "P", "False")` |
-    | SuccessFactors to Azure AD User Provisioning         | `accountEnabled`           | `Switch(\[emplStatus\], "False", "A", "True", "U", "True", "P", "True")`   |
+    | SuccessFactors to Active Directory User Provisioning | `accountDisabled`          | `Switch([emplStatus], "True", "A", "False", "U", "False", "P", "False")` |
+    | SuccessFactors to Azure AD User Provisioning         | `accountEnabled`           | `Switch([emplStatus], "False", "A", "True", "U", "True", "P", "True")`   |
 
 1. Save the changes.
 1. Test the configuration using [provision on demand](provision-on-demand.md). 
@@ -301,9 +323,9 @@ This section describes how you can update the JSONPath settings to definitely re
 
     | **String to find** | **String to use for replace** | **Purpose**  |
     | ------------------ | ----------------------------- | ------------ |
-    | `$.employmentNav.results\[0\].<br>jobInfoNav.results\[0\].emplStatus` | `$.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P' )\].emplStatusNav.externalCode` | With this find-replace, we're adding the ability to expand emplStatusNav OData object.    |
-    | `$.employmentNav.results\[0\].<br>jobInfoNav.results\[0\]`            | `$.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\]`                             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors EmpJobInfo record. Attributes associated with terminated/inactive records in SuccessFactors are ignored. |
-    | `$.employmentNav.results\[0\]`                                    | `$.employmentNav..results\[?(@.jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\])\]`             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors Employment record. Attributes associated with terminated/inactive records in SuccessFactors are ignored. |
+    | `$.employmentNav.results[0].<br>jobInfoNav.results[0].emplStatus` | `$.employmentNav..jobInfoNav..results[?(@.emplStatusNav.externalCode == 'A' || @.emplStatusNav.externalCode == 'U' || @.emplStatusNav.externalCode == 'P' )].emplStatusNav.externalCode` | With this find-replace, we're adding the ability to expand emplStatusNav OData object.    |
+    | `$.employmentNav.results[0].<br>jobInfoNav.results[0]`            | `$.employmentNav..jobInfoNav..results[?(@.emplStatusNav.externalCode == 'A' || @.emplStatusNav.externalCode == 'U' || @.emplStatusNav.externalCode == 'P')]`                             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors EmpJobInfo record. Attributes associated with terminated/inactive records in SuccessFactors are ignored. |
+    | `$.employmentNav.results[0]`                                    | `$.employmentNav..results[?(@.jobInfoNav..results[?(@.emplStatusNav.externalCode == 'A' || @.emplStatusNav.externalCode == 'U' || @.emplStatusNav.externalCode == 'P')])]`             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors Employment record. Attributes associated with terminated/inactive records in SuccessFactors are ignored. |
 
 1. Save the schema.
 1. The above process updates all JSONPath expressions. 
@@ -313,8 +335,8 @@ This section describes how you can update the JSONPath settings to definitely re
  
     | Provisioning Job | Account status attribute | Expression to use if account status is based on "activeEmploymentsCount" | Expression to use if account status is based on "emplStatus" value |
     | ----------------- | ------------------------ | ----------------------------- | ------------------------------------- |
-    | SuccessFactors to Active Directory User Provisioning | `accountDisabled`          | `Switch(\[activeEmploymentsCount\], "False", "0", "True")`                 | `Switch(\[emplStatus\], "True", "A", "False", "U", "False", "P", "False")` |
-    | SuccessFactors to Azure AD User Provisioning         | `accountEnabled`           | `Switch(\[activeEmploymentsCount\], "True", "0", "False")`                 | `Switch(\[emplStatus\], "False", "A", "True", "U", "True", "P", "True")`   |
+    | SuccessFactors to Active Directory User Provisioning | `accountDisabled`          | `Switch([activeEmploymentsCount], "False", "0", "True")`                 | `Switch([emplStatus], "True", "A", "False", "U", "False", "P", "False")` |
+    | SuccessFactors to Azure AD User Provisioning         | `accountEnabled`           | `Switch([activeEmploymentsCount], "True", "0", "False")`                 | `Switch([emplStatus], "False", "A", "True", "U", "True", "P", "True")`   |
 
 1. Save your changes. 1. 
 1. Test the configuration using [provision on demand](provision-on-demand.md). 
@@ -392,7 +414,7 @@ If you want to exclude processing of prehires in the Onboarding module, update y
 1. Save the mapping and validate that the scoping filter works using provisioning on demand. 
 
 ### Enabling OData API Audit logs in SuccessFactors
-The Azure AD SuccessFactors connector uses SuccessFactors OData API to retrieve changes and provision users. If you observe issues with the provisioning service and want to confirm what data was retrieved from SuccessFactors, you can enable OData API Audit logs in SuccessFactors. To enable audit logs, follow the steps documented in [SAP support note 2680837](https://userapps.support.sap.com/sap/support/knowledge/en/2680837). Retrieve the request payload sent by Azure AD from the audit logs. To troubleshoot, you can copy this request payload in a tool like [Postman](https://www.postman.com/downloads/), set it up to use the same API user that is used by the connector and see if it returns the desired changes from SuccessFactors. 
+The Azure AD SuccessFactors connector uses SuccessFactors OData API to retrieve changes and provision users. If you observe issues with the provisioning service and want to confirm what data was retrieved from SuccessFactors, you can enable OData API Audit logs in SuccessFactors. Retrieve the request payload sent by Azure AD from the audit logs. To troubleshoot, you can copy this request payload in a tool like [Postman](https://www.postman.com/downloads/), set it up to use the same API user that is used by the connector and see if it returns the desired changes from SuccessFactors. 
 
 ## Writeback scenarios
 This section covers different write-back scenarios. It recommends configuration approaches based on how email and phone number is set up in SuccessFactors.

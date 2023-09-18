@@ -5,6 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 services: azure-monitor
 ms.topic: conceptual
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 02/25/2023
 ms.reviewer: lualderm
 --- 
@@ -47,7 +48,7 @@ The following steps show how to apply the policy to send audit logs to for key v
 ### [CLI](#tab/cli)
 To apply a policy using the CLI, use the following commands:
 
-1. Create a policy assignment using [`az policy assignment create`](https://learn.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create).
+1. Create a policy assignment using [`az policy assignment create`](/cli/azure/policy/assignment#az-policy-assignment-create).
     ```azurecli
       az policy assignment create --name <policy assignment name>  --policy "6b359d8f-f88d-4052-aa7c-32015963ecc1"  --scope <scope> --params "{\"logAnalytics\": {\"value\": \"<log analytics workspace resource ID"}}" --mi-system-assigned --location <location>
     ```
@@ -68,7 +69,7 @@ Find the role in the policy definition by searching for *roleDefinitionIds*
           "deployment": {
             "properties": {...
     ```
-    Assign the required role using [`az policy assignment identity assign`](https://learn.microsoft.com/cli/azure/policy/assignment/identity?view=azure-cli-latest):
+    Assign the required role using [`az policy assignment identity assign`](/cli/azure/policy/assignment/identity):
     ```azurecli
     az policy assignment identity assign --system-assigned --resource-group <resource group name> --role <role name or ID> --identity-scope </scope> --name <policy assignment name>
     ```
@@ -77,13 +78,13 @@ Find the role in the policy definition by searching for *roleDefinitionIds*
     az policy assignment identity assign --system-assigned --resource-group rg-001  --role 92aaf0da-9dab-42b6-94a3-d43ce8d16293 --identity-scope /subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourceGroups/rg001 --name policy-assignment-1
     ```
 
-1. Trigger a scan to find existing resources using [`az policy state trigger-scan`](https://learn.microsoft.com/cli/azure/policy/state?view=azure-cli-latest#az-policy-state-trigger-scan).
+1. Trigger a scan to find existing resources using [`az policy state trigger-scan`](/cli/azure/policy/state#az-policy-state-trigger-scan).
 
     ```azurecli
     az policy state trigger-scan --resource-group rg-001
     ```
 
-1. Create a remediation task to apply the policy to existing resources using [`az policy remediation create`](https://learn.microsoft.com/cli/azure/policy/remediation?view=azure-cli-latest#az-policy-remediation-create).
+1. Create a remediation task to apply the policy to existing resources using [`az policy remediation create`](/cli/azure/policy/remediation#az-policy-remediation-create).
 
     ```azurecli
     az policy remediation create -g <resource group name> --policy-assignment <policy assignment name> --name <remediation name> 
@@ -94,7 +95,7 @@ Find the role in the policy definition by searching for *roleDefinitionIds*
     az policy remediation create -g rg-001 -n remediation-001 --policy-assignment  policy-assignment-1
     ```
 
-For more information on policy assignment using CLI, see [Azure CLI reference - az policy assignment](https://learn.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+For more information on policy assignment using CLI, see [Azure CLI reference - az policy assignment](/cli/azure/policy/assignment#az-policy-assignment-create)
 
 ### [PowerShell](#tab/Powershell)
 
@@ -283,7 +284,7 @@ You can get your policy assignment details using the following command:
 
 1. Select the subscription where you want to apply the policy initiative using the `az account set` command.
 
-1. Assign the initiative using [`az policy assignment create`](https://learn.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create).
+1. Assign the initiative using [`az policy assignment create`](/cli/azure/policy/assignment#az-policy-assignment-create).
 
     ```azurecli
     az policy assignment create --name <assignment name> --resource-group <resource group name> --policy-set-definition <initiative name> --params <parameters object> --mi-system-assigned --location <location>
@@ -305,7 +306,7 @@ You can get your policy assignment details using the following command:
           "deployment": {
             "properties": {...
     ```
-    Assign the required role using [`az policy assignment identity assign`](https://learn.microsoft.com/cli/azure/policy/assignment/identity?view=azure-cli-latest):
+    Assign the required role using [`az policy assignment identity assign`](/cli/azure/policy/assignment/identity):
     ```azurecli
     az policy assignment identity assign --system-assigned --resource-group <resource group name> --role <role name or ID> --identity-scope <scope> --name <policy assignment name>
     ```
@@ -321,7 +322,7 @@ You can get your policy assignment details using the following command:
     ```azurecli
     az policy set-definition show --name f5b29bc4-feca-4cc6-a58a-772dd5e290a5 |grep policyDefinitionReferenceId
     ```
-    Remediate the resources using [`az policy remediation create`](https://learn.microsoft.com/cli/azure/policy/remediation?view=azure-cli-latest#az-policy-remediation-create)
+    Remediate the resources using [`az policy remediation create`](/cli/azure/policy/remediation#az-policy-remediation-create)
 
     ```azurecli
     az policy remediation create --resource-group <resource group name> --policy-assignment <assignment name> --name <remediation task name> --definition-reference-id  "policy specific reference ID"  --resource-discovery-mode ReEvaluateCompliance

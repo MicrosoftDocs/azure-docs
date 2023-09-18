@@ -30,7 +30,7 @@ To create a lab account, you need access to an Azure subscription that's already
 
 It's important to know how many [virtual machines (VMs) and which VM sizes](./administrator-guide-1.md#vm-sizing) your school lab requires.
 
-For guidance on structuring your labs and images, see the blog post [Moving from a physical lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
+For guidance on structuring your labs and images, see [Moving from a physical lab to Azure Lab Services](./concept-migrating-physical-labs.md).
 
 For more information on how to structure labs, see the "Lab" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#lab).
 

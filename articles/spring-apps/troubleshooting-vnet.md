@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting Azure Spring Apps in virtual network
 description: Troubleshooting guide for Azure Spring Apps virtual network.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 09/19/2020
@@ -14,7 +14,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article helps you solve various problems that can arise when using Azure Spring Apps in virtual networks.
 

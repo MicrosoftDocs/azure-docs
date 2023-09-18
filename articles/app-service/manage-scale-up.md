@@ -3,8 +3,10 @@ title: Scale up features and capacities
 description: Learn how to scale up an app in Azure App Service. Get more CPU, memory, disk space, and extra features.
 ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
-ms.date: 08/19/2019
+ms.date: 05/08/2023
 ms.custom: seodec18
+ms.author: msangapu
+author: msangapu-msft
 
 ---
 # Scale up an app in Azure App Service
@@ -40,16 +42,17 @@ For information about the pricing and features of individual App Service plans, 
 ## Scale up your pricing tier
 
 > [!NOTE]
-> To scale up to **PremiumV3** tier, see [Configure PremiumV3 tier for App Service](app-service-configure-premium-tier.md).
->
+> To scale up to Premium V3 tier, see [Configure Premium V3 tier for App Service](app-service-configure-premium-tier.md).
 
-1. In your browser, open the [Azure portal][portal].
+1. In your browser, open the [Azure portal](https://portal.azure.com).
 
-1. In your App Service app page, from the left menu, select **Scale Up (App Service plan)**.
-   
-3. Choose your tier, and then select **Apply**. Select the different categories (for example, **Production**) and also **See additional options** to show more tiers.
-   
-    ![Navigate to scale up your Azure app.][ChooseWHP]
+1. In the left navigation of your App Service app page, select **Scale up (App Service plan)**.
+
+    :::image type="content" source="media/manage-scale-up/scale-up-tier-portal.png" alt-text="Screenshot showing how to scale up your app service plan.":::
+
+1. Select one of the pricing tiers and select **Select**.
+
+    :::image type="content" source="media/manage-scale-up/explore-pricing-plans.png" alt-text="Screenshot showing the Explore pricing plans page with a Premium V3 plan selected.":::
 
     When the operation is complete, you see a notification pop-up with a green success check mark.
 
@@ -67,7 +70,7 @@ If your app depends on other services, such as Azure SQL Database or Azure Stora
    
     ![Navigate to resource group page to scale up your Azure app](./media/web-sites-scale/ResourceGroup.png)
 
-    To scale up the related resource, see the documentation for the specific resource type. For example, to scale up a single SQL Database, see [Scale single database resources in Azure SQL Database](/azure/azure-sql/database/single-database-scale). To scale up a Azure Database for MySQL resource, see [Scale MySQL resources](../mysql/concepts-pricing-tiers.md#scale-resources).
+    To scale up the related resource, see the documentation for the specific resource type. For example, to scale up a single SQL Database, see [Scale single database resources in Azure SQL Database](/azure/azure-sql/database/single-database-scale). To scale up an Azure Database for MySQL resource, see [Scale MySQL resources](../mysql/concepts-pricing-tiers.md#scale-resources).
 
 <a name="OtherFeatures"></a>
 <a name="devfeatures"></a>
@@ -83,13 +86,12 @@ For a table of service limits, quotas, and constraints, and supported features i
 ## More resources
 
 * [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md)
-* [Configure PremiumV3 tier for App Service](app-service-configure-premium-tier.md)
+* [Configure Premium V3 tier for App Service](app-service-configure-premium-tier.md)
 * [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/
 [SQLaccountsbilling]:https://go.microsoft.com/fwlink/?LinkId=234930
 [azuresubscriptions]:https://account.windowsazure.com/subscriptions
-[portal]: https://portal.azure.com/
 
 <!-- IMAGES -->
 [ChooseWHP]: ./media/web-sites-scale/scale1ChooseWHP.png

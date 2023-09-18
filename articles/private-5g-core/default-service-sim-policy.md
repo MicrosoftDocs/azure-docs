@@ -2,8 +2,8 @@
 title: Default service and allow-all SIM policy
 titleSuffix: Azure Private 5G Core
 description: Information on the default service and allow-all SIM policy that can be created as part of deploying a private mobile network.
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual
 ms.date: 03/18/2022
@@ -66,7 +66,7 @@ The following tables provide the settings for the allow-all SIM policy and its a
 
 |Setting  |Value  |
 |---------|---------|
-|The names of the services permitted on this data network.      | *Allow-all-traffic*        |
+|The names of the services permitted on this data network.      | *Allow_all_traffic*        |
 |The maximum bitrate for uplink traffic (traveling away from SIMs) across all Non-GBR QoS Flows of a given PDU session on this data network.      | *2 Gbps*        |
 |The maximum bitrate for downlink traffic (traveling towards SIMs) across all Non-GBR QoS Flows of a given PDU session on this data network.     | *2 Gbps*        |
 |The default 5G QoS identifier (5QI) or QoS class identifier (QCI) value for this data network. The 5QI or QCI identifies a set of 5G or 4G QoS characteristics that control QoS forwarding treatment for QoS Flows, such as limits for Packet Error Rate.     | *9*        |

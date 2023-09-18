@@ -13,11 +13,6 @@ ms.custom: mimckitt, devx-track-azurepowershell
 
 # Using Application Health extension with Virtual Machine Scale Sets
 
-> [!IMPORTANT]
-> **Rich Health States** is currently in public preview. **Binary Health States** is generally available.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Monitoring your application health is an important signal for managing and upgrading your deployment. Azure Virtual Machine Scale Sets provide support for [Rolling Upgrades](virtual-machine-scale-sets-upgrade-policy.md) including [Automatic OS-Image Upgrades](virtual-machine-scale-sets-automatic-upgrade.md) and [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md), which rely on health monitoring of the individual instances to upgrade your deployment. You can also use Application Health Extension to monitor the application health of each instance in your scale set and perform instance repairs using [Automatic Instance Repairs](virtual-machine-scale-sets-automatic-instance-repairs.md).
 
 This article describes how you can use the two types of Application Health extension, **Binary Health States** or **Rich Health States**, to monitor the health of your applications deployed on Virtual Machine Scale Sets.
@@ -30,6 +25,9 @@ This article assumes that you're familiar with:
 
 > [!CAUTION]
 > Application Health Extension expects to receive a consistent probe response at the configured port `tcp` or request path `http/https` in order to label a VM as *Healthy*. If no application is running on the VM, or you're unable to configure a probe response, your VM is going to show up as *Unhealthy*.
+
+> [!NOTE]
+> Only one source of health monitoring can be used for a Virtual Machine Scale Set, either an Application Health Extension or a Health Probe. If you have both options enabled, you will need to remove one before using orchestration services like Instance Repairs or Automatic OS Upgrades.
 
 ## When to use the Application Health extension
 
@@ -94,8 +92,8 @@ Rich Health States reporting contains four Health States, *Initializing*, *Healt
 
 | Protocol | Health State | Description |
 | -------- | ------------ | ----------- |
-| http/https | Healthy | To send a *Healthy* signal, the application is expected to return a probe response with: **Probe Response Code**: Status 2xx, Probe Response Body: `{"ApplicationHealthState": "Healthy"}` |
-| http/https | Unhealthy | To send an *Unhealthy* signal, the application is expected to return a probe response with: **Probe Response Code**: Status 2xx, Probe Response Body: `{"ApplicationHealthState": "Unhealthy"}` |
+| http/https | Healthy | To send a *Healthy* signal, the application is expected to return a probe response with: **Probe Response Code**: Status 2xx, **Probe Response Body**: `{"ApplicationHealthState": "Healthy"}` |
+| http/https | Unhealthy | To send an *Unhealthy* signal, the application is expected to return a probe response with: **Probe Response Code**: Status 2xx, **Probe Response Body**: `{"ApplicationHealthState": "Unhealthy"}` |
 | http/https | Initializing | The instance automatically enters an *Initializing* state at extension start time. For more information, see [Initializing state](#initializing-state). |
 | http/https | Unknown | An *Unknown* state may occur in the following scenarios: when a non-2xx status code is returned by the application, when the probe request times out, when the application endpoint is unreachable or incorrectly configured, when a missing or invalid value is provided for `ApplicationHealthState` in the response body, or when the grace period expires. For more information, see [Unknown state](#unknown-state). |
 
@@ -105,7 +103,7 @@ Rich Health States reporting contains four Health States, *Initializing*, *Healt
 | -------- | ------------ | ----------- |
 | TCP | Healthy | To send a *Healthy* signal, a successful handshake must be made with the provided application endpoint. |
 | TCP | Unhealthy | The instance will be marked as *Unhealthy* if a failed or incomplete handshake occurred with the provided application endpoint. |
-| TCP | Unhealthy | The instance automatically enters an *Initializing* state at extension start time. For more information, see [Initializing state](#initializing-state). | 
+| TCP | Initializing | The instance automatically enters an *Initializing* state at extension start time. For more information, see [Initializing state](#initializing-state). | 
 
 ## Initializing state
 
@@ -167,8 +165,8 @@ The following JSON shows the schema for the Application Health extension. The ex
       "protocol": "<protocol>",
       "port": <port>,
       "requestPath": "</requestPath>",
-      "intervalInSeconds": 5.0,
-      "numberOfProbes": 1.0
+      "intervalInSeconds": 5,
+      "numberOfProbes": 1
     }
   }
 }  
@@ -211,8 +209,8 @@ The following JSON shows the schema for the Rich Health States extension. The ex
       "protocol": "<protocol>",
       "port": <port>,
       "requestPath": "</requestPath>",
-      "intervalInSeconds": 5.0,
-      "numberOfProbes": 1.0,
+      "intervalInSeconds": 5,
+      "numberOfProbes": 1,
       "gracePeriod": 600
     }
   }

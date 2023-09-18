@@ -1,6 +1,6 @@
 ---
 title: Use the REST API to manage dashboards in Azure IoT Central
-description: How to use the IoT Central REST API to manage dashboards in an application
+description: How to use the IoT Central REST API to create, update, delete, and manage dashboards in an application
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/06/2022
@@ -299,46 +299,13 @@ The response to this request looks like the following example:
 PATCH https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId}?api-version=2022-10-31-preview
 ```
 
-The following example shows a request body that updates the display name of a dashboard and size of the tile:
+The following example shows a request body that updates the display name of a dashboard and adds the dashboard to the list of favorites:
 
 ```json
 
 {
     "displayName": "New Dashboard Name",
-    "tiles": [
-        {
-            "displayName": "lineChart",
-            "configuration": {
-                "type": "lineChart",
-                "capabilities": [
-                    {
-                        "capability": "AvailableMemory",
-                        "aggregateFunction": "avg"
-                    }
-                ],
-                "devices": [
-                    "1cfqhp3tue3",
-                    "mcoi4i2qh3"
-                ],
-                "group": "da48c8fe-bac7-42bc-81c0-d8158551f066",
-                "format": {
-                    "xAxisEnabled": true,
-                    "yAxisEnabled": true,
-                    "legendEnabled": true
-                },
-                "queryRange": {
-                    "type": "time",
-                    "duration": "PT30M",
-                    "resolution": "PT1M"
-                }
-            },
-            "x": 5,
-            "y": 0,
-            "width": 5,
-            "height": 5
-        }
-    ],
-    "favorite": false
+    "favorite": true
 }
 
 ```
@@ -383,7 +350,7 @@ The response to this request looks like the following example:
             "height": 5
         }
     ],
-    "favorite": false
+    "favorite": true
 }
 ```
 

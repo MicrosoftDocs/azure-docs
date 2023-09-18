@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 05/25/2023
 ms.author: jeedes
 
 ---
@@ -66,7 +66,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     `https://account.parallels.com/webapp/sso/acs/<ID>`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Please note the Identifier and Reply URL values are customer specific and should be able to specify it manually by copying it from Parallels My Account to the identity provider Azure. Contact [Parallels Desktop Client support team](mailto:parallels.desktop.sso@alludo.com) for any help. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Please note the Identifier and Reply URL values are customer specific and should be able to specify it manually by copying it from Parallels My Account to the identity provider Azure. Contact [Parallels Desktop support team](https://www.parallels.com/support/) for any help. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
     c. In the **Sign on URL** textbox, type the URL:-
     `https://my.parallels.com/login?sso=1`
@@ -81,11 +81,11 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Parallels Desktop SSO
 
-To configure single sign-on on **Parallels Desktop** side, you need to send the downloaded **Certificate (PEM)** and appropriate copied URLs from Azure portal to [Parallels Desktop support team](mailto:parallels.desktop.sso@alludo.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Parallels Desktop** side, you need to send the downloaded **Certificate (PEM)** and appropriate copied URLs from Azure portal to [Parallels Desktop support team](https://www.parallels.com/support/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Parallels Desktop test user
 
-In this section, you create a user called Britta Simon at Parallels Desktop. Work with [Parallels Desktop support team](mailto:parallels.desktop.sso@alludo.com) to add the users in the Parallels Desktop platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon at Parallels Desktop. Work with [Parallels Desktop support team](https://www.parallels.com/support/) to add the users in the Parallels Desktop platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
@@ -95,7 +95,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Parallels Desktop Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Parallels Desktop tile in the My Apps, this will redirect to Parallels Desktop Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Parallels Desktop tile in the My Apps, this will redirect to Parallels Desktop Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Additional resources
 

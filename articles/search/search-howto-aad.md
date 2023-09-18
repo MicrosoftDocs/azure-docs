@@ -2,7 +2,6 @@
 title: Configure search apps for Azure AD
 titleSuffix: Azure Cognitive Search
 description: Acquire a token from Azure Active Directory to authorize search requests to an app built on Azure Cognitive Search.
-
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
@@ -13,7 +12,7 @@ ms.custom: subject-rbac-steps
 
 # Authorize access to a search app using Azure Active Directory
 
-Search applications that are built on Azure Cognitive Search can now use the [Microsoft identity platform](../active-directory/develop/v2-overview.md) for authenticated and authorized access. On Azure, the identity provider is Azure Active Directory (Azure AD). A key [benefit of using Azure AD](../active-directory/develop/active-directory-how-to-integrate.md#benefits-of-integration) is that your credentials and API keys no longer need to be stored in your code. Azure AD authenticates the security principal (a user, group, or service) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Cognitive Search.
+Search applications that are built on Azure Cognitive Search can now use the [Microsoft identity platform](../active-directory/develop/v2-overview.md) for authenticated and authorized access. On Azure, the identity provider is Azure Active Directory (Azure AD). A key [benefit of using Azure AD](../active-directory/develop/how-to-integrate.md#benefits-of-integration) is that your credentials and API keys no longer need to be stored in your code. Azure AD authenticates the security principal (a user, group, or service) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Cognitive Search.
 
 This article shows you how to configure your client for Azure AD:
 
@@ -21,7 +20,7 @@ This article shows you how to configure your client for Azure AD:
 
 + For authorization, you'll assign an Azure role to the managed identity that grants permissions to run queries or manage indexing jobs.
 
-+ Update your client code to call [`TokenCredential()`](/dotnet/api/azure.core.tokencredential).  For example, you can get started with new SearchClient(endpoint, new `DefaultAzureCredential()`) to authenticate via Azure AD using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
++ Update your client code to call [`TokenCredential()`](/dotnet/api/azure.core.tokencredential).  For example, you can get started with new SearchClient(endpoint, new `DefaultAzureCredential()`) to authenticate via an Azure AD using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
 
 ## Configure role-based access for data plane
 
@@ -31,7 +30,7 @@ In this step, configure your search service to recognize an **authorization** he
 
 ### [**Azure portal**](#tab/config-svc-portal)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and open the search service page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the search service page.
 
 1. Select **Keys** in the left navigation pane.
 
@@ -155,7 +154,7 @@ Use the following client libraries for role-based access control:
 
 The following instructions reference an existing C# sample to demonstrate the code changes.
 
-1. As a starting point, clone the [source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) for the [C# quickstart](search-get-started-dotnet.md).
+1. As a starting point, clone the [source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) for the C# section of [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md).
 
    The sample currently uses key-based authentication and the `AzureKeyCredential` to create the `SearchClient` and `SearchIndexClient` but you can make a small change to switch over to role-based authentication. 
 
@@ -218,5 +217,5 @@ Using an Azure SDK simplifies the OAuth 2.0 flow but you can also program direct
 
 + [Use Azure role-based access control in Azure Cognitive Search](search-security-rbac.md)
 + [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../active-directory/develop/v2-oauth2-auth-code-flow.md)
-+ [Integrating with Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md#benefits-of-integration)
++ [Integrating with Azure Active Directory](../active-directory/develop/how-to-integrate.md#benefits-of-integration)
 + [Azure custom roles](../role-based-access-control/custom-roles.md)

@@ -5,10 +5,9 @@ description: Learn how to use the Azure Queue Storage client library for Python 
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 05/12/2023
+ms.date: 06/29/2023
 ms.topic: quickstart
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, py-fresh-zinc, passwordless-python
 ---
@@ -25,6 +24,7 @@ Use the Azure Queue Storage client library for Python to:
 - Add messages to a queue
 - Peek at messages in a queue
 - Update a message in a queue
+- Get the queue length
 - Receive messages from a queue
 - Delete messages from a queue
 - Delete a queue
@@ -33,7 +33,7 @@ Use the Azure Queue Storage client library for Python to:
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
-- [Python](https://www.python.org/downloads/) 3.6+
+- [Python](https://www.python.org/downloads/) 3.7+
 
 ## Setting up
 
@@ -112,9 +112,9 @@ For example, your app can authenticate using your Visual Studio Code sign-in cre
 
 Azure Queue Storage is a service for storing large numbers of messages. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. Queue Storage offers three types of resources:
 
-- The storage account
-- A queue in the storage account
-- Messages within the queue
+- **Storage account**: All access to Azure Storage is done through a storage account. For more information about storage accounts, see [Storage account overview](../common/storage-account-overview.md)
+- **Queue**: A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](/rest/api/storageservices/Naming-Queues-and-Metadata).
+- **Message**: A message, in any format, of up to 64 KB. A message can remain in the queue for a maximum of 7 days. For version 2017-07-29 or later, the maximum time-to-live can be any positive number, or -1 indicating that the message doesn't expire. If this parameter is omitted, the default time-to-live is seven days.
 
 The following diagram shows the relationship between these resources.
 
@@ -214,6 +214,12 @@ Add this code to the end of the `try` block:
 ```
 
 ---
+
+Queue messages are stored as text. If you want to store binary data, set up Base64 encoding and decoding functions before putting a message in the queue.
+
+You can configure Base64 encoding and decoding functions when creating the client object:
+
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_EncodeMessage":::
 
 ### Create a queue
 

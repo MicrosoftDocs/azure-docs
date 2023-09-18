@@ -79,7 +79,7 @@ parameterPath="PATH/azuredeploy.parameters.json"
 az deployment group create --resource-group "YOUR-RG-NAME-HERE" --template-file $templatePath --parameters $parameterPath
 ```
 
-It can take more than one hour for the App Service Environment to be created.
+Creating the App Service Environment usually takes about an hour, but if it is a zone redundant App Service Environment or we are experiencing unexpected demand in a region, the creation process can take several hours to complete.
 
 ## Next steps
 

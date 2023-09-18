@@ -3,7 +3,7 @@ title: "Fortinet connector for Microsoft Sentinel"
 description: "Learn how to install the connector Fortinet to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 07/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -17,7 +17,7 @@ The Fortinet firewall connector allows you to easily connect your Fortinet logs 
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (Fortinet)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples
@@ -45,7 +45,7 @@ CommonSecurityLog
    | where DeviceProduct startswith "Fortigate"
 
             
-   | summarize count() by DestinationIP, DestinationPort​
+   | summarize count() by DestinationIP, DestinationPort, TimeGenerated​
             
    | sort by TimeGenerated
    ```
@@ -73,9 +73,9 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 > 2. You must have elevated permissions (sudo) on your machine.
 
    Run the following command to install and apply the CEF collector:
-
-   sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py python cef_installer.py {0} {1}
-
+   ```
+   sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py &&sudo python cef_installer.py {0} {1}
+   ```
 2. Forward Fortinet logs to Syslog agent
 
 Set your Fortinet to send Syslog messages in CEF format to the proxy machine. Make sure you to send the logs to port 514 TCP on the machine’s IP address.
@@ -115,9 +115,9 @@ If the logs are not received, run the following connectivity validation script:
 >2. You must have elevated permissions (sudo) on your machine
 
    Run the following command to validate your connectivity:
-
-   sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py python cef_troubleshoot.py  {0}
-
+   ```
+   sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py &&sudo python cef_troubleshoot.py  {0}
+   ```
 4. Secure your machine 
 
 Make sure to configure the machine's security according to your organization's security policy

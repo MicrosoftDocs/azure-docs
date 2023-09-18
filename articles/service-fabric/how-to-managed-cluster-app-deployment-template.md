@@ -7,8 +7,9 @@ author: tomvcassidy
 ms.service: service-fabric
 ms.custom: devx-track-arm-template
 services: service-fabric
-ms.date: 07/11/2022
+ms.date: 05/24/2023
 ---
+
 # Manage application lifecycle on a managed cluster using Azure Resource Manager
 
 You have multiple options for deploying Azure Service Fabric applications on your Service Fabric managed cluster. We recommend using Azure Resource Manager. If you use Resource Manager, you can describe applications and services in JSON, and then deploy them in the same Resource Manager template as your cluster. Unlike using PowerShell or Azure CLI to deploy and manage applications, if you use Resource Manager, you don't have to wait for the cluster to be ready; application registration, provisioning, and deployment can all happen in one step. Using Resource Manager is the best way to manage the application life cycle in your cluster. For more information, see [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources).
@@ -173,10 +174,10 @@ To delete a service fabric application that was deployed by using the applicatio
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource) cmdlet to delete the application resources:
+1. Use the [Remove-AzServiceFabricApplication](/powershell/module/az.servicefabric/remove-azservicefabricapplication) cmdlet to delete the application resources:
 
     ```powershell
-    Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
+    Remove-AzServiceFabricApplication -ResourceId <String> [-Force]
     ```
 
 

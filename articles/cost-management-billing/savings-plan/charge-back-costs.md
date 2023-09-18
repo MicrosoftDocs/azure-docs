@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 06/14/2023
 ms.author: banders
 ---
 
@@ -63,7 +63,7 @@ Information in the following table about metric and filter can help solve common
 | **Usage that got savings plan discount**  | Request for an ActualCost report. <br><br> Once you've ingested all of the usage, look for records with ChargeType = 'Usage' and PricingModel = 'SavingsPlan'. |
 | **Usage that didn't get savings plan discount**  | Request for an ActualCost report.<br><br> Once you've ingested all of the usage, filter for usage records with PricingModel = 'OnDemand'. |
 | **Amortized charges (usage and purchases)** | Request for an AmortizedCost report. |
-| **Unused savings plan report**  | Request for an AmortizedCost report.<br><br> Once you've ingested all of the usage, filter for usage records with ChargeType = 'UnusedBenefit' and PricingModel ='SavingsPlan'. |
+| **Unused savings plan report**  | Request for an AmortizedCost report.<br><br> Once you've ingested all of the usage, filter for usage records with ChargeType = 'UnusedSavingsPlan' and PricingModel ='SavingsPlan'. |
 | **Savings plan purchases**  | Request for an AmortizedCost report.<br><br> Once you've ingested all of the usage, filter for usage records with ChargeType = 'Purchase' and PricingModel = 'SavingsPlan'. |
 | **Refunds**  | Request for an AmortizedCost report.<br><br> Once you've ingested all of the usage, filter for usage records with ChargeType = 'Refund'. |
 

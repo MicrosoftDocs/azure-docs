@@ -42,8 +42,10 @@
     href: concepts-view-definition.md
   - name: Azure Policy for associations
     href: concepts-built-in-policy.md
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/managed-applications-security-baseline?toc=/azure/azure-resource-manager/managed-applications/toc.json
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/managed-applications-security-baseline?toc=/azure/azure-resource-manager/managed-applications/toc.json
 - name: How-to guides
   items:
   - name: Publishers
