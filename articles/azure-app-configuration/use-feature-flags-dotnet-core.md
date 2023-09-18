@@ -3,7 +3,7 @@ title: Tutorial for using feature flags in a .NET app | Microsoft Docs
 description: In this tutorial, you learn how to implement feature flags in .NET Core apps.
 services: azure-app-configuration
 documentationcenter: ''
-author: mcleanbyron
+author: maud-lv
 editor: ''
 
 ms.assetid: 
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/11/2023
-ms.author: mcleans
+ms.author: malev
 ms.custom: devx-track-csharp, mvc, devx-track-dotnet
 #Customer intent: I want to control feature availability in my app by using the .NET Core Feature Manager library.
 ---
