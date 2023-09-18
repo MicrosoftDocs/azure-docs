@@ -51,12 +51,12 @@ Follow the instructions below to clone a persistent volume.
    You should see output similar to:
    
    ```output
-   persistentvolumeclaim/azurediskpvc created
+   persistentvolumeclaim/pvc-acstor-cloning created
    ```
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pod.yaml`.
 
-1. Paste in the following code and save the file. Be sure to reference the cloned PVC.
+1. Paste in the following code and save the file. For **claimName**, be sure to reference the cloned PVC.
 
    ```yml
    kind: Pod
@@ -69,7 +69,7 @@ Follow the instructions below to clone a persistent volume.
      volumes:
        - name: azurediskpv
          persistentVolumeClaim:
-           claimName: azurediskpvc
+           claimName: pvc-acstor-cloning
      containers:
        - name: fio
          image: nixery.dev/shell/fio
