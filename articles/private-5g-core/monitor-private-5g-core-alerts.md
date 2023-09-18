@@ -33,8 +33,7 @@ For example: "Migrate data from regular tables to ledger tables" or "Create a ne
 * Don't include "Tutorial" in the H1.
 
 -->
-
-# "Create alerts to track performance of packet cores"
+# Create alerts to track performance of packet cores
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
 
@@ -69,8 +68,6 @@ Required: Make Prerequisites the first H2 after the H1.
 ## Prerequisites
 
 1. Have a packet core control/data plane created correctly
-2. Navigate to the packet core control/data plane you want to create an alert for:
-  - You can do this by searching for it under **All resources** or from the **Overview** page of the site that contains the packet core you want to add alerts for.
 
 <!-- 4. Task H2s ------------------------------------------------------------------------------
 
@@ -91,7 +88,7 @@ For portal-based procedures, minimize bullets and numbering.
 
 -->
 
-## "Create an alert rule for your packet core control/data plane"
+## Create an alert rule for your packet core control/data plane
 TODO: Add introduction sentence(s)
 [Include a sentence or two to explain only what is needed to complete the procedure.]
 TODO: Add ordered list of procedure steps
@@ -99,15 +96,15 @@ TODO: Add ordered list of procedure steps
   - You can do this by searching for it under **All resources** or from the **Overview** page of the site that contains the packet core you want to add alerts for.
 1. Select **Alerts** from the **Monitoring** tab on the resource menu.
 
-      :::image type="content" source="alert1.png" alt-text="Screenshot of Azure portal showing packet core control/data plane resource menu.":::
+      :::image type="content" source="media/alert1.png" alt-text="Screenshot of Azure portal showing packet core control/data plane resource menu.":::
 
 1. Select **Alert Rule** from the **Create** dropdown at the top of the page.
 
-      :::image type="content" source="alert2.png" alt-text="Screenshot of Azure portal showing alerts menu with the create dropdown menu open.":::
+      :::image type="content" source="media/alert2.png" alt-text="Screenshot of Azure portal showing alerts menu with the create dropdown menu open.":::
 
 1. Select **See all signals** just under the dropdown menu or from inside the dropdown menu.
 
-      :::image type="content" source="alert3.png" alt-text="Screenshot of Azure portal showing alert signal selection menu.":::
+      :::image type="content" source="media/alert3.png" alt-text="Screenshot of Azure portal showing alert signal selection menu.":::
 
 1. Select the signal you want the alert to be based on and follow the rest of the create instructions.
 
