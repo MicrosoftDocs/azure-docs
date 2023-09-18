@@ -108,6 +108,9 @@ In your template, provide values for *httpProxy*, *httpsProxy*, and *noProxy*. I
 
 ## Updating Proxy configurations
 
+> [!NOTE]
+> If switching to a new proxy, the new proxy must already exist for the update to be successful.  Then, after the upgrade is completed the old proxy can be deleted.
+
 Values for *httpProxy*, *httpsProxy*, *trustedCa* and *NoProxy* can be changed and applied to the cluster with the [az aks update][az-aks-update] command. An aks update for *httpProxy*, *httpsProxy*, and/or *NoProxy* will automatically inject new environment variables into pods with the new *httpProxy*, *httpsProxy*, or *NoProxy* values.  Pods must be rotated for the apps to pick it up.  For components under kubernetes, like containerd and the node itself, this won't take effect until a node image upgrade is performed.
 
 For example, assuming a new file has been created with the base64 encoded string of the new CA cert called *aks-proxy-config-2.json*, the following action updates the cluster.  Or, you need to add new endpoint urls for your applications to No Proxy:
