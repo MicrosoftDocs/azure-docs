@@ -29,8 +29,11 @@ az aosm nfd generate-config --definition-type cnf
     "location": "Azure location to use when creating resources.",
     "nf_name": "Name of NF definition",
     "version": "Version of the NF definition in A.B.C format.",
-    "source_registry_id": "Resource ID of the source acr registry from which to pull the image.",
-    "source_registry_namespace": "Optional. Namespace of the repository of the source acr registry from which to pull. For example if your repository is samples/prod/nginx then set this to samples/prod . Leave blank if the image is in the root namespace. See https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices#repository-namespaces for further details.",
+    "images": {
+        "source_registry": "Optional. Login server of the source acr registry from which to pull the image(s). For example sourceacr.azurecr.io. Leave blank if you have set source_local_docker_image.",
+        "source_registry_namespace": "Optional. Namespace of the repository of the source acr registry from which to pull. For example if your repository is samples/prod/nginx then set this to samples/prod . Leave blank if the image is in the root namespace or you have set source_local_docker_image.See https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices#repository-namespaces for further details.",
+        "source_local_docker_image": "Optional. Image name of the source docker image from local machine. For limited use case where the CNF only requires a single docker image and exists in the local docker repository. Set to blank of not required."
+    },
     "helm_packages": [
         {
             "name": "Name of the Helm package",
@@ -39,14 +42,16 @@ az aosm nfd generate-config --definition-type cnf
             "depends_on": [
                 "Names of the Helm packages this package depends on. Leave as an empty array if no dependencies"
             ]
-
+        }
+    ]
+}
 ```
 After the input file is created, be sure to edit the input.json file, replacing the provided values with the appropriate configurations  specific to your environment details.
 
 > [!NOTE]
 > Zip the ngnix configuration files in the format of tgz.
 
-Here's sample Input.Json:
+Here's sample input.json file:
 
 ```json
 {
@@ -56,8 +61,11 @@ Here's sample Input.Json:
     "version": "1.0.0",
     "acr_artifact_store_name": "nginx-nsd-acr",
     "location": "uksouth",
-    "source_registry_id": "/subscriptions/56951e4c-2008-4bca-88ba-d2d2eab9fede/resourcegroups/source-acr-rg/providers/Microsoft.ContainerRegistry/registries/sourcepublisheracr",
-    "source_registry_namespace": "samples",
+    "images": {
+        "source_registry": "sourcepublisheracr.azurecr.io",
+        "source_registry_namespace": "samples",
+        "source_local_docker_image": ""
+    },
     "helm_packages": [
         {
             "name": "nginxdemo",
