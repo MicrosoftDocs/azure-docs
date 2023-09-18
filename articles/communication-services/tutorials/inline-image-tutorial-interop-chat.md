@@ -15,13 +15,12 @@ ms.subservice: chat
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-In a Teams Interoperability Chat ("Interop Chat"), we can enable communication users to receive inline images sent by Teams users. Note, letting communication users to send inline images to Teams users are currently not supported. To learn more about what UI library current supports, refer to [UI library Use Cases](../concepts/ui-library/includes/web-ui-use-cases.md) for more information.
+In a Teams Interoperability Chat ("Interop Chat"), we can enable Azure Communication Service end users to receive inline images sent by Teams users. Currently, the Azure Communication Service end user is able to only receive inline images from the Teams user. Refer to [UI Library Use Cases](../concepts/ui-library/includes/web-ui-use-cases.md) to learn more.
 
 >[!IMPORTANT]
 >
 >Inline image feature comes with the CallWithChat Composite without additional setups. 
 >
->Currently, the Communication user is able to only receive inline images from the Teams user. Refer to [UI Library Use Cases](../concepts/ui-library/includes/web-ui-use-cases.md) to learn more.
 
 
 ## Download code
@@ -32,7 +31,7 @@ Access the code for this tutorial on [GitHub](https://github.com/Azure-Samples/c
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-- [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended). Use the `node --version` command to check your version.
+- [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions. Use the `node --version` command to check your version.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
 - Using the UI library version [1.7.0-beta.1](https://www.npmjs.com/package/@azure/communication-react/v/1.7.0-beta.1) or the latest.
 - Have a Teams meeting created and the meeting link ready.
@@ -48,7 +47,7 @@ In this tutorial, we're checking out how inline image works in Interop chat.
 
 ## Overview
 
-As mentioned previously, since we need to join a Teams meeting first, we need to use the ChatWithChat Composite from the UI library. Let's recall that we can create a ChatWithChat Composite [Storybook page](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) like the following screenshot:
+As mentioned previously, since we need to join a Teams meeting first, we need to use the ChatWithChat Composite from the UI library. Let's recall that we can create a ChatWithChat Composite [Storybook page](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) like the following code snippet:
 
 ```js
 export const CallWithChatExperience = (props: CallWithChatExampleProps): JSX.Element => {
@@ -77,7 +76,7 @@ export const CallWithChatExperience = (props: CallWithChatExampleProps): JSX.Ele
 
 ```
 
-Noticing it needs `CallWithChatExampleProps`, which is defined as the following screenshot:
+Noticing it needs `CallWithChatExampleProps`, which is defined as the following code snippet:
 
 ```js
 export type CallWithChatExampleProps = {
@@ -119,7 +118,7 @@ Simply click on the chat button located in the bottom to reveal the chat panel a
 
 ![ACS getting two images](./media/inline-image-tutorial-interop-chat-2.png "Screenshot of ACS UI library receiving 2 inline images.")
 
-Note that in a Teams Interop Chat, we currently only support Communication Users to receive inline images sent by the Teams user. To learn more about what features are supported, refer to the [UI library Use Cases](../concepts/ui-library/includes/web-ui-use-cases.md)
+Note that in a Teams Interop Chat, we currently only support Azure Communication Service end user to receive inline images sent by the Teams user. To learn more about what features are supported, refer to the [UI library Use Cases](../concepts/ui-library/includes/web-ui-use-cases.md)
 
 
 ## Known Issues
