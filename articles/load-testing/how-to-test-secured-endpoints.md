@@ -93,12 +93,12 @@ The following code snippet gives an example of how to configure a load test secr
     loadtestResource: 'MyTest'
     resourceGroup: 'loadtests-rg'
     secrets: |
-    [
-        {
-        "name": "appToken",
-        "value": "${{ secrets.APP_TOKEN }}"
-        }
-    ]
+        [
+            {
+            "name": "appToken",
+            "value": "${{ secrets.APP_TOKEN }}"
+            }
+        ]
 ```
 
 # [Azure Pipelines](#tab/pipelines)
@@ -139,7 +139,9 @@ You can now retrieve the secret value in the JMeter script by using the `GetSecr
 
     :::image type="content" source="./media/how-to-test-secured-endpoints/jmeter-user-defined-variables.png" alt-text="Screenshot that shows how to add a user-defined variable that uses the GetSecret function in JMeter.":::
 
-1. Update the JMeter sampler component to pass the secret in the request. For example, to provide an OAuth2 access token, you configure the `Authorization` HTTP header:
+1. Update the JMeter sampler component to pass the secret in the request.
+
+    For example, to provide an OAuth2 access token, you configure the `Authorization` HTTP header:
 
     :::image type="content" source="./media/how-to-test-secured-endpoints/jmeter-add-http-header.png" alt-text="Screenshot that shows how to add an authorization header to a request in JMeter.":::
 
@@ -224,7 +226,7 @@ To add a client certificate for your load test, update the `certificates` proper
 ```yml
 certificates:
     - name: <my-certificate-name>
-    value: <my-keyvault-secret-ID>
+      value: <my-keyvault-secret-ID>
 ```
 ---
 
