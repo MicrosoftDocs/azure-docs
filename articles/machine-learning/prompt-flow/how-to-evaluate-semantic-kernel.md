@@ -159,7 +159,7 @@ By doing a combination of these three things, we demonstrate how you can take a 
 
 Throughout the process of enhancing your plugins and planners in Prompt flow, you can **utilize the runs to monitor your experimental progress**. Each iteration allows you to submit a batch run with an evaluation run at the same time.
 
-:::image type="content" source="./media/how-to-evaluate-semantic-kernel/batch-eval.png" alt-text="Batch run with evaluation" lightbox = "./media/how-to-evaluate-semantic-kernel/batch-eval.png":::
+:::image type="content" source="./media/how-to-evaluate-semantic-kernel/batch-eval.png" alt-text="Screenshot of batch run with evaluation." lightbox = "./media/how-to-evaluate-semantic-kernel/batch-eval.png":::
 
 This enables you to conveniently compare the results of various runs, assisting you in identifying which modifications are beneficial and which are not.
 
