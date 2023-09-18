@@ -229,7 +229,7 @@ You can create the GitHub Actions workflow configuration file from the Azure Fun
 
 ## Update a workflow configuration
 
-If for some reason, you need to update or change an existing workflow configuration, just navigate to the `/.github/workflows/` location in your repository, open the specific XAML file, make any needed changes, and then commit the updates to the repository.
+If for some reason, you need to update or change an existing workflow configuration, just navigate to the `/.github/workflows/` location in your repository, open the specific YAML file, make any needed changes, and then commit the updates to the repository.
 
 ## Example: workflow configuration file
 

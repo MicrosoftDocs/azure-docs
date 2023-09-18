@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 09/15/2023
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
@@ -19,7 +19,7 @@ ms.custom: devx-track-azurepowershell
 
 Azure Active Directory Domain Services (Azure AD DS) security and DNS audits let Azure stream events to targeted resources. These resources include Azure Storage, Azure Log Analytics workspaces, or Azure Event Hub. After you enable security audit events, Azure AD DS sends all the audited events for the selected category to the targeted resource.
 
-You can archive events into Azure storage and stream events into security information and event management (SIEM) software (or equivalent) using Azure Event Hubs, or do your own analysis and using Azure Log Analytics workspaces from the Azure portal.
+You can archive events into Azure storage and stream events into security information and event management (SIEM) software (or equivalent) using Azure Event Hubs, or do your own analysis and using Azure Log Analytics workspaces from the Microsoft Entra admin center.
 
 ## Security audit destinations
 
@@ -28,23 +28,23 @@ You can use Azure Storage, Azure Event Hubs, or Azure Log Analytics workspaces a
 The following table outlines scenarios for each destination resource type.
 
 > [!IMPORTANT]
-> You need to create the target resource before you enable Azure AD DS security audits. You can create these resources using the Azure portal, Azure PowerShell, or the Azure CLI.
+> You need to create the target resource before you enable Azure AD DS security audits. You can create these resources using the Microsoft Entra admin center, Azure PowerShell, or the Azure CLI.
 
 | Target Resource | Scenario |
 |:---|:---|
 |Azure Storage| This target should be used when your primary need is to store security audit events for archival purposes. Other targets can be used for archival purposes, however those targets provide capabilities beyond the primary need of archiving. <br /><br />Before you enable Azure AD DS security audit events, first [Create an Azure Storage account](../storage/common/storage-account-create.md).|
-|Azure Event Hubs| This target should be used when your primary need is to share security audit events with additional software such as data analysis software or security information & event management (SIEM) software.<br /><br />Before you enable Azure AD DS security audit events, [Create an event hub using Azure portal](../event-hubs/event-hubs-create.md)|
-|Azure Log Analytics Workspace| This target should be used when your primary need is to analyze and review secure audits from the Azure portal directly.<br /><br />Before you enable Azure AD DS security audit events, [Create a Log Analytics workspace in the Azure portal.](../azure-monitor/logs/quick-create-workspace.md)|
+|Azure Event Hubs| This target should be used when your primary need is to share security audit events with additional software such as data analysis software or security information & event management (SIEM) software.<br /><br />Before you enable Azure AD DS security audit events, [Create an event hub using Microsoft Entra admin center](../event-hubs/event-hubs-create.md)|
+|Azure Log Analytics Workspace| This target should be used when your primary need is to analyze and review secure audits from the Microsoft Entra admin center directly.<br /><br />Before you enable Azure AD DS security audit events, [Create a Log Analytics workspace in the Microsoft Entra admin center.](../azure-monitor/logs/quick-create-workspace.md)|
 
-## Enable security audit events using the Azure portal
+## Enable security audit events using the Microsoft Entra admin center
 
-To enable Azure AD DS security audit events using the Azure portal, complete the following steps.
+To enable Azure AD DS security audit events using the Microsoft Entra admin center, complete the following steps.
 
 > [!IMPORTANT]
 > Azure AD DS security audits aren't retroactive. You can't retrieve or replay events from the past. Azure AD DS can only send events that occur after security audits are enabled.
 
-1. Sign in to the Azure portal.
-1. At the top of the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Global Administrator.
+1. Search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
 1. In the Azure AD DS window, select **Diagnostic settings** on the left-hand side.
 1. No diagnostics are configured by default. To get started, select **Add diagnostic setting**.
 
