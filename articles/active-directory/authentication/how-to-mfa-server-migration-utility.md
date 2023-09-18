@@ -346,7 +346,7 @@ Once you've successfully migrated user data, you can validate the end-user exper
 
 #### Enable Staged Rollout
 
-1. Navigate to the following url: [Enable staged rollout features - Microsoft Azure](https://portal.azure.com/?mfaUIEnabled=true%2F#view/Microsoft_AAD_IAM/StagedRolloutEnablementBladeV2).
+1. Navigate to the following url: [Enable staged rollout features - Microsoft Azure](https://entra.microsoft.com/#view/Microsoft_AAD_IAM/StagedRolloutEnablementBladeV2).
 
 1. Change **Azure multifactor authentication** to **On**, and then click **Manage groups**.
 

@@ -4,7 +4,7 @@ description: Get started using MapReduce samples in jar files included in HDInsi
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 09/18/2023
+ms.date: 09/14/2023
 ---
 
 # Run the MapReduce examples included in HDInsight
@@ -47,7 +47,7 @@ The following samples are contained in this archive:
 |teravalidate|Checking results of terasort.|
 |wordcount|Counts the words in the input files.|
 |`wordmean`|Counts the average length of the words in the input files.|
-|wordmedian|Counts the median length of the words in the input files.|
+|`wordmedian`|Counts the median length of the words in the input files.|
 |wordstandarddeviation|Counts the standard deviation of the length of the words in the input files.|
 
 ## Run the wordcount example
@@ -166,7 +166,7 @@ The value returned by this command is similar to **3.14159155000000000000**. For
 
 GraySort is a benchmark sort. The metric is the sort rate (TB/minute) that is achieved while sorting large amounts of data, usually a 100 TB minimum.
 
-This sample uses a modest 10 GB of data so that it can be run relatively quickly. It uses the MapReduce applications developed by Owen O'Malley and Arun Murthy. These applications won the annual general-purpose ("Daytona") terabyte sort benchmark in 2009, with a rate of 0.578 TB/min (100 TB in 173 minutes). For more information on this and other sorting benchmarks, see the [Sort Benchmark](https://sortbenchmark.org/) site.
+This sample uses a modest 10 GB of data so that it can be run relatively quickly. It uses the MapReduce applications developed by `Owen O'Malley` and `Arun Murthy`. These applications won the annual general-purpose ("Daytona") terabyte sort benchmark in 2009, with a rate of 0.578 TB/min (100 TB in 173 minutes). For more information on this and other sorting benchmarks, see the [Sort Benchmark](https://sortbenchmark.org/) site.
 
 This sample uses three sets of MapReduce programs:
 
@@ -174,7 +174,7 @@ This sample uses three sets of MapReduce programs:
 
 * **TeraSort**: Samples the input data and uses MapReduce to sort the data into a total order
 
-    TeraSort is a standard MapReduce sort, except for a custom partitioner. The partitioner uses a sorted list of N-1 sampled keys that define the key range for each reduce. In particular, all keys such that sample[i-1] <= key < sample[i] are sent to reduce i. This partitioner guarantees that the outputs of reduce i are all less than the output of reduce `i+1`.
+    TeraSort is a standard MapReduce sort, except for a custom partitioner. The partitioner uses a sorted list of N-1 sampled keys that define the key range for each reduce. In particular, all keys such that sample[i-1] <= key < sample[i] are sent to reduce i. This partitioner guarantees that the outputs of reduce `i` are all less than the output of reduce `i+1`.
 
 * **TeraValidate**: A MapReduce program that validates that the output is globally sorted
 

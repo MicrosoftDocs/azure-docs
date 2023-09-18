@@ -2,8 +2,8 @@
 title: 'Tutorial: Create a passwordless connection with Service Connector'
 description: Create a passwordless connection with Service Connector
 titleSuffix: Service Connector
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 07/17/2023
