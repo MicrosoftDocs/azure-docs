@@ -124,6 +124,7 @@ These models can only be used with Embedding API requests.
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (audio file size) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
 | whisper | North Central US, West Europe | N/A | 25 MB | N/A |
+| whisper (through Azure AI Speech) | East US, Southeast Asia, West Europe | N/A | 1 GB | N/A |
 
 ## Working with models
 
