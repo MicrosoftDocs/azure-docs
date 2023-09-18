@@ -12,8 +12,8 @@ groups:
   - id: sql
     title: Azure SQL Database
 
-- id: howto-blobstorage-authtype
-  title: Azure Blob Storage uses different auth types
+- id: howto-authtype
+  title: Choose the authentication type
   prompt: Choose the authentication type
   pivots:
   - id: system-identity

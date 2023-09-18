@@ -8,7 +8,7 @@ ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 06/13/2022
 zone_pivot_group_filename: service-connector/zone-pivot-groups.json
-zone_pivot_groups: howto-blobstorage-authtype
+zone_pivot_groups: howto-authtype
 ---
 
 # Integrate Azure Blob Storage with Service Connector

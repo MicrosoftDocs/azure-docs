@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 09/11/2023
 ms.author: yungezz
 zone_pivot_group_filename: service-connector/zone-pivot-groups.json
-zone_pivot_groups: howto-blobstorage-authtype
+zone_pivot_groups: howto-authtype
 ---
 
 
@@ -273,11 +273,11 @@ var blobServiceClient = new BlobServiceClient(
    :::zone-end
 
 
-1. In setting file, add following lines. For more information, see [django-storages](https://django-storages.readthedocs.io/en/latest/backends/azure.html).
+1. In setting file, add following lines. For more information, see [django-storages[azure]](https://django-storages.readthedocs.io/en/latest/backends/azure.html).
    ```python
    # in your setting file, eg. settings.py
-   AZURE_ACCOUNT_NAME = # <storage-account-name>
    AZURE_CUSTOM_DOMAIN = os.getenv('AZURE_STORAGEBLOB_RESOURCEENDPOINT')
+   AZURE_ACCOUNT_NAME = AZURE_CUSTOM_DOMAIN.split('.')[0].removeprefix('https://')    
    AZURE_TOKEN_CREDENTIAL = cred # this is the cred acquired from above step.
    
    ```
