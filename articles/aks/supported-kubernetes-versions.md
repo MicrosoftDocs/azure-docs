@@ -123,8 +123,6 @@ When a new minor version is introduced, the oldest supported minor version and p
 
 When AKS releases 1.18.\*, all the 1.15.\* versions go out of support 30 days later.
 
-> [!NOTE]
-> If you're running an unsupported Kubernetes version, you'll be asked to upgrade when requesting support for the cluster. Clusters running unsupported Kubernetes releases aren't covered by the [AKS support policies](./support-policies.md).
 
 AKS also supports a maximum of two **patch** releases of a given minor version. For example, given the following supported versions:
 
@@ -146,7 +144,7 @@ New Supported Version List
 
 Platform support policy is a reduced support plan for certain unsupported kubernetes versions. During platform support, customers only receive support from Microsoft for AKS/Azure platform related issues. Any issues related to Kubernetes functionality and components aren't supported. 
 
-Platform support policy applies to clusters in an n-3 version (where n is the latest supported AKS GA minor version), before the cluster drops to n-4. For example, kubernetes v1.25 is considered platform support when v1.28 is the latest GA version. However, during the v1.29 GA release, v1.25 will then auto-upgrade to v1.26.
+Platform support policy applies to clusters in an n-3 version (where n is the latest supported AKS GA minor version), before the cluster drops to n-4. For example, kubernetes v1.25 is considered platform support when v1.28 is the latest GA version. However, during the v1.29 GA release, v1.25 will then auto-upgrade to v1.26. If you are a running an n-2 version, the moment it becomes n-3 it also becomes deprecated, and you enter into the platform support policy. 
 
 AKS relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of three minor versions. AKS can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support doesn't support anything from relying on kubernetes upstream.
 
