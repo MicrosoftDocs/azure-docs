@@ -16,9 +16,9 @@ This article provides an overview of the product support for Azure Virtual Deskt
 
 ## Retirement Announcement
 
-Azure Virtual Desktop (classic) will retire on September 30th, 2026 and it is recommended to transition to Azure Virtual Desktop by that date.
+Azure Virtual Desktop (classic) will retire on **September 30th, 2026** and it is recommended to transition to Azure Virtual Desktop by that date.
 
-Azure Virtual Desktop fully replaces Azure Virtual Desktop (classic). Azure Virtual Desktop includes, but isn’t limited to, the following benefits:
+[Azure Virtual Desktop](../overview.md) fully replaces Azure Virtual Desktop (classic). Azure Virtual Desktop includes, but isn’t limited to, the following benefits:
 - Deployments via Azure Resource Manager
 - Unified resource management
 - Improved networking and security
@@ -27,7 +27,7 @@ Azure Virtual Desktop fully replaces Azure Virtual Desktop (classic). Azure Virt
 
 ### Retirement timeline
 
-Beginning September 30th 2023, customers will no longer be able to create new Azure Virtual Desktop (classic) tenants. Existing Azure Virtual Desktop (classic) resources can still be managed, migrated, and supported through September 30th 2026.
+Beginning **September 30th 2023**, customers will no longer be able to create new Azure Virtual Desktop (classic) tenants. Existing Azure Virtual Desktop (classic) resources can still be managed, migrated, and supported through **September 30th 2026**.
 
 > [!IMPORTANT]
 > Customers who have more than 500 application groups or manage multi-tenant (B2B) environments can request an exception (outlined at the end of this message).
