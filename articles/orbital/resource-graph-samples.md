@@ -38,7 +38,7 @@ OrbitalResources
 | sort by tostring(properties.groundStationName) 
 | extend Contact_Profile = tostring(split(properties.contactProfile.id, "/")[-1]) 
 | extend Spacecraft = tostring(split(id, "/")[-3]) 
-| project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.Status, Provisioning_Status=properties.provisioningState 
+| project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.status, Provisioning_Status=properties.provisioningState 
 ```
 
 #### Sorted by contact profile
@@ -50,7 +50,7 @@ OrbitalResources
 | sort by Contact_Profile 
 | extend Contact_Profile = tostring(split(properties.contactProfile.id, "/")[-1]) 
 | extend Spacecraft = tostring(split(id, "/")[-3]) 
-| project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.Status, Provisioning_Status=properties.provisioningState 
+| project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.status, Provisioning_Status=properties.provisioningState 
 ```
 
 ### List Past ‘x’ days Contacts - sorted by reservation start time 
@@ -61,7 +61,7 @@ OrbitalResources
 | sort by todatetime(properties.reservationStartTime)  
 | extend Contact_Profile = tostring(split(properties.contactProfile.id, "/")[-1]) 
 | extend Spacecraft = tostring(split(id, "/")[-3]) 
-| project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.Status, Provisioning_Status=properties.provisioningState 
+| project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.status, Provisioning_Status=properties.provisioningState 
 ```
 
 ### List Past ‘x’ days Contacts on specified ground station – sorted by reservation start time 
@@ -74,7 +74,7 @@ OrbitalResources
 | sort by todatetime(properties.reservationStartTime) 
 | extend Contact_Profile = tostring(split(properties.contactProfile.id, "/")[-1]) 
 | extend Spacecraft = tostring(split(id, "/")[-3]) 
-| project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.Status, Provisioning_Status=properties.provisioningState 
+| project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.status, Provisioning_Status=properties.provisioningState 
 ```
 
 ### List Past ‘x’ days Contacts on specified contact profile – sorted by reservation start time 
@@ -88,5 +88,5 @@ OrbitalResources
 | where todatetime(properties.reservationStartTime) >= now(-1d) and Contact_Profile == 'test-CP'  
 | sort by todatetime(properties.reservationStartTime)  
 | extend Spacecraft = tostring(split(id, "/")[-3])  
-| project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.Status, Provisioning_Status=properties.provisioningState 
+| project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.status, Provisioning_Status=properties.provisioningState 
 ```
