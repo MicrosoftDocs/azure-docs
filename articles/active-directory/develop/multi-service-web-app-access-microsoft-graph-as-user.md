@@ -23,7 +23,7 @@ Learn how to access Microsoft Graph from a web app running on Azure App Service.
 
 :::image type="content" alt-text="Diagram that shows accessing Microsoft Graph." source="./media/multi-service-web-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-You want to add access to Microsoft Graph from your web app and perform some action as the signed-in user. This section describes how to grant delegated permissions to the web app and get the signed-in user's profile information from Azure Active Directory (Azure AD).
+You want to add access to Microsoft Graph from your web app and perform some action as the signed-in user. This section describes how to grant delegated permissions to the web app and get the signed-in user's profile information from Microsoft Entra ID.
 
 In this tutorial, you learn how to:
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 ## Grant front-end access to call Microsoft Graph
 
-Now that you've enabled authentication and authorization on your web app, the web app is registered with the Microsoft identity platform and is backed by an Azure AD application. In this step, you give the web app permissions to access Microsoft Graph for the user. (Technically, you give the web app's Azure AD application the permissions to access the Microsoft Graph Azure AD application for the user.)
+Now that you've enabled authentication and authorization on your web app, the web app is registered with the Microsoft identity platform and is backed by a Microsoft Entra application. In this step, you give the web app permissions to access Microsoft Graph for the user. (Technically, you give the web app's Microsoft Entra application the permissions to access the Microsoft Graph Microsoft Entra application for the user.)
 
 In the [Microsoft Entra admin center](https://entra.microsoft.com) menu, select **Applications**.
 
@@ -64,7 +64,7 @@ The Azure Resource Explorer is now opened with your web app selected in the reso
 
 In the left browser, drill down to **config** > **authsettingsV2**.
 
-In the **authsettingsV2** view, select **Edit**. Find the **login** section of **identityProviders** -> **azureActiveDirectory** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]` .
+In the **authsettingsV2** view, select **Edit**. Find the **login** section of **identityProviders** -> **Microsoft Entra ID** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]` .
 
 ```json
 "identityProviders": {
@@ -97,7 +97,7 @@ Get your existing 'config/authsettingsv2’ settings and save to a local *authse
 az rest --method GET --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Web/sites/{WEBAPP_NAME}/config/authsettingsv2/list?api-version=2020-06-01' > authsettings.json
 ```
 
-Open the authsettings.json file using your preferred text editor. Find the **login** section of **identityProviders** -> **azureActiveDirectory** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]` .
+Open the authsettings.json file using your preferred text editor. Find the **login** section of **identityProviders** -> **Microsoft Entra ID** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]` .
 
 ```json
 "identityProviders": {
@@ -208,7 +208,7 @@ public class Startup
 
 ### appsettings.json
 
-*AzureAd* specifies the configuration for the Microsoft.Identity.Web library. In the [Microsoft Entra admin center](https://entra.microsoft.com), select **Applications** from the portal menu and then select **App registrations**. Select the app registration created when you enabled the App Service authentication/authorization module. (The app registration should have the same name as your web app.) You can find the tenant ID and client ID in the app registration overview page. The domain name can be found in the Azure AD overview page for your tenant.
+*Microsoft Entra ID* specifies the configuration for the Microsoft.Identity.Web library. In the [Microsoft Entra admin center](https://entra.microsoft.com), select **Applications** from the portal menu and then select **App registrations**. Select the app registration created when you enabled the App Service authentication/authorization module. (The app registration should have the same name as your web app.) You can find the tenant ID and client ID in the app registration overview page. The domain name can be found in the Microsoft Entra overview page for your tenant.
 
 *Graph* specifies the Microsoft Graph endpoint and the initial scopes needed by the app.
 

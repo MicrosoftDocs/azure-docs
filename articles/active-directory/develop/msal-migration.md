@@ -28,7 +28,7 @@ If any of your applications use the Azure Active Directory Authentication Librar
 
 ## Why switch to MSAL?
 
-If you've developed apps against Azure Active Directory (v1.0) endpoint in the past, you're likely using ADAL. Since Microsoft identity platform (v2.0) endpoint has changed significantly, the new library (MSAL) was entirely built for the new endpoint.
+If you've developed apps against Microsoft Entra ID (v1.0) endpoint in the past, you're likely using ADAL. Since Microsoft identity platform (v2.0) endpoint has changed significantly, the new library (MSAL) was entirely built for the new endpoint.
 
 The following diagram shows the v2.0 vs v1.0 endpoint experience at a high level, including the app registration experience, SDKs, endpoints, and supported identities.
 
@@ -47,7 +47,7 @@ MSAL provides multiple benefits over ADAL, including the following features:
 | Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md).|![Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support Continuous Access Evaluation (CAE) - MSAL provides the feature][y]|![Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support Continuous Access Evaluation (CAE) - ADAL doesn't provide the feature][n]|
 | Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) |![Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) - MSAL provides the feature][y]|![Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) - ADAL doesn't provide the feature][n]|
 |**User accounts and experiences**|||
-|Azure Active Directory (Azure AD) accounts|![Azure Active Directory (Azure AD) accounts - MSAL provides the feature][y]|![Azure Active Directory (Azure AD) accounts - ADAL provides the feature][y]|
+|Microsoft Entra accounts|![Microsoft Entra accounts - MSAL provides the feature][y]|![Microsoft Entra accounts - ADAL provides the feature][y]|
 | Microsoft account (MSA) |![Microsoft account (MSA) - MSAL provides the feature][y]|![Microsoft account (MSA) - ADAL doesn't provide the feature][n]|
 | Azure AD B2C accounts |![Azure AD B2C accounts - MSAL provides the feature][y]|![Azure AD B2C accounts - ADAL doesn't provide the feature][n]|
 | Best single sign-on experience |![Best single sign-on experience - MSAL provides the feature][y]|![Best single sign-on experience - ADAL doesn't provide the feature][n]|
@@ -61,7 +61,7 @@ MSAL provides multiple benefits over ADAL, including the following features:
 ## Additional capabilities of MSAL over ADAL
 
 - Proof of possession tokens
-- Azure AD certificate-based authentication (CBA) on mobile
+- Microsoft Entra certificate-based authentication (CBA) on mobile
 - System browsers on mobile devices
 - Where ADAL had only authentication context class, MSAL exposes the notion of a collection of client apps (public client and confidential client).
 
