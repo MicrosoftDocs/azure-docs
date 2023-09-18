@@ -3,12 +3,12 @@ title: Hive dialect in Flink
 description: Hive dialect in Flink HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 09/15/2023
+ms.date: 09/18/2023
 ---
 
 # Hive dialect in Flink
 
-**Need to update**: In the current AKS on Flink, the user cannot change the default `flink` dialect to hive dialect for their usage. All the SQL operations fail once changed to hive dialect with the following error.
+In this article, learn how to use hive dialect in HDInsight on AKS.
 
 ## Problem Statement
 
