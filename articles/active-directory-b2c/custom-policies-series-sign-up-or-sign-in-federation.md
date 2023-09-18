@@ -53,7 +53,7 @@ To configure sign in with Facebook, you need to perform the following steps:
 - Declare more claims
 - Define more claims transformations to help with claims manipulations such as creating *AlternativeSecurityId*.
 - Configure Facebook claims provider
-- Configure Azure AD technical profiles to read and write the social account from and to the Azure AD database.
+- Configure Microsoft Entra technical profiles to read and write the social account from and to the Microsoft Entra database.
 - Configure a self-asserted technical profile (for accepting additional input from user or updating user details) and its content definition. 
 
 
@@ -215,11 +215,13 @@ Replace:
 
 Notice the claims transformations we defined in [step 3.2](#step-32---define-claims-transformations) in the *OutputClaimsTransformations* collection.   
 
-### Step 3.4 - Create Azure AD technical profiles
+<a name='step-34---create-azure-ad-technical-profiles'></a>
 
-Just like in sign-in with a local account, you need to configure the [Azure AD Technical Profiles](active-directory-technical-profile.md), which you use to connect to Azure AD storage, to store or read a user social account. 
+### Step 3.4 - Create Microsoft Entra technical profiles
 
-1. In the `ContosoCustomPolicy.XML` file, locate the *AAD-UserUpdate* technical profile and then add a new technical profile by using the following code: 
+Just like in sign-in with a local account, you need to configure the [Microsoft Entra Technical Profiles](active-directory-technical-profile.md), which you use to connect to Microsoft Entra storage, to store or read a user social account. 
+
+1. In the `ContosoCustomPolicy.XML` file, locate the *Microsoft Entra ID-UserUpdate* technical profile and then add a new technical profile by using the following code: 
 
     ```xml
         <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
@@ -255,11 +257,11 @@ Just like in sign-in with a local account, you need to configure the [Azure AD T
     
         </TechnicalProfile>
     ```
-    We've added a new Azure AD Technical Profile *AAD-UserWriteUsingAlternativeSecurityId* that writes a new social account into Azure AD. 
+    We've added a new Microsoft Entra Technical Profile *Microsoft Entra ID-UserWriteUsingAlternativeSecurityId* that writes a new social account into Microsoft Entra ID. 
 
 1. Replace *B2C_1A_TokenSigningKeyContainer* with the token signing key you created in [Configure the signing](custom-policies-series-hello-world.md#step-1---configure-the-signing-and-encryption-keys).  
  
-1. In the `ContosoCustomPolicy.XML` file, add another Azure AD technical profile after the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile by using the following code:   
+1. In the `ContosoCustomPolicy.XML` file, add another Microsoft Entra technical profile after the *Microsoft Entra ID-UserWriteUsingAlternativeSecurityId* Technical Profile by using the following code:   
 
      ```xml
         <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
@@ -288,7 +290,7 @@ Just like in sign-in with a local account, you need to configure the [Azure AD T
         </TechnicalProfile>
      ```
 
-    We've added a new Azure AD Technical Profile *AAD-UserReadUsingAlternativeSecurityId* that reads a new social account from Azure AD. It uses `alternativeSecurityId` as a unique identifier for the social account. 
+    We've added a new Microsoft Entra Technical Profile *Microsoft Entra ID-UserReadUsingAlternativeSecurityId* that reads a new social account from Microsoft Entra ID. It uses `alternativeSecurityId` as a unique identifier for the social account. 
 
 1. Replace *B2C_1A_TokenSigningKeyContainer* with the token signing key you created in [Configure the signing](custom-policies-series-hello-world.md#step-1---configure-the-signing-and-encryption-keys).
 
@@ -372,7 +374,7 @@ In the `ContosoCustomPolicy.XML` file, locate the *ClaimsProviders* section, and
     <!--</ClaimsProviders>-->
 ```
 
-The claims provider we've added contains a self-asserted technical profile, *SelfAsserted-Social*. The self-asserted technical profile uses the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile as a validation technical profile. So, the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile executes when the user selects the **Continue** button (see screenshot in [step 7](#step-7---test-policy)).     
+The claims provider we've added contains a self-asserted technical profile, *SelfAsserted-Social*. The self-asserted technical profile uses the *Microsoft Entra ID-UserWriteUsingAlternativeSecurityId* Technical Profile as a validation technical profile. So, the *Microsoft Entra ID-UserWriteUsingAlternativeSecurityId* Technical Profile executes when the user selects the **Continue** button (see screenshot in [step 7](#step-7---test-policy)).     
 
 Also, notice that we've added the content definition, *socialAccountsignupContentDefinition*, that we configured in [step 3.5](#step-35---configure-content-definition) in the metadata section.  
 
@@ -440,11 +442,11 @@ When the custom policy runs:
 
 -  **Orchestration Step 2** - The *Facebook-OAUTH* technical profile executes, so the user is redirected to Facebook to sign in. 
 
-- **Orchestration Step 3** - In step 3, the *AAD-UserReadUsingAlternativeSecurityId* technical profile executes to try to read the user social account from Azure AD storage. If the social account is found, `objectId` is returned as an output claim.    
+- **Orchestration Step 3** - In step 3, the *Microsoft Entra ID-UserReadUsingAlternativeSecurityId* technical profile executes to try to read the user social account from Microsoft Entra storage. If the social account is found, `objectId` is returned as an output claim.    
 
 - **Orchestration Step 4** - This step runs if the user doesn't already exist (`objectId` doesn't exist). It shows the form that collects more information from the user or updates similar information obtained from the social account.
 
--  **Orchestration Step 5** - This step runs if the user doesn't already exist (`objectId` doesn't exist), so the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile executes to write the social account into Azure AD.  
+-  **Orchestration Step 5** - This step runs if the user doesn't already exist (`objectId` doesn't exist), so the *Microsoft Entra ID-UserWriteUsingAlternativeSecurityId* Technical Profile executes to write the social account into Microsoft Entra ID.  
 
 - **Orchestration Step 6** - Finally, step 6 assembles and returns the JWT token at the end of the policy’s execution.
 
@@ -473,7 +475,7 @@ Follow the steps in [Test the custom policy](custom-policies-series-validate-use
 You're redirected to a Facebook sign-in page. Enter your Facebook credentials, and then select **Log In**. 
 You're directly redirected to Facebook as we set it so in our orchestration steps since we don't have multiple sign-in options to choose from. Typically, in an app, you'd add a button like **Sign in with Facebook**, which when selected, runs the policy. 
 
-If it's the first time running this policy (social account doesn't already exist in Azure AD storage), you see a screenshot such as the one shown below. You won't see this screen in subsequent policy executions as the social account already exist in Azure AD storage.  
+If it's the first time running this policy (social account doesn't already exist in Microsoft Entra storage), you see a screenshot such as the one shown below. You won't see this screen in subsequent policy executions as the social account already exist in Microsoft Entra storage.  
 
 :::image type="content" source="media/custom-policies-series-sign-up-or-sign-in-federation/screenshot-of-sign-in-social-account.png" alt-text="Screenshot of sign-in flow with social account."::: 
 
