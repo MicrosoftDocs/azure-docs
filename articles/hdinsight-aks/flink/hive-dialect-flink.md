@@ -6,18 +6,21 @@ ms.topic: how-to
 ms.date: 09/15/2023
 ---
 
-# Problem Statement
+# Hive dialect in Flink
+
+**Need to update**: In the current AKS on Flink, the user cannot change the default `flink` dialect to hive dialect for their usage. All the SQL operations fail once changed to hive dialect with the following error.
+
+## Problem Statement
 
 In the current AKS on Flink, the user cannot change the default `flink` dialect to hive dialect for their usage. All the SQL operations fail once changed to hive dialect with the following error.
 
-```sql
-Caused by: java.lang.ClassCastException: class jdk.internal.loader.ClassLoaders$AppClassLoader cannot be cast to class java.net.URLClassLoader
-```
+Caused by: *java.lang.ClassCastException: class jdk.internal.loader.ClassLoaders$AppClassLoader cannot be cast to class java.net.URLClassLoader*
+
 ## FIX
 
-Reason: [https://issues.apache.org/jira/browse/HIVE-21584](https://issues.apache.org/jira/browse/HIVE-21584) [Java 11 preparation: system class loader is not URLClassLoader]
+**Reason**: [https://issues.apache.org/jira/browse/HIVE-21584](https://issues.apache.org/jira/browse/HIVE-21584) [Java 11 preparation: system class loader is not URLClassLoader]
 
-Currently, Hive assumes that the system class loader is an instance of `URLClassLoader`. In `Java 11`, this assumption is not the case.
+Currently, Hive assumes that the system class loader is an instance of URLClassLoader. In `Java 11`, this assumption is not the case.
 
 This fix has to be backported to `hive 3.1.2`.
 
@@ -40,17 +43,17 @@ This fix has to be backported to `hive 3.1.2`.
      mv $FLINK_HOME/lib/flink-table-planner-loader-1.16.0-0.0.18.jar $FLINK_HOME/opt/flink-table-planner-loader-1.16.0-0.0.18.jar
      ```
 
-- Add the following keys in the `flink` configuration management under core-site.xml section:
-  ```
-  fs.azure.account.key.<STORAGE>.dfs.core.windows.net: <KEY>
-  flink.hadoop.fs.azure.account.key.<STORAGE>.dfs.core.windows.net: <KEY>
-  ```
+  1. Add the following keys in the `flink` configuration management under core-site.xml section:
+     ```
+     fs.azure.account.key.<STORAGE>.dfs.core.windows.net: <KEY>
+     flink.hadoop.fs.azure.account.key.<STORAGE>.dfs.core.windows.net: <KEY>
+     ```
 
 ## Execution
 
 [https://nightlies.apache.org/flink/flink-docs-master/docs/dev/table/hive-compatibility/hive-dialect/queries/overview/](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/table/hive-compatibility/hive-dialect/queries/overview/)
 
-**Without partitioning**
+### Without partitioning
   ```sql
     root [ ~ ]# ./bin/sql-client.sh
     Flink SQL>
@@ -73,7 +76,7 @@ This fix has to be backported to `hive 3.1.2`.
     [INFO] Session property has been set.
 
     Flink SQL> select explode(array(1,2,3));Hive Session ID = 6ba45be2-360e-4bee-8842-2765c91581c8
-  ```
+ 
 
 > [!WARNING]
 > An illegal reflective access operation has occurred
@@ -91,7 +94,7 @@ This fix has to be backported to `hive 3.1.2`.
 > All illegal access operations will be denied in a future release
 select explode(array(1,2,3));
 
-```sql
+
 +----+-------------+
 | op |         col |
 +----+-------------+
@@ -144,7 +147,8 @@ The data is written in the same container configured in the hive/warehouse direc
 
 :::image type="content" source="./media/hive-dialect-flink/flink-container-table-1.png" alt-text="Screenshot shows container table 1." lightbox="./media/hive-dialect-flink/flink-container-table-1.png":::
 
-With partitions
+### With partitions
+
 ```sql
 create table tblpart2 (key int, value string) PARTITIONED by ( part string ) tblproperties ('sink.partition-commit.delay'='1 s', 'sink.partition-commit.policy.kind'='metastore,success-file');
 
