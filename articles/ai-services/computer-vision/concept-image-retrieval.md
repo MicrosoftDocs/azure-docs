@@ -23,7 +23,7 @@ Keyword search is the most basic and traditional method of information retrieval
 
 Vector search, on the other hand, searches large collections of vectors in high-dimensional space to find vectors that are similar to a given query. Vector search looks for semantic similarities by capturing the context and meaning of the search query. This approach is often more efficient than traditional image retrieval techniques, as it can reduce search space and improve the accuracy of the results.
 
-## Business Applications
+## Business applications
 
 Image retrieval has a variety of applications in different fields, including: 
 
