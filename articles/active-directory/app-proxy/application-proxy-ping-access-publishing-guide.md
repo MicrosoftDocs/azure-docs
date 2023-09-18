@@ -44,7 +44,7 @@ If you've enabled Application Proxy and installed a connector already, you can s
 
 The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published applications. For more detailed installation instructions, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md).
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.
 1. Select **Download connector service**. The **Application Proxy Connector Download** page appears.
 
@@ -56,7 +56,7 @@ Downloading the connector should automatically enable Application Proxy for your
 
 ### Add your application to Azure AD with Application Proxy
 
-There are two actions you need to take in the Azure portal. First, you need to publish your application with Application Proxy. Then, you need to collect some information about the application that you can use during the PingAccess steps.
+There are two actions you need to take in the Microsoft Entra admin center. First, you need to publish your application with Application Proxy. Then, you need to collect some information about the application that you can use during the PingAccess steps.
 
 #### Publish your application
 
@@ -69,7 +69,7 @@ You'll first have to publish your application. This action involves:
 
 To publish your own on-premises application:
 
-1. If you didn't in the previous section, sign in to the [Azure portal](https://portal.azure.com) as an Application Administrator.
+1. If you didn't in the previous section, sign in to the [Microsoft Entra admin center](https://portal.azure.com) as an Application Administrator.
 1. Browse to **Enterprise applications** > **New application** > **Add an on-premises application**. The **Add your own on-premises application** page appears.
 
    ![Add your own on-premises application](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
@@ -218,7 +218,7 @@ Now that you've completed all the Azure Active Directory setup steps, you can mo
 
 The detailed steps for the PingAccess part of this scenario continue in the Ping Identity documentation. Follow the instructions in [Configuring PingAccess for Azure AD](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_configuring_apps_for_azure) on the Ping Identity web site and download the [latest version of PingAccess](https://www.pingidentity.com/en/lp/azure-download.html).
 
-Those steps help you install PingAccess and set up a PingAccess account (if you don't already have one). Then, to create an Azure AD OpenID Connect (OIDC) connection, you set up a token provider with the **Directory (tenant) ID** value that you copied from the Azure portal. Next, to create a web session on PingAccess, you use the **Application (client) ID** and `PingAccess key` values. After that, you can set up identity mapping and create a virtual host, site, and application.
+Those steps help you install PingAccess and set up a PingAccess account (if you don't already have one). Then, to create an Azure AD OpenID Connect (OIDC) connection, you set up a token provider with the **Directory (tenant) ID** value that you copied from the Microsoft Entra admin center. Next, to create a web session on PingAccess, you use the **Application (client) ID** and `PingAccess key` values. After that, you can set up identity mapping and create a virtual host, site, and application.
 
 ### Test your application
 

@@ -71,24 +71,6 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
 1. Select **Create** to create the user flow.
 
-### To select the layout of the attribute collection page (optional)
-
-You can choose the order in which the attributes are displayed on the sign-up page.
-
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
-
-1. Browse to **Identity** > **External Identities** > **User flows**.
-
-1. From the list, select your user flow.
-
-1. Under **Customize**, select **Page layouts**.
-
-   The attributes you chose to collect are listed. You can change the attribute label, type, and whether it’s required. You can also change the order of display by selecting an attribute, and then select **Move up**, **Move down**, **Move to the top**, or **Move to the bottom**.
-
-   :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/page-layouts.png" alt-text="Screenshot of page layout options for a user flow.":::
-
-1. Select **Save**.
-
 ##  Disable sign-up in a sign-up and sign-in user flow
 
 If you want your customer users to only sign in and not sign up, you can disable sign-up experience in your user flow by using [Microsoft Graph API](microsoft-graph-operations.md). You need to know the ID of the user flow that you want whose sign-up you want to disable. You can't read the user flow ID from the Microsoft Entra Admin center, but you can retrieve it via Microsoft Graph API if you know the app associated with it.
@@ -121,3 +103,4 @@ If you want your customer users to only sign in and not sign up, you can disable
 ## Next steps
 
 - [Add your application to the user flow](how-to-user-flow-add-application.md)
+- [Create custom user attributes and customize the order of the attributes on the sign-up page](how-to-define-custom-attributes.md).

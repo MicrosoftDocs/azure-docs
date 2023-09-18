@@ -59,7 +59,7 @@ To configure an on-premises app to use a custom domain, you need a verified Azur
 ### Create and verify a custom domain
 
 To create and verify a custom domain:
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Browse to **Identity** > **Settings** > **Domain names**.
 1. Select **Add custom domain**. 
 1. Enter your custom domain name and select **Add Domain**. 
@@ -67,7 +67,7 @@ To create and verify a custom domain:
 1. Go to your domain registrar and create a new TXT record for your domain, based on your copied DNS information.
 1. After you register the domain, on the domain's page in Azure Active Directory, select **Verify**. Once the domain status is **Verified**, you can use the domain across all your Azure AD configurations, including Application Proxy. 
 
-For more detailed instructions, see [Add your custom domain name using the Azure portal](../fundamentals/add-custom-domain.md).
+For more detailed instructions, see [Add your custom domain name using the Microsoft Entra admin center](../fundamentals/add-custom-domain.md).
 
 ### Configure an app to use a custom domain
 
@@ -105,7 +105,7 @@ To publish your app through Application Proxy with a custom domain:
    
    ![Add CNAME DNS entry](./media/application-proxy-configure-custom-domain/dns-info.png)
    
-10. Follow the instructions at [Manage DNS records and record sets by using the Azure portal](../../dns/dns-operations-recordsets-portal.md) to add a DNS record that redirects the new external URL to the *msappproxy.net* domain in Azure DNS. If a different DNS provider is used, please contact the vendor for the instructions.
+10. Follow the instructions at [Manage DNS records and record sets by using the Microsoft Entra admin center](../../dns/dns-operations-recordsets-portal.md) to add a DNS record that redirects the new external URL to the *msappproxy.net* domain in Azure DNS. If a different DNS provider is used, please contact the vendor for the instructions.
 
    > [!IMPORTANT] 
    > Ensure that you are properly using a CNAME record that points to the *msappproxy.net* domain. Do not point records to IP addresses or server DNS names since these are not static and may impact the resiliency of the service.

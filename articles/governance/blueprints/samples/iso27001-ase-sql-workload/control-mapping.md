@@ -6,6 +6,8 @@ ms.topic: sample
 ---
 # Control mapping of the ISO 27001 ASE/SQL workload blueprint sample
 
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
+
 The following article details how the Azure Blueprints ISO 27001 ASE/SQL Workload blueprint sample
 maps to the ISO 27001 controls. For more information about the controls, see [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
 

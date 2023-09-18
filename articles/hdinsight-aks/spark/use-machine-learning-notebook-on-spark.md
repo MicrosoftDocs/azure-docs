@@ -16,19 +16,19 @@ The following tutorial notebook shows an example of training machine learning mo
 
 1. Find your storage and container name in the portal JSON view
 
-   :::image type="content" source="./media/use-machine-learning-notebook-on-spark/json-view.png" alt-text="Screenshot showing JSON view.":::
+   :::image type="content" source="./media/use-machine-learning-notebook-on-spark/json-view.png" alt-text="Screenshot showing JSON view." lightbox="./media/use-machine-learning-notebook-on-spark/json-view.png":::
    
-   :::image type="content" source="./media/use-machine-learning-notebook-on-spark/resource-json.png" alt-text="Screenshot showing resource JSON view.":::
+   :::image type="content" source="./media/use-machine-learning-notebook-on-spark/resource-json.png" alt-text="Screenshot showing resource JSON view." lightbox="./media/use-machine-learning-notebook-on-spark/resource-json.png":::
         
 1. Navigate into your primary HDI storage>container>base folder> upload the [CSV](https://github.com/Azure-Samples/hdinsight-aks/blob/main/spark/iris_csv.csv)
 
-    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/navigate-to-storage-container.png" alt-text="Screenshot showing how to navigate to storage and container.":::
+    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/navigate-to-storage-container.png" alt-text="Screenshot showing how to navigate to storage and container." lightbox="./media/use-machine-learning-notebook-on-spark/navigate-to-storage-container.png":::
 
-    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/upload-csv.png" alt-text="Screenshot showing how to upload CSV file.":::
+    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/upload-csv.png" alt-text="Screenshot showing how to upload CSV file." lightbox="./media/use-machine-learning-notebook-on-spark/upload-csv.png":::
     
 1. Log in to your cluster and open the Jupyter Notebook 
 
-    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/jupyter-notebook.png" alt-text="Screenshot showing Jupyter Notebook.":::
+    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/jupyter-notebook.png" alt-text="Screenshot showing Jupyter Notebook." lightbox="./media/use-machine-learning-notebook-on-spark/jupyter-notebook.png":::
 
 1. Import Spark MLlib Libraries to create the pipeline
     ```

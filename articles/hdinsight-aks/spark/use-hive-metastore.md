@@ -47,9 +47,9 @@ While you create the cluster, HDInsight service needs to connect to the external
 
     This step allows you to keep your SQL server admin password as a secret in Azure Key Vault. Add your password(same password as provided in the SQL DB for admin) in the “Value” field while adding a secret.
 
-    :::image type="content" source="./media/use-hive-metastore/key-vault.png" alt-text="Screenshot showing how to create a key vault.":::
+    :::image type="content" source="./media/use-hive-metastore/key-vault.png" alt-text="Screenshot showing how to create a key vault." lightbox="./media/use-hive-metastore/key-vault.png":::
 
-    :::image type="content" source="./media/use-hive-metastore/create-secret.png" alt-text="Screenshot showing how to create a secret.":::
+    :::image type="content" source="./media/use-hive-metastore/create-secret.png" alt-text="Screenshot showing how to create a secret." lightbox="./media/use-hive-metastore/create-secret.png":::
 
 
     > [!NOTE]
@@ -60,17 +60,17 @@ While you create the cluster, HDInsight service needs to connect to the external
 
 1. Navigate to HDInsight on AKS Cluster pool to create clusters. 
 
-   :::image type="content" source="./media/use-hive-metastore/create-new-cluster.png" alt-text="Screenshot showing how to create new cluster.":::
+   :::image type="content" source="./media/use-hive-metastore/create-new-cluster.png" alt-text="Screenshot showing how to create new cluster." lightbox="./media/use-hive-metastore/create-new-cluster.png":::
 
 1. Enable the toggle button to add external hive metastore and fill in the following details.
 
-    :::image type="content" source="./media/use-hive-metastore/basic-tab.png" alt-text="Screenshot showing the basic tab.":::
+    :::image type="content" source="./media/use-hive-metastore/basic-tab.png" alt-text="Screenshot showing the basic tab." lightbox="./media/use-hive-metastore/basic-tab.png":::
 
 1. The rest of the details are to be filled in as per the cluster creation rules for [HDInsight on AKS Spark cluster](./create-spark-cluster.md).
 
 1. Click on **Review and Create.**
 
-    :::image type="content" source="./media/use-hive-metastore/review-create-tab.png" alt-text="Screenshot showing the review and create tab.":::
+    :::image type="content" source="./media/use-hive-metastore/review-create-tab.png" alt-text="Screenshot showing the review and create tab." lightbox="./media/use-hive-metastore/review-create-tab.png":::
 
     > [!NOTE]
     > * The lifecycle of the metastore isn't tied to a clusters lifecycle, so you can create and delete clusters without losing metadata. Metadata such as your Hive schemas persist even after you delete and re-create the HDInsight cluster.
@@ -82,18 +82,18 @@ While you create the cluster, HDInsight service needs to connect to the external
 
     `>> spark.sql("CREATE TABLE sampleTable (number Int, word String)")`
 
-    :::image type="content" source="./media/use-hive-metastore/create-table.png" alt-text="Screenshot showing how to create table.":::
+    :::image type="content" source="./media/use-hive-metastore/create-table.png" alt-text="Screenshot showing how to create table." lightbox="./media/use-hive-metastore/create-table.png":::
 
 1. Add data on the table
 
     `>> spark.sql("INSERT INTO sampleTable VALUES (123, \"HDIonAKS\")");\`
     
-    :::image type="content" source="./media/use-hive-metastore/insert-statement.png" alt-text="Screenshot showing insert statement.":::
+    :::image type="content" source="./media/use-hive-metastore/insert-statement.png" alt-text="Screenshot showing insert statement." lightbox="./media/use-hive-metastore/insert-statement.png":::
 
 1. Read the table
 
     `>> spark.sql("select * from sampleTable").show()`
 
-    :::image type="content" source="./media/use-hive-metastore/read-table.png" alt-text="Screenshot showing how to read table.":::
+    :::image type="content" source="./media/use-hive-metastore/read-table.png" alt-text="Screenshot showing how to read table." lightbox="./media/use-hive-metastore/read-table.png":::
 
 
