@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -19,8 +19,6 @@ ms.custom: has-azure-ad-ps-ref
 # Use the sign-ins report to review Azure AD Multi-Factor Authentication events
 
 To review and understand Azure AD Multi-Factor Authentication events, you can use the Azure Active Directory (Azure AD) sign-ins report. This report shows authentication details for events when a user is prompted for multi-factor authentication, and if any Conditional Access policies were in use. For detailed information on the sign-ins report, see the [overview of sign-in activity reports in Azure AD](../reports-monitoring/concept-sign-ins.md).
-
-This article shows you how to view the Azure AD sign-ins report in the Azure portal, and then the MSOnline V1 PowerShell module.
 
 ## View the Azure AD sign-ins report
 
@@ -36,16 +34,16 @@ The sign-ins report provides you with information about the usage of managed app
 - How many users are unable to complete the MFA challenge?
 - What are the common MFA issues end users are running into?
 
-To view the sign-in activity report in the [Azure portal](https://portal.azure.com), complete the following steps. You can also query data using the [reporting API](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md).
+To view the sign-in activity report in the [Microsoft Entra admin center](https://entra.microsoft.com), complete the following steps. You can also query data using the [reporting API](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* permissions.
-1. Search for and select **Azure Active Directory**, then choose **Users** from the menu on the left-hand side.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Identity** > then choose **Users** from the menu on the left-hand side.
 1. Under *Activity* from the menu on the left-hand side, select **Sign-ins**.
 1. A list of sign-in events is shown, including the status. You can select an event to view more details.
 
     The **Conditional Access** tab of the event details shows you which policy triggered the MFA prompt.
 
-    [![Screenshot of example Azure Active Directory sign-ins report in the Azure portal](media/howto-mfa-reporting/sign-in-report-cropped.png)](media/howto-mfa-reporting/sign-in-report.png#lightbox)
+    [![Screenshot of example Azure Active Directory sign-ins report](media/howto-mfa-reporting/sign-in-report-cropped.png)](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
 If available, the authentication is shown, such as text message, Microsoft Authenticator app notification, or phone call.
 

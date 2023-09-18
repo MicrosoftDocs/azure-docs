@@ -146,12 +146,12 @@ union AzureActivity, arg("").Resources
 ```kusto
 let CL1 = arg("").Resources ;
 union AzureActivity, CL1 | take 10
+```
 
-```sql
 
 When you use the [`join` operator](/azure/data-explorer/kusto/query/joinoperator) instead of union, you need to use a [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) to combine the data in Azure Resource Graph with data in the Log Analytics workspace. Use `Hint.remote={Direction of the Log Analytics Workspace}`. For example:
 
-kusto
+```kusto
 Perf | where ObjectName == "Memory" and (CounterName == "Available MBytes Memory")
 | extend _ResourceId = replace_string(replace_string(replace_string(_ResourceId, 'microsoft.compute', 'Microsoft.Compute'), 'virtualmachines','virtualMachines'),"resourcegroups","resourceGroups")
 | join hint.remote=left (arg("").Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project _ResourceId=id, tags) on _ResourceId | project-away _ResourceId1 | where tostring(tags.env) == "prod"
@@ -169,9 +169,7 @@ To create a new alert rule based on a cross-service query, follow the steps in [
 * [Private Link](../logs/private-link-security.md) (private endpoints) and [IP restrictions](/azure/data-explorer/security-network-restrict-public-access) are not support cross-service queries.
 * mv-expand is limited to 2000 records.
 
-* the following operators do not work with the cross query with ability with Azure Resource Graph:
-
-smv-apply(), rand(), arg_max() , arg_min(), avg() , avg_if(), countif(), sumif(), percentile() , percentiles() , percentilew() , percentilesw(), stdev() , stdevif() , stdevp(), variance() , variancep() , varianceif().
+* The following operators do not work with the cross query with ability with Azure Resource Graph: smv-apply(), rand(), arg_max() , arg_min(), avg() , avg_if(), countif(), sumif(), percentile() , percentiles() , percentilew() , percentilesw(), stdev() , stdevif() , stdevp(), variance() , variancep() , varianceif().
 
 ## Next steps
 * [Write queries](/azure/data-explorer/write-queries)

@@ -120,6 +120,7 @@ Microsoft Azure cloud services are available in separate national clouds, which 
 - Microsoft Azure global cloud and Microsoft Azure operated by 21Vianet
 
 To set up B2B collaboration between tenants in different clouds, both tenants need to configure their Microsoft cloud settings to enable collaboration with the other cloud. Then each tenant must configure inbound and outbound cross-tenant access with the tenant in the other cloud. See [Microsoft cloud settings](cross-cloud-settings.md) for details.
+
 ### External collaboration settings
 
 External collaboration settings determine whether your users can send B2B collaboration invitations to external users and the level of access guest users have to your directory. With these settings, you can:
@@ -131,6 +132,7 @@ External collaboration settings determine whether your users can send B2B collab
 - **Allow or block domains**. Choose whether to allow or deny invitations to the domains you specify. For details, see [Allow or block domains](allow-deny-list.md).
 
 For more information, see how to [configure B2B external collaboration settings](external-collaboration-settings-configure.md).
+
 ### How external collaboration and cross-tenant access settings work together
 
 External collaboration settings work at the invitation level, whereas cross-tenant access settings work at the authentication level.
@@ -142,6 +144,10 @@ When you're considering B2B collaboration with a specific external Azure AD orga
 - **Example 1**: You've previously added `adatum.com` (an Azure AD organization) to the list of blocked domains in your external collaboration settings, but your cross-tenant access settings enable B2B collaboration for all Azure AD organizations. In this case, the most restrictive setting applies. Your external collaboration settings will prevent your users from sending invitations to users at `adatum.com`.
 
 - **Example 2**: You allow B2B collaboration with Fabrikam in your cross-tenant access settings, but then you add `fabrikam.com` to your blocked domains in your external collaboration settings. Your users won't be able to invite new Fabrikam guest users, but existing Fabrikam guests will be able to continue using B2B collaboration.
+
+For B2B collaboration end-users who perform cross-tenant sign-ins, their home tenant branding appears, even if there isn't custom branding specified. In the following example, the company branding for Woodgrove Groceries appears on the left. The example on the right displays the default branding for the user's home tenant. 
+
+:::image type="content" source="media/external-identities-overview/b2b-comparison.png" alt-text="Screenshots showing a comparison of the branded sign-in experience and the default sign-in experience.":::
 
 ### Azure Active Directory B2C management
 

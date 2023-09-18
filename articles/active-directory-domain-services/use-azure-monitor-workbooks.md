@@ -61,7 +61,7 @@ To access the workbook template for the security overview report, complete the f
 
     Choose a **Time range**, such as *Last 7 days*, as shown in the following example screenshot:
 
-    ![Select the Workbooks menu option in the Azure portal](./media/use-azure-monitor-workbooks/select-query-filters.png)
+    ![Select the Workbooks menu option](./media/use-azure-monitor-workbooks/select-query-filters.png)
 
     The **Tile view** and **Chart view** options can also be changed to analyze and visualize the data as desired.
 

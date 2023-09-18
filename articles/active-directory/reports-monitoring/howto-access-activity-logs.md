@@ -36,8 +36,8 @@ The required roles and licenses may vary based on the report. Global Administrat
 
 | Log / Report | Roles | Licenses |
 |--|--|--|
-| Audit | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
-| Sign-ins | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
+| Audit | Reports Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
+| Sign-ins | Reports Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
 | Provisioning | Same as audit and sign-ins, plus<br>Security Operator<br>Application Administrator<br>Cloud App Administrator<br>A custom role with `provisioningLogs` permission | Premium P1/P2 |
 | Usage and insights | Security Reader<br>Reports Reader<br> Security Administrator | Premium P1/P2 |
 | Identity Protection* | Security Administrator<br>Security Operator<br>Security Reader<br>Global Reader | Azure AD Free/Microsoft 365 Apps<br>Azure AD Premium P1/P2 |
