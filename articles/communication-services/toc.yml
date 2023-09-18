@@ -142,6 +142,8 @@ items:
       href: quickstarts/telephony/get-phone-number.md
     - name: Get a trial phone number
       href: quickstarts/telephony/get-trial-phone-number.md
+    - name: Lookup number type and carrier details
+      href: quickstarts/telephony/number-lookup.md
     - name: Make an outbound call
       href: quickstarts/call-automation/quickstart-make-an-outbound-call.md
     - name: Add a Microsoft Teams user to an existing call
@@ -206,6 +208,8 @@ items:
         href: quickstarts/sms/apply-for-toll-free-verification.md
       - name: Enable alphanumeric sender ID
         href: quickstarts/sms/enable-alphanumeric-sender-id.md
+      - name: Look up a recipient phone number
+        href: quickstarts/telephony/number-lookup.md
     - name: Events
       items:
       - name: View SMS events
@@ -356,8 +360,10 @@ items:
           href: how-tos/ui-library-sdk/theming.md
         - name: Participant view data injection
           href: how-tos/ui-library-sdk/data-model.md
-        - name: Bypass Setup Screen
+        - name: Skip Setup Screen
           href: how-tos/ui-library-sdk/skip-setup-screen.md
+        - name: Setup Orientation
+          href: how-tos/ui-library-sdk/orientation.md
         - name: Troubleshooting
           href: how-tos/ui-library-sdk/troubleshooting.md
     - name: Events
@@ -771,6 +777,10 @@ items:
         href: concepts/pstn-pricing.md
       - name: Phone number types
         href: concepts/numbers/number-types.md
+      - name: Number Lookup Concept
+        href: concepts/numbers/number-lookup-concept.md
+      - name: Number Lookup SDK
+        href: concepts/numbers/number-lookup-sdk.md
       - name: Country availability 
         href: concepts/numbers/sub-eligibility-number-capability.md
       - name: Emergency calling

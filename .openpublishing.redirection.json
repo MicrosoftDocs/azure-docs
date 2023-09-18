@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+          "source_path": "articles/azure-resource-manager/bicep/bicep-import-providers.md",
+          "redirect_URL": "bicep-import",
+          "redirect_document_id": false
+        },
+        {
             "source_path": "articles/migrate/tutorial-assess-webapps-physical.md",
             "redirect_URL": "tutorial-assess-webapps",
             "redirect_document_id": false
@@ -49,7 +54,7 @@
             "source_path": "articles/storsimple/storsimple-virtual-array-update-11-release-notes.md",
             "redirect_url": "/azure/storsimple/storsimple-overview",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/storsimple/storsimple-ova-overview.md",
             "redirect_url": "/azure/storsimple/storsimple-overview",
@@ -70,7 +75,7 @@
             "redirect_url": "/azure/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
-        {   
+        {
             "source_path": "articles/storsimple/storsimple-virtual-array-deploy1-portal-prep.md",
             "redirect_url": "/azure/storsimple/storsimple-overview",
             "redirect_document_id": false
@@ -9986,7 +9991,7 @@
             "source_path_from_root": "/articles/container-instances/container-instances-quotas.md",
             "redirect_url": "/azure/container-instances/container-instances-resource-and-quota-limits",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path_from_root": "/articles/container-registry/container-registry-managed-get-started-azure-cli.md",
             "redirect_url": "/azure/container-registry/container-registry-get-started-azure-cli",
@@ -13453,6 +13458,11 @@
           "redirect_document_id": false
         },
         {
+          "source_path_from_root": "/articles/governance/policy/samples/azure-security-benchmarkv1.md",
+          "redirect_url": "/azure/governance/policy/samples/azure-security-benchmark",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-policy/create-manage-policy.md",
             "redirect_url": "/azure/governance/policy/tutorials/create-and-manage",
             "redirect_document_id": false
@@ -14190,17 +14200,17 @@
         {
             "source_path_from_root": "/articles/load-balancer/scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md",
             "redirect_url": "/azure/load-balancer/load-balancer-multiple-ip",
-            "redirect_document_id": false 
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/load-balancer/scripts/load-balancer-linux-cli-sample-nlb.md",
             "redirect_url": "/azure/load-balancer/tutorial-multi-availability-sets-portal",
-            "redirect_document_id": false 
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/load-balancer/scripts/load-balancer-linux-cli-sample-zonal-frontend.md",
             "redirect_url": "/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal",
-            "redirect_document_id": false 
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/load-balancer/scripts/load-balancer-windows-powershell-sample-nlb.md",
@@ -14691,7 +14701,7 @@
             "source_path_from_root": "/articles/notification-hubs/cross-region-recovery.md",
             "redirect_url": "/azure/notification-hubs/notification-hubs-high-availability",
             "redirect_document_id": false
-        },                
+        },
         {
             "source_path_from_root": "/articles/open-datasets/service/how-to-create-dataset-from-open-dataset.md",
             "redirect_url": "/azure/open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset",
@@ -23581,8 +23591,27 @@
             "source_path_from_root": "/articles/devtest-labs/how-to-move-schedule-to-new-region.md",
             "redirect_url": "/azure/devtest-labs/how-to-move-labs",
             "redirect_document_id": false
+        },       
+        {
+            "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-prescriptive-adoption.md",
+            "redirect_url": "/azure/devtest-labs/deliver-proof-of-concept",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-governance-cost-ownership.md",
+            "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-governance-resources",
+            "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-governance-policy-compliance.md",
+            "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-governance-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-governance-application-migration-integration.md",
+            "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-governance-resources",
+            "redirect_document_id": false
+        },        {
             "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
             "redirect_url": "/azure/advisor/advisor-overview",
             "redirect_document_id": false
@@ -23952,7 +23981,7 @@
             "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x",
             "redirect_document_id": false
           },
-	    { 
+	    {
             "source_path": "articles/orbital/orbital-preview.md",
             "redirect_url": "/azure/orbital/overview",
             "redirect_document_id": false
@@ -23961,7 +23990,7 @@
             "source_path": "articles/private-multi-access-edge-compute-mec/metaswitch-fusion-core-overview.md",
             "redirect_URL": "/azure/private-5g-core",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/private-5g-core/modify-site-plan.md",
             "redirect_URL": "/azure/private-5g-core/modify-service-plan",
@@ -24161,12 +24190,12 @@
             "source_path_from_root": "/articles/azure-functions/create-function-app-linux-app-service-plan.md",
             "redirect_url": "/azure/azure-functions/functions-create-function-app-portal",
             "redirect_document_id": false
-        },  
+        },
         {
             "source_path_from_root": "/articles/azure-functions/create-premium-plan-function-app-portal.md",
             "redirect_url": "/azure/azure-functions/functions-create-function-app-portal",
             "redirect_document_id": false
-        },       
+        },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/windows-firewall-events-via-ama.md",
             "redirect_url": "/azure/sentinel/data-connectors-reference",
@@ -24460,7 +24489,7 @@
         {
             "source_path_from_root": "/articles/virtual-machines/image-builder-reliability.md",
             "redirect_url": "/azure/reliability/reliability-image-builder.md",
-            "redirect_document_id": false 
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/bastion/bastion-connect-vm-rdp-linux.md",
@@ -24475,6 +24504,11 @@
         {
             "source_path_from_root": "/articles/private-link/tutorial-private-endpoint-cosmosdb-portal.md",
             "redirect_url": "/azure/cosmos-db/how-to-configure-private-endpoints",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/command-invoke.md",
+            "redirect_url": "/azure/aks/access-private-cluster",
             "redirect_document_id": false
         }
     ]

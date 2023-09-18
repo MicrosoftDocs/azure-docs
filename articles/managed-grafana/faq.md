@@ -1,8 +1,8 @@
 ---
 title: Azure Managed Grafana FAQ
 description: Frequently asked questions about Azure Managed Grafana
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: managed-grafana
 ms.topic: reference
 ms.date: 07/17/2023

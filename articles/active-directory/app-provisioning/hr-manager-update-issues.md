@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 10/20/2022
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: chmutali
 ---
@@ -24,7 +24,7 @@ ms.reviewer: chmutali
 The Azure AD provisioning service automatically updates manager information so that the user-manager relationship in Azure AD is always in sync with your HR data. It uses a process called *manager reference resolution* to accurately update the *manager* attribute. Before going into the process details, it is important to understand how manager information is stored in Azure AD and on-premises Active Directory. 
 
 * In **on-premises Active Directory**, the *manager* attribute stores the *distinguishedName (dn)* of the manager's account in AD. 
-* In **Azure AD**, the *manager* attribute is a DirectoryObject navigation property in Azure AD. When you view the user record in the Azure portal, it shows the *displayName* of the manager record in Azure AD. 
+* In **Azure AD**, the *manager* attribute is a DirectoryObject navigation property in Azure AD. When you view the user record in the Microsoft Entra admin center, it shows the *displayName* of the manager record in Azure AD. 
 
 The *manager reference resolution* is a two step-process: 
 * Step 1: Link the manager's HR source record with the manager's target account record using a pair of attributes referred to as *source anchor* and *target anchor*. 

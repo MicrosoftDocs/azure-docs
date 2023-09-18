@@ -40,7 +40,7 @@ You now need to register your application in Azure AD, as follows:
 1. Browse to **Identity** > **Applications** > **App registrations**. The list of all app registrations appears.
 1. Select **New registration**. The **Register an application** page appears.
 
-   ![Create a new app registration in the Azure portal](./media/application-proxy-configure-native-client-application/create.png)
+   ![Create a new app registration in the Microsoft Entra admin center](./media/application-proxy-configure-native-client-application/create.png)
 
 1. In the **Name** heading, specify a user-facing display name for your application.
 1. Under the **Supported account types** heading, select an access level using these guidelines:
@@ -101,9 +101,9 @@ if (authResult != null)
  }
 ```
 
-The required info in the sample code can be found in the Azure portal, as follows:
+The required info in the sample code can be found in the Microsoft Entra admin center, as follows:
 
-| Info required | How to find it in the Azure portal |
+| Info required | How to find it in the Microsoft Entra admin center |
 | --- | --- |
 | \<Tenant ID> | **Azure Active Directory** > **Properties** > **Directory ID** |
 | \<App ID of the Native app> | **Application registration** > *your native application* > **Overview** > **Application ID** |
