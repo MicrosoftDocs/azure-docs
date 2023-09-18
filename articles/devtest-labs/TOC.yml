@@ -225,8 +225,6 @@
     href: report-usage-across-multiple-labs-subscriptions.md
   - name: DevTest Labs in the enterprise
     items:
-    - name: DevTest Labs at enterprise scale
-      href: devtest-lab-guidance-prescriptive-adoption.md
     - name: Reference architecture
       href: devtest-lab-reference-architecture.md
     - name: Deliver proof of concept

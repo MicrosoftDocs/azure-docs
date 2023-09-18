@@ -127,7 +127,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Event Hub	|		|		|	X	|
 |	**Services and features supported**	|		|		|		|		|
 |		|	Microsoft Sentinel 	|	X ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	|	X	|		|
-|		|	VM Insights	|	X (Public preview)	|	X	|		|
+|		|	VM Insights	|	X |	X	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Automation Update Management	|	|	X	|		|
 |   | Azure Stack HCI | X |  |  |
@@ -154,7 +154,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Event Hub	|		|		|	X	|		|
 |	**Services and features supported**	|		|		|		|		|		|
 |		|	Microsoft Sentinel 	|	X ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	|	X	|		|
-|		|	VM Insights	|	X (Public preview)	|	X 	|		|
+|		|	VM Insights	|	X	|	X 	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Automation Update Management	|		|	X	|		|
 |		|	Update Manager	|	N/A (Public preview, independent of monitoring agents)	|		|		|
