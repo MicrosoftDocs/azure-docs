@@ -27,7 +27,7 @@ To create a shared device mode app, developers and cloud device admins work toge
 
 - Developers write a single-account app (multiple-account apps aren't supported in shared device mode), add `"shared_device_mode_supported": true` to the app's configuration, and write code to handle things like shared device sign-out.
 - Device admins prepare the device to be shared by installing the authenticator app, and setting the device to shared mode using the authenticator app. Only users who are in the [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator) role can put a device into shared mode by using the [Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc). You can configure the membership of your organizational roles in the Azure portal via:
-  **Azure Active Directory** > **Roles and Administrators** > **Cloud Device Administrator**.
+  **Microsoft Entra ID** > **Roles and Administrators** > **Cloud Device Administrator**.
 
 This article focuses primarily what developers should think about.
 
@@ -91,7 +91,7 @@ If your application is running in multiple-account mode, and an administrator pu
 
 ## Microsoft applications that support shared device mode
 
-These Microsoft applications support Azure AD's shared device mode:
+These Microsoft applications support Microsoft Entra shared device mode:
 
 - [Microsoft Teams](/microsoftteams/platform/)
 - [Microsoft Managed Home Screen](/mem/intune/apps/app-configuration-managed-home-screen-app) app for Android Enterprise
@@ -103,7 +103,7 @@ These Microsoft applications support Azure AD's shared device mode:
 
 ## Third-party MDMs that support shared device mode
 
-This third-party Mobile Device Management (MDM) that supports Azure AD's shared device mode:
+This third-party Mobile Device Management (MDM) that supports Microsoft Entra shared device mode:
 
 - [VMware Workspace ONE](https://blogs.vmware.com/euc/2023/08/announcing-general-availability-of-shared-device-conditional-access-with-vmware-workspace-one-and-microsoft-entra-id.html)
 

@@ -15,7 +15,7 @@ ms.custom: aaddev, curation-claims
 
 # ID token claims reference
 
-ID tokens are [JSON web tokens (JWT)](https://wikipedia.org/wiki/JSON_Web_Token). The v1.0 and v2.0 ID tokens have differences in the information they carry. The version is based on the endpoint from where it was requested. While existing applications likely use the Azure AD v1.0 endpoint, new applications should use the v2.0 endpoint.
+ID tokens are [JSON web tokens (JWT)](https://wikipedia.org/wiki/JSON_Web_Token). The v1.0 and v2.0 ID tokens have differences in the information they carry. The version is based on the endpoint from where it was requested. While existing applications likely use the Microsoft Entra v1.0 endpoint, new applications should use the v2.0 endpoint.
 
 * v1.0: `https://login.microsoftonline.com/common/oauth2/authorize`
 * v2.0: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
@@ -97,4 +97,4 @@ To ensure that the token size doesn't exceed HTTP header size limits, the number
 
 ## Next steps
 
-- Learn more about the [ID tokens used in Azure AD](id-tokens.md).
+- Learn more about the [ID tokens used in Microsoft Entra ID](id-tokens.md).
