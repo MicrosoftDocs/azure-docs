@@ -14,7 +14,9 @@ ms.date: 09/15/2023
 
 In the current AKS on Flink, the user cannot change the default `flink` dialect to hive dialect for their usage. All the SQL operations fail once changed to hive dialect with the following error.
 
-Caused by: *java.lang.ClassCastException: class jdk.internal.loader.ClassLoaders$AppClassLoader cannot be cast to class java.net.URLClassLoader*
+Caused by: 
+
+*java.lang.ClassCastException: class jdk.internal.loader.ClassLoaders$AppClassLoader cannot be cast to class java.net.URLClassLoader*
 
 ## FIX
 
