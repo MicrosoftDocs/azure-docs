@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/28/2023
+ms.date: 09/14/2023
 
 ms.author: justinha
 author: justinha
@@ -92,7 +92,8 @@ GET https://graph.microsoft.com/beta/identity/conditionalAccess/authenticationSt
 
 In addition to the three built-in authentication strengths, administrators can create up to 15 of their own custom authentication strengths to exactly suit their requirements. A custom authentication strength can contain any of the supported combinations in the preceding table. 
 
-1. In the Azure portal, browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Authentication strengths**.
 1. Select **New authentication strength**.
 1. Provide a descriptive **Name** for your new authentication strength.
 1. Optionally provide a **Description**.
@@ -193,7 +194,7 @@ The following authentication methods can't be registered as part of combined reg
 ### Federated user experience  
 For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider by setting the federatedIdpMfaBehavior. If the federatedIdpMfaBehavior setting is set to enforceMfaByFederatedIdp, the user must authenticate on their federated IdP and can only satisfy the **Federated Multi-Factor** combination of the authentication strength requirement. For more information about the federation settings, see [Plan support for MFA](../hybrid/connect/migrate-from-federation-to-cloud-authentication.md#plan-support-for-mfa).
 
-If a user from a federated domain has multifactor authentication settings in scope for Staged Rollout, the user can complete multifactor authentication in the cloud and satisfy any of the **Federated single-factor + something you have** combinations. For more information about staged rollout, see [Enable Staged Rollout using Azure portal](how-to-mfa-server-migration-utility.md#enable-staged-rollout-using-azure-portal).
+If a user from a federated domain has multifactor authentication settings in scope for Staged Rollout, the user can complete multifactor authentication in the cloud and satisfy any of the **Federated single-factor + something you have** combinations. For more information about staged rollout, see [Enable Staged Rollout](how-to-mfa-server-migration-utility.md#enable-staged-rollout).
 
 ## External users
 
