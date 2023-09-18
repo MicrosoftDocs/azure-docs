@@ -17,7 +17,7 @@ Learn how to access Advisor through the Azure portal, configure Advisor settings
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and open [Advisor](https://aka.ms/azureadvisordashboard). Your Advisor **Score** page opens.
 
-   ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-score-page.png) 
+   ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-score-page2.png) 
 
 1. Each tile represents a category of recommendations for the selected subscriptions.  You can filter the display by **Subscription**, **Recommendation Status**, **Resource Group**, or **Type** using the buttons at the top of the page. For more advanced filtering, click **Add filter**.
 
