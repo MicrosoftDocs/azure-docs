@@ -23591,7 +23591,7 @@
             "source_path_from_root": "/articles/devtest-labs/how-to-move-schedule-to-new-region.md",
             "redirect_url": "/azure/devtest-labs/how-to-move-labs",
             "redirect_document_id": false
-        },
+        },       
         {
             "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-prescriptive-adoption.md",
             "redirect_url": "/azure/devtest-labs/deliver-proof-of-concept",
@@ -23603,6 +23603,25 @@
             "redirect_document_id": false
         },        
         {
+            "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-orchestrate-implementation.md",
+            "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-scale",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-governance-cost-ownership.md",
+            "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-governance-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-governance-policy-compliance.md",
+            "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-governance-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-governance-application-migration-integration.md",
+            "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-governance-resources",
+            "redirect_document_id": false
+        },        {
             "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
             "redirect_url": "/azure/advisor/advisor-overview",
             "redirect_document_id": false
