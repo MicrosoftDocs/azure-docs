@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Get started with leveraging Azure Cache for Redis Enterprise active replication with your AKS hosted application'
+title: 'Tutorial: Get started with leveraging Azure Cache for Redis Enterprise active replication with an AKS-hosted application'
 description: In this tutorial, you learn how to connect your AKS hosted application to Azure Cache for Redis Enterprise instances and leverage active geo-replication.
 author: flang-msft
 
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 09/07/2023
+ms.date: 09/18/2023
 #CustomerIntent: As a developer, I want to see how to use a Azure Cache for Redis Enterprise instance with an AKS container so that I see how I can use my cache instance with a Kubernetes cluster.
 
 ---
@@ -14,10 +14,6 @@ ms.date: 09/07/2023
 # Tutorial: Connect to Azure Cache for Redis from your application hosted on Azure Kubernetes Service
 
 In this tutorial, you will host a simple inventory application on AKS and find out how you can leverage active geo-replication to replicate data in your Azure Cache for Redis Enterprise instances across Azure regions.
-
-## Overview
-This tutorial uses a sample inventory page which shows three different T-shirt options. The user can "purchase" each T-shirt and see the inventory drop. The unique thing about this demo is that we run the inventory app in two different regions. Typically, you would have to run the database storing inventory data in a single region so that there are no consistency issues. That can result in unpleasant customer experience due to higher latency for calls across different Azure regions. By using Azure Cache for Redis Enterprise as the backend, however, you can link two caches together with active geo-replication so that the inventory remains consistent across both regions while enjoying low latency performance from Redis Enterprise in the same region.
-
 
 ## Prerequisites
 
@@ -27,26 +23,33 @@ This tutorial uses a sample inventory page which shows three different T-shirt o
 > [!IMPORTANT]
 > This tutorial assumes that you are familiar with basic Kubernetes concepts like containers, pods and service.
 
+## Overview
+
+This tutorial uses a sample inventory page which shows three different T-shirt options. The user can "purchase" each T-shirt and see the inventory drop. The unique thing about this demo is that we run the inventory app in two different regions. Typically, you would have to run the database storing inventory data in a single region so that there are no consistency issues. That can result in unpleasant customer experience due to higher latency for calls across different Azure regions. By using Azure Cache for Redis Enterprise as the backend, however, you can link two caches together with active geo-replication so that the inventory remains consistent across both regions while enjoying low latency performance from Redis Enterprise in the same region.
+
 ## Set up an Azure Cache for Redis instance
 
-1. Create a new Azure Cache for Redis Enterprise instance in **West US 2** region by using the Azure portal or your preferred CLI tool. Alternately, you can use any region of your choice. Use the [quickstart guide](quickstart-create-redis-enterprise.md) to get started. 
-1. On the **Advanced** tab,
- * enable **Non-TLS access only** 
- * set **Clustering Policy** to Enterprise
- * set up active geo-replication using [this guide](cache-how-to-active-geo-replication.md)
+1. Create a new Azure Cache for Redis Enterprise instance in **West US 2** region by using the Azure portal or your preferred CLI tool. Alternately, you can use any region of your choice. Use the [quickstart guide](quickstart-create-redis-enterprise.md) to get started.
+
+1. On the **Advanced** tab:
+
+   - Enable **Non-TLS access only**.
+   - set **Clustering Policy** to Enterprise
+   - set up active geo-replication using [this guide](cache-how-to-active-geo-replication.md)
 
 > [!IMPORTANT]
 > This tutorial uses a non-TLS port for demonstration, but we highly recommend that you use a TLS port for anything in production.
 
-3. Set up another Azure Cache for Redis Enterprise in **East US** region with the exact same configuration as the first cache. Alternately, you can use any region of your choice. Ensure that you choose the same replication group as the first cache.
+1. Set up another Azure Cache for Redis Enterprise in **East US** region with the exact same configuration as the first cache. Alternately, you can use any region of your choice. Ensure that you choose the same replication group as the first cache.
 
 ## Prepare Kubernetes deployment files
 
-To demonstrate data replication across regions, we will run two instances of the same application in different regions. Let's assume one instance runs in Seattle (west) while the second in New York(east). 
+To demonstrate data replication across regions, we will run two instances of the same application in different regions. Let's assume one instance runs in Seattle (west) while the second in New York (east).
 
 Update the following fields in the YAML file below and save it as app_west.yaml
-* Update environment variables REDIS_HOST and REDIS_PASSWORD with hostname and access key of your Azure Cache for Redis Enterprise instance in West US 2 or one of the two regions your chose earlier.
-* Update APP_LOCATION to display the region where this application instance is running. In this sample, we are configuring the APP_LOCATION to Seattle to indicate this application instance is running in Seattle.
+
+- Update environment variables REDIS_HOST and REDIS_PASSWORD with hostname and access key of your Azure Cache for Redis Enterprise instance in West US 2 or one of the two regions your chose earlier.
+- Update APP_LOCATION to display the region where this application instance is running. In this sample, we are configuring the APP_LOCATION to Seattle to indicate this application instance is running in Seattle.
 
 ```YAML
 apiVersion: apps/v1
@@ -112,6 +115,7 @@ Use the Kubernetes CLI, _kubectl_ , to connect to the Kubernetes cluster from yo
 ```bash
 az aks install-cli
 ```
+
 If you use Azure Cloud Shell, _kubectl_ is already installed, and you can skip this step.
 
 ### Connect to your AKS cluster
@@ -145,7 +149,7 @@ Run the following command to deploy the application instance to your AKS cluster
 kubectl apply -f app_west.yaml
 ```
 
-You will get a response indicating your deployment and service was created:
+You get a response indicating your deployment and service was created:
 
 ```output
 deployment.apps/shoppingcart-app created
@@ -166,6 +170,7 @@ shoppingcart-app-5fffdcb5cd-48bl5   1/1     Running                      0      
 ```
 
 Run the following command to get the endpoint for your application:
+
 ```bash
 kubectl get service -n west
 ```
@@ -178,7 +183,8 @@ shoppingcart-svc       LoadBalancer   10.0.166.147   20.69.136.105   80:30390/TC
 ```
 
 Once the External-IP is available, open a web browser to the External-IP address of your service and you see the application running like below:
-<screenshot for Seattle>
+
+<!-- <screenshot for Seattle> -->
 
 Run the same deployment steps and deploy an instance of the demo application to run in East US region.
 
@@ -189,10 +195,12 @@ kubectl get pods -n east
 
 kubectl get service -n east
 ```
+
 With two services opened in your browser, you should see that changing the inventory in one region is virtually instantly reflected in the other region. The inventory data is stored in the Redis Enterprise instances which are replicating data across regions.
 
-You did it! Click on the buttons and explore the demo. To reset the count, add "/reset" after the url. e.g. <IP address>/reset
+You did it! Click on the buttons and explore the demo. To reset the count, add `/reset` after the url:
 
+ `<IP address>/reset`
 
 ## Clean up your deployment
 
@@ -208,6 +216,7 @@ kubectl delete service shoppingcart-svc -n east
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Related Content
-<!-- Do we want this particular link in this section.
 
-- [Use Azure Key Vault Provider to securely store your access key](https://learn.microsoft.com/azure/aks/csi-secrets-store-driver) -->
+- 
+- [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal)
+- [AKS sample voting application](https://github.com/Azure-Samples/azure-voting-app-redis/tree/master)
