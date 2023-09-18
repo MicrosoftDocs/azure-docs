@@ -1,7 +1,7 @@
 ---
-title: Using Event Grid Notifications to send VOIP push payload to ANH.
+title: Using Event Grid Notifications to send VOIP call events push payload to ANH Azure Notification Hub.
 titleSuffix: Azure Communication Services and Event Grid. 
-description: Using Event Grid Notification from Azure Communication Services Native Calling to Incoming VOIP payload to devices via ANH. 
+description: Using Event Grid Notification from Azure Communication Services Native Calling to Incoming VOIP call events payload to devices via Azure Notification Hub ANH. 
 author: raosanat
 ms.service: azure-communication-services
 ms.topic: tutorial
@@ -15,16 +15,16 @@ With Azure Communication Services, you can receive real-time event notifications
 
 :::image type="content" source="../concepts/media/notifications/acs-events-int.png" alt-text="Diagram showing how Communication Services integrates with Event Grid.":::
 
-In this tutorial, we explore how to implement Azure Communication Services Calling with Azure Event Grid to receive push notifications on native platforms. Azure Event Grid is a serverless event routing service that makes it easy to build event-driven applications. This tutorial helps you set up and understand how to receive push notifications for incoming calls in ACS.
+In this tutorial, we explore how to implement Azure Communication Services Calling with Azure Event Grid to receive push notifications on native platforms. Azure Event Grid is a serverless event routing service that makes it easy to build event-driven applications. This tutorial helps you set up and understand how to receive push notifications for incoming calls.
 
 You can take a look at [voice and video calling events](https://learn.microsoft.com/azure/event-grid/communication-services-voice-video-events) available using Event Grid.
 
 ## Current limitations with the Push Notification model
 
-The current limitations of using the ACS Native Calling SDK and [Push Notifications](../how-tos/calling-sdk/push-notifications.md) are:
+The current limitations of using the Native Calling SDK and [Push Notifications](../how-tos/calling-sdk/push-notifications.md) are:
 
 * There's a **24-hour limit** after the register push notification API is called when the device token information is saved. After 24 hours, the device endpoint information is deleted. Any incoming calls on those devices can't be delivered to the devices if those devices don't call the register push notification API again.
-* Can't deliver push notifications using Baidu or any other notification types supported by Azure Notification Hub but not yet supported in the ACS SDK.
+* Can't deliver push notifications using Baidu or any other notification types supported by Azure Notification Hub but not yet supported in the Calling SDK.
 
 ## Prerequisites
 
