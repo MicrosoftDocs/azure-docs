@@ -15,6 +15,8 @@ ms.custom: devx-track-python, devguide-python
 
 # Download a blob with Python
 
+[!INCLUDE [storage-dev-guide-selector-download](../../../includes/storage-dev-guides/storage-dev-guide-selector-download.md)]
+
 This article shows how to download a blob using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can download blob data to various destinations, including a local file path, stream, or text string. You can also open a blob stream and read from it.
 
 ## Prerequisites
