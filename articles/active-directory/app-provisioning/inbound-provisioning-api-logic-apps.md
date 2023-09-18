@@ -51,7 +51,7 @@ Here's a list of enterprise integration scenario variations, where API-driven in
 After reading the source data, apply your pre-processing rules and convert the output from your system of record into a bulk request that can be sent to the Microsoft Entra provisioning [bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint.
 
 > [!IMPORTANT]
-> If you'd like to share your API-driven inbound provisioning + Logic Apps integration workflow with the community, create a [Logic app template](/azure/logic-apps/logic-apps-create-azure-resource-manager-templates), document steps on how to use it and submit a pull request for inclusion in the GitHub repository [Microsoft Entra ID-Inbound-Provisioning](https://github.com/AzureAD/entra-id-inbound-provisioning). 
+> If you'd like to share your API-driven inbound provisioning + Logic Apps integration workflow with the community, create a [Logic app template](/azure/logic-apps/logic-apps-create-azure-resource-manager-templates), document steps on how to use it and submit a pull request for inclusion in the GitHub repository [`entra-id-inbound-provisioning`](https://github.com/AzureAD/entra-id-inbound-provisioning). 
 
 ## How to use this tutorial
 
