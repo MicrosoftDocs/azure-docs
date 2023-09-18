@@ -1,8 +1,8 @@
 ---
 title: Integrate Azure Database for MySQL with Service Connector
 description: Integrate Azure Database for MySQL into your application with Service Connector
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 11/29/2022

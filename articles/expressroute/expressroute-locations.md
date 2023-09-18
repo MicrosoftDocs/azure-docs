@@ -125,6 +125,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Liquid Intelligent Technologies](https://liquidcloud.africa/connect/)** | Supported | Supported | Cape Town<br/>Johannesburg |
 | **[LGUplus](http://www.uplus.co.kr/)** |Supported |Supported | Seoul |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** | Supported | Supported | Amsterdam<br/>Atlanta<br/>Auckland<br/>Chicago<br/>Dallas<br/>Denver<br/>Dubai2<br/>Dublin<br/>Frankfurt<br/>Geneva<br/>Hong Kong<br/>Hong Kong2<br/>Las Vegas<br/>London<br/>London2<br/>Los Angeles<br/>Madrid<br/>Melbourne<br/>Miami<br/>Minneapolis<br/>Montreal<br/>Munich<br/>New York<br/>Osaka<br/>Oslo<br/>Paris<br/>Perth<br/>Phoenix<br/>Quebec City<br/>Queretaro (Mexico)<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Singapore<br/>Singapore2<br/>Stavanger<br/>Stockholm<br/>Sydney<br/>Sydney2<br/>Tokyo<br/>Tokyo2 Toronto<br/>Vancouver<br/>Washington DC<br/>Washington DC2<br/>Zurich |
+| **[Momentum Telecom](https://gomomentum.com/)** | Supported | Supported | Chicago<br/>New York<br/>Washington DC2 |
 | **[MTN](https://www.mtnbusiness.co.za/en/Cloud-Solutions/Pages/microsoft-express-route.aspx)** | Supported | Supported | London |
 | **MTN Global Connect** | Supported | Supported | Cape Town<br/>Johannesburg|
 | **[National Telecom](https://www.nc.ntplc.co.th/cat/category/264/855/CAT+Direct+Cloud+Connect+for+Microsoft+ExpressRoute?lang=en_EN)** | Supported | Supported | Bangkok |
@@ -297,6 +298,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Macquarie Telecom Group](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | Sydney |
 | **[MainOne](https://www.mainone.net/services/connectivity/cloud-connect/)** |Equinix | Amsterdam |
 | **[Masergy](https://www.masergy.com/sd-wan/multi-cloud-connectivity)** | Equinix | Washington DC |
+| **[Momentum Telecom](https://gomomentum.com/)** | Equinix<br/>Megaport | Atlanta<br/>Dallas<br/>Los Angeles<br/>Miami<br/>Seattle<br/>Silicon Valley<br/>Washington DC |
 | **[MTN](https://www.mtnbusiness.co.za/en/Cloud-Solutions/Pages/microsoft-express-route.aspx)** | Teraco | Cape Town<br/>Johannesburg |
 | **[NexGen Networks](https://www.nexgen-net.com/nexgen-networks-direct-connect-microsoft-azure-expressroute.html)** | Interxion | London |
 | **[Nianet](https://www.globalconnect.dk/)** |Equinix | Amsterdam<br/>Frankfurt |
@@ -305,7 +307,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Proximus](https://www.proximus.be/en/id_cl_explore/companies-and-public-sector/networks/corporate-networks/explore.html)**| Equinix | Amsterdam<br/>Dublin<br/>London<br/>Paris |
 | **[QSC AG](https://www2.qbeyond.de/en/)** |Interxion | Frankfurt |  
 | **[RETN](https://retn.net/products/cloud-connect)** | Equinix | Amsterdam |
-| **Rogers** | Cologix<br/>Equinix | Montreal<br/>Toronto |
+| **[Rogers]** | Cologix<br/>Equinix | Montreal<br/>Toronto |
 | **[Spectrum Enterprise](https://enterprise.spectrum.com/services/internet-networking/wan/cloud-connect.html)** | Equinix | Chicago<br/>Dallas<br/>Los Angeles<br/>New York<br/>Silicon Valley | 
 | **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Equinix | London | 
 | **[Tata Teleservices](https://www.tatatelebusiness.com/data-services/ez-cloud-connect/)** | Tata Communications | Chennai<br/>Mumbai |
