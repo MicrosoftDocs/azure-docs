@@ -1,22 +1,264 @@
 ---
-title: Revisions in Azure Container Apps
-description: Learn how revisions are created in Azure Container Apps.
+title: Update and deploy changes in Azure Container Apps
+description: Learn how to use revisions to make changes in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 05/11/2022
+ms.date: 09/18/2023
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022, build-2023
 ---
 
-# Revisions in Azure Container Apps
+# Update and deploy changes in Azure Container Apps
 
-Azure Container Apps implements container app versioning by creating revisions. A revision is an immutable snapshot of a container app version.
+Change management can be challenging as you develop containerized applications in the cloud. Ultimately, you need support to track changes, ensure uptime, and have mechanisms to handle smooth rollbacks.
+
+Change management in Azure Container Apps is powered by revisions, which are an immutable snapshot of each version of your container app.
+
+Key characteristics of revisions include:
+
+- **Immutable**: Once established, a revision remains unchangeable.
+
+- **Versioning**: Revisions act as a record of the container app's versions, capturing its state at various stages.
+
+- **Automatic provisioning**: When you deploy a container app for the first time, an initial revision is automatically created.
+
+- **Influence of change**: While revisions remain static, [application-scope](#change-types) changes can affect all revisions, while [revision-scope](#change-types) changes, create a new revision.
+
+- **Historical record**: Azure Container Apps allow you to retain up to 100 revisions. This history gives you a comprehensive historical record of your app's updates.
+
+- **Multiple revisions**: You can run multiple revisions concurrently. This feature is especially beneficial when you need to manage different versions of your app simultaneously.
+
+## Lifecycle
+
+Each revision undergoes specific states, influenced by its status and availability. During its lifecycle, a container app goes through different provisioning, running, and an inactive status.
+
+### Provisioning status
+
+When you create a new revision, the container app undergoes startup and readiness checks. During this phase, the provisioning status serves as a guide to track the container app's progress.
+
+| Status | Description |
+|---|---|
+| Provisioning | The revision is in the verification process. |
+| Provisioned | The revision has successfully passed all checks. |
+| Provisioning failed | The revision encountered issues during verification. |
+
+### Running status
+
+After a container app is successfully provisioned, a revision enters its operating phase. The running status helps monitor a container app's health and functionality.
+
+| Status | Description |
+|---|---|
+| Scale to 0 | Zero running replicas, and not provisioning any new replicas. |
+| Activating | Zero running replicas, one replica being provisioned.  |
+| Processing | Scaling in or out is occurring. One or more running replicas, while other replicas are being provisioned. |
+| Running | One or more replicas running, with replicas either being provisioned or  deprovisioned. There are no issues to report. |
+| Degraded |  |
+| Unhealthy | The revision isn't operating properly. Use the revision state details for details. Common issues include:<br>• Container crashes<br>• Resource quota exceeded<br>• Image access issues, including [*ImagePullBackOff* errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster) |
+| Failed | Critical errors caused revisions to fail. The *running state* provides details. Common causes include:<br>• Termination<br>• Exit code `137` |
+| N/A | The revision can't create replicas. The revision is either provisioning, failed to provision, or is inactive and has no resources. |
+
+### Inactive status
+
+Revisions can also enter an inactive state. These revisions don't possess provisioning or running states. However, Azure Container Apps maintains a list of these revisions, accommodating up to 100 inactive entries.
+
+## Revision modes
+
+Azure Container Apps support two revision modes. Your choice of mode determines how many revisions of your app are simultaneously active.
+
+| Revision modes | Description | Default |
+|---|---|---|
+| Single | When you create a new revision, it automatically becomes the active one, replacing the previous active revision. This mode ensures that only the latest version of your app is in operation. | Yes |
+| Multiple | Allows more than one revision of your app to run concurrently. This mode is useful when you want to manage multiple versions or test new features without disrupting the main app. For apps with external HTTP ingress, you can even define the [percentage of traffic each active revision receives](traffic-splitting.md). | No |
+
+### Zero downtime deployment
+
+In single revision mode, Container Apps ensures your app doesn't experience downtime when creating a new revision. The existing active revision isn't deactivated until the new revision is ready.
+
+If ingress is enabled, the existing revision continues to receive 100% of the traffic until the new revision is ready.
+
+A new revision is considered ready when one of its replicas starts and becomes ready. A replica is ready when all of its containers start and pass their [startup and readiness probes](./health-probes.md).
+
+In multiple revision mode, you can control when revisions are activated or deactivated and which revisions receive ingress traffic. If a [traffic splitting rule](./revisions-manage.md#traffic-splitting) is configured with `latestRevision` set to `true`, traffic doesn't switch to the latest revision until it's ready.
+
+## Work with multiple revisions
+
+While single revision mode is the default, sometimes you may want to have full control over how your revisions are managed.
+
+The multiple revision mode gives you the flexibility to manage your revision manually. For instance, using multiple revision mode allows you to decide exactly how much traffic is allocated to each revision.
+
+The following diagram shows a container app with two revisions.
+
+:::image type="content" source="media/revisions/azure-container-apps-revisions-traffic-split.png" alt-text="Azure Container Apps: Traffic splitting among revisions":::
+
+This scenario presumes the container app is in the following state:
+
+- [Ingress](ingress-how-to.md) is enabled, making the container app available via HTTP or TCP.
+- The first revision was deployed as *Revision 1*.
+- After the container was updated, a new revision was activated as *Revision 2*.
+- [Traffic splitting](traffic-splitting.md) rules are configured so that *Revision 1* receives 80% of the requests, and *Revision 2* receives the remaining 20%.
+
+### Activation state
+
+In the multiple revision mode, you have the ability to activate or deactivate revisions as needed. Active revisions are operational and can handle requests, while inactive ones remain dormant.
+
+Container Apps doesn't charge for inactive revisions. However, there's a cap on the total number of available revisions, with the oldest ones being purged once you exceed a count of 100.
+
+## Customize revisions
+
+You can customize the revision name and labels to better align with your naming conventions or versioning strategy.
+
+### Name suffix
+
+Every revision in Container Apps is assigned a unique identifier. While names are automatically generated, you can personalize the revision name.
+
+The typical format for a revision name is:
+
+``` text
+<CONTAINER_APP_NAME>-<REVISION_SUFFIX>
+```
+
+For example, if you have a container app named *album-api* and decide on the revision suffix *first-revision*, the complete revision name becomes *album-api-first-revision*.
+
+A revision suffix name must:
+
+- Consist of only lower case alphanumeric characters or dashes (`-`)
+- Start with an alphabetic character
+- End with an alphanumeric character
+
+Names must not have:
+
+- Two consecutive dashes (`--`)
+- Be more than 64 characters
+
+You can set the revision suffix in the [ARM template](azure-resource-manager-api-spec.md#propertiestemplate), through the Azure CLI `az containerapp create` and `az containerapp update` commands, or when creating a revision via the Azure portal.
+
+### Labels
+
+For container apps with external HTTP traffic, labels direct traffic to specific revisions. A label provides a unique URL that you can use to route traffic to the revision that the label is assigned.
+
+To switch traffic between revisions, you can move the label from one revision to another.
+
+- Labels keep the same URL when moved from one revision to another.
+- A label can be applied to only one revision at a time.
+- Allocation for traffic splitting isn't required for revisions with labels.
+- Labels are most useful when the app is in *multiple revision mode*.
+- You can enable labels, traffic splitting or both.
+
+Labels are useful for testing new revisions.  For example, when you want to give access to a set of test users, you can give them the label's URL. Then when you want to move your users to a different revision, you can move the label to that revision.
+
+Labels work independently of traffic splitting.  Traffic splitting distributes traffic going to the container app's application URL to revisions based on the percentage of traffic.  When traffic is directed to a label's URL, the traffic is routed to one specific revision.
+
+A label name must:
+
+- Consist of lower case alphanumeric characters or dashes (`-`)
+- Start with an alphabetic character
+- End with an alphanumeric character
+
+Labels must not:
+
+- Have two consecutive dashes (`--`)
+- Be more than 64 characters
+
+You can manage labels from your container app's **Revision management** page in the Azure portal.
+
+:::image type="content" source="media/revisions/screen-shot-revision-mgmt-labels.png" alt-text="Screenshot of Container Apps revision management.":::
+
+You can find the label URL in the revision details pane.
+
+:::image type="content" source="media/revisions/screen-shot-revision-mgmt-revision-details.png" alt-text="Screenshot of Container Apps revision details.":::
+
+## Use cases
+
+The following are common use cases for using revisions in container apps. This list isn't an exhaustive list of the purpose or capabilities of using Container Apps revisions.
+
+### Release management
+
+Revisions streamline the process of introducing new versions of your app. When you're ready to roll out an update or a new feature, you can create a new revision without affecting the current live version. This approach ensures a smooth transition and minimizes disruptions for end-users.
+
+### Reverting to previous versions
+
+Sometimes you need to quickly revert to a previous, stable version of your app. You can roll back to a previous revision of your container app if necessary.
+
+### A/B testing
+
+When you want to test different versions of your app, revisions can support [A/B testing](https://wikipedia.org/wiki/A/B_testing). You can route a subset of your users to a new revision, gather feedback, and make informed decisions based on real-world data.
+
+### Blue-green deployments
+
+Revisions support the [blue-green deployment](blue-green-deployment.md) strategy. By having two parallel environments (blue for the live version and green for the new one), you can gradually phase in a new revision. Once you're confident in the new version's stability and performance, you can switch traffic entirely to the green environment.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Application lifecycle management](application-lifecycle-management.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+---------
+
+How do you make changes to a container app?
+What happens when you do?
+
+| Revision modes | Description | Is default? |
+|---|---|---|
+| Single |  | Yes |
+| Multiple |  | No |
+
+
+when you want to make changes to an app, you do that with a revision
+
+as revisions are running you can find out about its status
+
+
+------
+
+Each new version of your container app creates a new revision. A revision is an immutable snapshot of a container app version.
 
 - The first revision is automatically provisioned when you deploy your container app.
 - New revisions are automatically provisioned when you make a [*revision-scope*](#revision-scope-changes) change to your container app.
-- While revisions are immutable, they're affected by [*application-scope*](#application-scope-changes) changes, which apply to all revisions.
+- While revisions are immutable, they're affected by [*application-scope*](#application-scope-changes) changes. Application-scope changes apply to all revisions.
 - You can create new revisions by updating a previous revision.
 - You can retain up to 100 revisions, giving you a historical record of your container app updates.
 - You can run multiple revisions concurrently.
@@ -40,15 +282,15 @@ You can use revisions to:
 
 ## Revision lifecycle
 
-Revisions go through a series of states, based on status and availability.
+Revisions progress through various states based on their status and availability.
 
 ### Provisioning status
 
-When a new revision is first created, it has to pass startup and readiness checks.  _Provisioning status_ is set to _provisioning_ during verification.  Use _provisioning status_ to follow progress.
+A new revision must passes startup and readiness checks when created.  *Provisioning status* is set to *provisioning* during verification.  Use *provisioning status* to follow progress.
 
-Once the revision is verified, _running status_ is set to _running_.  The revision is available and ready for work.  
+Once the revision is verified, *running status* is set to *running*.  The revision is available and ready for work.  
 
-_Provisioning status_ values include:
+*Provisioning status* values include:
 
 - Provisioning
 - Provisioned
@@ -56,25 +298,11 @@ _Provisioning status_ values include:
 
 ### Running status
 
-Revisions are fully functional after provisioning is complete. Use _running status_ to monitor the status of a revision.
-
-Running status values include:
-
-| Status | Description |
-|---|---|
-| Running | The revision is running. There are no issues to report. |
-| Unhealthy | The revision isn't operating properly. Use the revision state details for details. Common issues include:<br>• Container crashes<br>• Resource quota exceeded<br>• Image access issues, including [_ImagePullBackOff_ errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster) |
-| Failed | Critical errors caused revisions to fail. The _running state_ provides details. Common causes include:<br>• Termination<br>• Exit code `137` |
-
-Use running state details to learn more about the current status.
+Revisions are fully functional after provisioning is complete. Use [running status](running-status.md) to monitor the status of a revision.
 
 ### Inactive status
 
-A revision can be set to active or inactive.  
-
-Inactive revisions don't have provisioning or running states.
-
-Inactive revisions remain in a list of up to 100 inactive revisions.
+A revision can be set to active or inactive. Inactive revisions don't have provisioning or running states. Inactive revisions remain in a list of up to 100 inactive revisions.
 
 ## Multiple revisions
 
@@ -85,13 +313,13 @@ The following diagram shows a container app with two revisions.
 This scenario presumes the container app is in the following state:
 
 - [Ingress](ingress-how-to.md) is enabled, making the container app available via HTTP or TCP.
-- The first revision was deployed as _Revision 1_.
-- After the container was updated, a new revision was activated as _Revision 2_.
-- [Traffic splitting](traffic-splitting.md) rules are configured so that _Revision 1_ receives 80% of the requests, and _Revision 2_ receives the remaining 20%.
+- The first revision was deployed as *Revision 1*.
+- After the container was updated, a new revision was activated as *Revision 2*.
+- [Traffic splitting](traffic-splitting.md) rules are configured so that *Revision 1* receives 80% of the requests, and *Revision 2* receives the remaining 20%.
 
 ## Revision name suffix
 
-Revision names are used to identify a revision, and in the revision's URL.  You can customize the revision name by setting the revision suffix.
+Revision names identify a revision and in the revision's URL.  You can customize the revision name by setting the revision suffix.
 
 The format of a revision name is:
 
@@ -105,17 +333,25 @@ For example, for a container app named *album-api*, setting the revision suffix 
 
 A revision suffix name must:
 
-- consist of lower case alphanumeric characters or dashes ('-')
+- consist of lower case alphanumeric characters or dashes (`-`)
 - start with an alphabetic character
 - end with an alphanumeric character
-- not have two consecutive dashes (--)
+- not have two consecutive dashes (`--`)
 - not be more than 64 characters
 
-You can set the revision suffix in the [ARM template](azure-resource-manager-api-spec.md#propertiestemplate), through the Azure CLI `az containerapp create` and `az containerapp update` commands, or when creating a revision via the Azure portal. 
+You can set the revision suffix in the [ARM template](azure-resource-manager-api-spec.md#propertiestemplate), through the Azure CLI `az containerapp create` and `az containerapp update` commands, or when creating a revision via the Azure portal.
 
 ## Change types
 
-Changes to a container app fall under two categories: *revision-scope* or *application-scope* changes. *Revision-scope* changes trigger a new revision when you deploy your app, while *application-scope* changes don't.
+Changes in Container Apps fall into two categories: revision-scope or application-scope changes.
+
+| Change type | Description | Creates a new revision |
+|---|---|---|
+| Revision-scope |  | Yes |
+| Application-scope |  | No |
+
+*Revision-scope* changes trigger a new revision when you deploy your app, while *application-scope* changes don't.
+
 
 ### Revision-scope changes
 
@@ -151,7 +387,7 @@ These parameters include:
 
 ## Revision modes
 
-The revision mode controls whether only a single revision or multiple revisions of your container app can be simultaneously active. You can set your app's revision mode from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in the ARM template.
+The revision mode determines if a single or multiple revisions of your container app are active simultaneously. You can set your app's revision mode from your container app's **Revision management** page in the Azure portal, using Azure CLI commands, or in the ARM template.
 
 ### Single revision mode
 
@@ -165,7 +401,7 @@ For an app implementing external HTTP ingress, you can control the percentage of
 
 ## Revision Labels
 
-For container apps with external HTTP traffic, labels are a portable means to direct traffic to specific revisions. A label provides a unique URL that you can use to route traffic to the revision that the label is assigned. To switch traffic between revisions, you can move the label from one revision to another.
+For container apps with external HTTP traffic, labels direct traffic to specific revisions. A label provides a unique URL that you can use to route traffic to the revision that the label is assigned. To switch traffic between revisions, you can move the label from one revision to another.
 
 - Labels keep the same URL when moved from one revision to another.
 - A label can be applied to only one revision at a time.
@@ -199,7 +435,13 @@ In *multiple revision modes*, revisions remain active until you deactivate them.
 
 You aren't charged for the inactive revisions. You can have a maximum of 100 revisions, after which the oldest revision is purged.
 
-## Next steps
+### Zero downtime deployment
 
-> [!div class="nextstepaction"]
-> [Application lifecycle management](application-lifecycle-management.md)
+In single revision mode, Container Apps automatically ensures your app doesn't experience downtime when creating a new revision. The existing active revision isn't deactivated until the new revision is ready. If ingress is enabled, the existing revision continues to receive 100% of the traffic until the new revision is ready.
+
+> [!NOTE]
+> A new revision is considered ready when one of its replicas starts and becomes ready. A replica is ready when all of its containers start and pass their [startup and readiness probes](./health-probes.md).
+
+In multiple revision mode, you control when revisions are activated or deactivated and which revisions receive ingress traffic. If a [traffic splitting rule](./revisions-manage.md#traffic-splitting) is configured with `latestRevision` set to `true`, traffic doesn't switch to the latest revision until it's ready.
+
+-->
