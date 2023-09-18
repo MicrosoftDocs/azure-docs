@@ -41,11 +41,12 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ## Default environment variable names or application properties and sample codes
 
-Reference the connection details and sample codes in following tables, accordings to your connection's authentication type and client type, to connect compute services to Azure Blob Storage.
+Reference the connection details and sample codes in following tables, accordings to your connection's authentication type and client type, to connect compute services to Azure Blob Storage. Please go to beginning of the documentation to choose authentication type.
 
 ::: zone pivot="system-identity"
 
 ### System-assigned managed identity
+For default environment variables and sample codes of other authentication type, please choose from beginning of the documentation.
 
 | Default environment variable name  | Description           | Example value                                           |
 |------------------------------------|-----------------------|---------------------------------------------------------|
@@ -63,6 +64,8 @@ Follow these steps and sample codes to connect to Azure Blob Storage with system
 
 ### User-assigned managed identity
 
+For default environment variables and sample codes of other authentication type, please choose from beginning of the documentation.
+
 | Default environment variable name  | Description           | Example value                                           |
 |------------------------------------|-----------------------|---------------------------------------------------------|
 | AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob Storage endpoint | `https://<storage-account-name>.blob.core.windows.net/` |
@@ -79,6 +82,8 @@ Follow these steps and sample codes to connect to Azure Blob Storage with user-a
 ::: zone pivot="connection-string"
 
 ### Connection string
+
+For default environment variables and sample codes of other authentication type, please choose from beginning of the documentation.
 
 #### SpringBoot client type
 
@@ -105,6 +110,8 @@ Follow these steps and sample codes to connect to Azure Blob Storage with connec
 ::: zone pivot="service-principal"
 
 ### Service principal
+
+For default environment variables and sample codes of other authentication type, please choose from beginning of the documentation.
 
 | Default environment variable name  | Description           | Example value                                           |
 |------------------------------------|-----------------------|---------------------------------------------------------|
