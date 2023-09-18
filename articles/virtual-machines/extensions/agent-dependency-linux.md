@@ -28,16 +28,16 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-  "parameters": {
-    "vmName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of existing Linux Azure VM."
+    "parameters": {
+      "vmName": {
+        "type": "string",
+        "metadata": {
+            "description": "The name of existing Linux Azure VM."
       }
     }
   },
   "variables": {
-    "vmExtensionsApiVersion": "2017-03-30"
+      "vmExtensionsApiVersion": "2017-03-30"
   },
   "resources": [
     {
@@ -45,14 +45,15 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
       "name": "[concat(parameters('vmName'),'/DAExtension')]",
       "apiVersion": "[variables('vmExtensionsApiVersion')]",
       "location": "[resourceGroup().location]",
-      "dependsOn": [
-      ],
+      "dependsOn": [],
       "properties": {
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentLinux",
         "typeHandlerVersion": "9.5",
         "autoUpgradeMinorVersion": true,
-	"enableAMA": true
+        "settings": {
+            "enableAMA": "true"
+        }
       }
     }
   ],
@@ -89,11 +90,13 @@ The following example assumes the Dependency agent extension is nested inside th
 		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
 	],
 	"properties": {
-		"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
-	        "type": "DependencyAgentLinux",
-	        "typeHandlerVersion": "9.5",
-	        "autoUpgradeMinorVersion": true,
-		"enableAMA": true
+        "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+        "type": "DependencyAgentLinux",
+        "typeHandlerVersion": "9.5",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "enableAMA": "true"
+        }
 	}
 }
 ```
@@ -107,14 +110,16 @@ When you place the extension JSON at the root of the template, the resource name
 	"apiVersion": "[variables('apiVersion')]",
 	"location": "[resourceGroup().location]",
 	"dependsOn": [
-		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+      "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
 	],
 	"properties": {
-		"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
-	        "type": "DependencyAgentLinux",
-	        "typeHandlerVersion": "9.5",
-	        "autoUpgradeMinorVersion": true,
-		"enableAMA": true
+        "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+        "type": "DependencyAgentLinux",
+        "typeHandlerVersion": "9.5",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "enableAMA": "true"
+        }
 	}
 }
 ```
