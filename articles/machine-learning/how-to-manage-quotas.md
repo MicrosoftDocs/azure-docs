@@ -122,6 +122,9 @@ The following table shows more limits in the platform. Reach out to the Azure Ma
 
 <sup>2</sup> Jobs on a low-priority node can be preempted whenever there's a capacity constraint. We recommend that you implement checkpoints in your job.
 
+### Azure Machine Learning shared quota
+In order to prevent wait times when a quota increase request is pending, Azure Machine Learning is introducing a concept of shared quota, where a pool of quota is shared across different users and regions concurrently. Upon availability, quota from the shared pool can temporarily be used for a short period of time (varies depending on the use case) for testing purposes. Today, shared quota is available for running Spark jobs and for testing Llama inferencing in Model Catalog for a trial period, eliminating the need to wait for your quota increase request to be completed in order to proceed. Note that billing for shared quota has the same billing model as dedicated virtual machine families with a usage based billing model.
+
 ### Azure Machine Learning managed online endpoints
 
 Azure Machine Learning managed online endpoints have limits described in the following table. These limits are _regional_, meaning that you can use up to these limits per each region you're using.
