@@ -93,8 +93,7 @@ Simply click on the chat button located in the bottom to reveal the chat panel a
 
 ![ACS getting two images](./media/inline-image-tutorial-interop-chat-2.png "Screenshot of ACS UI library receiving 2 inline images.")
 
-Note that in a Teams Interop Chat, we currently only support Azure Communication Service end user to receive inline images sent by the Teams user. To learn more about what features are supported, refer to the [UI library Use Cases](../concepts/ui-library/includes/web-ui-use-cases.md)
-
+Note that in a Teams Interop Chat, we currently only support Azure Communication Service end user to receive inline images sent by the Teams user. To learn more about what features are supported, refer to the [UI Library use cases](../concepts/ui-library/ui-library-use-cases.md)
 
 ## Known Issues
 
