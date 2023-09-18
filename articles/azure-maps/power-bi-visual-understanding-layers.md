@@ -94,7 +94,11 @@ The general layer section of the **Format** pane are common settings that apply 
 >
 > **General layer settings retirement**
 >
-> The **Show zeros** and **Show negatives** Power BI Visual General layer settings were deprecated starting in the September 2023 release of Power BI. You can no longer create reports using these settings, but existing reports will continue to work. It is recomended that you upgrade existing reports that use these settings to the new **range scaling** property. For more information, see [range scaling].
+> The **Show zeros** and **Show negatives** Power BI Visual General layer settings were deprecated starting in the September 2023 release of Power BI. You can no longer create new reports using these settings, but existing reports will continue to work. It is recomended that you upgrade existing reports. To upgrade to the new **range scaling** property, select the desired option in the **Range scaling** drop-down list:
+>
+> :::image type="content" source="./media/power-bi-visual/range-scaling-drop-down.png" alt-text="A screenshot of the range scaling drop-down":::
+>
+> For more information on the range scaling option, see **Range scaling** in the properties table of the [Add a bubble layer] article.
 
 ## Next steps
 
@@ -117,4 +121,4 @@ Add more context to the map:
 > [!div class="nextstepaction"]
 > [Show real-time traffic](power-bi-visual-show-real-time-traffic.md)
 
- [range scaling]: TBD
+ [Add a bubble layer]: power-bi-visual-add-bubble-layer.md
