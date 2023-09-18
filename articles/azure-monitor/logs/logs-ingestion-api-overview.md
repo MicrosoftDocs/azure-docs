@@ -11,12 +11,9 @@ The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics wo
 
 
 ## Basic operation
-The application sends data to a [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md), which is a unique connection point for your Azure subscription. The API call includes a payload with the source data formatted in JSON and specifies the following:
-
-- The [data collection endpoint]() 
-- A [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) that understands the format of the source data.
-- Optional [transformation](../essentials/data-collection-transformations.md) that filters and transforms the data for the target table.
-- Directs the data to a specific table in a specific workspace.
+Data can be sent to the Logs Ingestion API from any application that can make a REST API call. This may be a custom application that you create or it may be an application or agent that understands how to send data to the API.
+The application sends data to a [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md), which is a unique connection point for your Azure subscription. It specifies a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) that includes the target table and workspace.
+The data sent by your application to the API must be formatted in JSON and match the structure expected by the DCR. It doesn't necessarily need to match the structure of the target table because the DCR can include a [transformation](../essentials//data-collection-transformations.md) to convert the data to match the table's structure.
 
 You can modify the target table and workspace by modifying the DCR without any change to the API call or source data.
 
@@ -26,25 +23,40 @@ You can modify the target table and workspace by modifying the DCR without any c
 > To migrate solutions from the [Data Collector API](data-collector-api.md), see [Migrate from Data Collector API and custom fields-enabled tables to DCR-based custom logs](custom-logs-migrate.md).
 
 ## Supported tables
-The following tables can receive data from the ingestion API.
+Data sent to the ingestion API can be sent to the following tables:
 
 | Tables | Description |
 |:---|:---|
-| Custom tables | The Logs Ingestion API can send data to any custom table that you create in your Log Analytics workspace. The target table must exist before you can send data to it. Custom tables must have the `_CL` suffix. |
-| Azure tables | The Logs Ingestion API can send data to the following Azure tables. Other tables may be added to this list as support for them is implemented.<br><br>- [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)<br>- [SecurityEvents](/azure/azure-monitor/reference/tables/securityevent)<br>- [Syslog](/azure/azure-monitor/reference/tables/syslog)<br>- [WindowsEvents](/azure/azure-monitor/reference/tables/windowsevent)
+| Custom tables | Any custom table that you create in your Log Analytics workspace. The target table must exist before you can send data to it. Custom tables must have the `_CL` suffix. |
+| Azure tables | The following Azure tables are currently supported. Other tables may be added to this list as support for them is implemented.<br><br>- [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)<br>- [SecurityEvents](/azure/azure-monitor/reference/tables/securityevent)<br>- [Syslog](/azure/azure-monitor/reference/tables/syslog)<br>- [WindowsEvents](/azure/azure-monitor/reference/tables/windowsevent)
 
 > [!NOTE]
 > Column names must start with a letter and can consist of up to 45 alphanumeric characters and underscores (`_`). The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. Custom columns you add to an Azure table must have the suffix `_CF`.
 
 ## Configuration
 
-The Log ingestion API requires the following components to be created before you can send data. Each of these components must all be located in the same region.
+The Logs Ingestion API requires the following components to be created before you can send data. Each of these components must all be located in the same region.
 
 | Component | Description |
 |:---|:---|
-| Data collection endpoint (DCE) | The DCE provides an endpoint for the application to send to. A single DCE can support multiple DCRs.  |
-| Data collection rule (DCR) | [Data collection rules](../essentials/data-collection-rule-overview.md) define data collected by Azure Monitor and specify how and where that data should be sent or stored. The API call must specify a DCR to use. The DCR must understand the structure of the input data and the structure of the target table. If the two don't match, it can include a [transformation](../essentials/data-collection-transformations.md) to convert the source data to match the target table. You can also use the transformation to filter source data and perform any other calculations or conversions.
+| App registration | The application registration is used to authenticate the API call. It must be granted permission to the DCR. The API call includes the **Application (client) ID**  and **Directory (tenant) ID** of the application and the **Value** of an application secret.<br><br>See [Register an application with Azure AD and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) and [Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret). |
+| Data collection endpoint (DCE) | The DCE provides an endpoint for the application to send to. A single DCE can support multiple DCRs, so you can use an existing DCE if you already have one in the required region.<br><br>See [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).  |
+| Log Analytics workspace table | The table in the Log Analytics workspace must exist before you can send data to it. You can use one of the [supported Azure tables](#supported-tables) or create a custom table. You can use any of the available methods to create a custom table. If you use the Azure portal to create the table, then the DCR is created for you. With any other method, you need to create the DCR.<br><br>See [Create a custom table](create-custom-table.md#create-a-custom-table).  |
+| Data collection rule (DCR) | [Data collection rules](../essentials/data-collection-rule-overview.md) define data collected by Azure Monitor and specify how and where that data should be sent or stored. The DCR must understand the structure of the input data and the structure of the target table. If the two don't match, it can include a [transformation](../essentials/data-collection-transformations.md) to convert the source data to match the target table. You can also use the transformation to filter source data and perform any other calculations or conversions.<br><br>There are two methods to create the DCR. You can manually create it if you understand the structure.  |
 | Log Analytics workspace | The Log Analytics workspace contains the tables that will receive the data. The target tables are specific in the DCR. See [Support tables](#supported-tables) for the tables that the ingestion API can send to. |
+
+
+
+
+
+
+### 1. Create an app registration in Microsoft Entra ID
+
+
+
+### 2. Create the data collection endpoint
+A single DCE can be used with multiple DCRs, so if you already have one in the required region, then you can use it. Otherwise create a new one as described in [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
+
 
 ## Authentication
 
@@ -60,9 +72,6 @@ When developing a custom client to obtain an access token from Azure AD for the 
 | Microsoft Azure operated by 21Vianet cloud | `https://monitor.azure.cn` |
 | Azure US Government cloud | `https://monitor.azure.us` |
 
-## Source data
-
-The source data sent by your application is formatted in JSON and must match the structure expected by the DCR. It doesn't necessarily need to match the structure of the target table because the DCR can include a [transformation](../essentials//data-collection-transformations.md) to convert the data to match the table's structure.
 
 ## Client libraries
 You can use the following client libraries to send data to the Logs ingestion API.
