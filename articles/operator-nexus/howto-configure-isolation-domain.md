@@ -43,15 +43,15 @@ Isolation domains are used to enable Layer 2 or Layer 3 connectivity between wor
 
 | Parameter|Description|Example|Required|
 |---|---|---|---|
-|resource-group	|Use an appropriate resource group name specifically for ISD of your choice|ResourceGroupName|True
-|resource-name	|Resource Name of the l2isolationDomain|example-l2domain| True
-|location|AODS Azure Region used during NFC Creation|eastus| True
-|nf-Id	|network fabric ID|"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFname"| True
-|Vlan-id | VLAN identifier value. VLANs 1-500 are reserved and can't be used. The VLAN identifier value can't be changed once specified. The isolation-domain must be deleted and recreated if the VLAN identifier value needs to be modified. The range is between 501-4095|501| True
-|mtu | maximum transmission unit is 1500 by default, if not specified|1500||
-|administrativeState|	Enable/Disable indicate the administrative state of the isolationDomain|Enable||
-| subscriptionId      | Your Azure subscriptionId for your Operator Nexus instance. ||
-| provisioningState   | Indicates provisioning state |
+|`resource-group`	|Use an appropriate resource group name specifically for ISD of your choice|ResourceGroupName|True
+|`resource-name`	|Resource Name of the l2isolationDomain|example-l2domain| True
+|`location`|AODS Azure Region used during NFC Creation|eastus| True
+|`nf-Id`	|network fabric ID|"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFname"| True
+|`Vlan-id` | VLAN identifier value. VLANs 1-500 are reserved and can't be used. The VLAN identifier value can't be changed once specified. The isolation-domain must be deleted and recreated if the VLAN identifier value needs to be modified. The range is between 501-4095|501| True
+|`mtu` | maximum transmission unit is 1500 by default, if not specified|1500||
+|`administrativeState`|	Enable/Disable indicate the administrative state of the isolationDomain|Enable||
+| `subscriptionId`      | Your Azure subscriptionId for your Operator Nexus instance. ||
+| `provisioningState`   | Indicates provisioning state |
 
 ## L2 Isolation-Domain
 
@@ -98,7 +98,7 @@ Expected output:
 
 ### Show L2 isolation-domains
 
-This command shows L2 isolation-domain details and the administrative state of the isolation-domain in the specified resource group.
+This command shows details about L2 isolation domains, including their administrative states:
 
 ```azurecli
 az networkfabric l2domain show --resource-group "ResourceGroupName" --resource-name "example-l2domain"
@@ -197,7 +197,7 @@ Expected Output
 
 ### Delete L2 isolation-domain
 
-This command is used to delete L2 isolation-domain
+Use this command to delete an L2 isolation domain:
 
 ```azurecli
 az networkfabric l2domain delete --resource-group "ResourceGroupName" --resource-name "example-l2domain"
@@ -211,50 +211,57 @@ Please use show or list command to validate that isolation-domain is deleted. De
 
 ## Configure L3 isolation-domain
 
-Layer 3 isolation-domain enables layer 3 connectivity between workloads running on Operator Nexus compute nodes.
+A Layer 3 isolation-domain enables layer 3 connectivity between workloads running on Operator Nexus compute nodes.
 The L3 isolation-domain enables the workloads to exchange layer 3 information with Network fabric devices.
 
-Layer 3 isolation-domain has two components: Internal and External Networks.
-At least one or more internal networks are required to be created.
-The internal networks define layer 3 connectivity between NFs running in Operator Nexus compute nodes and an optional external network.
-The external network provides connectivity between the internet and internal networks via your PEs.
+Layer 3 isolation-domain has two components: 
+
+- An *internal network* defines Layer 3 connectivity between network fabrics running on Azure Operator Nexus compute nodes and an optional external network. You must create at least one internal network.
+- An *external network* provides connectivity between the internet and internal networks via your PEs.
+
 
 L3 isolation-domain enables deploying workloads that advertise service IPs to the fabric via BGP.
-Fabric ASN refers to the ASN of the network devices on the Fabric. The Fabric ASN was specified while creating the Network fabric.
-Peer ASN refers to ASN of the Network Functions in Operator Nexus, and it can't be the same as Fabric ASN.
+
+An L3 isolation domain has two ASNs:
+
+- The *Fabric ASN* refers to the ASN of the network devices on the Fabric. The Fabric ASN was specified while creating the Network fabric.
+- The *Peer ASN* refers to ASN of the Network Functions in Operator Nexus, and it can't be the same as Fabric ASN.
 
 The workflow for a successful provisioning of an L3 isolation-domain is as follows:
+
   - Create a L3 isolation-domain
   - Create one or more Internal Networks
   - Enable a L3 isolation-domain
 
 To make changes to the L3 isolation-domain, first Disable the L3 isolation-domain (Administrative state). Re-enable the L3 isolation-domain (AdministrativeState state) once the changes are completed:
+
   - Disable the L3 isolation-domain
   - Make changes to the L3 isolation-domain
   - Re-enable the L3 isolation-domain
 
-Procedure to show, enable/disable and delete IPv6 based isolation-domains is same as used for IPv4. 
-Vlan range for creation Isolation Domain 501-4095
+The Procedure to show, enable/disable and delete IPv6 based isolation-domains is same as used for IPv4. the Vlan range for creation Isolation Domain 501-4095
+
+The following parameters are available for configuring L3 isolation domains.
 
 | Parameter|Description|Example|Required|
 |---|---|---|---|
-|resource-group	|Use an appropriate resource group name specifically for ISD of your choice|ResourceGroupName|True|
-|resource-name	|Resource Name of the l3isolationDomain|example-l3domain|True|
-|location|AODS Azure Region used during NFC Creation|eastus|True|
-|nf-Id	|azure subscriptionId used during NFC Creation|/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName"| True|
+|`resource-group`	|Use an appropriate resource group name specifically for ISD of your choice|ResourceGroupName|True|
+|`resource-name`	|Resource Name of the l3isolationDomain|example-l3domain|True|
+|`location`|AODS Azure Region used during NFC Creation|eastus|True|
+|`nf-Id`|azure subscriptionId used during NFC Creation|/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName"| True|
 
-## Optional parameters for Isolation Domain
+The following parameters for isolation domains are optional.
 
 | Parameter|Description|Example|Required|
 |---|---|---|---|
-| redistributeConnectedSubnet | Advertise connected subnets default value is True |True |      |
-| redistributeStaticRoutes  |Advertise Static Routes can have value of true/False.  Defualt Value is False | False       | |
-| aggregateRouteConfiguration|List of Ipv4 and Ipv6 route configurations  |     |   | 
-| connectedSubnetRoutePolicy | Route Policy Configuration for IPv4 or Ipv6 L3 ISD connected subnets. Refer to help file for using correct syntax  |    |   | 
+| `redistributeConnectedSubnet` | Advertise connected subnets default value is True |True |      |
+| `redistributeStaticRoutes`  |Advertise Static Routes can have value of true/False.  Defualt Value is False | False       | |
+| `aggregateRouteConfiguration`|List of Ipv4 and Ipv6 route configurations  |     |   | 
+| `connectedSubnetRoutePolicy` | Route Policy Configuration for IPv4 or Ipv6 L3 ISD connected subnets. Refer to help file for using correct syntax  |    |   | 
 
 ### Create L3 isolation-domain
 
-You can create the L3 isolation-domain:
+Use this command to create an L3 isolation domain:
 
 ```azurecli
 az networkfabric l3domain create 
@@ -293,17 +300,17 @@ Expected Output
 }
 ```
 
-## Create L3 Isolation Untrust 
+## Create an untrusted L3 isolation domain
 
 ```azurecli
 az nf l3domain create --resource-group "ResourceGroupName" --resource-name "l3untrust" --location "eastus" --nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName" 
 ```
-## Create L3 Isolation domain Trust
+## Create a trusted L3 isolation domain
 
 ```azurecli
 az nf l3domain create --resource-group "ResourceGroupName" --resource-name "l3trust" --location "eastus" --nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName"
 ```
-## Create L3 Isolation domain Mgmt
+## Create a management L3 isolation domain
 
 ```azurecli
 az nf l3domain create --resource-group "ResourceGroupName" --resource-name "l3mgmt" --location "eastus" --nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName"
@@ -345,7 +352,7 @@ Expected Output
 
 ### List all L3 isolation-domains
 
-You can get a list of all L3 isolation-domains available in a resource group.
+Use this command to get a list of all L3 isolation domains available in a resource group:
 
 ```azurecli
 az networkfabric l3domain list --resource-group "ResourceGroupName"
@@ -416,25 +423,13 @@ Use the `az show` command to verify whether the administrative state has changed
 
 ### Delete an L3 isolation-domains
 
-This command is used to delete L3 isolation-domain
+Use this command to delete an L3 isolation domain:
 
 ```azurecli
  az nf l3domain delete --resource-group "ResourceGroupName" --resource-name "example-l3domain"
 ```
 
 Use the `show` or `list` commands to validate that the isolation-domain has been deleted.
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Create Internal Network
@@ -455,37 +450,36 @@ The following parameters are available for creating internal networks.
 
 | Parameter|Description|Example|Required|
 |---|---|---|---|
-|vlan-Id |Vlan identifier with range from 501 to 4095|1001|True|
-|resource-group|Use the corresponding NFC resource group name| NFCresourcegroupname | True
-|l3-isolation-domain-name|Resource Name of the l3isolationDomain|example-l3domain | True
-|location|AODS Azure Region used during NFC Creation|eastus | True
+|`vlan-Id` |Vlan identifier with range from 501 to 4095|1001|True|
+|`resource-group`|Use the corresponding NFC resource group name| NFCresourcegroupname | True
+|`l3-isolation-domain-name`|Resource Name of the l3isolationDomain|example-l3domain | True
+|`location`|AODS Azure Region used during NFC Creation|eastus | True
 
 
-## Options to create Internal Networks
+The following parameters are optional for creating internal networks.
 
 |Parameter|Description|Example|Required|
 |---|---|---|---|
-|connectedIPv4Subnets |IPv4 subnet used by the HAKS cluster's workloads|10.0.0.0/24||
-|connectedIPv6Subnets	|IPv6 subnet used by the HAKS cluster's workloads|10:101:1::1/64||
-|staticRouteConfiguration	|IPv4/IPv6 Prefix of the static route |IPv4 10.0.0.0/24 and Ipv6 10:101:1::1/64|
-|staticRouteConfiguration->extension	|extension flag for internal network static route |NoExtension/NPB|
-|bgpConfiguration|IPv4 nexthop address|10.0.0.0/24| |
-|defaultRouteOriginate	| True/False "Enables default route to be originated when advertising routes via BGP" | True | |
-|peerASN	|Peer ASN of Network Function|65047||
-|allowAS	|Allows for routes to be received and processed even if the router detects its own ASN in the AS-Path. Input as 0 is disable, Possible values are 1-10, default is 2.|2||
-|allowASOverride	|Enable Or Disable allowAS|Enable||
-|extension	|extension flag for internal network|NoExtension/NPB|
-|ipv4ListenRangePrefixes| BGP IPv4 listen range, maximum range allowed in /28| 10.1.0.0/26 | |
-|ipv6ListenRangePrefixes| BGP IPv6 listen range, maximum range allowed in /127| 3FFE:FFFF:0:CD30::/126| |
-|ipv4ListenRangePrefixes| BGP IPv4 listen range, maximum range allowed in /28| 10.1.0.0/26 | |
-|ipv4NeighborAddress| IPv4 neighbor address|10.0.0.11| |
-|ipv6NeighborAddress| IPv6 neighbor address|10:101:1::11| |
-|isMonitoringEnabled| TO enable or disbable monitoring on internal network|False| |
+|`connectedIPv4Subnets` |IPv4 subnet used by the HAKS cluster's workloads|10.0.0.0/24||
+|`connectedIPv6Subnets`	|IPv6 subnet used by the HAKS cluster's workloads|10:101:1::1/64||
+|`staticRouteConfiguration`	|IPv4/IPv6 Prefix of the static route |IPv4 10.0.0.0/24 and Ipv6 10:101:1::1/64|
+|`staticRouteConfiguration->extension`	|extension flag for internal network static route |NoExtension/NPB|
+|`bgpConfiguration`|IPv4 nexthop address|10.0.0.0/24| |
+|`defaultRouteOriginate`	| True/False "Enables default route to be originated when advertising routes via BGP" | True | |
+|`peerASN`	|Peer ASN of Network Function|65047||
+|`allowAS`	|Allows for routes to be received and processed even if the router detects its own ASN in the AS-Path. Input as 0 is disable, Possible values are 1-10, default is 2.|2||
+|`allowASOverride`	|Enable Or Disable allowAS|Enable||
+|`extension`	|extension flag for internal network|NoExtension/NPB|
+|`ipv4ListenRangePrefixes`| BGP IPv4 listen range, maximum range allowed in /28| 10.1.0.0/26 | |
+|`ipv6ListenRangePrefixes`| BGP IPv6 listen range, maximum range allowed in /127| 3FFE:FFFF:0:CD30::/126| |
+|`ipv4ListenRangePrefixes`| BGP IPv4 listen range, maximum range allowed in /28| 10.1.0.0/26 | |
+|`ipv4NeighborAddress`| IPv4 neighbor address|10.0.0.11| |
+|`ipv6NeighborAddress`| IPv6 neighbor address|10:101:1::11| |
+|`isMonitoringEnabled`| TO enable or disbable monitoring on internal network|False| |
 
 
-This command creates an internal network with BGP configuration and specified peering address.
+You need to create an internal network before you enable an L3 isolation domain. This command creates an internal network with BGP configuration and a specified peering address:
 
-**Note:** You need to create an internal network before you enable an L3 isolation-domain.
 
 ```azurecli
 az networkfabric internalnetwork create 
@@ -550,7 +544,7 @@ az nf internalnetwork create --resource-group "ResourceGroupName" --l3-isolation
 ```azurecli
 az nf internalnetwork create --resource-group "ResourceGroupName" --l3-isolation-domain-name l3trust --resource-name trustnetwork --location "eastus" --vlan-id 503 --fabric-asn 65048 --peer-asn 65047--connected-i-pv4-subnets prefix="10.151.1.11/24" --mtu 1500
 ```
-## Create a trusted internal network for an L3 isolation domain
+## Create an internal management network for an L3 isolation domain
 
 ```azurecli
 az nf internalnetwork create --resource-group "ResourceGroupName" --l3-isolation-domain-name l3mgmt --resource-name mgmtnetwork --location "eastus" --vlan-id 504 --fabric-asn 65048 --peer-asn 65047--connected-i-pv4-subnets prefix="10.151.2.11/24" --mtu 1500
@@ -667,7 +661,7 @@ The commands for creating an external network by using Azure CLI include the fol
 |peeringOption |Peering using either optionA or optionb. Possible values OptionA and OptionB |OptionB| True|
 |optionBProperties | OptionB properties configuration. To specify use exportIPv4/IPv6RouteTargets or importIpv4/Ipv6RouteTargets|"exportIpv4/Ipv6RouteTargets": ["1234:1234"]}}||
 |optionAProperties | Configuration of OptionA properties. Please refer to OptionA example in section below |||
-|external|This is an optional Parameter to input MPLS Option 10 (B) connectivity to external networks via PE devices. Using this Option, a user can Input Import and Export Route Targets as shown in the example| || 
+|external|This is an optional Parameter to input MPLS Option 10 (B) connectivity to external networks via Provider Edge devices. Using this Option, a user can Input Import and Export Route Targets as shown in the example| || 
 
 For Option A You need to create an external network before you enable the L3 isolation Domain. An external is dependent on Internal network, so an external can't be enabled without an internal network. The vlan-id value should be between 501 and 4095.
 
@@ -757,7 +751,7 @@ Expected Output
 az networkfabric externalnetwork create --resource-group "ResourceGroupName" --l3domain "example-l3domain" --resource-name "example-externalipv6network" --peering-option "OptionA" --option-a-properties '{"peerASN": 65026,"vlanId": 2423, "mtu": 1500, "primaryIpv6Prefix": "fda0:d59c:da16::/127", "secondaryIpv6Prefix": "fda0:d59c:da17::/127"}'
 ```
 
-**Note:** Primary and Secondary IPv6 supported in this release is /127
+The supported primary and secondary IPv6 prefix size is /127.
 
 Expected Output
 
@@ -789,10 +783,15 @@ Expected Output
 }
 ```
 
+## Enable an L2 Isolation Domain
+
+```azurecli
+az nf l2domain update-administrative-state --resource-group "ResourceGroupName" --resource-name "l2HAnetwork" --state Enable 
+```
 
 ## Enable an L3 isolation domain
 
-Enable an L3 isolation domain
+Use this command to enable an untrusted L3 isolation domain:
 
 ```azurecli
 az nf l3domain update-admin-state --resource-group "ResourceGroupName" --resource-name "l3untrust" --state Enable 
@@ -806,7 +805,7 @@ az nf l3domain update-admin-state --resource-group "ResourceGroupName" --resourc
 ```
 
 
-Use this command to enable a trusted L3 isolation domain:
+Use this command to enable a management L3 isolation domain:
 
 ```azurecli
 az nf l3domain update-admin-state --resource-group "ResourceGroupName" --resource-name "l3mgmt" --state Enable
@@ -814,11 +813,7 @@ az nf l3domain update-admin-state --resource-group "ResourceGroupName" --resourc
 
 
 
-## Enable an L2 Isolation Domain
 
-```azurecli
-az nf l2domain update-administrative-state --resource-group "ResourceGroupName" --resource-name "l2HAnetwork" --state Enable 
-```
 
 
 
