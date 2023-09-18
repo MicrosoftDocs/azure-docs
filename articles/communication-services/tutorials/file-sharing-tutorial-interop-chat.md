@@ -15,13 +15,13 @@ ms.subservice: chat
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-In a Teams Interoperability Chat ("Interop Chat"), we can enable file sharing between communication users and Teams users. Note, Interop Chat is different from the Azure Communication Service Chat ("ACS Chat"). If you want to enable file sharing in an ACS Chat, refer to [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md).
+In a Teams Interoperability Chat ("Interop Chat"), we can enable file sharing between Azure Communication Service end users and Teams users. Note, Interop Chat is different from the Azure Communication Service Chat ("ACS Chat"). If you want to enable file sharing in an ACS Chat, refer to [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md).
 
 >[!IMPORTANT]
 >
 >File sharing feature comes with the CallWithChat Composite without additional setups. 
 >
->Currently, the Communication user is able to only receive file attachments from the Teams user. Please refer to [UI Library Use Cases](../concepts/ui-library/ui-library-use-cases.md) to learn more.
+>Currently, the Azure Communication Service end user is able to only receive file attachments from the Teams user. Please refer to [UI Library Use Cases](../concepts/ui-library/ui-library-use-cases.md) to learn more.
 
 
 ## Download code
@@ -103,7 +103,7 @@ To be able to start the Composite for meeting chat, we need to pass `TeamsMeetin
 
 Note that meeting link should look something like `https://teams.microsoft.com/l/meetup-join/19%3ameeting_XXXXXXXXXXX%40thread.v2/XXXXXXXXXXX`
 
-And this is all you need! And there's no other setup needed to enable the Communication User to receive file attachments from the Teams user. 
+And this is all you need! And there's no other setup needed to enable the Azure Communication Service end user to receive file attachments from the Teams user. 
 
 ## Permissions
 
@@ -114,7 +114,7 @@ When file is shared from a Teams client, the Teams user has options to set the f
  - "People with existing access"
  - "People you choose"
 
-Specifically, the UI library currently only supports "Anyone" and "People you choose" (with email address) and all other permissions aren't supported. If Teams user sent a file with unsupported permissions, the Communication user might be prompted to a login page or denied access when they click on the file attachment in the chat thread.
+Specifically, the UI library currently only supports "Anyone" and "People you choose" (with email address) and all other permissions aren't supported. If Teams user sent a file with unsupported permissions, the Azure Communication Service end user might be prompted to a login page or denied access when they click on the file attachment in the chat thread.
 
 
 ![Teams File Permissions](./media/file-sharing-tutorial-interop-chat-0.png "Screenshot of a Teams client listing out file permissions.")
@@ -150,5 +150,5 @@ You may also want to:
 - [Creating user access tokens](../quickstarts/identity/access-tokens.md)
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
 - [Learn about authentication](../concepts/authentication.md)
-- [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md)
+- [Add file sharing with UI Library in Azure Azure Communication Service end user Service Chat](./file-sharing-tutorial-acs-chat.md)
 - [Add inline image with UI Library in Teams Interoperability Chat](./inline-image-tutorial-interop-chat.md)
