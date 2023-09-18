@@ -47,12 +47,12 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
       "location": "[resourceGroup().location]",
       "dependsOn": [],
       "properties": {
-        "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
-        "type": "DependencyAgentLinux",
-        "typeHandlerVersion": "9.5",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-            "enableAMA": "true"
+          "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+          "type": "DependencyAgentLinux",
+          "typeHandlerVersion": "9.5",
+          "autoUpgradeMinorVersion": true,
+          "settings": {
+              "enableAMA": "true"
         }
       }
     }

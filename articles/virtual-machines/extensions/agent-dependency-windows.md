@@ -24,8 +24,8 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {
       "type": "string",
