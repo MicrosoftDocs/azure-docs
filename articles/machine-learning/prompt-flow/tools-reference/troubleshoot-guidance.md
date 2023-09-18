@@ -44,7 +44,7 @@ To resolve the issue, you have two options:
   - Remove the old tool and re-create a new tool.
 
 ## Why I can't create or upgrade my flow when I disable public network access of storage account?
-Prompt flow relies on fileshare to store snapshot of flow. Prompt flow didn't support private storage account now. Here are some workarounds you can try:
+Prompt flow relies on fileshare to store snapshot of flow. Prompt flow currently doesn't support private storage account. Here are some workarounds you can try:
 - Make the storage account as public access enabled if there's no security concern. 
 - If you're only using UI to authoring prompt flow, you can add following flights (flight=PromptFlowCodeFirst=false) to use our old UI.
 - You can use our CLI/SDK to authoring prompt flow, CLI/SDK authoring didn't rely on fileshare. See [Integrate Prompt Flow with LLM-based application DevOps ](../how-to-integrate-with-llm-app-devops.md). 
