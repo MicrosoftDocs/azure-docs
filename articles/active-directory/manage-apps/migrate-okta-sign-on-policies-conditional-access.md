@@ -122,9 +122,9 @@ If you deployed hybrid Azure AD join, you can deploy another group policy to com
 
 Before you convert to Conditional Access, confirm the base MFA tenant settings for your organization.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Sign in as a Global Administrator.
-3. Select **Azure Active Directory** > **Users** > **Multi-Factor Authentication**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator). 
+2. Browse to **Identity** > **Users** > **All users**.
+3. Select **Per-user MFA** on the top menu of the **Users** pane.
 4. The legacy Azure AD Multi-Factor Authentication portal appears. Or select [Azure AD MFA portal](https://aka.ms/mfaportal).
 
     ![Screenshot of the multi-factor authentication screen.](media/migrate-okta-sign-on-policies-conditional-access/legacy-portal.png)
@@ -159,9 +159,9 @@ Before you get started:
 * [Understand Conditional Access policy components](../conditional-access/plan-conditional-access.md)
 * [Building a Conditional Access policy](../conditional-access/concept-conditional-access-policies.md)
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. On **Manage Azure Active Directory**, select **View**.
-3. Create a policy. See, [Common Conditional Access policy: Require MFA for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
+1. Browse to **Identity**.
+3. To to learn how to create a policy in Azure AD. See, [Common Conditional Access policy: Require MFA for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md).
 4. Create a device trust-based Conditional Access rule.
 
    ![Screenshot of entries for Require Trusted Devices for Access, under Conditional Access.](media/migrate-okta-sign-on-policies-conditional-access/test-user.png)

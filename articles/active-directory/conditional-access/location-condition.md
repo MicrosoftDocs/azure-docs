@@ -109,7 +109,7 @@ Some IP addresses don't map to a specific country or region. To capture these IP
 ## Define locations
 
 1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
+1. Browse to **Protection** > **Conditional Access** > **Named locations**.
 1. Choose **New location**.
 1. Give your location a name.
 1. Choose **IP ranges** if you know the specific externally accessible IPv4 address ranges that make up that location or **Countries/Regions**.

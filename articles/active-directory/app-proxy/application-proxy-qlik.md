@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -31,9 +31,9 @@ To publish QlikSense, you will need to publish two applications in Azure.
 Follow these steps to publish your app. For a more detailed walkthrough of steps 1-8, see [Publish applications using Azure AD Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md). 
 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
-2. Select **Azure Active Directory** > **Enterprise applications**. 
-3. Select **Add** at the top of the blade. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+3. Select **New application** at the top of the blade. 
 4. Select **On-premises application**. 
 5. Fill out the required fields with information about your new app. Use the following guidance for the settings: 
    - **Internal URL**: This application should have an internal URL that is the QlikSense URL itself. For example, **https&#58;//demo.qlikemm.com:4244** 

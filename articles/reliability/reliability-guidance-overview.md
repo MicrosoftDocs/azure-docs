@@ -24,7 +24,7 @@ Azure reliability guidance contains the following:
 | **Products**  | 
 | --- | 
 |[Azure Cosmos DB](../cosmos-db/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Database for PostgreSQL - Flexible Server](reliability-postgre-flexible.md)|
+[Azure Database for PostgreSQL - Flexible Server](reliability-postgresql-flexible-server.md)|
 [Azure Event Hubs](../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones)|
 [Azure ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 [Azure Key Vault](../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
@@ -38,6 +38,7 @@ Azure reliability guidance contains the following:
 [Azure Storage Mover](reliability-azure-storage-mover.md)|
 [Azure Virtual Machine Scale Sets](../virtual-machines/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 [Azure Virtual Machines](reliability-virtual-machines.md)|
+[Azure Virtual Machines Image Builder](reliability-image-builder.md)|
 [Azure Virtual Network](../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 [Azure VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 

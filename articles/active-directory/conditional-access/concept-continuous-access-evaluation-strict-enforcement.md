@@ -71,8 +71,8 @@ Repeat steps 2 and 3 with expanding groups of users until Strictly Enforce Locat
 
 Administrators can investigate the Sign-in logs to find cases with **IP address (seen by resource)**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
-1. Browse to **Azure Active Directory** > **Sign-ins**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs**.
 1. Find events to review by adding filters and columns to filter out unnecessary information.
    1. Add the **IP address (seen by resource)** column and filter out any blank items to narrow the scope. The **IP address (seen by resource)** is blank when that IP seen by Azure AD matches the IP address seen by the resource.
 

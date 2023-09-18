@@ -236,7 +236,7 @@ To modify the monthly threshold for malware scanning in your storage accounts, s
 
 **Disabling features**
 
-If you want to turn off the On-upload malware scanning or sensitive data threat detection features, you can change the `isEnabled` value to **False** under the `malwareScanning** or `sensitiveDataDiscovery` properties sections.
+If you want to turn off the On-upload malware scanning or sensitive data threat detection features, you can change the `isEnabled` value to **False** under the `malwareScanning` or `sensitiveDataDiscovery` properties sections.
 
 **Disabling the entire Defender for Storage plan**
 
@@ -292,3 +292,4 @@ To disable the entire Defender plan for the storage account, set the `isEnabled`
 ## Next steps
 
 Learn more about the [Microsoft.Security/DefenderForStorageSettings](/rest/api/defenderforcloud/defender-for-storage/create) API documentation.
+

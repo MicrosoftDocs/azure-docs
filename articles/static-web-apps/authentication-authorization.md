@@ -12,7 +12,12 @@ ms.author: cshoe
 
 # Authenticate and authorize Static Web Apps
 
-Azure Static Web Apps provides a streamlined authentication experience, where no other actions or configurations are required to use GitHub, Twitter, and Azure Active Directory (Azure AD) for authentication.
+> [!WARNING]
+> Due to changes in X(formerly Twitter) API policy we can’t continue to support it as part of the pre-configured providers for your app.
+> If you want to continue to use X(formerly Twitter) for authentication/authorization with your app, update your app configuration to [register a custom provider](./authentication-custom.md).
+
+
+Azure Static Web Apps provides a streamlined authentication experience, where no other actions or configurations are required to use GitHub and Azure Active Directory (Azure AD) for authentication.
 
 In this article, learn about default behavior, how to set up sign-in and sign-out, how to block an authentication provider, and more.
 
@@ -25,7 +30,6 @@ Be aware of the following defaults and resources for authentication and authoriz
 **Defaults:**
 - Any user can authenticate with a pre-configured provider
   - GitHub
-  - Twitter
   - Azure Active Directory (Azure AD)
   - To restrict an authentication provider, [block access](#block-an-authentication-provider) with a custom route rule
 - After sign-in, users belong to the `anonymous` and `authenticated` roles. For more information about roles, see [Manage roles](authentication-custom.md#manage-roles)
@@ -46,7 +50,6 @@ Use the following table to find the provider-specific route.
 | ---------------------- | ----------------------- |
 | Azure AD | `/.auth/login/aad`      |
 | GitHub                 | `/.auth/login/github`   |
-| Twitter                | `/.auth/login/twitter`  |
 
 For example, to sign in with GitHub, you could include something similar to the following link.
 

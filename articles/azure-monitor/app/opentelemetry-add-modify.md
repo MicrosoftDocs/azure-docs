@@ -2,7 +2,7 @@
 title: Add, modify, and filter Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to add, modify, and filter OpenTelemetry for applications using Azure Monitor.
 ms.topic: conceptual
-ms.date: 08/11/2023
+ms.date: 09/12/2023
 ms.devlang: csharp, javascript, typescript, python
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
@@ -18,7 +18,7 @@ To learn more about OpenTelemetry concepts, see the [OpenTelemetry overview](ope
 
 ## Automatic data collection
 
-The distros automatically collect data by bundling OpenTelemetry "instrumentation libraries".
+The distros automatically collect data by bundling OpenTelemetry instrumentation libraries.
 
 ### Included instrumentation libraries
 
@@ -33,9 +33,9 @@ Dependencies
 - [SqlClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.SqlClient/README.md) <sup>[1](#FOOTNOTEONE)</sup>
 
 Logging
-- ILogger
+- `ILogger`
  
-For more information about ILogger, see [Logging in C# and .NET](/dotnet/core/extensions/logging) and [code examples](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs).
+For more information about `ILogger`, see [Logging in C# and .NET](/dotnet/core/extensions/logging) and [code examples](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs).
 
 #### [.NET](#tab/net)
 
@@ -139,7 +139,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 #### [Node.js](#tab/nodejs)
 
-The following OpenTelemetry Instrumentation libraries are included as part of the Azure Monitor Application Insights Distro. See [this](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#officially-supported-instrumentations) for more details.
+The following OpenTelemetry Instrumentation libraries are included as part of the Azure Monitor Application Insights Distro. For more information, see [OpenTelemetry officially supported instrumentations](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#officially-supported-instrumentations).
 
 Requests
 - [HTTP/HTTPS](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) <sup>[2](#FOOTNOTETWO)</sup>
@@ -152,6 +152,7 @@ Dependencies
 - [Redis-4](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis-4)
 - [Azure SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk)
 
+Auto instrumentation of Logs are currently only supported when using `applicationinsights` v3 Beta package. (https://www.npmjs.com/package/applicationinsights/v/beta)
 Logs
 - [Node.js console](https://nodejs.org/api/console.html)
 - [Bunyan](https://github.com/trentm/node-bunyan#readme)
@@ -168,8 +169,8 @@ Requests
 Dependencies
 - [Psycopg2](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-psycopg2)
 - [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
-- [Urllib](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
-- [Urllib3](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib3) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+- [`Urllib`](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+- [`Urllib3`](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib3) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
 
 Logs
 - [Python logging library](https://docs.python.org/3/howto/logging.html) <sup>[4](#FOOTNOTEFOUR)</sup>
@@ -196,11 +197,7 @@ Telemetry emitted by Azure SDKS is automatically [collected](https://github.com/
 
 You can collect more data automatically when you include instrumentation libraries from the OpenTelemetry community.
 
-> [!NOTE] 
->  We don't support and cannot guarantee the quality of community instrumentation libraries. If you would like to suggest a community instrumentation library us to include in our distro, post or up-vote an idea in our [feedback community](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
-
-> [!CAUTION]
-> Some instrumentation libraries are based on experimental OpenTelemetry semantic specifications. Adding them may leave you vulnerable to future breaking changes.
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-community-library-warning.md)]
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
@@ -237,12 +234,21 @@ You can't extend the Java Distro with community instrumentation libraries. To re
 Other OpenTelemetry Instrumentations are available [here](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node) and could be added using TraceHandler in ApplicationInsightsClient.
 
  ```javascript
-    const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+    const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
+    const { metrics, trace, ProxyTracerProvider } = require("@opentelemetry/api");
+    const { registerInstrumentations } = require( "@opentelemetry/instrumentation");
     const { ExpressInstrumentation } = require('@opentelemetry/instrumentation-express');
 
-    const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
-    const traceHandler = appInsights.getTraceHandler();
-    traceHandler.addInstrumentation(new ExpressInstrumentation());
+    useAzureMonitor();
+    const tracerProvider = (trace.getTracerProvider() as ProxyTracerProvider).getDelegate();
+    const meterProvider = metrics.getMeterProvider();
+    registerInstrumentations({
+        instrumentations: [
+            new ExpressInstrumentation(),
+        ],
+        tracerProvider: tracerProvider,
+        meterProvider: meterProvider
+    });
 ```
 
 ### [Python](#tab/python)
@@ -292,12 +298,12 @@ The following table represents the currently supported custom telemetry types:
 |-------------------------------------------|---------------|----------------|--------------|------------|------------|----------|--------|
 | **ASP.NET Core**                          |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
-| &nbsp;&nbsp;&nbsp;ILogger API             |               |                |              |            |            |          | Yes    |
+| &nbsp;&nbsp;&nbsp;`ILogger` API             |               |                |              |            |            |          | Yes    |
 | &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
 |                                           |               |                |              |            |            |          |        |
 | **Java**                                  |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
-| &nbsp;&nbsp;&nbsp;Logback, Log4j, JUL     |               |                |              | Yes        |            |          | Yes    |
+| &nbsp;&nbsp;&nbsp;Logback, `Log4j`, JUL   |               |                |              | Yes        |            |          | Yes    |
 | &nbsp;&nbsp;&nbsp;Micrometer Metrics      |               | Yes            |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;AI Classic API          |  Yes          | Yes            | Yes          | Yes        | Yes        | Yes      | Yes    |
 |                                           |               |                |              |            |            |          |        |
@@ -426,10 +432,11 @@ public class Program {
 #### [Node.js](#tab/nodejs)
 
  ```javascript
-    const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
-    const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
-    const customMetricsHandler = appInsights.getMetricHandler().getCustomMetricsHandler();
-    const meter =  customMetricsHandler.getMeter();
+    const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
+    const { metrics } = require("@opentelemetry/api");
+
+    useAzureMonitor();
+    const meter =  metrics.getMeter("testMeter");
     let histogram = meter.createHistogram("histogram");
     histogram.record(1, { "testKey": "testValue" });
     histogram.record(30, { "testKey": "testValue2" });
@@ -548,10 +555,11 @@ public class Program {
 #### [Node.js](#tab/nodejs)
 
 ```javascript
-    const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
-    const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
-    const customMetricsHandler = appInsights.getMetricHandler().getCustomMetricsHandler();
-    const meter =  customMetricsHandler.getMeter();
+    const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
+    const { metrics } = require("@opentelemetry/api");
+
+    useAzureMonitor();
+    const meter =  metrics.getMeter("testMeter");
     let counter = meter.createCounter("counter");
     counter.add(1, { "testKey": "testValue" });
     counter.add(5, { "testKey2": "testValue" });
@@ -671,10 +679,11 @@ public class Program {
 #### [Node.js](#tab/nodejs)
 
 ```typescript
-    const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
-    const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
-    const customMetricsHandler = appInsights.getMetricHandler().getCustomMetricsHandler();
-    const meter =  customMetricsHandler.getMeter();
+    const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
+    const { metrics } = require("@opentelemetry/api");
+
+    useAzureMonitor();
+    const meter =  metrics.getMeter("testMeter");
     let gauge = meter.createObservableGauge("gauge");
     gauge.addCallback((observableResult: ObservableResult) => {
         let randomNumber = Math.floor(Math.random() * 100);
@@ -739,7 +748,7 @@ to draw attention in relevant experiences including the failures section and end
       }
   }
   ```
-- To log an Exception using ILogger:
+- To log an Exception using `ILogger`:
   ```csharp
   var logger = loggerFactory.CreateLogger(logCategoryName);
 
@@ -775,7 +784,7 @@ to draw attention in relevant experiences including the failures section and end
       }
   }
   ```
-- To log an Exception using ILogger:
+- To log an Exception using `ILogger`:
   ```csharp
   var logger = loggerFactory.CreateLogger("ExceptionExample");
 
@@ -822,17 +831,18 @@ You can use `opentelemetry-api` to update the status of a span and record except
 #### [Node.js](#tab/nodejs)
 
 ```javascript
-const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+    const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
+    const { trace } = require("@opentelemetry/api");
 
-const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
-const tracer = appInsights.getTraceHandler().getTracer();
-let span = tracer.startSpan("hello");
-try{
-    throw new Error("Test Error");
-}
-catch(error){
-    span.recordException(error);
-}
+    useAzureMonitor();
+    const tracer = trace.getTracer("testTracer");
+    let span = tracer.startSpan("hello");
+    try{
+        throw new Error("Test Error");
+    }
+    catch(error){
+        span.recordException(error);
+    }
 ```
 
 #### [Python](#tab/python)
@@ -908,7 +918,7 @@ app.MapGet("/", () =>
 app.Run();
 ```
 
-When calling `StartActivity`, it defaults to `ActivityKind.Internal` but you can provide any other `ActivityKind`.
+`StartActivity` defaults to `ActivityKind.Internal`, but you can provide any other `ActivityKind`.
 `ActivityKind.Client`, `ActivityKind.Producer`, and `ActivityKind.Internal` are mapped to Application Insights `dependencies`.
 `ActivityKind.Server` and `ActivityKind.Consumer` are mapped to Application Insights `requests`.
 
@@ -931,7 +941,7 @@ using (var activity = activitySource.StartActivity("CustomActivity"))
 }
 ```
 
-When calling `StartActivity`, it defaults to `ActivityKind.Internal` but you can provide any other `ActivityKind`.
+`StartActivity` defaults to `ActivityKind.Internal`, but you can provide any other `ActivityKind`.
 `ActivityKind.Client`, `ActivityKind.Producer`, and `ActivityKind.Internal` are mapped to Application Insights `dependencies`.
 `ActivityKind.Server` and `ActivityKind.Consumer` are mapped to Application Insights `requests`.
 
@@ -1007,12 +1017,13 @@ you can add your spans by using the OpenTelemetry API.
 #### [Node.js](#tab/nodejs)
 
 ```javascript
-const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+    const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
+    const { trace } = require("@opentelemetry/api");
 
-const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
-const tracer = appInsights.getTraceHandler().getTracer();
-let span = tracer.startSpan("hello");
-span.end();
+    useAzureMonitor();
+    const tracer = trace.getTracer("testTracer");
+    let span = tracer.startSpan("hello");
+    span.end();
 ```
 
 
@@ -1187,47 +1198,47 @@ Not available in .NET.
 #### [Node.js](#tab/nodejs)
 
 
-First, get the `LogHandler`:
+You need to use `applicationinsights` v3 Beta package to achieve this. (https://www.npmjs.com/package/applicationinsights/v/beta)
 
 ```javascript
-const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
-const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
-const logHandler = appInsights.getLogHandler();
+    const { TelemetryClient } = require("applicationinsights");
+
+    const appInsights = new TelemetryClient();
 ```
 
-Then use the `LogHandler` to send custom telemetry:
+Then use the `TelemetryClient` to send custom telemetry:
 
 ##### Events
 
 ```javascript
-let eventTelemetry = {
-    name: "testEvent"
-};
-logHandler.trackEvent(eventTelemetry);
+    let eventTelemetry = {
+        name: "testEvent"
+    };
+    appInsights.trackEvent(eventTelemetry);
 ```
 
 ##### Logs
 
 ```javascript
-let traceTelemetry = {
-    message: "testMessage",
-    severity: "Information"
-};
-logHandler.trackTrace(traceTelemetry);
+    let traceTelemetry = {
+        message: "testMessage",
+        severity: "Information"
+    };
+    appInsights.trackTrace(traceTelemetry);
 ```
     
 ##### Exceptions
 
 ```javascript
-try {
-    ...
-} catch (error) {
-    let exceptionTelemetry = {
-        exception: error,
-        severity: "Critical"
-    };
-    logHandler.trackException(exceptionTelemetry);
-}
+    try {
+        ...
+    } catch (error) {
+        let exceptionTelemetry = {
+            exception: error,
+            severity: "Critical"
+        };
+        appInsights.trackException(exceptionTelemetry);
+    }
 ```
 
 #### [Python](#tab/python)
@@ -1365,27 +1376,30 @@ Adding one or more span attributes populates the `customDimensions` field in the
 ##### [Node.js](#tab/nodejs)
 
 ```typescript
-const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
-const { ReadableSpan, Span, SpanProcessor } = require("@opentelemetry/sdk-trace-base");
-const { SemanticAttributes } = require("@opentelemetry/semantic-conventions");
+    const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
+    const { trace, ProxyTracerProvider } = require("@opentelemetry/api");
+    const { ReadableSpan, Span, SpanProcessor } = require("@opentelemetry/sdk-trace-base");
+    const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
+    const { SemanticAttributes } = require("@opentelemetry/semantic-conventions");
 
-const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
+    useAzureMonitor();
+    const tracerProvider = ((trace.getTracerProvider() as ProxyTracerProvider).getDelegate() as NodeTracerProvider);
 
-class SpanEnrichingProcessor implements SpanProcessor{
-    forceFlush(): Promise<void>{
-        return Promise.resolve();
+    class SpanEnrichingProcessor implements SpanProcessor{
+        forceFlush(): Promise<void>{
+            return Promise.resolve();
+        }
+        shutdown(): Promise<void>{
+            return Promise.resolve();
+        }
+        onStart(_span: Span): void{}
+        onEnd(span: ReadableSpan){
+            span.attributes["CustomDimension1"] = "value1";
+            span.attributes["CustomDimension2"] = "value2";
+        }
     }
-    shutdown(): Promise<void>{
-        return Promise.resolve();
-    }
-    onStart(_span: Span): void{}
-    onEnd(span: ReadableSpan){
-        span.attributes["CustomDimension1"] = "value1";
-        span.attributes["CustomDimension2"] = "value2";
-    }
-}
 
-appInsights.getTraceHandler().addSpanProcessor(new SpanEnrichingProcessor());
+    tracerProvider.addSpanProcessor(new SpanEnrichingProcessor());
 ```
 
 ##### [Python](#tab/python)
@@ -1453,15 +1467,15 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 
 ```typescript
 ...
-const { SemanticAttributes } = require("@opentelemetry/semantic-conventions");
+    const { SemanticAttributes } = require("@opentelemetry/semantic-conventions");
 
-class SpanEnrichingProcessor implements SpanProcessor{
-    ...
+    class SpanEnrichingProcessor implements SpanProcessor{
+        ...
 
-    onEnd(span){
-        span.attributes[SemanticAttributes.HTTP_CLIENT_IP] = "<IP Address>";
+        onEnd(span){
+            span.attributes[SemanticAttributes.HTTP_CLIENT_IP] = "<IP Address>";
+        }
     }
-}
 ```
 
 ##### [Python](#tab/python)
@@ -1525,15 +1539,15 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 
 ```typescript
 ...
-import { SemanticAttributes } from "@opentelemetry/semantic-conventions";
+    import { SemanticAttributes } from "@opentelemetry/semantic-conventions";
 
-class SpanEnrichingProcessor implements SpanProcessor{
-    ...
+    class SpanEnrichingProcessor implements SpanProcessor{
+        ...
 
-    onEnd(span: ReadableSpan){
-        span.attributes[SemanticAttributes.ENDUSER_ID] = "<User ID>";
+        onEnd(span: ReadableSpan){
+            span.attributes[SemanticAttributes.ENDUSER_ID] = "<User ID>";
+        }
     }
-}
 ```
 
 ##### [Python](#tab/python)
@@ -1550,40 +1564,40 @@ span._attributes["enduser.id"] = "<User ID>"
   
 #### [ASP.NET Core](#tab/aspnetcore)
 
-OpenTelemetry uses .NET's ILogger.
+OpenTelemetry uses .NET's `ILogger`.
 Attaching custom dimensions to logs can be accomplished using a [message template](/dotnet/core/extensions/logging?tabs=command-line#log-message-template).
 
 #### [.NET](#tab/net)
 
-OpenTelemetry uses .NET's ILogger.
+OpenTelemetry uses .NET's `ILogger`.
 Attaching custom dimensions to logs can be accomplished using a [message template](/dotnet/core/extensions/logging?tabs=command-line#log-message-template).
 
 #### [Java](#tab/java)
 
 Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching custom dimensions to your logs can be accomplished in these ways:
 
-* [Log4j 2 MapMessage](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` is captured as the log message)
-* [Log4j 2 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
+* [Log4j 2.0 MapMessage](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` is captured as the log message)
+* [Log4j 2.0 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
 * [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
 
 #### [Node.js](#tab/nodejs)
-  
-Attributes could be added only when calling manual track APIs only. Log attributes for console, bunyan and winston are currently not supported.
 
-```javascript
-const config = new ApplicationInsightsConfig();
-config.instrumentations.http = httpInstrumentationConfig;
-const appInsights = new ApplicationInsightsClient(config);
-const logHandler = appInsights.getLogHandler();
-const attributes = {
-    "testAttribute1": "testValue1",
-    "testAttribute2": "testValue2",
-    "testAttribute3": "testValue3"
-};
-logHandler.trackEvent({
-    name: "testEvent",
-    properties: attributes
-});
+```typescript
+    const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
+    const { logs } = require("@opentelemetry/api-logs");
+    import { Logger } from "@opentelemetry/sdk-logs";
+
+    useAzureMonitor();
+    const logger = (logs.getLogger("testLogger") as Logger);
+    const logRecord = {
+        body: "testEvent",
+        attributes: {
+            "testAttribute1": "testValue1",
+            "testAttribute2": "testValue2",
+            "testAttribute3": "testValue3"
+        }
+    };
+    logger.emit(logRecord);
 ```
 
 #### [Python](#tab/python)
@@ -1691,10 +1705,10 @@ See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) a
     The following example shows how to exclude a certain URL from being tracked by using the [HTTP/HTTPS instrumentation library](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http):
     
     ```typescript
-    const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+    const { useAzureMonitor, ApplicationInsightsOptions } = require("@azure/monitor-opentelemetry");
+    const { HttpInstrumentationConfig }= require("@opentelemetry/instrumentation-http");
     const { IncomingMessage } = require("http");
     const { RequestOptions } = require("https");
-    const { HttpInstrumentationConfig }= require("@opentelemetry/instrumentation-http");
 
     const httpInstrumentationConfig: HttpInstrumentationConfig = {
         enabled: true,
@@ -1713,9 +1727,14 @@ See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) a
             return false;
         }
     };
-    const config = new ApplicationInsightsConfig();
-    config.instrumentations.http = httpInstrumentationConfig;
-    const appInsights = new ApplicationInsightsClient(config);
+    const config: ApplicationInsightsOptions = {
+        instrumentationOptions: {
+            http: {
+                httpInstrumentationConfig
+            },
+        },
+    };
+    useAzureMonitor(config);
     ```
 
 2. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
@@ -1875,6 +1894,8 @@ Get the request trace ID and the span ID in your code:
 
 ---
 
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]
+
 ## Next steps
 
 ### [ASP.NET Core](#tab/aspnetcore)
@@ -1905,8 +1926,8 @@ Get the request trace ID and the span ID in your code:
 
 ### [Node.js](#tab/nodejs)
 
-- To review the source code, see the [Application Insights Beta GitHub repository](https://github.com/microsoft/ApplicationInsights-node.js/tree/beta).
-- To install the npm package and check for updates see the [applicationinsights npm Package](https://www.npmjs.com/package/applicationinsights/v/beta) page.
+- To review the source code, see the [Azure Monitor OpenTelemetry GitHub repository](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry).
+- To install the npm package and check for updates, see the [`@azure/monitor-opentelemetry` npm Package](https://www.npmjs.com/package/@azure/monitor-opentelemetry) page.
 - To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-node.js).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry JavaScript GitHub repository](https://github.com/open-telemetry/opentelemetry-js).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).

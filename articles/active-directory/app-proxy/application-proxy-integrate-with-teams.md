@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: harshja
 ---
@@ -23,7 +23,7 @@ Your users can add cloud apps to their Teams channels [using tabs](https://suppo
 
 If you haven't already, [configure Application Proxy for your tenant and install the connector](../app-proxy/application-proxy-add-on-premises-application.md). Then, publish your on-premises application for remote access. When you're publishing the app, make note of the external URL because it's used to add the app to Teams.
 
-If you already have your apps published but don't remember their external URLs, look them up in the [Azure portal](https://portal.azure.com). Sign in, then navigate to **Azure Active Directory** > **Enterprise applications** > **All applications** > select your app > **Application proxy**.
+If you already have your apps published but don't remember their external URLs, look them up in the [Microsoft Entra admin center](https://portal.azure.com). Sign in, then navigate to **Azure Active Directory** > **Enterprise applications** > **All applications** > select your app > **Application proxy**.
 
 ## Add your app to Teams
 
@@ -41,7 +41,7 @@ Once you publish the app through Application Proxy, let your users know that the
 
    ![Name the tab and add the external URL](./media/application-proxy-integrate-with-teams/tab-name-url.png)
 
-Once one member of a team adds the tab, it shows up for everyone in the channel. Any users who have access to the app get single sign-on access with the credentials they use for Microsoft Teams. Any users who don't have access to the app can see the tab in Teams, but are blocked until you give them permissions to the on-premises app and the Azure portal published version of the app.
+Once one member of a team adds the tab, it shows up for everyone in the channel. Any users who have access to the app get single sign-on access with the credentials they use for Microsoft Teams. Any users who don't have access to the app can see the tab in Teams, but are blocked until you give them permissions to the on-premises app and the Microsoft Entra admin center published version of the app.
 
 ## Next steps
 

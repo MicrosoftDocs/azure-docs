@@ -29,11 +29,10 @@ The migration process consists of the following steps:
 
 ## Open a classic policy
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Browse to **Protection** > **Conditional Access**.
 
 1. Select, **Classic policies**.
 

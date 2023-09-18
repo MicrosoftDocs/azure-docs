@@ -5,7 +5,7 @@ services: active-directory
 author: henrymbuguakiarie
 manager: CelesteDG
 
-ms.date: 08/01/2023
+ms.date: 09/04/2023
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -17,6 +17,16 @@ ms.custom: has-adal-ref
 # Microsoft identity platform docs: What's new
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
+
+## August 2023
+
+### Updated articles
+
+- [Call an ASP.NET Core web API with cURL](howto-call-a-web-api-with-curl.md) - Updated sign-in steps for admin center
+- [Troubleshoot publisher verification](troubleshoot-publisher-verification.md) - Removed references to aad.portal.azure.com and terminology updates for partner program updates
+- [Configure a custom claim provider token issuance event (preview)](custom-extension-get-started.md) - Updated MS Graph sections - custom claim provider token issuance event tutorial and custom authentication extensions references
+- [Customize claims issued in the JSON web token (JWT) for enterprise applications](jwt-claims-customization.md) - Updated sign-in steps for admin center
+- [Access tokens in the Microsoft identity platform](access-tokens.md) - Updated details about issuer validation
 
 ## July 2023
 
@@ -51,33 +61,3 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Tokens and claims overview](security-tokens.md) - Editorial review of security tokens
 - [Tutorial: Sign in users and call Microsoft Graph from an iOS or macOS app](tutorial-v2-ios.md) - Editorial review
 - [What's new for authentication?](reference-breaking-changes.md) - Identity breaking change: omission of unverified emails by default
-
-## May 2023
-
-### New articles
-
-- [Access token claims reference](access-token-claims-reference.md)
-- [Directory extension attributes in claims](schema-extensions.md)
-- [Provide optional claims to your app](optional-claims.md)
-
-### Updated articles
-
-- [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md)
-- [What's new for authentication?](reference-breaking-changes.md)
-- [A web app that calls web APIs: Acquire a token for the app](scenario-web-app-call-api-acquire-token.md)
-- [A web app that calls web APIs: Code configuration](scenario-web-app-call-api-app-configuration.md)
-- [A web app that calls web APIs: Call a web API](scenario-web-app-call-api-call-api.md)
-- [A web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md)
-- [A web API that calls web APIs: Code configuration](scenario-web-api-call-api-app-configuration.md)
-- [A web API that calls web APIs: Call an API](scenario-web-api-call-api-call-api.md)
-- [Confidential client assertions](msal-net-client-assertions.md)
-- [Customize claims issued in the JSON web token (JWT) for enterprise applications (Preview)](jwt-claims-customization.md)
-- [Customize claims issued in the SAML token for enterprise applications](saml-claims-customization.md)
-- [Desktop app that calls web APIs: Acquire a token by using WAM](scenario-desktop-acquire-token-wam.md)
-- [Desktop app that calls web APIs: Acquire a token interactively](scenario-desktop-acquire-token-interactive.md)
-- [Handle errors and exceptions in MSAL for Python](msal-error-handling-python.md)
-- [Protected web API: Code configuration](scenario-protected-web-api-app-configuration.md)
-- [Shared device mode for iOS devices](msal-ios-shared-devices.md)
-- [Tutorial: Sign in users and call the Microsoft Graph API from an Android application](tutorial-v2-android.md)
-- [Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application (SPA) using auth code flow](tutorial-v2-angular-auth-code.md)
-- [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md)
