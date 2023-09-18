@@ -17,17 +17,17 @@ Creating a private requirement package within a Managed Airflow environment invo
 
 ## Step 1: Create a storage container
 
-Use the steps described in [Manage blob containers using the Azure Portal](/storage/blobs/blob-containers-portal.md) to create a storage account for the package.
+Use the steps described in [Manage blob containers using the Azure portal](/storage/blobs/blob-containers-portal.md) to create a storage account for the package.
 
 ## Step 2: Upload the private package into your storage account
 
 1. Navigate to the designated container where you intend to store your Airflow DAGs and Plugins.
-1. Within this container, upload your private package file. Common file formats include zip, whl, or tar.gz. Place the file within either the 'Dags' or 'Plugins' folder, as appropriate.
+1. Upload your private package file to the container. Common file formats include zip, whl, or tar.gz. Place the file within either the 'Dags' or 'Plugins' folder, as appropriate.
 
 ## Step 3: Add your private package as a requirement
 
 1. Add your private package as a requirement in the requirements.txt file. Add this file if it doesn't already exist.
-1. Be sure to prepend the prefix "**/opt/airflow**" to the package path. For instance, if your private package resides at "/dats/test/private.wht", your requirements.txt file should feature the requirement "/opt/airflow/dags/test/private.wht".
+1. Be sure to prepend the prefix "**/opt/airflow**" to the package path. For instance, if your private package resides at _/dats/test/private.wht_, your requirements.txt file should feature the requirement _/opt/airflow/dags/test/private.wht_.
 
 ## Step 4: Import your folder to an Airflow integrated runtime (IR) environment
 
