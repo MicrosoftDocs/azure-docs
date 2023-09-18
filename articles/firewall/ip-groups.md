@@ -73,7 +73,7 @@ With this support, you can now:
 - Receive new and improved error messages
    - Fail and succeed states
 
-     For example, if there is an error with one IP Group update out of 20 parallel updates, the others updates proceed, and the errored IP Group fails. In addition, if the IP Group update fails, and the firewall is still healthy, the firewall remains in a *Succeeded* state. To check if the IP Group update has failed or succeeded, you can view the status on the IP Group resource.
+     For example, if there is an error with one IP Group update out of 20 parallel updates, the other updates proceed, and the errored IP Group fails. In addition, if the IP Group update fails, and the firewall is still healthy, the firewall remains in a *Succeeded* state. To check if the IP Group update has failed or succeeded, you can view the status on the IP Group resource.
 
 ## Region availability
 
