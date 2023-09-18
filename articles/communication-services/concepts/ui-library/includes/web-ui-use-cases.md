@@ -75,6 +75,8 @@ If you use UI components to deliver Teams interoperability experiences, begin by
 - [Lobby example](https://azure.github.io/communication-ui-library/?path=/story/examples-teams-interop--lobby). A sample lobby where a participant can wait to be admitted to a call.
 - [Compliance banner](https://azure.github.io/communication-ui-library/?path=/story/examples-teams-interop--compliance-banner). A sample banner that shows the user if the call is being recorded.
 - [Teams theme](https://azure.github.io/communication-ui-library/?path=/story/examples-themes--teams). A sample theme that makes UI Library elements look like Microsoft Teams.
+- [Image sharing\*](../../../tutorials/inline-image-tutorial-interop-chat.md). A sample of Azure Communication Service end user can receive images sent by the Teams user.
+- [File sharing\*](../../../tutorials/file-sharing-tutorial-interop-chat.md). A sample of Azure Communication Service end user can receive file attachments sent by the Teams user. 
 
 ## Customization
 
