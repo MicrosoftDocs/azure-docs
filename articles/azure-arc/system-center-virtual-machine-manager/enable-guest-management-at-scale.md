@@ -15,7 +15,7 @@ keywords: "VMM, Arc, Azure"
 
 In this article, you will learn how to install Arc agents at scale for SCVMM VMs and use Azure management capabilities.
 
-# Prerequisites
+## Prerequisites
 
 Ensure the following before you install Arc agents at scale for SCVMM VMs:
 
@@ -24,15 +24,15 @@ Ensure the following before you install Arc agents at scale for SCVMM VMs:
 •	The user account must have permissions listed in Azure Arc SCVMM Administrator role.
 •	All the target machines are:
 •	Powered on and the resource bridge has network connectivity to the host running the VM.
-•	Running a [supported operating system](servers/prerequisites#supported-operating-systems.md).
-•	Able to connect through the firewall to communicate over the internet, and [these URLs](servers/network-requirements.md#urls) aren't blocked.
+•	Running a [supported operating system](/articles/azure-arc/servers/prerequisites.md#supported-operating-systems).
+•	Able to connect through the firewall to communicate over the internet, and [these URLs](/articles/azure-arc/servers/network-requirements?tabs=azure-cloud#urls) aren't blocked.
 
 >[!Note]
 > If you're using a Linux VM, the account must not prompt for login on sudo commands. To override the prompt, from a terminal, run `sudo visudo`, and `add <username> ALL=(ALL) NOPASSWD:ALL` at the end of the file. Ensure you replace `<username>`.
 
 If your VM template has these changes incorporated, you won't need to do this for the VM created from that template.
 
-# Install Arc agents at scale from portal
+## Install Arc agents at scale from portal
 
 An admin can install agents for multiple machines from the Azure portal if the machines share the same administrator credentials.
 1.	Navigate to the SCVMM management servers blade on [Azure Arc Center](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/overview) and select the SCVMM management server resource.

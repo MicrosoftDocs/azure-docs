@@ -40,12 +40,3 @@ landingContent:
             url: enable-guest-management-at-scale.md
           - text: Perform recovery operations
             url: disaster-recovery.md
-
-  - title: Reference
-    linkLists:
-      - linkListType: Azure-CLI
-        links:  
-          - text: Azure arc-enabled System Center VMM (preview)
-            url: cli/azure/scvmm
-          - text: Azure arc resource bridge
-            url: cli/azure/arcappliance
