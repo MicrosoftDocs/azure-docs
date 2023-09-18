@@ -15,17 +15,25 @@ Learn how to access Advisor through the Azure portal, configure Advisor settings
 
 ## Get recommendations
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and open [Advisor](https://aka.ms/azureadvisordashboard). Your Advisor **Score** page opens.
+To see your Advisor score for the selected subscriptions, sign in to the [Azure portal](https://portal.azure.com) and open [Advisor](https://aka.ms/azureadvisordashboard). The Advisor **Score** page opens by default. 
 
    ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-score-page2.png) 
 
-1. Each tile represents a category of recommendations for the selected subscriptions.  You can filter the display by **Subscription**, **Recommendation Status**, **Resource Group**, or **Type** using the buttons at the top of the page. For more advanced filtering, click **Add filter**.
+* Each tile represents a category of recommendations for the selected subscriptions.  
 
-   The **Commitments** button lets you adjust your subscription **Cost** recommendations to reflect your committed **Term (years)** and chosen **Look-back period (days)**. 
+* To get recommendations for a specific category, click one of the tiles: **Cost**, **Security**, **Reliability**, **Operational Excellence**, or **Performance**. To view a list of all recommendations for all categories, click the **All recommendations** tile. By default, the **Cost** tile is selected.
 
-1. To get recommendations for a specific category, click one of the tiles: **Cost**, **Security**, **Reliability**, **Operational Excellence**, or **Performance**.
+* You can filter the display using the buttons at the top of the page:
+   * **Subscription**: Choose **All** for Advisor recommendations on all subscriptions. Alternatively, select specific subscriptions. Apply changes by clicking outside of the button.
+   * **Recommendation Status**: Your options are **Active** (recommendations that you have not postponed or dismissed) or **Postponed or Dismissed**. Apply changes by clicking outside of the button.
+   * **Resource Group**: Choose **All** (the default) or specific resource groups. Apply changes by clicking outside of the button.
+   * **Type**: Choose **All** (the default) or specific resources. Apply changes by clicking outside of the button.
+   * **Commitments**: Applicable only to cost recommendations. Adjust your subscription **Cost** recommendations to reflect your committed **Term (years)** and chosen **Look-back period (days)**. Apply changes by clicking **Apply**.*
+   * For more advanced filtering, click **Add filter**.
 
-   To view a list of all recommendations for all categories, click the **All recommendations** tile. By default, the **Cost** tile is selected.
+* The **Commitments** button lets you adjust your subscription **Cost** recommendations to reflect your committed **Term (years)** and chosen **Look-back period (days)**.
+
+* To download your recommendations from the **Score** or any **Recommendations** page, click **Download as CSV** or **Download as PDF** on the action bar at the top. The download option respects any filters you have applied to Advisor.  If you select the download option while viewing a specific recommendation category or recommendation, the downloaded summary only includes information for that category or recommendation.
 
 ## Get recommendation details and solution options
 
@@ -48,18 +56,6 @@ View recommendation additional details – such as the recommendation actions an
    ![Advisor search-filter criteria](./media/advisor-get-started/advisor-recommendation-postpone.png)
 
    You cannot dismiss the recommendation without certain privileges.
-
-## Filter recommendations
-
-Drill down to what is most important to you by filtering the recommendations. 
-
-1. Filter the recommendations by **Subscription**, **Recommendation Status**, **Resource Group**, **Type**, or **Commitments** using the buttons at the top of the page. For more advanced filtering, click **Add filter**.
-
-* **Subscription**: Choose **All** for Advisor recommendations on all subscriptions. Alternatively, select specific subscriptions. Apply changes by clicking outside of the button.
-* **Recommendation Status**: Your options are **Active** (recommendations that you have not postponed or dismissed) or **Postponed or Dismissed**. Apply changes by clicking outside of the button.
-* **Resource Group**: Choose **All** (the default) or specific resource groups. Apply changes by clicking outside of the button.
-* **Type**: Choose **All** (the default) or specific resources. Apply changes by clicking outside of the button.
-* **Commitments**: Applicable only to cost recommendations. Adjust your subscription **Cost** recommendations to reflect your committed **Term (years)** and chosen **Look-back period (days)**. Apply changes by clicking **Apply**.
 
 ## Exclude subscriptions or resource groups
 
@@ -93,15 +89,7 @@ The CPU utilization rule can be set to 5%, 10%, 15%, 20%, or 100%(Default). In c
 
 1. Select the desired average CPU utilization value and click **Apply**. It can take up to 24 hours for the new settings to be reflected in recommendations.
 
-  ![Advisor configure recommendation rules example](./media/advisor-get-started/advisor-configure-rules.png)
-
-## Download recommendations
-
-To share Advisor recommendations with colleagues or to perform your own analysis, you can download your recommendations as a PDF file or a CSV file.
-   
-1. From the **Score** or any **Recommendations** page, click **Download as CSV** or **Download as PDF** on the action bar at the top.
-
-The download option respects any filters you have applied to Advisor.  If you select the download option while viewing a specific recommendation category or recommendation, the downloaded summary only includes information for that category or recommendation. 
+  ![Advisor configure recommendation rules example](./media/advisor-get-started/advisor-configure-rules.png) 
 
 ## Next steps
 
