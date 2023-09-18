@@ -15,17 +15,16 @@ It's possible to use JDBC driver with many available database tools. This articl
 * [Download and install DBeaver](https://dbeaver.io/download/).
 * [Install HDInsight on AKS Trino CLI with JDBC driver](./trino-ui-command-line-interface.md#install-on-windows).
 
-
-## Configure DBeaver to use HDInsight Trino JDBC driver
+## Configure DBeaver to use HDInsight on AKS Trino JDBC driver
 
 Open DBeaver and from the main menu, select Database -> Driver Manager. 
 
    > [!NOTE]
-   > DBeaver comes with existing open-source Trino driver, create a copy of it and register Azure Trino JDBC driver.
+   > DBeaver comes with existing open-source Trino driver, create a copy of it and register Azure HDInsight on AKS Trino JDBC driver.
    
    1. Select **Trino** driver from list and click **Copy**.
       
-      * Update **Driver Name**, for example, "Azure Trino."
+      * Update **Driver Name**, for example, "Azure Trino" or "Azure HDInsight on AKS Trino" or any other name.
       * Make sure **Default Port** is 443.
         
       :::image type="content" source="./media/trino-ui-dbeaver/dbeaver-new-driver.png" alt-text="Screenshot showing Create new Azure Trino driver."
@@ -34,17 +33,21 @@ Open DBeaver and from the main menu, select Database -> Driver Manager.
       
    1. Delete all libraries currently registered.
       
-   1. Click **Add File** and select [installed](./trino-ui-command-line-interface.md#install-on-windows) Azure Trino JDBC jar file from your local disk.
+   1. Click **Add File** and select [installed](./trino-ui-command-line-interface.md#install-on-windows) HDInsight on AKS Trino JDBC jar file from your local disk.
+
+      > [!NOTE]
+      > HDInsight on AKS Trino CLI comes with Trino JDBC jar. You can find it in your local disk.
+      > <br> Reference location: `C:\Program Files (x86)\Microsoft SDKs\Azure\TrinoCli-0.410.0\lib`. Location may defer if HDInsight on AKS Trino CLI installation directory is different.
        
    1. Click **Find Class** and select ```io.trino.jdbc.TrinoDriver```.
        
        :::image type="content" source="./media/trino-ui-dbeaver/dbeaver-new-driver-library.png" alt-text="Screenshot showing Select Azure Trino JDBC driver file."
        
-   1. Click OK and close Driver Manager, the driver is configured to use.
+   1. Click **OK** and close Driver Manager, the driver is configured to use.
 
-## Query and browse HDInsight Trino cluster with DBeaver
+## Query and browse HDInsight on AKS Trino cluster with DBeaver
 
-1. Connect to your Trino cluster by clicking **New Database Connection** in toolbar.
+1. Connect to your Trino cluster by clicking **New Database Connection** in the toolbar.
    
 1. Select newly registered driver. In this example, "Azure Trino."
   
