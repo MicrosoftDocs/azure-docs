@@ -38,7 +38,7 @@ az account set --subscription <subscription_id>
 ### Retrieve the Azure AD access token
 
 Use the Azure CLI to acquire an access token for the Azure AD authenticated user.
-Note that the resource id is different depending on if you are accessing administrator (control plane) APIs or developer (data plane) APIs.
+Note that the resource ID is different depending on if you are accessing administrator (control plane) APIs or developer (data plane) APIs.
 
 For administrator APIs, use the following command:
 ```azurecli-interactive
