@@ -54,7 +54,7 @@ To learn more, see [Customize environment for runtime](./how-to-customize-enviro
 
 In prompt flow, you need to use **Connection** to store the keys. You can convert these keys from environment variables to key-values in a custom connection in Prompt flow. 
 
-:::image type="content" source="./media/how-to-evaluate-semantic-kernel/custom-conn-sk-aoai.png" alt-text="Screenshot of custom connection." lightbox = "./media/how-to-evaluate-semantic-kernel/custom-conn-sk-aoai.png":::
+:::image type="content" source="./media/how-to-evaluate-semantic-kernel/custom-connection-for-semantic-kernel.png" alt-text="Screenshot of custom connection." lightbox = "./media/how-to-evaluate-semantic-kernel/custom-connection-for-semantic-kernel.png":::
 
 You can then utilize this custom connection to invoke your OpenAI or Azure OpenAI model within the flow.
 
@@ -111,11 +111,11 @@ In your workspace, you can go to the **Run list** in Prompt flow, click **Detail
 
 Once a batch run is completed, you then need an easy way to determine the adequacy of the test results. This information can then be used to develop accuracy scores, which can be incrementally improved.
 
-:::image type="content" source="./media/how-to-evaluate-semantic-kernel/evaluating-batch-run-with-prompt-flow.png" alt-text="Evaluating batch run with prompt flow" lightbox = "./media/how-to-evaluate-semantic-kernel/evaluating-batch-run-with-prompt-flow.png":::
+:::image type="content" source="./media/how-to-evaluate-semantic-kernel/evaluation-batch-run-with-prompt-flow.png" alt-text="Evaluating batch run with prompt flow" lightbox = "./media/how-to-evaluate-semantic-kernel/evaluation-batch-run-with-prompt-flow.png":::
 
 Evaluation flows in Prompt flow enable this functionality. Using the sample evaluation flows offered by prompt flow, you can assess various metrics such as **classification accuracy**, **perceived intelligence**, **groundedness**, and more. 
 
-:::image type="content" source="./media/how-to-evaluate-semantic-kernel/eval-sample-flows.png" alt-text="Evaluation flow samples" lightbox = "./media/how-to-evaluate-semantic-kernel/eval-sample-flows.png":::
+:::image type="content" source="./media/how-to-evaluate-semantic-kernel/evaluation-sample-flows.png" alt-text="Evaluation flow samples" lightbox = "./media/how-to-evaluate-semantic-kernel/evaluation-sample-flows.png":::
 
 There's also the flexibility to develop **your own custom evaluators** if needed.
 :::image type="content" source="./media/how-to-evaluate-semantic-kernel/my-evaluator.png" alt-text="My custom evaluation flow" lightbox = "./media/how-to-evaluate-semantic-kernel/my-evaluator.png":::
@@ -129,9 +129,9 @@ In Prompt flow, you can quick create an evaluation run based on an completed bat
 1. Submit run and wait for the result.
 
 
-:::image type="content" source="./media/how-to-evaluate-semantic-kernel/add-evaluate.png" alt-text="Add new evaluation" lightbox = "./media/how-to-evaluate-semantic-kernel/add-evaluate.png":::
+:::image type="content" source="./media/how-to-evaluate-semantic-kernel/add-evaluation.png" alt-text="Add new evaluation" lightbox = "./media/how-to-evaluate-semantic-kernel/add-evaluation.png":::
 
-:::image type="content" source="./media/how-to-evaluate-semantic-kernel/evaluate-setting.png" alt-text="Evaluation settings" lightbox = "./media/how-to-evaluate-semantic-kernel/evaluate-setting.png":::
+:::image type="content" source="./media/how-to-evaluate-semantic-kernel/evaluation-setting.png" alt-text="Evaluation settings" lightbox = "./media/how-to-evaluate-semantic-kernel/evaluation-setting.png":::
 
 
 Follow this [documentation](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/evaluating-plugins-and-planners-with-prompt-flow?tabs=gpt-35-turbo) for Semantic Kernel to learn more about how to use the [math accuracy evaluation flow](https://github.com/microsoft/promptflow/tree/main/examples/flows/evaluation/eval-accuracy-maths-to-code) to test our planner to see how well it solves word problems. 
@@ -140,11 +140,11 @@ After running the evaluator, you’ll get a summary back of your metrics. Initia
 
 To check the metrics, you can go back to the batch run detail page, click **Details** button, and then click **Output** tab, select the evaluation run  name in the dropdown list to view the evaluation result.
 
-:::image type="content" source="./media/how-to-evaluate-semantic-kernel/evaluate-result.png" alt-text="Evaluation result" lightbox = "./media/how-to-evaluate-semantic-kernel/evaluate-result.png":::
+:::image type="content" source="./media/how-to-evaluate-semantic-kernel/evaluation-result.png" alt-text="Evaluation result" lightbox = "./media/how-to-evaluate-semantic-kernel/evaluation-result.png":::
 
 You can check the aggregated metric in the **Metrics** tab.
 
-:::image type="content" source="./media/how-to-evaluate-semantic-kernel/evaluate-metrics.png" alt-text="Evaluation metrics" lightbox = "./media/how-to-evaluate-semantic-kernel/evaluate-metrics.png":::
+:::image type="content" source="./media/how-to-evaluate-semantic-kernel/evaluation-metrics.png" alt-text="Evaluation metrics" lightbox = "./media/how-to-evaluate-semantic-kernel/evaluation-metrics.png":::
 
 
 ### Experiments for quality improvement
@@ -159,7 +159,7 @@ By doing a combination of these three things, we demonstrate how you can take a 
 
 Throughout the process of enhancing your plugins and planners in Prompt flow, you can **utilize the runs to monitor your experimental progress**. Each iteration allows you to submit a batch run with an evaluation run at the same time.
 
-:::image type="content" source="./media/how-to-evaluate-semantic-kernel/batch-eval.png" alt-text="Screenshot of batch run with evaluation." lightbox = "./media/how-to-evaluate-semantic-kernel/batch-eval.png":::
+:::image type="content" source="./media/how-to-evaluate-semantic-kernel/batch-evaluation.png" alt-text="Screenshot of batch run with evaluation." lightbox = "./media/how-to-evaluate-semantic-kernel/batch-evaluation.png":::
 
 This enables you to conveniently compare the results of various runs, assisting you in identifying which modifications are beneficial and which are not.
 
