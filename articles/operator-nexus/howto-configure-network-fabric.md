@@ -23,9 +23,11 @@ This article describes how to create a Network Fabric by using the Azure Command
 * Express Route connectivity between NFC and Operator-Nexus instances.
 * Terminal server pre-configured with username and password [installed and configured](./howto-platform-prerequisites.md#set-up-terminal-server)
 * PE devices pre-configured with necessary VLANs, Route-Targets and IP addresses.
-* Supported SKUs from NFA Release 2.4 and beyond for Fabric are **M4-A400-A100-C16-ab** and **M8-A400-A100-C16-ab**.
-    * M4-A400-A100-C16-ab - Up to four Compute Racks
-    * M8-A400-A100-C16-ab - Up to eight Compute Racks
+* Supported SKUs from NFA Release 2.4 and beyond for Fabric are **M4-A400-A100-C16-ab**, **M8-A400-A100-C16-ab**, **M4-A400-A100-C16-aa** and **M8-A400-A100-C16-aa**.
+    * M4-A400-A100-C16-aa - up to four compute racks (BOM 1.6.2)
+    * M8-A400-A100-C16-aa - up to eight compute racks (BOM 1.6.2)
+    * M4-A400-A100-C16-ab - Up to four Compute Racks (BOM 1.7.3)
+    * M8-A400-A100-C16-ab - Up to eight Compute Racks (BOM 1.7.3)
 
 ## Steps to Provision a Fabric & Racks
 
@@ -42,20 +44,20 @@ The following table specifies parameters used to create Network Fabric,
 
 **$prefix:** /subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers
 
-| Parameter | Description | Example | Required |
-|-----------|-------------|---------|----------|
+| Parameter | Description | Example | Required | Type|
+|-----------|-------------|---------|----------|----------|
 | resource-group | Name of the resource group |  "NFResourceGroup" |True |
 | location | Operator-Nexus Azure region | "eastus" |True | 
 | resource-name | Name of the FabricResource | NF-ResourceName |True |
-|  nf-sku  |Fabric SKU ID is the SKU of the ordered BoM. Two SKUs are supported (**M4-A400-A100-C16-ab** and **M8-A400-A100-C16-ab**). | M4-A400-A100-C16-ab |True | String|
-|nfc-id|Network Fabric Controller ARM resource id|**$prefix**/NFCName|True | 
+|  nf-sku  |Fabric SKU ID is the SKU of the ordered BoM. Four SKUs are supported (**M4-A400-A100-C16-aa**, **M8-A400-A100-C16-aa**, **M4-A400-A100-C16-ab** and **M8-A400-A100-C16-ab**). | M4-A400-A100-C16-ab |True | String|
+|nfc-id|Network Fabric Controller ARM resource id|**$prefix**/NFCName|True | |
 |rackcount|Number of compute racks per fabric. Possible values are 2-8|8|True | 
 |serverCountPerRack|Number of compute servers per rack. Possible values are 4, 8, 12 or 16|16|True | 
 |ipv4Prefix|IPv4 Prefix of the management network. This Prefix should be unique across all Network Fabrics in a Network Fabric Controller. Prefix length should be at least 19 (/20 isn't allowed, /18 and lower are allowed) | 10.246.0.0/19|True |
 |ipv6Prefix|IPv6 Prefix of the management network. This Prefix should be unique across all Network Fabrics in a Network Fabric Controller. | 10:5:0:0::/59|True |
 |**management-network-config**| Details of management network ||True |
 |**infrastructureVpnConfiguration**| Details of management VPN connection between Network Fabric and infrastructure services in Network Fabric Controller||True
-|*optionBProperties*| Details of MPLS option 10B is used for connectivity between Network Fabric and Network Fabric Controller||True
+|*optionBProperties*| Details of MPLS option 10B is used for connectivity between Network Fabric and Network Fabric Controller||True|
 |importRouteTargets|Route targerts are now defined for specific IP subnet class, such as IPv4 and IPv6. Values of import route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B, |e.g.,  65048:10039|True(If OptionB enabled)|
 |exportRouteTargets|Route targerts are now defined for specific IP subnet class, such as IPv4 and IPv6. Values of export route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g.,  65048:10039|True(If OptionB enabled)|
 |**workloadVpnConfiguration**| Details of workload VPN connection between Network Fabric and workload services in Network Fabric Controller||
@@ -178,7 +180,7 @@ Expected output:
 
 
 ```
-## show fabric 
+## show network fabric 
 
 ```azurecli
 az networkfarbic fabric show --resource-group "NFResourceGroupName" --resource-name "NFName"
@@ -271,7 +273,7 @@ Expected output:
 }
 ```
 
-## List or Get Network Fabric
+## List all network fabrics in a resource group
 
 ```azurecli
 az networkfabric fabric list --resource-group "NFResourceGroup"  
@@ -364,13 +366,13 @@ Expected output:
 }  
 ```
 
-## NNI Configuration
+## Configure an NNI
 
-The following table specifies parameters used to create Network to Network Interconnect
+The following table specifies parameters used to create Network-to-Network Interconnect.
 
 
-| Parameter | Description | Example | Required |
-|-----------|-------------|---------|----------|
+| Parameter | Description | Example | Required | Type|
+|-----------|-------------|---------|----------|-----------|
 |isMangementType| Configuration to make NNI to be used for management of Fabric. Default value is true. Possible values are True/False |True|True
 |useOptionB| Configuration to enable optionB. Possible values are True/False |True|True
 ||
@@ -381,10 +383,10 @@ The following table specifies parameters used to create Network to Network Inter
 ||
 |*layer3Configuration*| Layer 3 configuration between CEs and PEs||True
 ||
-|primaryIpv4Prefix|IPv4 Prefix for connectivity between CE1 and PE1. CE1 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE1 should be assigned the second usable address|10.246.0.124/31, CE1 port-channel interface is assigned 10.246.0.125 and PE1 port-channel interface should be assigned 10.246.0.126||String
-|secondaryIpv4Prefix|IPv4 Prefix for connectivity between CE2 and PE2. CE2 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE2 should be assigned the second usable address|10.246.0.128/31, CE2 port-channel interface should be assigned 10.246.0.129 and PE2 port-channel interface 10.246.0.130||String
-|primaryIpv6Prefix|IPv6 Prefix for connectivity between CE1 and PE1. CE1 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE1 should be assigned the second usable address|3FFE:FFFF:0:CD30::a1 is assigned to CE1 and 3FFE:FFFF:0:CD30::a2 is assigned to PE1. Default value is 3FFE:FFFF:0:CD30::a0/126||String
-|secondaryIpv6Prefix|IPv6 Prefix for connectivity between CE2 and PE2. CE2 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE2 should be assigned the second usable address|3FFE:FFFF:0:CD30::a5 is assigned to CE2 and 3FFE:FFFF:0:CD30::a6 is assigned to PE2. Default value is 3FFE:FFFF:0:CD30::a4/126.||String
+|primaryIpv4Prefix|IPv4 Prefix for connectivity between CE1 and PE1. CE1 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE1 should be assigned the second usable address|10.246.0.124/31, CE1 port-channel interface is assigned 10.246.0.125 and PE1 port-channel interface should be assigned 10.246.0.126||String|
+|secondaryIpv4Prefix|IPv4 Prefix for connectivity between CE2 and PE2. CE2 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE2 should be assigned the second usable address|10.246.0.128/31, CE2 port-channel interface should be assigned 10.246.0.129 and PE2 port-channel interface 10.246.0.130||String|
+|primaryIpv6Prefix|IPv6 Prefix for connectivity between CE1 and PE1. CE1 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE1 should be assigned the second usable address|3FFE:FFFF:0:CD30::a1 is assigned to CE1 and 3FFE:FFFF:0:CD30::a2 is assigned to PE1. Default value is 3FFE:FFFF:0:CD30::a0/126||String|
+|secondaryIpv6Prefix|IPv6 Prefix for connectivity between CE2 and PE2. CE2 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE2 should be assigned the second usable address|3FFE:FFFF:0:CD30::a5 is assigned to CE2 and 3FFE:FFFF:0:CD30::a6 is assigned to PE2. Default value is 3FFE:FFFF:0:CD30::a4/126.||String|
 |fabricAsn|ASN number assigned on CE for BGP peering with PE|65048||
 |peerAsn|ASN number assigned on PE for BGP peering with CE. For iBGP between PE/CE, the value should be same as fabricAsn, for eBGP the value should be different from fabricAsn |65048|True|
 |fabricAsn|ASN number assigned on CE for BGP peering with PE|65048||
@@ -393,7 +395,7 @@ The following table specifies parameters used to create Network to Network Inter
 |exportRoutePolicy|Details to export route policy.|||
 |nni-type|The default value is CE. CE and NPB are the options|CE, PE||
 
-## Create a Network to Network Interconnect
+## Create a Network to Network Interconnect (NNI)
 
 Resource group & Network Fabric must be created before Network to Network Interconnect creation. 
 
@@ -453,7 +455,7 @@ Expected output:
 
 ```
 
-## Show Network Fabric NNI (Network to Network Interface)
+## Show Network Fabric NNIs (Network to Network Interface)
 
 ```azurecli
 az networkfabric nni show -g "NFResourceGroup" --resource-name "NFNNIName" --fabric "NFFabric"
@@ -595,19 +597,19 @@ Expected output:
   }
 ```
 > [!Note]
-> The above snapshot only serves as an example. You should update all the devices that are part of both AggRack and computeRacks. 
+> The The preceding code serves only as an example. You should update all the devices that are part of both `AggrRack` and `computeRacks`     
 
-For example, The New AggRack BOM consists of
-* CE01
-* CE02
-* Mgmnt Switch01
-* Mgmnt Switch02
-* NPB1
-* NPB2
+For example, `AggrRack` consists of:
+* `CE01`
+* `CE02`
+* `TOR17`
+* `TOR18`
+* `MgmtSwitch01`
+* `MgmtSwitch02` (and so on, for other switches)
 
 ## List or Get Network Fabric Devices
 
-Run the following command to List Network Fabric Devices:
+Run the following command to list network fabric devices in a resource group:
 
 ```azurecli
 az networkfabric device list --resource-group "NFResourceGroup"
@@ -919,9 +921,9 @@ Expected output:
 ```
 
 
-## Provision fabric
+## Provision a network fabric
 
-After updating the device serial number, the fabric needs to be provisioned by executing the following command
+After you update the device serial number, provision and show the fabric by running the following commands:
 
 ```azurecli
 az networkfabric fabric provision --resource-group "NFResourceGroup"  --resource-name "NFName"
@@ -1018,7 +1020,7 @@ Expected output:
 ```
 
 ## Deprovision a Fabric 
-To deprovision a fabric ensure Fabric operational state should be in provisioned state. You should see the output only if you execute a show command after the deprovision operation is completed.
+To deprovision a fabric, ensure that the fabric is in a provisioned operational state and then run this command:
 
 ```azurecli
 az networkfabric fabric deprovision --resource-group "NFResourceGroup" --resource-name "NFName"
@@ -1115,7 +1117,10 @@ Expected output:
 
 ## Deleting Fabric
 
-To delete the fabric the operational state of Fabric shouldn't be "Provisioned". To change the operational state from Provisioned to Deprovision, run the deprovision command. Ensure there are no racks associated before deleting fabric.
+To delete a fabric, run the following command. Before you do, make sure that:
+
+* The fabric is in a deprovisioned operational state. If it's in a provisioned state, run the `deprovision` command.
+* No racks are associated with the fabric.
 
 
 ```azurecli
