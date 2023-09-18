@@ -86,7 +86,9 @@
     href: data-locations-2019.md
 - name: Troubleshoot
   items:
-  - name: Troubleshooting overview, feedback, and support
+  - name: Azure Virtual Desktop (classic) product support
+    href: troubleshooting-product-support.md
+  - name: Troubleshooting overview
     href: troubleshoot-set-up-overview-2019.md
   - name: Identify and diagnose issues
     href: diagnostics-role-service-2019.md
