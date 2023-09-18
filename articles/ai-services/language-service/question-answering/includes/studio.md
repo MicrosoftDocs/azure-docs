@@ -1,8 +1,8 @@
 ---
 title: Create, test, and deploy your question answering project
 description: You can create a question answering project from your own content, such as FAQs or product manuals. This article includes an example of creating a question answering project from a simple FAQ webpage, to answer questions.
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.topic: include
 ms.date: 06/06/2022
 ms.custom: ignite-fall-2021
