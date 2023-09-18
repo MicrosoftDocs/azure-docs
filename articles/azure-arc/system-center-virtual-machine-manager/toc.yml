@@ -21,7 +21,7 @@
       href: enable-scvmm-inventory-resources.md
   - name: Use Azure Management services for SCVMM VMs
     items:
-    - name: Install arc agent at scale for your Arc-enabled SCVMM VMs
+    - name: Install arc agent at scale for SCVMM VMs
       href: enable-guest-management-at-scale.md
   - name: Administer
     items:
