@@ -28,21 +28,21 @@ Ensure the following before you install Arc agents at scale for SCVMM VMs:
     - Running a [supported operating system](../servers//prerequisites.md#supported-operating-systems).
     - Able to connect through the firewall to communicate over the internet, and [these URLs](../servers/network-requirements.md#urls) aren't blocked.
 
-    >[!Note]
-    > If you're using a Linux VM, the account must not prompt for login on sudo commands. To override the prompt, from a terminal, run `sudo visudo`, and `add <username> ALL=(ALL) NOPASSWD:ALL` at the end of the file. Ensure you replace `<username>`.<br> <br> If your VM template has these changes incorporated, you won't need to do this for the VM created from that template.
+      >[!Note]
+      > If you're using a Linux VM, the account must not prompt for login on sudo commands. To override the prompt, from a terminal, run `sudo visudo`, and `add <username> ALL=(ALL) NOPASSWD:ALL` at the end of the file. Ensure you replace `<username>`.<br> <br> If your VM template has these changes incorporated, you won't need to do this for the VM created from that template.
 
 ## Install Arc agents at scale from portal
 
 An admin can install agents for multiple machines from the Azure portal if the machines share the same administrator credentials.
 
-1.	Navigate to the SCVMM management servers blade on [Azure Arc Center](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/overview) and select the SCVMM management server resource.
-2.	Select all the machines and choose the **Enable in Azure** option.
-3.	Select **Enable guest management** checkbox to install Arc agents on the selected machine.
-4.	If you want to connect the Arc agent via proxy, provide the proxy server details.
-5.	Provide the administrator username and password for the machine.
+1. Navigate to the SCVMM management servers blade on [Azure Arc Center](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/overview), and select the SCVMM management server resource.
+2. Select all the machines and choose the **Enable in Azure** option.
+3. Select **Enable guest management** checkbox to install Arc agents on the selected machine.
+4. If you want to connect the Arc agent via proxy, provide the proxy server details.
+5. Provide the administrator username and password for the machine.
 
->[!Note]
-> For Windows VMs, the account must be part of the local administrator group; and for Linux VM, it must be a root account.
+    >[!Note]
+    > For Windows VMs, the account must be part of the local administrator group; and for Linux VM, it must be a root account.
 
 
 ## Next steps

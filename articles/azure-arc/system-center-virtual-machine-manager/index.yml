@@ -36,7 +36,7 @@ landingContent:
         links:  
           - text: Enable SCVMM inventory in Azure
             url: enable-scvmm-inventory-resources.md
-          - text: Install arc agent at scale for your VMware VMs
+          - text: Install arc agent at scale for SCVMM VMs
             url: enable-guest-management-at-scale.md
           - text: Perform recovery operations
             url: disaster-recovery.md
