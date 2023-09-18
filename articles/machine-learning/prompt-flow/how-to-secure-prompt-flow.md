@@ -63,9 +63,9 @@ Workspace managed virtual network is the recommended way to support network isol
 - If you want to deploy prompt flow in workspace which secured by your own virtual network, you can deploy it to AKS cluster which is in the same virtual network. You can follow [Secure your RAG workflows with network isolation](../how-to-secure-rag-workflows.md) to secure your AKS cluster.
 - You can either create private endpoint to the same virtual network or leverage virtual network peering to make them communicate with each other.
 
-## Limitations
+## Known limitations
 
-- Only public access enable storage account is supported. You can't use private storage account now.
+- Only public access enable storage account is supported. You can't use private storage account now. Find workaround here: [Why I can't create or upgrade my flow when I disable public network access of storage account?](../tools-reference/troubleshoot-guidance.md#why-i-cant-create-or-upgrade-my-flow-when-i-disable-public-network-access-of-storage-account)
 - Workspace hub / lean workspace and AI studio don't support bring your own virtual network.
 - Managed online endpoint only supports workspace managed virtual network. If you want to use your own virtual network, you may need one workspace for prompt flow authoring with your virtual network and another workspace for prompt flow deployment using managed online endpoint with workspace managed virtual network.
 

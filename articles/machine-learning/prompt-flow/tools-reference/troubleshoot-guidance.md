@@ -47,7 +47,7 @@ To resolve the issue, you have two options:
 Prompt flow relies on fileshare to store snapshot of flow. Prompt flow didn't support private storage account now. Here are some workarounds you can try:
 - Make the storage account as public access enabled if there's no security concern. 
 - If you're only using UI to authoring prompt flow, you can add following flights (flight=PromptFlowCodeFirst=false) to use our old UI.
-- You can use our CLI/SDK to authoring prompt flow, CLI/SDK authong didn't rely on fileshare. See [Integrate Prompt Flow with LLM-based application DevOps ](../how-to-integrate-with-llm-app-devops.md). 
+- You can use our CLI/SDK to authoring prompt flow, CLI/SDK authoring didn't rely on fileshare. See [Integrate Prompt Flow with LLM-based application DevOps ](../how-to-integrate-with-llm-app-devops.md). 
 
 
 ## Why I can't upgrade my old flow?
