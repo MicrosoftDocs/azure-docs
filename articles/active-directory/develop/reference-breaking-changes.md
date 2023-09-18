@@ -65,7 +65,7 @@ The Power BI Administrator role will be renamed to Fabric Administrator.
  
 On May 23, 2023, Microsoft unveiled Microsoft Fabric, which provides a Data Factory-powered data integration experience, Synapse-powered data engineering, data warehouse, data science, and real-time analytics experiences and business intelligence (BI) with Power BI — all hosted on a lake-centric SaaS solution. The tenant and capacity administration for these experiences are centralized in the Fabric Admin portal (previously known as the Power BI admin portal).  
 
-Starting June 2023, the Power BI Administrator role will be renamed to Fabric Administrator to align with the changing scope and responsibility of this role. All applications including Azure Active Directory, Microsoft Graph APIs, Microsoft 365, and GDAP will start to reflect the new role name over the course of several weeks. 
+Starting June 2023, the Power BI Administrator role will be renamed to Fabric Administrator to align with the changing scope and responsibility of this role. All applications including Microsoft Entra ID, Microsoft Graph APIs, Microsoft 365, and GDAP will start to reflect the new role name over the course of several weeks. 
  
 As a reminder, your application code and scripts shouldn't make decisions based on role name or display name.
 
@@ -82,9 +82,9 @@ As a reminder, your application code and scripts shouldn't make decisions based 
 
 **Change**
 
-Today, when a user is sent to AD FS to authenticate, they'll be silently signed into any account that already has a session with AD FS. The silent sign-in occurs even if the user intended to sign into a different user account. To reduce the frequency of this incorrect sign-in occurring, starting in December Azure AD will send the `prompt=login` parameter to AD FS if the Web Account Manager in Windows provides Azure AD a `login_hint` during sign-in, which indicates a specific user is desired for sign-in.
+Today, when a user is sent to AD FS to authenticate, they'll be silently signed into any account that already has a session with AD FS. The silent sign-in occurs even if the user intended to sign into a different user account. To reduce the frequency of this incorrect sign-in occurring, starting in December Microsoft Entra ID will send the `prompt=login` parameter to AD FS if the Web Account Manager in Windows provides Microsoft Entra ID a `login_hint` during sign-in, which indicates a specific user is desired for sign-in.
 
-When the above requirements are met (WAM is used to send the user to Azure AD to sign in, a `login_hint` is included, and the [AD FS instance for the user's domain supports `prompt=login`](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)) the user won't be silently signed in, and instead asked to provide a username to continue signing into AD FS. If they wish to sign into their existing AD FS session, they can select the "Continue as current user" option displayed below the login prompt. Otherwise, they can continue with the username that they intend to sign in with.
+When the above requirements are met (WAM is used to send the user to Microsoft Entra ID to sign in, a `login_hint` is included, and the [AD FS instance for the user's domain supports `prompt=login`](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)) the user won't be silently signed in, and instead asked to provide a username to continue signing into AD FS. If they wish to sign into their existing AD FS session, they can select the "Continue as current user" option displayed below the login prompt. Otherwise, they can continue with the username that they intend to sign in with.
 
 This change will be rolled out in December 2021 over the course of several weeks. It doesn't change sign in behavior for:
 * Applications that use IWA directly
@@ -103,9 +103,9 @@ This change will be rolled out in December 2021 over the course of several weeks
 
 **Change**
 
-Error 50105 (the current designation) is emitted when an unassigned user attempts to sign into an app that an admin has marked as requiring user assignment. This is a common access control pattern, and users must often find an admin to request assignment to unblock access. The error had a bug that would cause infinite loops in well-coded applications that correctly handled the `interaction_required` error response. `interaction_required` tells an app to perform interactive authentication, but even after doing so Azure AD would still return an `interaction_required` error response.
+Error 50105 (the current designation) is emitted when an unassigned user attempts to sign into an app that an admin has marked as requiring user assignment. This is a common access control pattern, and users must often find an admin to request assignment to unblock access. The error had a bug that would cause infinite loops in well-coded applications that correctly handled the `interaction_required` error response. `interaction_required` tells an app to perform interactive authentication, but even after doing so Microsoft Entra ID would still return an `interaction_required` error response.
 
-The error scenario has been updated, so that during non-interactive authentication (where `prompt=none` is used to hide UX), the app will be instructed to perform interactive authentication using an `interaction_required` error response. In the subsequent interactive authentication, Azure AD will now hold the user and show an error message directly, preventing a loop from occurring.
+The error scenario has been updated, so that during non-interactive authentication (where `prompt=none` is used to hide UX), the app will be instructed to perform interactive authentication using an `interaction_required` error response. In the subsequent interactive authentication, Microsoft Entra ID will now hold the user and show an error message directly, preventing a loop from occurring.
 
 As a reminder, your application code shouldn't make decisions based on error code strings like `AADSTS50105`. Instead, [follow our error-handling guidance](reference-error-codes.md#handling-error-codes-in-your-application) and use the [standardized authentication responses](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) like `interaction_required` and `login_required` found in the standard `error` field in the response. The other response fields are intended for consumption only by humans troubleshooting their issues.
 
@@ -121,7 +121,7 @@ You can review the current text of the 50105 error and more on the error lookup 
 
 **Change**
 
-For single tenant applications, adding or updating the AppId URI validates that the domain in the HTTPS scheme URI is listed in the verified domain list in the customer tenant or that the value uses the default scheme (`api://{appId}`) provided by Azure AD. This could prevent applications from adding an AppId URI if the domain isn't in the verified domain list or the value doesn't use the default scheme.
+For single tenant applications, adding or updating the AppId URI validates that the domain in the HTTPS scheme URI is listed in the verified domain list in the customer tenant or that the value uses the default scheme (`api://{appId}`) provided by Microsoft Entra ID. This could prevent applications from adding an AppId URI if the domain isn't in the verified domain list or the value doesn't use the default scheme.
 To find more information on verified domains, refer to the [custom domains documentation](../../active-directory/fundamentals/add-custom-domain.md).
 
 The change doesn't affect existing applications using unverified domains in their AppID URI. It validates only new applications or when an existing application updates an identifier URI or adds a new one to the identifierUri collection. The new restrictions apply only to URIs added to an app's identifierUris collection after October 15, 2021. AppId URIs already in an application's identifierUris collection when the restriction takes effect on October 15, 2021 will continue to function even if you add new URIs to that collection.
@@ -145,7 +145,7 @@ If a request fails the validation check, the application API for create/update w
 
 Applications using dynamic consent today are given all the permissions they have consent for, even if they weren't requested by name in the `scope` parameter. An app requesting only `user.read` but with consent to `files.read` can be forced to pass the Conditional Access requirement assigned for `files.read`, for example.
 
-To reduce the number of unnecessary Conditional Access prompts, Azure AD is changing the way scopes are provided to applications so only explicitly requested scopes trigger Conditional Access. Applications relying on Azure AD's previous behavior of including _all_ scopes in the token--whether requested or not--may break due to missing scopes.
+To reduce the number of unnecessary Conditional Access prompts, Microsoft Entra ID is changing the way scopes are provided to applications so only explicitly requested scopes trigger Conditional Access. Applications relying on Microsoft Entra ID's previous behavior of including _all_ scopes in the token--whether requested or not--may break due to missing scopes.
 
 Apps will now receive access tokens with a mix of permissions: requested tokens and those they have consent for that don't require Conditional Access prompts. The scope of access for the token is reflected in the token response's `scope` parameter.
 
@@ -157,7 +157,7 @@ An app has consent for `user.read`, `files.readwrite`, and `tasks.read`. `files.
 
 If the app then requests `scope=files.readwrite`, the Conditional Access required by the tenant will trigger, forcing the app to show an interactive auth prompt where the Conditional Access policy can be satisfied. The token returned will have all three scopes in it.
 
-If the app then makes one last request for any of the three scopes (say, `scope=tasks.read`), Azure AD will see that the user has already completed the Conditional Access policies needed for `files.readwrite`, and again issue a token with all three permissions in it.
+If the app then makes one last request for any of the three scopes (say, `scope=tasks.read`), Microsoft Entra ID will see that the user has already completed the Conditional Access policies needed for `files.readwrite`, and again issue a token with all three permissions in it.
 
 
 ## June 2021
@@ -178,7 +178,9 @@ The prompt that appears looks like this:
 
 ## May 2020
 
-### Bug fix: Azure AD will no longer URL-encode the state parameter twice
+<a name='bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice'></a>
+
+### Bug fix: Microsoft Entra ID will no longer URL-encode the state parameter twice
 
 **Effective date**: May 2021
 
@@ -186,9 +188,9 @@ The prompt that appears looks like this:
 
 **Protocol impacted**: All flows that visit the `/authorize` endpoint (implicit flow and authorization code flow)
 
-A bug was found and fixed in the Azure AD authorization response. During the `/authorize` leg of authentication, the `state` parameter from the request is included in the response, to preserve app state and help prevent CSRF attacks. Azure AD incorrectly URL-encoded the `state` parameter before inserting it into the response, where it was encoded once more. This would result in applications incorrectly rejecting the response from Azure AD.
+A bug was found and fixed in the Microsoft Entra authorization response. During the `/authorize` leg of authentication, the `state` parameter from the request is included in the response, to preserve app state and help prevent CSRF attacks. Microsoft Entra ID incorrectly URL-encoded the `state` parameter before inserting it into the response, where it was encoded once more. This would result in applications incorrectly rejecting the response from Microsoft Entra ID.
 
-Azure AD will no longer double-encode this parameter, allowing apps to correctly parse the result. This change will be made for all applications.
+Microsoft Entra ID will no longer double-encode this parameter, allowing apps to correctly parse the result. This change will be made for all applications.
 
 ### Azure Government endpoints are changing
 
@@ -198,9 +200,9 @@ Azure AD will no longer double-encode this parameter, allowing apps to correctly
 
 **Protocol impacted**: All flows
 
-On 1 June 2018, the official Azure Active Directory (Azure AD) Authority for Azure Government changed from `https://login-us.microsoftonline.com` to `https://login.microsoftonline.us`. This change also applied to Microsoft 365 GCC High and DoD, which Azure Government Azure AD also services. If you own an application within a US Government tenant, you must update your application to sign users in on the `.us` endpoint.
+On 1 June 2018, the official Microsoft Entra Authority for Azure Government changed from `https://login-us.microsoftonline.com` to `https://login.microsoftonline.us`. This change also applied to Microsoft 365 GCC High and DoD, which Azure Government Microsoft Entra ID also services. If you own an application within a US Government tenant, you must update your application to sign users in on the `.us` endpoint.
 
-On May 5, 2020, Azure AD will begin enforcing the endpoint change, blocking government users from signing into apps hosted in US Government tenants using the public endpoint (`microsoftonline.com`). Impacted apps will begin seeing an error `AADSTS900439` - `USGClientNotSupportedOnPublicEndpoint`. This error indicates that the app is attempting to sign in a US Government user on the public cloud endpoint. If your app is in a public cloud tenant and intended to support US Government users, you'll need to [update your app to support them explicitly](./authentication-national-cloud.md). This may require creating a new app registration in the US Government cloud.
+On May 5, 2020, Microsoft Entra ID will begin enforcing the endpoint change, blocking government users from signing into apps hosted in US Government tenants using the public endpoint (`microsoftonline.com`). Impacted apps will begin seeing an error `AADSTS900439` - `USGClientNotSupportedOnPublicEndpoint`. This error indicates that the app is attempting to sign in a US Government user on the public cloud endpoint. If your app is in a public cloud tenant and intended to support US Government users, you'll need to [update your app to support them explicitly](./authentication-national-cloud.md). This may require creating a new app registration in the US Government cloud.
 
 Enforcement of this change will be done using a gradual rollout based on how frequently users from the US Government cloud sign in to the application - apps signing in US Government users infrequently will see enforcement first, and apps frequently used by US Government users will be last to have enforcement applied. We expect enforcement to be complete across all apps in June 2020.
 
@@ -216,7 +218,7 @@ For more details, please see the [Azure Government blog post on this migration](
 
 **Protocol impacted**: All user flows.
 
-Users with passwords longer than 256 characters who sign in directly to Azure AD (not a federated IDP, like AD FS) will be asked to change their passwords before they can sign in. Admins may receive requests to help reset the users password.
+Users with passwords longer than 256 characters who sign in directly to Microsoft Entra ID (not a federated IDP, like AD FS) will be asked to change their passwords before they can sign in. Admins may receive requests to help reset the users password.
 
 The error in the sign-in logs will be similar to _AADSTS 50052: InvalidPasswordExceedsMaxLength_.
 
@@ -249,7 +251,7 @@ When an authentication response is sent from _login.microsoftonline.com_ to an a
 
 **Protocol impacted**: Anywhere POST is used ([client credentials](./v2-oauth2-client-creds-grant-flow.md), [authorization code redemption](./v2-oauth2-auth-code-flow.md), [ROPC](./v2-oauth-ropc.md), [OBO](./v2-oauth2-on-behalf-of-flow.md), and [refresh token redemption](./v2-oauth2-auth-code-flow.md#refresh-the-access-token))
 
-Beginning the week of September 2, 2019, authentication requests that use the POST method will be validated using stricter HTTP standards. Specifically, spaces and double-quotes (") will no longer be removed from request form values. These changes aren't expected to break any existing clients, and will ensure that requests sent to Azure AD are reliably handled every time. In the future (see above) we plan to additionally reject duplicate parameters and ignore the BOM within requests.
+Beginning the week of September 2, 2019, authentication requests that use the POST method will be validated using stricter HTTP standards. Specifically, spaces and double-quotes (") will no longer be removed from request form values. These changes aren't expected to break any existing clients, and will ensure that requests sent to Microsoft Entra ID are reliably handled every time. In the future (see above) we plan to additionally reject duplicate parameters and ignore the BOM within requests.
 
 Example:
 
@@ -289,7 +291,7 @@ If the Contoso gateway app were a multi-tenant application, however, then the re
 
 **Protocol impacted**: All flows
 
-Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), Azure AD applications can now register and use redirect (reply) URIs with static query parameters (such as `https://contoso.com/oauth2?idp=microsoft`) for OAuth 2.0 requests. Dynamic redirect URIs are still forbidden as they represent a security risk, and this can't be used to retain state information across an authentication request - for that, use the `state` parameter.
+Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), Microsoft Entra applications can now register and use redirect (reply) URIs with static query parameters (such as `https://contoso.com/oauth2?idp=microsoft`) for OAuth 2.0 requests. Dynamic redirect URIs are still forbidden as they represent a security risk, and this can't be used to retain state information across an authentication request - for that, use the `state` parameter.
 
 The static query parameter is subject to string matching for redirect URIs like any other part of the redirect URI - if no string is registered that matches the URI-decoded redirect_uri, then the request will be rejected. If the URI is found in the app registration, then the entire string will be used to redirect the user, including the static query parameter.
 
@@ -338,7 +340,7 @@ All apps should handle `invalid_grant` by showing an interactive prompt, rather 
 
 **Protocol impacted**: [Code flow](v2-oauth2-auth-code-flow.md)
 
-Starting on November 15, 2018, Azure AD will stop accepting previously used authentication codes for apps. This security change helps to bring Azure AD in line with the OAuth specification and will be enforced on both the v1 and v2 endpoints.
+Starting on November 15, 2018, Microsoft Entra ID will stop accepting previously used authentication codes for apps. This security change helps to bring Microsoft Entra ID in line with the OAuth specification and will be enforced on both the v1 and v2 endpoints.
 
 If your app reuses authorization codes to get tokens for multiple resources, we recommend that you use the code to get a refresh token, and then use that refresh token to acquire additional tokens for other resources. Authorization codes can only be used once, but refresh tokens can be used multiple times across multiple resources. Any new app that attempts to reuse an authentication code during the OAuth code flow will get an invalid_grant error.
 
