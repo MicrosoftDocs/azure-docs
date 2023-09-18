@@ -22,13 +22,13 @@ Azure Web Application Firewall (WAF) on Azure Application Gateway provides centr
 
 ## Deployment steps
 
-This article guides you through the steps to securely expose a web application on the Internet, by integrating the Azure AD Application Proxy with Azure WAF on Application Gateway. In this guide we'll be using the Azure portal. The reference architecture for this deployment is represented below.   
+This article guides you through the steps to securely expose a web application on the Internet, by integrating the Azure AD Application Proxy with Azure WAF on Application Gateway. In this guide we'll be using the Microsoft Entra admin center. The reference architecture for this deployment is represented below.   
 
 ![Diagram of deployment described.](./media/application-proxy-waf/application-proxy-waf.png)
 
 ### Configure Azure Application Gateway to send traffic to your internal application.
 
-Some steps of the Application Gateway configuration will be omitted in this article. For a detailed guide on how to create and configure an Application Gateway, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal][appgw_quick].
+Some steps of the Application Gateway configuration will be omitted in this article. For a detailed guide on how to create and configure an Application Gateway, see [Quickstart: Direct web traffic with Azure Application Gateway - Microsoft Entra admin center][appgw_quick].
 
 ##### 1. Create a private-facing HTTPS listener.
 

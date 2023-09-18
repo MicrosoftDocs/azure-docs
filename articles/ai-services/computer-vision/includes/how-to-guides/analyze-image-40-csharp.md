@@ -44,7 +44,9 @@ Create a new **VisionSource** object from the URL of the image you want to analy
 
 Create a new **VisionSource** object from the local image file you want to analyze, using the static constructor [VisionSource.FromFile](/dotnet/api/azure.ai.vision.common.visionsource.fromfile). **VisionSource** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=vision_source)]
+```csharp
+using var imageSource = VisionSource.FromFile("sample.jpg");
+```
 
 ### Image buffer
 

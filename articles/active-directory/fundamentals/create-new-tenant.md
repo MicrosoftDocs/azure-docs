@@ -48,7 +48,7 @@ After you sign in to the [Azure portal](https://portal.azure.com), you can creat
 
 1. On the Configuration tab, enter the following information:
 
-   ![Azure Active Directory - Create a tenant page - configuration tab ](media/create-new-tenant/create-new-tenant.png)
+   ![Azure Active Directory - Create a tenant page - configuration tab](media/create-new-tenant/create-new-tenant.png)
 
    - Type your desired Organization name (for example _Contoso Organization_) into the **Organization name** box.
    - Type your desired Initial domain name (for example _Contosoorg_) into the **Initial domain name** box.

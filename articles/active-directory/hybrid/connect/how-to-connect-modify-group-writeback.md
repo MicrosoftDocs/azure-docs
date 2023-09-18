@@ -91,7 +91,7 @@ To configure directory settings to disable automatic writeback of newly created 
 
 To disable writeback of all Microsoft 365 groups that were created before these modifications, use one of the following methods:
 
-- Portal: Use the [Microsoft Entra admin portal](../../enterprise-users/groups-write-back-portal.md).
+- Portal: Use the [Microsoft Entra admin center](../../enterprise-users/groups-write-back-portal.md).
 - PowerShell: Use the [Microsoft Graph Beta PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true). For example: 
   
   ```PowerShell

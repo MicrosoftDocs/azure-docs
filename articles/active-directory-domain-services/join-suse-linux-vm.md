@@ -38,7 +38,7 @@ If you have an existing SLE Linux VM in Azure, connect to it using SSH, then con
 
 If you need to create a SLE Linux VM, or want to create a test VM for use with this article, you can use one of the following methods:
 
-* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Microsoft Entra admin center](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -86,7 +86,7 @@ To join the managed domain using **SSSD** and the *User Logon Management* module
 
     In YaST, select **System > Network Settings**.
 
-1. Select the *Hostname/DNS* tab, then enter the IP address(es) of the managed domain into the text box *Name Server 1*. These IP addresses are shown on the *Properties* window in the Azure portal for your managed domain, such as *10.0.2.4* and *10.0.2.5*.
+1. Select the *Hostname/DNS* tab, then enter the IP address(es) of the managed domain into the text box *Name Server 1*. These IP addresses are shown on the *Properties* window in the Microsoft Entra admin center for your managed domain, such as *10.0.2.4* and *10.0.2.5*.
 
     Add your own managed domain IP addresses, then select **OK**.
 
@@ -162,7 +162,7 @@ To join the managed domain using **winbind** and the *Windows Domain Membership*
 
 1. If you want to change the UID and GID ranges for the Samba users and groups, select *Expert Settings*.
 
-1. Configure Network Time Protocol (NTP) time synchronization for your managed domain by selecting *NTP Configuration*. Enter the IP addresses of the managed domain. These IP addresses are shown on the *Properties* window in the Azure portal for your managed domain, such as *10.0.2.4* and *10.0.2.5*.
+1. Configure Network Time Protocol (NTP) time synchronization for your managed domain by selecting *NTP Configuration*. Enter the IP addresses of the managed domain. These IP addresses are shown on the *Properties* window in the Microsoft Entra admin center for your managed domain, such as *10.0.2.4* and *10.0.2.5*.
 
 1. Select **OK** and confirm the domain join when prompted for it.
 
