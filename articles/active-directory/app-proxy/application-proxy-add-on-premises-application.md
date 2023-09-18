@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Add an on-premises app - Application Proxy in Azure Active Directory
-description:  Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. This tutorial shows you how to prepare your environment for use with Application Proxy. Then, it uses the Azure portal to add an on-premises application to your Azure AD tenant.
+description:  Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. This tutorial shows you how to prepare your environment for use with Application Proxy. Then, it uses the Microsoft Entra admin center to add an on-premises application to your Azure AD tenant.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -180,9 +180,9 @@ For information about connectors, capacity planning, and how they stay up-to-dat
 
 ## Verify the connector installed and registered correctly
 
-You can use the Azure portal or your Windows server to confirm that a new connector installed correctly.
+You can use the Microsoft Entra admin center or your Windows server to confirm that a new connector installed correctly.
 
-### Verify the installation through Azure portal
+### Verify the installation through Microsoft Entra admin center
 
 To confirm the connector installed and registered correctly:
 
@@ -219,7 +219,7 @@ Now that you've prepared your environment and installed a connector, you're read
 
     | Field  | Description |
     | :--------------------- | :----------------------------------------------------------- |
-    | **Name** | The name of the application that appears on My Apps and in the Azure portal. |
+    | **Name** | The name of the application that appears on My Apps and in the Microsoft Entra admin center. |
     | **Maintenance Mode** | Select if you would like to enable maintenance mode and temporarily disable access for all users to the application. |
     | **Internal URL** | The URL for accessing the application from inside your private network. You can provide a specific path on the backend server to publish, while the rest of the server is unpublished. In this way, you can publish different sites on the same server as different apps, and give each one its own name and access rules.<br><br>If you publish a path, make sure that it includes all the necessary images, scripts, and style sheets for your application. For example, if your app is at `https://yourapp/app` and uses images located at `https://yourapp/media`, then you should publish `https://yourapp/` as the path. This internal URL doesn't have to be the landing page your users see. For more information, see [Set a custom home page for published apps](application-proxy-configure-custom-home-page.md). |
     | **External URL** | The address for users to access the app from outside your network. If you don't want to use the default Application Proxy domain, read about [custom domains in Azure AD Application Proxy](./application-proxy-configure-custom-domain.md). |
