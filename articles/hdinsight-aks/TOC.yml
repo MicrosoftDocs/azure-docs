@@ -167,10 +167,12 @@ items:
     items:
     - name: Configuration management
       href: ./flink/flink-configuration-management.md
-    - name: Table API and SQL
-      href: ./flink/flink-table-api-and-sql.md
     - name: Flink job management
       href: ./flink/flink-job-management.md
+    - name: Hive dialect in Flink
+      href: ./flink/hive-dialect-flink.md
+    - name: Table API and SQL
+      href: ./flink/flink-table-api-and-sql.md    
   - name: How-to guides
     items:
     - name: General
