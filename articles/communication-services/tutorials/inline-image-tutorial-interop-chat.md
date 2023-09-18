@@ -46,7 +46,9 @@ Once the Azure Communication Service end user is admitted to the call, they woul
 
 ## Overview
 
-As mentioned previously, since we need to join a Teams meeting first, we need to use the ChatWithChat Composite from the UI library. Let's follow the basic example from the [storybook page](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) to create a ChatWithChat Composite.
+As mentioned previously, since we need to join a Teams meeting first, we need to use the ChatWithChat Composite from the UI library. 
+
+Let's follow the basic example from the [storybook page](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) to create a ChatWithChat Composite.
 
 From the sample code, it needs `CallWithChatExampleProps`, which is defined as the following code snippet:
 
@@ -107,6 +109,7 @@ Note that in a Teams Interop Chat, we currently only support Azure Communication
 
 You may also want to:
 
+- [Check UI Library use cases](../concepts/ui-library/ui-library-use-cases.md)
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Creating user access tokens](../quickstarts/identity/access-tokens.md)
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
