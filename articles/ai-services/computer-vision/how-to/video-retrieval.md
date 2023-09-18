@@ -60,8 +60,6 @@ To use the Video Retrieval APIs in a typical pattern, you would do the following
 
 The Video Retrieval APIs allows a user to add metadata to video files. Metadata is additional information associated with video files such as "Camera ID," "Timestamp," or "Location" that can be used to organize, filter, and search for specific videos. This example demonstrates how to create an index, add video files with associated metadata, and perform searches using different features.
 
-In the following steps, replace https://example.cognitiveservices.azure.com/ with your Cognitive Service Resource endpoint URL. 
-
 ### Step 1: Create an Index
 
 To begin, you need to create an index to store and organize the video files and their metadata. The example below demonstrates how to create an index named "my-video-index."
