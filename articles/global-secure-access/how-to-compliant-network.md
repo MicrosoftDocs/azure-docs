@@ -31,7 +31,7 @@ The compliant network is different than [IPv4, IPv6, or geographic locations](/a
 * Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing.
    * The **Global Secure Access Administrator** role to manage the Global Secure Access preview features
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
-* The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+* The preview requires a Microsoft Entra ID P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 * To use the Microsoft 365 traffic forwarding profile, a Microsoft 365 E3 license is recommended.
 
 ### Known limitations
@@ -45,7 +45,7 @@ To enable the required setting to allow the compliant network check, an administ
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference#global-secure-access-administrator).
 1. Browse to **Global Secure Access (Preview)** > **Global settings** > **Session management** **Adaptive access**.
 1. Select the toggle to **Enable Global Secure Access signaling in Conditional Access**.
-1. Browse to **Microsoft Entra ID Conditional Access** > **Named locations**.
+1. Browse to **Microsoft Entra Conditional Access** > **Named locations**.
    1. Confirm you have a location called **All Compliant Network locations** with location type **Network Access**. Organizations can optionally mark this location as trusted.
 
 :::image type="content" source="media/how-to-compliant-network/toggle-enable-signaling-in-conditional-access.png" alt-text="Screenshot showing the toggle to enable signaling in Conditional Access.":::

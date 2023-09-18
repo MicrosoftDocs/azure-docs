@@ -81,7 +81,7 @@ The log details provide valuable information about your network traffic. Not all
 
 ## Configure Diagnostic settings to export logs
 
-You can export the Global Secure Access traffic logs to an endpoint for further analysis and alerting. This integration is configured in Microsoft Entra ID Diagnostic settings.
+You can export the Global Secure Access traffic logs to an endpoint for further analysis and alerting. This integration is configured in Microsoft Entra Diagnostic settings.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator).
 1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
@@ -102,4 +102,3 @@ You can export the Global Secure Access traffic logs to an endpoint for further 
 - [Learn about the traffic dashboard](concept-traffic-dashboard.md)
 - [View the audit logs for Global Secure Access](how-to-access-audit-logs.md)
 - [View the enriched Microsoft 365 logs](how-to-view-enriched-logs.md)
-
