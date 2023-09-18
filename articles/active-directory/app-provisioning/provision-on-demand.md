@@ -29,30 +29,30 @@ Use on-demand provisioning to provision a user or group in seconds. Among other 
 
 ::: zone pivot="app-provisioning"
 
-1. Browse to **Identity** > **Applications** > **Enterprise applications** > select your application.
-1. Select **Provisioning**.
+2. Browse to **Identity** > **Applications** > **Enterprise applications** > select your application.
+3. Select **Provisioning**.
 
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
 
-1. Browse to **Identity** > **External Identities** > **Cross-tenant Synchronization** > **Configurations**
-1. Select your configuration, and then go to the **Provisioning** configuration page.
+2. Browse to **Identity** > **External Identities** > **Cross-tenant Synchronization** > **Configurations**
+3. Select your configuration, and then go to the **Provisioning** configuration page.
 
 ::: zone-end
 
-1. Configure provisioning by providing your admin credentials.
+4. Configure provisioning by providing your admin credentials.
 
-1. Select **Provision on demand**.
+5. Select **Provision on demand**.
 
-1. Search for a user by first name, last name, display name, user principal name, or email address. Alternatively, you can search for a group and pick up to five users. 
+6. Search for a user by first name, last name, display name, user principal name, or email address. Alternatively, you can search for a group and pick up to five users. 
 
    > [!NOTE]
    > For Cloud HR provisioning app (Workday/SuccessFactors to AD/Azure AD), the input value is different. 
    > For Workday scenario, please provide "WorkerID" or "WID" of the user in Workday. 
    > For SuccessFactors scenario, please provide "personIdExternal" of the user in SuccessFactors. 
  
-1. Select **Provision** at the bottom of the page.
+7. Select **Provision** at the bottom of the page.
 
     :::image type="content" source="media/provision-on-demand/on-demand-provision-user.png" alt-text="Screenshot that shows the Azure portal UI for provisioning a user on demand." lightbox="media/provision-on-demand/on-demand-provision-user.png":::
 
