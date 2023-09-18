@@ -65,7 +65,7 @@ Workspace managed virtual network is the recommended way to support network isol
 
 ## Known limitations
 
-- Only public access enable storage account is supported. You can't use private storage account now. Find workaround here: [Why I can't create or upgrade my flow when I disable public network access of storage account?](../tools-reference/troubleshoot-guidance.md#why-i-cant-create-or-upgrade-my-flow-when-i-disable-public-network-access-of-storage-account)
+- Only public access enable storage account is supported. You can't use private storage account now. Find workaround here: [Why I can't create or upgrade my flow when I disable public network access of storage account?](./tools-reference/troubleshoot-guidance.md#why-i-cant-create-or-upgrade-my-flow-when-i-disable-public-network-access-of-storage-account)
 - Workspace hub / lean workspace and AI studio don't support bring your own virtual network.
 - Managed online endpoint only supports workspace managed virtual network. If you want to use your own virtual network, you may need one workspace for prompt flow authoring with your virtual network and another workspace for prompt flow deployment using managed online endpoint with workspace managed virtual network.
 
