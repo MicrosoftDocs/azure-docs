@@ -72,7 +72,7 @@ While disabling NTLM password synchronization will improve security, many applic
 
 If needed, [install and configure Azure PowerShell](/powershell/azure/install-azure-powershell). Make sure that you sign in to your Azure subscription using the [Connect-AzAccount][Connect-AzAccount] cmdlet. 
 
-Also if needed, [install and configure Azure AD PowerShell](/powershell/azure/active-directory/install-adv2). Make sure that you sign in to your Microsoft Entra tenant using the [Connect-Microsoft Entra ID][Connect-AzureAD] cmdlet.
+Also if needed, [install and configure Azure AD PowerShell](/powershell/azure/active-directory/install-adv2). Make sure that you sign in to your Microsoft Entra tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
 
 To disable weak cipher suites and NTLM credential hash synchronization, sign in to your Azure account, then get the Microsoft Entra DS resource using the [Get-AzResource][Get-AzResource] cmdlet:
 
