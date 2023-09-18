@@ -40,7 +40,7 @@ In our comprehensive updated documentation, we provide guidance step by step:
 
 Similar to the integration of Langchain with Prompt flow, Semantic Kernel, which also supports Python, can operate within Prompt flow in the **Python node**.
 
-:::image type="content" source="./media/how-to-evaluate-semantic-kernel/prompt-flow-end-result.png" alt-text="Prompt flow with Semantic kernel" lightbox = "./media/how-to-evaluate-semantic-kernel/prompt-flow-end-result.png":::
+:::image type="content" source="./media/how-to-evaluate-semantic-kernel/prompt-flow-end-result.png" alt-text="Screenshot of prompt flow with Semantic kernel." lightbox = "./media/how-to-evaluate-semantic-kernel/prompt-flow-end-result.png":::
 
 #### Prerequisites: Setup runtime and connection
 
