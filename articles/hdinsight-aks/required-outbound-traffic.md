@@ -3,7 +3,7 @@ title: Outbound traffic on HDInsight on AKS
 description: Learn required outbound traffic on HDInsight on AKS. 
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 08/29/2023
 ---
 
 # Required outbound traffic for HDInsight on AKS
