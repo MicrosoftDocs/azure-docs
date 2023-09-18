@@ -47,7 +47,7 @@ While this tutorial uses a CSV file as a system of record, you can customize the
 After reading the source data, apply your pre-processing rules and convert the output from your system of record into a bulk request that can be sent to the Microsoft Entra provisioning [bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint.
 
 > [!IMPORTANT]
-> If you'd like to share your PowerShell integration script with the community, publish it on [PowerShell Gallery](https://www.powershellgallery.com/) and notify us on the GitHub repository [Microsoft Entra ID-Inbound-Provisioning](https://github.com/AzureAD/entra-id-inbound-provisioning), so we can add a reference it. 
+> If you'd like to share your PowerShell integration script with the community, publish it on [PowerShell Gallery](https://www.powershellgallery.com/) and notify us on the GitHub repository [`entra-id-inbound-provisioning`](https://github.com/AzureAD/entra-id-inbound-provisioning), so we can add a reference it. 
 
 ## How to use this tutorial
 
