@@ -9,7 +9,7 @@ ms.author: honc
 ---
 # Provide Correct Parameters to Service Connector
 
-If you are using a non-UI tool to manage connections, it's crucial to understand how to pass correct parameters to Service Connector. In this guide, you will gain insights into the fundamental properties and their proper value formats.
+If you're using a non-UI tool to manage connections, it's crucial to understand how to pass correct parameters to Service Connector. In this guide, you gain insights into the fundamental properties and their proper value formats.
 
 ## Prerequisites
 
@@ -17,9 +17,9 @@ If you are using a non-UI tool to manage connections, it's crucial to understand
 
 ## Source Service
 
-Source services are usually Azure compute services. Note that Service Connector is an [Azure extension resource](../azure-resource-manager/management/extension-resource-types.md), so when you send requests using REST tools to create a connection for example, the request URL should be like: `{source_resource_id}/providers/Microsoft.ServiceLinker/linkers/{linkerName}`. And the `{source_resource_id}` should be one of Service Connector supported source services which are listed in the following table.
+Source services are usually Azure compute services. Service Connector is an [Azure extension resource](../azure-resource-manager/management/extension-resource-types.md), so when you send requests using REST tools to create a connection, for example, the request URL should be like: `{source_resource_id}/providers/Microsoft.ServiceLinker/linkers/{linkerName}`. And the `{source_resource_id}` should be one of Service Connector supported source services, which are listed in the following table.
 
-| Source Service Type    | Resource Id Format                                                                                                                                           |
+| Source Service Type    | Resource ID Format                                                                                                                                           |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Azure App Service      | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`                                                |
 | Azure App Service Slot | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}/slots/{slot}`                                   |
@@ -29,9 +29,9 @@ Source services are usually Azure compute services. Note that Service Connector 
 
 ## Target Service
 
-Target services are backing services or dependency services that your compute services connect to. When you pass target resource info to Service Connector, note that the resource ids are not always top-level resources, and they could be sub-resources also. Check the following table for the exact formats of all Service Connector supported target services.
+Target services are backing services or dependency services that your compute services connect to. When you pass target resource info to Service Connector, the resource IDs aren't always top-level resources, and they could be subresources also. Check the following table for the exact formats of all Service Connector supported target services.
 
-| Target Service Type                | Resource Id Format                                                                                                                                                            |
+| Target Service Type                | Resource ID Format                                                                                                                                                            |
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Azure App Configuration            | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.AppConfiguration/configurationStores/{config_store}`                              |
 | Azure Cache for Redis              | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.Cache/redis/{server}/databases/{database}`                                        |
@@ -63,11 +63,11 @@ The authentication type refers to how to do authentication in your codes with he
 * service principal
 * secret/connection string/access key
 
-Note that a different subset of the authentication types can be used when specifying a different target service and a different client type, check [how to integrate with target services](./how-to-integrate-postgres.md) for their combinations.
+A different subset of the authentication types can be used when specifying a different target service and a different client type, check [how to integrate with target services](./how-to-integrate-postgres.md) for their combinations.
 
 ## Client Type
 
-Client type refers to your compute service's runtime stack or development framework. One of the most common cases that a client type may affect is the connction string format of databases. The possible client types are:
+Client type refers to your compute service's runtime stack or development framework. One of the most common cases that a client type may affect is the connection string format of databases. The possible client types are:
 
 * dapr
 * django
@@ -82,7 +82,7 @@ Client type refers to your compute service's runtime stack or development framew
 * ruby
 * springBoot
 
-Note that a different subset of the client types can be used when specifying a different target service and a different authentication type, check [how to integrate with target services](./how-to-integrate-postgres.md) for their combinations.
+A different subset of the client types can be used when specifying a different target service and a different authentication type, check [how to integrate with target services](./how-to-integrate-postgres.md) for their combinations.
 
 ## Next steps
 

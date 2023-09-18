@@ -28,7 +28,7 @@ See [what services are supported in Service Connector](#what-services-are-suppor
 
 **Connect to a target backing service with just a single command or a few clicks:**
 
-Service Connector is designed for your ease of use. To create a connection, you'll need three required parameters: a target service instance, an authentication type between the compute service and the target service, and your application client type. Developers can use the Azure CLI or the guided Azure portal experience to create connections.
+Service Connector is designed for your ease of use. To create a connection, you need three required parameters: a target service instance, an authentication type between the compute service and the target service, and your application client type. Developers can use the Azure CLI or the guided Azure portal experience to create connections.
 
 **Use Connection Status to monitor or identify connection issue:**
 
@@ -67,13 +67,13 @@ There are two major ways to use Service Connector for your Azure application:
 
 What's more, Service Connector is also supported in the following client tools with its most fundamental features:
 
-* **Azure Powershell:** manage connections with commands in Azure Powershell.
-* **Terraform:** create and delete connections with infrastruture as code tool (please be aware of the [limitations](known-limitations.md)).
+* **Azure Powershell:** manage connections with commands in Azure PowerShell.
+* **Terraform:** create and delete connections with infrastructure as code tool (be aware of the [limitations](known-limitations.md)).
 * **Visual Studio:** manage connections of a project by integrating with Connected Services feature in Visual Studio.
 * **Visual Studio Code:** manage connections in VS Code Azure extension.
 * **Intellij:** list connections of Azure compute services in Azure Toolkit for Intellij.
 
-Finally, you can also use Azure SDKs and API calls to interact with Service Connector. And you are recommended to read [how to provide correct parameters](how-to-provide-correct-parameters.md) before starting if using these ways.
+Finally, you can also use Azure SDKs and API calls to interact with Service Connector. And you're recommended to read [how to provide correct parameters](how-to-provide-correct-parameters.md) before starting if using these ways.
 
 ## Next steps
 
