@@ -69,13 +69,13 @@ The following table lists the minimum required versions for each Teams feature. 
 | Manage breakout rooms | 1.2.1755 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Mirror my video | 1.2.3770 and later | Not supported | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Multiwindow | 1.2.1755 and later | 10.7.7 and later | 1.1.2110.16001 and later | Updates within 90 days of the current version |
-| Noise suppression | 1.2.3316 and later | 10.8.1 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
+| Noise suppression* | 1.2.3316 and later | 10.8.1 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Screen share and video together | 1.2.1755 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Screen share | 1.2.1755 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Secondary ringer | 1.2.3004 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Shared system audio | 1.2.4058 and later | Not supported | 1.0.2006.11001 and later  | Updates within 90 days of the current version |
 | Simulcast | 1.2.3667 and later | 10.8.1 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
-
+* When media is optimized then noise suppression is on by default but will not be available in the UI. This is by design.
 ## Next steps
 
 Learn more about how to set up Teams for Azure Virtual Desktop at [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md).
