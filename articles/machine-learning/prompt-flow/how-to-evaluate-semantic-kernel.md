@@ -165,7 +165,7 @@ This enables you to conveniently compare the results of various runs, assisting 
 
 To compare, select the runs you wish to analyze, then select the **Visualize outputs** button in the above.
 
-:::image type="content" source="./media/how-to-evaluate-semantic-kernel/compare.png" alt-text="Compare runs" lightbox = "./media/how-to-evaluate-semantic-kernel/compare.png":::
+:::image type="content" source="./media/how-to-evaluate-semantic-kernel/compare.png" alt-text="Screenshot of compare runs." lightbox = "./media/how-to-evaluate-semantic-kernel/compare.png":::
 
 This will present you with a detailed table, line-by-line comparison of the results from selected runs.
 
