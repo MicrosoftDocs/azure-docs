@@ -184,7 +184,7 @@ The following steps show how to create a self-signed certificate for testing pur
 > [!IMPORTANT]
 > If you have Docker installed on your system and used `az acr login` or `docker login` to authenticate to your ACR, your credentials are already stored and available to notation. In this case, you don’t need to run `notation login` again to authenticate to your ACR. To learn more about authentication options for notation, see [Authenticate with OCI-compliant registries](https://notaryproject.dev/docs/user-guides/how-to/registry-authentication/).
 
-2. Build and push a new image with ACR Tasks. Always use the digest value to identify the image for signing since tags are mutable and and can be overwritten.
+2. Build and push a new image with ACR Tasks. Always use the digest value to identify the image for signing since tags are mutable and can be overwritten.
 
     ```bash
     DIGEST=$(az acr build -r $ACR_NAME -t $REGISTRY/${REPO}:$TAG $IMAGE_SOURCE --no-logs --query "outputImages[0].digest" -o tsv)
@@ -197,13 +197,13 @@ The following steps show how to create a self-signed certificate for testing pur
     IMAGE=$REGISTRY/${REPO}@$TAG
     ```
 
-3. Get the Key ID of the signing key. A certificate in AKV can have multiple versions, the following command gets the Key Id of the latest version.
+3. Get the Key ID of the signing key. A certificate in AKV can have multiple versions, the following command gets the Key ID of the latest version.
 
     ```bash
     KEY_ID=$(az keyvault certificate show -n $CERT_NAME --vault-name $AKV_NAME --query 'kid' -o tsv)
     ```
 
-4. Sign the container image with the [COSE](https://datatracker.ietf.org/doc/html/rfc9052) signature format using the signing key id. To sign with a self-signed certificate, you need to set the plugin configuration value `self_signed=true`.
+4. Sign the container image with the [COSE](https://datatracker.ietf.org/doc/html/rfc9052) signature format using the signing key ID. To sign with a self-signed certificate, you need to set the plugin configuration value `self_signed=true`.
 
     ```bash
     notation sign --signature-format cose --id $KEY_ID --plugin azure-kv --plugin-config self_signed=true $IMAGE
