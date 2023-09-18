@@ -8,14 +8,14 @@ ms.reviewer: mopeakande
 author: dem108
 ms.author: sehan
 ms.subservice: mlops
-ms.date: 09/14/2023
+ms.date: 09/18/2023
 ms.topic: conceptual
 ms.custom: how-to, devplatv2, event-tier1-build-2022
 ---
 
 # Monitor online endpoints
 
-Azure Machine Learning provides several ways to track and monitor metrics and logs regarding [Azure Machine Learning online endpoints](concept-endpoints.md). Integrated with Azure Monitor, you can view metrics in chart, compare between endpoints and deployments, pin to Azure portal dashboards, configure alerts, query from log tables and push the logs to supported targets. You can also use Application Insights to analyze events from user containers.
+Azure Machine Learning uses integration with Azure Monitor to track and monitor metrics and logs for [online endpoints](concept-endpoints.md). You can view metrics in charts, compare between endpoints and deployments, pin to Azure portal dashboards, configure alerts, query from log tables, and push logs to supported targets. You can also use Application Insights to analyze events from user containers.
 
 * **Metrics**: For endpoint-level metrics such as request latency, requests per minute, new connections per second, and network bytes, you can drill down to see details at the deployment level or status level. Deployment-level metrics such as CPU/GPU utilization and memory or disk utilization can also be drilled down to instance level. Azure Monitor allows tracking these metrics in charts and setting up dashboards and alerts for further analysis.
 
@@ -224,7 +224,7 @@ The following tables provide details on the data stored in each log:
 
 ## Using Application Insights
 
-When your online deployment uses a curated docker image, the environment includes the integration with Application Insights. When you create an online deployment, you can enable log collection using Application Insights. Built-in metrics and logs are sent to Application insights, and you can use its built-in features, such as live metrics, transaction search, failures, and performance. 
+Curated environments include integration with Application Insights, and you can enable or disable this integration when you create an online deployment. Built-in metrics and logs are sent to Application Insights, and you can use the built-in features of Application Insights (such as Live metrics, Transaction search, Failures, and Performance) for further analysis. 
 
 
 ## Next steps
