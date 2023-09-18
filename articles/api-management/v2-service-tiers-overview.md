@@ -7,7 +7,7 @@ editor: ''
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 09/14/2023
+ms.date: 09/18/2023
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -50,7 +50,7 @@ In preview, the v2 tiers currently support the following options to limit networ
 
 ### API version
 
-The v2 tiers are supported in API Management API version 2023-03-01-preview or later.
+The v2 tiers are supported in API Management API version **2023-03-01-preview** or later.
 
 ### Supported regions
 
@@ -115,10 +115,6 @@ A: No. Currently you can't migrate an existing API Management instance (in the C
 
 ### Q: What's the relationship between the stv2 compute platform and the v2 tiers?
 A: They're not related. API Management's stv2 compute platform is a successor platform version used for the [retirement of the stv1 compute platform](./breaking-changes/stv1-platform-retirement-august-2024.md) in the current Developer, Standard, and Premium tiers. The v2 tiers aren't affected by the retirement of the stv1 compute platform.
-
-### Q: How can I provide feedback?
-
-Provide feedback or report issues in the [v2 tier GitHub repo](https://github.com/Azure/api-management-tiersv2), or send email to apimskv2@microsoft.com.
 
 ## Related content
 

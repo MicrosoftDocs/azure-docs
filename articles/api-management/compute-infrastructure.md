@@ -4,7 +4,7 @@ description: Learn about the compute platform used to host your API Management s
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 09/14/2023
+ms.date: 09/18/2023
 ms.author: danlep
 ms.custom:
 ---
