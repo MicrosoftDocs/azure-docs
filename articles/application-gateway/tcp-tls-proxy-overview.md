@@ -27,3 +27,5 @@ Process flow:
 4. The same frontend TCP connection can be used for future requests from the client.
 
 ## Next steps
+
+[Direct SQL traffic with Azure Application Gateway (Preview)](how-to-tcp-tls-proxy.md)
