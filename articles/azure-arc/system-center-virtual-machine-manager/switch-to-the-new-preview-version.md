@@ -12,6 +12,8 @@ keywords: "VMM, Arc, Azure"
 #Customer intent: As a VI admin, I want to switch to the new preview version of Arc-enabled SCVMM (preview) and leverage the associated capabilities
 ---
 
+# Switch to the new preview version
+
 On September 22, 2023, we rolled out major changes to **Azure Arc-enabled System Center Virtual Machine Manager** preview. By switching to the new preview version, you can use all the Azure management services that are available for Arc-enabled Servers.
 
 >[!Note]
@@ -22,7 +24,7 @@ On September 22, 2023, we rolled out major changes to **Azure Arc-enabled System
 If you're an existing Azure Arc-enabled SCVMM customer, for VMs that are Azure-enabled, follow these steps to switch to the new preview version:
 
 >[!Note]
-> If you had enabled guest management on any of the VMs, [disconnect](/articles/azure-arc/vmware-vsphere/remove-vcenter-from-arc-vmware.md#step-2-disconnect-the-agent-from-azure-arc) and [uninstall agents](/articles/azure-arc/vmware-vsphere/remove-vcenter-from-arc-vmware.md#step-3-uninstall-the-agent).
+> If you had enabled guest management on any of the VMs, [disconnect](../vmware-vsphere/remove-vcenter-from-arc-vmware.md#step-2-disconnect-the-agent-from-azure-arc) and [uninstall agents](../vmware-vsphere/remove-vcenter-from-arc-vmware.md#step-3-uninstall-the-agent).
 
 1.	From your browser, go to the SCVMM management servers blade on [Azure Arc Center](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/overview) and select the SCVMM management server resource.
 2.	Select all the virtual machines that are Azure enabled with the older preview version.
@@ -35,4 +37,6 @@ If you're an existing Azure Arc-enabled SCVMM customer, for VMs that are Azure-e
 
 :::image type="content" source="media/switch-to-the-new-preview-version/re-enable-the-vms.png" alt-text="Screenshot of how to re-enable the VMs." lightbox="media/switch-to-the-new-preview-version/re-enable-the-vms.png":::
  
+## Next steps
 
+[Create a virtual machine on System Center Virtual Machine Manager using Azure Arc (preview)](quickstart-connect-system-center-virtual-machine-manager-to-arc.md).

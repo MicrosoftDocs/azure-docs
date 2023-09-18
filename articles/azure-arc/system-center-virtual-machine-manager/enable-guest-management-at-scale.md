@@ -12,6 +12,7 @@ keywords: "VMM, Arc, Azure"
 #Customer intent: As an IT infra admin, I want to install arc agents to use Azure management services for SCVMM VMs.
 ---
 
+# Install Arc agents at scale for Arc-enabled SCVMM VMs
 
 In this article, you will learn how to install Arc agents at scale for SCVMM VMs and use Azure management capabilities.
 
@@ -24,8 +25,8 @@ Ensure the following before you install Arc agents at scale for SCVMM VMs:
 •	The user account must have permissions listed in Azure Arc SCVMM Administrator role.
 •	All the target machines are:
 •	Powered on and the resource bridge has network connectivity to the host running the VM.
-•	Running a [supported operating system](/articles/azure-arc/servers/prerequisites.md#supported-operating-systems).
-•	Able to connect through the firewall to communicate over the internet, and [these URLs](/articles/azure-arc/servers/network-requirements?tabs=azure-cloud#urls) aren't blocked.
+•	Running a [supported operating system](../servers//prerequisites.md#supported-operating-systems).
+•	Able to connect through the firewall to communicate over the internet, and [these URLs](../servers/network-requirements.md#urls) aren't blocked.
 
 >[!Note]
 > If you're using a Linux VM, the account must not prompt for login on sudo commands. To override the prompt, from a terminal, run `sudo visudo`, and `add <username> ALL=(ALL) NOPASSWD:ALL` at the end of the file. Ensure you replace `<username>`.
@@ -44,3 +45,6 @@ An admin can install agents for multiple machines from the Azure portal if the m
 >[!Note]
 > For Windows VMs, the account must be part of the local administrator group; and for Linux VM, it must be a root account.
 
+## Next steps
+
+[Recover from accidental deletion of resource bridge virtual machine](disaster-recovery.md).
