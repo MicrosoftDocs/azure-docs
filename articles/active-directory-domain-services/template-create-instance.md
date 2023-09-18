@@ -28,7 +28,7 @@ To complete this article, you need the following resources:
     * Make sure that you sign in to your Azure subscription using the [Connect-AzAccount][Connect-AzAccount] cmdlet.
 * Install and configure Azure AD PowerShell.
     * If needed, follow the instructions to [install the Azure AD PowerShell module and connect to Microsoft Entra ID](/powershell/azure/active-directory/install-adv2).
-    * Make sure that you sign in to your Microsoft Entra tenant using the [Connect-Microsoft Entra ID][Connect-AzureAD] cmdlet.
+    * Make sure that you sign in to your Microsoft Entra tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
 * You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Microsoft Entra roles in your tenant to enable Microsoft Entra DS.
 * You need Domain Services Contributor Azure role to create the required Microsoft Entra DS resources.
 
