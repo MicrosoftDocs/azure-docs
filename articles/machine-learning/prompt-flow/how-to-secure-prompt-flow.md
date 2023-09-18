@@ -54,27 +54,25 @@ Workspace managed virtual network is the recommended way to support network isol
 
     :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-rule-non-azure-resources.png" alt-text="Screenshot of user defined outbound rule for non Azure resource." lightbox = "./media/how-to-secure-prompt-flow/outbound-rule-non-azure-resources.png":::
 
+4. In workspace which enable managed VNet, you can only deploy prompt flow to managed online endpoint. You can follow [Secure your managed online endpoints with network isolation](../how-to-secure-kubernetes-inferencing-environment.md) to secure your managed online endpoint.
+
 ## Secure prompt flow use your own virtual network
 
 - To set up Azure Machine Learning related resources as private, see [Secure workspace resources](../how-to-secure-workspace-vnet.md).
 - Meanwhile, you can follow [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md) to make them as private.
+- If you want to deploy prompt flow in workspace which secured by your own virtual network, you can deploy it to AKS cluster which is in the same virtual network. You can follow [Secure your RAG workflows with network isolation](../how-to-secure-rag-workflows.md) to secure your AKS cluster.
 - You can either create private endpoint to the same virtual network or leverage virtual network peering to make them communicate with each other.
 
-## Limitations
+## Known limitations
 
-- Only public access enable storage account is supported. You can't use private storage account now.
+- Only public access enable storage account is supported. You can't use private storage account now. Find workaround here: [Why I can't create or upgrade my flow when I disable public network access of storage account?](./tools-reference/troubleshoot-guidance.md#why-i-cant-create-or-upgrade-my-flow-when-i-disable-public-network-access-of-storage-account)
 - Workspace hub / lean workspace and AI studio don't support bring your own virtual network.
 - Managed online endpoint only supports workspace managed virtual network. If you want to use your own virtual network, you may need one workspace for prompt flow authoring with your virtual network and another workspace for prompt flow deployment using managed online endpoint with workspace managed virtual network.
-
-## FAQ
-
-### Why I can't create or upgrade my flow when I disable public network access of storage account?
-Prompt flow rely on fileshare to store snapshot of flow. Prompt flow didn't support private storage account now. Here are some workarounds you can try:
-- Make the storage account as public access enabled if there is no security concern. 
-- If you are only use UI to authoring promptflow, you can add following flights (flight=PromptFlowCodeFirst=false) to use our old UI.
-- You can use our CLI/SDK to authoring promptflow, CLI/SDK authong didn't rely on fileshare. See [Integrate Prompt Flow with LLM-based application DevOps ](how-to-integrate-with-llm-app-devops.md).
 
 ## Next steps
 
 - [Secure workspace resources](../how-to-secure-workspace-vnet.md)
 - [Workspace managed network isolation](../how-to-managed-network.md)
+- [Secure Azure Kubernetes Service inferencing environment](../how-to-secure-online-endpoint.md)
+- [Secure your managed online endpoints with network isolation](../how-to-secure-kubernetes-inferencing-environment.md)
+- [Secure your RAG workflows with network isolation](../how-to-secure-rag-workflows.md)
