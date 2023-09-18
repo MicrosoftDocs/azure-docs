@@ -27,7 +27,7 @@ Enterprise Agreement and Microsoft Customer Agreement billing readers can view a
 
 These terms and conditions (hereinafter referred to as "terms") govern the limited time offer ("offer") provided by Microsoft to customers purchasing a one or three year Azure Reserved VM Instance in Poland Central between October 1, 2023 (12 AM Pacific Standard Time) – March 31, 2024 (11:59 PM Pacific Standard Time), for any of the following VM series:
 
-| | | | |
+| VM series | VM series | VM series | VM series |
 |---|---|---|---|
 |`B12ms`|`B16ms`|`B1ls`|`B1ms`|
 |`B1s`|`B20ms`|`B2ms`|`B2s`|
@@ -164,7 +164,7 @@ The 67 percent saving is based on one DS1 v2 Azure VM for Linux in the Poland Ce
 
 **Qualifying purchase**  - To be eligible for the limited time offer discount, customers must make a purchase of the one or three-year Azure Reserved Virtual Machine Instances for one of the following qualified VMs in Poland Central between October 1, 2023, and March 31, 2024.
 
-| | | | |
+| VM series | VM series | VM series | VM series |
 |---|---|---|---|
 |`B12ms`|`B16ms`|`B1ls`|`B1ms`|
 |`B1s`|`B20ms`|`B2ms`|`B2s`|
