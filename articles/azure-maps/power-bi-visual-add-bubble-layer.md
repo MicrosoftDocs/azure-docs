@@ -34,11 +34,11 @@ Initially all bubbles have the same fill color. If a field is passed into the **
 >
 > **Bubble size scaling retirement**
 >
-> The **Bubble size scaling** Power BI Visual bubble layer settings were deprecated starting in the September 2023 release of Power BI. You can no longer create reports using these settings, but existing reports will continue to work. It is recomended that you upgrade existing reports that use these settings to the new **range scaling** property. To upgrade to to the new **range scaling** property, select the desired option in the **Range scaling** drop-down list:
+> The Power BI Visual bubble layer **Bubble size scaling** settings were deprecated starting in the September 2023 release of Power BI. You can no longer create reports using these settings, but existing reports will continue to work. It is recomended that you upgrade existing reports that use these settings to the new **range scaling** property. To upgrade to to the new **range scaling** property, select the desired option in the **Range scaling** drop-down list:
 >
 > :::image type="content" source="./media/power-bi-visual/range-scaling-drop-down.png" alt-text="A screenshot of the range scaling drop-down":::
 >
-> For more information on the range scaling option, see the table in the [previous section](#add-a-bubble-layer).
+> For more information on the range scaling settings, see **range scaling** in the [previous section](#add-a-bubble-layer).
 
 If a field is passed into the **Size** bucket of the **Fields** pane, the bubbles are scaled relatively to the measure value of each data point. The **Size** option in the **Bubble layer** section of the **Format** pane disappears when a field is passed into the **Size** bucket, as the bubbles have their radii scaled between a min and max value. The following options appear in the **Bubble layer** section of the **Format** pane when a **Size** bucket has a field specified.
 
