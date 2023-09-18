@@ -1,6 +1,6 @@
 ---
-title: Configure a log analytics workspace in Azure AD
-description: Learn how to configure an Azure AD Log Analytics workspace and run Kusto queries on your identity data.
+title: Configure a log analytics workspace in Microsoft Entra ID
+description: Learn how to configure a Microsoft Entra ID Log Analytics workspace and run Kusto queries on your identity data.
 services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
@@ -29,9 +29,9 @@ In this tutorial, you learn how to:
 
 To analyze activity logs with Log Analytics, you need:
 
-- An Azure AD tenant with a [Premium P1 license](../fundamentals/get-started-premium.md)
+- A Microsoft Entra tenant with a [Premium P1 license](../fundamentals/get-started-premium.md)
 - A Log Analytics workspace *and* access to that workspace
-- The appropriate roles for Azure Monitor *and* Azure AD
+- The appropriate roles for Azure Monitor *and* Microsoft Entra ID
 
 
 Familiarize yourself with these articles:
@@ -40,7 +40,7 @@ Familiarize yourself with these articles:
 
 - [How to integrate activity logs with Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Manage emergency access account in Azure AD](../roles/security-emergency-access.md)
+- [Manage emergency access account in Microsoft Entra ID](../roles/security-emergency-access.md)
 
 - [KQL quick reference](/azure/data-explorer/kql-quick-reference)
 
@@ -93,7 +93,7 @@ To configure Diagnostic settings, you need switch to the Microsoft Entra admin c
 
 1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
 
-1. Search for **Azure Active Directory**.
+1. Search for **Microsoft Entra ID**.
 
 1. Select **Add diagnostic setting**.
 
