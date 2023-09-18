@@ -20,18 +20,18 @@ Learn more about [vulnerability assessment for Azure SQL servers on machines](de
 
 Defender for SQL servers on machines protects your SQL servers hosted in Azure, multicloud, and even on-premises machines.
 
-Learn more about [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+- Learn more about [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
-For on-premises SQL servers, you can learn more about [Azure Arc-enabled SQL Server](/sql/sql-server/azure-arc/overview) and how to [install Log Analytics agent on Windows computers without Azure Arc](../azure-monitor/agents/agent-windows.md).
+- For on-premises SQL servers, you can learn more about [Azure Arc-enabled SQL Server](/sql/sql-server/azure-arc/overview) and how to [install Log Analytics agent on Windows computers without Azure Arc](../azure-monitor/agents/agent-windows.md).
 
-For multicloud SQL servers:
+- For multicloud SQL servers:
 
   - [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
 
   - [Connect your GCP project to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
 
-  > [!NOTE]
-  > You must enable database protection for your multicloud SQL servers through the [AWS connector](quickstart-onboard-aws.md#connect-your-aws-account) or the [GCP connector](quickstart-onboard-gcp.md#configure-the-defender-for-databases-plan).
+    > [!NOTE]
+    > You must enable database protection for your multicloud SQL servers through the [AWS connector](quickstart-onboard-aws.md#connect-your-aws-account) or the [GCP connector](quickstart-onboard-gcp.md#configure-the-defender-for-databases-plan).
 
 ## Availability
 
@@ -46,10 +46,10 @@ For multicloud SQL servers:
 
 The Defender for SQL server on machines plan requires either the Microsoft Monitoring Agent (MMA) or Azure Monitoring Agent (AMA) to prevent attacks and detect misconfigurations. The plan’s autoprovisioning process is automatically enabled with the plan and is responsible for the configuration of all of the agent components required for the plan to function. This includes, installation and configuration of MMA/AMA, workspace configuration and the installation of the plan’s VM extension/solution.
 
-Microsoft Monitoring Agent (MMA) is set to be retired in August 2024. Defender for Cloud [updated its strategy](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) accordingly by releasing a SQL Server-targeted Azure Monitoring Agent autoprovisioning process to replace the current process being deprecated. Learn more about the [autoprovisioning process](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) and how to migrate to it.
+Microsoft Monitoring Agent (MMA) is set to be retired in August 2024. Defender for Cloud [updated its strategy](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) accordingly by releasing a SQL Server-targeted Azure Monitoring Agent autoprovisioning process to replace the current process being deprecated. Learn more about the [autoprovisioning process]**ADD LINK TO NEW PAGE HERE** and how to migrate to it.
 
 > [!NOTE]
-> During the **Azure Monitoring Agent for SQL Server on machines** Preview, customers who are currently using the **Log Analytics agent/Azure Monitor agent** processes with the `Azure Monitor Agent (Preview)` option will be asked to migrate to the new process [Learn more](quickstart-onboard-aws.md#connect-your-aws-account).
+> During the **Azure Monitoring Agent for SQL Server on machines** Preview, customers who are currently using the **Log Analytics agent/Azure Monitor agent** processes with the `Azure Monitor Agent (Preview)` option will be asked to [migrate to the autoprovisioning process]. **ADD LINK TO NEW PAGE HERE**
 
 **To enable the plan**:
 
