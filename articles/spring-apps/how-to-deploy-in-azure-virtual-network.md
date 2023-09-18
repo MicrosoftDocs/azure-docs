@@ -147,7 +147,7 @@ This section shows you to grant Azure Spring Apps the [Owner](../role-based-acce
 > [!NOTE]
 > The minimal required permissions are [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor). You can grant role assignments to both of them if you can't grant `Owner` permission.
 > 
-> If you are using [bring your own route table](#bring-your-own-route-table) or [User Defined Route](how-to-create-user-defined-route-instance.md) feature, you also need to grant Azure Spring Apps the same role assignments to your route tables.
+> If you're using [your own route table](#bring-your-own-route-table) or the [user defined route](how-to-create-user-defined-route-instance.md) feature, you also need to grant Azure Spring Apps the same role assignments to your route tables.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -299,13 +299,14 @@ The route tables to which your custom vnet is associated must meet the following
 
 ## Using Custom DNS Servers
 
-Azure Spring Apps supports using custom DNS servers in you vnet.
+Azure Spring Apps supports using custom DNS servers in your virtual network.
 
-If you do not specify custom DNS servers in your Virtual Networking DNS servers setting, Azure Spring Apps will by default use the Azure DNS to resolve IP addresses. If your virtual network is configured with custom DNS settings, we suggest to add Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server, since Azure DNS can resolve IP addresses for all the public FQDNs mentioned in [Customer responsibilities running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md). It can also resolve IP address for *.svc.private.azuremicroservices.io in your VNET.
+If you don't specify custom DNS servers in your DNS Server Virtual Network setting, Azure Spring Apps will, by default, use the Azure DNS to resolve IP addresses. If your virtual network is configured with custom DNS settings, add Azure DNS IP `168.63.129.16` as the upstream DNS server in the custom DNS server, because Azure DNS can resolve IP addresses for all the public FQDNs mentioned in [Customer responsibilities running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md). It can also resolve IP address for `*.svc.private.azuremicroservices.io` in your virtual network.
 
-If your custom DNS server cannot add Azure DNS IP 168.63.129.16 as the upstream DNS server, then please make sure:
-* Your custom DNS server can resolve IP addresses for all the public FQDNs mentioned in [Customer responsibilities running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md)
-* Add the DNS record *.svc.private.azuremicroservices.io -> the [IP of your application](access-app-virtual-network.md#find-the-ip-for-your-application).
+Use the following steps if your custom DNS server cannot add Azure DNS IP `168.63.129.16` as the upstream DNS server:
+
+* Your custom DNS server can resolve IP addresses for all the public FQDNs mentioned in the [Customer responsibilities running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
+* Add the DNS record `*.svc.private.azuremicroservices.io` to the [IP of your application](access-app-virtual-network.md#find-the-ip-for-your-application).
 
 ## Next steps
 
