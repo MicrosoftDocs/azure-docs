@@ -21,7 +21,7 @@ ms.custom: mode-other, devx-track-arm-template
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, without having credentials in your code.
 
 In this article, using the Azure Resource Manager deployment template, you learn how to perform the following managed identities for Azure resources operations on an Azure VM:
 
@@ -47,7 +47,7 @@ In this section, you will enable and disable a system-assigned managed identity 
 
 ### Enable system-assigned managed identity during creation of an Azure VM or on an existing VM
 
-To enable system-assigned managed identity on a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Azure AD directory role assignments are required.
+To enable system-assigned managed identity on a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Microsoft Entra directory role assignments are required.
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
 
@@ -83,7 +83,7 @@ After you enable a system-assigned managed identity on your VM, you may want to 
 
 ### Disable a system-assigned managed identity from an Azure VM
 
-To remove system-assigned managed identity from a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Azure AD directory role assignments are required.
+To remove system-assigned managed identity from a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Microsoft Entra directory role assignments are required.
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
 
@@ -120,7 +120,7 @@ In this section, you assign a user-assigned managed identity to an Azure VM usin
 
 ### Assign a user-assigned managed identity to an Azure VM
 
-To assign a user-assigned identity to a VM, your account needs the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignment. No other Azure AD directory role assignments are required.
+To assign a user-assigned identity to a VM, your account needs the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignment. No other Microsoft Entra directory role assignments are required.
 
 1. Under the `resources` element, add the following entry to assign a user-assigned managed identity to your VM.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user-assigned managed identity you created.
 
@@ -206,7 +206,7 @@ To assign a user-assigned identity to a VM, your account needs the [Managed Iden
 
 ### Remove a user-assigned managed identity from an Azure VM
 
-To remove a user-assigned identity from a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment. No other Azure AD directory role assignments are required.
+To remove a user-assigned identity from a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment. No other Microsoft Entra directory role assignments are required.
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
 
