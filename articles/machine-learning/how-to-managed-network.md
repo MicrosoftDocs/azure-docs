@@ -1,5 +1,5 @@
 ---
-title: Managed virtual network isolation (preview)
+title: Managed virtual network isolation
 titleSuffix: Azure Machine Learning
 description: Use managed virtual network isolation for network security with Azure Machine Learning.
 services: machine-learning
@@ -13,13 +13,11 @@ ms.topic: how-to
 ms.custom: build-2023, devx-track-azurecli
 ---
 
-# Workspace managed network isolation (preview)
+# Workspace managed network isolation
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Azure Machine Learning provides support for managed virtual network (VNet) isolation. Managed VNet isolation streamlines and automates your network isolation configuration with a built-in, workspace-level Azure Machine Learning managed virtual network.
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Managed virtual network architecture
 
