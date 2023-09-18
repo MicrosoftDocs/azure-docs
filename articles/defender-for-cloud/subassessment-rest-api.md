@@ -4,7 +4,7 @@ title: Container vulnerability assessments powered by Microsoft Defender Vulnera
 description: Learn about container vulnerability assessments powered by Microsoft Defender Vulnerability Management subassessments 
 author: dcurwin
 ms.author: dacurwin
-ms.date: 09/11/2023
+ms.date: 09/18/2023
 ms.topic: how-to
 ---
 
@@ -15,15 +15,15 @@ ms.topic: how-to
 Azure Resource Graph (ARG) provides a REST API that can be used to pragmatically access vulnerability assessment results for both Azure registry and runtime vulnerabilities recommendations.
 Learn more about [ARG references and query examples](/azure/governance/resource-graph/overview).
 
-Azure container registry vulnerabilities sub assessments are published to ARG as part of the security resources. For more information see:
+Azure container registry vulnerabilities sub assessments are published to ARG as part of the security resources. For more information, see:
 - [Security Resources ARG Query Samples](/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-container-registry-vulnerability-assessment-results)
 - [Generic Security Sub Assessment Query](/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-container-registry-vulnerability-assessment-results)
 
-## ARG Query Examples
+## ARG query examples
 
 To pull specific sub assessments, you need the assessment key. For Container vulnerability assessment powered by MDVM the key is `c0b7cfc6-3172-465a-b378-53c7ff2cc0d5`. 
 
-The following is a generic security sub assessment query example which can be used as an example to build queries with. This query pulls the first sub assessment generated in the last hour.
+The following is a generic security sub assessment query example that can be used as an example to build queries with. This query pulls the first sub assessment generated in the last hour.
 ```kql
 securityresources 
 | where type =~ "microsoft.security/assessments/subassessments" and properties.additionalData.assessedResourceType == "AzureContainerRegistryVulnerability"
@@ -32,7 +32,7 @@ securityresources
 | extend timeGenerated = properties.timeGenerated
 | where timeGenerated > ago(1h)
 ```
-### Query Result
+### Query result
 ```json
 [
   {
@@ -187,7 +187,7 @@ securityresources
 
 ### AzureContainerRegistryVulnerability (MDVM)
 
-Additional context fields for Azure container registry vulnerability assessment
+Other context fields for Azure container registry vulnerability assessment
 
 | **Name**             | **Type**                                     | **Description**               |
 | -------------------- | -------------------------------------------- | ----------------------------- |
