@@ -1,11 +1,11 @@
 ---
 title: Manage authentication in Service Connector
 description: Learn how to select and manage authentication parameters in Service Connector. 
-author: mcleanbyron
+author: maud-lv
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 03/07/2023
-ms.author: mcleans
+ms.author: malev
 ---
 
 # Manage authentication within Service Connector
