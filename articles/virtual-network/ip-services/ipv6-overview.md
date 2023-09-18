@@ -2,12 +2,12 @@
 title: Overview of IPv6 for Azure Virtual Network
 description: IPv6 description of IPv6 endpoints and data paths in an Azure virtual network.
 services: virtual-network
-author: asudbring
+author: mbender-ms
+ms.author: mbender
+ms.date: 08/24/2023
 ms.service: virtual-network
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 05/03/2023
-ms.author: allensu
 ---
 
 # What is IPv6 for Azure Virtual Network?
@@ -104,13 +104,13 @@ The current IPv6 for Azure Virtual Network release has the following limitations
 
 - While it's possible to create NSG rules for IPv4 and IPv6 within the same NSG, it isn't currently possible to combine an IPv4 subnet with an IPv6 subnet in the same rule when specifying IP prefixes.
 
-- When using a dual stack configuration with a load balancer, health probes will not function for IPv6 if a Network Security Group is not active.
+- When using a dual stack configuration with a load balancer, health probes won't function for IPv6 if a Network Security Group isn't active.
 
 - ICMPv6 isn't currently supported in Network Security Groups.
 
 - Azure Virtual WAN currently supports IPv4 traffic only.
 
-- Azure Firewall doesn't currently support IPv6. It can operate in a dual stack VNet using only IPv4, but the firewall subnet must be IPv4-only.
+- Azure Firewall doesn't currently support IPv6. It can operate in a dual stack virtual network using only IPv4, but the firewall subnet must be IPv4-only.
 
 ## Pricing
 

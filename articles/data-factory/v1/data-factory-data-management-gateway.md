@@ -494,12 +494,12 @@ This section describes how to create and register a gateway using Azure PowerShe
 3. Use the **New-AzDataFactoryGateway** cmdlet to create a logical gateway as follows:
 
     ```powershell
-    $MyDMG = New-AzDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+    $MyDMG = New-AzDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF -Description <desc>
     ```
     **Example command and output**:
 
     ```
-    PS C:\> $MyDMG = New-AzDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description "gateway for walkthrough"
+    PS C:\> $MyDMG = New-AzDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF -Description "gateway for walkthrough"
 
     Name              : MyGateway
     Description       : gateway for walkthrough

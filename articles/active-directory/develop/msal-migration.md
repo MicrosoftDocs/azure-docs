@@ -36,7 +36,7 @@ The following diagram shows the v2.0 vs v1.0 endpoint experience at a high level
 
 MSAL leverages all the [benefits of Microsoft identity platform (v2.0) endpoint](../azuread-dev/azure-ad-endpoint-comparison.md).
 
-MSAL is designed to enable a secure solution without developers having to worry about the implementation details. It simplifies and manages acquiring, managing, caching, and refreshing tokens, and uses best practices for resilience. We recommend you use MSAL to [increase the resilience of authentication and authorization in client applications that you develop](../fundamentals/resilience-client-app.md?tabs=csharp#use-the-microsoft-authentication-library-msal).
+MSAL is designed to enable a secure solution without developers having to worry about the implementation details. It simplifies and manages acquiring, managing, caching, and refreshing tokens, and uses best practices for resilience. We recommend you use MSAL to [increase the resilience of authentication and authorization in client applications that you develop](../architecture/resilience-client-app.md?tabs=csharp#use-the-microsoft-authentication-library-msal).
 
 MSAL provides multiple benefits over ADAL, including the following features: 
 
@@ -74,7 +74,7 @@ If you need to continue using AD FS, you should upgrade to AD FS 2019 or later b
 ## How to migrate to MSAL
 
 Before you start the migration, you need to identify which of your apps are using ADAL for authentication. Follow the steps in this article to get a list by using the Azure portal:
-- [How to: Get a complete list of apps using ADAL in your tenant](howto-get-list-of-all-active-directory-auth-library-apps.md)
+- [How to: Get a complete list of apps using ADAL in your tenant](./howto-get-list-of-all-auth-library-apps.md)
 
 After identifying applications that use ADAL, migrate them to MSAL depending on your app type:
 
@@ -85,11 +85,11 @@ MSAL Supports a wide range of application types and scenarios. Refer to [Microso
 ADAL to MSAL migration guide for different platforms are available in the following links:
 
 - [Migrate to MSAL iOS and macOS](migrate-objc-adal-msal.md)
-- [Migrate to MSAL Java](migrate-adal-msal-java.md)
+- [Migrate to MSAL Java](/entra/msal/java/advanced/migrate-adal-msal-java)
 - [Migrate to MSAL.js](msal-compare-msal-js-and-adal-js.md)
 - [Migrate to MSAL .NET](msal-net-migration.md)
 - [Migrate to MSAL Node](msal-node-migration.md)
-- [Migrate to MSAL Python](migrate-python-adal-msal.md)   
+- [Migrate to MSAL Python](/entra/msal/python/advanced/migrate-python-adal-msal)   
 
 ## Migration help
 

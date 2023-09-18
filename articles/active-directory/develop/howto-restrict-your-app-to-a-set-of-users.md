@@ -39,12 +39,11 @@ The option to restrict an app to a specific set of users, apps or security group
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To update an application to require user assignment, you must be owner of the application under Enterprise apps, or be assigned one of **Global administrator**, **Application administrator**, or **Cloud application administrator** directory roles.
+To update an application to require user assignment, you must be owner of the application under Enterprise apps, or be at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch the tenant in which you want to register an application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **Enterprise Applications** then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant that contains the app registration to which you want to add an app role.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**, then select **All applications**.
 1. Select the application you want to configure to require assignment. Use the filters at the top of the window to search for a specific application.
 1. On the application's **Overview** page, under **Manage**, select **Properties**.
 1. Locate the setting **Assignment required?** and set it to **Yes**. When this option is set to **Yes**, users and services attempting to access the application or services must first be assigned for this application, or they won't be able to sign-in or obtain an access token.
@@ -102,6 +101,6 @@ Follow the steps in this section to secure app-to-app authentication access for 
 
 For more information about roles and security groups, see:
 
-- [How to: Add app roles in your application](./howto-add-app-roles-in-azure-ad-apps.md)
+- [How to: Add app roles in your application](./howto-add-app-roles-in-apps.md)
 - [Using Security Groups and Application Roles in your apps (Video)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory app manifest](./reference-app-manifest.md)

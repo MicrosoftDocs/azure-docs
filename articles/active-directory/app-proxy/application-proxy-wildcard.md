@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -161,7 +161,7 @@ The configuration implements the following structure:
 
 | Color | Description |
 | ---   | ---         |
-| Blue  | Applications explicitly published and visible in the Azure portal. |
+| Blue  | Applications explicitly published and visible in the Microsoft Entra admin center. |
 | Gray  | Applications you can accessible through the parent application. |
 
 ## Scenario 2: General wildcard application with exception

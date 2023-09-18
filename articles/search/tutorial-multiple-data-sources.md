@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/29/2022
-ms.custom: devx-track-csharp, ignite-2022, devx-track-dotnet
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Tutorial: Index from multiple data sources using the .NET SDK
@@ -35,9 +35,9 @@ This tutorial uses [Azure.Search.Documents](/dotnet/api/overview/azure/search) t
 
 A finished version of the code in this tutorial can be found in the following project:
 
-* [multiple-data-sources/v11 (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/master/multiple-data-sources/v11)
+* [multiple-data-sources/v11 (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/multiple-data-sources/v11)
 
-For an earlier version of the .NET SDK, see [Microsoft.Azure.Search (version 10) code sample](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/master/multiple-data-sources/v10) on GitHub.
+For an earlier version of the .NET SDK, see [Microsoft.Azure.Search (version 10) code sample](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/multiple-data-sources/v10) on GitHub.
 
 ## Prerequisites
 

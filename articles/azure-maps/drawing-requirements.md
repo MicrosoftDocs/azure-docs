@@ -36,7 +36,7 @@ For easy reference, here are some terms and definitions that are important as yo
 | Xref  | A file in AutoCAD DWG file format, attached to the primary drawing as an external reference.  |
 | Level | An area of a building at a set elevation. For example, the floor of a building. |
 |Feature| An instance of an object produced from the Conversion service that combines a geometry with metadata information. |
-|Feature classes| A common blueprint for features. For example, a *unit* is a feature class, and an *office* is a feature. |
+|Feature classes| A common blueprint for features. For example, a _unit_ is a feature class, and an _office_ is a feature. |
 
 ## Drawing package structure
 
@@ -58,7 +58,7 @@ The [Conversion service] does the following on each DWG file:
   - Openings
   - Walls
   - Vertical penetrations
-- Produces a *Facility* feature.  
+- Produces a _Facility_ feature.  
 - Produces a minimal set of default Category features referenced by other features:
   - room
   - structure
@@ -103,7 +103,7 @@ The following sections describe the requirements for each layer.
 
 ### Exterior layer
 
-The DWG file for each level must contain a layer to define that level's perimeter. This layer is referred to as the *exterior* layer. For example, if a facility contains two levels, then it needs to have two DWG files, with an exterior layer for each file.
+The DWG file for each level must contain a layer to define that level's perimeter. This layer is referred to as the _exterior_ layer. For example, if a facility contains two levels, then it needs to have two DWG files, with an exterior layer for each file.
 
 No matter how many entity drawings are in the exterior layer, the [resulting facility dataset](tutorial-creator-feature-stateset.md) contains only one level feature for each DWG file. Additionally:
 
@@ -183,8 +183,6 @@ You can see an example of the ZoneLabel layer in the [sample drawing package].
 ## Manifest file requirements
 
 The zip folder must contain a manifest file at the root level of the directory, and the file must be named **manifest.json**. It describes the DWG files to allow the [Conversion service] to parse their content. Only the files identified by the manifest are ingested. Files that are in the zip folder, but aren't properly listed in the manifest, are ignored.
-
-The file paths in the `buildingLevels` object of the manifest file must be relative to the root of the zip folder. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level is "Basement.dwg." A DWG file for level 2 is named as "level_2.dwg." Use an underscore, if your level name has a space.
 
 Although there are requirements when you use the manifest objects, not all objects are required. The following table shows the required and optional objects for version 1.1 of the [Conversion service].
 
@@ -454,7 +452,7 @@ For easy reference, here are some terms and definitions that are important as yo
 A drawing package is a ZIP archive that contains the following files:
 
 - DWG files in AutoCAD DWG file format.
-- A *manifest.json* file that describes the DWG files in the drawing package.
+- A _manifest.json_ file that describes the DWG files in the drawing package.
 
 The drawing package must be compressed into a single archive file, with the .zip extension. The DWG files can be organized in any way inside the drawing package, but the manifest file must be in the root directory. The next sections explain the conversion process and requirements for both the DWG and manifest files, and the content of these files. To view a sample package, you can download the [sample drawing package v2].
 
@@ -475,7 +473,7 @@ Each DWG file must adhere to these requirements:
 
 - The DWG file can't contain features from multiple facilities.
 - The DWG file can't contain features from multiple levels. For example, a facility with three levels has three DWG files in the drawing package.
-- All data of a single level must be contained in a single DWG file. Any external references (*xrefs*) must be bound to the parent drawing.
+- All data of a single level must be contained in a single DWG file. Any external references (_xrefs_) must be bound to the parent drawing.
 - The DWG file must define layer(s) representing the boundary of that level.
 - The DWG must reference the same measurement system and unit of measurement as other DWG files in the drawing package.
 - The DWG file must be aligned when stacked on top of another level from the same facility.
@@ -519,7 +517,7 @@ You can see an example of the Level perimeter layer as the `GROS$` layer in the�
 The drawing package must contain a manifest file at the root level and the file must be named **manifest.json**. It describes the DWG files
 allowing the  [Conversion service] to parse their content. Only the files identified by the manifest are used. Files that are in the drawing package, but aren't properly listed in the manifest, are ignored.
 
-The file paths in the buildingLevels object of the manifest file must be relative to the root of the drawing package. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level is *Basement.dwg*. A DWG file for level 2 is named as *level_2.dwg*. Filenames can't contain spaces, you can use an underscore to replace any spaces.
+The file paths in the buildingLevels object of the manifest file must be relative to the root of the drawing package. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level is _Basement.dwg_. A DWG file for level 2 is named as _level_2.dwg_. Filenames can't contain spaces, you can use an underscore to replace any spaces.
 
 Although there are requirements when you use the manifest objects, not all objects are required. The following table shows the required and optional objects for the 2023-03-01-preview [Conversion service].
 
@@ -530,7 +528,7 @@ Although there are requirements when you use the manifest objects, not all objec
 
 | Property       | Type                          | Required | Description                                                                             |
 |----------------|-------------------------------|----------|-----------------------------------------------------------------------------------------|
-| `version`      | number                        | TRUE     | Manifest schema version. Currently version 2.0                                          |
+| `version`      | string                        | TRUE     | Manifest schema version. Currently version "2.0"                                        |
 |`buildingLevels`| [BuildingLevels] object       | TRUE     | Specifies the levels of the facility and the files containing the design of the levels. |
 |`featureClasses`|Array of [featureClass] objects| TRUE     | List of feature class objects that define how layers are read from the DWG drawing file.|
 | `georeference` |[Georeference] object          | FALSE    | Contains numerical geographic information for the facility drawing.                     |
@@ -560,7 +558,7 @@ The next sections detail the requirements for each object.
 |------------------------|-------------------------------|----------|---------------------------------------------|
 | `dwgLayers`| Array of strings| TRUE| The name of each layer that defines the feature class. Each entity on the specified layer is converted to an instance of the feature class. The `dwgLayer` name that a feature is converted from ends up as a property of that feature. |
 | `featureClassName`     | String                        | TRUE     | The name of the feature class. Typical examples include room, workspace or wall.|
-|`featureClassProperties`| Array of [featureClassProperty] objects | TRUE | Specifies text layers in the DWG file associated to the feature as a property. For example, a label that falls inside the bounds of a space, such as a room number.|
+|`featureClassProperties`| Array of [featureClassProperty] objects | FALSE | Specifies text layers in the DWG file associated to the feature as a property. For example, a label that falls inside the bounds of a space, such as a room number.|
 
 #### featureClassProperty
 

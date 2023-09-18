@@ -2,7 +2,7 @@
 title: Azure Active Directory deployment plans
 description: Guidance on Azure Active Directory deployment, such as authentication, devices, hybrid scenarios, governance, and more.
 services: active-directory
-author: gargisinha
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -77,14 +77,14 @@ Use the following list to help deploy applications and devices.
 The following list describes features and services for productivity gains in hybrid scenarios.
 
 * **Active Directory Federation Services (AD FS)** - Migrate user authentication from federation to cloud with pass-through authentication or password hash sync:
-  *  See, [What is federation with Azure AD?](../hybrid/whatis-fed.md)
-  *  See, [Migrate from federation to cloud authentication](../hybrid/migrate-from-federation-to-cloud-authentication.md)
+  *  See, [What is federation with Azure AD?](../hybrid/connect/whatis-fed.md)
+  *  See, [Migrate from federation to cloud authentication](../hybrid/connect/migrate-from-federation-to-cloud-authentication.md)
 * **Azure AD Application Proxy** - Enable employees to be productive at any place or time, and from a device. Learn about software as a service (SaaS) apps in the cloud and corporate apps on-premises. Azure AD Application Proxy enables access without virtual private networks (VPNs) or demilitarized zones (DMZs):
   * See, [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy.md)
   * See, [Plan an Azure AD Application Proxy deployment](../app-proxy/application-proxy-deployment-plan.md)
 * **Seamless single sign-on (Seamless SSO)** - Use Seamless SSO for user sign-in, on corporate devices connected to a corporate network. Users don't need to enter passwords to sign in to Azure AD, and usually don't need to enter usernames. Authorized users access cloud-based apps without extra on-premises components:
-  * See, [Azure Active Directory SSO: Quickstart](../hybrid/how-to-connect-sso-quick-start.md) 
-  * See, [Azure Active Directory Seamless SSO: Technical deep dive](../hybrid/how-to-connect-sso-how-it-works.md)
+  * See, [Azure Active Directory SSO: Quickstart](../hybrid/connect/how-to-connect-sso-quick-start.md) 
+  * See, [Azure Active Directory Seamless SSO: Technical deep dive](../hybrid/connect/how-to-connect-sso-how-it-works.md)
 
 ## Users
 

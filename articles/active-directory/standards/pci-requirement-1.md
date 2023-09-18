@@ -31,7 +31,7 @@ ms.collection:
 
 |PCI-DSS Defined approach requirements|Azure AD guidance and recommendations|
 |-|-|
-|**1.2.1** Configuration standards for NSC rulesets are: </br> Defined </br> Implemented </br> Maintained|Integrate access technologies such as VPN, remote desktop, and network access points with Azure AD for authentication and authorization, if the access technologies support modern authentication. Ensure NSC standards, which pertain to identity-related controls, include definition of Conditional Access policies, application assignment, access reviews, group management, credential policies, etc. [Azure AD operations reference guide](../fundamentals/ops-guide-intro.md)|
+|**1.2.1** Configuration standards for NSC rulesets are: </br> Defined </br> Implemented </br> Maintained|Integrate access technologies such as VPN, remote desktop, and network access points with Azure AD for authentication and authorization, if the access technologies support modern authentication. Ensure NSC standards, which pertain to identity-related controls, include definition of Conditional Access policies, application assignment, access reviews, group management, credential policies, etc. [Azure AD operations reference guide](../architecture/ops-guide-intro.md)|
 |**1.2.2** All changes to network connections and to configurations of NSCs are approved and managed in accordance with the change control process defined at Requirement 6.5.1|Not applicable to Azure AD.|
 |**1.2.3** An accurate network diagram(s) is maintained that shows all connections between the cardholder data environment (CDE) and other networks, including any wireless networks.|Not applicable to Azure AD.|
 |**1.2.4** An accurate data-flow diagram(s) is maintained that meets the following: </br> Shows all account data flows across systems and networks. </br> Updated as needed upon changes to the environment.|Not applicable to Azure AD.|
@@ -80,4 +80,3 @@ To configure Azure AD to comply with PCI-DSS, see the following articles.
 * [Requirement 10: Log and Monitor All Access to System Components and Cardholder Data](pci-requirement-10.md)
 * [Requirement 11: Test Security of Systems and Networks Regularly](pci-requirement-11.md)
 * [Azure AD PCI-DSS Multi-Factor Authentication guidance](pci-dss-mfa.md)
-

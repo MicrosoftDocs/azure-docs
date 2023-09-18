@@ -83,7 +83,7 @@ After scaling limits were tested with SLOB2, tests were conducted with a real-wo
 
 This database has significant extra IO going on in addition to the application workload due to flashback being enabled and has a database block size of 16k. From the IO profile section of the AWR report, it's apparent that there is a heavy ratio of writes in comparison to reads.
 
-| | Read and write per second | Read per second | Write per second |
+| - | Read and write per second | Read per second | Write per second |
 | - | -- | -- | -- |
 | Total (MB) | 4,988.1 | 1,395.2 | 3,592.9 | 
 
@@ -216,7 +216,7 @@ All Oracle required system configuration settings for version 19c were implement
 
 The following parameters were added to the `/etc/sysctl.conf` Linux system file: 
 * `sunrpc.max_tcp_slot_table_entries: 128`
-* `sunrpc.tcp_slot_table_entries = 128 ` 
+* `sunrpc.tcp_slot_table_entries = 128` 
 
 ### Azure NetApp Files 
 
@@ -362,6 +362,6 @@ Microsoft Oracle subject matter experts have estimated that more than 80% of Ora
 * [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545) 
 * [Solution architectures using Azure NetApp Files - Oracle](azure-netapp-files-solution-architectures.md#oracle)
 * [Design and implement an Oracle database in Azure](../virtual-machines/workloads/oracle/oracle-design.md)
-* [Estimate Tool for Sizing Oracle Workloads to Azure IaaS VMs ](https://techcommunity.microsoft.com/t5/data-architecture-blog/estimate-tool-for-sizing-oracle-workloads-to-azure-iaas-vms/ba-p/1427183) 
+* [Estimate Tool for Sizing Oracle Workloads to Azure IaaS VMs](https://techcommunity.microsoft.com/t5/data-architecture-blog/estimate-tool-for-sizing-oracle-workloads-to-azure-iaas-vms/ba-p/1427183) 
 * [Reference architectures for Oracle Database Enterprise Edition on Azure](../virtual-machines/workloads/oracle/oracle-reference-architecture.md) 
 * [Understand Azure NetApp Files application volumes groups for SAP HANA](application-volume-group-introduction.md)

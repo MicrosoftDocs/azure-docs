@@ -5,7 +5,7 @@ description: Topic that shows how to configure Azure AD certificate-based authen
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -13,7 +13,7 @@ manager: amycolannino
 ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, has-azure-ad-ps-ref
 ---
 # How to configure Azure AD certificate-based authentication
 
@@ -36,6 +36,10 @@ Make sure that the following prerequisites are in place:
 >[!IMPORTANT]
 >Make sure the PKI is secure and can't be easily compromised. In the event of a compromise, the attacker can create and sign client certificates and compromise any user in the tenant, both users whom are synchronized from on-premises and cloud-only users. However, a strong key protection strategy, along with other physical and logical controls, such as HSM activation cards or tokens for the secure storage of artifacts, can provide defense-in-depth to prevent external attackers or insider threats from compromising the integrity of the PKI. For more information, see [Securing PKI](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11)).
 
+>[!IMPORTANT]
+>Please visit the [Microsoft recommendations](/security/sdl/cryptographic-recommendations#security-protocol-algorithm-and-key-length-recommendations) for best practices for Microsoft Cryptographic involving algorithm choice, key length and data protection. Please make sure to use one of the recommended algorithms, key length and NIST approved curves.
+
+
 >[!NOTE]
 >When evaluating a PKI, it is important to review certificate issuance policies and enforcement. As mentioned, adding certificate authorities (CAs) to Azure AD configuration allows certificates issued by those CAs to authenticate any user in Azure AD. For this reason, it is important to consider how and when the CAs are allowed to issue certificates, and how they implement reusable identifiers. Where administrators need to ensure only a specific certificate is able to be used to authenticate a user, admins should exclusively use high-affinity bindings to achieve a higher level of assurance that only a specific certificate is able to authenticate the user. For more information, see [high-affinity bindings](concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-username-binding-policy).
 
@@ -49,16 +53,16 @@ Optionally, you can also configure authentication bindings to map certificates t
 
 ## Step 1: Configure the certification authorities
 
-You can configure CAs by using the Azure portal or PowerShell.
+You can configure CAs by using the Microsoft Entra admin center or PowerShell.
 
-### Configure certification authorities using the Azure portal
+### Configure certification authorities using the Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To enable the certificate-based authentication and configure user bindings in the Azure portal, complete the following steps:
+To enable the certificate-based authentication and configure user bindings in the Microsoft Entra admin center, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
-1. Click **Azure Active Directory** > **Security**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Certifacte-based authentication**.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/certificate-authorities.png" alt-text="Screenshot of certification authorities.":::
 
@@ -140,11 +144,10 @@ For more information, see [Understanding the certificate revocation process](./c
 >[!IMPORTANT]
 >A user is considered capable for **MFA** when the user is in scope for **Certificate-based authentication** in the Authentication methods policy. This policy requirement means a user can't use proof up as part of their authentication to register other available methods. If the users do not have access to certificates they will be locked out and not be able to register other methods for MFA. So the admin needs to enable users who have a valid certificate into the CBA scope. Do not use all users for CBA target and use groups of users who have valid certificates available. For more information, see [Azure AD MFA](concept-mfa-howitworks.md).
 
-To enable the certificate-based authentication in the Azure portal, complete the following steps:
+To enable the certificate-based authentication in the Microsoft Entra admin center, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Authentication Policy Administrator.
-1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
-1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Certificate-based Authentication**.
 1. Under **Enable and Target**, click **Enable**.
 1. Click **All users**, or click **Add groups** to select specific groups.
 
@@ -160,11 +163,10 @@ Once certificate-based authentication is enabled on the tenant, all users in the
 
 The authentication binding policy helps determine the strength of authentication to either a single factor or multi factor. An admin can change the default value from single-factor to multifactor and configure custom policy rules by mapping to issuer Subject or policy OID fields in the certificate.
 
-To enable Azure AD CBA and configure user bindings in the Azure portal, complete the following steps:
+To enable Azure AD CBA and configure user bindings in the Microsoft Entra admin center, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Authentication Policy Administrator.
-1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
-1. Click **Authentication methods** > **Policies**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Policies**.
 1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/policy.png" alt-text="Screenshot of Authentication policy.":::
@@ -387,7 +389,7 @@ To enable CBA and configure username bindings using Graph API, complete the foll
 - [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)   
 - [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
 - [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
-- [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
+- [Azure AD CBA on mobile devices (Android and iOS)](./concept-certificate-based-authentication-mobile-ios.md)
 - [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)

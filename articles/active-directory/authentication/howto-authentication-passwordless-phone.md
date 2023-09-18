@@ -6,8 +6,9 @@ description: Enable passwordless sign-in to Azure AD using Microsoft Authenticat
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 05/16/2023
+ms.date: 09/13/2023
 
 
 ms.author: justinha
@@ -64,8 +65,8 @@ Azure AD lets you choose which authentication methods can be used during the sig
 
 To enable the authentication method for passwordless phone sign-in, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an *Authentication Policy Administrator* account.
-1. Search for and select *Azure Active Directory*, then browse to **Security** > **Authentication methods** > **Policies**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Policies**.
 1. Under **Microsoft Authenticator**, choose the following options:
    1. **Enable** - Yes or No
    1. **Target** - All users or Select users

@@ -3,7 +3,8 @@ title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster to get the latest features and security updates.
 ms.topic: article
 ms.custom: event-tier1-build-2022, devx-track-azurecli
-ms.date: 05/22/2023
+ms.date: 09/14/2023
+
 ---
 
 # Upgrade an Azure Kubernetes Service (AKS) cluster
@@ -257,9 +258,9 @@ After receiving the error message, you have two options to mitigate the issue. Y
 
 1. In the Azure portal, navigate to your cluster's overview page, and select **Diagnose and solve problems**.
 
-2. Navigate to the **Known Issues, Availability and Performance** category, and select **Selected Kubernetes API deprecations**.
+2. Navigate to the **Create, Upgrade, Delete and Scale** category, and select **Kubernetes API deprecations**.
 
-    :::image type="content" source="./media/upgrade-cluster/applens-api-detection-inline.png" lightbox="./media/upgrade-cluster/applens-api-detection-full.png" alt-text="A screenshot of the Azure portal showing the 'Selected Kubernetes API deprecations' section.":::
+    :::image type="content" source="./media/upgrade-cluster/applens-api-detection-full-v2.png" alt-text="A screenshot of the Azure portal showing the 'Selected Kubernetes API deprecations' section.":::
 
 3. Wait 12 hours from the time the last deprecated API usage was seen. Check the verb in the deprecated api usage to know if it is a [watch][k8s-api].
 
@@ -357,7 +358,7 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [upgrade-cluster]:  #upgrade-an-aks-cluster
 [planned-maintenance]: planned-maintenance.md
 [aks-auto-upgrade]: auto-upgrade-cluster.md

@@ -33,9 +33,11 @@ The general media delivery or video-on-demand media delivery optimization types 
 Partial cache sharing allows the CDN to serve partially cached content to new requests. For example, if the first request to the CDN results in a cache miss, the request is sent to the origin. Although this incomplete content is loaded into the CDN cache, other requests to the CDN can start getting this data. 
 
 
-## Media streaming optimizations for Azure CDN from Verizon
+<a name='media-streaming-optimizations-for-azure-cdn-from-verizon'></a>
 
-**Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** endpoints deliver streaming media assets directly by using the general web delivery optimization type. A few features on the CDN directly help delivering media assets by default.
+## Media streaming optimizations for Azure CDN from Edgio
+
+**Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** endpoints deliver streaming media assets directly by using the general web delivery optimization type. A few features on the CDN directly help delivering media assets by default.
 
 ### Partial cache sharing
 

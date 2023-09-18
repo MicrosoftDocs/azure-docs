@@ -5,8 +5,8 @@ author: AnuragMehrotra
 ms.author: anuragm
 ms.manager: vijain
 ms.topic: how-to
-ms.date: 07/17/2023
-ms.custom: engagement-fy23
+ms.date: 08/30/2023
+ms.custom: engagement-fy24
 ---
 
 # Azure Migrate Windows Server upgrade (Preview)  
@@ -20,8 +20,9 @@ This article describes how to upgrade Windows Server OS while migrating to Azure
 
 - Ensure you have an existing Migrate project or [create](create-manage-projects.md) a project. 
 - Ensure you have discovered the servers according to [Discover servers in VMware environment](tutorial-discover-vmware.md) and replicated the servers as described in [Migrate VMware VMs](tutorial-migrate-vmware.md#replicate-vms). 
-- Verify the operating system disk has enough [free space](https://learn.microsoft.com/windows-server/get-started/hardware-requirements#storage-controller-and-disk-space-requirements) to perform the in-place upgrade. The minimum disk space requirement is 32 GB.   
-- The upgrade feature only works for Windows Server Standard and Datacenter editions. 
+- Verify the operating system disk has enough [free space](/windows-server/get-started/hardware-requirements#storage-controller-and-disk-space-requirements) to perform the in-place upgrade. The minimum disk space requirement is 32 GB.   
+- The upgrade feature only works for Windows Server Standard and Datacenter editions.
+- The upgrade feature does not work for non en-US language servers. 
 - This feature does not work for Windows Server with an evaluation license and needs a full license. If you have any server with an evaluation license, upgrade to full edition before starting migration to Azure.
 - Disable antivirus and anti-spyware software and firewalls. These types of software can conflict with the upgrade process. Re-enable antivirus and anti-spyware software and firewalls after the upgrade is completed.  
 - Ensure that your VM has the capability of adding another data disk as this feature requires the addition of an extra data disk temporarily for a seamless upgrade experience. 
@@ -107,6 +108,6 @@ After you've verified that the test migration works as expected, you can migrate
 
 ## Next steps 
 
-Investigate the [cloud migration journey](https://learn.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework. 
+Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework. 
 
  

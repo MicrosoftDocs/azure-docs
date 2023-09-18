@@ -40,7 +40,7 @@ For an overview of the feature, view this "Azure Active Directory: What is Stage
     
     For both options, we recommend enabling single sign-on (SSO) to achieve a silent sign-in experience. 
     For Windows 7 or 8.1 domain-joined devices, we recommend using seamless SSO. For more information, see [What is seamless SSO](how-to-connect-sso.md). 
-    For Windows 10, Windows Server 2016 and later versions, it’s recommended to use SSO via [Primary Refresh Token (PRT)](../../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../../devices/concept-directory-join.md), [hybrid Azure AD joined devices](../../devices/concept-hybrid-join.md) or [personal registered devices](../../devices/concept-device-registration.md) via Add Work or School Account.
+    For Windows 10, Windows Server 2016 and later versions, it's recommended to use SSO via [Primary Refresh Token (PRT)](../../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../../devices/concept-directory-join.md), [hybrid Azure AD joined devices](../../devices/concept-hybrid-join.md) or [personal registered devices](../../devices/concept-device-registration.md) via Add Work or School Account.
 
 -   You have configured all the appropriate tenant-branding and Conditional Access policies you need for users who are being migrated to cloud authentication.
 
@@ -63,7 +63,7 @@ The following scenarios are supported for Staged Rollout. The feature works only
 
 - Group size is currently limited to 50,000 users.  If you have groups that are larger than 50,000 users, it is recommended to split this group over multiple groups for Staged Rollout.
 
-- Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition without line-of-sight to the federation server for Windows 10 version 1903 and newer, when user’s UPN is routable and domain suffix is verified in Azure AD.
+- Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition without line-of-sight to the federation server for Windows 10 version 1903 and newer, when user's UPN is routable and domain suffix is verified in Azure AD.
 
 - Autopilot enrollment is supported in Staged Rollout with Windows 10 version 1909 or later. 
 
@@ -90,7 +90,7 @@ The following scenarios are not supported for Staged Rollout:
 
 - Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition for Windows 10 version older than 1903. This scenario will fall back to the WS-Trust endpoint of the federation server, even if the user signing in is in scope of Staged Rollout.
 
-- Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition for all versions, when user’s on-premises UPN is not routable. This scenario will fall back to the WS-Trust endpoint while in Staged Rollout mode, but will stop working when staged migration is complete and user sign-on is no longer relying on federation server.
+- Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition for all versions, when user's on-premises UPN is not routable. This scenario will fall back to the WS-Trust endpoint while in Staged Rollout mode, but will stop working when staged migration is complete and user sign-on is no longer relying on federation server.
 
 - If you have a non-persistent VDI setup with Windows 10, version 1903 or later, you must remain on a federated domain. Moving to a managed domain isn't supported on non-persistent VDI. For more information, see [Device identity and desktop virtualization](../../devices/howto-device-identity-virtual-desktop-infrastructure.md).
 
@@ -177,15 +177,12 @@ You can roll out these options:
 
 To configure Staged Rollout, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) in the User Administrator role for the organization.
-
-1. Search for and select **Azure Active Directory**.
-
-1. From the left menu, select **Azure AD Connect**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
+2. Browse to **Identity** > **Hybrid management** > **Azure AD Connect** > **Connect sync**.
 
 1. On the *Azure AD Connect* page, under the *Staged rollout of cloud authentication*, select the **Enable staged rollout for managed user sign-in** link. 
 
-1. On the *Enable staged rollout feature* page, select the options you want to enable: [Password Hash Sync](./whatis-phs.md), [Pass-through authentication](./how-to-connect-pta.md), [Seamless single sign-on](./how-to-connect-sso.md), or [Certificate-based Authentication](../../authentication/active-directory-certificate-based-authentication-get-started.md). For example, if you want to enable **Password Hash Sync** and **Seamless single sign-on**, slide both controls to **On**.
+1. On the *Enable staged rollout feature* page, select the options you want to enable: [Password Hash Sync](./whatis-phs.md), [Pass-through authentication](./how-to-connect-pta.md), [Seamless single sign-on](./how-to-connect-sso.md), or [Certificate-based Authentication](../../authentication/certificate-based-authentication-federation-get-started.md). For example, if you want to enable **Password Hash Sync** and **Seamless single sign-on**, slide both controls to **On**.
 
 1. Add groups to the features you selected. For example, *pass-through authentication* and *seamless SSO*. To avoid a time-out, ensure that the security groups contain no more than 200 members initially.
 
@@ -249,7 +246,7 @@ To test sign-in with *seamless SSO*:
     >While users are in Staged Rollout with PHS, changing passwords might take up to 2 minutes to take effect due to sync time. Make sure to set expectations with your users to avoid helpdesk calls after they changed their password.
 
 ## Monitoring
-You can monitor the users and groups added or removed from Staged Rollout and users sign-ins while in Staged Rollout, using the new Hybrid Auth workbooks in the Azure portal.
+You can monitor the users and groups added or removed from Staged Rollout and users sign-ins while in Staged Rollout, using the new Hybrid Auth workbooks in the [Microsoft Entra admin center](https://entra.microsoft.com).
 
  ![Hybrid Auth workbooks](./media/how-to-connect-staged-rollout/staged-13.png)
 
@@ -272,7 +269,7 @@ A: No, this feature is designed for testing cloud authentication. After successf
 A: Yes. To learn how to use PowerShell to perform Staged Rollout, see [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout).
 
 ## Next steps
-- [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
+- [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout)
 - [Change the sign-in method to password hash synchronization](./migrate-from-federation-to-cloud-authentication.md)
 - [Change sign-in method to pass-through authentication](./migrate-from-federation-to-cloud-authentication.md)
 - [Staged Rollout interactive guide](https://mslearn.cloudguides.com/en-us/guides/Test%20migration%20to%20cloud%20authentication%20using%20staged%20rollout%20in%20Azure%20AD)

@@ -1,7 +1,7 @@
 ---
 title: An overview of Workbooks
 description: This article provides information on how workbooks provide a flexible canvas for data analysis and the creation of rich visual reports.
-ms.service: update-management-center
+ms.service: azure-update-manager
 ms.date: 01/16/2023
 ms.topic: conceptual
 author: SnehaSudhir 
@@ -12,7 +12,7 @@ ms.author: sudhirsneha
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-Workbooks help you to create visual reports that help in data analysis. This article describes the various features that Workbooks offer in Update management center (preview). 
+Workbooks help you to create visual reports that help in data analysis. This article describes the various features that Workbooks offer in Update Manager (preview). 
 
 ## Key benefits
 - Provides a canvas for data analysis and creation of visual reports
@@ -41,7 +41,7 @@ The gallery lists all the saved workbooks and templates for your workspace. You 
 
 - In the **Recently modified** tile, you can view and edit the workbooks.
 
-- In the **Update management center** tile, you can view the following summary:
+- In the **Update Manager** tile, you can view the following summary:
   :::image type="content" source="./media/workbooks/workbooks-summary-inline.png" alt-text="Screenshot of workbook summary." lightbox="./media/workbooks/workbooks-summary-expanded.png":::
  
 

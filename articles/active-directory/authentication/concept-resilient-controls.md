@@ -5,6 +5,7 @@ services: active-directory
 author: martincoetzer
 manager: travisgr
 tags: azuread
+ms.custom: has-azure-ad-ps-ref
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
@@ -49,7 +50,7 @@ Mitigating an actual disruption must be an organization’s primary focus in dea
 
 ### Administrator lockout contingency
 
-To unlock admin access to your tenant, you should create emergency access accounts. These emergency access accounts, also known as *break glass* accounts, allow access to manage Azure AD configuration when normal privileged account access procedures aren’t available. At least two emergency access accounts should be created following the [emergency access account recommendations]( ../users-groups-roles/directory-emergency-access.md).
+To unlock admin access to your tenant, you should create emergency access accounts. These emergency access accounts, also known as *break glass* accounts, allow access to manage Azure AD configuration when normal privileged account access procedures aren’t available. At least two emergency access accounts should be created following the [emergency access account recommendations](../users-groups-roles/directory-emergency-access.md).
 
 ### Mitigating user lockout
 
@@ -227,7 +228,7 @@ User lockout can also occur if the following conditions are true:
 - Your organization uses a hybrid identity solution with pass-through authentication or federation.
 - Your on-premises identity systems (such as Active Directory, AD FS, or a dependent component) are unavailable. 
  
-To be more resilient, your organization should [enable password hash sync](../hybrid/choose-ad-authn.md), because it enables you to [switch to using password hash sync](../hybrid/plan-connect-user-signin.md) if your on-premises identity systems are down.
+To be more resilient, your organization should [enable password hash sync](../hybrid/connect/choose-ad-authn.md), because it enables you to [switch to using password hash sync](../hybrid/connect/plan-connect-user-signin.md) if your on-premises identity systems are down.
 
 #### Microsoft recommendations
  Enable password hash sync using the Azure AD Connect wizard, regardless whether your organization uses federation or pass-through authentication.

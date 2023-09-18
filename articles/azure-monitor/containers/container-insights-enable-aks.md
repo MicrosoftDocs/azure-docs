@@ -444,7 +444,6 @@ Use the following procedure if you're not using managed identity authentication.
 
 3. Configure private link by following the instructions at [Configure your private link](../logs/private-link-configure.md). Set ingestion access to public and then set to private after the private endpoint is created but before monitoring is enabled. The private link resource region must be same as AKS cluster region. 
 
-
 4. Enable monitoring for the AKS cluster.
 
     ```cli
@@ -456,7 +455,11 @@ Use the following procedure if you're not using managed identity authentication.
 
 - When you enable managed identity authentication, a data collection rule is created with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. Currently, this name can't be modified.
 
+- You must be on a machine on the same private network to access live logs from a private cluster.
+
 ## Next steps
 
 * If you experience issues while you attempt to onboard the solution, review the [Troubleshooting guide](container-insights-troubleshoot.md).
 * With monitoring enabled to collect health and resource utilization of your AKS cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Container insights.
+
+

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/23/2023
 
 ms.author: justinha
 author: justinha
@@ -39,7 +39,7 @@ Using smart lockout doesn't guarantee that a genuine user is never locked out. W
 
 Smart lockout can be integrated with hybrid deployments that use password hash sync or pass-through authentication to protect on-premises Active Directory Domain Services (AD DS) accounts from being locked out by attackers. By setting smart lockout policies in Azure AD appropriately, attacks can be filtered out before they reach on-premises AD DS.
 
-When using [pass-through authentication](../hybrid/how-to-connect-pta.md), the following considerations apply:
+When using [pass-through authentication](../hybrid/connect/how-to-connect-pta.md), the following considerations apply:
 
 * The Azure AD lockout threshold is **less** than the AD DS account lockout threshold. Set the values so that the AD DS account lockout threshold is at least two or three times greater than the Azure AD lockout threshold.
 * The Azure AD lockout duration must be set longer than the AD DS account lockout duration. The Azure AD duration is set in seconds, while the AD duration is set in minutes.
@@ -66,8 +66,8 @@ Based on your organizational requirements, you can customize the Azure AD smart 
 
 To check or modify the smart lockout values for your organization, complete the following steps:
 
-1. Sign in to the [Entra portal](https://entra.microsoft.com/#home).
-1. Search for and select *Azure Active Directory*, then select **Security** > **Authentication methods** > **Password protection**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Administrator](../roles/permissions-reference.md#authentication-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Password protection**.
 1. Set the **Lockout threshold**, based on how many failed sign-ins are allowed on an account before its first lockout.
 
     The default is 10 for Azure Public tenants and 3 for Azure US Government tenants.
@@ -79,7 +79,7 @@ To check or modify the smart lockout values for your organization, complete the 
 > [!NOTE]
 > If the first sign-in after a lockout period has expired also fails, the account locks out again. If an account locks repeatedly, the lockout duration increases.
 
-![Customize the Azure AD smart lockout policy in the Azure portal](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
+![Customize the Azure AD smart lockout policy in the Microsoft Entra admin center](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
 ## Testing Smart lockout
 

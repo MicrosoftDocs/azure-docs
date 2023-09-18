@@ -4,8 +4,8 @@ description: This tutorial explains how to create and manage Azure Database for 
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: tutorial
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: azurepowershell
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 06/20/2022

@@ -80,7 +80,8 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Data Factory | Microsoft.DataFactory/factories | dataFactory |
 | Azure Data Explorer | Microsoft.Kusto/clusters | cluster |
 | Azure Database for MariaDB | Microsoft.DBforMariaDB/servers | mariadbServer |
-| Azure Database for MySQL | Microsoft.DBforMySQL/servers | mysqlServer |
+| Azure Database for MySQL - Single Server | Microsoft.DBforMySQL/servers | mysqlServer |
+| Azure Database for MySQL- Flexible Server | Microsoft.DBforMySQL/flexibleServers | mysqlServer |
 | Azure Database for PostgreSQL - Single server | Microsoft.DBforPostgreSQL/servers | postgresqlServer |
 | Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
 | Azure IoT Hub | Microsoft.Devices/IotHubs | iotHub |
@@ -94,6 +95,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Key Vault HSM (hardware security module) | Microsoft.Keyvault/managedHSMs | HSM |
 | Azure Key Vault | Microsoft.KeyVault/vaults | vault |
 | Azure Machine Learning | Microsoft.MachineLearningServices/workspaces | amlworkspace |
+| Azure Machine Learning | Microsoft.MachineLearningServices/registries | amlregistry |
 | Azure Migrate | Microsoft.Migrate/assessmentProjects | project |
 | Application Gateway | Microsoft.Network/applicationgateways | application gateway |
 | Private Link service (your own service) |  Microsoft.Network/privateLinkServices | empty |
@@ -173,7 +175,13 @@ For complete, detailed information about recommendations to configure DNS for pr
 
 ## Limitations
 
-The following information lists the known limitations to the use of private endpoints: 
+The following information lists the known limitations to the use of private endpoints:
+
+### Static IP address
+
+| Limitation | Description |
+| --------- | ------------ |
+| Static IP address configuration currently unsupported. | **Azure Kubernetes Service (AKS)** </br> **Azure Application Gateway** </br> **HD Insight**. |
 
 ### Network security group
 
@@ -181,7 +189,7 @@ The following information lists the known limitations to the use of private endp
 | --------- | ------------ |
 | Effective routes and security rules unavailable for private endpoint network interface. | Effective routes and security rules won't be displayed for the private endpoint NIC in the Azure portal. |
 | NSG flow logs unsupported. | NSG flow logs unavailable for inbound traffic destined for a private endpoint. |
-| No more than 50 members in an Application Security Group. | Fifty is the number of IP Configurations that can be tied to each respective ASG that’s coupled to the NSG on the private endpoint subnet. Connection failures may occur with more than 50 members. |
+| No more than 50 members in an Application Security Group. | Fifty is the number of IP Configurations that can be tied to each respective ASG that's coupled to the NSG on the private endpoint subnet. Connection failures may occur with more than 50 members. |
 | Destination port ranges supported up to a factor of 250 K. | Destination port ranges are supported as a multiplication SourceAddressPrefixes, DestinationAddressPrefixes, and DestinationPortRanges. </br></br> Example inbound rule: </br> One source * one destination * 4K portRanges = 4K Valid </br>  10 sources * 10 destinations * 10 portRanges = 1 K Valid </br> 50 sources * 50 destinations * 50 portRanges = 125 K Valid </br> 50 sources * 50 destinations * 100 portRanges = 250 K Valid </br> 100 sources * 100 destinations * 100 portRanges = 1M Invalid, NSG has too many sources/destinations/ports. |
 | Source port filtering is interpreted as * | Source port filtering isn't actively used as valid scenario of traffic filtering for traffic destined to a private endpoint. |
 | Feature unavailable in select regions. | Currently unavailable in the following regions: </br> West India </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast |

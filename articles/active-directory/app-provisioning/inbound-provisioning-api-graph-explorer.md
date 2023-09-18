@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 09/15/2023
 ms.author: jfields
 ms.reviewer: cmmdesai
 ---
@@ -48,10 +48,10 @@ This tutorial describes how you can quickly test [API-driven inbound provisionin
 
 ## Verify processing of bulk request payload
 
-You can verify the processing either from the Microsoft Entra portal or using Graph Explorer.
+You can verify the processing either from the Microsoft Entra admin center or using Graph Explorer.
 
-### Verify processing from Microsoft Entra portal 
-1. Log in to [Microsoft Entra portal](https://entra.microsoft.com) with *global administrator* or *application administrator* login credentials.
+### Verify processing from Microsoft Entra admin center 
+1. Log in to [Microsoft Entra admin center](https://entra.microsoft.com) with at least [Application Administrator](https://go.microsoft.com/fwlink/?linkid=2247823) login credentials.
 1. Browse to **Azure Active Directory -> Applications -> Enterprise applications**.
 1. Under all applications, use the search filter text box to find and open your API-driven provisioning application.
 1. Open the Provisioning blade. The landing page displays the status of the last run.
@@ -84,11 +84,7 @@ You can inspect the processing using the provisioning logs API URL returned as p
 The bulk request shown below uses the SCIM standard Core User and Enterprise User schema. 
 
 **Request body**
-# [HTTP](#tab/http)
-<!-- {
-  "blockType": "request",
-  "name": "Quick_start_with_Graph_Explorer"
-}-->
+
 ```http
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:BulkRequest"],

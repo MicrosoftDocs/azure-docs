@@ -1,5 +1,5 @@
 ---
-title: Best practices for labeling documents in the Document Intelligence Studio
+title: Best practices for labeling documents in the Document Intelligence (formerly Form Recognizer) Studio
 titleSuffix: Azure AI services
 description: Label documents in the Studio to create a training dataset. Labeling guidelines aimed at training a model with high accuracy
 author: laujan
@@ -116,12 +116,12 @@ Tabular fields are also useful when extracting repeating information within a do
 * Learn more about custom template models:
 
   > [!div class="nextstepaction"]
-  > [Custom template models](concept-custom-template.md )
+  > [Custom template models](concept-custom-template.md)
 
 * Learn more about custom neural models:
 
   > [!div class="nextstepaction"]
-  > [Custom neural models](concept-custom-neural.md )
+  > [Custom neural models](concept-custom-neural.md)
 
 * View the REST API:
 

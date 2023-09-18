@@ -62,6 +62,8 @@ The following use case is supported by [Azure Web Application Firewall on Azure 
 
 To learn more about Azure Firewall Premium Intermediate CA certificate requirements, see [Azure Firewall Premium certificates](premium-certificates.md).
 
+To learn more about TLS inspection, see [Building a POC for TLS inspection in Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/building-a-poc-for-tls-inspection-in-azure-firewall/ba-p/3676723).
+
 ## IDPS
 
 A network intrusion detection and prevention system (IDPS) allows you to monitor your network for malicious activity, log information about this activity, report it, and optionally attempt to block it. 
@@ -70,7 +72,7 @@ Azure Firewall Premium provides signature-based IDPS to allow rapid detection of
 
 The Azure Firewall signatures/rulesets include:
 - An emphasis on fingerprinting actual malware, Command and Control, exploit kits, and in the wild malicious activity missed by traditional prevention methods.
-- Over 58,000 rules in over 50 categories.
+- Over 67,000 rules in over 50 categories.
     - The categories include malware command and control, phishing, trojans, botnets, informational events, exploits, vulnerabilities, SCADA network protocols, exploit kit activity, and more.
 - 20 to 40+ new rules are released each day.
 - Low false positive rating by using state-of-the-art malware detection techniques such as global sensor network feedback loop.
@@ -109,7 +111,7 @@ IDPS signature rules have the following properties:
 |Signature ID     |Internal ID for each signature. This ID is also presented in Azure Firewall Network Rules logs.|
 |Mode      |Indicates if the signature is active or not, and whether firewall drops or alerts upon matched traffic. The below signature mode can override IDPS mode<br>- **Disabled**: The signature isn't enabled on your firewall.<br>- **Alert**: You receive alerts when suspicious traffic is detected.<br>- **Alert and Deny**: You receive alerts and suspicious traffic is blocked. Few signature categories are defined as “Alert Only”, therefore by default, traffic matching their signatures isn't blocked even though IDPS mode is set to “Alert and Deny”. Customers may override this by customizing these specific signatures to “Alert and Deny” mode. <br><br>IDPS Signature mode is determined by one of the following reasons:<br><br> 1. Defined by Policy Mode – Signature mode is derived from IDPS mode of the existing policy.<br>2. Defined by Parent Policy – Signature mode is derived from IDPS mode of the parent policy.<br>3. Overridden – You can override and customize the Signature mode.<br>4. Defined by System - Signature mode is set to *Alert Only* by the system due to its [category](idps-signature-categories.md). You may override this signature mode.<br><br>Note: IDPS alerts are available in the portal via network rule log query.|
 |Severity      |Each signature has an associated severity level and assigned priority that indicates the probability that the signature is an actual attack.<br>- **Low (priority 3)**: An abnormal event is one that doesn't normally occur on a network or Informational events are logged. Probability of attack is low.<br>- **Medium (priority 2)**: The signature indicates an attack of a suspicious nature. The administrator should investigate further.<br>- **High (priority 1)**: The attack signatures indicate that an attack of a severe nature is being launched. There's little probability that the packets have a legitimate purpose.|
-|Direction      |The traffic direction for which the signature is applied.<br>- **Inbound**: Signature is applied only on traffic arriving from the Internet and destined to your [configured private IP address range](#idps-private-ip-ranges).<br>- **Outbound**: Signature is applied only on traffic sent from your [configured private IP address range](#idps-private-ip-ranges) to the Internet.<br>- **Bidirectional**: Signature is always applied on any traffic direction.|
+|Direction      |The traffic direction for which the signature is applied.<br><br>- **Inbound**: Signature is applied only on traffic arriving from the Internet and destined to your [configured private IP address range](#idps-private-ip-ranges).<br>- **Outbound**: Signature is applied only on traffic sent from your [configured private IP address range](#idps-private-ip-ranges) to the Internet.<br>- **Internal**: Signature is applied only on traffic sent from and destined to your [configured private IP address range](#idps-private-ip-ranges).<br>- **Any**: Signature is always applied on any traffic direction.|
 |Group      |The group name that the signature belongs to.|
 |Description      |Structured from the following three parts:<br>- **Category name**: The category name that the signature belongs to as described in [Azure Firewall IDPS signature rule categories](idps-signature-categories.md).<br>- High level description of the signature<br>- **CVE-ID** (optional) in the case where the signature is associated with a specific CVE.|
 |Protocol     |The protocol associated with this signature.|
@@ -118,6 +120,7 @@ IDPS signature rules have the following properties:
 
 :::image type="content" source="media/idps-signature-categories/firewall-idps-signature.png" alt-text="Screenshot showing the IDPS signature rule columns." lightbox="media/idps-signature-categories/firewall-idps-signature.png":::
 
+For more informaton about IDPS, see [Taking Azure Firewall IDPS on a Test Drive](https://techcommunity.microsoft.com/t5/azure-network-security-blog/taking-azure-firewall-idps-on-a-test-drive/ba-p/3872706).
 
 ## URL filtering
 
@@ -130,18 +133,6 @@ URL Filtering can be applied both on HTTP and HTTPS traffic. When HTTPS traffic 
 Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are also included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic.
 
 Azure Firewall Premium web categories are only available in firewall policies. Ensure that your policy SKU matches the SKU of your firewall instance. For example, if you have a Firewall Premium instance, you must use a Firewall Premium policy.
-
-> [!IMPORTANT]
-> Microsoft is transitioning to an updated and new Web Content Filtering category feed in the next couple weeks. This will contain more granularity and additional subcategorizations.
->
->As a result, the following web categories are are no longer available:
-> - Child inappropriate, Greeting cards, and School Cheating.
-> 
-> In addition, the *Category check* and *Category change* features are temporarily disabled for the next few months. This article will be updated when these features return.
->
-> To mitigate, we recommend configuring critical websites (FQDNs and URLs) directly in application rules through the Azure portal/Azure PowerShell/CLI as a backup. For more information, see [Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md#configure-an-application-rule).
->
-> Web Category logging will continue to function as expected. We don’t predict any other major changes to the classification behavior, but we encourage you to report any categorization issues or request to perform a Category Check through Microsoft Azure support.
 
 For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/news`, the following categorization is expected: 
 

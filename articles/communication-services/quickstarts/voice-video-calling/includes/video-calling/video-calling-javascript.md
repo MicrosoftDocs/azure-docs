@@ -2,7 +2,7 @@
 author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/10/2021
+ms.date: 09/13/2023
 ms.author: rifox
 ---
 
@@ -39,12 +39,11 @@ mkdir calling-quickstart && cd calling-quickstart
 ### Install the package
 
 Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
-> [!IMPORTANT]
-> This quickstart uses the Azure Communication Services Calling SDK version `1.4.4`.
+
 
 ```console
 npm install @azure/communication-common --save
-npm install @azure/communication-calling@1.4.4 --save
+npm install @azure/communication-calling --save
 ```
 
 ### Set up the app framework
@@ -250,6 +249,10 @@ subscribeToCall = (call) => {
             }   
         });
 
+        call.on('isLocalVideoStartedChanged', () => {
+            console.log(`isLocalVideoStarted changed: ${call.isLocalVideoStarted}`);
+        });
+        console.log(`isLocalVideoStarted: ${call.isLocalVideoStarted}`);
         call.localVideoStreams.forEach(async (lvs) => {
             localVideoStream = lvs;
             await displayLocalVideoStream();
@@ -331,11 +334,6 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     let remoteVideoContainer = document.createElement('div');
     remoteVideoContainer.className = 'remote-video-container';
 
-    /**
-     * isReceiving API is currently a @beta feature.
-     * To use this api, please use 'beta' version of Azure Communication Services Calling Web SDK.
-     * Create a CSS class to style your loading spinner.
-     *
     let loadingSpinner = document.createElement('div');
     loadingSpinner.className = 'loading-spinner';
     remoteVideoStream.on('isReceivingChanged', () => {
@@ -353,7 +351,6 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
             console.error(e);
         }
     });
-    */
 
     const createView = async () => {
         // Create a renderer view for the remote video stream.

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/28/2023
+ms.date: 08/03/2023
 ms.subservice: hybrid
 ms.author: billmath
 ---
@@ -20,7 +20,7 @@ ms.author: billmath
 The following tables show the licensing requirements for Microsoft Entra ID Governance features
 
 ## Types of licenses
-The following licenses are available for use with Microsoft Entra ID Governance.  The choice of licenses you need in a tenant will depend on the features you're using in that tenant.
+The following licenses are available for use with Microsoft Entra ID Governance.  The choice of licenses you need in a tenant depends on the features you're using in that tenant.
 
 - **Free** - Included with Microsoft cloud subscriptions such as Microsoft Azure, Microsoft 365, and others.
 - **Microsoft Azure AD P1** - Azure Active Directory Premium P1 (becoming Microsoft Entra ID P1) is available as a standalone product or included with Microsoft 365 E3 for enterprise customers and Microsoft 365 Business Premium for small to medium businesses. 
@@ -28,7 +28,7 @@ The following licenses are available for use with Microsoft Entra ID Governance.
 - **Microsoft Entra ID Governance** - Entra ID Governance is an advanced set of identity governance capabilities available for Microsoft Entra ID P1 and P2 customers, as two products **Microsoft Entra ID Governance** and **Microsoft Entra ID Governance Step Up for Microsoft Entra ID P2**.
 
 >[!NOTE]
->Microsoft Entra ID Governance scenarios may depends upon other features that are not covered by Microsoft Entra ID Governance.  These features may have additional licensing requirements.  See [Governance capabilities in other Microsoft Entra features](identity-governance-overview.md#governance-capabilities-in-other-microsoft-entra-features) for more information on governance scenarios that rely on additional features.
+>Microsoft Entra ID Governance scenarios may depends upon other features that aren't covered by Microsoft Entra ID Governance.  These features may have additional licensing requirements.  See [Governance capabilities in other Microsoft Entra features](identity-governance-overview.md#governance-capabilities-in-other-microsoft-entra-features) for more information on governance scenarios that rely on additional features.
 
 
 ### Prerequisites
@@ -77,28 +77,90 @@ The following table shows what features are available with each license.  Note t
 |Automated user provisioning to SaaS apps|x|x|x|x|	 
 |Automated group provisioning to SaaS apps||x|x|x|	 
 |Automated provisioning to on-premises apps||x|x|x|
-|CA - Terms of use attestation||x|x|x| 
-|Entitlement Management (EM) - Basic entitlement management|||x|x|  
-|EM CA Scoping|||x|x| 
-|EM MyAccess Search|||x|x|  
-|EM with Verified ID||||x|  
-|EM + Custom Extensions (Logic Apps)||||x|  
-|EM + Auto Assignment Policies||||x|   
-|EM - Invite+Assign Any||||x| 
-|EM - Guest Conversion API||||x| 
-|EM - Grace Period - Public Preview|||x|x|  
-|EM - Sponsors Policy - Public Preview||||x| 
+|Conditional Access - Terms of use attestation||x|x|x| 
+|Entitlement management - Basic entitlement management|||x|x|  
+|Entitlement management - Conditional Access Scoping|||x|x| 
+|Entitlement management MyAccess Search|||x|x|  
+|Entitlement management with Verified ID||||x|  
+|Entitlement management + Custom Extensions (Logic Apps)||||x|  
+|Entitlement management + Auto Assignment Policies||||x|   
+|Entitlement management - Invite+Assign Any||||x| 
+|Entitlement management - Guest Conversion API||||x| 
+|Entitlement management - Grace Period - Public Preview|||x|x|  
+|Entitlement management - Sponsors Policy - Public Preview||||x| 
 |Privileged Identity Management (PIM)|||x|x| 
 |PIM For Groups|||x|x| 
 |PIM CA Controls|||x|x| 
-|Access Reviews (AR) - Basic access certifications and reviews|||x|x| 
-|AR - PIM For Groups - Public Preview||||x| 
-|AR - Inactive Users||||x| 
-|AR - Machine learning assisted access certifications and reviews||||x| 
-|Lifecycle Workflows (LCW) J/M/L||||x|
+|Access Reviews - Basic access certifications and reviews|||x|x|
+|Access reviews - PIM For Groups - Public Preview||||x| 
+|Access reviews - Inactive Users reviews||||x|
+|Access Reviews - Inactive Users recommendations|||x|x|
+|Access reviews - Machine learning assisted access certifications and reviews||||x| 
+|Lifecycle Workflows (LCW)||||x|
 |LCW + Custom Extensions (Logic Apps)||||x|   
 |Identity governance dashboard - Public Preview||x|x|x|
 |Insights and reporting - Inactive guest accounts (Preview)||||x| 
+
+
+## Entitlement Management
+
+### Example license scenarios
+
+Here are some example license scenarios to help you determine the number of licenses you must have.
+
+| Scenario | Calculation | Number of licenses |
+| --- | --- | --- |
+| An Identity Governance Administrator at Woodgrove Bank creates initial catalogs. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. 150 employees request the access packages. | 2,000 employees who **can** request the access packages | 2,000 |
+| An Identity Governance Administrator at Woodgrove Bank creates initial catalogs. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. 150 employees request the access packages. | 2,000 employees need licenses. | 2,000 |
+| An Identity Governance Administrator at Woodgrove Bank creates initial catalogs. They create an auto-assignment policy that grants **All members of the Sales department** (350 employees) access to a specific set of access packages. 350 employees are auto-assigned to the access packages. | 350 employees need licenses. | 351 |
+
+## Access reviews
+
+### Example license scenarios
+
+Here are some example license scenarios to help you determine the number of licenses you must have.
+
+| Scenario | Calculation | Number of licenses |
+| --- | --- | --- |
+| An administrator creates an access review of Group A with 75 users and 1 group owner, and assigns the group owner as the reviewer. | 1 license for the group owner as reviewer, and 75 licenses for the 75 users. | 76 |
+| An administrator creates an access review of Group B with 500 users and 3 group owners, and assigns the 3 group owners as reviewers. | 500 licenses for users, and 3 licenses for each group owner as reviewers. | 503 |
+| An administrator creates an access review of Group B with 500 users. Makes it a self-review. | 500 licenses for each user as self-reviewers  | 500 |
+| An administrator creates an access review of Group C with 50 member users. Makes it a self-review. | 50 licenses for each user as self-reviewers.* | 50 |
+| An administrator creates an access review of Group D with 6 member users. Makes it a self-review. | 6 licenses for each user as self-reviewers. No additional licenses are required. *  | 6 |
+
+## Lifecycle Workflows
+
+With Entra Governance licenses for Lifecycle Workflows, you can:
+
+- Create, manage, and delete workflows up to the total limit of 50 workflows.
+- Trigger on-demand and scheduled workflow execution.
+- Manage and configure existing tasks to create workflows that are specific to your needs.
+- Create up to 100 custom task extensions to be used in your workflows.
+
+### Example license scenarios
+
+| Scenario | Calculation | Number of licenses |
+| --- | --- | --- |
+| A Lifecycle Workflows Administrator creates a workflow to add new hires in the Marketing department to the Marketing teams group. 250 new hires are assigned to the Marketing teams group via this workflow. | 1 license for the Lifecycle Workflows Administrator, and 250 licenses for the users. | 251 |
+| A Lifecycle Workflows Administrator creates a workflow to pre-offboard a group of employees before their last day of employment. The scope of users who will be pre-offboarded are 40 users. | 40 licenses for users, and 1 license for the Lifecycle Workflows Administrator. | 41 |
+
+## Privileged Identity Management
+
+### Example license scenarios
+
+Here are some example license scenarios to help you determine the number of licenses you must have.
+
+| Scenario | Calculation | Number of licenses |
+| --- | --- | --- |
+| Woodgrove Bank has 10 administrators for different departments and 2 Identity Governance Administrators that configure and manage PIM. They make five administrators eligible. | Five licenses for the administrators who are eligible | 5 |
+| Graphic Design Institute has 25 administrators of which 14 are managed through PIM. Role activation requires approval and there are three different users in the organization who can approve activations. | 14 licenses for the eligible roles + three approvers | 17 |
+| Contoso has 50 administrators of which 42 are managed through PIM. Role activation requires approval and there are five different users in the organization who can approve activations. Contoso also does monthly reviews of users assigned to administrator roles and reviewers are the users’ managers of which six aren't in administrator roles managed by PIM. | 42 licenses for the eligible roles + five approvers + six reviewers | 53 |
+
+## Licensing FAQs
+
+### Do licenses need to be assigned to users to use Identity Governance features?
+
+Users do not need to be assigned an Identity Governance license, but there needs to be as many licenses in the tenant to include all users in scope of, or who configures, the Identity Governance features.
 
 ## Next steps
 - [What is Microsoft Entra ID Governance?](identity-governance-overview.md)

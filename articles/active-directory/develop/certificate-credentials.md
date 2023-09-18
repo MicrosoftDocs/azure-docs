@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/27/2023
 ms.author: owenrichards
 ms.reviewer: kenwith
@@ -21,7 +21,7 @@ The Microsoft identity platform allows an application to use its own credentials
 
 One form of credential that an application can use for authentication is a [JSON Web Token](./security-tokens.md#json-web-tokens-and-claims) (JWT) assertion signed with a certificate that the application owns. This is described in the [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) specification for the `private_key_jwt` client authentication option.
 
-If you're interested in using a JWT issued by another identity provider as a credential for your application, please see [workload identity federation](workload-identity-federation.md) for how to set up a federation policy.
+If you're interested in using a JWT issued by another identity provider as a credential for your application, please see [workload identity federation](../workload-identities/workload-identity-federation.md) for how to set up a federation policy.
 
 ## Assertion format
 
@@ -87,7 +87,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ## Register your certificate with Microsoft identity platform
 
-You can associate the certificate credential with the client application in the Microsoft identity platform through the Azure portal using any of the following methods:
+You can associate the certificate credential with the client application in the Microsoft identity platform through the Microsoft Entra admin center using any of the following methods:
 
 ### Uploading the certificate file
 

@@ -3,6 +3,7 @@ title: Migrate to Azure AD MFA with federations
 description: Step-by-step guidance to move from MFA Server on-premises to Azure AD MFA with federation
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 05/23/2023
 ms.author: gasinh
@@ -174,7 +175,7 @@ This section covers final steps before migrating user MFA settings.
 
 ### Set federatedIdpMfaBehavior to enforceMfaByFederatedIdp
 
-For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain has a Microsoft Graph PowerShell security setting named **federatedIdpMfaBehavior**. You can set **federatedIdpMfaBehavior** to `enforceMfaByFederatedIdp` so Azure AD accepts MFA that's performed by the federated identity provider. If the federated identity provider didn't perform MFA, Azure AD redirects the request to the federated identity provider to perform MFA. For more information, see [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values&preserve-view=true ).
+For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain has a Microsoft Graph PowerShell security setting named **federatedIdpMfaBehavior**. You can set **federatedIdpMfaBehavior** to `enforceMfaByFederatedIdp` so Azure AD accepts MFA that's performed by the federated identity provider. If the federated identity provider didn't perform MFA, Azure AD redirects the request to the federated identity provider to perform MFA. For more information, see [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values&preserve-view=true).
 
    >[!NOTE]
    > The **federatedIdpMfaBehavior** setting is a new version of the **SupportsMfa** property of the [New-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdomainfederationconfiguration) cmdlet. 
@@ -357,6 +358,6 @@ Possible considerations when decommissions the MFA Servers include:
 
 ## Next Steps
 
-- [Deploy password hash synchronization](../hybrid/whatis-phs.md)
+- [Deploy password hash synchronization](../hybrid/connect/whatis-phs.md)
 - [Learn more about Conditional Access](../conditional-access/overview.md)
-- [Migrate applications to Azure AD](../manage-apps/migrate-application-authentication-to-azure-active-directory.md)
+- [Migrate applications to Azure AD](../manage-apps/migrate-adfs-apps-phases-overview.md)

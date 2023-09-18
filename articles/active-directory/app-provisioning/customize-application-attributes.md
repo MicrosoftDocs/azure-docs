@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/29/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
 # Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory
 
-Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, G Suite and others. If you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute-mappings.
+Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, G Suite and others. If you enable user provisioning for a third-party SaaS application, the Microsoft Entra admin center controls its attribute values through attribute-mappings.
 
 Before you get started, make sure you're familiar with app management and **single sign-on (SSO)** concepts. Check out the following links:
 - [Quickstart Series on App Management in Azure AD](../manage-apps/view-applications-portal.md)
@@ -31,8 +31,8 @@ You can customize the default attribute-mappings according to your business need
 
 Follow these steps to access the **Mappings** feature of user provisioning:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. A list of all configured apps is shown, including apps that were added from the gallery.
 1. Select any app to load its app management pane, where you can view reports and manage app settings.
 1. Select **Provisioning** to manage user account provisioning settings for the selected app.
@@ -106,7 +106,7 @@ The attributes provisioned as part of Group objects can be customized in the sam
 
 The user attributes supported for a given application are preconfigured. Most application's user management APIs don't support schema discovery. So, the Azure AD provisioning service isn't able to dynamically generate the list of supported attributes by making calls to the application.
 
-However, some applications support custom attributes, and the Azure AD provisioning service can read and write to custom attributes. To enter their definitions into the Azure portal, select the **Show advanced options** check box at the bottom of the **Attribute Mapping** screen, and then select **Edit attribute list for** your app.
+However, some applications support custom attributes, and the Azure AD provisioning service can read and write to custom attributes. To enter their definitions into the Microsoft Entra admin center, select the **Show advanced options** check box at the bottom of the **Attribute Mapping** screen, and then select **Edit attribute list for** your app.
 
 Applications and systems that support customization of the attribute list include:
 
@@ -120,10 +120,10 @@ Applications and systems that support customization of the attribute list includ
 
 
 > [!NOTE]
-> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined or if a source attribute isn't automatically displayed in the Azure portal UI. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_Connect_Provisioning_forceSchemaEditorEnabled=true . You can then navigate to your application to view the [attribute list](#editing-the-list-of-supported-attributes). 
+> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined or if a source attribute isn't automatically displayed in the Microsoft Entra admin center UI. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_Connect_Provisioning_forceSchemaEditorEnabled=true . You can then navigate to your application to view the [attribute list](#editing-the-list-of-supported-attributes). 
 
 > [!NOTE]
-> When a directory extension attribute in Azure AD doesn't show up automatically in your attribute mapping drop-down, you can manually add it to the "Azure AD attribute list".  When manually adding Azure AD directory extension attributes to your provisioning app, note that directory extension attribute names are case-sensitive. For example: If you have a directory extension attribute named `extension_53c9e2c0exxxxxxxxxxxxxxxx_acmeCostCenter`, make sure you enter it in the same format as defined in the directory.     
+> When a directory extension attribute in Azure AD doesn't show up automatically in your attribute mapping drop-down, you can manually add it to the "Azure AD attribute list".  When manually adding Azure AD directory extension attributes to your provisioning app, note that directory extension attribute names are case-sensitive. For example: If you have a directory extension attribute named `extension_53c9e2c0exxxxxxxxxxxxxxxx_acmeCostCenter`, make sure you enter it in the same format as defined in the directory. Provisioning multi-valued directory extension attributes is not supported.    
 
 When you're editing the list of supported attributes, the following properties are provided:
 
@@ -140,16 +140,18 @@ When you're editing the list of supported attributes, the following properties a
 - **Multi-value?** - Whether the attribute supports multiple values.
 - **Exact case?** - Whether the attributes values are evaluated in a case-sensitive way.
 - **API Expression** - Don't use, unless instructed to do so by the documentation for a specific provisioning connector (such as Workday).
-- **Referenced Object Attribute** - If it's a Reference type attribute, then this menu lets you select the table and attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value references an object in a separate "Departments" table, you would select "Departments.Name". The reference tables and the primary ID fields supported for a given application are preconfigured and can't be edited using the Azure portal. However, you can edit them using the [Microsoft Graph API](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
+- **Referenced Object Attribute** - If it's a Reference type attribute, then this menu lets you select the table and attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value references an object in a separate "Departments" table, you would select "Departments.Name". The reference tables and the primary ID fields supported for a given application are preconfigured and can't be edited using the Microsoft Entra admin center. However, you can edit them using the [Microsoft Graph API](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
 
 #### Provisioning a custom extension attribute to a SCIM compliant application
 
 The SCIM RFC defines a core user and group schema, while also allowing for extensions to the schema to meet your application's needs. To add a custom attribute to a SCIM application:
-   1. Sign in to the [Azure portal](https://portal.azure.com), select **Enterprise Applications**, select your application, and then select **Provisioning**.
-   2. Under **Mappings**, select the object (user or group) for which you'd like to add a custom attribute.
-   3. At the bottom of the page, select **Show advanced options**.
-   4. Select **Edit attribute list for AppName**.
-   5. At the bottom of the attribute list, enter information about the custom attribute in the fields provided. Then select **Add Attribute**.
+   1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+   1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+   1. Select your application, and then select **Provisioning**.
+   1. Under **Mappings**, select the object (user or group) for which you'd like to add a custom attribute.
+   1. At the bottom of the page, select **Show advanced options**.
+   1. Select **Edit attribute list for AppName**.
+   1. At the bottom of the attribute list, enter information about the custom attribute in the fields provided. Then select **Add Attribute**.
 
 For SCIM applications, the attribute name must follow the pattern shown in the example. The "CustomExtensionName" and "CustomAttribute" can be customized per your application's requirements, for example: urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
 
@@ -348,7 +350,7 @@ Selecting this option forces a resynchronization of all users while the provisio
 - The attribute `IsSoftDeleted` is often part of the default mappings for an application. `IsSoftdeleted` can be true in one of four scenarios: 1) The user is out of scope due to being unassigned from the application. 2) The user is out of scope due to not meeting a scoping filter. 3) The user has been soft deleted in Azure AD. 4) The property `AccountEnabled` is set to false on the user. It's not recommended to remove the `IsSoftDeleted` attribute from your attribute mappings.
 - The Azure AD provisioning service doesn't support provisioning null values.
 - They primary key, typically "ID", shouldn't be included as a target attribute in your attribute mappings. 
-- The role attribute typically needs to be mapped using an expression, rather than a direct mapping. For more information about role mapping, see [Provisioning a role to a SCIM app](#Provisioning a role to a SCIM app). 
+- The role attribute typically needs to be mapped using an expression, rather than a direct mapping. For more information about role mapping, see [Provisioning a role to a SCIM app](#provisioning-a-role-to-a-scim-app). 
 - While you can disable groups from your mappings, disabling users isn't supported. 
 
 ## Next steps

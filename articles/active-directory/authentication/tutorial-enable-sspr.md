@@ -29,6 +29,10 @@ In this tutorial you learn how to:
 > * Set up authentication methods and registration options
 > * Test the SSPR process as a user
 
+> [!IMPORTANT]
+> In March 2023, we announced the deprecation of managing authentication methods in the legacy multifactor authentication (MFA) and self-service password reset (SSPR) policies. Beginning September 30, 2024, authentication methods can't be managed in these legacy MFA and SSPR policies. We recommend customers use the manual migration control to migrate to the Authentication methods policy by the deprecation date.
+
+
 ## Video tutorial
 
 You can also follow along in a related video: [How to enable and configure SSPR in Azure AD](https://www.youtube.com/embed/rA8TvhNcCvQ?azure-portal=true).
@@ -42,9 +46,9 @@ To finish this tutorial, you need the following resources and privileges:
     * If needed, [create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An account with *Global Administrator* or *Authentication Policy Administrator* privileges.
 * A non-administrator user with a password you know, like *testuser*. You'll test the end-user SSPR experience using this account in this tutorial.
-    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users.md).
 * A group that the non-administrator user is a member of, likes *SSPR-Test-Group*. You'll enable SSPR for this group in this tutorial.
-    * If you need to create a group, see [Create a basic group and add members using Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
+    * If you need to create a group, see [Create a basic group and add members using Azure Active Directory](../fundamentals/how-to-manage-groups.md).
 
 ## Enable self-service password reset
 
@@ -53,16 +57,16 @@ To finish this tutorial, you need the following resources and privileges:
 Azure AD lets you enable SSPR for *None*, *Selected*, or *All* users. This granular ability lets you choose a subset of users to test the SSPR registration process and workflow. When you're comfortable with the process and the time is right to communicate the requirements with a broader set of users, you can select a group of users to enable for SSPR. Or, you can enable SSPR for everyone in the Azure AD tenant.
 
 > [!NOTE]
-> Currently, you can only enable one Azure AD group for SSPR using the Azure portal. As part of a wider deployment of SSPR, Azure AD supports nested groups. 
+> Currently, you can only enable one Azure AD group for SSPR using the Microsoft Entra admin center. As part of a wider deployment of SSPR, Azure AD supports nested groups. 
 
 In this tutorial, set up SSPR for a set of users in a test group. Use the *SSPR-Test-Group* and provide your own Azure AD group as needed:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* or *authentication policy administrator* permissions.
-1. Search for and select **Azure Active Directory**, then select **Password reset** from the menu on the left side.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Password reset** from the menu on the left side.
 1. From the **Properties** page, under the option *Self service password reset enabled*, choose **Selected**.
 1. If your group isn't visible, choose **No groups selected**, browse for and select your Azure AD group, like *SSPR-Test-Group*, and then choose *Select*.
 
-    [![Select a group in the Azure portal to enable for self-service password reset](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png)](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
+    [![Select a group to enable for self-service password reset](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png)](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
 
 1. To enable SSPR for the select users, select **Save**.
 
@@ -139,8 +143,8 @@ In a later tutorial in this series, you'll set up password writeback. This featu
 
 If you no longer want to use the SSPR functionality you have set up as part of this tutorial, set the SSPR status to **None** using the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for and select **Azure Active Directory**, then select **Password reset** from the menu on the left side.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Password reset**.
 1. From the **Properties** page, under the option *Self service password reset enabled*, select **None**.
 1. To apply the SSPR change, select **Save**.
 

@@ -101,6 +101,7 @@ Here are some options that you can consider for generating unique UPNs:
 ## How do we send more HR attributes to the provisioning /bulkUpload API endpoint?
 
 By default, the API endpoint supports processing any attribute that is part of the SCIM Core User and Enterprise User schema. If you'd like to send more attributes, you can extend the provisioning app schema, map the new attributes to Azure AD attributes and update the bulk request to send those attributes. 
+Refer to the tutorial [Extend API-driven provisioning to sync custom attributes](inbound-provisioning-api-custom-attributes.md).
 
 ## How do we exclude certain users from the provisioning flow?
 

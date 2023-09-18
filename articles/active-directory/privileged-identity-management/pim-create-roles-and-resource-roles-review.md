@@ -1,17 +1,17 @@
 ---
 title: Create an access review of Azure resource and Azure AD roles in PIM
-description: Learn how to create an access review of Azure resource and Azure AD roles in Azure AD Privileged Identity Management (PIM).
+description: Learn how to create an access review of Azure resource and Azure AD roles in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 5/11/2023
-ms.author: billmath
+ms.date: 09/12/2023
+ms.author: barclayn
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -22,7 +22,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
 ## Prerequisites
 
-[!INCLUDE [active-directory-p2-governance-either-license.md](../../../includes/active-directory-p2-governance-either-license.md)]
+[!INCLUDE [entra-id-license-pim.md](../../../includes/entra-id-license-pim.md)]
 
 For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
@@ -30,20 +30,20 @@ For more information about licenses for PIM, refer to [License requirements to u
 
 Access Reviews for **Service Principals** requires an Entra Workload Identities Premium plan in addition to Microsoft Entra Premium P2 or Microsoft Entra ID Governance licenses. 
 
-- Workload Identities Premium licensing: You can view and acquire licenses on the [Workload Identities blade](https://portal.azure.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) in the Azure portal.
+- Workload Identities Premium licensing: You can view and acquire licenses on the [Workload Identities blade](https://portal.azure.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) in the Microsoft Entra admin center.
 
 
 ## Create access reviews
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a user that is assigned to one of the prerequisite role(s).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a user that is assigned to one of the prerequisite role(s).
 
-2. Select **Identity Governance**.
- 
-3. For **Azure AD roles**, select **Azure AD roles** under **Privileged Identity Management**. For **Azure resources**, select **Azure resources** under **Privileged Identity Management**.
+1. Browse to **Identity governance** > **Privileged Identity Management**.
 
-    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png" alt-text="Select Identity Governance in the Azure portal screenshot." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png"::: 
+1. For **Azure AD roles**, select **Azure AD roles**. For **Azure resources**, select **Azure resources**
+
+    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png" alt-text="Select Identity Governance in the Microsoft Entra admin center screenshot." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png"::: 
  
 4. For **Azure AD roles**, select **Azure AD roles** again under **Manage**. For **Azure resources**, select the subscription you want to manage.
 
@@ -136,7 +136,7 @@ You can track the progress as the reviewers complete their reviews on the **Over
 
 :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/access-review-overview.png" alt-text="Access reviews overview page showing the details of the access review for Azure AD roles screenshot." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/access-review-overview.png":::
 
-If this is a one-time review, then after the access review period is over or the administrator stops the access review, follow the steps in [Complete an access review of Azure resource and Azure AD roles](pim-complete-azure-ad-roles-and-resource-roles-review.md) to see and apply the results.  
+If this is a one-time review, then after the access review period is over or the administrator stops the access review, follow the steps in [Complete an access review of Azure resource and Azure AD roles](./pim-complete-roles-and-resource-roles-review.md) to see and apply the results.  
 
 To manage a series of access reviews, navigate to the access review, and you will find upcoming occurrences in Scheduled reviews, and edit the end date or add/remove reviewers accordingly.
 
@@ -171,5 +171,5 @@ After one or more access reviews have been started, you may want to modify or up
     
 ## Next steps
 
-- [Perform an access review of Azure resource and Azure AD roles in PIM](pim-perform-azure-ad-roles-and-resource-roles-review.md)
-- [Complete an access review of Azure resource and Azure AD roles in PIM](pim-complete-azure-ad-roles-and-resource-roles-review.md)
+- [Perform an access review of Azure resource and Azure AD roles in PIM](./pim-perform-roles-and-resource-roles-review.md)
+- [Complete an access review of Azure resource and Azure AD roles in PIM](./pim-complete-roles-and-resource-roles-review.md)

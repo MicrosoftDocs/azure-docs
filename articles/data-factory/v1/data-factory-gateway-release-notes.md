@@ -191,7 +191,7 @@ We no more maintain the Release notes here. Get latest release notes [here](http
 *  Support table columns for tabular data sources for Azure Data Factory
 *  Support Azure Synapse Analytics for Azure Data Factory
 *  Support Reclusive in BlobSource and FileSource for Azure Data Factory
-*  Support CopyBehavior – MergeFiles, PreserveHierarchy, and FlattenHierarchy in BlobSink and FileSink with Binary Copy for Azure Data Factory
+*  Support CopyBehavior - MergeFiles, PreserveHierarchy, and FlattenHierarchy in BlobSink and FileSink with Binary Copy for Azure Data Factory
 *  Support Copy Activity reporting progress for Azure Data Factory
 *  Support Data Source Connectivity Validation for Azure Data Factory
 *  Bug fixes
@@ -233,7 +233,7 @@ We no more maintain the Release notes here. Get latest release notes [here](http
 
 *  Unified binary that supports both Microsoft Azure Data Factory and Office 365 Power BI services
 *  Refine the Configuration UI and registration process
-*  Azure Data Factory – Azure Ingress and Egress support for SQL Server data source
+*  Azure Data Factory - Azure Ingress and Egress support for SQL Server data source
 
 ### 1.2.5303.1
 

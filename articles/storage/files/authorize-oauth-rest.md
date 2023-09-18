@@ -4,7 +4,7 @@ description: Authorize access to Azure file shares and directories via the OAuth
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 08/04/2023
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -186,17 +186,11 @@ You'll need an Azure resource group and a storage account within that resource g
 
 ## Install Az.Storage module
 
-This feature is available in the latest Az.Storage module. Install the module using the following steps.
+This feature is available in the latest Az.Storage module. Install the module using this command:
 
-1. Install the latest PowerShellGet module (you can skip this step if PowerShellGet is already updated):
-   
-   `Install-Module PowerShellGet –Repository PsGallery –Force`
-   
-   Close and re-open the PowerShell console after you update the module.
-
-2. Install the latest Az.Storage module:
-   
-   `Install-Module Az.Storage -Repository PsGallery`  
+```azurepowershell-interactive
+Install-Module Az.Storage -Repository PsGallery
+```
 
 ## Authorize access to file data
 

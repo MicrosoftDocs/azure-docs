@@ -8,4 +8,4 @@ ms.author: eur
 
 [!INCLUDE [Header](../../common/rest.md)]
 
-The REST API does not support speech translation. Please select another programming language or tool from the top of this page. 
+The REST API doesn't support speech translation. Please select another programming language or tool from the top of this page. 

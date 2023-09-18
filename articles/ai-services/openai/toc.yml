@@ -20,15 +20,17 @@ items:
       href: faq.yml
 - name: Quickstarts
   items:
-    - name: GPT-3
+    - name: Completions
       href: quickstart.md
-    - name: GPT-35-Turbo & GPT-4 
+    - name: Chat
       href: chatgpt-quickstart.md  
       displayName: ChatGPT, chatgpt
     - name: DALL-E (preview)
       href: dall-e-quickstart.md
     - name: Use your data (preview)
       href: use-your-data-quickstart.md
+    - name: Whisper (preview)
+      href: whisper-quickstart.md
 - name: Concepts
   items:
     - name: Abuse monitoring
@@ -96,6 +98,8 @@ items:
         href: ./how-to/monitoring.md
       - name: Plan and manage costs
         href: ./how-to/manage-costs.md
+      - name: Role-based access control (Azure RBAC)
+        href: ./how-to/role-based-access-control.md
       - name: Business continuity & disaster recovery (BCDR)
         href: ./how-to/business-continuity-disaster-recovery.md
 - name: Tutorials

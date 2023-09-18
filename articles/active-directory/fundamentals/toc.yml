@@ -25,6 +25,8 @@ items:
     href: properties-area.md
   - name: Add company branding
     href: how-to-customize-branding.md
+  - name: Rename Azure AD
+    href: how-to-rename-azure-ad.md
 - name: Users, groups, and licenses
   expanded: false
   items:
@@ -53,7 +55,7 @@ items:
     - name: Learn about groups
       href: concept-learn-about-groups.md
     - name: Create a group and add members
-      href: active-directory-groups-view-azure-portal.md
+      href: ./groups-view-azure-portal.md
     - name: Manage groups
       href: how-to-manage-groups.md
   - name: Manage licenses
@@ -67,7 +69,7 @@ items:
   expanded: false
   items:
   - name: Enable MFA
-    href: concept-fundamentals-mfa-get-started.md
+    href: ../authentication/concept-mfa-licensing.md?toc=/azure/active-directory/fundamentals/toc.json
   - name: Identity secure score
     href: identity-secure-score.md
   - name: Improve your security posture
@@ -85,6 +87,17 @@ items:
     href: how-to-find-tenant.md
   - name: Get support for Azure AD
     href: how-to-get-support.md
+  - name: Support access requests
+    expanded: false
+    items:
+      - name: About support access requests
+        href: concept-support-access-requests.md
+      - name: Approve support access requests
+        href: how-to-approve-support-access-requests.md
+      - name: Manage support access requests
+        href: how-to-manage-support-access-requests.md
+      - name: View support access request activity logs
+        href: how-to-view-support-access-request-logs.md
 - name: Reference
   expanded: false
   items:
@@ -115,7 +128,7 @@ items:
     - name: Data protection considerations
       href: data-protection-considerations.md
     - name: Customer data storage and processing for Europe
-      href: active-directory-data-storage-eu.md
+      href: ./data-storage-eu.md
     - name: Customer data storage for Australia and New Zealand
       href: data-storage-australia.md
     - name: Identity data storage for Australia and New Zealand

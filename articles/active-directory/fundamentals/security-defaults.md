@@ -5,15 +5,14 @@ description: Get protected from common identity threats using Azure AD security 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
+ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
-ms.date: 07/31/2023
+ms.date: 09/12/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: sama
-
-ms.collection: M365-identity-device-management
 ---
 # Security defaults in Azure AD
 
@@ -55,8 +54,8 @@ To configure security defaults in your directory, you must be assigned at least 
 
 To enable security defaults:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Properties**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Overview** > **Properties**.
    1. Select **Manage security defaults**.
 1. Set **Security defaults** to **Enabled**.
 1. Select **Save**.
@@ -135,7 +134,7 @@ After security defaults are enabled in your tenant, all authentication requests 
 Organizations use various Azure services managed through the Azure Resource Manager API, including:
 
 - Azure portal 
-- Microsoft Entra Admin Center
+- Microsoft Entra admin center
 - Azure PowerShell 
 - Azure CLI
 
@@ -146,6 +145,7 @@ It's important to verify the identity of users who want to access Azure Resource
 After you enable security defaults in your tenant, any user accessing the following services must complete multifactor authentication: 
 
 - Azure portal
+- Microsoft Entra admin center
 - Azure PowerShell 
 - Azure CLI 
 
@@ -184,8 +184,8 @@ Organizations that choose to implement Conditional Access policies that replace 
 
 To disable security defaults in your directory:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Properties**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Overview** > **Properties**.
    1. Select **Manage security defaults**.
 1. Set **Security defaults** to **Disabled (not recommended)**.
 1. Select **Save**.

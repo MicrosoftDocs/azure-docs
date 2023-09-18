@@ -141,7 +141,7 @@ Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor.
 
 1. In the **Certificates** tab, select **Import trusted CA certificate (recommended)** to deploy a CA-signed certificate.
 
-    Enter the certificate's name and passphrase, and then select **Upload** to upload your private key file, certificate file, and an optional certificate chain file.
+    Enter the certificate's name and [passphrase](../best-practices/certificate-requirements.md#supported-characters-for-keys-and-passphrases), and then select **Upload** to upload your private key file, certificate file, and an optional certificate chain file.
 
     You may need to refresh the page after uploading your files. For more information, see [Troubleshoot certificate upload errors](../how-to-manage-individual-sensors.md#troubleshoot-certificate-upload-errors).
 
