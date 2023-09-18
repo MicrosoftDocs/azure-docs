@@ -244,7 +244,7 @@ To use passwordless authentication for your Windows VMs in Azure, you need the W
 - Windows Server 2022 with [2022-10 Cumulative Update for Microsoft server operating system (KB5018421)](https://support.microsoft.com/kb/KB5018421) or later installed.
 
 > [!IMPORTANT]
-> There is no requirement for Windows client machine to be either Azure AD registered, or Azure AD joined or hybrid Azure AD joined to the *same* directory as the VM. Additionally, to RDP by using Azure AD credentials, users must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login.
+> The Windows client machine is required to be either Azure AD registered, or Azure AD joined or hybrid Azure AD joined to the *same* directory as the VM. Additionally, to RDP by using Azure AD credentials, users must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login.
 
 To connect to the remote computer:
 
