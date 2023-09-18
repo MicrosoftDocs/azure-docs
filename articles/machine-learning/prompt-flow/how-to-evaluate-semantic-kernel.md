@@ -177,7 +177,7 @@ This will present you with a detailed table, line-by-line comparison of the resu
 > Follow along with our documentations to get started!
 > And keep an eye out for more integrations.
 
-If you’re interested in learning more about how you can use Prompt flow to test and evaluate Semantic Kernel, we recommend following along to the new doc articles we created. At each step, we provide sample code and explanations so you can use Prompt flow successfully with Semantic Kernel.
+If you’re interested in learning more about how you can use Prompt flow to test and evaluate Semantic Kernel, we recommend following along to the articles we created. At each step, we provide sample code and explanations so you can use Prompt flow successfully with Semantic Kernel.
 
 * [Using Prompt flow with Semantic Kernel](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/)
 * [Create a Prompt flow with Semantic Kernel](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/create-a-prompt-flow-with-semantic-kernel)
