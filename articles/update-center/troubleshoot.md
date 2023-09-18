@@ -112,7 +112,7 @@ To review the logs related to all actions performed by the extension, on Windows
 - If a machine is newly created, the schedule might have 15 minutes of schedule trigger delay for Azure VMs.
 - Policy definition **[Preview]: Schedule recurring updates using Update Manager** with version 1.0.0-preview successfully remediates resources, but it always shows them as noncompliant. The current value of the existence condition is a placeholder that always evaluates to false.
 
-### Scenario: Unable to apply patches for the shutdown machines
+### Unable to apply patches for the shutdown machines
 
 Here's the scenario.
 
@@ -128,7 +128,7 @@ The machines are in a shutdown state.
 
 Keep your machines turned on at least 15 minutes before the scheduled update. For more information, see [Shut down machines](../virtual-machines/maintenance-configurations.md#shut-down-machines).
 
-### Scenario: Patch run failed with Maintenance window exceeded property showing true even if time remained
+### Patch run failed with Maintenance window exceeded property showing true even if time remained
 
 Here's the scenario.
 
