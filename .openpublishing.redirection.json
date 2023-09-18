@@ -22354,7 +22354,7 @@
         },
         {
             "source_path_from_root": "/articles/communication-services/tutorials/widgets/click-to-call-widget.md",
-            "redirect_url": "/azure/communication-services/tutorials/calling-widget/calling-widget-overview.md",
+            "redirect_url": "/azure/communication-services/tutorials/calling-widget/calling-widget-overview",
             "redirect_document_id": false
         },
         {
