@@ -203,11 +203,11 @@
       - name: Azure Data Share
         href: ../data-share/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure DevOps
-        href: ../devops/organizations/security/data-protection.md?view=azure-devops.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#data-availability
+        href: /azure/devops/organizations/security/data-protection?view=azure-devops.md&preserve-view=true&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#data-availability
       - name: Azure DDoS Protection
         href: ../ddos-protection/ddos-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#business-continuity
       - name: Azure DNS - Azure DNS Private Resolver
-        href: ../dns/dns-faq-private.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#will-azure-private-dns-zones-work-across-azure-regions-
+        href: ../dns/dns-faq-private.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#will-azure-private-dns-zones-work-across-azure-regions-
       - name: Azure Event Grid
         href: ../event-grid/custom-disaster-recovery-client-side.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Event Hubs
@@ -245,7 +245,7 @@
         - name: Continuous export advanced storage configuration
           href: ../azure-monitor/app/export-telemetry.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#continuous-export-advanced-storage-configuration
         - name: Move Application Insights resource to a new region
-          href: ../azure-monitor/faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-move-an-application-insights-resource-to-a-new-region-
+          href: ../azure-monitor/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-move-an-application-insights-resource-to-a-new-region-
       - name: Azure NetApp Files
         href: ../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Public IP
@@ -259,13 +259,13 @@
       - name: Azure Site Recovery
         href: ../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure SQL
-        href: /azure-sql/database/recovery-using-backups?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#geo-restore
+        href: /azure/azure-sql/database/recovery-using-backups?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#geo-restore
       - name: Azure SQL-Managed Instance
-        href: /azure-sql/database/auto-failover-group-sql-db?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=azure-powershell
+        href: /azure/azure-sql/database/auto-failover-group-sql-db?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=azure-powershell
       - name: Azure SQL Server Registry
         href: /sql/sql-server/end-of-support/sql-server-extended-security-updates?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&view=sql-server-ver15#configure-regional-redundancy
       - name: Azure Storage-Disk Storage
-        href: ../virtual-machines/disks-incremental-snapshots?tabs=azure-resource-manage.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.jsonr#cross-region-snapshot-copy-preview
+        href: ../virtual-machines/disks-incremental-snapshots.md?tabs=azure-resource-manage.md&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.jsonr#cross-region-snapshot-copy-preview
       - name: Azure Stream Analytics
         href: ../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Virtual Machines
@@ -279,7 +279,7 @@
       - name: Azure VPN Gateway
         href: ../vpn-gateway/vpn-gateway-highlyavailable.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Web Application Firewall
-        href: ../application-gateway/application-gateway-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-achieve-a-dr-scenario-across-datacenters-by-using-application-gateway
+        href: ../application-gateway/application-gateway-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-achieve-a-dr-scenario-across-datacenters-by-using-application-gateway
 - name: Reliability Guidance
   items:
     - name: Overview

@@ -23,7 +23,7 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | --- | 
 | [Azure Application Gateway (V2)](../networking/disaster-recovery-dns-traffic-manager.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/.breadcrumb/toc.json) |
 | [Azure Cosmos DB](../cosmos-db/how-to-multi-master.md?tabs=api-async?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
-| [Azure DNS - Azure DNS Private Resolver](../dns/dns-faq-private.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#will-azure-private-dns-zones-work-across-azure-regions-) |
+| [Azure DNS - Azure DNS Private Resolver](../dns/dns-faq-private.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#will-azure-private-dns-zones-work-across-azure-regions-) |
 | [Azure Event Hubs](../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones) |
 | [Azure ExpressRoute](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 | [Azure Key Vault](../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
@@ -33,9 +33,9 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | [Azure Service Bus](../service-bus-messaging/service-bus-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones) |
 | [Azure Service Fabric](../service-fabric/service-fabric-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-of-the-service-fabric-cluster) |
 | [Azure Site Recovery](../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
-| [Azure SQL](/azure-sql/database/recovery-using-backups?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#geo-restore) |
-| [Azure SQL-Managed Instance](/azure-sql/database/auto-failover-group-sql-db?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=azure-powershell) |
-| [Azure Storage-Disk Storage](../virtual-machines/disks-incremental-snapshots?tabs=azure-resource-manage.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.jsonr#cross-region-snapshot-copy-preview) |
+| [Azure SQL](/azure/azure-sql/database/recovery-using-backups?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#geo-restore) |
+| [Azure SQL-Managed Instance](/azure/azure-sql/database/auto-failover-group-sql-db?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=azure-powershell) |
+| [Azure Storage-Disk Storage](../virtual-machines/disks-incremental-snapshots.md?tabs=azure-resource-manage.md&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.jsonr#cross-region-snapshot-copy-preview) |
 | [Azure Virtual Machines](reliability-virtual-machines.md#disaster-recovery-and-business-continuity) |
 | [Azure Virtual Network](../virtual-network/virtual-network-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#business-continuity) |
 | [Azure VPN and ExpressRoute Gateway](../vpn-gateway/vpn-gateway-highlyavailable.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
@@ -67,11 +67,11 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | [Azure Media Services](/azure/media-services/latest/architecture-high-availability-encoding-concept?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 | [Azure Migrate](../migrate/resources-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#does-azure-migrate-offer-backup-and-disaster-recovery) |
 | [Azure Monitor - Log Analytics](../azure-monitor/logs/logs-data-export.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=portal#enable-data-export) | 
-| [Azure Monitor - Application Insights - Continuous export advanced storage configuration](../azure-monitor/app/export-telemetry.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#continuous-export-advanced-storage-configuration) and [Move Application Insights resource to a new region](../azure-monitor/faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-move-an-application-insights-resource-to-a-new-region-) |
+| [Azure Monitor - Application Insights - Continuous export advanced storage configuration](../azure-monitor/app/export-telemetry.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#continuous-export-advanced-storage-configuration) and [Move Application Insights resource to a new region](../azure-monitor/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-move-an-application-insights-resource-to-a-new-region-) |
 | [Azure SQL Server Registry](/sql/sql-server/end-of-support/sql-server-extended-security-updates?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&preserve-view=true&view=sql-server-ver15#configure-regional-redundancy) |
 | [Azure Stream Analytics](../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 | [Azure Virtual WAN](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
-| [Azure Web Application Firewall](../application-gateway/application-gateway-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-achieve-a-dr-scenario-across-datacenters-by-using-application-gateway) |
+| [Azure Web Application Firewall](../application-gateway/application-gateway-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-achieve-a-dr-scenario-across-datacenters-by-using-application-gateway) |
   
 
 ### ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic services 
@@ -80,7 +80,7 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | --- | 
 | [Azure Databox](../databox/data-box-disk-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-can-i-recover-my-data-if-an-entire-region-fails-) |
 | [Azure Data Share](../data-share/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-| [Azure DevOps](../devops/organizations/security/data-protection.md?view=azure-devops.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#data-availability)|
+| [Azure DevOps](/azure/devops/organizations/security/data-protection?view=azure-devops.md&preserve-view=true&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#data-availability)|
 | [Azure Health Data Services - Azure API for FHIR](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 | [Azure IoT Hub](../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#disable-disaster-recovery) |
 | [Azure Machine Learning Service](../machine-learning/v1/how-to-high-availability-machine-learning.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
