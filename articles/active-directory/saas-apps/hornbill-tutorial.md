@@ -129,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. On the Home page, click the **Configuration** settings icon at the bottom left of the page.
 
-	![Screenshot shows the Hornbill system.](./media/hornbill-tutorial/settings.png   "Hornbill system")
+	![Screenshot shows the Hornbill system.](./media/hornbill-tutorial/settings.png "Hornbill system")
 
 3. Navigate to **Platform Configuration**.
 

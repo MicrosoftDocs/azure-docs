@@ -74,7 +74,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
 When you enabled the App Service authentication/authorization module in the previous section, an app registration was created in your Azure AD tenant. The app registration has the same display name as your web app. 
 
-1. To check the settings, select **Azure Active Directory** from the portal menu, and select **App registrations**. 
+1. To check the settings, go to the [Microsoft Entra admin center](https://entra.microsoft.com) and select **Applications** and then **App registrations** from the menu. 
 1. Select the app registration that was created. 
 1. In the overview, verify that **Supported account types** is set to **My organization only**.
     

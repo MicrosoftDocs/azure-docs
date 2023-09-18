@@ -6,6 +6,8 @@ ms.topic: sample
 ---
 # Overview of the ISO 27001 Shared Services blueprint sample
 
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
+
 The ISO 27001 Shared Services blueprint sample provides a set of compliant infrastructure patterns
 and policy guardrails that help toward ISO 27001 attestation. This blueprint helps customers deploy
 cloud-based architectures that offer solutions to scenarios that have accreditation or compliance

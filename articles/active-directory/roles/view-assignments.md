@@ -1,6 +1,6 @@
 ---
 title: List Azure AD role assignments
-description: You can now see and manage members of an Azure Active Directory administrator role in the Azure portal.
+description: You can now see and manage members of an Azure Active Directory administrator role in the Microsoft Entra admin center.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -28,15 +28,17 @@ This article describes how to list roles you have assigned in Azure Active Direc
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Azure portal
+## Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 This procedure describes how to list role assignments with organization-wide scope.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory** > **Roles and administrators** and then select a role to open it and view its properties.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
+
+1. Select a role to open it and view its properties.
 
 1. Select **Assignments** to list the role assignments.
 
@@ -74,9 +76,11 @@ To download all assignments for a specific role, follow these steps.
 
 This section describes how to list role assignments with single-application scope. This feature is currently in public preview.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory** > **App registrations**, and then select the app registration to view its properties. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.
+1. Browse to **Identity** > **Applications** > **App registrations**.
+
+1. Select the app registration to view its properties. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.
 
     ![Create or edit app registrations from the App registrations page](./media/view-assignments/app-reg-all-apps.png)
 
