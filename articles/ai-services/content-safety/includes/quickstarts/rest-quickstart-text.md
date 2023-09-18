@@ -97,16 +97,21 @@ You should see the text moderation results displayed as JSON data in the console
     }
   ],
   "categoriesAnalysis": [
-    {
-      "category": "Hate",
-      "severity": 2
-      "category": "Sexual",
-      "severity": 0
-      "category": "SelfHarm",
-      "severity": 0
-      "category": "Violence",
-      "severity": 0
-    }
+        {
+            "category": "Hate",
+            "severity": 2
+        },
+        {
+            "category": "SelfHarm",
+            "severity": 0
+        },
+        {
+            "category": "Sexual",
+            "severity": 0
+        },
+        {
+            "category": "Violence",
+            "severity": 0
   ]
 }
 ```

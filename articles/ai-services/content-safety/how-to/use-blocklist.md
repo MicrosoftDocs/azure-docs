@@ -157,7 +157,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Replace the value of the `"text"` field with the item you'd like to add to your blocklist. The maximum length of a blocklistItem is 128 characters.
 
 ```shell
-curl --location --request POST '<endpoint>/contentsafety/text/blocklists/<your_list_name>:addBlocklistItems?api-version=2023-10-01' \
+curl --location --request POST '<endpoint>/contentsafety/text/blocklists/<your_list_name>:addOrUpdateBlocklistItems?api-version=2023-10-01' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json' \
 --data-raw '"blocklistItems": [{
@@ -185,10 +185,14 @@ The response code should be `200`.
 
 ```console
 {
+"blocklistItems:"[
+  {
   "blocklistItemId": "string",
   "description": "string",
   "text": "bleed"
   
+   }
+ ]
 }
 ```
 
