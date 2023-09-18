@@ -36,11 +36,11 @@ __Q. Why am I being asked to migrate to Azure Database for MySQL - Flexible Serv
 
 __A.__ There is very high application compatibility between Azure Database for MariaDB and Azure Database for MySQL, as MariaDB was forked from MySQL. [Azure Database for MySQL - Flexible Server](https://azure.microsoft.com/pricing/details/mysql/flexible-server/#overview) is the best platform for running all your MySQL workloads on Azure. Azure MySQL- Flexible server is both economical and provides better performance across all service tiers and more ways to control your costs, for cheaper and faster disaster recovery:
 
-·       More ways to optimize costs, including support for burstable tier compute options.
+- More ways to optimize costs, including support for burstable tier compute options.
 
-·       Improved performance for business-critical production workloads that require low latency, high concurrency, fast failover, and high scalability.
+- Improved performance for business-critical production workloads that require low latency, high concurrency, fast failover, and high scalability.
 
-·       Improved uptime with the ability to configure a hot standby on the same or a different zone, and a one-hour time window for planned server maintenance.
+- Improved uptime with the ability to configure a hot standby on the same or a different zone, and a one-hour time window for planned server maintenance.
 
 __Q. How soon do I need to migrate my MariaDB servers to a flexible server?__
 
