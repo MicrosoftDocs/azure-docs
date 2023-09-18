@@ -120,7 +120,7 @@ Evaluation flows in Prompt flow enable this functionality. Using the sample eval
 There's also the flexibility to develop **your own custom evaluators** if needed.
 :::image type="content" source="./media/how-to-evaluate-semantic-kernel/my-evaluator.png" alt-text="My custom evaluation flow" lightbox = "./media/how-to-evaluate-semantic-kernel/my-evaluator.png":::
 
-In Prompt flow, you can quick create an evaluation run based on an completed batch run by following the steps below:
+In Prompt flow, you can quick create an evaluation run based on a completed batch run by following the steps below:
 1. Prepare the evaluation flow and the complete a batch run.
 1. Click *Run* tab in home page to go to the run list.
 1. Go into the previous completed batch run.
