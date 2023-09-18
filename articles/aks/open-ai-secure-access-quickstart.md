@@ -3,7 +3,7 @@ title: Secure access to Azure OpenAI from Azure Kubernetes Service (AKS)
 description: Learn how to secure access to Azure OpenAI from Azure Kubernetes Service (AKS).
 ms.service: azure-kubernetes-service
 ms.topic: how-to
-ms.date: 09/11/2023
+ms.date: 09/18/2023
 ms.author: schaffererin
 author: schaffererin
 ---
@@ -121,7 +121,7 @@ The Azure AD Workload Identity and OIDC Issuer Endpoint features aren't enabled 
         --resource-group ${RG_NAME} \
         --identity-name ${MANAGED_IDENTITY_NAME} \
         --issuer ${AKS_OIDC_ISSUER} \
-        --subject system:serviceaccount${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}
+        --subject system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}
     ```
 
 ## Use Azure AD Workload Identity on AKS

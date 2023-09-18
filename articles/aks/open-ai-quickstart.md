@@ -2,7 +2,7 @@
 title: Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 
 description: Learn how to deploy an application that uses OpenAI on Azure Kubernetes Service (AKS). #Required; article description that is displayed in search results. 
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 6/29/2023
+ms.date: 09/18/2023
 ms.custom: template-how-to, devx-track-azurecli #Required; leave this attribute/value as-is.
 ---
 
@@ -223,10 +223,10 @@ Now that the application is deployed, you can deploy the Python-based microservi
             resources:
               requests:
                 cpu: 20m
-                memory: 46Mi
+                memory: 50Mi
               limits:
                 cpu: 30m
-                memory: 50Mi
+                memory: 65Mi
     ---
     apiVersion: v1
     kind: Service
