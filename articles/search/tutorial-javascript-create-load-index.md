@@ -46,7 +46,7 @@ The ESM script uses the Azure SDK for Cognitive Search:
 
 ## Run the bulk import script for Search
 
-1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website-functions-v4/bulk-insert`, to run the following bash command to run the `bulk_insert_books.js` script:
+1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website-functions-v4/bulk-insert`, to run the `bulk_insert_books.js` script:
 
     ```javascript
     npm start
