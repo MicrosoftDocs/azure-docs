@@ -73,7 +73,7 @@ When you create your VMs, use availability zones to protect your applications an
 
 For information on how to enable availability zones support when you create your VM, see [create availability zone support](#create-a-resource-with-availability-zone-enabled).
 
-For information on how to migrate your existing VMs to availability zone support, see [Availability zone support redeployment and migration](#availability-zone-redeployment-and-migration). 
+For information on how to migrate your existing VMs to availability zone support, see [migrate to availability zone support](#migrate-to-availability-zone-support). 
 
 
 # [Azure Resource Graph](#tab/graph)
