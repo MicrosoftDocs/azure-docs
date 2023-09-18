@@ -45,12 +45,12 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
       "location": "[resourceGroup().location]",
       "dependsOn": [],
       "properties": {
-        "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
-        "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.10",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-			        "enableAMA": "true"
+          "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+          "type": "DependencyAgentWindows",
+          "typeHandlerVersion": "9.10",
+          "autoUpgradeMinorVersion": true,
+          "settings": {
+                "enableAMA": "true"
 		    }
       }
     }
@@ -68,7 +68,12 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
 | type | DependencyAgentWindows |
 | typeHandlerVersion | 9.10 |
+| autoUpgradeMinorVersion | true |
+| settings | "enableAMA": "true" |
 
+
+> [!IMPORTANT]
+> Be sure to add `enableAMA` to your template if you're using Azure Monitor Agent; otherwise, Dependency agent attempts to send data to the legacy Log Analytics agent.
 ## Template deployment
 
 You can deploy the Azure VM extensions with Azure Resource Manager templates. You can use the JSON schema detailed in the previous section in an Azure Resource Manager template to run the Azure VM Dependency agent extension during an Azure Resource Manager template deployment.
@@ -111,12 +116,12 @@ When you place the extension JSON at the root of the template, the resource name
 		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
 	],
 	"properties": {
-    		"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
-        "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.10",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-              "enableAMA": "true"
+      "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+      "type": "DependencyAgentWindows",
+      "typeHandlerVersion": "9.10",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+            "enableAMA": "true"
     		    }
 	}
 }

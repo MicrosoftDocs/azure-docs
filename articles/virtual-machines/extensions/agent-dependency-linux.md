@@ -70,6 +70,10 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
 | type | DependencyAgentLinux |
 | typeHandlerVersion | 9.5 |
+| settings | "enableAMA": "true" |
+
+> [!IMPORTANT]
+> Be sure to add `enableAMA` to your template if you're using Azure Monitor Agent; otherwise, Dependency agent attempts to send data to the legacy Log Analytics agent.
 
 ## Template deployment
 
@@ -87,7 +91,7 @@ The following example assumes the Dependency agent extension is nested inside th
 	"apiVersion": "[variables('apiVersion')]",
 	"location": "[resourceGroup().location]",
 	"dependsOn": [
-		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+      "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
 	],
 	"properties": {
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
