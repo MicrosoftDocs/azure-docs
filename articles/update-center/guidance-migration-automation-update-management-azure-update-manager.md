@@ -14,15 +14,13 @@ ms.author: sudhirsneha
 
 This article provides guidance to move virtual machines from Automation Update Management to Azure Update Manager.
 
-Azure Update Manager provides a SaaS solution to manage and govern software updates to Windows and Linux machines across Azure, on-premises, and multi cloud environments. It is an evolution of [Azure Automation Update management solution](../automation/update-management/overview.md) with new features and functionality, for assessment and deployment of software updates on a single machine or on multiple machines at scale.
+Azure Update Manager provides a SaaS solution to manage and govern software updates to Windows and Linux machines across Azure, on-premises, and multicloud environments. It is an evolution of [Azure Automation Update management solution](../automation/update-management/overview.md) with new features and functionality, for assessment and deployment of software updates on a single machine or on multiple machines at scale.
 
 For the Azure Update Manager, both AMA and MMA aren't a requirement to manage software update workflows as it relies on the Microsoft Azure VM Agent for Azure VMs and Azure connected machine agent for Arc-enabled servers. When you perform an update operation for the first time on a machine, an extension is pushed to the machine and it interacts with the agents to assess missing updates and install updates.
 
 
 > [!NOTE] 
-> - If you are using Azure Automation Update Management Solution, we recommend that you don't remove MMA agents from the machines without completing the migration to Azure Update Manager for the machine's patch management needs.
->
-> - If you remove the MMA agent from the machine without moving to Azure Update Manager, it would break the patching workflows for that machine. 
+> - If you are using Azure Automation Update Management Solution, we recommend that you don't remove MMA agents from the machines without completing the migration to Azure Update Manager for the machine's patch management needs. If you remove the MMA agent from the machine without moving to Azure Update Manager, it would break the patching workflows for that machine. 
 >
 > - All capabilities of Azure Automation Update Management will be available on Azure Update Manager before the deprecation date.
 
@@ -38,8 +36,8 @@ Guidance to move various capabilities is provided in table below:
 4 | Dynamic Update deployment schedules (Defining scope of machines using resource group, tags, etc. which is evaluated dynamically at runtime).| Same as static update schedules. | Same as static update schedules. | [Add a dynamic scope](manage-dynamic-scoping.md#add-a-dynamic-scope-preview) | [Create a dynamic scope]( tutorial-dynamic-grouping-for-scheduled-patching.md#create-a-dynamic-scope) |
 5 | Deboard from Azure Automation Update management. | After you complete the steps 1, 2, and 3, you need to clean up Azure Update management objects. | | 1. [Remove machines from solution](../automation/update-management/remove-feature.md#remove-management-of-vms) </br> 2. [Remove Update Management solution](../automation/update-management/remove-feature.md#remove-updatemanagement-solution) </br> 3. [Unlink workspace from Automation account](../automation/update-management/remove-feature.md#unlink-workspace-from-automation-account) </br> 4. [Cleanup Automation account](../automation/update-management/remove-feature.md#cleanup-automation-account) | NA |
 6 | Reporting | Custom update reports using Log Analytics queries. | Update data is stored in Azure Resource Graph (ARG). Customers can query ARG data to build custom dashboards, workbooks etc. | The old Automation Update Management data stored in Log analytics can be accessed, but there's no provision to move data to ARG. You can write ARG queries to access data that will be stored to ARG after virtual machines are patched via Azure Update Manager. With ARG queries you can, build dashboards and workbooks using following instructions: </br> 1. [Log structure of Azure Resource graph updates data](query-logs.md) </br> 2. [Sample ARG queries](sample-query-logs.md) </br> 3. [Create workbooks](manage-workbooks.md) | NA |
-7 | Customize workflows using pre and post scripts. | Available as Automation runbooks. | Support for Automation runbooks will be provided soon. | | |
-8 | Create alerts based on updates data for your environment | Alerts can be set up on updates data stored in Log Analytics. |Alerts will be enabled in Azure Update Manager soon | | |
+7 | Customize workflows using pre and post scripts. | Available as Automation runbooks. | We recommend that you use Automation runbooks once they are available. | | |
+8 | Create alerts based on updates data for your environment | Alerts can be set up on updates data stored in Log Analytics. |We recommend that you use alerts once thy are available. | | |
 
 
  
