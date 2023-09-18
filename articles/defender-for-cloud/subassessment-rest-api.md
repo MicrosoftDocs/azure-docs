@@ -21,7 +21,7 @@ Azure container registry vulnerabilities sub assessments are published to ARG as
 
 ## ARG Query Examples
 
-To pull specific sub assessments, you need the assessment key. For MDVM powered sub-assessments the key is `c0b7cfc6-3172-465a-b378-53c7ff2cc0d5`. 
+To pull specific sub assessments, you need the assessment key. For Container vulnerability assessment powered by MDVM the key is `c0b7cfc6-3172-465a-b378-53c7ff2cc0d5`. 
 
 The following is a generic security sub assessment query example which can be used as an example to build queries with. This query pulls the first sub assessment generated in the last hour.
 ```kql
