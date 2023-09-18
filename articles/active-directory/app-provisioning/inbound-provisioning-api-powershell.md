@@ -68,7 +68,7 @@ The PowerShell sample script published in the [Microsoft Entra inbound provision
 
 ## Download the PowerShell script
 
-1. Access the GitHub repository https://github.com/Microsoft Entra ID/Microsoft Entra ID-inbound-provisioning. 
+1. Access the GitHub repository [`entra-id-inbound-provisioning`](https://github.com/AzureAD/entra-id-inbound-provisioning). 
 1. Use the **Code** -> **Clone**  or **Code** -> **Download ZIP** option to copy contents of this repository into your local folder. 
 1. Navigate to the folder **PowerShell/CSV2SCIM**. It has the following directory structure:
    - src
