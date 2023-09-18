@@ -1,6 +1,6 @@
 ---
 title: Migrate from ADAL to MSAL recommendation
-description: Learn why you should migrate from the Azure Active Directory Library to the Microsoft Authentication Libraries.
+description: Learn why you should migrate from the Microsoft Entra Library to the Microsoft Authentication Libraries.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -13,11 +13,11 @@ ms.author: sarahlipsey
 ms.reviewer: jamesmantu
 ---
 
-# Azure AD recommendation: Migrate from the Azure Active Directory Library to the Microsoft Authentication Libraries
+# Microsoft Entra recommendation: Migrate from the Microsoft Entra Library to the Microsoft Authentication Libraries
 
-[Azure AD recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
+[Microsoft Entra recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
-This article covers the recommendation to migrate from the Azure Active Directory Library to the Microsoft Authentication Libraries. This recommendation is called `AdalToMsalMigration` in the recommendations API in Microsoft Graph. 
+This article covers the recommendation to migrate from the Microsoft Entra Library to the Microsoft Authentication Libraries. This recommendation is called `AdalToMsalMigration` in the recommendations API in Microsoft Graph. 
 
 ## Description
 
@@ -35,11 +35,11 @@ Existing apps that use ADAL will continue to work after the end-of-support date.
 
 ## Action plan
 
-The first step to migrating your apps from ADAL to MSAL is to identify all applications in your tenant that are currently using ADAL. You can identify your apps programmatically with the Microsoft Graph API or the Microsoft Graph PowerShell SDK. The steps for the Microsoft Graph PowerShell SDK are provided in the Recommendation details in the Azure Active Directory portal.
+The first step to migrating your apps from ADAL to MSAL is to identify all applications in your tenant that are currently using ADAL. You can identify your apps programmatically with the Microsoft Graph API or the Microsoft Graph PowerShell SDK. The steps for the Microsoft Graph PowerShell SDK are provided in the Recommendation details in the Microsoft Entra portal.
 
 ### [Microsoft Graph API](#tab/Microsoft-Graph-API)
 
-You can use Microsoft Graph to identify apps that need to be migrated to MSAL. To get started, see [How to use Microsoft Graph with Azure AD recommendations](howto-use-recommendations.md#how-to-use-microsoft-graph-with-azure-active-directory-recommendations).
+You can use Microsoft Graph to identify apps that need to be migrated to MSAL. To get started, see [How to use Microsoft Graph with Microsoft Entra recommendations](howto-use-recommendations.md#how-to-use-microsoft-graph-with-azure-active-directory-recommendations).
 
 1. Sign in to [Graph Explorer](https://aka.ms/ge).
 1. Select **GET** as the HTTP method from the dropdown.
@@ -106,7 +106,7 @@ To reduce false positives, the service uses a 30 day window for ADAL requests. T
 
 ### How were ADAL applications identified before the recommendation was released?
 
-The [Azure AD sign-ins workbook](../develop/howto-get-list-of-all-auth-library-apps.md) was an alternative method to identify these apps. The workbook is still available to you, but using the workbook requires streaming sign-in logs to Azure Monitor first. The ADAL to MSAL recommendation works out of the box. Plus, the sign-ins workbook doesn't capture Service Principal sign-ins, while the recommendation does.
+The [Microsoft Entra sign-ins workbook](../develop/howto-get-list-of-all-auth-library-apps.md) was an alternative method to identify these apps. The workbook is still available to you, but using the workbook requires streaming sign-in logs to Azure Monitor first. The ADAL to MSAL recommendation works out of the box. Plus, the sign-ins workbook doesn't capture Service Principal sign-ins, while the recommendation does.
 
 ### Why is the number of ADAL applications different in the workbook and the recommendation?
 
@@ -122,6 +122,6 @@ Yes. If an application was marked as completed - so no ADAL requests were made d
 
 ## Next steps
 
-- [Review the Azure AD recommendations overview](overview-recommendations.md)
-- [Learn how to use Azure AD recommendations](howto-use-recommendations.md)
+- [Review the Microsoft Entra recommendations overview](overview-recommendations.md)
+- [Learn how to use Microsoft Entra recommendations](howto-use-recommendations.md)
 - [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)
