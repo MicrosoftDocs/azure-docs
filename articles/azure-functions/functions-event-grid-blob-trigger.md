@@ -441,7 +441,7 @@ With ngrok already running, start your local project as follows:
     Open a new terminal and run the following `mvn` command to start the debugging session.
 
     ```bash
-    mvn azure-functions:run
+    mvn azure-functions:run -DenableDebug
     ```
     ::: zone-end  
     ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-csharp"   

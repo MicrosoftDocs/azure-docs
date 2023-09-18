@@ -82,7 +82,7 @@ The endpoints are in the `{host}/scim/` directory, and you can use standard HTTP
 > [!NOTE]
 > You can only use HTTP endpoints for local tests. The Azure AD provisioning service requires that your endpoint support HTTPS.
 
-1. Download [Postman](https://www.getpostman.com/downloads/) and start the application.
+1. Download [Postman](https://www.postman.com/downloads/) and start the application.
 1. Copy and paste this link into Postman to import the test collection: `https://aka.ms/ProvisioningPostman`.
 
     ![Screenshot that shows importing the test collection in Postman.](media/scim-validator-tutorial/postman-collection.png)

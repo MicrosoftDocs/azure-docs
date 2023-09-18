@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 09/15/2023
 
 ms.author: justinha
 author: justinha
@@ -32,7 +32,7 @@ The following Azure AD Multi-Factor Authentication settings are available:
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
 | Providers | This will show any existing authentication providers that you've associated with your account. Adding new providers is disabled as of September 1, 2018. |
 
-![Azure portal - Azure AD Multi-Factor Authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
+![Azure AD Multi-Factor Authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
 ## Account lockout (MFA Server only)
 
@@ -51,11 +51,11 @@ The following settings are available:
 
 To configure account lockout settings, complete these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Account lockout**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Multifactor authentication** > **Account lockout**.
 1. Enter the values for your environment, and then select **Save**.
 
-    ![Screenshot that shows the account lockout settings in the Azure portal.](./media/howto-mfa-mfasettings/account-lockout-settings.png)
+    ![Screenshot that shows the account lockout settings.](./media/howto-mfa-mfasettings/account-lockout-settings.png)
 
 ## Block and unblock users
 
@@ -89,7 +89,8 @@ Users who report an MFA prompt as suspicious are set to **High User Risk**. Admi
 
 To enable **Report suspicious activity** from the Authentication methods **Settings**:   
 
-1. In the Azure portal, click **Azure Active Directory** > **Security** > **Authentication Methods** > **Settings**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication Methods** > **Settings**. 
 1. Set **Report suspicious activity** to **Enabled**. The feature remains disabled if you choose **Microsoft managed**. For more information about Microsoft managed values, see [Protecting authentication methods in Azure Active Directory](concept-authentication-default-enablement.md).
 1. Select **All users** or a specific group. 
 1. Select a **Reporting code**.
@@ -153,7 +154,7 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 > [!NOTE]
 > Be sure to include the header row in your CSV file.
 
-An administrator can sign in to the Azure portal, go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **OATH tokens**, and upload the CSV file.
+An Authentication Policy Administrator can sign in to the [Microsoft Entra admin center](https://entra.microsoft.com), go to **Protection** > **Multifactor authentication** > **OATH tokens**, and upload the CSV file.
 
 Depending on the size of the CSV file, it might take a few minutes to process. Select **Refresh** to get the status. If there are any errors in the file, you can download a CSV file that lists them. The field names in the downloaded CSV file are different from those in the uploaded version.
 
@@ -280,9 +281,9 @@ To use your own custom messages, complete the following steps:
 
 ## MFA service settings
 
-Settings for app passwords, trusted IPs, verification options, and remembering multi-factor authentication on trusted devices are available in the service settings. This is a legacy portal. It isn't part of the regular Azure portal.
+Settings for app passwords, trusted IPs, verification options, and remembering multi-factor authentication on trusted devices are available in the service settings. This is a legacy portal.
 
-You can access service settings from the Azure portal by going to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**. A window or tab opens with additional service settings options.
+You can access service settings from the [Microsoft Entra admin center](https://entra.microsoft.com) by going to **Protection** > **Multifactor authentication** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**. A window or tab opens with additional service settings options.
 
 ### Trusted IPs
 
@@ -319,7 +320,8 @@ Regardless of whether trusted IPs are defined, multi-factor authentication is re
 
 You can use Conditional Access rules to define named locations by using the following steps:
 
-1. In the Azure portal, search for and select **Azure Active Directory**, and then go to **Security** > **Conditional Access** > **Named locations**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access** > **Named locations**.
 1. Select **New location**.
 1. Enter a name for the location.
 1. Select **Mark as trusted location**.
@@ -330,7 +332,8 @@ You can use Conditional Access rules to define named locations by using the foll
 
 To enable trusted IPs by using Conditional Access policies, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure Active Directory**, and then go to **Security** >  **Conditional Access** > **Named locations**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** >  **Conditional Access** > **Named locations**.
 1. Select **Configure MFA trusted IPs**.
 1. On the **Service Settings** page, under **Trusted IPs**, choose one of these options:
 
@@ -349,10 +352,9 @@ To enable trusted IPs by using Conditional Access policies, complete the followi
 
 If you don't want to use Conditional Access policies to enable trusted IPs, you can configure the service settings for Azure AD Multi-Factor Authentication by using the following steps:
 
-1. In the Azure portal, search for and select **Azure Active Directory**, and then select **Users**.
-1. Select **Per-user MFA**.
-1. Under **multi-factor authentication** at the top of the page, select **service settings**.
-1. On the **service settings** page, under **Trusted IPs**, choose one or both of the following options:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Multifactor authentication** > **Service settings**.
+1. On the **Service settings** page, under **Trusted IPs**, choose one or both of the following options:
 
    * **For requests from federated users on my intranet**: To choose this option, select the checkbox. All federated users who sign in from the corporate network bypass multi-factor authentication by using a claim that's issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule doesn't exist, create the following rule in AD FS:
 
@@ -384,10 +386,11 @@ For more information, see [What authentication and verification methods are avai
 
 To enable or disable verification methods, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure Active Directory**, and then select **Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Identity** > **Users**.
 1. Select **Per-user MFA**.
-1. Under **multi-factor authentication** at the top of the page, select **service settings**.
-1. On the **service settings** page, under **verification options**, select or clear the appropriate checkboxes.
+1. Under **Multifactor authentication** at the top of the page, select **Service settings**.
+1. On the **Service settings** page, under **Verification options**, select or clear the appropriate checkboxes.
 1. Select **Save**.
 
 ### Remember multi-factor authentication
@@ -420,9 +423,10 @@ The feature reduces the number of authentications on web apps, which normally pr
 
 To enable and configure the option to allow users to remember their MFA status and bypass prompts, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure Active Directory**, and then select **Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Identity** > **Users**.
 1. Select **Per-user MFA**.
-1. Under **multi-factor authentication** at the top of the page, select **service settings**.
+1. Under **Multifactor authentication** at the top of the page, select **service settings**.
 1. On the **service settings** page, under **remember multi-factor authentication**, select **Allow users to remember multi-factor authentication on devices they trust**.
 1. Set the number of days to allow trusted devices to bypass multi-factor authentications. For the optimal user experience, extend the duration to 90 or more days.
 1. Select **Save**.

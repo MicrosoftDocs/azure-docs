@@ -321,7 +321,7 @@ To sign out a user, perform both of these operations:
 * Redirect the user's user-agent to the Microsoft identity platform's logout URI
 * Clear your app's cookies or otherwise end the user's session in your application.
 
-If you fail to perform either operation, the user may remain authenticated and not be prompted to sign-in the next time they user your app.
+If you fail to perform either operation, the user may remain authenticated and not be prompted to sign-in the next time they use your app.
 
 Redirect the user-agent to the `end_session_endpoint` as shown in the OpenID Connect configuration document. The `end_session_endpoint` supports both HTTP GET and POST requests.
 
