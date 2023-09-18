@@ -48,12 +48,12 @@ Video Retrieval APIs are hosted by Azure AI  Vision and enable developers to cre
 
 ## Call the Video Retrieval APIs
 
-To use the Video Retrieval APIs in a typical pattern you would do the following:
+To use the Video Retrieval APIs in a typical pattern, you would do the following:
 
-1. Create an index using [PUT - Create an index](#createindex)
-2. Add video documents to the index using [PUT - CreateIngestion](#createingestion)
-3. Wait for the ingestion to complete, checking with [GET - ListIngestions](#listingestions)
-4. Search for a keyword or phrase using [POST - SearchByText](#searchbytext)
+1. Create an index using **PUT - Create an index**.
+2. Add video documents to the index using **PUT - CreateIngestion**.
+3. Wait for the ingestion to complete, checking with **GET - ListIngestions**.
+4. Search for a keyword or phrase using **POST - SearchByText**.
 
 
 ### Use Video Retrieval APIs for metadata-based search
@@ -67,7 +67,7 @@ In the following steps, replace https://example.cognitiveservices.azure.com/ wit
 To begin, you need to create an index to store and organize the video files and their metadata. The example below demonstrates how to create an index named "my-video-index."
 
 ```bash
-curl.exe -v -X PUT "https://<endpoint>/computervision/retrieval/indexes/my-video-index?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-Type: application/json" --data-ascii "
+curl.exe -v -X PUT "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
 {
   'metadataSchema': {
     'fields': [
@@ -152,7 +152,7 @@ Next, you can add video files to the index with their associated metadata. The e
 
 
 ```bash
-curl.exe -v -X PUT "https://<endpoint>/computervision/retrieval/indexes/my-video-index/ingestions/my-ingestion?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-Type: application/json" --data-ascii "
+curl.exe -v -X PUT "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index/ingestions/my-ingestion?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
 {
   'videos': [
     {
@@ -201,7 +201,7 @@ Connection: close
 After you add video files to the index, the ingestion process starts. It may take some time depending on the size and number of files. To ensure the ingestion is complete before performing searches, you can use the **Get Ingestion** call to check the status. Wait for this call to return `"state" = "Completed"` before proceeding to the next step. 
 
 ```bash
-curl.exe -v _X GET "https://<endpoint>/computervision/retrieval/indexes/my-video-index/ingestions?api-version=2023-05-01-preview&$top=20" -H "ocp-apim-subscription-key: YOUR_SUBSCRIPTION_KEY"
+curl.exe -v _X GET "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index/ingestions?api-version=2023-05-01-preview&$top=20" -H "ocp-apim-subscription-key: <YOUR_SUBSCRIPTION_KEY>"
 ```
 
 **Response:**
@@ -236,7 +236,7 @@ After you add video files to the index, you can search for specific videos using
 To perform a search using the "vision" feature, specify the query text and any desired filters.
 
 ```bash
-POST -v -X "https://<endpoint>/computervision/retrieval/indexes/my-video-index:queryByText?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-Type: application/json" --data-ascii "
+POST -v -X "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index:queryByText?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
 {
   'queryText': 'a man with black hoodie',
   'filters': {
@@ -299,7 +299,7 @@ Connection: close
 To perform a search using the "speech" feature, provide the query text and any desired filters.
 
 ```bash
-curl.exe -v -X POST "https://<endpoint>com/computervision/retrieval/indexes/my-video-index:queryByText?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-Type: application/json" --data-ascii "
+curl.exe -v -X POST "https://<YOUR_ENDPOINT_URL>com/computervision/retrieval/indexes/my-video-index:queryByText?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
 {
   'queryText': 'leave the area',
   'dedup': false,
