@@ -20,7 +20,7 @@ ROBOTS: NOINDEX
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-On November 2017, we announced that Microsoft Azure Access Control Service (ACS), a service of Azure Active Directory (Azure AD), is being retired on November 7, 2018.
+On November 2017, we announced that Microsoft Azure Access Control Service (ACS), a service of Microsoft Entra ID, is being retired on November 7, 2018.
 
 Since then, we've sent emails to the ACS subscriptions' admin email about the ACS retirement 12 months, 9 months, 6 months, 3 months, 1 month, 2 weeks, 1 week, and 1 day before the retirement date of November 7, 2018.
 

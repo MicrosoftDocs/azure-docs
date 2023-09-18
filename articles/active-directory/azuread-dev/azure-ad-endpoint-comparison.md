@@ -1,6 +1,6 @@
 ---
 title: Why update to Microsoft identity platform (v2.0)
-description: Know the differences between the Microsoft identity platform (v2.0) endpoint and the Azure Active Directory (Azure AD) v1.0 endpoint, and learn the benefits of updating to v2.0.
+description: Know the differences between the Microsoft identity platform (v2.0) endpoint and the Microsoft Entra v1.0 endpoint, and learn the benefits of updating to v2.0.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -18,23 +18,23 @@ ROBOTS: NOINDEX
 
 # Why update to Microsoft identity platform (v2.0)?
 
-When developing a new application, it's important to know the differences between the Microsoft identity platform (v2.0) and Azure Active Directory (v1.0) endpoints. This article covers the main differences between the endpoints and some existing limitations for Microsoft identity platform.
+When developing a new application, it's important to know the differences between the Microsoft identity platform (v2.0) and Microsoft Entra ID (v1.0) endpoints. This article covers the main differences between the endpoints and some existing limitations for Microsoft identity platform.
 
 ## Who can sign in
 
 ![Who can sign in with v1.0 and v2.0 endpoints](media/azure-ad-endpoint-comparison/who-can-signin.svg)
 
-* The v1.0 endpoint allows only work and school accounts to sign in to your application (Azure AD)
-* The Microsoft identity platform endpoint allows work and school accounts from Azure AD and personal Microsoft accounts (MSA), such as hotmail.com, outlook.com, and msn.com, to sign in.
-* Both endpoints also accept sign-ins of *[guest users](../external-identities/what-is-b2b.md)* of an Azure AD directory for applications configured as *[single-tenant](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* or for *multi-tenant* applications configured to point to the tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`).
+* The v1.0 endpoint allows only work and school accounts to sign in to your application (Microsoft Entra ID)
+* The Microsoft identity platform endpoint allows work and school accounts from Microsoft Entra ID and personal Microsoft accounts (MSA), such as hotmail.com, outlook.com, and msn.com, to sign in.
+* Both endpoints also accept sign-ins of *[guest users](../external-identities/what-is-b2b.md)* of a Microsoft Entra directory for applications configured as *[single-tenant](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* or for *multi-tenant* applications configured to point to the tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
 The Microsoft identity platform endpoint allows you to write apps that accept sign-ins from personal Microsoft accounts, and work and school accounts. This gives you the ability to write your app completely account-agnostic. For example, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to work accounts, such as their SharePoint sites or directory data. But for many actions, such as [Reading a user's mail](/graph/api/user-list-messages), the same code can access the email for both personal and work and school accounts.
 
-For Microsoft identity platform endpoint, you can use the Microsoft Authentication Library (MSAL) to gain access to the consumer, educational, and enterprise worlds. The Azure AD v1.0 endpoint accepts sign-ins from work and school accounts only.
+For Microsoft identity platform endpoint, you can use the Microsoft Authentication Library (MSAL) to gain access to the consumer, educational, and enterprise worlds. The Microsoft Entra v1.0 endpoint accepts sign-ins from work and school accounts only.
 
 ## Incremental and dynamic consent
 
-Apps using the Azure AD v1.0 endpoint are required to specify their required OAuth 2.0 permissions in advance, for example:
+Apps using the Microsoft Entra v1.0 endpoint are required to specify their required OAuth 2.0 permissions in advance, for example:
 
 ![Example showing the Permissions Registration UI](./media/azure-ad-endpoint-comparison/app-reg-permissions.png)
 
@@ -59,7 +59,7 @@ For apps using the v1.0 endpoint, an app can behave as a **resource**, or a reci
 
 This holds true for the Microsoft identity platform endpoint. An app can still behave as a resource, define scopes, and be identified by a URI. Client apps can still request access to those scopes. However, the way that a client requests those permissions have changed.
 
-For the v1.0 endpoint, an OAuth 2.0 authorize request to Azure AD might have looked like:
+For the v1.0 endpoint, an OAuth 2.0 authorize request to Microsoft Entra ID might have looked like:
 
 ```text
 GET https://login.microsoftonline.com/common/oauth2/authorize?
@@ -68,7 +68,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Here, the **resource** parameter indicated which resource the client app is requesting authorization. Azure AD computed the permissions required by the app based on static configuration in the Azure portal, and issued tokens accordingly.
+Here, the **resource** parameter indicated which resource the client app is requesting authorization. Microsoft Entra ID computed the permissions required by the app based on static configuration in the Azure portal, and issued tokens accordingly.
 
 For applications using the Microsoft identity platform endpoint, the same OAuth 2.0 authorize request looks like:
 
@@ -118,13 +118,13 @@ When you build applications that integrate with the Microsoft identity platform,
 Here's a simplified recommendation for developers now:
 
 * If you want or need to support personal Microsoft accounts in your application, or you're writing a new application, use Microsoft identity platform. But before you do, make sure you understand the limitations discussed in this article.
-* If you're migrating or updating an application that relies on SAML, you can't use Microsoft identity platform. Instead, refer to the [Azure AD v1.0 guide](v1-overview.md).
+* If you're migrating or updating an application that relies on SAML, you can't use Microsoft identity platform. Instead, refer to the [Microsoft Entra v1.0 guide](v1-overview.md).
 
 The Microsoft identity platform endpoint will evolve to eliminate the restrictions listed here, so that you'll only ever need to use the Microsoft identity platform endpoint. In the meantime, use this article to determine whether the Microsoft identity platform endpoint is right for you. We'll continue to update this article to reflect the current state of the Microsoft identity platform endpoint. Check back to reevaluate your requirements against Microsoft identity platform capabilities.
 
 ### Restrictions on app registrations
 
-For each app that you want to integrate with the Microsoft identity platform endpoint, you can create an app registration in the new [**App registrations** experience](https://aka.ms/appregistrations) in the Azure portal. Existing Microsoft account apps aren't compatible with the portal, but all Azure AD apps are, regardless of where or when they were registered.
+For each app that you want to integrate with the Microsoft identity platform endpoint, you can create an app registration in the new [**App registrations** experience](https://aka.ms/appregistrations) in the Azure portal. Existing Microsoft account apps aren't compatible with the portal, but all Microsoft Entra apps are, regardless of where or when they were registered.
 
 App registrations that support work and school accounts and personal accounts have the following caveats:
 
@@ -160,7 +160,7 @@ To better understand the scope of protocol functionality supported in the Micros
 
 #### SAML usage
 
-If you've used Active Directory Authentication Library (ADAL) in Windows applications, you might have taken advantage of Windows Integrated authentication, which uses the Security Assertion Markup Language (SAML) assertion grant. With this grant, users of federated Azure AD tenants can silently authenticate with their on-premises Active Directory instance without entering credentials. While [SAML is still a supported protocol](../develop/saml-protocol-reference.md) for use with enterprise users, the v2.0 endpoint is only for use with OAuth 2.0 applications.
+If you've used Active Directory Authentication Library (ADAL) in Windows applications, you might have taken advantage of Windows Integrated authentication, which uses the Security Assertion Markup Language (SAML) assertion grant. With this grant, users of federated Microsoft Entra tenants can silently authenticate with their on-premises Active Directory instance without entering credentials. While [SAML is still a supported protocol](../develop/saml-protocol-reference.md) for use with enterprise users, the v2.0 endpoint is only for use with OAuth 2.0 applications.
 
 ## Next steps
 

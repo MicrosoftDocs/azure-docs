@@ -1,6 +1,6 @@
 ---
-title: Authorize web app access with OpenID Connect & Azure AD
-description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OpenID Connect.
+title: Authorize web app access with OpenID Connect & Microsoft Entra ID
+description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Microsoft Entra ID and OpenID Connect.
 services: active-directory
 documentationcenter: .net
 author: rwike77
@@ -17,7 +17,7 @@ ms.custom: aaddev
 ROBOTS: NOINDEX
 ---
 
-# Authorize access to web applications using OpenID Connect and Azure Active Directory
+# Authorize access to web applications using OpenID Connect and Microsoft Entra ID
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -26,25 +26,25 @@ ROBOTS: NOINDEX
 OpenID Connect is our recommendation if you are building a web application that is hosted on a server and accessed via a browser.
 
 ## Register your application with your AD tenant
-First, register your application with your Azure Active Directory (Azure AD) tenant. This will give you an Application ID for your application, as well as enable it to receive tokens.
+First, register your application with your Microsoft Entra tenant. This will give you an Application ID for your application, as well as enable it to receive tokens.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
    
-1. Choose your Azure AD tenant by selecting your account in the top right corner of the page, followed by selecting the **Switch Directory** navigation and then selecting the appropriate tenant. 
-   - Skip this step if you only have one Azure AD tenant under your account, or if you've already selected the appropriate Azure AD tenant.
+1. Choose your Microsoft Entra tenant by selecting your account in the top right corner of the page, followed by selecting the **Switch Directory** navigation and then selecting the appropriate tenant. 
+   - Skip this step if you only have one Microsoft Entra tenant under your account, or if you've already selected the appropriate Microsoft Entra tenant.
    
-1. In the Azure portal, search for and select **Azure Active Directory**.
+1. In the Azure portal, search for and select **Microsoft Entra ID**.
    
-1. In the **Azure Active Directory** left menu, select **App Registrations**, and then select **New registration**.
+1. In the **Microsoft Entra ID** left menu, select **App Registrations**, and then select **New registration**.
    
 1. Follow the prompts and create a new application. It doesn't matter if it is a web application or a public client (mobile & desktop) application for this tutorial, but if you'd like specific examples for web applications or public client applications, check out our [quickstarts](v1-overview.md).
    
    - **Name** is the application name and describes your application to end users.
    - Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
-   - Provide the **Redirect URI**. For web applications, this is the base URL of your app where users can sign in.  For example, `http://localhost:12345`. For public client (mobile & desktop), Azure AD uses it to return token responses. Enter a value specific to your application.  For example, `http://MyFirstAADApp`.
+   - Provide the **Redirect URI**. For web applications, this is the base URL of your app where users can sign in.  For example, `http://localhost:12345`. For public client (mobile & desktop), Microsoft Entra ID uses it to return token responses. Enter a value specific to your application.  For example, `http://MyFirstAADApp`.
    <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->  
    
-1. Once you've completed registration, Azure AD will assign your application a unique client identifier (the **Application ID**). You need this value in the next sections, so copy it from the application page.
+1. Once you've completed registration, Microsoft Entra ID will assign your application a unique client identifier (the **Application ID**). You need this value in the next sections, so copy it from the application page.
    
 1. To find your application in the Azure portal, select **App registrations**, and then select **View all applications**.
 
@@ -107,7 +107,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | Type | Description |
 | --- | --- | --- |
 | tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are tenant identifiers, for example, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` or `common` for tenant-independent tokens |
-| client_id |required |The Application ID assigned to your app when you registered it with Azure AD. You can find this in the Azure portal. Click **Azure Active Directory**, click **App Registrations**, choose the application and locate the Application ID on the application page. |
+| client_id |required |The Application ID assigned to your app when you registered it with Microsoft Entra ID. You can find this in the Azure portal. Click **Microsoft Entra ID**, click **App Registrations**, choose the application and locate the Application ID on the application page. |
 | response_type |required |Must include `id_token` for OpenID Connect sign-in. It may also include other response_types, such as `code` or `token`. |
 | scope | recommended | The OpenID Connect specification requires the scope `openid`, which translates to the "Sign you in" permission in the consent UI. This and other OIDC scopes are ignored on the v1.0 endpoint, but is still a best practice for standards-compliant clients. |
 | nonce |required |A value included in the request, generated by the app, that is included in the resulting `id_token` as a claim. The app can then verify this value to mitigate token replay attacks. The value is typically a randomized, unique string or GUID that can be used to identify the origin of the request. |
@@ -160,16 +160,16 @@ The following table describes the various error codes that can be returned in th
 | Error Code | Description | Client Action |
 | --- | --- | --- |
 | invalid_request |Protocol error, such as a missing required parameter. |Fix and resubmit the request. This is a development error, and is typically caught during initial testing. |
-| unauthorized_client |The client application is not permitted to request an authorization code. |This usually occurs when the client application is not registered in Azure AD or is not added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
+| unauthorized_client |The client application is not permitted to request an authorization code. |This usually occurs when the client application is not registered in Microsoft Entra ID or is not added to the user's Microsoft Entra tenant. The application can prompt the user with instruction for installing the application and adding it to Microsoft Entra ID. |
 | access_denied |Resource owner denied consent |The client application can notify the user that it cannot proceed unless the user consents. |
 | unsupported_response_type |The authorization server does not support the response type in the request. |Fix and resubmit the request. This is a development error, and is typically caught during initial testing. |
 | server_error |The server encountered an unexpected error. |Retry the request. These errors can result from temporary conditions. The client application might explain to the user that its response is delayed due to a temporary error. |
 | temporarily_unavailable |The server is temporarily too busy to handle the request. |Retry the request. The client application might explain to the user that its response is delayed due to a temporary condition. |
-| invalid_resource |The target resource is invalid because it does not exist, Azure AD cannot find it, or it is not correctly configured. |This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
+| invalid_resource |The target resource is invalid because it does not exist, Microsoft Entra ID cannot find it, or it is not correctly configured. |This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Microsoft Entra ID. |
 
 ## Validate the id_token
 
-Just receiving an `id_token` is not sufficient to authenticate the user; you must validate the signature and verify the claims in the `id_token` per your app's requirements. The Azure AD endpoint uses JSON Web Tokens (JWTs) and public key cryptography to sign tokens and verify that they are valid.
+Just receiving an `id_token` is not sufficient to authenticate the user; you must validate the signature and verify the claims in the `id_token` per your app's requirements. The Microsoft Entra endpoint uses JSON Web Tokens (JWTs) and public key cryptography to sign tokens and verify that they are valid.
 
 You can choose to validate the `id_token` in client code, but a common practice is to send the `id_token` to a backend server and perform the validation there. 
 
@@ -179,11 +179,11 @@ You may also wish to validate additional claims depending on your scenario. Some
 * Ensuring the user has proper authorization/privileges using the `wids` or `roles` claims. 
 * Ensuring a certain strength of authentication has occurred, such as multi-factor authentication.
 
-Once you have validated the `id_token`, you can begin a session with the user and use the claims in the `id_token` to obtain information about the user in your app. This information can be used for display, records, personalization, etc. For more information about `id_tokens` and claims, read [AAD id_tokens](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+Once you have validated the `id_token`, you can begin a session with the user and use the claims in the `id_token` to obtain information about the user in your app. This information can be used for display, records, personalization, etc. For more information about `id_tokens` and claims, read [Microsoft Entra id_tokens](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ## Send a sign-out request
 
-When you wish to sign the user out of the app, it is not sufficient to clear your app's cookies or otherwise end the session with the user. You must also redirect the user to the `end_session_endpoint` for sign-out. If you fail to do so, the user will be able to reauthenticate to your app without entering their credentials again, because they will have a valid single sign-on session with the Azure AD endpoint.
+When you wish to sign the user out of the app, it is not sufficient to clear your app's cookies or otherwise end the session with the user. You must also redirect the user to the `end_session_endpoint` for sign-out. If you fail to do so, the user will be able to reauthenticate to your app without entering their credentials again, because they will have a valid single sign-on session with the Microsoft Entra endpoint.
 
 You can simply redirect the user to the `end_session_endpoint` listed in the OpenID Connect metadata document:
 
@@ -199,11 +199,11 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 ## Single sign-out
 
-When you redirect the user to the `end_session_endpoint`, Azure AD clears the user's session from the browser. However, the user may still be signed in to other applications that use Azure AD for authentication. To enable those applications to sign the user out simultaneously, Azure AD sends an HTTP GET request to the registered `LogoutUrl` of all the applications that the user is currently signed in to. Applications must respond to this request by clearing any session that identifies the user and returning a `200` response. If you wish to support single sign out in your application, you must implement such a `LogoutUrl` in your application's code. You can set the `LogoutUrl` from the Azure portal:
+When you redirect the user to the `end_session_endpoint`, Microsoft Entra ID clears the user's session from the browser. However, the user may still be signed in to other applications that use Microsoft Entra ID for authentication. To enable those applications to sign the user out simultaneously, Microsoft Entra ID sends an HTTP GET request to the registered `LogoutUrl` of all the applications that the user is currently signed in to. Applications must respond to this request by clearing any session that identifies the user and returning a `200` response. If you wish to support single sign out in your application, you must implement such a `LogoutUrl` in your application's code. You can set the `LogoutUrl` from the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Choose your Active Directory by clicking on your account in the top right corner of the page.
-3. From the left hand navigation panel, choose **Azure Active Directory**, then choose **App registrations** and select your application.
+3. From the left hand navigation panel, choose **Microsoft Entra ID**, then choose **App registrations** and select your application.
 4. Click on **Settings**, then **Properties** and find the **Logout URL** text box. 
 
 ## Token Acquisition

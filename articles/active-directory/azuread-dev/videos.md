@@ -1,6 +1,6 @@
 ---
 title: Azure ADAL to MSAL migration videos
-description: Videos that help you migrate from the Azure Active Directory developer platform to the Microsoft identity platform
+description: Videos that help you migrate from the Microsoft Entra developer platform to the Microsoft identity platform
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -15,9 +15,9 @@ ms.reviewer: celested
 ROBOTS: NOINDEX
 ---
 
-# Azure Active Directory developer platform videos
+# Microsoft Entra developer platform videos
 
-Learn about the new Microsoft identity platform and how to migrate to it from the Azure Active Directory (Azure AD) developer platform. The videos are typically 1-2 minutes long.
+Learn about the new Microsoft identity platform and how to migrate to it from the Microsoft Entra developer platform. The videos are typically 1-2 minutes long.
 
 ## Migrate from v1.0 to v2.0
 

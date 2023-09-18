@@ -1,6 +1,6 @@
 ---
-title: Permissions in Azure Active Directory
-description: Learn about permissions in Azure Active Directory and how to use them.
+title: Permissions in Microsoft Entra ID
+description: Learn about permissions in Microsoft Entra ID and how to use them.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,32 +17,32 @@ ms.custom: aaddev, has-azure-ad-ps-ref
 ROBOTS: NOINDEX
 ---
 
-# Permissions and consent in the Azure Active Directory v1.0 endpoint
+# Permissions and consent in the Microsoft Entra v1.0 endpoint
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-Azure Active Directory (Azure AD) makes extensive use of permissions for both OAuth and OpenID Connect (OIDC) flows. When your app receives an access token from Azure AD, the access token will include claims that describe the permissions that your app has in respect to a particular resource.
+Microsoft Entra ID makes extensive use of permissions for both OAuth and OpenID Connect (OIDC) flows. When your app receives an access token from Microsoft Entra ID, the access token will include claims that describe the permissions that your app has in respect to a particular resource.
 
 *Permissions*, also known as *scopes*, make authorization easy for the resource because the resource only needs to check that the token contains the appropriate permission for whatever API the app is calling.
 
 ## Types of permissions
 
-Azure AD defines two kinds of permissions:
+Microsoft Entra ID defines two kinds of permissions:
 
 * **Delegated permissions** - Are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to an API. Depending on the API, the user may not be able to consent to the API directly and would instead [require an administrator to provide "admin consent"](../develop/howto-convert-app-to-be-multi-tenant.md).
 * **Application permissions** - Are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons. Application permissions can only be [consented to by administrators](../develop/permissions-consent-overview.md) because they are typically powerful and allow access to data across user-boundaries, or data that would otherwise be restricted to administrators. Users who are defined as owners of the resource application (i.e. the API which publishes the permissions) are also allowed to grant application permissions for the APIs they own.
 
 Effective permissions are the permissions that your app will have when making requests to an API. 
 
-* For delegated permissions, the effective permissions of your app will be the least privileged intersection of the delegated permissions the app has been granted (through consent) and the privileges of the currently signed-in user. Your app can never have more privileges than the signed-in user. Within organizations, the privileges of the signed-in user may be determined by policy or by membership in one or more administrator roles. To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
+* For delegated permissions, the effective permissions of your app will be the least privileged intersection of the delegated permissions the app has been granted (through consent) and the privileges of the currently signed-in user. Your app can never have more privileges than the signed-in user. Within organizations, the privileges of the signed-in user may be determined by policy or by membership in one or more administrator roles. To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Microsoft Entra ID](../roles/permissions-reference.md).
     For example, assume your app has been granted the `User.ReadWrite.All` delegated permission in Microsoft Graph. This permission nominally grants your app permission to read and update the profile of every user in an organization. If the signed-in user is a global administrator, your app will be able to update the profile of every user in the organization. However, if the signed-in user is not in an administrator role, your app will be able to update only the profile of the signed-in user. It will not be able to update the profiles of other users in the organization because the user that it has permission to act on behalf of does not have those privileges.
 * For application permissions, the effective permissions of your app are the full level of privileges implied by the permission. For example, an app that has the `User.ReadWrite.All` application permission can update the profile of every user in the organization.
 
 ## Permission attributes
-Permissions in Azure AD have a number of properties that help users, administrators, or app developers make informed decisions about what the permission grants access to.
+Permissions in Microsoft Entra ID have a number of properties that help users, administrators, or app developers make informed decisions about what the permission grants access to.
 
 > [!NOTE]
-> You can view the permissions that an Azure AD Application or Service Principal exposes using the Azure portal, or PowerShell. Try this script to view the permissions exposed by Microsoft Graph.
+> You can view the permissions that a Microsoft Entra Application or Service Principal exposes using the Azure portal, or PowerShell. Try this script to view the permissions exposed by Microsoft Graph.
 > ```powershell
 > Connect-AzureAD
 > 
@@ -66,12 +66,12 @@ Permissions in Azure AD have a number of properties that help users, administrat
 
 ## Types of consent
 
-Applications in Azure AD rely on consent in order to gain access to necessary resources or APIs. There are a number of kinds of consent that your app may need to know about in order to be successful. If you are defining permissions, you will also need to understand how your users will gain access to your app or API.
+Applications in Microsoft Entra ID rely on consent in order to gain access to necessary resources or APIs. There are a number of kinds of consent that your app may need to know about in order to be successful. If you are defining permissions, you will also need to understand how your users will gain access to your app or API.
 
-* **Static user consent** - Occurs automatically during the [OAuth 2.0 authorize flow](v1-protocols-oauth-code.md#request-an-authorization-code) when you specify the resource that your app wants to interact with. In the static user consent scenario, your app must have already specified all the permissions it needs in the app's configuration in the Azure portal. If the user (or administrator, as appropriate) has not granted consent for this app, then Azure AD will prompt the user to provide consent at this time. 
+* **Static user consent** - Occurs automatically during the [OAuth 2.0 authorize flow](v1-protocols-oauth-code.md#request-an-authorization-code) when you specify the resource that your app wants to interact with. In the static user consent scenario, your app must have already specified all the permissions it needs in the app's configuration in the Azure portal. If the user (or administrator, as appropriate) has not granted consent for this app, then Microsoft Entra ID will prompt the user to provide consent at this time. 
 
-    Learn more about registering an Azure AD app that requests access to a static set of APIs.
-* **Dynamic user consent** - Is a feature of the v2 Azure AD app model. In this scenario, your app requests a set of permissions that it needs in the [OAuth 2.0 authorize flow for v2 apps](../develop/permissions-consent-overview.md#requesting-individual-user-consent). If the user has not consented already, they will be prompted to consent at this time. [Learn more about dynamic consent](./azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+    Learn more about registering a Microsoft Entra app that requests access to a static set of APIs.
+* **Dynamic user consent** - Is a feature of the v2 Microsoft Entra app model. In this scenario, your app requests a set of permissions that it needs in the [OAuth 2.0 authorize flow for v2 apps](../develop/permissions-consent-overview.md#requesting-individual-user-consent). If the user has not consented already, they will be prompted to consent at this time. [Learn more about dynamic consent](./azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
     > [!IMPORTANT]
     > Dynamic consent can be convenient, but presents a big challenge for permissions that require admin consent, since the admin consent experience doesn't know about those permissions at consent time. If you require admin privileged permissions or if your app uses dynamic consent, you must register all of the permissions in the Azure portal (not just the subset of permissions that require admin consent). This enables tenant admins to consent on behalf of all their users.
