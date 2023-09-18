@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/07/2023
+ms.date: 09/15/2023
 ms.author: jfields
 ms.reviewer: cmmdesai
 ---
@@ -27,7 +27,7 @@ Depending on how your API client authenticates with Azure AD, you can select bet
 ## Configure a service principal 
 This configuration registers an app in Azure AD that represents the external API client and grants it permission to invoke the inbound provisioning API. The service principal client id and client secret can be used in the OAuth client credentials grant flow. 
 
-1. Log in to Microsoft Entra admin center (https://entra.microsoft.com) with global administrator or application administrator login credentials. 
+1. Log in to Microsoft Entra admin center (https://entra.microsoft.com) with at least [Application Administrator](https://go.microsoft.com/fwlink/?linkid=2247823) login credentials. 
 1. Browse to **Azure Active Directory** -> **Applications** -> **App registrations**.
 1. Click on the option **New registration**.
 1. Provide an app name, select the default options, and click on **Register**.
