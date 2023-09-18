@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backups
 description: Get a summary of support settings and limitations for backing up Azure VMs by using the Azure Backup service.
 ms.topic: conceptual
-ms.date: 09/08/2023
+ms.date: 09/18/2023
 ms.custom: references_regions 
 ms.reviewer: sharrai
 ms.service: backup
@@ -199,6 +199,7 @@ NVMe/[ephemeral disks](../virtual-machines/ephemeral-os-disks.md) | Not supporte
 Dynamic disk with spanned or striped volumes | Supported, unless you enable the selective disk feature on an Azure VM.
 VMs with encryption at host | Supported
 Disks with enabled Data Access with Azure Active Directory Authentication for disk upload/download | Not Supported
+Storage Replicas | Not supported
 
 ## VM network support
 

@@ -126,21 +126,13 @@ If you need to manually add B2B collaboration users to a group after the user wa
 4. Select a group (or select **New group** to create a new one). It's a good idea to include in the group description that the group contains B2B guest users.
 5. Under **Manage**, select **Members**.
 6. Select **Add members**.
-7. Complete one of the following set of steps:
+7. Complete the following set of steps:
 
    - *If the guest user is already in the directory:*
       
        a. On the **Add members** page, start typing the name or email address of the guest user.
        
        b. In the search results, choose the user, and then choose **Select**.
-
-   - *If the guest user isn't currently in the directory:*
-      
-       a. On the **Add members** page, type the user's full email address in the search box, type a **Personal message** (optional), and then choose **Invite** to send an invitation.
-       
-       b. Choose **Select**.
-       
-       c. Now add the user to the group: On the **Members** page, choose **Add members**. Type the user's name or email address in the search box, choose the user in the results, and then choose **Select**.
 
 You can also use dynamic groups with Microsoft Entra B2B collaboration. For more information, see [Dynamic groups and Microsoft Entra B2B collaboration](use-dynamic-groups.md).
 
@@ -154,7 +146,7 @@ To add B2B collaboration users to an application, follow these steps:
 5. Under **Manage**, select **Users and groups**.
 6. Select **Add user/group**.
 7. On the **Add Assignment** page, select the link under **Users**.
-8. Complete one of the following set of steps:
+8. Complete the following set of steps:
 
    - *If the guest user is already in the directory:*
       
@@ -163,16 +155,6 @@ To add B2B collaboration users to an application, follow these steps:
        b. In the search results, choose the user, and then choose **Select**.
        
        c. On the **Add Assignment** page, choose **Assign** to add the user to the app.
-
-   - *If the guest user isn't currently in the directory:*
-      
-       a. On the **Users** page, type the user's full email address in the search box, type a **Personal message** (optional), and then choose **Invite**.
-       
-       b. Choose **Select**.
-       
-       c. Now add the invited user to the application: On the **Add Assignment** page, choose the link under **Users**. Type the invited user's name or email address in the search box, choose the user in the results, and then choose **Select**.
-       
-       d. On the **Add Assignment** page, choose **Assign**.
 
 9. The guest user appears in the application's **Users and groups** list with the assigned role of **Default Access**. If the application provides different roles and you want to change the user's role, do the following:
 
