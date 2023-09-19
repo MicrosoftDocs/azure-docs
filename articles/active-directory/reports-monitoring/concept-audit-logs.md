@@ -70,7 +70,7 @@ Filter the audit data using the options visible in your list such as date range,
 
 There are several options available if you need to store the logs for data retention or route them to an analysis tool. Review the [How to access activity logs](howto-access-activity-logs.md) article for details on each option. 
 
-You can download the audit logs from the Microsoft Entra portal, up to 250,000 records, by selecting the **Download** button. The exact number of records varies, based on the number of fields included in your view when you select the **Download** button. You can download the logs in either CSV or JSON format. The number of records you can download is constrained by the [Microsoft Entra ID report retention policies](reference-reports-data-retention.md).
+You can download the audit logs from the Microsoft Entra admin center, up to 250,000 records, by selecting the **Download** button. The exact number of records varies, based on the number of fields included in your view when you select the **Download** button. You can download the logs in either CSV or JSON format. The number of records you can download is constrained by the [Microsoft Entra report retention policies](reference-reports-data-retention.md).
 
 ![Screenshot of the download data option.](./media/concept-audit-logs/download.png "Download data")
 
