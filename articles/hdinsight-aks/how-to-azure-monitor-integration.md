@@ -44,13 +44,11 @@ Once the integration at cluster pool is enabled, it isn't possible to disable th
 
    :::image type="content" source="./media/how-to-azure-monitor-integration/cluster-pool-in-list-view.png" alt-text="Screenshot showing cluster pools in a list view." border="true" lightbox="./media/how-to-azure-monitor-integration/cluster-pool-in-list-view.png":::
 
-1. Navigate to the Integrations blade on the left side menu.
+1. Navigate to the "Monitor settings" blade on the left side menu and click on "Configure" to enable Log Analytics.
   
    :::image type="content" source="./media/how-to-azure-monitor-integration/cluster-pool-integration.png" alt-text="Screenshot showing cluster pool integration blade." border="true" lightbox="./media/how-to-azure-monitor-integration/cluster-pool-integration.png":::
 
-1.	Click on "Configure" to enable the Log Analytics.
-
-1.	Select an existing Log Analytics workspace, and click **OK**.
+1.	Select an existing Log Analytics workspace, and click **Ok**.
 
   	:::image type="content" source="./media/how-to-azure-monitor-integration/enable-cluster-pool-log-analytics.png" alt-text="Screenshot showing how to enable cluster pool log analytics." border="true" lightbox="./media/how-to-azure-monitor-integration/enable-cluster-pool-log-analytics.png":::
   	
@@ -90,9 +88,7 @@ Once the integration at cluster pool is enabled, it isn't possible to disable th
 
    :::image type="content" source="./media/how-to-azure-monitor-integration/get-started-portal-list-view-step-2.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list." border="true" lightbox="./media/how-to-azure-monitor-integration/get-started-portal-list-view-step-2.png":::
 
-1. Navigate to the Integrations blade, select **Enable Log Analytics**.
-  
-1. Select one or more type of logs you would like to collect, and click **Save**.
+1. Navigate to the "Monitor settings" blade, select **Enable Log Analytics**. Choose one or more type of logs you would like to collect, and click **Save**.
   
    :::image type="content" source="./media/how-to-azure-monitor-integration/select-more-log-types.png" alt-text="Screenshot showing how to select more log types." border="true" lightbox="./media/how-to-azure-monitor-integration/select-more-log-types.png":::
   
