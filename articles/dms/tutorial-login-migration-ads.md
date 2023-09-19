@@ -5,7 +5,7 @@ description: Learn how to migrate on-premises SQL Server logins (preview) to Azu
 author: croblesm
 ms.author: roblescarlos
 ms.reviewer: randolphwest
-ms.date: 01/31/2023
+ms.date: 10/10/2023
 ms.service: dms
 ms.topic: tutorial
 ms.custom:
@@ -184,6 +184,6 @@ The following table describes the current status of the Login migration support 
 ## Next steps
 
 - [Migrate databases with Azure SQL Migration extension for Azure Data Studio](./migration-using-azure-data-studio.md)
-- [Tutorial: Migrate SQL Server to Azure SQL Database - Offline](./tutorial-sql-server-azure-sql-database-offline-ads.md)
+- [Tutorial: Migrate SQL Server to Azure SQL Database - Offline](./tutorial-sql-server-azure-sql-database-offline.md)
 - [Tutorial: Migrate SQL Server to Azure SQL Managed Instance - Online](./tutorial-sql-server-managed-instance-online-ads.md)
 - [Tutorial: Migrate SQL Server to SQL Server On Azure Virtual Machines - Online](./tutorial-sql-server-to-virtual-machine-online-ads.md)
