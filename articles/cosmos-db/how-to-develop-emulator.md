@@ -408,7 +408,7 @@ Each SDK includes a client class typically used to connect the SDK to your Azure
 
 Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to connect to the emulator from a .NET application.
 
-1. Start in an empty folder
+1. Start in an empty folder.
 
 1. Create a new .NET console application
 
@@ -476,7 +476,7 @@ Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to 
 
 Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) to connect to the emulator from a Python application.
 
-1. Start in an empty folder
+1. Start in an empty folder.
 
 1. Import the [`azure-cosmos`](https://pypi.org/project/azure-cosmos/) package from the Python Package Index.
 
@@ -522,7 +522,7 @@ Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) t
 
 Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) to connect to the emulator from a Node.js/JavaScript application.
 
-1. Start in an empty folder
+1. Start in an empty folder.
 
 1. Initialize a new module.
 
@@ -578,7 +578,7 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
 
 Use the [MongoDB .NET driver](mongodb/quickstart-dotnet.md) to connect to the emulator from a .NET application.
 
-1. Start in an empty folder
+1. Start in an empty folder.
 
 1. TODO
 
@@ -598,7 +598,7 @@ Use the [MongoDB .NET driver](mongodb/quickstart-dotnet.md) to connect to the em
 
 Use the [MongoDB Python driver](mongodb/quickstart-python.md) to connect to the emulator from a Python application.
 
-1. Start in an empty folder
+1. Start in an empty folder.
 
 1. Import the [`pymongo`](https://pypi.org/project/pymongo/) package from the Python Package Index.
 
@@ -634,7 +634,7 @@ Use the [MongoDB Python driver](mongodb/quickstart-python.md) to connect to the 
 
 Use the [MongoDB Node.js driver](mongodb/quickstart-nodejs.md) to connect to the emulator from a Node.js/JavaScript application.
 
-1. Start in an empty folder
+1. Start in an empty folder.
 
 1. Initialize a new module.
 
@@ -693,7 +693,7 @@ Use the [MongoDB Node.js driver](mongodb/quickstart-nodejs.md) to connect to the
 
 TODO
 
-1. Start in an empty folder
+1. Start in an empty folder.
 
 1. TODO
 
@@ -713,7 +713,7 @@ TODO
 
 Use the [Apache Cassandra Python driver](cassandra/manage-data-python.md) to connect to the emulator from a Python application.
 
-1. Start in an empty folder
+1. Start in an empty folder.
 
 1. Import the [`cassandra-driver`](https://pypi.org/project/cassandra-driver/) package from the Python Package Index.
 
@@ -753,7 +753,7 @@ Use the [Apache Cassandra Python driver](cassandra/manage-data-python.md) to con
 
 Use the [Apache Cassandra Node.js driver](cassandra/manage-data-nodejs.md) to use the emulator from a Node.js/JavaScript application.
 
-1. Start in an empty folder
+1. Start in an empty folder.
 
 1. Initialize a new module.
 
@@ -816,7 +816,7 @@ Use the [Apache Cassandra Node.js driver](cassandra/manage-data-nodejs.md) to us
 
 TODO
 
-1. Start in an empty folder
+1. Start in an empty folder.
 
 1. TODO
 
@@ -836,7 +836,7 @@ TODO
 
 Use the [Apache Gremlin Python driver](gremlin/quickstart-python.md) to connect to the emulator from a Python application.
 
-1. Start in an empty folder
+1. Start in an empty folder.
 
 1. Import the [`gremlinpython`](https://pypi.org/project/gremlinpython/) package from the Python Package Index.
 
@@ -872,7 +872,7 @@ Use the [Apache Gremlin Python driver](gremlin/quickstart-python.md) to connect 
 
 Use the [Apache Gremlin Node.js driver](gremlin/quickstart-nodejs.md) to use the emulator from a Node.js/JavaScript application.
 
-1. Start in an empty folder
+1. Start in an empty folder.
 
 1. Initialize a new module.
 
@@ -920,7 +920,7 @@ Use the [Apache Gremlin Node.js driver](gremlin/quickstart-nodejs.md) to use the
 
 TODO
 
-1. Start in an empty folder
+1. Start in an empty folder.
 
 1. TODO
 
@@ -940,7 +940,7 @@ TODO
 
 Use the [Azure Tables Python SDK](table/quickstart-python.md) to connect to the emulator from a Python application.
 
-1. Start in an empty folder
+1. Start in an empty folder.
 
 1. Import the [`azure-data-tables`](https://pypi.org/project/azure-data-tables/) package from the Python Package Index.
 
@@ -976,7 +976,7 @@ Use the [Azure Tables Python SDK](table/quickstart-python.md) to connect to the 
 
 Use the [Azure Tables JavaScript SDK](cassandra/manage-data-nodejs.md) to use the emulator from a Node.js/JavaScript application.
 
-1. Start in an empty folder
+1. Start in an empty folder.
 
 1. Initialize a new module.
 
