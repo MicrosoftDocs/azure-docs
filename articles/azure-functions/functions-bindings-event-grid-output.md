@@ -171,10 +171,6 @@ When using the Connection property, the `topicEndpointUri` must be specified as 
 ```
 When deployed, use the application settings to store this information.
 
-## Authenticating the Event Grid output binding
-
-[!INCLUDE [functions-event-grid-connections](../../includes/functions-event-grid-connections.md)]
-
 # [Isolated process](#tab/isolated-process)
 
 The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
@@ -695,6 +691,10 @@ There are two options for outputting an Event Grid message from a function:
 - **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as an Event Grid message.
 
 ::: zone-end
+
+## Authenticating the Event Grid output binding
+
+[!INCLUDE [functions-event-grid-connections](../../includes/functions-event-grid-connections.md)]
 
 ## Next steps
 
