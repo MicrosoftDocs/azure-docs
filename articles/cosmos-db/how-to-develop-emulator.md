@@ -549,7 +549,7 @@ Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) t
     > ```
     >
 
-### [Node.js](#tab/nodejs)
+### [JavaScript / Node.js](#tab/javascript+nodejs)
 
 Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) to use the emulator from a Node.js/JavaScript application.
 
@@ -691,7 +691,7 @@ Use the [MongoDB Python driver](mongodb/quickstart-python.md) to use the emulato
     python app.py
     ```
 
-### [Node.js](#tab/nodejs)
+### [JavaScript / Node.js](#tab/javascript+nodejs)
 
 Use the [MongoDB Node.js driver](mongodb/quickstart-nodejs.md) to use the emulator from a Node.js/JavaScript application.
 
@@ -777,7 +777,7 @@ Use the [Apache Cassandra Python driver](cassandra/manage-data-python.md) to use
     python app.py
     ```
 
-### [Node.js](#tab/nodejs)
+### [JavaScript / Node.js](#tab/javascript+nodejs)
 
 TODO
 
@@ -839,19 +839,19 @@ Use the [Apache Gremlin Python driver](gremlin/quickstart-python.md) to use the 
 
 1. Import `client` from the `gremlin_python.driver` module.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-gremlin-python-samples/601-emulator/app.py" id="imports":::
+    :::code language="python" source="~/cosmos-db-apache-gremlin-python-samples/601-emulator/app.py" id="imports":::
 
 1. Create a new `Client` using the emulator's credentials.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-gremlin-python-samples/601-emulator/app.py" highlight="1" id="client":::
+    :::code language="python" source="~/cosmos-db-apache-gremlin-python-samples/601-emulator/app.py" highlight="1" id="client":::
 
 1. Clean up the graph using `client.submit`.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-gremlin-python-samples/601-emulator/app.py" id="graph":::
+    :::code language="python" source="~/cosmos-db-apache-gremlin-python-samples/601-emulator/app.py" id="graph":::
 
 1. Use `client.submit` to add a new item.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-gremlin-python-samples/601-emulator/app.py" highlight="1" id="insert":::
+    :::code language="python" source="~/cosmos-db-apache-gremlin-python-samples/601-emulator/app.py" highlight="1" id="insert":::
 
 1. Run the Python application.
 
@@ -859,7 +859,7 @@ Use the [Apache Gremlin Python driver](gremlin/quickstart-python.md) to use the 
     python app.py
     ```
 
-### [Node.js](#tab/nodejs)
+### [JavaScript / Node.js](#tab/javascript+nodejs)
 
 TODO
 
@@ -941,7 +941,7 @@ Use the [Azure Tables Python SDK](table/quickstart-python.md) to use the emulato
     python app.py
     ```
 
-### [Node.js](#tab/nodejs)
+### [JavaScript / Node.js](#tab/javascript+nodejs)
 
 TODO
 
@@ -1005,7 +1005,7 @@ Test your Python application and database operations using [`pytest`](https://py
     
     ```
 
-### [Node.js](#tab/nodejs)
+### [JavaScript / Node.js](#tab/javascript+nodejs)
 
 Use [`mocha`](https://www.npmjs.com/package/mocha) to test your Node.js application and its database modifications.
 
