@@ -133,11 +133,12 @@ The following steps describe how to sync your GitHub repository using the Rest A
   |Name  |Type  |Description  |
   |---------|---------|---------|
   |gitServiceType | string | The Git service your desired repo is located in. Values: GitHub, AOD, GitLab, or BitBucket |
-  |gitCredentialType | string | Type of Git credential. Values: PAT (for Personal Access Token), None |
+  |gitCredentialType | string | Type of Git credential. Values: PAT (for Personal Access Token), SPN (supported only by ADO), None |
   |repo | string | Repository link |
   |branch | string | Branch to use in the repository |
   |username | string | GitHub username |
   |Credential | string | Value of the Personal Access Token |
+  |tenantId | string | The service principal tenant id (supported only by ADO) |
 
 - **Responses**
 
