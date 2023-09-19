@@ -6,10 +6,12 @@ author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 06/02/2022
+ms.date: 09/27/2023
 ms.author: kesheth
 ---
 # Azure API for FHIR access token validation
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 How Azure API for FHIR validates the access token will depend on implementation and configuration. In this article, we'll walk through the validation steps, which can be helpful when troubleshooting access issues.
 
