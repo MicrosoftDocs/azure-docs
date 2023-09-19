@@ -753,23 +753,23 @@ Use the [Apache Cassandra Python driver](cassandra/manage-data-python.md) to use
 
 1. Import `PROTOCOL_TLS_CLIENT`, `SSLContext`, and `CERT_NONE` from the `ssl` module. Then, import `Cluster` from the `cassandra.cluster` module. Finally, import `PlainTextAuthProvider` from the `cassandra.auth` module.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-python-samples/601-emulator/app.py" id="imports":::
+    :::code language="python" source="~/cosmos-db-apache-cassandra-python-samples/601-emulator/app.py" id="imports":::
 
 1. Create a new TLS/SSL context variable using `SSLContext`. Configure the context to not verify the emulator's self-signed certificate.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-python-samples/601-emulator/app.py" highlight="1" id="ssl":::
+    :::code language="python" source="~/cosmos-db-apache-cassandra-python-samples/601-emulator/app.py" highlight="1" id="ssl":::
 
 1. Create a new `session` using the emulator's credentials, `PlainTextAuthProvider`, `Cluster`, and `cluster.connect()`.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-python-samples/601-emulator/app.py" highlight="1,4-5,9,15" id="client":::
+    :::code language="python" source="~/cosmos-db-apache-cassandra-python-samples/601-emulator/app.py" highlight="1,4-5,9,15" id="client":::
 
 1. Create a new keyspace and table using `session.execute`.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-python-samples/601-emulator/app.py" highlight="1,6" id="resources":::
+    :::code language="python" source="~/cosmos-db-apache-cassandra-python-samples/601-emulator/app.py" highlight="1,6" id="resources":::
 
 1. Use `session.execute` to create a new item in the table.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-python-samples/601-emulator/app.py" highlight="2" id="upsert":::
+    :::code language="python" source="~/cosmos-db-apache-cassandra-python-samples/601-emulator/app.py" highlight="2" id="upsert":::
 
 1. Run the Python application.
 
@@ -921,19 +921,19 @@ Use the [Azure Tables Python SDK](table/quickstart-python.md) to use the emulato
 
 1. Import [`TableServiceClient`](/python/api/azure-data-tables/azure.data.tables.tableserviceclient) and [`UpdateMode`](/python/api/azure-data-tables/azure.data.tables.updatemode) from the `azure.data.tables` module.
 
-    :::code language="python" source="~/cosmos-db-nosql-table-python-samples/601-emulator/app.py" id="imports":::
+    :::code language="python" source="~/cosmos-db-table-python-samples/601-emulator/app.py" id="imports":::
 
 1. Use [`TableServiceClient.from_connection_string`](/python/api/azure-data-tables/azure.data.tables.tableserviceclient#azure-data-tables-tableserviceclient-from-connection-string) to create a new service-level client.
 
-    :::code language="python" source="~/cosmos-db-nosql-table-python-samples/601-emulator/app.py" highlight="1" id="client":::
+    :::code language="python" source="~/cosmos-db-table-python-samples/601-emulator/app.py" highlight="1" id="client":::
 
 1. Create a new table-level client using [`create_table_if_not_exists`](/python/api/azure-data-tables/azure.data.tables.tableserviceclient#azure-data-tables-tableserviceclient-create-table-if-not-exists).
 
-    :::code language="python" source="~/cosmos-db-nosql-table-python-samples/601-emulator/app.py" id="resources":::
+    :::code language="python" source="~/cosmos-db-table-python-samples/601-emulator/app.py" id="resources":::
 
 1. Use [`upsert_entity`](/python/api/azure-data-tables/azure.data.tables.tableclient#azure-data-tables-tableclient-upsert-entity) to create a new item in the container.
 
-    :::code language="python" source="~/cosmos-db-nosql-table-python-samples/601-emulator/app.py" highlight="7" id="upsert":::
+    :::code language="python" source="~/cosmos-db-table-python-samples/601-emulator/app.py" highlight="7" id="upsert":::
 
 1. Run the Python application.
 
