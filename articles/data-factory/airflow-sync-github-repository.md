@@ -22,7 +22,7 @@ In this guide, you will learn how to synchronize your GitHub repository in Manag
 
 ## Prerequisites
 
-- **Azure subscription** - If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) in a [region where the Managed Airflow preview is supported](concept-managed-airflow.md#Region_availability_public_preview).
+- **Azure subscription** - If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) in a [region where the Managed Airflow preview is supported](concept-managed-airflow.md#region_availability_public_preview).
 - **Access to a GitHub repository**
 
 ## Using the Managed Airflow UI
