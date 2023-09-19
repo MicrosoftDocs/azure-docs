@@ -46,10 +46,10 @@ Defender for SQL servers on machines protects your SQL servers hosted in Azure, 
 
 The Defender for SQL server on machines plan requires either the Microsoft Monitoring Agent (MMA) or Azure Monitoring Agent (AMA) to prevent attacks and detect misconfigurations. The plan’s autoprovisioning process is automatically enabled with the plan and is responsible for the configuration of all of the agent components required for the plan to function. This includes, installation and configuration of MMA/AMA, workspace configuration and the installation of the plan’s VM extension/solution.
 
-Microsoft Monitoring Agent (MMA) is set to be retired in August 2024. Defender for Cloud [updated its strategy](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) accordingly by releasing a SQL Server-targeted Azure Monitoring Agent autoprovisioning process to replace the Microsoft Monitoring Agent (MMA) process which is set to be deprecated. Learn more about the [autoprovisioning process](defender-for-sql-autoprovisioning.md) and how to migrate to it.
+Microsoft Monitoring Agent (MMA) is set to be retired in August 2024. Defender for Cloud [updated its strategy](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) accordingly by releasing a SQL Server-targeted Azure Monitoring Agent (AMA) autoprovisioning process to replace the Microsoft Monitoring Agent (MMA) process which is set to be deprecated. Learn more about the [AMA for SQL server on machines (Preview) autoprovisioning process](defender-for-sql-autoprovisioning.md) and how to migrate to it.
 
 > [!NOTE]
-> During the **Azure Monitoring Agent for SQL Server on machines** Preview, customers who are currently using the **Log Analytics agent/Azure Monitor agent** processes with the `Azure Monitor Agent (Preview)` option will be asked to [migrate to the autoprovisioning process](defender-for-sql-autoprovisioning.md).
+> During the **Azure Monitoring Agent for SQL Server on machines (Preview)**, customers who are currently using the **Log Analytics agent/Azure Monitor agent** processes will be asked to [migrate to the AMA for SQL server on machines (Preview) autoprovisioning process](defender-for-sql-autoprovisioning.md).
 
 **To enable the plan**:
 
