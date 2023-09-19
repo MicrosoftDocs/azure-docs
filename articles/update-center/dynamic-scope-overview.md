@@ -1,6 +1,6 @@
 ---
-title: An overview of dynamic scoping (preview) 
-description: This article provides information about dynamic scoping (preview), its purpose and advantages.
+title: An overview of Dynamic Scoping 
+description: This article provides information about Dynamic Scoping, its purpose and advantages.
 ms.service: azure-update-manager
 ms.date: 07/05/2023
 ms.topic: conceptual
@@ -8,11 +8,11 @@ author: SnehaSudhir
 ms.author: sudhirsneha
 ---
 
-# About Dynamic Scoping (preview)
+# About Dynamic Scoping
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure VMs :heavy_check_mark: Azure Arc-enabled servers.
 
-Dynamic scoping (preview) is an advanced capability of schedule patching that allows users to: 
+Dynamic Scoping is an advanced capability of schedule patching that allows users to: 
 
 - Group machines based on criteria such as subscription, resource group, location, resource type, OS Type, and Tags. This becomes the definition of the scope. 
 - Associate the scope to a schedule/maintenance configuration to apply updates at scale as per a pre-defined scope. 
@@ -34,7 +34,7 @@ The criteria will be evaluated at the scheduled run time, which will be the fina
 
 ## Permissions
 
-For dynamic scoping (preview) and configuration assignment, ensure that you have the following permissions:
+For Dynamic Scoping and configuration assignment, ensure that you have the following permissions:
 
 - Write permissions to create or modify a schedule.
 - Read permissions to assign or read a schedule.
