@@ -56,7 +56,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![SpaceIQ Provisioning and SSO](media/spaceiq-provisioning-tutorial/provisioning.png)
 
-	![SpaceIQ Activate Azure ](media/spaceiq-provisioning-tutorial/azure.png)
+	![SpaceIQ Activate Azure](media/spaceiq-provisioning-tutorial/azure.png)
 
 3.	Copy the **SCIM Bearer Token**. This value will be entered in the Secret Token field in the Provisioning tab of your SpaceIQ application in the Azure portal. Click **Activate**
 
@@ -68,20 +68,10 @@ Before configuring SpaceIQ for automatic user provisioning with Azure AD, you ne
 
 **To add SpaceIQ from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **SpaceIQ**, select **SpaceIQ** in the results panel, and then click the **Add** button to add the application.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **SpaceIQ**, select **SpaceIQ** in the search box.
+1. Select **SpaceIQ** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 	![SpaceIQ in the results list](common/search-new-app.png)
 
 ## Configuring automatic user provisioning to SpaceIQ 
@@ -93,11 +83,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for SpaceIQ in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **SpaceIQ**.
+1. In the applications list, select **SpaceIQ**.
 
 	![The SpaceIQ link in the Applications list](common/all-applications.png)
 

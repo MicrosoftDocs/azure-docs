@@ -37,7 +37,7 @@ If your desktop application uses interactive authentication, you can sign in use
 
 The redirect URIs to use in a desktop application depend on the flow you want to use.
 
-Specify the redirect URI for your app by [configuring the platform settings](quickstart-register-app.md#add-a-redirect-uri) for the app in **App registrations** in the Azure portal.
+Specify the redirect URI for your app by [configuring the platform settings](quickstart-register-app.md#add-a-redirect-uri) for the app in **App registrations** in the Microsoft Entra admin center.
 
 - For apps that use [Web Authentication Manager (WAM)](scenario-desktop-acquire-token-wam.md), redirect URIs need not be configured in MSAL, but they must be configured in the [app registration](scenario-desktop-acquire-token-wam.md#redirect-uri).
 
@@ -56,7 +56,7 @@ Specify the redirect URI for your app by [configuring the platform settings](qui
 - If your app uses only integrated Windows authentication or a username and a password, you don't need to register a redirect URI for your application. These flows do a round trip to the Microsoft identity platform v2.0 endpoint. Your application won't be called back on any specific URI.
 - To distinguish [device code flow](scenario-desktop-acquire-token-device-code-flow.md), [integrated Windows authentication](scenario-desktop-acquire-token-integrated-windows-authentication.md), and a [username and a password](scenario-desktop-acquire-token-username-password.md) from a confidential client application using a client credential flow used in [daemon applications](scenario-daemon-overview.md), none of which requires a redirect URI, configure it as a public client application. To achieve this configuration:
 
-    1. In the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, select your app in **App registrations**, and then select **Authentication**.
+    1. In the <a href="https://entra.microsoft.com/" target="_blank">Microsoft Entra admin center</a>, select your app in **App registrations**, and then select **Authentication**.
     1. In **Advanced settings** > **Allow public client flows** > **Enable the following mobile and desktop flows:**, select **Yes**.
 
         :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Enable public client setting on Authentication pane in Azure portal":::

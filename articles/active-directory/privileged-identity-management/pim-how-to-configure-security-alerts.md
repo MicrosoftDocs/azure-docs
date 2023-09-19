@@ -3,7 +3,7 @@ title: Security alerts for Azure AD roles in PIM
 description: Configure security alerts for Azure AD roles Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 editor: ''
 
@@ -11,8 +11,8 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/29/2022
-ms.author: billmath
+ms.date: 09/13/2023
+ms.author: barclayn
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -27,6 +27,7 @@ Privileged Identity Management (PIM) generates alerts when there's suspicious or
 ![Screenshot that shows the alerts page with a list of alerts and their severity.](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
 ## License requirements
+
 [!INCLUDE [entra-id-license-pim.md](../../../includes/entra-id-license-pim.md)]
 
 ## Security alerts
@@ -123,8 +124,6 @@ Severity: **Low**
 | **Number of activation renewals** | This setting specifies the number of activations, from 2 to 100, at which you would like to be notified, within the timeframe you chose. You can change this setting by moving the slider, or typing a number in the text box. |
 
 ## Customize security alert settings
-
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Follow these steps to configure security alerts for Azure AD roles in Privileged Identity Management:
 

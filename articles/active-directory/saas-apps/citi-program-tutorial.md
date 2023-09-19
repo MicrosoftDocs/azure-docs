@@ -54,7 +54,8 @@ Alternatively, you can also use the [Enterprise App Configuration Wizard](https:
 
 Complete the following steps to enable Azure AD single sign-on in the Azure portal.
 
-1. In the Azure portal, on the **CITI Program** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **CITI Program** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -117,7 +118,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to CITI Program Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the CITI Program tile in the My Apps, this will redirect to CITI Program Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the CITI Program tile in the My Apps, this will redirect to CITI Program Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 CITI Program supports just-in-time user provisioning. First time SSO users will be prompted to either: 
 
