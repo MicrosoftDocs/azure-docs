@@ -247,8 +247,6 @@
         href: ../virtual-wan/virtual-wan-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-are-availability-zones-and-resiliency-handled-in-virtual-wan
       - name: Azure Web Application Firewall
         href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Virtual Machine Scale Sets
-        href: reliability-virtual-machine-scale-sets.md
       - name: Azure Virtual Machines
         href: reliability-virtual-machines.md
       - name: Azure Virtual Machines Image Builder

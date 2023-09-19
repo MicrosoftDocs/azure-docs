@@ -149,6 +149,8 @@ The following requirements should be part of a disaster recovery strategy that h
 ## Next Steps
 
 -[Azure services and regions that support availability zones](availability-zones-service-support.md)
--[Reliability in Virtual Machines](./reliability-virtual-machines.md). 
--[Reliability in Virtual Machine Scale Sets](./reliability-virtual-machine-scale-sets.md).
+
+-[Reliability in Virtual Machines](./reliability-virtual-machines.md)
+
+-[Reliability in Virtual Machine Scale Sets](./reliability-virtual-machine-scale-sets.md)
 
