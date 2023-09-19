@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/21/2023
+ms.date: 09/14/2023
 
 ms.author: justinha
 author: justinha
@@ -66,7 +66,7 @@ Consistent with the guidelines outlined in [NIST SP 800-63B](https://pages.nist.
 
 FIPS 140 is a US government standard that defines minimum security requirements for cryptographic modules in information technology products and systems. Testing against the FIPS 140 standard is maintained by the [Cryptographic Module Validation Program (CMVP)](https://csrc.nist.gov/Projects/cryptographic-module-validation-program?azure-portal=true).
 
-No changes in configurations are required in Microsoft Authenticator or the Azure portal to enable FIPS 140 compliance. Beginning with Microsoft Authenticator for iOS version 6.6.8, Azure AD authentications will be FIPS 140 compliant by default.
+No changes in configurations are required in Microsoft Authenticator or the Microsoft Entra admin center to enable FIPS 140 compliance. Beginning with Microsoft Authenticator for iOS version 6.6.8, Azure AD authentications will be FIPS 140 compliant by default.
 
 Authenticator leverages the native Apple cryptography to achieve FIPS 140, Security Level 1 compliance on Apple iOS devices beginning with Microsoft Authenticator version 6.6.8. For more information about the certifications being used, see the [Apple CoreCrypto module](https://support.apple.com/guide/sccc/security-certifications-for-ios-scccfa917cb49/web?azure-portal=true). 
 

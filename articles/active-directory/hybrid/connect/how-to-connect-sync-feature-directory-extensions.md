@@ -54,7 +54,7 @@ An object in Azure AD can have up to 100 attributes for directory extensions. Th
 
 ## Configuration changes in Azure AD made by the wizard
 
-During installation of Azure AD Connect, an application is registered where these attributes are available. You can see this application in the Azure portal. Its name is always **Tenant Schema Extension App**.
+During installation of Azure AD Connect, an application is registered where these attributes are available. You can see this application in the [Microsoft Entra admin center](https://entra.microsoft.com). Its name is always **Tenant Schema Extension App**.
 
 ![Schema extension app](./media/how-to-connect-sync-feature-directory-extensions/extension3new.png)
 

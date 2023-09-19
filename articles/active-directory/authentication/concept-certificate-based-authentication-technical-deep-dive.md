@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 09/13/2023
 
 
 ms.author: justinha
@@ -112,14 +112,14 @@ Users need to have another way to get MFA and register passwordless sign-in or F
 
 For passwordless sign-in to work, users should disable legacy notification through mobile app.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
 
 1. Follow the steps at [Enable passwordless phone sign-in authentication](../authentication/howto-authentication-passwordless-phone.md#enable-passwordless-phone-sign-in-authentication-methods)
 
    >[!IMPORTANT]
    >In the above configuration under step 4, please choose **Passwordless** option. Change the mode for each groups added for PSI for **Authentication mode**, choose **Passwordless** for passwordless sign-in to work with CBA. If the admin configures "Any", CBA + PSI will not work.
 
-1. Select **Azure Active Directory** > **Security** > **Multifactor authentication** > **Additional cloud-based multifactor authentication settings**.
+1. Select **Protection** > **Multifactor authentication** > **Additional cloud-based multifactor authentication settings**.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/configure.png" alt-text="Screenshot of how to configure multifactor authentication settings.":::
 
@@ -295,8 +295,8 @@ For the first test scenario, configure the authentication policy where the Issue
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/single-factor.png" alt-text="Screenshot of the Authentication policy configuration showing single-factor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/single-factor.png":::  
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the test user by using CBA. The authentication policy is set where Issuer subject rule satisfies single-factor authentication.
-1. After sign-in was succeeds, click **Azure Active Directory** > **Sign-in logs**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as the test user by using CBA. The authentication policy is set where Issuer subject rule satisfies single-factor authentication.
+1. Search for and select **Sign-in logs**.
 
    Let's look closer at some of the entries you can find in the **Sign-in logs**.
 
@@ -322,8 +322,8 @@ For the next test scenario, configure the authentication policy where the **poli
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png":::  
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using CBA. Since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
-1. Click **Azure Active Directory** > **Sign-ins**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) using CBA. Since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
+1. Search for and select **Sign-ins**.
 
    You'll see several entries in the Sign-in logs, including an entry with **Interrupted** status. 
 

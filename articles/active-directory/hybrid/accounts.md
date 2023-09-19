@@ -42,7 +42,7 @@ Azure AD Connect uses three accounts to *synchronize information* from on-premis
 |Azure AD Connector account|Used to write information to Azure AD.|
 |Local Administrator account|The administrator who is installing Azure AD Connect and who has local Administrator permissions on the computer.|
 |AD DS Enterprise Administrator account|Optionally used to create the required AD DS Connector account.|
-|Azure AD Global Administrator account|Used to create the Azure AD Connector account and to configure Azure AD. You can view Global Administrator and Hybrid Identity Administrator accounts in the Azure portal. See [List Azure AD role assignments](../roles/view-assignments.md).|
+|Azure AD Global Administrator account|Used to create the Azure AD Connector account and to configure Azure AD. You can view Global Administrator and Hybrid Identity Administrator accounts in the [Microsoft Entra admin center](https://entra.microsoft.com). See [List Azure AD role assignments](../roles/view-assignments.md).|
 |SQL SA account (optional)|Used to create the ADSync database when you use the full version of SQL Server. The instance of SQL Server can be local or remote to the Azure AD Connect installation. This account can be the same account as the Enterprise Administrator account.|
 
 For more information, on Azure AD Connet accounts, and how to configure them, see [Accounts and permissions](connect/reference-connect-accounts-permissions.md).

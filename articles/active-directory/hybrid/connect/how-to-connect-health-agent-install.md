@@ -189,7 +189,7 @@ To verify that the agent has been installed, look for the following services on 
 :::image type="content" source="media/how-to-connect-health-agent-install/services.png" alt-text="Screenshot that shows the running Azure AD Connect Health for sync services on the server.":::
 
 > [!NOTE]
-> Remember that you must have Azure AD Premium (P1 or P2) to use Azure AD Connect Health. If you don't have Azure AD Premium, you can't complete the configuration in the Azure portal. For more information, see the [requirements](how-to-connect-health-agent-install.md#requirements).
+> Remember that you must have Azure AD Premium (P1 or P2) to use Azure AD Connect Health. If you don't have Azure AD Premium, you can't complete the configuration in the [Microsoft Entra admin center](https://entra.microsoft.com). For more information, see the [requirements](how-to-connect-health-agent-install.md#requirements).
 
 ## Manually register Azure AD Connect Health for sync
 

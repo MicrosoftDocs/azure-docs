@@ -429,10 +429,10 @@ groups:
   title: Python mode
   prompt: Choose a Python programming model
   pivots:
-  - id: python-mode-configuration
-    title: v1
   - id: python-mode-decorators
     title: v2
+  - id: python-mode-configuration
+    title: v1
 - id: create-java-durable-options
   title: Create option
   prompt: Choose how to create the app
@@ -626,6 +626,8 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+  - id: programming-language-java
+    title: Java
   - id: programming-language-cpp
     title: C++
   - id: programming-language-rest-api
@@ -638,6 +640,8 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+  - id: programming-language-java
+    title: Java
   - id: programming-language-cpp
     title: C++
 - id: programming-languages-ocr

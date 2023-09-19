@@ -3,7 +3,7 @@ title: RpcTimeoutException for Apache Spark thrift - Azure HDInsight
 description: You see 502 errors when processing large data sets using Apache Spark thrift server
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/21/2022
+ms.date: 09/15/2023
 ---
 
 # Scenario: RpcTimeoutException for Apache Spark thrift server in Azure HDInsight

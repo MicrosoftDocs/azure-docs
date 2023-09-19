@@ -6,12 +6,12 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/07/2021
+ms.date: 09/13/2021
 
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: michmcla
+ms.reviewer: jpettere
 
 ms.collection: M365-identity-device-management
 ---
@@ -149,39 +149,39 @@ From the command line of the MFA Server, run the following command changing the 
 
 ## Gather data from NPS Extension
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Export.
+Use the Microsoft Privacy portal to make a request for Export.
 
 - MFA information is included in the export, which may take hours or days to complete.
 - Occurrences of the username in the AzureMfa/AuthN/AuthNOptCh, AzureMfa/AuthZ/AuthZAdminCh, and AzureMfa/AuthZ/AuthZOptCh event logs are considered operational and duplicative to the information provided in the export.
 
 ## Delete data from NPS Extension
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Account Close to delete all MFA cloud service information collected for this user.
+Use the Microsoft Privacy portal to make a request for Account Close to delete all MFA cloud service information collected for this user.
 
 - It may take up to 30 days for data to be fully removed.
 
 ## Gather data from Windows Server 2016 Azure AD MFA AD FS Adapter
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Export. 
+Use the Microsoft Privacy portal to make a request for Export. 
 
 - MFA information is included in the export, which may take hours or days to complete.
 - Occurrences of the username in the AD FS Tracing/Debug event logs (if enabled) are considered operational and duplicative to the information provided in the export.
 
 ## Delete data from Windows Server 2016 Azure AD MFA AD FS Adapter
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Account Close to delete all MFA cloud service information collected for this user.
+Use the Microsoft Privacy portal to make a request for Account Close to delete all MFA cloud service information collected for this user.
 
 - It may take up to 30 days for data to be fully removed.
 
 ## Gather data for Azure AD MFA
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Export.
+Use the Microsoft Privacy portal to make a request for Export.
 
 - MFA information is included in the export, which may take hours or days to complete.
 
 ## Delete data for Azure AD MFA
 
-Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Account Close to delete all MFA cloud service information collected for this user.
+Use the Microsoft Privacy portal to make a request for Account Close to delete all MFA cloud service information collected for this user.
 
 - It may take up to 30 days for data to be fully removed.
 
