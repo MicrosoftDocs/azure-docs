@@ -17,16 +17,16 @@ To access Azure Advisor, sign in to the [Azure portal](https://portal.azure.com)
 
    ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-score-page3.png) 
 
-## Get Advisor score
+## Read your score
 View how your system configuration measures agains Azure best practices.
 
-   ![Azure Advisor score details](./media/advisor-get-started/advisor-score-detail.png) 
+   ![Optimize Azure workloads by using Advisor score](./media/advisor-get-started/advisor-score-detail.png) 
 
-* The far-left graphic is your overall system Advisor score against Azure best practices.
+* The far-left graphic is your overall system Advisor score against Azure best practices. The **Learn more** link opens the [Introduction to Azure Advisor](azure-advisor-score.md) page. 
 
-* The middle graphic depicts the trend of your system Advisor score.
+* The middle graphic depicts the trend of your system Advisor score history. Roll over the graphic to activate a slider to see your trend at different points of time. Use the drop-down menu to pick a trend time frame.
 
-* The far-right graphic shows a breakdown of your best practices Advisor score per category.
+* The far-right graphic shows a breakdown of your best practices Advisor score per category. Click a category bar to open the recommendations page for that category.
 
 ## Get recommendations
 
@@ -36,14 +36,14 @@ To display a specific list of recommendations, click a category tile. The follow
 
 The tiles on the Advisor **Score** page show the different categories of recommendations per subscription:  
 
-* To get recommendations for a specific category, click one of the tiles: **Cost**, **Security**, **Reliability**, **Operational Excellence**, or **Performance**. To view a list of all recommendations for all categories, click the **All recommendations** tile. By default, the **Cost** tile is selected.
+* To get recommendations for a specific category, click one of the tiles: **Cost**, **Security**, **Reliability**, **Operational Excellence**, or **Performance**. To view a list of all recommendations for all categories, click the **All recommendations** tile. By default, the **Cost** tile is selected. 
 
 * You can filter the display using the buttons at the top of the page:
    * **Subscription**: Choose **All** for Advisor recommendations on all subscriptions. Alternatively, select specific subscriptions. Apply changes by clicking outside of the button.
    * **Recommendation Status**: **Active** (the default, recommendations that you haven't postponed or dismissed), **Postponed or Dismissed**. Apply changes by clicking outside of the button.
    * **Resource Group**: Choose **All** (the default) or specific resource groups. Apply changes by clicking outside of the button.
    * **Type**: Choose **All** (the default) or specific resources. Apply changes by clicking outside of the button.
-   * **Commitments**: Applicable only to cost recommendations. Adjust your subscription **Cost** recommendations to reflect your committed **Term (years)** and chosen **Look-back period (days)**. Apply changes by clicking **Apply**.*
+   * **Commitments**: Applicable only to cost recommendations. Adjust your subscription **Cost** recommendations to reflect your committed **Term (years)** and chosen **Look-back period (days)**. Apply changes by clicking **Apply**.
    * For more advanced filtering, click **Add filter**.
 
 * The **Commitments** button lets you adjust your subscription **Cost** recommendations to reflect your committed **Term (years)** and chosen **Look-back period (days)**.
@@ -56,7 +56,7 @@ View recommendation details – such as the recommended actions and impacted res
 
 1. To display a specific list of recommendations, click a category tile. Recommendations appear below the selected tile.
 
-1. To review details of a recommendation, including the affected resources, click the **Description** link for it. The following screenshot shows a **Reliability** tile recommendation details page.
+1. To review details of a recommendation, including the affected resources, click the **Description** link for it. The following screenshot shows a **Reliability** recommendation details page.
 
    ![Advisor view recommendation details](./media/advisor-get-started/advisor-score-reliability-recommendation-page2.png)
    
