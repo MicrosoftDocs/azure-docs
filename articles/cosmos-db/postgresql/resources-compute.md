@@ -7,12 +7,18 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 07/06/2023
+ms.date: 09/18/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL compute and storage
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
+
+> [!IMPORTANT]
+> 32 TiB storage in Azure Cosmos DB for PostgreSQL is currently in preview.
+> This preview is provided without a service level agreement, and it's not recommended
+> for production workloads. Certain features might not be supported or might have constrained 
+> capabilities.
 
 Compute resources are provided as vCores, which represent the logical CPU of
 the underlying hardware. The storage size for provisioning refers to the
