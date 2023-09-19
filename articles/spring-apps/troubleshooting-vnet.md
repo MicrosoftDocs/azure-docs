@@ -67,7 +67,7 @@ For more information, see [Access your application in a private network](./acces
 
 Azure Spring Apps supports exposing applications to the internet by using public endpoints. For more information, see [Expose applications on Azure Spring Apps to the internet from a public network](how-to-access-app-from-internet-virtual-network.md). 
 
-If you're using a user defined route feature, the following features aren't supported because of asymmetric routing:
+If you're using a user defined route feature, some features aren't supported because of asymmetric routing. For unsupported features, use the following list:
 
 - Use public network to access the application through public endpoint.
 - Use public network to access the log stream.
@@ -75,7 +75,7 @@ If you're using a user defined route feature, the following features aren't supp
 
 For more information, see [Control egress traffic for an Azure Spring Apps instance](how-to-create-user-defined-route-instance.md).
 
-The same limitations also apply to Azure Spring Apps when egress traffics are routed to a firewall. The problem occurs because both situations introduce asymmetric routing into the cluster. Packets arrive on the endpoint's public IP address but return to the firewall via the private IP address. So, the firewall must block such traffic. For more information, see [Bring Your Own Route Table](how-to-deploy-in-azure-virtual-network.md#bring-your-own-route-table).
+Similar limitations also apply to Azure Spring Apps when egress traffics are routed to a firewall. The problem occurs because both situations introduce asymmetric routing into the cluster. Packets arrive on the endpoint's public IP address but return to the firewall via the private IP address. So, the firewall must block such traffic. For more information, see [Bring your own route table](how-to-deploy-in-azure-virtual-network.md#bring-your-own-route-table).
 
 If you're routing egress traffics to a firewall but also need to expose the application to internet, use the expose applications to the internet with TLS Termination feature. For more information, see [Expose applications to the internet with TLS Termination at Application Gateway](expose-apps-gateway-tls-termination.md).
 
