@@ -17,7 +17,7 @@ By default, when ingress is enabled, all traffic is routed to the latest deploye
 
 Traffic splitting is useful for testing updates to your container app.  You can use traffic splitting to gradually phase in a new revision in [blue-green deployments](blue-green-deployment.md) or in [A/B testing](https://wikipedia.org/wiki/A/B_testing).
 
-Traffic splitting is based on the weight (percentage) of traffic that is routed to each revision.  The combined weight of all traffic split rules must equal 100%.  You can specify revision by revision name or [revision label](revisions.md#revision-labels).
+Traffic splitting is based on the weight (percentage) of traffic that is routed to each revision.  The combined weight of all traffic split rules must equal 100%.  You can specify revision by revision name or [revision label](revisions.md#labels).
 
 This article shows you how to configure traffic splitting rules for your container app. 
 To run the following examples, you need a container app with multiple revisions.  

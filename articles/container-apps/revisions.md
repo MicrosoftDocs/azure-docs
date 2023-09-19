@@ -117,7 +117,7 @@ A *revision-scope* change is any change to the parameters in the [`properties.te
 
 These parameters include:
 
-- [Revision suffix](#revision-name-suffix)
+- [Revision suffix](#name suffix)
 - Container configuration and images
 - Scale rules for the container application
 

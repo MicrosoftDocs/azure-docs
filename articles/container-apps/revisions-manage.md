@@ -246,7 +246,7 @@ Restart-AzContainerAppRevision @CmdArgs
 
 ## Revision set mode
 
-The revision mode controls whether only a single revision or multiple revisions of your container app can be simultaneously active. To set your container app to support [single revision mode](revisions.md#single-revision-mode) or [multiple revision mode](revisions.md#multiple-revision-mode), use the `az containerapp revision set-mode` command.  
+The revision mode controls whether only a single revision or multiple revisions of your container app can be simultaneously active. To set your container app to support [single revision mode](revisions.md#revision-modes) or [multiple revision mode](revisions.md#revision-modes), use the `az containerapp revision set-mode` command.  
 
 The default setting is *single revision mode*. For more information about this command, see [`az containerapp revision set-mode`](/cli/azure/containerapp/revision#az-containerapp-revision-set-mode).
 
@@ -284,7 +284,7 @@ Update-AzContainerApp @CmdArgs
 
 ## Revision labels
 
-Labels provide a unique URL that you can use to direct traffic to a revision.  You can move a label between revisions to reroute traffic directed to the label's URL to a different revision.  For more information about revision labels, see [Revision Labels](revisions.md#revision-labels).
+Labels provide a unique URL that you can use to direct traffic to a revision.  You can move a label between revisions to reroute traffic directed to the label's URL to a different revision.  For more information about revision labels, see [Revision Labels](revisions.md#labels).
 
 You can add and remove a label from a revision.  For more information about the label commands, see [`az containerapp revision label`](/cli/azure/containerapp/revision/label)
 
