@@ -352,7 +352,7 @@ You also need to set up a Dapr state store component. You can learn more about w
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
+::: zone pivot="programming-language-javascript, programming-language-powershell"
 
 To use a Dapr state output binding, define your `daprState` binding in a functions.json file.  
 

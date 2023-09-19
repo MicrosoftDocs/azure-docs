@@ -311,11 +311,15 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-csharp, programming-language-java, programming-language-javascript, programming-language-powershell, programming-language-python"
 
 See the [Example section](#example) for complete examples.
 
 ## Usage
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
 
 To use the Dapr state input binding, run `DaprState`. 
 
@@ -328,10 +332,6 @@ You also need to set up a Dapr state store component. You can learn more about w
 
 ::: zone pivot="programming-language-java"
 
-See the [Example section](#example) for complete examples.
-
-## Usage
-
 To use the Dapr state input binding, run `DaprStateInput`. 
 
 You also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
@@ -341,11 +341,8 @@ You also need to set up a Dapr state store component. You can learn more about w
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
+::: zone pivot="programming-language-javascript, programming-language-powershell"
 
-See the [Example section](#example) for complete examples.
-
-## Usage
 To use a Dapr state input binding, define your `daprState` binding in a functions.json file. 
 
 You also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
@@ -353,6 +350,43 @@ You also need to set up a Dapr state store component. You can learn more about w
 - [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
 - [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
 
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+# [Python v2](#tab/v2)
+
+To use the `daprState` in Python v2, set up your project with the correct dependencies.
+
+1. In your `requirements.text` file, add the following line:
+
+   ```txt
+   azure-functions==1.18.0b1
+   ```
+
+1. Modify your `local.setting.json` file with the following configuration:
+
+   ```json
+   PYTHON_ISOLATE_WORKER_DEPENDENCIES:1
+   ```
+
+You also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
+- [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
+
+
+# [Python v1](#tab/v1)
+
+To use a Dapr state input binding, define your `daprState` binding in a functions.json file. 
+
+You also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
+- [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
+
+---
 
 ::: zone-end
 
