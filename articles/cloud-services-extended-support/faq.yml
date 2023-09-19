@@ -95,7 +95,12 @@ sections:
           Why do I see a change in billing amount after November 2022 for Cloud Services (extended support) deployments?
         answer: |
           A bug in Bandwidth billing was fixed in November 2022, resulting in customers possibly seeing increased billing based on their data transfer out to other regions or internet. For additional reference, visit the [Azure bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/).  
-          
+
+      - question: |
+          What is the Service Level Agreement (SLA) for Cloud Services (extended support)?
+        answer: |
+          The Service Level Agreement (SLA) for Cloud Services (extended support) is same as SLA for Cloud Services (classic). Please refer [Licensing Documents](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+  
   - name: Resources 
     questions:
       - question: |
