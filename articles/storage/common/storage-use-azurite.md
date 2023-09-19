@@ -456,9 +456,9 @@ azurite --disableProductStyleUrl
 
 ## Connect to Azurite with SDKs and tools
 
-You can connect to Azurite from Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Authentication is required, and Azurite supports authorization with OAuth, Shared Key, and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
+You can connect to Azurite from Azure Storage SDKs, or tools like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Authentication and authorization is required, and Azurite supports authorization with OAuth, Shared Key, and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
 
-If you're using the Azure SDKs, start Azurite with the `--oauth basic and --cert --key/--pwd` options. To learn more about using Azurite with the Azure SDKs, see [Azure SDKs](#azure-sdks).
+If you're using the Azure SDKs, start Azurite with the `--oauth basic`` and `--cert --key/--pwd` options. To learn more about using Azurite with the Azure SDKs, see [Azure SDKs](#azure-sdks).
 
 ### Well-known storage account and key
 
