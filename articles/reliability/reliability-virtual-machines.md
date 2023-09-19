@@ -44,7 +44,7 @@ This section contains recommendations for achieving resiliency and availability 
 ||:::image type="icon" source="media/icon-recommendation-medium.svg"::: |[Enable disk encryption and data at rest encryption by default](#-enable-disk-encryption-and-data-at-rest-encryption-by-default)  | 
 |[**Networking**](#networking) | :::image type="icon" source="media/icon-recommendation-low.svg":::  |[Customer DNS Servers should be configured in the Virtual Network level](#-dns-servers-should-be-configured-in-the-virtual-network-level) |
 |[**Storage**](#storage) |:::image type="icon" source="media/icon-recommendation-medium.svg"::: |[Shared disks should only be enabled in clustered servers](#-shared-disks-should-only-be-enabled-in-clustered-servers) | 
-|[**Compliance**](#compliance)| :::image type="icon" source="media/icon-recommendation-low.svg":::  |[VEnsure that your VMs are compliant with Azure Policies](#-ensure-that-your-vms-are-compliant-with-azure-policies) |
+|[**Compliance**](#compliance)| :::image type="icon" source="media/icon-recommendation-low.svg":::  |[Ensure that your VMs are compliant with Azure Policies](#-ensure-that-your-vms-are-compliant-with-azure-policies) |
 |[**Monitoring**](#monitoring)| :::image type="icon" source="media/icon-recommendation-low.svg":::  |[Enable VM Insights](#-enable-vm-insights) | 
 ||:::image type="icon" source="media/icon-recommendation-low.svg"::: |[Configure diagnostic settings for all Azure resources](#-configure-diagnostic-settings-for-all-azure-resources) | 
 
