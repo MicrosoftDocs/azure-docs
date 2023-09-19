@@ -114,7 +114,7 @@ Microsoft is responsible for patching the base images for known security vulnera
 
 You'll need to update associated Azure Machine Learning assets to use the newly patched image. For example, when working with a managed online endpoint, you'll need to redeploy your endpoint to use the patched image.
 
-If you provide your own images, you are responsible for updating them.
+If you provide your own images, you're responsible for updating them and updating the Azure Machine Learning assets that use them.
 
 
 For more information on the base images, see the following links:
