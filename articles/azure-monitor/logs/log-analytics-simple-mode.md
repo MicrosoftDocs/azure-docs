@@ -82,20 +82,20 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 
 To begin an inquiry in simple mode, either:
 
-- Select a specific table in your Log Analytics workspace, as described in [Query in simple mode](#query-in-simple-mode) 
+- Click **Select a table** and select a table from the **Tables** tab to view table data.
+
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-select-table.png" alt-text="Screenshot that shows the Select a table button in Log Analytics.":::
+    By default, simple mode lists the last 1000 entries in the table from the last 24 hours. 
+
 - Use an existing query, such as a shared or [saved query](../logs/save-query.md), or an example query:
 
     :::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-example-query.png" alt-text="Screenshot that an example query in Log Analytics.":::
 
+## Explore and analyze data in simple mode 
 
-## Query in simple mode 
+After you [initiate an inquiry in simple mode](#start-an-inquiry-in-simple-mode), you can explore and analyze data using the [top query bar](#top-query-bar). The order in which you apply filters and operators affects your inquiry and results. For example, if you apply a filter and then aggregate, Log Analytics applies the aggregation to the filtered data. If you aggregate and then filter, the aggregation is applied to the unfiltered data.
 
-**Select a table to view log data**
-
-1. Click **Select a table** and select a table from the **Tables** tab.
-
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-select-table.png" alt-text="Screenshot that shows the Select a table button in Log Analytics.":::
-    By default, simple mode lists the last 1000 entries in the table from the last 24 hours. 
+**Change time range and number of records displayed**
 
 1. To change the time range and number of records displayed, use the **Time range** and **Limit** selectors.
     
