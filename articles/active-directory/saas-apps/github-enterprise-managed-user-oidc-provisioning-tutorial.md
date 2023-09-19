@@ -31,10 +31,6 @@ This tutorial describes the steps you need to perform in both GitHub Enterprise 
 > * Provision groups and group memberships in GitHub Enterprise Managed User (OIDC)
 > * [Single sign-on](../manage-apps/add-application-portal-setup-oidc-sso.md) to GitHub Enterprise Managed User (OIDC) (recommended).
 
-> [!NOTE]
-> This provisioning connector is enabled only for Enterprise Managed Users beta participants.
-
-
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
