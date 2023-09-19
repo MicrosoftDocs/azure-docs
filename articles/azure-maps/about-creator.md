@@ -24,7 +24,7 @@ Creator is a platform for building indoor mapping solutions for all your needs. 
 
 An [onboarding tool] is provided to prepare your facility's DWGs by identifying the data to use and to positioning your facility on the map. The conversion service then converts the geometry and data from your DWG files into a digital indoor map.
 
-The first step in creating your indoor map is to upload a drawing package into your Azure Storage account. A drawing package contains one or more CAD (computer-aided design) drawings of your facility along with a manifest describing the drawings. The drawings define the elements of the facility while the manifest tells the Azure Maps [Conversion service] how to read the facility drawing files and metadata. For more
+The first step in creating your indoor map is to upload a drawing package. A drawing package contains one or more CAD (computer-aided design) drawings of your facility along with a manifest describing the drawings. The drawings define the elements of the facility while the manifest tells the Azure Maps [Conversion service] how to read the facility drawing files and metadata. For more
 information about manifest properties, see [Manifest file requirements] and for more information on creating and uploading a drawing package, see the [Drawing package guide].
 
 ### Dataset

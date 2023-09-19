@@ -21,6 +21,7 @@ Azure Maps Creator enables users to import their indoor map data in GeoJSON form
 - An [Azure Maps account]
 - A [Subscription key]
 - An Azure Maps [Creator resource]
+- An [Azure storage account]
 - Basic understanding of [Creator for indoor maps]
 - Basic understanding of [Facility Ontology 2.0]
 - Zip package containing all required GeoJSON files. If you don't have GeoJSON files, you can download the [Contoso building sample].
@@ -150,6 +151,7 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 [openings]: creator-facility-ontology.md?pivots=facility-ontology-v2#opening
 [point]: creator-facility-ontology.md?pivots=facility-ontology-v2#pointelement
 [RFC 7946]: https://www.rfc-editor.org/rfc/rfc7946.html
+[Azure storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
 [structures]: creator-facility-ontology.md?pivots=facility-ontology-v2#structure
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [units]: creator-facility-ontology.md?pivots=facility-ontology-v2#unit
