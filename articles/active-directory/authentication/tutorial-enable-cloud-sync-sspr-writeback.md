@@ -33,7 +33,7 @@ Microsoft Entra Connect cloud sync can synchronize Microsoft Entra password chan
 1. [Enable password writeback in Microsoft Entra Connect cloud sync](#enable-password-writeback-in-sspr)
 1. [Enable password writeback for SSPR](#enable-password-writeback-in-sspr)
  
-<a name='configure-azure-ad-connect-cloud-sync-service-account-permissions-'></a>
+<a name='configure-azure-ad-connect-cloud-sync-service-account-permissions'></a>
 
 ### Configure Microsoft Entra Connect cloud sync service account permissions 
 
