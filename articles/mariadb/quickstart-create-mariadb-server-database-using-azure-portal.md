@@ -11,6 +11,8 @@ ms.custom: mvc, mode-ui
 
 # Quickstart: Create an Azure Database for MariaDB server by using the Azure portal
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 Azure Database for MariaDB is a managed service you can use to run, manage, and scale highly available MariaDB databases in the cloud. This quickstart shows you how to create an Azure Database for MariaDB server in about five minutes by using the Azure portal.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.

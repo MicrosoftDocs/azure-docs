@@ -54,7 +54,8 @@ Alternatively, you can also use the [Enterprise App Configuration Wizard](https:
 
 Complete the following steps to enable Azure AD single sign-on in the Azure portal.
 
-1. In the Azure portal, on the **Vera Suite** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Vera Suite** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 
 1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.

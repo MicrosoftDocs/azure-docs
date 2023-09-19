@@ -108,7 +108,7 @@ Now that you've prepared your environment and installed a connector, you're read
 ## Configure SSO for Confluence SAML SSO Application in Azure AD
 
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. Open the **Confluence SAML SSO by Microsoft** application integration page, find the **Manage** section and select **single sign-on**.
+1. Open the **Confluence SAML SSO by Microsoft** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -120,20 +120,22 @@ Now that you've prepared your environment and installed a connector, you're read
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assigning the test user for the Confluence Azure AD App
 
 In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Confluence Azure AD App.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Confluence SAML SSO by Microsoft**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Confluence SAML SSO by Microsoft**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
