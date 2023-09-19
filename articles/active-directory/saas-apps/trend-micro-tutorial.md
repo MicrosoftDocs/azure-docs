@@ -64,7 +64,8 @@ You'll complete these basic steps to configure and test Azure AD SSO with TMWS:
 
 Complete these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Trend Micro Web Security (TMWS)** application integration page, in the **Manage** section, select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Trend Micro Web Security (TMWS)** application integration page, in the **Manage** section, select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, select the pen button for **Basic SAML Configuration** to edit the settings:
 

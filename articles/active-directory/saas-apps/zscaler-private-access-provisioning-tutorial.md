@@ -87,20 +87,10 @@ Before configuring Zscaler Private Access (ZPA) for automatic user provisioning 
 
 **To add Zscaler Private Access (ZPA) from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Zscaler Private Access (ZPA)**, select **Zscaler Private Access (ZPA)** in the results panel, and then click the **Add** button to add the application.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Zscaler Private Access (ZPA)**, select **Zscaler Private Access (ZPA)** in the search box.
+1. Select **Zscaler Private Access (ZPA)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 	![Zscaler Private Access (ZPA) in the results list](common/search-new-app.png)
 
 ## Configuring automatic user provisioning to Zscaler Private Access (ZPA) 
@@ -118,59 +108,56 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Zscaler Private Access (ZPA) in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, select **Zscaler Private Access (ZPA)**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Zscaler Private Access (ZPA)**.
 
 	![The Zscaler Private Access (ZPA) link in the Applications list](common/all-applications.png)
 
-3. Select the **Provisioning** tab.
+1. Select the **Provisioning** tab.
 
 	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
-4. Set the **Provisioning Mode** to **Automatic**.
+1. Set the **Provisioning Mode** to **Automatic**.
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input the **SCIM Service Provider Endpoint** value retrieved earlier in **Tenant URL**. Input the **Bearer Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Zscaler Private Access (ZPA). If the connection fails, ensure your Zscaler Private Access (ZPA) account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input the **SCIM Service Provider Endpoint** value retrieved earlier in **Tenant URL**. Input the **Bearer Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Zscaler Private Access (ZPA). If the connection fails, ensure your Zscaler Private Access (ZPA) account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
+1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
 	![Notification Email](common/provisioning-notification-email.png)
 
-7. Click **Save**.
+1. Click **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zscaler Private Access (ZPA)**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zscaler Private Access (ZPA)**.
 
 	![Zscaler Private Access (ZPA) User Mappings](media/zscaler-private-access-provisioning-tutorial/usermappings.png)
 
-9. Review the user attributes that are synchronized from Azure AD to Zscaler Private Access (ZPA) in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zscaler Private Access (ZPA) for update operations. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Zscaler Private Access (ZPA) in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zscaler Private Access (ZPA) for update operations. Select the **Save** button to commit any changes.
 
 	![Zscaler Private Access (ZPA) User Attributes](media/zscaler-private-access-provisioning-tutorial/userattributes.png)
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Zscaler Private Access (ZPA)**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Zscaler Private Access (ZPA)**.
 
 	![Zscaler Private Access (ZPA) Group Mappings](media/zscaler-private-access-provisioning-tutorial/groupmappings.png)
 
-11. Review the group attributes that are synchronized from Azure AD to Zscaler Private Access (ZPA) in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zscaler Private Access (ZPA) for update operations. Select the **Save** button to commit any changes.
+1. Review the group attributes that are synchronized from Azure AD to Zscaler Private Access (ZPA) in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zscaler Private Access (ZPA) for update operations. Select the **Save** button to commit any changes.
 
 	![Zscaler Private Access (ZPA) Group Attributes](media/zscaler-private-access-provisioning-tutorial/groupattributes.png)
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for Zscaler Private Access (ZPA), change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Azure AD provisioning service for Zscaler Private Access (ZPA), change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-14. Define the users and/or groups that you would like to provision to Zscaler Private Access (ZPA) by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users and/or groups that you would like to provision to Zscaler Private Access (ZPA) by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-15. When you are ready to provision, click **Save**.
+1. When you are ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
