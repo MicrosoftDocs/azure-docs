@@ -228,7 +228,7 @@ Use the following steps to configure logs to be pushed from the cluster autoscal
 
     As long as there are logs to retrieve, you should see logs similar to the following logs:
 
-    ![Log Analytics logs](media/autoscaler/autoscaler-logs.png)
+    :::image type="content" source="media/autoscaler/autoscaler-logs.png" alt-text="Log Analytics logs":::
 
     The cluster autoscaler also writes out the health status to a `configmap` named `cluster-autoscaler-status`. You can retrieve these logs using the following `kubectl` command:
 
