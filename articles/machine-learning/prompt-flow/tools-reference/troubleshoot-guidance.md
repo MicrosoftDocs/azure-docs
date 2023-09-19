@@ -52,7 +52,7 @@ Prompt flow relies on fileshare to store snapshot of flow. Prompt flow didn't su
 
 ## Why can't I upgrade my old flow?
 Prompt flow relies on fileshare to store snapshot of flow. If fileshare has some issue, you may encounter this issue. Here are some workarounds you can try:
-- If you're using private storage account, please see [Why I can't create or upgrade my flow when I disable public network access of storage account?](#why-i-cant-create-or-upgrade-my-flow-when-i-disable-public-network-access-of-storage-account)
+- If you're using private storage account, please see [Why can't I create or upgrade my flow when I disable public network access of storage account?](#why-cant-i-create-or-upgrade-my-flow-when-i-disable-public-network-access-of-storage-account)
 - If the storage account is enabled public access, please check whether there are datastore named `workspaceworkingdirectory` in your workspace, it should be fileshare type.
 ![workspaceworkingdirectory](../media/faq/working-directory.png) 
     - If you didn't get this datastore, you need add it in your workspace.
@@ -65,10 +65,10 @@ Prompt flow relies on fileshare to store snapshot of flow. If fileshare has some
 :::image type="content" source="../media/faq/flow-missing.png" alt-text="Screenshot of a flow missing in authoring page. " lightbox = "../media/faq/flow-missing.png":::
 
 Prompt flow relies on fileshare to store snapshot of flow. This error mean prompt flow service can operate prompt flow folder in fileshare, but the prompt flow UI can't find folder in fileshare. There are some potential reasons:
-- Prompt flow relies datastore named `workspaceworkingdirectory` in your workspace, which using `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`, please make sure your data store using the same container.
+- Prompt flow relies datastore named `workspaceworkingdirectory` in your workspace, which using `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`, please make sure your data store using the same container. If your data store is using different fileshare name, you need use new workspace.
 ![name of fileshare in datastore detail page](../media/faq/file-share-name.png) 
 
-- Please try in different network environment, such as home network, company network, etc. There is rare case, fileshare can't be accessed in some network environment even it's public access enabled.
+- If your fileshare use correctly name. Then please try in different network environment, such as home network, company network, etc. There is rare case, fileshare can't be accessed in some network environment even it's public access enabled.
 
 ## Runtime related issues
 
