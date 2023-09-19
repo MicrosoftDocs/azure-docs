@@ -38,7 +38,7 @@ The log files you use for investigation and monitoring are:
 
 * [Azure Key Vault insights](../../key-vault/key-vault-insights-overview.md)
 
-From the Azure portal, you can view the Microsoft Entra audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Microsoft Entra ID logs with other tools that allow for greater automation of monitoring and alerting:
+From the Azure portal, you can view the Microsoft Entra audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Microsoft Entra logs with other tools that allow for greater automation of monitoring and alerting:
 
 * **[Microsoft Sentinel](../../sentinel/overview.md)**. Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
 
