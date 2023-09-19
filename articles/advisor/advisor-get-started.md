@@ -18,7 +18,7 @@ To access Azure Advisor, sign in to the [Azure portal](https://portal.azure.com)
    ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-score-page3.png) 
 
 ## Read your score
-View how your system configuration measures agains Azure best practices.
+View how your system configuration measures against Azure best practices.
 
    ![Optimize Azure workloads by using Advisor score](./media/advisor-get-started/advisor-score-detail.png) 
 
@@ -87,7 +87,7 @@ You can choose to include or exclude specific subscriptions for Advisor recommen
 
 You can adjust the average CPU utilization rule and the look back period on a per-subscription basis. Doing virtual machine (VM) right sizing requires specialized knowledge. 
 
-Advisor monitors your VM usage for seven days by default, and then identifies your low-utilization VMs. VMs are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2%, or if VM's current workload can be accommodated with a smaller VM.
+Advisor monitors your VM usage for seven days by default, and then identifies your low-utilization VMs. Azure Advisor considers VMs low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2%, or if the VM's current workload can be accommodated with a smaller VM.
 
 You can set the  CPU utilization rule to 5%, 10%, 15%, 20%, or 100% (the default). If the trigger is set to 100%, Advisor presents recommendations for VMs with less than 5%, 10%, 15%, and 20% of CPU utilization. You can also select how far back in historical data, the look back, you want to analyze: seven days (default), 14, 21, 30, 60, or 90 days.
 
