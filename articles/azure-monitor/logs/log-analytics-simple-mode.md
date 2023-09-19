@@ -151,9 +151,11 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 
 To switch modes, select **Simple mode** or **Advanced mode** from the dropdown in the top right corner of the query editor.
 
+:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-simple.png" alt-text="Screenshot that shows how to toggle between simple mode and advanced mode in Log Analytics.":::
+
 When you begin to query logs in simple mode and then switch to advanced mode, the query editor is prepopulated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
 
-:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-1.gif" alt-text="A GIF showing two Log Analytics query tabs, one in simple mode and one in advanced mode.":::
+:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-advanced.png" alt-text="Screenshot that shows a query in Log Analytics advanced mode.":::
 
 ## Advanced mode
 
@@ -163,10 +165,6 @@ Advanced mode lets you use KQL to query and analyze data. The Log Analytics quer
 
 To run the current query, select the **Run** button or select **Shift+Enter**.
 
-## Results window
-
-The results of a query appear in the results window. By default, the results are displayed as a table. To display the results as a chart, select **Chart** in the results window. You can also add a **render** command to your query.
- 
 ## Next steps
 - Walk through a [tutorial on writing queries](../logs/log-analytics-tutorial.md).
 - Access the complete [reference documentation for KQL](/azure/kusto/query/).
