@@ -296,4 +296,4 @@ To pin the quickstart chart to the dashboard, use the following steps:
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. On the left navigation menu, select **Alert**, and then select the **Pin blade to dashboard** icon.
+1. On the navigation menu, select **Alert**, and then select the **Pin blade to dashboard** icon.
