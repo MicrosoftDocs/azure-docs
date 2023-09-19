@@ -14,7 +14,7 @@ keywords: "VMM, Arc, Azure"
 
 # Switch to the new preview version of Arc-enabled SCVMM
 
-On September 22, 2023, we rolled out major changes to **Azure Arc-enabled System Center Virtual Machine Manager** preview. By switching to the new preview version, you can use all the Azure management services that are available for Arc-enabled Servers.
+On September 22, 2023, we rolled out major changes to **Azure Arc-enabled System Center Virtual Machine Manager preview**. By switching to the new preview version, you can use all the Azure management services that are available for Arc-enabled Servers.
 
 >[!Note]
 >If you're new to Arc-enabled SCVMM (preview), you'll be able to leverage the new capabilities by default. To get started with the preview, see [Quick Start for Azure Arc-enabled System Center Virtual Machine Manager (preview)](quickstart-connect-system-center-virtual-machine-manager-to-arc.md).
