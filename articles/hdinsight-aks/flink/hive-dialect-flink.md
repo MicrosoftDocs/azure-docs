@@ -8,27 +8,22 @@ ms.date: 09/18/2023
 
 # Hive dialect in Flink
 
-In this article, learn how to use hive dialect in HDInsight on AKS.
+In this article, learn how to use Hive dialect in HDInsight on AKS - Flink.
 
 ## Introduction
 
-In the current AKS on Flink, the user cannot change the default `flink` dialect to hive dialect for their usage. All the SQL operations fail once changed to hive dialect with the following error.
+The user cannot change the default `flink` dialect to hive dialect for their usage on HDInsight on AKS - Flink. All the SQL operations fail once changed to hive dialect with the following error.
 
-Caused by: 
+```Caused by: 
 
 *java.lang.ClassCastException: class jdk.internal.loader.ClassLoaders$AppClassLoader cannot be cast to class java.net.URLClassLoader*
+```
 
-## FIX
+The reason for this issue arises due to an open [Hive Jira](https://issues.apache.org/jira/browse/HIVE-21584). Currently, Hive assumes that the system class loader is an instance of URLClassLoader. In `Java 11`, this assumption is not the case.
 
-**Reason**: [https://issues.apache.org/jira/browse/HIVE-21584](https://issues.apache.org/jira/browse/HIVE-21584) [Java 11 preparation: system class loader is not URLClassLoader]
+## How to use Hive dialect in Flink
 
-Currently, Hive assumes that the system class loader is an instance of URLClassLoader. In `Java 11`, this assumption is not the case.
-
-This fix has to be backported to `hive 3.1.2`.
-
-## Steps to use hive dialect in Flink
-
-- Execute the following steps in `webssh` client pod:
+- Execute the following steps in `webssh`:
 
   1. Remove the existing flink-sql-connector-hive*jar in lib location
      ```command
