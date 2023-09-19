@@ -1,6 +1,6 @@
 ---
-title: Access your application in a private network
-description: Access an app in Azure Spring Apps in a virtual network.
+title: Access an app in Azure Spring Apps in a virtual network
+description: Shows how to access an app in Azure Spring Apps in a virtual network.
 author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event
 ms.devlang: azurecli
 ---
 
-# Access your application in a private network
+# Access an app in Azure Spring Apps in a virtual network
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -19,7 +19,7 @@ ms.devlang: azurecli
 
 This article explains how to access an endpoint for your application in a private network.
 
-When **Assign Endpoint** on applications in an Azure Spring Apps service instance is deployed in your virtual network, the endpoint is a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). *Log streaming*, described in [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
+When you assign an endpoint on an application in an Azure Spring Apps service instance deployed in your virtual network, the endpoint is a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). *Log streaming*, described in [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
 
 ## Find the IP for your application
 
@@ -50,7 +50,7 @@ export SERVICE_RUNTIME_RG=$(az spring show \
 export IP_ADDRESS=$(az network lb frontend-ip list \
     --lb-name kubernetes-internal \
     --resource-group $SERVICE_RUNTIME_RG \
-    --query "[0].privateIpAddress" \
+    --query "[0].privateIPAddress" \
     --output tsv)
 ```
 
@@ -61,7 +61,7 @@ export IP_ADDRESS=$(az network lb frontend-ip list \
 If you have your own DNS solution for your virtual network, like Active Directory Domain Controller, Infoblox, or another, you need to point the domain `*.private.azuremicroservices.io` to the [IP address](#find-the-ip-for-your-application). Otherwise, you can follow the following instructions to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
 
 > [!NOTE]
-> If you're using Azure China, be sure to replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. Learn more about [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
+> If you're using Microsoft Azure operated by 21Vianet, be sure to replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. Learn more about [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 ## Create a private DNS zone
 

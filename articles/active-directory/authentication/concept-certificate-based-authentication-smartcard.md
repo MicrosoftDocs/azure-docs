@@ -26,7 +26,7 @@ Follow these steps to set up Windows smart card sign-in:
 
 1. Join the machine to either Azure AD or a hybrid environment (hybrid join). 
 1. Configure Azure AD CBA in your tenant as described in [Configure Azure AD CBA](how-to-certificate-based-authentication.md).
-1. Make sure the user is either on managed authentication or using [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md). 
+1. Make sure the user is either on managed authentication or using [Staged Rollout](../hybrid/connect/how-to-connect-staged-rollout.md). 
 1. Present the physical or virtual smart card to the test machine.
 1. Select the smart card icon, enter the PIN, and authenticate the user.  
 

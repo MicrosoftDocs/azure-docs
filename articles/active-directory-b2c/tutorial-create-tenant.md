@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/23/2023
+ms.date: 07/13/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -30,7 +30,7 @@ Before you create your Azure AD B2C tenant, you need to take the following consi
 
 - You can create up to **20** tenants per subscription. This limit help protect against threats to your resources, such as denial-of-service attacks, and is enforced in both the Azure portal and the underlying tenant creation API. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). 
 
-- By default, each tenant can accommodate a total of **1.25 million** objects (user accounts and applications), but you can increase this limit to **5.25 million** objects when you add and verify a custom domain. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). However, if you created your tenant before **September 2022**, this limit doesn't affect you, and your tenant will retain the size allocated to it at creation, that's, **50 million** objects. Learn how to [read your tenant usage](microsoft-graph-operations.md#tenant-usage).  
+- By default, each tenant can accommodate a total of **1 million** objects (user accounts and applications), but you can increase this limit to **5 million** objects when you add and verify a custom domain. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). However, if you created your tenant before **September 2022**, this limit doesn't affect you, and your tenant will retain the size allocated to it at creation, that's, **50 million** objects. Learn how to [read your tenant usage](microsoft-graph-operations.md#tenant-usage).  
 
 - If you want to reuse a tenant name that you previously tried to delete, but you see the error "Already in use by another directory" when you enter the domain name, you'll need to [follow these steps to fully delete the tenant](./faq.yml?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant-) before you try again. You require a role of at least *Subscription Administrator*. After deleting the tenant, you might also need to sign out and sign back in before you can reuse the domain name.
 
@@ -46,7 +46,7 @@ Before you create your Azure AD B2C tenant, you need to take the following consi
 >[!NOTE]
 >If you're unable to create Azure AD B2C tenant, [review your user settings page](tenant-management-check-tenant-creation-permission.md) to ensure that tenant creation isn't switched off. If tenant creation is switched on, ask your *Global Administrator* to assign you a **Tenant Creator** role.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/). 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 
 1. Make sure you're using the Azure Active Directory (Azure AD) tenant that contains your subscription: 
@@ -84,7 +84,7 @@ Before you create your Azure AD B2C tenant, you need to take the following consi
     :::image type="content" source="media/tutorial-create-tenant/review-and-create-tenant.png" alt-text="Screenshot of create tenant form in with example values in Azure portal.":::
 
 1. Select **Review + create**.
-1. Review your directory settings. Then select **Create**. Learn more about [troubleshooting deployment errors](../azure-resource-manager/templates/common-deployment-errors.md).
+1. Review your directory settings. Then select **Create**. Learn more about [troubleshooting deployment errors](../azure-resource-manager/troubleshooting/common-deployment-errors.md).
 
 You can link multiple Azure AD B2C tenants to a single Azure subscription for billing purposes. To link a tenant, you must be an admin in the Azure AD B2C tenant and be assigned at least a Contributor role within the Azure subscription. See [Link an Azure AD B2C tenant to a subscription](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 
@@ -95,7 +95,7 @@ You can link multiple Azure AD B2C tenants to a single Azure subscription for bi
 
 Azure AD B2C allows you to activate Go-Local add-on on an existing tenant as long as your tenant stores data in a country/region that has local data residence option. To opt-in to Go-Local add-on, use the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/). 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 1. Make sure you're using the directory that contains your Azure AD B2C tenant: 
 
@@ -135,7 +135,7 @@ You only need to perform this operation once. Before performing these steps, mak
 1. In the **All services** search box, search for **Azure AD B2C**, hover over the search result, and then select the star icon in the tooltip. **Azure AD B2C** now appears in the Azure portal under **Favorites**.
 1. If you want to change the position of your new favorite, go to the Azure portal menu, select **Azure AD B2C**, and then drag it up or down to the desired position.
 
-    ![Azure AD B2C, Favorites menu, Microsoft Azure portal](media/tutorial-create-tenant/portal-08-b2c-favorite.png)
+    ![Azure AD B2C, Favorites menu, Azure portal](media/tutorial-create-tenant/portal-08-b2c-favorite.png)
 
 ## Next steps
 

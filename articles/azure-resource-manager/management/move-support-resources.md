@@ -968,7 +968,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | **Yes** | **Yes** | No. [Learn more](../../azure-monitor/faq.yml#how-do-i-move-an-application-insights-resource-to-a-new-region-). |
+> | accounts | **Yes** | **Yes** | No. [Learn more](../../azure-monitor/app/separate-resources.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
 > | actiongroups | **Yes** | **Yes** | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | **Yes** | **Yes** | No |
@@ -1077,7 +1077,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | loadtests | No | No | No |
+> | loadtests | Yes | Yes | No |
 
 ## Microsoft.LocationBasedServices
 
@@ -1658,7 +1658,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | namespaces | **Yes** | **Yes** | No |
+> | namespaces | **Yes** | **Yes** | Yes (with template)<br/><br/> [Move an Azure Service Bus namespace to another region](../../service-bus-messaging/move-across-regions.md) |
 > | premiummessagingregions | No | No | No |
 > | sku | No | No | No |
 
@@ -1688,6 +1688,15 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | networks | **Yes** | **Yes** | No |
 > | secrets | **Yes** | **Yes** | No |
 > | volumes | **Yes** | **Yes** | No |
+
+## Microsoft.ServiceNetworking
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | trafficcontrollers | No | No | No |
+> | associations | No | No | No |
+> | frontends | No | No | No |
 
 ## Microsoft.Services
 

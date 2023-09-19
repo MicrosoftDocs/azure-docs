@@ -11,10 +11,9 @@ ms.topic: how-to
 ms.date: 03/16/2023
 ms.author: jomondi
 ms.reviewer: ludwignick
-ms.custom: seoapril2019, contperf-fy22q2, enterprise-apps
+ms.custom: seoapril2019, contperf-fy22q2, enterprise-apps, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 zone_pivot_groups: home-realm-discovery
-
 #customer intent: As and admin, I want to configure Home Realm Discovery for Azure AD authentication for federated users.
 ---
 
@@ -30,8 +29,8 @@ For federated users with cloud-enabled credentials, such as SMS sign-in or FIDO 
 
 > [!IMPORTANT]
 > Starting April 2023, organizations who use auto-acceleration or smartlinks may begin to see a new screen added to the sign-in UI. This screen, termed the Domain Confirmation Dialog, is part of Microsoft's general commitment to security hardening and requires the user to confirm the domain of the tenant in which they are signing in to. If you see the Domain Confirmation Dialog and do not recognize the tenant domain listed, you should cancel the authentication flow and contact your IT Admin.
-> 
-> While the Domain Confirmation Dialog does not need to be shown for every instance of auto-acceleration or smartlinks, the presence of the Domain Confirmation Dialog means auto-acceleration and smartlinks can no longer proceed seamlessly when shown. Finally, given Microsoft identity platform manages the auto-acceleration sign-in flow end-to-end, the introduction of the Domain Confirmation Dialog should not result in any application breakages. 
+>
+> While the Domain Confirmation Dialog does not need to be shown for every instance of auto-acceleration or smartlinks, the presence of the Domain Confirmation Dialog means auto-acceleration and smartlinks can no longer proceed seamlessly when shown. If your organization clears cookies due to browser policies or otherwise, you may experience the domain confirmation dialog more frequently. Finally, given Microsoft identity platform manages the auto-acceleration sign-in flow end-to-end, the introduction of the Domain Confirmation Dialog should not result in any application breakages. 
 
 ## Prerequisites
 
@@ -182,7 +181,7 @@ To apply the HRD policy after you've created it, you can assign it to multiple a
 
 You need the **ObjectID** of the service principals to which you want to assign the policy. There are several ways to find the **ObjectID** of service principals.
 
-You can use the [Azure portal](https://portal.azure.com), or you can query [Microsoft Graph](/graph/api/resources/serviceprincipal). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals.
+You can use the [Microsoft Entra admin center](https://entra.microsoft.com), or you can query [Microsoft Graph](/graph/api/resources/serviceprincipal). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals.
 
 Because you're using PowerShell, you can use the following cmdlet to list the service principals and their IDs.
 

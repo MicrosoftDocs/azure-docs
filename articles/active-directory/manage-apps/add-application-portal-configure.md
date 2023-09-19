@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 01/26/2023
 ms.author: jomondi
 ms.reviewer: ergreenl
-zone_pivot_groups: enterprise-apps-minus-aad-powershell
+zone_pivot_groups: enterprise-apps-minus-former-powershell
 ms.custom: enterprise-apps
 
 #Customer intent: As an administrator of an Azure AD tenant, I want to configure the properties of an enterprise application.
@@ -20,8 +20,6 @@ ms.custom: enterprise-apps
 # Configure enterprise application properties
 
 This article shows you where you can configure the properties of an enterprise application in your Azure Active Directory (Azure AD) tenant. For more information about the properties that you can configure, see [Properties of an enterprise application](application-properties.md).
-
-[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 
@@ -32,14 +30,17 @@ To configure the properties of an enterprise application, you need:
 
 ## Configure application properties
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Application properties control how the application is represented and how the application is accessed.
 
 :::zone pivot="portal"
 
 To configure the application properties:
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
-1. Browse to **Azure Active Directory** > **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to use.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Search for and select the application that you want to use.
 1. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
 1. On the **Properties** pane, you may want to configure the following properties for your application:
    - Logo
@@ -54,33 +55,33 @@ To configure the application properties:
 
 Use the following Microsoft Graph PowerShell script to configure basic application properties.
 
-You'll need to consent to the `Application.ReadWrite.All` permission.
+You'll need to to sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator) and consent to the `Application.ReadWrite.All` permission.
 
 ```powershell
 
 Import-Module Microsoft.Graph.Applications
 
 $params = @{
-	Tags = @(
-		"HR"
-		"Payroll"
-		"HideApp"
-	)
-	Info = @{
-		LogoUrl = "https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_1280.png"
-		MarketingUrl = "https://www.contoso.com/app/marketing"
-		PrivacyStatementUrl = "https://www.contoso.com/app/privacy"
-		SupportUrl = "https://www.contoso.com/app/support"
-		TermsOfServiceUrl = "https://www.contoso.com/app/termsofservice"
-	}
-	Web = @{
-		HomePageUrl = "https://www.contoso.com/"
-		LogoutUrl = "https://www.contoso.com/frontchannel_logout"
-		RedirectUris = @(
-			"https://localhost"
-		)
-	}
-	ServiceManagementReference = "Owners aliases: Finance @ contosofinance@contoso.com; The Phone Company HR consulting @ hronsite@thephone-company.com;"
+    Tags = @(
+        "HR"
+        "Payroll"
+        "HideApp"
+    )
+    Info = @{
+        LogoUrl = "https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_1280.png"
+        MarketingUrl = "https://www.contoso.com/app/marketing"
+        PrivacyStatementUrl = "https://www.contoso.com/app/privacy"
+        SupportUrl = "https://www.contoso.com/app/support"
+        TermsOfServiceUrl = "https://www.contoso.com/app/termsofservice"
+    }
+    Web = @{
+        HomePageUrl = "https://www.contoso.com/"
+        LogoutUrl = "https://www.contoso.com/frontchannel_logout"
+        RedirectUris = @(
+            "https://localhost"
+        )
+    }
+    ServiceManagementReference = "Owners aliases: Finance @ contosofinance@contoso.com; The Phone Company HR consulting @ hronsite@thephone-company.com;"
 }
 
 Update-MgApplication -ApplicationId $applicationId -BodyParameter $params
@@ -89,7 +90,7 @@ Update-MgApplication -ApplicationId $applicationId -BodyParameter $params
 
 :::zone pivot="ms-graph"
 
-To configure the basic properties of an application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
+To configure the basic properties of an application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
 You'll need to consent to the `Application.ReadWrite.All` permission.
 

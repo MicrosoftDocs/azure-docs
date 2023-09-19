@@ -39,21 +39,21 @@ To do an access review, you must first open the access review. Use the following
 1. Select **Access reviews** on the left navigation bar to see a list of pending access reviews assigned to you.
 
 
-1.	Select the review that you’d like to begin.
+1. Select the review that you’d like to begin.
 
 ## Perform the access review
 
 Once you open the access review, you can see your access. Use the following procedure to do the access review:
 
-1.	Decide whether you still need access to the access package. For example, the project you're working on isn't complete, so you still need access to continue working on the project.
+1. Decide whether you still need access to the access package. For example, the project you're working on isn't complete, so you still need access to continue working on the project.
 
-1.	Select **Yes** to keep your access or select **No** to remove your access.
+1. Select **Yes** to keep your access or select **No** to remove your access.
     >[!NOTE]
     >If you stated that you no longer need access, you aren't removed from the access package immediately. You will be removed from the access package when the review ends or if an administrator stops the review.
 
-1.	If you chose **Yes**, you may need to include a justification statement in the **Reason** box.
+1. If you chose **Yes**, you may need to include a justification statement in the **Reason** box.
 
-1.	Select **Submit**.
+1. Select **Submit**.
 
 You can return to the review if you change your mind and decide to change your response before the end of the review.
 

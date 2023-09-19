@@ -75,7 +75,6 @@ Here are some related resources for Azure Maps:
 
 * [Azure Maps pricing page]
 * [Azure pricing calculator]
-* [Choose the right pricing tier in Azure Maps]
 * [Azure Maps term of use] - included in the Microsoft Online Services Terms.
 
 ## Suggested migration plan
@@ -125,25 +124,22 @@ Learn the details of how to migrate your Google Maps application with these arti
 > [!div class="nextstepaction"]
 > [Migrate a web app](migrate-from-google-maps-web-app.md)
 
-[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[free account]: https://azure.microsoft.com/free/
-[Azure subscription]: https://azure.com
-[Azure portal]: https://portal.azure.com/
-[Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Azure Active Directory authentication]: azure-maps-authentication.md#azure-ad-authentication
-[terms of use]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46
-[Azure Maps pricing page]: https://azure.microsoft.com/pricing/details/azure-maps/
-[Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator/?service=azure-maps
-[Azure Maps term of use]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46
-[Choose the right pricing tier in Azure Maps]: choose-pricing-tier.md
-
-[Azure Maps product page]: https://azure.com/maps
-[Azure Maps product documentation]: https://aka.ms/AzureMapsDocs
-[Azure Maps Web SDK code samples]: https://aka.ms/AzureMapsSamples
-[Azure Maps developer forums]: https://aka.ms/AzureMapsForums
-[Microsoft learning center shows]: https://aka.ms/AzureMapsVideos
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps Blog]: https://aka.ms/AzureMapsBlog
+[Azure Maps developer forums]: https://aka.ms/AzureMapsForums
+[Azure Maps pricing page]: https://azure.microsoft.com/pricing/details/azure-maps/
+[Azure Maps product documentation]: https://aka.ms/AzureMapsDocs
+[Azure Maps product page]: https://azure.com/maps
 [Azure Maps Q&A]: https://aka.ms/AzureMapsFeedback
-
+[Azure Maps term of use]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46
+[Azure Maps Web SDK code samples]: https://aka.ms/AzureMapsSamples
+[Azure portal]: https://portal.azure.com/
+[Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator/?service=azure-maps
+[Azure subscription]: https://azure.com
 [Azure support options]: https://azure.microsoft.com/support/options
+[free account]: https://azure.microsoft.com/free/
+[Manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Microsoft learning center shows]: https://aka.ms/AzureMapsVideos
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[terms of use]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46

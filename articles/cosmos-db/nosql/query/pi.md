@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 07/20/2023
 ms.custom: query-reference
 ---
 
@@ -30,20 +30,13 @@ Returns a numeric expression.
 
 ## Examples
   
-The following example returns the constant value of Pi.  
+The following example returns the constant value of Pi.
   
-```sql
-SELECT VALUE
-    PI()
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/pi/query.sql" highlight="2":::
 
-```json
-[
-  3.141592653589793
-]
-```  
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/pi/result.json":::
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`SQRT`](sqrt.md)

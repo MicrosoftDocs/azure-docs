@@ -117,7 +117,7 @@ When you use cost analysis, you can view the Azure Cosmos DB costs in graphs and
 
 To view Azure Cosmos DB costs in cost analysis:
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Open the scope in the Azure portal and select **Cost analysis** in the menu. For example, go to **Subscriptions**, select a subscription from the list, and then select  **Cost analysis** in the menu. Select **Scope** to switch to a different scope in cost analysis.
 

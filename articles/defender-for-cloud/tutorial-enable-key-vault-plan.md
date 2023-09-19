@@ -1,6 +1,5 @@
 ---
-title: Protect your key vaults with the Defender for Key Vault plan - Microsoft Defender for Cloud
-titleSuffix: Microsoft Defender for Cloud
+title: Protect your key vaults with the Defender for Key Vault plan
 description: Learn how to enable the Defender for Key Vault plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023

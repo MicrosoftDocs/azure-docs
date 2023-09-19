@@ -2,16 +2,16 @@
 title: Tutorial - SAP HANA DB restore on Azure using CLI 
 description: In this tutorial, learn how to restore SAP HANA databases running on an Azure VM from an Azure Backup Recovery Services vault using Azure CLI.
 ms.topic: tutorial
-ms.date: 06/20/2023
+ms.date: 07/18/2023
 ms.custom: devx-track-azurecli
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Tutorial: Restore SAP HANA databases in an Azure VM using Azure CLI
 
-This tutorial describes how to restore SAP HANA database instance and SAP HANA System Replication (HSR) instance (preview) using Azure CLI.
+This tutorial describes how to restore SAP HANA database instance and SAP HANA System Replication (HSR) instance using Azure CLI.
 
 Azure CLI is used to create and manage Azure resources from the command line or through scripts. This documentation details how to restore a backed-up SAP HANA database on an Azure VM - using Azure CLI. You can also perform these steps using the [Azure portal](./sap-hana-db-restore.md).
 
@@ -23,11 +23,11 @@ Use [Azure Cloud Shell](tutorial-sap-hana-backup-cli.md) to run CLI commands.
 
 This tutorial assumes you have an SAP HANA database running on Azure VM that's backed-up using Azure Backup. If you've used [Back up an SAP HANA database in Azure using CLI](tutorial-sap-hana-backup-cli.md) to back up your SAP HANA database, then you're using the following resources:
 
-* A resource group named *saphanaResourceGroup*
-* A vault named *saphanaVault*
-* Protected container named `VMAppContainer;Compute;saphanaResourceGroup;saphanaVM`
-* Backed-up database/item named `saphanadatabase;hxe;hxe`
-* Resources in the *westus2* region
+* A resource group named `saphanaResourceGroup`.
+* A vault named `saphanaVault`.
+* Protected container named `VMAppContainer;Compute;saphanaResourceGroup;saphanaVM`.
+* Backed-up database/item named `saphanadatabase;hxe;hxe`.
+* Resources in the `westus2` region.
 
 For more information on the supported configurations and scenarios, see the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
 
@@ -61,7 +61,7 @@ DefaultRangeRecoveryPoint                                    AzureWorkload      
 
 As you can see, the list above contains three recovery points: one each for full, differential, and log backup.
 
-# [HSR (preview)](#tab/hsr)
+# [HSR](#tab/hsr)
 
 To view the available recovery points, run the following command:
 
@@ -167,7 +167,7 @@ Name                                  Resource
 
 The response will give you the job name. This job name can be used to track the job status using [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
-# [HSR (preview)](#tab/hsr)
+# [HSR](#tab/hsr)
 
 To start the restore operation, run the following command:
 
@@ -501,6 +501,37 @@ Move these restored files to the SAP HANA server where you want to restore them 
         * `<DataFileDir>` - the folder that contains the full backups
         * `<LogFilesDir>` - the folder that contains the log backups, differential and incremental backups (if any)
         * `<BackupIdFromJsonFile>` - the **BackupId** extracted in **Step 3**
+
+## Cross Subscription Restore
+
+With Cross Subscription Restore (CSR), you have the flexibility of restoring to any subscription and any vault under your tenant if restore permissions are available. By default, CSR is enabled on all Recovery Services vaults (existing and newly created vaults). 
+
+>[!Note]
+>- You can trigger Cross Subscription Restore from Recovery Services vault.
+>- CSR is supported only for streaming/Backint-based backups and is not supported for snapshot-based backup.
+>- Cross Regional Restore (CRR) with CSR is not supported.
+
+```azurecli
+az backup vault create
+
+```
+
+Add the parameter `cross-subscription-restore-state` that enables you to set the CSR state of the vault during vault creation and updating.
+
+```azurecli
+az backup recoveryconfig show
+
+```
+
+Add the parameter `--target-subscription-id` that enables you to provide the target subscription as the input while triggering Cross Subscription Restore for SQL or HANA datasources.
+
+**Example**:
+
+```azurecli
+   az backup vault create -g {rg_name} -n {vault_name} -l {location} --cross-subscription-restore-state Disable
+   az backup recoveryconfig show --restore-mode alternateworkloadrestore --backup-management-type azureworkload -r {rp} --target-container-name {target_container} --target-item-name {target_item} --target-resource-group {target_rg} --target-server-name {target_server} --target-server-type SQLInstance --target-subscription-id {target_subscription} --target-vault-name {target_vault} --workload-type SQLDataBase --ids {source_item_id}
+
+```
 
 ## Next steps
 

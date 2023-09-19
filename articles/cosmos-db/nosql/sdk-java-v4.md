@@ -57,7 +57,7 @@ Release history is maintained in the azure-sdk-for-java repo, for detailed list 
 
 ## Recommended version
 
-It's strongly recommended to use version 4.37.1 and above.
+It's strongly recommended to use version 4.48.2 and above.
 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)] 

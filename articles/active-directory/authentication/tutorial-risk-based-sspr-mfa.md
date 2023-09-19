@@ -72,18 +72,19 @@ For more information about Azure AD Identity Protection, see [What is Azure AD I
 
 ## Enable MFA registration policy
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Azure AD Identity Protection includes a default policy that can help get users registered for Azure AD Multi-Factor Authentication. If you use additional policies to protect sign-in events, you would need users to have already registered for MFA. When you enable this policy, it doesn't require users to perform MFA at each sign-in event. The policy only checks the registration status for a user and asks them to pre-register if needed.
 
 It's recommended to enable the MFA registration policy for users that are to be enabled for additional Azure AD Identity Protection policies. To enable this policy, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a global administrator account.
-1. Search for and select **Azure Active Directory**, select **Security**, then under the *Protect* menu heading choose **Identity Protection**.
-1. Select the **MFA registration policy** from the menu on the left-hand side.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Multifactor authentication** > **MFA registration policy**.
 1. By default, the policy applies to *All users*. If desired, select **Assignments**, then choose the users or groups to apply the policy on.
 1. Under *Controls*, select **Access**. Make sure the option for *Require Azure AD MFA registration* is checked, then choose **Select**.
 1. Set **Enforce Policy** to *On*, then select **Save**.
 
-    ![Screenshot of how to require users to register for MFA in the Azure portal](./media/tutorial-risk-based-sspr-mfa/enable-mfa-registration.png)
+    ![Screenshot of how to require users to register for MFA](./media/tutorial-risk-based-sspr-mfa/enable-mfa-registration.png)
 
 ## Enable user risk policy for password change
 
@@ -98,7 +99,7 @@ To enable this policy, complete the following steps:
 1. Under *Access*, select **Access**. Make sure the option for **Allow access** and *Require password change* is checked, then choose **Select**.
 1. Set **Enforce Policy** to *On*, then select **Save**.
 
-    ![Screenshot of how to enable the user risk policy in the Azure portal](./media/tutorial-risk-based-sspr-mfa/enable-user-risk-policy.png)
+    ![Screenshot of how to enable the user risk policy](./media/tutorial-risk-based-sspr-mfa/enable-user-risk-policy.png)
 
 ## Enable sign-in risk policy for MFA
 
@@ -113,7 +114,7 @@ To enable this policy, complete the following steps:
 1. Under *Access*, choose **Select a control**. Make sure the option for **Allow access** and *Require multi-factor authentication* is checked, then choose **Select**.
 1. Set **Enforce Policy** to *On*, then select **Save**.
 
-    ![Screenshot of how to enable the sign-in risk policy in the Azure portal](./media/tutorial-risk-based-sspr-mfa/enable-sign-in-risk-policy.png)
+    ![Screenshot of how to enable the sign-in risk policy](./media/tutorial-risk-based-sspr-mfa/enable-sign-in-risk-policy.png)
 
 ## Test risky sign events
 

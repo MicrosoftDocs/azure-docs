@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 01/29/2023
+ms.date: 09/13/2023
 ms.author: justinha
 author: justinha
 ms.reviewer: tilarso
@@ -24,7 +24,7 @@ Azure Active Directory Connect cloud sync can synchronize Azure AD password chan
 - An account with:
   - [Global Administrator](../roles/permissions-reference.md#global-administrator) role 
 - Azure AD configured for self-service password reset. If needed, complete this tutorial to enable Azure AD SSPR. 
-- An on-premises AD DS environment configured with [Azure AD Connect cloud sync version 1.1.977.0 or later](../app-provisioning/provisioning-agent-release-version-history.md). Learn how to [identify the agent's current version](../cloud-sync/how-to-automatic-upgrade.md). If needed, configure Azure AD Connect cloud sync using [this tutorial](tutorial-enable-sspr.md). 
+- An on-premises AD DS environment configured with [Azure AD Connect cloud sync version 1.1.977.0 or later](../app-provisioning/provisioning-agent-release-version-history.md). Learn how to [identify the agent's current version](../hybrid/cloud-sync/how-to-automatic-upgrade.md). If needed, configure Azure AD Connect cloud sync using [this tutorial](tutorial-enable-sspr.md). 
 
 
 ## Deployment steps
@@ -38,16 +38,18 @@ Azure Active Directory Connect cloud sync can synchronize Azure AD password chan
 Permissions for cloud sync are configured by default. If permissions need to be reset, see [Troubleshooting](#troubleshooting) for more details about the specific permissions required for password writeback and how to set them by using PowerShell. 
 
 ### Enable password writeback in SSPR
-You can enable Azure AD connect cloud sync provisioning directly in Azure portal or through PowerShell. 
+You can enable Azure AD connect cloud sync provisioning directly in the Microsoft Entra admin center or through PowerShell. 
 
-#### Enable password writeback in Azure portal
+#### Enable password writeback in the Microsoft Entra admin center
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 With password writeback enabled in Azure AD Connect cloud sync, now verify, and configure Azure AD self-service password reset (SSPR) for password writeback. When you enable SSPR to use password writeback, users who change or reset their password have that updated password synchronized back to the on-premises AD DS environment as well. 
 
 To verify and enable password writeback in SSPR, complete the following steps: 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account.
-1. Search for and select **Azure Active Directory**, select **Password reset**, then choose **On-premises integration**.
-1. Check the option for **Enable password write back for synced users** .
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Password reset**, then choose **On-premises integration**.
+1. Check the option for **Enable password write back for synced users**.
 1. (optional) If Azure AD Connect provisioning agents are detected, you can additionally check the option for **Write back passwords with Azure AD Connect cloud sync**.   
 3. Check the option for **Allow users to unlock accounts without resetting their password** to *Yes*.
 
@@ -64,10 +66,11 @@ Set-AADCloudSyncPasswordWritebackConfiguration -Enable $true -Credential $(Get-C
 ``` 
 
 ## Clean up resources
+
 If you no longer want to use the SSPR writeback functionality you have configured as part of this tutorial, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for and select **Azure Active Directory**, select **Password reset**, then choose **On-premises integration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Password reset**, then choose **On-premises integration**.
 1. Uncheck the option for **Enable password write back for synced users**.
 1. Uncheck the option for **Write back passwords with Azure AD Connect cloud sync**.
 1. Uncheck the option for **Allow users to unlock accounts without resetting their password**.
@@ -75,8 +78,8 @@ If you no longer want to use the SSPR writeback functionality you have configure
 
 If you no longer want to use the Azure AD Connect cloud sync for SSPR writeback functionality but want to continue using Azure AD Connect sync agent for writebacks complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for and select **Azure Active Directory**, select **Password reset**, then choose **On-premises integration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Password reset**, then choose **On-premises integration**.
 1. Uncheck the option for **Write back passwords with Azure AD Connect cloud sync**.
 1. When ready, select **Save**.
 
@@ -94,8 +97,8 @@ Passwords are written back in the following situations for end-users and adminis
 
 | Account        | Supported operations | 
 |----------------|------------------------|
-| End users      |  Any end-user self-service voluntary change password operation.<br>Any end-user self-service force change password operation, for example, password expiration.<br>Any end-user self-service password reset that originates from the password reset portal. |
-| Administrators |  Any administrator self-service voluntary change password operation.<br>Any administrator self-service force change password operation, for example, password expiration.<br>Any administrator self-service password reset that originates from the password reset portal.<br> Any administrator-initiated end-user password reset from the Azure portal.<br>Any administrator-initiated end-user password reset from the Microsoft Graph API.                       |
+| End users      |  Any end-user self-service voluntary change password operation.<br>Any end-user self-service force change password operation, for example, password expiration.<br>Any end-user self-service password reset that originates from password reset. |
+| Administrators |  Any administrator self-service voluntary change password operation.<br>Any administrator self-service force change password operation, for example, password expiration.<br>Any administrator self-service password reset that originates from password reset.<br> Any administrator-initiated end-user password reset from the Microsoft Entra admin center.<br>Any administrator-initiated end-user password reset from the Microsoft Graph API.                       |
 
 ## Unsupported operations
 
@@ -116,7 +119,7 @@ Try the following operations to validate scenarios using password writeback. All
 | Reset password from the login page | Have two users from disconnected domains and forests perform SSPR. You could also have Azure AD Connect and cloud sync deployed side-by-side and have one user in the scope of cloud sync configuration and another in scope of Azure AD Connect and have those users reset their password. |
 | Force expired password change | Have two users from disconnected domains and forests change expired passwords. You could also have Azure AD Connect and cloud sync deployed side-by-side and have one user in the scope of cloud sync configuration and another in scope of Azure AD Connect. |
 | Regular password change | Have two users from disconnected domains and forests perform routine password change. You could also have Azure AD Connect and cloud sync side by side and have one user in the scope of cloud sync config and another in scope of Azure AD Connect.  |
-| Admin reset user password | Have two users disconnected domains and forests reset their password from the Azure Admin Portal or Frontline worker portal. You could also have Azure AD Connect and cloud sync side by side and have one user in the scope of cloud sync config and another in scope of Azure AD Connect  |
+| Admin reset user password | Have two users disconnected domains and forests reset their password from the Microsoft Entra admin center or Frontline worker portal. You could also have Azure AD Connect and cloud sync side by side and have one user in the scope of cloud sync config and another in scope of Azure AD Connect  |
 | Self-service account unlock | Have two users from disconnected domains and forests unlock accounts in the SSPR portal resetting the password. You could also have Azure AD Connect and cloud sync side by side and have one user in the scope of cloud sync config and another in scope of Azure AD Connect. |
 
 ## Troubleshooting
@@ -148,5 +151,5 @@ For more information about how to validate or set up the appropriate permissions
 
 ## Next steps
 
-- For more information about cloud sync and a comparison between Azure AD Connect and cloud sync, see [What is Azure AD Connect cloud sync?](../cloud-sync/what-is-cloud-sync.md)
+- For more information about cloud sync and a comparison between Azure AD Connect and cloud sync, see [What is Azure AD Connect cloud sync?](../hybrid/cloud-sync/what-is-cloud-sync.md)
 - For a tutorial about setting up password writeback by using Azure AD Connect, see [Tutorial: Enable Azure Active Directory self-service password reset writeback to an on-premises environment](tutorial-enable-sspr-writeback.md).

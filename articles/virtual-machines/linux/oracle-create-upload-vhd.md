@@ -6,6 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.subservice: oracle
 ms.workload: infrastructure-services
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: srijangupta

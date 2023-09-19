@@ -4,10 +4,13 @@ description: Use a proof of concept or pilot deployment to investigate incorpora
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/22/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Deliver a proof of concept for Azure DevTest Labs enterprise deployment
+
+Enterprises are rapidly adopting the cloud because of [benefits](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) that include agility, flexibility, and economics. The first steps are often development and test workloads. Azure DevTest Labs provides [features](devtest-lab-concepts.md) that benefit the enterprise and support [key dev/test scenarios](devtest-lab-guidance-get-started.md).
 
 This article describes how an enterprise can deliver a successful proof of concept or pilot for an Azure DevTest Labs deployment. Proof of concept uses a concentrated effort from a single team to establish organizational value.
 
@@ -40,9 +43,19 @@ Learn about Azure and DevTest Labs by using the following resources:
 - [Understand the Azure portal](https://azure.microsoft.com/features/azure-portal)
 - [DevTest Labs overview](devtest-lab-overview.md)
 - [DevTest Labs scenarios](devtest-lab-guidance-get-started.md)
-- [DevTest Labs in the enterprise](devtest-lab-guidance-prescriptive-adoption.md)
 - [DevTest Labs enterprise reference architecture](devtest-lab-reference-architecture.md)
 
+### Understand enterprise focus areas
+
+Common concerns for enterprises that migrate workloads to the cloud include:
+
+- [Securing development/testing resources](devtest-lab-guidance-governance-policy-compliance.md)
+- [Managing and understanding costs](devtest-lab-guidance-governance-cost-ownership.md)
+- Enabling self-service for developers without compromising enterprise security and compliance
+- Automating and extending DevTest Labs to cover additional scenarios
+- [Scaling a DevTest Labs-based solution to thousands of resources](devtest-lab-guidance-scale.md)
+- [Large-scale deployments of DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)
+- [Getting started with a proof of concept](devtest-lab-guidance-orchestrate-implementation.md)
 ### Get an Azure subscription
 
 - Enterprises with an existing [Enterprise Agreement](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement) that enables access to Azure can use an existing or new subscription for DevTest Labs. If there's an Enterprise Agreement in place, an [Enterprise Dev/Test subscription](https://azure.microsoft.com/offers/ms-azr-0148p/) gives you access to Windows 10/Windows 8.1 client operating systems, and discounted rates for development and testing workloads.

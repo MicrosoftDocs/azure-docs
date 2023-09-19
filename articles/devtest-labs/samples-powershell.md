@@ -2,10 +2,10 @@
 title: Azure PowerShell Samples
 description: Learn about Azure PowerShell scripts. These samples help you manage labs in Azure Lab Services.
 ms.topic: sample
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 02/02/2022
+ms.date: 09/30/2023
 ---
 
 # Azure PowerShell samples for Azure Lab Services

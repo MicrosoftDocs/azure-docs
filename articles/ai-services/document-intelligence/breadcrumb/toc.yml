@@ -1,0 +1,33 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Azure AI services
+    tocHref: /azure/ai-services/
+    topicHref: /azure/ai-services/index
+    items:
+    - name: Document Intelligence
+      tocHref: /azure/ai-services/
+      topicHref: /azure/ai-services/document-intelligence/index
+- name: Azure
+  tocHref: /legal/
+  topicHref: /azure/index
+  items:
+  - name: Azure AI services                # Original doc set name
+    tocHref: /legal/cognitive-services/document-intelligence    # Destination doc set route
+    topicHref: /azure/ai-services/index    # Original doc set route
+    items:
+    - name: Document Intelligence           # Destination doc set name
+      tocHref: /legal/cognitive-services/document-intelligence      # Destination doc set route
+      topicHref: /azure/ai-services/document-intelligence/index    # Original doc set route
+- name: Azure
+  tocHref: /ai-builder/
+  topicHref: /azure/index
+  items:
+  - name: Azure AI services                # Original doc set name
+    tocHref: /ai-builder/    # Destination doc set route
+    topicHref: /azure/ai-services/index    # Original doc set route
+    items:
+    - name: Document Intelligence           # Destination doc set name
+      tocHref: /ai-builder/      # Destination doc set route
+      topicHref: /azure/ai-services/document-intelligence/index    # Original doc set route      

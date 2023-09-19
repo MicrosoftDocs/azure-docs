@@ -27,7 +27,7 @@ Azure AD Connect cloud sync is the future of synchronization for Microsoft.  It 
 
 > [!VIDEO https://www.youtube.com/embed/9T6lKEloq0Q]
 
-Before moving the Azure AD Connect V2.0, you should consider moving to cloud sync.  You can see if cloud sync is right for you, by accessing the [Check sync tool](https://aka.ms/M365Wizard) from the portal or via the link provided.
+Before moving the Azure AD Connect V2.0, you should consider moving to cloud sync.  You can see if cloud sync is right for you, by accessing the [Check sync tool](https://aka.ms/EvaluateSyncOptions) from the portal or via the link provided.
 
 For more information, see [What is cloud sync?](../cloud-sync/what-is-cloud-sync.md)
 

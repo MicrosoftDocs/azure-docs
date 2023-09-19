@@ -60,6 +60,8 @@ You can load the Azure Maps spatial IO module using one of the two options:
     import * as spatial from "azure-maps-spatial-io";
     ```
 
+    To learn more, see [How to use the Azure Maps map control npm package].
+
 ## Using the Spatial IO module
 
 1. Create a new HTML file.
@@ -82,8 +84,8 @@ You can load the Azure Maps spatial IO module using one of the two options:
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.js"></script>
 
         <script type='text/javascript'>
 
@@ -160,8 +162,8 @@ You can load the Azure Maps spatial IO module using one of the two options:
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.js"></script>
 
         <!-- Add reference to the Azure Maps Spatial IO module. -->
         <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
@@ -268,4 +270,4 @@ Refer to the Azure Maps Spatial IO documentation:
 [Spatial IO module]: https://www.npmjs.com/package/azure-maps-spatial-io
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Supported data format details]: spatial-io-supported-data-format-details.md
-
+[How to use the Azure Maps map control npm package]: how-to-use-npm-package.md

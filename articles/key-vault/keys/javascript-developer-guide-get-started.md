@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: how-to
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ms.date: 07/06/2023
 ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to know the high level steps necessary to use Key Vault keys in JavaScript.

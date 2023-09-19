@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: article
 ms.date: 10/20/2022
-ms.custom: devx-track-java, devx-track-extended-java, engagement-fy23
+ms.custom: devx-track-java, engagement-fy23
 ---
 
 # Customize Azure Spring Apps egress with a user-defined route

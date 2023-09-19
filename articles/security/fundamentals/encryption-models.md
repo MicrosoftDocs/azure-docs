@@ -140,7 +140,7 @@ The Azure services that support each encryption model:
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 | **AI and Machine Learning**      |                    |                    |                    |
 | Azure Cognitive Search           | Yes                | Yes                | -                  |
-| Azure Cognitive Services         | Yes                | Yes, including Managed HSM | -                  |
+| Azure AI services         | Yes                | Yes, including Managed HSM | -                  |
 | Azure Machine Learning           | Yes                | Yes                | -                  |
 | Content Moderator                | Yes                | Yes, including Managed HSM | -                  |
 | Face                             | Yes                | Yes, including Managed HSM | -                  |

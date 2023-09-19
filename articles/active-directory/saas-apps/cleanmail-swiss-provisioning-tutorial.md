@@ -16,7 +16,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure Cleanmail Swiss for automatic user provisioning
 
-This tutorial describes the steps you need to do in both Cleanmail Swiss and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and deprovisions users and groups to [Cleanmail](https://www.alinto.com/fr) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to do in both Cleanmail Swiss and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and deprovisions users to [Cleanmail](https://www.alinto.com/fr) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities supported
@@ -36,7 +36,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
-1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Determine who is in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 1. Determine what data to [map between Azure AD and Cleanmail](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure Cleanmail Swiss to support provisioning with Azure AD
@@ -47,18 +47,18 @@ Contact [Cleanmail Swiss Support](https://www.alinto.com/contact-email-provider/
 
 Add Cleanmail Swiss from the Azure AD application gallery to start managing provisioning to Cleanmail. If you have previously setup Cleanmail Swiss for SSO, you can use the same application. However it's recommended you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
-## Step 4. Define who will be in scope for provisioning 
+## Step 4. Define who is in scope for provisioning 
 
-The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user and group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+The Azure AD provisioning service allows you to scope who is provisioned based on assignment to the application and or based on attributes of the user. If you choose to scope who is provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users to the application. If you choose to scope who is provisioned based solely on attributes of the user, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+* Start small. Test with a small set of users before rolling out to everyone. When the scope for provisioning is set to assigned users, you can control this by assigning one or two users to the app instance. When scope is set to all users, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 * If you need more roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
 ## Step 5. Configure automatic user provisioning to Cleanmail Swiss 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and groups in Cleanmail Swiss based on user and group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in Cleanmail Swiss based on user assignments in Azure AD.
 
 ### To configure automatic user provisioning for Cleanmail Swiss in Azure AD:
 
@@ -106,7 +106,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of provisioning status toggled on.](common/provisioning-toggle-on.png)
 
-1. Define the users and groups that you would like to provision to Cleanmail Swiss by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users that you would like to provision to Cleanmail Swiss by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Screenshot of provisioning scope.](common/provisioning-scope.png)
 
@@ -114,7 +114,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of saving provisioning configuration.](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to complete than next cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
+This operation starts the initial synchronization cycle of all users defined in **Scope** in the **Settings** section. The initial cycle takes longer to complete than next cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
 ## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:

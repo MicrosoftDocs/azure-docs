@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview using Azure Monit
 description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent (Preview), which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 06/15/2023
+ms.date: 09/08/2023
 ms.topic: conceptual
 ---
 
@@ -13,6 +13,7 @@ ms.topic: conceptual
 
 > [!Important]
 > Currently, Change tracking and inventory uses Log Analytics Agent and this is scheduled to retire by 31.August.2024. We recommend that you use Azure Monitoring Agent as the new supporting agent.
+> Guidance on migration from Change Tracking & Inventory using Log Analytics agent to Azure Monitoring Agent will be available once it is generally available.
 
 This article explains on the latest version of change tracking support using Azure Monitoring Agent (Preview) as a singular agent for data collection. 
 
@@ -39,7 +40,7 @@ Change Tracking and Inventory using Azure Monitoring Agent (Preview) doesn't sup
 - If network traffic is high, change records can take up to six hours to display.
 - If you modify a configuration while a machine or server is shut down, it might post changes belonging to the previous configuration.
 - Collecting Hotfix updates on Windows Server 2016 Core RS3 machines.
-- Linux daemons might show a changed state even though no change has occurred. This issue arises because of how the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](https://learn.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) table is written. 
+- Linux daemons might show a changed state even though no change has occurred. This issue arises because of how the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) table is written. 
 
 
 ## Limits
@@ -60,7 +61,7 @@ The following table shows the tracked item limits per machine for change trackin
 
 Change Tracking and Inventory is supported on all operating systems that meet Azure Monitor agent requirements. See [supported operating systems](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent.
 
-To understand client requirements for TLS 1.2, see [TLS 1.2 for Azure Automation](../automation-managing-data.md#tls-12-for-azure-automation).
+To understand client requirements for TLS 1.2 or higher, see [TLS 1.2 or higher for Azure Automation](../automation-managing-data.md#tls-12-or-higher-for-azure-automation).
 
 
 ## Enable Change Tracking and Inventory
@@ -77,9 +78,16 @@ You can enable Change Tracking and Inventory in the following ways:
 
 For tracking changes in files on both Windows and Linux, Change Tracking and Inventory uses SHA256 hashes of the files. The feature uses the hashes to detect if changes have been made since the last inventory.
 
+## Tracking file content changes
+
+Change Tracking and Inventory allows you to view the contents of a Windows or Linux file. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](../../storage/common/storage-account-create.md). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side. [Learn more](manage-change-tracking-monitoring-agent.md#configure-file-content-changes).
+
+![Screenshot of viewing changes in a Windows or Linux file.](./media/overview/view-file-changes.png)
+
+
 ## Tracking of registry keys
 
-Change Tracking and Inventory allows monitoring of changes to Windows registry keys. Monitoring allows you to pinpoint extensibility points where third-party code and malware can activate. The following table lists preconfigured (but not enabled) registry keys. To track these keys, you must enable each one.
+Change Tracking and Inventory allows monitoring of changes to Windows registry keys. Monitoring allows you to pinpoint extensibility points where third-party code and malware can activate. The following table lists pre-configured (but not enabled) registry keys. To track these keys, you must enable each one.
 
 > [!div class="mx-tdBreakAll"]
 > |Registry Key | Purpose |

@@ -10,7 +10,7 @@ ms.author: keli19
 author: likebupt
 ms.date: 02/08/2023
 ms.topic: how-to
-ms.custom: designer
+ms.custom: UpdateFrequency5, designer
 ---
 
 # Transform data in Azure Machine Learning designer

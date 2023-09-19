@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/04/2022
+ms.date: 07/14/2023
 ms.topic: how-to
 ---
 
@@ -13,25 +13,7 @@ ms.topic: how-to
 
 You can use the [Azure portal](https://portal.azure.com) to create, manage, and monitor IoT Central applications.
 
-## Create IoT Central applications
-
-[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
-
-To create an application, navigate to the [IoT Central Application](https://portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal:
-
-:::image type="content" source="media/howto-manage-iot-central-from-portal/create-form.png" alt-text="Screenshot that shows the Azure portal form for creating an I o T Central application.":::
-
-* **Resource name** is a unique name you can choose for your IoT Central application in your Azure resource group.
-
-* **Application URL** is the URL you can use to access your application.
-
-* **Template** is the type of IoT Central application you want to create. You can create a new application either from the list of industry-relevant templates to help you get started quickly, or start from scratch using the **Custom application** template.
-
-* **Location** is the Azure region where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. For a list of the regions where Azure IoT Central is currently available, see [Availability by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=iot-central).
-
-  Once you choose a location, you can't later move your application to a different location.
-
-After filling out all fields, select **Create**. To learn more, see [Create an IoT Central application](howto-create-iot-central-application.md).
+To learn how to create an IoT Central application, see [Create an IoT Central application](howto-create-iot-central-application.md).
 
 ## Manage existing IoT Central applications
 
@@ -115,7 +97,7 @@ Use the **Workbooks** page to analyze logs and create visual reports. To learn m
 
 ### Metrics and invoices
 
-Metrics may differ from the numbers shown on your Azure IoT Central invoice. This situation occurs for a number of reasons such as:
+Metrics may differ from the numbers shown on your Azure IoT Central invoice. This situation occurs for reasons such as:
 
 * IoT Central [standard pricing plans](https://azure.microsoft.com/pricing/details/iot-central/) include two devices and varying message quotas for free. While the free items are excluded from billing, they're still counted in the metrics.
 
@@ -129,7 +111,7 @@ To learn how to remotely monitor your IoT Edge fleet using Azure Monitor and bui
 
 ## Next steps
 
-Now that you've learned how to manage and monitor Azure IoT Central applications from the Azure portal, here is the suggested next step:
+Now that you've learned how to manage and monitor Azure IoT Central applications from the Azure portal, here's the suggested next step:
 
 > [!div class="nextstepaction"]
 > [Administer your application](howto-administer.md)

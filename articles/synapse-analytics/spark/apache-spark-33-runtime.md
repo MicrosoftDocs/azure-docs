@@ -34,12 +34,6 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 > * As a result, it will no longer be possible for users to utilize Apache Spark APIs via C# and F#, or execute C# code in notebooks within Synapse or through Apache Spark Job definitions in Synapse. It is important to note that this change affects only Azure Synapse Runtime for Apache Spark 3.3 and above. 
 > 
 > * We will continue to support .NET for Apache Spark in all previous versions of the Azure Synapse Runtime according to [their lifecycle stages](runtime-for-apache-spark-lifecycle-and-supportability.md). However, we do not have plans to support .NET for Apache Spark in Azure Synapse Runtime for Apache Spark 3.3 and future versions. We recommend that users with existing workloads written in C# or F# migrate to Python or Scala. Users are advised to take note of this information and plan accordingly.
->
-> Spark MSSQL Connector
-> * The Spark-MSSQL-Connector, compatible with Spark 3.3, is currently in the BETA stage, and as a result, it's not included as a preinstalled library in our runtime. However, you can install it by following the steps below to install the Spark-MSSQL-Connector (version 1.3.0-BETA) via the Library Manager Feature. 
-> 1. Download the 3.3 jar from [the source](https://repo1.maven.org/maven2/com/microsoft/azure/spark-mssql-connector_2.12/1.3.0-BETA/spark-mssql-connector_2.12-1.3.0-BETA.jar)
-> 2. Add the downloaded jar to the Workspace Packages in Synapse Studio 
-> 3. Attach the jar to any 3.3 pool using Library Management.
 
 ## Libraries
 The following sections present the libraries included in Azure Synapse Runtime for Apache Spark 3.3.

@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 07/12/2023
 ms.devlang: csharp
@@ -14,6 +14,8 @@ ms.custom: template-how-to, devguide-csharp, devx-track-dotnet
 ---
 
 # Get started with Azure Blob Storage and .NET
+
+[!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
 
 This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for .NET. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
@@ -119,7 +121,7 @@ To learn more about generating and managing SAS tokens, see the following articl
 - [Create a service SAS for a blob with .NET](sas-service-create-dotnet.md)
 - [Create a user delegation SAS for a container with .NET](storage-blob-container-user-delegation-sas-create-dotnet.md)
 - [Create a user delegation SAS for a blob with .NET](storage-blob-user-delegation-sas-create-dotnet.md)
-- 
+
 ## [Account key](#tab/account-key)
 
 Create a [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) by using the storage account name and account key. Then use that object to initialize a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient).

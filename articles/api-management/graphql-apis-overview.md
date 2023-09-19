@@ -25,6 +25,7 @@ API Management helps you import, manage, protect, test, publish, and monitor Gra
 
 * GraphQL APIs are supported in all API Management service tiers
 * Pass-through and synthetic GraphQL APIs currently aren't supported in a self-hosted gateway
+* Synthetic GraphQL APIs currently aren't supported in API Management [workspaces](workspaces-overview.md)
 * Support for GraphQL subscriptions in synthetic GraphQL APIs is currently in preview and isn't available in the Consumption tier
 
 ## What is GraphQL?
@@ -34,7 +35,7 @@ GraphQL is an open-source, industry-standard query language for APIs. Unlike RES
 The GraphQL specification explicitly solves common issues experienced by client web apps that rely on REST APIs:
 
 * It can take a large number of requests to fulfill the data needs for a single page
-* REST APIs often return more data than needed the page being rendered
+* REST APIs often return more data than needed by the page being rendered
 * The client app needs to poll to get new information
 
 Using a GraphQL API, the client app can specify the data they need to render a page in a query document that is sent as a single request to a GraphQL service. A client app can also subscribe to data updates pushed from the GraphQL service in real time.

@@ -10,7 +10,7 @@ author: mesameki
 ms.reviewer: lagayhar
 ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: devx-track-python, responsible-ml, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, responsible-ml, sdkv1, event-tier1-build-2022
 ---
 
 # Use Azure Machine Learning with the Fairlearn open-source package to assess the fairness of ML models (preview)

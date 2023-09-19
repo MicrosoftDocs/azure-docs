@@ -5,6 +5,7 @@ description: Learn to create a custom HTTP/HTTPS health probe for Azure Load Bal
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
+ms.custom: devx-track-python
 ms.topic: troubleshooting
 ms.date: 05/22/2023
 ms.author: mbender
@@ -175,4 +176,3 @@ When no longer needed, delete the resource group, load balancer, and all related
 
 > [!div class="nextstepaction"]
 > [Manage health probes for Azure Load Balancer using the Azure portal](manage-probes-how-to.md)
-

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: conceptual
-ms.author: franksolomon
+ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
 ms.date: 06/28/2023

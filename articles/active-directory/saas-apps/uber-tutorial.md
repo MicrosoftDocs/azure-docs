@@ -69,11 +69,11 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Uber SSO
 
-To configure single sign-on on **Uber** side, you need to send the downloaded **Certificate (PEM)** and appropriate copied URLs from Azure portal to [Uber support team](mailto:business-api-support@uber.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Uber** side, you need to send the downloaded **Certificate (PEM)** and appropriate copied URLs from Azure portal to [Uber support team](mailto:business-support@uber.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Uber test user
 
-In this section, you create a user called Britta Simon in Uber. Work with [Uber support team](mailto:business-api-support@uber.com) to add the users in the Uber platform. Users must be created and activated before you use single sign-on. Uber also supports automatic user provisioning, you can find more details [here](uber-provisioning-tutorial.md) on how to configure automatic user provisioning.
+In this section, you create a user called Britta Simon in Uber. Work with [Uber support team or your Uber POC](mailto:business-support@uber.com) to add the users in the Uber platform. Users must be created and activated before you use single sign-on. Uber also supports automatic user provisioning, you can find more details [here](uber-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
@@ -81,7 +81,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the Uber for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the Uber tile in the My Apps, you should be automatically signed in to the Uber for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Uber tile in the My Apps, you should be automatically signed in to the Uber for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Additional resources
 

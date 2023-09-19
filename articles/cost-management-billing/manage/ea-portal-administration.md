@@ -3,7 +3,7 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/05/2023
+ms.date: 07/28/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -138,9 +138,8 @@ To add another account, select **Add Another Account**, or select **Add** at the
 To confirm account ownership:
 
 1. Sign in to the Azure Enterprise portal.
-1. View the status.
-
-   The status should change from **Pending** to **Start/End date**. The Start/End date is the date the user first signed in and the agreement end date.
+1. View the status.  
+  The status changes from **Pending** to **Active**. When Active, dates shown under the **Start/End Date** column are the start and end dates of the agreement.
 1. When the **Warning** message pops up, the account owner needs to select **Continue** to activate the account the first time they sign in to the Azure Enterprise portal.
 
 ## Add an account from another Azure AD tenant
@@ -152,7 +151,7 @@ To add an account from any tenant:
 1.	In the Azure Enterprise portal, select **Manage** in the left navigation area.
 1. Select the appropriate enrollment. Note the current setting for **Auth level**, if you want to restore the setting later.
 1.	If not already configured, change the Auth level to **Work and School Account Cross Tenant**.
-1. Add the account using the Azure AD sign in information, as described in the previous section.
+1. Add the account using the Azure AD sign-in information, as described in the previous section.
 1.	Return the **Auth level** to its previous setting, or set it as **Work and School Account**.
 1.	Sign in to the EA portal to verify that you can view the appropriate subscription offers so that you can then add subscriptions in the Azure portal.
 

@@ -47,4 +47,4 @@ For your convenience, you could add your own work account as [guest](../external
 
 ## Next steps
 
-Now that you have a developer account, try our [first tutorial](get-started-verifiable-credentials.md) to learn more about verifiable credentials.
+Now that you have a developer account, try our [first tutorial](./verifiable-credentials-configure-tenant.md) to learn more about verifiable credentials.

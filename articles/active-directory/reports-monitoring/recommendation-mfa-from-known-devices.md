@@ -46,7 +46,7 @@ This recommendation improves your user's productivity and minimizes the sign-in 
 
 1. Adjust the number of days in the **remember multi-factor authentication on trusted device** section to 90 days.
 
-    ![Remember MFA on trusted devices](./media/recommendation-mfa-from-known-devices\remember-mfa-on-trusted-devices.png)
+    ![Remember MFA on trusted devices](./media/recommendation-mfa-from-known-devices/remember-mfa-on-trusted-devices.png)
 
 
 ## Next steps

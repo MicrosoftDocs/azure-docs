@@ -9,10 +9,10 @@ ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 06/17/2021
 ms.author: justinha
-
 ---
 # Join a CentOS Linux virtual machine to an Azure Active Directory Domain Services managed domain
 
@@ -39,7 +39,7 @@ If you have an existing CentOS Linux VM in Azure, connect to it using SSH, then 
 
 If you need to create a CentOS Linux VM, or want to create a test VM for use with this article, you can use one of the following methods:
 
-* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Microsoft Entra admin center](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

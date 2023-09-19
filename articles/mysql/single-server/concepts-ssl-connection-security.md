@@ -36,7 +36,7 @@ Connection strings for various programming languages are shown in the Azure port
 
 In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file to connect securely. Currently customers can **only use** the predefined certificate to connect to an Azure Database for MySQL server, which is located at https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem. 
 
-Similarly, the following links point to the certificates for servers in sovereign clouds: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
+Similarly, the following links point to the certificates for servers in sovereign clouds: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Microsoft Azure operated by 21Vianet](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
 To learn how to enable or disable SSL connection when developing application, refer to [How to configure SSL](how-to-configure-ssl.md).
 

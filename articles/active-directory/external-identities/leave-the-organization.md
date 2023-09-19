@@ -8,7 +8,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/04/2023
+ms.date: 07/27/2023
 
 ms.author: cmulligan 
 author: csmulligan 
@@ -57,7 +57,7 @@ If your organization allows users to remove themselves from external organizatio
 
 1. Under **Other organizations you collaborate with** (or **Organizations** if you don't have a home organization), find the organization that you want to leave, and then select **Leave**.
 
-   ![Screenshot showing Leave organization option in the user interface.](media/leave-the-organization/leave-org.png)
+   :::image type="content" source="media/leave-the-organization/leave-org.png" alt-text="Screenshot showing Leave organization option in the user interface." lightbox="media/leave-the-organization/leave-org.png":::
 
 1. When asked to confirm, select **Leave**.
 1. If you select **Leave** for an organization but you see the following message, it means you’ll need to contact the organization's admin, or privacy contact and ask them to remove you from their organization.
@@ -77,14 +77,16 @@ In these cases, you can select **Leave**, but then you'll see a message saying y
 
 ## More information for administrators
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Administrators can use the **External user leave settings** to control whether external users can remove themselves from their organization. If you disallow the ability for external users to remove themselves from your organization, external users will need to contact your admin, or privacy contact to be removed.
 
 > [!IMPORTANT]
-> You can configure **External user leave settings** only if you have [added your privacy information](../fundamentals/active-directory-properties-area.md) to your Azure AD tenant. Otherwise, this setting will be unavailable. We recommend adding your privacy information to allow external users to review your policies and email your privacy contact when necessary.
+> You can configure **External user leave settings** only if you have [added your privacy information](../fundamentals/properties-area.md) to your Azure AD tenant. Otherwise, this setting will be unavailable. We recommend adding your privacy information to allow external users to review your policies and email your privacy contact when necessary.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account and open the Azure Active Directory service.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [External Identity Provider administrator](../roles/permissions-reference.md#external-identity-provider-administrator).
 
-1. Select **External Identities** > **External collaboration settings**.
+1. Browse to **Identity** > **External Identities** > **External collaboration settings**.
 
 1. Under **External user leave** settings, choose whether to allow external users to leave your organization themselves:
 
@@ -99,9 +101,9 @@ When a B2B collaboration user leaves an organization, the user's account is "sof
 
 If desired, a tenant administrator can permanently delete the account at any time during the soft-delete period with the following steps. This action is irrevocable.
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [External Identity Provider administrator](../roles/permissions-reference.md#external-identity-provider-administrator).
 
-1. Under **Manage**, select **Users**.
+1. Browse to **Identity** > **Users** > **All users**
 
 1. Select **Deleted users**.
 

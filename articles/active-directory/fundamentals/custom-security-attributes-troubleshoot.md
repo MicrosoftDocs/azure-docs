@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Symptom - Custom security attributes page is disabled
 

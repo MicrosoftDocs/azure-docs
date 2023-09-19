@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 05/23/2023
-ms.custom: seodec18, mvc, devx-track-arm-template
+ms.custom: seodec18, mvc, devx-track-arm-template, devx-track-linux
 ---
 
 # Tutorial: Create an ARM template for a confidential container deployment with custom confidential computing enforcement policy

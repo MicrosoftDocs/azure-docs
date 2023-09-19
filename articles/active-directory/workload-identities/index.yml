@@ -95,6 +95,4 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Access reviews for service principals
-            url: ../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json)
-
-  
+            url: ../privileged-identity-management/pim-create-roles-and-resource-roles-review.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json

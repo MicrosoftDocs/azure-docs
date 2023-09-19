@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/10/2022
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 # Assign custom roles with resource scope using PowerShell in Azure Active Directory
 
-This article describes how to create a role assignment at organization-wide scope in Azure Active Directory (Azure AD). Assigning a role at organization-wide scope grants access across the Azure AD organization. To create a role assignment with a scope of a single Azure AD resource, see [How to create a custom role and assign it at resource scope](custom-create.md). This article uses the [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/#directory_roles) module.
+This article describes how to create a role assignment at organization-wide scope in Azure Active Directory (Azure AD). Assigning a role at organization-wide scope grants access across the Azure AD organization. To create a role assignment with a scope of a single Azure AD resource, see [Create and assign a custom role in Azure Active Directory](custom-create.md). This article uses the [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/#directory_roles) module.
 
 For more information about Azure AD roles, see [Azure AD built-in roles](permissions-reference.md).
 

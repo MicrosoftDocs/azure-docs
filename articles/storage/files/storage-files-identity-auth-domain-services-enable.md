@@ -4,7 +4,7 @@ description: Learn how to enable identity-based authentication over Server Messa
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/03/2023
+ms.date: 07/17/2023
 ms.author: kendownie
 ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 recommendations: false
@@ -156,7 +156,7 @@ The action requires running an operation on the Active Directory domain that's m
 > [!IMPORTANT]
 > The Windows Server Active Directory PowerShell cmdlets in this section must be run in Windows PowerShell 5.1 from a client machine that's domain-joined to the Azure AD DS domain. PowerShell 7.x and Azure Cloud Shell won't work in this scenario.
 
-Log into the domain-joined client machine as an Azure AD DS user with the required permissions (typically, members of the **AAD DC Administrators** group will have the necessary permissions). Open a normal (non-elevated) PowerShell session and execute the following commands.
+Log into the domain-joined client machine as an Azure AD DS user with the required permissions. You must have write access to the `msDS-SupportedEncryptionTypes` attribute of the domain object. Typically, members of the **AAD DC Administrators** group will have the necessary permissions. Open a normal (non-elevated) PowerShell session and execute the following commands.
 
 ```powershell
 # 1. Find the service account in your managed domain that represents the storage account.

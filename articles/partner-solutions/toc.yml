@@ -24,5 +24,5 @@ items:
     href: ./qumulo/index.yml
   - name: NGINXaaS - Azure Native ISV Service
     href: ./nginx/index.yml
-  - name: Cloud NGFW by Palo Alto Networks Preview - Azure Native ISV Service
+  - name: Cloud NGFW by Palo Alto Networks - Azure Native ISV Service
     href: ./palo-alto/index.yml

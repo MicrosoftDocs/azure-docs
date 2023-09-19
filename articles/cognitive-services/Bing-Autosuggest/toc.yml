@@ -1,11 +1,11 @@
 - name: Bing Autosuggest Documentation
-  href: ../Bing-Web-Search/index.yml
+  href: ../bing-web-search/index.yml
 - name: Overview
   items:
   - name: What is Bing Autosuggest?
     href: get-suggested-search-terms.md
   - name: Compare the Bing Search APIs
-    href: ../Bing-Web-Search/bing-api-comparison.md
+    href: ../bing-web-search/bing-api-comparison.md
     maintainContext: true
 - name: Quickstarts
   expanded: true
@@ -59,7 +59,7 @@
     - name: Node.js
       href: /javascript/api/@azure/cognitiveservices-autosuggest/
   - name: Use and display requirements
-    href: ../Bing-Web-Search/use-display-requirements.md
+    href: ../bing-web-search/use-display-requirements.md
     maintainContext: true
 - name: Resources
   items:

@@ -172,19 +172,19 @@ With PIM for Groups, you can provide just-in-time access to groups in Amazon Web
 **Configure your enterprise application for SSO and provisioning**
 1. Add AWS IAM Identity Center to your tenant, configure it for provisioning as described in the tutorial above, and start provisioning. 
 1. Configure [single sign-on](aws-single-sign-on-provisioning-tutorial.md) for AWS IAM Identity Center.
-1. Create a [group](https://learn.microsoft.com/azure/active-directory/fundamentals/how-to-manage-groups) that will provide all users access to the application.
+1. Create a [group](/azure/active-directory/fundamentals/how-to-manage-groups) that will provide all users access to the application.
 1. Assign the group to the AWS Identity Center application.
 1. Assign your test user as a direct member of the group created in the previous step, or provide them access to the group through an access package. This group can be used for persistent, non-admin access in AWS.
 
 **Enable PIM for groups**
-1. Create a second group in Azure AD. This group will provide access to admin permissions in AWS. 
-1. Bring the group under [management in Azure AD PIM](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-discover-groups).
-1. Assign your test user as [eligible for the group in PIM](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-assign-member-owner) with the role set to member.
+1. Create a second group in Azure AD. This group will provide access to admin permissions in AWS.
+1. Bring the group under [management in Azure AD PIM](/azure/active-directory/privileged-identity-management/groups-discover-groups).
+1. Assign your test user as [eligible for the group in PIM](/azure/active-directory/privileged-identity-management/groups-assign-member-owner) with the role set to member.
 1. Assign the second group to the AWS IAM Identity Center application.
 1. Use on-demand provisioning to create the group in AWS IAM Identity Center.
 1. Sign-in to AWS IAM Identity Center and assign the second group the necessary permissions to perform admin tasks.  
 
-Now any end user that was made eligible for the group in PIM can get JIT access to the group in AWS by [activating their group membership](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-activate-roles#activate-a-role). 
+Now any end user that was made eligible for the group in PIM can get JIT access to the group in AWS by [activating their group membership](/azure/active-directory/privileged-identity-management/groups-activate-roles#activate-a-role).
 
 > [!IMPORTANT]
 > The group membership is provisioned roughly a minute after the activation is complete. Please wait before attempting to sign-in to AWS. If the user is unable to access the necessary group in AWS, please review the troubleshooting tips below and provisioning logs to ensure that the user was successfully provisioned. 

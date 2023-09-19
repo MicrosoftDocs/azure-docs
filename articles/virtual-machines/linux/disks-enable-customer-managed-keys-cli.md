@@ -6,7 +6,7 @@ ms.date: 05/03/2023
 ms.topic: how-to
 ms.author: rogarana
 ms.service: azure-disk-storage
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
 # Use the Azure CLI to enable server-side encryption with customer-managed keys for managed disks

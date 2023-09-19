@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/22/2023
+ms.date: 09/15/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
@@ -45,7 +45,6 @@ Here are some known issues:
 * SMS-based authentication isn't supported for B2B accounts.
 * Federated users won't authenticate in the home tenant. They only authenticate in the cloud.
 * If a user's default sign-in method is a text or call to your phone number, then the SMS code or voice call is sent automatically during multifactor authentication. As of June 2021, some apps will ask users to choose **Text** or **Call** first. This option prevents sending too many security codes for different apps. If the default sign-in method is the Microsoft Authenticator app ([which we highly recommend](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)), then the app notification is sent automatically.
-* SMS-based authentication has reached general availability, and we're working to remove the **(Preview)** label in the Azure portal.
 
 
 ## Enable the SMS-based authentication method
@@ -55,13 +54,12 @@ There are three main steps to enable and use SMS-based authentication in your or
 * Enable the authentication method policy.
 * Select users or groups that can use the SMS-based authentication method.
 * Assign a phone number for each user account.
-    * This phone number can be assigned in the Azure portal (which is shown in this article), and in *My Staff* or *My Account*.
+    * This phone number can be assigned in the Microsoft Entra admin center (which is shown in this article), and in *My Staff* or *My Account*.
 
 First, let's enable SMS-based authentication for your Azure AD tenant.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* permissions.
-1. Search for and select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
-1. Under the **Manage** menu header, select **Authentication methods** >  **Policies**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods** >  **Policies**.
 1. From the list of available authentication methods, select **SMS**.
 
     ![Screenshot that shows how to select the SMS authentication method.](./media/howto-authentication-sms-signin/authentication-methods-policy.png)
@@ -83,7 +81,7 @@ Each user that's enabled in SMS authentication method policy must be licensed, e
 
 ## Set a phone number for user accounts
 
-Users are now enabled for SMS-based authentication, but their phone number must be associated with the user profile in Azure AD before they can sign-in. The user can [set this phone number themselves](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42) in *My Account*, or you can assign the phone number using the Azure portal. Phone numbers can be set by *global admins*, *authentication admins*, or *privileged authentication admins*.
+Users are now enabled for SMS-based authentication, but their phone number must be associated with the user profile in Azure AD before they can sign-in. The user can [set this phone number themselves](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42) in *My Account*, or you can assign the phone number using the Microsoft Entra admin center. Phone numbers can be set by *global admins*, *authentication admins*, or *privileged authentication admins*.
 
 When a phone number is set for SMS-based sign-in, it's also then available for use with [Azure AD Multi-Factor Authentication][tutorial-azure-mfa] and [self-service password reset][tutorial-sspr].
 
@@ -92,11 +90,11 @@ When a phone number is set for SMS-based sign-in, it's also then available for u
 1. Select the user you enabled for SMS-based authentication in the previous section, such as *Contoso User*, then select **Authentication methods**.
 1. Select **+ Add authentication method**, then in the *Choose method* drop-down menu, choose **Phone number**.
 
-    Enter the user's phone number, including the country code, such as *+1 xxxxxxxxx*. The Azure portal validates the phone number is in the correct format.
+    Enter the user's phone number, including the country code, such as *+1 xxxxxxxxx*. The Microsoft Entra admin center validates the phone number is in the correct format.
 
     Then, from the *Phone type* drop-down menu, select *Mobile*, *Alternate mobile*, or *Other* as needed.
 
-    :::image type="content" source="media/howto-authentication-sms-signin/set-user-phone-number.png" alt-text="Set a phone number for a user in the Azure portal to use with SMS-based authentication":::
+    :::image type="content" source="media/howto-authentication-sms-signin/set-user-phone-number.png" alt-text="Set a phone number for a user in the Microsoft Entra admin center to use with SMS-based authentication":::
 
     The phone number must be unique in your tenant. If you try to use the same phone number for multiple users, an error message is shown.
 
@@ -137,11 +135,11 @@ For more information on the end-user experience, see [SMS sign-in user experienc
 
 ### Error when trying to set a phone number on a user's account
 
-If you receive an error when you try to set a phone number for a user account in the Azure portal, review the following troubleshooting steps:
+If you receive an error when you try to set a phone number for a user account in the Microsoft Entra admin center, review the following troubleshooting steps:
 
 1. Make sure that you're enabled for the SMS-based sign-in.
 1. Confirm that the user account is enabled in the **SMS** authentication method policy.
-1. Make sure you set the phone number with the proper formatting, as validated in the Azure portal (such as *+1 4251234567*).
+1. Make sure you set the phone number with the proper formatting, as validated in the Microsoft Entra admin center (such as *+1 4251234567*).
 1. Make sure that the phone number isn't used elsewhere in your tenant.
 1. Check there's no voice number set on the account. If a voice number is set, delete and try to the phone number again.
 
@@ -154,7 +152,7 @@ If you receive an error when you try to set a phone number for a user account in
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../fundamentals/active-directory-how-subscriptions-associated-directory.md
+[associate-azure-ad-tenant]: ../fundamentals/how-subscriptions-associated-directory.md
 [concepts-passwordless]: concept-authentication-passwordless.md
 [tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
 [tutorial-sspr]: tutorial-enable-sspr.md
@@ -162,7 +160,6 @@ If you receive an error when you try to set a phone number for a user account in
 [rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin
 
 <!-- EXTERNAL LINKS -->
-[azure-portal]: https://portal.azure.com
 [office]: https://www.office.com
 [m365-firstline-workers-licensing]: https://www.microsoft.com/licensing/news/m365-firstline-workers
 [azuread-licensing]: https://azure.microsoft.com/pricing/details/active-directory/

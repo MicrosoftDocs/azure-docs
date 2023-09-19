@@ -1,10 +1,8 @@
 ---
 title: Tutorial - add outputs to template
 description: Add outputs to your Azure Resource Manager template (ARM template) to simplify the syntax.
-author: mumian
-ms.date: 08/17/2022
+ms.date: 07/28/2023
 ms.topic: tutorial
-ms.author: jgao
 ms.custom: devx-track-arm-template
 ---
 
@@ -101,23 +99,23 @@ Now, let's look at the resource group and deployment history.
 1. Depending on the steps you did, you should have at least one and perhaps several storage accounts in the resource group.
 1. You should also have several successful deployments listed in the history. Select that link.
 
-   ![Select deployments](./media/template-tutorial-add-outputs/select-deployments.png)
+   :::image type="content" source="./media/template-tutorial-add-outputs/select-deployments.png" alt-text="Screenshot of the Azure portal showing the deployments link.":::
 
 1. You see all of your deployments in the history. Select the deployment called **addoutputs**.
 
-   ![Show deployment history](./media/template-tutorial-add-outputs/show-history.png)
+   :::image type="content" source="./media/template-tutorial-add-outputs/show-history.png" alt-text="Screenshot of the Azure portal showing the deployment history.":::
 
 1. You can review the inputs.
 
-   ![Show inputs](./media/template-tutorial-add-outputs/show-inputs.png)
+   :::image type="content" source="./media/template-tutorial-add-outputs/show-inputs.png" alt-text="Screenshot of the Azure portal showing the deployment inputs.":::
 
 1. You can review the outputs.
 
-   ![Show outputs](./media/template-tutorial-add-outputs/show-outputs.png)
+   :::image type="content" source="./media/template-tutorial-add-outputs/show-outputs.png" alt-text="Screenshot of the Azure portal showing the deployment outputs.":::
 
 1. You can review the template.
 
-   ![Show template](./media/template-tutorial-add-outputs/show-template.png)
+   :::image type="content" source="./media/template-tutorial-add-outputs/show-template.png" alt-text="Screenshot of the Azure portal showing the deployment template.":::
 
 ## Clean up resources
 

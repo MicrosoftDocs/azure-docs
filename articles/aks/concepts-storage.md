@@ -2,7 +2,7 @@
 title: Concepts - Storage in Azure Kubernetes Services (AKS)
 description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims.
 ms.topic: conceptual
-ms.date: 06/27/2023
+ms.date: 08/30/2023
 
 ---
 
@@ -154,8 +154,7 @@ For clusters using the [Container Storage Interface (CSI) drivers][csi-storage-d
 |---|---|
 | `managed-csi` | Uses Azure StandardSSD locally redundant storage (LRS) to create a Managed Disk. The reclaim policy ensures that the underlying Azure Disk is deleted when the persistent volume that used it's deleted. The storage class also configures the persistent volumes to be expandable, you just need to edit the persistent volume claim with the new size. |
 | `managed-csi-premium` | Uses Azure Premium locally redundant storage (LRS) to create a Managed Disk. The reclaim policy again ensures that the underlying Azure Disk is deleted when the persistent volume that used it's deleted. Similarly, this storage class allows for persistent volumes to be expanded. |
-| `azurefile-csi` | Uses Azure Standard storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it
-s deleted. |
+| `azurefile-csi` | Uses Azure Standard storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it is deleted. |
 | `azurefile-csi-premium` | Uses Azure Premium storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it's deleted.|
 | `azureblob-nfs-premium` | Uses Azure Premium storage to create an Azure Blob storage container and connect using the NFS v3 protocol. The reclaim policy ensures that the underlying Azure Blob storage container is deleted when the persistent volume that used it's deleted. |
 | `azureblob-fuse-premium` | Uses Azure Premium storage to create an Azure Blob storage container and connect using BlobFuse. The reclaim policy ensures that the underlying Azure Blob storage container is deleted when the persistent volume that used it's deleted. |
@@ -252,15 +251,15 @@ For mounting a volume in a Windows container, specify the drive letter and path.
 
 ## Next steps
 
-For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
+For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage] and [AKS Storage Considerations][azure-aks-storage-considerations].
 
 To see how to use CSI drivers, see the following how-to articles:
 
-- [Enable Container Storage Interface (CSI) drivers for Azure Disk, Azure Files, and Azure Blob storage on Azure Kubernetes Service][csi-storage-drivers]
+- [Container Storage Interface (CSI) drivers for Azure Disk, Azure Files, and Azure Blob storage on Azure Kubernetes Service][csi-storage-drivers]
 - [Use Azure Disk CSI driver in Azure Kubernetes Service][azure-disk-csi]
 - [Use Azure Files CSI driver in Azure Kubernetes Service][azure-files-csi]
-- [Use Azure Blob storage CSI driver (preview) in Azure Kubernetes Service][azure-blob-csi]
-- [Integrate Azure NetApp Files with Azure Kubernetes Service][azure-netapp-files]
+- [Use Azure Blob storage CSI driver in Azure Kubernetes Service][azure-blob-csi]
+- [Configure Azure NetApp Files with Azure Kubernetes Service][azure-netapp-files]
 
 For more information on core Kubernetes and AKS concepts, see the following articles:
 
@@ -293,3 +292,4 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [general-purpose-machine-sizes]: ../virtual-machines/sizes-general.md
 [azure-files-azure-netapp-comparison]: ../storage/files/storage-files-netapp-comparison.md
 [azure-disk-customer-managed-key]: azure-disk-customer-managed-keys.md
+[azure-aks-storage-considerations]: /azure/cloud-adoption-framework/scenarios/app-platform/aks/storage

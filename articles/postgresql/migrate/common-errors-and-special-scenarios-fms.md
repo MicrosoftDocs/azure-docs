@@ -47,7 +47,7 @@ This articles explains common errors and special scenarios for PostgreSQL Single
 
 - Mitigation/Resolution
 
-    Customers need to go to the server parameters of the flexible server and allowlist all the extensions they intend to use. At least the ones mentioned in the error message should be allowed to be listed.
+    Customers need to go to the server parameters of the flexible server and allowlist all the extensions they intend to use. At least the ones mentioned in the error message should be allowed to be listed. To add extensions to the allowlist, you can edit the list of the `azure.extensions` parameter in the Server parameters for your flexible server.
 
 ## No pg_hba.conf entry for host
 

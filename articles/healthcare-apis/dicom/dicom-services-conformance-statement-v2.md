@@ -13,7 +13,7 @@ ms.author: mmitrik
 # DICOM Conformance Statement v2
 
 > [!NOTE]
-> API version 2 is in **Preview** and should be used only for testing.
+> API version 2 is the latest API version.  For a list of changes in v2 compared to v1, see [DICOM Service API v2 Changes](dicom-service-v2-api-changes.md)
 
 The Medical Imaging Server for DICOM supports a subset of the DICOMweb™ Standard. Support includes:
 
@@ -433,7 +433,7 @@ The following parameters for each query are supported:
 | Key              | Support Value(s)              | Allowed Count | Description |
 | :--------------- | :---------------------------- | :------------ | :---------- |
 | `{attributeID}=` | `{value}`                       | 0...N         | Search for attribute/ value matching in query. |
-| `includefield=`  | `{attributeID}`<br/>`all`   | 0...N         | The additional attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided, refer to [Search Response](#search-response) for more information about which attributes are returned for each query type.<br/>If a mixture of `{attributeID}` and `all` is provided, the server defaults to using `all`. |
+| `includefield=`  | `{attributeID}`<br/>`all`   | 0...N         | The other attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided, refer to [Search Response](#search-response) for more information about which attributes are returned for each query type.<br/>If a mixture of `{attributeID}` and `all` is provided, the server defaults to using `all`. |
 | `limit=`         | `{value}`                       | 0..1          | Integer value to limit the number of values returned in the response.<br/>Value can be between the range 1 >= x <= 200. Defaulted to 100. |
 | `offset=`        | `{value}`                       | 0..1          | Skip `{value}` results.<br/>If an offset is provided larger than the number of search query results, a 204 (no content) response is returned. |
 | `fuzzymatching=` | `true` / `false`             | 0..1          | If true fuzzy matching is applied to PatientName attribute. It does a prefix word match of any name part inside PatientName value. For example, if PatientName is "John^Doe", then "joh", "do", "jo do", "Doe" and "John Doe" all match. However "ohn" doesn't match. |
@@ -465,7 +465,7 @@ We support the following matching types.
 
 | Search Type | Supported Attribute | Example |
 | :---------- | :------------------ | :------ |
-| Range Query | `StudyDate`/`PatientBirthDate` | `{attributeID}={value1}-{value2}`. For date/ time values, we support an inclusive range on the tag. This is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` are matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
+| Range Query | `StudyDate`/`PatientBirthDate` | `{attributeID}={value1}-{value2}`. For date/ time values, we support an inclusive range on the tag. This range is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` are matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
 | Exact Match | All supported attributes | `{attributeID}={value1}` |
 | Fuzzy Match | `PatientName`, `ReferringPhysicianName` | Matches any component of the name that starts with the value. |
 
@@ -591,9 +591,9 @@ The query API returns one of the following status codes in the response:
 ### Additional notes
 
 * Querying using the `TimezoneOffsetFromUTC (00080201)` isn't supported.
-* The query API doesn't return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request is returned. Anything requested within the acceptable range, will be resolved.
+* The query API doesn't return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request is returned. Anything requested within the acceptable range will be resolved.
 * When target resource is Study/Series, there's a potential for inconsistent study/series level metadata across multiple instances. For example, two instances could have different patientName. In this case, the latest wins and you can search only on the latest data.
-* Paged results are optimized to return matched _newest_ instance first, this may result in duplicate records in subsequent pages if newer data matching the query was added.
+* Paged results are optimized to return matched _newest_ instance first, possibly resulting in duplicate records in subsequent pages if newer data matching the query was added.
 * Matching is case in-sensitive and accent in-sensitive for PN VR types.
 * Matching is case in-sensitive and accent sensitive for other string VR types.
 * Only the first value is indexed of a single valued data element that incorrectly has multiple values.
@@ -705,7 +705,7 @@ There are [four valid Workitem states](https://dicom.nema.org/medical/dicom/curr
 * `CANCELED`
 * `COMPLETED`
 
-This transaction will only succeed against Workitems in the `SCHEDULED` state. Any user can claim ownership of a Workitem by setting its Transaction UID and changing its state to `IN PROGRESS`. From then on, a user can only modify the Workitem by providing the correct Transaction UID. While UPS defines Watch and Event SOP classes that allow cancellation requests and other events to be forwarded, this DICOM service doesn't implement these classes, and so cancellation requests on workitems that are `IN PROGRESS` will return failure. An owned Workitem can be canceled via the [Change Workitem State](#change-workitem-state) transaction.
+This transaction only succeeds against Workitems in the `SCHEDULED` state. Any user can claim ownership of a Workitem by setting its Transaction UID and changing its state to `IN PROGRESS`. From then on, a user can only modify the Workitem by providing the correct Transaction UID. While UPS defines Watch and Event SOP classes that allow cancellation requests and other events to be forwarded, this DICOM service doesn't implement these classes, and so cancellation requests on workitems that are `IN PROGRESS` will return failure. An owned Workitem can be canceled via the [Change Workitem State](#change-workitem-state) transaction.
 
 | Method  | Path                                            | Description                                      |
 | :------ | :---------------------------------------------- | :----------------------------------------------- |
@@ -778,7 +778,7 @@ To update a Workitem currently in the `SCHEDULED` state, the `Transaction UID` a
 
 The `Content-Type` header is required, and must have the value `application/dicom+json`.
 
-The request payload contains a dataset with the changes to be applied to the target Workitem. When modifying a sequence, the request must include all Items in the sequence, not just the Items to be modified.
+The request payload contains a dataset with the changes to be applied to the target Workitem. When a sequence is modified, the request must include all Items in the sequence, not just the Items to be modified.
 When multiple Attributes need updated as a group, do this as multiple Attributes in a single request, not as multiple requests.
 
 There are many requirements related to DICOM data attributes in the context of a specific transaction. Attributes may be
@@ -868,7 +868,7 @@ The following parameters for each query are supported:
 | Key              | Support Value(s)              | Allowed Count | Description |
 | :--------------- | :---------------------------- | :------------ | :---------- |
 | `{attributeID}=` | `{value}`                     | 0...N         | Search for attribute/ value matching in query. |
-| `includefield=`  | `{attributeID}`<br/>`all`     | 0...N         | The additional attributes to return in the response. Only top-level attributes can be specified to be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided, see [Search Response](#search-response) for more information about which attributes will be returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server defaults to using 'all'. |
+| `includefield=`  | `{attributeID}`<br/>`all`     | 0...N         | The other attributes to return in the response. Only top-level attributes can be specified to be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided, see [Search Response](#search-response) for more information about which attributes will be returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server defaults to using 'all'. |
 | `limit=`         | `{value}`                     | 0...1          | Integer value to limit the number of values returned in the response. Value can be between the range `1 >= x <= 200`. Defaulted to `100`. |
 | `offset=`        | `{value}`                     | 0...1          | Skip {value} results. If an offset is provided larger than the number of search query results, a `204 (no content)` response is returned. |
 | `fuzzymatching=` | `true` \| `false`             | 0...1          | If true fuzzy matching is applied to any attributes with the Person Name (PN) Value Representation (VR). It does a prefix word match of any name part inside these attributes. For example, if `PatientName` is `John^Doe`, then `joh`, `do`, `jo do`, `Doe` and `John Doe` all match. However `ohn` will **not** match. |
@@ -896,7 +896,7 @@ We support these matching types:
 
 | Search Type | Supported Attribute | Example |
 | :---------- | :------------------ | :------ |
-| Range Query | `Scheduled​Procedure​Step​Start​Date​Time` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This will be mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` will be matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times will be matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
+| Range Query | `Scheduled​Procedure​Step​Start​Date​Time` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This range will be mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` will be matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times will be matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
 | Exact Match | All supported attributes | `{attributeID}={value1}` |
 | Fuzzy Match | `PatientName` | Matches any component of the name that starts with the value. |
 
@@ -941,7 +941,7 @@ The query API returns one of the following status codes in the response:
 
 #### Additional Notes
 
-The query API will not return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request is returned. Anything requested within the acceptable range, will be resolved.
+The query API won't return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request is returned. Anything requested within the acceptable range, will be resolved.
 
 * Paged results are optimized to return matched newest instance first, this may result in duplicate records in subsequent pages if newer data matching the query was added.
 * Matching is case insensitive and accent insensitive for PN VR types.

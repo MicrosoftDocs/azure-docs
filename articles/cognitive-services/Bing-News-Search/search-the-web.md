@@ -1,6 +1,6 @@
 ---
 title: What is the Bing News Search API?
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use the Bing News Search API to search the web for current headlines across categories, including headlines and trending topics.
 services: cognitive-services
 
@@ -15,7 +15,7 @@ ms.custom: seodec2018
 ---
 # What is the Bing News Search API?
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing News Search API makes it easy to integrate Bing's cognitive news searching capabilities into your applications. The API provides a similar experience to [Bing News](https://www.bing.com/news), letting you send search queries and receive relevant news articles.
 
@@ -37,7 +37,7 @@ While the Bing News Search API primarily finds and returns relevant news article
 
 The Bing News Search API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. You can use the service using either the REST API, or the SDK.
 
-1. Create a [Cognitive Services API account](../cognitive-services-apis-create-account.md) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/free/cognitive-services/) for free.
+1. Create an [Azure AI services API account](../cognitive-services-apis-create-account.md) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/free/cognitive-services/) for free.
 2. Send a request to the API, with a valid search query.
 3. Process the API response by parsing the returned JSON message.
 
