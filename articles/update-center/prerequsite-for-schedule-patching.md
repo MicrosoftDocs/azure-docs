@@ -262,4 +262,4 @@ Scenario 8 | No | False | No | Autopatch and schedule patch don't run.|
 
 ## Next steps
 
-* To troubleshoot issues, see [troubleshoot](troubleshoot.md) Update Manager.
+To troubleshoot issues, see [Troubleshoot Update Manager](troubleshoot.md).

@@ -176,4 +176,4 @@ If the property for the resource type is `configurationassignments`, it includes
 ## Next steps
 
 - For details of sample queries, see [Sample query logs](sample-query-logs.md).
-- To troubleshoot issues, see [troubleshoot](troubleshoot.md) Update Manager.
+- To troubleshoot issues, see [Troubleshoot Update Manager](troubleshoot.md).
