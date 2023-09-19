@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/12/2023
+ms.date: 09/13/2023
 ms.author: jeedes
 ---
 
@@ -72,13 +72,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<companyname>.zoom.us`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `<companyname>.zoom.us`
 
-    c. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<companyname>.zoom.us/saml/SSO`
+
+    c. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<companyname>.zoom.us`
 
 	> [!NOTE]
