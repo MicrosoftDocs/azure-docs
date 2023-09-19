@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Plan and deploy on-premises Azure Active Directory Password Protection
 
-Users often create passwords that use common local words such as a school, sports team, or famous person. These passwords are easy to guess, and weak against dictionary-based attacks. To enforce strong passwords in your organization, Azure Active Directory (Azure AD) Password Protection provides a global and custom banned password list. A password change request fails if there's a match in these banned password list.
+Users often create passwords that use common local words such as a school, sports team, or famous person. These passwords are easy to guess, and weak against dictionary-based attacks. To enforce strong passwords in your organization, Azure Active Directory (Azure AD) Password Protection provides a global and custom banned password list. A password change request fails if there's a match in this banned password list.
 
 To protect your on-premises Active Directory Domain Services (AD DS) environment, you can install and configure Azure AD Password Protection to work with your on-prem DC. This article shows you how to install and register the Azure AD Password Protection proxy service and Azure AD Password Protection DC agent in your on-premises environment.
 
@@ -243,7 +243,7 @@ To install the Azure AD Password Protection proxy service, complete the followin
         >
         > You may also see MFA required if Azure Device Registration (which is used under the covers by Azure AD Password Protection) has been configured to globally require MFA. To workaround this requirement you may use a different account that supports MFA with one of the previous two authentication modes, or you may also temporarily relax the Azure Device Registration MFA requirement.
         >
-        > To make this change, search for and select then select **Devices > Device Settings** in the Microsoft Entra admin center. Set **Require Multi-Factor Auth to join devices** to *No*. Be sure to reconfigure this setting back to *Yes* once registration is complete.
+        > To make this change, select **Identity** in the [Microsoft Entra admin center](https://entra.microsoft.com), then select **Devices** > **Device Settings**. Set **Require Multi-Factor Auth to join devices** to *No*. Be sure to reconfigure this setting back to *Yes* once registration is complete.
         >
         > We recommend that MFA requirements be bypassed for test purposes only.
 
@@ -296,7 +296,7 @@ To install the Azure AD Password Protection proxy service, complete the followin
         >
         > You may also see MFA required if Azure Device Registration (which is used under the covers by Azure AD Password Protection) has been configured to globally require MFA. To workaround this requirement you may use a different account that supports MFA with one of the previous two authentication modes, or you may also temporarily relax the Azure Device Registration MFA requirement.
         >
-        > To make this change, search for and select **Devices > Device Settings** in the Microsoft Entra admin center. Set **Require Multi-Factor Auth to join devices** to *No*. Be sure to reconfigure this setting back to *Yes* once registration is complete.
+        > To make this change, select **Identity** in the [Microsoft Entra admin center](https://entra.microsoft.com), then select **Devices** > **Device Settings**. Set **Require Multi-Factor Auth to join devices** to *No*. Be sure to reconfigure this setting back to *Yes* once registration is complete.
         >
         > We recommend that MFA requirements be bypassed for test purposes only.
 
