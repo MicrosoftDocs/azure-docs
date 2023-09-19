@@ -230,7 +230,7 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Add video calling to your Android WebView client app
       href: quickstarts/voice-video-calling/get-started-android-webview.md
-    - name: Using Event Grid to send calling notifications
+    - name: Using Event Grid to send calling push notifications
       href: tutorials/add-voip-push-notifications-event-grid.md
     - name: Proxy your calling traffic
       href: tutorials/proxy-calling-support-tutorial.md
