@@ -38,7 +38,9 @@ Use the Azure Maps [Data service] to store and render overlays.
 > The procedure in this section requires an Azure Maps account in the Gen1 or Gen2 pricing tier.
 The Azure Maps account Gen1 Standard S0 tier supports only a single instance of the `pins` parameter. It allows you to render up to five pushpins, specified in the URL request, with a custom image.
 >
-> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
+> **Azure Maps Gen1 pricing tier retirement**
+>
+> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
 
 ### Get static image with custom pins and labels
 

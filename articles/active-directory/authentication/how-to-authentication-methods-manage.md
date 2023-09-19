@@ -49,7 +49,7 @@ For each method, note whether or not it's enabled for the tenant. The following 
 | Call to phone                     | Voice calls                  |
 | Text message to phone             | SMS                          |
 | Notification through mobile app   | Microsoft Authenticator      |
-| Verification code from mobile app or hardware token   | Third party software OATH tokens<br>Hardware OATH tokens (not yet available)<br>Microsoft Authenticator |
+| Verification code from mobile app or hardware token   | Third party software OATH tokens<br>Hardware OATH tokens<br>Microsoft Authenticator |
 
 ### Review the legacy SSPR policy
 
@@ -137,9 +137,7 @@ The Authentication methods policy has controls for **SMS** and **Voice calls**, 
 
 The OATH token controls in the legacy MFA and SSPR policies were single controls that enabled the use of three different types of OATH tokens: the Microsoft Authenticator app, third-party software OATH TOTP code generator apps, and hardware OATH tokens.
 
-The Authentication methods policy has granular control with separate controls for each type of OATH token. Use of OTP from Microsoft Authenticator is controlled by the **Allow use of Microsoft Authenticator OTP**  control in the **Microsoft Authenticator** section of the policy. Third-party apps are controlled by the **Third party software OATH tokens** section of the policy. 
-
-Another control for **Hardware OATH tokens** is coming soon. If you're using hardware OATH tokens, now in public preview, you should hold off on migrating OATH tokens and don't complete the migration process.
+The Authentication methods policy has granular control with separate controls for each type of OATH token. Use of OTP from Microsoft Authenticator is controlled by the **Allow use of Microsoft Authenticator OTP**  control in the **Microsoft Authenticator** section of the policy. Third-party apps are controlled by the **Third party software OATH tokens** section of the policy. Hardware OATH tokens are controlled by the **Hardware OATH tokens** section of the policy.
 
 ### Security questions
 
