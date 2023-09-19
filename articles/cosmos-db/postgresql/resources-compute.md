@@ -115,7 +115,7 @@ compute](concepts-burstable-compute.md) and regular compute.
 † 1024 GiB and 2048 GiB are supported with 8 vCores or greater.
 
 ## Maximum IOPS for your compute / storage configuration
-Each compute configuration has IOPS limit that depends on number of vCores in a node. Make sure you select compute configuration for coordinator and worker nodes in your cluster to fully utilize IOPS in selected storage.
+Each compute configuration has an IOPS limit that depends on the number of vCores in a node. Make sure you select compute configuration for the coordinator and worker nodes in your cluster to fully utilize IOPS in the selected storage.
 
 **Worker nodes, per node**
 
@@ -140,6 +140,8 @@ Each compute configuration has IOPS limit that depends on number of vCores in a 
 | 32 vCores  | 32 TiB                                     | 20,000                                            |
 | 64 vCores  | 32 TiB                                     | 20,000                                            |
 | 96 vCores  | 32 TiB                                     | 20,000                                            |
+
+To put it another way, if you need 8 TiB of storage per node or more, make sure you select 16 vCores or more for the node's compute configuration. That would allow you to maximize IOPS usage provided by the selected storage.
 
 ## Next steps
 
