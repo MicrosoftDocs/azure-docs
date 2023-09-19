@@ -52,7 +52,7 @@ If your custom DNS server can't add Azure DNS IP `168.63.129.16` as the upstream
 
 If your virtual network is configured with custom DNS settings, be sure to add Azure DNS IP `168.63.129.16` as the upstream DNS server in the custom DNS server, if you haven't already. Then, proceed with the following instructions.
 
-If your virtual network is not configured with custom DNS settings, or if your virtual network is configured with custom DNS settings and you've already added Azure DNS IP `168.63.129.16` as the upstream DNS server in the custom DNS server, then complete the following steps:
+If your virtual network isn't configured with custom DNS settings, or if your virtual network is configured with custom DNS settings and you've already added Azure DNS IP `168.63.129.16` as the upstream DNS server in the custom DNS server, then complete the following steps:
 
 1. Create a new private DNS zone `private.azuremicroservices.io`.
 1. Link the private DNS zone to the virtual network.
@@ -67,17 +67,17 @@ For more information, see [Access your application in a private network](./acces
 
 Azure Spring Apps supports exposing applications to the internet by using public endpoints. For more information, see [Expose applications on Azure Spring Apps to the internet from a public network](how-to-access-app-from-internet-virtual-network.md). 
 
-If you are using a user defined route feature, the following features are not supported because of asymmetric routing:
+If you're using a user defined route feature, the following features aren't supported because of asymmetric routing:
 
-- Use public network to access the appliaction through public endpoint.
+- Use public network to access the application through public endpoint.
 - Use public network to access the log stream.
 - Use public network to access the App console.
 
 For more information, see [Control egress traffic for an Azure Spring Apps instance](how-to-create-user-defined-route-instance.md).
 
-The same limitations also apply to Azure Spring Apps when egress traffics are routed to a firewall. Because both situations introduce asymmetric routing into the cluster, this is where the problem occurs. Packets arrive on the endpoint's public IP address but return to the firewall via the private IP address. So, the firewall must block such traffic. For more information, see [Bring Your Own Route Table](how-to-deploy-in-azure-virtual-network.md#bring-your-own-route-table).
+The same limitations also apply to Azure Spring Apps when egress traffics are routed to a firewall. The problem occurs because both situations introduce asymmetric routing into the cluster. Packets arrive on the endpoint's public IP address but return to the firewall via the private IP address. So, the firewall must block such traffic. For more information, see [Bring Your Own Route Table](how-to-deploy-in-azure-virtual-network.md#bring-your-own-route-table).
 
-If you are routing egress traffics to a firewall but also need to expose the application to internet, use the expose applications to the internet with TLS Termination feature. For more information, see [Expose applications to the internet with TLS Termination at Application Gateway](expose-apps-gateway-tls-termination.md).
+If you're routing egress traffics to a firewall but also need to expose the application to internet, use the expose applications to the internet with TLS Termination feature. For more information, see [Expose applications to the internet with TLS Termination at Application Gateway](expose-apps-gateway-tls-termination.md).
 
 ## Other issues
 
