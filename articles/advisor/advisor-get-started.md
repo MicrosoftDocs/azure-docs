@@ -58,9 +58,9 @@ View recommendation details – such as the recommended actions and impacted res
 
 1. To review details of a recommendation, including the affected resources, open the recommendation list for a category and then click the **Description** link for a specific recommendation. The following screenshot shows a **Reliability** recommendation details page.
 
-   ![Advisor view recommendation details](./media/advisor-get-started/advisor-score-reliability-recommendation-page2.png)
+   Alternatively, go directly to the configuration page for an affected resource by clicking the **Impacted resources** link for the recommendation.
 
-Alternatively, go directly to the configuration page for an affected resource by clicking the **Impacted resources** link for the recommendation.
+   ![Advisor view recommendation details](./media/advisor-get-started/advisor-score-reliability-recommendation-page2.png)
 
 1. To see action details, click a **Recommended actions** link. The Azure page where you can act opens. Alternatively, open a page to the affected resources to take the recommended action (the two pages may be the same). The recommendation may necessitate you learning more about the affected configuration; to do so, open the **Learn more** link on the recommended action page, or at the top of the recommendations details page.
 
