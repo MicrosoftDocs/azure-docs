@@ -45,19 +45,9 @@ To configure the integration of Explanation-Based Auditing System into Azure AD,
 
 **To add Explanation-Based Auditing System from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add new application, click **New application** button on the top of dialog.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, type **Explanation-Based Auditing System**, select **Explanation-Based Auditing System** from result panel then click **Add** button to add the application.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the search box, type **Explanation-Based Auditing System**, select **Explanation-Based Auditing System** from result panel then click **Add** button to add the application.
 
 	 ![Explanation-Based Auditing System in the results list](common/search-new-app.png)
 
@@ -81,26 +71,27 @@ In this section, you enable Azure AD single sign-on in the Azure portal.
 
 To configure Azure AD single sign-on with Explanation-Based Auditing System, perform the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Explanation-Based Auditing System** application integration page, select **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Explanation-Based Auditing System** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on link](common/select-sso.png)
 
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
+1. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+1. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     ![Explanation-Based Auditing System Domain and URLs single sign-on information](common/sp-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL:
     `https://ebas.maizeanalytics.com`
 
-5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
@@ -137,27 +128,20 @@ The objective of this section is to create a test user in the Azure portal calle
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Explanation-Based Auditing System.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Explanation-Based Auditing System**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Explanation-Based Auditing System**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Explanation-Based Auditing System**.
+1. In the applications list, select **Explanation-Based Auditing System**.
 
 	![The Explanation-Based Auditing System link in the Applications list](common/all-applications.png)
 
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create Explanation-Based Auditing System test user
 

@@ -93,7 +93,7 @@ This section guides you through the steps to set up the Azure AD provisioning se
 
    ![Screenshot that shows the Enterprise applications menu in the Azure portal, with All applications highlighted.](common/enterprise-applications.png)
 
-2. In the applications list, select **Contentful**.
+1. In the applications list, select **Contentful**.
 
    ![Screenshot that shows the first 20 results returned in the Applications list.](common/all-applications.png)
 

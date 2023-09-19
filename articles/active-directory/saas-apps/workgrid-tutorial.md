@@ -39,10 +39,8 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 To configure the integration of Workgrid into Azure AD, you need to add Workgrid from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **Workgrid** in the search box.
 1. Select **Workgrid** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -65,13 +63,14 @@ To configure and test Azure AD SSO with Workgrid, perform the following steps:
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Workgrid** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Workgrid** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Screenshot of Edit Basic SAML Configuration.](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
    a. In the **Sign on URL** text box, type a URL using the following pattern:
    `https://<COMPANYCODE>.workgrid.com/console`
@@ -82,15 +81,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    > [!NOTE]
    > These values are not real. Update these values with the actual Sign on URL and Identifier. Your Sign On URL is the same URL you use to sign in to the Workgrid console.  You can find the Entity ID in the Security Section of your Workgrid console.
 
-5. Workgrid application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+1. Workgrid application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
    ![Screenshot of user attributes.](common/edit-attribute.png)
 
-6. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+1. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
    ![Screenshot of The Certificate download link.](common/metadataxml.png)
 
-7. On the **Set-up Workgrid** section, copy the appropriate URL(s) as per your requirement.
+1. On the **Set-up Workgrid** section, copy the appropriate URL(s) as per your requirement.
 
    ![Screenshot of Copy configuration U R Ls.](common/copy-configuration-urls.png)
 
@@ -110,8 +109,8 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Workgrid.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Workgrid**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Workgrid**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
