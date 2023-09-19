@@ -95,7 +95,7 @@ Take the following actions to help mitigate fraudulent sign-ups.
    1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
    1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
-   1. Select the user flow, and then select **Languages**. Select the language for your organization's geographic location to open the language details panel. (For this example, we'll select **English en** for the United States). Select **multifactor authentication page**, and then select **Download defaults (en)**.
+   1. Select the user flow, and then select **Languages**. Select the language for your organization's geographic location to open the language details panel. (For this example, we'll select **English en** for the United States). Select **Multifactor authentication page**, and then select **Download defaults (en)**.
  
       ![Upload new overrides to download defaults](media/phone-based-mfa/download-defaults.png)
 

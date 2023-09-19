@@ -275,7 +275,7 @@ You can obtain an access token in one of several ways: by obtaining it [from a f
 
 <a name='acquiring-an-azure-ad-access-token-'></a>
 
-#### Acquiring a Microsoft Entra ID access token 
+#### Acquiring a Microsoft Entra access token 
 
 The following example uses a REST API technical profile to make a request to the Microsoft Entra token endpoint using the client credentials passed as HTTP basic authentication. For more information, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). 
 
@@ -398,7 +398,7 @@ After you add the above snippets, your technical profile should look like the fo
 
 ### Call the REST technical profile 
 
-To call the `REST-GetProfile` technical profile, you first need to acquire a Microsoft Entra ID access token using the `REST-AcquireAccessToken` technical profile. The following example shows how to call the `REST-GetProfile` technical profile from a [validation technical profile](validation-technical-profile.md):
+To call the `REST-GetProfile` technical profile, you first need to acquire a Microsoft Entra access token using the `REST-AcquireAccessToken` technical profile. The following example shows how to call the `REST-GetProfile` technical profile from a [validation technical profile](validation-technical-profile.md):
 
 ```xml
 <ValidationTechnicalProfiles>

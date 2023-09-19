@@ -23,7 +23,7 @@ In this tutorial, learn to enable passwordless authentication in Azure Active Di
 To get started, you'll need:
 
 - A Nevis demo account
-  - Go to nevis.net for [Nevis + Microsoft Entra B2C](https://www.nevis-security.com/aadb2c/) to request an account
+  - Go to nevis.net for [Nevis + Microsoft Azure AD B2C](https://www.nevis-security.com/aadb2c/) to request an account
 - A Microsoft Entra subscription
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
@@ -55,7 +55,7 @@ The diagram shows the implementation.
 
 ### Request a Nevis account 
 
-1. Go to nevis.net for [Nevis + Microsoft Entra B2C](https://www.nevis-security.com/aadb2c/). 
+1. Go to nevis.net for [Nevis + Microsoft Azure AD B2C](https://www.nevis-security.com/aadb2c/). 
 2. Use the form request an account.
 3. Two emails arrive:
 

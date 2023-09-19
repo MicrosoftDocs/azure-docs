@@ -190,7 +190,7 @@ Removes an **AlternativeSecurityId** from an **alternativeSecurityIdCollection**
 
 The following example unlinks one of the social identities with an existing account. To unlink a social identity:
 
-1. In the **Microsoft Entra ID-UserReadUsingAlternativeSecurityId** and **Microsoft Entra ID-UserReadUsingObjectId** technical profiles, output the user's **alternativeSecurityIds** claim.
+1. In the **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingObjectId** technical profiles, output the user's **alternativeSecurityIds** claim.
 2. Ask the user to select which social account to remove from the list identity providers that are associated with this user.
 3. Call a claims transformation technical profile that calls the **RemoveAlternativeSecurityIdByIdentityProvider** claims transformation, that removed the selected social identity, using identity provider name.
 4. Persist the **alternativeSecurityIds** claim to the user account.
