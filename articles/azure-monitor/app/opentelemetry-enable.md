@@ -67,7 +67,8 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ---
 
-[!TIP] We don't recommend using the OTel Community SDK/API with the Azure Monitor OTel Distro since it automatically loads them as dependencies.
+> [!TIP]
+>  We don't recommend using the OTel Community SDK/API with the Azure Monitor OTel Distro since it automatically loads them as dependencies.
 
 ### Install the client library
 
