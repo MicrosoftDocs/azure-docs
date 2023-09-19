@@ -33,7 +33,7 @@ While FastPath supports most configurations, it doesn't support the following fe
 
 * Basic Load Balancer: If you deploy a Basic internal load balancer in your virtual network or the Azure PaaS service you deploy in your virtual network uses a Basic internal load balancer, the network traffic from your on-premises network to the virtual IPs hosted on the Basic load balancer is sent to the virtual network gateway. The solution is to upgrade the Basic load balancer to a [Standard load balancer](../load-balancer/load-balancer-overview.md).
 
-* Private Link: If you connect to a [private endpoint](../private-link/private-link-overview.md) in your virtual network from your on-premises network, over a non-100Gbps ExpressRoute Direct circuit, the connection goes through the virtual network gateway. FastPath Connectivity to a private endpoint or Private Link service over an ExpressRoute Direct circuit is supported for limited scenarios. For more information, see [enable FastPath and Private Link for 100 Gbps ExpressRoute Direct](expressroute-howto-linkvnet-arm.md#fastpath-and-private-link-for-100-gbps-expressroute-direct).
+* Private Link: FastPath Connectivity to a private endpoint or Private Link service over an ExpressRoute Direct circuit is supported for limited scenarios. For more information, see [enable FastPath and Private Link for 100 Gbps ExpressRoute Direct](expressroute-howto-linkvnet-arm.md#fastpath-and-private-link-for-100-gbps-expressroute-direct). FastPath connectivity to a Private endpoint/Private Link service is not supported for ExpressRoute partner circuits.
 
 ### IP address limits
 
