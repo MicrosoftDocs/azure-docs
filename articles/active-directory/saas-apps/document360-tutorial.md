@@ -53,13 +53,14 @@ Alternatively, you can use the [Enterprise App Configuration Wizard](https://por
 
 Complete the following steps to enable Azure AD single sign-on in the Azure portal.
 
-1. In the Azure portal, on the **Document360** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Document360** application integration page, find the **Manage** section and select **single sign-on**.
 2. On the **Select a single sign-on method** page, select **SAML**.
 3. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-4. On the **Basic SAML Configuration** section, perform the following steps. Choose any one of the Identifiers, Reply URL, and Sign on URL based on your Data center region.
+1. On the **Basic SAML Configuration** section, perform the following steps. Choose any one of the Identifiers, Reply URL, and Sign on URL based on your Data center region.
 
     a. In the **Identifier** textbox, type/copy & paste one of the following URLs:
 

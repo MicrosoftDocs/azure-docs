@@ -65,7 +65,8 @@ In this section, you configure and test Azure AD SSO with Jamf Pro.
 
 In this section, you enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Jamf Pro** application integration page, find the **Manage** section and select **Single Sign-On**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Jamf Pro** application integration page, find the **Manage** section and select **Single Sign-On**.
 1. On the **Select a Single Sign-On Method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -105,8 +106,8 @@ In this section, you create a test user in the Azure portal called B.Simon.
 
 In this section, you grant B.Simon access to Jamf Pro.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Jamf Pro**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Jamf Pro**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog box.
 1. In the **Users and groups** dialog box, select **B.Simon** from the Users list, and then select the **Select** button at the bottom of the screen.

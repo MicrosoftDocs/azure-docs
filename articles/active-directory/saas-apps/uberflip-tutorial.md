@@ -80,7 +80,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal.
 
 To configure Azure AD single sign-on with Uberflip, take the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Uberflip** application integration page, select **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Uberflip** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on option](common/select-sso.png)
 
