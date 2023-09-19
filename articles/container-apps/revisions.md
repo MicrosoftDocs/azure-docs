@@ -14,17 +14,17 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022, build-2023
 
 Change management can be challenging as you develop containerized applications in the cloud. Ultimately, you need support to track changes, ensure uptime, and have mechanisms to handle smooth rollbacks.
 
-Change management in Azure Container Apps is powered by revisions, which are an immutable snapshot of each version of your container app.
+Change management in Azure Container Apps is powered by revisions, which are a snapshot of each version of your container app.
 
 Key characteristics of revisions include:
 
 - **Immutable**: Once established, a revision remains unchangeable.
 
-- **Versioning**: Revisions act as a record of the container app's versions, capturing its state at various stages.
+- **Versioned**: Revisions act as a record of the container app's versions, capturing its state at various stages.
 
-- **Automatic provisioning**: When you deploy a container app for the first time, an initial revision is automatically created.
+- **Automatically provisioned**: When you deploy a container app for the first time, an initial revision is automatically created.
 
-- **Influence of change**: While revisions remain static, [application-scope](#change-types) changes can affect all revisions, while [revision-scope](#change-types) changes, create a new revision.
+- **Scoped changes**: While revisions remain static, [application-scope](#change-types) changes can affect all revisions, while [revision-scope](#change-types) changes, create a new revision.
 
 - **Historical record**: Azure Container Apps allow you to retain up to 100 revisions. This history gives you a comprehensive historical record of your app's updates.
 
@@ -54,7 +54,7 @@ After a container app is successfully provisioned, a revision enters its operati
 | Activating | Zero running replicas, one replica being provisioned.  |
 | Processing | Scaling in or out is occurring. One or more running replicas, while other replicas are being provisioned. |
 | Running | One or more replicas running, with replicas either being provisioned or  deprovisioned. There are no issues to report. |
-| Degraded |  |
+| Degraded | Have at least one failed replica. |
 | Unhealthy | The revision isn't operating properly. Use the revision state details for details. Common issues include:<br>• Container crashes<br>• Resource quota exceeded<br>• Image access issues, including [*ImagePullBackOff* errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster) |
 | Failed | Critical errors caused revisions to fail. The *running state* provides details. Common causes include:<br>• Termination<br>• Exit code `137` |
 | N/A | The revision can't create replicas. The revision is either provisioning, failed to provision, or is inactive and has no resources. |
@@ -69,18 +69,20 @@ Azure Container Apps support two revision modes. Your choice of mode determines 
 
 | Revision modes | Description | Default |
 |---|---|---|
-| Single | When you create a new revision, it automatically becomes the active one, replacing the previous active revision. This mode ensures that only the latest version of your app is in operation. | Yes |
+| Single | When you create a new revision, it automatically becomes active, replacing the previous active revision. This mode ensures that only the latest version of your app is in operation. | Yes |
 | Multiple | Allows more than one revision of your app to run concurrently. This mode is useful when you want to manage multiple versions or test new features without disrupting the main app. For apps with external HTTP ingress, you can even define the [percentage of traffic each active revision receives](traffic-splitting.md). | No |
+
+In *single revision mode*, new revisions are automatically provisioned, activated, and scaled to the desired size. Once all the replicas are running as defined by the [scale rule](scale-app.md), then traffic is diverted from the old version to the new one. If an update fails, traffic remains pointed to the old revision.  
 
 ### Zero downtime deployment
 
-In single revision mode, Container Apps ensures your app doesn't experience downtime when creating a new revision. The existing active revision isn't deactivated until the new revision is ready.
+In *single revision mode*, Container Apps ensures your app doesn't experience downtime when creating a new revision. The existing active revision isn't deactivated until the new revision is ready.
 
 If ingress is enabled, the existing revision continues to receive 100% of the traffic until the new revision is ready.
 
 A new revision is considered ready when one of its replicas starts and becomes ready. A replica is ready when all of its containers start and pass their [startup and readiness probes](./health-probes.md).
 
-In multiple revision mode, you can control when revisions are activated or deactivated and which revisions receive ingress traffic. If a [traffic splitting rule](./revisions-manage.md#traffic-splitting) is configured with `latestRevision` set to `true`, traffic doesn't switch to the latest revision until it's ready.
+In *multiple revision* mode, you can control when revisions are activated or deactivated and which revisions receive ingress traffic. If a [traffic splitting rule](./revisions-manage.md#traffic-splitting) is configured with `latestRevision` set to `true`, traffic doesn't switch to the latest revision until it's ready.
 
 ## Work with multiple revisions
 
@@ -101,7 +103,7 @@ This scenario presumes the container app is in the following state:
 
 ### Activation state
 
-In the multiple revision mode, you have the ability to activate or deactivate revisions as needed. Active revisions are operational and can handle requests, while inactive ones remain dormant.
+In multiple revision mode, you can activate or deactivate revisions as needed. Active revisions are operational and can handle requests, while inactive revisions remain dormant.
 
 Container Apps doesn't charge for inactive revisions. However, there's a cap on the total number of available revisions, with the oldest ones being purged once you exceed a count of 100.
 
@@ -201,7 +203,7 @@ You can manage labels from your container app's **Revision management** page in 
 
 :::image type="content" source="media/revisions/screen-shot-revision-mgmt-labels.png" alt-text="Screenshot of Container Apps revision management.":::
 
-You can find the label URL in the revision details pane.
+The label URL is available in the revision details pane.
 
 :::image type="content" source="media/revisions/screen-shot-revision-mgmt-revision-details.png" alt-text="Screenshot of Container Apps revision details.":::
 
