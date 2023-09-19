@@ -85,9 +85,9 @@ The general layer section of the **Format** pane are common settings that apply 
 | Setting        | Description                            |
 |----------------|----------------------------------------|
 | Unselected transparency | The transparency of shapes that aren't selected, when one or more shapes are selected.  |
-| Show zeros     | Specifies if points that have a size value of zero should be shown on the map using the minimum radius. |
+| Show zeros     | (Deprecated) Specifies if points that have a size value of zero should be shown on the map using the minimum radius. |
 | Show negatives | (Deprecated) Specifies if absolute value of negative size values should be plotted.   |
-| Min data value | (Deprecated) The minimum value of the input data to scale against. Good for clipping outliers.  |
+| Min data value | The minimum value of the input data to scale against. Good for clipping outliers.  |
 | Max data value | The maximum value of the input data to scale against. Good for clipping outliers.  |
 
 > [!NOTE]
