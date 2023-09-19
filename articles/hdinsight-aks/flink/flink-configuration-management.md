@@ -12,11 +12,11 @@ HDInsight on AKS provides a set of default configurations of Apache Flink for mo
 
 1. Go to **Configuration Management** section on your Apache Flink cluster page 
 
-    :::image type="content" source="./media/flink-configuration-management/configuration-page-revised.png" alt-text="Screenshot showing Apache Flink Configuration Management page.":::
+    :::image type="content" source="./media/flink-configuration-management/configuration-page-revised.png" alt-text="Screenshot showing Apache Flink Configuration Management page." lightbox="./media/flink-configuration-management/configuration-page-revised.png":::
 
 2. Update **configurations** as required at *Cluster level*
 
-    :::image type="content" source="./media/flink-configuration-management/update-configuration-revised.png" alt-text="Screenshot showing Apache Flink Update configuration page.":::
+    :::image type="content" source="./media/flink-configuration-management/update-configuration-revised.png" alt-text="Screenshot showing Apache Flink Update configuration page." lightbox="./media/flink-configuration-management/update-configuration-revised.png":::
  
 Here the checkpoint interval is changed at *Cluster level*.
 
