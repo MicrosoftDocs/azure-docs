@@ -1,6 +1,6 @@
 ---
 title: Test environments, throttling, and service limits
-description: Learn about the throttling and service limits to consider while deploying a Microsoft Entra ID test environment and testing an app integrated with the Microsoft identity platform.
+description: Learn about the throttling and service limits to consider while deploying a Microsoft Entra test environment and testing an app integrated with the Microsoft identity platform.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -50,7 +50,7 @@ The following global Microsoft Graph throttling limits apply:
 | Request type | Per app across all tenants |
 | Any | 2000 requests per second| 
 
-The following table lists Microsoft Entra ID throttling limits to consider when running tests. Throttling is based on a token bucket algorithm, which works by adding individual costs of requests. The sum of request costs is then compared against pre-determined limits. Only the requests exceeding the limits will be throttled. For more detailed information on request costs, see [Identity and access service limits](/graph/throttling#pattern). Other service-specific limits on Microsoft Graph can be found [here](/graph/throttling#service-specific-limits).
+The following table lists Microsoft Entra throttling limits to consider when running tests. Throttling is based on a token bucket algorithm, which works by adding individual costs of requests. The sum of request costs is then compared against pre-determined limits. Only the requests exceeding the limits will be throttled. For more detailed information on request costs, see [Identity and access service limits](/graph/throttling#pattern). Other service-specific limits on Microsoft Graph can be found [here](/graph/throttling#service-specific-limits).
 
 | Limit type | Resource unit quota | Write quota |
 |-------------------|----------------|----------------|

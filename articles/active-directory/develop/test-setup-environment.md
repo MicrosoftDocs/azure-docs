@@ -14,9 +14,9 @@ ms.reviewer: ryanwi, arcrowe
 # Customer intent: As a developer, I want to set up a test environment so that I can test my app integrated with Microsoft identity platform.
 ---
 
-# Set up your application's Microsoft Entra ID test environment
+# Set up your application's Microsoft Entra test environment
 
-To help move your app through the development, test, and production lifecycle, set up a Microsoft Entra ID test environment. You can use your Microsoft Entra ID test environment during the early stages of app development and long-term as a permanent test environment.
+To help move your app through the development, test, and production lifecycle, set up a Microsoft Entra test environment. You can use your Microsoft Entra test environment during the early stages of app development and long-term as a permanent test environment.
 
 <a name='dedicated-test-tenant-or-production-azure-ad-tenant'></a>
 
@@ -99,7 +99,7 @@ Replicating Conditional Access policies ensures you don't encounter unexpected b
 
 Viewing your production tenant Conditional Access policies may need to be performed by a company administrator.
 
-1. Go to **Microsoft Entra ID** > **Enterprise applications** > **Conditional Access**.
+1. Go to **Identity** > **Applications** > **Enterprise applications** > **Conditional Access**.
 1. View the list of policies in your tenant. Click the first one.
 1. Navigate to **Cloud apps or actions**.
 1. If the policy only applies to a select group of apps, then move on to the next policy. If not, then it will likely apply to your app as well when you move to production. You should copy the policy over to your test tenant.

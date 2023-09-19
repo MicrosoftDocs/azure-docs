@@ -195,7 +195,7 @@ You've completed creation of the application and are now ready to test the app's
 
 4. Once you enter your credentials, you should see a consent screen asking you to approve the permissions for the app.
 
-:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/consent-screen.png" alt-text="Microsoft Entra ID consent screen displaying":::
+:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/consent-screen.png" alt-text="Microsoft Entra consent screen displaying":::
 
 5. Once you consent, you should be redirected back to application home page. 
 
