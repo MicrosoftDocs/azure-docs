@@ -5,7 +5,7 @@ author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 09/07/2023
+ms.date: 09/19/2023
 ---
 
 # Use Image Integrity to validate signed images before deploying them to your Azure Kubernetes Service (AKS) clusters (Preview)
@@ -26,12 +26,16 @@ In these application environments, using signed container images helps verify th
 * `aks-preview` CLI extension version 0.5.96 or later.
 * The Azure Policy add-on for AKS. If you don't have this add-on installed, see [Install Azure Policy add-on for AKS](../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks).
 * An AKS cluster enabled with OIDC Issuer. To create a new cluster or update an existing cluster, see [Configure an AKS cluster with OIDC Issuer](/cluster-configuration.md#oidc-issuer).
-* The `EnableImageIntegrityPreview` feature flag registered on your Azure subscription. Register the feature flag using the following commands:
+* The `EnableImageIntegrityPreview` and `AKS-AzurePolicyExternalData` feature flags registered on your Azure subscription. Register the feature flags using the following commands:
   
-    1. Register the `EnableImageIntegrityPreview` feature flag using the [`az feature register`][az-feature-register] command.
+    1. Register the `EnableImageIntegrityPreview` and `AKS-AzurePolicyExternalData` feature flags using the [`az feature register`][az-feature-register] command.
 
         ```azurecli-interactive
+        # Register the EnableImageIntegrityPreview feature flag
         az feature register --namespace "Microsoft.ContainerService" --name "EnableImageIntegrityPreview"
+
+        # Register the AKS-AzurePolicyExternalData feature flag
+        az feature register --namespace "Microsoft.ContainerService" --name "AKS-AzurePolicyExternalData"
         ```
 
         It may take a few minutes for the status to show as *Registered*.
@@ -39,7 +43,11 @@ In these application environments, using signed container images helps verify th
     2. Verify the registration status using the [`az feature show`][az-feature-show] command.
 
         ```azurecli-interactive
+        # Verify the EnableImageIntegrityPreview feature flag registration status
         az feature show --namespace "Microsoft.ContainerService" --name "EnableImageIntegrityPreview"
+
+        # Verify the AKS-AzurePolicyExternalData feature flag registration status
+        az feature show --namespace "Microsoft.ContainerService" --name "AKS-AzurePolicyExternalData"
         ```
 
     3. Once the status shows *Registered*, refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`][az-provider-register] command.
@@ -77,10 +85,21 @@ Enabling Image Integrity on your cluster also deploys a `Ratify` pod. This `Rati
 * Create a policy assignment with the AKS policy initiative *`[Preview]: Use Image Integrity to ensure only trusted images are deployed`* using the [`az policy assignment create`][az-policy-assignment-create] command.
 
     ```azurecli-interactive
-    az policy assignment create --name 'deploy-trustedimages' --display-name 'Audit deployment with unsigned container images' --scope 'myResourceGroup' --policy '5dc99dae-cfb2-42cc-8762-9aae02b74e27'
+    export SCOPE="/subscriptions/${SUBSCRIPTION}/resourceGroups/${RESOURCE_GROUP}"
+    export LOCATION=$(az group show -n ${RESOURCE_GROUP} --query location -o tsv)
+
+    az policy assignment create --name 'deploy-trustedimages' --policy-set-definition 'af28bf8b-c669-4dd3-9137-1e68fdc61bd6' --display-name 'Audit deployment with unsigned container images' --scope ${SCOPE} --mi-system-assigned --role Contributor --identity-scope ${SCOPE} --location ${LOCATION}
     ```
 
     The `Ratify` pod deploys after you enable the feature.
+
+> [!NOTE]
+> The policy deploys the Image Integrity feature on your cluster when it detects any update operation on the cluster. If you want to enable the feature immediately, you need to create a policy remediation using the [`az policy remediation create`][az-policy-remediation-create] command.
+>
+> ```azurecli-interactive
+> assignment_id=$(az policy assignment show -n 'deploy-trustedimages' --scope ${SCOPE} --query id -o tsv)
+> az policy remediation create  -a "$assignment_id" --definition-reference-id deployAKSImageIntegrity -n remediation -g ${RESOURCE_GROUP}
+> ```
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -143,7 +162,7 @@ In this article, we use an example CRD to set up verification configurations For
     metadata:
       name: verifier-notary-inline
     spec:
-      name: notaryv2
+      name: notation
       artifactTypes: application/vnd.cncf.notary.signature
       parameters:
         verificationCertStores:  # certificates for validating signatures
@@ -227,6 +246,7 @@ In this article, you learned how to use Image Integrity to validate signed image
 [azure-cli-install]: /cli/azure/install-azure-cli
 [azure-powershell-install]: /powershell/azure/install-az-ps
 [az-policy-assignment-delete]: /cli/azure/policy/assignment#az_policy_assignment_delete
+[az-policy-remediation-create]: /cli/azure/policy/remediation#az_policy_remediation_create
 
 <!--- External links ---->
 [ratify]: https://github.com/deislabs/ratify
