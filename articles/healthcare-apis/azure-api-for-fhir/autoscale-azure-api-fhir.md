@@ -12,7 +12,7 @@ ms.author: kesheth
 
 # Autoscale for Azure API for FHIR 
 
-[!INCLUDE [<Azure API for FHIR retirement notice>](</articles/healthcare-apis/includes/healthcare-apis-azure-api-fhir-retirement>)]
+[!INCLUDE [](<(../includes/healthcare-apis-azure-api-fhir-retirement.md)>)]
 
 Azure API for FHIR, as a managed service, allows customers to persist with Fast Healthcare Interoperability Resources (FHIR&#174;) compliant healthcare data and exchange it securely through the service API. To accommodate different transaction workloads, customers can use manual scale or autoscale.
 
