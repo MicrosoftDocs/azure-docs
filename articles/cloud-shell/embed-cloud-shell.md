@@ -30,13 +30,13 @@ To integrate Cloud Shell's launch button into markdown files by copying the foll
 Regular sized button
 
 ```markdown
-[![Launch Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/media/embed-cloud-shell/launch-cloud-shell-1.png)](https://shell.azure.com)
+[![Launch Cloud Shell](/azure/cloud-shell/media/embed-cloud-shell/launch-cloud-shell-1.png)](https://shell.azure.com)
 ```
 
 Large sized button
 
 ```markdown
-[![Launch Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/media/embed-cloud-shell/launch-cloud-shell-2.png)](https://shell.azure.com)
+[![Launch Cloud Shell](/azure/cloud-shell/media/embed-cloud-shell/launch-cloud-shell-2.png)](https://shell.azure.com)
 ```
 
 The location of these image files is subject to change. We recommend that you download the files for

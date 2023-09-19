@@ -8,7 +8,7 @@ metadata:
   manager: nitinme
   ms.service: cognitive-services
   ms.topic: faq
-  ms.date: 11/07/2022
+  ms.date: 09/15/2023
   ms.author: aahi
 title: FAQ for Azure AI services disconnected containers
 summary: |
@@ -25,9 +25,9 @@ sections:
             * Neural Text to speech
           *	Text Translation (Standard)
           *	Azure AI Language
-            *	Sentiment Analysis
-            *	Key Phrase Extraction
-            *	Language Detection
+              *	Sentiment Analysis
+              *	Key Phrase Extraction
+              *	Language Detection
           *	Azure AI Vision - Read
           *	Document Intelligence
 

@@ -97,7 +97,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **ChaosStudio** | Azure Chaos Studio. <br/><br/>**Note**: If you have enabled Application Insights integration on the Chaos Agent, the AzureMonitor tag is also required. | Both | No | Yes |
 | **CognitiveServicesFrontend** | The address ranges for traffic for Azure AI services frontend portals. | Both | No | Yes |
 | **CognitiveServicesManagement** | The address ranges for traffic for Azure AI services. | Both | No | Yes |
-| **DataFactory**  | Azure Data Factory | Both | No | Yes |
+| **DataFactory**  | Azure Data Factory | Both | Yes | Yes |
 | **DataFactoryManagement** | Management traffic for Azure Data Factory. | Outbound | No | Yes |
 | **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | Both | Yes | Yes |
 | **Dynamics365BusinessCentral** | This tag or the IP addresses covered by this tag can be used to restrict access from/to the Dynamics 365 Business Central Services. | Both | No | Yes |

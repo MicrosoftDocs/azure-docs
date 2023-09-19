@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Connected Machine agent, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 06/06/2023
+ms.date: 09/11/2023
 ms.topic: conceptual
 ---
 
@@ -193,7 +193,10 @@ Metadata information about a connected machine is collected after the Connected 
 * Cluster resource ID (for Azure Stack HCI nodes)
 * Hardware manufacturer
 * Hardware model
-* CPU socket, physical core and logical core counts
+* CPU family, socket, physical core and logical core counts
+* Total physical memory
+* Serial number
+* SMBIOS asset tag
 * Cloud provider
 * Amazon Web Services (AWS) metadata, when running in AWS:
   * Account ID

@@ -146,7 +146,7 @@ In some organizations, guests might not be aware of their group memberships.
  
 4. After the reviewers give input, stop the access review. For more information, see [Complete an access review of groups or applications](complete-access-review.md).
  
-5. Remove guest access for guests who were denied, didn't complete the review, or didn't previously accept their invitation. If some of the guests are contacts who were selected to participate in the review or they didn't previously accept an invitation, you can disable their accounts by using the Azure portal or PowerShell. If the guest no longer needs access and isn't a contact, you can remove their user object from your directory by using the Azure portal or PowerShell to delete the guest user object.
+5. Remove guest access for guests who were denied, didn't complete the review, or didn't previously accept their invitation. If some of the guests are contacts who were selected to participate in the review or they didn't previously accept an invitation, you can disable their accounts by using the Microsoft Entra admin center or PowerShell. If the guest no longer needs access and isn't a contact, you can remove their user object from your directory by using the Microsoft Entra admin center or PowerShell to delete the guest user object.
 
  
 ## Next steps

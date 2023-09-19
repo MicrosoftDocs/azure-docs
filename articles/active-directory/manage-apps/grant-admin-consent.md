@@ -59,7 +59,7 @@ To grant tenant-wide admin consent to an app listed in **Enterprise applications
 
 ## Grant admin consent in App registrations
 
-For applications your organization has developed, or which are registered directly in your Azure AD tenant, you can also grant tenant-wide admin consent from **App registrations** in the Azure portal.
+For applications your organization has developed, or which are registered directly in your Azure AD tenant, you can also grant tenant-wide admin consent from **App registrations** in the Microsoft Entra admin centerMicrosoft Entra admin center.
 
 To grant tenant-wide admin consent from **App registrations**:
 
@@ -70,7 +70,7 @@ To grant tenant-wide admin consent from **App registrations**:
 
 ## Construct the URL for granting tenant-wide admin consent
 
-When granting tenant-wide admin consent using either method described above, a window opens from the Azure portal to prompt for tenant-wide admin consent. If you know the client ID (also known as the application ID) of the application, you can build the same URL to grant tenant-wide admin consent.
+When granting tenant-wide admin consent using either method described above, a window opens from the Microsoft Entra admin center to prompt for tenant-wide admin consent. If you know the client ID (also known as the application ID) of the application, you can build the same URL to grant tenant-wide admin consent.
 
 The tenant-wide admin consent URL follows the following format:
 
@@ -128,10 +128,10 @@ New-MgOauth2PermissionGrant -BodyParameter $params |
   Format-List Id, ClientId, ConsentType, ResourceId, Scope
 ```
      
-1. Confirm that you've granted tenant wide admin consent by running the following request.   
+4. Confirm that you've granted tenant wide admin consent by running the following request.   
     
   ```powershell
-   Get-MgOauth2PermissionGrant-Filter "clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' consentType eq 'AllPrincipals'" 
+   Get-MgOauth2PermissionGrant -Filter "clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' consentType eq 'AllPrincipals'" 
   ```      
 ## Grant admin consent for application permissions
 

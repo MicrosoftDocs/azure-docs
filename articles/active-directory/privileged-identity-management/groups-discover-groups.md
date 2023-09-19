@@ -3,26 +3,28 @@ title: Bring groups into Privileged Identity Management
 description: Learn how to bring groups into Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 6/7/2023
-ms.author: billmath
+ms.date: 09/12/2023
+ms.author: barclayn
 ms.reviewer: ilyal
 ms.collection: M365-identity-device-management
 ---
 
 # Bring groups into Privileged Identity Management
 
-In Azure Active Directory (Azure AD), part of Microsoft Entra, you can use Privileged Identity Management (PIM) to manage just-in-time membership in the group or just-in-time ownership of the group. Groups can be used to provide access to Azure AD Roles, Azure roles, and various other scenarios. To manage an Azure AD group in PIM, you must bring it under management in PIM.
+In Entra ID (Azure AD), you can use Privileged Identity Management (PIM) to manage just-in-time membership in the group or just-in-time ownership of the group. Groups can be used to provide access to Azure AD Roles, Azure roles, and various other scenarios. To manage an Azure AD group in PIM, you must bring it under management in PIM.
 
 ## Identify groups to manage
 
-Before you will start, you need an Azure AD Security group or Microsoft 365 group. To learn more about group management in Azure AD, see [Manage Azure Active Directory groups and group membership](../fundamentals/how-to-manage-groups.md).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+Before starting, you need an Entra ID Security group or Microsoft 365 group. To learn more about group management in Azure AD, see [Manage Azure Active Directory groups and group membership](../fundamentals/how-to-manage-groups.md).
 
 Dynamic groups and groups synchronized from on-premises environment cannot be managed in PIM for Groups.
 
@@ -32,7 +34,7 @@ You need appropriate permissions to bring groups in Azure AD PIM. For role-assig
 > Other roles with permissions to manage groups (such as Exchange Administrators for non-role-assignable M365 groups) and administrators with assignments scoped at administrative unit level can manage groups through Groups API/UX and override changes made in Azure AD PIM.
 
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
 1. Browse to **Identity governance** > **Privileged Identity Management** > **Groups**.
 
