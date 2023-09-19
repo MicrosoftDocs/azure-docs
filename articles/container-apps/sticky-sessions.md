@@ -19,7 +19,7 @@ Session stickiness is enforced using HTTP cookies. This feature is available in 
 If your app doesn't require session affinity, we recommend that you don't enable it. With session affinity disabled, ingress distributes requests more evenly across replicas improving the performance of your app.
 
 > [!NOTE]
-> Session affinity is only supported when your app is in [single revision mode](revisions.md#single-revision-mode) and the ingress type is HTTP.
+> Session affinity is only supported when your app is in [single revision mode](revisions.md#revision-modes) and the ingress type is HTTP.
 > 
 
 ## Configure session affinity

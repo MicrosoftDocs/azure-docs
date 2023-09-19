@@ -17,7 +17,7 @@ zone_pivot_groups: azure-cli-bicep
 
 Once green environment is tested, the live traffic is directed to it, and the blue environment is used to deploy a new application version during next deployment cycle.
 
-You can enable blue-green deployment in Azure Container Apps by combining [container apps revisions](revisions.md), [traffic weights](traffic-splitting.md), and [revision labels](revisions.md#revision-labels).
+You can enable blue-green deployment in Azure Container Apps by combining [container apps revisions](revisions.md), [traffic weights](traffic-splitting.md), and [revision labels](revisions.md#labels).
 
 :::image type="content" source="media/blue-green-deployment/azure-container-apps-blue-green-deployment.png" alt-text="Screenshot of Azure Container Apps: Blue/Green deployment.":::
 

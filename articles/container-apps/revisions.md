@@ -105,6 +105,42 @@ In the multiple revision mode, you have the ability to activate or deactivate re
 
 Container Apps doesn't charge for inactive revisions. However, there's a cap on the total number of available revisions, with the oldest ones being purged once you exceed a count of 100.
 
+## Change types
+
+Changes to a container app fall under two categories: *revision-scope* or *application-scope* changes. *Revision-scope* changes trigger a new revision when you deploy your app, while *application-scope* changes don't.
+
+### Revision-scope changes
+
+A new revision is created when a container app is updated with *revision-scope* changes.  The changes are limited to the revision in which they're deployed, and don't affect other revisions.
+
+A *revision-scope* change is any change to the parameters in the [`properties.template`](azure-resource-manager-api-spec.md#propertiestemplate) section of the container app resource template.
+
+These parameters include:
+
+- [Revision suffix](#revision-name-suffix)
+- Container configuration and images
+- Scale rules for the container application
+
+### Application-scope changes
+
+When you deploy a container app with *application-scope* changes:
+
+- The changes are globally applied to all revisions.  
+- A new revision isn't created.
+
+*Application-scope* changes are defined as any change to the parameters in the [`properties.configuration`](azure-resource-manager-api-spec.md#propertiesconfiguration) section of the container app resource template.
+
+These parameters include:
+
+- [Secret values](manage-secrets.md) (revisions must be restarted before a container recognizes new secret values)
+- [Revision mode](#revision-modes)
+- Ingress configuration including:
+  - Turning [ingress](ingress-how-to.md) on or off
+  - [Traffic splitting rules](traffic-splitting.md)
+  - Labels
+- Credentials for private container registries
+- Dapr settings
+
 ## Customize revisions
 
 You can customize the revision name and labels to better align with your naming conventions or versioning strategy.
