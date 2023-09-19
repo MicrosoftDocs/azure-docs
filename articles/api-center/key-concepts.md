@@ -25,17 +25,9 @@ The following diagram shows the main entities in API Center and how they relate 
 
 ### Highlighted relationships
 
-1. A **workspace** is a logical container to inventory **APIs** and their **environments**.
 1. Each **API** can have multiple **versions** and multiple real-world **deployments**.
 1. Each API **version** can have multiple API **definitions**.
 1. Each API **deployment** is associated with a specific **environment** and a specific API **definition** file.
-
-## Workspace
-
-To enable multiple teams to work independently in a single API Center instance, API Center provides workspaces. Each workspace can have its own set of APIs and environments. Similar to API Management [workspaces](../api-management/workspaces-overview.md), workspaces in API Center allow separate teams to access and manage a part of the API inventory. Access is controlled through Azure role-based access control (RBAC).
-
-> [!NOTE]
-> In preview, API Center provides only a single default workspace.
 
 ## API
 

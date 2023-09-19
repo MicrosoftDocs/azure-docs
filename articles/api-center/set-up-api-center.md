@@ -143,7 +143,7 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
     |**Version identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the version.|
     |**Version lifecycle**  | Make a selection from the dropdown, for example, **Testing** or **Production**. | Lifecycle stage of the API version. |
     |**External documentation**     | Optionally add one or more links to external documentation.       | Name, description, and URL of documentation for the API.      |  
-    |**Contact**         |  Optionally add information for one or more contacts.       | Name, email, and URL of a contact for the API.      |  
+    |**Contact information**         |  Optionally add information for one or more contacts.       | Name, email, and URL of a contact for the API.      |  
     | **Line of business** | If you added this custom property, make a selection from the dropdown, such as **Marketing**. | Custom metadata property that identifies the business unit that owns the API. |
     | **Public-facing**  | If you added this custom property, select the checkbox.    |  Custom metadata property that identifies whether the API is public-facing or internal only.     |
 
@@ -154,7 +154,6 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
 
 The APIs appear on the **APIs** page in the portal. When you've added a large number of APIs to the API center, use the search box and filters on this page to find the APIs you want.
 
-<!-- Update screenshot -->
 :::image type="content" source="media/set-up-api-center/apis-page.png" alt-text="Screenshot of the APIs page in the portal.":::
 
 > [!TIP]
@@ -197,7 +196,7 @@ Here you add a version to one of your APIs:
         |**Identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the definition.|
         | **Description** | Optionally enter a description. | Description of the API definition. |
         | **Specification name** | For the Demo Conference API, select **OpenAPI**. | Specification format for the API.|
-        | **Version** | Enter a version identifier of your choice, such as *2.0*. | Specification version. |
+        | **Specification version** | Enter a version identifier of your choice, such as *2.0*. | Specification version. |
         |**Document**        | Browse to a definition file for the Demo Conference API.      |  API definition file.     |
 
         :::image type="content" source="media/set-up-api-center/add-definition.png" alt-text="Screenshot of adding an API definition in the portal." lightbox="media/set-up-api-center/add-definition.png":::
@@ -255,7 +254,7 @@ Here you add a deployment by associating one of your APIs with the environment y
     |**Identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the deployment.|
     | **Description** | Optionally enter a description. | Description of the deployment. |
     | **Environment** | Make a selection from the dropdown, such as *My Testing*, or optionally select **Create new**.| New or existing environment where the API version is deployed. |
-    | **Definition file** | Select or upload an API definition file for the Demo Conference API. | API definition file. |
+    | **Definition** | Select or add an API definition file for the Demo Conference API. | API definition file. |
     | **Runtime URL** | Enter a base URL such as `https://api.contoso.com/conference`. | Base runtime URL for the API in the environment.  |
     | **Line of business** | If you added this custom property, optionally make a selection from the dropdown, such as **IT**. | Custom metadata property that identifies the business unit that manages APIs in the environment. |
 
