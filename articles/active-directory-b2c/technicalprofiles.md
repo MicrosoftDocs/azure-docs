@@ -531,7 +531,7 @@ A technical profile can include a single technical profile. There's no limit on 
 </TechnicalProfile>
 ```
 
-Both **Microsoft Entra ID-UserReadUsingAlternativeSecurityId-NoError** and **Microsoft Entra ID-UserReadUsingAlternativeSecurityId** don't specify the required **Protocol** element because it's specified in the **Microsoft Entra ID-Common** technical profile.
+Both **AAD-UserReadUsingAlternativeSecurityId-NoError** and **AAD-UserReadUsingAlternativeSecurityId** don't specify the required **Protocol** element because it's specified in the **AAD-Common** technical profile.
 
 ```xml
 <TechnicalProfile Id="AAD-Common">
