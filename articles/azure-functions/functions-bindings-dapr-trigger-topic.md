@@ -317,9 +317,6 @@ You also need to set up a Dapr pub/sub component. You can learn more about which
 
 ::: zone pivot="programming-language-javascript, programming-language-powershell"
 
-See the [Example section](#example) for complete examples.
-
-## Usage
 To use a Dapr Topic trigger, define your `daprTopicTrigger` binding in a functions.json file.  
 
 You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.

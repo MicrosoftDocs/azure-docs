@@ -331,11 +331,16 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-csharp, programming-language-java, programming-language-javascript, programming-language-powershell, programming-language-python"
 
 See the [Example section](#example) for complete examples.
 
 ## Usage
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
 To use the Dapr service invocation output binding, run `DaprInvoke`. 
 
 You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
@@ -344,25 +349,51 @@ You can learn more about [how to use Dapr service invocation in the official Dap
 
 ::: zone pivot="programming-language-java"
 
-See the [Example section](#example) for complete examples.
-
-## Usage
 To use the Dapr service invocation output binding, run `DaprInvokeOutput`. 
 
 You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
+::: zone pivot="programming-language-javascript, programming-language-powershell"
 
-See the [Example section](#example) for complete examples.
-
-## Usage
 To use a Dapr invoke output binding, define your `daprInvoke` binding in a functions.json file.  
 
 You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
 
 ::: zone-end
+
+::: zone pivot="programming-language-python"
+
+# [Python v2](#tab/v2)
+
+To use the `daprInvoke` in Python v2, set up your project with the correct dependencies.
+
+1. In your `requirements.text` file, add the following line:
+
+   ```txt
+   azure-functions==1.18.0b1
+   ```
+
+1. Modify your `local.setting.json` file with the following configuration:
+
+   ```json
+   PYTHON_ISOLATE_WORKER_DEPENDENCIES:1
+   ```
+
+You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
+
+
+# [Python v1](#tab/v1)
+
+To use a Dapr invoke output binding, define your `daprInvoke` binding in a functions.json file.  
+
+You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
+
+---
+
+::: zone-end
+
 
 ## Next steps
 
