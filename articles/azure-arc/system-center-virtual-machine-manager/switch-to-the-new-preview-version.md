@@ -24,7 +24,7 @@ On September 22, 2023, we rolled out major changes to **Azure Arc-enabled System
 If you're an existing **Azure Arc-enabled SCVMM** customer, for VMs that are Azure-enabled, follow these steps to switch to the new preview version:
 
 >[!Note]
-> If you had enabled guest management on any of the VMs, [disconnect](/azure/azure-arc/vmware-vsphere/remove-vcenter-from-arc-vmware#step-2-disconnect-the-agent-from-azure-arc) and [uninstall agents](/azure/azure-arc/vmware-vsphere/remove-vcenter-from-arc-vmware#step-3-uninstall-the-agent).
+> If you had enabled guest management on any of the VMs, [disconnect](/azure/azure-arc/servers/manage-agent?tabs=windows#step-2-disconnect-the-server-from-azure-arc) and [uninstall agents](/azure/azure-arc/servers/manage-agent?tabs=windows#step-3a-uninstall-the-windows-agent).
 
 1.	From your browser, go to the SCVMM management servers blade on [Azure Arc Center](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/overview) and select the SCVMM management server resource.
 2.	Select all the virtual machines that are Azure enabled with the older preview version.
