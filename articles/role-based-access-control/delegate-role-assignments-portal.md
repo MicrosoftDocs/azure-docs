@@ -17,12 +17,12 @@ ms.author: rolyon
 # Delegate the Azure role assignment task to others with conditions (preview)
 
 > [!IMPORTANT]
-> Delegate Azure role assignments with conditions is currently in PREVIEW.
+> Delegating Azure role assignments with conditions is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-As an administrator, you might get several requests to grant access that you want to delegate to someone else. You could assign a user the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles, but these are highly privileged roles. This article describes a more secure way to delegate the role assignment task to other users in your organization, but add restrictions for those role assignments. For example, you can constrain the roles that can be assigned or constrain the principals the roles can be assigned to. This delegation with conditions is sometimes referred to as [constrained delegation](delegate-role-assignments-overview.md).
+As an administrator, you might get several requests to grant access to Azure resources that you want to delegate to someone else. You could assign a user the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles, but these are highly privileged roles. This article describes a more secure way to [delegate the role assignment task](delegate-role-assignments-overview.md) to other users in your organization, but add restrictions for those role assignments. For example, you can constrain the roles that can be assigned or constrain the principals the roles can be assigned to.
 
-The following diagram shows how a delegate can only assign the Backup Contributor or Backup Reader roles to only the Marketing or Sales groups.
+The following diagram shows how a delegate with conditions can only assign the Backup Contributor or Backup Reader roles to only the Marketing or Sales groups.
 
 :::image type="content" source="./media/delegate-role-assignments-portal/delegate-role-assignments.png" alt-text="Diagram that shows an administrator delegating role assignments with conditions." lightbox="./media/delegate-role-assignments-portal/delegate-role-assignments.png":::
 
