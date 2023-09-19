@@ -38,7 +38,7 @@ To display a specific list of recommendations, click a category tile. The follow
 
 The tiles on the Advisor **Score** page show the different categories of recommendations per subscription:  
 
-* To get recommendations for a specific category, click one of the tiles: **Cost**, **Security**, **Reliability**, **Operational Excellence**, or **Performance**. To view a list of all recommendations for all categories, click the **All recommendations** tile. By default, the **Cost** tile is selected. 
+* To get recommendations for a specific category, click one of the tiles. To open a list of all recommendations for all categories, click the **All recommendations** tile. By default, the **Cost** tile is selected. 
 
 * You can filter the display using the buttons at the top of the page:
    * **Subscription**: Choose **All** for Advisor recommendations on all subscriptions. Alternatively, select specific subscriptions. Apply changes by clicking outside of the button.
