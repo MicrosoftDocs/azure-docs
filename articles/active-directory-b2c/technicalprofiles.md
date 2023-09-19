@@ -507,7 +507,7 @@ A technical profile can include a single technical profile. There's no limit on 
 </TechnicalProfile>
 ```
 
-**Microsoft Entra ID-UserReadUsingAlternativeSecurityId** includes the `AAD-Common` technical profile.
+**AAD-UserReadUsingAlternativeSecurityId** includes the `AAD-Common` technical profile.
 
 ```xml
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
