@@ -86,7 +86,7 @@ Audit logs are published to the same pipeline as other activities for Microsoft 
 
 ### Enable reporting API access
 
-To allow script- or application-based access to the Microsoft Entra ID reporting API, you need an application registered in your Azure AD B2C tenant with the following API permissions. You can enable these permissions on an existing application registration within your B2C tenant, or create a new one specifically for use with audit log automation.
+To allow script- or application-based access to the Microsoft Entra reporting API, you need an application registered in your Azure AD B2C tenant with the following API permissions. You can enable these permissions on an existing application registration within your B2C tenant, or create a new one specifically for use with audit log automation.
 
 * Microsoft Graph > Application permissions > AuditLog > AuditLog.Read.All
 
