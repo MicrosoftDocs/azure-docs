@@ -16,19 +16,21 @@ This article describes how to enable and configure OpenTelemetry-based data coll
 
 OpenTelemetry offerings are available for .NET, Node.js, Python and Java applications.
 
-|Language |Release Status                          |
-|---------|----------------------------------------|
-|Java     | :white_check_mark: <sup>[1](#GA)</sup> |
-|.NET     | :warning: <sup>[2](#PREVIEW)</sup>     |
-|Node.js  | :warning: <sup>[2](#PREVIEW)</sup>     |
-|Python   | :warning: <sup>[2](#PREVIEW)</sup>     |
+|Language        |Release Status                          |
+|----------------|----------------------------------------|
+|ASP.NET Core    | :warning: <sup>[2](#PREVIEW)</sup>     |
+|.NET (Exporter) | :white_check_mark: <sup>[1](#GA)</sup> |
+|Java            | :white_check_mark: <sup>[1](#GA)</sup> |
+|Node.js         | :white_check_mark: <sup>[1](#GA)</sup> |
+|Python          | :white_check_mark: <sup>[1](#GA)</sup> |
 
 **Footnotes**
 - <a name="GA"> :white_check_mark: 1</a>: OpenTelemetry is available to all customers with formal support.
 - <a name="PREVIEW"> :warning: 2</a>: OpenTelemetry is available as a public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-> [!NOTE] 
+> [!NOTE]
 > For a feature-by-feature release status, see the [FAQ](../faq.yml#what-s-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro-).
+> The ASP.NET Core Distro is undergoing additional stability testing prior to GA. You can use the .NET Exporter if you need a fully supported OpenTelemetry solution for your ASP.NET Core application.
 
 ## Get started
 
@@ -65,7 +67,8 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ---
 
-[!TIP] We don't recommend using the OTel Community SDK/API with the Azure Monitor OTel Distro since it automatically loads them as dependencies.
+> [!TIP]
+>  We don't recommend using the OTel Community SDK/API with the Azure Monitor OTel Distro since it automatically loads them as dependencies.
 
 ### Install the client library
 
