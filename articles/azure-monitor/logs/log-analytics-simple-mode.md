@@ -78,6 +78,19 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 | **Search job mode** | [Run a search job](../logs/search-jobs.md). |
 | **Switch back to classic Logs** | Switch back to the classic Log Analytics user interface. |
 
+## Start an inquiry in simple mode
+
+To begin an inquiry in simple mode: 
+
+- Select a specific table in your Log Analytics workspace.
+- Use an existing query as a starting point:
+    - Shared or [saved query](../logs/save-query.md).
+    - Select **Queries** from the left pane and select an example query.
+    
+        :::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-example-query.png" alt-text="Screenshot that an example query in Log Analytics.":::
+
+
+
 ## Query in simple mode 
 
 **Select a table to view log data**
