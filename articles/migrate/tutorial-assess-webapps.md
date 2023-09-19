@@ -37,17 +37,17 @@ To run an assessment, follow these steps:
 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 2. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Web apps on Azure**.
 
-   :::image type="content" source="./media/tutorial-assess-webapps/hub-assess-web-apps.png" alt-text="Screenshot of Overview page for Azure Migrate.":::
+   :::image type="content" source="./media/tutorial-assess-webapps/assess-web-apps.png" alt-text="Screenshot of Overview page for Azure Migrate.":::
 
 3. In **Create assessment**, the assessment type is pre-selected as **Web apps on Azure** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**. Select the **Scenario** as **Web apps to App Service**. 
 
-   :::image type="content" source="./media/tutorial-assess-webapps/create-scenario.png" alt-text="Screenshot of Create assessment page for Azure Migrate.":::
+   :::image type="content" source="./media/tutorial-assess-webapps/create-assess-scenario.png" alt-text="Screenshot of Create assessment page for Azure Migrate.":::
 
 4. Select **Edit** to review the assessment properties.
 
    The following are included in Azure App Service assessment properties:
 
-   :::image type="content" source="./media/tutorial-assess-webapps/create-settings.png" alt-text="Screenshot of assessment settings for Azure Migrate.":::
+   :::image type="content" source="./media/tutorial-assess-webapps/settings.png" alt-text="Screenshot of assessment settings for Azure Migrate.":::
 
     **Property** | **Details**
     --- | ---
@@ -72,11 +72,11 @@ To run an assessment, follow these steps:
 1. In **Select or create a group**, select **Create New** and specify a group name. You can also use an existing group.
 1. Select the appliance and select the servers that you want to add to the group. Select **Next**.
 
-   :::image type="content" source="./media/tutorial-assess-webapps/create-server-selection.png" alt-text="Screenshot of selected servers.":::
+   :::image type="content" source="./media/tutorial-assess-webapps/server-selection.png" alt-text="Screenshot of selected servers.":::
 
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 
-   :::image type="content" source="./media/tutorial-assess-webapps/create-review.png" alt-text="Screenshot of create assessment.":::
+   :::image type="content" source="./media/tutorial-assess-webapps/create-app-review.png" alt-text="Screenshot of create assessment.":::
 
 1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**. Refresh the tile data by selecting the **Refresh** option on top of the tile. Wait for the data to refresh.
 1. Select the number next to **Web apps on Azure** in the **Assessment** section. 
@@ -90,7 +90,7 @@ To view an assessment, follow these steps:
 2. Select the assessment name, which you wish to view. 
 
    
-   :::image type="content" source="./media/tutorial-assess-webapps/overview-report.png" alt-text="Screenshot of Overview screen.":::
+   :::image type="content" source="./media/tutorial-assess-webapps/overview.png" alt-text="Screenshot of Overview screen.":::
 
    The **Overview** screen contains 3 sections: Essentials, Assessed entities, and Migration scenario. 
 
@@ -116,7 +116,7 @@ Review the Readiness for the web apps by following these steps:
 1. Select **View more details** to view more details about each app and instances. Review the Azure App service Code and Azure App service Container readiness column in the table for the assessed web apps:  
 
 
-   :::image type="content" source="./media/tutorial-assess-webapps/code-readiness-list.png" alt-text="Screenshot of Azure App Service Code readiness.":::
+   :::image type="content" source="./media/tutorial-assess-webapps/code-readiness.png" alt-text="Screenshot of Azure App Service Code readiness.":::
 
     1. If there are no compatibility issues found, the readiness is marked as **Ready** for the target deployment type.
     1. If there are non-critical compatibility issues, such as degraded or unsupported features that don't block the migration to a specific target deployment type, the readiness is marked as **Ready with conditions** (hyperlinked) with **warning** details and recommended remediation guidance.
@@ -125,7 +125,7 @@ Review the Readiness for the web apps by following these steps:
     1. If the assessment isn't up-to-date, the status shows as **Outdated**. Select the corresponding assessment and select **Recalculate assessment**. The assessment is recalculated and the Readiness overview screen is updated with the results of the recalculated assessments.
 1. Select the Readiness status to open the **Migration issues and warnings** pane with details of the cause of the issue and recommended action.  
 
-   :::image type="content" source="./media/tutorial-assess-webapps/code-checks.png" alt-text="Screenshot of recommended actions.":::
+   :::image type="content" source="./media/tutorial-assess-webapps/code-check.png" alt-text="Screenshot of recommended actions.":::
 
 
 1. Review the recommended SKU for the web apps, which is determined as per the matrix below:
@@ -142,7 +142,7 @@ Review the Readiness for the web apps by following these steps:
 The assessment summary shows the estimated monthly costs for hosting your web apps.  
 Select the **Cost details** tab to view a monthly cost estimate depending on the SKUs. 
 
-:::image type="content" source="./media/tutorial-assess-webapps/code-cost-details.png" alt-text="Screenshot of cost details.":::
+:::image type="content" source="./media/tutorial-assess-webapps/code-cost.png" alt-text="Screenshot of cost details.":::
 
 ## Next steps
 
