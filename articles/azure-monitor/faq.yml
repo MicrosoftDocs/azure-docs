@@ -543,15 +543,15 @@ sections:
 
           |Feature                                                                                                             | .NET               | Node.js            | Python             | Java               |
           |--------------------------------------------------------------------------------------------------------------------|--------------------|--------------------|--------------------|--------------------|
-          | [Distributed tracing](app/distributed-tracing-telemetry-correlation.md)                                            | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-          | [Custom metrics](app/opentelemetry-add-modify.md#add-custom-metrics)                                               | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-          | [Standard metrics](app/standard-metrics.md) (accuracy currently affected by sampling)                              | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-          | [Fixed-rate sampling](app/sampling.md)                                                                             | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-          | [Offline storage and automatic retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-          | [Exception reporting](app/asp-net-exceptions.md)                                                                   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-          | [Logs collection](app/asp-net-trace-logs.md)                                                                       | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Distributed tracing](app/distributed-tracing-telemetry-correlation.md)                                            | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Custom metrics](app/opentelemetry-add-modify.md#add-custom-metrics)                                               | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Standard metrics](app/standard-metrics.md) (accuracy currently affected by sampling)                              | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Fixed-rate sampling](app/sampling.md)                                                                             | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Offline storage and automatic retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Exception reporting](app/asp-net-exceptions.md)                                                                   | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Logs collection](app/asp-net-trace-logs.md)                                                                       | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
           | [Custom Events](app/usage-overview.md#custom-business-events)                                                      | :warning:          | :warning:          | :warning:          | :white_check_mark: |
-          | [Azure Active Directory authentication](app/azure-ad-authentication.md)                                            | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+          | [Azure Active Directory authentication](app/azure-ad-authentication.md)                                            | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
           | [Live metrics](app/live-stream.md)                                                                                 | :x:                | :x:                | :x:                | :white_check_mark: |
           | Detect Resource Context for VM/VMSS and App Svc                                                                    | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: |
           | Detect Resource Context for AKS and Functions                                                                      | :x:                | :x:                | :x:                | :white_check_mark: |           
