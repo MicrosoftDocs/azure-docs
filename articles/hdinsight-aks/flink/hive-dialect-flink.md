@@ -23,7 +23,7 @@ The reason for this issue arises due to an open [Hive Jira](https://issues.apach
 
 ## How to use Hive dialect in Flink
 
-- Execute the following steps in `webssh`:
+- Execute the following steps in [webssh](./flink-web-ssh-on-portal-to-flink-sql.md):
 
   1. Remove the existing flink-sql-connector-hive*jar in lib location
      ```command
