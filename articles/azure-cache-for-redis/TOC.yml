@@ -37,8 +37,18 @@
       href: cache-rust-get-started.md
 - name: Tutorials
   items:
-  - name: Connect an AKS application to a cache
-    href: cache-tutorial-aks-get-started.md
+  - name: Use Azure Functions
+    items:
+    - name: Create a simple Function app for Redis triggers 
+      href: cache-tutorial-functions-getting-started.md
+    - name: Using Azure Functions to create a write-behind cache
+      href: cache-tutorial-write-behind.md
+  - name: Connect from apps hosted on Azure Kubernetes Service
+    items:
+    - name: Use Enterprise active geo-replication with your AKS hosted application
+      href: cache-tutorial-active-replication.md
+    - name: Connect an AKS application to a cache
+      href: cache-tutorial-aks-get-started.md
   - name: ASP.NET
     items:
     - name: Use session state provider
@@ -61,16 +71,6 @@
     href: cache-web-app-cache-aside-leaderboard.md
   - name: Deploy a machine learning model 
     href: cache-ml.md
-  - name: Use Azure Functions
-    items:
-    - name: Create a simple Function app for Redis triggers 
-      href: cache-tutorial-functions-getting-started.md
-    - name: Using Azure Functions to create a write-behind cache
-      href: cache-tutorial-write-behind.md
-  - name: Connect from apps hosted on Azure Kubernetes Service
-    items:
-    - name: Use Enterprise active geo-replication with your AKS hosted application
-      href: cache-tutorial-active-replication.md
 - name: Samples
   items:
   - name: PowerShell samples
