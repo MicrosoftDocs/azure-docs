@@ -295,7 +295,7 @@
               href: connect-spark-configuration.md
             - name: Connect using Databricks
               href: spark-databricks.md
-            - name: Connect using HDInsight
+            - name: Connect from Spark on YARN
               href: spark-hdinsight.md
             - name: Create keyspace and table
               href: spark-ddl-operations.md
