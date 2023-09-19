@@ -45,7 +45,7 @@ $domainNameLabel = "d" + $rgname
 $securePassword = <Password> | ConvertTo-SecureString -AsPlainText -Force
 $username = <Username>
 $credential = New-Object System.Management.Automation.PSCredential ($username, $securePassword)
-New-AzVM -ResourceGroupName $rgname -Location $location -Name $vmName -Image CentOS85Gen2 -Credential $credential -DomainNameLabel $domainNameLabel
+New-AzVM -ResourceGroupName $rgname -Location $location -Name $vmName -image CentOS85Gen285Gen2 -Credential $credential -DomainNameLabel $domainNameLabel
 ```
 
 The Linux image alias names and their details are:

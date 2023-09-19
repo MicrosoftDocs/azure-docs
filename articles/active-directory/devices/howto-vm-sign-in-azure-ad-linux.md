@@ -154,7 +154,7 @@ az group create --name AzureADLinuxVM --location southcentralus
 az vm create \
     --resource-group AzureADLinuxVM \
     --name myVM \	
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --assign-identity \
     --admin-username azureuser \
     --generate-ssh-keys

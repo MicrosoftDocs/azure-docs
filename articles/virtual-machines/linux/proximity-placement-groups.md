@@ -78,7 +78,7 @@ Create a VM within the proximity placement group using [new az vm](/cli/azure/vm
 az vm create \
    -n myVM \
    -g myPPGGroup \
-   --image UbuntuLTS \
+   --image Ubuntu2204 \
    --ppg myPPG  \
    --generate-ssh-keys \
    --size Standard_E64s_v4 \

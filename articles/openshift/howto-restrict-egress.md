@@ -164,7 +164,7 @@ az vm create --name ubuntu-jump \
              --resource-group $RESOURCEGROUP \
              --generate-ssh-keys \
              --admin-username $VMUSERNAME \
-             --image UbuntuLTS \
+             --image Ubuntu2204 \
              --subnet $JUMPSUBNET \
              --public-ip-address jumphost-ip \
              --vnet-name $AROVNET 

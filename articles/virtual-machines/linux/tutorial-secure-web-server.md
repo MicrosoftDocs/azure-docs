@@ -109,7 +109,7 @@ Now create a VM with [az vm create](/cli/azure/vm). The certificate data is inje
 az vm create \
     --resource-group myResourceGroupSecureWeb \
     --name myVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init-web-server.txt \

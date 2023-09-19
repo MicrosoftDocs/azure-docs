@@ -52,7 +52,7 @@ When you create a virtual machine, several options are available such as operati
 az vm create \
     --resource-group myResourceGroupVM \
     --name myVM \
-    --image SLES \
+    --image SuseSles15SP3 \
     --public-ip-sku Standard \
     --admin-username azureuser \
     --generate-ssh-keys
@@ -212,7 +212,7 @@ In the previous VM creation example, a size was not provided, which results in a
 az vm create \
     --resource-group myResourceGroupVM \
     --name myVM3 \
-    --image SLES \
+    --image SuseSles15SP3 \
     --size Standard_D2ds_v4  \
     --generate-ssh-keys
 ```

@@ -67,7 +67,7 @@ Deploy a default Ubuntu Azure virtual machine with [az vm create][az-vm-create].
 az vm create \
     --resource-group myResourceGroup \
     --name myDockerVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys
 ```

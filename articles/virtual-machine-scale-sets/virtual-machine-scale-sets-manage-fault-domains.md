@@ -28,7 +28,7 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --orchestration-mode Flexible \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --upgrade-policy-mode automatic \
   --admin-username azureuser \
   --platform-fault-domain-count 3\
