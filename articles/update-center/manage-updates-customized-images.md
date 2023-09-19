@@ -1,5 +1,5 @@
 ---
-title: Overview of customized images in Azure Update Manager (preview)
+title: Overview of customized images in Azure Update Manager
 description: This article describes customized image support, how to register and validate customized images for public preview, and limitations.
 ms.service: azure-update-manager
 author: snehasudhirG
@@ -20,7 +20,7 @@ This article describes customized image support, how to enable a subscription, a
 
 ## Asynchronous check to validate customized image support
 
-If you're using Azure Compute Gallery (formerly known as Shared Image Gallery) to create customized images, you can use Update Manager (preview) operations such as **Check for updates**, **One-time update**, **Schedule updates**, or **Periodic assessment** to validate if the VMs are supported for guest patching. If the VMs are supported, you can begin patching.
+If you're using Azure Compute Gallery (formerly known as Shared Image Gallery) to create customized images, you can use Update Manager operations such as **Check for updates**, **One-time update**, **Schedule updates**, or **Periodic assessment** to validate if the VMs are supported for guest patching. If the VMs are supported, you can begin patching.
 
 With marketplace images, support is validated even before Update Manager operation is triggered. Here, there are no preexisting validations in place and the Update Manager operations are triggered. Only their success or failure determines support.
 
