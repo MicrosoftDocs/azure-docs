@@ -7,7 +7,7 @@ ms.author: hannahhunter
 ms.reviewer: paulyuk
 ms.service: container-apps
 ms.topic: how-to 
-ms.date: 08/30/2023
+ms.date: 09/19/2023
 ms.custom: devx-track-linux
 # Customer Intent: I'm a developer who wants to use the Dapr binding for Azure Functions in my Dapr-enabled container app
 ---
@@ -70,6 +70,24 @@ This guide demonstrates using the Dapr binding for Azure Functions template to d
 
    Deployment may take a while. In the Azure portal, navigate to your resource group and select **Deployments** to track the deployment status.
 
+   :::image type="content" source="media/dapr-binding-functions/deployment-status.png" alt-text="Screenshot of the expected deployment status in the portal.":::
+
+1. Verify the Dapr components have deployed.
+
+   1. Navigate to your newly deployed container app environment. 
+   1. Select **Settings** > **Dapr components** to view the components deployed.
+
+      :::image type="content" source="media/dapr-binding-functions/verify-dapr-components.png" alt-text="Screenshot of the Dapr components deployed to the container app environment.":::
+
+## Check logs
+
+Test the application by invoking a message and checking the console logs. For example, to test the `DaprServiceInvocationTrigger` and `DaprInvokeOutputBinding`:
+
+1. Navigate to your container app environment.
+1. In the left side menu, under **Monitoring**, select **Logs**. 
+1. Run a query to check the container app console logs to verify your function app is receiving the invoked message from Dapr. 
+
+   :::image type="content" source="media/dapr-binding-functions/check-logs.png" alt-text="Screenshot of the Container Apps Console Logs.":::
 
 ## Clean up resources
 
@@ -79,4 +97,7 @@ When you're finished with the resources you've deployed, run the following comma
 az group delete --name {resourceGroupName}
 ```
 
-## Next steps
+## Related links
+
+- [Learn more about the Dapr binding for Azure Functions](../azure-functions/functions-bindings-dapr.md)
+- [Learn more about connecting Dapr components to your container app](./dapr-component-connection.md)
