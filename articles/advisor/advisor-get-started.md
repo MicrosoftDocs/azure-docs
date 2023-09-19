@@ -13,12 +13,14 @@ Learn how to access Advisor through the Azure portal, configure Advisor settings
 > [!NOTE]
 > Azure Advisor runs in the background to find newly created resources. It can take up to 24 hours to provide recommendations on those resources.
 
+## Open Advisor
+
 To access Azure Advisor, sign in to the [Azure portal](https://portal.azure.com) and open [Advisor](https://aka.ms/azureadvisordashboard). The Advisor **Score** page opens by default. 
 
    ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-score-page3.png) 
 
 ## Read your score
-View how your system configuration measures against Azure best practices.
+See how your system configuration measures against Azure best practices.
 
    ![Optimize Azure workloads by using Advisor score](./media/advisor-get-started/advisor-score-detail.png) 
 
@@ -54,26 +56,26 @@ The tiles on the Advisor **Score** page show the different categories of recomme
 
 View recommendation details – such as the recommended actions and impacted resources – and the solution options, including postponing or dismissing a recommendation.
 
-1. To display a specific list of recommendations, click a category tile. Recommendations appear below the selected tile.
-
-1. To review details of a recommendation, including the affected resources, click the **Description** link for it. The following screenshot shows a **Reliability** recommendation details page.
+1. To review details of a recommendation, including the affected resources, open the recommendation list for a category and then click the **Description** link for a specific recommendation. The following screenshot shows a **Reliability** recommendation details page.
 
    ![Advisor view recommendation details](./media/advisor-get-started/advisor-score-reliability-recommendation-page2.png)
-   
+
+Alternatively, go directly to the configuration page for an affected resource by clicking the **Impacted resources** link for the recommendation.
+
 1. To see action details, click a **Recommended actions** link. The Azure page where you can act opens. Alternatively, open a page to the affected resources to take the recommended action (the two pages may be the same). The recommendation may necessitate you learning more about the affected configuration; to do so, open the **Learn more** link on the recommended action page, or at the top of the recommendations details page.
 
 1.   You can postpone the recommendation.
 
    ![Advisor postpone recommendation](./media/advisor-get-started/advisor-recommendation-postpone2.png)
 
-   You can't dismiss the recommendation without certain privileges. For information on permissions, see [Advisor Cost recommendations](permissions.md).
+   You can't dismiss the recommendation without certain privileges. For information on permissions, see [Permissions in Azure Advisor](permissions.md).
 
 ## Manage subscriptions and Advisor rules
 
-You can choose to include or exclude specific subscriptions for Advisor recommendations. You can also set Advisor compute rules.
+You can exclude subscriptions or resources, such as 'test' resources, from Advisor recommendations. You can also set Advisor compute rules for VM sizing recommendations.
 
 > [!NOTE]
-> To change subscriptions or Advisor compute rules, you must be a subscription Owner.  If you do not have the required permissions, the option is disabled in the user interface. For information on permissions, see [Advisor Cost recommendations](permissions.md).
+> To change subscriptions or Advisor compute rules, you must be a subscription Owner.  If you do not have the required permissions, the option is disabled in the user interface. For information on permissions, see [Permissions in Azure Advisor](permissions.md).
 
 ### Resources (subscriptions)
 
