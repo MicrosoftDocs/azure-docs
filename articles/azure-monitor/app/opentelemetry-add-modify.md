@@ -152,7 +152,7 @@ Dependencies
 - [Redis-4](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis-4)
 - [Azure SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk)
 
-Auto instrumentation of Logs are currently only supported when using `applicationinsights` v3 Beta package. (https://www.npmjs.com/package/applicationinsights/v/beta)
+Automatic instrumentation of Logs are currently only supported when using `applicationinsights` v3 Beta package. (https://www.npmjs.com/package/applicationinsights/v/beta)
 Logs
 - [Node.js console](https://nodejs.org/api/console.html)
 - [Bunyan](https://github.com/trentm/node-bunyan#readme)
@@ -2125,14 +2125,14 @@ Get the request trace ID and the span ID in your code:
 
 Get the request trace ID and the span ID in your code:
 
-    ```python
-    # Import the necessary libraries.   
-    from opentelemetry import trace
+```python
+# Import the necessary libraries.   
+from opentelemetry import trace
 
-    # Get the trace ID and span ID of the current span.
-    trace_id = trace.get_current_span().get_span_context().trace_id
-    span_id = trace.get_current_span().get_span_context().span_id
-    ```
+# Get the trace ID and span ID of the current span.
+trace_id = trace.get_current_span().get_span_context().trace_id
+span_id = trace.get_current_span().get_span_context().span_id
+```
 
 ---
 
