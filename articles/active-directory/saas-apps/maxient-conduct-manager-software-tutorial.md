@@ -40,10 +40,8 @@ In this tutorial, you will configure your Azure AD for use with Maxient Conduct 
 
 To configure the integration of Maxient Conduct Manager Software into Azure AD, you need to add Maxient Conduct Manager Software from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **Maxient Conduct Manager Software** in the search box.
 1. Select **Maxient Conduct Manager Software** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -63,7 +61,8 @@ To configure and test Azure AD SSO with Maxient Conduct Manager Software, perfor
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Maxient Conduct Manager Software** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Maxient Conduct Manager Software** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -89,8 +88,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 It is important to note that this step is **REQUIRED** for Maxient to function properly.  Maxient leverages your Azure AD system to *authenticate* users. The *authorization* of users is performed within the Maxient system for the particular function they’re trying to perform. Maxient does not use attributes from your directory to make those decisions.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Maxient Conduct Manager Software**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Maxient Conduct Manager Software**.
 1. In the app's overview page, toggle the "User Assignment Required" setting to No.
 
 ## Test with Maxient 
