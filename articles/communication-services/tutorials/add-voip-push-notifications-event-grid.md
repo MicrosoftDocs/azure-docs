@@ -1,7 +1,7 @@
 ---
-title: Using Event Grid Notifications to send VOIP call events push payload to ANH Azure Notification Hub.
-titleSuffix: Azure Communication Services and Event Grid. 
-description: Using Event Grid Notification from Azure Communication Services Native Calling to Incoming VOIP call events payload to devices via Azure Notification Hub ANH. 
+title: Using Event Grid Notifications to send VOIP call events push payload to Azure Notification Hub
+titleSuffix: Azure Communication Services Calling and Event Grid
+description: Using Event Grid Notification from Azure Communication Services Native Calling to Incoming VOIP call events payload to devices via Azure Notification Hub
 author: raosanat
 ms.service: azure-communication-services
 ms.topic: tutorial
@@ -38,7 +38,7 @@ The current limitations of using the Native Calling SDK and [Push Notifications]
 
 Let's consider a scenario where you want to notify users on their mobile devices (iOS and Android) when they receive an incoming call through Azure Communication Services. We use Azure Event Grid to achieve.
 
-## Implementation Steps
+## Implementation steps
 
 ### Setup for register events into Event Grid
 
@@ -46,9 +46,9 @@ Let's consider a scenario where you want to notify users on their mobile devices
 
 The Azure functions should be used to handle device registration data. Create three separate webhook endpoints for each registration task.
 
-1. Store the device endpoint information.
-2. Delete the device endpoint information.
-3. Get the device endpoint information for a given `CommunicationIdentifier`.
+* Store the device endpoint information.
+* Delete the device endpoint information.
+* Get the device endpoint information for a given `CommunicationIdentifier`.
 
 You should use a database to store device information. In this example, we're using MongoDB for simplicity. However, feel free to use any database you feel comfortable with.
 
@@ -96,13 +96,13 @@ You should use a database to store device information. In this example, we're us
 
 #### Azure function to handle Event Grid Trigger
 
-After deploying the Azure functions, configure the Event Grid and Azure Communication Services resource to listen for `IncomminCall` event. You can follow [these steps](https://github.com/Azure-Samples/azure-communication-services-calling-event-grid/tree/main/add-calling-push-notifications-event-grid#steps) to easily configure your resources.
+After deploying the Azure functions, configure the Event Grid and Azure Communication Services resource to listen for `IncomingCall` event. You can follow [these steps](https://github.com/Azure-Samples/azure-communication-services-calling-event-grid/tree/main/add-calling-push-notifications-event-grid#steps) to easily configure your resources.
 
 ### Register the Push Notifications
 
 In your Calling native app; instead of calling the API `CallAgent.registerPushNotifications` (iOS SDK) with device token when the application starts, send the device token to the Azure function app, send a **POST** request to the `AddDeviceToken` function (register endpoint one).
 
-### Test Your Implementation
+### Test your implementation
 
 Test your implementation by placing calls to your Azure Communication Services application. Ensure that push notifications are received on your iOS and Android devices when incoming calls occur.
 
