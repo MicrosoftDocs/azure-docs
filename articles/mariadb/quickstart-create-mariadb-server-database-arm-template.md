@@ -11,7 +11,7 @@ ms.date: 06/24/2022
 
 # Quickstart: Use an ARM template to create an Azure Database for MariaDB server
 
-[[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]]
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 Azure Database for MariaDB is a managed service that you use to run, manage, and scale highly available MariaDB databases in the cloud. In this quickstart, you use an Azure Resource Manager template (ARM template) to create an Azure Database for MariaDB server in the Azure portal, PowerShell, or Azure CLI.
 
