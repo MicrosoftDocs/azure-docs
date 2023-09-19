@@ -414,7 +414,7 @@ In code, assemblies are referenced like the following example:
 
 To reference a custom assembly, you can use either a *shared* assembly or a *private* assembly:
 
-* Shared assemblies are shared across all functions within a function app. To reference a custom assembly, upload the assembly to a folder named `bin` in your [function app root folder](functions-reference.md#folder-structure) (wwwroot).
+* Shared assemblies are shared across all functions within a function app. To reference a custom assembly, upload the assembly to a folder named `bin` in the root folder (wwwroot) of your function app.
 
 * Private assemblies are part of a given function's context, and support side-loading of different versions. Private assemblies should be uploaded in a `bin` folder in the function directory. Reference the assemblies using the file name, such as `#r "MyAssembly.dll"`.
 

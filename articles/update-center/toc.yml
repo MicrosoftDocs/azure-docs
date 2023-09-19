@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure Update Manager (preview)
+  - name: About Azure Update Manager
     href: overview.md
   - name: What's New 
     href: whats-new.md
@@ -78,7 +78,9 @@
       href: troubleshoot.md
 - name: Guidance
   items:
-  - name: Migration from Microsoft Configuration Manager to Azure Update Manager
+  - name: Move virtual machines from Automation Update Management to Azure Update Manager
+    href: guidance-migration-automation-update-management-azure-update-manager.md
+  - name: Migration of Azure VMs from Microsoft Configuration Manager to Azure Update Manager
     href: guidance-migration-azure.md
   - name: Security awareness and Ubuntu Pro support
     href: security-awareness-ubuntu-support.md

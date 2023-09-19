@@ -21,7 +21,7 @@ Learn to configure F5 BIG-IP Access Policy Manager (APM) and Azure Active Direct
   * See [Zero Trust security](../../security/fundamentals/zero-trust.md)
 * Full SSO between Azure AD and BIG-IP published services
 * Managed identities and access from one control plane
-  * See the [Azure portal](https://azure.microsoft.com/features/azure-portal)
+  * See the [Microsoft Entra admin center](https://entra.microsoft.com)
 
 Learn more:
 
@@ -66,7 +66,7 @@ You need the following components:
 
 * An Azure subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
-* For the account, have Azure AD Application Administrator permissions
+* One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator
 * A BIG-IP or deploy a BIG-IP Virtual Edition (VE) in Azure
   * See [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
 * Any of the following F5 BIG-IP license SKUs:
@@ -94,19 +94,16 @@ The configuration in this article is a flexible SHA implementation: manual creat
 
 BIG-IP registration is the first step for SSO between entities. The app you create from the F5 BIG-IP gallery template is the relying party, representing the SAML SP for the BIG-IP published application.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with Application Administrator permissions.
-2. In the left pane, select the **Azure Active Directory** service.
-3. In the left menu, select **Enterprise applications**. 
-4. The **All applications** pane opens.
-5. The list of applications in your Azure AD tenant appears.
-6. On the **Enterprise applications** pane, select **New application**.
-7. The **Browse Azure AD Gallery** pane opens.
-8. Tiles appear for cloud platforms, on-premises applications, and featured applications. **Featured applications** icons indicate support of federated SSO and provisioning. 
-10. In the Azure gallery, search for **F5**.
-11. Select **F5 BIG-IP APM Azure AD integration**.
-12. Enter a **Name** the new application uses to recognize the application instance. 
-13. Select **Add**.
-14. Select **Create**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+2. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+3. In the **All applications** pane, select **New application**.
+4. The **Browse Azure AD Gallery** pane opens.
+5. Tiles appear for cloud platforms, on-premises applications, and featured applications. **Featured applications** icons indicate support of federated SSO and provisioning. 
+6. In the Azure gallery, search for **F5**.
+7. Select **F5 BIG-IP APM Azure AD integration**.
+8. Enter a **Name** the new application uses to recognize the application instance. 
+9. Select **Add**.
+10. Select **Create**.
 
 ### Enable SSO to F5 BIG-IP
 

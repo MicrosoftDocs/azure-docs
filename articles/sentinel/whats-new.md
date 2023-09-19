@@ -259,7 +259,7 @@ The WindowsEvent schema has been expanded to include new fields, such as `Keywor
 
 These additions allow for more comprehensive analysis and for more information to be extracted and parsed from the event. 
 
-If you aren't interested in ingesting the new fields, use ingest-time transformation in the AMA DCR to filter and drop the fields, while still ingesting the events. To ingest the events, add the following to your DCRs: 
+If you aren't interested in ingesting the new fields, use ingest-time transformation in the AMA DCR to filter and drop the fields, while still ingesting the events. To ingest the events without the new fields, add the following to your DCRs: 
 
 ```kusto
 "transformKql": "source | project-away TimeCreated, SystemThreadId, EventRecordId, SystemProcessId, Correlation, Keywords, Opcode, SystemUserId, Version"
