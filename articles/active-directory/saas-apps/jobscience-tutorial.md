@@ -91,7 +91,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 **To configure Azure AD single sign-on with Jobscience, perform the following steps:**
 
-1. In the Azure portal, on the **Jobscience** application integration page, click **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Jobscience** application integration page, click **Single sign-on**.
 
     ![Screenshot shows Single sign-on selected under Manage in the Azure portal.][4]
 

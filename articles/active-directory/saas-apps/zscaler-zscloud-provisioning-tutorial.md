@@ -74,25 +74,19 @@ This section guides you through the steps for configuring the Azure AD provision
 > [!NOTE]
 > When users and groups are provisioned or de-provisioned we recommend to periodically restart provisioning to ensure that group memberships are properly updated. Doing a restart will force our service to re-evaluate all the groups and update the memberships. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Enterprise applications** > **All applications** > **Zscaler ZSCloud**:
-
-	![Enterprise applications](common/enterprise-applications.png)
-
-2. In the applications list, select **Zscaler ZSCloud**:
-
-	![Applications list](common/all-applications.png)
-
-3. Select the **Provisioning** tab:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Zscaler ZSCloud**.
+1. Select the **Provisioning** tab:
 
 	![Zscaler ZSCloud Provisioning](./media/zscaler-zscloud-provisioning-tutorial/provisioningtab.png)
 
-4. Set the **Provisioning Mode** to **Automatic**:
+1. Set the **Provisioning Mode** to **Automatic**:
 
 	![Set the Provisioning Mode](./media/zscaler-zscloud-provisioning-tutorial/provisioningcredentials.png)
 
-5. In the **Admin Credentials** section, enter the **Tenant URL** and **Secret Token** of your Zscaler ZSCloud account, as described in the next step.
+1. In the **Admin Credentials** section, enter the **Tenant URL** and **Secret Token** of your Zscaler ZSCloud account, as described in the next step.
 
-6. To get the **Tenant URL** and **Secret Token**, go to **Administration** > **Authentication Settings** in the Zscaler ZSCloud portal and select **SAML** under **Authentication Type**:
+1. To get the **Tenant URL** and **Secret Token**, go to **Administration** > **Authentication Settings** in the Zscaler ZSCloud portal and select **SAML** under **Authentication Type**:
 
 	![Zscaler ZSCloud Authentication Settings](./media/zscaler-zscloud-provisioning-tutorial/secrettoken1.png)
 
@@ -102,43 +96,43 @@ This section guides you through the steps for configuring the Azure AD provision
 
 	Select **Enable SCIM-Based Provisioning** and copy the **Base URL** and **Bearer Token**, and then save the settings. In the Azure portal, paste the **Base URL** into the **Tenant URL** box and the **Bearer Token** into the **Secret Token** box.
 
-7. After you enter the values in the **Tenant URL** and **Secret Token** boxes, select **Test Connection** to make sure Azure AD can connect to Zscaler ZSCloud. If the connection fails, make sure your Zscaler ZSCloud account has admin permissions and try again.
+1. After you enter the values in the **Tenant URL** and **Secret Token** boxes, select **Test Connection** to make sure Azure AD can connect to Zscaler ZSCloud. If the connection fails, make sure your Zscaler ZSCloud account has admin permissions and try again.
 
 	![Test the connection](./media/zscaler-zscloud-provisioning-tutorial/testconnection.png)
 
-8. In the **Notification Email** box, enter the email address of a person or group that should receive the provisioning error notifications. Select **Send an email notification when a failure occurs**:
+1. In the **Notification Email** box, enter the email address of a person or group that should receive the provisioning error notifications. Select **Send an email notification when a failure occurs**:
 
 	![Set up notification email](./media/zscaler-zscloud-provisioning-tutorial/Notification.png)
 
-9. Select **Save**.
+1. Select **Save**.
 
-10. In the **Mappings** section, select **Synchronize Azure Active Directory Users to ZscalerZSCloud**:
+1. In the **Mappings** section, select **Synchronize Azure Active Directory Users to ZscalerZSCloud**:
 
 	![Synchronize Azure AD users](./media/zscaler-zscloud-provisioning-tutorial/usermappings.png)
 
-11. Review the user attributes that are synchronized from Azure AD to Zscaler ZSCloud in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Zscaler ZSCloud for update operations. Select **Save** to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Zscaler ZSCloud in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Zscaler ZSCloud for update operations. Select **Save** to commit any changes.
 
 	![Screenshot of the Attribute Mappings section with seven mappings displayed.](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
 
-12. In the **Mappings** section, select **Synchronize Azure Active Directory Groups to ZscalerZSCloud**:
+1. In the **Mappings** section, select **Synchronize Azure Active Directory Groups to ZscalerZSCloud**:
 
 	![Synchronize Azure AD groups](./media/zscaler-zscloud-provisioning-tutorial/groupmappings.png)
 
-13. Review the group attributes that are synchronized from Azure AD to Zscaler ZSCloud in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the groups in Zscaler ZSCloud for update operations. Select **Save** to commit any changes.
+1. Review the group attributes that are synchronized from Azure AD to Zscaler ZSCloud in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the groups in Zscaler ZSCloud for update operations. Select **Save** to commit any changes.
 
 	![Screenshot of the Attribute Mappings section with three mappings displayed.](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
 
-14. To configure scoping filters, refer to the instructions in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, refer to the instructions in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. To enable the Azure AD provisioning service for Zscaler ZSCloud, change the **Provisioning Status** to **On** in the **Settings** section:
+1. To enable the Azure AD provisioning service for Zscaler ZSCloud, change the **Provisioning Status** to **On** in the **Settings** section:
 
 	![Provisioning Status](./media/zscaler-zscloud-provisioning-tutorial/provisioningstatus.png)
 
-16. Define the users and/or groups that you want to provision to Zscaler ZSCloud by choosing the values you want under **Scope** in the **Settings** section:
+1. Define the users and/or groups that you want to provision to Zscaler ZSCloud by choosing the values you want under **Scope** in the **Settings** section:
 
 	![Scope values](./media/zscaler-zscloud-provisioning-tutorial/scoping.png)
 
-17. When you're ready to provision, select **Save**:
+1. When you're ready to provision, select **Save**:
 
 	![Select Save](./media/zscaler-zscloud-provisioning-tutorial/saveprovisioning.png)
 
