@@ -406,7 +406,7 @@ Each SDK includes a client class typically used to connect the SDK to your Azure
 
 ### [C#](#tab/csharp)
 
-Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to use the emulator from a .NET application.
+Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to connect to the emulator from a .NET application.
 
 1. Start in an empty folder
 
@@ -501,7 +501,7 @@ Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to 
 
 ### [Python](#tab/python)
 
-Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) to use the emulator from a Python application.
+Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) to connect to the emulator from a Python application.
 
 1. Start in an empty folder
 
@@ -547,7 +547,7 @@ Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) t
 
 ### [JavaScript / Node.js](#tab/javascript+nodejs)
 
-Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) to use the emulator from a Node.js/JavaScript application.
+Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) to connect to the emulator from a Node.js/JavaScript application.
 
 1. Start in an empty folder
 
@@ -603,7 +603,7 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
 
 ### [C#](#tab/csharp)
 
-Use the [MongoDB .NET driver](mongodb/quickstart-dotnet.md) to use the emulator from a .NET application.
+Use the [MongoDB .NET driver](mongodb/quickstart-dotnet.md) to connect to the emulator from a .NET application.
 
 1. Start in an empty folder
 
@@ -623,7 +623,7 @@ Use the [MongoDB .NET driver](mongodb/quickstart-dotnet.md) to use the emulator 
 
 ### [Python](#tab/python)
 
-Use the [MongoDB Python driver](mongodb/quickstart-python.md) to use the emulator from a Python application.
+Use the [MongoDB Python driver](mongodb/quickstart-python.md) to connect to the emulator from a Python application.
 
 1. Start in an empty folder
 
@@ -659,7 +659,7 @@ Use the [MongoDB Python driver](mongodb/quickstart-python.md) to use the emulato
 
 ### [JavaScript / Node.js](#tab/javascript+nodejs)
 
-Use the [MongoDB Node.js driver](mongodb/quickstart-nodejs.md) to use the emulator from a Node.js/JavaScript application.
+Use the [MongoDB Node.js driver](mongodb/quickstart-nodejs.md) to connect to the emulator from a Node.js/JavaScript application.
 
 1. Start in an empty folder
 
@@ -738,7 +738,7 @@ TODO
 
 ### [Python](#tab/python)
 
-Use the [Apache Cassandra Python driver](cassandra/manage-data-python.md) to use the emulator from a Python application.
+Use the [Apache Cassandra Python driver](cassandra/manage-data-python.md) to connect to the emulator from a Python application.
 
 1. Start in an empty folder
 
@@ -778,9 +778,23 @@ Use the [Apache Cassandra Python driver](cassandra/manage-data-python.md) to use
 
 ### [JavaScript / Node.js](#tab/javascript+nodejs)
 
-TODO
+Use the [Apache Cassandra Node.js driver](cassandra/manage-data-nodejs.md) to use the emulator from a Node.js/JavaScript application.
 
 1. Start in an empty folder
+
+1. Initialize a new module.
+
+    ```bash
+    npm init es6 --yes
+    ```
+
+1. Install the [`cassandra-driver`](https://www.npmjs.com/package/cassandra-driver) package from Node Package Manager.
+
+    ```bash
+    npm install --save cassandra-driver
+    ```
+
+1. Create the **app.js** file.
 
 1. TODO
 
@@ -790,10 +804,14 @@ TODO
 
 1. TODO
 
-1. TODO
-
     ```javascript
     
+    ```
+
+1. Run the Node.js application.
+
+    ```bash
+    node app.js
     ```
 
 ---
@@ -824,7 +842,7 @@ TODO
 
 ### [Python](#tab/python)
 
-Use the [Apache Gremlin Python driver](gremlin/quickstart-python.md) to use the emulator from a Python application.
+Use the [Apache Gremlin Python driver](gremlin/quickstart-python.md) to connect to the emulator from a Python application.
 
 1. Start in an empty folder
 
@@ -906,7 +924,7 @@ TODO
 
 ### [Python](#tab/python)
 
-Use the [Azure Tables Python SDK](table/quickstart-python.md) to use the emulator from a Python application.
+Use the [Azure Tables Python SDK](table/quickstart-python.md) to connect to the emulator from a Python application.
 
 1. Start in an empty folder
 
