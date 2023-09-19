@@ -11,10 +11,12 @@ ms.date: 09/04/2023
 
 # Analyze data using Log Analytics simple mode 
 
-The new Log Analytics features a simplified logs experience and two modes for working with log data:  
+The new Log Analytics offers two ways to explore data:  
 
-- **Simple mode** provides a spreadsheet-like experience to get you started quickly. Similar to working in Excel, you point and click to navigate your data. Simple mode offers a set of operators that are fundamental to data analysis and help you extract valuable insights without using Kusto Query Language (KQL). 
-- For more complex analysis, switch to **advanced mode**, which offers a full-feature query editor and lets you take advantage of all of Azure Monitor's data analysis capabilities.
+- **Simple mode** gives you the most commonly used Azure Monitor Logs functionality in an intuitive spreadsheet-like experience. Just point and click to filter, sort, and aggregate data to get to the insights you need 80% of the time. 
+- **Advanced mode** gives advanced users the full power of Kusto Query Language (KQL) to derive deeper insights from your logs.
+
+You can switch seamlessly move between simple and advance mode, and advanced users can share complex queries, which other users can continue working with in simple mode. 
 
 This article explains the new Log Analytics experience and how to use simple mode to explore and analyze data in Azure Monitor Logs.     
 
