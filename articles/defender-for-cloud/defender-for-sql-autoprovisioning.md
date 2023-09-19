@@ -15,5 +15,28 @@ Customers who are using the Microsoft Monitoring Agent process will be asked to 
 
 ## Enable the autoprovisioning process
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
+1. Search for and select **Microsoft Defender for Cloud**.
 
+1. In the Defender for Cloud menu, select **Environment settings**.
+
+1. Select the relevant subscription.
+
+1. Under the Database plan, select **Settings**.
+
+    :::image type="content" source="media/defender-sql-autoprovisioning/partial-settings.png" alt-text="Screenshot that shows where the option to select settings is on the Defender plans page." lightbox="media/defender-sql-autoprovisioning/partial-settings.png":::
+
+1. Select **Edit configuration**.
+
+    :::image type="content" source="media/defender-sql-autoprovisioning/edit-configuration.png" alt-text="Screenshot that shows where to select edit configuration on the settings and monitoring screen." lightbox="media/defender-sql-autoprovisioning/edit-configuration.png":::
+
+1. Select **Azure Monitor Agent**.
+
+    :::image type="content" source="media/defender-sql-autoprovisioning/azure-monitor-agent.png" alt-text="Screenshot that shows you where to select the Azure Monitor Agent on the screen." lightbox="media/defender-sql-autoprovisioning/azure-monitor-agent.png":::
+
+1. Select either **Default workspace**. You can also learn how to [configure a custom workspace](#configure-custom-destination-log-analytics-workspace).
+
+1. Select **Apply**.
+
+Once the 
