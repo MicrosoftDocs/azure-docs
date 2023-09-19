@@ -80,16 +80,14 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 
 ## Start an inquiry in simple mode
 
-To begin an inquiry in simple mode: 
+To begin an inquiry in simple mode, either:
 
-- Select a specific table in your Log Analytics workspace.
-- Use an existing query as a starting point:
-    - Shared or [saved query](../logs/save-query.md).
-    - Select **Queries** from the left pane and select an example query.
-    
-        :::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-example-query.png" alt-text="Screenshot that an example query in Log Analytics.":::
+- Select a specific table in your Log Analytics workspace, as described in [Query in simple mode](#query-in-simple-mode) 
+- Use an existing query, such as a shared or [saved query](../logs/save-query.md), or an example query:
 
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-example-query.png" alt-text="Screenshot that an example query in Log Analytics.":::
 
+    Using an existing query is simple mode lets you broaden the [scope] of your inquiry to more than a single table. 
 
 ## Query in simple mode 
 
