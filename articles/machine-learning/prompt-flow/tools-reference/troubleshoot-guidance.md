@@ -43,16 +43,16 @@ To resolve the issue, you have two options:
   - Update your runtime to latest version.
   - Remove the old tool and re-create a new tool.
 
-## Why I can't create or upgrade my flow when I disable public network access of storage account?
-Prompt flow relies on fileshare to store snapshot of flow. Prompt flow currently doesn't support private storage account. Here are some workarounds you can try:
+## Why can't I create or upgrade my flow when I disable public network access of storage account?
+Prompt flow relies on fileshare to store snapshot of flow. Prompt flow didn't support private storage account now. Here are some workarounds you can try:
 - Make the storage account as public access enabled if there's no security concern. 
 - If you're only using UI to authoring prompt flow, you can add following flights (flight=PromptFlowCodeFirst=false) to use our old UI.
 - You can use our CLI/SDK to authoring prompt flow, CLI/SDK authoring didn't rely on fileshare. See [Integrate Prompt Flow with LLM-based application DevOps ](../how-to-integrate-with-llm-app-devops.md). 
 
 
-## Why I can't upgrade my old flow?
-Prompt flow relies on fileshare to store snapshot of flow. If fileshare have some issue, you may encounter this issue. Here are some workarounds you can try:
-- If you're using private storage account, please see [Why I can't create or upgrade my flow when I disable public network access of storage account?](#why-i-cant-create-or-upgrade-my-flow-when-i-disable-public-network-access-of-storage-account)
+## Why can't I upgrade my old flow?
+Prompt flow relies on fileshare to store snapshot of flow. If fileshare has some issue, you may encounter this issue. Here are some workarounds you can try:
+- If you're using private storage account, please see [Why can't I create or upgrade my flow when I disable public network access of storage account?](#why-cant-i-create-or-upgrade-my-flow-when-i-disable-public-network-access-of-storage-account)
 - If the storage account is enabled public access, please check whether there are datastore named `workspaceworkingdirectory` in your workspace, it should be fileshare type.
 ![workspaceworkingdirectory](../media/faq/working-directory.png) 
     - If you didn't get this datastore, you need add it in your workspace.
@@ -60,7 +60,16 @@ Prompt flow relies on fileshare to store snapshot of flow. If fileshare have som
         - Create data store with name `workspaceworkingdirectory` . See [Create datastores](../../how-to-datastore.md)
     - If you have `workspaceworkingdirectory` datastore but its type is `blob` instead of `fileshare`, please create new workspace and use storage didn't enable hierarchical namespaces ADLS Gen2 as workspace default storage account. See [Create workspace](../../how-to-manage-workspace.md#create-a-workspace)
      
-    
+## Flow is missing
+
+:::image type="content" source="../media/faq/flow-missing.png" alt-text="Screenshot of a flow missing in authoring page. " lightbox = "../media/faq/flow-missing.png":::
+
+Prompt flow relies on fileshare to store snapshot of flow. This error mean prompt flow service can operate prompt flow folder in fileshare, but the prompt flow UI can't find folder in fileshare. There are some potential reasons:
+- Prompt flow relies datastore named `workspaceworkingdirectory` in your workspace, which using `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`, please make sure your data store using the same container. If your data store is using different fileshare name, you need use new workspace.
+![name of fileshare in datastore detail page](../media/faq/file-share-name.png) 
+
+- If your fileshare is correctly named, then please try in different network environment, such as home network, company network, etc. There is a rare case where a fileshare can't be accessed in some network environments even if it's public-access enabled.
+
 ## Runtime related issues
 
 ### My runtime is failed with a system error **runtime not ready** when using a custom environment

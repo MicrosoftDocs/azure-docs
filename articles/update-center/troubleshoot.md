@@ -12,6 +12,8 @@ author: SnehaSudhirG
 
 This article describes the errors that might occur when you deploy or use Update Manager, how to resolve them and the known issues and limitations of scheduled patching.  
 
+This article describes the errors that might occur when you deploy or use Update Manager, how to resolve them and the known issues and limitations of scheduled patching.  
+
 ## General troubleshooting
 
 The following troubleshooting steps apply to the Azure VMs related to the patch extension on Windows and Linux machines.   
@@ -151,4 +153,4 @@ Setting a longer time range for maximum duration when triggering an [on-demand u
 ## Next steps
 
 * To learn more about Azure Update Manager, see the [Overview](overview.md).
-* To view logged results from all your machines, see [Querying logs and results from update Manager](query-logs.md).
+* To view logged results from all your machines, see [Querying logs and results from Update Manager](query-logs.md).

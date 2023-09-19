@@ -1,6 +1,6 @@
 ---
 title: Query logs and results from Update Manager
-description: The article provides details on how you can review logs and search results from update manager in Azure using Azure Resource Graph
+description: The article provides details on how you can review logs and search results from Update Manager in Azure using Azure Resource Graph
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
