@@ -15,6 +15,8 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 
 # Upload a block blob with Java
 
+[!INCLUDE [storage-dev-guide-selector-upload](../../../includes/storage-dev-guides/storage-dev-guide-selector-upload.md)]
+
 This article shows how to upload a block blob using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). You can upload data to a block blob from a file path, a stream, a binary object, or a text string. You can also upload blobs with index tags.
 
 ## Prerequisites

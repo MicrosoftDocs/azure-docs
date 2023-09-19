@@ -256,7 +256,7 @@ To select a policy to be applied to the application being published:
 
 Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced.
 
-![ Screenshot for Conditional Access policies](./media/f5-big-ip-easy-button-sap-erp/conditional-access-policy.png)
+![Screenshot for Conditional Access policies](./media/f5-big-ip-easy-button-sap-erp/conditional-access-policy.png)
 
 >[!NOTE]
 >The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed. 
@@ -273,7 +273,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 4. The Client SSL Profile enables the virtual server for HTTPS, so that client connections are encrypted over TLS. Select the **Client SSL Profile** you created as part of the prerequisites or leave the default whilst testing
 
-  ![ Screenshot for Virtual server](./media/f5-big-ip-easy-button-sap-erp/virtual-server.png)
+  ![Screenshot for Virtual server](./media/f5-big-ip-easy-button-sap-erp/virtual-server.png)
 
 ### Pool Properties
 
@@ -285,7 +285,7 @@ The **Application Pool tab** details the services behind a BIG-IP, represented a
 
 3. For **Pool Servers** select an existing server node or specify an IP and port for the backend node hosting the header-based application
 
-   ![ Screenshot for Application pool](./media/f5-big-ip-easy-button-sap-erp/application-pool.png)
+   ![Screenshot for Application pool](./media/f5-big-ip-easy-button-sap-erp/application-pool.png)
 
 #### Single Sign-On & HTTP Headers
 
@@ -311,10 +311,10 @@ Enable **Kerberos** and **Show Advanced Setting** to enter the following:
    
 ### Session Management
 
-The BIG-IPs session management settings are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and corresponding user info. Consult [F5 documentation]( https://support.f5.com/csp/article/K18390492) for details on these settings.
+The BIG-IPs session management settings are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and corresponding user info. Consult [F5 documentation](https://support.f5.com/csp/article/K18390492) for details on these settings.
 
 What isn’t covered however is Single Log-Out (SLO) functionality, which ensures all sessions between the IdP, the BIG-IP, and the user agent are terminated as users log off.
- When the Easy Button deploys a SAML application to your Azure AD tenant, it also populates the Logout Url with the APM’s SLO endpoint. That way IdP initiated sign-outs from the Microsoft [MyApps portal]( https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) also terminate the session between the BIG-IP and a client.
+ When the Easy Button deploys a SAML application to your Azure AD tenant, it also populates the Logout Url with the APM’s SLO endpoint. That way IdP initiated sign-outs from the Microsoft [MyApps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) also terminate the session between the BIG-IP and a client.
 
 During deployment, the SAML federation metadata for the published application is imported from your tenant, providing the APM the SAML logout endpoint for Azure AD. This helps SP initiated sign-outs terminate the session between a client and Azure AD.
 
@@ -379,4 +379,4 @@ If you don’t see a BIG-IP error page, then the issue is probably more related 
 
 2. Select the link for your active session. The **View Variables** link in this location may also help determine root cause KCD issues, particularly if the BIG-IP APM fails to obtain the right user and domain identifiers from session variables
 
-See [BIG-IP APM variable assign examples]( https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107) and [F5 BIG-IP session variables reference]( https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html) for more info.
+See [BIG-IP APM variable assign examples](https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107) and [F5 BIG-IP session variables reference](https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html) for more info.

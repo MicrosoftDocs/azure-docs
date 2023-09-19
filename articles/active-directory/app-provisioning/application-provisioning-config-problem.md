@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/06/2022
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: asteen, arvinh
 ---
 
 # Problem configuring user provisioning to an Azure AD Gallery application
 
-Configuring [automatic user provisioning](user-provisioning.md) for an app (where supported), requires that specific instructions be followed to prepare the application for automatic provisioning. Then you can use the Azure portal to configure the provisioning service to synchronize user accounts to the application.
+Configuring [automatic user provisioning](user-provisioning.md) for an app (where supported), requires that specific instructions be followed to prepare the application for automatic provisioning. Then you can use the Microsoft Entra admin center to configure the provisioning service to synchronize user accounts to the application.
 
 You should always start by finding the setup tutorial specific to setting up provisioning for your application. Then follow those steps to configure both the app and Azure AD to create the provisioning connection. A list of app tutorials can be found at [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](../saas-apps/tutorial-list.md).
 
@@ -23,9 +23,9 @@ You should always start by finding the setup tutorial specific to setting up pro
 
 Once the service is configured, most insights into the operation of the service can be drawn from two places:
 
--   **Provisioning logs (preview)** – The [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) record all the operations performed by the provisioning service, including querying Azure AD for assigned users that are in scope for provisioning. Query the target app for the existence of those users, comparing the user objects between the system. Then add, update, or disable the user account in the target system based on the comparison. You can access the provisioning logs in the Azure portal by selecting **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section.
+-   **Provisioning logs (preview)** – The [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) record all the operations performed by the provisioning service, including querying Azure AD for assigned users that are in scope for provisioning. Query the target app for the existence of those users, comparing the user objects between the system. Then add, update, or disable the user account in the target system based on the comparison. You can access the provisioning logs in the Microsoft Entra admin center by selecting **Identity** > **Applications** > **Enterprise applications** > **Provisioning logs** in the **Activity** section.
 
--   **Current status –** A summary of the last provisioning run for a given app can be seen in the **Azure Active Directory &gt; Enterprise Apps &gt; \[Application Name\] &gt;Provisioning** section, at the bottom of the screen under the service settings. The Current Status section shows whether a provisioning cycle has started provisioning user accounts. You can watch the progress of the cycle, see how many users and groups have been provisioned, and see how many roles are created. If there are any errors, details can be found in the [Provisioning logs (../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).
+-   **Current status –** A summary of the last provisioning run for a given app can be seen in the **Identity** > **Applications** > **Enterprise applications** > \[Application Name\] > **Provisioning** section, at the bottom of the screen under the service settings. The Current Status section shows whether a provisioning cycle has started provisioning user accounts. You can watch the progress of the cycle, see how many users and groups have been provisioned, and see how many roles are created. If there are any errors, details can be found in the [Provisioning logs (../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).
 
 ## General problem areas with provisioning to consider
 
@@ -37,7 +37,7 @@ Below is a list of the general problem areas that you can drill into if you have
 
 ## Provisioning service does not appear to start
 
-If you set the **Provisioning Status** to be **On** in the **Azure Active Directory &gt; Enterprise Apps &gt; \[Application Name\] &gt;Provisioning** section of the Azure portal. However no other status details are shown on that page after subsequent reloads. It is likely that the service is running but has not completed an initial cycle yet. Check the **Provisioning logs** described above to determine what operations the service is performing, and if there are any errors.
+If you set the **Provisioning Status** to be **On** in the **Identity** > **Applications** > **Enterprise applications** > [Application Name\] > **Provisioning** section of the Microsoft Entra admin center. However no other status details are shown on that page after subsequent reloads. It is likely that the service is running but has not completed an initial cycle yet. Check the **Provisioning logs** described above to determine what operations the service is performing, and if there are any errors.
 
 >[!NOTE]
 >An initial cycle can take anywhere from 20 minutes to several hours, depending on the size of the Azure AD directory and the number of users in scope for provisioning. Subsequent syncs after the initial cycle be faster, as the provisioning service stores watermarks that represent the state of both systems after the initial cycle, improving performance of subsequent syncs.
