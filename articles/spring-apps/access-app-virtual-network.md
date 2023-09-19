@@ -19,7 +19,7 @@ ms.devlang: azurecli
 
 This article explains how to access an endpoint for your application in a private network.
 
-When you **Assign Endpoint** on applications in an Azure Spring Apps service instance that is deployed in your virtual network, the endpoint uses a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). *Log streaming*, described in [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
+When you assign an endpoint on an application in an Azure Spring Apps service instance deployed in your virtual network, the endpoint uses a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). *Log streaming*, described in [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
 
 ## Find the IP for your application
 
@@ -29,7 +29,7 @@ When you **Assign Endpoint** on applications in an Azure Spring Apps service ins
 
 1. Select the **Vnet injection** tab.
 
-1. In the **General info** section, find the **Endpoint** and copy its **IP Address**. The following example uses the IP address `10.0.1.6`:
+1. In the **General info** section, find **Endpoint** and copy the **IP Address** value. The example in the following screenshot uses the IP address `10.0.1.6`:
 
    :::image type="content" source="media/spring-cloud-access-app-vnet/find-ip-address.png" alt-text="Screenshot of the Azure portal that shows the Vnet injection Endpoint information." lightbox="media/spring-cloud-access-app-vnet/find-ip-address.png":::
 
