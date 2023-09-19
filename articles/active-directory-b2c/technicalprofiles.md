@@ -326,7 +326,7 @@ The **PersistedClaim** element contains the following attributes:
 | DefaultValue | No | A default value to use to create a claim if the claim doesn't exist. |
 | PartnerClaimType | No | The identifier of the claim type of the external partner that the specified policy claim type maps to. If the PartnerClaimType attribute isn't specified, the specified policy claim type is mapped to the partner claim type of the same name. Use this property when your claim type name is different from the other party. An example is if the first claim name is *givenName*, while the partner uses a claim named *first_name*. |
 
-In the following example, the **Microsoft Entra ID-UserWriteUsingLogonEmail** technical profile or the [starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts), which creates new local account, persists the following claims:
+In the following example, the **AAD-UserWriteUsingLogonEmail** technical profile or the [starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts), which creates new local account, persists the following claims:
 
 ```xml
 <PersistedClaims>
