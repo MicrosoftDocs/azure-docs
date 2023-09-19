@@ -22,7 +22,7 @@ This article shows you how to retrieve the Managed Airflow cluster’s IP addres
 
 ## Step 1: Retrieve the Managed Airflow cluster IP address
 
-Refer to the REST API documentation for [Integration Runtimes - Get](https://learn.microsoft.com/rest/api/datafactory/integration-runtimes/get?tabs=HTTP#code-try-0).
+Refer to the REST API documentation for [Integration Runtimes - Get](/rest/api/datafactory/integration-runtimes/get?tabs=HTTP#code-try-0).
 
 ## Step 2: Add the Managed Airflow cluster IP address to the storage account you want to secure
 
@@ -31,8 +31,8 @@ Refer to the REST API documentation for [Integration Runtimes - Get](https://lea
 
 - To add managed Airflow Cluster IP address into Azure Key Vault, refer to [Azure SQL Database and Azure Synapse IP firewall rules](/azure/key-vault/general/network-security) 
 - To add managed Airflow Cluster IP address into Azure Blob Storage, refer to [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-from-an-internet-ip-range)
-- To add managed Airflow Cluster IP address into Azure SQL Database, refer to [Configure Azure Key Vault firewalls and virtual networks](https://learn.microsoft.com/en-us/azure/azure-sql/database/firewall-configure?view=azuresql)
-- To add managed Airflow Cluster IP address into Azure PostgreSQL Database, refer to [Create and manage firewall rules for Azure Database for PostgreSQL - Single Server using the Azure portal](https://learn.microsoft.com/en-us/azure/postgresql/single-server/how-to-manage-firewall-using-portal)
+- To add managed Airflow Cluster IP address into Azure SQL Database, refer to [Configure Azure Key Vault firewalls and virtual networks](/azure/azure-sql/database/firewall-configure?view=azuresql)
+- To add managed Airflow Cluster IP address into Azure PostgreSQL Database, refer to [Create and manage firewall rules for Azure Database for PostgreSQL - Single Server using the Azure portal](/azure/postgresql/single-server/how-to-manage-firewall-using-portal)
 
 ## Next steps
 
