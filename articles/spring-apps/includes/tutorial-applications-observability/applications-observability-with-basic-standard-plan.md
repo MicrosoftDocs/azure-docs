@@ -120,7 +120,7 @@ Use the following steps to pin the various charts to the dashboard.
 
 1. Select **Apply splitting**. For **Values**, select the corresponding dropdown list to check the `App` box.
 
-   :::image type="content" source="../../media/tutorial-applications-observability/chart-app-cpu-usage.png" alt-text="Screenshot of the Azure portal that shows the app cpu usage." lightbox="../../media/tutorial-applications-observability/chart-app-cpu-usage.png":::
+   :::image type="content" source="../../media/tutorial-applications-observability/chart-app-cpu-usage.png" alt-text="Screenshot of the Azure portal that shows the app CPU usage." lightbox="../../media/tutorial-applications-observability/chart-app-cpu-usage.png":::
 
 1. Select **Save to dashboard** to open the dropdown list, then select **Pin to dashboard**. 
 
