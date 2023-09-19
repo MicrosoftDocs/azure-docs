@@ -34,7 +34,7 @@ Once the integration at cluster pool is enabled, it isn't possible to disable th
      
 1. Log Analytics is enabled when the cluster pool is successfully created. All monitoring capabilities can be accessed under your cluster pool’s **Monitoring** section.
   
-   :::image type="content" source="./media/how-to-azure-monitor-integration/monitor-section.png" alt-text="Screenshot showing Monitoring area in the Azure portal.":::
+   :::image type="content" source="./media/how-to-azure-monitor-integration/monitor-section.png" alt-text="Screenshot showing monitoring section in the Azure portal." lightbox="./media/how-to-azure-monitor-integration/monitor-section.png":::
 
 ## Enable Log Analytics using portal after cluster pool creation
 
