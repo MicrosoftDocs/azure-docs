@@ -37,7 +37,7 @@ Configure regional redundancy by adding a global frontend public IP address to y
 
 If one region fails, the traffic is routed to the next closest healthy regional load balancer.  
 
-The health probe of the cross-region load balancer gathers information about availability of each regional load balancer every 20 seconds. If one regional load balancer drops its availability to 0, cross-region load balancer detects the failure. The regional load balancer is then taken out of rotation. 
+The health probe of the cross-region load balancer gathers information about availability of each regional load balancer every 5 seconds. If one regional load balancer drops its availability to 0, cross-region load balancer detects the failure. The regional load balancer is then taken out of rotation. 
 
 :::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagram of global region traffic view." border="true":::
 
@@ -80,6 +80,8 @@ Cross-region load balancer is a Layer-4 pass-through network load balancer. This
 
 Floating IP can be configured at both the global IP level and regional IP level. For more information, visit [Multiple frontends for Azure Load Balancer](./load-balancer-multivip-overview.md)
 
+It is important to note that floating IP configured on the Azure cross-region Load Balancer operates independently of floating IP configurations on backend regional load balancers. If floating IP is enabled on the cross-region load balancer, the appropriate loopback interface needs to be added to the backend VMs. 
+
 ### Health Probes
 
 Azure cross-region Load Balancer utilizes the health of the backend regional load balancers when deciding where to distribute traffic to. Health checks by cross-region load balancer are done automatically every 5 seconds, given that a user has set up health probes on their regional load balancer.  
@@ -94,15 +96,15 @@ Add your existing load balancer deployments to a cross-region load balancer for 
 This region doesn't affect how the traffic is routed. If a home region goes down, traffic flow is unaffected.
 
 ### Home regions
-* East US 2
-* West US
-* Southeast Asia
 * Central US
-* North Europe
 * East Asia
-* US Gov Virginia
+* East US 2
+* North Europe
+* Southeast Asia
 * UK South
+* US Gov Virginia
 * West Europe
+* West US
 
 > [!NOTE]
 > You can only deploy your cross-region load balancer or Public IP in Global tier in one of the listed Home regions.
@@ -116,28 +118,28 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 :::image type="content" source="./media/cross-region-overview/multiple-region-global-traffic.png" alt-text="Diagram of multiple region global traffic.":::
 
 ### Participating regions
-* East US 
-* West Europe 
+* Australia East 
+* Australia Southeast 
+* Central India 
 * Central US 
+* East Asia 
+* East US 
 * East US 2 
-* West US 
+* Japan East 
+* North Central US 
 * North Europe 
 * South Central US 
-* West US 2 
-* UK South 
 * Southeast Asia 
-* North Central US 
-* Japan East 
-* East Asia 
-* West Central US 
-* Australia Southeast 
-* Australia East 
-* Central India 
+* UK South 
 * US DoD Central
 * US DoD East
 * US Gov Arizona
 * US Gov Texas
 * US Gov Virginia
+* West Central US 
+* West Europe 
+* West US 
+* West US 2 
 
 > [!NOTE]
 > The backend regional load balancers can be deployed in any publicly available Azure Region and is not limited to just participating regions.
@@ -152,10 +154,12 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 
 * UDP traffic isn't supported on Cross-region Load Balancer for IPv6.
 
+* UDP traffic on port 3 isn't supported on Cross-Region Load Balancer
+
 * Outbound rules aren't supported on Cross-region Load Balancer. For outbound connections, utilize [outbound rules](./outbound-rules.md) on the regional load balancer or [NAT gateway](../nat-gateway/nat-overview.md).
 
 ## Pricing and SLA
-Cross-region load balancer shares the [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) of standard load balancer.
+Cross-region load balancer shares the [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) of standard load balancer.
 
  ## Next steps
 

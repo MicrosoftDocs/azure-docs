@@ -21,6 +21,8 @@ Azure Image Builder uses Hashicorp Packer to create images. Packer outputs all l
 
 In this resource group is a storage account with a blob container called **packerlogs**. In the container is a folder named with a GUID in which you'll find the log file. 	Entries for built-in scripts you use to customize your image begin **Starting AVD AIB Customization: {Script name}: {Timestamp}**, to help you locate any errors related to the scripts.
 
+To learn how to interpret Azure Image Builder logs, see [Troubleshoot Azure VM Image Builder](../virtual-machines/linux/image-builder-troubleshoot.md).
+
 > [!IMPORTANT]
 > Microsoft Support doesn't handle issues for any customer created scripts, or any scripts or templates copied from a Microsoft repository and modified. You are welcome to collaborate and improve these tools in our [GitHub repository](https://github.com/Azure/RDS-Templates/issues), where you can open an issue. For more information, see [Why do we not support customer or third party scripts?](https://techcommunity.microsoft.com/t5/ask-the-performance-team/help-my-powershell-script-isn-t-working-can-you-fix-it/ba-p/755797)
 

@@ -4,8 +4,8 @@ description: In this article, learn how to prepare your environment to protect a
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Install and upgrade Azure Backup Server

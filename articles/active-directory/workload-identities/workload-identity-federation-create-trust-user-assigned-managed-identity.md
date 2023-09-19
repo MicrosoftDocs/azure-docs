@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: workload-identities
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/27/2023
+ms.date: 09/15/2023
 ms.author: ryanwi
 ms.custom: aaddev, devx-track-azurecli, devx-track-azurepowershell
 ms.reviewer: shkhalide, udayh, vakarand
@@ -44,7 +44,7 @@ To learn more about supported regions, time to propagate federated credential up
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
-In the [Azure portal](https://portal.azure.com), navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar, select **Federated credentials** and then **Add Credential**.
+In the [Microsoft Entra admin center](https://entra.microsoft.com), navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar, select **Federated credentials** and then **Add Credential**.
 
 In the **Federated credential scenario** dropdown box, select your scenario.
 
@@ -70,7 +70,7 @@ Use the following values from your Azure AD Managed Identity for your GitHub wor
 
     [![Screenshot that demonstrates how to copy the managed identity ID and subscription ID from Azure portal.](./media/workload-identity-federation-create-trust-user-assigned-managed-identity/copy-managed-identity-id.png)](./media/workload-identity-federation-create-trust-user-assigned-managed-identity/copy-managed-identity-id.png#lightbox)
 
-- `AZURE_TENANT_ID` the **Directory (tenant) ID**. Learn [how to find your Azure Active Directory tenant ID](../fundamentals/active-directory-how-to-find-tenant.md).
+- `AZURE_TENANT_ID` the **Directory (tenant) ID**. Learn [how to find your Azure Active Directory tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name).
 
 #### Entity type examples
 
@@ -158,13 +158,13 @@ Select **Add** to configure the federated credential.
 
 ## List federated identity credentials on a user-assigned managed identity
 
-In the [Azure portal](https://portal.azure.com), navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar and select **Federated credentials**.
+In the [Microsoft Entra admin center](https://entra.microsoft.com), navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar and select **Federated credentials**.
 
 The federated identity credentials configured on that user-assigned managed identity are listed.
 
 ## Delete a federated identity credential from a user-assigned managed identity
 
-In the [Azure portal](https://portal.azure.com), navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar and select **Federated credentials**.
+In the [Microsoft Entra admin center](https://entra.microsoft.com), navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar and select **Federated credentials**.
 
 The federated identity credentials configured on that user-assigned managed identity are listed.
 
@@ -253,7 +253,7 @@ az identity federated-credential show --name $ficId --identity-name $uaId --reso
 
 Run the [az identity federated-credential delete](/cli/azure/identity/federated-credential#az-identity-federated-credential-delete) command to delete a federated identity credential under an existing user assigned identity.
 
-```azure cli
+```azurecli
 az login
 
 # Set variables

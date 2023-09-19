@@ -1,6 +1,6 @@
 ---
 title: How to use rankings to display search results - Bing Web Search API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use ranking to display search results from the Bing Web Search API.
 services: cognitive-services
 
@@ -15,7 +15,7 @@ ms.date: 03/17/2019
 
 # How to use ranking to display Bing Web Search API results  
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 Each search response includes a [RankingResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) answer, that specifies how you must display the search results. The ranking response groups results by mainline content and sidebar content for a traditional search results page. If you do not display the results in a traditional mainline and sidebar format, you must provide the mainline content higher visibility than the sidebar content.  
 

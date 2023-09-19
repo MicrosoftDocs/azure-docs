@@ -247,6 +247,8 @@
                   href: import-logic-app-as-api.md
                 - name: Configure Service Fabric backend
                   href: how-to-configure-service-fabric-backend.md
+                - name: Import OData API
+                  href: import-api-from-odata.md
                 - name: Import SAP OData metadata
                   href: sap-api.md
                 - name: Configure API for SSE
@@ -558,6 +560,8 @@
               href: validate-headers-policy.md
             - name: validate-jwt
               href: validate-jwt-policy.md
+            - name: validate-odata-request
+              href: validate-odata-request-policy.md
             - name: validate-parameters
               href: validate-parameters-policy.md
             - name: validate-status-code

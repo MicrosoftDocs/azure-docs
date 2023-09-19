@@ -5,7 +5,7 @@ description: Learn how to configure dual-stack kubenet networking in Azure Kuber
 author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli, build-2023
+ms.custom: devx-track-azurecli, build-2023, devx-track-linux
 ms.topic: how-to
 ms.date: 06/27/2023
 ---

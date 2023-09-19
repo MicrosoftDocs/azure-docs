@@ -144,7 +144,7 @@ When developing with Azure AD B2C policies, you may run into errors or exception
 
 - Integrate Application Insights with Azure AD B2C to [diagnose exceptions](troubleshoot-with-application-insights.md).
 - The [Azure AD B2C extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) can help you access and [visualize the logs](https://github.com/azure-ad-b2c/vscode-extension/blob/master/src/help/app-insights.md) based on a policy name and time.
-- The most common error in setting up custom policies is improperly formatted XML. Use [XML schema validation](troubleshoot-custom-policies.md) to identify errors before you upload your XML file.
+- The most common error in setting up custom policies is improperly formatted XML. Use [XML schema validation](./troubleshoot.md) to identify errors before you upload your XML file.
 
 ## Continuous integration
 

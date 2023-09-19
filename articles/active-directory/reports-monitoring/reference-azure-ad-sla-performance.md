@@ -52,8 +52,8 @@ The SLA attainment is truncated at three places after the decimal. Numbers aren'
 | April     | 99.999% | 99.999% | 99.999% |
 | May       | 99.999% | 99.999% | 99.999% |
 | June      | 99.999% | 99.999% | 99.999% |
-| July      | 99.999% | 99.999% | |
-| August    | 99.999% | 99.999% | |
+| July      | 99.999% | 99.999% | 99.999% |
+| August    | 99.999% | 99.999% | 99.999% |
 | September | 99.999% | 99.998% | |
 | October   | 99.999% | 99.999% | |
 | November  | 99.998% | 99.999% | |
@@ -79,7 +79,7 @@ In addition to providing global SLA performance, Azure AD now provides tenant-le
 To access your tenant-level SLA performance:
 
 1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com) using the Reports Reader role (or higher).
-1. Go to **Azure AD** and select **Scenario Health** from the side menu.
+1. Go to **Azure AD**, select **Monitoring & health**, then select **Scenario Health** from the side menu.
 1. Select the **SLA Monitoring** tab.
 1. Hover over the graph to see the SLA performance for that month.
 
@@ -88,5 +88,5 @@ To access your tenant-level SLA performance:
 ## Next steps
 
 * [Azure AD reports overview](overview-reports.md)
-* [Programmatic access to Azure AD reports](concept-reporting-api.md)
+* [Programmatic access to Azure AD reports](./howto-configure-prerequisites-for-reporting-api.md)
 * [Azure Active Directory risk detections](../identity-protection/overview-identity-protection.md)

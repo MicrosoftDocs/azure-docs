@@ -65,4 +65,4 @@ Additionally, in most cases, there are no changes to users as their **UserPrinci
 
 ## Next Steps
 
-[Azure AD Connect sync service shadow attributes](../hybrid/how-to-connect-syncservice-shadow-attributes.md)
+[Azure AD Connect sync service shadow attributes](../hybrid/connect/how-to-connect-syncservice-shadow-attributes.md)

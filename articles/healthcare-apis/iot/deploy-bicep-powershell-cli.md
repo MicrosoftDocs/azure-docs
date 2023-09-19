@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: devx-track-bicep, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: quickstart
-ms.date: 07/05/2023
+ms.date: 07/12/2023
 ms.author: jasteppe
 ---
 
@@ -177,7 +177,7 @@ When deployment is completed, the following resources and access roles are creat
 
 * Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
 
-  * For the event hub, the **Azure Events Hubs Data Receiver** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the device message event hub.
+  * For the event hub, the **Azure Events Hubs Data Receiver** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the event hub.
 
   * For the FHIR service, the **FHIR Data Writer** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
   

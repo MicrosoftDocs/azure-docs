@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2022
+ms.date: 09/15/2023
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create a management VM and install the required tools to connect to and manage an Azure Active Directory Domain Services managed domain.
@@ -45,9 +45,9 @@ To complete this tutorial, you need the following resources and privileges:
 * An Azure Bastion host deployed in your Azure AD DS virtual network.
     * If needed, [create an Azure Bastion host][azure-bastion].
 
-## Sign in to the Azure portal
+## Sign in to the Microsoft Entra admin center
 
-In this tutorial, you create and configure a management VM using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+In this tutorial, you create and configure a management VM using the Microsoft Entra admin center. To get started, first sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 ## Available administrative tasks in Azure AD DS
 
@@ -82,14 +82,14 @@ In the previous tutorial, a Windows Server VM was created and joined to the mana
 
 To get started, connect to the Windows Server VM as follows:
 
-1. In the Azure portal, select **Resource groups** on the left-hand side. Choose the resource group where your VM was created, such as *myResourceGroup*, then select the VM, such as *myVM*.
+1. In the Microsoft Entra admin center, select **Resource groups** on the left-hand side. Choose the resource group where your VM was created, such as *myResourceGroup*, then select the VM, such as *myVM*.
 1. In the **Overview** pane for your VM, select **Connect**, then **Bastion**.
 
-    ![Connect to Windows virtual machine using Bastion in the Azure portal](./media/join-windows-vm/connect-to-vm.png)
+    ![Connect to Windows virtual machine using Bastion in the Microsoft Entra admin center](./media/join-windows-vm/connect-to-vm.png)
 
 1. Enter the credentials for your VM, then select **Connect**.
 
-   ![Connect through the Bastion host in the Azure portal](./media/join-windows-vm/connect-to-bastion.png)
+   ![Connect through the Bastion host in the Microsoft Entra admin center](./media/join-windows-vm/connect-to-bastion.png)
 
 If needed, allow your web browser to open pop-ups for the Bastion connection to be displayed. It takes a few seconds to make the connection to your VM.
 

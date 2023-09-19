@@ -53,7 +53,7 @@ If you don't already have a Facebook account, sign up at [https://www.facebook.c
 1. Select **Save Changes**.
 1. From the menu, select the **plus** sign or **Add Product** link next to **PRODUCTS**. Under the **Add Products to Your App**, select **Set up** under **Facebook Login**.
 1. From the menu, select **Facebook Login**, select **Settings**.
-1. In **Valid OAuth redirect URIs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-id/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-id/oauth2/authresp`. Replace `your-tenant-id` with the id of your tenant, and `your-domain-name` with your custom domain. 
+1. In **Valid OAuth redirect URIs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-id.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-id.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-id` with the id of your tenant, and `your-domain-name` with your custom domain. 
 1. Select **Save Changes** at the bottom of the page.
 1. To make your Facebook application available to Azure AD B2C, select the Status selector at the top right of the page and turn it **On** to make the Application public, and then select **Switch Mode**. At this point, the Status should change from **Development** to **Live**. For more information, see [Facebook App Development](https://developers.facebook.com/docs/development/release).
 

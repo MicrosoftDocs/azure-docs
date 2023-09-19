@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 10/26/2022
+ms.date: 07/18/2023
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
@@ -11,8 +11,10 @@ ms.service: cognitive-search
 1. In the **Resources** section, select Add (**+**), and then select **Create Resource Group**.
 
     :::image type="content" source="../media/tutorial-javascript-overview/visual-studio-code-create-resource-group.png" alt-text="Screenshot of Visual Studio Code, in Azure explorer, showing **Create Resource Group** option.":::
-1. Enter a resource group name, such as `cognitive-search-website-tutorial`. 
-1. For Node.js: Select `West US 2` during the Azure Function programming model (PM) v4 preview. For C# and Python, select a region near you.
-1. When you create the Cognitive Search and Static Web Apps resources, later in the tutorial, use this resource group. 
+1. Enter a resource group name, such as `cognitive-search-demo-rg`. 
+1. Enter a region:
 
-    Creating a resource group gives you a logical unit to manage the resources, including deleting them when you're finished using them.
+   * For Node.js, select `West US 2`. This is the recommended region for the Azure Function programming model (PM) v4 preview. 
+   * For C# and Python, we recommend the following regions, supported by Azure Static Web Apps as of this writing: `West US 2`, `East US 2`, `West Europe`, `Central US`, `East Asia`
+
+Use this resource group for all resources created during this tutorial. A resource group gives you a logical unit to manage the resources, including deleting them when you're finished.

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/13/2023
 
 
 ms.author: justinha
@@ -24,20 +24,21 @@ This article explains how to migrate from running federated servers such as Acti
 
 ## Staged Rollout 
 
-[Staged Rollout](../hybrid/how-to-connect-staged-rollout.md) helps customers transition from AD FS to Azure AD by testing cloud authentication with selected groups of users before switching the entire tenant. 
+[Staged Rollout](../hybrid/connect/how-to-connect-staged-rollout.md) helps customers transition from AD FS to Azure AD by testing cloud authentication with selected groups of users before switching the entire tenant. 
 
 ## Enable Staged Rollout for certificate-based authentication on your tenant
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To configure Staged Rollout, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
-1. Search for and select **Azure Active Directory**.
-1. From the left menu, select **Azure AD Connect**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Search for and select **Azure AD Connect**.
 1. On the Azure AD Connect page, under the Staged Rollout of cloud authentication, click **Enable Staged Rollout for managed user sign-in**.
-1. On the **Enable Staged Rollout** feature page, click **On** for the option [Certificate-based authentication](active-directory-certificate-based-authentication-get-started.md)
+1. On the **Enable Staged Rollout** feature page, click **On** for the option [Certificate-based authentication](./certificate-based-authentication-federation-get-started.md)
 1. Click **Manage groups** and add groups you want to be part of cloud authentication. To avoid a time-out, ensure that the security groups contain no more than 200 members initially.
 
-For more information, see [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md).
+For more information, see [Staged Rollout](../hybrid/connect/how-to-connect-staged-rollout.md).
 
 >[!NOTE]
 > When Staged rollout is enabled for a user, the user is considered a managed user and all authentication will happen at Azure AD. For a federated Tenant, if CBA is enabled on Staged Rollout, password authentication only works if PHS is enabled too otherwise password authentication will fail.
@@ -55,7 +56,7 @@ Azure AD Connect requires a special role named **Hybrid Identity Administrator**
 
 ### Can we have privileged accounts with a federated AD FS server?
         
-Although it's possible, Microsoft recommends privileged accounts be cloud-only accounts. Using cloud-only accounts for privileged access limits exposure in Azure AD from a compromised on-premises environment. For more information, see [Protecting Microsoft 365 from on-premises attacks](../fundamentals/protect-m365-from-on-premises-attacks.md).
+Although it's possible, Microsoft recommends privileged accounts be cloud-only accounts. Using cloud-only accounts for privileged access limits exposure in Azure AD from a compromised on-premises environment. For more information, see [Protecting Microsoft 365 from on-premises attacks](../architecture/protect-m365-from-on-premises-attacks.md).
 
 ### If an organization is a hybrid running both AD FS and Azure CBA, are they still vulnerable to the AD FS compromise?
 

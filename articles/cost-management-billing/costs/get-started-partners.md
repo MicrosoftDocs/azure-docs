@@ -155,7 +155,7 @@ To view costs for a subscription, open **Cost Management** in the customer's Azu
 
 Cost analysis, budgets, and alerts are available for the subscription and resource group Azure RBAC scopes at pay-as-you-go rate-based costs.
 
-Amortized views and actual costs for reserved instances in the Azure RBAC scopes show zero charges. Purchase costs for entitlements such as Reserved instances and Marketplace fees are only shown in billing scopes in the partner's tenant where the purchases were made.
+Amortized views and actual costs for reserved instances in the Azure RBAC scopes show zero charges. Purchase costs for entitlements such as Reserved instances, Saving Plan purchases, and Marketplace fees are only shown in billing scopes in the partner's tenant where the purchases were made.
 
 The retail rates used to compute costs shown in the view are the same prices shown in the Azure Pricing Calculator for all customers. Costs shown don't include any discounts or credits that the partner may have like Partner Earned Credits, Tier Discounts, and Global Service discounts.
 

@@ -51,6 +51,10 @@ AZ_SUB_ID=$(az account show --query id -o tsv)
 az ad sp create-for-rbac -n "test-aro-SP" --role contributor --scopes "/subscriptions/${AZ_SUB_ID}/resourceGroups/${AZ_RG}"
 ```
 
+> [!NOTE]
+> 
+> Service principals must be unique per Azure RedHat OpenShift (ARO) Cluster.
+
 The output is similar to the following example:
 
 ```

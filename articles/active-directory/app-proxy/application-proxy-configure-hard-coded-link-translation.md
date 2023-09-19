@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -127,11 +127,13 @@ If you need to support one of these two scenarios, use the same internal and ext
 
 ## Enable link translation
 
-Getting started with link translation is as easy as clicking a button:
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Go to **Azure Active Directory** > **Enterprise applications** > **All applications** > select the app you want to manage > **Application proxy**.
-3. Turn **Translate URLs in application body** to **Yes**.
+Getting started with link translation is as easy as clicking a button:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the app you want to manage.
+1. Turn **Translate URLs in application body** to **Yes**.
 
    ![Select Yes to translate URLs in application body](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)
 4. Select **Save** to apply your changes.

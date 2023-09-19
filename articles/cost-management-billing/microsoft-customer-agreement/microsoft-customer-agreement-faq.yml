@@ -40,11 +40,11 @@ sections:
              | Italy | Jamaica | Japan | Jordan |
              | Kazakhstan | Kenya | Korea | Kuwait |
              | Kyrgyzstan | Lebanon | Libya | Lithuania |
-             | Macao Special Administrative Region| Macedonia (FYRO) | Malaysia | Malta |
-             | Mauritius | Mexico | Moldova | Monaco |
-             | Mongolia | Montenegro | Morocco | Namibia |
-             | Nepal | Netherlands | New Zealand | Nicaragua |
-             | Nigeria | Norway | Oman | Pakistan |
+             | Macao Special Administrative Region| Malaysia | Malta | Mauritius |
+             | Mexico | Moldova | Monaco | Mongolia |
+             | Montenegro | Morocco | Namibia | Nepal |
+             | Netherlands | New Zealand | Nicaragua | Nigeria |
+             | Norway | North Macedonia | Oman | Pakistan |
              | Palestinian Authority | Panama | Paraguay | Peru |
              | Philippines | Poland | Portugal | Puerto Rico |
              | Qatar | Romania | Russia | Rwanda |
@@ -52,7 +52,7 @@ sections:
              | Singapore | Slovakia | Slovenia | South Africa |
              | Spain | Sri Lanka | Sweden | Switzerland |
              | Taiwan | Tajikistan | Tanzania | Thailand |
-             | Trinidad and Tobago | Tunisia | Turkey | Turkmenistan |
+             | Trinidad and Tobago | Tunisia | Türkiye | Turkmenistan |
              | Uganda | UK | Ukraine | United Arab Emirates |
              | United States | Uruguay | Uzbekistan | Venezuela |
              | Vietnam | Virgin Islands of the United States | Yemen | Zambia |
@@ -187,7 +187,6 @@ sections:
           | Lithuania                           | Euro (€)                |
           | Luxembourg                          | Euro (€)                |
           | Macao SAR                              | US Dollar (\$)          |
-          | Macedonia (FYRO)                    | US Dollar (\$)          |
           | Malaysia                            | US Dollar (\$)          |
           | Malta                               | Euro (€)                |
           | Mauritius                           | US Dollar (\$)          |
@@ -203,6 +202,7 @@ sections:
           | New Zealand                         | New Zealand Dollar (\$) |
           | Nicaragua                           | US Dollar (\$)          |
           | Nigeria                             | US Dollar (\$)          |
+          | North Macedonia                     | US Dollar (\$)          |
           | Norway                              | Norwegian Krone (kr)    |
           | Oman                                | US Dollar (\$)          |
           | Pakistan                            | US Dollar (\$)          |

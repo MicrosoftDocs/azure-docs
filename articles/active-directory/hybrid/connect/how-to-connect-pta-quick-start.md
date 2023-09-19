@@ -39,7 +39,7 @@ Ensure that the following prerequisites are in place.
 
 ### In the Entra admin center
 
-1. Create a cloud-only Hybrid Identity Administrator account or a Hybrid Identity administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only Hybrid Identity Administrator account](../../fundamentals/add-users-azure-active-directory.md). Completing this step is critical to ensure that you don't get locked out of your tenant.
+1. Create a cloud-only Hybrid Identity Administrator account or a Hybrid Identity administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only Hybrid Identity Administrator account](../../fundamentals/add-users.md). Completing this step is critical to ensure that you don't get locked out of your tenant.
 2. Add one or more [custom domain names](../../fundamentals/add-custom-domain.md) to your Azure AD tenant. Your users can sign in with one of these domain names.
 
 ### In your on-premises environment
@@ -62,7 +62,7 @@ Ensure that the following prerequisites are in place.
      | --- | --- |
      | **80** | Downloads the certificate revocation lists (CRLs) while validating the TLS/SSL certificate |
      | **443** | Handles all outbound communication with the service |
-     | **8080** (optional) | Authentication Agents report their status every ten minutes over port 8080, if port 443 is unavailable. This status is displayed on the Azure portal. Port 8080 is _not_ used for user sign-ins. |
+     | **8080** (optional) | Authentication Agents report their status every ten minutes over port 8080, if port 443 is unavailable. This status is displayed on the [Microsoft Entra admin center](https://entra.microsoft.com). Port 8080 is _not_ used for user sign-ins. |
      
      If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
    - If your firewall or proxy lets you add DNS entries to an allowlist, add connections to **\*.msappproxy.net** and **\*.servicebus.windows.net**. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
@@ -72,7 +72,7 @@ Ensure that the following prerequisites are in place.
     - For certificate validation, unblock the following URLs: **crl3.digicert.com:80**, **crl4.digicert.com:80**, **ocsp.digicert.com:80**, **www\.d-trust.net:80**, **root-c3-ca2-2009.ocsp.d-trust.net:80**, **crl.microsoft.com:80**, **oneocsp.microsoft.com:80**, and **ocsp.msocsp.com:80**. Since these URLs are used for certificate validation with other Microsoft products you may already have these URLs unblocked.
 
 ### Azure Government cloud prerequisite
-Prior to enabling Pass-through Authentication through Azure AD Connect with Step 2, download the latest release of the PTA agent from the Azure portal.  You need to ensure that your agent is versions **1.5.1742.0.** or later.  To verify your agent see [Upgrade authentication agents](how-to-connect-pta-upgrade-preview-authentication-agents.md)
+Prior to enabling Pass-through Authentication through Azure AD Connect with Step 2, download the latest release of the PTA agent from the [Microsoft Entra admin center](https://entra.microsoft.com).  You need to ensure that your agent is versions **1.5.1742.0.** or later.  To verify your agent see [Upgrade authentication agents](how-to-connect-pta-upgrade-preview-authentication-agents.md)
 
 After downloading the latest release of the agent, proceed with the below instructions to configure Pass-Through Authentication through Azure AD Connect.
 
@@ -173,6 +173,6 @@ Smart Lockout assists in locking out bad actors who are trying to guess your use
 - [Frequently asked questions](how-to-connect-pta-faq.yml): Find answers to frequently asked questions.
 - [Troubleshoot](tshoot-connect-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
 - [Security deep dive](how-to-connect-pta-security-deep-dive.md): Get technical information on the Pass-through Authentication feature.
-- [Hybrid Azure AD join](../../devices/howto-hybrid-azure-ad-join.md): Configure Hybrid Azure AD join capability on your tenant for SSO across your cloud and on-premises resources.  
+- [Hybrid Azure AD join](../../devices/how-to-hybrid-join.md): Configure Hybrid Azure AD join capability on your tenant for SSO across your cloud and on-premises resources.  
 - [Azure AD Seamless SSO](how-to-connect-sso.md): Learn more about this complementary feature.
 - [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Use the Azure Active Directory Forum to file new feature requests.

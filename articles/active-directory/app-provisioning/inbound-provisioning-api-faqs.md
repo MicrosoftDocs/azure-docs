@@ -48,8 +48,11 @@ Yes, the provisioning API supports on-premises AD domains as a target.
 
 ## How do we get the /bulkUpload API endpoint for our provisioning app?
 
-The /bulkUpload API is available only for apps of the type: "API-driven inbound provisioning to Azure AD" and "API-driven inbound provisioning to on-premises Active Directory". You can retrieve the unique API endpoint for each provisioning app from the Provisioning blade home page.  In **Statistics to date** > **View technical information** and copy the **Provisioning API Endpoint** URL. It has the format:
+The /bulkUpload API is available only for apps of the type: "API-driven inbound provisioning to Azure AD" and "API-driven inbound provisioning to on-premises Active Directory". You can retrieve the unique API endpoint for each provisioning app from the Provisioning blade home page.  In **Statistics to date** > **View technical information**,copy the **Provisioning API Endpoint** URL. 
 
+  :::image type="content" source="media/inbound-provisioning-api-configure-app/provisioning-api-endpoint.png" alt-text="Screenshot of Provisioning API endpoint." lightbox="media/inbound-provisioning-api-configure-app/provisioning-api-endpoint.png":::
+
+It has the format:
 ```http
 https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/bulkUpload
 ```
@@ -98,6 +101,7 @@ Here are some options that you can consider for generating unique UPNs:
 ## How do we send more HR attributes to the provisioning /bulkUpload API endpoint?
 
 By default, the API endpoint supports processing any attribute that is part of the SCIM Core User and Enterprise User schema. If you'd like to send more attributes, you can extend the provisioning app schema, map the new attributes to Azure AD attributes and update the bulk request to send those attributes. 
+Refer to the tutorial [Extend API-driven provisioning to sync custom attributes](inbound-provisioning-api-custom-attributes.md).
 
 ## How do we exclude certain users from the provisioning flow?
 
@@ -139,17 +143,21 @@ You can retrieve the unique API endpoint for each job from the Provisioning blad
 
 To process terminations, identify an attribute in your source that will be used to set the ```accountEnabled``` flag in Azure AD. If you are provisioning to on-premises Active Directory, then map that source attribute to the `accountDisabled` attribute. 
 
-By default, the value associated with the SCIM User Core schema attribute ```active``` determines the status of the user's account in the target directory.
+By default, the value associated with the SCIM Core User schema attribute ```active``` determines the status of the user's account in the target directory.
 
 If the attribute is set to **true**, the default mapping rule enables the account. If the attribute is set to **false**, then the default mapping rule disables the account. 
 
 ## Can we soft-delete a user in Azure AD using /bulkUpload provisioning API?
 
-No. Currently the provisioning service only supports enabling or disabling an account in Azure AD/on-premises AD.
+Yes, you can soft-delete a user by using the **DELETE** method in the bulk request operation. Refer to the [bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API spec doc for an example request. 
 
 ## How can we prevent accidental disabling/deletion of users?
 
-You can enable accidental deletion prevention. See [Enable accidental deletions prevention in the Azure AD provisioning service](accidental-deletions.md)
+To prevent and recover from accidental deletions, we recommend [configuring accidental deletion threshold](accidental-deletions.md) in the provisioning app and [enabling the on-premises Active Directory recycle bin](../hybrid/connect/how-to-connect-sync-recycle-bin.md). In your provisioning app's **Attribute Mapping** blade, under **Target object actions** disable the **Delete** operation.  
+
+**Recovering deleted accounts**
+* If the target directory for the operation is Azure AD, then the matched user is soft-deleted. The user can be seen on the Microsoft Azure portal **Deleted users** page for the next 30 days and can be restored during that time.
+* If the target directory for the operation is on-premises Active Directory, then the matched user is hard-deleted. If the **Active Directory Recycle Bin** is enabled, you can restore the deleted on-premises AD user object.
 
 ## Do we need to send all users from the HR system in every request?
 

@@ -65,7 +65,7 @@ The response from the API call looks similar to the following json:
         {
             "directorySizeQuota": {
                 "used": 211802,
-                "total": 300000
+                "total": 50000000
             }
         }
     ]

@@ -14,7 +14,7 @@ ms.date: 08/12/2021
 The **Text Split** skill breaks text into chunks of text. You can specify whether you want to break the text into sentences or into pages of a particular length. This skill is especially useful if there are maximum text length requirements in other skills downstream. 
 
 > [!NOTE]
-> This skill isn't bound to Cognitive Services. It is non-billable and has no Cognitive Services key requirement.
+> This skill isn't bound to Azure AI services. It is non-billable and has no Azure AI services key requirement.
 
 ## @odata.type  
 Microsoft.Skills.Text.SplitSkill 

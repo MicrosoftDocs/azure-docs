@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 03/24/2022
+ms.date: 09/14/2023
 ms.subservice: app-proxy
 ms.author: kenwith
 ms.reviewer: ashishj
@@ -66,7 +66,7 @@ July 22, 2020: Released for download
 This version is only available for install via the download page. 
 
 ### New features and improvements
--	Improved support for Azure Government cloud environments. For steps on how to properly install the connector for Azure Government cloud review the [pre-requisites](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) and [installation steps](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
+-	Improved support for Azure Government cloud environments. For steps on how to properly install the connector for Azure Government cloud review the [pre-requisites](../hybrid/connect/reference-connect-government-cloud.md#allow-access-to-urls) and [installation steps](../hybrid/connect/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
 - Support for using the Remote Desktop Services web client with Application Proxy. See [Publish Remote Desktop with Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md) for more details.
 - Improved websocket extension negotiations. 
 - Support for optimized routing between connector groups and Application Proxy cloud services based on region. See [Optimize traffic flow with Azure Active Directory Application Proxy](application-proxy-network-topology.md) for more details. 

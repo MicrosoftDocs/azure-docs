@@ -19,17 +19,19 @@ If your application runs in Azure Service Fabric, Azure Cloud Services, Azure Vi
 ## Before you begin
 
 - [Enable Application Insights in your web app](../app/asp-net.md).
-- Include the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package version 1.3.5 or above in your app.
+- Include the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package version 1.4.2 or above in your app.
 
 ## Configure snapshot collection for ASP.NET applications
 
-The default Snapshot Debugger configuration is mostly empty and all settings are optional. You can customize the Snapshot Debugger configuration added to [ApplicationInsights.config](../app/configuration-with-applicationinsights-config.md).
+When you add the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package to your application, the `SnapshotCollectorTelemetryProcessor` should be added automatically to the `TelemetryProcessors` section of [ApplicationInsights.config](../app/configuration-with-applicationinsights-config.md).
+
+If you don't see `SnapshotCollectorTelemetryProcessor` in ApplicationInsights.config, or if you want to customize the Snapshot Debugger configuration, you may edit it by hand. However, these edits may get overwritten if you later upgrade to a newer version of the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package.
 
 The following example shows a configuration equivalent to the default configuration:
 
 ```xml
 <TelemetryProcessors>
-    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
     <!-- The default is true, but you can disable Snapshot Debugging by setting it to false -->
     <IsEnabled>true</IsEnabled>
     <!-- Snapshot Debugging is usually disabled in developer mode, but you can enable it by setting this to true. -->
@@ -55,58 +57,48 @@ The following example shows a configuration equivalent to the default configurat
     <ProvideAnonymousTelemetry>true</ProvideAnonymousTelemetry>
     <!-- The limit on the number of failed requests to request snapshots before the telemetry processor is disabled. -->
     <FailedRequestLimit>3</FailedRequestLimit>
-    </Add>
+  </Add>
 </TelemetryProcessors>
 ```
 
 Snapshots are collected _only_ on exceptions reported to Application Insights. In some cases (for example, older versions of the .NET platform), you might need to [configure exception collection](../app/asp-net-exceptions.md#exceptions) to see exceptions with snapshots in the portal.
 
-
-## Configure snapshot collection for applications using ASP.NET Core
+## Configure snapshot collection for ASP.NET Core applications or Worker Services
 
 ### Prerequisites
 
-Create a new class called `SnapshotCollectorTelemetryProcessorFactory` to add and configure the Snapshot Collector's telemetry processor.
+Your application should already reference one of the following Application Insights NuGet packages:
+- [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)
+- [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService)
 
+### Add the NuGet package
+
+Add the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package to your app.
+
+### Update the services collection
+
+In your application's startup code, where services are configured, add a call to the `AddSnapshotCollector` extension method. It's a good idea to add this line immediately after the call to `AddApplicationInsightsTelemetry`. For example:
 ```csharp
-using Microsoft.ApplicationInsights.AspNetCore;
-using Microsoft.ApplicationInsights.Extensibility;
-using Microsoft.ApplicationInsights.SnapshotCollector;
-using Microsoft.Extensions.Options;
-
-internal class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
-{
-    private readonly IServiceProvider _serviceProvider;
-
-    public SnapshotCollectorTelemetryProcessorFactory(IServiceProvider serviceProvider) =>
-        _serviceProvider = serviceProvider;
-
-    public ITelemetryProcessor Create(ITelemetryProcessor next)
-    {
-        IOptions<SnapshotCollectorConfiguration> snapshotConfigurationOptions = _serviceProvider.GetRequiredService<IOptions<SnapshotCollectorConfiguration>>();
-        return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
-    }
-}
-```
-
-Add the `SnapshotCollectorConfiguration` and `SnapshotCollectorTelemetryProcessorFactory` services to `Program.cs`:
-
-```csharp
-using Microsoft.ApplicationInsights.AspNetCore;
-using Microsoft.ApplicationInsights.SnapshotCollector;
-
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
 builder.Services.AddApplicationInsightsTelemetry();
-builder.Services.AddSnapshotCollector(config => builder.Configuration.Bind(nameof(SnapshotCollectorConfiguration), config));
-builder.Services.AddSingleton<ITelemetryProcessorFactory>(sp => new SnapshotCollectorTelemetryProcessorFactory(sp));
+builder.Services.AddSnapshotCollector();
 ```
 
-If needed, customize the Snapshot Debugger configuration by adding a `SnapshotCollectorConfiguration` section to *appsettings.json*. The following example shows a configuration equivalent to the default configuration:
+### Configure the Snapshot Collector
+For most situations, the default settings are sufficient. If not, customize the settings by adding the following code before the call to `AddSnapshotCollector()`
+```csharp
+using Microsoft.ApplicationInsights.SnapshotCollector;
+...
+builder.Services.Configure<SnapshotCollectorConfiguration>(builder.Configuration.GetSection("SnapshotCollector"));
+```
+
+Next, add a `SnapshotCollector` section to *appsettings.json* where you can override the defaults. The following example shows a configuration equivalent to the default configuration:
 
 ```json
 {
-  "SnapshotCollectorConfiguration": {
+  "SnapshotCollector": {
     "IsEnabledInDeveloperMode": false,
     "ThresholdForSnapshotting": 1,
     "MaximumSnapshotsRequired": 3,
@@ -122,9 +114,14 @@ If needed, customize the Snapshot Debugger configuration by adding a `SnapshotCo
 }
 ```
 
+If you need to customize the Snapshot Collector's behavior manually, without using *appsettings.json*, use the overload of `AddSnapshotCollector` that takes a delegate. For example:
+```csharp
+builder.Services.AddSnapshotCollector(config => config.IsEnabledInDeveloperMode = true);
+```
+
 ## Configure snapshot collection for other .NET applications
 
-Snapshots are collected only on exceptions that are reported to Application Insights. You might need to modify your code to report them. The exception handling code depends on the structure of your application. Here's an example:
+Snapshots are collected only on exceptions that are reported to Application Insights. For ASP.NET and ASP.NET Core applications, the Application Insights SDK automatically reports unhandled exceptions that escape a controller method or endpoint route handler. For other applications, you might need to modify your code to report them. The exception handling code depends on the structure of your application. Here's an example:
 
 ```csharp
 TelemetryClient _telemetryClient = new TelemetryClient();

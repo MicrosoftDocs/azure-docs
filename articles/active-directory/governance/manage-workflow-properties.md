@@ -28,19 +28,15 @@ You can update the following basic information without creating a new workflow.
 
 If you change any other parameters, a new version is required to be created as outlined in the [Managing workflow versions](manage-workflow-tasks.md) article.
 
-If done via the Azure portal, the new version is created automatically. If done using Microsoft Graph, you must manually create a new version of the workflow.  For more information, see [Edit the properties of a workflow using Microsoft Graph](#edit-the-properties-of-a-workflow-using-microsoft-graph).
+If done via the Microsoft Entra Admin center, the new version is created automatically. If done using Microsoft Graph, you must manually create a new version of the workflow.  For more information, see [Edit the properties of a workflow using Microsoft Graph](#edit-the-properties-of-a-workflow-using-microsoft-graph).
 
-## Edit the properties of a workflow using the Azure portal
+## Edit the properties of a workflow using the Microsoft Entra Admin center
 
-To edit the properties of a workflow using the Azure portal, you do the following steps:
+To edit the properties of a workflow using the Microsoft Entra admin center, you do the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
 
-1. Type in **Identity Governance** on the search bar near the top of the page and select it.
-
-1. On the left menu, select **Lifecycle workflows**. 
-
-1. On the left menu, select **Workflows**.
+1. Browse to **Identity governance** > **Lifecycle workflows** > **workflows**.
 
 1. Here you see a list of all of your current workflows. Select the workflow that you want to edit.
     

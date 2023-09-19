@@ -4,10 +4,10 @@ description: Learn how to secure data in Azure Data Lake Storage Gen1 using grou
 
 author: normesta
 ms.service: data-lake-store
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: normesta
-
 ---
 # Securing data stored in Azure Data Lake Storage Gen1
 Securing data in Azure Data Lake Storage Gen1 is a three-step approach.  Both Azure role-based access control (Azure RBAC) and access control lists (ACLs) must be set to fully enable access to data for users and security groups.

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/14/2023
+ms.date: 09/15/2023
 ms.author: justinha
 ms.reviewer: xyuan
 
@@ -49,6 +49,16 @@ A managed domain connects to a subnet in an Azure virtual network. Design this s
 * A managed domain requires 3-5 IP addresses. Make sure that your subnet IP address range can provide this number of addresses.
     * Restricting the available IP addresses can prevent the managed domain from maintaining two domain controllers.
 
+  >[!NOTE]
+  >You shouldn't use public IP addresses for virtual networks and their subnets due to the following issues:
+  >
+  >- **Scarcity of the IP address**: IPv4 public IP addresses are limited, and their demand often exceeds the available supply. Also, there are potentially overlapping IPs with public endpoints.
+  >- **Security risks**: Using public IPs for virtual networks exposes your devices directly to the internet, increasing the risk of unauthorized access and potential attacks. Without proper security measures, your devices may become vulnerable to various threats.
+  >
+  >- **Complexity**: Managing a virtual network with public IPs can be more complex than using private IPs, as it requires dealing with external IP ranges and ensuring proper network segmentation and security.
+  >
+  >It is strongly recommended to use private IP addresses. If you use a public IP, ensure you are the owner/dedicated user of the chosen IPs in the public range you chose.
+
 The following example diagram outlines a valid design where the managed domain has its own subnet, there's a gateway subnet for external connectivity, and application workloads are in a connected subnet within the virtual network:
 
 ![Recommended subnet design](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
@@ -76,7 +86,7 @@ You can connect a virtual network to another virtual network (VNet-to-VNet) in t
 
 ![Virtual network connectivity using a VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 
-For more information on using virtual private networking, read [Configure a VNet-to-VNet VPN gateway connection by using the Azure portal](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+For more information on using virtual private networking, read [Configure a VNet-to-VNet VPN gateway connection by using the Microsoft Entra admin center](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
 ## Name resolution when connecting virtual networks
 
@@ -117,7 +127,7 @@ The following network security group Inbound rules are required for the managed 
 | Service tag | CorpNetSaw                         | *                  | Any           | RDP     | 3389            | TCP | Allow | Optional | Debugging for support |
 
 
-Note that the **CorpNetSaw** service tag isn't available by using Azure portal, and the network security group rule for **CorpNetSaw** has to be added by using [PowerShell](powershell-create-instance.md#create-a-network-security-group).
+Note that the **CorpNetSaw** service tag isn't available by using the Microsoft Entra admin center, and the network security group rule for **CorpNetSaw** has to be added by using [PowerShell](powershell-create-instance.md#create-a-network-security-group).
 
 Azure AD DS also relies on the Default Security rules AllowVnetInBound and AllowAzureLoadBalancerInBound.
 
@@ -139,7 +149,7 @@ If needed, you can [create the required network security group and rules using A
 
 ### Outbound connectivity
 
-For Outbound connectivity, you can either keep **AllowVnetOutbound** and **AllowInternetOutBound** or restrict Outbound traffic by using ServiceTags listed in the following table. The ServiceTag for AzureUpdateDelivery must be added via [PowerShell](powershell-create-instance.md).
+For Outbound connectivity, you can either keep **AllowVnetOutbound** and **AllowInternetOutBound** or restrict Outbound traffic by using ServiceTags listed in the following table. The ServiceTag for AzureUpdateDelivery must be added via [PowerShell](powershell-create-instance.md). Make sure no other NSG with higher priority denies the Outbound connectivity. If Outbound connectivity is denied, replication won't work between replica sets. 
 
 
 | Outbound port number | Protocol | Source | Destination   | Action | Required | Purpose |

@@ -1,11 +1,11 @@
 ---
 title: How to configure Quick Access for Global Secure Access
-description: Learn how to configure Quick Access for Microsoft Entra Private Access.
+description: Learn how to specify the internal resources to secure with Microsoft Entra Private Access using a Quick Access app.
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 07/27/2023
 ms.service: network-access
 ms.custom: 
 ms.reviewer: katabish
@@ -25,7 +25,7 @@ To configure Quick Access, you must have:
 To manage App Proxy connector groups, which is required for Quick Access, you must have:
 
 - An **Application Administrator** role in Microsoft Entra ID
-- An Azure AD Premium P1/P2 license
+- Microsoft Entra P1 or P2 licenses
 
 ### Known limitations
 
@@ -37,11 +37,11 @@ To manage App Proxy connector groups, which is required for Quick Access, you mu
 
 Configuring your Quick Access settings is a major component to utilizing Microsoft Entra Private Access. When you configure Quick Access for the first time, Private Access creates a new enterprise application. The properties of this new app are automatically configured to work with Private Access. 
 
-To configure Quick Access, you need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector. The connector group handles the traffic to this new application. Once you have Quick Access and an App proxy connector group configured, you need to grant access to the app.
+To configure Quick Access, you need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](/azure/active-directory/app-proxy/application-proxy) connector. The connector group handles the traffic to this new application. Once you have Quick Access and an App proxy connector group configured, you need to grant access to the app.
 
 To summarize, the overall process is as follows:
 
-1. Create a connector group with at least one active App Proxy connector, if you don't already have one.
+1. Create a connector group with at least one active App Proxy connector, if you don't already have one. If you already have a connector group, make sure you're on the latest version.
 1. Configure Quick Access, which creates a new enterprise app.
 1. Assign users and groups to the app.
 1. Configure Conditional Access policies.
@@ -55,14 +55,20 @@ To configure Quick Access, you must have a connector group with at least one act
 
 If you don't already have a connector group set up, see [Configure connectors for Quick Access](how-to-configure-connectors.md).
 
+> [!NOTE]
+> If you've previously installed a connector, reinstall it to get the latest version. When upgrading, uninstall the existing connector and delete any related folders.
+>
+> The minimum version of connector required for Private Access is **1.5.3417.0**.
+
+
 ## Configure Quick Access
 
 On the Quick Access page, you provide a name for the Quick Access app, select a connector group, and add application segments, which include FQDNs and IP addresses. You can complete all three steps at the same time, or you can add the application segments after the initial setup is complete. 
 
 ### Name and connector group
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** with the appropriate roles. 
-1. Go to **Global Secure Access (preview)** > **Applications** > **Quick access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) with the appropriate roles. 
+1. Browse to **Global Secure Access (preview)** > **Applications** > **Quick access**.
 1. Enter a name. *We recommend using the name Quick Access*. 
 1. Select a Connector group from the dropdown menu.
 
@@ -77,8 +83,8 @@ The **Add Quick Access application segment** portion of this process is where yo
 
 You can add fully qualified domain names (FQDN), IP addresses, and IP address ranges.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
-1. Go to **Global Secure Access** > **Applications** > **Quick Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Global Secure Access (preview)** > **Applications** > **Quick Access**.
 1. Select **Add Quick Access application segment**.
 
     ![Screenshot of the Add Quick Access application segment button.](media/how-to-configure-quick-access/add-quick-access-application-segment.png)
@@ -119,7 +125,7 @@ You can view the properties from **Quick Access** or navigate to **Enterprise ap
 1. Select **Users and groups** from the side menu.
 
 1. Add users and groups as needed.
-    - For more information, see [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
+    - For more information, see [Assign users and groups to an application](/azure/active-directory/manage-apps/assign-user-or-group-access-portal).
 
 > [!NOTE]
 > Users must be directly assigned to the app or to the group assigned to the app. Nested groups are not supported.
@@ -128,8 +134,8 @@ You can view the properties from **Quick Access** or navigate to **Enterprise ap
 
 You can add or update the FQDNs and IP addresses included in your Quick Access app at any time.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
-1. Go to **Global Secure Access** > **Applications** > **Quick Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Global Secure Access (preview)** > **Applications** > **Quick Access**.
     - To add an FQDN or IP address, select **Add Quick Access application segment**.
     - To edit an FQDN or IP address, select it from the **Destination type** column.
 
@@ -143,8 +149,8 @@ Creating a Conditional Access policy is covered in detail in [How to create a Co
 
 Once you have your Quick Access app configured, your private resources added, users assigned to the app, you can enable the Private access profile from the **Traffic forwarding** area of Global Secure Access. You can enable the profile before configuring Quick Access, but without the app and profile configured, there's no traffic to forward.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
-1. Go to **Global Secure Access** > **Connect** > **Traffic forwarding**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Global Secure Access (preview)** > **Connect** > **Traffic forwarding**.
 1. Select the checkbox for **Private access profile**.
 
 ![Screenshot of the traffic forwarding page with the Private access profile enabled.](media/how-to-configure-quick-access/private-access-traffic-profile.png)

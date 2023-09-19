@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 05/31/2023
+ms.date: 07/21/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ---
@@ -25,14 +25,12 @@ This article shows how to initiate an account failover for your storage account 
 
 ## Prerequisites
 
-Before you can perform an account failover on your storage account, make sure that your storage account is configured for geo-replication. Your storage account can use any of the following redundancy options:
+Before you can perform an account failover on your storage account, make sure that:
 
-- Geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS)
-- Geo-zone-redundant storage (GZRS) or read-access geo-zone-redundant storage (RA-GZRS)
-
-For more information about Azure Storage redundancy, see [Azure Storage redundancy](storage-redundancy.md).
-
-Some features and services are not supported for account failover. See [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services) for a detailed list.
+> [!div class="checklist"]
+> - Your storage account is configured for geo-replication (GRS, GZRS, RA-GRS or RA-GZRS). For more information about Azure Storage redundancy, see [Azure Storage redundancy](storage-redundancy.md).
+> - The type of your storage account supports customer-initiated failover. See [Supported storage account types](storage-disaster-recovery-guidance.md#supported-storage-account-types).
+> - Your storage account doesn't have any features or services enabled that are not supported for account failover. See [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services) for a detailed list.
 
 ## Initiate the failover
 

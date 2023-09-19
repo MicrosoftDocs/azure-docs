@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: 'Extend prebuilt docker images with Python package extensibility solution.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.author: sehan
 author: dem108
 ms.date: 08/15/2022

@@ -2,14 +2,14 @@
 title: Troubleshoot time sync issues for Azure Data Box, Azure Data Box Heavy devices
 description: Describes how to troubleshoot time sync issues for Azure Data Box or Azure Data Box Heavy device via the PowerShell interface.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ms.topic: troubleshooting
 ms.date: 11/15/2021
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Sync device time for Azure Data Box and Azure Data Box Heavy

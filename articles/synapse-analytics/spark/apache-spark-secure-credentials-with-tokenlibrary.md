@@ -254,7 +254,7 @@ To connect to other linked services, you can make a direct call to the TokenLibr
 %%spark
 // retrieve connectionstring from mssparkutils
 
-mssparkutils.getFullConnectionString("<LINKED SERVICE NAME>")
+mssparkutils.credentials.getFullConnectionString("<LINKED SERVICE NAME>")
 ```
 
 ::: zone-end
@@ -265,7 +265,7 @@ mssparkutils.getFullConnectionString("<LINKED SERVICE NAME>")
 %%pyspark
 # retrieve connectionstring from mssparkutils
 
-mssparkutils.getFullConnectionString("<LINKED SERVICE NAME>")
+mssparkutils.credentials.getFullConnectionString("<LINKED SERVICE NAME>")
 ```
 
 ::: zone-end
@@ -351,11 +351,11 @@ Console.WriteLine(connectionString);
 While Azure Synapse Analytics supports a variety of linked service connections (from pipelines and other Azure products), not all of them are supported from the Spark runtime. Here is the list of supported linked services:
 
  - Azure Blob Storage
- - Azure Cognitive Services
+ - Azure AI services
  - Azure Cosmos DB
  - Azure Data Explorer
  - Azure Database for MySQL
- - Azure Database for Postgre SQL
+ - Azure Database for PostgreSQL
  - Azure Data Lake Store (Gen1)
  - Azure Key Vault
  - Azure Machine Learning
@@ -364,7 +364,7 @@ While Azure Synapse Analytics supports a variety of linked service connections (
  - Azure SQL Data Warehouse (Dedicated and Serverless)
  - Azure Storage
 
- #### mssparkutils.credenials.getToken()
+ #### mssparkutils.credentials.getToken()
  When you need an OAuth bearer token to access services directly, you can use the `getToken` method. The following resources are supported:
 
 | Service Name                                          | String literal to be used in API call |
@@ -387,7 +387,7 @@ The following methods of accessing the linked services are not supported from th
   - Passing arguments to parameterized linked service
   - Connections with User assigned managed identities (UAMI)
 
-While running a notebook or a Spark job, requests to get a token / secret using a linked service may fail with an error message that indicates 'BadRequest'. This is often caused by a configuration issue with the linked service. If you see this error message, please check the configuration of your linked service. If you have any questions, please contact Microsoft Azure Support at https://portal.azure.com.
+While running a notebook or a Spark job, requests to get a token / secret using a linked service may fail with an error message that indicates 'BadRequest'. This is often caused by a configuration issue with the linked service. If you see this error message, please check the configuration of your linked service. If you have any questions, please contact Microsoft Azure Support at the [Azure portal](https://portal.azure.com).
 
 ## Next steps
 

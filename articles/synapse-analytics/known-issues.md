@@ -83,6 +83,12 @@ Synapse workspaces created from an existing dedicated SQL Pool report query fail
 
 **Workaround**: If you encountered a similar error, engage Microsoft Support Team for assistance.
 
+### Tag updates appear to fail
+
+When making a change to the [tags](../azure-resource-manager/management/tag-resources-portal.md) of a dedicated SQL pool through Azure portal or other methods, an error message may appear even though the change is made successfully.
+
+**Workaround**: You can confirm that the change to the tags was successful and ignore/suppress the error message as needed.
+
 ## Azure Synapse workspace active known issues summary
 
 The following are known issues with the Synapse workspace.

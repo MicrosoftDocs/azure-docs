@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2022
+ms.date: 09/15/2023
 ms.author: dhruvinshah
 ms.reviewer: dhruvinshah
 ---
@@ -16,9 +16,9 @@ ms.reviewer: dhruvinshah
 # Understanding Azure Active Directory Application Proxy Complex application scenario (Preview)
 
 When applications are made up of multiple individual web application using different domain suffixes or different ports or paths in the URL, the individual web application instances must be published in separate Azure AD Application Proxy apps and the following problems might arise:
-1.	Pre-authentication- The client must separately acquire an access token or cookie for each Azure AD Application Proxy app. This might lead to additional redirects to login.microsoftonline.com and CORS issues.
-2.	CORS issues- Cross-origin resource sharing calls (OPTIONS request) might be triggered to validate if the caller web app is allowed to access the URL of the targeted web app. These will be blocked by the Azure AD Application Proxy Cloud service, since these requests cannot contain authentication information.
-3.	Poor app management- Multiple enterprise apps are created to enable access to a private app adding friction to the app management experience.
+1. Pre-authentication- The client must separately acquire an access token or cookie for each Azure AD Application Proxy app. This might lead to additional redirects to login.microsoftonline.com and CORS issues.
+2. CORS issues- Cross-origin resource sharing calls (OPTIONS request) might be triggered to validate if the caller web app is allowed to access the URL of the targeted web app. These will be blocked by the Azure AD Application Proxy Cloud service, since these requests cannot contain authentication information.
+3. Poor app management- Multiple enterprise apps are created to enable access to a private app adding friction to the app management experience.
 
 The following figure shows an example for complex application domain structure.
 
@@ -29,7 +29,7 @@ With [Azure AD Application Proxy](application-proxy.md), you can address this is
 :::image type="content" source="./media/application-proxy-configure-complex-application/complex-app-flow-1.png" alt-text="Diagram of a Complex application with multiple application segments definition.":::
 
 A complex app has multiple app segments, with each app segment being a pair of an internal & external URL.
-There is one conditional access policy associated with the app and access to any of the external URLs work with pre-authentication with the same set of policies that are enforced for all.
+There is one Conditional Access policy associated with the app and access to any of the external URLs work with pre-authentication with the same set of policies that are enforced for all.
 
 This solution that allows user to:
 
@@ -51,7 +51,7 @@ This article provides you with the information you need to configure wildcard ap
 
 ## Pre-requisites
 Before you get started with Application Proxy Complex application scenario apps, make sure your environment is ready with the following settings and configurations:
-- You need to enable Application Proxy and install a connector that has line of site to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector.
+- You need to enable Application Proxy and install a connector that has line of sight to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector.
 
 
 ## Configure application segment(s) for complex application. 
@@ -75,7 +75,7 @@ To publish complex distributed app through Application Proxy with application se
 
 5. In the External Url field, drop down the list and select the custom domain you want to use.
 
-6. Add CORS Rules (optional).  For more information see [Configuring CORS Rule](/graph/api/resources/corsconfiguration_v2?view=graph-rest-beta).
+6. Add CORS Rules (optional).  For more information see [Configuring CORS Rule](/graph/api/resources/corsconfiguration_v2?view=graph-rest-beta&preserve-view=true).
 
 7. Select Create.
 

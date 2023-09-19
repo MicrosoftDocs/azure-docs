@@ -16,7 +16,7 @@ The Open Service Mesh (OSM) add-on integrates with features provided by Azure an
 
 Ingress allows for traffic external to the mesh to be routed to services within the mesh. With OSM, you can configure most ingress solutions to work with your mesh, but OSM works best with one of the following solutions:
 
-* [Web Application Routing][web-app-routing]
+* [Application Routing][app-routing]
 * [NGINX ingress][osm-nginx]
 * [Contour ingress][osm-contour]
 
@@ -235,5 +235,5 @@ This article covered the Open Service Mesh (OSM) add-on integrations with featur
 [osm-hashi-vault]: https://release-v1-0.docs.openservicemesh.io/docs/guides/certificates/#using-hashicorp-vault
 [osm-cert-manager]: https://release-v1-0.docs.openservicemesh.io/docs/guides/certificates/#using-cert-manager
 [osm-tresor]: https://release-v1-0.docs.openservicemesh.io/docs/guides/certificates/#using-osms-tresor-certificate-issuer
-[web-app-routing]: web-app-routing.md
+[app-routing]: app-routing.md
 [about-osm-in-aks]: open-service-mesh-about.md

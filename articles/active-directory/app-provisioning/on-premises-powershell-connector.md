@@ -37,7 +37,7 @@ The connector provides a bridge between the capabilities of the ECMA Connector H
 - Connectivity between hosting server, the connector, and the target system that the PowerShell scripts interact with.
 - The execution policy on the server must be configured to allow the connector to run Windows PowerShell scripts. Unless the scripts the connector runs are digitally signed, configure the execution policy by running this command:  
 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
-- Deploying this connector requires one or more PowerShell scripts.  Some Microsoft products may provide scripts for use with this connector, and the support statement for those scripts would be provided by that product.  If you are developing your own scripts for use with this connector, you'll need to have familiarity with the [Extensible Connectivity Management Agent API](https://msdn.microsoft.com/library/windows/desktop/hh859557.aspx) to develop and maintain those scripts.  If you are integrating with third party systems using your own scripts in a production environment, we recommend you work with the third party vendor or a deployment partner for help, guidance and support for this integration.
+- Deploying this connector requires one or more PowerShell scripts.  Some Microsoft products may provide scripts for use with this connector, and the support statement for those scripts would be provided by that product.  If you are developing your own scripts for use with this connector, you'll need to have familiarity with the [Extensible Connectivity Management Agent API](/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)?redirectedfrom=MSDN) to develop and maintain those scripts.  If you are integrating with third party systems using your own scripts in a production environment, we recommend you work with the third party vendor or a deployment partner for help, guidance and support for this integration.
 
 
 
@@ -72,7 +72,9 @@ If you have already downloaded the provisioning agent and configured it for anot
 
 ## Configure the On-premises ECMA app
 
- 1. Sign in to the Azure portal as an administrator.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+ 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
  2. Go to **Enterprise applications** and select **New application**.
  3. Search for the **On-premises ECMA app** application, give the app a name, and select **Create** to add it to your tenant.
  4. Navigate to the **Provisioning** page of your application.
@@ -132,7 +134,7 @@ The connectivity tab allows you to supply configuration parameters for connectin
 | Password | \<Blank\> |  Password of the credential to store for use when the connector is run.  |
 | Impersonate Connector Account  |Unchecked| When true, the synchronization service runs the Windows PowerShell scripts in the context of the credentials supplied. When possible, it is recommended that the **$Credentials** parameter is passed to each script is used instead of impersonation.|
 | Load User Profile When Impersonating |Unchecked|Instructs Windows to load the user profile of the connector’s credentials during impersonation. If the impersonated user has a roaming profile, the connector does not load the roaming profile.|
-| Logon Type When Impersonating  |None|Logon type during impersonation. For more information, see the [dwLogonType][dw] documentation. |
+| Logon Type When Impersonating  |None|Logon type during impersonation. For more information, see the [dwLogonType](/windows/win32/api/winbase/nf-winbase-logonusera#parameters) documentation. |
 |Signed Scripts Only |Unchecked|  If true, the Windows PowerShell connector validates that each script has a valid digital signature. If false, ensure that the Synchronization Service server’s Windows PowerShell execution policy is RemoteSigned or Unrestricted.| 
 |Common Module Script Name (with extension)|xADSyncPSConnectorModule.psm1|The connector allows you to store a shared Windows PowerShell module in the configuration. When the connector runs a script, the Windows PowerShell module is extracted to the file system so that it can be imported by each script.|
 |Common Module Script|[AD Sync PowerShell Connector Module code](https://github.com/microsoft/MIMPowerShellConnectors/blob/master/src/ECMA2HostCSV/Scripts/CommonModule.psm1) as value.  This module will be automatically created by the ECMA2Host when the connector is running.||
@@ -256,10 +258,11 @@ Follow these steps to confirm that the connector host has started and has identi
 
 
 ## Test the connection from Azure AD to the connector host
+
  1. Return to the web browser window where you were configuring the application provisioning in the portal.
     >[!NOTE]
     >If the window had timed out, then you need to re-select the agent.
-     1. Sign in to the Azure portal.
+     1. Sign in to the [Azure portal](https://portal.azure.com).
      2. Go to **Enterprise applications** and the **On-premises ECMA app** application.
      3. Click on **Provisioning**.
      4. If **Get started** appears, then change the mode to **Automatic**,  on the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**, and wait 10 minutes. Otherwise go to **Edit Provisioning**.
@@ -276,12 +279,13 @@ Follow these steps to confirm that the connector host has started and has identi
  5. After the connection test is successful and indicates that the supplied credentials are authorized to enable provisioning, select **Save**.
 
 ## Configure the application connection in the Azure portal
+
 Return to the web browser window where you were configuring the application provisioning.
 
 >[!NOTE]
 >If the window had timed out, then you need to re-select the agent.
 
-   1. Sign in to the Azure portal.
+   1. Sign in to the [Azure portal](https://portal.azure.com).
    2. Go to **Enterprise applications** and the **On-premises ECMA app** application.
    3. Select on **Provisioning**.
    4. If **Get started** appears, then change the mode to **Automatic**,  on the **On-Premises Connectivity** section, select the agent that you deployed and select **Assign Agent(s)**. Otherwise go to **Edit Provisioning**.
