@@ -98,7 +98,7 @@ After you've registered an application with the appropriate permissions, see the
 
 ### Access the API
 
-To download Azure AD B2C audit log events via the API, filter the logs on the `B2C` category. To filter by category, use the `filter` query string parameter when you call the Microsoft Entra ID reporting API endpoint.
+To download Azure AD B2C audit log events via the API, filter the logs on the `B2C` category. To filter by category, use the `filter` query string parameter when you call the Microsoft Entra reporting API endpoint.
 
 ```http
 https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
