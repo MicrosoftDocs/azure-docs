@@ -500,27 +500,27 @@
       href: /rest/api/searchmanagement
   - name: .NET
     items:
-    - name: Azure.Search.Documents (.NET SDK)
+    - name: Azure.Search.Documents
       href: /dotnet/api/overview/azure/search.documents-readme
-    - name: Azure.ResourceManager.Search (.NET SDK)
+    - name: Azure.ResourceManager.Search
       href: /dotnet/api/overview/azure/resourcemanager.search-readme
   - name: Java
     items:
-    - name: com.azure.search.documents (Java SDK)
+    - name: com.azure.search.documents
       href: /java/api/overview/azure/search-documents-readme
-    - name: com.azure.resourcemanager.search (Java SDK)
+    - name: com.azure.resourcemanager.search
       href: /java/api/overview/azure/search/management
   - name: JavaScript
     items:
-    - name: /@azure//search-documents (JavaScript SDK)
+    - name: azure/search-documents
       href: /javascript/api/overview/azure/search-documents-readme
-    - name: /@azure//arm-search (JavaScript SDK)
+    - name: azure/arm-search
       href: /javascript/api/@azure/arm-search/
   - name: Python
     items:
-    - name: azure-search-documents (Python SDK)
+    - name: azure-search-documents
       href: /python/api/overview/azure/search-documents-readme
-    - name: azure-mgmt-search (Python SDK)
+    - name: azure-mgmt-search
       href: /python/api/azure-mgmt-search/
   - name: Resource management
     items:
