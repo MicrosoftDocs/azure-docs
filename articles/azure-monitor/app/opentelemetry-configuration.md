@@ -144,8 +144,11 @@ Use one of the following two ways to configure the connection string:
 - Pass into `configure_azure_monitor`:
 
 ```python
+# Import the `configure_azure_monitor()` function from the `azure.monitor.opentelemetry` package.
 from azure.monitor.opentelemetry import configure_azure_monitor
 
+# Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+# Replace `<your-connection-string>` with the connection string of your Azure Monitor Application Insights resource.
 configure_azure_monitor(
     connection_string="<your-connection-string>",
 )
@@ -472,9 +475,13 @@ useAzureMonitor(options);
 #### [Python](#tab/python)
     
 ```python
+# Import the `ManagedIdentityCredential` class from the `azure.identity` package.
 from azure.identity import ManagedIdentityCredential
+# Import the `configure_azure_monitor()` function from the `azure.monitor.opentelemetry` package.
 from azure.monitor.opentelemetry import configure_azure_monitor
 
+# Configure OpenTelemetry to use Azure Monitor with a managed identity credential.
+# This will allow OpenTelemetry to authenticate to Azure Monitor without requiring you to provide a connection string.
 configure_azure_monitor(
     credential=ManagedIdentityCredential(),
 )
@@ -623,6 +630,9 @@ To override the default directory, you should set `storage_directory` to the dir
 For example:
 ```python
 ...
+# Configure OpenTelemetry to use Azure Monitor with the specified connection string and storage directory.
+# Replace `your-connection-string` with the connection string to your Azure Monitor Application Insights resource.
+# Replace `C:\\SomeDirectory` with the directory where you want to store the telemetry data before it is sent to Azure Monitor.
 configure_azure_monitor(
     connection_string="your-connection-string",
     storage_directory="C:\\SomeDirectory",
@@ -636,6 +646,8 @@ To disable this feature, you should set `disable_offline_storage` to `True`. Def
 For example:
 ```python
 ...
+# Configure OpenTelemetry to use Azure Monitor with the specified connection string and disable offline storage.
+# Replace `your-connection-string` with the connection string to your Azure Monitor Application Insights resource.
 configure_azure_monitor(
     connection_string="your-connection-string",
     disable_offline_storage=True,
@@ -745,20 +757,32 @@ For more information about Java, see the [Java supplemental documentation](java-
 1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see this [README](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry-exporter/samples/traces#collector).
     
     ```python
+    # Import the `configure_azure_monitor()`, `trace`, `OTLPSpanExporter`, and `BatchSpanProcessor` classes from the appropriate packages.    
     from azure.monitor.opentelemetry import configure_azure_monitor
     from opentelemetry import trace
     from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
     from opentelemetry.sdk.trace.export import BatchSpanProcessor
 
+    # Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+    # Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
     configure_azure_monitor(
         connection_string="<your-connection-string>",
     )
+    
+    # Get the tracer for the current module.
     tracer = trace.get_tracer(__name__) 
     
+    # Create an OTLP span exporter that sends spans to the specified endpoint.
+    # Replace `http://localhost:4317` with the endpoint of your OTLP collector.
     otlp_exporter = OTLPSpanExporter(endpoint="http://localhost:4317")
+    
+    # Create a batch span processor that uses the OTLP span exporter.
     span_processor = BatchSpanProcessor(otlp_exporter)
+    
+    # Add the batch span processor to the tracer provider.
     trace.get_tracer_provider().add_span_processor(span_processor)
     
+    # Start a new span with the name "test".
     with tracer.start_as_current_span("test"):
         print("Hello world!")
     ```
