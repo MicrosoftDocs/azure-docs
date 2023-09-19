@@ -87,7 +87,7 @@ To begin an inquiry in simple mode, either:
 
     :::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-example-query.png" alt-text="Screenshot that an example query in Log Analytics.":::
 
-    Using an existing query is simple mode lets you broaden the [scope] of your inquiry to more than a single table. 
+    Using an existing query is simple mode lets you [expand the scope of your inquiry](../logs/scope.md) to more than a single table. 
 
 ## Query in simple mode 
 
