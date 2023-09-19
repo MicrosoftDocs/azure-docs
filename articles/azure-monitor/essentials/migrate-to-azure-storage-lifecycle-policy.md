@@ -124,8 +124,7 @@ The sample policy definition file below sets the retention for all blobs in the 
 
 ## [Templates](#tab/templates)
 
-Apply the following template to your resource group to create a lifecycle management policy. 
-You must still set the retention in your diagnostic settings to *0*. See the Azure portal section above for more information.
+Apply the following template to create a lifecycle management policy. You must still set the retention in your diagnostic settings to *0*. See the Azure portal section above for more information.
 
 ```azurecli
 
