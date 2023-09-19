@@ -166,26 +166,7 @@ To run the current query, select the **Run** button or select **Shift+Enter**.
 ## Results window
 
 The results of a query appear in the results window. By default, the results are displayed as a table. To display the results as a chart, select **Chart** in the results window. You can also add a **render** command to your query.
-
-### Results view
-
-The results view displays query results in a table organized by columns and rows. Click to the left of a row to expand its values. Select the **Columns** dropdown to change the list of columns. Sort the results by selecting a column name. Filter the results by selecting the funnel next to a column name. Clear the filters and reset the sorting by running the query again.
-
-Select **Group columns** to display the grouping bar above the query results. Group the results by any column by dragging it to the bar. Create nested groups in the results by adding more columns.
-
-### Chart view
-
-The chart view displays the results as one of multiple available chart types. In advanced mode, you can specify the chart type using a `render` command in your query. You can also select it from the **Visualization Type** dropdown.
-
-| Option | Description |
-|:---|:---|
-| Visualization type | Type of chart to display. |
-| X-axis | Column in the results to use for the x-axis.
-| Y-axis | Column in the results to use for the y-axis. Typically, this is a numeric column. |
-| Split by | Column in the results that defines the series in the chart. A series is created for each value in the column. |
-| Aggregation | Type of aggregation to perform on the numeric values in the y-axis. |
-
  
 ## Next steps
-- Walk through a [tutorial on writing queries](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
+- Walk through a [tutorial on writing queries](../logs/log-analytics-tutorial.md).
 - Access the complete [reference documentation for KQL](/azure/kusto/query/).
