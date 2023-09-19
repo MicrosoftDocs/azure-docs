@@ -19,19 +19,19 @@ To help prevent synchronization issues, Service Fabric Explorer now blocks the m
 
 Applications that ARM manages are now labeled in the list, as shown in the following screen capture.
 
-   ![Screenshot of the new Service Fabric Explorer view, PNG.](./media/managed-cluster-service-fabric-explorer-blocking-operations/service-fabric-explorer.png)
+   [ ![Screenshot of the new Service Fabric Explorer view.](./media/managed-cluster-service-fabric-explorer-blocking-operations/service-fabric-explorer.png) ](./media/managed-cluster-service-fabric-explorer-blocking-operations/service-fabric-explorer.png#lightbox)
 
 Application type versions that ARM manages are now labeled in the list, as shown in the following screen capture.
 
-   ![Screenshot of an ARM-managed application type version listed in Service Fabric Explorer, PNG.](./media/managed-cluster-service-fabric-explorer-blocking-operations/application-type-page.png)
+   [ ![Screenshot of an ARM-managed application type version listed in Service Fabric Explorer.](./media/managed-cluster-service-fabric-explorer-blocking-operations/application-type-page.png) ](./media/managed-cluster-service-fabric-explorer-blocking-operations/application-type-page.png#lightbox)
 
 Applications that ARM manages are now labeled in the list. A banner is now shown if the application is managed in ARM. The following screen capture shows an ARM-managed application in Service Fabric explorer.
 
-   ![Screenshot of an ARM-managed application listed in Service Fabric Explorer, PNG.](./media/managed-cluster-service-fabric-explorer-blocking-operations/application-page.png)
+   [ ![Screenshot of an ARM-managed application listed in Service Fabric Explorer.](./media/managed-cluster-service-fabric-explorer-blocking-operations/application-page.png) ](./media/managed-cluster-service-fabric-explorer-blocking-operations/application-page.png#lightbox)
 
 Services that ARM manages are now labeled in the list. A banner is now shown if the service is managed in ARM. The following screen capture shows an ARM-managed service in Service Fabric explorer.
 
-   ![Screenshot of an ARM-managed service listed in Service Fabric Explorer, PNG.](./media/managed-cluster-service-fabric-explorer-blocking-operations/service-page.png)
+   [ ![Screenshot of an ARM-managed service listed in Service Fabric Explorer.](./media/managed-cluster-service-fabric-explorer-blocking-operations/service-page.png) ](./media/managed-cluster-service-fabric-explorer-blocking-operations/service-page.png#lightbox)
 
 ## Best practices
 
