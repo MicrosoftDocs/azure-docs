@@ -34,9 +34,9 @@ This section contains recommendations for achieving resiliency and availability 
 | [**Scalability**](#scalability) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-1: Deploy VMs with flexible orchestration mode](#-deploy-vms-with-flexible-orchestration-mode) |
 | |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [Configure Virtual Machine Scale Sets Autoscale to Automatic](#-configure-virtual-machine-scale-sets-autoscale-to-automatic) |
 | |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [Set Virtual Machine Scale Sets custom scale-in policies to default](#-set-virtual-machine-scale-sets-custom-scale-in-policies-to-default) |
-| [**Disaster Recovery**](#disaster-recovery) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [Enable Protection Policy for all Virtual Machine Scale Set VMs](#-vmss-2-enable-protection-policy-for-all-virtual-machine-scale-set-vms) |
+| [**Disaster Recovery**](#disaster-recovery) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [Enable Protection Policy for all Virtual Machine Scale Set VMs](#-enable-protection-policy-for-all-virtual-machine-scale-set-vms) |
 | [**Monitoring**](#monitoring) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [Enable Virtual Machine Scale Sets application health monitoring](#-enable-virtual-machine-scale-sets-application-health-monitoring) |
-| [**System Efficiency**](#system-efficiency) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [Configure Allocation Policy Spreading algorithm to max spreading](#-vmss-7-configure-allocation-policy-spreading-algorithm-to-max-spreading) |
+| [**System Efficiency**](#system-efficiency) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [Configure Allocation Policy Spreading algorithm to max spreading](#-configure-allocation-policy-spreading-algorithm-to-max-spreading) |
 | [**Automation**](#automation) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [Set patch orchestration options to Azure-orchestrated](#-set-patch-orchestration-options-to-azure-orchestrated) |
 
 
