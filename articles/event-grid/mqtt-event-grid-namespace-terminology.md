@@ -57,7 +57,7 @@ Client group is a collection of clients.  Clients can be grouped together using 
 
 ## Topic space
 
-Topic space is a set of topic templates. It's used to simplify access control management by enabling you to grant publish or subscribe access to a group of topics at once instead of individual topics.  For more information about topic spaces configuration, see [MQTT topic spaces](mqtt-topic-spaces.md).
+Topic space is a set of topic templates. It's used to simplify access control management by enabling you to scope publish or subscribe access for a client group, to a group of topics at once instead of individual topics.  For more information about topic spaces configuration, see [MQTT topic spaces](mqtt-topic-spaces.md).
 
 ## Topic filter
 
