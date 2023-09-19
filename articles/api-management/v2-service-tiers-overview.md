@@ -24,7 +24,7 @@ Currently in preview, the following v2 tiers are available:
 
 ## Key capabilities
 
-* **Faster deployment and scaling** - Deploy a production-ready API Management instance in minutes. Scale a v2 instance quickly to any number of units to meet the needs of your API management workloads.
+* **Faster deployment and scaling** - Deploy a production-ready API Management instance in minutes. Scale a Basic v2 or Standard v2 instance quickly to up to 10 units to meet the needs of your API management workloads.
 
 * **Simplified networking** - The Standard v2 tier supports [outbound connections](#networking-options) to network-isolated backends.
 
@@ -84,23 +84,22 @@ Currently, the following API Management capabilities are unavailable in the v2 t
 **Infrastructure and networking**
 * Zone redundancy (*Standard v2*)
 * Multi-region deployment (*Standard v2*)
+* Multiple custom domain names (*Standard v2*)
 * Capacity metric
 * Autoscaling
-* Multiple custom domain names (*Standard v2*)
-* Deployment (injection) in a VNet (*Standard v2*) 
 * Inbound connection using a private endpoint
 * Upgrade to v2 tiers from v1 tiers 
 * Workspaces
-* Compute platform version property  
 
 **Developer portal**
 * Delegation of user registration and product subscription
 
 **Gateway**
-* Management of Websocket APIs
 * Self-hosted gateway (*Standard v2*)
+* Management of Websocket APIs
 * Rate limit by key and quota by key policies
 * Cipher configuration
+* Client certificate renegotiation
 * Requests to the gateway over localhost
 
 ## Deployment
