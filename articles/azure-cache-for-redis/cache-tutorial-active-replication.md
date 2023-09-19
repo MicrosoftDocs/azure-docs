@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Get started with leveraging Azure Cache for Redis Enterprise active replication with an AKS-hosted application'
+title: 'Tutorial: Get started using Azure Cache for Redis Enterprise active replication with an AKS-hosted application'
 description: In this tutorial, you learn how to connect your AKS hosted application to Azure Cache for Redis Enterprise instances and leverage active geo-replication.
 author: flang-msft
 
@@ -11,9 +11,9 @@ ms.date: 09/18/2023
 
 ---
 
-# Tutorial: Connect to Azure Cache for Redis from your application hosted on Azure Kubernetes Service
+# Get started using Azure Cache for Redis Enterprise active replication with an AKS-hosted application
 
-In this tutorial, you will host a simple inventory application on AKS and find out how you can leverage active geo-replication to replicate data in your Azure Cache for Redis Enterprise instances across Azure regions.
+In this tutorial, you will host a simple inventory application on Azure Kubernetes Service (AKS) and find out how you can leverage active geo-replication to replicate data in your Azure Cache for Redis Enterprise instances across Azure regions.
 
 ## Prerequisites
 
