@@ -29,14 +29,9 @@ If you're an existing Azure Arc-enabled SCVMM customer, for VMs that are Azure-e
 1.	From your browser, go to the SCVMM management servers blade on [Azure Arc Center](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/overview) and select the SCVMM management server resource.
 2.	Select all the virtual machines that are Azure enabled with the older preview version.
 3.	Select **Remove from Azure**. 
-
-    :::image type="content" source="media/switch-to-the-new-preview-version/select-older-preview-vms-inline.png" alt-text="Screenshot of how to remove VMs that are Azure enabled with the older preview version." lightbox="media/switch-to-the-new-preview-version/select-older-preview-vms-expanded.png":::
-
 4.	After successful removal from Azure, enable the same resources again in Azure.
 5.	Once the resources are re-enabled, the VMs are auto switched to the new preview version. The VM resources will now be represented as **Machine - Azure Arc (SCVMM)**.
 
-    :::image type="content" source="media/switch-to-the-new-preview-version/re-enable-the-vms-inline.png" alt-text="Screenshot of how to re-enable the VMs." lightbox="media/switch-to-the-new-preview-version/re-enable-the-vms-expanded.png":::
- 
 ## Next steps
 
 [Create a virtual machine on System Center Virtual Machine Manager using Azure Arc (preview)](quickstart-connect-system-center-virtual-machine-manager-to-arc.md).
