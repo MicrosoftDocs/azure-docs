@@ -1,13 +1,13 @@
 ---
 title: Restore - Azure Cosmos DB for PostgreSQL - Azure portal
 description: See how to perform restore operations in Azure Cosmos DB for PostgreSQL through the Azure portal.
-ms.author: jonels
-author: jonels-msft
+ms.author: nlarin
+author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 06/12/2023
+ms.date: 09/17/2023
 ---
 
 # Point-in-time restore of a cluster in Azure Cosmos DB for PostgreSQL
@@ -18,6 +18,11 @@ This article provides step-by-step procedures to perform [point-in-time
 recoveries](concepts-backup.md#restore) for a
 cluster using backups. You can restore either to the earliest backup or to
 a custom restore point within your retention period.
+
+> [!NOTE]
+> While cluster backups are always stored for 35 days, you may need to 
+> open a support request to restore the cluster to a point that is earlier
+> than the latest failover time. 
 
 ## Restore to the earliest restore point
 

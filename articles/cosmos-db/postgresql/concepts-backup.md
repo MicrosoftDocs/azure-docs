@@ -85,7 +85,7 @@ database, or if an application accidentally overwrites good data with bad data.
 
 For same-region restore, when all nodes are up and running, you can restore cluster without any data loss. In an extremely rare case of a node experiencing a catastrophic event (and [high availability](./concepts-high-availability.md) isn't enabled on the cluster), you may lose up to 5 minutes of data.
 
-On clusters with geo-backup enabled at creation time, restore can be performed in the remote region or in the same region.
+On clusters with geo-backup enabled, restore can be performed in the remote region or in the same region where cluster is located.
 
 > [!IMPORTANT]
 > Deleted clusters can't be restored. If you delete the
