@@ -39,19 +39,9 @@ Before configuring Cisco Webex for automatic user provisioning with Azure AD, yo
 
 **To add Cisco Webex from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
-
-    ![The Azure Active Directory button](common/select-azuread.png)
-
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
-
-    ![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add new application, click **New application** button on the top of dialog.
-
-    ![The New application button](common/add-new-app.png)
-
-4. In the search box, type **Cisco Webex**, select **Cisco Webex** from result panel then click **Add** button to add the application.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Cisco Webex**, select **Cisco Webex** from result panel then click **Add** button to add the application.
 
     ![Cisco Webex in the results list](media/cisco-webex-provisioning-tutorial/search-cisco-app.png)
 
@@ -75,11 +65,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Cisco Webex in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Enterprise Applications**, select **All applications**, then select **Cisco Webex**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Cisco Webex**.
 
     ![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Cisco Webex**.
+1. In the applications list, select **Cisco Webex**.
 
     ![The Cisco Webex link in the Applications list](common/all-applications.png)
 
