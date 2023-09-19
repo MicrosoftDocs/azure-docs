@@ -53,7 +53,7 @@ This section explains how to use Log Analytics to query the application logs, an
 
 ### 4.1. Log queries
 
-This section explains how to query application logs from the table `AppPlatformLogsforSpring` hosted by the Azure Spring Apps. You can use [Kusto Query Language](/azure/data-explorer/kusto/query/) to customize your queries for application logs. 
+This section explains how to query application logs from the table `AppPlatformLogsforSpring` hosted by Azure Spring Apps. You can use [Kusto Query Language](/azure/data-explorer/kusto/query/) to customize your queries for application logs. 
 
 To see the built-in example query statements or to write your own queries, open the Azure Spring Apps instance and go to the **Logs** menu.
 
