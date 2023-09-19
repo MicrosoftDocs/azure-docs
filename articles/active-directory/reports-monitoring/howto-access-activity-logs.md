@@ -15,7 +15,7 @@ ms.reviewer: besiler
 
 # How to access activity logs in Microsoft Entra ID
 
-The data collected in your Microsoft Entra ID logs enables you to assess many aspects of your Microsoft Entra tenant. To cover a broad range of scenarios, Microsoft Entra ID provides you with several options to access your activity log data. As an IT administrator, you need to understand the intended uses cases for these options, so that you can select the right access method for your scenario.  
+The data collected in your Microsoft Entra logs enables you to assess many aspects of your Microsoft Entra tenant. To cover a broad range of scenarios, Microsoft Entra ID provides you with several options to access your activity log data. As an IT administrator, you need to understand the intended uses cases for these options, so that you can select the right access method for your scenario.  
 
 You can access Microsoft Entra activity logs and reports using the following methods:
 
@@ -95,7 +95,7 @@ With the Azure Monitor logs integration, you can enable rich visualizations, mon
 
 ### Recommended uses
 
-Integrating Microsoft Entra ID logs with Azure Monitor logs provides a centralized location for querying logs. We recommend integrating logs with Azure Monitor logs for the following types of scenarios:
+Integrating Microsoft Entra logs with Azure Monitor logs provides a centralized location for querying logs. We recommend integrating logs with Azure Monitor logs for the following types of scenarios:
 
 - Compare Microsoft Entra sign-in logs with logs published by other Azure services.
 - Correlate sign-in logs against Azure Application insights.
@@ -108,7 +108,7 @@ Integrating Microsoft Entra ID logs with Azure Monitor logs provides a centraliz
 1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Send to Log Analytics workspace** option, and complete the fields.
 1. Browse to **Identity** > **Monitoring & health** > **Log Analytics** and begin querying the data.
-    - [Integrate Microsoft Entra ID logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md)
+    - [Integrate Microsoft Entra logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md)
     - [Learn how to query using Log Analytics](howto-analyze-activity-logs-log-analytics.md)
 
 ## Monitor events with Microsoft Sentinel
@@ -133,9 +133,9 @@ We recommend using the real-time security detection capabilities of Microsoft Se
 1. [Begin hunting for threats](../../sentinel/hunting.md).
 
 
-## View logs through the Portal
+## View logs through the Microsoft Entra admin center
 
-For one-off investigations with a limited scope, the [Azure portal](https://portal.azure.com) is often the easiest way to find the data you need. The user interface for each of these reports provides you with filter options enabling you to find the entries you need to solve your scenario. 
+For one-off investigations with a limited scope, the [Microsoft Entra admin center](https://entra.microsoft.com/) is often the easiest way to find the data you need. The user interface for each of these reports provides you with filter options enabling you to find the entries you need to solve your scenario. 
 
 The data captured in the Microsoft Entra activity logs are used in many reports and services. You can review the sign-in, audit, and provisioning logs for one-off scenarios or use reports to look at patterns and trends. The data from the activity logs help populate the Identity Protection reports, which provide information security related risk detections that Microsoft Entra ID can detect and report on. Microsoft Entra activity logs also populate Usage and insights reports, which provide usage details for your tenant's applications. 
 
@@ -151,7 +151,7 @@ The reports available in the Azure portal provide a wide range of capabilities t
 
 ### Quick steps
 
-Use the following basic steps to access the reports in the Azure portal. 
+Use the following basic steps to access the reports in the Microsoft Entra admin center. 
 <a name='azure-ad-activity-logs'></a>
 
 #### Microsoft Entra activity logs

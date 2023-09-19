@@ -85,7 +85,7 @@ The following factors could affect costs for your organization:
 
 To estimate the daily log size, gather a sample of your logs, adjust the sample to reflect your tenant size and settings, then apply that sample to the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). 
 
-If you haven't downloaded logs from the Azure portal, review the [How to download logs in Microsoft Entra ID](howto-download-logs.md) article. Depending on the size of your organization, you may need to choose a different sample size to start your estimation. The following sample sizes are a good place to start:
+If you haven't downloaded logs from the Microsoft Entra admin center before, review the [How to download logs in Microsoft Entra ID](howto-download-logs.md) article. Depending on the size of your organization, you may need to choose a different sample size to start your estimation. The following sample sizes are a good place to start:
 
 - 1000 records
 - For large tenants, 15 minutes of sign-ins

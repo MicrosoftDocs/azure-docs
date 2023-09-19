@@ -1,7 +1,7 @@
 ---
 
 title: Logs available for streaming to endpoints from Microsoft Entra ID
-description: Learn about the Microsoft Entra ID logs available for streaming to an endpoint for storage, analysis, or monitoring.
+description: Learn about the Microsoft Entra logs available for streaming to an endpoint for storage, analysis, or monitoring.
 services: active-directory
 author: shlipsey3
 manager: amycolannino

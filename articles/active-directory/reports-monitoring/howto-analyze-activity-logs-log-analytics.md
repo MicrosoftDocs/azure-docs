@@ -59,7 +59,7 @@ For more information on the Log Analytics RBAC roles, see [Azure built-in roles]
 
 ### Microsoft Entra roles
 
-Read only access allows you to view Microsoft Entra ID log data inside a workbook, query data from Log Analytics, or read logs in the Microsoft Entra portal. Update access adds the ability to create and edit diagnostic settings to send Microsoft Entra data to a Log Analytics workspace.
+Read only access allows you to view Microsoft Entra ID log data inside a workbook, query data from Log Analytics, or read logs in the Microsoft Entra admin center. Update access adds the ability to create and edit diagnostic settings to send Microsoft Entra data to a Log Analytics workspace.
 
 - **Read**:
   - Reports Reader

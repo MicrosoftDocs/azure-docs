@@ -1,5 +1,5 @@
 ---
-title: Prerequisites for Microsoft Entra ID reporting API
+title: Prerequisites for Microsoft Entra reporting API
 description: Learn how to configure the prerequisites that are required to access the Microsoft Graph reporting API.
 services: active-directory
 author: shlipsey3
@@ -13,11 +13,11 @@ ms.author: sarahlipsey
 ms.reviewer: besiler
 
 ---
-# Prerequisites to access the Microsoft Entra ID reporting API
+# Prerequisites to access the Microsoft Entra reporting API
 
-The Microsoft Entra ID [reporting APIs](/graph/api/resources/azure-ad-auditlog-overview) provide you with programmatic access to the data through a set of REST APIs. You can call these APIs from many programming languages and tools. The reporting API uses [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) to authorize access to the web APIs. The Microsoft Graph API is **not** designed for pulling large amounts of activity data. Pulling large amounts of activity data using the API may lead to issues with pagination and performance.
+The Microsoft Entra [reporting APIs](/graph/api/resources/azure-ad-auditlog-overview) provide you with programmatic access to the data through a set of REST APIs. You can call these APIs from many programming languages and tools. The reporting API uses [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) to authorize access to the web APIs. The Microsoft Graph API is **not** designed for pulling large amounts of activity data. Pulling large amounts of activity data using the API may lead to issues with pagination and performance.
 
-This article describes how to enable Microsoft Graph to access the Microsoft Entra ID reporting APIs in the Azure portal and through PowerShell
+This article describes how to enable Microsoft Graph to access the Microsoft Entra reporting APIs in the Microsoft Entra admin center and through PowerShell
 
 ## Roles and license requirements
 
@@ -29,14 +29,14 @@ To get access to the reporting data through the API, you need to have one of the
 
 In order to access the sign-in reports for a tenant, a Microsoft Entra tenant must have associated Microsoft Entra ID P1 or P2 license. If the directory type is Azure AD B2C, the sign-in reports are accessible through the API without any other license requirement. 
 
-Registration is needed even if you're accessing the reporting API using a script. The registration gives you an **Application ID**, which is required for the authorization calls and enables your code to receive tokens. To configure your directory to access the Microsoft Entra ID reporting API, you must sign in to the [Azure portal](https://portal.azure.com) in one of the required roles.
+Registration is needed even if you're accessing the reporting API using a script. The registration gives you an **Application ID**, which is required for the authorization calls and enables your code to receive tokens. To configure your directory to access the Microsoft Entra ID reporting API, you must sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) in one of the required roles.
 
 > [!IMPORTANT]
 > Applications running under credentials with administrator privileges can be very powerful, so be sure to keep the application's ID and secret credentials in a secure location.
 > 
-## Enable the Microsoft Graph API through the Azure portal
+## Enable the Microsoft Graph API through the Microsoft Entra admin center
 
-To enable your application to access Microsoft Graph without user intervention, you need to register your application with Microsoft Entra ID, then grant permissions to the Microsoft Graph API. This article covers the steps to follow in the Azure portal. 
+To enable your application to access Microsoft Graph without user intervention, you need to register your application with Microsoft Entra ID, then grant permissions to the Microsoft Graph API. This article covers the steps to follow in the Microsoft Entra admin center. 
 
 <a name='register-an-azure-ad-application'></a>
 

@@ -38,7 +38,7 @@ Workbooks are highly customizable, so you can make workbooks for any scenario. P
 
 - Get shareable, at-a-glance summary reports about your Microsoft Entra tenant, and build your own custom reports.
 - Find and diagnose sign-in failures, and get a trending view of your organization's sign-in health.
-- Monitor Microsoft Entra ID logs for sign-ins, tenant administrator actions, provisioning, and risk together in a flexible, customizable format.
+- Monitor Microsoft Entra logs for sign-ins, tenant administrator actions, provisioning, and risk together in a flexible, customizable format.
 - Watch trends in your tenant’s usage of Microsoft Entra features such as Conditional Access, self-service password reset, and more.
 - Know who's using legacy authentications to sign in to your environment.
 - Understand the effect of your Conditional Access policies on your users' sign-in experience.

@@ -74,7 +74,7 @@ Each recommendation provides the same set of details that explain what the recom
 - The **Impacted resources** table contains a list of resources identified by the recommendation. The resource's name, ID, date it was first detected, and status are provided. The resource could be an application or resource service principal, for example. 
 
 > [!NOTE]
-> In the Azure portal the impacted resources are limited to a maximum of 50 resources. To view all impacted resources for a recommendation, use this Microsoft Graph API request:
+> In the Microsoft Entra admin enter, the impacted resources are limited to a maximum of 50 resources. To view all impacted resources for a recommendation, use this Microsoft Graph API request:
 >`GET /directory/recommendations/{recommendationId}/impactedResources`
 >
 >For more information, see the [How to use Microsoft Graph with with Microsoft Entra recommendations](#how-to-use-microsoft-graph-with-azure-active-directory-recommendations) section of this article.

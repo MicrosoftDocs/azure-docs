@@ -1,6 +1,6 @@
 ---
-title: Integrate Microsoft Entra ID logs with Azure Monitor logs
-description: Learn how to integrate Microsoft Entra ID logs with Azure Monitor logs for querying and analysis.
+title: Integrate Microsoft Entra logs with Azure Monitor logs
+description: Learn how to integrate Microsoft Entra logs with Azure Monitor logs for querying and analysis.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -13,11 +13,11 @@ ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
 
-# Integrate Microsoft Entra ID logs with Azure Monitor logs
+# Integrate Microsoft Entra logs with Azure Monitor logs
 
 Using **Diagnostic settings** in Microsoft Entra ID, you can integrate logs with Azure Monitor so your sign-in activity and the audit trail of changes within your tenant can be analyzed along with other Azure data. 
 
-This article provides the steps to integrate Microsoft Entra ID logs with Azure Monitor.
+This article provides the steps to integrate Microsoft Entra logs with Azure Monitor.
 
 Use the integration of Microsoft Entra activity logs and Azure Monitor to perform the following tasks:
 
@@ -27,7 +27,7 @@ Use the integration of Microsoft Entra activity logs and Azure Monitor to perfor
 - Identify sign-ins from applications still using the Active Directory Authentication Library (ADAL) for authentication. [Learn about the ADAL end-of-support plan.](../develop/msal-migration.md)
 
 > [!NOTE]
-> Integrating Microsoft Entra ID logs with Azure Monitor automatically enables the Microsoft Entra data connector within Microsoft Sentinel.
+> Integrating Microsoft Entra logs with Azure Monitor automatically enables the Microsoft Entra data connector within Microsoft Sentinel.
 
 ## How do I access it? 
 

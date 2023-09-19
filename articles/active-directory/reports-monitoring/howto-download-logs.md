@@ -15,7 +15,7 @@ ms.reviewer: besiler
 
 # How to download logs in Microsoft Entra ID
 
-The Microsoft Entra portal gives you access to three types of activity logs:
+The Microsoft Entra admin center gives you access to three types of activity logs:
 
 - **[Sign-ins](concept-sign-ins.md)**: Information about sign-ins and how your resources are used by your users.
 - **[Audit](concept-audit-logs.md)**: Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
@@ -73,5 +73,5 @@ If your tenant has enabled the [sign-in logs preview](concept-all-sign-ins.md), 
 
 ## Next steps
 
-- [Integrate Microsoft Entra ID logs with Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)
-- [Access Microsoft Entra ID logs using the Graph API](quickstart-access-log-with-graph-api.md)
+- [Integrate Microsoft Entra logs with Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)
+- [Access Microsoft Entra logs using the Graph API](quickstart-access-log-with-graph-api.md)

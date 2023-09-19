@@ -33,7 +33,7 @@ Renewing the service principal credential(s) before expiration ensures the appli
 
 1. Select the name of the application from the list of **Impacted resources** to go directly to the **Enterprise applications - Single sign-on** page for the selected application.
 
-    a. Alternatively, go to **Microsoft Entra ID** > **Enterprise applications**. The status of the service principal appears in the **Certificate Expiry Status** column.
+    a. Alternatively, browse to **Identity** > **Applications** > **Enterprise applications**. The status of the service principal appears in the **Certificate Expiry Status** column.
     
     b. Use the search box at the top of the list to find the application that was listed in the recommendation.
       

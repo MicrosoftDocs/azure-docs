@@ -40,7 +40,7 @@ This recommendation improves your user's productivity and minimizes the sign-in 
 ## Action plan
 
 1. Confirm that there's an existing Conditional Access policy with an MFA requirement. Ensure that you're covering all resources and users you would like to secure with MFA.
-    - Review your [Conditional Access policies](https://portal.azure.com/?Microsoft_AAD_IAM_enableAadvisorFeaturePreview=true&amp%3BMicrosoft_AAD_IAM_enableAadvisorFeature=true#blade/Microsoft_AAD_IAM/PoliciesTemplateBlade).
+    - Review your Conditional Access policies.
 
 2. Require MFA using a Conditional Access policy.
     - [Secure user sign-in events with Microsoft Entra multifactor authentication](../authentication/tutorial-enable-azure-mfa.md).

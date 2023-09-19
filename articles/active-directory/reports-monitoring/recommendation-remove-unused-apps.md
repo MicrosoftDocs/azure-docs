@@ -31,7 +31,7 @@ Removing unused applications improves the security posture and promotes good app
 Applications that the recommendation identified appear in the list of **Impacted resources** at the bottom of the recommendation. 
 
 1. Take note of the application name and ID that the recommendation identified.
-1. Go to **Microsoft Entra ID** > **App registration** and locate the application that was surfaced as part of this recommendation.
+1. Browse to **Identity** > **Applications** > **App registrations** and locate the application that was surfaced as part of this recommendation.
 
     ![Screenshot of the Microsoft Entra app registration page.](media/recommendation-remove-unused-apps/app-registrations-list.png)
 

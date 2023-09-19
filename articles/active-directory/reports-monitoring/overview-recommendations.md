@@ -38,7 +38,7 @@ The Microsoft Entra recommendations feature is the Microsoft Entra specific impl
 
 ## How it works
 
-On a daily basis, Microsoft Entra ID analyzes the configuration of your tenant. During this analysis, Microsoft Entra ID compares the data of a recommendation with the actual configuration of your tenant. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the **Recommendations** section of the Microsoft Entra Overview area. The recommendations are listed in order of priority so you can quickly determine where to focus first.
+On a daily basis, Microsoft Entra ID analyzes the configuration of your tenant. During this analysis, Microsoft Entra ID compares the data of a recommendation with the actual configuration of your tenant. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the **Recommendations** section of the Identity Overview area. The recommendations are listed in order of priority so you can quickly determine where to focus first.
 
 ![Screenshot of the Overview page of the tenant with the Recommendations option highlighted.](./media/overview-recommendations/recommendations-preview-option-tenant-overview.png) 
 

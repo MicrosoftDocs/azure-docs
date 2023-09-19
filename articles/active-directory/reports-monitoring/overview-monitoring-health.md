@@ -22,7 +22,7 @@ The features of Microsoft Entra ID Monitoring and health provide a comprehensive
 - Detect potential risks affecting the health of your environment.
 - Troubleshoot issues preventing your users from getting their work done.
 
-Sign-in and audit logs comprise the activity logs behind many Microsoft Entra ID reports, which can be used to analyze, monitor, and troubleshoot activity in your tenant. Routing your activity logs to an analysis and monitoring solution provides greater insights into your tenant's health and security.
+Sign-in and audit logs comprise the activity logs behind many Microsoft Entra reports, which can be used to analyze, monitor, and troubleshoot activity in your tenant. Routing your activity logs to an analysis and monitoring solution provides greater insights into your tenant's health and security.
 
 This article describes the types of activity logs available in Microsoft Entra ID, the reports that use the logs, and the monitoring services available to help you analyze the data. 
 
@@ -73,7 +73,7 @@ Reviewing the data in the Microsoft Entra activity logs can provide helpful info
 
 ## Identity monitoring and tenant health
 
-Reviewing Microsoft Entra activity logs is the first step in maintaining and improving the health and security of your tenant. You need to analyze the data, monitor on risky scenarios, and determine where you can make improvements. Microsoft Entra ID monitoring provides the necessary tools to help you make informed decisions.
+Reviewing Microsoft Entra activity logs is the first step in maintaining and improving the health and security of your tenant. You need to analyze the data, monitor on risky scenarios, and determine where you can make improvements. Microsoft Entra monitoring provides the necessary tools to help you make informed decisions.
 
 Monitoring Microsoft Entra activity logs requires routing the log data to a monitoring and analysis solution. Endpoints include Azure Monitor logs, Microsoft Sentinel, or a third-party solution third-party Security Information and Event Management (SIEM) tool.
 

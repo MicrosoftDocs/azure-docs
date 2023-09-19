@@ -1,7 +1,7 @@
 ---
 
 title: How to troubleshoot sign-in errors
-description: Learn how to troubleshoot sign-in errors using Microsoft Entra ID reports in the Azure portal
+description: Learn how to troubleshoot sign-in errors using Microsoft Entra reports in the Microsoft Entra admin center
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -14,7 +14,7 @@ ms.author: sarahlipsey
 ms.reviewer: dhanyahk 
 ---
 
-# How to: Troubleshoot sign-in errors using Microsoft Entra ID reports
+# How to: Troubleshoot sign-in errors using Microsoft Entra reports
 
 The Microsoft Entra sign-in logs enable you to find answers to questions around managing access to the applications in your organization, including:
 
@@ -89,7 +89,7 @@ The following error codes are associated with sign-in events, but this list isn'
     - This error often appears if the user hasn't completed setting up MFA.
     - Instruct the user to complete the setup process through to sign-in.
 
-If all else fails, or the issue persists despite taking the recommended course of action, [open a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For more information, see [how to get support for Microsoft Entra ID](../fundamentals/how-to-get-support.md). 
+If all else fails, or the issue persists despite taking the recommended course of action, open a support request. For more information, see [how to get support for Microsoft Entra ID](../fundamentals/how-to-get-support.md). 
 
 ## Next steps
 

@@ -13,7 +13,7 @@ ms.reviewer: besiler
 
 #Customer intent: As an IT admin, you need to how to use the Graph API to access the log files so that you can fix issues.
 ---
-# Quickstart: Access Microsoft Entra ID logs with the Microsoft Graph API 
+# Quickstart: Access Microsoft Entra logs with the Microsoft Graph API 
 
 With the information in the Microsoft Entra sign-in logs, you can figure out what happened if a sign-in of a user failed. This quickstart shows you how to access the sign-ins log using the Microsoft Graph API.
 
@@ -70,4 +70,4 @@ When no longer needed, delete the test user. If you don't know how to delete a M
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [What are Microsoft Entra ID reports?](overview-reports.md)
+> [Integrate Microsoft Entra activity logs with Azure Monitor logs](howto-integrate-activity-logs-with-azure-monitor-logss.md)

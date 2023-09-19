@@ -15,7 +15,7 @@ ms.reviewer: madansr7
 
 # Usage and insights in Microsoft Entra ID
 
-With the Microsoft Entra ID **Usage and insights** reports, you can get an application-centric view of your sign-in data. Usage & insights includes a report on authentication methods, service principal sign-ins, and application credential activity. You can find answers to the following questions:
+With the Microsoft Entra **Usage and insights** reports, you can get an application-centric view of your sign-in data. Usage & insights includes a report on authentication methods, service principal sign-ins, and application credential activity. You can find answers to the following questions:
 
 * What are the top used applications in my organization?
 * What applications have the most failed sign-ins? 

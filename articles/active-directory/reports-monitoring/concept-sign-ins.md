@@ -179,7 +179,7 @@ For more information about the Microsoft Entra ID Protection tools, see the [Mic
 
 ### Microsoft Entra Usage and insights
 
-To view application-specific sign-in data, go to **Microsoft Entra ID** and select **Usage & insights** from the Monitoring section. These reports provide a closer look at sign-ins for Microsoft Entra application activity and AD FS application activity. For more information, see [Microsoft Entra Usage & insights](concept-usage-insights-report.md).
+To view application-specific sign-in data, browse to **Microsoft Entra ID** > **Monitoring & health** > **Usage & insights**. These reports provide a closer look at sign-ins for Microsoft Entra application activity and AD FS application activity. For more information, see [Microsoft Entra Usage & insights](concept-usage-insights-report.md).
 
 :::image type="content" source="media/concept-sign-ins/usage-insights.png" alt-text="Screenshot of the Usage & insights report." lightbox="media/concept-sign-ins/usage-insights-expanded.png":::
 

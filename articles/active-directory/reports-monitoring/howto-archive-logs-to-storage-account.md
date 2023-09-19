@@ -12,10 +12,10 @@ ms.date: 08/24/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 
-# Customer intent: As an IT administrator, I want to learn how to archive Microsoft Entra ID logs to an Azure storage account so I can retain it for longer than the default retention period.
+# Customer intent: As an IT administrator, I want to learn how to archive Microsoft Entra logs to an Azure storage account so I can retain it for longer than the default retention period.
 
 ---
-# How to archive Microsoft Entra ID logs to an Azure storage account
+# How to archive Microsoft Entra activity logs to an Azure storage account
 
 If you need to store Microsoft Entra activity logs for longer than the [default retention period](reference-reports-data-retention.md), you can archive your logs to a storage account. 
 

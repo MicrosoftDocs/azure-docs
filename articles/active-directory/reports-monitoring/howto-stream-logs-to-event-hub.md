@@ -1,5 +1,5 @@
 ---
-title: Stream Microsoft Entra ID logs to an event hub
+title: Stream Microsoft Entra logs to an event hub
 description: Learn how to stream Microsoft Entra activity logs to an event hub for SIEM tool integration and analysis.
 services: active-directory
 author: shlipsey3
@@ -93,7 +93,7 @@ Download and open the [configuration guide for ArcSight SmartConnector for Azure
 
 1. Use the steps in the **Verifying the Deployment in Azure** to make sure the connector is set up and functions correctly. Verify the following prerequisites:
     * The requisite Azure functions are created in your Azure subscription.
-    * The Microsoft Entra ID logs are streamed to the correct destination. 
+    * The Microsoft Entra logs are streamed to the correct destination. 
     * The application settings from your deployment are persisted in the Application Settings in Azure Function Apps. 
     * A new resource group for ArcSight is created in Azure, with a Microsoft Entra application for the ArcSight connector and storage accounts containing the mapped files in CEF format.
 

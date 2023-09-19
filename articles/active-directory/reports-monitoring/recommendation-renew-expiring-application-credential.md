@@ -33,7 +33,7 @@ Renewing the app credential(s) before its expiration ensures the application con
 Applications that the recommendation identified appear in the list of **Impacted resources** at the bottom of the recommendation. 
 
 1. Take note of the application name and ID that the recommendation identified.
-1. Navigate to **Microsoft Entra ID** > **App registration** and locate the application for which the credential needs to be rotated.
+1. Browse to **Identity** > **Applications** > **App registrations** and locate the application for which the credential needs to be rotated.
 
     ![Screenshot of the Microsoft Entra app registration page.](media/recommendation-renew-expiring-application-credential/app-registrations-list.png)
 
@@ -44,11 +44,11 @@ Applications that the recommendation identified appear in the list of **Impacted
 
 1. Once the certificate or secret is successfully added, update the service code to ensure it works with the new credential and doesn't negatively affect customers.
 1. Use the Microsoft Entra sign-in logs to validate that the Key ID of the credential matches the one that was recently added.
-1. After validating the new credential, navigate back to **Microsoft Entra ID** > **App registrations** > **Certificates and Secrets** for the app and remove the old credential.
+1. After validating the new credential, navigate back to **App registrations** > **Certificates and Secrets** for the app and remove the old credential.
  
 ## Known limitations
 
-- Currently in the list of **Impacted resources**, only the app name and resource ID are shown. The key ID for the credential that needs to be rotated is not shown. To find the key ID credential, go to **Microsoft Entra ID** > **App registrations** > **Certificates and Secrets** for the application. 
+- Currently in the list of **Impacted resources**, only the app name and resource ID are shown. The key ID for the credential that needs to be rotated is not shown. To find the key ID credential, navigate back to **App registrations** > **Certificates and Secrets** for the application. 
 
 - An **Impacted resource** with credentials that expired recently will be marked as **Complete**. If that resource has more than one credential expiring soon, the status of the resource will be **Active**.
 
