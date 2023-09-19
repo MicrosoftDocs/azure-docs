@@ -519,7 +519,7 @@ def main(eventGridEvent: func.EventGridEvent,
             event_time=datetime.datetime.utcnow(),
             data_version="1.0"))
 ```
-
+---
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 ## Attributes
