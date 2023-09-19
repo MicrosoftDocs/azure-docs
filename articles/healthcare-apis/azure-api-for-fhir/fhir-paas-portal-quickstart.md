@@ -43,6 +43,9 @@ Select an existing resource group or create a new one, choose a name for the acc
 
 Confirm creation and await FHIR API deployment.
 
+> [!NOTE]
+> When creating an Azure FHIR service, you can choose between FHIR versions R4 and STU 3. R4 is the latest version, offering broader support and more features, while STU 3 is an older version still used by some systems. Once selected, the FHIR version cannot be changed, so choose the one that best aligns with your interoperability needs.
+
 ## Additional settings (optional)
 
 You can also select **Next: Additional settings** to view the authentication settings. The default configuration for the Azure API for FHIR is to [use Azure RBAC for assigning data plane roles](configure-azure-rbac.md). When configured in this mode, the "Authority" for the FHIR service will be set to the Azure Active Directory tenant of the subscription:
