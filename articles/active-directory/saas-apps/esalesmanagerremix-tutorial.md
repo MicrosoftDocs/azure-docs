@@ -78,7 +78,8 @@ To configure and test Azure AD single sign-on with E Sales Manager Remix, comple
 
 Enable Azure AD single sign-on in the Azure portal and configure single sign-on in your E Sales Manager Remix application by doing the following:
 
-1. In the Azure portal, on the **E Sales Manager Remix** application integration page, select **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **E Sales Manager Remix** application integration page, select **Single sign-on**.
 
 	![The "Single sign-on" link][4]
 
