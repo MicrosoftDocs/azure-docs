@@ -422,52 +422,25 @@ Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to 
     dotnet add package Microsoft.Azure.Cosmos
     ```
 
-1. Build your .NET project
-
-    ```bash
-    dotnet build
-    ```
-
 1. Open the **Program.cs** file.
 
 1. Delete any existing content within the file.
 
-1. Add a using block for the `Microsoft.Azure.Cosmos` namespace. Then, create a new instance of <xref:Microsoft.Azure.Cosmos.CosmosClient> using the emulator's credentials.
+1. Add a using block for the `Microsoft.Azure.Cosmos` namespace.
 
-    ```csharp
-    using Microsoft.Azure.Cosmos;
-    
-    using CosmosClient client = new(
-        accountEndpoint: "https://localhost:8081/",
-        authKeyOrResourceToken: "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
-    );
-    ```
+    :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/601-emulator/Program.cs" id="imports":::
+
+1. Create a new instance of <xref:Microsoft.Azure.Cosmos.CosmosClient> using the emulator's credentials.
+
+    :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/601-emulator/Program.cs" highlight="2-3" id="client":::
 
 1. Create a new database and container using <xref:Microsoft.Azure.Cosmos.CosmosClient.CreateDatabaseIfNotExistsAsync%2A> and <xref:Microsoft.Azure.Cosmos.Database.CreateContainerIfNotExistsAsync%2A>.
 
-    ```csharp
-    Database database = await client.CreateDatabaseIfNotExistsAsync(
-        id: "cosmicworks",
-        throughput: 400
-    );
-    
-    Container container = await database.CreateContainerIfNotExistsAsync(
-        id: "products",
-        partitionKeyPath: "/id"
-    );
-    ```
+    :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/601-emulator/Program.cs" highlight="1,6" id="resources":::
 
 1. Create a new item in the container using <xref:Microsoft.Azure.Cosmos.Container.UpsertItemAsync%2A>.
 
-    ```csharp
-    var item = new
-    {
-        id = "68719518371",
-        name = "Kiama classic surfboard"
-    };
-    
-    await container.UpsertItemAsync(item);
-    ```
+    :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/601-emulator/Program.cs" highlight="7" id="upsert":::
 
 1. Run the .NET application.
 
