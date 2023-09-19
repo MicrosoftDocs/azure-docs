@@ -136,7 +136,7 @@ You can also download the load test results file, which is available as a pipeli
 
 :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-download-results.png" alt-text="Screenshot that shows how to download the load test results." lightbox="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-download-results.png":::
 
-## Update the load test configuration in the CI/CD workflow
+## Update the load test configuration
 
 Until now, you've only load tested the home page of the sample application. Next, you upload a more complex JMeter script, load test configuration file, and then update the pipeline to use the new configuration file.
 
