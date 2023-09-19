@@ -161,11 +161,9 @@ The following example shows how to configure the Java agent to use system-assign
 ```JSON
 { 
   "connectionString": "App Insights Connection String with IngestionEndpoint", 
-  "preview": { 
-    "authentication": { 
-      "enabled": true, 
-      "type": "SAMI" 
-    } 
+  "authentication": { 
+    "enabled": true, 
+    "type": "SAMI" 
   } 
 } 
 ```
@@ -177,13 +175,11 @@ The following example shows how to configure the Java agent to use user-assigned
 ```JSON
 { 
   "connectionString": "App Insights Connection String with IngestionEndpoint", 
-  "preview": { 
-    "authentication": { 
-      "enabled": true, 
-      "type": "UAMI", 
-      "clientId":"<USER-ASSIGNED MANAGED IDENTITY CLIENT ID>" 
-    } 
-  }     
+  "authentication": { 
+    "enabled": true, 
+    "type": "UAMI", 
+    "clientId":"<USER-ASSIGNED MANAGED IDENTITY CLIENT ID>" 
+  } 
 } 
 ```
 :::image type="content" source="media/azure-ad-authentication/user-assigned-managed-identity.png" alt-text="Screenshot that shows user-assigned managed identity." lightbox="media/azure-ad-authentication/user-assigned-managed-identity.png":::
@@ -195,14 +191,12 @@ The following example shows how to configure the Java agent to use a service pri
 ```JSON
 { 
   "connectionString": "App Insights Connection String with IngestionEndpoint",
-   "preview": { 
-        "authentication": { 
-          "enabled": true, 
-          "type": "CLIENTSECRET", 
-          "clientId":"<YOUR CLIENT ID>", 
-          "clientSecret":"<YOUR CLIENT SECRET>", 
-          "tenantId":"<YOUR TENANT ID>" 
-    } 
+  "authentication": { 
+    "enabled": true, 
+    "type": "CLIENTSECRET", 
+    "clientId":"<YOUR CLIENT ID>", 
+    "clientSecret":"<YOUR CLIENT SECRET>", 
+    "tenantId":"<YOUR TENANT ID>" 
   } 
 } 
 ```
