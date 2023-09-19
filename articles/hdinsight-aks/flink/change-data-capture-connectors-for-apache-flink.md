@@ -3,7 +3,7 @@ title: How to perform Change Data Capture of SQL Server with DataStream API and 
 description: Learn how to perform Change Data Capture of SQL Server with DataStream API and DataStream Source.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 08/29/2023
 ---
 
 # Change Data Capture of SQL Server with DataStream API and DataStream Source
@@ -14,8 +14,8 @@ In this article, learn how to perform Change Data Capture of SQL Server using Da
 
 ## Prerequisites
 
-* [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
-* [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
+* [HDInsight on AKS Apache Flink 1.16.0](../flink/flink-create-cluster-portal.md)
+* [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
   * You're required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
 * Azure SQLServer 
 * HDInsight Kafka cluster and HDInsight on AKS Flink clusters are located in the same VNet
@@ -42,18 +42,18 @@ To optimize, configure and run a Debezium SQL Server connector. It's helpful to 
 
 ## Apache Flink on HDInsight on AKS
 
-Apache Flink is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams. Flink has been designed to run in all common cluster environments, perform computations at in-memory speed and at any scale.
+Apache Flink is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams. Apache Flink has been designed to run in all common cluster environments, perform computations at in-memory speed and at any scale.
 
 For more information, refer
 
 * [Apache Flink®—Stateful Computations over Data Streams](https://flink.apache.org/)
-* [What is Flink in HDInsight on AKS](./flink-overview.md)
+* [What is Apache Flink in HDInsight on AKS](./flink-overview.md)
 
 ## Apache Kafka on HDInsight
 
 Apache Kafka is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, where you can publish and subscribe to named data streams.
 
-For more information, refer [Apache Kafka in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction)
+For more information, refer [Apache Kafka in Azure HDInsight](../../hdinsight/kafka/apache-kafka-introduction.md)
 
 ## Perform a test
 
@@ -322,5 +322,5 @@ public class mssqlSinkToKafka {
 ### Reference
 
 * [SQLServer CDC Connector](https://github.com/ververica/flink-cdc-connectors/blob/master/docs/content/connectors/sqlserver-cdc.md) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
-* [Apache Kafka in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction)
+* [Apache Kafka in Azure HDInsight](../../hdinsight/kafka/apache-kafka-introduction.md)
 * [Flink Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka/#behind-the-scene)

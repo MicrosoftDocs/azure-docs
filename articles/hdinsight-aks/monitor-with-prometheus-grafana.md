@@ -3,7 +3,7 @@ title: Monitoring with Azure Managed Prometheus and Grafana
 description: Learn how to use monitor With Azure Managed Prometheus and Grafana
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/29/2023
 ---
 
 # Monitoring with Azure Managed Prometheus and Grafana
@@ -41,7 +41,7 @@ The Azure Managed Prometheus and Grafana Monitoring must be configured at cluste
 
 ## During cluster pool creation
 
-Currently, Managed Prometheus **CANNOT** be enabled during ClusterPool creation time. You can configure it post cluster pool creation.
+Currently, Managed Prometheus **CANNOT** be enabled during Cluster Pool creation time. You can configure it post cluster pool creation.
 
 ## Post cluster pool creation
 
@@ -50,7 +50,7 @@ You can use pre created workspaces or create a new one while your'e configuring 
 
 ### Use precreated workspace
 
-1. Click on configure to **enable** Azure Prometheus monitoring.
+1. Click on **configure** to enable Azure Prometheus monitoring.
 
     :::image type="content" source="./media/monitor-with-prometheus-grafana/integration-configure-tab.png" alt-text="Screenshot showing integration configure tab." border="true" lightbox="./media/monitor-with-prometheus-grafana/integration-configure-tab.png":::
 

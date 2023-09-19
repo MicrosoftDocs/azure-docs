@@ -1,20 +1,20 @@
 ---
-title: Use Hive Catalog, Hive Read & Write demo on Flink SQL
-description: Learn how to use Hive Catalog, Hive Read & Write demo on Flink SQL
+title: Use Hive Catalog, Hive Read & Write demo on Apache Flink SQL
+description: Learn how to use Hive Catalog, Hive Read & Write demo on Apache Flink SQL
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 08/29/2023
 ---
 
-# How to use Hive Catalog with Flink SQL
+# How to use Hive Catalog with Apache Flink SQL
 
-This example uses Hive’s Metastore as a persistent catalog with Flink’s HiveCatalog. We will use this functionality for storing Kafka table and MySQL table metadata on Flink across sessions. Flink uses Kafka table registered in Hive Catalog as a source, perform some lookup and sink result to MySQL database
+This example uses Hive’s Metastore as a persistent catalog with Apache Flink’s HiveCatalog. We will use this functionality for storing Kafka table and MySQL table metadata on Flink across sessions. Flink uses Kafka table registered in Hive Catalog as a source, perform some lookup and sink result to MySQL database
 
 
 ## Prerequisites
 
 * [HDInsight on AKS Flink 1.16.0 with Hive Metastore 3.1.2](../flink/flink-create-cluster-portal.md) 
-* [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
+* [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
   * You're required to ensure the network settings are complete as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
 * MySQL 8.0.33
 
@@ -31,9 +31,9 @@ You may refer to this page for more details on [Apache Hive](https://nightlies.a
 
 ## Environment preparation
 
-### Create a Flink cluster with HMS
+### Create an Apache Flink cluster with HMS
 
-Lets create a Flink cluster with HMS on Azure portal, you can refer to the detailed instructions on [Flink cluster creation](../flink/flink-create-cluster-portal.md).
+Lets create an Apache Flink cluster with HMS on Azure portal, you can refer to the detailed instructions on [Flink cluster creation](../flink/flink-create-cluster-portal.md).
 
 :::image type="content" source="./media/use-hive-catalog/create-flink-cluster.png" alt-text="Screenshot showing how to create Flink cluster.":::
 
@@ -179,7 +179,7 @@ CREATE CATALOG myhive WITH (
 USE CATALOG myhive;
 ```
 
-### Create Kafka Table on Flink SQL
+### Create Kafka Table on Apache Flink SQL
 
 ``` SQL
 CREATE TABLE kafka_user_orders (
@@ -202,7 +202,7 @@ select * from kafka_user_orders;
 ```
 :::image type="content" source="./media/use-hive-catalog/create-kafka-table.png" alt-text="Screenshot showing how to create Kafka table." lightbox="./media/use-hive-catalog/create-kafka-table.png":::
 
-### Create MySQL Table on Flink SQL
+### Create MySQL Table on Apache Flink SQL
 
 ``` SQL
 CREATE TABLE mysql_user_orders (

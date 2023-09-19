@@ -176,7 +176,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the Rackspace SSO for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the Rackspace SSO tile in the My Apps, you should be automatically signed in to the Rackspace SSO for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Rackspace SSO tile in the My Apps, you should be automatically signed in to the Rackspace SSO for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 You can also use the **Validate** button in the **Rackspace SSO** Single sign-on settings:
 

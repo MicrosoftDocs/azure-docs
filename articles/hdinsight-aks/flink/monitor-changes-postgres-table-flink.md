@@ -1,16 +1,16 @@
 ---
-title: Change Data Capture (CDC) of PostgreSQL table using FlinkSQL
-description: Learn how to perform CDC on PostgreSQL table using FlinkSQL CDC
+title: Change Data Capture (CDC) of PostgreSQL table using Apache FlinkSQL
+description: Learn how to perform CDC on PostgreSQL table using Apache FlinkSQL CDC
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/30/2023
+ms.date: 08/29/2023
 ---
 
-# Change Data Capture (CDC) of PostgreSQL table using FlinkSQL
+# Change Data Capture (CDC) of PostgreSQL table using Apache FlinkSQL
 
 Change Data Capture (CDC) is a technique you can use to track row-level changes in database tables in response to create, update, and delete operations. In this article, we use [CDC Connectors for Apache Flink®](https://github.com/ververica/flink-cdc-connectors), which offer a set of source connectors for Apache Flink. The connectors integrate [Debezium®](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/debezium/#debezium-format) as the engine to capture the data changes.  
 
-Flink supports to interpret Debezium JSON and Avro messages as INSERT/UPDATE/DELETE messages into Flink SQL system. 
+Flink supports to interpret Debezium JSON and Avro messages as INSERT/UPDATE/DELETE messages into Apache Flink SQL system. 
 
 This support is useful in many cases to:
 
@@ -24,7 +24,7 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
 
 ## Prerequisites
 
-* [Azure PostgresSQL flexible server Version 14.7](https://learn.microsoft.com/azure/postgresql/flexible-server/overview)
+* [Azure PostgresSQL flexible server Version 14.7](/azure/postgresql/flexible-server/overview)
 * [HDInsight on AKS Flink 1.16.0](./flink-create-cluster-portal.md) 
 * Linux virtual Machine to use PostgreSQL client
 * Add the NSG rule that allows inbound and outbound connections on port 5432 in HDInsight on AKS pool subnet.
@@ -74,7 +74,7 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
 
          ALTER USER `<username>` WITH REPLICATION;
 
-## Create Flink PostgreSQL CDC table
+## Create Apache Flink PostgreSQL CDC table
 
 - To create Flink PostgreSQL CDC table,  download all the dependent jars. Use the `pom.xml` file with the following contents.
 
@@ -107,7 +107,7 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
     > * In order to download jsr jar file use the following command
     >     * `wget https://repo1.maven.org/maven2/net/java/loci/jsr308-all/1.1.2/jsr308-all-1.1.2.jar`
 
--  Once the dependent jars are downloaded start the [Flink Sql client](./flink-web-ssh-on-portal-to-flink-sql.md), with these jars to be imported into the session. Complete command as follows,
+-  Once the dependent jars are downloaded start the [Flink SQL client](./flink-web-ssh-on-portal-to-flink-sql.md), with these jars to be imported into the session. Complete command as follows,
 
     ```sql
     /opt/flink-webssh/bin/sql-client.sh -j
@@ -157,4 +157,4 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
 
 ### Reference
 
-[PostgreSQL CDC Connector](https://ververica.github.io/flink-cdc-connectors/release-2.1/content/connectors/-cdc.html) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
+[PostgreSQL CDC Connector](https://ververica.github.io/flink-cdc-connectors/release-2.1/content/connectors/postgres-cdc.html) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)

@@ -3,7 +3,7 @@ title: Automatically scale Azure HDInsight on AKS clusters
 description: Use the Auto scale feature to automatically scale Azure HDInsight clusters on AKS based on a schedule or load based metrics.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 08/29/2023
 ---
 
 # Auto Scale HDInsight on AKS Clusters
@@ -29,7 +29,7 @@ Load-based scaling changes the number of nodes in your cluster, within a range t
 Schedule-based scaling changes the number of nodes in your cluster based on a schedule of scale-up and scale-down operations. 
 
 > [!NOTE]
-> Auto scale does not support changing SKU type of an existing cluster 
+> Auto scale does not support changing SKU type of an existing cluster.
 
 ### Cluster compatibility
 
@@ -46,7 +46,7 @@ The following table describes the cluster types that are compatible with the Aut
 ## Scaling Methods
 
 * **Schedule-based scaling**:
-    * When your jobs  expected to run on fixed schedules and for a predictable duration or when you anticipate low usage during specific times of the day For example, test and dev environments in post-work hours, end-of day jobs.
+    * When your jobs are expected to run on fixed schedules and for a predictable duration or when you anticipate low usage during specific times of the day For example, test and dev environments in post-work hours, end-of day jobs.
       
       :::image type="content" source="./media/hdinsight-on-aks-autoscale-clusters/schedule-based-concept-step-1.png" alt-text="Screenshot showing how to select schedule-based-scaling." border="true" lightbox="./media/hdinsight-on-aks-autoscale-clusters/schedule-based-concept-step-1.png":::
 
@@ -74,7 +74,7 @@ When the following conditions are detected, Auto scale issues a scale request
 * For scale-down, Auto scale issues a request to remove some nodes. The scale-down considerations include the number of pods per node, the current CPU and memory requirements, and worker nodes, which are candidates for removal based on current job execution. The scale down operation first decommissions the nodes, and then removes them from the cluster.
 
   > [!IMPORTANT]
-  > The Auto scale Rule Engine proactively flushes older events every **30 minutes** to optimize system memory. As a result, there exists an upper bound limit of 30 minutes on the scaling rule interval. To ensure the consistent and reliable triggering of scaling actions, it's imperative to set the scaling rule interval to a value which is lesser than the limit. By adhering to this guideline, you can guarantee a smooth and efficient scaling process while effectively managing system resources.
+  > The Auto scale Rule Engine proactively flushes old events every **30 minutes** to optimize system memory. As a result, there exists an upper bound limit of 30 minutes on the scaling rule interval. To ensure the consistent and reliable triggering of scaling actions, it's imperative to set the scaling rule interval to a value which is lesser than the limit. By adhering to this guideline, you can guarantee a smooth and efficient scaling process while effectively managing system resources.
 
 #### Cluster metrics
 
@@ -89,7 +89,7 @@ Cluster Metrics Available for Scaling Purposes
 |Allocated Cores Percentage|The total number of cores allocated in the cluster compared to the total number of cores in the cluster.|
 |Allocated Memory Percentage|The amount of memory allocated in the cluster compared to the total amount of memory in the cluster.|
 
-By default, the above metrics are checked every **300 seconds**, it's also configurable when you customize the poll interval with customize autoscale option. Auto scale makes scale-up or scale-down decisions based on these metrics. Auto scale makes a scale-up or scale- down decisions based on these metrics.
+By default, the above metrics are checked every **300 seconds**, it is also configurable when you customize the poll interval with customize autoscale option. Auto scale makes scale-up or scale-down decisions based on these metrics.
 
 > [!NOTE]
 > By default Auto scale uses default resource calculator for YARN for Apache Spark. Load based scaling is available for Apache Spark Clusters.
@@ -112,7 +112,7 @@ The default value is set to **180 seconds**
 
 > [!Note]
 > * In custom scale rules, no rule trigger can have a trigger interval greater than 30 minutes. After an auto scaling event occurs, the amount of time to wait before enforcing another scaling policy.
-> * Cooldown period should be greater than policy interval, so the cluster metrics can get reset. 
+> * Cool down period should be greater than policy interval, so the cluster metrics can get reset. 
 
 
 ## Get started
@@ -134,7 +134,7 @@ The default value is set to **180 seconds**
 1. Once your cluster pool is created, create a [new cluster](./quickstart-create-cluster.md) with your desired workload (on the Cluster type), and complete the other steps as part of the normal cluster creation process.
 1. On the **Configuration** tab, enable **Auto scale** toggle.
 1. Select **Schedule based** autoscale
-1. Select your timezone and then click **+ Add Rule**
+1. Select your timezone and then click **+ Add rule**
 1. Select the days of the week that the new condition should apply to.
 1. Edit the time the condition should take effect and the number of nodes that the cluster should be scaled to.
 
@@ -148,7 +148,7 @@ The default value is set to **180 seconds**
    > * In case of a continuous window of beyond 24 hours across days, you're required to set Auto scale schedule across days, and autoscale assumes 23:59 as 00:00 (with same node count) spanning across two days from 22:00 to 23:59, 00:00 to 02:00 as 22:00 to 02:00.
    > * The schedules are set in Coordinated Universal Time (UTC), by default. You can always update to time zone that corresponds to your local time zone in the drop down available. When you are on a time zone that observes Daylight Savings, the schedule does not adjust automatically, you are required to manage the schedule updates accordingly.
 
-### Create a cluster Load based Auto scale
+### Create a cluster with Load based Auto scale
 
 1. Once your cluster pool is created, create a [new cluster](./quickstart-create-cluster.md) with your desired workload (on the Cluster type), and complete the other steps as part of the normal cluster creation process.
 1. On the **Configuration** tab, enable **Auto scale** toggle.
@@ -167,7 +167,7 @@ The default value is set to **180 seconds**
 
 **Schedule based auto scale**
 
-You can create an HDInsight on AKS cluster with schedule-based Autoscaling an Azure Resource Manager template, by adding an autoscale to the clusterProfile -> autoscaleProfile section. 
+You can create an HDInsight on AKS cluster with schedule-based Autoscaling using an Azure Resource Manager template, by adding an autoscale to the clusterProfile -> autoscaleProfile section. 
 
 The autoscale node contains a recurrence that has a timezone and schedule that describes when the change takes place. For a complete Resource Manager template, see sample JSON
 
@@ -234,7 +234,7 @@ The autoscale node contains a recurrence that has a timezone and schedule that d
 
 **Load based auto scale**
 
-You can create an HDInsight on AKS cluster with load-based Autoscaling an Azure Resource Manager template, by adding an autoscale to the clusterProfile -> autoscaleProfile section. 
+You can create an HDInsight on AKS cluster with load-based Autoscaling using an Azure Resource Manager template, by adding an autoscale to the clusterProfile -> autoscaleProfile section. 
 
 The autoscale node contains 
 
@@ -302,7 +302,7 @@ You can resume once you would like to resume the autoscale operations.
 > [!TIP]
 > When you configure multiple schedules, and you're pausing the autoscale, it doesn't trigger the next schedule. The node count remains same, even if the nodes are in a decommissioned state.
 
-### Copy Auto scale Configs
+### Copy Auto Scale Configurations 
 
 Using the Azure portal, you can now copy the same autoscale configurations for a same cluster shape across your cluster pool, you can use this feature and export or import the same configurations.
 

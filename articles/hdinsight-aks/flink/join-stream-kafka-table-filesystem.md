@@ -3,7 +3,7 @@ title: Enrich the events from Kafka with the attributes from FileSystem with Apa
 description: Learn how to join stream from Kafka with table from fileSystem using DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/29/2023
 ---
 
 # Enrich the events from Kafka with attributes from ADLS Gen2 with Apache Flink
@@ -13,7 +13,7 @@ In this article, you can learn how you can enrich the real time events by joinin
 ## Prerequisites
 
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md) 
-* [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
+* [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
     *  You're required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
 * For this demonstration, we're using a Window VM as maven project develop environment in the same VNet as HDInsight on AKS  
 
@@ -55,7 +55,7 @@ We are creating a file called `item attributes` in our storage
 
 :::image type="content" source="./media/join-stream-kafka-table-filesystem/step-2.png" alt-text="Screenshot showing Prepare a batch item attributes file on ADLS Gen2." border="true" lightbox="./media/join-stream-kafka-table-filesystem/step-2.png":::
 
-## Develop the Flink job 
+## Develop the Apache Flink job 
 
 In this step we perform the following activities
 - Enrich the `user_events` topic from Kafka by joining with `item attributes` from a file on ADLS Gen2.
@@ -252,9 +252,9 @@ public class KafkaJoinGen2Demo {
 }
 ```
 
-## Package jar and submit to Flink
+## Package jar and submit to Apache Flink
 
-We're submitting the packaged jar to Flink
+We're submitting the packaged jar to Flink:
 
 :::image type="content" source="./media/join-stream-kafka-table-filesystem/step-4-1-kafka-3-2.png" alt-text="Screenshot showing Packaging the jar and submit to Flink with Kafka 3.2." border="true" lightbox="./media/join-stream-kafka-table-filesystem/step-4-1-kafka-3-2.png":::
 

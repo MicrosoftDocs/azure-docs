@@ -105,7 +105,7 @@ You may test your Azure AD single sign-on configuration using one of the followi
 
 * Go to [ServusConnect Sign-on URL](https://app.servusconnect.com/) directly and initiate the login flow from there. See **[Sign-on with SSO](#sign-on-with-sso)**, below.
 
-* You can use Microsoft My Apps. When you click the ServusConnect tile in the My Apps, this will redirect to ServusConnect Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the ServusConnect tile in the My Apps, this will redirect to ServusConnect Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Sign-on with SSO
 

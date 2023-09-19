@@ -2,6 +2,8 @@
 title: 'Tutorial: Access Azure databases with managed identity'
 description: Secure database connectivity (Azure SQL Database, Database for MySQL, and Database for PostgreSQL) with managed identity from .NET, Node.js, Python, and Java apps.
 keywords: azure app service, web app, security, msi, managed service identity, managed identity, .net, dotnet, asp.net, c#, csharp, node.js, node, python, java, visual studio, visual studio code, visual studio for mac, azure cli, azure powershell, defaultazurecredential
+author: cephalin
+ms.author: cephalin
 
 ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial

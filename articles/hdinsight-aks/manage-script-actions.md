@@ -3,7 +3,7 @@ title: Manage script actions on Azure HDInsight on AKS clusters
 description: An introduction on how to manage script actions in Azure HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/03/2023
+ms.date: 08/29/2023
 ---
 # Script actions during cluster creation
 
@@ -12,9 +12,19 @@ This article explains how you can provision script actions when you create an HD
 
 ## Use a script action during cluster creation using Azure portal
 
+1. Upload the script action in a `ADLS/WASB` storage(does not have to be the primary cluster storage). In this example we will consider an `ADLS` storage.
+   To upload a script into your storage, navigate into the target storage and the container where you want to upload it.
+
+   :::image type="content" source="./media/manage-script-actions/upload-script-action-1.png" alt-text="Screenshot showing the how to select container." border="true" lightbox="./media/manage-script-actions/upload-script-action-1.png":::
+
+1. To upload a script into your storage, navigate into the target storage and the container. Click on the upload button and select the script from your local drive.
+   After the script gets uploaded you should be able to see it in the container(see below image).
+
+   :::image type="content" source="./media/manage-script-actions/upload-script-action-2.png" alt-text="Screenshot showing how to upload the script." border="true" lightbox="./media/manage-script-actions/upload-script-action-2.png":::
+   
 1. Create a new cluster as described [here](./quickstart-create-cluster.md).
    
-1. From the Configurations tab, select **+ Add script action**.
+1. From the Configuration tab, select **+ Add script action**.
   
    :::image type="content" source="./media/manage-script-actions/manage-script-action-creation-step-1.png" alt-text="Screenshot showing the New cluster page with Add Script action button in the Azure portal." border="true" lightbox="./media/manage-script-actions/manage-script-action-creation-step-1.png":::
 
@@ -52,7 +62,7 @@ This article explains how you can provision script actions when you create an HD
 
 ### View the list of Script Actions
 
-1. You can view the list of Script Actions in the "Configurations" tab.
+1. You can view the list of Script Actions in the "Configuration" tab.
 
    :::image type="content" source="./media/manage-script-actions/manage-script-action-view-scripts-step-5.png" alt-text="Screenshot showing the Create to save Script actions page." border="true" lightbox="./media/manage-script-actions/manage-script-action-view-scripts-step-5.png":::
   

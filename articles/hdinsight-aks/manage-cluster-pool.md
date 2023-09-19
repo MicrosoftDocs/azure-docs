@@ -3,7 +3,7 @@ title: Manage cluster pools
 description: Manage cluster pools in HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/03/2023
+ms.date: 08/29/2023
 ---
 
 # Manage cluster pools
@@ -31,7 +31,7 @@ This article describes how to manage a cluster pool.
    
 In a cluster pool, you can add multiple clusters of different types. For example, you can have a Trino cluster and an Apache Flink cluster inside the same pool. 
 
-To create a new cluster, click on the  **+New cluster** and continue to use the Azure portal to create a Trino, Apache Flink, and Apache Spark cluster. 
+To create a new cluster, click on the  **+New cluster** on the Azure portal and continue to use the Azure portal to create a Trino, Apache Flink, and Apache Spark cluster. 
 
 Learn more on how to [create a cluster](./quickstart-create-cluster.md).
 
@@ -51,7 +51,7 @@ For more information, see [manage access](./hdinsight-on-aks-manage-authorizatio
 
 ## Enable integration with Azure services
 
-   In the Azure portal, use Integrations blade in your cluster pool to configure the supported Azure services. Currently, we support Log Analytics and Azure managed Prometheus and Grafana, which has to be configured at cluster pool before you can enable at cluster level.
+   In the Azure portal, use Monitor settings blade in your cluster pool to configure the supported Azure services. Currently, we support Log Analytics and Azure managed Prometheus and Grafana, which has to be configured at cluster pool before you can enable at cluster level.
 
    * Learn more about [Azure Monitor Integration](./how-to-azure-monitor-integration.md).
    * For more information, see [how to enable Log Analytics](./how-to-azure-monitor-integration.md).

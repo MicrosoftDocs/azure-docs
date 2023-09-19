@@ -3,7 +3,7 @@ title: Use Apache Superset with HDInsight on AKS Trino
 description: Deploying Superset and connecting to HDInsight on AKS Trino
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 08/07/2023
+ms.date: 08/29/2023
 ---
 
 # Deploy Apache Superset
@@ -116,58 +116,7 @@ This step creates the Azure Kubernetes Service (AKS) cluster where you can insta
 
 1. To allow Superset to talk to Trino cluster securely, the easiest way is to set up Superset to use the Azure Managed Identity. This step means that your cluster uses the identity you've assigned it without manual deployment or cycling of secrets.
 
-    You need to create a values.yaml file for the Superset Helm deployment, which contains:
-
-    ```yaml
-    # Installs the Azure and Trino libraries to allow for MSI auth to be enabled
-    bootstrapScript: |
-      #!/bin/bash
-      rm -rf /var/lib/apt/lists/* && \
-      pip install \
-        trino \
-        azure.core==1.22.1 \
-        azure.identity \
-        Authlib \
-        psycopg2-binary==2.9.1 \
-        redis==3.5.3 && \
-      if [ ! -f ~/bootstrap ]; then echo "Running Superset with uid {{ .Values.runAsUser }}" > ~/bootstrap; fi
-    
-    # Extend Trino auth to add MSI auth mode
-    configOverrides:
-      enable_oauth_trino: |
-        from trino.auth import Authentication
-        from trino.auth import _BearerAuth
-        from azure.identity import DefaultAzureCredential
-    
-        class AzureManagedIdentity(Authentication):
-    
-          def __init__(self, scope, client_id=None):
-            credential = DefaultAzureCredential(managed_identity_client_id=client_id)
-            self.token = credential.get_token(scope).token
-    
-          def set_http_session(self, http_session):
-            http_session.auth = _BearerAuth(self.token)
-            return http_session
-    
-          def get_exceptions(self):
-            return ()
-    
-          def __eq__(self, other):
-            if not isinstance(other, AzureManagedIdentity):
-                return False
-            return self.token == other.token
-    
-        ALLOWED_EXTRA_AUTHENTICATIONS = {
-          "trino": {
-            "azure_msi": AzureManagedIdentity,
-          },
-        }
-    
-      visual_customizations: |
-        APP_NAME = "Azure Trino Superset"
-        APP_ICON = "https://github.com/trinodb/trino/blob/master/core/trino-main/src/main/resources/webapp/assets/logo.png?raw=true"
-        APP_ICON_WIDTH = 200
-    ```
+    You need to create a values.yaml file for the Superset Helm deployment. Refer [sample code](https://github.com/Azure-Samples/hdinsight-aks/blob/main/src/trino/deploy-superset.yml).
 
     **Optional**: use Microsoft Azure Postgres instead of using the Postgres deployed inside the Kubernetes cluster. 
     

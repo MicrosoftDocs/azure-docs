@@ -3,7 +3,7 @@ title: How to integrate with Azure Monitor
 description: Learn how to integrate with Azure Monitoring.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 08/29/2023
 ---
 
 # How to integrate with Log Analytics

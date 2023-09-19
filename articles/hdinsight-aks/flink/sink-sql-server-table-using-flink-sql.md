@@ -1,12 +1,12 @@
 ---
-title: Change Data Capture (CDC) of SQL Server using Flink SQL
-description: Learn how to perform CDC of SQL Server using Flink SQL
+title: Change Data Capture (CDC) of SQL Server using Apache Flink SQL
+description: Learn how to perform CDC of SQL Server using Apache Flink SQL
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/29/2023
 ---
 
-# Change Data Capture (CDC) of SQL Server using Flink SQL
+# Change Data Capture (CDC) of SQL Server using Apache Flink SQL
 
 Change Data Capture (CDC) is a technique you can use to track row-level changes in database tables in response to create, update, and delete operations. In this article, we use [CDC Connectors for Apache Flink®](https://github.com/ververica/flink-cdc-connectors), which offer a set of source connectors for Apache Flink. The connectors integrate [Debezium®](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/debezium/#debezium-format) as the engine to capture the data changes.  
 
@@ -23,9 +23,9 @@ Now, let us learn how to use Change Data Capture (CDC) of SQL Server using Flink
 
 ## Prerequisites
  * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md) 
- * [Azure SQL Server](https://learn.microsoft.com/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview)
+ * [Azure SQL Server](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview)
 
-### Flink SQLServer CDC Connector
+### Apache Flink SQLServer CDC Connector
 
 The SQLServer CDC connector is a Flink Source connector, which reads database snapshot first and then continues to read change events with exactly once processing even failures happen. This example uses FLINK CDC to create a SQLServerCDC table on FLINK SQL
 
@@ -35,7 +35,7 @@ We have already covered this section in detail on how to use [secure shell](./fl
 
 ## Prepare table and enable cdc feature on SQL Server sqldb
 
-Let us prepare a table and enable the CDC, You can refer the detailed steps listed on [SQL Documentation](https://learn.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?)
+Let us prepare a table and enable the CDC, You can refer the detailed steps listed on [SQL Documentation](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?)
 
 **Create a database**
 ``` SQL

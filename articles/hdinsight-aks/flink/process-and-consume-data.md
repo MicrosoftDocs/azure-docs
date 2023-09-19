@@ -1,12 +1,12 @@
 ---
-title: Using HDInsight Kafka with HDInsight on AKS Flink
-description: Learn how to use HDInsight Kafka with HDInsight on AKS Flink
+title: Using HDInsight Kafka with HDInsight on AKS Apache Flink
+description: Learn how to use HDInsight Kafka with HDInsight on AKS Apache Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 08/29/2023
 ---
  
-# Using HDInsight Kafka with HDInsight on AKS - Flink
+# Using HDInsight Kafka with HDInsight on AKS - Apache Flink
 
 A well known use case for Apache Flink is stream analytics. The popular choice by many users to use the data streams, which are ingested using Apache Kafka. Typical installations of Flink and Kafka start with event streams being pushed to Kafka, which can be consumed by Flink jobs.
 
@@ -19,8 +19,8 @@ This example uses HDInsight on AKS Flink 1.16.0 to process streaming data consum
 ## Prerequisites
 
 * Both Kafka and Flink need to be in the same VNet or there should be vnet-peering between the two clusters. 
-* [Creation of VNet](https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network).
-* [Create a Kafka cluster in the same VNet](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started). You can choose Kafka 3.2 or 2.4 on HDInsight based on your current usage.
+* [Creation of VNet](../../hdinsight/hdinsight-create-virtual-network.md).
+* [Create a Kafka cluster in the same VNet](../../hdinsight/kafka/apache-kafka-get-started.md). You can choose Kafka 3.2 or 2.4 on HDInsight based on your current usage.
 
   :::image type="content" source="./media/process-consume-data/create-kafka-cluster-in-the-same-vnet.png" alt-text="Screenshot showing how to	create a Kafka cluster in the same VNet." border="true" lightbox="./media/process-consume-data/create-kafka-cluster-in-the-same-vnet.png":::
   
@@ -108,7 +108,7 @@ public class SinKafkaToKafka {
     }
 }
 ```
-**Writing a java program Event.java**
+**Writing a Java program Event.java**
 ``` java
 import java.sql.Timestamp;
 

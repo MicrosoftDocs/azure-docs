@@ -61,7 +61,7 @@ The following locations are in the process of being added to the list. For now, 
 
 > Argentina, Brazil, Chile, Colombia, Ecuador, Iraq, Paraguay, Peru, Uruguay, and Venezuela
 
-To find the exact location where your data is located per country/country, refer to [where Azure Active Directory data is located](https://aka.ms/aaddatamap)service.   
+To find the exact location where your data is located per country/region, refer to [where Azure Active Directory data is located](https://aka.ms/aaddatamap)service.   
 
 
 ### Go-Local add-on

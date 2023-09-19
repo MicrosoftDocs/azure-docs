@@ -1,12 +1,12 @@
 ---
-title: Table API and SQL - Use Iceberg Catalog type with Hive in HDInsight on AKS - Flink
-description: Learn how to create Flink-Iceberg Catalog in HDInsight on AKS - Flink
+title: Table API and SQL - Use Iceberg Catalog type with Hive in HDInsight on AKS - Apache Flink
+description: Learn how to create Apache Flink-Iceberg Catalog in HDInsight on AKS - Apache Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 08/29/2023
 ---
 
-# Create Flink-Iceberg Catalog
+# Create Apache Flink-Iceberg Catalog
 
 [Apache Iceberg](https://iceberg.apache.org/) is an open table format for huge analytic datasets. Iceberg adds tables to compute engines like Flink, using a high-performance table format that works just like a SQL table. Apache Iceberg [supports](https://iceberg.apache.org/multi-engine-support/#apache-flink) both Apache Flink’s DataStream API and Table API.
 
@@ -25,7 +25,7 @@ Once you launch the Secure Shell (SSH), let us start downloading the dependencie
    wget https://repo1.maven.org/maven2/org/apache/parquet/parquet-column/1.12.2/parquet-column-1.12.2.jar -P $FLINK_HOME/lib
    ```
 
-## Start the Flink SQL Client
+## Start the Apache Flink SQL Client
 A detailed explanation is given on how to get started with Flink SQL Client using [Secure Shell](./flink-web-ssh-on-portal-to-flink-sql.md) on Azure portal. You're required to start the SQL Client as described on the article by running the following command. 
 ```
 ./bin/sql-client.sh
@@ -41,7 +41,7 @@ With the following steps, we illustrate how you can create Flink-Iceberg Catalog
   'uri'='thrift://hive-metastore:9083',
   'clients'='5',
   'property-version'='1',
-  'warehouse'='abfs://container@storage_account.dfs.core.windows.net/ieberg-output’;
+  'warehouse'='abfs://container@storage_account.dfs.core.windows.net/ieberg-output');
 ```
 > [!NOTE]
 > - In the above step, the container and storage account *need not be same* as specified during the cluster creation.

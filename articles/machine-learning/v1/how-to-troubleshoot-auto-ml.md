@@ -210,8 +210,8 @@ If you have over 100 automated ML experiments, this may cause new automated ML e
 
 If you are under virtual networks (VNets), you may run into model download failures when using AutoML NLP. This is because network traffic is blocked from downloading the models and tokenizers from Azure CDN. To unblock this, please allow list the below URLs in the "Application rules" setting of the VNet firewall policy:
 
-* aka.ms 
-* https://automlresources-prod.azureedge.net 
+* ```aka.ms ```
+* ```https://automlresources-prod.azureedge.net ```
 
 Please follow the instructions [here to configure the firewall settings.](../how-to-access-azureml-behind-firewall.md)
 

@@ -1,25 +1,25 @@
 ---
-title: Use Apache NiFi with HDInsight on AKS Flink to publish into ADLS Gen2
-description: Learn how to use  Apache NiFi to consume Processed Kafka topic from HDInsight Flink on AKS and publish into ADLS Gen2
+title: Use Apache NiFi with HDInsight on AKS Apache Flink to publish into ADLS Gen2
+description: Learn how to use  Apache NiFi to consume Processed Kafka topic from HDInsight Apache Flink on AKS and publish into ADLS Gen2
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/29/2023
 ---
 
-# Use Apache NiFi to consume processed Kafka topics from Flink and publish into ADLS Gen2
+# Use Apache NiFi to consume processed Kafka topics from Apache Flink and publish into ADLS Gen2
 
 Apache NiFi is a software project from the Apache Software Foundation designed to automate the flow of data between software systems. It supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic.
 
 For more information, see [Apache NiFi](https://nifi.apache.org)
 
-In this document, we process streaming data using HDInsight Kafka and perform some transformations on HDInsight Flink on AKS, consume these topics and write the contents into ADLS Gen2 on Apache NiFi.
+In this document, we process streaming data using HDInsight Kafka and perform some transformations on HDInsight Apache Flink on AKS, consume these topics and write the contents into ADLS Gen2 on Apache NiFi.
 
 By combining the low latency streaming features of Apache Flink and the dataflow capabilities of Apache NiFi, you can process events at high volume. This combination helps you to trigger, enrich, filter, to enhance overall user experience. Both these technologies complement each other with their strengths in event streaming and correlation.
 
 ## Prerequisites
 
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md) 
-* [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
+* [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
     *  You're required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
 * For this demonstration, we're using a Window VM as maven project develop env in the same VNET as HDInsight on AKS
 * For this demonstration, we're using an Ubuntu VM in the same VNET as HDInsight on AKS, install Apache NiFi 1.22.0 on this VM
@@ -29,7 +29,7 @@ By combining the low latency streaming features of Apache Flink and the dataflow
 For purposes of this demonstration, we're using a HDInsight Kafka Cluster, let us prepare HDInsight Kafka topic for the demo.
 
 > [!NOTE]
-> Setup a HDInsight [Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started) Cluster and Replace broker list with your own list before you get started for both Kafka 2.4 and 3.2.
+> Setup a HDInsight [Kafka](../../hdinsight/kafka/apache-kafka-get-started.md) Cluster and Replace broker list with your own list before you get started for both Kafka 2.4 and 3.2.
 
 **HDInsight Kafka 2.4.1**
 ```
@@ -326,7 +326,7 @@ Once you have assigned a managed identity to the Azure VM, you need to make sure
 
 :::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-7-nifi-ui-kafka-consumption-nifi-flow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step7." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-7-nifi-ui-kafka-consumption-nifi-flow.png":::
 
-### Lets check output in ADLS gen2
+### Lets check output in ADLS Gen2
 
 :::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-7-result-azure-data-lake-storage-gen2.png" alt-text="Validating the output in ADLS Gen2." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-7-result-azure-data-lake-storage-gen2.png":::
 

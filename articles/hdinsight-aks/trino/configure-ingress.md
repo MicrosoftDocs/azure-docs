@@ -3,7 +3,7 @@ title: Expose Superset to the internet
 description: Learn how to expose Superset to the internet
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 08/14/2023
+ms.date: 08/29/2023
 ---
 
 # Expose Apache Superset to Internet
@@ -81,55 +81,8 @@ The following instructions add a second layer of authentication in the form of a
    * `{{KEY_VAULT_NAME}}` - The name of the Azure Key Vault containing the secrets.
    * `{{KEY_VAULT_TENANT_ID}}` - The identifier guid of the Azure tenant where the key vault is located.
 
-   **oauth2-secretprovider.yaml**
-   ```yaml
-   # This is a SecretProviderClass example using aad-pod-identity to access the key vault
-   apiVersion: secrets-store.csi.x-k8s.io/v1
-   kind: SecretProviderClass
-   metadata:
-     name: oauth2-secret-provider
-   spec:
-     provider: azure
-     parameters:
-       useVMManagedIdentity: "true" 
-       userAssignedIdentityID: "{{MSI_CLIENT_ID}}"
-       usePodIdentity: "false"              # Set to true for using aad-pod-identity to access your key vault
-       keyvaultName: "{{KEY_VAULT_NAME}}"   # Set to the name of your key vault
-       cloudName: ""                        # [OPTIONAL for Azure] if not provided, the Azure environment defaults to AzurePublicCloud
-       objects: |
-         array:
-           - |
-             objectName: oauth2proxy-cookie-secret
-             objectType: secret
-           - |
-             objectName: oauth2proxy-redis-password
-             objectType: secret
-           - |
-             objectName: client-id
-             objectType: secret
-           - |
-             objectName: client-secret
-             objectType: secret
-       tenantId: "{{KEY_VAULT_TENANT_ID}}"  # The tenant ID of the key vault
-     secretObjects:                             
-     - secretName: oauth2-secret
-       type: Opaque
-       data:
-       # OauthProxy2 Secrets
-       - key: cookie-secret
-         objectName: oauth2proxy-cookie-secret
-       - key: client-id
-         objectName: client-id
-       - key: client-secret
-         objectName: client-secret
-       - key: redis-password
-         objectName: oauth2proxy-redis-password
-     - secretName: oauth2-redis
-       type: Opaque
-       data:
-       - key: redis-password
-         objectName: oauth2proxy-redis-password
-   ```
+   Refer to [sample code](https://github.com/Azure-Samples/hdinsight-aks/blob/main/src/trino/oauth2-secretprovider.yml).
+   
 
 1. Create configuration for the OAuth Proxy.
 
@@ -139,91 +92,7 @@ The following instructions add a second layer of authentication in the form of a
 
    **Optional:** update the email_domains list. Example: `email_domains = [ "microsoft.com" ]`
 
-   **oauth2-values.yaml**
-   ```yaml
-   # Force the target Kubernetes version (it uses Helm `.Capabilities` if not set).
-   # This is especially useful for `helm template` as capabilities are always empty
-   # due to the fact that it doesn't query an actual cluster
-   kubeVersion:
-   
-   # OAuth client configuration specifics
-   config:
-     # OAuth client secret
-     existingSecret: oauth2-secret
-     configFile: |-
-       email_domains = [ ]
-       upstreams = [ "file:///dev/null" ]
-   
-   image:
-     repository: "quay.io/oauth2-proxy/oauth2-proxy"
-     tag: "v7.4.0"
-     pullPolicy: "IfNotPresent"
-   
-   extraArgs: 
-       provider: oidc
-       oidc-issuer-url: https://login.microsoftonline.com/<tenant-id>/v2.0
-       login-url: https://login.microsoftonline.com/<tenant-id>/v2.0/oauth2/authorize
-       redeem-url: https://login.microsoftonline.com/<tenant-id>/v2.0/oauth2/token
-       oidc-jwks-url: https://login.microsoftonline.com/common/discovery/keys
-       profile-url: https://graph.microsoft.com/v1.0/me
-       skip-provider-button: true
-   
-   ingress:
-     enabled: true
-     path: /oauth2
-     pathType: ImplementationSpecific
-     hosts:
-     - "{{hostname}}"
-     annotations:
-       kubernetes.io/ingress.class: nginx
-       nginx.ingress.kubernetes.io/proxy_buffer_size: 64k
-       nginx.ingress.kubernetes.io/proxy_buffers_number: "8"
-     tls:
-     - secretName: ingress-tls-csi
-       hosts:
-        - "{{hostname}}"
-   
-   extraVolumes:
-     - name: oauth2-secrets-store
-       csi:
-         driver: secrets-store.csi.k8s.io
-         readOnly: true
-         volumeAttributes:
-           secretProviderClass: oauth2-secret-provider
-     - name: tls-secrets-store
-       csi:
-         driver: secrets-store.csi.k8s.io
-         readOnly: true
-         volumeAttributes:
-           secretProviderClass: azure-tls
-   
-   extraVolumeMounts: 
-     - mountPath: "/mnt/oauth2_secrets"
-       name: oauth2-secrets-store
-       readOnly: true
-     - mountPath: "/mnt/tls-secrets-store"
-       name: tls-secrets-store
-       readOnly: true
-   
-   # Configure the session storage type, between cookie and redis
-   sessionStorage:
-     # Can be one of the supported session storage cookie/redis
-     type: redis
-     redis:
-       # Secret name that holds the redis-password and redis-sentinel-password values
-       existingSecret: oauth2-secret
-       # Can be one of sentinel/cluster/standalone
-       clientType: "standalone"
-   
-   # Enables and configure the automatic deployment of the redis subchart
-   redis:
-     enabled: true
-     auth:
-       existingSecret: oauth2-secret
-   
-   # Enables apiVersion deprecation checks
-   checkDeprecation: true
-   ```
+   Refer to [sample code](https://github.com/Azure-Samples/hdinsight-aks/blob/main/src/trino/oauth2-values.yml).
 
 1. Deploy OAuth proxy resources.
 

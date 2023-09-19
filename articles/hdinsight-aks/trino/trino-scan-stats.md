@@ -3,7 +3,7 @@ title: Use scan statistics
 description: How to enable, understand and query scan statistics using  query log tables for Trino clusters for HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 08/29/2023
 ---
 
 # Enable scan statistics for queries
@@ -20,7 +20,7 @@ SET SESSION collect_raw_scan_statistics=true
 Once enabled, source operators in the query like `TableScanOperator`, `ScanFilterAndProject` etc. have statistics on data scans, the granularity is per operator instance in a pipeline.
 
 > [!TIP]
-> Scan stats are helpful in identifying bottlenecks when the cluster or query is not CPU constrainted, and read performance of the query needs investigation. It also helps to understand the execution profile of the query from a split level perspective.
+> Scan stats are helpful in identifying bottlenecks when the cluster or query is not CPU constrained, and read performance of the query needs investigation. It also helps to understand the execution profile of the query from a split level perspective.
 
 > [!NOTE]
 > Currently, captured number of splits per worker is limited to 1000 due to size constraints of produced data. If the number of splits per worker for the query exceeds this limit, top 1000 longest running splits are returned.

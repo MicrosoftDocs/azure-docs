@@ -3,7 +3,7 @@ title: Write event messages into Azure Data Lake Storage Gen2 with DataStream AP
 description: Learn how to write event messages into Azure Data Lake Storage Gen2 with DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 08/29/2023
 ---
 
 # Write event messages into Azure Data Lake Storage Gen2 with DataStream API
@@ -12,13 +12,13 @@ Apache Flink uses file systems to consume and persistently store data, both for 
 
 ## Prerequisites
 
-* [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
-* [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
+* [HDInsight on AKS Apache Flink 1.16.0](../flink/flink-create-cluster-portal.md)
+* [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
   * You're  required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same Virtual Network 
 * Use MSI to access ADLS Gen2 
 * IntelliJ for development on an Azure VM in HDInsight on AKS Virtual Network 
 
-## Flink FileSystem connector
+## Apache Flink FileSystem connector
 
 This filesystem connector provides the same guarantees for both BATCH and STREAMING and is designed to provide exactly once semantics for STREAMING execution. For more information, see [Flink DataStream Filesystem](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/filesystem)
 
@@ -26,7 +26,7 @@ This filesystem connector provides the same guarantees for both BATCH and STREAM
 
 Flink provides an Apache Kafka connector for reading data from and writing data to Kafka topics with exactly once guarantees. For more information, see [Apache Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka)
 
-## Build the project for Flink
+## Build the project for Apache Flink
 
 **pom.xml on IntelliJ IDEA**
 
@@ -101,7 +101,7 @@ Flink provides an Apache Kafka connector for reading data from and writing data 
 *abfsGen2.java*
 
 > [!Note]
-> Replace [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started) bootStrapServers with your own brokers for Kafka 2.4 or 3.2
+> Replace [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)bootStrapServers with your own brokers for Kafka 2.4 or 3.2
 
 ``` java
 package contoso.example;

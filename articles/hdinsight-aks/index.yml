@@ -10,7 +10,7 @@ metadata:
   ms.collection: collection
   author: sreekzz  #Required; your GitHub user alias, with correct capitalization.
   ms.author: v-sreiyer #Required; microsoft alias of author; optional team alias.
-  ms.date: 06/16/2023 #Required; mm/dd/yyyy format.
+  ms.date: 08/29/2023 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -21,13 +21,13 @@ landingContent:
         links:
           - text: What is HDInsight on AKS?
             url: overview.md
-          - text: Versioning & Support
+          - text: Versioning & support
             url: versions.md   
           - text: Security
             url: concept-security.md
           - text: Azure Monitor integration
             url: concept-azure-monitor-integration.md
-          - text: Release Notes
+          - text: Release notes
             url: overview.md
   - title: Get started
     linkLists:
@@ -45,7 +45,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create Cluster pools and clusters
+          - text: Create cluster pools and clusters
             url: quickstart-create-cluster.md
           - text: Manage cluster pools
             url: manage-cluster-pool.md
@@ -53,7 +53,7 @@ landingContent:
             url: manage-cluster.md
           - text: Manual scale
             url: manual-scale.md
-          - text: Auto Scale
+          - text: Auto scale
             url: hdinsight-on-aks-autoscale-clusters.md
           - text: Service configuration
             url: service-configuration.md
@@ -75,13 +75,13 @@ landingContent:
             url: ./trino/trino-create-cluster.md
       - linkListType: tutorial
         links:
-          - text: Connect to a Hive Metastore
+          - text: Connect to a Hive metastore
             url: ./trino/trino-connect-to-metastore.md
           - text: Add catalogs
             url: ./trino/trino-add-catalogs.md
-          - text: Custom Plugins
+          - text: Custom plugins
             url: ./trino/trino-custom-plugins.md 
-          - text: Query Logging
+          - text: Query logging
             url: ./trino/trino-query-logging.md
       - linkListType: how-to-guide
         links:
@@ -93,7 +93,7 @@ landingContent:
             url: ./trino/trino-ui.md
           - text: JDBC Driver
             url: ./trino/trino-ui-jdbc-driver.md
-          - text: Delta Lake Tables in Synapse or External Locations
+          - text: Delta Lake Tables in Synapse or external locations
             url: ./trino/trino-create-delta-lake-tables-synapse.md
           - text: Configure caching
             url: ./trino/trino-caching.md
@@ -101,15 +101,15 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Flink?
+          - text: What is Apache Flink?
             url: ./flink/flink-overview.md
       - linkListType: quickstart
         links:
-          - text: Create a Flink cluster
+          - text: Create an Apache Flink cluster
             url: ./flink/flink-create-cluster-portal.md
       - linkListType: tutorial
         links:
-          - text: Configuration Management
+          - text: Configuration management
             url: ./flink/flink-configuration-management.md
           - text: Using TableAPI
             url: ./flink/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md
@@ -117,7 +117,7 @@ landingContent:
         links:
           - text: Using CLI
             url: ./flink/use-flink-cli-to-submit-jobs.md
-          - text: Delta Lake Tables with Flink
+          - text: Delta Lake Tables with Apache Flink
             url: ./flink/use-flink-delta-connector.md
   - title: Apache Spark
     linkLists:
@@ -131,13 +131,13 @@ landingContent:
             url: ./spark/create-spark-cluster.md
       - linkListType: how-to-guide
         links:
-          - text: Submit and Manage Jobs
+          - text: Submit and manage jobs
             url: ./spark/submit-manage-jobs.md
-          - text: Library Management
+          - text: Library management
             url: ./spark/library-management.md
-          - text: Use ML Notebook on Spark
+          - text: Use ML notebook on Spark
             url: ./spark/use-machine-learning-notebook-on-spark.md
-          - text: Use Hive Metastore
+          - text: Use Hive metastore
             url: ./spark/use-hive-metastore.md
   - title: Resources
     linkLists:

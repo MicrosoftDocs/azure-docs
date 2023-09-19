@@ -1,25 +1,25 @@
 ---
-title: How to create Kafka table on FlinkSQL - Azure portal
-description: Learn how to create Kafka table on FlinkSQL
+title: How to create Kafka table on Apache FlinkSQL - Azure portal
+description: Learn how to create Kafka table on Apache FlinkSQL
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 08/29/2023
 ---
 
-# Create Kafka table on FlinkSQL
+# Create Kafka table on Apache FlinkSQL
 
-Using this example, learn how to Create Kafka table on FlinkSQL.
+Using this example, learn how to Create Kafka table on Apache FlinkSQL.
 
 ## Prerequisites
 
-* [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
-* [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
+* [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
+* [HDInsight on AKS Apache Flink 1.16.0](../flink/flink-create-cluster-portal.md)
 
-## Kafka SQL connector on Flink
+## Kafka SQL connector on Apache Flink
 
 The Kafka connector allows for reading data from and writing data into Kafka topics. For more information, refer [Apache Kafka SQL Connector](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/kafka)
 
-## Create a Kafka table on Flink SQL
+## Create a Kafka table on Apache Flink SQL
 
 ### Prepare topic and data on HDInsight Kafka
 
@@ -111,7 +111,7 @@ sshuser@hn0-contsk:~$ /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.s
 
 ```
 
-### Flink SQL client
+### Apache Flink SQL client
 
 Detailed instructions are provided on how to use Secure Shell for [Flink SQL client](./flink-web-ssh-on-portal-to-flink-sql.md)
 
@@ -123,14 +123,14 @@ wget https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/3.2.0/kafka-c
 wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-kafka/1.16.0/flink-connector-kafka-1.16.0.jar
 ```
 
-### Connect to Flink SQL Client
+### Connect to Apache Flink SQL Client
 
 Let's now connect to the Flink SQL Client with Kafka SQL client jars
 ```
 msdata@pod-0 [ /opt/flink-webssh ]$ bin/sql-client.sh -j flink-connector-kafka-1.16.0.jar -j kafka-clients-3.2.0.jar
 ```
 
-### Create Kafka table on Flink SQL
+### Create Kafka table on Apache Flink SQL
 
 Let's create the Kafka table on Flink SQL, and select the Kafka table on Flink SQL. 
 
@@ -162,7 +162,7 @@ Let's now produce Kafka messages to the same topic, using HDInsight Kafka
 python weblog.py | /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --bootstrap-server wn0-contsk:9092 --topic click_events
 ```
 
-### Table on Flink SQL
+### Table on Apache Flink SQL
 
 You can monitor the table on Flink SQL
 

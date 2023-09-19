@@ -1,9 +1,9 @@
 ---
 title: Table API and SQL - HDInsight on AKS - Apache Flink
-description: Learn about Table API and SQL in HDInsight on AKS - Flink
+description: Learn about Table API and SQL in HDInsight on AKS - Apache Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/29/2023
 ---
 
 # Table API and SQL in HDInsight on AKS - Apache Flink
@@ -12,7 +12,7 @@ Apache Flink features two relational APIs - the Table API and SQL - for unified 
 
 The Table API and SQL interfaces integrate seamlessly with each other and Flink’s DataStream API. You can easily switch between all APIs and libraries, which build upon them.
 
-## Flink SQL
+## Apache Flink SQL
 
 Like other SQL engines, Flink queries operate on top of tables. It differs from a traditional database because Flink doesn't manage data at rest locally; instead, its queries operate continuously over external tables.
 
@@ -91,7 +91,7 @@ Write out to **Sink Table** from **Source Table**:
   GROUP BY grade;
 ```
 
-## Adding Dependencies for Flink SQL
+## Adding Dependencies for Apache Flink SQL
 
 JAR statements are used to add user jars into the classpath or remove user jars from the classpath or show added jars in the classpath in the runtime.
 
@@ -186,7 +186,7 @@ You can refer this article on how to use CLI and get started with Flink SQL Clie
     Received a total of 3 rows
   ```
   > [!NOTE]
-  > Hive Warehouse Directory is located in the designated container of storage account chosen during flink cluster creation, can be found at directory  hive/warehouse/
+  > Hive Warehouse Directory is located in the designated container of storage account chosen during Apache Flink cluster creation, can be found at directory  hive/warehouse/
 - Lets create Flink Table of connector type hive with Partition
   ```sql
   CREATE TABLE partitioned_hive_table(x int, days STRING) PARTITIONED BY (days) WITH ( 'connector' = 'hive', 'sink.partition-commit.delay'='1 s', 'sink.partition-commit.policy.kind'='metastore,success-file');

@@ -3,14 +3,14 @@ title: DataStream API for MongoDB as a source and sink on Apache Flink
 description: Learn how to use DataStream API for MongoDB as a source and sink on Apache Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 08/29/2023
 ---
 
 # DataStream API for MongoDB as a source and sink on Apache Flink
 
 Apache Flink provides a MongoDB connector for reading and writing data from and to MongoDB collections with at-least-once guarantees.
 
-This example demonstrates on how to use HDInsight on AKS Flink 1.16.0 along with your existing MongoDB as Sink and Source with Flink DataStream API MongoDB connector.
+This example demonstrates on how to use HDInsight on AKS Apache Flink 1.16.0 along with your existing MongoDB as Sink and Source with Flink DataStream API MongoDB connector.
 
 MongoDB is a non-relational document database that provides support for JSON-like storage that helps store complex structures easily.
 
@@ -369,7 +369,7 @@ public class MongoDBSourceDemo {
     }
 }
 ```
-### Package the maven jar, and submit to Flink UI
+### Package the maven jar, and submit to Apache Flink UI
 
 Package the maven jar, upload it to Storage and then wget it to [Flink CLI](./flink-web-ssh-on-portal-to-flink-sql.md) or directly upload to Flink UI to run.
 

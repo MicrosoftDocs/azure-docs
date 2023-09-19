@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Configure virtual networking for Azure AD Domain Services | Microsoft Docs
-description: In this tutorial, you learn how to create and configure an Azure virtual network subnet or network peering for an Azure Active Directory Domain Services managed domain using the Azure portal.
+description: In this tutorial, you learn how to create and configure an Azure virtual network subnet or network peering for an Azure Active Directory Domain Services managed domain using the Microsoft Entra admin center.
 author: justinha
 manager: amycolannino
 
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2022
+ms.date: 09/15/2023
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create and configure a virtual network subnet or network peering for application workloads in an Azure Active Directory Domain Services managed domain
@@ -44,9 +44,9 @@ To complete this tutorial, you need the following resources and privileges:
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 
-## Sign in to the Azure portal
+## Sign in to the Microsoft Entra admin center
 
-In this tutorial, you create and configure the managed domain using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+In this tutorial, you create and configure the managed domain using the Microsoft Entra admin center. To get started, first sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 ## Application workload connectivity options
 
@@ -75,21 +75,21 @@ By default, the Azure virtual network created with the managed domain contains a
 
 To create a virtual network subnet for VMs and application workloads, complete the following steps:
 
-1. In the Azure portal, select the resource group of your managed domain, such as *myResourceGroup*. From the list of resources, choose the default virtual network, such as *aadds-vnet*.
+1. In the Microsoft Entra admin center, select the resource group of your managed domain, such as *myResourceGroup*. From the list of resources, choose the default virtual network, such as *aadds-vnet*.
 1. In the left-hand menu of the virtual network window, select **Address space**. The virtual network is created with a single address space of *10.0.2.0/24*, which is used by the default subnet.
 
     Add an additional IP address range to the virtual network. The size of this address range and the actual IP address range to use depends on other network resources already deployed. The IP address range shouldn't overlap with any existing address ranges in your Azure or on-premises environment. Make sure that you size the IP address range large enough for the number of VMs you expect to deploy into the subnet.
 
     In the following example, an additional IP address range of *10.0.3.0/24* is added. When ready, select **Save**.
 
-    ![Add an additional virtual network IP address range in the Azure portal](./media/tutorial-configure-networking/add-vnet-address-range.png)
+    ![Add an additional virtual network IP address range in the Microsoft Entra admin center](./media/tutorial-configure-networking/add-vnet-address-range.png)
 
 1. Next, in the left-hand menu of the virtual network window, select **Subnets**, then choose **+ Subnet** to add a subnet.
 1. Enter a name for the subnet, such as *workloads*. If needed, update the **Address range** if you want to use a subset of the IP address range configured for the virtual network in the previous steps. For now, leave the defaults for options like network security group, route table, service endpoints.
 
     In the following example, a subnet named *workloads* is created that uses the *10.0.3.0/24* IP address range:
 
-    ![Add an additional virtual network subnet in the Azure portal](./media/tutorial-configure-networking/add-vnet-subnet.png)
+    ![Add an additional virtual network subnet in the Microsoft Entra admin center](./media/tutorial-configure-networking/add-vnet-subnet.png)
 
 1. When ready, select **OK**. It takes a few moments to create the virtual network subnet.
 
@@ -115,13 +115,13 @@ To peer a virtual network to the managed domain virtual network, complete the fo
     * **Virtual network**: The virtual network you want to peer to, such as *myVnet*
     * **Name of the peering from myVnet to aadds-vnet**: A descriptive identifier of the two networks, such as *myvnet-to-aadds-vnet*
 
-    ![Configure virtual network peering in the Azure portal](./media/tutorial-configure-networking/create-peering.png)
+    ![Configure virtual network peering in the Microsoft Entra admin center](./media/tutorial-configure-networking/create-peering.png)
 
     Leave any other defaults for virtual network access or forwarded traffic unless you have specific requirements for your environment, then select **OK**.
 
 1. It takes a few moments to create the peering on both the Azure AD DS virtual network and the virtual network you selected. When ready, the **Peering status** reports *Connected*, as shown in the following example:
 
-    ![Successfully connected peered networks in the Azure portal](./media/tutorial-configure-networking/connected-peering.png)
+    ![Successfully connected peered networks in the Microsoft Entra admin center](./media/tutorial-configure-networking/connected-peering.png)
 
 Before VMs in the peered virtual network can use the managed domain, configure the DNS servers to allow for correct name resolution.
 
@@ -134,7 +134,7 @@ For VMs and applications in the peered virtual network to successfully talk to t
 
 In this tutorial, let's configure the Azure virtual network DNS servers to direct all queries to the Azure AD DS domain controllers.
 
-1. In the Azure portal, select the resource group of the peered virtual network, such as *myResourceGroup*. From the list of resources, choose the peered virtual network, such as *myVnet*.
+1. In the Microsoft Entra admin center, select the resource group of the peered virtual network, such as *myResourceGroup*. From the list of resources, choose the peered virtual network, such as *myVnet*.
 1. In the left-hand menu of the virtual network window, select **DNS servers**.
 1. By default, a virtual network uses the built-in Azure-provided DNS servers. Choose to use **Custom** DNS servers. Enter the IP addresses for the Azure AD DS domain controllers, which are usually *10.0.2.4* and *10.0.2.5*. Confirm these IP addresses on the **Overview** window of your managed domain in the portal.
 

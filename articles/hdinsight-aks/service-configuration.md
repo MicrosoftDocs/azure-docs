@@ -2,7 +2,7 @@
 title: Manage cluster configuration
 description: How to update cluster configuration for HDInsight on AKS.
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 08/29/2023
 ---
 
 # Manage cluster configuration
@@ -34,7 +34,7 @@ You can customize configurations using following options:
 1. Go to "Configuration management" blade in the left menu.
    
     :::image type="content" source="./media/service-configuration/configuration-management-tab.png" alt-text="Screenshot showing Configuration Management tab.":::
-   
+  
 1. Depending on the cluster type, configurations files are listed. For more information, see [Trino](./trino/trino-service-configuration.md), [Flink](./flink/flink-configuration-management.md), and [Spark](./spark/configuration-management.md) configurations.
   
 1. Add new or update the existing key-value pair for the configurations you want to modify.
@@ -149,7 +149,7 @@ For more information about Trino configuration options, see the sample ARM templ
 
 * [arm-trino-config-sample.json](https://hdionaksresources.blob.core.windows.net/trino/samples/arm/arm-trino-config-sample.json)
 
-## Export the configurations using RestAPI
+## Export the configurations using REST API
 
 You can also export cluster configurations to check the default and updated values. At this time, you can only export configurations via the REST API.
 

@@ -32,15 +32,15 @@ There are several ways to view the audit logs. For more information on the optio
 
 ### Access audit logs from the Microsoft Entra admin center
 
-You can access the audit logs from **Global Secure Access** and from **Microsoft Entra ID Monitoring and health**.
+You can access the audit logs from **Global Secure Access** and from **Microsoft Entra ID Monitoring & health**.
 
 **From Global Secure Access:**
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/#home) using one of the required roles.
-1. Go to **Global Secure Access** > **Audit logs**. The filters are pre-populated with the categories and activities related to Global Secure Access.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) using one of the required roles.
+1. Browse to **Global Secure Access (preview)** > **Audit logs**. The filters are pre-populated with the categories and activities related to Global Secure Access.
 
-**From Microsoft Entra ID Monitoring and health:**
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/#home) using one of the required roles.
-1. Go to **Identity** > **Monitoring and health** > **Audit logs**.
+**From Microsoft Entra ID Monitoring & health:**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) using one of the required roles.
+1. Browse to **Identity** > **Monitoring & health** > **Audit logs**.
 1. Select the **Date** range you want to query.
 1. Open the **Service** filter, select **Global Secure Access**, and select the **Apply** button.
 1. Open the **Category** filter, select at least one of the available options, and select the **Apply** button.

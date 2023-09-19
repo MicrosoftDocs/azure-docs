@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/16/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: mjsantani
@@ -27,7 +27,7 @@ For example, in response to increasing MFA fatigue attacks, Microsoft recommende
 
 There are two ways for protection of a security feature to be enabled by default: 
 
-- After a security feature is released, customers can use the Azure portal or Graph API to test and roll out the change on their own schedule. To help defend against new attack vectors, Azure AD may enable protection of a security feature by default for all tenants on a certain date, and there won't be an option to disable protection. Microsoft schedules default protection far in advance to give customers time to prepare for the change. Customers can't opt out if Microsoft schedules protection by default. 
+- After a security feature is released, customers can use the Microsoft Entra admin center or Graph API to test and roll out the change on their own schedule. To help defend against new attack vectors, Azure AD may enable protection of a security feature by default for all tenants on a certain date, and there won't be an option to disable protection. Microsoft schedules default protection far in advance to give customers time to prepare for the change. Customers can't opt out if Microsoft schedules protection by default. 
 - Protection can be **Microsoft managed**, which means Azure AD can enable or disable protection based upon the current landscape of security threats. Customers can choose whether to allow Microsoft to manage the protection. They can change from **Microsoft managed** to explicitly make the protection **Enabled** or **Disabled** at any time. 
 
 >[!NOTE]
@@ -53,14 +53,14 @@ The following table lists each setting that can be set to Microsoft managed and 
 
 | Setting                                                                                         | Configuration |
 |-------------------------------------------------------------------------------------------------|---------------|
-| [Registration campaign](how-to-mfa-registration-campaign.md)                                    | Beginning in July, 2023, enabled for SMS and voice call users with free and trial subscriptions.      |
+| [Registration campaign](how-to-mfa-registration-campaign.md)                                    | Beginning in July, 2023, enabled for text message and voice call users with free and trial subscriptions.      |
 | [Location in Microsoft Authenticator notifications](how-to-mfa-additional-context.md)           | Disabled      |
 | [Application name in Microsoft Authenticator notifications](how-to-mfa-additional-context.md)   | Disabled      |
 | [System-preferred MFA](concept-system-preferred-multifactor-authentication.md)                  | Enabled       |
 | [Authenticator Lite](how-to-mfa-authenticator-lite.md)                                          | Enabled       |  
 | [Report suspicious activity](howto-mfa-mfasettings.md#report-suspicious-activity)                  | Disabled      |
 
-As threat vectors change, Azure AD may announce default protection for a **Microsoft managed** setting in [release notes](../fundamentals/whats-new.md) and on commonly read forums like [Tech Community](https://techcommunity.microsoft.com/). For example, see our blog post [It's Time to Hang Up on Phone Transports for Authentication](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752) for more information about the need to move away from using SMS and voice calls, which led to default enablement for the registration campaign to help users to set up Authenticator for modern authentication.
+As threat vectors change, Azure AD may announce default protection for a **Microsoft managed** setting in [release notes](../fundamentals/whats-new.md) and on commonly read forums like [Tech Community](https://techcommunity.microsoft.com/). For example, see our blog post [It's Time to Hang Up on Phone Transports for Authentication](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752) for more information about the need to move away from using text message and voice calls, which led to default enablement for the registration campaign to help users to set up Authenticator for modern authentication.
 
 ## Next steps
 

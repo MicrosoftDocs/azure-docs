@@ -3,7 +3,7 @@ title: Security in HDInsight on AKS
 description: An introduction to security with managed identity from Azure Active Directory in HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 08/03/2023
+ms.date: 08/29/2023
 ---
 
 # Overview of enterprise security in Azure HDInsight on AKS

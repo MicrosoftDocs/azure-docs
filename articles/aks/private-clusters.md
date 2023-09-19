@@ -3,7 +3,7 @@ title: Create a private Azure Kubernetes Service (AKS) cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 ms.topic: article
 ms.date: 06/29/2023
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Create a private Azure Kubernetes Service (AKS) cluster
@@ -335,7 +335,7 @@ For associated best practices, see [Best practices for network connectivity and 
 [private-endpoint-service]: ../private-link/private-endpoint-overview.md
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-[command-invoke]: command-invoke.md
+[command-invoke]: ./access-private-cluster.md
 [container-registry-private-link]: ../container-registry/container-registry-private-link.md
 [virtual-networks-name-resolution]: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server
 [virtual-networks-168.63.129.16]: ../virtual-network/what-is-ip-address-168-63-129-16.md

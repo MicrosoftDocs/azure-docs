@@ -156,7 +156,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
  
     ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure04.png)
 
-    ![Screenshot that shows the Single Sign On Service Settings screen. ](./media/advance-kerbf5-tutorial/configure05.png)
+    ![Screenshot that shows the Single Sign On Service Settings screen.](./media/advance-kerbf5-tutorial/configure05.png)
  
 1. Specify the Certificate uploaded from Task 3
 

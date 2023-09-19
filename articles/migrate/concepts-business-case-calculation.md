@@ -6,7 +6,8 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 06/06/2023
+ms.date: 08/24/2023
+ms.custom: engagement-fy24
 ---
 
 # Business case (preview) overview

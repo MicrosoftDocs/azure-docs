@@ -3,7 +3,7 @@ title: Query data from AWS S3 and with Glue
 description: How to configure HDInsight on AKS Trino catalogs with Glue as metastore
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 08/29/2023
 ---
 
 
@@ -153,7 +153,7 @@ Catalog examples in the previous code  refer to access keys stored as secrets in
 
 ## Quickstart with AWS Glue and S3
 ### 1. Create AWS user and save access keys to Azure Key Vault.
-Use existing or create new user in AWS IAM - this user is used by Trino connector to read data from Glue/S3. Create and retrieve access keys on Security Credentials tab and save them as secrets into [Azure Key Vault](https://learn.microsoft.com/azure/key-vault/secrets/about-secrets) linked to your HDInsight on AKS Trino cluster. Refer to [Add catalogs to existing cluster](./trino-add-catalogs.md) for details on how to link Key Vault to your Trino cluster.
+Use existing or create new user in AWS IAM - this user is used by Trino connector to read data from Glue/S3. Create and retrieve access keys on Security Credentials tab and save them as secrets into [Azure Key Vault](/azure/key-vault/secrets/about-secrets) linked to your HDInsight on AKS Trino cluster. Refer to [Add catalogs to existing cluster](./trino-add-catalogs.md) for details on how to link Key Vault to your Trino cluster.
 
 ### 2. Create AWS S3 bucket
 Use existing or create new S3 bucket, it's used in Glue database as location to store data.

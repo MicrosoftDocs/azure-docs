@@ -1,32 +1,35 @@
-items:
-- name: Azure Health Data Services documentation
-  href: ../index.yml
 - name: Azure API for FHIR documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: About Azure API for FHIR
-    href: overview.md
+    - name: What is Azure API for FHIR?
+      href: overview.md
+    - name: FHIR REST API capabilities
+      href: fhir-rest-api-capabilities.md
+    - name: Security controls by Azure policy
+      href: ./security-controls-policy.md
+    - name: Azure AD and Azure API for FHIR 
+      href: azure-active-directory-identity-configuration.md
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items:
-  - name: Get started with Azure API for FHIR
-    href: get-started-with-azure-api-fhir.md
-  - name: Deploy Azure API for FHIR
-    expanded: false
-    items:
-    - name: Using Portal
-      href: fhir-paas-portal-quickstart.md
-    - name: Using PowerShell
-      href: fhir-paas-powershell-quickstart.md
-    - name: Using CLI
-      href: fhir-paas-cli-quickstart.md
-    - name: Using ARM template
-      displayName: Resource Manager
-      href: azure-api-fhir-resource-manager-template.md
+    - name: Get started with Azure API for FHIR
+      href: get-started-with-azure-api-fhir.md
+    - name: Deploy Azure API for FHIR
+      expanded: false
+      items:
+        - name: Using Portal
+          href: fhir-paas-portal-quickstart.md
+        - name: Using PowerShell
+          href: fhir-paas-powershell-quickstart.md
+        - name: Using CLI
+          href: fhir-paas-cli-quickstart.md
+        - name: Using ARM template
+          displayName: Resource Manager
+          href: azure-api-fhir-resource-manager-template.md
 - name: Tutorials
-  expanded: true
+  expanded: false
   items:
   - name: Deploy JavaScript application
     expanded: false
@@ -41,21 +44,21 @@ items:
       href: tutorial-web-app-write-web-app.md
   - name: SMART on FHIR 
     href: smart-on-fhir.md
-  - name: Interoperability and Patient Access
+  - name: Interoperability and patient access
     expanded: false
     items:
-    - name: CMS Interoperability and Patient Access rule introduction
+    - name: CMS interoperability and patient access rule 
       href: centers-for-medicare-tutorial-introduction.md
-    - name: CARIN Implementation Guide for Blue Button
+    - name: CARIN implementation for Blue Button
       href: carin-implementation-guide-blue-button-tutorial.md
-    - name: Da Vinci Drug Formulary
+    - name: Da Vinci drug formulary
       href: davinci-drug-formulary-tutorial.md
     - name: Da Vinci PDex
       href: davinci-pdex-tutorial.md
-    - name: Da Vinci Plan Net
+    - name: Da Vinci plan net
       href: davinci-plan-net.md
-- name: How-to guides
-  expanded: true
+- name: How-tos
+  expanded: false
   items:
   - name: Registering applications
     expanded: false
@@ -75,7 +78,7 @@ items:
     items:
     - name: Configure Azure RBAC
       href: configure-azure-rbac.md
-    - name: Configure Local RBAC
+    - name: Configure local RBAC
       href: configure-local-rbac.md
     - name: Configure database settings
       href: configure-database.md
@@ -85,15 +88,16 @@ items:
       href: configure-cross-origin-resource-sharing.md
     - name: Configure Private Link
       href: configure-private-link.md
-    - name: Autoscale for Azure API for FHIR
+    - name: Autoscale 
       href: autoscale-azure-api-fhir.md
-    - name: Disaster recovery for Azure API for FHIR
+    - name: Disaster recovery
       href: disaster-recovery.md 
-  - name: Diagnostic logging
-    expanded: false
-    items:
-    - name: Enable diagnostic logging in Azure API for FHIR
+    - name: Enable diagnostic logging
       href: enable-diagnostic-logging.md
+    - name: Use Custom HTTP headers to add data to audit logs
+      href: use-custom-headers.md
+    - name: Access token validation
+      href: azure-api-fhir-access-token-validation.md
   - name: Search
     expanded: false
     items:
@@ -103,7 +107,7 @@ items:
       href: how-to-do-custom-search.md
     - name: How to run a reindex job
       href: how-to-run-a-reindex.md
-    - name: Search examples for Azure API for FHIR
+    - name: Search examples
       href: search-samples.md
   - name: FHIR operations
     expanded: false
@@ -111,7 +115,7 @@ items:
     - name: $export
       expanded: false
       items:
-      - name: Configure Export
+      - name: Configure export
         href: configure-export-data.md
       - name: Export data
         href: export-data.md
@@ -130,7 +134,7 @@ items:
         href: store-profiles-in-fhir.md
       - name: Use $validate
         href: validation-against-profiles.md
-  - name: How to convert data to FHIR 
+  - name: Convert data to FHIR 
     href: convert-data.md
   - name: Copy data to Synapse
     href: copy-to-synapse.md
@@ -147,8 +151,6 @@ items:
     href: azure-active-directory-identity-configuration.md
   - name: Access token validation
     href: azure-api-fhir-access-token-validation.md
-  - name: Use Custom HTTP headers to add data to Audit Logs
-    href: use-custom-headers.md
   - name: FHIR REST API capabilities
     href: fhir-rest-api-capabilities.md
   - name: Security
@@ -157,10 +159,8 @@ items:
     - name: Security controls by Azure Policy
       href: ./security-controls-policy.md
 - name: Resources
-  expanded: true
+  expanded: false
   items:
-  - name: FAQs - Azure API for FHIR
-    href: fhir-faq.yml
   - name: GitHub Projects
     href: fhir-github-projects.md
   - name: Release notes
@@ -168,8 +168,11 @@ items:
   - name: Supported features
     href: fhir-features-supported.md 
 - name: Reference
-  expanded: true
+  expanded: false
   items:
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
+  - name: FAQ
+    displayName: frequently asked questions
+    href: fhir-faq.yml

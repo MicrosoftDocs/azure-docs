@@ -1,14 +1,14 @@
 ---
-title: Fraud detection with the Flink DataStream API
-description: Learn about Fraud detection with the Flink DataStream API
+title: Fraud detection with the Apache Flink DataStream API
+description: Learn about Fraud detection with the Apache Flink DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/29/2023
 ---
 
-# Fraud detection with the Flink DataStream API
+# Fraud detection with the Apache Flink DataStream API
 
-In this article, learn how to run Fraud detection use case with the Flink DataStream API.
+In this article, learn how to run Fraud detection use case with the Apache Flink DataStream API.
 
 ## Prerequisites
 
@@ -140,7 +140,7 @@ After making the code changes, create the jar using the following steps in Intel
    
       :::image type="content" source="./media/fraud-detection-flink-datastream-api/extract-target-jar-1.png" alt-text="Screenshot showing how to extract the target jar.":::
 
-## Run the job in Flink environment
+## Run the job in Apache Flink environment
 
 - Once the jar is generated, it can be used to submit the job from Flink UI using submit job section.
 

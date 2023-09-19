@@ -1,8 +1,15 @@
 items:
 - name: Azure HDInsight on AKS documentation
   href: index.yml
-- name: What is HDInsight on AKS?
-  href: overview.md
+  items:
+- name: Overview
+  items:
+  - name: What is HDInsight on AKS?
+    href: overview.md
+  - name: What's new?
+    href: whats-new.md 
+  - name: Preview information
+    href: preview.md
 - name: Quickstarts
   items:
   - name: Subscription prerequisites
@@ -15,17 +22,19 @@ items:
   items:
   - name: Versioning
     href: versions.md 
-  - name: Enterprise Security
+  - name: Enterprise security
     items:
-    - name: Security Architecture and Security Pillars
+    - name: Security architecture and security pillars
       href: concept-security.md
     - name: Network Security
       items:
       - name: Required outbound traffic
         href: ./required-outbound-traffic.md
-  - name: Metrics and Monitoring
+  - name: Resource management
+    href: ./virtual-machine-recommendation-capacity-planning.md
+  - name: Metrics and monitoring
     href: ./concept-azure-monitor-integration.md
-  - name: Customize Clusters
+  - name: Customize clusters
     href : ./customize-clusters.md
 - name: Releases
   items:
@@ -33,7 +42,7 @@ items:
     href: ./release-notes/hdinsight-aks-release-notes.md
   - name: Archived release notes
     href: ./release-notes/hdinsight-aks-release-notes-archive.md
-- name: Getting Started
+- name: Getting started
   items:
   - name: Create a cluster pool and cluster
     href: quickstart-create-cluster.md
@@ -45,7 +54,7 @@ items:
       href: ./create-cluster-using-arm-template.md
     - name: Script based export
       href: ./create-cluster-using-arm-template-script.md
-  - name: Secure Network Traffic  
+  - name: Secure network traffic  
     items:
     - name: Use firewall with Azure CLI
       href: ./secure-traffic-by-firewall.md
@@ -136,9 +145,9 @@ items:
         href: ./trino/configure-azure-active-directory-login-for-superset.md
       - name: Role Based Access Control
         href: ./trino/role-based-access-control.md
-      - name: Expose Superset to the Internet
+      - name: Expose Superset to the internet
         href: ./trino/configure-ingress.md
-    - name: Read Delta Lake Tables (Synapse or External Locations)
+    - name: Read Delta Lake Tables (Synapse or external locations)
       href: ./trino/trino-create-delta-lake-tables-synapse.md
     - name: Use query scan statistics
       href: ./trino/trino-scan-stats.md
@@ -156,10 +165,14 @@ items:
     href: ./flink/flink-create-cluster-portal.md
   - name: Tutorials
     items:
-    - name: Configuration Management
+    - name: Configuration management
       href: ./flink/flink-configuration-management.md
+    - name: Flink job management
+      href: ./flink/flink-job-management.md
+    - name: Hive dialect in Flink
+      href: ./flink/hive-dialect-flink.md
     - name: Table API and SQL
-      href: ./flink/flink-table-api-and-sql.md
+      href: ./flink/flink-table-api-and-sql.md    
   - name: How-to guides
     items:
     - name: General
@@ -172,47 +185,47 @@ items:
         href: ./flink/cosmos-db-for-apache-cassandra.md
       - name:  Azure Event Hubs
         href: ./flink/flink-how-to-setup-event-hub.md  
-      - name:  Delta Connectors
+      - name:  Delta connectors
         href: ./flink/use-flink-delta-connector.md  
-      - name:  Elastic & Kibana
+      - name:  Elastic and Kibana
         href: ./flink/sink-kafka-to-kibana.md
       - name:  HDInsight Kafka
         href: ./flink/process-and-consume-data.md
     - name: Flink SQL
       items:
-      - name:  CDC - Azure PostgreSQL & FlinkSQL 
+      - name: CDC - Azure PostgreSQL and FlinkSQL 
         href: ./flink/monitor-changes-postgres-table-flink.md
-      - name: Using CDC - SQL Server & FlinkSQL 
+      - name: CDC - SQL Server and FlinkSQL 
         href: ./flink/sink-sql-server-table-using-flink-sql.md
-      - name: Using Kafka table on FlinkSQL
+      - name: Kafka table on FlinkSQL
         href: ./flink/create-kafka-table-flink-kafka-sql-connector.md
-      - name: Using Hive Catalog & FlinkSQL
+      - name: Hive Catalog and FlinkSQL
         href: ./flink/use-hive-catalog.md
       - name: Flink-Iceberg Catalog
         href: ./flink/flink-catalog-iceberg-hive.md
       - name: Flink-Delta Catalog
         href: ./flink/flink-catalog-delta-hive.md
-    - name: Flink Streaming
+    - name: Flink streaming
       items:
-      - name: Using ADLSGen2 - Write with DStream API
+      - name: ADLS Gen2 - Write with Flink DataStream API
         href: ./flink/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md
-      - name: Using Apache NiFi with DStream API
+      - name: Apache NiFi with Flink DataStream API
         href: ./flink/use-apache-nifi-with-datastream-api.md
-      - name: Using CDC - SQL Server & DStream API
+      - name: CDC - SQL Server and Flink DataStream API
         href: ./flink/change-data-capture-connectors-for-apache-flink.md
-      - name: Using Hivemetastore with Flink DataStream
+      - name: Hive metastore with Flink DataStream API
         href: ./flink/use-hive-metastore-datastream.md
-      - name: Using HBase - Write with DStream API
+      - name: HBase - Write with Flink DataStream API
         href: ./flink/use-flink-to-sink-kafka-message-into-hbase.md
-      - name: MongoDB as a source and Sink with DataStream API
+      - name: MongoDB as a source and Sink with Flink DataStream API
         href: ./flink/datastream-api-mongodb.md
-      - name: Join stream from Kafka with Table on ADLS Gen2
+      - name: Join stream from Kafka with Table on ADLS Gen2 with Flink DataStream API
         href: ./flink/join-stream-kafka-table-filesystem.md
-      - name: Use Microsoft Fabric with DataStream API
+      - name: Microsoft Fabric with Flink DataStream API
         href: ./flink/fabric-lakehouse-flink-datastream-api.md
     - name: Use cases
       items:
-      - name: Fraud Detection with the Flink DataStream API
+      - name: Fraud detection with the Flink DataStream API
         href: ./flink/fraud-detection-flink-datastream-api.md   
 - name: Apache Spark
   items:
@@ -222,7 +235,7 @@ items:
     href: ./spark/create-spark-cluster.md
   - name: How-to guides
     items:
-    - name: Submit and Manage Jobs
+    - name: Submit and manage jobs
       href: ./spark/submit-manage-jobs.md
     - name: Configuration management
       href: ./spark/configuration-management.md

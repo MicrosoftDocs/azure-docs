@@ -3,18 +3,18 @@ title: Using Azure Cosmos DB (Apache Cassandra) with HDInsight on AKS - Flink
 description: Learn how to Sink HDInsight Kafka message into Azure Cosmos DB for Apache Cassandra, with Apache Flink running on HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/07/2023
+ms.date: 08/29/2023
 ---
 
 # Sink Kafka messages into Azure Cosmos DB for Apache Cassandra, with HDInsight on AKS - Flink
 
-This example uses [HDInsight on AKS Flink 1.16.0](../flink/flink-overview.md) to sink [HDInsight Kafka 3.2.0](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction) messages into [Azure Cosmos DB for Apache Cassandra](https://learn.microsoft.com/azure/cosmos-db/cassandra/introduction)
+This example uses [HDInsight on AKS Flink 1.16.0](../flink/flink-overview.md) to sink [HDInsight Kafka 3.2.0](/azure/hdinsight/kafka/apache-kafka-introduction) messages into [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction)
 
 ## Prerequisites
 
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
-* [HDInsight 5.1 Kafka 3.2](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
-* [Azure Cosmos DB for Apache Cassandra](https://learn.microsoft.com/azure/cosmos-db/cassandra/)
+* [HDInsight 5.1 Kafka 3.2](../../hdinsight/kafka/apache-kafka-get-started.md)
+* [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/index.yml)
 * Prepare an Ubuntu VM as maven project development env in the same VNet as HDInsight on AKS.
 
 ## Azure Cosmos DB for Apache Cassandra
@@ -23,8 +23,8 @@ Azure Cosmos DB for Apache Cassandra can be used as the data store for apps writ
 
 For more information, see the following links.
 
-* [Azure Cosmos DB for Apache Cassandra](https://learn.microsoft.com/azure/cosmos-db/cassandra/introduction).
-* [Create a API for Cassandra account in Azure Cosmos DB](https://learn.microsoft.com/azure/cosmos-db/cassandra/create-account-java).
+* [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/introduction.md).
+* [Create a API for Cassandra account in Azure Cosmos DB](../../cosmos-db/cassandra/create-account-java.md).
 
 :::image type="content" source="./media/cosmos-db-for-apache-cassandra/create-cosmos-db-account.png" alt-text="Screenshot showing how to create Azure Cosmos DB for Apache Cassandra on Azure portal." border="true" lightbox="./media/cosmos-db-for-apache-cassandra/create-cosmos-db-account.png":::
 
@@ -179,7 +179,7 @@ drwxr-xr-x 2 root root 4096 May 15 02:43 util/
 **CassandraUtils.java**
 
 > [!NOTE]
-> Change ssl_keystore_file_path depends on the java cert location. On HDInsight on AKS flink, the path is `/usr/lib/jvm/msopenjdk-11-jre/lib/security`
+> Change ssl_keystore_file_path depends on the java cert location. On HDInsight on AKS Apache Flink, the path is `/usr/lib/jvm/msopenjdk-11-jre/lib/security`
 
 ``` java
 package com.azure.cosmosdb.cassandra.util;
@@ -442,7 +442,7 @@ drwxr-xr-x 2 root root     4096 May 15 03:54 maven-archiver/
 drwxr-xr-x 3 root root     4096 May 15 03:54 maven-status/
 ```
 
-### Uploading the jar for Flink Job submission
+### Uploading the jar for Apache Flink Job submission
 
 Upload jar into Azure storage and wget into webssh
 
@@ -469,7 +469,7 @@ bin/flink run -c com.azure.cosmosdb.cassandra.examples.CassandraDemo -j cosmosdb
 
 :::image type="content" source="./media/cosmos-db-for-apache-cassandra/run-cassandra-demo.png" alt-text="Screenshot showing how to run  Cassandra Demo." border="true" lightbox="./media/cosmos-db-for-apache-cassandra/run-cassandra-demo.png":::
 
-## Validate Flink Job Submission
+## Validate Apache Flink Job Submission
 
 Check job on HDInsight on AKS Flink UI
 
@@ -536,11 +536,13 @@ if __name__ == "__main__":
 sshuser@hn0-flinkd:~$ python user.py | /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --bootstrap-server wn0-flinkd:9092 --topic user &
 [2] 11516
 ```
+
 ## Check table on Cosmos DB for Apache Cassandra on Azure portal
 
 :::image type="content" source="./media/cosmos-db-for-apache-cassandra/check-tables-on-cosmos-db.png" alt-text="Screenshot showing Cosmos DB for Apache Cassandra on Azure portal." lightbox="./media/cosmos-db-for-apache-cassandra/check-tables-on-cosmos-db.png":::
 
 ### Preferences
-* [Azure Cosmos DB for Apache Cassandra](https://learn.microsoft.com/azure/cosmos-db/cassandra/introduction).
-* [Create a API for Cassandra account in Azure Cosmos DB](https://learn.microsoft.com/azure/cosmos-db/cassandra/create-account-java)
+
+* [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/introduction.md).
+* [Create a API for Cassandra account in Azure Cosmos DB](../../cosmos-db/cassandra/create-account-java.md)
 * [Azure Samples ](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started)

@@ -32,7 +32,7 @@ We also have a [tutorial for Blazor Server](tutorial-blazor-server.md).
 - [.NET Core 7.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/7.0)
 - An Azure AD tenant where you can register an app. If you don't have access to an Azure AD tenant, you can get one by registering with the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) or by creating an [Azure free account](https://azure.microsoft.com/free).
 
-## Register the app in the Azure portal
+## Register the app
 
 Every app that uses Azure AD for authentication must be registered with Azure AD. Follow the instructions in [Register an application](quickstart-register-app.md) with these specifications:
 
@@ -47,11 +47,11 @@ To create the application, run the following command. Replace the placeholders i
 dotnet new blazorwasm --auth SingleOrg --calls-graph -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}" -f net7.0
 ```
 
-| Placeholder   | Azure portal name       | Example                                |
-| ------------- | ----------------------- | -------------------------------------- |
-| `{APP NAME}`  | &mdash;                 | `BlazorWASMSample`                     |
+| Placeholder | Name | Example |
+| ----------- | ---- |-------- |
+| `{APP NAME}`  | &mdash; | `BlazorWASMSample` |
 | `{CLIENT ID}` | Application (client) ID | `41451fa7-0000-0000-0000-69eff5a761fd` |
-| `{TENANT ID}` | Directory (tenant) ID   | `e86c78e2-0000-0000-0000-918e0565a45e` |
+| `{TENANT ID}` | Directory (tenant) ID | `e86c78e2-0000-0000-0000-918e0565a45e` |
 
 ## Test the app
 
@@ -77,7 +77,7 @@ Now you'll update your app's registration and code to pull a user's emails and d
 
 First, add the `Mail.Read` API permission to the app's registration so that Azure AD is aware that the app will request to access its users' email.
 
-1. In the Azure portal, select your app in **App registrations**.
+1. In the Microsoft Entra admin center, select your app in **App registrations**.
 1. Under **Manage**, select **API permissions**.
 1. Select **Add a permission** > **Microsoft Graph**.
 1. Select **Delegated Permissions**, then search for and select the **Mail.Read** permission.

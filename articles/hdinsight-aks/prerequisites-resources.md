@@ -3,7 +3,7 @@ title: Resource prerequisites for Azure HDInsight on AKS
 description: Prerequisite steps to complete for Azure resources before working with HDInsight on AKS.
 ms.topic: how-to
 ms.service: hdinsight-aks
-ms.date: 08/10/2023
+ms.date: 08/29/2023
 ---
 
 # Resource prerequisites
@@ -51,7 +51,7 @@ For example, if you provide resource prefix as “demo” then, following resour
 |Workload|Prerequisites|
 |---|---|
 |Trino|**Create the resources mentioned as follows:** <br> 1. Managed Service Identity (MSI): user-assigned managed identity. <br><br> [![Deploy Trino to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-aks%2Fmain%2FARM%2520templates%2FprerequisitesTrino.json)|
-|Flink |**Create the resources mentioned as follows:** <br> 1. Managed Service Identity (MSI): user-assigned managed identity. <br> 2. ADLS Gen2 storage account and a container. <br><br> **Role assignments:** <br> 1. Assigns “Storage Blob Data Owner” role to user-assigned MSI on storage account. <br><br> [![Deploy Flink to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-aks%2Fmain%2FARM%2520templates%2FprerequisitesFlink.json)|
+|Flink |**Create the resources mentioned as follows:** <br> 1. Managed Service Identity (MSI): user-assigned managed identity. <br> 2. ADLS Gen2 storage account and a container. <br><br> **Role assignments:** <br> 1. Assigns “Storage Blob Data Owner” role to user-assigned MSI on storage account. <br><br> [![Deploy Apache Flink to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-aks%2Fmain%2FARM%2520templates%2FprerequisitesFlink.json)|
 |Spark| **Create the resources mentioned as follows:** <br> 1. Managed Service Identity (MSI): user-assigned managed identity. <br> 2. ADLS Gen2 storage account and a container. <br><br> **Role assignments:** <br> 1. Assigns “Storage Blob Data Owner” role to user-assigned MSI on storage account. <br><br> [![Deploy Spark to Azure](https://aka.ms/deploytoazurebutton)]( https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-aks%2Fmain%2FARM%2520templates%2FprerequisitesSpark.json)|
 |Trino, Flink, or Spark with Hive Metastore (HMS)|**Create the resources mentioned as follows:** <br> 1. Managed Service Identity (MSI): user-assigned managed identity. <br> 2. ADLS Gen2 storage account and a container. <br> 3. Azure Key Vault and a secret to store SQL Server admin credentials. <br><br> **Role assignments:** <br> 1. Assigns “Storage Blob Data Owner” role to user-assigned MSI on storage account. <br> 2. Assigns “Key Vault Secrets User” role to user-assigned MSI on Key Vault. <br><br> [![Deploy Trino HMS to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-aks%2Fmain%2FARM%2520templates%2Fprerequisites_WithHMS.json)|
 
@@ -62,7 +62,7 @@ For example, if you provide resource prefix as “demo” then, following resour
 
 #### [Create user-assigned  managed identity (MSI)](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity)
 
-   A managed identity is an identity registered in Azure Active Directory [(Microsoft Entra ID)](https://www.microsoft.com/security/business/identity-access/azure-active-directory) whose credentials managed by Azure. With managed identities, you need not register service principals in Azure AD to maintain credentials such as certificates. 
+   A managed identity is an identity registered in Microsoft Entra ID [(Azure Active Directory)](https://www.microsoft.com/security/business/identity-access/azure-active-directory) whose credentials managed by Azure. With managed identities, you need not register service principals in Azure AD to maintain credentials such as certificates. 
 
    HDInsight on AKS relies on user-assigned MSI for communication among different components.
 

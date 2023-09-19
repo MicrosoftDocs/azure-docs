@@ -1,16 +1,16 @@
 ---
-title: Table API and SQL - Use Delta Catalog type with Hive in HDInsight on AKS - Flink
-description: Learn about how to create Flink-Delta Catalog in HDInsight on AKS - Flink
+title: Table API and SQL - Use Delta Catalog type with Hive in HDInsight on AKS - Apache Flink
+description: Learn about how to create Apache Flink-Delta Catalog in HDInsight on AKS - Apache Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 08/29/2023
 ---
 
-# Create Flink-Delta Catalog 
+# Create Apache Flink-Delta Catalog 
 
 [Delta Lake](https://docs.delta.io/latest/delta-intro.html) is an open source project that enables building a Lakehouse architecture on top of data lakes. Delta Lake provides ACID transactions, scalable metadata handling, and unifies streaming and batch data processing on top of existing data lakes.
 
-In this article, we learn how Flink SQL/TableAPI is used to implement a Delta catalog for Flink, with Hive Catalog. Delta Catalog delegates all metastore communication to Hive Catalog. It uses the existing logic for Hive or In-Memory metastore communication that is already implemented in Flink.
+In this article, we learn how Apache Flink SQL/TableAPI is used to implement a Delta catalog for Apache Flink, with Hive Catalog. Delta Catalog delegates all metastore communication to Hive Catalog. It uses the existing logic for Hive or In-Memory metastore communication that is already implemented in Flink.
 
 ### Prerequisites
 - You're required to have an operational Flink cluster with secure shell, learn how to [create a cluster](./flink-create-cluster-portal.md)
@@ -28,7 +28,7 @@ Once you launch the Secure Shell (SSH), let us start downloading the dependencie
  wget https://repo1.maven.org/maven2/org/apache/parquet/parquet-hadoop-bundle/1.12.2/parquet-hadoop-bundle-1.12.2.jar -P $FLINK_HOME/lib
    ```
 
-### Start the Flink SQL Client
+### Start the Apache Flink SQL Client
 A detailed explanation is given on how to get started with Flink SQL Client using [Secure Shell](./flink-web-ssh-on-portal-to-flink-sql.md) on Azure portal. You're required to start the SQL Client as described on the article by running the following command. 
 ```
 ./bin/sql-client.sh

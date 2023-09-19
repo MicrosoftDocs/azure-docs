@@ -4,7 +4,8 @@ description: This article gives an overview of the Azure AI Video Indexer  netwo
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 12/19/2022
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # NSG service tags for Azure AI Video Indexer

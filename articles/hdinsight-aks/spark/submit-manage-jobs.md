@@ -3,7 +3,7 @@ title: How to submit and manage jobs on a Spark cluster in Azure HDInsight on AK
 description: Learn how to submit and manage jobs on a Spark cluster in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 08/29/2023
 ---
 
 # Submit and manage jobs on a Spark cluster in HDInsight on AKS
@@ -25,11 +25,11 @@ Jupyter Notebook is an interactive notebook environment that supports various pr
 
 1. Navigate to the Spark cluster page and open the **Overview** tab. Click on Jupyter, it asks you to authenticate and open the Jupyter web page.
 
-    :::image type="content" source="./media/submit-manage-jobs/select-jupyter-notebook.png" alt-text="Diagram showing how to select Jupyter notebook." border="true" lightbox="./media/submit-manage-jobs/select-jupyter-notebook.png":::
+    :::image type="content" source="./media/submit-manage-jobs/select-jupyter-notebook.png" alt-text="Screenshot of how to select Jupyter notebook." border="true" lightbox="./media/submit-manage-jobs/select-jupyter-notebook.png":::
 
 1. From the Jupyter web page, Select New > PySpark to create a notebook.
    
-    :::image type="content" source="./media/submit-manage-jobs/select-pyspark.png" alt-text="Diagram showing new PySpark page." border="true" lightbox="./media/submit-manage-jobs/select-pyspark.png":::
+    :::image type="content" source="./media/submit-manage-jobs/select-pyspark.png" alt-text="Screenshot of new PySpark page." border="true" lightbox="./media/submit-manage-jobs/select-pyspark.png":::
     
     A new notebook created and opened with the name `Untitled(Untitled.ipynb)`.
 
@@ -38,7 +38,7 @@ Jupyter Notebook is an interactive notebook environment that supports various pr
 
 1. Paste the following code in an empty cell of the Jupyter Notebook, and then press SHIFT + ENTER to run the code. See [here](https://docs.jupyter.org/en/latest/) for more controls on Jupyter. 
     
-    :::image type="content" source="./media/submit-manage-jobs/pyspark-page.png" alt-text="Diagram showing PySpark page with contents." lightbox="./media/submit-manage-jobs/pyspark-page.png":::
+    :::image type="content" source="./media/submit-manage-jobs/pyspark-page.png" alt-text="Screenshot of PySpark page with contents." lightbox="./media/submit-manage-jobs/pyspark-page.png":::
 
     ```
     %matplotlib inline
@@ -93,14 +93,14 @@ Jupyter Notebook is an interactive notebook environment that supports various pr
     plt.show()
     ```
  
-    :::image type="content" source="./media/submit-manage-jobs/graph-output.png" alt-text="Diagram showing graph output." lightbox="./media/submit-manage-jobs/graph-output.png":::
+    :::image type="content" source="./media/submit-manage-jobs/graph-output.png" alt-text="Screenshot of graph output." lightbox="./media/submit-manage-jobs/graph-output.png":::
 
 ### Save the Notebook
  
 1. From the notebook menu bar, navigate to File > Save and Checkpoint.
 1. Shut down the notebook to release the cluster resources: from the notebook menu bar, navigate to File > Close and Halt. You can also run any of the notebooks under the examples folder.
 
-    :::image type="content" source="./media/submit-manage-jobs/save-note-books.png" alt-text="Diagram showing how to save the note books." lightbox="./media/submit-manage-jobs/save-note-books.png":::
+    :::image type="content" source="./media/submit-manage-jobs/save-note-books.png" alt-text="Screenshot of how to save the note books." lightbox="./media/submit-manage-jobs/save-note-books.png":::
 
 ## Using Apache Zeppelin notebooks
 
@@ -112,11 +112,11 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
 
 1.	Navigate to the Spark cluster Overview page and select Zeppelin notebook from Cluster dashboards. It prompts to authenticate and open the Zeppelin page.
 
-    :::image type="content" source="./media/submit-manage-jobs/select-zeppelin.png" alt-text="Diagram showing how to select Zeppelin." lightbox="./media/submit-manage-jobs/select-zeppelin.png":::
+    :::image type="content" source="./media/submit-manage-jobs/select-zeppelin.png" alt-text="Screenshot of how to select Zeppelin." lightbox="./media/submit-manage-jobs/select-zeppelin.png":::
 
 1. Create a new notebook. From the header pane, navigate to Notebook > Create new note. Ensure the notebook header shows a connected status. It denotes a green dot in the top-right corner.
 
-    :::image type="content" source="./media/submit-manage-jobs/create-zeppelin-notebook.png" alt-text="Diagram showing how to create zeppelin notebook." lightbox="./media/submit-manage-jobs/create-zeppelin-notebook.png":::
+    :::image type="content" source="./media/submit-manage-jobs/create-zeppelin-notebook.png" alt-text="Screenshot of how to create zeppelin notebook." lightbox="./media/submit-manage-jobs/create-zeppelin-notebook.png":::
 
 1. Run the following code in Zeppelin Notebook:
 
@@ -161,11 +161,11 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
     ```
 1. Select the **Play** button for the paragraph to run the snippet. The status on the right-corner of the paragraph should progress from READY, PENDING, RUNNING to FINISHED. The output shows up at the bottom of the same paragraph. The screenshot looks like the following image:
 
-    :::image type="content" source="./media/submit-manage-jobs/run-zeppelin-notebook.png" alt-text="Diagram showing how to run Zeppelin notebook." lightbox="./media/submit-manage-jobs/run-zeppelin-notebook.png":::
+    :::image type="content" source="./media/submit-manage-jobs/run-zeppelin-notebook.png" alt-text="Screenshot of how to run Zeppelin notebook." lightbox="./media/submit-manage-jobs/run-zeppelin-notebook.png":::
 
     Output:
 
-    :::image type="content" source="./media/submit-manage-jobs/zeppelin-notebook-output.png" alt-text="Diagram showing Zeppelin notebook output." lightbox="./media/submit-manage-jobs/zeppelin-notebook-output.png":::
+    :::image type="content" source="./media/submit-manage-jobs/zeppelin-notebook-output.png" alt-text="Screenshot of Zeppelin notebook output." lightbox="./media/submit-manage-jobs/zeppelin-notebook-output.png":::
 
 ## Using Spark submit jobs
 
@@ -174,10 +174,10 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
 1. Paste the following code into the vim file
    ```
    import pandas as pd
-   import matplotlib.pyplot` as plt
+   import matplotlib.pyplot as plt
              
    From pyspark.sql import SparkSession
-   Spark = SparkSession.builder.master(‘yarn’).appName(‘SparkSampleCode’).getOrCreate()
+   Spark = SparkSession.builder.master('yarn').appName('SparkSampleCode').getOrCreate()
    // Initialize spark context
    data1 = [22,40,10,50,70]
    s1 = pd.Series(data1)   #One-dimensional ndarray with axis labels (including time series).
@@ -239,14 +239,14 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
    
 1. View the Directed Acyclic Graph cycles and the stages of the job in the Spark History server UI.
 
-    :::image type="content" source="./media/submit-manage-jobs/view-dag-cycle.png" alt-text="Diagram showing DAG cycle." lightbox="./media/submit-manage-jobs/view-dag-cycle.png":::
+    :::image type="content" source="./media/submit-manage-jobs/view-dag-cycle.png" alt-text="Screenshot of DAG cycle." lightbox="./media/submit-manage-jobs/view-dag-cycle.png":::
 
 **Livy session UI**
 
 1.	To open the Livy session UI, type the following command into your browser
     `https://<CLUSTERNAME>.<CLUSTERPOOLNAME>.<REGION>.projecthilo.net/p/livy/ui  `
 
-    :::image type="content" source="./media/submit-manage-jobs/open-livy-session-ui.png" alt-text="Diagram showing how to open Livy session UI." lightbox="./media/submit-manage-jobs/open-livy-session-ui.png":::
+    :::image type="content" source="./media/submit-manage-jobs/open-livy-session-ui.png" alt-text="Screenshot of how to open Livy session UI." lightbox="./media/submit-manage-jobs/open-livy-session-ui.png":::
 
 1. View the driver logs by clicking on the driver option under logs.
 
@@ -254,10 +254,12 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
 
 1. From the Overview Tab click on Yarn and, open the Yarn UI.
 
-   :::image type="content" source="./media/submit-manage-jobs/select-yarn-ui.png" alt-text="Diagram showing how to select Yarn UI." lightbox="./media/submit-manage-jobs/select-yarn-ui.png":::
+   :::image type="content" source="./media/submit-manage-jobs/select-yarn-ui.png" alt-text="Screenshot of how to select Yarn UI." lightbox="./media/submit-manage-jobs/select-yarn-ui.png":::
    
 1. You can track the job you recently ran by the same application ID.
      
 1. Click on the Application ID in Yarn to view detailed logs of the job.
+
+   :::image type="content" source="./media/submit-manage-jobs/view-logs.png" alt-text="View Logs." lightbox="./media/submit-manage-jobs/view-logs.png":::
 
 

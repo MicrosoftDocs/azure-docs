@@ -104,11 +104,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In order to properly pass along your ”groups” SAML assertions, you need to configure App roles and set the value to match the role mappings that are set within AppNeta Performance Manager. Under **Azure Active Directory** > **App registrations** >  **All applications**, select **Appneta Performance Manager**.
 
-   ![Screenshot that shows the App Registrations with Appneta Performance Manager at the bottom. ](./media/appneta-tutorial/app-registrations.png)
+   ![Screenshot that shows the App Registrations with Appneta Performance Manager at the bottom.](./media/appneta-tutorial/app-registrations.png)
 
 1. Click **App roles** in the left pane. The following screen will appear:
 
-   ![Screenshot that shows the App Roles with Appneta Performance Manager at the bottom. ](./media/appneta-tutorial/app-roles.png)
+   ![Screenshot that shows the App Roles with Appneta Performance Manager at the bottom.](./media/appneta-tutorial/app-roles.png)
 
 1. Click **Create App role**.
 1. On the **Create app role** screen, follow these steps:
@@ -118,7 +118,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    1. In the **Description** field, enter a description for the role.
    1. Click **Apply**.
 
-   ![Screenshot of the Create App Role dialog with the fields filled out as described. ](./media/appneta-tutorial/create-app-role.png)
+   ![Screenshot of the Create App Role dialog with the fields filled out as described.](./media/appneta-tutorial/create-app-role.png)
 
 1. After creating the roles, you need to map them to your users/groups. Navigate to **Azure Active Directory** > **Enterprise Applications** > **Appneta Performance Manger** > **Users and groups**.
 1. Select a user/group and then assign your desired App role (created in the previous step).

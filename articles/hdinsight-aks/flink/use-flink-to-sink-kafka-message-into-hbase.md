@@ -3,12 +3,12 @@ title: Write messages to HBase with DataStream API
 description: Learn how to write messages to HBase with DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/29/2023
 ---
 
 # Write messages to HBase with DataStream API
 
-In this article, learn how to write messages to HBase with Flink DataStream API
+In this article, learn how to write messages to HBase with Apache Flink DataStream API
 
 ## Overview
 
@@ -21,7 +21,7 @@ In a real world scenario, this example is a stream analytics layer to realize va
 
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md) 
 * [HDInsight Kafka](../flink/process-and-consume-data.md)
-* [HDInsight HBase 2.4.11](https://learn.microsoft.com/azure/hdinsight/hbase/apache-hbase-tutorial-get-started-linux#create-apache-hbase-cluster)
+* [HDInsight HBase 2.4.11](../../hdinsight/hbase/apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
   * You're required to make sure HDInsight on AKS Flink can connect to HDInsight HBase Master(zk), with same virtual network.
 * Maven project on IntelliJ IDEA for development on an Azure VM in the same VNet
 
@@ -65,7 +65,7 @@ web_set = [
         'https://stackoverflow.com',
         'https://docs.python.org',
         'https://azure.microsoft.com/products/category/storage',
-        'https://learn.microsoft.com/azure/hdinsight/hdinsight-overview',
+        '/azure/hdinsight/hdinsight-overview',
         'https://azure.microsoft.com/products/category/storage'
 ]
 
@@ -379,7 +379,7 @@ ROW                                   COLUMN+CELL
  0000000857                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.714, value=https://flink.apache.org
  0000000858                           column=user_info:ts, timestamp=2023-07-11T06:50:08.767, value=07/11/2023 06:39:45
  0000000858                           column=user_info:userName, timestamp=2023-07-11T06:50:08.767, value=Luke
- 0000000858                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.767, value=https://learn.microsoft.com/azure/
+ 0000000858                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.767, value=/azure/
                                       hdinsight/hdinsight-overview
 859 row(s)
 Took 0.9531 seconds

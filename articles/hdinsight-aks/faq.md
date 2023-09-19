@@ -3,7 +3,7 @@ title: HDInsight on AKS FAQ
 description: HDInsight on AKS frequently asked questions.
 ms.service: hdinsight-aks
 ms.topic: faq
-ms.date: 08/07/2023
+ms.date: 08/29/2023
 ---
 
 # HDInsight on AKS - Frequently asked questions

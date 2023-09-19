@@ -1,24 +1,24 @@
 ---
-title: How to use Flink CLI to submit jobs
-description: Learn how to use Flink CLI to submit jobs
+title: How to use Apache Flink CLI to submit jobs
+description: Learn how to use Apache Flink CLI to submit jobs
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/04/2023
+ms.date: 08/29/2023
 ---
 
-# Flink Command-Line Interface (CLI)
+# Apache Flink Command-Line Interface (CLI)
 
-Flink provides a CLI (Command Line Interface) **bin/flink** to run jobs (programs) that are packaged as JAR files and to control their execution. The CLI is part of the Flink setup and can be set up on a single-node VM. It connects to the running JobManager specified in **conf/flink-conf.yaml**.
+Apache Flink provides a CLI (Command Line Interface) **bin/flink** to run jobs (programs) that are packaged as JAR files and to control their execution. The CLI is part of the Flink setup and can be set up on a single-node VM. It connects to the running JobManager specified in **conf/flink-conf.yaml**.
 
 ## Installation Steps
 
 To install Flink CLI on linux, you will need **linux VM** to execute the installation script. You need to run bash environment if you are on **Windows**. 
 
 > [!NOTE]
-> This does NOT work on Windows **GIT BASH**, you need to install [WSL](https://learn.microsoft.com/windows/wsl/install) to make this work on Windows. 
+> This does NOT work on Windows **GIT BASH**, you need to install [WSL](/windows/wsl/install) to make this work on Windows. 
 
 ### Requirements
-* Install JRE 11.  If not installed, follow the steps from here https://learn.microsoft.com/java/openjdk/download
+* Install JRE 11.  If not installed, follow the steps from here /java/openjdk/download
 * Add java to PATH or define JAVA_HOME environment variable pointing to JRE installation directory, such that `$JAVA_HOME/bin/java` exists.
 
 ### Install or update
@@ -29,7 +29,7 @@ curl -L https://aka.ms/hdionaksflinkcliinstalllinux | bash
 ```
 This command installs Flink CLI in user home directory ($HOME/flink-cli). The script can also be downloaded and run locally. You may have to restart your shell in order for changes to take effect.
 
-## Run a Flink command to test
+## Run an Apache Flink command to test
    ```
    cd $HOME/flink-cli 
 

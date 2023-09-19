@@ -1,12 +1,12 @@
 ---
-title: Create a Flink cluster - Azure portal
-description: Creating a Flink cluster in HDInsight on AKS in the Azure portal.
+title: Create an Apache Flink cluster - Azure portal
+description: Creating an Apache Flink cluster in HDInsight on AKS in the Azure portal.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 08/29/2023
 ---
 
-# Create a Flink cluster in the Azure portal
+# Create an Apache Flink cluster in the Azure portal
 
 Complete the following steps to create an Apache Flink cluster by using the Azure portal.
 
@@ -20,7 +20,7 @@ Complete the prerequisites in the following sections:
 > * For creating a cluster in new cluster pool, assign AKS agentpool MSI "Managed Identity Operator" role on the user-assigned managed identity created as part of resource prerequisite. In case you have required permissions, this step is automated during creation.
 > * AKS agentpool managed identity gets created during cluster pool creation. You can identify the AKS agentpool managed identity by **(your clusterpool name)-agentpool**. Follow these steps to [assign the role](../../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-page).
 
-## Create a Flink cluster
+## Create an Apache Flink cluster
 
 Flink clusters can be created once cluster pool deployment has been completed, let us go over the steps in case you're getting started with an existing cluster pool
 

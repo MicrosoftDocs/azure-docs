@@ -39,7 +39,7 @@ This capability of inter-directory provisioning offers the following significant
 - [Pass-through authentication](./connect/how-to-connect-pta.md) - A sign-in method that allows users to use the same password on-premises and in the cloud, but doesn't require the additional infrastructure of a federated environment.
 - [Federation integration](./connect/how-to-connect-fed-whatis.md) - can be used to configure a hybrid environment using an on-premises AD FS infrastructure. It also provides AD FS management capabilities such as certificate renewal and additional AD FS server deployments.
 - [Synchronization](./connect/how-to-connect-sync-whatis.md) - Responsible for creating users, groups, and other objects.  As well as, making sure identity information for your on-premises users and groups is matching the cloud.  This synchronization also includes password hashes.
-- [Health Monitoring](./connect/whatis-azure-ad-connect.md) - can provide robust monitoring and provide a central location in the Azure portal to view this activity. 
+- [Health Monitoring](./connect/whatis-azure-ad-connect.md) - can provide robust monitoring and provide a central location in the [Microsoft Entra admin center](https://entra.microsoft.com) to view this activity. 
 
 ## Next steps 
 - [What is identity lifecycle management](../governance/what-is-identity-lifecycle-management.md)

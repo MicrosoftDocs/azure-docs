@@ -97,13 +97,13 @@ For more information about gMSAs, see [Getting started with group managed servic
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 [create-custom-ou]: create-ou.md
 
 <!-- EXTERNAL LINKS -->
 [New-ADOrganizationalUnit]: /powershell/module/activedirectory/new-adorganizationalunit
-[New-ADServiceAccount]: /powershell/module/activedirectory/New-AdServiceAccount
+[New-ADServiceAccount]: /powershell/module/activedirectory/new-adserviceaccount
 [gmsa-overview]: /windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview
 [gmsa-start]: /windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts

@@ -3,7 +3,7 @@ title: Versioning
 description: Versioning in HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 08/12/2023
+ms.date: 08/29/2023
 ---
 
 # Azure HDInsight on AKS versions
@@ -72,7 +72,7 @@ The cluster pool always aligns to the major version of the clusters. That is, if
 
 :::image type="content" source="./media/versions/cluster-pool-basic-tab.png" alt-text="Screenshot showing cluster pool basic-tab.":::
  
-When creating a HDInsight on AKS cluster or Flink cluster, you can choose the minor.patch version from the supported version list.
+When creating a HDInsight on AKS cluster or Apache Flink cluster, you can choose the minor.patch version from the supported version list.
 
 :::image type="content" source="./media/versions/cluster-details.png" alt-text="Screenshot showing cluster details.":::
 
@@ -101,10 +101,4 @@ For release notes on the latest versions of HDInsight on AKS, see [release notes
 * HDInsight on AKS reserves the right to change the default version without prior notice. If you have a version dependency, specify the HDInsight on AKS version when you create your clusters.
 * HDInsight on AKS may retire an OSS component version before retiring the HDInsight on AKS version, based on the upstream support of open-source or AKS dependencies.
 
-## Functionality
 
-During public preview, HDInsight on AKS may have limited or restricted functionality.
-
-## Availability
-
-During public preview, HDInsight on AKS may not be available in all geographic areas. For more information, see [region availability](./overview.md#region-availability-public-preview)

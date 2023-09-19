@@ -206,7 +206,7 @@ The following steps provide details about the specific network and application r
 
 ### Apache Flink
 
-1. Add the following application rule for a Flink cluster.
+1. Add the following application rule for an Apache Flink cluster.
 
    ```azurecli
    az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'dfs' --source-addresses '*' --protocols 'https=443' --target-fqdns "*.dfs.core.windows.net"

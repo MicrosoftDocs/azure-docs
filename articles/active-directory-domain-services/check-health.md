@@ -1,6 +1,6 @@
 ---
 title: Check the health of Azure Active Directory Domain Services | Microsoft Docs
-description: Learn how to check the health of an Azure Active Directory Domain Services (Azure AD DS) managed domain and understand status messages using the Azure portal.
+description: Learn how to check the health of an Azure Active Directory Domain Services (Azure AD DS) managed domain and understand status messages.
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -10,25 +10,26 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/13/2023
 ms.author: justinha
 
 ---
 # Check the health of an Azure Active Directory Domain Services managed domain
 
-Azure Active Directory Domain Services (Azure AD DS) runs some background tasks to keep the managed domain healthy and up-to-date. These tasks include taking backups, applying security updates, and synchronizing data from Azure AD. If there are issues with the Azure AD DS managed domain, these tasks may not successfully complete. To review and resolve any issues, you can check the health status of a managed domain using the Azure portal.
+Azure Active Directory Domain Services (Azure AD DS) runs some background tasks to keep the managed domain healthy and up-to-date. These tasks include taking backups, applying security updates, and synchronizing data from Azure AD. If there are issues with the Azure AD DS managed domain, these tasks may not successfully complete. To review and resolve any issues, you can check the health status of a managed domain using the Microsoft Entra admin center.
 
 This article shows you how to view the Azure AD DS health status and understand the information or alerts shown.
 
 ## View the health status
 
-The health status for a managed domain is viewed using the Azure portal. Information on the last backup time and synchronization with Azure AD can be seen, along with any alerts that indicate a problem with the managed domain's health. To view the health status for a managed domain, complete the following steps:
+The health status for a managed domain is viewed using the Microsoft Entra admin center. Information on the last backup time and synchronization with Azure AD can be seen, along with any alerts that indicate a problem with the managed domain's health. To view the health status for a managed domain, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**.
+1. Sign in to [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator). 
+1. Search for and select **Azure AD Domain Services**.
 1. Select your managed domain, such as *aaddscontoso.com*.
 1. On the left-hand side of the Azure AD DS resource window, select **Health**. The following example screenshot shows a healthy managed domain and the status of the last backup and Azure AD synchronization:
 
-    ![Health page overview in the Azure portal showing the Azure Active Directory Domain Services status](./media/check-health/health-page.png)
+    ![Health page overview showing the Azure Active Directory Domain Services status](./media/check-health/health-page.png)
 
 The *Last evaluated* timestamp of the health page shows when the managed domain was last checked. The health of a managed domain is evaluated every hour. If you make any changes to a managed domain, wait until the next evaluation cycle to view the updated health status.
 
@@ -81,5 +82,5 @@ Health status alerts are categorized into the following levels of severity:
 For more information on alerts that are shown in the health status page, see [Resolve alerts on your managed domain][troubleshoot-alerts]
 
 <!-- INTERNAL LINKS -->
-[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[azure-support]: ../active-directory/fundamentals/how-to-get-support.md
 [troubleshoot-alerts]: troubleshoot-alerts.md

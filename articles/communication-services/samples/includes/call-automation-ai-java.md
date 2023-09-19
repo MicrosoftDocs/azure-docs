@@ -18,7 +18,7 @@ Find the project for this sample on [GitHub](https://github.com/Azure-Samples/co
 
 This sample is a server-side application that helps you create a virtual assistant capable of handling calls using Call Automation and responding to customers using the newly announced integration with Azure AI services to provide AI capabilities such as Text-to-Speech and Speech-to-Text along with smart responses provided by Azure OpenAI. 
 
-This Azure Communication Services Call Automation AI sample demonstrates how to use the Call Automation SDK to answer an inbound call, recognizes user voice input using Call Automation recognize API with support for Speech-to-Text. Once input is recognized, it sends that information to OpenAI for an answer and plays the answer provided back by OpenAI to the caller using Call Automation play API with support for Text-to-Speech.
+This Azure Communication Services Call Automation AI sample demonstrates how to use the Call Automation SDK to answer an inbound call. It recognizes user voice input using Call Automation recognize API with support for Speech-to-Text. Once input is recognized, it sends that information to OpenAI for an answer and plays the answer provided back by OpenAI to the caller using Call Automation play API with support for Text-to-Speech.
 
 
 ## Prerequisites

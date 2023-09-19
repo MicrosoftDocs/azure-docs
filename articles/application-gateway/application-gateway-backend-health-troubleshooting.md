@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 08/22/2023
 ms.author: greglin 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Troubleshoot backend health issues in Application Gateway

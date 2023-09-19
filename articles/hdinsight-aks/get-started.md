@@ -3,10 +3,10 @@ title: One-click deployment for Azure HDInsight on AKS.
 description: How to create cluster pool and cluster with one-click deployment on Azure HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/11/2023
+ms.date: 08/29/2023
 ---
 
-# Getting started with one-click deployment
+# Get started with one-click deployment
 
 One-click deployments are designed for users to experience zero touch creation of HDInsight on AKS. It eliminates the need to manually perform certain steps. 
 This article describes how to use readily available ARM templates to create a cluster pool and cluster in few clicks. 
@@ -43,7 +43,7 @@ When you click on one of these templates, it launches Custom deployment page in 
 |Cluster OSS Version |Provide the cluster type supported OSS version in three part naming format. For example: Trino - 0.410.0, Flink - 1.16.0, Spark - 3.3.1|
 |Custom VNet Name |Provide custom virtual network to be associated with the cluster pool. It should be in the same resource group as your cluster pool. |
 |Subnet Name in Custom Vnet |Provide subnet name defined in your custom virtual network. |
-|User Object ID| Provide user alias object ID from Azure Active Directory [(Microsoft Entra ID)](https://www.microsoft.com/security/business/identity-access/azure-active-directory).|
+|User Object ID| Provide user alias object ID from Microsoft Entra ID [(Azure Active Directory)](https://www.microsoft.com/security/business/identity-access/azure-active-directory).|
    
  ### Find Object ID of an identity
  
@@ -68,7 +68,9 @@ When you click on one of these templates, it launches Custom deployment page in 
 
    :::image type="content" source="./media/get-started/custom-deployment-complete.png" alt-text="Screenshot showing custom deployment complete.":::
 
-   :::image type="icon" source="./media/get-started/notifications.png" alt-text="Screenshot showing notifications icon in the Azure portal.":::
+   
+
+   If you navigate away from the page, you can check the status of the deployment by clicking Notifications :::image type="icon" source="./media/get-started/notifications.png" alt-text="Screenshot showing notifications icon in the Azure portal."::: in the Azure portal.
    
    > [!TIP]
    >

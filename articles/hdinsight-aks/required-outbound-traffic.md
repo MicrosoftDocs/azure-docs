@@ -53,7 +53,7 @@ The below section outlines any specific network traffic, which a cluster shape r
 | FQDN|*.database.windows.net|mysql|1433|Application security rule|Required if Hive is enabled. It's user's own SQL server, such as contososqlserver.database.windows.net|
 |Service Tag | Sql.`<Region>`|TCP|11000-11999|Network security rule|Required if Hive is enabled. It's used to connect to SQL server. It's recommended to allow outbound communication from the client to all Azure SQL IP addresses in the region on ports in the range of 11000 to 11999. Use the Service Tags for SQL to make this process easier to manage. When using the Redirect connection policy, refer to the [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) for a list of your region's IP addresses to allow. |
 
-### Flink
+### Apache Flink
 
 |Type|Destination Endpoint|Protocol|Port|Azure Firewall Rule Type |Use|
 |-|-|-|-|-|--|

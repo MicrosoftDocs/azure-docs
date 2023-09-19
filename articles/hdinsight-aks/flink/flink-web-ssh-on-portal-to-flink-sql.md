@@ -3,7 +3,7 @@ title: How to enter the HDInsight on AKS Flink CLI client using Secure Shell (SS
 description: How to enter the HDInsight on AKS Flink SQL & DStream CLI client using webssh on Azure portal
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 08/29/2023
 ---
 
 # Access CLI Client using Secure Shell (SSH) on Azure portal
@@ -19,7 +19,7 @@ Once the Flink cluster is created, you can observe on the left pane the **Settin
 
 :::image type="content" source="./media/flink-web-ssh-on-portal-to-flink-sql/create-pod-and-connect-to-web-ssh.png" alt-text="Screenshot showing How to create POD and connect to webssh.":::
 
-## Flink SQL 
+## Apache Flink SQL 
 
 #### Connecting to SQL Client 
 
@@ -33,7 +33,7 @@ You're now on SQL Client on Flink
 
 Refer to [this](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/table/sqlclient/) document to perform few more tests. 
 
-## Flink DataStream
+## Apache Flink DataStream
 
 Flink provides a Command-Line Interface (CLI)  `bin/flink` to run programs that are packaged as JAR files and to control their execution. 
 

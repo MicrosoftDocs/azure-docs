@@ -3,20 +3,20 @@ title: Apache Flink Configuration Management in HDInsight on AKS
 description: Learn about Apache Flink Configuration Management in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: tutorial
-ms.date: 08/04/2023
+ms.date: 08/29/2023
 ---
 
-# Flink Configuration Management
+# Apache Flink configuration management
 
 HDInsight on AKS provides a set of default configurations of Apache Flink for most properties and a few based on common application profiles. However, in case you're required to tweak Flink configuration properties to improve performance for certain applications with state usage, parallelism, or memory settings, you can change certain properties at cluster level using **Configuration management** section in HDInsight on AKS Flink.
 
-1. Go to **Configurations Management** section on your Apache Flink cluster page 
+1. Go to **Configuration Management** section on your Apache Flink cluster page 
 
-    :::image type="content" source="./media/flink-configuration-management/configuration-page-revised.png" alt-text="Screenshot showing Flink Configuration Management page.":::
+    :::image type="content" source="./media/flink-configuration-management/configuration-page-revised.png" alt-text="Screenshot showing Apache Flink Configuration Management page.":::
 
 2. Update **configurations** as required at *Cluster level*
 
-    :::image type="content" source="./media/flink-configuration-management/update-configuration-revised.png" alt-text="Screenshot showing Flink Update configuration page.":::
+    :::image type="content" source="./media/flink-configuration-management/update-configuration-revised.png" alt-text="Screenshot showing Apache Flink Update configuration page.":::
  
 Here the checkpoint interval is changed at *Cluster level*.
 

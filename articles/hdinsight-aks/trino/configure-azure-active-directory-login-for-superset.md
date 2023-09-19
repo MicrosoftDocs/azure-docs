@@ -3,7 +3,7 @@ title: Configure Azure Active Directory OAuth2 login for Apache Superset
 description: Learn how to configure Azure Active Directory OAuth2 login for Superset
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 08/16/2023
+ms.date: 08/29/2023
 ---
 
 # Configure Azure Active Directory OAuth2 login
@@ -80,106 +80,10 @@ The following configuration allows users to have Superset accounts automatically
     * `{{AZURE_TENANT}}` - The tenant the users log into. 
     * `{{SERVICE_PRINCIPAL_APPLICATION_ID}}` - The client/application ID of the service principal you created in step 1.
     * `{{VALID_DOMAINS}}` - An allowlist of domains for user email addresses.
-     <br>
+  
+    Refer to [sample code](https://github.com/Azure-Samples/hdinsight-aks/blob/main/src/trino/superset-config.yml).
  
-    ```yaml
-    configOverrides:
-    ...
-    ****** Existing Oauth configuration goes here ******
-    ...
-    enable_oauth_login: |
-
-     # Superset will not be aware of SSL termination. This will tell Superset to pay attention to fowarded headers:
-     ENABLE_PROXY_FIX = True
-
-     # Azure auth to allow users to login:
-     from flask_appbuilder.security.manager import (AUTH_DB, AUTH_OAUTH)
-     AUTH_TYPE = AUTH_OAUTH
-
-     OAUTH_PROVIDERS = [
-         {
-             "name": "azure",
-             "icon": "fa-windows",
-             "allowlist": [ "{{VALID_DOMAINS}}" ], # this can be empty
-             "token_key": "access_token",
-             "remote_app": {
-               "client_id": "{{SERVICE_PRINCIPAL_APPLICATION_ID}}",
-               "client_secret": os.environ.get("AZURE_SECRET"),
-               "api_base_url": "https://login.microsoftonline.com/{{AZURE_TENANT}}/oauth2/v2.0/",
-               "client_kwargs": {
-                   "scope": "User.read email profile openid",
-                   "resource": "{{SERVICE_PRINCIPAL_APPLICATION_ID}}",
-                   "user_info_mapping":
-                   {
-                     "name": ("name", ""),
-                     "email": ("email", ""),
-                     "first_name": ("given_name", ""),
-                     "last_name": ("family_name", ""),
-                     "id": ("oid", ""),
-                     "username": ("preferred_username", ""),
-                    "role_keys": ("roles", []),
-                   }
-               },
-               "request_token_url": None,
-               "access_token_url": "https://login.microsoftonline.com/{{AZURE_TENANT}}/oauth2/v2.0/token",
-               "authorize_url": "https://login.microsoftonline.com/{{AZURE_TENANT}}/oauth2/v2.0/authorize",
-               "jwks_uri": "https://login.microsoftonline.com/common/discovery/v2.0/keys"
-           }
-       }
-     ]
-     # **** Automatic registration of users
-     # Map Authlib roles to superset roles 
-     # Will allow user self-registration, allowing to create Flask users from Authorized User 
-     AUTH_USER_REGISTRATION = True 
-     # The default user self-registration role. If you want all authenticated users to access Superset, set this role to "Public" or "Admin" 
-     AUTH_USER_REGISTRATION_ROLE = "Admin" 
-     AUTH_ROLES_SYNC_AT_LOGIN = False
-     # **** End automatic registration of users
-
-     azure_oauth_provider: |
-     import logging
-     from superset.security import SupersetSecurityManager
-
-     class AADSecurityManager(SupersetSecurityManager):
-
-         def oauth_user_info(self, provider, response=None):
-             logging.debug("Oauth2 provider: {0}.".format(provider))
-             if provider == 'azure':
-                 logging.debug("Azure response received : {0}".format(response))
-                 id_token = response["id_token"]
-                 me = self._azure_jwt_token_parse(id_token)
-                 return {
-                     "name": me.get("name", ""),
-                     "email": me["email"],
-                     "first_name": me.get("given_name", ""),
-                     "last_name": me.get("family_name", ""),
-                     "id": me["oid"],
-                     "username": me["preferred_username"],
-                     "role_keys": me.get("roles", []),
-                 }
-
-     CUSTOM_SECURITY_MANAGER = AADSecurityManager
-
-    extraVolumes: 
-    - name: azure-secrets-store
-     csi:
-       driver: secrets-store.csi.k8s.io
-       readOnly: true
-       volumeAttributes:
-         secretProviderClass: azure-secret-provider
-        
-    extraVolumeMounts: 
-    - mountPath: "/mnt/azure-secrets"
-     name: azure-secrets-store
-     readOnly: true
-
-    extraEnvRaw:
-    - name: AZURE_SECRET
-     valueFrom:
-       secretKeyRef:
-         name: azure-kv-secrets
-         key: AZURE_SECRET
-    ```
+    
 ## Redeploy Superset
 
    ```bash

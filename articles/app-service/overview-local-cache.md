@@ -8,6 +8,7 @@ ms.topic: article
 ms.date: 06/29/2023
 ms.custom: UpdateFrequency3
 ms.author: msangapu
+author: msangapu-msft
 
 ---
 # Azure App Service Local Cache overview

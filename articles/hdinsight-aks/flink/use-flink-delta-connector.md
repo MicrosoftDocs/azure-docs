@@ -1,12 +1,12 @@
 ---
 title: How to use Apache Flink & Delta connector in HDInsight on AKS
-description: Learn how to use Flink-Delta connector
+description: Learn how to use Apache Flink-Delta connector
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/30/2023
+ms.date: 08/29/2023
 ---
 
-# How to use Flink-Delta connector
+# How to use Apache Flink-Delta connector
 
 By using Apache Flink and Delta Lake together, you can create a reliable and scalable data lakehouse architecture. The Flink/Delta Connector allows you to write data to Delta tables with ACID transactions and exactly once processing. It means that your data streams are consistent and error-free, even if you restart your Flink pipeline from a checkpoint. The Flink/Delta Connector ensures that your data isn't lost or duplicated, and that it matches the Flink semantics.
 
@@ -17,11 +17,11 @@ In this article, you learn how to use Flink-Delta connector
 > * Write the data to a delta table.
 > * Query it in Power BI.
 
-## What is Flink-Delta connector
+## What is Apache Flink-Delta connector
 
 Flink-Delta Connector is a JVM library to read and write data from Apache Flink applications to Delta tables utilizing the Delta Standalone JVM library. The connector provides exactly once delivery guarantee.
 
-## Flink-Delta Connector includes
+## Apache Flink-Delta Connector includes
 
 * DeltaSink for writing data from Apache Flink to a Delta table.
 * DeltaSource for reading Delta tables using Apache Flink.
@@ -35,7 +35,7 @@ We are using the following connector, to match with the HDInsight on AKS Flink v
 ## Prerequisites
 
 * [HDInsight on AKS Flink 1.16.0](./flink-create-cluster-portal.md) 
-* ADLS Gen2 storage account
+* storage account
 * [Power BI desktop](https://www.microsoft.com/download/details.aspx?id=58494)
 
 ## Read data from delta table
@@ -358,7 +358,7 @@ In this example, we're using a bounded state of delta source.
 </project>
 ```
 * You're required to build the jar with required libraries and dependencies.
-* Specify the ADLS gen2 location in our java class to reference the source data.
+* Specify the ADLS Gen2 location in our java class to reference the source data.
 
 :::image type="content" source="./media/use-flink-delta-connector/specify-the-adls-gen-2.png" alt-text="Screenshot showing how to specify the ADLS Gen2." lightbox="./media/use-flink-delta-connector/specify-the-adls-gen-2.png":::
    
@@ -395,13 +395,13 @@ In this example, we're using a bounded state of delta source.
 
 1. Call the read class while submitting the job using [Flink CLI](./flink-web-ssh-on-portal-to-flink-sql.md).
 
-   :::image type="content" source="./media/use-flink-delta-connector/call-the-read-class.png" alt-text="Screenshot showing how to call the read class file." lightbox="./media/use-flink-delta-connector/call-the-read-class.png":::
+   :::image type="content" source="./media/use-flink-delta-connector/call-the-read-class.png" alt-text="Screenshot shows how to call the read class file." lightbox="./media/use-flink-delta-connector/call-the-read-class.png":::
 
 1. After submitting the job,  
     1. Check the status and metrics on Flink UI.
     1. Check the job manager logs for more details.
 
-    :::image type="content" source="./media/use-flink-delta-connector/check-job-manager-logs.png" alt-text="Screenshot showing job manager logs." lightbox="./media/use-flink-delta-connector/check-job-manager-logs.png":::
+    :::image type="content" source="./media/use-flink-delta-connector/check-job-manager-logs.png" alt-text="Screenshot shows job manager logs." lightbox="./media/use-flink-delta-connector/check-job-manager-logs.png":::
 
 ## Writing to Delta sink
 
@@ -409,7 +409,7 @@ The delta sink is used for writing the data to a delta table in ADLS gen2. The d
 1. Build the jar with required libraries and dependencies.
 1. Enable checkpoint for delta logs to commit the history.
 
-   :::image type="content" source="./media/use-flink-delta-connector/enable-checkpoint-for-delta-logs.png" alt-text="Screenshot showing how enable checkpoint for delta logs." lightbox="./media/use-flink-delta-connector/enable-checkpoint-for-delta-logs.png":::
+   :::image type="content" source="./media/use-flink-delta-connector/enable-checkpoint-for-delta-logs.png" alt-text="Screenshot shows how enable checkpoint for delta logs." lightbox="./media/use-flink-delta-connector/enable-checkpoint-for-delta-logs.png":::
    
    ```java
        public StreamExecutionEnvironment createPipeline(
@@ -447,37 +447,37 @@ The delta sink is used for writing the data to a delta table in ADLS gen2. The d
 1. Call the delta sink class while submitting the job via Flink CLI. 
 1. Specify the account key of the storage account in `flink-client-config` using [Flink configuration management](./flink-configuration-management.md). You can specify the account key of the storage account in Flink config. `fs.azure.<storagename>.dfs.core.windows.net : <KEY >`
 
-   :::image type="content" source="./media/use-flink-delta-connector/call-the-delta-sink-class.png" alt-text="Screenshot showing how to call the delta sink class." lightbox="./media/use-flink-delta-connector/call-the-delta-sink-class.png":::
+   :::image type="content" source="./media/use-flink-delta-connector/call-the-delta-sink-class.png" alt-text="Screenshot shows how to call the delta sink class." lightbox="./media/use-flink-delta-connector/call-the-delta-sink-class.png":::
 
-1. Specify the path of ADLS gen2 storage account while specifying the delta sink properties.
+1. Specify the path of ADLS Gen2 storage account while specifying the delta sink properties.
 1. Once the job is submitted, check the status and metrics on Flink UI.
 
-    :::image type="content" source="./media/use-flink-delta-connector/check-the-status-on-flink-ui.png" alt-text="Screenshot showing status on Flink UI." lightbox="./media/use-flink-delta-connector/check-the-status-on-flink-ui.png":::
+    :::image type="content" source="./media/use-flink-delta-connector/check-the-status-on-flink-ui.png" alt-text="Screenshot shows status on Flink UI." lightbox="./media/use-flink-delta-connector/check-the-status-on-flink-ui.png":::
 
-    :::image type="content" source="./media/use-flink-delta-connector/view-the-checkpoints-on-flink-ui.png" alt-text="Screenshot showing the checkpoints on Flink-UI." lightbox="./media/use-flink-delta-connector/view-the-checkpoints-on-flink-ui.png":::
+    :::image type="content" source="./media/use-flink-delta-connector/view-the-checkpoints-on-flink-ui.png" alt-text="Screenshot shows the checkpoints on Flink-UI." lightbox="./media/use-flink-delta-connector/view-the-checkpoints-on-flink-ui.png":::
 
-    :::image type="content" source="./media/use-flink-delta-connector/view-the-metrics-on-flink-ui.png" alt-text="Screenshot showing the metrics on Flink UI." lightbox="./media/use-flink-delta-connector/view-the-metrics-on-flink-ui.png":::
+    :::image type="content" source="./media/use-flink-delta-connector/view-the-metrics-on-flink-ui.png" alt-text="Screenshot shows the metrics on Flink UI." lightbox="./media/use-flink-delta-connector/view-the-metrics-on-flink-ui.png":::
 
 ## Power BI integration
 
 Once the data is in delta sink, you can run the query in Power BI desktop and create a report.
-1. Open your Power BI desktop and get the data using ADLS gen2 connector.
+1. Open your Power BI desktop and get the data using ADLS Gen2 connector.
 
-    :::image type="content" source="./media/use-flink-delta-connector/view-power-bi-desktop.png" alt-text="Screenshot showing Power BI desktop.":::
+    :::image type="content" source="./media/use-flink-delta-connector/view-power-bi-desktop.png" alt-text="Screenshot shows Power BI desktop.":::
 
-    :::image type="content" source="./media/use-flink-delta-connector/view-adls-gen2-connector.png" alt-text="Screenshot showing ADLSGen 2 connector.":::
+    :::image type="content" source="./media/use-flink-delta-connector/view-adls-gen2-connector.png" alt-text="Screenshot shows ADLSGen 2 connector.":::
 
 1. URL of the storage account.
 
     :::image type="content" source="./media/use-flink-delta-connector/url-of-the-storage-account.png" alt-text="Screenshot showing the URL of the storage account.":::
 
-    :::image type="content" source="./media/use-flink-delta-connector/adls-gen-2-details.png" alt-text="Screenshot showing ADLS Gen2-details.":::
+    :::image type="content" source="./media/use-flink-delta-connector/adls-gen-2-details.png" alt-text="Screenshot shows ADLS Gen2-details.":::
 
 1. Create M-query for the source and invoke the function, which queries the data from storage account. Refer [Delta Power BI connectors](https://github.com/delta-io/connectors/tree/master/powerbi).
 
 1. Once the data is readily available, you can create reports.
 
-    :::image type="content" source="./media/use-flink-delta-connector/create-reports.png" alt-text="Screenshot showing how to create reports.":::
+    :::image type="content" source="./media/use-flink-delta-connector/create-reports.png" alt-text="Screenshot shows how to create reports.":::
 
 ## References
 

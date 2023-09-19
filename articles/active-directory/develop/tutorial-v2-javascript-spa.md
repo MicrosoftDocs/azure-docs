@@ -22,7 +22,7 @@ In this tutorial:
 
 > [!div class="checklist"]
 > * Create a JavaScript project with `npm`
-> * Register the application in the Azure portal
+> * Register the application in the Microsoft Entra admin center
 > * Add code to support user sign-in and sign-out
 > * Add code to call the Microsoft Graph API
 > * Test the app
@@ -327,9 +327,9 @@ In the next steps, you'll create a new folder for the JavaScript SPA and set up 
 
 Before you proceed with authentication, register the application on Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to **Azure Active Directory**.
-1. On the left panel, under **Manage**, select **App registrations**. Then, on the top menu bar, select **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. Browse to **Identity** > **Applications** > **App registrations**, select **New registration**.
 1. For **Name**, enter a name for the application (for example, **sampleApp**). You can change the name later if necessary.
 1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 1. In the **Redirect URI** section, select the **Web** platform from the dropdown list. 
