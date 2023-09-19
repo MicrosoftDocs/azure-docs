@@ -68,7 +68,7 @@ Prompt flow relies on fileshare to store snapshot of flow. This error mean promp
 - Prompt flow relies datastore named `workspaceworkingdirectory` in your workspace, which using `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`, please make sure your data store using the same container. If your data store is using different fileshare name, you need use new workspace.
 ![name of fileshare in datastore detail page](../media/faq/file-share-name.png) 
 
-- If your fileshare use correctly name. Then please try in different network environment, such as home network, company network, etc. There is rare case, fileshare can't be accessed in some network environment even it's public access enabled.
+- If your fileshare is correctly named, then please try in different network environment, such as home network, company network, etc. There is a rare case where a fileshare can't be accessed in some network environments even if it's public-access enabled.
 
 ## Runtime related issues
 
