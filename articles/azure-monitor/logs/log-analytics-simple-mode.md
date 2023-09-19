@@ -28,7 +28,7 @@ The new Log Analytics is currently in preview and available to a limited number 
 
 :::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A GIF showing the Try new Log Analytics button.":::
 
-## The simple mode experience
+## Explore simple mode
 
 This section explains the elements of the Log Analytics simple mode experience.
 
