@@ -86,7 +86,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Azure portal, with Enterprise applications and All applications highlighted.](common/enterprise-applications.png)
 
-2. In the applications list, select **Bizagi Studio for Digital Process Automation**.
+1. In the applications list, select **Bizagi Studio for Digital Process Automation**.
 
 3. Select the **Provisioning** tab.
 

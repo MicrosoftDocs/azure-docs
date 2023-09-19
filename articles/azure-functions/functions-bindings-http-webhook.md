@@ -40,6 +40,8 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 # [Functions v1.x](#tab/functionsv1/in-process)
 
+[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
+
 Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
 
 # [Functions v2.x+](#tab/functionsv2/isolated-process)

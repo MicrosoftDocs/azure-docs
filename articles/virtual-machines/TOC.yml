@@ -135,6 +135,8 @@
   items:
   - name: Red Hat
     href: ./workloads/redhat/overview.md
+  - name: Ubuntu
+    href: ./workloads/canonical/ubuntu-pro-in-place-upgrade.md
   - name: OpenShift
     items:
     - name: OpenShift Container Platform 4.x
@@ -1820,7 +1822,7 @@
     href: automatic-extension-upgrade.md
   - name: Update Management in Azure Automation
     href: ../automation/update-management/overview.md?toc=/azure/virtual-machines/toc.json
-  - name: Update Manager (preview)
+  - name: Update Manager
     href: ../update-center/index.yml
   - name: Maintenance
     items:

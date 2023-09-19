@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for .NET apps
 services: azure-app-configuration
 documentationcenter: ''
-author: mcleanbyron
+author: maud-lv
 manager: zhenlan
 editor: ''
 
@@ -15,7 +15,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ms.topic: tutorial
 ms.date: 07/11/2023
-ms.author: mcleans
+ms.author: malev
 #Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration in a .NET app
