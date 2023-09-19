@@ -34,7 +34,7 @@ This section contains recommendations for achieving resiliency and availability 
 |[**Performance**](#performance) |:::image type="icon" source="media/icon-recommendation-low.svg":::  | [VM-6: Host application and database data on a data disk](#-vm-6-host-application-and-database-data-on-a-data-disk)| 
 ||:::image type="icon" source="media/icon-recommendation-high.svg"::: | [VM-8: Production VMs should be using SSD disks](#-vm-8-production-vms-should-be-using-ssd-disks)| 
 ||:::image type="icon" source="media/icon-recommendation-medium.svg"::: |[VM-10: Enable Accelerated Networking (AccelNet)](#-vm-10-enable-accelerated-networking-accelnet) |
-||:::image type="icon" source="media/icon-recommendation-low.svg"::: |[VM-11: When AccelNet is enabled, you must manually update the GuestOS NIC drive](#vm-11-when-accelnet-is-enabled-you-must-manually-update-the-guestos-nic-driver) | 
+||:::image type="icon" source="media/icon-recommendation-low.svg"::: |[VM-11: When AccelNet is enabled, you must manually update the GuestOS NIC drive](#-vm-11-when-accelnet-is-enabled-you-must-manually-update-the-guestos-nic-driver) | 
 |[**Management**](#management)|:::image type="icon" source="media/icon-recommendation-low.svg":::  |[VM-9: Watch for VMs in Stopped state](#-vm-9-review-vms-in-stopped-state) |  
 ||:::image type="icon" source="media/icon-recommendation-high.svg"::: |[VM-22: Use maintenance configurations for the VM](#-vm-22-use-maintenance-configurations-for-the-vm) |
 |[**Security**](#security)|:::image type="icon" source="media/icon-recommendation-medium.svg":::  |[VM-12: VMs shouldn't have a Public IP directly associated](#-vm-12-vms-shouldnt-have-a-public-ip-directly-associated) |
@@ -477,7 +477,7 @@ In the case of a region-wide disaster, Azure can provide protection from regiona
 
 You can use Cross Region restore to restore Azure VMs via paired regions. With Cross Region restore, you can restore all the Azure VMs for the selected recovery point if the backup is done in the secondary region. For more information on Cross Region restore, refer to the Cross Region table row entry in our [restore options](../backup/backup-azure-arm-restore-vms.md#restore-options).
 
-### Cross-region disaster recovery in multi-region geography
+### Multi-region geography disaster recovery
 
 In the case of a region-wide service disruption, Microsoft works diligently to restore the virtual machine service. However, you still must rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data strategies for disaster recovery](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
 
