@@ -7,43 +7,42 @@ ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 01/01/2023
-# Customer intent: As a Modeling and Simulation Workbench Chamber User, I want to import data into my chamber
+# Customer intent: As an Azure Modeling and Simulation Workbench chamber user, I want to import data into my chamber.
 ---
 
 # Import data into Azure Modeling and Simulation Workbench
 
-<!--- SCREENSHOT OF CHAMBER --->
-
-Azure Modeling and Simulation Workbench (preview) allows you to run your design applications in a secure and managed environment in Azure. This article explains how to upload files/import data into a chamber.
+You can use Azure Modeling and Simulation Workbench to run your design applications in a secure and managed environment in Azure. This article explains how to upload files and import data into a chamber.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An instance of Modeling and Simulation Design Workbench installed with at least one chamber.
-- User must be provisioned as a Chamber Admin or Chamber User.
+- An instance of Azure Modeling and Simulation Design Workbench installed with at least one chamber.
+- Chamber Admin or Chamber User permissions.
 - [AzCopy](/azure/storage/common/storage-ref-azcopy) installed on machine, with access to the configured network for the target chamber. Only machines on the specified network path for the chamber can upload files.
 
-## Sign in to Azure portal
+## Sign in to the Azure portal
 
 Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
 
-## Browse to Chamber and get upload URL
+## Browse to the chamber and get the upload URL
 
-1. Type *Modeling and Simulation Workbench* in the global search and select **Modeling and Simulation Workbench** under **Services**.
+1. Enter **Modeling and Simulation Workbench** in the global search. Then, under **Services**, select **Modeling and Simulation Workbench**.
 
-1. Select your Modeling and Simulation Workbench from the resource list.
+1. Select your workbench from the resource list.
 
-1. Select **Settings > Chamber** in the left side menu. A resource list displays. Select the chamber you want to upload the data to.
+1. On the left menu, select **Settings** > **Chamber**. A resource list appears. Select the chamber that you want to upload the data to.
 
-1. Select the **Upload File** button in the chamber overview section.
+1. In the chamber overview section, select the **Upload File** button.
 
-1. Copy the **Upload URL** in the Upload File popup.
+1. In the **Upload File** pop-up dialog, copy the **Upload URL** value.
 
-1. Use the AzCopy command to upload your file. For example, `azcopy copy <sourceFilePath> "<uploadURL>"`
+1. Use the AzCopy command to upload your file. For example, use `azcopy copy <sourceFilePath> "<uploadURL>"`.
 
   > [!NOTE]
   > Supported filename characters are alphanumerics, underscores, periods, and hyphens.
-  > Data pipeline will only process files at root, it will not process sub-folders.
+  >
+  > The data pipeline will only process files at root. It won't process subfolders.
 
 1. The uploaded file resource with the source filename displays under **Chamber | Data Pipeline | File**.
 
