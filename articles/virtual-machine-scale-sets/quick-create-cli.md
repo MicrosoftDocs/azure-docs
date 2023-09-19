@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli, mode-api
+ms.custom: mimckitt, devx-track-azurecli, mode-api, devx-track-linux
 ---
 
 # Quickstart: Create a Virtual Machine Scale Set with the Azure CLI

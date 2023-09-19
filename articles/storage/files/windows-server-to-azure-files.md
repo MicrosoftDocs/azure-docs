@@ -2,11 +2,10 @@
 title: Replace or extend Windows file servers with Azure Files and Azure File Sync
 description: Azure Files and Azure File Sync can be useful when replacing your on-premises Windows file servers or extending them into the cloud. Learn how you can use Azure storage services to increase flexibility, improve data protection, and reduce TCO for file storage.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 03/17/2023
 ms.author: kendownie
-ms.subservice: files 
 ---
 
 # Replace or extend Windows file servers with Azure Files and Azure File Sync

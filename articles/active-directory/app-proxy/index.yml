@@ -37,7 +37,7 @@ landingContent:
           - text: Single sign-on concepts
             url: ../manage-apps/what-is-single-sign-on.md
           - text: Single sign-on options
-            url: ../manage-apps/sso-options.md
+            url: ../manage-apps/plan-sso-deployment.md
   - title: Develop new apps
     linkLists:
       - linkListType: learn
@@ -46,4 +46,3 @@ landingContent:
             url: ../manage-apps/v2-howto-app-gallery-listing.md
           - text: Understand the platform
             url: ../develop/v2-overview.md
-

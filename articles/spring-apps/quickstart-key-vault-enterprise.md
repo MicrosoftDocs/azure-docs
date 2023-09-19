@@ -89,15 +89,15 @@ The following instructions describe how to create a Key Vault and securely save 
 1. Use the following commands to retrieve Redis connection properties and store them in Key Vault:
 
    ```azurecli
-   REDIS_HOST=$(az redis show \
+   export REDIS_HOST=$(az redis show \
        --resource-group <resource-group-name> \
        --name <redis-cache-name> | jq -r '.hostName')
 
-   REDIS_PORT=$(az redis show \
+   export REDIS_PORT=$(az redis show \
        --resource-group <resource-group-name> \
        --name <redis-cache-name> | jq -r '.sslPort')
 
-   REDIS_PRIMARY_KEY=$(az redis list-keys \
+   export REDIS_PRIMARY_KEY=$(az redis list-keys \
        --resource-group <resource-group-name> \
        --name <redis-cache-name> | jq -r '.primaryKey')
 
@@ -132,7 +132,7 @@ The following instructions describe how to grant access to Key Vault secrets to 
 1. Use the following commands to set an access policy of `get list` on Key Vault for the Cart Service application:
 
    ```azurecli
-   CART_SERVICE_APP_IDENTITY=$(az spring app show \
+   export CART_SERVICE_APP_IDENTITY=$(az spring app show \
        --resource-group <resource-group-name> \
        --name cart-service \
        --service <Azure-Spring-Apps-service-instance-name> | jq -r '.identity.principalId')
@@ -155,7 +155,7 @@ The following instructions describe how to grant access to Key Vault secrets to 
 1. Use the following commands to set an access policy of `get list` on Key Vault for the Order Service application:
 
    ```azurecli
-   ORDER_SERVICE_APP_IDENTITY=$(az spring app show \
+   export ORDER_SERVICE_APP_IDENTITY=$(az spring app show \
        --resource-group <resource-group-name> \
        --name order-service \
        --service <Azure-Spring-Apps-service-instance-name> | jq -r '.identity.principalId')
@@ -178,7 +178,7 @@ The following instructions describe how to grant access to Key Vault secrets to 
 1. Use the following commands to set an access policy of `get list` on Key Vault for the Catalog Service application:
 
    ```azurecli
-   CATALOG_SERVICE_APP_IDENTITY=$(az spring app show \
+   export CATALOG_SERVICE_APP_IDENTITY=$(az spring app show \
        --resource-group <resource-group-name> \
        --name catalog-service \
        --service <Azure-Spring-Apps-service-instance-name> | jq -r '.identity.principalId')
@@ -201,7 +201,7 @@ The following instructions describe how to grant access to Key Vault secrets to 
 1. Use the following commands to set an access policy of `get list` on Key Vault for the Identity Service application:
 
    ```azurecli
-   IDENTITY_SERVICE_APP_IDENTITY=$(az spring app show \
+   export IDENTITY_SERVICE_APP_IDENTITY=$(az spring app show \
        --resource-group <resource-group-name> \
        --name identity-service \
        --service <Azure-Spring-Apps-service-instance-name> | jq -r '.identity.principalId')
@@ -219,13 +219,13 @@ After granting access to read secrets from Key Vault, use the following steps to
 1. Use the following command to retrieve the URI for Key Vault to be used in updating applications:
 
    ```azurecli
-   KEYVAULT_URI=$(az keyvault show --name <key-vault-name> | jq -r '.properties.vaultUri')
+   export KEYVAULT_URI=$(az keyvault show --name <key-vault-name> | jq -r '.properties.vaultUri')
    ```
 
 1. Use the following command to retrieve the URL for Spring Cloud Gateway to be used in updating applications:
 
    ```azurecli
-   GATEWAY_URL=$(az spring gateway show \
+   export GATEWAY_URL=$(az spring gateway show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
    ```
@@ -311,7 +311,7 @@ After granting access to read secrets from Key Vault, use the following steps to
 1. Use the following commands to retrieve the URL for Spring Cloud Gateway:
 
    ```azurecli
-   GATEWAY_URL=$(az spring gateway show \
+   export GATEWAY_URL=$(az spring gateway show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 

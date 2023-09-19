@@ -14,7 +14,7 @@ metadata:
 title: Frequently asked questions about classic to Azure Resource Manager migration
 summary: |
   > [!IMPORTANT]
-  > Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 1, 2023. [Learn more](https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](./classic-vm-deprecation.md#how-does-this-affect-me).
+  > Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 6, 2023. [Learn more](https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](./classic-vm-deprecation.md#how-does-this-affect-me).
   
 
 sections:
@@ -43,7 +43,7 @@ sections:
       - question: |
           What is the definition of an existing customer on IaaS Virtual Machines (classic)?
         answer: |
-          Customers who had active or stopped but allocated IaaS VMs (Classic) in their subscriptions in the month of February 2020, are considered existing customers. Only these customers get until September 1, 2023 to migrate their VMs from Azure Service Manager to Azure Resource Manager. 
+          Customers who had active or stopped but allocated IaaS VMs (Classic) in their subscriptions in the month of February 2020, are considered existing customers. Only these customers get until September 6, 2023 to migrate their VMs from Azure Service Manager to Azure Resource Manager. 
 
       - question: |
           Why am I getting an error stating "NewClassicVMCreationNotAllowedForSubscription"?
@@ -113,6 +113,11 @@ sections:
           Additionally, if you want to back up the migrated VM, go to Virtual Machine management blade to [enable backup](../backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
           
       - question: |
+          How can I restore backups of classic VMs once Classic VMs and Classic Storage Accounts are retired?
+        answer: |
+          Once classic VMs have been retired, restoring backups of classic VMs require using the `restore disks` restoration type. Classic VM disks may be restored to ARM storage accounts. After restoring the disks, you can [convert them to managed disks](scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md) and [create a new ARM VM with them attached](scripts/create-vm-from-managed-os-disks.md). Alternatively, you can [attach them as data disks to an existing VM](windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).  
+
+      - question: |
           Can I validate my subscription or resources to see if they're capable of migration? 
         answer: |
           Yes. In the platform-supported migration option, the first step in preparing for migration is to validate that the resources are capable of migration. In case the validate operation fails, you receive messages for all the reasons the migration cannot be completed.
@@ -146,7 +151,7 @@ sections:
           How do I migrate my classic storage accounts to Resource Manager?
         answer: |
           If you have a classic VM attached to your account, migrate the classic VMs first. Classic storage accounts must be migrated after classic VM is migrated. Migration can be done either using the Azure portal, with PowerShell or with Azure CLI.
-          1. [Migrate using PowerShell](./migration-classic-resource-manager-ps.md#step-52-migrate-a-storage-account)
+          1. [Migrate using PowerShell](./migration-classic-resource-manager-ps.md#step-5b-migrate-a-storage-account)
           2. [Migrate using Azure CLI](./migration-classic-resource-manager-cli.md#step-5-migrate-a-storage-account)
           3. [Migrate using Azure portal](./migration-classic-resource-manager-overview.md#migration-of-storage-accounts)
         

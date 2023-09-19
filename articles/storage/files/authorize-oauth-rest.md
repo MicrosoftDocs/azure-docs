@@ -1,25 +1,24 @@
 ---
-title: Enable admin-level read and write access to Azure file shares using Azure Active Directory with Azure Files OAuth over REST (preview)
+title: Enable admin-level read and write access to Azure file shares using Azure Active Directory with Azure Files OAuth over REST
 description: Authorize access to Azure file shares and directories via the OAuth authentication protocol over REST APIs using Azure Active Directory (Azure AD). Assign Azure roles for access rights. Access files with an Azure AD account.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/11/2023
+ms.date: 08/04/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: devx-track-azurepowershell
 ---
 
-# Access Azure file shares using Azure Active Directory with Azure Files OAuth over REST (preview)
+# Access Azure file shares using Azure Active Directory with Azure Files OAuth over REST
 
-Azure Files OAuth over REST (preview) enables admin-level read and write access to Azure file shares for users and applications via the [OAuth](https://oauth.net/) authentication protocol, using Azure Active Directory (Azure AD) for REST API based access. Users, groups, first-party services such as Azure portal, and third-party services and applications using REST interfaces can now use OAuth authentication and authorization with an Azure AD account to access data in Azure file shares. PowerShell cmdlets and Azure CLI commands that call REST APIs can also use OAuth to access Azure file shares.
+Azure Files OAuth over REST enables admin-level read and write access to Azure file shares for users and applications via the [OAuth](https://oauth.net/) authentication protocol, using Azure Active Directory (Azure AD) for REST API based access. Users, groups, first-party services such as Azure portal, and third-party services and applications using REST interfaces can now use OAuth authentication and authorization with an Azure AD account to access data in Azure file shares. PowerShell cmdlets and Azure CLI commands that call REST APIs can also use OAuth to access Azure file shares.
 
 > [!IMPORTANT]
 > You must call the REST API using an explicit header to indicate your intent to use the additional privilege. This is also true for Azure PowerShell and Azure CLI access.
 
 ## Limitations
 
-Azure Files OAuth over REST (preview) only supports the FileREST Data APIs that support operations on files and directories. OAuth isn't supported on FilesREST data plane APIs that manage FileService and FileShare resources. These management APIs are called using the Storage Account Key or SAS token, and are exposed through the data plane for legacy reasons. We recommend using the control plane APIs (the storage resource provider - Microsoft.Storage) that support OAuth for all management activities related to FileService and FileShare resources.
+Azure Files OAuth over REST only supports the FileREST Data APIs that support operations on files and directories. OAuth isn't supported on FilesREST data plane APIs that manage FileService and FileShare resources. These management APIs are called using the Storage Account Key or SAS token, and are exposed through the data plane for legacy reasons. We recommend using the control plane APIs (the storage resource provider - Microsoft.Storage) that support OAuth for all management activities related to FileService and FileShare resources.
 
 Authorizing file data operations with Azure AD is supported only for REST API versions 2022-11-02 and later. See [Versioning for Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services).
 
@@ -53,7 +52,7 @@ To use the Azure Files OAuth over REST feature, there are additional permissions
 
 Users, groups, or service principals that call the REST API with OAuth must have either the `readFileBackupSemantics` or `writeFileBackupSemantics` action assigned to the role that allows data access. This is a requirement to use this feature. For details on the permissions required to call specific File service operations, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
-This preview provides two new built-in roles that include these new actions.  
+This feature provides two new built-in roles that include these new actions.  
 
 | **Role** | **Data actions** |
 |----------|------------------|
@@ -185,19 +184,13 @@ The storage context with OAuth will only work for operations on files and direct
 
 You'll need an Azure resource group and a storage account within that resource group. The storage account must be assigned an appropriate role that grants explicit permissions to perform data operations against file shares. Make sure that you have the required roles and permissions to access both the management services and data services. For details on the permissions required to call specific File service operations, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
-## Install Az.Storage preview module
+## Install Az.Storage module
 
-This feature is available currently available in the Az.Storage preview module. You can install the preview module using the following steps.
+This feature is available in the latest Az.Storage module. Install the module using this command:
 
-1. Install the latest PowerShellGet module (You can skip this step if PowerShellGet is already updated):
-   
-   `Install-Module PowerShellGet –Repository PSGallery –Force`
-   
-   Close and re-open the PowerShell console after you update the module.
-
-2. Install the latest Az.Storage preview module:
-   
-   `Install-Module Az.Storage -Repository PsGallery -RequiredVersion 5.6.2-preview -AllowClobber -AllowPrerelease -Force`  
+```azurepowershell-interactive
+Install-Module Az.Storage -Repository PsGallery
+```
 
 ## Authorize access to file data
 

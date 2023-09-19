@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 06/21/2023
 ms.author: v-shilichen
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
+ms.custom: devx-track-java, devx-track-extended-java, mode-other, event-tier1-build-2022, engagement-fy23
 ---
 
 # Quickstart: Deploy microservice applications to Azure Spring Apps
@@ -25,11 +25,16 @@ This article explains how to deploy microservice applications to Azure Spring Ap
 
 The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
 
-- Uses Azure Spring Apps to manage the Spring Boot apps.
+- Uses Azure Spring Apps to manage the Spring Boot apps. Each app uses HSQLDB as the persistent store.
 - Uses the managed components Spring Cloud Config Server and Eureka Service Discovery on Azure Spring Apps. The Config Server reads Git repository configuration.
 - Exposes the URL of API Gateway to load balance requests to service apps, and exposes the URL of the Admin Server to manage the applications.
 - Analyzes logs using the Log Analytics workspace.
 - Monitors performance with Application Insights.
+
+> [!NOTE]
+> This article uses a simplified version of PetClinic, using an in-memory database that is not production-ready to quickly deploy to Azure Spring Apps.
+> 
+> The deployed app `admin-server` exposes public access, which is a risk point. The production environment needs to secure the Spring Boot Admin application.
 
 ## 1. Prerequisites
 
@@ -71,13 +76,34 @@ Open the URL exposed by the app `admin-server` to manage the applications throug
 ## 7. Next steps
 
 > [!div class="nextstepaction"]
+> [Quickstart: Integrate with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md)
+
+> [!div class="nextstepaction"]
+> [Use Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
+
+> [!div class="nextstepaction"]
+> [Automate application deployments to Azure Spring Apps](./how-to-cicd.md)
+
+> [!div class="nextstepaction"]
+> [Structured application log for Azure Spring Apps](./structured-app-log.md)
+
+> [!div class="nextstepaction"]
+> [Use managed identities for applications in Azure Spring Apps](./how-to-use-managed-identities.md)
+
+> [!div class="nextstepaction"]
 > [Quickstart: Using Log Analytics with Azure Spring Apps](./quickstart-setup-log-analytics.md)
 
 > [!div class="nextstepaction"]
 > [Quickstart: Monitoring with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Integrate with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md)
+> [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)
+
+> [!div class="nextstepaction"]
+> [Quickstart: Introduction to the sample app - Azure Spring Apps](./quickstart-sample-app-introduction.md)
+
+> [!div class="nextstepaction"]
+> [Introduction to the Fitness Store sample app](./quickstart-sample-app-acme-fitness-store-introduction.md)
 
 For more information, see the following articles:
 

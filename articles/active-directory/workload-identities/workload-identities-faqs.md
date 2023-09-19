@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: workload-identities
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/21/2023
+ms.date: 9/15/2023
 ms.author: gasinh
 ms.reviewer: 
 ms.custom: aaddev 
@@ -40,12 +40,13 @@ pricing](https://www.microsoft.com/security/business/identity-access/microsoft-e
 | Workload identities sign-in activity and audit trail |   Monitor and track workload identity behavior  |  Yes |  Yes |
 | **Managed identities**| Use Azure AD identities in Azure without handling credentials |  Yes| Yes |
 | Workload identity federation | Use workloads tested by external Identity Providers (IdPs) to access Azure AD protected resources | Yes | Yes |
-|  **Conditional Access (CA)**     |   |   |    
-| CA policies for workload identities |Define the condition in which a workload can access a resource, such as an IP range | |  Yes | 
+|  **Conditional Access**     |   |   |    
+| Conditional Access policies for workload identities |Define the condition in which a workload can access a resource, such as an IP range | |  Yes | 
 |**Lifecycle Management**|    |    |   |
 |Access reviews for service provider-assigned privileged roles  |   Closely monitor workload identities with impactful permissions |    |  Yes |
+| Application authentication methods API |  Allows IT admins to enforce best practices for how apps in their organizations use application authentication methods. |  | Yes |
 |**Identity Protection**  |  | |
-|Identity Protection for workload identities  | Detect and remediate compromised workload identities | | Yes |                                                                            
+|Identity Protection for workload identities  | Detect and remediate compromised workload identities | | Yes |
 
 ## What is the cost of Workload Identities Premium plan? 
 
@@ -93,26 +94,12 @@ applications for connecting resources that support Azure AD authentication.
 
 ## How many licenses do I need to purchase? Do I need to license all workload identities including Microsoft and Managed Service Identities? 
 
-All workload identities - service principles, apps and managed identities, configured in your directory for a Microsoft Entra
-Workload Identities Premium feature require a license. Select and prioritize the identities based on the available licenses. Remove
-the workload identities from the directory that are no longer required.
+All workload identities - service principles, apps and managed identities, configured in your directory for a Microsoft Entra Workload Identities Premium feature require a license. Customers don’t need to license all the workload identities. You can find the right number of Workload ID licenses with the following guidance:
 
-The following identity functionalities are currently available to view
-in a directory:
-
-- Identity Protection: All single-tenant and multi-tenant service
-  principals excluding managed identities and Microsoft apps.
-
-- Conditional Access: Single-tenant service principals (excluding
-  managed identities) capable of acting as a subject/client, having a
-  defined credential.
-
-- Access reviews: All single-tenant and multi-tenant service
-  principals assigned to privileged roles.
-
->[!NOTE]
->Functionality is subject to change, and feature coverage is
-intended to expand.
+1. Customer will need to license enterprise applications or service principals ONLY if they set up Conditional Access policies or use Identity Protection for them.
+2. Customers don't need to license applications at all, even if they are using Conditional Access policies.
+3. Customers will need to license managed identities, only when they set up access reviews for managed identities.
+You can find the number of each workload identity type (enterprise apps/service principals, apps, managed identities) on the product landing page at the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 ## Do these licenses require individual workload identities assignment? 
 

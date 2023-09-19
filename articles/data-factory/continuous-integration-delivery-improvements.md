@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 07/20/2023
 ---
 
 # Automated publishing for continuous integration and delivery

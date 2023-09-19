@@ -2,7 +2,7 @@
 title: 'App Service Environment version comparison'
 description: This article provides an overview of the App Service Environment versions and feature differences between them.
 author: seligj95
-ms.date: 3/30/2023
+ms.date: 7/24/2023
 ms.author: jordanselig
 ms.topic: article
 ---
@@ -27,6 +27,7 @@ App Service Environment has three versions. App Service Environment v3 is the la
 |Dedicated host group     |No         |No         |[Yes](creation.md#deployment-considerations) (not compatible with zone redundancy)         |
 |Upgrade preference for planned maintenance    |No         |No         |[Yes](how-to-upgrade-preference.md)         |
 |FTPS     |Yes         |Yes         |Yes, [must be explicitly enabled](configure-network-settings.md#ftp-access). Access to FTPS endpoint using custom domain suffix isn't supported.         |
+|FTPS endpoint structure     |ftps://APP-NAME.ASE-NAME.appserviceenvironment.net        |ftps://APP-NAME.ASE-NAME.appserviceenvironment.net - Custom domain suffix is supported if you have one configured by replacing the App Service Environment name and the default domain suffix with your custom domain suffix.        |ftps://ASE-NAME.ftp.appserviceenvironment.net/site/wwwroot - Custom domain suffix isn't supported. Each app on the same App Service Environment v3 uses the same FTPS endpoint but has its own unique application scope credentials for authentication.        |
 |Remote debugging     |Yes         |Yes         |Yes, [must be explicitly enabled](configure-network-settings.md#remote-debugging-access)         |
 |[Azure virtual network (classic)](../../virtual-network/create-virtual-network-classic.md) support    |Yes         |No         |No         |
 
@@ -35,7 +36,7 @@ App Service Environment has three versions. App Service Environment v3 is the la
 
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|
-|Networking dependencies     |Must [manage all inbound and outbound traffic](app-service-app-service-environment-network-architecture-overview.md). Network security groups must allow management traffic.         |Must [manage all inbound and outbound traffic](network-info.md). Network security groups must allow management traffic.         |No [networking dependencies](networking.md) on the customer's virtual network         |
+|Networking dependencies     |Must [manage all inbound and outbound traffic](app-service-app-service-environment-network-architecture-overview.md). Network security groups must allow management traffic.         |Must [manage all inbound and outbound traffic](network-info.md). Network security groups must allow management traffic. Ensure that [Azure Load Balancer is able to connect to the subnet on port 16001](network-info.md#inbound-dependencies).        |No [networking dependencies](networking.md) on the customer's virtual network. Ensure that [Azure Load Balancer is able to connect to the subnet on port 80](networking.md#ports-and-network-restrictions).         |
 |Private endpoint support     |No         |No         |Yes, [must be explicitly enabled](networking.md#private-endpoint)         |
 |Reach apps in an internal-VIP App Service Environment across global peering     |No         |No         |Yes         |
 |SMTP traffic     |Yes         |Yes         |Yes         |

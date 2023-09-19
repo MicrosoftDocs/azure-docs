@@ -1,0 +1,87 @@
+- name: Application Gateway for Containers documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Application Gateway for Containers?
+    href: overview.md
+- name: Quickstarts
+  items:
+  - name: Deploy Application Gateway for Containers ALB Controller
+    href: quickstart-deploy-application-gateway-for-containers-alb-controller.md
+  - name: Create Application Gateway for Containers - bring your own deployment
+    href: quickstart-create-application-gateway-for-containers-byo-deployment.md
+  - name: Create Application Gateway for Containers - managed by ALB Controller
+    href: quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md
+- name: Concepts
+  items:
+  - name: Application Gateway for Containers components
+    href: application-gateway-for-containers-components.md
+  - name: TLS policy
+    href: tls-policy.md
+  - name: Frequently Asked Questions (FAQ)
+    href: faq.yml
+  - name: Health monitoring
+    items:
+    - name: Backend Health and Metrics
+      href: alb-controller-backend-health-metrics.md
+    - name: Diagnostic Logs
+      href: diagnostics.md
+    - name: Metrics
+      href: application-gateway-for-containers-metrics.md
+- name: How-to guides
+  items:
+  - name: Gateway API
+    items:
+     - name: Backend MTLS
+       href: how-to-backend-mtls-gateway-api.md
+     - name: Multiple site hosting
+       href: how-to-multiple-site-hosting-gateway-api.md
+     - name: Path, header, and query string based routing
+       href: how-to-path-header-query-string-routing-gateway-api.md
+     - name: SSL Offloading
+       href: how-to-ssl-offloading-gateway-api.md
+     - name: Traffic Splitting / Weighted Round Robin
+       href: how-to-traffic-splitting-gateway-api.md
+  - name: Ingress API
+    items:
+    - name: SSL Offloading
+      href: how-to-ssl-offloading-ingress-api.md
+  - name: Troubleshoot
+    href: troubleshooting-guide.md
+- name: Kubernetes Reference
+  items:
+  - name: API Specification
+    href: api-specification-kubernetes.md
+- name: Reference
+  items:
+  - name: ALB Controller release notes
+    href: alb-controller-release-notes.md
+  - name: Azure CLI
+    href: /cli/azure/network/alb
+  - name: Azure PowerShell
+    href: /powershell/azure/
+  - name: .NET
+    href: /dotnet/api/overview/azure/servicenetworking
+  - name: Java
+    href: /java/api/overview/azure/servicenetworking
+  - name: Python
+    href: /python/api/overview/azure/servicenetworking
+  - name: REST
+    href: /rest/api/applicationgatewaycontainers
+  - name: Azure Resource Manager
+    displayName: ARM
+    href: ../../azure-resource-manager/management/overview.md
+- name: Resources
+  items:
+  - name: Author templates
+    displayName: ARM
+    href: ../../azure-resource-manager/templates/syntax.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/application-gateway/
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-application-gateway-for-containers
+ 

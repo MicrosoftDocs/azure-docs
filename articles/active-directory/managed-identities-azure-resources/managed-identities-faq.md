@@ -44,7 +44,7 @@ az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  princi
 
 You can keep your users from creating user-assigned managed identities using [Azure Policy](../../governance/policy/overview.md)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and go to **Policy**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Policy**.
 2. Choose **Definitions**
 3. Select **+ Policy definition** and enter the necessary information.
 4. In the policy rule section, paste:

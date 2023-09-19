@@ -20,6 +20,6 @@ The following steps exemplify how to find, download, and install the Calling SDK
 1. Open NuGet Package Manager (`Tools` -> `NuGet Package Manager` -> `Manage NuGet Packages for Solution`)
 2. Click on `Browse` and then type `Azure.Communication.Calling.WindowsClient` in the search box.
 3. Make sure that `Include prerelease` check box is selected.
-4. Click on the `Azure.Communication.Calling.WindowsClient` package, select `Azure.Communication.Calling.WindowsClient` [1.0.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.0.0) or newer version.
+4. Click on the `Azure.Communication.Calling.WindowsClient` package, select `Azure.Communication.Calling.WindowsClient` [1.2.0-beta.1](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.2.0-beta.1) or newer version.
 5. Select the checkbox corresponding to the CS project on the right-side tab.
 6. Click on the `Install` button.

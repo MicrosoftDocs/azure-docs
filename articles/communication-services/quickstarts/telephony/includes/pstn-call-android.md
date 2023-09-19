@@ -15,7 +15,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A [phone number acquired](../get-phone-number.md) in your Communication Services resource, or Azure Communication Services [direct routing configured](../../../concepts/telephony/direct-routing-provisioning.md)
+- A [phone number acquired](../get-phone-number.md) in your Communication Services resource, or Azure Communication Services [Direct Routing configured](../../../concepts/telephony/direct-routing-provisioning.md). If you have a free subscription, you can [get a trial phone number](../../telephony/get-trial-phone-number.md).
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../identity/access-tokens.md)
 - Complete the quickstart for [getting started with adding calling to your application](../../voice-video-calling/getting-started-with-calling.md)
 
@@ -35,7 +35,7 @@ import com.azure.android.communication.common.PhoneNumberIdentifier;
 
 ## Start a call to phone
 
-Specify the phone number you acquired from within your Communication Services resource. This number will be used as a caller id to start the call:
+Specify the phone number you acquired from within your Communication Services resource. This number is used as a caller ID to start the call:
 
 > [!WARNING]
 > Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444)
@@ -59,7 +59,7 @@ Modify `startCall()` event handler in **MainActivity.java**, so that it handles 
 
 ## Launch the app and call the echo bot
 
-The app can now be launched using the "Run App" button on the toolbar (Shift+F10). To make a call, provide a phone number in the added text field and click the **CALL** button.
+The app can now be launched using the "Run App" button on the toolbar (Shift+F10). To make a call, provide a phone number in the added text field and select the **CALL** button.
 > [!WARNING]
 > Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444)
 

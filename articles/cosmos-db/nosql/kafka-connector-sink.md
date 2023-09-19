@@ -123,7 +123,7 @@ curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> 
 
 ## Confirm data written to Azure Cosmos DB
 
-Sign into the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account. Check that the three records from the “hotels” topic are created in your account.
+Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account. Check that the three records from the “hotels” topic are created in your account.
 
 ## Cleanup
 

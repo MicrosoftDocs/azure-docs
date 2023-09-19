@@ -40,7 +40,7 @@ Because the Azure Cosmos DB Emulator provides an emulated environment that runs 
 
 * The emulator is not a scalable service and it doesn't support a large number of containers. When using the Azure Cosmos DB Emulator, by default, you can create up to 25 fixed size containers at 400 RU/s (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value](emulator-command-line-parameters.md#change-the-number-of-default-containers) article.
 
-* The emulator does not offer different [Azure Cosmos DB consistency levels](consistency-levels.md) like the cloud service does.
+* The emulator does not offer all of the [Azure Cosmos DB consistency levels](consistency-levels.md) that the cloud service does, only [*Session*](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/cosmos-db/consistency-levels.md#session-consistency) consistency and [*Strong*](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/cosmos-db/consistency-levels.md#strong-consistency) consistency are supported. The default consistency level is *Session*, which can be changed using [command line parameters](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/cosmos-db/emulator-command-line-parameters.md).
 
 * The emulator does not offer [multi-region replication](distribute-data-globally.md).
 

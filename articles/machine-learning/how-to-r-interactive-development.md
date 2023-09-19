@@ -14,7 +14,7 @@ ms.devlang: r
 
 # Interactive R development
  
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 This article shows how to use R on a compute instance in Azure Machine Learning studio, that runs an R kernel in a Jupyter notebook.
 

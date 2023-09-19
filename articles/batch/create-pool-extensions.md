@@ -2,6 +2,7 @@
 title: Use extensions with Batch pools
 description: Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes. 
 ms.topic: how-to
+ms.custom: devx-track-linux
 ms.date: 05/26/2023
 ---
 
@@ -32,6 +33,7 @@ The following extensions can currently be installed when creating a Batch pool:
 - [HPC GPU driver extension for Linux on NVIDIA](../virtual-machines/extensions/hpccompute-gpu-linux.md)
 - [Microsoft Antimalware extension for Windows](../virtual-machines/extensions/iaas-antimalware-windows.md)
 - [Azure Monitor agent for Linux](../azure-monitor/agents/azure-monitor-agent-manage.md)
+- [Azure Monitor agent for Windows](../azure-monitor/agents/azure-monitor-agent-manage.md)
 
 You can request support for additional publishers and/or extension types by opening a support request.
 

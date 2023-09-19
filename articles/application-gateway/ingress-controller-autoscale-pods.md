@@ -4,6 +4,7 @@ description: This article provides instructions on how to scale your AKS backend
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: greglin
@@ -99,7 +100,7 @@ metadata:
   name: deployment-scaler
 spec:
   scaleTargetRef:
-    apiVersion: extensions/v1beta1
+    apiVersion: networking.k8s.io/v1
     kind: Deployment
     name: aspnet # replace with your deployment's name
   minReplicas: 1

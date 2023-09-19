@@ -1,8 +1,8 @@
 ---
 title: How to modify access permissions to Azure Monitor
 description: Learn how to manually set up permissions that allow your Azure Managed Grafana instance to access a data source
-author: mcleanbyron 
-ms.author: mcleans 
+author: maud-lv 
+ms.author: malev 
 ms.service: managed-grafana 
 ms.custom: engagement-fy23
 ms.topic: how-to 
@@ -64,9 +64,9 @@ Assign a role assignment using the [az role assignment create](/cli/azure/role/a
 
 In the code below, replace the following placeholders:
 
-- `<assignee>`: enter the assignee's object ID. For a managed identity, enter the managed identity's ID.
-- `<roleNameOrId>`: enter the role's name or ID. For Monitoring Reader, enter `Monitoring Reader` or `43d0d8ad-25c7-4714-9337-8ba259a9fe05`.
-- `<scope>`: enter the full ID of the resource Azure Managed Grafana needs access to.
+- `<assignee>`: If its --assignee parameter then enter the assignee's object ID or user sign-in name or service principal name. If its --assignee-object-id parameter then enter object IDs for users or groups or service principals or managed identities. For managed identities use the principal ID. For service principals, use the object ID and not the app ID. For more information, refer [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
+- `<roleNameOrId>`: Enter the role's name or ID. For Monitoring Reader, enter `Monitoring Reader` or `43d0d8ad-25c7-4714-9337-8ba259a9fe05`.
+- `<scope>`: Enter the full ID of the resource Azure Managed Grafana needs access to.
 
 ```azurecli
 az role assignment create --assignee "<assignee>" \
@@ -74,12 +74,20 @@ az role assignment create --assignee "<assignee>" \
 --scope "<scope>"
 ```
 
+or
+
+```azurecli
+az role assignment create --assignee-object-id "<assignee>" --assignee-principal-type "<ForeignGroup / Group / ServicePrincipal / User>" \
+--role "<roleNameOrId>" \
+--scope "<scope>"
+```
+
 Example: assigning permission for an Azure Managed Grafana instance to access an Application Insights resource using a managed identity.
 
 ```azurecli
-az role assignment create --assignee "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourcegroups/my-rg/providers/Microsoft.Dashboard/grafana/mygrafanaworkspace" \
+az role assignment create --assignee-object-id "abcdef01-2345-6789-0abc-def012345678" --assignee-principal-type "ServicePrincipal" \
 --role "Monitoring Reader" \
---scope "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourcegroups/my-rg/providers/microsoft.insights/components/myappinsights/
+--scope "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourcegroups/my-rg/providers/microsoft.insights/components/myappinsights/"
 ```
 
 For more information about assigning Azure roles using the Azure CLI, refer to the [Role based access control documentation](../role-based-access-control/role-assignments-cli.md).

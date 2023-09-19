@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: asteen, ashishj
 ---
@@ -131,7 +131,7 @@ The consumer of the Kerberos ticket provided by the connector. At this stage, ex
 
    - Check the SPN defined against the application’s settings in the portal. Make sure that the same SPN configured against the target Azure AD account is used by the application’s app pool.
 
-      ![SPN configuration in the Azure portal](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
+      ![SPN configuration in the Microsoft Entra admin center](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
 
    - Go into IIS and select the **Configuration Editor** option for the application. Navigate to **system.webServer/security/authentication/windowsAuthentication**. Make sure the value **UseAppPoolCredentials** is **True**.
 

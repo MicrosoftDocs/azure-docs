@@ -2,7 +2,7 @@
 author: spelluru
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 09/26/2022
+ms.date: 08/10/2023
 ms.author: spelluru
 ---
 ### Create a console application

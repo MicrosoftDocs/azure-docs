@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 07/05/2023
 ms.author: jeedes
 
 ---
@@ -62,19 +62,19 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** textbox, type the URL:
-    `https://app.oneflow.com/api/ext/ssosaml/metadata`
+    a. In the **Identifier** textbox, type a URL using the following pattern:
+    `https://app.oneflow.com/api/ext/ssosaml/metadata/<INSTANCE>`
 
     b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://app.oneflow.com/api/ext/ssosaml/acs/<INSTANCE>`
 
 1. If you wish to configure the application in **SP** initiated mode, then perform the following step:
 
-    In the **Sign on URL** textbox, type the URL:
-    `https://app.oneflow.com/login`
+    In the **Sign on URL** textbox, type a URL using the following pattern:
+    `https://login.oneflow.com/<INSTANCE>`
 
     > [!NOTE]
-    > The Reply URL is not real. Update this value with the actual Reply URL. Contact [Oneflow support team](mailto:support@oneflow.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Oneflow support team](mailto:support@oneflow.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Oneflow application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -116,7 +116,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Oneflow for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Oneflow tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Oneflow for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Oneflow tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Oneflow for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Additional resources
 

@@ -10,10 +10,10 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/12/2023
+ms.date: 09/08/2023
 ms.author: barclayn
 ms.reviewer: krbain
-ms.custom: "it-pro;seo-update-azuread-jan"
+ms.custom: it-pro, seo-update-azuread-jan, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -43,13 +43,14 @@ Groups created in | Security group default behavior | Microsoft 365 group defaul
 
 ## Make a group available for user self-service
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's been assigned the Global Administrator or Groups Administrator role for the directory.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
+1. Select Microsoft Entra ID (Azure AD).
 
-2. Browse to **Azure Active Directory** > **Groups**, and then select **General** settings.
+2. Select **All groups** > **Groups**, and then select **General** settings.
 
  ![Azure Active Directory groups general settings.](./media/groups-self-service-management/groups-settings-general.png)
    > [!NOTE]
-   > In November 2023, the setting **Restrict users access to My Groups** will change to **Restrict users ability to see and edit security groups in My Groups.** If the setting is currently set to ‘Yes,’ end users will be able to access My Groups in November 2023, but will not be able to see security groups.
+   > In June 2024, the setting **Restrict users access to My Groups** will change to **Restrict users ability to see and edit security groups in My Groups.** If the setting is currently set to ‘Yes,’ end users will be able to access My Groups in June 2024, but will not be able to see security groups.
 
 3. Set **Owners can manage group membership requests in the Access Panel** to **Yes**.
 
@@ -102,11 +103,8 @@ To configure the _Users can create security groups in Azure portals, API or Powe
 
 These articles provide additional information on Azure Active Directory.
 
-* [Manage access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md)
+* [Manage access to resources with Azure Active Directory groups](../fundamentals/concept-learn-about-groups.md)
 * [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md)
 * [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md)
+* [What is Azure Active Directory?](../fundamentals/whatis.md)
 * [Integrate your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
-
-
-

@@ -3,14 +3,14 @@ title: Create a storage account
 titleSuffix: Azure Storage
 description: Learn to create a storage account to store blobs, files, queues, and tables. An Azure storage account provides a unique namespace in Microsoft Azure for reading and writing your data.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 05/02/2023
-ms.author: tamram
-ms.subservice: common
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23
+ms.date: 08/18/2023
+ms.author: akashdubey
+ms.subservice: storage-common-concepts
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement
 ---
 
 # Create a storage account
@@ -100,11 +100,24 @@ A storage account is an Azure Resource Manager resource. Resource Manager is the
 
 Every Resource Manager resource, including an Azure storage account, must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. This how-to shows how to create a new resource group.
 
+### Storage account type parameters
+
+When you create a storage account using PowerShell, the Azure CLI, Bicep, or Azure Templates, the storage account type is specified by the `kind` parameter (for example, `StorageV2`). The performance tier and redundancy configuration are specified together by the `sku` or `SkuName` parameter (for example, `Standard_GRS`). The following table shows which values to use for the `kind` parameter and the `sku` or `SkuName` parameter to create a particular type of storage account with the desired redundancy configuration.
+
+| Type of storage account | Supported redundancy configurations | Supported values for the kind parameter | Supported values for the sku or SkuName parameter | Supports hierarchical namespace |
+|--|--|--|--|--|
+| Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
+| Premium block blobs | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
+| Premium file shares | LRS / ZRS | FileStorage | Premium_LRS / Premium_ZRS | No |
+| Premium page blobs | LRS | StorageV2 | Premium_LRS | No |
+| Legacy standard general-purpose v1 | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
+| Legacy blob storage | LRS / GRS / RA-GRS | BlobStorage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
+
 # [Portal](#tab/azure-portal)
 
 To create an Azure storage account with the Azure portal, follow these steps:
 
-1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts. If the portal menu isn't visible, click the menu button to toggle it on.
+1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts. If the portal menu isn't visible, select the menu button to toggle it on.
 
     :::image type="content" source="media/storage-account-create/menu-expand-sml.png" alt-text="Image of the Azure portal homepage showing the location of the Menu button near the top left corner of the browser." lightbox="media/storage-account-create/menu-expand-lrg.png":::
 
@@ -299,15 +312,6 @@ To enable a hierarchical namespace for the storage account to use [Azure Data La
 
 The following table shows which values to use for the `SkuName` and `Kind` parameters to create a particular type of storage account with the desired redundancy configuration.
 
-| Type of storage account | Supported redundancy configurations | Supported values for the Kind parameter | Supported values for the SkuName parameter | Supports hierarchical namespace |
-|--|--|--|--|--|
-| Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
-| Premium block blobs | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
-| Premium file shares | LRS / ZRS | FileStorage | Premium_LRS / Premium_ZRS | No |
-| Premium page blobs | LRS | StorageV2 | Premium_LRS | No |
-| Legacy standard general-purpose v1 | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
-| Legacy blob storage | LRS / GRS / RA-GRS | BlobStorage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
-
 # [Azure CLI](#tab/azure-cli)
 
 To create a general-purpose v2 storage account with Azure CLI, first create a new resource group by calling the [az group create](/cli/azure/group#az-group-create) command.
@@ -363,17 +367,6 @@ az storage account show \
 ```
 
 To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), set the `enable-hierarchical-namespace` parameter to `true` on the call to the **az storage account create** command. Creating a hierarchical namespace requires Azure CLI version 2.0.79 or later.
-
-The following table shows which values to use for the `sku` and `kind` parameters to create a particular type of storage account with the desired redundancy configuration.
-
-| Type of storage account | Supported redundancy configurations | Supported values for the kind parameter | Supported values for the sku parameter | Supports hierarchical namespace |
-|--|--|--|--|--|
-| Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
-| Premium block blobs | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
-| Premium file shares | LRS / ZRS | FileStorage | Premium_LRS / Premium_ZRS | No |
-| Premium page blobs | LRS | StorageV2 | Premium_LRS | No |
-| Legacy standard general-purpose v1 | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
-| Legacy blob storage | LRS / GRS / RA-GRS | BlobStorage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
 
 # [Bicep](#tab/bicep)
 
@@ -447,7 +440,7 @@ If you try to delete a storage account associated with an Azure virtual machine,
 # [Portal](#tab/azure-portal)
 
 1. Navigate to the storage account in the [Azure portal](https://portal.azure.com).
-1. Click **Delete**.
+1. Select **Delete**.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -504,6 +497,12 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 ---
 Alternately, you can delete the resource group, which deletes the storage account and any other resources in that resource group. For more information about deleting a resource group, see [Delete resource group and resources](../../azure-resource-manager/management/delete-resource-group.md).
 
+## Create a general purpose v1 storage account
+
+[!INCLUDE [GPv1 support statement](../../../includes/storage-account-gpv1-support.md)]
+
+General purpose v1 (GPv1) storage accounts can no longer be created from the Azure portal. If you need to create a GPv1 storage account, follow the steps in section [Create a storage account](#create-a-storage-account-1) for PowerShell, the Azure CLI, Bicep, or Azure Templates. For the `kind` parameter, specify `Storage`, and choose a `sku` or `SkuName` from the [table of supported values](#storage-account-type-parameters).
+
 ## Next steps
 
 - [Storage account overview](storage-account-overview.md)
@@ -511,5 +510,3 @@ Alternately, you can delete the resource group, which deletes the storage accoun
 - [Move a storage account to another region](storage-account-move.md)
 - [Recover a deleted storage account](storage-account-recover.md)
 - [Migrate a classic storage account](classic-account-migrate.md)
-   
-

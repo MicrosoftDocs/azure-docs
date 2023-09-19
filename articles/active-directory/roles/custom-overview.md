@@ -11,7 +11,7 @@ ms.topic: overview
 ms.date: 04/10/2023
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -56,7 +56,7 @@ A role assignment is an Azure AD resource that attaches a *role definition* to a
 - Role definition - A collection of permissions. 
 - Scope - A way to constrain where those permissions are applicable.
 
-You can [create role assignments](manage-roles-portal.md) and [list the role assignments](view-assignments.md) using the Azure portal, Azure AD PowerShell, or Microsoft Graph API. Azure CLI is not supported for Azure AD role assignments.
+You can [create role assignments](manage-roles-portal.md) and [list the role assignments](view-assignments.md) using the Microsoft Entra admin center, Azure AD PowerShell, or Microsoft Graph API. Azure CLI is not supported for Azure AD role assignments.
 
 The following diagram shows an example of a role assignment. In this example, Chris has been assigned the App Registration Administrator custom role at the scope of the Contoso Widget Builder app registration. The assignment grants Chris the permissions of the App Registration Administrator role for only this specific app registration.
 
@@ -107,4 +107,4 @@ Using built-in roles in Azure AD is free. Using custom roles require an Azure AD
 
 - [Understand Azure AD roles](concept-understand-roles.md)
 - [Assign Azure AD roles to users](manage-roles-portal.md)
-- [Create and assign a custom role](custom-create.md)
+- [Create and assign a custom role in Azure Active Directory](custom-create.md)

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -36,7 +36,7 @@ The following table lists common capabilities required for header-based authenti
 |Federated SSO |In pre-authenticated mode, all applications are protected with Azure AD authentication and enable users to have single sign-on. |
 |Remote access |Application Proxy enables remote access to the app. Users can access the application from the internet on any browser using the External URL. Application Proxy is not intended for corporate access use. |
 |Header-based integration |Application Proxy does the SSO integration with Azure AD and then passes identity or other application data as HTTP headers to the application. |
-|Application authorization |Common policies can be specified based on the application being accessed, the user’s group membership and other policies. In Azure AD, policies are implemented using [conditional access](../conditional-access/overview.md). Application authorization policies only apply to the initial authentication request. |
+|Application authorization |Common policies can be specified based on the application being accessed, the user’s group membership and other policies. In Azure AD, policies are implemented using [Conditional Access](../conditional-access/overview.md). Application authorization policies only apply to the initial authentication request. |
 |Step-up authentication |Policies can be defined to force added authentication, for example, to gain access to sensitive resources. |
 |Fine grained authorization |Provides access control at the URL level. Added policies can be enforced based on the URL being accessed. The internal URL configured for the app, defines the scope of app that the policy is applied to. The policy configured for the most granular path is enforced.  |
 
@@ -47,7 +47,7 @@ The following table lists common capabilities required for header-based authenti
 
 :::image type="content" source="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works-updated.png" alt-text="How header-based single sign-on works with Application Proxy." lightbox="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works-updated.png":::
 
-1. The Admin customizes the attribute mappings required by the application in the Azure portal. 
+1. The Admin customizes the attribute mappings required by the application in the Microsoft Entra admin center. 
 2. When a user accesses the app, Application Proxy ensures the user is authenticated by Azure AD 
 3. The Application Proxy cloud service is aware of the attributes required. So the service fetches the corresponding claims from the ID token received during authentication. The service then translates the values into the required HTTP headers as part of the request to the Connector. 
 4. The request is then passed along to the Connector, which is then passed to the backend application. 
@@ -74,7 +74,7 @@ Before you get started with single sign-on for header-based applications, you sh
 5. Select **Add new header**. Provide a **Name** for the header and select either **Attribute** or **Transformation** and select from the drop-down which header your application needs.  
     - To learn more about the list of attribute available, see [Claims Customizations- Attributes](../develop/saml-claims-customization.md#attributes). 
     - To learn more about the list of transformation available, see [Claims Customizations- Claim Transformations](../develop/saml-claims-customization.md#claim-transformations). 
-    - You may also add a **Group Header**, to send all the groups a user is part of, or the groups assigned to the application as a header. To learn more about configuring groups as a value see: [Configure group claims for applications](../hybrid/how-to-connect-fed-group-claims.md#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration). 
+    - You may also add a **Group Header**, to send all the groups a user is part of, or the groups assigned to the application as a header. To learn more about configuring groups as a value see: [Configure group claims for applications](../hybrid/connect/how-to-connect-fed-group-claims.md#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration). 
 6. Select Save. 
 
 ## Test your app 

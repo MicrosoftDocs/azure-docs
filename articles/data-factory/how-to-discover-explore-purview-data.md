@@ -6,7 +6,7 @@ ms.topic: conceptual
 author: jianleishen
 ms.author: jianleishen
 ms.custom: seo-lt-2019
-ms.date: 08/09/2022
+ms.date: 07/17/2023
 ---
 
 # Discover and explore data in ADF using Microsoft Purview

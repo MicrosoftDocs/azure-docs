@@ -16,11 +16,11 @@ ms.reviewer: franksolomon
 
 # CLI (v2) mltable YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 Find the source JSON schema at https://azuremlschemas.azureedge.net/latest/MLTable.schema.json.
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## How to author `MLTable` files
 

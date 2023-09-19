@@ -111,7 +111,17 @@ The following steps reset the connector and reingest SAP logs from the last 30 m
 
 Make sure to [Review system logs](#review-system-logs) when you're done.
 
+### Missing IP address or transaction code fields in the SAP audit log
 
+This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect additional fields in the `ABAPAuditLog_CL` and `SAPAuditLog` tables. 
+
+If you're using SAP BASIS versions higher than 7.5 SP12 and missing IP address or transaction code fields in the SAP audit log, verify that the SAP system from which you're extracting the data contains the relevant change requests (transports). To learn more, review the [Retrieve additional information from SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional) section in the prerequisites.
+
+### No data is showing in the SAP table data log
+
+This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect table data log changes in the `ABAPTableDataLog_CL` table. 
+
+If no data is showing in the `ABAPTableDataLog_CL` table, verify that the SAP system from which you're extracting the data contains the relevant change requests (transports). To learn more, review the [Retrieve additional information from SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional) section in the prerequisites.
 
 ## Common issues
 
@@ -315,10 +325,6 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 - [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
-
-Troubleshooting:
-
-- [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 

@@ -15,7 +15,7 @@ ms.custom: devplatv2, devx-track-azurecli
 
 # Image processing with batch model deployments
 
-[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
 Batch model deployments can be used for processing tabular data, but also any other file type like images. Those deployments are supported in both MLflow and custom models. In this tutorial, we will learn how to deploy a model that classifies images according to the ImageNet taxonomy.
 
@@ -39,7 +39,7 @@ You can follow along this sample in a Jupyter Notebook. In the cloned repository
 
 ## Prerequisites
 
-[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
+[!INCLUDE [machine-learning-batch-prereqs](includes/azureml-batch-prereqs.md)]
 
 
 ## Image classification with batch deployments
@@ -361,10 +361,10 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
 
     | file                        | class | probabilities | label        |
     |-----------------------------|-------|---------------| -------------|
-    | n02088094_Afghan_hound.JPEG | 161   | 0.994745	  | Afghan hound |
+    | n02088094_Afghan_hound.JPEG | 161   | 0.994745      | Afghan hound |
     | n02088238_basset            | 162   | 0.999397      | basset       |
     | n02088364_beagle.JPEG       | 165   | 0.366914      | bluetick     |
-    | n02088466_bloodhound.JPEG   | 164   | 0.926464	  | bloodhound   |
+    | n02088466_bloodhound.JPEG   | 164   | 0.926464      | bloodhound   |
     | ...                         | ...   | ...           | ...          |
     
 

@@ -3,13 +3,13 @@ title: Use PowerShell to manage data in Azure independent clouds
 titleSuffix: Azure Storage
 description: Managing Storage in the China Cloud, Government Cloud, and German Cloud Using Azure PowerShell.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 12/04/2019
-ms.author: tamram
-ms.subservice: common 
+ms.author: akashdubey
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -18,7 +18,7 @@ ms.custom: devx-track-azurepowershell
 Most people use Azure Public Cloud for their global Azure deployment. There are also some independent deployments of Microsoft Azure for reasons of sovereignty and so on. These independent deployments are referred to as "environments." The following list details the independent clouds currently available.
 
 - [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
-- [Azure China 21Vianet Cloud operated by 21Vianet in China](http://www.windowsazure.cn/)
+- [Microsoft Azure operated by 21Vianet](http://www.windowsazure.cn/)
 - [Azure German Cloud](../../germany/germany-welcome.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -164,5 +164,5 @@ Remove-AzResourceGroup -Name $resourceGroup
 - [Persisting user logins across PowerShell sessions](/powershell/azure/context-persistence)
 - [Azure Government storage](../../azure-government/compare-azure-government-global-azure.md)
 - [Microsoft Azure Government Developer Guide](../../azure-government/documentation-government-developer-guide.md)
-- [Developer Notes for Azure China 21Vianet Applications](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+- [Application Developer Notes for Azure operated by 21Vianet](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 - [Azure Germany Documentation](../../germany/germany-welcome.md)

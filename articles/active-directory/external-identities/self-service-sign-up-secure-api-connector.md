@@ -4,7 +4,7 @@ description: Secure your custom RESTful APIs used as API connectors in self-serv
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/15/2023
 
 ms.author: mimart
@@ -27,13 +27,14 @@ You can protect your API endpoint by using either HTTP basic authentication or H
 
 ## HTTP basic authentication
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/rfc2617). Basic authentication works as follows: Azure AD sends an HTTP request with the client credentials (`username` and `password`) in the `Authorization` header. The credentials are formatted as the base64-encoded string `username:password`. Your API then is responsible for checking these values to perform other authorization decisions.
 
 To configure an API Connector with HTTP basic authentication, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Under **Azure services**, select **Azure AD**.
-1. In the left menu, select **External Identities**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **External Identities** > **Overview**.
 1. Select **All API connectors**, and then select the **API Connector** you want to configure.
 1. For the **Authentication type**, select **Basic**.
 1. Provide the **Username**, and **Password** of your REST API endpoint.
@@ -69,9 +70,8 @@ You can then [export the certificate](../../key-vault/certificates/how-to-export
 
 To configure an API Connector with client certificate authentication, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Under **Azure services**, select **Azure AD**.
-1. In the left menu, select **External Identities**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **External Identities** > **Overview**.
 1. Select **All API connectors**, and then select the **API Connector** you want to configure.
 1. For the **Authentication type**, select **Certificate**.
 1. In the **Upload certificate** box, select your certificate's .pfx file with a private key.

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Users often create passwords that use common local words such as a school, sports team, or famous person. These passwords are easy to guess, and weak against dictionary-based attacks. To enforce strong passwords in your organization, Azure Active Directory (Azure AD) Password Protection provides a global and custom banned password list. A password change request fails if there's a match in these banned password list.
 
-To protect your on-premises Active Directory Domain Services (AD DS) environment, you can install and configure Azure AD Password Protection to work with your on-prem DC. This article shows you how to enable Azure AD Password Protection for your on-premises environment.
+To protect your on-premises Active Directory Domain Services (AD DS) environment, you can install and configure Azure AD Password Protection to work with your on-premises DC. This article shows you how to enable Azure AD Password Protection for your on-premises environment.
 
 For more information on how Azure AD Password Protection works in an on-premises environment, see [How to enforce Azure AD Password Protection for Windows Server Active Directory](concept-password-ban-bad-on-premises.md).
 
@@ -29,7 +29,10 @@ This article shows you how to enable Azure AD Password Protection for your on-pr
 
 ## Enable on-premises password protection
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Password protection**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Administrator](../roles/permissions-reference.md#authentication-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Password protection**.
 1. Set the option for **Enable password protection on Windows Server Active Directory** to *Yes*.
 
     When this setting is set to *No*, all deployed Azure AD Password Protection DC agents go into a quiescent mode where all passwords are accepted as-is. No validation activities are performed, and audit events aren't generated.
@@ -37,7 +40,7 @@ This article shows you how to enable Azure AD Password Protection for your on-pr
 1. It's recommended to initially set the **Mode** to *Audit*. After you're comfortable with the feature and the impact on users in your organization, you can switch the **Mode** to *Enforced*. For more information, see the following section on [modes of operation](#modes-of-operation).
 1. When ready, select **Save**.
 
-    [![Enable on-premises password protection under Authentication Methods in the Azure portal](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png)](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
+    [![Enable on-premises password protection under Authentication Methods in the Microsoft Entra admin center](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png)](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
 
 ## Modes of operation
 
@@ -68,4 +71,4 @@ Affected end users may need to work with their IT staff to understand the new re
 
 To customize the banned password list for your organization, see [Configure the Azure AD Password Protection custom banned password list](tutorial-configure-custom-password-protection.md).
 
-To monitor on-prem events, see [Monitoring on-prem Azure AD Password Protection](howto-password-ban-bad-on-premises-monitor.md).
+To monitor on-premises events, see [Monitoring on-premises Azure AD Password Protection](howto-password-ban-bad-on-premises-monitor.md).

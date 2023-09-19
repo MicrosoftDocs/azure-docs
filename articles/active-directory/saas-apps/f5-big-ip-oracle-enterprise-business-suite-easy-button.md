@@ -41,7 +41,7 @@ The secure hybrid access solution for this scenario is made up of several compon
 
 **Oracle EBS Application:** BIG-IP published service to be protected by Azure AD SHA.
 
-**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
+**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access, and SAML based SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
 
 **Oracle Internet Directory (OID):** Hosts the user database. BIG-IP checks via LDAP for authorization attributes. 
 
@@ -164,7 +164,7 @@ Some of these are global settings so can be re-used for publishing more applicat
 
 4. Before you select **Next**, confirm the BIG-IP can successfully connect to your tenant.
 
-   ![ Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-oracle-ebs/configuration-general-and-service-account-properties.png)
+   ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-oracle-ebs/configuration-general-and-service-account-properties.png)
 
 ### Service Provider
 
@@ -276,7 +276,7 @@ To select a policy to be applied to the application being published:
 
    The selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the policy is not enforced.
 
-   ![Screenshot for CA policies](./media/f5-big-ip-oracle-ebs/conditional-access-policy.png)
+   ![Screenshot for Conditional Access policies](./media/f5-big-ip-oracle-ebs/conditional-access-policy.png)
 
 > [!NOTE]
 > The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
@@ -323,7 +323,7 @@ The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorizati
 * **Header Name:** USER_ORCLGUID
 * **Header Value:** %{session.ldap.last.attr.orclguid}
 
-   ![ Screenshot for SSO and HTTP headers](./media/f5-big-ip-oracle-ebs/sso-and-http-headers.png)
+   ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-oracle-ebs/sso-and-http-headers.png)
 
 >[!NOTE] 
 >APM session variables defined within curly brackets are CASE sensitive. For example, if you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure

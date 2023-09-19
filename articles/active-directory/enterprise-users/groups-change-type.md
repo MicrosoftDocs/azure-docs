@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/23/2022
+ms.date: 09/06/2023
 ms.author: barclayn
 ms.reviewer: krbain
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -27,11 +27,14 @@ You can change a group's membership from static to dynamic (or vice-versa) In Az
 
 ## Change the membership type for a group
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a Global Administrator, User Administrator, or Groups Administrator in your Azure AD organization.
-2. Browse to **Azure Active Directory** > **Groups**.
-3. From the **All groups** list, open the group that you want to change.
-4. Select **Properties**.
-5. On the **Properties** page for the group, select a **Membership type** of either Assigned (static), Dynamic User, or Dynamic Device, depending on your desired membership type. For dynamic membership, you can use the rule builder to select options for a simple rule or write a membership rule yourself. 
+The following steps can be performed using an account that has either the Global administrator, user administrator or groups administrator roles assigned. 
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+1.  **Groups**.
+1. From the **All groups** list, open the group that you want to change.
+1. Select **Properties**.
+1. On the **Properties** page for the group, select a **Membership type** of either Assigned (static), Dynamic User, or Dynamic Device, depending on your desired membership type. For dynamic membership, you can use the rule builder to select options for a simple rule or write a membership rule yourself. 
 
 The following steps are an example of changing a group from static to dynamic membership for a group of users.
 
@@ -114,8 +117,8 @@ ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.display
 
 These articles provide additional information on groups in Azure Active Directory.
 
-* [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Create a new group and adding members](../fundamentals/active-directory-groups-create-azure-portal.md)
-* [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
+* [See existing groups](../fundamentals/groups-view-azure-portal.md)
+* [Create a new group and adding members](../fundamentals/how-to-manage-groups.md)
+* [Manage settings of a group](../fundamentals/how-to-manage-groups.md)
+* [Manage memberships of a group](../fundamentals/how-to-manage-groups.md)
 * [Manage dynamic rules for users in a group](groups-dynamic-membership.md)

@@ -24,8 +24,6 @@ The admin consent workflow gives admins a secure way to grant access to applicat
 
 To approve requests, a reviewer must have the [permissions required](grant-admin-consent.md#prerequisites) to grant admin consent for the application requested. Simply designating them as a reviewer doesn't elevate their privileges.
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 To configure the admin consent workflow, you need:
@@ -35,13 +33,13 @@ To configure the admin consent workflow, you need:
 
 ## Enable the admin consent workflow
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To enable the admin consent workflow and choose reviewers:
 
-1. Sign-in to the [Azure portal](https://portal.azure.com)  with one of the roles listed in the prerequisites.
-1. Search for and select **Azure Active Directory**.
-1. Select **Enterprise applications**.
-1. Under **Security**, select **Consent and permissions**.
-1. Under **Manage**, select **Admin consent settings**. Under **Admin consent requests**,  select **Yes** for **Users can request admin consent to apps they are unable to consent to** .
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Consent and permissions** > **Admin consent settings**. 
+1. Under **Admin consent requests**,  select **Yes** for **Users can request admin consent to apps they are unable to consent to** .
 
    ![Screenshot of configure admin consent workflow settings.](./media/configure-admin-consent-workflow/enable-admin-consent-workflow.png)
    

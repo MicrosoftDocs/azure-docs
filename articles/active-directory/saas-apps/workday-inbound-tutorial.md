@@ -157,7 +157,7 @@ In this step, you'll grant "domain security" policy permissions for the worker d
    >[!div class="mx-imgBorder"]
    >![Select Security Group](./media/workday-inbound-tutorial/select-security-group-workday.png)
 
-1. Click on the ellipsis (...) next to the group name and from the menu, select **Security Group > Maintain Domain Permissions for Security Group**
+1. Click on the ellipsis (`...`) next to the group name and from the menu, select **Security Group > Maintain Domain Permissions for Security Group**
    >[!div class="mx-imgBorder"]
    >![Select Maintain Domain Permissions](./media/workday-inbound-tutorial/select-maintain-domain-permissions.png)
 
@@ -242,7 +242,7 @@ This section provides steps for user account provisioning from Workday to each A
 
 **To configure Workday to Active Directory provisioning:**
 
-1. Go to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the Azure portal, search for and select **Azure Active Directory**.
 
@@ -344,8 +344,7 @@ In this section, you will configure how user data flows from Workday to Active D
 
 1. In the **Attribute mappings** section, you can define how individual Workday attributes map to Active Directory attributes.
 
-1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
-        mappings. An individual attribute mapping supports these properties:
+1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new mappings. An individual attribute mapping supports these properties:
 
       * **Mapping Type**
 
@@ -362,11 +361,9 @@ In this section, you will configure how user data flows from Workday to Active D
 
       * **Target attribute** – The user attribute in Active  Directory.
 
-      * **Match objects using this attribute** – Whether or not this mapping should be used to uniquely identify users between
-            Workday and Active Directory. This value is typically set on the  Worker ID field for Workday, which is typically mapped to one of the Employee ID attributes in Active Directory.
+      * **Match objects using this attribute** – Whether or not this mapping should be used to uniquely identify users between Workday and Active Directory. This value is typically set on the  Worker ID field for Workday, which is typically mapped to one of the Employee ID attributes in Active Directory.
 
-      * **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the
-            order defined by this field. As soon as a match is found, no  further matching attributes are evaluated.
+      * **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the order defined by this field. As soon as a match is found, no  further matching attributes are evaluated.
 
       * **Apply this mapping**
 
@@ -649,7 +646,7 @@ The solution currently does not support setting binary attributes such as *thumb
 
 #### How do I format display names in AD based on the user's department/country/city attributes and handle regional variances?
 
-It is a common requirement to configure the *displayName* attribute in AD so that it also provides information about the user's department and country/region. For e.g. if John Smith works in the Marketing Department in US, you might want his *displayName* to show up as *Smith, John (Marketing-US)*.
+It is a common requirement to configure the *displayName* attribute in AD so that it also provides information about the user's department and country/region. For example, if John Smith works in the Marketing Department in US, you might want his *displayName* to show up as *Smith, John (Marketing-US)*.
 
 Here is how you can handle such requirements for constructing *CN* or *displayName* to include attributes such as company, business unit, city, or country/region.
 

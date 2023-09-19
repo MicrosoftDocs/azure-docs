@@ -5,8 +5,7 @@ author: roygara
 ms.date: 05/03/2023
 ms.topic: conceptual
 ms.author: rogarana
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.custom: references_regions
 ---
 

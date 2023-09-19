@@ -43,7 +43,7 @@ The device code flow is an OAuth2.0 grant flow that allows users to sign in to i
 - Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
 
-If you want to run a sample Node.js browserless application rather than building it from scratch, complete the steps in [Sign in users in a sample Node.js browserless application by using the Device Code flow](how-to-browserless-app-node-sample-sign-in.md)
+If you want to run a sample Node.js browserless application rather than building it from scratch, complete the steps in [Sign in users in a sample Node.js browserless application by using the Device Code flow](./sample-browserless-app-node-sign-in.md)
 
 ## Next steps
 

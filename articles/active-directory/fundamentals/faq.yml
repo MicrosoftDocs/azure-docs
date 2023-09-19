@@ -12,13 +12,13 @@ metadata:
   ms.topic: faq
   ms.date: 02/15/2023
   ms.author: barclayn
-  ms.custom: "it-pro, seodec18"
+  ms.custom: it-pro, seodec18, has-azure-ad-ps-ref
   ms.collection: M365-identity-device-management
 title: Frequently asked questions about Azure Active Directory
 summary: |
   Azure Active Directory (Azure AD) is a comprehensive identity as a service (IDaaS) solution that spans all aspects of identity, access management, and security.
   
-  For more information, see [What is Azure Active Directory?](active-directory-whatis.md).
+  For more information, see [What is Azure Active Directory?](./whatis.md).
   
   
 
@@ -28,12 +28,11 @@ sections:
       - question: |
           Why do I get "No subscriptions found" when I try to access Azure AD in the Azure portal?
         answer: |
-          To access the Azure portal, each user needs permissions with an Azure subscription. If you don't have a paid Microsoft 365 or Azure AD subscription, you will need to activate a free [Azure account](https://azure.microsoft.com/free/
-          ) or a paid subscription.
+          To access the Azure portal, each user needs permissions with an Azure subscription. If you don't have a paid Microsoft 365 or Azure AD subscription, you will need to activate a free [Azure account](https://azure.microsoft.com/free/) or a paid subscription.
           
           For more information, see:
           
-          * [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+          * [How Azure subscriptions are associated with Azure Active Directory](./how-subscriptions-associated-directory.md)
           
           
           
@@ -55,7 +54,7 @@ sections:
           
           If others need to sign in and access services by using the same subscription, you can assign them the appropriate [built-in role](../../role-based-access-control/built-in-roles.md). For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
           
-          By default, the person who signs up for an Azure subscription is assigned the Global Administrator role for the directory. The Global Administrator has access to all Azure AD directory features. Azure AD has a different set of administrator roles to manage the directory and identity-related features. These administrators will have access to various features in the Azure portal. The administrator's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md) and [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md).
+          By default, the person who signs up for an Azure subscription is assigned the Global Administrator role for the directory. The Global Administrator has access to all Azure AD directory features. Azure AD has a different set of administrator roles to manage the directory and identity-related features. These administrators will have access to various features in the Azure portal. The administrator's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assign a user to administrator roles in Azure Active Directory](./how-subscriptions-associated-directory.md) and [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md).
           
           Additionally, Azure AD paid services like Enterprise Mobility + Security complement other web services, such as Microsoft 365 and Microsoft Azure, with comprehensive enterprise-scale management and security solutions.
           
@@ -124,7 +123,7 @@ sections:
         answer: |
           Yes. The Azure AD Premium edition provides you with Azure AD Connect Health. Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure and the synchronization services.  
           
-          For more information, see [Monitor your on-premises identity infrastructure and synchronization services in the cloud](../hybrid/whatis-azure-ad-connect.md).  
+          For more information, see [Monitor your on-premises identity infrastructure and synchronization services in the cloud](../hybrid/connect/whatis-azure-ad-connect.md).  
           
           
   - name: Password management
@@ -163,7 +162,7 @@ sections:
           
           For Azure AD accounts, admins can reset passwords by using one of the following:
           
-          - [Reset accounts in the Azure portal](active-directory-users-reset-password-azure-portal.md)
+          - [Reset accounts in the Azure portal](./users-reset-password-azure-portal.md)
           - [Using PowerShell](/powershell/module/msonline/set-msoluserpassword)
           
           
@@ -203,7 +202,7 @@ sections:
           
           For more information, see:
           
-          * [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../manage-apps/configure-saml-single-sign-on.md)
+          * [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../develop/single-sign-on-saml-protocol.md)
           * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
           
           

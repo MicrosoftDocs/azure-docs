@@ -9,7 +9,7 @@ metadata:
   ms.subservice: app-proxy
   ms.workload: identity
   ms.topic: faq
-  ms.date: 11/17/2022
+  ms.date: 09/14/2023
   ms.author: kenwith
   ms.reviewer: ashishj
 title: Active Directory (Azure AD) Application Proxy frequently asked questions
@@ -21,7 +21,7 @@ sections:
     questions:
 
       - question: |
-         Can I modify an App Proxy app from the **App registrations** page in the Azure portal?
+         Can I modify an App Proxy app from the **App registrations** page in the Microsoft Entra admin center?
         answer: |
             No, the following configuration items are being used by app proxy and should not be altered or deleted:
             -	Enable/Disable “Allow public clients flows”.
@@ -30,9 +30,9 @@ sections:
             Modifying any of the above configuration items on the App registration page will break pre-authentication for Azure AD Application Proxy. 
 
       - question: |
-         Can I delete an App Proxy app from the App registrations page in the Azure portal? 
+         Can I delete an App Proxy app from the App registrations page in the Microsoft Entra admin center? 
         answer: |
-              No. You should delete an App Proxy app from the **Enterprise applications** area of the Azure portal. If you delete the App Proxy app from the **App registrations** area of the Azure portal then you could experience issues.
+              No. You should delete an App Proxy app from the **Enterprise applications** area of the Microsoft Entra admin center. If you delete the App Proxy app from the **App registrations** area of the Microsoft Entra admin center then you could experience issues.
       - question: |
          What license is required to use Azure AD Application Proxy?
         answer: |
@@ -62,7 +62,7 @@ sections:
           
               To manually upgrade a connector:
           
-              - Download the latest version of the connector. (You will find it under Application Proxy on the Azure portal. You can also find the link at [Azure AD Application Proxy: Version release history](./application-proxy-release-version-history.md).
+              - Download the latest version of the connector. (You will find it under Application Proxy on the Microsoft Entra admin center. You can also find the link at [Azure AD Application Proxy: Version release history](./application-proxy-release-version-history.md).
               -	The installer restarts the Azure AD Application Proxy Connector services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
               -	Run the installer. The upgrade process is quick and does not require providing any credentials and the connector will not be re-registered.
           
@@ -128,10 +128,10 @@ sections:
           ```
           
       - question: |
-         Why is the connector still showing in Azure portal after I uninstalled the connector from the Server?
+         Why is the connector still showing in Microsoft Entra admin center after I uninstalled the connector from the Server?
         answer: |
            When a connector is running, it remains active as it connects to the service. Uninstalled /Unused connectors are tagged as inactive and are removed after 10 days of inactivity from the portal.
-           There is no way to remove the Inactive connector manually from the Azure portal.
+           There is no way to remove the Inactive connector manually from the Microsoft Entra admin center.
           
   - name: Application configuration
     questions:
@@ -152,7 +152,7 @@ sections:
               - If the certificate was created with Microsoft Software Key Storage Provider, the RSA algorithm must be used.
           
       - question: |
-         What is the length of the default and "long" back-end timeout? Can the timeout be extended?
+         What is the length of the default and "long" backend timeout? Can the timeout be extended?
         answer: |
               The default length is 85 seconds. The "long" setting is 180 seconds. The timeout limit can't be extended.
 
@@ -170,7 +170,13 @@ sections:
           
               > [!IMPORTANT]
               > Deleting CWAP_AuthSecret breaks pre-authentication for Azure AD Application Proxy. Don't delete CWAP_AuthSecret.
-          
+
+      - question: |
+         I'm using or want to use Azure Active Directory Application Proxy. Can I replace the `onmicrosoft.com` fallback domain of my tenant in Microsoft 365 as suggested in the article [Add and replace your onmicrosoft.com fallback domain in Microsoft 365](../../microsoft-365/admin/setup/add-or-replace-your-onmicrosoftcom-domain?view=o365-worldwide)? 
+        answer: |
+              No. You must use the original fallback domain.  
+
+         
       - question: |
          How do I change the landing page my application loads?
         answer: |

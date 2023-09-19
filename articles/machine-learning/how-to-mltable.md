@@ -10,15 +10,13 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: franksolomon
 ms.date: 06/02/2023
-ms.custom: contperf-fy21q1, devx-track-python, data4ml
-
+ms.custom: contperf-fy21q1, data4ml
 # Customer intent: As an experienced Python developer, I need to make my Azure storage data available to my remote compute, to train my machine learning models.
 ---
 
 # Working with tables in Azure Machine Learning
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Azure Machine Learning supports a Table type (`mltable`). This allows for the creation of a *blueprint* that defines how to load data files into memory as a Pandas or Spark data frame. In this article you learn:
 
@@ -205,19 +203,28 @@ You can optionally choose to load the MLTable object into Pandas, using:
 ```
 
 #### Save the data loading steps
-Next, save all your data loading steps into an MLTable file. If you save your data loading steps, you can reproduce your Pandas data frame at a later point in time, and you don't need to redefine the data loading steps in your code.
+Next, save all your data loading steps into an MLTable file. Saving your data loading steps in an MLTable file allows you to reproduce your Pandas data frame at a later point in time, without need to redefine the code each time.
 
+You can choose to save the MLTable yaml file to a cloud storage, or you can also save it to local paths.
 ```python
-# serialize the data loading steps into an MLTable file
-tbl.save("./nyc_taxi")
+# save the data loading steps in an MLTable file to a cloud storage
+# NOTE: the tbl object was defined in the previous snippet.
+tbl.save(save_path_dirc= "azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<wsname>/datastores/<name>/paths/titanic", collocated=True, show_progress=True, allow_copy_errors=False, overwrite=True)
 ```
 
-You can optionally view the contents of the MLTable file, to understand how the data loading steps are serialized into a file:
-
 ```python
-with open("./nyc_taxi/MLTable", "r") as f:
-    print(f.read())
+# save the data loading steps in an MLTable file to local
+# NOTE: the tbl object was defined in the previous snippet.
+tbl.save("./titanic")
 ```
+
+> [!IMPORTANT]
+> - If collocated == True, then we will copy the data to the same folder with MLTable yaml file if they are not currently collocated, and we will use relative paths in MLTable yaml.
+> - If collocated == False, we will not move the data and we will use absolute paths for cloud data and use relative paths for local data.
+> - We don’t support this parameter combination: data is in local, collocated == False, `save_path_dirc` is a cloud directory. Please upload your local data to cloud and use the cloud data paths for MLTable instead.
+> - Parameters `show_progress` (default as True), `allow_copy_errors` (default as False), `overwrite`(default as True) are optional.
+>
+
 
 ### Reproduce data loading steps
 Now that the data loading steps have been serialized into a file, you can reproduce them at any point in time, with the load() method. This way, you don't need to redefine your data loading steps in code, and you can more easily share the file.

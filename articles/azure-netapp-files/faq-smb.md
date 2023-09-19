@@ -94,6 +94,8 @@ Azure NetApp Files also supports [`LOCK` response](/openspecs/windows_protocols/
 
 Azure NetApp Files also supports [breaking file locks](troubleshoot-file-locks.md).
 
+To learn more about file locking in Azure NetApp Files, see [file locking](understand-file-locks.md).
+
 ## What network authentication methods are supported for SMB volumes in Azure NetApp Files?
 
 NTLMv2 and Kerberos network authentication methods are supported with SMB volumes in Azure NetApp Files. NTLMv1 and LanManager are disabled and are not supported.
@@ -108,7 +110,7 @@ The Azure NetApp Files service has a policy that automatically updates the passw
 
 To see  when the password was last updated on the Azure NetApp Files SMB computer account, check the `pwdLastSet` property on the computer account using the [Attribute Editor](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) in the **Active Directory Users and Computers** utility:
 
-![Screenshot that shows the Active Directory Users and Computers utility](../media/azure-netapp-files/active-directory-users-computers-utility.png )
+![Screenshot that shows the Active Directory Users and Computers utility](../media/azure-netapp-files/active-directory-users-computers-utility.png)
 
 >[!NOTE] 
 > Due to an interoperability issue with the [April 2022 Monthly Windows Update](

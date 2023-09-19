@@ -1,5 +1,5 @@
 ---
-title: Understanding security policies, initiatives, and recommendations in Microsoft Defender for Cloud
+title: Understanding security policies, initiatives, and recommendations
 description: Learn about security policies, initiatives, and recommendations in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.custom: ignite-2022

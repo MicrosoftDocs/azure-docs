@@ -2,14 +2,14 @@
 title: Availability Standard test - Azure Monitor Application Insights
 description: Set up Standard tests in Application Insights to check for availability of a website with a single request test. 
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 09/12/2023
 ---
 
 # Standard test
 
 A Standard test is a type of availability test that checks the availability of a website by sending a single request. In addition to validating whether an endpoint is responding and measuring the performance, Standard tests also include SSL certificate validity, proactive lifetime check, HTTP request verb (for example, `GET`,`HEAD`, and `POST`), custom headers, and custom data associated with your HTTP request.
 
-To create an availability test, you must use an existing Application Insights resource or [create an Application Insights resource](create-new-resource.md).
+To create an availability test, you must use an existing Application Insights resource or [create an Application Insights resource](create-workspace-resource.md).
 
 > [!TIP]
 > If you're currently using other availability tests, like URL ping tests, you might add Standard tests alongside the others. If you want to use Standard tests instead of one of your other tests, add a Standard test and delete your old test.
@@ -67,7 +67,7 @@ You can use the following population tags for the geo-location attribute when yo
 | USDoD East     | usgov-ddeast-azr    |
 | USDoD Central  | usgov-ddcentral-azr |
 
-### Azure China
+### Microsoft Azure operated by 21Vianet
 
 | Display name   | Population name     |
 |----------------|---------------------|

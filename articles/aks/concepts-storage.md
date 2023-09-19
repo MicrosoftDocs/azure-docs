@@ -2,7 +2,7 @@
 title: Concepts - Storage in Azure Kubernetes Services (AKS)
 description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims.
 ms.topic: conceptual
-ms.date: 06/20/2023
+ms.date: 08/30/2023
 
 ---
 
@@ -37,22 +37,22 @@ By contrast, ephemeral OS disks are stored only on the host machine, just like a
 
 Size requirements and recommendations for ephemeral OS disks are available in the [Azure VM documentation][azure-vm-ephemeral-os-disks]. The following are some general sizing considerations:
 
-* If you chose to use the AKS default VM size [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with the default OS disk size of 100 GB, the default VM size supports ephemeral OS, but only has 86 GiB of cache size. This configuration would default to managed disks if you don't explicitly specify it. If you do request an ephemeral OS, you receive a validation error.
+* If you chose to use the AKS default VM size [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with the default OS disk size of 100 GiB, the default VM size supports ephemeral OS, but only has 86 GiB of cache size. This configuration would default to managed disks if you don't explicitly specify it. If you do request an ephemeral OS, you receive a validation error.
 
-* If you request the same [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with a 60 GiB OS disk, this configuration would default to ephemeral OS. The requested size of 60 GiB is smaller than the maximum cache size of 86 GiB.
+* If you request the same [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with a 60-GiB OS disk, this configuration would default to ephemeral OS. The requested size of 60 GiB is smaller than the maximum cache size of 86 GiB.
 
-* If you select the [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) SKU with 100 GB OS disk, this VM size supports ephemeral OS and has 200 GiB of cache space. If you don't specify the OS disk type, the node pool would receive ephemeral OS by default.
+* If you select the [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) SKU with 100-GB OS disk, this VM size supports ephemeral OS and has 200 GiB of cache space. If you don't specify the OS disk type, the node pool would receive ephemeral OS by default.
 
 The latest generation of VM series doesn't have a dedicated cache, but only temporary storage. For example, if you selected the [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with the default OS disk size of 100 GiB, it supports ephemeral OS disks, but only has 75 GB of temporary storage. This configuration would default to managed OS disks if you don't explicitly specify it. If you do request an ephemeral OS disk, you receive a validation error.
 
-* If you request the same [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with a 60 GiB OS disk, this configuration defaults to ephemeral OS disks. The requested size of 60 GiB is smaller than the maximum temporary storage of 75 GiB.
+* If you request the same [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with a 60-GiB OS disk, this configuration defaults to ephemeral OS disks. The requested size of 60 GiB is smaller than the maximum temporary storage of 75 GiB.
 
-* If you select [Standard_E4bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) SKU with 100 GiB OS disk, this VM size supports ephemeral OS
+* If you select [Standard_E4bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) SKU with 100-GiB OS disk, this VM size supports ephemeral OS
 and has 150 GiB of temporary storage. If you don't specify the OS disk type, by default Azure provisions an ephemeral OS disk to the node pool.
 
-### Customer Managed key
+### Customer-managed keys
 
-You can manage encryption for your ephemeral OS disk with your own keys on an AKS cluster. For more information, see [Azure ephemeral OS disks Customer Managed key][azure-disk-customer-managed-key].
+You can manage encryption for your ephemeral OS disk with your own keys on an AKS cluster. For more information, see [Use Customer Managed key with Azure disk on AKS][azure-disk-customer-managed-key].
 
 ## Volumes
 
@@ -61,7 +61,7 @@ Kubernetes typically treats individual pods as ephemeral, disposable resources. 
 Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly or have Kubernetes automatically create them. Data volumes can use: [Azure Disk][disks-types], [Azure Files][storage-files-planning], [Azure NetApp Files][azure-netapp-files-service-levels], or [Azure Blobs][storage-account-overview].
 
 > [!NOTE]
-> Depending on the VM SKU you're using, the Azure Disk CSI driver might have a per-node volume limit. For some high perfomance VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes][general-purpose-machine-sizes].
+> Depending on the VM SKU you're using, the Azure Disk CSI driver might have a per-node volume limit. For some high performance VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes][general-purpose-machine-sizes].
 
 To help determine best fit for your workload between Azure Files and Azure NetApp Files, review the information provided in the article [Azure Files and Azure NetApp Files comparison][azure-files-azure-netapp-comparison].
 
@@ -77,7 +77,7 @@ Use [Azure Disk][azure-disk-csi] to create a Kubernetes *DataDisk* resource. Dis
 > [!TIP]
 > For most production and development workloads, use Premium SSD.
 
-Because Azure Disk are mounted as *ReadWriteOnce*, they're only available to a single node. For storage volumes that can be accessed by pods on multiple nodes simultaneously, use Azure Files.
+Because Azure Disk is mounted as *ReadWriteOnce*, they're only available to a single node. For storage volumes accessible by pods on multiple nodes simultaneously, use Azure Files.
 
 ### Azure Files
 
@@ -116,8 +116,8 @@ You can use *secret* volumes to inject sensitive data into pods, such as passwor
 1. Define your pod or deployment and request a specific Secret.
     * Secrets are only provided to nodes with a scheduled pod that requires them.
     * The Secret is stored in *tmpfs*, not written to disk.
-1. When you delete the last pod on a node requiring a Secret, the Secret is deleted from the node's tmpfs. 
-   * Secrets are stored within a given namespace and can only be accessed by pods within the same namespace.
+1. When you delete the last pod on a node requiring a Secret, the Secret is deleted from the node's tmpfs.
+   * Secrets are stored within a given namespace and are only accessed by pods within the same namespace.
 
 #### configMap
 
@@ -127,7 +127,7 @@ Like using a secret:
 
 1. Create a ConfigMap using the Kubernetes API.
 1. Request the ConfigMap when you define a pod or deployment.
-   * ConfigMaps are stored within a given namespace and can only be accessed by pods within the same namespace.
+   * ConfigMaps are stored within a given namespace and are only accessed by pods within the same namespace.
 
 ## Persistent volumes
 
@@ -137,7 +137,7 @@ You can use [Azure Disk](azure-csi-disk-storage-provision.md) or [Azure Files](a
 
 ![Persistent volumes in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/persistent-volumes.png)
 
-A PersistentVolume can be *statically* created by a cluster administrator, or *dynamically* created by the Kubernetes API server. If a pod is scheduled and requests currently unavailable storage, Kubernetes can create the underlying Azure Disk or File storage and attach it to the pod. Dynamic provisioning uses a *StorageClass* to identify what type of Azure storage needs to be created.
+A cluster administrator can *statically* create a PersistentVolume, or the volume is created *dynamically* by the Kubernetes API server. If a pod is scheduled and requests currently unavailable storage, Kubernetes can create the underlying Azure Disk or File storage and attach it to the pod. Dynamic provisioning uses a *StorageClass* to identify what type of Azure storage needs to be created.
 
 > [!IMPORTANT]
 > Persistent volumes can't be shared by Windows and Linux pods due to differences in file system support between the two operating systems.
@@ -152,21 +152,21 @@ For clusters using the [Container Storage Interface (CSI) drivers][csi-storage-d
 
 | Permission | Reason |
 |---|---|
-| `managed-csi` | Uses Azure StandardSSD locally redundant storage (LRS) to create a Managed Disk. The reclaim policy ensures that the underlying Azure Disk is deleted when the persistent volume that used it is deleted. The storage class also configures the persistent volumes to be expandable, you just need to edit the persistent volume claim with the new size. |
-| `managed-csi-premium` | Uses Azure Premium locally redundant storage (LRS) to create a Managed Disk. The reclaim policy again ensures that the underlying Azure Disk is deleted when the persistent volume that used it is deleted. Similarly, this storage class allows for persistent volumes to be expanded. |
+| `managed-csi` | Uses Azure StandardSSD locally redundant storage (LRS) to create a Managed Disk. The reclaim policy ensures that the underlying Azure Disk is deleted when the persistent volume that used it's deleted. The storage class also configures the persistent volumes to be expandable, you just need to edit the persistent volume claim with the new size. |
+| `managed-csi-premium` | Uses Azure Premium locally redundant storage (LRS) to create a Managed Disk. The reclaim policy again ensures that the underlying Azure Disk is deleted when the persistent volume that used it's deleted. Similarly, this storage class allows for persistent volumes to be expanded. |
 | `azurefile-csi` | Uses Azure Standard storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it is deleted. |
-| `azurefile-csi-premium` | Uses Azure Premium storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it is deleted.|
-| `azureblob-nfs-premium` | Uses Azure Premium storage to create an Azure Blob storage container and connect using the NFS v3 protocol. The reclaim policy ensures that the underlying Azure Blob storage container is deleted when the persistent volume that used it is deleted. |
-| `azureblob-fuse-premium` | Uses Azure Premium storage to create an Azure Blob storage container and connect using BlobFuse. The reclaim policy ensures that the underlying Azure Blob storage container is deleted when the persistent volume that used it is deleted. |
+| `azurefile-csi-premium` | Uses Azure Premium storage to create an Azure file share. The reclaim policy ensures that the underlying Azure file share is deleted when the persistent volume that used it's deleted.|
+| `azureblob-nfs-premium` | Uses Azure Premium storage to create an Azure Blob storage container and connect using the NFS v3 protocol. The reclaim policy ensures that the underlying Azure Blob storage container is deleted when the persistent volume that used it's deleted. |
+| `azureblob-fuse-premium` | Uses Azure Premium storage to create an Azure Blob storage container and connect using BlobFuse. The reclaim policy ensures that the underlying Azure Blob storage container is deleted when the persistent volume that used it's deleted. |
 
-Unless you specify a StorageClass for a persistent volume, the default StorageClass will be used. Ensure volumes use the appropriate storage you need when requesting persistent volumes.
+Unless you specify a StorageClass for a persistent volume, the default StorageClass is used. Ensure volumes use the appropriate storage you need when requesting persistent volumes.
 
 > [!IMPORTANT]
-> Starting with Kubernetes version 1.21, AKS only uses CSI drivers by default and CSI migration is enabled. While existing in-tree persistent volumes continue to function, starting with version 1.26, AKS will no longer support volumes created using in-tree driver and storage provisioned for files and disk. 
+> Starting with Kubernetes version 1.21, AKS only uses CSI drivers by default and CSI migration is enabled. While existing in-tree persistent volumes continue to function, starting with version 1.26, AKS will no longer support volumes created using in-tree driver and storage provisioned for files and disk.
 >
 > The `default` class will be the same as `managed-csi`.
 
-You can create a StorageClass for additional needs using `kubectl`. The following example uses Premium Managed Disks and specifies that the underlying Azure Disk should be *retained* when you delete the pod:
+You can create a StorageClass for other needs using `kubectl`. The following example uses Premium Managed Disks and specifies that the underlying Azure Disk should be *retained* when you delete the pod:
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -251,15 +251,15 @@ For mounting a volume in a Windows container, specify the drive letter and path.
 
 ## Next steps
 
-For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
+For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage] and [AKS Storage Considerations][azure-aks-storage-considerations].
 
 To see how to use CSI drivers, see the following how-to articles:
 
-- [Enable Container Storage Interface (CSI) drivers for Azure Disk, Azure Files, and Azure Blob storage on Azure Kubernetes Service][csi-storage-drivers]
+- [Container Storage Interface (CSI) drivers for Azure Disk, Azure Files, and Azure Blob storage on Azure Kubernetes Service][csi-storage-drivers]
 - [Use Azure Disk CSI driver in Azure Kubernetes Service][azure-disk-csi]
 - [Use Azure Files CSI driver in Azure Kubernetes Service][azure-files-csi]
-- [Use Azure Blob storage CSI driver (preview) in Azure Kubernetes Service][azure-blob-csi]
-- [Integrate Azure NetApp Files with Azure Kubernetes Service][azure-netapp-files]
+- [Use Azure Blob storage CSI driver in Azure Kubernetes Service][azure-blob-csi]
+- [Configure Azure NetApp Files with Azure Kubernetes Service][azure-netapp-files]
 
 For more information on core Kubernetes and AKS concepts, see the following articles:
 
@@ -282,15 +282,14 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [azure-disk-csi]: azure-disk-csi.md
 [azure-netapp-files]: azure-netapp-files.md
 [azure-files-csi]: azure-files-csi.md
-[azure-files-volume]: azure-files-volume.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-network]: concepts-network.md
 [operator-best-practices-storage]: operator-best-practices-storage.md
-[csi-storage-drivers]: csi-storage-drivers.md
 [azure-blob-csi]: azure-blob-csi.md
 [general-purpose-machine-sizes]: ../virtual-machines/sizes-general.md
 [azure-files-azure-netapp-comparison]: ../storage/files/storage-files-netapp-comparison.md
-[azure-disk-customer-managed-key]: ../virtual-machines/ephemeral-os-disks.md#customer-managed-key
+[azure-disk-customer-managed-key]: azure-disk-customer-managed-keys.md
+[azure-aks-storage-considerations]: /azure/cloud-adoption-framework/scenarios/app-platform/aks/storage

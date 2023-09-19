@@ -2,8 +2,8 @@
 title: Scale up an Azure Service Fabric primary node type 
 description: Vertically scale your Service Fabric cluster by adding a new node type and removing the previous one.
 ms.topic: how-to
-ms.author: chrpap
-author: chrpap
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
 ms.custom: devx-track-azurepowershell
 services: service-fabric
@@ -12,7 +12,7 @@ ms.date: 09/20/2022
 
 # Scale up a Service Fabric cluster primary node type
 
-This article describes how to scale up a Service Fabric cluster primary node type with minimal downtime. In-place SKU upgrades are not supported on Service Fabric cluster nodes, as such operations potentially involve data and availability loss. The safest, most reliable, and recommended method for scaling up a Service Fabric node type is to:
+This article describes how to scale up a Service Fabric cluster primary node type with minimal downtime. In-place SKU upgrades aren't supported on Service Fabric cluster nodes, as such operations potentially involve data and availability loss. The safest, most reliable, and recommended method for scaling up a Service Fabric node type is to:
 
 1. Add a new node type to your Service Fabric cluster, backed by your upgraded (or modified) virtual machine scale set SKU and configuration. This step also involves setting up a new load balancer, subnet, and public IP for the scale set.
 
@@ -49,7 +49,7 @@ The following commands will guide you through generating a new self-signed certi
 
 ### Generate a self-signed certificate and deploy the cluster
 
-First, assign the variables you'll need for Service Fabric cluster deployment. Adjust the values for `resourceGroupName`,  `certSubjectName`, `parameterFilePath`, and `templateFilePath` for your specific account and environment:
+First, assign the variables you need for Service Fabric cluster deployment. Adjust the values for `resourceGroupName`,  `certSubjectName`, `parameterFilePath`, and `templateFilePath` for your specific account and environment:
 
 ```powershell
 # Assign deployment variables
@@ -89,11 +89,11 @@ Import-PfxCertificate `
      -Password (ConvertTo-SecureString Password!1 -AsPlainText -Force)
 ```
 
-The operation will return the certificate thumbprint, which you can now use to [connect to the new cluster](#connect-to-the-new-cluster-and-check-health-status) and check its health status. (Skip the following section, which is an alternate approach to cluster deployment.)
+The operation returns the certificate thumbprint, which you can now use to [connect to the new cluster](#connect-to-the-new-cluster-and-check-health-status) and check its health status. (Skip the following section, which is an alternate approach to cluster deployment.)
 
 ### Use an existing certificate to deploy the cluster
 
-Alternately, you can use an existing Azure Key Vault certificate  to deploy the test cluster. To do this, you'll need to [obtain references to your Key Vault](#obtain-your-key-vault-references) and certificate thumbprint.
+Alternately, you can use an existing Azure Key Vault certificate  to deploy the test cluster. To do this, you need to [obtain references to your Key Vault](#obtain-your-key-vault-references) and certificate thumbprint.
 
 ```powershell
 # Key Vault variables
@@ -150,11 +150,11 @@ Connect-ServiceFabricCluster `
 Get-ServiceFabricClusterHealth
 ```
 
-With that, we're ready to begin the upgrade procedure.
+Now, we're ready to begin the upgrade procedure.
 
 ## Deploy a new primary node type with upgraded scale set
 
-In order to upgrade (vertically scale) a node type, we'll first need to deploy a new node type backed by a new scale set and supporting resources. The new scale set will be marked as primary (`isPrimary: true`), just like the original scale set. If you want to scale up a non-primary node type, see [Scale up a Service Fabric cluster non-primary node type](service-fabric-scale-up-non-primary-node-type.md). The resources created in the following section will ultimately become the new primary node type in your cluster, and the original primary node type resources will be deleted.
+In order to upgrade (vertically scale) a node type, we'll first need to deploy a new node type backed by a new scale set and supporting resources. The new scale set will be marked as primary (`isPrimary: true`), just like the original scale set. If you want to scale up a non-primary node type, see [Scale up a Service Fabric cluster non-primary node type](service-fabric-scale-up-non-primary-node-type.md). The resources created in the following section will ultimately become the new primary node type in your cluster, and the original primary node type resources are deleted.
 
 ### Update the cluster template with the upgraded scale set
 
@@ -163,7 +163,7 @@ Here are the section-by-section modifications of the original cluster deployment
 The required changes for this step have already been made for you in the [*Step1-AddPrimaryNodeType.json*](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade/Step1-AddPrimaryNodeType.json) template file, and the following will explain these  changes in detail. If you prefer, you can skip the explanation and continue to [obtain your Key Vault references](#obtain-your-key-vault-references) and [deploy the updated template](#deploy-the-updated-template) that adds a new primary node type to your cluster.
 
 > [!Note]
-> Ensure that you use names that are unique from the original node type, scale set, load balancer, public IP, and subnet of the original primary node type, as these resources will be deleted at a later step in the process.
+> Ensure that you use names that are unique from the original node type, scale set, load balancer, public IP, and subnet of the original primary node type, as these resources are deleted at a later step in the process.
 
 #### Create a new subnet in the existing virtual network
 
@@ -234,6 +234,26 @@ OS SKU
 }
 ```
 
+### If you're changing OS SKU in a Linux Cluster
+
+In Windows cluster, the value for property vmImage is ‘Windows’ while the value of the same property for Linux cluster is name of the OS image used. For e.g. - Ubuntu20_04(use the latest vm image name).
+
+So, if you're changing the VM image (OS SKU) in a Linux cluster, then update the vmImage setting on the Service Fabric cluster resource as well.
+
+```json
+#Update the property vmImage with the required OS name in your ARM template
+{
+    "vmImage": "[parameter(newVmImageName]”
+}
+```
+Note: Example of newVmImageName: Ubuntu20_04
+
+You can also update the cluster resource by using the following PowerShell command:
+```powershell
+# Update cluster vmImage to target OS. This registers the SF runtime package type that is supplied for upgrades.
+Update-AzServiceFabricVmImage -ResourceGroupName $resourceGroup -ClusterName $clusterName -VmImage Ubuntu20_04
+```
+
 Also, ensure you include any additional extensions that are required for your workload.
 
 #### Add a new primary node type to the cluster
@@ -262,7 +282,7 @@ Once you've implemented all the changes in your template and parameters files, p
 
 ### Obtain your Key Vault references
 
-To deploy the updated configuration, you'll need several references to the cluster certificate stored in your Key Vault. The easiest way to find these values is through Azure portal. You'll need:
+To deploy the updated configuration, you need several references to the cluster certificate stored in your Key Vault. The easiest way to find these values is through Azure portal. You need:
 
 * **The Key Vault URL of your cluster certificate.** From your Key Vault in Azure portal, select **Certificates** > *Your desired certificate* > **Secret Identifier**:
 
@@ -270,7 +290,7 @@ To deploy the updated configuration, you'll need several references to the clust
     $certUrlValue="https://sftestupgradegroup.vault.azure.net/secrets/sftestupgradegroup20200309235308/dac0e7b7f9d4414984ccaa72bfb2ea39"
     ```
 
-* **The thumbprint of your cluster certificate.** (You probably already have this if you [connected to the initial cluster](#connect-to-the-new-cluster-and-check-health-status) to check its health status.) From the same certificate blade (**Certificates** > *Your desired certificate*) in Azure portal, copy **X.509 SHA-1 Thumbprint (in hex)**:
+* **The thumbprint of your cluster certificate.** (You probably already have the certificate if you [connected to the initial cluster](#connect-to-the-new-cluster-and-check-health-status) to check its health status.) From the same certificate blade (**Certificates** > *Your desired certificate*) in Azure portal, copy **X.509 SHA-1 Thumbprint (in hex)**:
 
     ```powershell
     $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
@@ -320,7 +340,7 @@ First remove the `isPrimary` designation in the template from the original node 
 }
 ```
 
-Then deploy the template with the update. This will initiate the migration of seed nodes to the new scale set.
+Then deploy the template with the update. This deployment initiates the migration of seed nodes to the new scale set.
 
 ```powershell
 $templateFilePath = "C:\Step2-UnmarkOriginalPrimaryNodeType.json"
@@ -338,7 +358,7 @@ New-AzResourceGroupDeployment `
 > [!Note]
 > It will take some time to complete the seed node migration to the new scale set. To guarantee data consistency, only one seed node can change at a time. Each seed node change requires a cluster update; thus replacing a seed node requires two cluster upgrades (one each for node addition and removal). Upgrading the five seed nodes in this sample scenario will result in ten cluster upgrades.
 
-Use Service Fabric Explorer to monitor the migration of seed nodes to the new scale set. The nodes of the original node type (nt0vm) should all be *false* in the **Is Seed Node** column, and those of the new node type (nt1vm) will be *true*.
+Use Service Fabric Explorer to monitor the migration of seed nodes to the new scale set. The nodes of the original node type (nt0vm) should all be *false* in the **Is Seed Node** column, and those of the new node type (nt1vm) should be *true*.
 
 ### Disable the nodes in the original node type scale set
 
@@ -365,7 +385,7 @@ Use Service Fabric Explorer to monitor the progression of nodes in the original 
 
 :::image type="content" source="./media/scale-up-primary-node-type/service-fabric-explorer-node-status.png" alt-text="Service Fabric Explorer showing status of disabled nodes":::
 
-For Silver and Gold durability, some nodes will go into Disabled state, while others might remain in a *Disabling* state. In Service Fabric Explorer, check the **Details** tab of nodes in Disabling state. If they show a *Pending Safety Check* of Kind *EnsurePartitionQuorem* (ensuring quorum for infrastructure service partitions), then it is safe to continue.
+For Silver and Gold durability, some nodes will go into Disabled state, while others might remain in a *Disabling* state. In Service Fabric Explorer, check the **Details** tab of nodes in Disabling state. If they show a *Pending Safety Check* of Kind *EnsurePartitionQuorem* (ensuring quorum for infrastructure service partitions), then it's safe to continue.
 
 :::image type="content" source="./media/scale-up-primary-node-type/service-fabric-explorer-node-status-disabling.png" alt-text="You can proceed with stopping data and removing nodes stuck in 'Disabling' status if they show a pending safety check of kind 'EnsurePartitionQuorum'.":::
 
@@ -405,7 +425,7 @@ Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceTyp
 
 ### Delete the original IP and load balancer resources
 
-You can now delete the original IP, and load balancer resources. In this step you will also update the DNS name.
+You can now delete the original IP, and load balancer resources. In this step you'll also update the DNS name.
 
 > [!Note]
 > This step is optional if you're already using a *Standard* SKU public IP and load balancer. In this case you could have multiple scale sets / node types under the same load balancer.
@@ -571,7 +591,7 @@ The upgrade will change settings to the *InfrastructureService*; therefore, a no
 
 Once the deployment has completed, verify in Azure portal that the Service Fabric resource Status is *Ready*. Verify you can reach the new Service Fabric Explorer endpoint, the **Cluster Health State** is *OK*, and any deployed applications function properly.
 
-With that, you've vertically scaled a cluster primary node type!
+Now, you've vertically scaled a cluster primary node type!
 
 ## Next steps
 

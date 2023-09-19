@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 10/14/2022
 ms.custom: references_regions
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Support matrix for Azure file share backup
@@ -18,7 +18,7 @@ You can use the [Azure Backup service](./backup-overview.md) to back up Azure fi
 
 ## Supported regions
 
-Azure file shares backup is available in all regions, **except** for Germany Central (Sovereign), Germany Northeast (Sovereign), China East, China East 2, China North, China North 2, China North 3, France South, and US Gov Iowa.
+Azure file shares backup is available in all regions, **except** for Germany Central (Sovereign), Germany Northeast (Sovereign), China East, China North, France South, and US Gov Iowa.
 
 ## Supported storage accounts
 
@@ -87,3 +87,4 @@ Azure file shares backup is available in all regions, **except** for Germany Cen
 * Learn how to [Back up Azure file shares](backup-afs.md)
 * Learn how to [Restore Azure file shares](restore-afs.md)
 * Learn how to [Manage Azure file share backups](manage-afs-backup.md)
+

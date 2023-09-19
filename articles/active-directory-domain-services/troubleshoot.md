@@ -9,10 +9,10 @@ ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: troubleshooting
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 ms.author: justinha
-
 ---
 # Common errors and troubleshooting steps for Azure Active Directory Domain Services
 
@@ -53,7 +53,7 @@ This failure is due to name conflicts for the domain name on the virtual network
 
 Check if there's an application named *Azure AD Domain Services Sync* in your Azure AD directory. If this application exists, delete it, then try again to enable Azure AD DS. To check for an existing application and delete it if needed, complete the following steps:
 
-1. In the Azure portal, select **Azure Active Directory** from the left-hand navigation menu.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), select **Azure Active Directory** from the left-hand navigation menu.
 1. Select **Enterprise applications**. Choose *All applications* from the **Application Type** drop-down menu, then select **Apply**.
 1. In the search box, enter *Azure AD Domain Services Sync*. If the application exists, select it and choose **Delete**.
 1. Once you've deleted the application, try to enable Azure AD DS again.
@@ -114,8 +114,8 @@ Check if you've disabled an application with the identifier *00000002-0000-0000-
 
 To check the status of this application and enable it if needed, complete the following steps:
 
-1. In the Azure portal, select **Azure Active Directory** from the left-hand navigation menu.
-1. Select **Enterprise applications**. Choose *All applications* from the **Application Type** drop-down menu, then select **Apply**.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), seearch for and select **Enterprise applications**. 
+1. Choose *All applications* from the **Application Type** drop-down menu, then select **Apply**.
 1. In the search box, enter *00000002-0000-0000-c000-00000000000*. Select the application, then choose **Properties**.
 1. If **Enabled for users to sign-in** is set to *No*, set the value to *Yes*, then select **Save**.
 1. Once you've enabled the application, try to enable Azure AD DS again.

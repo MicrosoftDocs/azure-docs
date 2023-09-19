@@ -17,29 +17,27 @@ ms.custom: mode-other, enterprise-apps
 
 # Quickstart: View enterprise applications
 
-In this quickstart, you learn how to use the Azure portal to search for and view the enterprise applications that are already configured in your Azure Active Directory (Azure AD) tenant.
+In this quickstart, you learn how to use the Microsoft Entra admin center to search for and view the enterprise applications that are already configured in your Azure Active Directory (Azure AD) tenant.
 
 It's recommended that you use a nonproduction environment to test the steps in this quickstart.
-
-[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 
 To view applications that have been registered in your Azure AD tenant, you need:
 
 - An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: Global Administrator, or owner of the service principal.
+- One of the following roles: Global Administrator, Cloud Application Administrator, or owner of the service principal.
 - Completion of the steps in [Quickstart: Add an enterprise application](add-application-portal.md).
 
 ## View a list of applications
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To view the enterprise applications registered in your tenant:
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
-1. Browse to **Azure Active Directory** and select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
     :::image type="content" source="media/view-applications-portal/view-enterprise-applications.png" alt-text="View the registered applications in your Azure AD tenant.":::
-
 1. To view more applications, select **Load more** at the bottom of the list. If there are many applications in your tenant, it might be easier to search for a particular application instead of scrolling through the list.
 
 ## Search for an application

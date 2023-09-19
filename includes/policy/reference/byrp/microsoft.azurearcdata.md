@@ -2,11 +2,14 @@
 author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/21/2023
+ms.date: 09/19/2023
 ms.author: davidsmatlak
 ms.custom: generated
 ---
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
+|[Customer managed key encryption must be used as part of CMK Encryption for Arc SQL managed instances.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F413923f0-ff16-41ae-8583-90c5c5d9fa8f) |As a part of CMK encryption, Customer managed key encryption must be used. Learn more at [https://aka.ms/EnableTDEArcSQLMI](https://aka.ms/EnableTDEArcSQLMI). |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL%20Managed%20Instance/Arc_SQLMI_TdeEnabledInCMKMode_Audit.json) |
 |[Microsoft Defender for SQL status should be protected for Arc-enabled SQL Servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F938c4981-c2c9-4168-9cd6-972b8675f906) |Microsoft Defender for SQL provides functionality for surfacing and mitigating potential database vulnerabilities, detecting anomalous activities that could indicate threats to SQL databases, discovering and classifying sensitive data. Once enabled, the protection status indicates that the resource is actively monitored. Even when Defender is enabled, multiple configuration settings should be validated on the agent, machine, workspace and SQL server to ensure active protection. |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ProtectDefenderForSQLOnArc_Audit.json) |
+|[TLS protocol 1.2 must be used for Arc SQL managed instances.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbb3c7464-033e-41ee-81dc-480fde675b20) |As a part of network settings, Microsoft recommends allowing only TLS 1.2 for TLS protocols in SQL Servers. Learn more on network settings for SQL Server at [https://aka.ms/TlsSettingsSQLServer](https://aka.ms/TlsSettingsSQLServer). |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL%20Managed%20Instance/Arc_SQLMI_TLS1.2IsUsed_Audit.json) |
+|[Transparent Data Encryption must be enabled for Arc SQL managed instances.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6599ab01-29bc-4852-a6f5-de9e2151714a) |Enable transparent data encryption (TDE) at-rest on an Azure Arc-enabled SQL Managed Instance. Learn more at [https://aka.ms/EnableTDEArcSQLMI](https://aka.ms/EnableTDEArcSQLMI). |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL%20Managed%20Instance/Arc_SQLMI_TdeEnabled_Audit.json) |

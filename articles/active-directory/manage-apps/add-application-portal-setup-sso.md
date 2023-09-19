@@ -18,13 +18,11 @@ ms.custom: contperf-fy22q2, mode-other, enterprise-apps
 
 # Enable single sign-on for an enterprise application
 
-In this article, you use the Azure portal to enable single sign-on (SSO) for an enterprise application that you added to your Azure Active Directory (Azure AD) tenant. After you configure SSO, your users can sign in by using their Azure AD credentials. 
+In this article, you use the Microsoft Entra admin center to enable single sign-on (SSO) for an enterprise application that you added to your Azure Active Directory (Azure AD) tenant. After you configure SSO, your users can sign in by using their Azure AD credentials. 
 
 Azure AD has a gallery that contains thousands of pre-integrated applications that use SSO. This article uses an enterprise application named **Azure AD SAML Toolkit 1** as an example, but the concepts apply for most pre-configured enterprise applications in the gallery.
 
 It is recommended that you use a non-production environment to test the steps in this article.
-
-[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 
@@ -36,10 +34,13 @@ To configure SSO, you need:
 
 ## Enable single sign-on
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To enable SSO for an application:
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
-1. Browse to **Azure Active Directory** > **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to use. For example, **Azure AD SAML Toolkit 1**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**. 
+1. Enter the name of the existing application in the search box, and then select the application from the search results. For example, **Azure AD SAML Toolkit 1**.
 1. In the **Manage** section of the left menu, select **Single sign-on** to open the **Single sign-on** pane for editing.
 1. Select **SAML** to open the SSO configuration page. After the application is configured, users can sign in to it by using their credentials from the Azure AD tenant.
 1. The process of configuring an application to use Azure AD for SAML-based SSO varies depending on the application. For any of the enterprise applications in the gallery, use the **configuration guide** link to find information about the steps needed to configure the application. The steps for the **Azure AD SAML Toolkit 1** are listed in this article.
@@ -54,7 +55,7 @@ You add sign-in and reply URL values, and you download a certificate to begin th
 
 To configure SSO in Azure AD:
 
-1. In the Azure portal, select **Edit** in the **Basic SAML Configuration** section on the **Set up single sign-on** pane. 
+1. In the Entra admin center, select **Edit** in the **Basic SAML Configuration** section on the **Set up single sign-on** pane. 
 1. For **Reply URL (Assertion Consumer Service URL)**, enter `https://samltoolkit.azurewebsites.net/SAML/Consume`.
 1. For **Sign on URL**, enter `https://samltoolkit.azurewebsites.net/`.
 1. Select **Save**.
@@ -94,7 +95,7 @@ Use the values that you recorded for **SP Initiated Login URL** and **Assertion 
 
 To update the single sign-on values:
 
-1. In the Azure portal, select **Edit** in the **Basic SAML Configuration** section on the **Set up single sign-on** pane. 
+1. In the Entra admin center, select **Edit** in the **Basic SAML Configuration** section on the **Set up single sign-on** pane. 
 1. For **Reply URL (Assertion Consumer Service URL)**, enter the **Assertion Consumer Service (ACS) URL** value that you previously recorded.
 1. For **Sign on URL**, enter the **SP Initiated Login URL** value that you previously recorded.
 1. Select **Save**.

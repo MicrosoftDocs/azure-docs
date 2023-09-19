@@ -90,11 +90,11 @@ This workbook supports multiple filters:
 ## Best practices
 
 
-- For guidance on blocking legacy authentication in your environment, see [Block legacy authentication to Azure AD with conditional access](../conditional-access/block-legacy-authentication.md).
+- For guidance on blocking legacy authentication in your environment, see [Block legacy authentication to Azure AD with Conditional Access](../conditional-access/block-legacy-authentication.md).
 
 - Many email protocols that once relied on legacy authentication now support more secure modern authentication methods. If you see legacy email authentication protocols in this workbook, consider migrating to modern authentication for email instead. For more information, see [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online).
 
-- Some clients can use both legacy authentication or modern authentication depending on client configuration. If you see “modern mobile/desktop client” or “browser” for a client in the Azure AD logs, it's using modern authentication. If it has a specific client or protocol name, such as “Exchange ActiveSync”, it's using legacy authentication to connect to Azure AD. The client types in conditional access, and the Azure AD reporting page in the Azure portal demarcate modern authentication clients and legacy authentication clients for you, and only legacy authentication is captured in this workbook. 
+- Some clients can use both legacy authentication or modern authentication depending on client configuration. If you see “modern mobile/desktop client” or “browser” for a client in the Azure AD logs, it's using modern authentication. If it has a specific client or protocol name, such as “Exchange ActiveSync”, it's using legacy authentication to connect to Azure AD. The client types in Conditional Access, and the Azure AD reporting page in the Azure portal demarcate modern authentication clients and legacy authentication clients for you, and only legacy authentication is captured in this workbook. 
 
 
 ## Next steps

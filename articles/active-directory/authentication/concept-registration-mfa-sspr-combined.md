@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/03/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -24,7 +24,7 @@ Before combined registration, users registered authentication methods for Azure 
 
 Before enabling the new experience, review this administrator-focused documentation and the user-focused documentation to ensure you understand the functionality and effect of this feature. Base your training on the [user documentation](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8) to prepare your users for the new experience and help to ensure a successful rollout.
 
-Azure AD combined security information registration is available for Azure US Government but not Azure China 21Vianet.
+Azure AD combined security information registration is available for Azure US Government but not Microsoft Azure operated by 21Vianet.
 
 *My Account* pages are localized based on the language settings of the computer accessing the page. Microsoft stores the most recent language used in the browser cache, so subsequent attempts to access the pages continue to render in the last language used. If you clear the cache, the pages re-render.
 
@@ -130,7 +130,7 @@ To secure when and how users register for Azure AD Multi-Factor Authentication a
 
 An admin has enforced registration.
 
-A user has not set up all required security info and goes to the Azure portal. After the user enters the user name and password, the user is prompted to set up security info. The user then follows the steps shown in the wizard to set up the required security info. If your settings allow it, the user can choose to set up methods other than those shown by default. After users complete the wizard, they review the methods they set up and their default method for multifactor authentication. To complete the setup process, the user confirms the info and continues to the Azure portal.
+A user has not set up all required security info and goes to the Microsoft Entra admin center. After the user enters the user name and password, the user is prompted to set up security info. The user then follows the steps shown in the wizard to set up the required security info. If your settings allow it, the user can choose to set up methods other than those shown by default. After users complete the wizard, they review the methods they set up and their default method for multifactor authentication. To complete the setup process, the user confirms the info and continues to the Microsoft Entra admin center.
 
 ### Set up security info from My Account
 
@@ -161,7 +161,7 @@ For example, a user sets Microsoft Authenticator app push notification as the pr
 This user is also configured with SMS/Text option on a resource tenant. 
 If this user removes SMS/Text as one of the authentication options on their home tenant, they get confused when access to the resource tenant asks them to respond to SMS/Text message. 
 
-To switch the directory in the Azure portal, click the user account name in the upper right corner and click **Switch directory**.
+To switch the directory in the Microsoft Entra admin center, click the user account name in the upper right corner and click **Switch directory**.
 
 ![External users can switch directory.](media/concept-registration-mfa-sspr-combined/switch-directory.png)
 
@@ -170,6 +170,13 @@ Or, you can specify a tenant by URL to access security information.
 `https://mysignins.microsoft.com/security-info?tenant=<Tenant Name>`
 
 `https://mysignins.microsoft.com/security-info/?tenantId=<Tenant ID>`
+
+> [!NOTE]
+> Customers attempting to register or manage security info through combined registration or the My Sign-ins page should use a modern browser such as Microsoft Edge. 
+> 
+> IE11 is not officially supported for creating a webview or browser in applications as it will not work as expected in all scenarios.
+> 
+> Applications that have not been updated and are still using Azure AD Authentication Library (ADAL) that rely on legacy webviews can fallback to older versions of IE. In these scenarios, users will experience a blank page when directed to the My Sign-ins page. To resolve this issue, switch to a modern browser.
 
 ## Next steps
 

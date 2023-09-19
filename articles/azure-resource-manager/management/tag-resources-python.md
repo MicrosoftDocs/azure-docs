@@ -3,14 +3,14 @@ title: Tag resources, resource groups, and subscriptions with Python
 description: Shows how to use Python to apply tags to Azure resources.
 ms.topic: conceptual
 ms.date: 04/19/2023
-ms.custom: ai-gen-docs, devx-track-python
+ms.custom: devx-track-python
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Apply tags with Python
 
 This article describes how to use Python to tag resources, resource groups, and subscriptions. For tag recommendations and limitations, see [Use tags to organize your Azure resources and management hierarchy](tag-resources.md).
-
-[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 

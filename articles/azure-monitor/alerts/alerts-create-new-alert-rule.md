@@ -8,42 +8,56 @@ ms.custom: ignite-2022, devx-track-arm-template, build-2023
 ms.date: 05/11/2023
 ms.reviewer: harelbr
 ---
-# Create a new alert rule
+# Create or edit an alert rule
 
-This article shows you how to create an alert rule. To learn more about alerts, see the [alerts overview](alerts-overview.md).
+This article shows you how to create a new alert rule or edit an existing alert rule. To learn more about alerts, see the [alerts overview](alerts-overview.md).
 
 You create an alert rule by combining:
  - The resources to be monitored.
  - The signal or data from the resource.
  - Conditions.
 
-You then define these elements for the resulting alert actions by using:
- - [Alert processing rules](alerts-action-rules.md)
+You then define these elements for the alert actions:
  - [Action groups](./action-groups.md)
+ - [Alert processing rules](alerts-action-rules.md)
 
 Alerts triggered by these alert rules contain a payload that uses the [common alert schema](alerts-common-schema.md).
-## Create a new alert rule in the Azure portal
+## Create or edit an alert rule in the Azure portal
+
+There are several ways that you can create a new alert rule.
+
+To create a new alert rule from the portal home page:
 
 1. In the [portal](https://portal.azure.com/), select **Monitor** > **Alerts**.
-1. Open the **+ Create** menu and select **Alert rule**.
+1. Open the **+ Create** menu, and select **Alert rule**.
 
-   :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule.png" alt-text="Screenshot that shows steps to create a new alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule.png" alt-text="Screenshot that shows steps to create a new alert rule.":::
 
-### Select a scope for the alert rule
+To create a new alert rule from a specific resource:
+
+1. In the [portal](https://portal.azure.com/), navigate to the resource.
+1. Select **Alerts** from the left pane, and then select **+ Create** > **Alert rule**.
+
+     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule-2.png" alt-text="Screenshot that shows steps to create a new alert rule from a selected resource.":::
+
+To edit an existing alert rule:
+1. In the [portal](https://portal.azure.com/), either from the home page or from a specific resource, select **Alerts** from the left pane.
+1. Select **Alert rules**.
+1. Select the alert rule you want to edit, and then select **Edit**.
+
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-edit-alert-rule.png" alt-text="Screenshot that shows steps to edit an existing alert rule.":::
+1. Select any of the tabs for the alert rule to edit the settings.
+
+### Set the alert rule scope
 
 1. On the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, or **resource location**.
-
-    > [!NOTE]
-    > If you select a Log analytics workspace resource, keep in mind that if the workspace receives telemetry from resources in more than one subscription, alerts are sent about those resources from different subscriptions.
-
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot that shows the select resource pane for creating a new alert rule.":::
-
 1. Select **Apply**.
 1. Select **Next: Condition** at the bottom of the page.
 
-### Set the conditions for the alert rule
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot that shows the select resource pane for creating a new alert rule.":::
+### Set the alert rule conditions 
 
-1. On the **Condition** tab, when you select the **Signal name** field, the most commonly used signals are displayed in the drop-down list. Select one of these popular signals, or select **See all signals** if you want to choose a different signal for the condition. 
+1. On the **Condition** tab, when you select the **Signal name** field, the most commonly used signals are displayed in the drop-down list. Select one of these popular signals, or select **See all signals** if you want to choose a different signal for the condition.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-popular-signals.png" alt-text="Screenshot that shows popular signals when creating an alert rule.":::
 
@@ -87,7 +101,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max.|
         |Threshold value|If you selected a **static** threshold, enter the threshold value for the condition logic.|
         |Unit|If the selected metric signal supports different units, such as bytes, KB, MB, and GB, and if you selected a **static** threshold, enter the unit for the condition logic.|
-        |Threshold sensitivity|If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern that's required to trigger an alert. <br> - **High**: Thresholds are tight and close to the metric series pattern. An alert rule is triggered on the smallest deviation, resulting in more alerts. <br> - **Medium**: Thresholds are less tight and more balanced. There will be fewer alerts than with high sensitivity (default). <br> - **Low**: Thresholds are loose, allowing greater deviation from the metric series pattern. Alert rules are only triggered on large deviations, resulting in fewer alerts.|
+        |Threshold sensitivity|If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern that's required to trigger an alert. <br> - **High**: Thresholds are tight and close to the metric series pattern. An alert rule is triggered on the smallest deviation, resulting in more alerts. <br> - **Medium**: Thresholds are less tight and more balanced. There are fewer alerts than with high sensitivity (default). <br> - **Low**: Thresholds are loose, allowing greater deviation from the metric series pattern. Alert rules are only triggered on large deviations, resulting in fewer alerts.|
         |Aggregation granularity| Select the interval that's used to group the data points by using the aggregation type function. Choose an **Aggregation granularity** (period) that's greater than the **Frequency of evaluation** to reduce the likelihood of missing the first evaluation period of an added time series.|
         |Frequency of evaluation|Select how often the alert rule is to be run. Select a frequency that's smaller than the aggregation granularity to generate a sliding window for the evaluation.|
  
@@ -124,62 +138,67 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     1. Select **Done**.
     #### [Log alert](#tab/log)
 
-    > [!NOTE]
-    > If you're creating a new log alert rule, note that the current alert rule wizard is different from the earlier experience. For more information, see [Changes to the log alert rule creation experience](#changes-to-the-log-alert-rule-creation-experience).
-
     1. On the **Logs** pane, write a query that returns the log events for which you want to create an alert.
-
-        To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log alert rule.":::
 
-    1. (Optional) If you're querying an ADX cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
-        ```azurecli
-         adx(cluster).table    
+        To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
+
+    1. (Optional) If you're querying an ADX or ARG cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
+        ```KQL
+         adx('https://help.kusto.windows.net/Samples').table    
          | where MyTS >= ago(5m) and MyTS <= now()
         ```     
+         ```KQL
+         arg("").Resources
+         | where type =~ 'Microsoft.Compute/virtualMachines'
+         | project _ResourceId=tolower(id), tags
+        ```  
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Screenshot that shows the Condition tab when creating a new log alert rule.":::
+
     1. Select **Run** to run the alert.
     1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.
     1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last five minutes. If the system detects summarized query results, the rule is automatically updated with that information.
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Screenshot that shows the Condition tab when creating a new log alert rule.":::
-
     1. In the **Measurement** section, select values for these fields:
+
+       :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-measurements.png" alt-text="Screenshot that shows the Measurement tab when creating a new log alert rule.":::
 
         |Field  |Description  |
         |---------|---------|
-        |Measure|Log alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions. <br> **Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.      |
+        |Measure|Log alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions. <br>**Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.      |
         |Aggregation type| The calculation performed on multiple records to aggregate them to one numeric value by using the aggregation granularity. Examples are Total, Average, Minimum, or Maximum.    |
         |Aggregation granularity| The interval for aggregating multiple records to one numeric value.|
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-measurements.png" alt-text="Screenshot that shows the Measurement tab when creating a new log alert rule.":::
+ 
+    1. <a name="dimensions"></a>(Optional) In the **Split by dimensions** section, you can use dimensions to help provide context for the triggered alert.
 
-    1. (Optional) In the **Split by dimensions** section, you can use dimensions to monitor the values of multiple instances of a resource with one rule. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group. When you split by dimensions, alerts are split into separate alerts by grouping combinations of numerical or string columns to monitor for the same condition on multiple Azure resources. For example, you can monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually. Notifications are sent for each instance.
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-log-rule-dimensions.png" alt-text="Screenshot that shows the splitting by dimensions section of a new log alert rule.":::
 
-        Splitting on the **Azure Resource ID** column makes the specified resource the target of the alert.
+        Dimensions are columns from your query results that contain additional data. When you use dimensions, the alert rule groups the query results by the dimension values and evaluates the results of each group separately. If the condition is met, the rule fires an alert for that group. The alert payload includes the combination that triggered the alert.
 
-        If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. The alert payload includes the combination that triggered the alert.
+        You can apply up to six dimensions per alert rule. Dimensions can only be string or numeric columns. If you want to use a column that isn't a number or string type as a dimension, you must convert it to a string or numeric value in your query. If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately.
 
-        You can select up to six more splittings for any columns that contain text or numbers.
-        
-        > [!NOTE]
-        > Dimensions can **only** be number or string columns. If for example you want to use a dynamic column as a dimension, you need to convert it to a string first.
-
-        You can also decide *not* to split when you want a condition applied to multiple resources in the scope. An example would be if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80 percent.
+        For example:
+        -  You could use dimensions to monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually, and notifications are sent for each instance where the CPU usage exceeds the configured value.
+        - You could decide not to split by dimensions when you want a condition applied to multiple resources in the scope. For example, you wouldn't use dimensions if you want to fire an alert if at least five machines in the resource group scope have CPU usage above the configured value.
 
         Select values for these fields:
 
+        -  **Resource ID column**: In general, if your alert rule scope is a workspace, the alerts are fired on the workspace. If you want a separate alert for each affected Azure resource, you can:
+            - use the ARM **Azure Resource ID** column as a dimension
+            - specify it as a dimension in the Azure Resource ID property, which makes the resource returned by your query the target of the alert, so alerts are fired on the resource returned by your query, such as a virtual machine or a storage account, as opposed to in the workspace. When you use this option, if the workspace  gets data from resources in more than one subscription, alerts can be triggered on resources from a subscription that is different from the alert rule subscription. 
+
         |Field  |Description  |
         |---------|---------|
-        |Resource ID column|Splitting on the **Azure Resource ID** column makes the specified resource the target of the alert. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource. |
         |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.|
         |Operator|The operator used on the dimension name and value.  |
         |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
         |Include all future values| Select this field to include any future values added to the selected dimension.  |
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-log-rule-dimensions.png" alt-text="Screenshot that shows the splitting by dimensions section of a new log alert rule.":::
-
     1. In the **Alert logic** section, select values for these fields:
+
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-log-rule-logic.png" alt-text="Screenshot that shows the Alert logic section of a new log alert rule.":::
 
         |Field  |Description  |
         |---------|---------|
@@ -187,9 +206,10 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |Threshold value| A number value for the threshold. |
         |Frequency of evaluation|How often the query is run. Can be set from a minute to a day.|
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-log-rule-logic.png" alt-text="Screenshot that shows the Alert logic section of a new log alert rule.":::
 
     1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. Your application business policy determines this setting.
+
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-preview-advanced-options.png" alt-text="Screenshot that shows the Advanced options section of a new log alert rule.":::
 
         Select values for these fields under **Number of violations to trigger the alert**:
 
@@ -197,9 +217,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |---------|---------|
         |Number of violations|The number of violations that trigger the alert.|
         |Evaluation period|The time period within which the number of violations occur. |
-        |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to two days of data.<br> If the query requires more data than the alert evaluation, and there's no **ago** command in the query, you can change the time range manually.|
-
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-preview-advanced-options.png" alt-text="Screenshot that shows the Advanced options section of a new log alert rule.":::
+        |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to two days of data. If the query requires more data than the alert evaluation you can change the time range manually. If the query contains **ago** command, it will be changed automatically to 2 days (48 hours).|<br> 
 
         > [!NOTE]
         > If you or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage**. If you don't, the rule creation will fail because it won't meet the policy requirements.
@@ -245,7 +263,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     From this point on, you can select the **Review + create** button at any time.
 
-### Set the actions for the alert rule
+### Set the alert rule actions
 
 1. On the **Actions** tab, select or create the required [action groups](./action-groups.md).
 
@@ -255,7 +273,9 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     The format for extracting a dynamic value from the alert payload is: `${<path to schema field>}`. For example: ${data.essentials.monitorCondition}.
 
-    Use the [common alert schema](alerts-common-schema.md) format to specify the field in the payload, whether or not the action groups configured for the alert rule use the common schema. 
+    Use the [common alert schema](alerts-common-schema.md) format to specify the field in the payload, whether or not the action groups configured for the alert rule use the common schema.
+
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new alert rule.":::
 
     In the following examples, values in the **custom properties** are used to utilize data from a payload that uses the common alert schema:
 
@@ -277,13 +297,10 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         - "Alert Resolved reason: Percentage CPU GreaterThan5 Resolved. The value is 3.585"
         - “Alert Fired reason": "Percentage CPU GreaterThan5 Fired. The value is 10.585"
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new alert rule.":::
-
-
     > [!NOTE]
     > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
 
-### Set the details for the alert rule
+### Set the alert rule details
 
 1. On the **Details** tab, define the **Project details**.
     - Select the **Subscription**.
@@ -292,6 +309,8 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 1. Define the **Alert rule details**.
 
     #### [Metric alert](#tab/metric)
+
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-metric-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new alert rule.":::
 
     1. Select the **Severity**.
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
@@ -308,11 +327,11 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |Field |Description |
         |---------|---------|
         |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-        |Automatically resolve alerts (preview) |Select to make the alert stateful. When an alert is stateful, the alert is resolved when the condition is no longer met.<br> If you don't select this checkbox, metric alerts are stateless. Stateless alerts fire each time the condition is met, even if alert already fired.<br> The frequency of notifications for stateless metric alerts differs based on the alert rule's configured frequency:<br>**Alert frequency of less than 5 minutes**: While the condition continues to be met, a notification is sent somewhere between one and six minutes.<br>**Alert frequency of more than 5 minutes**: While the condition continues to be met, a notification is sent between the configured frequency and double the frequency. For example, for an alert rule with a frequency of 15 minutes, a notification is sent somewhere between 15 to 30 minutes.|
-
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-metric-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new alert rule.":::
+        |Automatically resolve alerts (preview) |Select to make the alert stateful. When an alert is stateful, the alert is resolved when the condition is no longer met.<br> If you don't select this checkbox, metric alerts are stateless. Stateless alerts fire each time the condition is met, even if alert already fired.<br> The frequency of notifications for stateless metric alerts differs based on the alert rule's configured frequency:<br>**Alert frequency of less than 5 minutes**: While the condition continues to be met, a notification is sent somewhere between one and six minutes.<br>**Alert frequency of more than 5 minutes**: While the condition continues to be met, a notification is sent between the configured frequency and double the value of the frequency. For example, for an alert rule with a frequency of 15 minutes, a notification is sent somewhere between 15 to 30 minutes.|
 
     #### [Log alert](#tab/log)
+
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new log alert rule.":::
 
     1. Select the **Severity**.
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
@@ -341,8 +360,6 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |System assigned managed identity| Azure creates a new, dedicated identity for this alert rule. This identity has no permissions and is automatically deleted when the rule is deleted. After creating the rule, you must assign permissions to this identity to access the workspace and data sources needed for the query. For more information about assigning permissions, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md). |
         |User assigned managed identity|Before you create the alert rule, you [create an identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity) and assign it appropriate permissions for the log query. This is a regular Azure identity. You can use one identity in multiple alert rules. The identity isn't deleted when the rule is deleted. When you select this type of identity, a pane opens for you to select the associated identity for the rule. |
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new log alert rule.":::
-
     1. (Optional) In the **Advanced options** section, you can set several options:
 
         |Field |Description |
@@ -354,23 +371,23 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     #### [Activity log alert](#tab/activity-log)
 
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
+
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
-
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
 
     #### [Resource Health alert](#tab/resource-health)
 
+   :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
+
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+    #### [Service Health alert](#tab/service-health)
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
-    #### [Service Health alert](#tab/service-health)
     
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
-
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
     ---
 
 ### Finish creating the alert rule
@@ -400,14 +417,13 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
     ```
     #### [Log alert](#tab/log)
 
+    Azure CLI support is only available for the `scheduledQueryRules` API version `2021-08-01` and later. Previous API versions can use the Azure Resource Manager CLI with templates. If you use the legacy [Log Analytics Alert API](./api-alerts.md), switch to use the CLI. [Learn more about switching](./alerts-log-api-switch.md).
+
     To create a log alert rule that monitors the count of system event errors:
 
     ```azurecli
     az monitor scheduled-query create -g {ResourceGroup} -n {nameofthealert} --scopes {vm_id} --condition "count \'union Event, Syslog | where TimeGenerated > a(1h) | where EventLevelName == \"Error\" or SeverityLevel== \"err\"\' > 2" --description {descriptionofthealert}
     ```
-
-    > [!NOTE]
-    > Azure CLI support is only available for the `scheduledQueryRules` API version `2021-08-01` and later. Previous API versions can use the Azure Resource Manager CLI with templates as described in the following sections. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you must switch to use the CLI. [Learn more about switching](./alerts-log-api-switch.md).
 
     #### [Activity log alert](#tab/activity-log)
 
@@ -500,22 +516,7 @@ You can also create an activity log alert on future events similar to an activit
 
    If you want to make the alert rule more general, modify the scope and condition accordingly. See steps 3-9 in the section "Create a new alert rule in the Azure portal."
 
-1. Follow the rest of the steps from [Create a new alert rule in the Azure portal](#create-a-new-alert-rule-in-the-azure-portal).
-
-## Changes to the log alert rule creation experience
-
-The current alert rule wizard is different from the earlier experience:
-
-- Previously, search results were included in the payload of the triggered alert and its associated notifications. The email included only 10 rows from the unfiltered results while the webhook payload contained 1,000 unfiltered results. To get detailed context information about the alert so that you can decide on the appropriate action:
-    - We recommend using [Dimensions](alerts-types.md#narrow-the-target-using-dimensions). Dimensions provide the column value that fired the alert, which gives you context for why the alert fired and how to fix the issue.
-    - When you need to investigate in the logs, use the link in the alert to the search results in logs.
-    - If you need the raw search results or for any other advanced customizations, use Azure Logic Apps.
-- The new alert rule wizard doesn't support customization of the JSON payload.
-    - Use custom properties in the [new API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update#actions) to add static parameters and associated values to the webhook actions triggered by the alert.
-    - For more advanced customizations, use Logic Apps.
-- The new alert rule wizard doesn't support customization of the email subject.
-    - Customers often use the custom email subject to indicate the resource on which the alert fired, instead of using the Log Analytics workspace. Use the [new API](alerts-unified-log.md#split-by-alert-dimensions) to trigger an alert of the desired resource by using the resource ID column.
-    - For more advanced customizations, use Logic Apps.
+1. Follow the rest of the steps from [Create a new alert rule in the Azure portal](#create-or-edit-an-alert-rule-in-the-azure-portal).
 
 ## Next steps
  [View and manage your alert instances](alerts-manage-alert-instances.md)

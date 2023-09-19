@@ -5,9 +5,9 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 05/23/2023
+ms.date: 08/22/2023
 ms.author: greglin 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Troubleshoot backend health issues in Application Gateway
@@ -113,40 +113,7 @@ To increase the timeout value, follow these steps:
 2. If you can resolve the IP address, there might be something wrong with the DNS configuration in the virtual network.
 3. Check whether the virtual network is configured with a custom DNS server. If it is, check the DNS server about why it can't resolve to the IP address of the specified FQDN.
 4. If you're using Azure default DNS, check with your domain name registrar about whether proper A record or CNAME record mapping has been completed.
-5. If the domain is private or internal, try to resolve it from a VM in the same virtual network. If you can resolve it, restart Application Gateway and check again. To restart Application Gateway, you need to [stop](/powershell/module/azurerm.network/stop-azurermapplicationgateway) and [start](/powershell/module/azurerm.network/start-azurermapplicationgateway) by using the PowerShell commands described in these linked resources.
-
-### Updates to the DNS entries of the backend pool
-
-**Message:** The backend health status could not be retrieved. This happens when an NSG/UDR/Firewall on the application gateway subnet is blocking traffic on ports 65503-65534 in case of v1 SKU, and ports 65200-65535 in case of the v2 SKU or if the FQDN configured in the backend pool could not be resolved to an IP address. To learn more visit - https://aka.ms/UnknownBackendHealth.
-
-**Cause:** Application Gateway resolves the DNS entries for the backend pool at time of startup and doesn't update them dynamically while running.
-
-**Resolution:**
-
-Application Gateway must be restarted after any modification to the backend server DNS entries to begin to use the new IP addresses.  This operation can be completed via Azure PowerShell or Azure CLI.
-
-#### Azure PowerShell
-
-```
-# Get Azure Application Gateway
-$appgw=Get-AzApplicationGateway -Name <appgw_name> -ResourceGroupName <rg_name>
- 
-# Stop the Azure Application Gateway
-Stop-AzApplicationGateway -ApplicationGateway $appgw
- 
-# Start the Azure Application Gateway
-Start-AzApplicationGateway -ApplicationGateway $appgw
-```
-
-#### Azure CLI
-
-```
-# Stop the Azure Application Gateway
-az network application-gateway stop -n <appgw_name> -g <rg_name>
-
-# Start the Azure Application Gateway
-az network application-gateway start -n <appgw_name> -g <rg_name>
-```
+5. If the domain is private or internal, try to resolve it from a VM in the same virtual network. If you can resolve it, restart Application Gateway and check again. To restart Application Gateway, you need to [stop](/powershell/module/az.network/stop-azapplicationgateway) and [start](/powershell/module/az.network/start-azapplicationgateway) by using the PowerShell commands described in these linked resources.
 
 ### TCP connect error
 
@@ -388,8 +355,18 @@ OR </br>
 
 **Solution:** To resolve this issue, verify that the certificate on your server was created properly. For example, you can use [OpenSSL](https://www.openssl.org/docs/manmaster/man1/verify.html) to verify the certificate and its properties and then try reuploading the certificate to the Application Gateway HTTP settings.
 
-## Backend health status: unknown
+## Backend health status: Unknown
 
+### Updates to the DNS entries of the backend pool
+
+**Message:** The backend health status could not be retrieved. This happens when an NSG/UDR/Firewall on the application gateway subnet is blocking traffic on ports 65503-65534 in case of v1 SKU, and ports 65200-65535 in case of the v2 SKU or if the FQDN configured in the backend pool could not be resolved to an IP address. To learn more visit - https://aka.ms/UnknownBackendHealth.
+
+**Cause:** For FQDN (Fully Qualified Domain Name)-based backend targets, the Application Gateway caches and uses the last-known-good IP address if it fails to get a response for the subsequent DNS lookup. A PUT operation on a gateway in this state would clear its DNS cache altogether. As a result, there will not be any destination address to which the gateway can reach.
+
+**Resolution:**
+Check and fix the DNS servers to ensure it is serving a response for the given FDQN's DNS lookup. You must also check if the DNS servers are reachable through your application gateway's Virtual Network.
+
+### Other reasons
 If the backend health is shown as Unknown, the portal view will resemble the following screenshot:
 
 ![Application Gateway backend health - Unknown](./media/application-gateway-backend-health-troubleshooting/appgwunknown.png)
