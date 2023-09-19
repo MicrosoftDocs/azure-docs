@@ -106,7 +106,7 @@ https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByServi
 
 ### PowerShell script
 
-The following PowerShell script shows an example of how to query the Microsoft Entra ID reporting API. After querying the API, it prints the logged events to standard output, then writes the JSON output to a file.
+The following PowerShell script shows an example of how to query the Microsoft Entra reporting API. After querying the API, it prints the logged events to standard output, then writes the JSON output to a file.
 
 You can try this script in the [Azure Cloud Shell](overview.md). Be sure to update it with your application ID, client secret, and the name of your Azure AD B2C tenant.
 
