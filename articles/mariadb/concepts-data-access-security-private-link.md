@@ -10,7 +10,7 @@ ms.date: 06/24/2022
 
 # Private Link for Azure Database for MariaDB
 
-[[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]]
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 Private Link allows you to create private endpoints for Azure Database for MariaDB and so brings Azure services inside your private Virtual Network (VNet). The private endpoint exposes a private IP you can use to connect to your Azure Database for MariaDB database server just like any other resource in the VNet.
 

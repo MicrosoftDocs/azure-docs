@@ -10,7 +10,7 @@ ms.date: 06/24/2022
 
 # High availability in Azure Database for MariaDB
 
-[[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]]
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 The Azure Database for MariaDB service provides a guaranteed high level of availability with the financially backed service level agreement (SLA) of [99.99%](https://azure.microsoft.com/support/legal/sla/MariaDB) uptime. Azure Database for MariaDB provides high availability during planned events such as user-initated scale compute operation, and also when unplanned events such as underlying hardware, software, or network failures occur. Azure Database for MariaDB can quickly recover from most critical circumstances, ensuring virtually no application down time when using this service.
 

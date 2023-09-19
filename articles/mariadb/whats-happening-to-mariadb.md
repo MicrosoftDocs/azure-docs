@@ -12,7 +12,7 @@ ms.custom: deprecation announcement
 
 # What's happening to Azure Database for MariaDB?
 
-[[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]]
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 Azure Database for MariaDB is on the retirement path, and **Azure Database for MariaDB is scheduled for retirement by September 19, 2025**.
 
