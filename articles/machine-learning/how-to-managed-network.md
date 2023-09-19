@@ -703,8 +703,8 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     Use a YAML file to define the managed VNet configuration and add a private endpoint for the Azure Storage Account. Also set `spark_enabled: true`:
 
-    > [!NOTE]
-    > This example is for a managed VNet configured to allow internet traffic. Currently, serverless Spark does not support `isolation_mode: allow_only_approved_outbound` to allow only approved outbound traffic.
+    > [!TIP]
+    > This example is for a managed VNet configured using `isolation_mode: allow_internet_outbound` to allow internet traffic.  If you want to allow only approved outbound traffic to enable data exfiltration protection (DEP), use `isolation_mode: allow_only_approved_outbound`.
 
     ```yml
     name: myworkspace
@@ -725,12 +725,16 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
     az ml workspace update --file workspace_pe.yml --resource_group rg --name ws
     ```
 
+    > [!NOTE]
+    > - When data exfiltration protection (DEP) is enabled, conda package dependencies defined in Spark session configuration will fail to install. To resolve this problem, upload a self-contained Python package wheel with no external dependencies to an Azure storage account and create private endpoint to this storage account. Use the path to Python package wheel as `py_files` parameter in your Spark job.
+    > - If the workspace was created with `isolation_mode: allow_internet_outbound`, it can not be updated later to use `isolation_mode: allow_only_approved_outbound`.
+
     # [Python SDK](#tab/python)
 
     The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`. It also adds a private endpoint for the Azure Storage Account and sets `spark_enabled=true`:
 
-    > [!NOTE]
-    > The following example is for a managed VNet configured to allow internet traffic. Currently, serverless Spark does not support `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND` to allow only approved outbound traffic.  
+    > [!TIP]
+    > The following example is for a managed VNet configured using `IsolationMode.ALLOW_INTERNET_OUTBOUND` to allow internet traffic. If you want to allow only approved outbound traffic to enable data exfiltration protection (DEP), use `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.  
         
     ```python
     # Get the existing workspace
@@ -756,20 +760,23 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
     # Create the workspace
     ml_client.workspaces.begin_update(ws)
     ```
+    > [!NOTE]
+    > - When data exfiltration protection (DEP) is enabled, conda package dependencies defined in Spark session configuration will fail to install. To resolve this problem, upload a self-contained Python package wheel with no external dependencies to an Azure storage account and create private endpoint to this storage account. Use the path to Python package wheel as `py_files` parameter in the Spark job.
+    > - If the workspace was created with `IsolationMode.ALLOW_INTERNET_OUTBOUND`, it can not be updated later to use `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`. 
 
 
     # [Azure portal](#tab/portal)
 
     1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure Machine Learning workspace.
-    1. Select __Networking__, then select __Add user-defined outbound rules__. Add a rule for the Azure Storage Account, and make sure that __Spark enabled__ is selected.
+    2. Select __Networking__, then select __Add user-defined outbound rules__. Add a rule for the Azure Storage Account, and make sure that __Spark enabled__ is selected.
     
         :::image type="content" source="./media/how-to-managed-network/add-outbound-spark-enabled.png" alt-text="Screenshot of an endpoint rule with Spark enabled selected." lightbox="./media/how-to-managed-network/add-outbound-spark-enabled.png":::
 
-    1. Select __Save__ to save the rule, then select __Save__ from the top of __Networking__ to save the changes to the manged virtual network.
+    3. Select __Save__ to save the rule, then select __Save__ from the top of __Networking__ to save the changes to the manged virtual network.
 
     ---
 
-1. Provision the managed VNet.
+2. Provision the managed VNet.
 
     > [!NOTE]
     > If your workspace is already configured for a public endpoint (for example, with an Azure Virtual Network), and has [public network access enabled](how-to-configure-private-link.md#enable-public-access), you must disable it before provisioning the managed virtual network. If you don't disable public network access when provisioning the managed virtual network, the private endpoints for the managed endpoint may not be created successfully.
