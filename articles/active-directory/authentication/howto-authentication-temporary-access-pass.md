@@ -27,7 +27,7 @@ A Temporary Access Pass is a time-limited passcode that can be configured for si
 
 A Temporary Access Pass also makes recovery easier when a user has lost or forgotten their strong authentication factor like a FIDO2 security key or Microsoft Authenticator app, but needs to sign in to register new strong authentication methods.
 
-This article shows you how to enable and use a Temporary Access Pass in Azure AD using the the [Microsoft Entra admin center](https://entra.microsoft.com). 
+This article shows you how to enable and use a Temporary Access Pass using the the [Microsoft Entra admin center](https://entra.microsoft.com). 
 You can also perform these actions using the REST APIs. 
 
 ## Enable the Temporary Access Pass policy
@@ -119,7 +119,7 @@ The most common use for a Temporary Access Pass is for a user to register authen
 1. Open a web browser to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo).
 1. Enter the UPN of the account you created the Temporary Access Pass for, such as *tapuser@contoso.com*.
 1. If the user is included in the Temporary Access Pass policy, they see a screen to enter their Temporary Access Pass.
-1. Enter the Temporary Access Pass that was displayed in the Azure portal.
+1. Enter the Temporary Access Pass that was displayed in the Microsoft Entra admin center.
 
    :::image type="content" border="true" source="./media/how-to-authentication-temporary-access-pass/enter.png" alt-text="Screenshot of how to enter a Temporary Access Pass.":::
 
@@ -171,7 +171,8 @@ The token lifetime (session token, refresh token, access token, and so on) obtai
 
 Under the **Authentication methods** for a user, the **Detail** column shows when the Temporary Access Pass expired. You can delete an expired Temporary Access Pass using the following steps:
 
-1. In the Azure portal, browse to **Users**, select a user, such as *Tap User*, then choose **Authentication methods**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Identity** > **Users**, select a user, such as *Tap User*, then choose **Authentication methods**.
 1. On the right-hand side of the **Temporary Access Pass** authentication method shown in the list, select **Delete**.
 
 You can also use PowerShell:

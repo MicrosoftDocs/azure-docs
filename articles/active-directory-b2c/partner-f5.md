@@ -234,12 +234,12 @@ The BIG-IP has required Azure AD B2C requests in its preconfigured request set. 
 
 | Parameter | Parameter name | Parameter value|
 |----|---|---|
-| client-id | client-id |N/A |
+| client_id | client_id |N/A |
 | nonce | nonce| N/A|
-| redirect-uri | redirect-uri | N/A|
+| redirect_uri | redirect_uri | N/A|
 | scope | scope | N/A|
-| response-type | response-type | N/A|
-| client-secret | client-secret |N/A |
+| response_type | response_type | N/A|
+| client_secret | client_secret |N/A |
 | custom | grant_type | authorization_code |
 
 **Auth redirect request: Enabled**
@@ -254,9 +254,9 @@ The BIG-IP has required Azure AD B2C requests in its preconfigured request set. 
 
 | Parameter | Parameter name | Parameter value|
 |---|---|----|
-| client-id | client-id | N/A|
-| redirect-uri | redirect-uri |N/A |
-| response-type |response-type |N/A |
+| client_id | client_id | N/A|
+| redirect_uri | redirect_uri |N/A |
+| response_type |response_type |N/A |
 | scope | scope | N/A|
 | nonce | nonce | N/A|
 

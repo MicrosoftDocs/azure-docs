@@ -1,6 +1,6 @@
 ---
 title: Scoped synchronization for Azure AD Domain Services | Microsoft Docs
-description: Learn how to use the Azure portal to configure scoped synchronization from Azure AD to an Azure Active Directory Domain Services managed domain
+description: Learn how to use the Microsoft Entra admin center to configure scoped synchronization from Azure AD to an Azure Active Directory Domain Services managed domain
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.date: 03/22/2023
 ms.author: justinha 
 ---
-# Configure scoped synchronization from Azure AD to Azure Active Directory Domain Services using the Azure portal
+# Configure scoped synchronization from Azure AD to Azure Active Directory Domain Services using the Microsoft Entra admin center
 
 To provide authentication services, Azure Active Directory Domain Services (Azure AD DS) synchronizes users and groups from Azure AD. In a hybrid environment, users and groups from an on-premises Active Directory Domain Services (AD DS) environment can be first synchronized to Azure AD using Azure AD Connect, and then synchronized to an Azure AD DS managed domain.
 
 By default, all users and groups from an Azure AD directory are synchronized to a managed domain. If only some users need to use Azure AD DS, you can instead choose to synchronize only groups of users. You can filter synchronization for groups on-premises, cloud only, or both. 
 
-This article shows you how to configure scoped synchronization and then change or disable the set of scoped users using the Azure portal. You can also [complete these steps using PowerShell][scoped-sync-powershell].
+This article shows you how to configure scoped synchronization and then change or disable the set of scoped users using the Microsoft Entra admin center. You can also [complete these steps using PowerShell][scoped-sync-powershell].
 
 :::image type="content" border="true" source="./media/scoped-synchronization/filter.png" alt-text="Screenshot of group filter option.":::
 
@@ -52,9 +52,9 @@ To learn more about the synchronization process, see [Understand synchronization
 
 ## Enable scoped synchronization
 
-To enable scoped synchronization in the Azure portal, complete the following steps:
+To enable scoped synchronization in the Microsoft Entra admin center, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
 1. Select **Synchronization** from the menu on the left-hand side.
 1. For *Synchronization scope*, select **All** or **Cloud Only**.
 1. To filter synchronization for selected groups, click **Show selected groups**, choose whether to synchronize cloud-only groups, on-premises groups, or both. For example, the following screenshot shows how to synchronize only three groups that were created in Azure AD. Only users who belong to those groups will have their accounts synchronized to Azure AD DS.  
@@ -70,7 +70,7 @@ Changing the scope of synchronization causes the managed domain to resynchronize
 
 To modify the list of groups whose users should be synchronized to the managed domain, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
 1. Select **Synchronization** from the menu on the left-hand side.
 1. To add a group, choose **+ Add groups** at the top, then choose the groups to add.
 1. To remove a group from the synchronization scope, select it from the list of currently synchronized groups and choose **Remove groups**.
@@ -82,7 +82,7 @@ Changing the scope of synchronization causes the managed domain to resynchronize
 
 To disable group-based scoped synchronization for a managed domain, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
 1. Select **Synchronization** from the menu on the left-hand side.
 1. Clear the check box for **Show selected groups**, and click **Save synchronization scope**.
 

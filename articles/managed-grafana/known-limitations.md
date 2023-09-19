@@ -4,9 +4,9 @@ description: Learn about current limitations in Azure Managed Grafana.
 ms.service: managed-grafana
 ms.topic: troubleshooting
 ms.date: 03/13/2023
-ms.author: mcleans
+ms.author: malev
 ms.custom: engagement-fy23
-author: mcleanbyron
+author: maud-lv
 ---
 
 # Limitations of Azure Managed Grafana

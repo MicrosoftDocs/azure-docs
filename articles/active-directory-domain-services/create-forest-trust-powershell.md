@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/03/2023
+ms.date: 09/15/2023
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 #Customer intent: As an identity administrator, I want to create an Azure AD Domain Services forest and one-way outbound trust from an Azure Active Directory Domain Services forest to an on-premises Active Directory Domain Services forest using Azure PowerShell to provide authentication and resource access between forests.
@@ -52,9 +52,9 @@ To complete this article, you need the following resources and privileges:
 * You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to enable Azure AD DS.
 * You need [Domain Services Contributor](../role-based-access-control/built-in-roles.md#contributor) Azure role to create the required Azure AD DS resources.
 
-## Sign in to the Azure portal
+## Sign in to the Microsoft Entra admin center
 
-In this article, you create and configure the outbound forest trust from a managed domain using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+In this article, you create and configure the outbound forest trust from a managed domain using the Microsoft Entra admin center. To get started, first sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 ## Deployment process
 
@@ -161,7 +161,7 @@ Before you start, make sure you understand the [network considerations and recom
     * Confirm that your on-premises domain controller can connect to the managed VM using `ping` or remote desktop, for example.
     * Verify that your management VM can connect to your on-premises domain controllers, again using a utility such as `ping`.
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aaddscontoso.com* and wait for the status to report as **Running**.
+1. In the Microsoft Entra admin center, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aaddscontoso.com* and wait for the status to report as **Running**.
 
     When running, [update DNS settings for the Azure virtual network](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network) and then [enable user accounts for Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) to finalize the configurations for your managed domain.
 
@@ -226,7 +226,7 @@ To correctly resolve the managed domain from the on-premises environment, you ma
 
 ## Create inbound forest trust in the on-premises domain
 
-The on-premises AD DS domain needs an incoming forest trust for the managed domain. This trust must be manually created in the on-premises AD DS domain, it can't be created from the Azure portal.
+The on-premises AD DS domain needs an incoming forest trust for the managed domain. This trust must be manually created in the on-premises AD DS domain, it can't be created from the Microsoft Entra admin center.
 
 To configure inbound trust on the on-premises AD DS domain, complete the following steps from a management workstation for the on-premises AD DS domain:
 
@@ -235,8 +235,8 @@ To configure inbound trust on the on-premises AD DS domain, complete the followi
 1. Choose **Trusts** tab, then **New Trust**
 1. Enter the name of the managed domain, such as *aaddscontoso.com*, then select **Next**
 1. Select the option to create a **Forest trust**, then to create a **One way: incoming** trust.
-1. Choose to create the trust for **This domain only**. In the next step, you create the trust in the Azure portal for the managed domain.
-1. Choose to use **Forest-wide authentication**, then enter and confirm a trust password. This same password is also entered in the Azure portal in the next section.
+1. Choose to create the trust for **This domain only**. In the next step, you create the trust in the Microsoft Entra admin center for the managed domain.
+1. Choose to use **Forest-wide authentication**, then enter and confirm a trust password. This same password is also entered in the Microsoft Entra admin center in the next section.
 1. Step through the next few windows with default options, then choose the option for **No, do not confirm the outgoing trust**. You can't validate the trust relation because your delegated admin account to the managed domain doesn't have the required permissions. This behavior is by design.
 1. Select **Finish**
 
