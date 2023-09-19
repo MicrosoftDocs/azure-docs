@@ -154,8 +154,7 @@ This section walks you through the configuration using the strongSwan CLI.
 1. Add the secret values to **/etc/ipsec.secrets**.
 
    The name of the PEM file must match what you have used earlier as your client key file.
-   
-   This is an example command to run on a machine which hostname is "client" and certificate password is "password"
+      
    ```cli
    : RSA ${USERNAME}Key.pem  # Replace ${USERNAME}Key.pem with the key filename inside /etc/ipsec.d/private directory. 
    ```
