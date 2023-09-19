@@ -9,7 +9,7 @@ ms.date: 09/07/2023
 
 # Kubernetes events for troubleshooting
 
-Events are one of the prominent sources for monitoring and troubleshooting issues in Kubernetes. They capture and record information about the lifecycle of various Kubernetes objects, such as pods, nodes, services, and deployments. By monitoring events, you can gain visibility into your cluster's activities, identify issues, and troubleshoot problems effectively.
+Events are one of the most prominent sources for monitoring and troubleshooting issues in Kubernetes. They capture and record information about the lifecycle of various Kubernetes objects, such as pods, nodes, services, and deployments. By monitoring events, you can gain visibility into your cluster's activities, identify issues, and troubleshoot problems effectively.
 
 Kubernetes events do not persist throughout your cluster life cycle, as there is no mechanism for retention. They are short-lived, only available for one hour after the event is generated. To store events for a longer time period, enable [Container Insights][container-insights].
 
@@ -23,8 +23,8 @@ Below is a set of the important fields in a Kubernetes Event. For a comprehensiv
 |reason|The reason why the event was generated. For example, *FailedScheduling* or *CrashLoopBackoff*.|
 |message|A human-readable message that describes the event.|
 |namespace|The namespace of the Kubernetes object that the event is associated with.|
-|firstSeen||
-|lastSeen||
+|firstSeen|Timestamp when the event was first observed.|
+|lastSeen|Timestamp of when the event was last observed.|
 |reportingController|The name of the controller that reported the event. For example, `kubernetes.io/kubelet`|
 |object|The name of the Kubernetes object that the event is associated with.|
 
@@ -43,7 +43,7 @@ To look at a specific pod's events, first find the name of the pod and then use 
 ```azurecli-interactive
 kubectl get pods
 
-kubectl describe pod <pod-name>
+kubectl describe pods <pod-name>
 ```
 
 <!--
