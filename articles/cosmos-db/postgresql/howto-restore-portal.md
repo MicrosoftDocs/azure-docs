@@ -15,7 +15,7 @@ ms.date: 09/17/2023
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 > [!IMPORTANT]
-> Geo-backup and restore in Azure Cosmos DB for PostgreSQL is currently in preview.
+> Geo-redundant backup and restore in Azure Cosmos DB for PostgreSQL is currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended
 > for production workloads. Certain features might not be supported or might have constrained 
 > capabilities.
