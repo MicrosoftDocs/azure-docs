@@ -24,7 +24,7 @@ See how your system configuration measures against Azure best practices.
 
    ![Optimize Azure workloads by using Advisor score](./media/advisor-get-started/advisor-score-detail.png) 
 
-* The far-left graphic is your overall system Advisor score against Azure best practices. The **Learn more** link opens the [Introduction to Azure Advisor](azure-advisor-score.md) page. 
+* The far-left graphic is your overall system Advisor score against Azure best practices. The **Learn more** link opens the [Optimize Azure workloads by using Advisor score](azure-advisor-score.md) page. 
 
 * The middle graphic depicts the trend of your system Advisor score history. Roll over the graphic to activate a slider to see your trend at different points of time. Use the drop-down menu to pick a trend time frame.
 
