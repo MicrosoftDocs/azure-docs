@@ -18,27 +18,26 @@ Each one of the identifiers in the **required identifiers** column is necessary 
 
 For best results&mdash;for guaranteed unique identification&mdash;you should use identifiers from the **strongest identifiers** column whenever possible. The use of multiple strong identifiers enables correlation between strong identifiers from varying data sources and schemas. This correlation in turn allows Microsoft Sentinel to provide more comprehensive insights for a given entity.
 
-| Entity type | Identifiers | Required identifiers | Strongest identifiers |
+| Entity type | Identifiers | Strong identifiers | Weak identifiers |
 | - | - | - | - |
-| [**User account**](#user-account)<br>*(Account)* | Name<br>FullName<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined<br>DisplayName<br>ObjectGuid | FullName<br>Sid<br>Name<br>AadUserId<br>PUID<br>ObjectGuid | Name + NTDomain<br>Name + UPNSuffix<br>AADUserId<br>Sid |
-| [**Host**](#host) | DnsDomain<br>NTDomain<br>HostName<br>FullName<br>NetBiosName<br>AzureID<br>OMSAgentID<br>OSFamily<br>OSVersion<br>IsDomainJoined | FullName<br>HostName<br>NetBiosName<br>AzureID<br>OMSAgentID | HostName + NTDomain<br>HostName + DnsDomain<br>NetBiosName + NTDomain<br>NetBiosName + DnsDomain<br>AzureID<br>OMSAgentID |
-| [**IP address**](#ip-address)<br>*(IP)* | Address | Address | |
-| [**Malware**](#malware) | Name<br>Category | Name | |
-| [**File**](#file) | Directory<br>Name | Name | |
-| [**Process**](#process) | ProcessId<br>CommandLine<br>ElevationToken<br>CreationTimeUtc | CommandLine<br>ProcessId | |
-| [**Cloud application**](#cloud-application)<br>*(CloudApplication)* | AppId<br>Name<br>InstanceName | AppId<br>Name | |
-| [**Domain name**](#domain-name)<br>*(DNS)* | DomainName | DomainName | |
+| [**Account**](#account) | Name<br>FullName ***NOT&nbsp;IN&nbsp;SPEC***<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined<br>DisplayName ***NOT&nbsp;IN&nbsp;SPEC***<br>ObjectGuid<br>CloudAppAccountID ***NOT&nbsp;IN&nbsp;UI***<br>IsAnonymized ***NOT&nbsp;IN&nbsp;UI***<br>Stream ***NOT&nbsp;IN&nbsp;UI*** | Name+UPNSuffix<br>AADUserId<br>Sid<br>&nbsp;*(except built-in account)*<br> Host+Sid<br>Name+NTDomain<br>&nbsp;*(if NTDomain != Host)*<br>Name+NTDomain+Host<br>&nbsp;*(if NTDomain is workgroup)*<br>Name+DnsDomain<br>PUID<br>ObjectGuid | Name |
+| [**Host**](#host) | IpInterfaces ***NOT&nbsp;IN&nbsp;UI***<br>DnsDomain<br>NTDomain<br>HostName<br>FullName ***NOT&nbsp;IN&nbsp;SPEC***<br>NetBiosName<br>IoTDevice ***NOT&nbsp;IN&nbsp;UI***<br>AzureID<br>OMSAgentID<br>OSFamily<br>OSVersion<br>IsDomainJoined | HostName+NTDomain<br>HostName+DnsDomain<br>NetBiosName+NTDomain<br>NetBiosName+DnsDomain<br>AzureID<br>OMSAgentID | HostName<br>NetBiosName |
+| [**IP**](#ip) | Address<br>AddressScope | Address<br>&nbsp;*(global IP address)*<br>Address+AddressScope<br>&nbsp;*(non-global IP address)* | |
+| [**URL**](#url) | Url | Url<br>&nbsp;*(if absolute URL)* | Url<br>&nbsp;*(if relative URL)* |
 | [**Azure resource**](#azure-resource) | ResourceId | ResourceId | |
-| [**File hash**](#file-hash)<br>*(FileHash)* | Algorithm<br>Value | Algorithm + Value | |
-| [**Registry key**](#registry-key) | Hive<br>Key | Hive<br>Key | Hive + Key |
-| [**Registry value**](#registry-value) | Name<br>Value<br>ValueType | Name | |
+| [**Cloud application**](#cloud-application)<br>*(CloudApplication)* | AppId<br>Name<br>InstanceName | AppId<br>&nbsp;*(without InstanceName)*<br>Name<br>&nbsp;*(without InstanceName)*<br>AppId+InstanceName<br>Name+InstanceName | |
+| [**DNS Resolution**](#dns-resolution)<br>***WHAT DO I DO HERE?*** | DomainName<br>IpAddress ***NOT&nbsp;IN&nbsp;UI***<br>DnsServerIp ***NOT&nbsp;IN&nbsp;UI***<br>HostIpAddress ***NOT&nbsp;IN&nbsp;UI*** | DomainName+DnsServerIp+HostIpAddress | DomainName+HostIpAddress |
+| [**File**](#file) | Directory<br>Name | Directory+Name | |
+| [**File hash**](#file-hash)<br>*(FileHash)* | Algorithm<br>Value | Algorithm+Value | |
+| [**Malware**](#malware) | Name<br>Category | Name+Category | |
+| [**Process**](#process)<br>***WHAT DO I DO HERE?*** | ProcessId<br>CommandLine<br>ElevationToken<br>CreationTimeUtc<br>ImageFile ***NOT&nbsp;IN&nbsp;UI***<br>Account ***NOT&nbsp;IN&nbsp;UI***<br>ParentProcess ***NOT&nbsp;IN&nbsp;UI***<br>Host ***NOT&nbsp;IN&nbsp;UI***<br>LogonSession ***NOT&nbsp;IN&nbsp;UI*** | - Host+ProcessID+CreationTimeUtc<br>- Host+ParentProcessId+<br>&nbsp;&nbsp;&nbsp;CreationTimeUtc+CommandLine<br>- Host+ProcessId+CreationTimeUtc+<br>&nbsp;&nbsp;&nbsp;ImageFile<br>- Host+ProcessId+CreationTimeUtc+<br>&nbsp;&nbsp;&nbsp;ImageFile+FileHash | - ProcessId+CreationTimeUtc+<br>&nbsp;&nbsp;&nbsp;CommandLine (no Host)<br>- ProcessId+CreationTimeUtc+<br>&nbsp;&nbsp;&nbsp;ImageFile (no Host) |
+| [**Registry key**](#registry-key) | Hive<br>Key | Hive+Key | |
+| [**Registry value**](#registry-value)<br>***WHAT DO I DO HERE?*** | Name<br>Value<br>ValueType<br>Host ***NOT&nbsp;IN&nbsp;UI***<br>Key ***NOT&nbsp;IN&nbsp;UI***<br> | Key+Name | Name (no Key) |
 | [**Security group**](#security-group) | DistinguishedName<br>SID<br>ObjectGuid | DistinguishedName<br>SID<br>ObjectGuid | |
-| [**URL**](#url) | Url | Url | |
-| [**IoT device**](#iot-device) | IoTHub<br>DeviceId<br>DeviceName<br>IoTSecurityAgentId<br>DeviceType<br>Source<br>SourceRef<br>Manufacturer<br>Model<br>OperatingSystem<br>IpAddress<br>MacAddress<br>Protocols<br>SerialNumber | IoTHub<br>DeviceId | IoTHub + DeviceId |
-| [**Mailbox**](#mailbox) | MailboxPrimaryAddress<br>DisplayName<br>Upn<br>ExternalDirectoryObjectId<br>RiskLevel | MailboxPrimaryAddress | |
-| [**Mail cluster**](#mail-cluster) | NetworkMessageIds<br>CountByDeliveryStatus<br>CountByThreatType<br>CountByProtectionStatus<br>Threats<br>Query<br>QueryTime<br>MailCount<br>IsVolumeAnomaly<br>Source<br>ClusterSourceIdentifier<br>ClusterSourceType<br>ClusterQueryStartTime<br>ClusterQueryEndTime<br>ClusterGroup | Query<br>Source | Query + Source |
-| [**Mail message**](#mail-message) | Recipient<br>Urls<br>Threats<br>Sender<br>P1Sender<br>P1SenderDisplayName<br>P1SenderDomain<br>SenderIP<br>P2Sender<br>P2SenderDisplayName<br>P2SenderDomain<br>ReceivedDate<br>NetworkMessageId<br>InternetMessageId<br>Subject<br>BodyFingerprintBin1<br>BodyFingerprintBin2<br>BodyFingerprintBin3<br>BodyFingerprintBin4<br>BodyFingerprintBin5<br>AntispamDirection<br>DeliveryAction<br>DeliveryLocation<br>Language<br>ThreatDetectionMethods | NetworkMessageId<br>Recipient | NetworkMessageId + Recipient |
-| [**Submission mail**](#submission-mail) | SubmissionId<br>SubmissionDate<br>Submitter<br>NetworkMessageId<br>Timestamp<br>Recipient<br>Sender<br>SenderIp<br>Subject<br>ReportType | SubmissionId<br>NetworkMessageId<br>Recipient<br>Submitter |  |
+| [**Mailbox**](#mailbox) | MailboxPrimaryAddress<br>DisplayName<br>Upn<br>AadId ***NOT&nbsp;IN&nbsp;UI***<br>ExternalDirectoryObjectId<br>RiskLevel | MailboxPrimaryAddress | |
+| [**Mail cluster**](#mail-cluster) | NetworkMessageIds<br>CountByDeliveryStatus<br>CountByThreatType<br>CountByProtectionStatus<br>CountByDeliveryLocation ***NOT&nbsp;IN&nbsp;UI***<br>Threats<br>Query<br>QueryTime<br>MailCount<br>IsVolumeAnomaly<br>Source<br>ClusterSourceIdentifier ***NOT&nbsp;IN&nbsp;SPEC***<br>ClusterSourceType ***NOT&nbsp;IN&nbsp;SPEC***<br>ClusterQueryStartTime ***NOT&nbsp;IN&nbsp;SPEC***<br>ClusterQueryEndTime ***NOT&nbsp;IN&nbsp;SPEC***<br>ClusterGroup ***NOT&nbsp;IN&nbsp;SPEC*** | Query+Source | |
+| [**Mail message**](#mail-message) | Files ***NOT&nbsp;IN&nbsp;UI***<br>Recipient<br>Urls<br>Threats<br>Sender<br>P1Sender ***NOT&nbsp;IN&nbsp;SPEC***<br>P1SenderDisplayName ***NOT&nbsp;IN&nbsp;SPEC***<br>P1SenderDomain ***NOT&nbsp;IN&nbsp;SPEC***<br>SenderIP<br>P2Sender ***NOT&nbsp;IN&nbsp;SPEC***<br>P2SenderDisplayName ***NOT&nbsp;IN&nbsp;SPEC***<br>P2SenderDomain ***NOT&nbsp;IN&nbsp;SPEC***<br>ReceivedDate<br>NetworkMessageId<br>InternetMessageId<br>Subject<br>BodyFingerprintBin1 ***NOT&nbsp;IN&nbsp;SPEC***<br>BodyFingerprintBin2 ***NOT&nbsp;IN&nbsp;SPEC***<br>BodyFingerprintBin3 ***NOT&nbsp;IN&nbsp;SPEC***<br>BodyFingerprintBin4 ***NOT&nbsp;IN&nbsp;SPEC***<br>BodyFingerprintBin5 ***NOT&nbsp;IN&nbsp;SPEC***<br>AntispamDirection<br>DeliveryAction<br>DeliveryLocation<br>CampaignID ***NOT&nbsp;IN&nbsp;UI***<br>SuspiciousRecipients ***NOT&nbsp;IN&nbsp;UI***<br>ForwardedRecipients ***NOT&nbsp;IN&nbsp;UI***<br>ForwardingType ***NOT&nbsp;IN&nbsp;UI***<br>Language ***NOT&nbsp;IN&nbsp;SPEC***<br>ThreatDetectionMethods ***NOT&nbsp;IN&nbsp;SPEC*** | NetworkMessageId+Recipient | |
+| [**Submission mail**](#submission-mail) | NetworkMessageId<br>Timestamp<br>Recipient<br>Sender<br>SenderIp<br>Subject<br>ReportType<br>SubmissionId<br>SubmissionDate<br>Submitter | SubmissionId+NetworkMessageId+<br>&nbsp;&nbsp;&nbsp;Recipient+Submitter |  |
 | [**Sentinel entities**](#sentinel-entities) | Entities | Entities |  |
 
 ## Entity type schemas
@@ -48,7 +47,7 @@ The following section contains a more in-depth look at the full schemas of each 
 > [!NOTE]
 > A question mark following the value in the **Type** column indicates the field is nullable.
 
-## User account
+## Account
 
 *Entity name: Account*
 
@@ -56,8 +55,7 @@ The following section contains a more in-depth look at the full schemas of each 
 | ----- | ---- | ----------- |
 | Type | String | ‘account’ |
 | Name | String | The name of the account. This field should hold only the name without any domain added to it. |
-| *FullName* | *N/A* | *Not part of schema, included for backward compatibility with old version of entity mapping.*
-| NTDomain | String | The NETBIOS domain name as it appears in the alert format – domain\username. Examples: Finance, NT AUTHORITY |
+| NTDomain | String | The NETBIOS domain name as it appears in the alert format&mdash;domain\username. Examples: Finance, NT AUTHORITY |
 | DnsDomain | String | The fully qualified domain DNS name. Examples: finance.contoso.com |
 | UPNSuffix | String | The user principal name suffix for the account. In some cases this is also the domain name. Examples: contoso.com |
 | Host | Entity | The host which contains the account, if it's a local account. |
@@ -68,15 +66,18 @@ The following section contains a more in-depth look at the full schemas of each 
 | IsDomainJoined | Bool? | Determines whether this is a domain account. |
 | DisplayName | String | The display name of the account. |
 | ObjectGuid | Guid? | The objectGUID attribute is a single-value attribute that is the unique identifier for the object, assigned by Active Directory. |
+| CloudAppAccountId | String | The AccountID in alerts from the CloudApp provider. Refers to account IDs in third-party apps that are not supported in other Microsoft products. ***RIGHT?*** |
+| IsAnonymized | Bool? | Determines whether this is an anonymized user name. Optional. Default value: `false`. |
+| Stream | [Stream](Contextual-Objects.md#stream) | The source of discovery logs related to the specific account. Optional. |
 
 Strong identifiers of an account entity:
 
 - Name + UPNSuffix
 - AadUserId
-- Sid + Host (required for SIDs of builtin accounts)
-- Sid (except for SIDs of builtin accounts)
-- Name + NTDomain (unless NTDomain is a builtin domain, for example "Workgroup")
-- Name + Host (if NTDomain is a builtin domain, for example "Workgroup")
+- Sid + Host (required for SIDs of built-in accounts)
+- Sid (except for SIDs of built-in accounts)
+- Name + Host ***(+ NTDomain ?)*** (if NTDomain is a built-in domain, that is, a Workgroup)
+- Name + NTDomain (when NTDomain is not a built-in domain, that is, a Workgroup; when NTDomain is different from Host ***ARE THESE QUALIFIERS THE SAME OR DIFFERENT?***)
 - Name + DnsDomain
 - PUID
 - ObjectGuid
@@ -104,12 +105,12 @@ Weak identifiers of an account entity:
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | ‘host’ |
+| IpInterfaces | List<Ip (Entity)> | List of all IP interfaces on the host machine. |
 | DnsDomain | String | The DNS domain that this host belongs to. Should contain the complete DNS suffix for the domain, if known. |
 | NTDomain | String | The NT domain that this host belongs to. |
 | HostName | String | The hostname without the domain suffix. |
-| *FullName* | *N/A* | *Not part of schema, included for backward compatibility with old version of entity mapping.*
 | NetBiosName | String | The host name (pre-Windows 2000). |
-| IoTDevice | Entity | The IoT Device entity (if this host represents an IoT Device). |
+| IoTDevice | Entity | The IoT Device entity (if this host represents an IoT Device). ***(THIS ENTITY TYPE REMOVED FROM UI)*** |
 | AzureID | String | The Azure resource ID of the VM, if known. |
 | OMSAgentID | String | The OMS agent ID, if the host has OMS agent installed. |
 | OSFamily | Enum? | One of the following values: <li>Linux<li>Windows<li>Android<li>IOS |
