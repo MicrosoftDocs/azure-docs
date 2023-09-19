@@ -61,7 +61,7 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 | **Queries** | List of example and saved queries you can open in the query window. This list is the same one that appears when you open Log Analytics. Select **Group by** to change the grouping of the queries. Double-click a query to add it to the query window or hover over it for other options. |
 |**Functions**|Lists functions, which allow you to reuse predefined query logic in your log queries. For more information, see [Function](../logs/functions.md)|
 |**Query history**|Lists your query history. Select a query to rerun it.|
-| **Filter** | We recommend using the new filter experience in the [top action bar](#top-action-bar). However, you can still access the classic filter experience here.|
+| **Filter** | We recommend using the new filter experience in the [top query bar](#top-query-bar). However, you can still access the classic filter experience here.|
 
 ### More tools
 
