@@ -7,7 +7,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 09/18/2023
+ms.date: 09/19/2023
 ms.author: greglin
 ---
 
@@ -24,7 +24,7 @@ Mutual Transport Layer Security (MTLS) is a process that relies on certificate a
 
 See the following figure:
 
-[ ![The Application Gateway for Containers backend MTLS process](./media/how-to-backend-mtls-gateway-api/backend-mtls.png) ](./media/how-to-backend-mtls-gateway-api/backend-mtls.png#lightbox)
+[ ![A diagram showing the Application Gateway for Containers backend MTLS process.](./media/how-to-backend-mtls-gateway-api/backend-mtls.png) ](./media/how-to-backend-mtls-gateway-api/backend-mtls.png#lightbox)
 
 ## Prerequisites
 
