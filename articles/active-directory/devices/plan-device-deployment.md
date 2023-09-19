@@ -237,6 +237,7 @@ Administrators can also [deploy virtual desktop infrastructure (VDI) platforms](
 
 ## Next steps
 
+* [Analyze your on-premises GPOs using Group Policy analytics in Microsoft Intune](/mem/intune/configuration/group-policy-analytics)
 * [Plan your Azure AD join implementation](device-join-plan.md)
 * [Plan your hybrid Azure AD join implementation](hybrid-join-plan.md)
 * [Manage device identities](manage-device-identities.md)

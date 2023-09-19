@@ -63,7 +63,7 @@ When using Microsoft Azure AD Connect, the ObjectGUID attribute of users is not 
 
 ## Step 3. Configure Cisco Umbrella User Management to support provisioning with Azure AD
 
-1. Log in to [Cisco Umbrella dashboard](https://login.umbrella.com ). Navigate to **Deployments** > **Core Identities** > **Users and Groups**.
+1. Log in to [Cisco Umbrella dashboard](https://login.umbrella.com). Navigate to **Deployments** > **Core Identities** > **Users and Groups**.
 
 
 1. Expand the Azure Active Directory card and click on the **API Keys page**.
@@ -95,7 +95,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Cisco Umbrella User Management in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 

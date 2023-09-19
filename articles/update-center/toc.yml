@@ -2,12 +2,14 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure Update Manager (preview)
+  - name: About Azure Update Manager
     href: overview.md
   - name: What's New 
     href: whats-new.md
   - name: What's upcoming
     href: whats-upcoming.md
+  - name: FAQ
+    href: update-manager-faq.md
   - name: Support matrix
     href: support-matrix.md
 - name: Quickstarts
@@ -46,6 +48,12 @@
       href: configure-wu-agent.md
   - name: Manage
     items:
+    - name: SQL Server Patching
+      items:
+      - name: Overview
+        href: guidance-patching-sql-server-azure-vm.md
+      - name: Guidance on patching for SQL Server on Azure VMs
+        href: /azure/azure-sql/virtual-machines/azure-update-manager-sql-vm?toc=/azure/update-center/toc.json
     - name: Check update compliance 
       href: view-updates.md
     - name: Deploy updates and track results
@@ -70,3 +78,11 @@
     items:
     - name: Troubleshoot issues
       href: troubleshoot.md
+- name: Guidance
+  items:
+  - name: Move virtual machines from Automation Update Management to Azure Update Manager
+    href: guidance-migration-automation-update-management-azure-update-manager.md
+  - name: Migration of Azure VMs from Microsoft Configuration Manager to Azure Update Manager
+    href: guidance-migration-azure.md
+  - name: Security awareness and Ubuntu Pro support
+    href: security-awareness-ubuntu-support.md

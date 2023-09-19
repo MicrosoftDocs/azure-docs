@@ -2,7 +2,7 @@
 title: Upgrading Azure Blob Storage to Azure Data Lake Storage Gen2 
 description: Description goes here.
 author: normesta
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 01/25/2022
 ms.author: normesta
@@ -11,7 +11,7 @@ ms.author: normesta
 
 # Upgrading Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities
 
-This article helps you to enable a hierarchical namespace and unlock capabilities such as file and directory-level security and faster operations. These capabilities are widely used by big data analytics workloads and are referred to collectively as Azure Data Lake Storage Gen2. The most popular capabilities include:
+This article helps you to enable a hierarchical namespace and unlock capabilities such as file- and directory-level security and faster operations. These capabilities are widely used by big data analytics workloads and are referred to collectively as Azure Data Lake Storage Gen2. The most popular capabilities include:
 
 - Higher throughput, input/output operations per second (IOPS), and storage capacity limits.
 
@@ -19,9 +19,9 @@ This article helps you to enable a hierarchical namespace and unlock capabilitie
  
 - Efficient query engine that transfers only the data required to perform a given operation.
 
-- Security at the container, directory, and file-level.
+- Security at the container, directory, and file level.
 
-To learn more about them, see [Introduction to Azure Data Lake storage Gen2](data-lake-storage-introduction.md).
+To learn more about them, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
 This article helps you evaluate the impact on workloads, applications, costs, service integrations, tools, features, and documentation. Make sure to review these impacts carefully. When you are ready to upgrade an account, see this step-by-step guide: [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 
@@ -30,7 +30,7 @@ This article helps you evaluate the impact on workloads, applications, costs, se
 
 ## Impact on availability
 
-Make sure to plan for some downtime in your account while the upgrade process completes. Write operations are disabled while your account is being upgraded. Read operations aren't disabled, but we strongly recommend that you suspend read operations as those operations might destabilize the upgrade process.
+Make sure to plan for some downtime in your account while the upgrade process completes. Write operations are disabled while your account is being upgraded. Read operations aren't disabled, but we strongly recommend that you suspend read operations, as those operations might destabilize the upgrade process.
 
 ## Impact on workloads and applications
 
@@ -38,7 +38,7 @@ Blob APIs work with accounts that have a hierarchical namespace, so most applica
 
 For a complete list of issues and workarounds, see [Known issues with Blob Storage APIs](data-lake-storage-known-issues.md#blob-storage-apis).
 
-Any Hadoop workloads that use Windows Azure Storage Blob driver or [WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver, must be modified to use the [Azure Blob File System (ABFS)](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html) driver. Unlike the WASB driver that makes requests to the **Blob service** endpoint, the ABFS driver will make requests to the **Data Lake Storage** endpoint of your account.
+Any Hadoop workloads that use the [Windows Azure Storage Blob driver (WASB)](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver, must be modified to use the [Azure Blob File System (ABFS)](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html) driver. Unlike the WASB driver that makes requests to the **Blob service** endpoint, the ABFS driver will make requests to the **Data Lake Storage** endpoint of your account.
 
 ### Data Lake Storage endpoint
 
@@ -49,7 +49,7 @@ Your upgraded account will have a Data Lake storage endpoint. You can find the U
 
 You don't have to modify your existing applications and workloads to use that endpoint. [Multiprotocol access in Data Lake Storage](data-lake-storage-multi-protocol-access.md) makes it possible for you to use either the Blob service endpoint or the Data Lake storage endpoint to interact with your data. 
 
-Azure services and tools (such as AzCopy) might use the Data Lake storage endpoint to interact with the data in your storage account. Also, you'll  need to use this new endpoint for any operations that you perform by using the [Data Lake Storage Gen2 SDKs](data-lake-storage-directory-file-acl-dotnet.md), [PowerShell commands](data-lake-storage-directory-file-acl-powershell.md), or [Azure CLI commands](data-lake-storage-directory-file-acl-cli.md). 
+Azure services and tools (such as AzCopy) might use the Data Lake storage endpoint to interact with the data in your storage account. Also, you'll  need to use this new endpoint for any operations that you perform by using the Data Lake Storage Gen2 [SDKs](data-lake-storage-directory-file-acl-dotnet.md), [PowerShell commands](data-lake-storage-directory-file-acl-powershell.md), or [Azure CLI commands](data-lake-storage-directory-file-acl-cli.md). 
 
 ### Directories
 
@@ -59,11 +59,11 @@ Your new account has a hierarchical namespace. That means that directories are n
 
 ### Blob metadata
 
-Before migration, blob metadata is associated with the blob name along with it's entire virtual path. After migration, the metadata is associated only with the blob. The virtual path to the blob becomes a collection of directories. Metadata of a blob is not applied to any of those directories. 
+Before migration, blob metadata is associated with the blob name along with its entire virtual path. After migration, the metadata is associated only with the blob. The virtual path to the blob becomes a collection of directories. Metadata of a blob is not applied to any of those directories. 
 
 ### Put operations
 
-When you upload a blob, and the path that you specify includes a directory that doesn't exist, the operation creates that directory, and then adds a blob to it. This behavior is logical in the context of a hierarchical folder structure. In a Blob storage account that does not have a hierarchical namespace, the operation doesn't create a directory. Instead, the directory name is added to the blob's namespace. 
+When you upload a blob, and the path that you specify includes a directory that doesn't exist, the operation creates that directory, and then adds the blob to it. This behavior is logical in the context of a hierarchical folder structure. In a Blob storage account that does not have a hierarchical namespace, the operation doesn't create a directory. Instead, the directory name is added to the blob's name. 
 
 ### List operations
 
@@ -88,19 +88,19 @@ There is no cost to perform the upgrade. After you upgrade, the cost to store yo
 
 You can also use the **Storage Accounts** option in the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the impact of costs after an upgrade. 
 
-Aside from pricing changes, consider the costs savings associated with Data Lake Storage Gen2 capabilities. Overall total of cost of ownership typically declines because of higher throughput and optimized operations. Higher throughput enables you to transfer more data in less time. A hierarchical namespace improves the efficiency of operations.  
+Aside from pricing changes, consider the cost savings associated with Data Lake Storage Gen2 capabilities. Overall total of cost of ownership typically declines because of higher throughput and optimized operations. Higher throughput enables you to transfer more data in less time. A hierarchical namespace improves the efficiency of operations.  
 
 ## Impact on service integrations
 
-While most Azure service integrations will continue to work after you've enable these capabilities, some of them remain in preview or not yet supported. See [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md) to understand the current support for Azure service integrations with Data Lake Storage Gen2.
+While most Azure service integrations will continue to work after you've enabled these capabilities, some of them remain in preview or not yet supported. See [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md) to understand the current support for Azure service integrations with Data Lake Storage Gen2.
 
-## Impact on tools, features and documentation
+## Impact on tools, features, and documentation
 
-After you upgrade, the way that interact with some features will change. This section describes those changes.
+After you upgrade, the way you that interact with some features will change. This section describes those changes.
 
-### Blob Storage feature support
+### The Blob Storage feature support
 
-While most of Blob storage features will continue to work after you've enable these capabilities, some of them remain in preview or not yet supported. 
+While most of the Blob storage features will continue to work after you've enabled these capabilities, some of them remain in preview or are not yet supported. 
 
 See [Blob Storage features available in Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md) to understand the current support for Blob storage features with Data Lake Storage Gen2. 
 
@@ -112,7 +112,7 @@ You don't have to use this new version. However, any operations that are applied
 
 ### Azure Lifecycle management
 
-Policies that move or delete all of the blobs in a directory won't delete the directory that contains those blobs until the next day. That's because the directory can't be deleted until all of the blobs that are located in that directory are first removed. The next day, the directory will be removed. 
+It effectively explains that policies for moving or deleting all blobs in a directory won't delete the directory itself until all the blobs within it are removed, and the directory will be removed the next day.
 
 ### Event Grid
 
@@ -130,7 +130,7 @@ If your applications use the Event Grid, you might have to modify those applicat
 
 ### Storage Explorer
 
-The following buttons don't yet appear in the Ribbon of Azure Storage Explorer.
+The following buttons don't yet appear in the Ribbon of Azure Storage Explorer:
 
 |Button|Reason|
 |--|--|

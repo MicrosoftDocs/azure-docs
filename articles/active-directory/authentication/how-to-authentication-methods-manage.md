@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -49,7 +49,7 @@ For each method, note whether or not it's enabled for the tenant. The following 
 | Call to phone                     | Voice calls                  |
 | Text message to phone             | SMS                          |
 | Notification through mobile app   | Microsoft Authenticator      |
-| Verification code from mobile app or hardware token   | Third party software OATH tokens<br>Hardware OATH tokens (not yet available)<br>Microsoft Authenticator |
+| Verification code from mobile app or hardware token   | Third party software OATH tokens<br>Hardware OATH tokens<br>Microsoft Authenticator |
 
 ### Review the legacy SSPR policy
 
@@ -70,7 +70,10 @@ Record which users are in scope for SSPR (either all users, one specific group, 
 
 ### Authentication methods policy
 
-To check settings in the Authentication methods policy, sign in as an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator) and go to **Azure Active Directory** > **Security** > **Authentication methods** > **Policies**. A new tenant has all methods **Off** by default, which makes migration easier because legacy policy settings don't need to be merged with existing settings. 
+To check settings in the Authentication methods policy, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator) and browse to **Protection** > **Authentication methods** > **Policies**. A new tenant has all methods **Off** by default, which makes migration easier because legacy policy settings don't need to be merged with existing settings. 
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods** >
 
 :::image type="content"  source="media/concept-authentication-methods-manage/authentication-methods-policy.png" alt-text="Screenshot that shows the authentication methods." lightbox="media/concept-authentication-methods-manage/authentication-methods-policy.png":::
 
@@ -134,9 +137,7 @@ The Authentication methods policy has controls for **SMS** and **Voice calls**, 
 
 The OATH token controls in the legacy MFA and SSPR policies were single controls that enabled the use of three different types of OATH tokens: the Microsoft Authenticator app, third-party software OATH TOTP code generator apps, and hardware OATH tokens.
 
-The Authentication methods policy has granular control with separate controls for each type of OATH token. Use of OTP from Microsoft Authenticator is controlled by the **Allow use of Microsoft Authenticator OTP**  control in the **Microsoft Authenticator** section of the policy. Third-party apps are controlled by the **Third party software OATH tokens** section of the policy. 
-
-Another control for **Hardware OATH tokens** is coming soon. If you're using hardware OATH tokens, now in public preview, you should hold off on migrating OATH tokens and don't complete the migration process.
+The Authentication methods policy has granular control with separate controls for each type of OATH token. Use of OTP from Microsoft Authenticator is controlled by the **Allow use of Microsoft Authenticator OTP**  control in the **Microsoft Authenticator** section of the policy. Third-party apps are controlled by the **Third party software OATH tokens** section of the policy. Hardware OATH tokens are controlled by the **Hardware OATH tokens** section of the policy.
 
 ### Security questions
 

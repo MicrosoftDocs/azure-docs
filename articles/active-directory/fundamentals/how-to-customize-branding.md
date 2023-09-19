@@ -1,6 +1,6 @@
 ---
 title: Add company branding to your organization's sign-in page
-description: Instructions about how to add your organization's branding to the sign-in experience.
+description: Instructions about how to add your organization's custom branding to the Azure AD sign-in experience.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -9,11 +9,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 08/09/2023
+ms.date: 09/12/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
 ---
-
 # Configure your company branding
 
 When users authenticate into your corporate intranet or web-based applications, Azure Active Directory (Azure AD) provides the identity and access management (IAM) service. You can add company branding that applies to all these experiences to create a consistent sign-in experience for your users.
@@ -23,8 +22,7 @@ The default sign-in experience is the global look and feel that applies across a
 > [!NOTE]
 > Instructions for how to manage the **'Stay signed in prompt?'** can be found in the **[Manage the 'Stay signed in?' prompt](how-to-manage-stay-signed-in-prompt.md)** article.
 
-
-## License requirements
+## Prerequisites
 
 Adding custom branding requires one of the following licenses:
 
@@ -48,18 +46,23 @@ The **Global Administrator** role is required to customize company branding.
 
 The branding elements are called out in the following example. Text descriptions are provided following the image.
 
-:::image type="content" source="media/how-to-customize-branding/company-branding-map.png" alt-text="Screenshot of the sign-in page, with each of the company branding elements highlighted." lightbox="media/how-to-customize-branding/company-branding-map-large.png":::
+:::image type="content" source="media/how-to-customize-branding/sign-in-page-map.png" alt-text="Screenshot of the sign-in page, with each of the company branding elements highlighted." lightbox="media/how-to-customize-branding/sign-in-page-map-expanded.png":::
 
 1. **Favicon**: Small icon that appears on the left side of the browser tab.
-1. **Header logo**: Space across the top of the web page, below the web browser navigation area.
+1. **Header**: Space across the top of the sign-in page, behind the header log.
+1. **Header logo**: Logo that appears in the upper-left corner of the sign-in page.
 1. **Background image**: The entire space behind the sign-in box.
 1. **Page background color**: The entire space behind the sign-in box.
-1. **Banner logo**: The logo that appears in the upper-left corner of the sign-in box.
+1. **Banner logo**: Logo that appears at the top of the sign-in box
+1. **Sign-in page title**: Larger text that appears below the banner logo.
+1. **Sign-in page description**: Text to describe the sign-in page.
 1. **Username hint and text**: The text that appears before a user enters their information.
-1. **Sign-in page text**: Text you can add below the username field.
 1. **Self-service password reset**: A link you can add below the sign-in page text for password resets.
+1. **Sign-in page text**: Text you can add below the username field.
+1. **Footer link: Privacy & Cookies**: Link you can add to the lower-right corner for privacy information.
+1. **Footer: Terms of Use**: Text in the lower-right corner of the page where you can add Terms of use information.
+1. **Footer**: Space across the bottom of the page for privacy and Terms of Use information.
 1. **Template**: The layout of the page and sign-in boxes.
-1. **Footer**: Text in the lower-right corner of the page where you can add Terms of use or privacy information.
 
 ### User experience
 
@@ -78,16 +81,19 @@ In the following examples, replace the contoso.com with your own tenant name, or
 - For my app portal `https://myapps.microsoft.com/?whr=contoso.com` 
 - Self-service password reset `https://passwordreset.microsoftonline.com/?whr=contoso.com`
 
-> [!NOTE]
-> To manage the settings of the 'Stay signed in?' prompt, go to **Azure AD** > **Users** > **User settings**.
+For B2B collaboration end-users who perform cross-tenant sign-ins, their home tenant branding appears, even if there isn't custom branding specified.
+
+In the following example, the company branding for Woodgrove Groceries appears on the left. The example on the right displays the default branding for the user's home tenant.
+
+![Comparison of the branded sign-in experience and the default sign-in experience](media/how-to-customize-branding/b2b-comparison.png)
 
 ## How to navigate the company branding process
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account for the directory.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
-2. Go to **Azure Active Directory** > **Company branding** > **Customize**.
+1. Browse to **Identity** > **User experiences** > **Company branding**.
     - If you currently have a customized sign-in experience, the **Edit** button is available.
 
     ![Custom branding landing page with 'Company branding' highlighted in the side menu and 'Configure' button highlighted in the center of the page](media/how-to-customize-branding/customize-branding-getting-started.png)
@@ -156,13 +162,10 @@ If you haven't enabled the footer, go to the **Layout** section and select **Sho
 
     To begin a new paragraph, use the enter key twice. You can also change text formatting to include bold, italics, an underline, or clickable link. Use the following syntax to add formatting to text: 
 
-    > Hyperlink: `[text](link)` 
-        
-    > Bold: `**text**` or `__text__` 
-          
-    > Italics: `*text*` or `_text_` 
-          
-    > Underline: `++text++` 
+    - Hyperlink: `[text](link)` 
+    - Bold: `**text**` or `__text__`
+    - Italics: `*text*` or `_text_`
+    - Underline: `++text++` 
          
     > [!IMPORTANT]
     > Hyperlinks that are added to the sign-in page text render as text in native environments, such as desktop and mobile applications.
@@ -183,9 +186,11 @@ Once your default sign-in experience is created, select the **Edit** button to m
 
 You can create a personalized sign-in experience for users who sign in using a specific browser language by customizing the branding elements for that browser language. This customization overrides any configurations made to the default branding. If you don't make any changes to the elements, the default elements are displayed.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account for the directory.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
-2. Go to **Azure Active Directory** > **Company branding** > **Add browser language**.
+1. Browse to **Identity** > **User experiences** > **Company branding**.
+
+1. Select **Add browser language**.
 
 The process for customizing the experience is the same as the [default sign-in experience](#basics) process, except you must select a language from the dropdown list in the **Basics** section. We recommend adding custom text in the same areas as your default sign-in experience. 
 

@@ -4,9 +4,9 @@ description: Learn how to connect to an Azure Elastic SAN Preview volume from a 
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 07/11/2023
+ms.date: 09/12/2023
 ms.author: rogarana
-ms.custom: references_regions, ignite-2022, devx-track-azurepowershell
+ms.custom: references_regions, ignite-2022
 ---
 
 # Connect to Elastic SAN Preview volumes - Windows
@@ -70,11 +70,19 @@ Set-MSDSMGlobalDefaultLoadBalancePolicy -Policy RR
 
 Before you can connect to a volume, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure Elastic SAN volume.
 
-Run the following commands to get these values:
+Fill in the variables with your values, then run the following commands:
 
 ```azurepowershell
+# Connect to Azure
+Connect-AzAccount
+
 # Get the target name and iSCSI portal name to connect a volume to a client 
-$connectVolume = Get-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $searchedVolumeGroup -Name $searchedVolume
+$resourceGroupName="yourRGName"
+$sanName="yourSANName"
+$volumeGroup="yourVolumeGroupName"
+$volumeName="yourVolumeName"
+
+$connectVolume = Get-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $volumeGroup -Name $volumeName
 $connectVolume.storagetargetiqn
 $connectVolume.storagetargetportalhostname
 $connectVolume.storagetargetportalport

@@ -3,7 +3,7 @@ title: Prepare VMware VMs for reprotection and failback with Azure Site Recovery
 description: Prepare for fail back of VMware VMs after failover with Azure Site Recovery
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 12/02/2021
+ms.date: 09/18/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23
@@ -13,9 +13,7 @@ ms.custom: engagement-fy23
 
 After [failover](site-recovery-failover.md) of on-premises VMware VMs or physical servers to Azure, you reprotect the Azure VMs created after failover, so that they replicate back to the on-premises site. With replication from Azure to on-premises in place, you can then fail back by running a failover from Azure to on-premises when you're ready.
 
-Before you continue, get a quick overview with this video about how to fail back from Azure to an on-premises site.<br /><br />
-
-## Reprotection/failback components
+## Reprotection or failback components
 
 You need a number of components and settings in place before you can reprotect and fail back from Azure.
 
@@ -43,7 +41,7 @@ A number of ports must be open for reprotection/failback. The following graphic 
 
 ## Deploy a separate master target server
 
-1. Note the master target server [requirements and limitations](#reprotectionfailback-components).
+1. Note the master target server [requirements and limitations](#reprotection-or-failback-components).
 2. Create a [Windows](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers) or [Linux](vmware-azure-install-linux-master-target.md) master target server, to match the operating system of the VMs you want to reprotect and fail back.
 3. Make sure you don't use Storage vMotion for the master target server, or failback can fail. The VM machine can't start because the disks aren't available to it.
     - To prevent this, exclude the master target server from your vMotion list.
@@ -70,4 +68,4 @@ A number of ports must be open for reprotection/failback. The following graphic 
 
 ## Next steps
 
-[Reprotect](vmware-azure-reprotect.md) a VM.
+Learn how to [reprotect](vmware-azure-reprotect.md) a VM.

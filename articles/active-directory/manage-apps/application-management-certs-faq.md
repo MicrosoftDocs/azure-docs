@@ -46,7 +46,7 @@ There is no option to edit or customize these email notifications received from 
 
 ## Who can update the certificates?
 
-The owner of the application or Global Administrator or Application Administrator can update the certificates through Azure portal UI, PowerShell or Microsoft Graph.
+The owner of the application or Global Administrator or Application Administrator can update the certificates through Microsoft Entra admin center UI, PowerShell or Microsoft Graph.
 
 ## I need more details about certificate signing options
 

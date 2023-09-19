@@ -38,9 +38,9 @@ This command might take several minutes to run.
 
 ## Delete the app registration
 
-From the portal menu, select **Azure Active Directory** > **App registrations**. Then select the application you created.
-:::image type="content" alt-text="Screenshot that shows selecting app registration." source="./media/multi-service-web-app-clean-up-resources/select-app-registration.png":::
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. Browse to **Identity** > **Applications** > **App registrations**. 
+1. Select the application you created.
+1. In the app registration overview, select **Delete**.
 
-In the app registration overview, select **Delete**.
-:::image type="content" alt-text="Screenshot that shows deleting the app registration." source="./media/multi-service-web-app-clean-up-resources/delete-app-registration.png":::
 

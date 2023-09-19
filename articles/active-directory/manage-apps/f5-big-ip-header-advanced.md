@@ -23,7 +23,7 @@ Learn to implement secure hybrid access (SHA) with single sign-on (SSO) to heade
   * See, [Zero Trust security](../../security/fundamentals/zero-trust.md)
 * Full SSO between Azure AD and BIG-IP published services
 * Managed identities and access from one control plane
-  * See, the [Azure portal](https://azure.microsoft.com/features/azure-portal)
+  * See, the [Microsoft Entra admin center](https://entra.microsoft.com)
 
 Learn more:
 
@@ -62,7 +62,7 @@ For the scenario you need:
 
 * An Azure subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
-* For the account, have Azure AD Application Admin permissions
+* One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator
 * A BIG-IP or deploy a BIG-IP Virtual Edition (VE) in Azure
   * See, [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
 * Any of the following F5 BIG-IP license SKUs:
@@ -92,15 +92,14 @@ To implement SHA, the first step is to set up a SAML federation trust between BI
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
-1. With an account that has Application Administrator permissions, sign in to the [Azure portal](https://azure.microsoft.com/features/azure-portal).
-2. In the left navigation pane, select the **Azure Active Directory** service.
-3. Go to **Enterprise Applications**.
-4. On the top ribbon, select **+ New application**.
-5. In the gallery, search for **F5**.
-6. Select **F5 BIG-IP APM Azure AD integration**.
-7. Enter an application **Name**.
-8. Select **Add/Create**. 
-9. The name reflects the service.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+2. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+3. On the top ribbon, select **+ New application**.
+4. In the gallery, search for **F5**.
+5. Select **F5 BIG-IP APM Azure AD integration**.
+6. Enter an application **Name**.
+7. Select **Add/Create**. 
+8. The name reflects the service.
 
 ## Configure Azure AD SSO 
 
