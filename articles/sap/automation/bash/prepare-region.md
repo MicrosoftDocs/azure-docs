@@ -12,10 +12,10 @@ title: Prepare region
 description: Deploys the control plane (deployer, SAP library) using a shell script.
 ---
 
-# prepare_region.sh
+# deploy_controlplane.sh
 
 ## Synopsis
-The `prepare_region.sh` script deploys the control plane, including the deployer VM, Azure Key Vault, and the SAP library.
+The `deploy_controlplane.sh` script deploys the control plane, including the deployer VM, Azure Key Vault, and the SAP library.
 
 The deployer VM has installations of Ansible and Terraform. This VM deploys the SAP artifacts.
 
