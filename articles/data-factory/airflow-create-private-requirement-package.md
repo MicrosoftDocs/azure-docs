@@ -17,7 +17,7 @@ Creating a private requirement package within a Managed Airflow environment invo
 
 ## Step 1: Create a storage container
 
-Use the steps described in [Manage blob containers using the Azure portal](/storage/blobs/blob-containers-portal) to create a storage account for the package.
+Use the steps described in [Manage blob containers using the Azure portal](/azure/storage/blobs/blob-containers-portal.md) to create a storage account for the package.
 
 ## Step 2: Upload the private package into your storage account
 
