@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 09/14/2023
+ms.date: 09/19/2023
 ms.custom: enterprise-iot
 ---
 
@@ -49,9 +49,9 @@ We recommend that existing customers use the following steps when transitioning 
 
 #### On-premises management console sunset
 
-The on-premises management console won't be available for OT network sensor software versions released after September 1, 2024. Instead, recommend running management activities via Microsoft cloud services or third-party services with APIs.
+The [legacy on-premises management console](../legacy-central-management/legacy-air-gapped-deploy.md) won't be available for OT network sensor software versions released after September 1, 2024. Instead, we recommend running management activities via Microsoft cloud services or third-party services with APIs.
 
-- Sensor versions released after September 1, 2024 won't be able to be managed by an on-premises management console. All management activities are planned for support via Microsoft cloud services or partner services with APIs.
+- Sensor versions released after **September 1, 2024** won't be able to be managed by an on-premises management console. All management activities are planned for support via Microsoft cloud services or partner services with APIs.
 - Sensor software versions released between September 1, 2023 - September 1, 2024 will continue to have a parallel on-premises management console release. Support for those versions will continue until September 1, 2024.
 - Air-gapped sensors that cannot connect to the cloud can be managed directly via the sensor console or using third-party services and APIs.
 
