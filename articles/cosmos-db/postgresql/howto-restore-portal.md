@@ -14,6 +14,12 @@ ms.date: 09/17/2023
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
+> [!IMPORTANT]
+> Geo-backup and restore in Azure Cosmos DB for PostgreSQL is currently in preview.
+> This preview version is provided without a service level agreement, and it's not recommended
+> for production workloads. Certain features might not be supported or might have constrained 
+> capabilities.
+
 This article provides step-by-step procedures to perform [point-in-time
 recoveries](concepts-backup.md#restore) for a
 cluster using backups. You can restore either to the earliest backup or to
@@ -24,18 +30,29 @@ a custom restore point within your retention period.
 > open a support request to restore the cluster to a point that is earlier
 > than the latest failover time. 
 
+## Select type of cluster backup
+Enabling geo-redundant backup is possible during cluster creation on **Scale** page that can be accessed on **Basics** tab. Click the **Save** button to apply your selection. 
+
+Geo-redundant backup can be enabled only during cluster creation. You can't disable geo-redundant backup once cluster is created.
+
 ## Restore to the earliest restore point
 
 Follow these steps to restore your cluster to its
 earliest existing backup.
 
-1.  In the [Azure portal](https://portal.azure.com/), from the **Overview** page of the cluster you want to restore, select **Restore**.
+1. In the [Azure portal](https://portal.azure.com/), from the **Overview** page of the cluster you want to restore, select **Restore**.
 
 1. On the **Restore** page, select the **Earliest** restore point, which is shown.
 
-1. Provide a new cluster name in the **Restore to new cluster** field. The subscription, resource group, and location fields aren't editable.
+1. Provide a new cluster name in the **Restore to new cluster** field. The subscription and resource group fields aren't editable.
 
-1. Select **OK**. A notification shows that the restore operation is initiated.
+1. If cluster has geo-redundant backup enabled, select remote or same region for restore in the **Location** field. On clusters with zone-redundant and locally redundant backup, location field isn't editable.
+
+1. Select **Next**. 
+
+1. (optional) Make data encryption selection for restored cluster on the **Encryption (preview)** tab.
+
+1. Select **Create**. A notification shows that the restore operation is initiated.
 
 1. When the restore completes, follow the [post-restore tasks](#post-restore-tasks).
 
@@ -44,13 +61,19 @@ earliest existing backup.
 Follow these steps to restore your cluster to a date
 and time of your choosing.
 
-1.  In the [Azure portal](https://portal.azure.com/), from the **Overview** page of the cluster you want to restore, select **Restore**.
+1. In the [Azure portal](https://portal.azure.com/), from the **Overview** page of the cluster you want to restore, select **Restore**.
 
 1. On the **Restore** page, choose **Custom restore point**.
 
-1. Select a date and provide a time in the date and time fields, and enter a cluster name in the **Restore to new cluster** field. The other fields aren't editable.
- 
-1. Select **OK**. A notification shows that the restore operation is initiated.
+1. Select a date and provide a time in the date and time fields, and enter a cluster name in the **Restore to new cluster** field. The subscription and resource group fields aren't editable.
+
+1. If cluster has geo-redundant backup enabled, select remote or same region for restore in the **Location** field. On clusters with zone-redundant and locally redundant backup, location field isn't editable.
+
+1. Select **Next**. 
+
+1. (optional) Make data encryption selection for restored cluster on the **Encryption (preview)** tab.
+
+1. Select **Create**. A notification shows that the restore operation is initiated.
 
 1. When the restore completes, follow the [post-restore tasks](#post-restore-tasks).
 
