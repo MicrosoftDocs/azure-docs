@@ -62,14 +62,16 @@ In order to permit a wide variety of applications and IT requirements to be addr
 The integration patterns listed above are applicable to third party SaaS applications, or applications that have been developed by or for your organization.
 
 * Some Microsoft Online Services, such as Exchange Online, use licenses.  While user's licenses can't be reviewed directly, if you're using group-based license assignments, with groups with assigned users, you can review the memberships of those groups instead.
-* Some applications may use delegated user consent to control access to Microsoft Graph or other resources.  As consents by each user aren't controlled by an approval process, consents aren't reviewable in Azure AD. Instead, you can review who is able to connect to the application through Conditional Access policies, that could be based on application role assignments or group memberships.
+* Some applications may use delegated user consent to control access to Microsoft Graph or other resources.  As consents by each user aren't controlled by an approval process, consents aren't reviewable in. Instead, you can review who is able to connect to the application through Conditional Access policies, that could be based on application role assignments or group memberships.
 * If the application doesn't support federation or provisioning protocols, then you'll need a process for manually applying the results when a review completes. For an application that only supports password SSO integration, if an application assignment is removed when a review completes, then the application won't show up on the *myapps* page for the user, but it won't prevent a user who already knows the password from being able to continue to sign into the application. For your on-premises applications, see [govern the users of an application that does not support provisioning](identity-governance-applications-not-provisioned-users.md). For SaaS applications, please [ask the SaaS vendor to onboard to the app gallery](../manage-apps/v2-howto-app-gallery-listing.md) for federation or provisioning by updating their application to support a standard protocol.
 
 ## Check the application is ready for the review
 
-Now that you have identified the integration pattern for the application, check the application as represented in Azure AD is ready for review.
+Now that you have identified the integration pattern for the application, check the application as represented in Microsoft Entra ID is ready for review.
 
-1. In the Azure portal, click **Azure Active Directory**, click **Enterprise Applications**, and check whether your application is on the [list of enterprise applications](../manage-apps/view-applications-portal.md) in your Azure AD tenant.
+1. Sign in to the [Microsoft Entra admin Center](https://entra.microsoft.com) as at least a [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
+1. Browse to > **Identity** > **Applications** > **Enterprise Applications**. 
+1. Here you can check to see whether your application is on the [list of enterprise applications](../manage-apps/view-applications-portal.md) in your tenant.
 1. If the application is not already listed, then check if the application is available the [application gallery](../manage-apps/overview-application-gallery.md) for applications that can be integrated for federated SSO or provisioning. If it is in the gallery, then use the [tutorials](../saas-apps/tutorial-list.md) to configure the application for federation, and if it supports provisioning, also [configure the application](../app-provisioning/configure-automatic-user-provisioning-portal.md) for provisioning.  
 1. If the application is not already listed, but uses AD security groups and is a web application, [add the application for remote access through Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md) and [configure group writeback to AD](../hybrid/connect/how-to-connect-group-writeback-v2.md).
 1. If the application is not already listed, uses AD security groups and is not a web application, then [configure group writeback to AD](../hybrid/connect/how-to-connect-group-writeback-v2.md) and continue at the next section.
@@ -104,7 +106,9 @@ Now that you have identified the integration pattern for the application, check 
 
 Next, if the application integration also requires one or more groups to be reviewed, as described in pattern B, then check each group is ready for review.
 
-1. In the Azure portal experience for Azure AD, click **Groups**, and then search for and select each group from the list.
+1. Sign in to the [Microsoft Entra admin Center](https://entra.microsoft.com) as at least a [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
+1. Browse to > **Groups**. 
+1. Search for and select each group from the list.
 1. On the **Overview** tab, verify that the **Membership type** is **Assigned**, and the **Source** is **Cloud**.  If the application uses a dynamic group, or a group synchronized from on-premises, then those group memberships can't be changed in Azure AD.  We recommend converting the application to groups created in Azure AD with assigned memberships, then copy the member users to that new group.
 1. Change to the **Roles and administrators** tab. This tab displays the administrative roles, that give rights to control the representation of the group in Azure AD, not the access rights in the application.  For each administrative role that allows changing group membership and has users in that administrative role, ensure that only authorized users are in that role.
 1. Change to the **Members** tab.  Verify that the members of the group are users, and that there are no non-user members or nested groups. If there are no members of a group when the review starts, the review of that group will complete immediately.

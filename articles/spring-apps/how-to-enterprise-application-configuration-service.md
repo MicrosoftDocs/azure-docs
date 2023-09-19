@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, en
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use Application Configuration Service for VMware Tanzu® with the Azure Spring Apps Enterprise plan.
+This article shows you how to use Application Configuration Service for VMware Tanzu with the Azure Spring Apps Enterprise plan.
 
 [Application Configuration Service for VMware Tanzu](https://docs.vmware.com/en/Application-Configuration-Service-for-VMware-Tanzu/2.0/acs/GUID-overview.html) is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native `ConfigMap` resources that are populated from properties defined in one or more Git repositories.
 

@@ -563,5 +563,4 @@ What's the difference between telemetry processors and telemetry initializers?
 ## <a name="next"></a>Next steps
 * [Search events and logs](./diagnostic-search.md)
 * [sampling](./sampling.md)
-* [Troubleshooting](../faq.yml)
 

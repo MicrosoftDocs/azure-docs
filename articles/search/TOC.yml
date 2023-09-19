@@ -264,9 +264,9 @@
       href: search-howto-concurrency.md
     - name: Develop in .NET
       href: search-howto-dotnet-sdk.md
-    - name: Upgrade to 11.0
+    - name: Upgrade .NET libraries
       href: search-dotnet-sdk-migration-version-11.md
-    - name: Upgrade the Management SDK
+    - name: Manage with Azure SDKs
       href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
@@ -494,33 +494,33 @@
   items:
   - name: REST
     items:
-    - name: Search API
+    - name: Search REST API
       href: /rest/api/searchservice
-    - name: Management API
+    - name: Management REST API
       href: /rest/api/searchmanagement
   - name: .NET
     items:
-    - name: Search API
+    - name: Azure.Search.Documents
       href: /dotnet/api/overview/azure/search.documents-readme
-    - name: Management API
-      href: /dotnet/api/microsoft.azure.management.search
+    - name: Azure.ResourceManager.Search
+      href: /dotnet/api/overview/azure/resourcemanager.search-readme
   - name: Java
     items:
-    - name: Search API
+    - name: com.azure.search.documents
       href: /java/api/overview/azure/search-documents-readme
-    - name: Management API
+    - name: com.azure.resourcemanager.search
       href: /java/api/overview/azure/search/management
   - name: JavaScript
     items:
-    - name: Search API
+    - name: azure/search-documents
       href: /javascript/api/overview/azure/search-documents-readme
-    - name: Management API
+    - name: azure/arm-search
       href: /javascript/api/@azure/arm-search/
   - name: Python
     items:
-    - name: Search API
+    - name: azure-search-documents
       href: /python/api/overview/azure/search-documents-readme
-    - name: Management API
+    - name: azure-mgmt-search
       href: /python/api/azure-mgmt-search/
   - name: Resource management
     items:
