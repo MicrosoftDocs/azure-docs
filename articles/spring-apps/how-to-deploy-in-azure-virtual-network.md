@@ -306,7 +306,8 @@ If you don't specify custom DNS servers in your DNS Server Virtual Network setti
 If your custom DNS server can't add Azure DNS IP `168.63.129.16` as the upstream DNS server, use the following steps:
 
 * Ensure that your custom DNS server can resolve IP addresses for all the public FQDNs. For more information, see [Customer responsibilities running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
-* Add the DNS record `*.svc.private.azuremicroservices.io` to the IP of your application. For more information, see [Find the IP for your application](access-app-virtual-network.md#find-the-ip-for-your-application).
+* Add the DNS record `*.svc.private.azuremicroservices.io` to the IP of your application. For more information, see the [Find the IP for your application](access-app-virtual-network.md#find-the-ip-for-your-application) section of [Access an app in Azure Spring Apps in a virtual network](access-app-virtual-network.md).
+
 
 ## Next steps
 
