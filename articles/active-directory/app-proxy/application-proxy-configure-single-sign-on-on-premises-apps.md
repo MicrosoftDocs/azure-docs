@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -30,7 +30,7 @@ The protocol diagrams below describe the single sign-on sequence for both a serv
 
 ## Create an application and set up SAML SSO
 
-1. In the Azure portal, select **Azure Active Directory > Enterprise applications** and select **New application**.
+1. In the Microsoft Entra admin center, select **Azure Active Directory > Enterprise applications** and select **New application**.
 
 2. Enter the display name for your new application, select **Integrate any other application you don't find in the gallery**, then select **Create**.
 
@@ -49,7 +49,7 @@ The protocol diagrams below describe the single sign-on sequence for both a serv
 
 Before you can provide SSO for on-premises applications, you need to enable Application Proxy and install a connector. See the tutorial [Add an on-premises application for remote access through Application Proxy in Azure AD](application-proxy-add-on-premises-application.md) to learn how to prepare your on-premises environment, install and register a connector, and test the connector. Then follow these steps to publish your new application with Application Proxy. For other settings not mentioned below, refer to the [Add an on-premises app to Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) section in the tutorial.
 
-1. With the application still open in the Azure portal, select **Application Proxy**. Provide the **Internal URL** for the application. If you're using a custom domain, you also need to upload the TLS/SSL certificate for your application. 
+1. With the application still open in the Microsoft Entra admin center, select **Application Proxy**. Provide the **Internal URL** for the application. If you're using a custom domain, you also need to upload the TLS/SSL certificate for your application. 
    > [!NOTE]
    > As a best practice, use custom domains whenever possible for an optimized user experience. Learn more about [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
@@ -61,7 +61,7 @@ Before you can provide SSO for on-premises applications, you need to enable Appl
 
 ## Update the SAML configuration
 
-1. With the application still open in the Azure portal, select **Single sign-on**. 
+1. With the application still open in the Microsoft Entra admin center, select **Single sign-on**. 
 
 2. In the **Set up Single Sign-On with SAML** page, go to the **Basic SAML Configuration** heading and select its **Edit** icon (a pencil). Make sure the **External URL** you configured in Application Proxy is populated in the **Identifier**, **Reply URL**, and **Logout URL** fields. These URLs are required for Application Proxy to work correctly. 
 

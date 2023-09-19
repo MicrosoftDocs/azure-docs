@@ -21,7 +21,7 @@ Continuous access evaluation (CAE) for [workload identities](../workload-identit
 
 Continuous access evaluation doesn't currently support managed identities.
 
-## Scope of preview
+## Scope of support
 
 The continuous access evaluation for workload identities is supported only on access requests sent to Microsoft Graph as a resource provider.  More resource providers will be added over time.
 

@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page # Required
   author: msjasteppe #Required; your GitHub user alias, with correct capitalization.
   ms.author: jasteppe #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/08/2023 #Required; mm/dd/yyyy format.
+  ms.date: 09/11/2023 #Required; mm/dd/yyyy format.
 
 highlightedContent:
   items:
@@ -47,8 +47,8 @@ conceptualContent:
               text: Set up user access and permissions 
             - url: ./authentication-authorization.md
               itemType: how-to-guide
-              text: Grant permissions to a managed identity
-         
+              text: Grant permissions to a managed identity  
+                   
         # Card
         - title: FHIR data
           links:
@@ -64,6 +64,7 @@ conceptualContent:
             - url: ./fhir/centers-for-medicare-tutorial-introduction.md
               itemType: how-to-guide
               text: CMS operability and patient access
+
         # Card
         - title: Imaging data
           links:
@@ -120,12 +121,6 @@ conceptualContent:
              
 additionalContent:
   sections:
-    - title: Other services 
-      items:
-        # Card
-        - title: Azure API for FHIR
-          summary: Scalable, secure, standards-based service for FHIR data
-          url: ./azure-api-for-fhir/overview.md
     - title: Tools & resources 
       items:
         # Card
@@ -140,3 +135,9 @@ additionalContent:
         - title: Healthcare & Life Sciences blog
           summary: Insights, best practices, and innovations
           url: https://techcommunity.microsoft.com/t5/healthcare-and-life-sciences/bg-p/HealthcareAndLifeSciencesBlog 
+    - title: Other services 
+      items:
+        # Card
+        - title: Azure API for FHIR
+          summary: Scalable, secure, standards-based service for FHIR data
+          url: ./azure-api-for-fhir/overview.md

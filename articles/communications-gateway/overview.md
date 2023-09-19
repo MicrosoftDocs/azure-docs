@@ -31,11 +31,7 @@ Azure Communications Gateway acts as the edge of your network, ensuring complian
 
 To ensure availability, Azure Communications Gateway is deployed into two Azure Regions within a given Geography. It supports both active-active and primary-backup geographic redundancy models to fit with your network design.
 
-Connectivity between your network and Azure Communications Gateway must meet the Microsoft Teams _Network Connectivity Specification_. You can achieve this using one of the following connectivity models.
-
-[!INCLUDE [communications-gateway-maps-or-expressroute](includes/communications-gateway-maps-or-expressroute.md)]
-
-The sites in your network must have cross-connects between them. You must also set up your routing so that each site in your deployment can route to both Azure Regions.
+For more information about the networking requirements, see [Your network and Azure Communications Gateway](role-in-network.md) and [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
 
 Traffic from all enterprises shares a single SIP trunk, using a multi-tenant format. This multi-tenant format ensures the solution is suitable for both the SMB and Enterprise markets.
 

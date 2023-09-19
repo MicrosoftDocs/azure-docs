@@ -120,7 +120,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. Click the **Save** button on "**Authentication**" page.
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation](https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### Creating an Azure AD test user
@@ -165,7 +165,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Printix Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Printix tile in the My Apps, this will redirect to Printix Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Printix tile in the My Apps, this will redirect to Printix Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

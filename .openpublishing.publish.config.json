@@ -1039,6 +1039,12 @@
       "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-reference-other-repo",
+      "url": "https://github.com/MicrosoftDocs/azure-reference-other-pr",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
