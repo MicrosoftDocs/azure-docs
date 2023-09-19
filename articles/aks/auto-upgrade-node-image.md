@@ -109,7 +109,11 @@ For more information on Planned Maintenance, see [Use Planned Maintenance to sch
 
 * How can I check the current nodeOsUpgradeChannel value on a cluster?
 
-Run the `az aks show` command and check the "autoUpgradeProfile" to determine what value the `nodeOsUpgradeChannel` is set to. 
+Run the `az aks show` command and check the "autoUpgradeProfile" to determine what value the `nodeOsUpgradeChannel` is set to:
+
+```azurecli-interactive
+az aks show --resource-group myResourceGroup --name myAKSCluster --query "autoUpgradeProfile"
+```
 
 * How can I monitor the status of node OS auto-upgrades?
 

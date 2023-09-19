@@ -74,7 +74,8 @@ To configure and test Azure AD SSO with DocuSign, perform the following steps:
 
 To enable Azure AD SSO in the Azure portal, follow these steps:
 
-1. In the Azure portal, on the **DocuSign** application integration page, find the **Manage** section, and then select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **DocuSign** application integration page, find the **Manage** section, and then select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -127,8 +128,8 @@ In this section, you'll create a test user named B.Simon in the Azure portal.
 
 In this section, you'll grant B.Simon access to DocuSign so that this user can use Azure single sign-on.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **DocuSign**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **DocuSign**.
 1. On the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, and then in the **Add Assignment** dialog box, select **Users and groups**.
 1. In the **Users and groups** dialog box, select **B.Simon** from the **Users** list, and then press the **Select** button at the bottom of the screen.
