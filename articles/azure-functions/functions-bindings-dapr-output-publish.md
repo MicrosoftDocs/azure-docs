@@ -368,7 +368,7 @@ To use the `daprPublish` in Python v2, set up your project with the correct depe
 1. Modify your `local.setting.json` file with the following configuration:
 
    ```json
-   PYTHON_ISOLATE_WORKER_DEPENDENCIES:1
+   "PYTHON_ISOLATE_WORKER_DEPENDENCIES":1
    ```
 
 You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.

@@ -378,7 +378,7 @@ To use the `daprInvoke` in Python v2, set up your project with the correct depen
 1. Modify your `local.setting.json` file with the following configuration:
 
    ```json
-   PYTHON_ISOLATE_WORKER_DEPENDENCIES:1
+   "PYTHON_ISOLATE_WORKER_DEPENDENCIES":1
    ```
 
 You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).

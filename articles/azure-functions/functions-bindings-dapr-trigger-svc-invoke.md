@@ -329,7 +329,7 @@ To use the `daprServiceInvocationTrigger` in Python v2, set up your project with
 1. Modify your `local.setting.json` file with the following configuration:
 
    ```json
-   PYTHON_ISOLATE_WORKER_DEPENDENCIES:1
+   "PYTHON_ISOLATE_WORKER_DEPENDENCIES":1
    ```
 
 You can learn more about which components to use with the Service Invocation trigger and how to set them up in the official Dapr documentation.
