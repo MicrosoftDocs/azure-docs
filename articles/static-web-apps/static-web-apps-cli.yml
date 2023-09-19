@@ -5,6 +5,7 @@ directCommands:
 - uid: swa_login
   name: swa login
   summary: Log in to Azure
+  status: GA
   description: 'Authenticate with Azure to get a deployment token for Azure Static Web Apps, using the `swa deploy` command.'
   syntax: >-
     swa login
@@ -42,6 +43,7 @@ directCommands:
 - uid: swa_init
   name: swa init
   summary: Configures a new Azure Static Web Apps project.
+  status: GA
   description: >-
     Configures a new Azure Static Web Apps project with the Static Web Apps CLI. Interactive mode prompts you for a configuration name, will detect your project settings and the frameworks used. Once complete, a new static web app is created and a swa-cli.config.json file is generated in the current directory.
 
@@ -83,6 +85,7 @@ directCommands:
 - uid: swa_start
   name: swa start
   summary: Start the Azure Static Web Apps emulator from a directory or bind to a running dev server.
+  status: GA
   description: >-
     ### Serve from a folder
 
@@ -225,6 +228,7 @@ directCommands:
     summary: Pass additional arguments to the `func start` command.
 - uid: swa_build
   name: swa build
+  status: GA
   summary: Builds the application. If you have a Node.js application, it will install dependencies first.
   description: >-
     Common use cases include: installing dependencies for the front-end app and API and running the build commands for both, only building the front-end or API project if the other doesn't have a build step.
@@ -260,6 +264,7 @@ directCommands:
     summary: Automatically detects how to build your front-end and API applications. Default is `false`.
 - uid: swa_deploy
   name: swa deploy
+  status: GA
   summary: Deploy the current project to Azure Static Web Apps.
   description: >-
     Common use cases include:
