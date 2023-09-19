@@ -74,7 +74,7 @@ Create an L2 network, if necessary, for your workloads. You can repeat the instr
 
 Gather the resource ID of the L2 isolation domain that you [created](#l2-isolation-domain) to configure the VLAN for this network.
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli-l2)
 
 ```azurecli-interactive
   az networkcloud l2network create --name "<YourL2NetworkName>" \
@@ -85,7 +85,7 @@ Gather the resource ID of the L2 isolation domain that you [created](#l2-isolati
     --l2-isolation-domain-id "<YourL2IsolationDomainId>"
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell-l2)
 
 ```azurepowershell-interactive
 New-AzNetworkCloudL2Network -Name "<YourL2NetworkName>" -ResourceGroupName "<YourResourceGroupName>" -ExtendedLocationName "<ClusterCustomLocationId>" -ExtendedLocationType "CustomLocation" -L2IsolationDomainId "<YourL2IsolationDomainId>" -Location "<ClusterAzureRegion>" -InterfaceName "<InterfaceName>" -Subscription "<YourSubscription>" -Tag "<YourTag>"
@@ -103,7 +103,7 @@ You need:
 - The `ip-allocation-type` value, which can be `IPv4`, `IPv6`, or `DualStack` (default).
 - The `vlan` value, which must match what's in the L3 isolation domain.
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli-l3)
 
 ```azurecli-interactive
   az networkcloud l3network create --name "<YourL3NetworkName>" \
@@ -118,7 +118,7 @@ You need:
     --vlan <YourNetworkVlan>
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell-l3)
 
 ```azurepowershell-interactive
 New-AzNetworkCloudL3Network -ResourceGroupName "<YourResourceGroupName>" -Name "<YourL3NetworkName>" -Location "<ClusterAzureRegion>" -ExtendedLocationName "<ClusterCustomLocationId>" -ExtendedLocationType "CustomLocation" -Vlan "<YourNetworkVlan>" -L3IsolationDomainId "<YourL3IsolationDomainId>" -Ipv4ConnectedPrefix "<YourNetworkIpv4Prefix>" -Ipv6ConnectedPrefix "<YourNetworkIpv6Prefix>" -Subscription "<YourSubscription>" -Tag "<YourTag>"
@@ -130,7 +130,7 @@ Create a trunked network, if necessary, for your VM. Repeat the instructions for
 
 Gather the `resourceId` values of the L2 and L3 isolation domains that you created earlier to configure the VLANs for this network. You can include as many L2 and L3 isolation domains as needed.
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli-trunk)
 
 ```azurecli-interactive
   az networkcloud trunkednetwork create --name "<YourTrunkedNetworkName>" \
@@ -147,7 +147,7 @@ Gather the `resourceId` values of the L2 and L3 isolation domains that you creat
       "<YourL3IsolationDomainId3>" \
     --vlans <YourVlanList>
 ```
-### [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell-trunk)
 
 ```azurepowershell-interactive
 New-AzNetworkCloudTrunkedNetwork -Name "<YourTrunkedNetworkName>" -ResourceGroupName "<YourResourceGroupName>" -SubscriptionId "<YourSubscription>" -ExtendedLocationName "<ClusterCustomLocationId>" -ExtendedLocationType "CustomLocation" -Location "<ClusterAzureRegion>" -Vlan "<YourVlanList>" -IsolationDomainId "<YourL3IsolationDomainId>" -InterfaceName "<YourNetworkInterfaceName>" -Tag "<YourTag>"
@@ -157,7 +157,7 @@ New-AzNetworkCloudTrunkedNetwork -Name "<YourTrunkedNetworkName>" -ResourceGroup
 
 Your VM requires at least one cloud services network. You need the egress endpoints that you want to add to the proxy for your VM to access. This list should include any domains needed to pull images or access data, such as `.azurecr.io` or `.docker.io`.
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli-csn)
 
 ```azurecli-interactive
   az networkcloud cloudservicesnetwork create --name "<YourCloudServicesNetworkName>" \
@@ -168,7 +168,7 @@ Your VM requires at least one cloud services network. You need the egress endpoi
     --additional-egress-endpoints "[{\"category\":\"<YourCategory >\",\"endpoints\":[{\"<domainName1 >\":\"< endpoint1 >\",\"port\":<portnumber1 >}]}]"
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell-csn)
 
 ```azurepowershell-interactive
 $endpointEgressList = @()
