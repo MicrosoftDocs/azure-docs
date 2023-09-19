@@ -242,21 +242,12 @@ This section provides steps for user account provisioning from Workday to each A
 
 **To configure Workday to Active Directory provisioning:**
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. In the Azure portal, search for and select **Azure Active Directory**.
-
-3. Select **Enterprise Applications**, then **All Applications**.
-
-4. Select **Add an application**, and select the **All** category.
-
-5. Search for **Workday to Active Directory User Provisioning**, and add that app from the gallery.
-
-6. After the app is added and the app details screen is shown, select **Provisioning**.
-
-7. Change the **Provisioning** **Mode** to **Automatic**.
-
-8. Click on the information banner displayed to download the Provisioning Agent. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. Search for **Workday to Active Directory User Provisioning**, and add that app from the gallery.
+1. After the app is added and the app details screen is shown, select **Provisioning**.
+1. Change the **Provisioning** **Mode** to **Automatic**.
+1. Click on the information banner displayed to download the Provisioning Agent. 
 
    >[!div class="mx-imgBorder"]
    >![Download Agent](./media/workday-inbound-tutorial/pa-download-agent.png "Download Agent Screen")
