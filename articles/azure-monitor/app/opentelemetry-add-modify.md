@@ -1327,12 +1327,12 @@ Not available in .NET.
 #### [Node.js](#tab/nodejs)
 
 
-You need to use `applicationinsights` v3 Beta package to achieve this. (https://www.npmjs.com/package/applicationinsights/v/beta)
+You need to use `applicationinsights` v3 Beta package to achieve this. (https://www.npmjs.com/package/applicationinsights/v/beta). Same methods and intefaces should be available there, all sample code in documented for @azure/monitor-opentelemetry apply to v3 Beta package as well.
 
 ```javascript
     const { TelemetryClient } = require("applicationinsights");
 
-    const appInsights = new TelemetryClient();
+    const telemetryClient = new TelemetryClient();
 ```
 
 Then use the `TelemetryClient` to send custom telemetry:
@@ -1343,7 +1343,7 @@ Then use the `TelemetryClient` to send custom telemetry:
     let eventTelemetry = {
         name: "testEvent"
     };
-    appInsights.trackEvent(eventTelemetry);
+    telemetryClient.trackEvent(eventTelemetry);
 ```
 
 ##### Logs
@@ -1353,7 +1353,7 @@ Then use the `TelemetryClient` to send custom telemetry:
         message: "testMessage",
         severity: "Information"
     };
-    appInsights.trackTrace(traceTelemetry);
+    telemetryClient.trackTrace(traceTelemetry);
 ```
     
 ##### Exceptions
@@ -1366,7 +1366,7 @@ Then use the `TelemetryClient` to send custom telemetry:
             exception: error,
             severity: "Critical"
         };
-        appInsights.trackException(exceptionTelemetry);
+        telemetryClient.trackException(exceptionTelemetry);
     }
 ```
 
