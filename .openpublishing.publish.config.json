@@ -999,8 +999,20 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "cosmos-db-apache-cassandra-javascript-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-apache-cassandra-javascript-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cosmos-db-apache-cassandra-python-samples",
       "url": "https://github.com/azure-samples/cosmos-db-apache-cassandra-python-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-apache-gremlin-javascript-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-apache-gremlin-javascript-samples",
       "branch": "main",
       "branch_mapping": {}
     },

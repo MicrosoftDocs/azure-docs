@@ -796,23 +796,42 @@ Use the [Apache Cassandra Node.js driver](cassandra/manage-data-nodejs.md) to us
 
 1. Create the **app.js** file.
 
-1. TODO
+1. Import the `Client` type and `auth` namespace from the `cassandra-driver` module.
 
-    ```bash
-    
-    ```
+    :::code language="javascript" source="~/cosmos-db-apache-cassandra-javascript-samples/601-emulator/app.js" id="imports":::
 
-1. TODO
+1. Use [`PlainTextAuthProvider`](https://docs.datastax.com/en/developer/nodejs-driver/4.6/api/module.auth/class.PlainTextAuthProvider/) to create a new object for the emulator's credentials. Use [`Client`](https://docs.datastax.com/en/developer/nodejs-driver/4.6/api/class.Client/) to connect to the emulator using the credentials.
 
-    ```javascript
-    
-    ```
+    :::code language="javascript" source="~/cosmos-db-apache-cassandra-javascript-samples/601-emulator/app.js" highlight="2-3" id="client":::
+
+1. Use [`execute`](https://docs.datastax.com/en/developer/nodejs-driver/4.6/api/class.Client/#execute) to run a command server-side to create a **keyspace** and **table**.
+
+    :::code language="javascript" source="~/cosmos-db-apache-cassandra-javascript-samples/601-emulator/app.js" highlight="1,5" id="resources":::
+
+1. Use `execute` again to create a new item with parameters.
+
+    :::code language="javascript" source="~/cosmos-db-apache-cassandra-javascript-samples/601-emulator/app.js" highlight="6" id="insert":::
 
 1. Run the Node.js application.
 
     ```bash
     node app.js
     ```
+
+    > [!WARNING]
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the client to disable TLS/SSL validation:
+    >
+    > ```javascript
+    > const client = new Client({
+    >   ...,
+    >   ...,
+    >   ...,
+    >   sslOptions: {
+    >     rejectUnauthorized: false
+    >   }
+    > })
+    > ```
+    >
 
 ---
 
@@ -878,22 +897,44 @@ Use the [Apache Gremlin Python driver](gremlin/quickstart-python.md) to connect 
 
 ### [JavaScript / Node.js](#tab/javascript+nodejs)
 
-TODO
+Use the [Apache Gremlin Node.js driver](gremlin/quickstart-nodejs.md) to use the emulator from a Node.js/JavaScript application.
 
 1. Start in an empty folder
 
-1. TODO
+1. Initialize a new module.
 
     ```bash
-    
+    npm init es6 --yes
     ```
 
-1. TODO
+1. Install the [`gremlin`](https://www.npmjs.com/package/gremlin) package from Node Package Manager.
 
-1. TODO
+    ```bash
+    npm install --save gremlin
+    ```
 
-    ```javascript
-    
+1. Create the **app.js** file.
+
+1. Import the `gremlin` module.
+
+    :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/601-emulator/app.js" id="imports":::
+
+1. Use [`PlainTextSaslAuthenticator`](https://tinkerpop.apache.org/jsdocs/3.7.0/PlainTextSaslAuthenticator.html) to create a new object for the emulator's credentials. Use [`Client`](https://tinkerpop.apache.org/jsdocs/3.7.0/Client.html) to connect to the emulator using the credentials.
+
+    :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/601-emulator/app.js" highlight="1" id="client":::
+
+1. Use [`submit`](https://tinkerpop.apache.org/jsdocs/3.7.0/Client.html#submit) to run a command server-side to clear the graph if it already has data.
+
+    :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/601-emulator/app.js" id="graph":::
+
+1. Use `submit` again to add a new item to the graph with the specified parameters.
+
+    :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/601-emulator/app.js" highlight="1" id="insert":::
+
+1. Run the Node.js application.
+
+    ```bash
+    node app.js
     ```
 
 ---
