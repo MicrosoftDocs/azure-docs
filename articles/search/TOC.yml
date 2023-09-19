@@ -626,19 +626,21 @@
         href: cognitive-search-skill-sentiment.md
 - name: Resources
   items:
-  - name: Azure Community Support
-    href: https://azure.microsoft.com/support/community/?product=search
-  - name: Azure Updates
-    href: https://azure.microsoft.com/updates/?product=search
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-cognitive-search
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/search/
+  - name: Products by Region
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search
   - name: Demo sites
     href: resource-demo-sites.md
-  - name: Tools
+  - name: Tools and Accelerators
     href: resource-tools.md
   - name: Training
     href: resource-training.md
-  - name: Partner spotlight
-    href: resource-partners-knowledge-mining.md
-  - name: Partner data sources (Terms of Use)
-    href: search-data-sources-terms-of-use.md
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/search/
+  - name: Partner solutions
+    items:
+    - name: Partner spotlight
+      href: resource-partners-knowledge-mining.md
+    - name: Partner data sources (Terms of Use)
+      href: search-data-sources-terms-of-use.md
