@@ -476,7 +476,7 @@ Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to 
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the client class to disable TLS/SSL validation:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the client's options to disable TLS/SSL validation before creating the client:
     >
     > ```csharp
     > CosmosClientOptions options = new ()
@@ -487,12 +487,6 @@ Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to 
     >     }),
     >     ConnectionMode = ConnectionMode.Gateway
     > };
-    > 
-    > using CosmosClient client = new(
-    >     accountEndpoint: "https://localhost:8081/",
-    >     authKeyOrResourceToken: "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
-    >     clientOptions: options
-    > );
     > ```
     >
 
@@ -536,16 +530,12 @@ Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) t
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the client to disable TLS/SSL validation:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
     >
     > ```python
     > import urllib3
     >
     > urllib3.disable_warnings()
-    > client = CosmosClient(
-    >     url="https://localhost:8081",
-    >     credential="C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
-    > )
     > ```
     >
 
@@ -571,45 +561,19 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
 
 1. Import the `CosmosClient` type from the `@azure/cosmos` module.
 
-    ```javascript
-    import { CosmosClient } from "@azure/cosmos";
-    ```
+    :::code language="javascript" source="~/cosmos-db-nosql-javascript-samples/601-emulator/app.js" id="imports":::
 
 1. Use [`CosmosClient`](/javascript/api/@azure/cosmos/cosmosclient) to create a new client instance using the emulator's credentials.
 
-    ```javascript
-    const cosmosClient = new CosmosClient({
-        endpoint: 'https://localhost:8081/',
-        key: 'C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=='
-    });
-    ```
+    :::code language="javascript" source="~/cosmos-db-nosql-javascript-samples/601-emulator/app.js" highlight="2-3" id="client":::
 
 1. Use [`Databases.createIfNotExists`](/javascript/api/@azure/cosmos/databases#@azure-cosmos-databases-createifnotexists) and [`Containers.createIfNotExists`](/javascript/api/%40azure/cosmos/containers#@azure-cosmos-containers-createifnotexists) to create a database and container.
 
-    ```javascript
-    const { database } = await cosmosClient.databases.createIfNotExists({ 
-        id: 'cosmicworks',
-        throughput: 400
-    });
-    
-    const { container } = await database.containers.createIfNotExists({
-        id: 'products',
-        partitionKey: {
-            paths: ["/id"]
-        }
-    });
-    ```
+    :::code language="javascript" source="~/cosmos-db-nosql-javascript-samples/601-emulator/app.js" highlight="1,6" id="resources":::
 
 1. Upsert a new item using [`Items.upsert`](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-upsert).
 
-    ```javascript
-    var item = {
-        "id": "68719518371",
-        "name": "Kiama classic surfboard"
-    };
-    
-    await container.items.upsert(item);
-    ```
+    :::code language="javascript" source="~/cosmos-db-nosql-javascript-samples/601-emulator/app.js" highlight="6" id="upsert":::
 
 1. Run the Node.js application.
 
@@ -618,14 +582,10 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the client class to disable TLS/SSL validation:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
     >
     > ```javascript
-    > process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-    > const cosmosClient = new CosmosClient({
-    >     endpoint: '<https://localhost:8081/>',
-    >     key: 'C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=='
-    > });
+    > process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
     > ```
     >
 
