@@ -25,7 +25,7 @@ To see your Advisor score for the selected subscriptions, sign in to the [Azure 
 
 * You can filter the display using the buttons at the top of the page:
    * **Subscription**: Choose **All** for Advisor recommendations on all subscriptions. Alternatively, select specific subscriptions. Apply changes by clicking outside of the button.
-   * **Recommendation Status**: **Active** (recommendations that you have not postponed or dismissed, the default), **Postponed or Dismissed**. Apply changes by clicking outside of the button.
+   * **Recommendation Status**: **Active** (the default, recommendations that you haven't postponed or dismissed), **Postponed or Dismissed**. Apply changes by clicking outside of the button.
    * **Resource Group**: Choose **All** (the default) or specific resource groups. Apply changes by clicking outside of the button.
    * **Type**: Choose **All** (the default) or specific resources. Apply changes by clicking outside of the button.
    * **Commitments**: Applicable only to cost recommendations. Adjust your subscription **Cost** recommendations to reflect your committed **Term (years)** and chosen **Look-back period (days)**. Apply changes by clicking **Apply**.*
@@ -47,13 +47,13 @@ View recommendation details – such as the recommended actions and impacted res
 
    ![Advisor view recommendation details](./media/advisor-get-started/advisor-score-reliability-recommendation-page2.png)
    
-1. To take see action details, click a **Recommended actions** link. The Azure page where you can act opens. Alternatively, open a page to the affected resources to take the recommended action (the two pages may be the same). The recommendation may necessitate you learning more about the affected configuration; to do so, open the **Learn more** link on the recommended action page, or at the top of the recommendations details page.
+1. To see action details, click a **Recommended actions** link. The Azure page where you can act opens. Alternatively, open a page to the affected resources to take the recommended action (the two pages may be the same). The recommendation may necessitate you learning more about the affected configuration; to do so, open the **Learn more** link on the recommended action page, or at the top of the recommendations details page.
 
 1.   You can postpone the recommendation.
 
    ![Advisor postpone recommendation](./media/advisor-get-started/advisor-recommendation-postpone2.png)
 
-   You cannot dismiss the recommendation without certain privileges. For information on permissions, see [Advisor Cost recommendations](permissions.md).
+   You can't dismiss the recommendation without certain privileges. For information on permissions, see [Advisor Cost recommendations](permissions.md).
 
 ## Manage subscriptions and Advisor rules
 
@@ -68,15 +68,15 @@ You can choose to include or exclude specific subscriptions for Advisor recommen
 
     ![Advisor configure resources example](./media/advisor-get-started/advisor-configure-resources-no-wsp.png)
 
-1. Uncheck any subscriptions you do not want to receive Advisor recommendations for, click **Apply**. The page refreshes.
+1. Uncheck any subscriptions you don't want to receive Advisor recommendations for, click **Apply**. The page refreshes.
 
 ### VM/VMSS right sizing
 
-You can adjust the average CPU utilization rule and the look back period on a per-subscription basis. Doing this requires specialized knowledge. 
+You can adjust the average CPU utilization rule and the look back period on a per-subscription basis. Doing virtual machine (VM) right sizing requires specialized knowledge. 
 
-Advisor monitors your virtual machine usage for 7 days by default, and then identifies low-utilization virtual machines (VMs). Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2%, or if the current workload can be accommodated by a smaller virtual machine size.
+Advisor monitors your VM usage for seven days by default, and then identifies your low-utilization VMs. VMs are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2%, or if VM's current workload can be accommodated with a smaller VM.
 
-The CPU utilization rule can be set to 5%, 10%, 15%, 20%, or 100%(Default). In case the trigger is selected as 100%, it will present recommendations for virtual machines with less than 5%, 10%, 15%, and 20% of CPU utilization. You can also select how far back in historical data, the look back, you want to analyze: 7 days (default), 14, 21, 30, 60, or 90 days.
+You can set the  CPU utilization rule to 5%, 10%, 15%, 20%, or 100% (the default). If the trigger is set to 100%, Advisor presents recommendations for VMs with less than 5%, 10%, 15%, and 20% of CPU utilization. You can also select how far back in historical data, the look back, you want to analyze: seven days (default), 14, 21, 30, 60, or 90 days.
 
 1. Select the subscriptions you’d like to adjust the average CPU utilization rule for, and then click **Edit**. Not all subscriptions can be edited for VM/VMSS right sizing.
 
