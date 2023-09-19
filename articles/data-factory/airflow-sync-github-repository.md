@@ -13,7 +13,7 @@ ms.date: 09/19/2023
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-While you can certainly manually create and update Directed Acyclic Graph (DAG) files for Azure Managed Apache Airflow using the Azure Storage or using the [Azure CLI](/storage/blobs/storage-quickstart-blobs-cli.md), many organizations prefer to streamline their processes using a Continuous Integration and Continuous Delivery (CI/CD) approach. In this scenario, each commit made to the source code repository triggers an automated workflow that synchronizes the code with the designated DAGs folder within Azure Managed Apache Airflow.
+While you can certainly manually create and update Directed Acyclic Graph (DAG) files for Azure Managed Apache Airflow using the Azure Storage or using the [Azure CLI](/storage/blobs/storage-quickstart-blobs-cli), many organizations prefer to streamline their processes using a Continuous Integration and Continuous Delivery (CI/CD) approach. In this scenario, each commit made to the source code repository triggers an automated workflow that synchronizes the code with the designated DAGs folder within Azure Managed Apache Airflow.
 
 In this guide, you will learn how to synchronize your GitHub repository in Managed Airflow in two different ways.
 
