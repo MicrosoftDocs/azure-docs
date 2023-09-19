@@ -40,13 +40,13 @@ To set up the Azure Spring Apps service instance by using the Resource Manager t
 | `Resources created by Azure Spring Apps were disallowed by policy.` | Network resources are created when deploying Azure Spring Apps in your own virtual network. Be sure to check whether you have [Azure Policy](../governance/policy/overview.md) defined to block that creation. The error message lists the resources that weren't created. |
 | `Required traffic is not allowlisted.`                              | Be sure to check [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md) to ensure that the required traffic is allowlisted.                                                                                   |
 
-## My application can't be registered or can't get settings from config server
+## My application can't be registered or it can't get settings from the config server
 
-The applications running inside the Azure Spring Apps user cluster need to access the Eurekar Server and Config Server in system runtime cluster via the `<service-instance-name>.svc.private.azuremicroservices.io` domain.
+The applications running inside the Azure Spring Apps user cluster need to access the Eurekar Server and the Config Server in system runtime cluster via the `<service-instance-name>.svc.private.azuremicroservices.io` domain.
 
 This problem occurs if your virtual network is configured with custom DNS settings. In this case, the private DNS zone used by Azure Spring Apps is ineffective. Add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server.
 
-If your custom DNS server cannot add Azure DNS IP 168.63.129.16 as the upstream DNS server, then please add the DNS record *.svc.private.azuremicroservices.io -> the [IP of your application](access-app-virtual-network.md#find-the-ip-for-your-application).
+If your custom DNS server can't add Azure DNS IP `168.63.129.16` as the upstream DNS server, then add the DNS record `*.svc.private.azuremicroservices.io` to the IP of your application. For more information, see [Find the IP for your application](access-app-virtual-network.md#find-the-ip-for-your-application).
 
 ## I can't access my application's endpoint or test endpoint in a virtual network
 
@@ -65,14 +65,19 @@ For more information, see [Access your application in a private network](./acces
 
 ## I can't access my application's public endpoint from public network
 
-Azure Spring Apps supports exposing applications to the internet by using [Assign Public Endpoint](how-to-access-app-from-internet-virtual-network.md) feature. While if you are using [User Defined Route](how-to-create-user-defined-route-instance.md), the following features are not supported because of asymmetric routing.
-   - Use public network to access the appliaction through Public Endpoint.
-   - Use public network to access the log stream.
-   - Use public network to access the App console.
-     
-The same limitations also apply to the Azure Spring Apps using [Bring Your Own Route Table](how-to-deploy-in-azure-virtual-network.md/#bring-your-own-route-table) feature when egress traffics are routed to a firewall. Because both situations introduce asymmetric routing into the cluster, this is where the problem occurs. Packets arrive on the endpoint's public IP address but return to the firewall via the private IP address. So, the firewall must block such traffic.
+Azure Spring Apps supports exposing applications to the internet by using public endpoints. For more information, see [Expose applications on Azure Spring Apps to the internet from a public network](how-to-access-app-from-internet-virtual-network.md). 
 
-If you are routing egress traffics to a firewall but also need to expose the application to internet, you may consider using [Expose applications to the internet with TLS Termination at Application Gateway](expose-apps-gateway-tls-termination.md).
+If you are using a user defined route feature, the following features are not supported because of asymmetric routing:
+
+- Use public network to access the appliaction through public endpoint.
+- Use public network to access the log stream.
+- Use public network to access the App console.
+
+For more information, see [Control egress traffic for an Azure Spring Apps instance](how-to-create-user-defined-route-instance.md).
+
+The same limitations also apply to Azure Spring Apps when egress traffics are routed to a firewall. Because both situations introduce asymmetric routing into the cluster, this is where the problem occurs. Packets arrive on the endpoint's public IP address but return to the firewall via the private IP address. So, the firewall must block such traffic. For more information, see [Bring Your Own Route Table](how-to-deploy-in-azure-virtual-network.md#bring-your-own-route-table).
+
+If you are routing egress traffics to a firewall but also need to expose the application to internet, use the expose applications to the internet with TLS Termination feature. For more information, see [Expose applications to the internet with TLS Termination at Application Gateway](expose-apps-gateway-tls-termination.md).
 
 ## Other issues
 
