@@ -1198,8 +1198,8 @@ items:
     items:
     - name: Overview
       href: logs/log-analytics-overview.md
-    - name: New Log Analytics
-      href: logs/log-analytics-explorer.md
+    - name: Simple mode
+      href: logs/log-analytics-simple-mode.md
     - name: Query scope
       href: logs/scope.md
     - name: Saving queries
