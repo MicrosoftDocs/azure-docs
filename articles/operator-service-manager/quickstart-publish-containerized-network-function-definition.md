@@ -46,7 +46,16 @@ az aosm nfd generate-config --definition-type cnf
     ]
 }
 ```
-After the input file is created, be sure to edit the input.json file, replacing the provided values with the appropriate configurations  specific to your environment details.
+Create a file called input.json with the following contents:
+
+- publisher name
+- publisher resource group name
+- NF name
+- version
+- ACR artifact store name
+- location
+- images
+- helm packages
 
 > [!NOTE]
 > Zip the ngnix configuration files in the format of tgz.
@@ -89,7 +98,7 @@ During the interactive process, you can respond with 'n' (no) for all the option
 - To expose the parameter `serviceAccount_create`, respond with 'y' (yes)
 - To expose the parameter `service_port`, respond with 'y' (yes)
 
-Once the build is complete, examine the generated files to gain a better understanding of the NDF structure. If errors were made during your interactive choices, there are two options to correct them:
+Once the build is complete, examine the generated files to gain a better understanding of the Network Function Definition (NFD) structure. If errors were made during your interactive choices, there are two options to correct them:
 
 1. Rerun the command with the correct selections.
 1. Manually adjust the generated value mappings within `generatedValuesMappings` folder. Then edit the `path_to_mappings_file` in `input.json` to reference the modified file path.

@@ -47,9 +47,20 @@ az aosm nfd generate-config --definition-type vnf
     }
 }
 ```
-After the input file is created, be sure to edit the input.json file, replacing the provided values with the appropriate configurations specific to your environment details.
+Create a file called input.json with the following contents:
 
-Here's sample Input.Json:
+- publisher name
+- publisher resource group name
+- NF name
+- version
+- ACR artifact store name
+- location
+- blob artifact store name
+- image name parameter
+- ARM template
+- VHD
+
+Here's sample input.json:
 
 ```json
 {

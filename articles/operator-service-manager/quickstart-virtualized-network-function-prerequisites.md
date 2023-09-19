@@ -13,9 +13,28 @@ ms.date: 09/11/2023
 
 Before you begin using Azure Operator Service Manager, ensure you have registered the required resource providers and installed the necessary tools to interact with the service.
 
+## Download and install Azure CLI
+
+You can use the Bash environment in Azure Cloud Shell. For more information, see [Quickstart for Bash in Azure Cloud Shell](../cloud-shell/quickstart.md).
+
+If you prefer to run CLI reference commands locally, install the Azure CLI using [How to install the Azure CLI](/cli/azure/install-azure-cli).
+
+If you're machine runs on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
+
+For local installation, sign into Azure CLI using the `az login`  command.
+
+To finish the authentication process, follow the steps displayed in your terminal. For other sign in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+
+To install the Azure Operator Service Manager CLI extension, issue the following command.
+
+```azurecli
+az extension add --name aosm
+``````
+Run `az version` to determine the version and dependent libraries installed. Upgrade to the latest version by issuing command `az upgrade`.
+
 ## Register required resource providers
 
-Prior to using the Network Function Manager (NFM) or the Azure Operator Service Manager you must first register the required resource providers by executing these commands. The registration process could take up to 5 minutes.
+Prior to using the Azure Operator Service Manager you must first register the required resource providers by executing these commands. The registration process could take up to 5 minutes.
 
 ```azurecli
 # Register Resource Provider
@@ -35,25 +54,6 @@ az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: reg
 
 > [!NOTE]
 > It may take a few minutes for the resource provider registration to complete. Once the registration is successful, you can begin using the Network Function Manager (NFM) or Azure Operator Service Manager.
-
-## Download and install Azure CLI
-
-You can use the Bash environment in Azure Cloud Shell. For more information, see [Quickstart for Bash in Azure Cloud Shell](../cloud-shell/quickstart.md).
-
-If you prefer to run CLI reference commands locally, install the Azure CLI using [How to install the Azure CLI](/cli/azure/install-azure-cli).
-
-If you're machine runs on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
-
-For local installation, sign into Azure CLI using the `az login`  command.
-
-To finish the authentication process, follow the steps displayed in your terminal. For other sign in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
-
-To install the Azure Operator Service Manager CLI extension, issue the following command.
-
-```azurecli
-az extension add --name aosm
-``````
-Run `az version` to determine the version and dependent libraries installed. Upgrade to the latest version by issuing command `az upgrade`.
 
 ## Virtual Network Function (VNF) requirements
 
@@ -162,7 +162,7 @@ resource ubuntuVmVirtualMachine 'Microsoft.Compute/virtualMachines@2021-07-01' =
 }
 ``````
 
-Save the preceding Json file as ubuntu-template-bicep on your local machine.
+Save the preceding json file as ubuntu-template.bicep on your local machine.
 
 Convert the Virtual Machine (VM) bicep template into an ARM template using the following command.
 

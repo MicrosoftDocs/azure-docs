@@ -11,9 +11,9 @@ ms.date: 09/08/2023
 
 # Quickstart: Complete the prerequisites to deploy a Containerized Network Function in Azure Operator Service Manager
 
-In this Quickstart, you'll complete the tasks necessary prior to using the Azure Operator Service Manager (AOSM). You'll register the required resource providers and install the tools necessary to interact with the AOSM service.
+In this Quickstart, you'll complete the tasks necessary prior to using the Azure Operator Service Manager (AOSM). You'll register the required resource providers and install the tools necessary to interact with the Azure Operator Service Manager (AOSM) service.
 
-To use AOSM, you must have an Azure subscription and have signed an Azure Operator Service Manager agreement with Microsoft.
+To use Azure Operator Service Manager (AOSM), you must have an Azure subscription and have signed an Azure Operator Service Manager agreement with Microsoft.
 
 ## Prerequisites
 
@@ -26,10 +26,10 @@ To use AOSM, you must have an Azure subscription and have signed an Azure Operat
 - [Start the Docker container with Azure CLI preinstalled](/cli/azure/run-azure-cli-docker) to run the Azure CLI in a Docker container (Windows or macOS)
 - [Install the Azure CLI](/cli/azure/install-azure-cli) to run CLI reference commands locally. Then sign in to the Azure CLI using the `az login` command and complete the prompts displayed in your terminal to finish authentication.
 
-## Install the Azure AOSM CLI extension
+## Install the Azure Operator Service Manager (AOSM) CLI extension
 
 1. Open or sign in to your preferred Azure CLI work environment.
-1. Install the extension by entering the `az extension add --name aosm command` at the prompt line.
+1. Install the extension by entering the `az extension add --name aosm` command at the prompt line.
 
 ## Verify and upgrade the Azure CLI version
 
@@ -56,14 +56,14 @@ az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: reg
 
 The following section describes how to set up the configuration files needed to deploy Containerized Network Functions (CNF). These steps provide a well-organized and structured approach to deploying CNFs with Helm packages and associated configurations. These packages must be installed on the machine from which you're executing the CLI commands.
 
-1. Generate the configuration file used to define a CNF deployment using the `az aosm nfd generate-config` command in the Azure CLI.
+1. Generate the configuration file used to define a CNF deployment using the `az aosm nfd generate-config --definition-type-cnf` command in the Azure CLI.
 1. Verify that helm packages with schemas are present on your local storage, then reference these packages in the generated input.json configuration file.
 1. Specify a reference to the existing Azure Container Registry (ACR) that contains the necessary CNF images. Currently, only one ACR is supported per CNF. The images to be used are automatically populated based on the helm package schema.
 1. (Optional) Provide a file (on disk) named `path_to_mappings`. This file should mirror `values.yaml`, with your selected values replaced by deployment parameters. Replacing these parameters exposes them as deployment parameters to the CNF. You can either leave the values as blank strings to have every value as a deployment parameter or use the `--interactive` option to interactively make choices.
 
 ## Download and install the nginx image to an Azure Container Registry
 
-This section illustrates Azure AOSM CLI's ability to copy ACR images automatically. To download and install the nginx image to an ACR, complete the following steps.
+This section illustrates Azure Operator Service Manager (AOSM) CLI's ability to copy ACR images automatically. To download and install the nginx image to an ACR, complete the following steps.
 
 1. [Create an ACR](../container-registry/container-registry-get-started-azure-cli.md) using the Azure CLI.
 1. Push the`nginx: stable` image to your ACR:
@@ -84,7 +84,7 @@ docker push <your acr name>.azurecr.io/samples/nginx:stable
 
 This section introduces you to a basic Helm chart that sets up nginx and configures it to listen on a specified port. While the Helm chart furnished in this section already incorporates a `values.schema.json` file, should you need to generate such a schema in the future, a handy tool is available on [GitHub](https://github.com/holgerjh/helm-schema).
 
-### Sample values.scheme.json file
+### Sample values.schema.json file
 
 ```json
 { 
@@ -430,7 +430,7 @@ data:
     }
 ```
 
-- **Deployment Configuration:** The `deployment.yaml` file showcases specific lines pertinent to `imagePullSecrets` and `image`. Be sure to observe their structured format, as AOSM furnishes the necessary values for these fields during deployment.
+- **Deployment Configuration:** The `deployment.yaml` file showcases specific lines pertinent to `imagePullSecrets` and `image`. Be sure to observe their structured format, as Azure Operator Service Manager (AOSM) furnishes the necessary values for these fields during deployment.
 
 ### Sample deployment.yaml file
 
