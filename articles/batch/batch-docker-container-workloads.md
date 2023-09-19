@@ -62,6 +62,19 @@ For Linux container workloads, Batch currently supports the following Linux imag
   - Offer: `centos-container-rdma`
   - Offer: `ubuntu-server-container-rdma`
 
+- Publisher: `microsoft-dsvm`
+  - Offer: `ubuntu-hpc`
+
+## Notes
+  The docker data root of the above images lie in different places:
+  - for the batch image  `microsoft-azure-batch` (Offer: `centos-container-rdma`, etc), the docker data root is mapped to /mnt/batch/docker
+  - for the hpc image, or  `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc), the docter data root lie in the default OS image.
+    So when using the ubuntu-hpc image, OS disk will have potential risk of being fill up quickly in case of downloading a bunch of containers.
+    ## Potential Solutions for Customer
+    (a) Increase the size of the OS disk (forthcoming batch API, not supprted)
+    (b) Map the docker data root to somewhere else in a start task
+    (c) Make a custom image with the docker data root remapped somewhere else(thus avoiding start task)
+
 These images are only supported for use in Azure Batch pools and are geared for Docker container execution. They feature:
 
 - A pre-installed Docker-compatible [Moby](https://github.com/moby/moby) container runtime
