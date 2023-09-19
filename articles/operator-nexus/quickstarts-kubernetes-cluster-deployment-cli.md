@@ -19,7 +19,7 @@ ms.date: 05/13/2023
 
 ## Create an Azure Nexus Kubernetes cluster
 
-The following example creates a cluster named *myNexusAKSCluster* in resource group *myResourceGroup* in the *eastus* location.
+The following example creates a cluster named *myNexusK8sCluster* in resource group *myResourceGroup* in the *eastus* location.
 
 Before you run the commands, you need to set several variables to define the configuration for your cluster. Here are the variables you need to set, along with some default values you can use for certain variables:
 
@@ -57,15 +57,15 @@ CUSTOM_LOCATION="/subscriptions/<subscription_id>/resourceGroups/<managed_resour
 CSN_ARM_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/cloudServicesNetworks/<csn-name>"
 CNI_ARM_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
 AAD_ADMIN_GROUP_OBJECT_ID="00000000-0000-0000-0000-000000000000"
-CLUSTER_NAME="myNexusAKSCluster"
+CLUSTER_NAME="myNexusK8sCluster"
 K8S_VERSION="v1.24.9"
 ADMIN_USERNAME="azureuser"
 SSH_PUBLIC_KEY="$(cat ~/.ssh/id_rsa.pub)"
 CONTROL_PLANE_COUNT="1"
-CONTROL_PLANE_VM_SIZE="NC_G2_v1"
+CONTROL_PLANE_VM_SIZE="NC_G6_28_v1"
 INITIAL_AGENT_POOL_NAME="${CLUSTER_NAME}-nodepool-1"
 INITIAL_AGENT_POOL_COUNT="1"
-INITIAL_AGENT_POOL_VM_SIZE="NC_M4_v1"
+INITIAL_AGENT_POOL_VM_SIZE="NC_P10_56_v1"
 POD_CIDR="10.244.0.0/16"
 SERVICE_CIDR="10.96.0.0/16"
 DNS_SERVICE_IP="10.96.0.10"
@@ -111,16 +111,16 @@ After a few minutes, the command completes and returns information about the clu
 
 ## Add an agent pool
 
-The cluster created in the previous step has a single node pool. Let's add a second agent pool using the ```az networkcloud kubernetescluster agentpool create``` command. The following example creates an agent pool named ```myNexusAKSCluster-nodepool-2```:
+The cluster created in the previous step has a single node pool. Let's add a second agent pool using the ```az networkcloud kubernetescluster agentpool create``` command. The following example creates an agent pool named ```myNexusK8sCluster-nodepool-2```:
 
 You can also use the default values for some of the variables, as shown in the following example:
 
 ```bash
 RESOURCE_GROUP="myResourceGroup"
 CUSTOM_LOCATION="/subscriptions/<subscription_id>/resourceGroups/<managed_resource_group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
-CLUSTER_NAME="myNexusAKSCluster"
+CLUSTER_NAME="myNexusK8sCluster"
 AGENT_POOL_NAME="${CLUSTER_NAME}-nodepool-2"
-AGENT_POOL_VM_SIZE="NC_M4_v1"
+AGENT_POOL_VM_SIZE="NC_P10_56_v1"
 AGENT_POOL_COUNT="1"
 AGENT_POOL_MODE="User"
 ```

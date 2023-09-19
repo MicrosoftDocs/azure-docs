@@ -75,7 +75,7 @@ Conversational language understanding supports utterances in the following langu
 | Spanish | `es` |
 | Estonian | `et` |
 | Basque | `eu` |
-| Persian (Farsi) | `fa` |
+| Persian | `fa` |
 | Finnish | `fi` |
 | French | `fr` |
 | Western Frisian | `fy` |
@@ -114,7 +114,7 @@ Conversational language understanding supports utterances in the following langu
 | Nepali | `ne` |
 | Dutch | `nl` |
 | Norwegian (Bokmal) | `nb` |
-| Oriya | `or` |
+| Odia | `or` |
 | Punjabi | `pa` |
 | Polish | `pl` |
 | Pashto | `ps` |

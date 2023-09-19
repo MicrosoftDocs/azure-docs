@@ -92,7 +92,7 @@ When you're evaluating a request to grant admin consent, here are some recommend
 
 ## Grant tenant-wide admin consent
 
-For step-by-step instructions for granting tenant-wide admin consent from the Azure portal, see [Grant tenant-wide admin consent to an application](grant-admin-consent.md).
+For step-by-step instructions for granting tenant-wide admin consent from the Microsoft Entra admin center, see [Grant tenant-wide admin consent to an application](grant-admin-consent.md).
 
 ## Revoke tenant wide admin consent
 

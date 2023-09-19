@@ -1,40 +1,40 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure AD Multi-Factor Authentication FAQ
-  description: Frequently asked questions and answers related to Azure AD Multi-Factor Authentication. 
+  title: Microsoft Entra multifactor authentication FAQ
+  description: Frequently asked questions and answers related to Microsoft Entra multifactor authentication. 
   
   services: multi-factor-authentication
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: faq
-  ms.date: 04/03/2023
+  ms.date: 09/13/2023
   ms.author: justinha
   author: justinha
   manager: amycolannino
   ms.reviewer: jpettere
   ms.collection: M365-identity-device-management
-title: Frequently asked questions about Azure AD Multi-Factor Authentication
+title: Frequently asked questions about Microsoft Entra multifactor authentication
 summary: |
-  This FAQ answers common questions about Azure AD Multi-Factor Authentication and using the Multi-Factor Authentication service. It's broken down into questions about the service in general, billing models, user experiences, and troubleshooting.
+  This FAQ answers common questions about Microsoft Entra multifactor authentication and using the multifactor authentication service. It's broken down into questions about the service in general, billing models, user experiences, and troubleshooting.
   
   > [!IMPORTANT]
-  > In September 2022, Microsoft announced deprecation of Multi-Factor Authentication Server. Beginning September 30, 2024, Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure AD MFA service by using the latest Migration Utility included in the most recent [MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
+  > In September 2022, Microsoft announced deprecation of Multi-Factor Authentication Server. Beginning September 30, 2024, multifactor authentication Server deployments will no longer service multifactor authentication requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Microsoft Entra multifactor authentication service by using the latest Migration Utility included in the most recent [MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
   
 
 sections:
   - name: General
     questions:
       - question: |
-          How does Azure AD Multi-Factor Authentication Server handle user data?
+          How does Microsoft Entra multifactor authentication Server handle user data?
         answer: |
-          With Multi-Factor Authentication Server, user data is only stored on the on-premises servers. No persistent user data is stored in the cloud. When the user performs two-step verification, Multi-Factor Authentication Server sends data to the Azure AD Multi-Factor Authentication cloud service for authentication. Communication between Multi-Factor Authentication Server and the Multi-Factor Authentication cloud service uses Secure Sockets Layer (SSL) or Transport Layer Security (TLS) over port 443 outbound.
+          With multifactor authentication Server, user data is only stored on the on-premises servers. No persistent user data is stored in the cloud. When the user performs two-step verification, multifactor authentication Server sends data to the Microsoft Entra multifactor authentication cloud service for authentication. Communication between multifactor authentication Server and the multifactor authentication cloud service uses Secure Sockets Layer (SSL) or Transport Layer Security (TLS) over port 443 outbound.
           
           When authentication requests are sent to the cloud service, data is collected for authentication and usage reports. The following data fields are included in two-step verification logs:
           
           * **Unique ID** (either user name or on-premises Multi-Factor Authentication Server ID)
           * **First and Last Name** (optional)
           * **Email Address** (optional)
-          * **Phone Number** (when using a voice call or SMS authentication)
+          * **Phone Number** (when using a voice call or text message authentication)
           * **Device Token** (when using mobile app authentication)
           * **Authentication Mode**
           * **Authentication Result**
@@ -49,59 +49,56 @@ sections:
           For more information, see [Data residency and customer data for Azure AD Multi-Factor Authentication](concept-mfa-data-residency.md).
           
       - question: |
-          What SMS short codes are used for sending SMS messages to my users?
+          What short codes are used for sending text messages to my users?
         answer: |
-          In the United States, we use the following SMS short codes:
+          In the United States, we use the following short codes:
           
           * *97671*
           * *69829*
           * *51789*
           * *99399*
           
-          In Canada, we use the following SMS short codes:
+          In Canada, we use the following short codes:
           
           * *759731*
           * *673801*
           
-          There's no guarantee of consistent SMS or voice-based Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve SMS deliverability.
+          There's no guarantee of consistent text message or voice-based multifactor authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve text message deliverability.
           
           We don't support short codes for countries or regions besides the United States and Canada.
           
-          ## Billing
-          Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) or the documentation for [Azure AD Multi-Factor Authentication versions and consumption plans](concept-mfa-licensing.md).
-
       - question: |
-          Does Azure AD Multi-Factor Authentication throttle user sign-ins?
+          Does Microsoft Entra multifactor authentication throttle user sign-ins?
         answer: |
-          Yes, in certain cases that typically involve repeated authentication requests in a short time window, Azure AD Multi-Factor Authentication will throttle user sign-in attempts to protect telecommunication networks, mitigate MFA fatigue-style attacks and protect its own systems for the benefit of all customers. 
+          Yes, in certain cases that typically involve repeated authentication requests in a short time window, Microsoft Entra multifactor authentication will throttle user sign-in attempts to protect telecommunication networks, mitigate MFA fatigue-style attacks and protect its own systems for the benefit of all customers. 
           
           Although we don't share specific throttling limits, they are based around reasonable usage. 
             
       - question: |
           Is my organization charged for sending the phone calls and text messages that are used for authentication?
         answer: |
-          No, you're not charged for individual phone calls placed or text messages sent to users through Azure AD Multi-Factor Authentication. If you use a per-authentication MFA provider, you're billed for each authentication, but not for the method used.
+          No, you're not charged for individual phone calls placed or text messages sent to users through Microsoft Entra multifactor authentication. If you use a per-authentication MFA provider, you're billed for each authentication, but not for the method used.
           
           Your users might be charged for the phone calls or text messages they receive, according to their personal phone service.
           
       - question: |
           Does the per-user billing model charge me for all enabled users, or just the ones that performed two-step verification?
         answer: |
-          Billing is based on the number of users configured to use Multi-Factor Authentication, regardless of whether they performed two-step verification that month.
+          Billing is based on the number of users configured to use multifactor authentication, regardless of whether they performed two-step verification that month.
 
       - question: |
-          How does Multi-Factor Authentication billing work?
+          How does multifactor authentication billing work?
         answer: |
           When you create a per-user or per-authentication MFA provider, your organization's Azure subscription is billed monthly based on usage. This billing model is similar to how Azure bills for usage of virtual machines and Web Apps.
           
-          When you purchase a subscription for Azure AD Multi-Factor Authentication, your organization only pays the annual license fee for each user. MFA licenses and Microsoft 365, Azure AD Premium, or Enterprise Mobility + Security bundles are billed this way.
+          When you purchase a subscription for Azure AD Multi-Factor Authentication, your organization only pays the annual license fee for each user. MFA licenses and Microsoft 365, Microsoft Entra ID P1 or P2, or Enterprise Mobility + Security bundles are billed this way.
           
           For more information, see [How to get Azure AD Multi-Factor Authentication](concept-mfa-licensing.md).
           
       - question: |
-          Is there a free version of Azure AD Multi-Factor Authentication?
+          Is there a free version of Microsoft Entra multifactor authentication?
         answer: |
-          Security defaults can be enabled in the Azure AD Free tier. With security defaults, all users are enabled for multi-factor authentication using the Microsoft Authenticator app. There's no ability to use text message or phone verification with security defaults, just the Microsoft Authenticator app.
+          Security defaults can be enabled in the Microsoft Entra ID Free tier. With security defaults, all users are enabled for multifactor authentication using the Microsoft Authenticator app. There's no ability to use text message or phone verification with security defaults, just the Microsoft Authenticator app.
           
           For more information, see [What are security defaults?](../fundamentals/security-defaults.md)
           
@@ -119,14 +116,14 @@ sections:
         answer: |
           In some instances, yes.
           
-          If your directory has a *per-user* Azure AD Multi-Factor Authentication provider, you can add MFA licenses. Users with licenses aren't counted in the per-user consumption-based billing. Users without licenses can still be enabled for MFA through the MFA provider. If you purchase and assign licenses for all your users configured to use Multi-Factor Authentication, you can delete the Azure AD Multi-Factor Authentication provider. You can always create another per-user MFA provider if you have more users than licenses in the future.
+          If your directory has a *per-user* Azure AD Multi-Factor Authentication provider, you can add MFA licenses. Users with licenses aren't counted in the per-user consumption-based billing. Users without licenses can still be enabled for MFA through the MFA provider. If you purchase and assign licenses for all your users configured to use multifactor authentication, you can delete the Microsoft Entra multifactor authentication provider. You can always create another per-user MFA provider if you have more users than licenses in the future.
           
           If your directory has a *per-authentication* Azure AD Multi-Factor Authentication provider, you're always billed for each authentication, as long as the MFA provider is linked to your subscription. You can assign MFA licenses to users, but you'll still be billed for every two-step verification request, whether it comes from someone with an MFA license assigned or not.
           
       - question: |
-          Does my organization have to use and synchronize identities to use Azure AD Multi-Factor Authentication?
+          Does my organization have to use and synchronize identities to use Microsoft Entra multifactor authentication?
         answer: |
-          If your organization uses a consumption-based billing model, Azure Active Directory is optional, but not required. If your MFA provider isn't linked to an Azure AD tenant, you can only deploy Azure AD Multi-Factor Authentication Server on-premises.
+          If your organization uses a consumption-based billing model, Microsoft Entra ID is optional, but not required. If your MFA provider isn't linked to a Microsoft Entra tenant, you can only deploy Microsoft Entra multifactor authentication Server on-premises.
           
           Azure Active Directory is required for the license model because licenses are added to the Azure AD tenant when you purchase and assign them to users in the directory.
           
@@ -135,7 +132,7 @@ sections:
       - question: |
           What should I tell my users to do if they don't receive a response on their phone?
         answer: |
-          Have your users attempt up to five times in 5 minutes to get a phone call or SMS for authentication. Microsoft uses multiple providers for delivering calls and SMS messages. If this approach doesn't work, open a support case to troubleshoot further.
+          Have your users attempt up to five times in 5 minutes to get a phone call or text message for authentication. Microsoft uses multiple providers for delivering calls and text messages. If this approach doesn't work, open a support case to troubleshoot further.
           
           Third-party security apps may also block the verification code text message or phone call. If using a third-party security app, try disabling the protection, then request another MFA verification code be sent.
           
@@ -146,12 +143,12 @@ sections:
       - question: |
           What should I do if one of my users can't get in to their account?
         answer: |
-          You can reset the user's account by making them to go through the registration process again. Learn more about [managing user and device settings with Azure AD Multi-Factor Authentication in the cloud](howto-mfa-userdevicesettings.md).
+          You can reset the user's account by making them to go through the registration process again. Learn more about [managing user and device settings with Microsoft Entra multifactor authentication in the cloud](howto-mfa-userdevicesettings.md).
           
       - question: |
           What should I do if one of my users loses a phone that is using app passwords?
         answer: |
-          To prevent unauthorized access, delete all the user's app passwords. After the user has a replacement device, they can recreate the passwords. Learn more about [managing user and device settings with Azure AD Multi-Factor Authentication in the cloud](howto-mfa-userdevicesettings.md).
+          To prevent unauthorized access, delete all the user's app passwords. After the user has a replacement device, they can recreate the passwords. Learn more about [managing user and device settings with Microsoft Entra multifactor authentication in the cloud](howto-mfa-userdevicesettings.md).
           
       - question: |
           What if a user can't sign in to non-browser apps?
@@ -168,7 +165,7 @@ sections:
       - question: |
           My users say that sometimes they don't receive the text message or the verification times out.
         answer: |
-          Delivery of SMS messages aren't guaranteed because there are uncontrollable factors that might affect the reliability of the service. These factors include the destination country or region, the mobile phone carrier, and the signal strength.
+          Delivery of text messages isn't guaranteed because uncontrollable factors might affect the reliability of the service. These factors include the destination country or region, the mobile phone carrier, and the signal strength.
           
           Third-party security apps may also block the verification code text message or phone call. If using a third-party security app, try disabling the protection, then request another MFA verification code be sent.
           
@@ -190,12 +187,12 @@ sections:
           
           If users don't respond to the SMS within the defined timeout period, their authentication is denied.
           
-          For one-way SMS with Azure AD MFA in the cloud (including the AD FS adapter or the Network Policy Server extension), you can't configure the timeout setting. Azure AD stores the verification code for 180 seconds.
+          For one-way SMS with Azure AD MFA in the cloud (including the AD FS adapter or the Network Policy Server extension), you can't configure the timeout setting. Microsoft Entra ID stores the verification code for 180 seconds.
           
       - question: |
-          Can I use hardware tokens with Multi-Factor Authentication Server?
+          Can I use hardware tokens with multifactor authentication Server?
         answer: |
-          If you're using Multi-Factor Authentication Server, you can import third-party Open Authentication (OATH) time-based, one-time password (TOTP) tokens, and then use them for two-step verification.
+          If you're using multifactor authentication Server, you can import third-party Open Authentication (OATH) time-based, one-time password (TOTP) tokens, and then use them for two-step verification.
           
           You can use ActiveIdentity tokens that are OATH TOTP tokens if you put the secret key in a CSV file and import to Multi-Factor Authentication Server. You can use OATH tokens with Active Directory Federation Services (ADFS), Internet Information Server (IIS) forms-based authentication, and Remote Authentication Dial-In User Service (RADIUS) as long as the client system can accept the user input.
           
@@ -205,26 +202,26 @@ sections:
           - CSV if the file contains a serial number, a secret key in Base 32 format, and a time interval
           
       - question: |
-          Can I use Multi-Factor Authentication Server to secure Terminal Services?
+          Can I use multifactor authentication Server to secure Terminal Services?
         answer: |
           Yes, but if you're using Windows Server 2012 R2 or later, you can only secure Terminal Services by using Remote Desktop Gateway (RD Gateway).
           
           Security changes in Windows Server 2012 R2 changed how Multi-Factor Authentication Server connects to the Local Security Authority (LSA) security package in Windows Server 2012 and earlier versions. For versions of Terminal Services in Windows Server 2012 or earlier, you can [secure an application with Windows Authentication](howto-mfaserver-windows.md#to-secure-an-application-with-windows-authentication-use-the-following-procedure). If you're using Windows Server 2012 R2, you need RD Gateway.
           
       - question: |
-          I configured Caller ID in MFA Server, but my users still receive Multi-Factor Authentication calls from an anonymous caller.
+          I configured Caller ID in MFA Server, but my users still receive multifactor authentication calls from an anonymous caller.
         answer: |
-          When Multi-Factor Authentication calls are placed through the public telephone network, sometimes they are routed through a carrier that doesn't support caller ID. Because of this carrier behavior, caller ID isn't guaranteed, even though the Multi-Factor Authentication system always sends it.
+          When multifactor authentication calls are placed through the public telephone network, sometimes they are routed through a carrier that doesn't support caller ID. Because of this carrier behavior, caller ID isn't guaranteed, even though the multifactor authentication system always sends it.
 
       - question: |
           Why are my users being prompted to register their security information?
         answer: |
           There are several reasons that users could be prompted to register their security information:
           
-          - The user has been enabled for MFA by their administrator in Azure AD, but doesn't have security information registered for their account yet.
-          - The user has been enabled for self-service password reset in Azure AD. The security information will help them reset their password in the future if they ever forget it.
+          - The user has been enabled for MFA by their administrator in Microsoft Entra ID, but doesn't have security information registered for their account yet.
+          - The user has been enabled for self-service password reset in Microsoft Entra ID. The security information will help them reset their password in the future if they ever forget it.
           - The user accessed an application that has a Conditional Access policy to require MFA and hasn't previously registered for MFA.
-          - The user is registering a device with Azure AD (including Azure AD Join), and your organization requires MFA for device registration, but the user hasn't previously registered for MFA.
+          - The user is registering a device with Microsoft Entra ID (including Microsoft Entra join), and your organization requires MFA for device registration, but the user hasn't previously registered for MFA.
           - The user is generating Windows Hello for Business in Windows 10 (which requires MFA) and hasn't previously registered for MFA.
           - The organization has created and enabled an MFA Registration policy that has been applied to the user.
           - The user previously registered for MFA, but chose a verification method that an administrator has since disabled. The user must therefore go through MFA registration again to select a new default verification method.
@@ -236,7 +233,7 @@ sections:
         answer: |
           Ask the user to complete the following procedure to remove their account from the Microsoft Authenticator, then add it again:
           
-          1. Go to [their Azure portal profile](https://account.activedirectory.windowsazure.com/profile/) and sign in with an organizational account.
+          1. Go to [their account profile](https://account.activedirectory.windowsazure.com/profile/) and sign in with an organizational account.
           2. Select **Additional Security Verification**.
           3. Remove the existing account from the Microsoft Authenticator app.
           4. Click **Configure**, and then follow the instructions to reconfigure the Microsoft Authenticator.

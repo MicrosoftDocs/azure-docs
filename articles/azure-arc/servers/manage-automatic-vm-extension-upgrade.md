@@ -59,7 +59,7 @@ Automatic extension upgrade supports the following extensions:
 - Dependency agent – Linux and Windows
 - Azure Security agent - Linux and Windows
 - Key Vault Extension - Linux only
-- Azure Update Management Center - Linux and Windows
+- Azure Update Manager - Linux and Windows
 - Azure Automation Hybrid Runbook Worker - Linux and Windows
 - Azure Arc-enabled SQL Server agent - Linux and Windows
 

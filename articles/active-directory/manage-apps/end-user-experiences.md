@@ -31,7 +31,7 @@ Which method(s) you choose to deploy in your organization is your discretion.
 
 By default, all applications are listed together on a single page. But you can use collections to group together related applications and present them on a separate tab, making them easier to find. For example, you can use collections to create logical groupings of applications for specific job roles, tasks, projects, and so on. For information, see [Create collections on the My Apps portal](access-panel-collections.md).
 
-My Apps is separate from the Azure portal and doesn't require users to have an Azure subscription or Microsoft 365 subscription.
+My Apps is separate from the Microsoft Entra admin center and doesn't require users to have an Azure subscription or Microsoft 365 subscription.
 
 For more information on Azure AD My Apps, see the [introduction to My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
@@ -43,13 +43,13 @@ For more information about the Office 365 application launcher, see [Have your a
 
 ## Direct sign-on to federated apps
 
-Most federated applications that support SAML 2.0, WS-Federation, or OpenID connect also support the ability for users to start at the application. The users then get signed in through Azure AD either by automatic redirection or by selecting a link to sign in. Direct sign-on is a service provider-initiated sign-on, and most federated applications in Azure AD application gallery support it. See the documentation linked from the app’s single sign-on configuration wizard in the Azure portal for details.
+Most federated applications that support SAML 2.0, WS-Federation, or OpenID connect also support the ability for users to start at the application. The users then get signed in through Azure AD either by automatic redirection or by selecting a link to sign in. Direct sign-on is a service provider-initiated sign-on, and most federated applications in Azure AD application gallery support it. See the documentation linked from the app’s single sign-on configuration wizard in the Microsoft Entra admin center for details.
 
 ## Direct sign-on links
 
 Azure AD also supports direct single sign-on links to individual applications that support password-based single sign-on, linked single sign-on, and any form of federated single sign-on.
 
-Direct sign-on links are crafted URLs that send a user through the Azure AD sign-in process for a specific application. The user won't need to launch the application from My Apps or Microsoft 365. These **User access URLs** can be found under the properties of available enterprise applications. In the Azure portal, select **Azure Active Directory** > **Enterprise applications**. Select the application, and then select **Properties**.
+Direct sign-on links are crafted URLs that send a user through the Azure AD sign-in process for a specific application. The user doesn't need to launch the application from My Apps or Microsoft 365. These **User access URLs** can be found under the properties of available enterprise applications. In the Microsoft Entra admin center, select **Identity** > **Applications** > **Enterprise applications**. Select the application, and then select **Properties**.
 
 ![Example of the User access URL in Twitter properties](media/end-user-experiences/direct-sign-on-link.png)
 
@@ -61,27 +61,27 @@ Similar to organization-specific URLs for My Apps, you can further customize dir
 
 `https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
-When an authorized user selects one of these application-specific links, they first see their organizational sign-in page (assuming they aren't already signed in). After sign-in, they're redirected to their app without stopping at My Apps first. If the user is missing pre-requisites to access the application, such as the password-based single sign browser extension, then the link will prompt the user to install the missing extension. The link URL also remains constant if the single sign-on configuration for the application changes.
+When an authorized user selects one of these application-specific links, they first see their organizational sign-in page (assuming they aren't already signed in). After sign-in, they're redirected to their app without stopping at My Apps first. If the user is missing prerequisites to access the application, such as the password-based single sign browser extension, then the link prompts the user to install the missing extension. The link URL also remains constant if the single sign-on configuration for the application changes.
 
-These links use the same access control mechanisms as My Apps and Microsoft 365. Only those users or groups who have been assigned to the application in the Azure portal will be able to successfully authenticate. However, any user who is unauthorized will see a message explaining that they haven't been granted access. The unauthorized user is given a link to load My Apps to view available applications that they do have access to.
+These links use the same access control mechanisms as My Apps and Microsoft 365. Only those users or groups who have been assigned to the application in the Microsoft Entra admin center are able to successfully authenticate. However, any user who is unauthorized see's a message explaining that they haven't been granted access. The unauthorized user is given a link to load My Apps to view available applications that they do have access to.
 
 [!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Manage preview settings
 
-As an admin, you can choose to try out new app launcher features while they are in preview. Enabling a preview feature means that the feature is turned on for your organization and will be reflected in the My Apps portal and other app launchers for all your users.
+As an admin, you can choose to try out new app launcher features while they are in preview. Enabling a preview feature means that the feature is turned on for your organization and is reflected in the My Apps portal and other app launchers for all your users.
 
 To enable or disable previews for your app launchers:
 
-- Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, application administrator or cloud application administrator for your directory.
-- Search for and select **Azure Active Directory**, then select **Enterprise applications**.
-- On the left menu, select **App launchers**, then select **Settings**.
-- Under **Preview settings**, toggle the checkboxes for the previews you want to enable or disable. To opt into a preview, toggle the associated checkbox to the checked state. To opt out of a preview, toggle the associated checkbox to the unchecked state.
-- Select **Save**. Wait a few minutes for the changes to take effect.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. On the left menu, select **App launchers**, then select **Settings**.
+1. Under **Preview settings**, toggle the checkboxes for the previews you want to enable or disable. To opt into a preview, toggle the associated checkbox to the checked state. To opt out of a preview, toggle the associated checkbox to the unchecked state.
+1. Select **Save**. Wait a few minutes for the changes to take effect.
 Navigate to the My Apps portal and verify that the preview you enabled or disabled is reflected.
 
 ## Next steps
 
-* [Quickstart Series on Application Management](view-applications-portal.md)
-* [What is single sign-on?](what-is-single-sign-on.md)
-* [Integrating Azure Active Directory with applications getting started guide](plan-an-application-integration.md)
+- [Quickstart Series on Application Management](view-applications-portal.md)
+- [What is single sign-on?](what-is-single-sign-on.md)
+- [Integrating Azure Active Directory with applications getting started guide](plan-an-application-integration.md)

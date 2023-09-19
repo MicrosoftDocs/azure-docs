@@ -79,26 +79,27 @@ In this section, you enable Azure AD single sign-on in the Azure portal.
 
 To configure Azure AD single sign-on with Corptax, perform the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Corptax** application integration page, select **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Corptax** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on link](common/select_sso.png)
 
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
+1. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
     ![Single sign-on select mode](common/select_saml_option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+1. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit_urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     ![Corptax Domain and URLs single sign-on information](common/sp_intiated.png)
 
     In the **Sign-on URL** text box, type a URL:
     `https://asp.corptax.com`
 
-5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click **Download** to download **Federation Metadata XML** and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click **Download** to download **Federation Metadata XML** and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
@@ -134,7 +135,8 @@ The objective of this section is to create a test user in the Azure portal calle
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Corptax.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Corptax**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Corptax**.
 
 	![Enterprise applications blade](common/enterprise_applications.png)
 

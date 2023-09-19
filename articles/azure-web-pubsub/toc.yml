@@ -130,11 +130,7 @@
           href: howto-troubleshoot-common-issues.md
     - name: Move across regions
       href: howto-move-across-regions.md
-    - name: Scale
-      items:
-        - name: Autoscale
-          href: howto-scale-autoscale.md
-- name: Socket.IO
+- name: Socket.IO (preview)
   expanded: false
   items: 
     - name: Overview
@@ -150,6 +146,8 @@
       items:
         - name: Easily migrate a self-hosted Socket.IO app 
           href: socketio-migrate-from-self-hosted.md
+        - name: Integrate with Azure App Service
+          href: socket-io-howto-integrate-web-app.md
         - name: Troubleshoot
           items: 
             - name: Common issues

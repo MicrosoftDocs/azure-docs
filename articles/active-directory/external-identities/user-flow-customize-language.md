@@ -33,15 +33,13 @@ By default, language customization is enabled for users signing up to ensure a c
 
 Language customization enables you to customize any string in your user flow.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
-2. Under **Azure services**, select **Azure Active Directory**.
-3. In the left menu, select **External Identities**.
-4. Select **User flows**.
-3. Select the user flow that you want to enable for translations.
-4. Select **Languages**.
-5. On the **Languages** page for the user flow, select the language that you want to customize.
-6. Expand **Attribute collection page**.
-7. Select **Download defaults** (or **Download overrides** if you've previously edited this language).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [External ID User Flow Administrator](../roles/permissions-reference.md#external-id-user-flow-administrator).
+1. Browse to **Identity** > **External Identities** > **User flows**.
+1. Select the user flow that you want to enable for translations.
+1. Select **Languages**.
+1. On the **Languages** page for the user flow, select the language that you want to customize.
+1. Expand the **Attribute collection page**.
+1. Select **Download defaults** (or **Download overrides** if you've previously edited this language).
 
 These steps give you a JSON file that you can use to start editing your strings.
 

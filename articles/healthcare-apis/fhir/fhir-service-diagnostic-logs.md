@@ -102,9 +102,9 @@ Having access to diagnostic logs is essential for monitoring a service and provi
 
 ## Next steps
 
-For an overview of FHIR service, see
+To learn about setting custom headers on diagnostic logs ,visit 
 
 >[!div class="nextstepaction"]
->[What is FHIR service?](overview.md)	
+>[Setting custom headers for logs](use-custom-headers-diagnosticlog.md)	
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -27,22 +27,23 @@ By default, Azure Spring Apps has unrestricted outbound (egress) internet access
 The following list shows the resource requirements for Azure Spring Apps services. As a general requirement, you shouldn't modify resource groups created by Azure Spring Apps and the underlying network resources.
 
 - Don't modify resource groups created and owned by Azure Spring Apps.
-  - By default, these resource groups are named as `ap-svc-rt_[SERVICE-INSTANCE-NAME]_[REGION]*` and `ap_[SERVICE-INSTANCE-NAME]_[REGION]*`.
+  - By default, these resource groups are named `ap-svc-rt_<service-instance-name>_<region>*` and `ap_<service-instance-name>_<region>*`.
   - Don't block Azure Spring Apps from updating resources in these resource groups.
 - Don't modify subnets used by Azure Spring Apps.
 - Don't create more than one Azure Spring Apps service instance in the same subnet.
 - When using a firewall to control traffic, don't block the following egress traffic to Azure Spring Apps components that operate, maintain, and support the service instance.
 
-## Azure Spring Apps network requirements
+## Azure Global required network rules
 
-| Destination Endpoint                                                                                                                                                    | Port             | Use                                       | Note                                                                                                                                                            |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \*:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:443                                                           | TCP:443          | Azure Spring Apps Service Management.     | Information of service instance "requiredTraffics" could be known in resource payload, under "networkProfile" section.                                          |
-| \*.azurecr.io:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureContainerRegistry:443                                      | TCP:443          | Azure Container Registry.                 | Can be replaced by enabling *Azure Container Registry* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
-| \*.core.windows.net:443 and \*.core.windows.net:445 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Storage:443 and Storage:445 | TCP:443, TCP:445 | Azure Files                               | Can be replaced by enabling *Azure Storage* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md).            |
-| \*.servicebus.windows.net:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - EventHub:443                                      | TCP:443          | Azure Event Hubs.                         | Can be replaced by enabling *Azure Event Hubs* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md).         |
+| Destination endpoint                                                                                                                                                    | Port             | Use                                       | Note                                                                                                                                                                    |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|-------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| \*:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:443                                                           | TCP:443          | Azure Spring Apps Service Management.     | For information about the service instance `requiredTraffics`, see the resource payload, under the `networkProfile` section.                                            |
+| \*.azurecr.io:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureContainerRegistry:443                                    | TCP:443          | Azure Container Registry.                 | Can be replaced by enabling the *Azure Container Registry* [service endpoint in the virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
+| \*.core.windows.net:443 and \*.core.windows.net:445 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Storage:443 and Storage:445 | TCP:443, TCP:445 | Azure Files                               | Can be replaced by enabling the *Azure Storage* [service endpoint in the virtual network](../virtual-network/virtual-network-service-endpoints-overview.md).            |
+| \*.servicebus.windows.net:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - EventHub:443                                      | TCP:443          | Azure Event Hubs.                         | Can be replaced by enabling the *Azure Event Hubs* [service endpoint in the virtual network](../virtual-network/virtual-network-service-endpoints-overview.md).         |
+| \*.prod.microsoftmetrics.com:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureMonitor:443                                      | TCP:443          | Azure Monitor.                         | Allows outbound calls to Azure Monitor.    |
 
-## Azure Spring Apps FQDN requirements/application rules
+## Azure Global required FQDN / application rules
 
 Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the following configurations:
 
@@ -56,6 +57,30 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 | <i>packages.microsoft.com</i>     | HTTPS:443 | Microsoft packages repository.                                               |
 | <i>acs-mirror.azureedge.net</i>   | HTTPS:443 | Repository required to install required binaries like kubenet and Azure CNI. |
 
+## Microsoft Azure operated by 21Vianet required network rules
+
+| Destination endpoint                                                                                                                                                              | Port             | Use                                       | Note                                                                                                                                                                    |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|-------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| \*:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:443                                                                     | TCP:443          | Azure Spring Apps Service Management.     | For information about the service instance `requiredTraffics`, see the resource payload, under the `networkProfile` section.                                            |
+| \*.azurecr.cn:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureContainerRegistry:443                                              | TCP:443          | Azure Container Registry.                 | Can be replaced by enabling the *Azure Container Registry* [service endpoint in the virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
+| \*.core.chinacloudapi.cn:443 and \*.core.chinacloudapi.cn:445 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Storage:443 and Storage:445 | TCP:443, TCP:445 | Azure Files                               | Can be replaced by enabling the *Azure Storage* [service endpoint in the virtual network](../virtual-network/virtual-network-service-endpoints-overview.md).            |
+| \*.servicebus.chinacloudapi.cn:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - EventHub:443                                           | TCP:443          | Azure Event Hubs.                         | Can be replaced by enabling the *Azure Event Hubs* [service endpoint in the virtual network](../virtual-network/virtual-network-service-endpoints-overview.md).         |
+| \*.prod.microsoftmetrics.com:443 *or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureMonitor:443                                      | TCP:443          | Azure Monitor.                         | Allows outbound calls to Azure Monitor.    |
+
+## Microsoft Azure operated by 21Vianet required FQDN / application rules
+
+Azure Firewall provides the FQDN tag `AzureKubernetesService` to simplify the following configurations:
+
+| Destination FQDN                   | Port      | Use                                                                          |
+|------------------------------------|-----------|------------------------------------------------------------------------------|
+| <i>*.cx.prod.service.azk8s.cn</i>  | HTTPS:443 | Underlying Kubernetes Cluster management.                                    |
+| <i>mcr.microsoft.com</i>           | HTTPS:443 | Microsoft Container Registry (MCR).                                          |
+| <i>*.data.mcr.microsoft.com</i>    | HTTPS:443 | MCR storage backed by the Azure CDN.                                         |
+| <i>management.chinacloudapi.cn</i> | HTTPS:443 | Underlying Kubernetes Cluster management.                                    |
+| <i>login.chinacloudapi.cn</i>      | HTTPS:443 | Azure Active Directory authentication.                                       |
+| <i>packages.microsoft.com</i>      | HTTPS:443 | Microsoft packages repository.                                               |
+| <i>*.azk8s.cn</i>                  | HTTPS:443 | Repository required to install required binaries like kubenet and Azure CNI. |
+
 ## Azure Spring Apps optional FQDN for third-party application performance management
 
 | Destination FQDN                   | Port       | Use                                                                                                                                                                                                  |
@@ -65,6 +90,10 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 | <i>*.live.dynatrace.com</i>        | TCP:443    | Required network of Dynatrace APM agents.                                                                                                                                                            |
 | <i>*.live.ruxit.com</i>            | TCP:443    | Required network of Dynatrace APM agents.                                                                                                                                                            |
 | <i>*.saas.appdynamics.com</i>      | TCP:443/80 | Required network of AppDynamics APM agents, also see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges).                                              |
+
+## Azure Spring Apps optional FQDN for Application Insights
+
+You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK or the Application Insights Agent to send data to the portal. For more information, see the [outgoing ports](../azure-monitor/app/ip-addresses.md#outgoing-ports) section of [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 
 ## Next steps
 
