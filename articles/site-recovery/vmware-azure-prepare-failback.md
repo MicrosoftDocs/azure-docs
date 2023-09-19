@@ -41,7 +41,7 @@ A number of ports must be open for reprotection/failback. The following graphic 
 
 ## Deploy a separate master target server
 
-1. Note the master target server [requirements and limitations](#reprotectionfailback-components).
+1. Note the master target server [requirements and limitations](#reprotection-or-failback-components).
 2. Create a [Windows](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers) or [Linux](vmware-azure-install-linux-master-target.md) master target server, to match the operating system of the VMs you want to reprotect and fail back.
 3. Make sure you don't use Storage vMotion for the master target server, or failback can fail. The VM machine can't start because the disks aren't available to it.
     - To prevent this, exclude the master target server from your vMotion list.
