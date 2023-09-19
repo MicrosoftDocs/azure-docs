@@ -64,7 +64,7 @@ sections:
         answer: |
           Azure API for FHIR is a hosted and managed version of the open-source Microsoft FHIR Server for Azure. In the managed service, Microsoft provides all maintenance and updates. 
           
-          When you run the FHIR Server for Azure, you have direct access to the underlying services, but we're responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
+          When you run the FHIR Server for Azure, you have direct access to the underlying services, but you're responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
           
       - question: |
           In which regions is Azure API for FHIR available?
