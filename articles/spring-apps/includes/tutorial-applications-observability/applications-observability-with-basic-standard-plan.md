@@ -106,7 +106,7 @@ To create a custom dashboard, and pin various quickstart blades and metrics char
 
 #### Basic monitoring
 
-The most fundamental metrics for an application, especially microservices, are CPU usage, memory usage, liveness detection, and network traffic. These data are an important basis for evaluating application scalability.
+The most fundamental metrics for an application, especially a microservices application, are CPU usage, memory usage, liveness detection, and network traffic. These metrics are an important basis for evaluating application scalability.
 
 Use the following steps to pin the various charts to the dashboard. 
 
