@@ -157,14 +157,6 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-advanced.png" alt-text="Screenshot that shows a query in Log Analytics advanced mode.":::
 
-## Advanced mode
-
-Advanced mode lets you use KQL to query and analyze data. The Log Analytics query editor offers IntelliSense features, such as autosuggestion, syntax highlighting, and table and column name suggestions. 
-
-:::image type="content" source="media/log-analytics-explorer/log-analytics-advanced-mode.png" alt-text="Screenshot that shows the Log Analytics query editor.":::
-
-To run the current query, select the **Run** button or select **Shift+Enter**.
-
 ## Next steps
 - Walk through a [tutorial on writing queries](../logs/log-analytics-tutorial.md).
 - Access the complete [reference documentation for KQL](/azure/kusto/query/).
