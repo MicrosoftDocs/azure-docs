@@ -691,6 +691,8 @@
       items:
         - name: Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 
           href: open-ai-quickstart.md
+        - name: Secure access to Azure OpenAI from Azure Kubernetes Service (AKS)
+          href: open-ai-secure-access-quickstart.md
     - name: DevOps
       items:
         - name: Azure DevOps Project
