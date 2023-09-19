@@ -16,7 +16,7 @@ description: Removes the SAP Control Plane (Deployer, Library) using a shell scr
 
 ## Synopsis
 
-Removes the control plane, including the deployer VM and the SAP library. It is important to remove the terraform deployed artifacts using Terraform to ensure that the removals are done correctly.
+Removes the control plane, including the deployer VM and the SAP library. It's important to remove the terraform deployed artifacts using Terraform to ensure that the removals are done correctly.
 
 ## Syntax
 
