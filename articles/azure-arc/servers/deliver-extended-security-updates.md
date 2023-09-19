@@ -102,6 +102,8 @@ To enroll Azure Arc-enabled servers eligible for ESUs at no additional cost, fol
     1. Name: “ESU Usage”; Value: “WS2012 DEV TEST”
     1. Name: “ESU Usage”; Value: “WS2012 VISUAL STUDIO”
     1. Name: “ESU Usage”; Value: “WS2012 DISASTER RECOVERY”
+    
+    In the case that you're using the ESU License for multiple exception scenarios, mark the license with the tag: Name: “ESU Usage”; Value: “WS2012 MULTIPURPOSE”
 
 1. Link the tagged license to your tagged Azure Arc-enabled Windows Server 2012 and Windows Server 2012 R2 machines.
     
@@ -110,6 +112,4 @@ To enroll Azure Arc-enabled servers eligible for ESUs at no additional cost, fol
 > [!NOTE]
 > The usage of these exception scenarios will be available for auditing purposes and abuse of these exceptions may result in recusal of WS2012 ESU privileges.  
 > 
-
-
 
