@@ -43,19 +43,9 @@ To configure the integration of Bersin into Azure AD, you need to add Bersin fro
 
 **To add Bersin from the gallery**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
-
-    ![The Azure Active Directory button](common/select-azuread.png)
-
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
-
-    ![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add new application, click **New application** button on the top of dialog.
-
-    ![The New application button](common/add-new-app.png)
-
-4. In the search box, type **Bersin**, select **Bersin** from result panel then click **Add** button to add the application.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Bersin**, select **Bersin** from result panel then click **Add** button to add the application.
 
     ![Bersin in the results list](common/search-new-app.png)
 
@@ -79,19 +69,20 @@ In this section, you enable Azure AD single sign-on in the Azure portal.
 
 To configure Azure AD single sign-on with Bersin, do the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Bersin** application integration page, select **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Bersin** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on link](common/select-sso.png)
 
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
+1. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+1. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
     ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, do the following step:
+1. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, do the following step:
 
     ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-identifier-relay.png)
 
@@ -103,18 +94,18 @@ To configure Azure AD single sign-on with Bersin, do the following steps:
     c. In the **Relay State** text box, type a URL using the following pattern:
     `https://www.bersin.com/secure/`
 
-5. Click **Set additional URLs** and do the following steps if you wish to configure the application in **SP** initiated mode:
+1. Click **Set additional URLs** and do the following steps if you wish to configure the application in **SP** initiated mode:
 
     ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://www.bersin.com/Login.aspx`
 
-6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
     ![The Certificate download link](common/metadataxml.png)
 
-7. On the **Set up Bersin** section, copy the appropriate URL(s) as per your requirement.
+1. On the **Set up Bersin** section, copy the appropriate URL(s) as per your requirement.
 
     ![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -157,11 +148,12 @@ The objective of this section is to create a test user in the Azure portal calle
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Bersin.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Bersin**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Bersin**.
 
     ![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Bersin**.
+1. In the applications list, select **Bersin**.
 
     ![The Bersin link in the Applications list](common/all-applications.png)
 
