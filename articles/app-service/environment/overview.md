@@ -148,7 +148,7 @@ App Service Environment v3 is available in the following regions:
 | West US 2            | ✅                           | ✅                          | ✅                           | 
 | West US 3            | ✅                           | ✅                          | ✅                           | 
 
-\* Limited availability and no support for dedicated host deployments  
+\* Limited availability and no support for dedicated host deployments.  
 \** To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative.
 
 ### Azure Government:
