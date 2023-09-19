@@ -35,7 +35,7 @@ Spring Boot registers several metrics, such as JVM. The following example uses `
 
 1. Select **Add metric**. For **Metric**, select the corresponding dropdown list to choose the **jvm_memory_used** metric under the **Log-based metrics** namespace, and then select `Avg` for **Avg**.
 
-1. Select **Apply splitting**. For **Values**, select the corresponding dropdown list to check the **Cloud role name** box.
+1. Select **Apply splitting**. For **Values**, select the corresponding dropdown list, and then select **Cloud role name**.
 
 :::image type="content" source="../../media/tutorial-applications-observability/jvm-memory-used-chart.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps instance jvm memory used page." lightbox="../../media/tutorial-applications-observability/jvm-memory-used-chart.png":::
 
@@ -118,7 +118,7 @@ Use the following steps to pin the various charts to the dashboard.
 
 1. Select **Add metric**. For **Metric**, select the corresponding dropdown list to choose the **App CPU Usage** metric, and then select `Avg` for **Aggregation**.
 
-1. Select **Apply splitting**. For **Values**, select the corresponding dropdown list to check the `App` box.
+1. Select **Apply splitting**. For **Values**, select the corresponding dropdown list and then select **App**.
 
    :::image type="content" source="../../media/tutorial-applications-observability/chart-app-cpu-usage.png" alt-text="Screenshot of the Azure portal that shows the app CPU usage." lightbox="../../media/tutorial-applications-observability/chart-app-cpu-usage.png":::
 
@@ -259,11 +259,23 @@ To set up an alert rule, use the following steps:
 
 1. In the **Metrics** area, select `App CPU Usage`, and then select **Apply**.
 
-1. For the alert logic section, select **Static** for threshold type, select **Average** for **Aggregation type**, select `Greater than` for **Operator**, and then enter `90` for **Threshold value**. 
+1. In the alert logic section, use the following inputs:
 
-1. For the **Split by dimensions** section, select the dropdown list to choose `App` for **Dimension name**, use the default `=` for **Operator**, and then select the dropdown list to choose `Select all` for **Dimension values**. Keep the default value for **When to evaluate** section.
+   - For threshold type, select **Static**.
+   - For **Aggregation type**, select **Average**.
+   - For **Operator**, select **Greater than**.
+   - For **Threshold value**, enter *90*.
 
-1. Navigate to the **Actions** tab on the **Create an alert rule** page, select **Select action groups**. On the **Select action groups** page, search your email action group name, such as `email-notifacation`, check the corresponding action group, and then select **Select** to finish the configuration.
+1. In the **Split by dimensions** section, use the following inputs:
+
+   - For **Dimension name**, select **App**. 
+   - For **Operator**, use the default **=**.
+   - For **Dimension values**, select **Select all**.
+   - For **When to evaluate**, keep the default value.
+
+1. Navigate to the **Actions** tab on the **Create an alert rule** page, and then select **Select action groups**.
+
+1. On the **Select action groups** page, search for your email action group name, such as *email-notification*. Select the corresponding action group, and then select **Select** to finish the configuration.
 
 1. Navigate to the **Details** tab on the **Create an alert rule** page.
 
