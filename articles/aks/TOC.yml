@@ -611,22 +611,32 @@
               href: network-observability-managed-cli.md
     - name: Upgrade
       items:
-        - name: Upgrade an AKS cluster
+        - name: Upgrade options for AKS clusters
           href: upgrade-cluster.md
-        - name: Upgrade the node image
-          href: node-image-upgrade.md
-        - name: Automate and schedule upgrade events
           items:
-            - name: Automatically upgrade an AKS cluster
-              href: auto-upgrade-cluster.md
-            - name: Automatically upgrade AKS cluster node operating system images
-              href: auto-upgrade-node-image.md
-            - name: Upgrade the node image automatically with GitHub Actions
-              href: node-upgrade-github-actions.md
-            - name: Use planned maintenance to schedule and control upgrades
-              href: planned-maintenance.md
-        - name: Process node OS updates
-          href: node-updates-kured.md
+          - name: Perform manual upgrades
+            items:
+            - name: Upgrade an AKS cluster
+              href: upgrade-aks-cluster.md
+            - name: Upgrade the node image
+              href: node-image-upgrade.md
+            - name: Customize node surge upgrade
+              href: upgrade-aks-cluster.md#customize-node-surge-upgrade
+            - name: Process node OS updates
+              href: node-updates-kured.md
+          - name: Configure automatic upgrades
+            items:
+              - name: Automatically upgrade an AKS cluster
+                href: auto-upgrade-cluster.md
+              - name: Use Planned Maintenance to schedule and control upgrades
+                href: planned-maintenance.md
+              - name: Stop cluster upgrades automatically on API breaking changes
+                href: stop-cluster-upgrade-api-breaking-changes.md
+              - name: Automatically upgrade AKS cluster node operating system images
+                href: auto-upgrade-node-image.md
+              - name: Upgrade the node image automatically with GitHub Actions
+                href: node-upgrade-github-actions.md
+
     - name: Azure Linux container host for AKS
       href: use-azure-linux.md
     - name: Windows Server containers
