@@ -13,7 +13,7 @@ ms.date: 09/19/2023
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-While you can certainly manually create and update Directed Acyclic Graph (DAG) files for Azure Managed Apache Airflow using the Azure Storage or using the [Azure CLI](/azure/storage/blobs/storage-quickstart-blobs-cli.md), many organizations prefer to streamline their processes using a Continuous Integration and Continuous Delivery (CI/CD) approach. In this scenario, each commit made to the source code repository triggers an automated workflow that synchronizes the code with the designated DAGs folder within Azure Managed Apache Airflow.
+While you can certainly manually create and update Directed Acyclic Graph (DAG) files for Azure Managed Apache Airflow using the Azure Storage or using the [Azure CLI](/storage/blobs/storage-quickstart-blobs-cli.md), many organizations prefer to streamline their processes using a Continuous Integration and Continuous Delivery (CI/CD) approach. In this scenario, each commit made to the source code repository triggers an automated workflow that synchronizes the code with the designated DAGs folder within Azure Managed Apache Airflow.
 
 In this guide, you will learn how to synchronize your GitHub repository in Managed Airflow in two different ways.
 
@@ -22,7 +22,7 @@ In this guide, you will learn how to synchronize your GitHub repository in Manag
 
 ## Prerequisites
 
-- **Azure subscription** - If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) in a [region where the Managed Airflow preview is supported](concept-managed-airflow.md#Region_availability_(public_preview)).
+- **Azure subscription** - If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) in a [region where the Managed Airflow preview is supported](concept-managed-airflow.md#Region_availability_public_preview).
 - **Access to a GitHub repository**
 
 ## Using the Managed Airflow UI
@@ -277,7 +277,7 @@ Here are some API payload examples:
 
 ## Importing a private package with git-sync (Optional - only applies when using private packages)
 
-Assuming your private package has already been auto synced via git-sync, all you need to do is add the package as a requirement in the data factory Airflow UI along with the path prefix _/opt/airflow/git/<repoName>/__ if you are connecting to an ADO repo or _/opt/airflow/git/<repoName>.git/_ for all other git services. For example, if your private package is in _/dags/test/private.whl_ in a GitHub repo, then you should add the requirement _/opt/airflow/git/<repoName>.git/dags/test/private.whl_ to the Airflow environment.
+Assuming your private package has already been auto synced via git-sync, all you need to do is add the package as a requirement in the data factory Airflow UI along with the path prefix _/opt/airflow/git/\<repoName\>/__ if you are connecting to an ADO repo or _/opt/airflow/git/\<repoName\>.git/_ for all other git services. For example, if your private package is in _/dags/test/private.whl_ in a GitHub repo, then you should add the requirement _/opt/airflow/git/\<repoName\>.git/dags/test/private.whl_ to the Airflow environment.
 
 :::image type="content" source="media/airflow-git-sync-repository/airflow-private-package.png" alt-text="Screenshot showing the Airflow requirements section on the Airflow environment setup dialog that appears during creation of an Airflow IR.":::
 
