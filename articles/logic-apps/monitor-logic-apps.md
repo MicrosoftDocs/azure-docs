@@ -49,11 +49,7 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
 
    To find your logic app, in the portal search box, enter **logic apps**, and then select **Logic apps**.
 
-   ![Screenshot shows the Azure portal search box and the search word logic apps, and selected option for Logic apps.](./media/monitor-logic-apps/find-your-logic-app.png)
-
    The Azure portal shows all the logic app resources in your Azure subscription. You can filter this list based on name, subscription, resource group, location, and so on.
-
-   ![Screenshot shows the Azure portal with all logic app resources in the selected Azure subscriptions.](./media/monitor-logic-apps/logic-apps-list-in-subscription.png)
 
 1. Select your logic app resource. On your logic app menu, select **Overview**. On the **Overview** pane, select **Trigger history**.
 
@@ -92,11 +88,7 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
 
    To find your logic app, in the portal search box, enter **logic apps**, and then select **Logic apps**.
 
-   ![Screenshot shows Azure portal search box and the search word logic apps, and selected option for Logic apps.](./media/monitor-logic-apps/find-your-logic-app.png)
-
    The Azure portal shows all the logic app resources in your Azure subscription. You can filter this list based on name, subscription, resource group, location, and so on.
-
-   ![Screenshot shows Azure portal with all logic app resources in the selected Azure subscriptions.](./media/monitor-logic-apps/logic-apps-list-in-subscription.png)
 
 1. Select your logic app resource. On your logic app menu, select **Overview**. On the **Overview** pane, select **Trigger history**.
 
@@ -151,11 +143,7 @@ Each time a trigger successfully fires, Azure Logic Apps creates a workflow inst
 
    To find your logic app, in the Azure search box, enter **logic apps**, and then select **Logic apps**.
 
-   ![Screenshot shows Azure portal search box, with the search word logic apps, and selected option for Logic apps.](./media/monitor-logic-apps/find-your-logic-app.png)
-
    The Azure portal shows all the logic apps in your Azure subscriptions. You can filter this list based on name, subscription, resource group, location, and so on.
-
-   ![Screenshot shows all logic apps in selected Azure subscriptions.](./media/monitor-logic-apps/logic-apps-list-in-subscription.png)
 
 1. Select your logic app resource. On your logic app menu, select **Overview**. On the **Overview** pane, select **Runs history**.
 
@@ -224,11 +212,7 @@ Each time a trigger successfully fires, Azure Logic Apps creates a workflow inst
 
    To find your logic app, in the Azure search box, enter **logic apps**, and then select **Logic apps**.
 
-   ![Screenshot shows Azure portal search box with the word logic apps, and selected option named Logic apps.](./media/monitor-logic-apps/find-your-logic-app.png)
-
    The Azure portal shows all the logic apps in your Azure subscriptions. You can filter this list based on name, subscription, resource group, location, and so on.
-
-   ![Screenshot shows all logic apps in selected Azure subscriptions.](./media/monitor-logic-apps/logic-apps-list-in-subscription.png)
 
 1. Select your logic app resource. On your logic app menu, under **Workflows**, select **Workflows**, and then select your workflow.
 
@@ -290,49 +274,52 @@ Each time a trigger successfully fires, Azure Logic Apps creates a workflow inst
 
 ## Set up monitoring alerts
 
-To get alerts based on specific metrics or exceeded thresholds for your logic app, set up [alerts in Azure Monitor](../azure-monitor/alerts/alerts-overview.md). For more information, review [Metrics in Azure](../azure-monitor/data-platform.md). To set up alerts without using [Azure Monitor](../azure-monitor/logs/log-query-overview.md), follow these steps.
+To get alerts based on specific metrics or exceeded thresholds for your logic app, set up [alerts in Azure Monitor](../azure-monitor/alerts/alerts-overview.md). For more information, review [Metrics in Azure](../azure-monitor/data-platform.md).
+
+To set up alerts without using [Azure Monitor](../azure-monitor/logs/log-query-overview.md), follow these steps, which apply to both Consumption and Standard logic app resources:
 
 1. On your logic app menu, under **Monitoring**, select **Alerts**. On the toolbar, select **Create** > **Alert rule**.
 
-   ![Screenshot showing Azure portal, logic app menu with "Alerts" selected, and toolbar with "Create", "Alert rule" selected.](./media/monitor-logic-apps/add-new-alert-rule.png)
-
-1. On the **Select a signal** pane, under **Signal type**, select the signal for which you want to get an alert.
-
-   > [!TIP]
-   >
-   > You can use the search box, or to sort the signals alphabetically, 
-   > select the **Signal name** column header.
+1. On the **Create an alert rule** page, from the **Signal name** list, select the signal for which you want to get an alert.
 
    For example, to send an alert when a trigger fails, follow these steps:
 
-   1. In the **Signal name** column, find and select the **Triggers Failed** signal.
+   1. From the **Signal name** list, select the **Triggers Failed** signal.
 
-      ![Screenshot showing "Select a signal pane", the "Signal name" column, and "Triggers Failed" signal selected.](./media/monitor-logic-apps/find-and-select-signal.png)
-
-   1. On the **Configure signal logic** pane, under **Alert logic**, set up your condition, and select **Done**, for example:
+   1. Under **Alert logic**, set up your condition, for example:
 
       | Property | Example value |
       |----------|---------------|
-      | **Operator** | **Greater than or equal to** |
+      | **Threshold** | **Static** |
       | **Aggregation type** | **Count** |
-      | **Threshold value** | **1** |
+      | **Operator** | **Greater than or equal to** |
       | **Unit** | **Count** |
-      | **Condition preview** | **Whenever the count of triggers failed is greater than or equal to 1** |
-      | **Aggregation granularity (Period)** | **1 minute** |
-      | **Frequency of evaluation** | **Every 1 Minute** |
-      |||
+      | **Threshold value** | **1** |
 
-      For more information, review [Create, view, and manage log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md).
+      The **Preview** section now shows the condition that you set up, for example:
 
-      The following screenshot shows the finished condition:
+      **Whenever the count Triggers Failed is greater than or equal to 1**
 
-      ![Screenshot showing the condition for alert.](./media/monitor-logic-apps/set-up-condition-for-alert.png)
+   1. Under **When to evaluate**, set up the schedule for checking the condition:
 
-   The **Create an alert rule** page now shows the condition that you created and the cost for running that alert.
+      | Property | Example value |
+      |----------|---------------|
+      | **Check every** | **1 minute** |
+      | **Lookback period** | **5 minutes** |
 
-   ![Screenshot showing the new alert on the "Create an alert rule" page.](./media/monitor-logic-apps/finished-alert-condition-cost.png)
+      For example, the finished condition looks similar to the following example, and the **Create an alert rule** page now shows the cost for running that alert:
+
+      ![Screenshot shows the alert rule condition.](./media/monitor-logic-apps/set-up-condition-for-alert.png)
+
+   1. When you're done, select **Review + Create**.
+
+   ![Screenshot shows new alert on the page named Create an alert rule.](./media/monitor-logic-apps/finished-alert-condition-cost.png)
+
+and then select **Review + Create**, 
 
 1. If you're satisfied, select **Next: Details** to finish creating the rule.
+
+      For general information, see [Create an alert rule from a specific resource - Azure Monitor](../azure-monitor/alerts/alerts-create-new-alert-rule.md#create-or-edit-an-alert-rule-in-the-azure-portal).
 
 ## Next steps
 
