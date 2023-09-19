@@ -86,7 +86,7 @@ To configure Azure AD single sign-on with InsideView, take these steps:
 
     ![Select a single sign-on method](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
+1. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
 
 	![Edit icon](common/edit-urls.png)
 
@@ -101,7 +101,7 @@ To configure Azure AD single sign-on with InsideView, take these steps:
 	> [!NOTE]
 	> This value is a placeholder. You need to use the actual reply URL. Contact the [InsideView support team](mailto:support@insideview.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Raw)**, per your requirements, and save the certificate on your computer:
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Raw)**, per your requirements, and save the certificate on your computer:
 
 	![Certificate download link](common/certificateraw.png)
 

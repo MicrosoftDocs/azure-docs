@@ -51,10 +51,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 To start managing provisioning to SchoolStream ASA in your Azure AD, you need to add SchoolStream ASA from the Azure AD application gallery. 
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Browse Azure AD Gallery** section, type **SchoolStream ASA** in the search box.
 1. Select **SchoolStream ASA** from results panel and then **Sign up for the app**. Wait a few seconds while the app is added to your tenant.
 
@@ -76,7 +74,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for SchoolStream ASA in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 

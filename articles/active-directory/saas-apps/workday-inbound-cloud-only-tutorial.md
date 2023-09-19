@@ -89,21 +89,12 @@ The following sections describe steps for configuring user provisioning from Wor
 
 **To configure Workday to Azure Active Directory provisioning for cloud-only users:**
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. In the Azure portal, search for and select **Azure Active Directory**.
-
-3. Select **Enterprise Applications**, then **All Applications**.
-
-4. Select **Add an application**, and then select the **All** category.
-
-5. Search for **Workday to Azure AD user provisioning**, and add that app from the gallery.
-
-6. After the app is added and the app details screen is shown, select **Provisioning**.
-
-7. Change the **Provisioning** **Mode** to **Automatic**.
-
-8. Complete the **Admin Credentials** section as follows:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. Search for **Workday to Azure AD user provisioning**, and add that app from the gallery.
+1. After the app is added and the app details screen is shown, select **Provisioning**.
+1. Change the **Provisioning** **Mode** to **Automatic**.
+1. Complete the **Admin Credentials** section as follows:
 
    * **Workday Username** – Enter the username of the Workday integration system account, with the tenant domain name appended. Should look something like: username@contoso4
 
@@ -117,7 +108,7 @@ The following sections describe steps for configuring user provisioning from Wor
      | https://####.workday.com/ccx/service/tenantName/Human_Resources | v21.1 | No |
      | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v##.# | Yes |
 
-      > [!NOTE]
+     > [!NOTE]
      > If no version information is specified in the URL, the app uses Workday Web Services (WWS) v21.1 and no changes are required to the default XPATH API expressions shipped with the app. To use a specific WWS API version, specify version number in the URL <br>
      > Example: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v34.0` <br>
      > <br> If you are using a WWS API v30.0+, before turning on the provisioning job, please update the **XPATH API expressions** under **Attribute Mapping -> Advanced Options -> Edit attribute list for Workday** referring to the section [Managing your configuration](workday-inbound-tutorial.md#managing-your-configuration) and [Workday attribute reference](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).  
