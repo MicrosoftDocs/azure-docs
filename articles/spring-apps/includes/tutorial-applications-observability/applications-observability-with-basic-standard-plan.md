@@ -88,7 +88,7 @@ To check the liveness for each app on Azure Spring Apps, use the following steps
 
 A dashboard is a cognitive awareness and communication tool that is designed to visually identify trends, patterns, anomalies, and help to make effective decisions. It can aggregate various metric charts, quick links, and other important information.
 
-To create a custom dashboard, and pin various quickstart blades and metrics charts to the dashboard, use the following steps. If you choose to use the built-in dashboard of Application Insights created by the Azure Spring Apps, you can skip creating the dashboard and customizing the dashboard chart. For more information, see [Application Insights Overview dashboard](../../../azure-monitor/app/overview-dashboard.md).
+Use the following steps to create a custom dashboard and pin various quickstart panes and metrics charts to the dashboard. If you choose to use the built-in dashboard for Application Insights created by Azure Spring Apps, you can skip creating the dashboard and customizing the dashboard chart. For more information, see [Application Insights Overview dashboard](../../../azure-monitor/app/overview-dashboard.md).
 
 1. From the Azure portal menu, select **Dashboard**. Your default view might already be set to dashboard.
 
