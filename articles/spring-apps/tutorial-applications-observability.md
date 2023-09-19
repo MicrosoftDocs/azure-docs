@@ -1,5 +1,5 @@
 ---
-title: "Tutorial - Optimize and observe your applications in Azure Spring Apps"
+title: "Tutorial: Optimize application observability for Azure Spring Apps"
 description: Learn how to observe the application of Azure Spring Apps.
 author: karlerickson
 ms.author: v-shilichen
