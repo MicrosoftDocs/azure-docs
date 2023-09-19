@@ -28,7 +28,7 @@ Developers should adopt latest releases of MSAL and stay up to date. See [how to
 
 ## Optimize directory reads and writes
 
-The Microsoft Entra B2C directory service supports billions of authentications a day. It's designed for a high rate of reads per second. Optimize your writes to minimize dependencies and increase resilience.
+The Azure AD B2C directory service supports billions of authentications a day. It's designed for a high rate of reads per second. Optimize your writes to minimize dependencies and increase resilience.
 
 ### How to optimize directory reads and writes
 
