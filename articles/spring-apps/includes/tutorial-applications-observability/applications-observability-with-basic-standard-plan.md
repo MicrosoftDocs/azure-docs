@@ -65,13 +65,13 @@ To check the liveness for each app on Azure Spring Apps, use the following steps
 
 1. Select **Availability**, and then select **Add Standard test** to add a test.
 
-1. On the **Create Standard test** page, perform following steps:
+1. On the **Create Standard test** page, provide the following information:
 
-- **Test name**: Enter `api-gateway` for API gateway app
-- **URL**: Enter `https://[your-Azure-Spring-Apps-instance-name]-api-gateway.azuremicroservices.io/actuator/health/liveness` for the corresponding URL 
-- **Success criteria**: Extend the option 
-- **Content match**: Select the checkboxbox 
-- **Content must contain**: Enter `UP`
+   - **Test name**: Enter *api-gateway* for the API gateway app.
+   - **URL**: Enter *https://\<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io/actuator/health/liveness* for the corresponding URL.
+   - **Success criteria**: Extend the option.
+   - **Content match**: Select the checkbox.
+   - **Content must contain**: Enter *UP*.
 
 1. Select **Save** to finish the configuration.
 
