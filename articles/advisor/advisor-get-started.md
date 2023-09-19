@@ -11,15 +11,30 @@ ms.date: 09/15/2023
 Learn how to access Advisor through the Azure portal, configure Advisor settings, and get and manage recommendations.
 
 > [!NOTE]
-> Azure Advisor automatically runs in the background to find newly created resources. It can take up to 24 hours to provide recommendations on those resources.
+> Azure Advisor runs in the background to find newly created resources. It can take up to 24 hours to provide recommendations on those resources.
 
-## Get recommendations
-
-To see your Advisor score for the selected subscriptions, sign in to the [Azure portal](https://portal.azure.com) and open [Advisor](https://aka.ms/azureadvisordashboard). The Advisor **Score** page opens by default. 
+To access Azure Advisor, sign in to the [Azure portal](https://portal.azure.com) and open [Advisor](https://aka.ms/azureadvisordashboard). The Advisor **Score** page opens by default. 
 
    ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-score-page3.png) 
 
-* Each tile represents a category of recommendations for the selected subscriptions.  
+## Get Advisor score
+View how your system configuration measures agains Azure best practices.
+
+   ![Azure Advisor score details](./media/advisor-get-started/advisor-score-detail.png) 
+
+* The far-left graphic is your overall system Advisor score against Azure best practices.
+
+* The middle graphic depicts the trend of your system Advisor score.
+
+* The far-right graphic shows a breakdown of your best practices Advisor score per category.
+
+## Get recommendations
+
+To display a specific list of recommendations, click a category tile. The following screenshot shows the **Reliability** tile selected.
+
+   ![Azure view recommendation page](./media/advisor-get-started/advisor-score-page3-detail.png) 
+
+The tiles on the Advisor **Score** page show the different categories of recommendations per subscription:  
 
 * To get recommendations for a specific category, click one of the tiles: **Cost**, **Security**, **Reliability**, **Operational Excellence**, or **Performance**. To view a list of all recommendations for all categories, click the **All recommendations** tile. By default, the **Cost** tile is selected.
 
@@ -39,9 +54,7 @@ To see your Advisor score for the selected subscriptions, sign in to the [Azure 
 
 View recommendation details – such as the recommended actions and impacted resources – and the solution options, including postponing or dismissing a recommendation.
 
-1. To display a specific list of recommendations, click a category tile. The following screenshot shows the **Reliability** tile selected.
-
-    ![Advisor view recommendation page](./media/advisor-get-started/advisor-score-page3-detail.png)
+1. To display a specific list of recommendations, click a category tile. Recommendations appear below the selected tile.
 
 1. To review details of a recommendation, including the affected resources, click the **Description** link for it. The following screenshot shows a **Reliability** tile recommendation details page.
 
