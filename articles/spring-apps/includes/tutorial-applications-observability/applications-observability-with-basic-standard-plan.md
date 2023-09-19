@@ -265,7 +265,9 @@ To set up an alert rule, use the following steps:
 
 1. Navigate to the **Actions** tab on the **Create an alert rule** page, select **Select action groups**. On the **Select action groups** page, search your email action group name, such as `email-notifacation`, check the corresponding action group, and then select **Select** to finish the configuration.
 
-1. Navigate to the **Details** tab on the **Create an alert rule** page, and enter `app-cpu-high-alert` for **Alert rule name**.
+1. Navigate to the **Details** tab on the **Create an alert rule** page.
+
+1. For **Alert rule name**, enter *app-cpu-high-alert*.
 
 1. Select **Review and Create** to review your selections. Select **Create** to create the alert rule.
 
