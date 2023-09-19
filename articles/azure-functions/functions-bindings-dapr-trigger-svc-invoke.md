@@ -2,7 +2,7 @@
 title: Dapr Service Invocation trigger for Azure Functions
 description: Learn how to run Azure Functions as Dapr service invocation data changes.
 ms.topic: reference
-ms.date: 08/17/2023
+ms.date: 09/19/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -284,11 +284,16 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp, programming-language-java"
+::: zone pivot="programming-language-csharp, programming-language-java, programming-language-javascript, programming-language-python, programming-language-powershell"
 
 See the [Example section](#example) for complete examples.
 
 ## Usage
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp, programming-language-java"
+
 To use a Dapr Service Invocation trigger, run `DaprServiceInvocationTrigger`. 
 
 You can learn more about which components to use with the Service Invocation trigger and how to set them up in the official Dapr documentation.
@@ -298,17 +303,51 @@ You can learn more about which components to use with the Service Invocation tri
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
+::: zone pivot="programming-language-javascript, programming-language-powershell"
 
-See the [Example section](#example) for complete examples.
-
-## Usage
 To use a Dapr Service Invocation trigger, define your `daprServiceInvocationTrigger` binding in a functions.json file.  
 
 You can learn more about which components to use with the Service Invocation trigger and how to set them up in the official Dapr documentation.
 
 - [Dapr component specs](https://docs.dapr.io/reference/components-reference/)
 - [Dapr service invocation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/)
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+# [Python v2](#tab/v2)
+
+To use the `daprServiceInvocationTrigger` in Python v2, set up your project with the correct dependencies.
+
+1. In your `requirements.text` file, add the following line:
+
+   ```txt
+   azure-functions==1.18.0b1
+   ```
+
+1. Modify your `local.setting.json` file with the following configuration:
+
+   ```json
+   PYTHON_ISOLATE_WORKER_DEPENDENCIES:1
+   ```
+
+You can learn more about which components to use with the Service Invocation trigger and how to set them up in the official Dapr documentation.
+
+- [Dapr component specs](https://docs.dapr.io/reference/components-reference/)
+- [Dapr service invocation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/)
+
+
+# [Python v1](#tab/v1)
+
+To use a Dapr Service Invocation trigger, define your `daprServiceInvocationTrigger` binding in a functions.json file.  
+
+You can learn more about which components to use with the Service Invocation trigger and how to set them up in the official Dapr documentation.
+
+- [Dapr component specs](https://docs.dapr.io/reference/components-reference/)
+- [Dapr service invocation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/)
+
+---
 
 ::: zone-end
 
