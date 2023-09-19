@@ -25,7 +25,10 @@ This tutorial uses the [Postman] application, but you may choose a different API
 
 ## Download
 
-1. Upload your drawing package to the Azure Maps Creator service to obtain a `udid` for the uploaded package. For steps on how to upload a package, see [Upload a drawing package].
+1. Follow the steps outlined in the [How to create data registry] article to upload the drawing package into your Azure storage account then register it in your Azure Maps account.
+
+    > [!IMPORTANT]
+    > Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is is how you reference the drawing package you uploaded into your Azure storage account from your source code and HTTP requests.
 
 2. Now that the drawing package is uploaded, use `udid` for the uploaded package to convert the package into map data. For steps on how to convert a package, see [Convert a drawing package].
 
@@ -95,6 +98,6 @@ Learn more by reading:
 [Creator resource]: how-to-manage-creator.md
 [Drawing package requirements]: drawing-requirements.md
 [Drawing package warnings and errors]: drawing-conversion-error-codes.md
+[How to create data registry]: how-to-create-data-registries.md
 [Postman]: https://www.postman.com/
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Upload a drawing package]: tutorial-creator-indoor-maps.md#upload-a-drawing-package
