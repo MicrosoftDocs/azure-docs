@@ -10,7 +10,7 @@ ms.date: 09/14/2023
 
 Learn how to use user-defined data types in Bicep.
 
-[Bicep version 0.12.1 or newer](./install.md) is required to use this feature.
+[Bicep version 0.21.1 or newer](./install.md) is required to use this feature.
 
 ## User-defined data type syntax
 
