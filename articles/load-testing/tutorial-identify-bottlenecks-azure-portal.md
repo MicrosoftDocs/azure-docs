@@ -1,4 +1,4 @@
-    ---
+---
 title: 'Tutorial: Run a load test to identify performance bottlenecks'
 titleSuffix: Azure Load Testing
 description: In this tutorial, you learn how to identify and monitor performance bottlenecks in a web app by running a high-scale load test with Azure Load Testing.
