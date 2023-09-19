@@ -57,17 +57,17 @@ Follow these steps to create a new Azure AD group and a Conditional Access polic
 
 ### Create an exclusion group
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 
-2. In the left navigation, select **Azure Active Directory** and then select **Groups**.
+1. Browse to **Identity** > **Groups** > **All groups**.
 
-3. On the top menu, select **New Group** to open the group pane.
+1. Select **New group**.
 
-4. In the **Group type** list, select **Security**. Specify a name and description.
+1. In the **Group type** list, select **Security**. Specify a name and description.
 
-5. Make sure to set the **Membership** type to **Assigned**.
+1. Make sure to set the **Membership** type to **Assigned**.
 
-6. Select the users that should be part of this exclusion group and then select **Create**.
+1. Select the users that should be part of this exclusion group and then select **Create**.
 
 ![New group pane in Azure Active Directory](./media/conditional-access-exclusion/new-group.png)
 
@@ -75,25 +75,24 @@ Follow these steps to create a new Azure AD group and a Conditional Access polic
 
 Now you can create a Conditional Access policy that uses this exclusion group.
 
-1. In the left navigation, select **Azure Active Directory** and then select **Conditional Access** to open the **Policies** blade.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 
-2. Select **New policy** to open the **New** pane.
+1. Browse to **Protection** > **Conditional Access**.
 
-3. Specify a name.
+1. Select **Create new policy**.
 
-4. Under Assignments select **Users and groups**.
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 
-5. On the **Include** tab, select **All Users**.
+1. Under Assignments select **Users and groups**.
 
-6. On the **Exclude** tab, add a checkmark to **Users and groups** and then
-    select **Select excluded users**.
+1. On the **Include** tab, select **All Users**.
 
-7. Select the exclusion group you created.
+1. Under **Exclude**, select **Users and groups** and choose the exclusion group you created.
 
-   > [!NOTE] 
+   > [!NOTE]
    > As a best practice, it is recommended to exclude at least one administrator account from the policy when testing to make sure you are not locked out of your tenant.
 
-8. Continue with setting up the Conditional Access policy based on your organizational requirements.
+1. Continue with setting up the Conditional Access policy based on your organizational requirements.
 
 ![Select excluded users pane in Conditional Access](./media/conditional-access-exclusion/select-excluded-users.png)
   
@@ -104,42 +103,43 @@ Let's cover two examples where you can use access reviews to manage exclusions i
 Let's say you have a Conditional Access policy that blocks access from certain countries/regions. It includes a group that is excluded from the policy. Here's
 a recommended access review where members of the group are reviewed.
 
+![Create an access review pane for example 1](./media/conditional-access-exclusion/create-access-review-1.png)
+
 > [!NOTE] 
-> A Global administrator or User administrator role is required to create access reviews.
+> A Global administrator or User administrator role is required to create access reviews. For a step by step guide on creating an access review, see: [Create an access review of groups and applications](create-access-review.md).
 
 1. The review will happen every week.
 
-2. Will never end in order to make sure you're keeping this exclusion group the most up to date.
+1. Will never end in order to make sure you're keeping this exclusion group the most up to date.
 
-3. All members of this group will be in scope for the review.
+1. All members of this group will be in scope for the review.
 
-4. Each user will need to self-attest that they still need access from these blocked countries/regions, therefore they still need to be a member of the
+1. Each user will need to self-attest that they still need access from these blocked countries/regions, therefore they still need to be a member of the
     group.
 
-5. If the user doesn't respond to the review request, they'll be automatically removed from the group, and they'll no longer have access to the tenant while traveling to these countries/regions.
+1. If the user doesn't respond to the review request, they'll be automatically removed from the group, and they'll no longer have access to the tenant while traveling to these countries/regions.
 
-6. Enable email notifications to let users know about the start and completion of the access review.
+1. Enable email notifications to let users know about the start and completion of the access review.
 
-    ![Create an access review pane for example 1](./media/conditional-access-exclusion/create-access-review-1.png)
 
 ## Example 2: Access review for users accessing with legacy authentication
 
 Let's say you have a Conditional Access policy that blocks access for users using legacy authentication and older client versions and it includes a group
 that is excluded from the policy. Here is a recommended access review where members of the group are reviewed.
 
+![Create an access review pane for example 2](./media/conditional-access-exclusion/create-access-review-2.png)
+
 1. This review would need to be a recurring review.
 
-2. Everyone in the group would need to be reviewed.
+1. Everyone in the group would need to be reviewed.
 
-3. It could be configured to list the business unit owners as the selected reviewers.
+1. It could be configured to list the business unit owners as the selected reviewers.
 
-4. Auto-apply the results and remove users that have not been approved to continue using legacy authentication methods.
+1. Auto-apply the results and remove users that have not been approved to continue using legacy authentication methods.
 
-5. It might be beneficial to enable recommendations so reviewers of large groups can easily make their decisions.
+1. It might be beneficial to enable recommendations so reviewers of large groups can easily make their decisions.
 
-6. Enable mail notifications so users are notified about the start and completion of the access review.
-
-    ![Create an access review pane for example 2](./media/conditional-access-exclusion/create-access-review-2.png)
+1. Enable mail notifications so users are notified about the start and completion of the access review.
 
 >[!IMPORTANT] 
 >If you have many exclusion groups and therefore need to create multiple access reviews, we now have an API in the Microsoft Graph beta   endpoint that allows you to create and manage them programmatically. To get started, see the [access reviews API reference](/graph/api/resources/accessreviewsv2-overview) and [Example of retrieving access reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
@@ -148,15 +148,17 @@ that is excluded from the policy. Here is a recommended access review where memb
 
 Now that you have everything in place, group, Conditional Access policy, and access reviews, it's time to monitor and track the results of these reviews.
 
-1. In the Azure portal, open the **Access reviews** blade.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-2. Open the control and program you have created for managing the exclusion group.
+1. Browse to **Identity governance** > **Access reviews**.
 
-3. Select **Results** to see who was approved to stay on the list and who was removed.
+1. Select the Access review you are using with the group you created an exclusion policy for.
+
+1. Select **Results** to see who was approved to stay on the list and who was removed.
 
     ![Access reviews results show who was approved](./media/conditional-access-exclusion/access-reviews-results.png)
 
-4. Then select **Audit logs** to see the actions that were taken during this review.
+1. Select **Audit logs** to see the actions that were taken during this review.
 
     ![Access reviews audit logs listing actions](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
 

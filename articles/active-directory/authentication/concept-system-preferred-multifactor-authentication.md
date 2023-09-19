@@ -4,7 +4,7 @@ description: Learn how to use system-preferred multifactor authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/28/2023
+ms.date: 09/13/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
@@ -28,11 +28,12 @@ After system-preferred MFA is enabled, the authentication system does all the wo
 >[!NOTE]
 >System-preferred MFA is an important security enhancement for users authenticating by using telecom transports. Starting July 07, 2023, the Microsoft managed value of system-preferred MFA will change from **Disabled** to **Enabled**. If you don't want to enable system-preferred MFA, change the state from **Default** to **Disabled**, or exclude users and groups from the policy.
 
-## Enable system-preferred MFA in the Azure portal
+## Enable system-preferred MFA in the Microsoft Entra admin center
 
 By default, system-preferred MFA is Microsoft managed and disabled for all users. 
 
-1. In the Azure portal, click **Security** > **Authentication methods** > **Settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Settings**.
 1. For **System-preferred multifactor authentication**, choose whether to explicitly enable or disable the feature, and include or exclude any users. Excluded groups take precedence over include groups. 
 
    For example, the following screenshot shows how to make system-preferred MFA explicitly enabled for only the Engineering group. 

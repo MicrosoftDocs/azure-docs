@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 When you create workflows by using lifecycle workflows, you can fully customize them to match the schedule that fits your organization's needs. By default, workflows are scheduled to run every 3 hours. But you can set the interval to be as frequent as 1 hour or as infrequent as 24 hours.
 
-## Customize the schedule of workflows by using the Azure portal
+## Customize the schedule of workflows by using the Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 

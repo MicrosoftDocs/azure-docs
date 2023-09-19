@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -22,7 +22,7 @@ Security questions aren't used as an authentication method during a sign-in even
 
 When users register for SSPR, they're prompted to choose the authentication methods to use. If they choose to use security questions, they pick from a set of questions to prompt for and then provide their own answers.
 
-![Screenshot of the Azure portal that shows authentication methods and options for security questions](media/concept-authentication-methods/security-questions-authentication-method.png)
+![Screenshot of the Microsoft Entra admin center that shows authentication methods and options for security questions](media/concept-authentication-methods/security-questions-authentication-method.png)
 
 > [!NOTE]
 > Security questions are stored privately and securely on a user object in the directory and can only be answered by users during registration. There's no way for an administrator to read or modify a user's questions or answers.

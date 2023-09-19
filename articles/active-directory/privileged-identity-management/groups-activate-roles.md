@@ -60,9 +60,9 @@ If the [role requires approval](pim-resource-roles-approval-workflow.md) to acti
 
 You can view the status of your pending requests to activate. It is important when your requests undergo approval of another person.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure AD Privileged Identity Management -> My requests -> Groups**. 
+1. Browse to **Identity governance** > **Privileged Identity Management** > **My requests** **Groups**. 
 
 1. Review list of requests.
 
@@ -71,9 +71,9 @@ You can view the status of your pending requests to activate. It is important wh
 
 ## Cancel a pending request
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure AD Privileged Identity Management -> My requests -> Groups**. 
+1. Browse to **Identity governance** > **Privileged Identity Management** > **My requests** **Groups**. 
 
     :::image type="content" source="media/pim-for-groups/pim-group-8.png" alt-text="Screenshot of where to select the request you want to cancel." lightbox="media/pim-for-groups/pim-group-8.png":::
 
