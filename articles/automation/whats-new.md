@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 05/10/2023
+ms.date: 09/17/2023
 ms.custom: references_regions
 ---
 
@@ -40,7 +40,7 @@ Azure Automation has expanded Public preview support for PowerShell 7.2 and Pyth
 
 **Type:** Plan for change
 
-On **31 August 2024**, Azure Automation will [retire](https://azure.microsoft.com/updates/retirement-azure-automation-agent-user-hybrid-worker/) Agent-based User Hybrid Runbook Worker ([Windows](automation-windows-hrw-install.md) and [Linux](automation-linux-hrw-install.md)). You must migrate all Agent-based User Hybrid Workers to [Extension-based User Hybrid Runbook Worker](extension-based-hybrid-runbook-worker-install.md) (Windows and Linux) before the deprecation date. Moreover, starting **1 October 2023**, creating **new** Agent-based User Hybrid Runbook Worker will not be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+On **31 August 2024**, Azure Automation will [retire](https://azure.microsoft.com/updates/retirement-azure-automation-agent-user-hybrid-worker/) Agent-based User Hybrid Runbook Worker ([Windows](automation-windows-hrw-install.md) and [Linux](automation-linux-hrw-install.md)). You must migrate all Agent-based User Hybrid Workers to [Extension-based User Hybrid Runbook Worker](extension-based-hybrid-runbook-worker-install.md) (Windows and Linux) before the deprecation date. Moreover, starting **1 November 2023**, creating **new** Agent-based User Hybrid Runbook Worker will not be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
 
 
 ## January 2023

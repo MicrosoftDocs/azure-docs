@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
@@ -69,34 +69,40 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 
 ::: zone pivot="app-provisioning"
-2. Go to the **Azure Active Directory** > **Enterprise applications** > **All applications**.
+
+2. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 
 3. Select the application for which you have configured automatic provisioning: for example, "ServiceNow".
+
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
-2. Go to **Azure Active Directory** > **Cross-tenant Synchronization** > **Configurations**
+
+2. Browse to **Identity** > **External Identities** > **Cross-tenant Synchronization** > **Configurations**
 
 3. Select your configuration.
+
 ::: zone-end
 
 4. Select the **Provisioning** tab.
 
 ::: zone pivot="app-provisioning"
+
 5. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Synchronize Azure Active Directory Users to ServiceNow".
+
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
+
 5. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Provision Azure Active Directory Users".
+
 ::: zone-end
 
 6. Select the **Source object scope** menu.
-
 7. Select **Add scoping filter**.
-
 8. Define a clause by selecting a source **Attribute Name**, an **Operator**, and an **Attribute Value** to match against. The following operators are supported:
 
    a. **EQUALS**. Clause returns "true" if the evaluated attribute matches the input string value exactly (case sensitive).
