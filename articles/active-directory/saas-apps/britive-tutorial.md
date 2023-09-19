@@ -84,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![Screenshot of The Certificate download link](common/metadataxml.png)
+	![Screenshot of The Certificate download link.](common/metadataxml.png)
 
 1. On the **Set up Britive** section, copy the appropriate URL(s) based on your requirement.
 
@@ -122,11 +122,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. Select **ADD IDENTITY PROVIDER**. Enter the name and description. Select the **Add** button.
 
-    ![Screenshot of Add Identity Provider](./media/britive-tutorial/security.png)
+    ![Screenshot of Add Identity Provider.](./media/britive-tutorial/security.png)
 
 5. Select **Manage** for the Azure identity provider and select **SSO Configuration**.
    
-    ![Screenshot of SSO Configuration Settings](./media/britive-tutorial/configuration.png)
+    ![Screenshot of SSO Configuration Settings.](./media/britive-tutorial/configuration.png)
 
     a. Change the **SSO Provider** from **Generic** to **Azure**.
 
