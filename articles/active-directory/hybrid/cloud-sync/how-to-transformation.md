@@ -89,7 +89,7 @@ To add a custom attribute mapping, follow these steps.
 
     ![Run Query](media/how-to-transformation/transform-2.png)
 
- 1. Now, in the Azure portal, go to the cloud sync configuration and select **Restart provisioning**.
+ 1. Now, in the portal, go to the cloud sync configuration and select **Restart provisioning**.
 
     ![Restart provisioning](media/how-to-transformation/transform-3.png)
 

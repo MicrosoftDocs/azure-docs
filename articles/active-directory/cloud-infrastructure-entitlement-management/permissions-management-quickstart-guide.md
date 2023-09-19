@@ -40,7 +40,7 @@ If the above points are met, continue with:
 
 [Enable Microsoft Entra Permissions Management in your organization](onboard-enable-tenant.md)
 
-Ensure you're a *Global Administrator*. Learn more about [Permissions Management roles and permissions](product-roles-permissions.md). 
+Ensure you're a Global Administrator. Learn more about [Permissions Management roles and permissions](product-roles-permissions.md). 
 
  
 ## Step 2: Onboard your multicloud environment

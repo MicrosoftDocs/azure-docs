@@ -1,5 +1,5 @@
 ---
-title: Create reports by using workbooks in Azure Update Manager (preview)
+title: Create reports by using workbooks in Azure Update Manager
 description: This article describes how to create and manage workbooks for VM insights.
 ms.service: azure-update-manager
 author: SnehaSudhirG
@@ -8,7 +8,7 @@ ms.date: 05/23/2023
 ms.topic: how-to
 ---
 
-# Create reports in Azure Update Manager (preview)
+# Create reports in Azure Update Manager
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
@@ -16,9 +16,9 @@ This article describes how to create and edit a workbook and make customized rep
 
 ## Create a workbook
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Update Manager (preview)**.
-1. Under **Monitoring**, select **Workbooks** to view the **Update Manager (preview)| Workbooks | Gallery** page.
-1. Select **Quick start** > **Empty**. You can also select **New** to create a workbook.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to Update Manager.
+1. Under **Monitoring**, select **Workbooks** to view **Update Manager | Workbooks | Gallery**.
+1. Select **Quick start** tile > **Empty**. Alternatively, you can select **New** to create a workbook.
 1. Select **Add** to select any [elements](../azure-monitor/visualize/workbooks-create-workbook.md#create-a-new-azure-workbook) to add to the workbook.
 
    :::image type="content" source="./media/manage-workbooks/create-workbook-elements.png" alt-text="Screenshot that shows how to create a workbook by using elements.":::
@@ -27,9 +27,14 @@ This article describes how to create and edit a workbook and make customized rep
 
 ## Edit a workbook
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Update Manager (preview)**.
-1. Under **Monitoring**, select **Workbooks** to view the**Update Manager (preview) | Workbooks | Gallery** page.
-1. Select **Update Manager** > **Overview** to view the **Update Manager (preview) | Workbooks | Overview** page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to Update Manager.
+1. Under **Monitoring**, select **Workbooks** to view **Update Manager | Workbooks | Gallery**.
+1. Select **Update Manager** tile > **Overview** to view **Update Manager | Workbooks | Overview**.
+1. Select your subscription, and select **Edit** to enable the edit mode for all four options.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Update Manager**.
+1. Under **Monitoring**, select **Workbooks** to view **Update Manager | Workbooks | Gallery**.
+1. Select **Update Manager** > **Overview** to view **Update Manager | Workbooks | Overview**.
 1. Select your subscription and select **Edit** to enable the edit mode for all four options:
 
     - **Machines overall status & configuration**

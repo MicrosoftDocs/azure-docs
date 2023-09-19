@@ -31,7 +31,7 @@ Numbers can be purchased on eligible Azure subscriptions and in geographies wher
 > - [Finland](../numbers/phone-number-management-for-finland.md)
 > - [France](../numbers/phone-number-management-for-france.md)
 > - [Germany](../numbers/phone-number-management-for-germany.md)
-> - [Hong Kong](../numbers/phone-number-management-for-hong-kong.md)
+> - [Hong Kong SAR](../numbers/phone-number-management-for-hong-kong.md)
 > - [Ireland](../numbers/phone-number-management-for-ireland.md)
 > - [Israel](../numbers/phone-number-management-for-israel.md)
 > - [Italy](../numbers/phone-number-management-for-italy.md)

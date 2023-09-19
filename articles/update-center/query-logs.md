@@ -1,6 +1,6 @@
 ---
-title: Query logs and results from Update Manager (preview)
-description: This article describes how you can review logs and search results from Update Manager (preview) in Azure by using Azure Resource Graph.
+title: Query logs and results from Update Manager
+description: This article provides details on how you can review logs and search results from Azure Update Manager by using Azure Resource Graph.
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -8,19 +8,15 @@ ms.date: 04/21/2022
 ms.topic: conceptual
 ---
 
-# Overview of query logs in Azure Update Manager (preview)
+# Overview of query logs in Azure Update Manager
 
-Azure Update Manager (preview) stores logs created from operations like update assessments and installations in [Azure Resource Graph](../governance/resource-graph/overview.md).
+Logs created from operations like update assessments and installations are stored by Azure Update Manager in [Azure Resource Graph](../governance/resource-graph/overview.md). Resource Graph is a service in Azure designed to be the store for Azure service details without any cost or deployment requirements. Update Manager uses Resource Graph to store its results. You can view the update history of the last 30 days from the resources.
 
-Resource Graph is a service in Azure designed to be the store for Azure service details without any cost or deployment requirements. Update Manager (preview) uses Resource Graph to store its results. You can view the update history of the last 30 days from the resources.
-
-Resource Graph's query language is based on the [Kusto Query Language](../governance/resource-graph/concepts/query-language.md) used by Azure Data Explorer.
-
-This article describes the structure of the logs from Update Manager (preview) and how you can use [Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) to analyze them in support of your reporting, visualizing, and export needs.
+This article describes the structure of the logs from Update Manager and how you can use [Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) to analyze them in support of your reporting, visualizing, and export needs.
 
 ## Log structure
 
-Update Manager (preview) sends the results of all its operation into Resource Graph as logs, which are available for 30 days. The structure of logs sent to Resource Graph are listed in the following table.
+Update Manager sends the results of all its operations into Azure Resource Graph as logs, which are available for 30 days. Listed here are the structure of logs being sent to Azure Resource Graph.
 
 ### Patch assessment results
 
@@ -58,7 +54,7 @@ If the property for the resource type is `patchassessmentresources`, it includes
 |`lastModifiedDateTime` |Timestamp (UTC) representing when the record was last updated.|
 |`startedBy` |Identifies if a user or an Azure service triggered the OS update installation. For more information on the operation, see [Azure activity log](/azure/azure-resource-manager/management/view-activity-logs).|
 |`errorDetails` |First five error messages generated while executing update installation from the machine's OS package manager or update service.|
-|`availablePatchCountByClassification` |Number of OS updates by the category that the specific updates belong to based on the OS vendor. The machine's OS update service or package manager generates the information. If the OS package manager or update service doesn't provide the detail of category, then the value is `Others` (for Linux) or `Updates` (for Windows Server).|
+|`availablePatchCountByClassification` |Number of OS updates by the category that the specific updates belong to based on the OS vendor. The machine's OS update service or package manager generates the information. If the OS package manager or update service doesn't provide the detail of category, the value is `Others` (for Linux) or `Updates` (for Windows Server).|
 |
 
 If the property for the resource type is `patchassessmentresults/softwarepatches`, it includes the information in the following table.
@@ -66,13 +62,13 @@ If the property for the resource type is `patchassessmentresults/softwarepatches
 |Value |Description |
 |------|------------|
 |`lastModifiedDateTime` |Timestamp (UTC) representing when the record was last updated.|
-|`publishedDateTime` |Timestamp representing when the specific update was made available by the OS vendor. The machine's OS update service or package manager generates the information. If your OS package manager or update service doesn't provide the detail of when an update was provided by OS vendor, then the value is null.|
-|`classifications` |Category that the specific update belongs to according to the OS vendor. The machine's OS update service or package manager generates the information. If your OS package manager or update service doesn't provide the detail of category, then the value is `Others` (for Linux) or `Updates` (for Windows Server). |
-|`rebootRequired` |Value indicates if the specific update requires the OS to reboot to finish the installation. The machine's OS update service or package manager generates the information. If your OS package manager or update service doesn't require a reboot, then the value is `false`.|
-|`rebootBehavior` |Behavior set in the OS update installation runs job when configuring the update deployment if Update Manager (preview) can reboot the target machine. |
+|`publishedDateTime` |Timestamp representing when the specific update was made available by the OS vendor. The machine's OS update service or package manager generates the information. If your OS package manager or update service doesn't provide the detail of when an update was provided by OS vendor, the value is null.|
+|`classifications` |Category that the specific update belongs to according to the OS vendor. The machine's OS update service or package manager generates the information. If your OS package manager or update service doesn't provide the detail of category, the value is `Others` (for Linux) or `Updates` (for Windows Server). |
+|`rebootRequired` |Value indicates if the specific update requires the OS to reboot to finish the installation. The machine's OS update service or package manager generates the information. If your OS package manager or update service doesn't require a reboot, the value is `false`.|
+|`rebootBehavior` |Behavior set in the OS update installation runs the job when configuring the update deployment if Update Manager can reboot the target machine. |
 |`patchName` |Name or label for the specific update generated by the machine's OS package manager or update service.|
 |`Kbid` |If the machine's OS is Windows Server, the value includes the unique KB ID for the update provided by the Windows Update service.|
-|`version` |If the machine's OS is Linux, the value includes the version details for the update as provided by Linux package manager. For example, `1.0.1.el7.3`.|
+|`version` |If the machine's OS is Linux, the value includes the version details for the update as provided by the Linux package manager. For example, `1.0.1.el7.3`.|
 
 ### Patch installation results
 
@@ -126,13 +122,13 @@ If the property for the resource type is `patchinstallationresults/softwarepatch
 |------|------------|
 |`installationState` |Installation status for the specific OS update. Values are `Installed`, `Failed`, `Pending`, `NotSelected`, and `Excluded`. |
 |`lastModifiedDateTime` |Timestamp (UTC) representing when the record was last updated. |
-|`publishedDateTime` |Timestamp representing when the specific update was made available by the OS vendor. The machine's OS update service or package manager generates the information. If your OS package manager or update service doesn't provide the detail of when an update was provided by OS vendor, then the value is null. |
-|`classifications` |Category that the specific update belongs to according to the OS vendor. As provided by machine's OS update service or package manager. If your OS package manager or update service doesn't provide the detail of category, then the value of the field is Others (for Linux) and Updates (for Windows Server). |
-|`rebootRequired` |Flag to specify if the specific update requires the OS to reboot to finish installation. As provided by machine's OS update service or package manager. If your OS package manager or update service doesn't provide information regarding need of OS reboot, then the value of the field is set to `false`. |
-|`rebootBehavior` |Behavior set in the OS update installation runs job by user, regarding allowing Update Manager (preview) to reboot the OS. |
+|`publishedDateTime` |Timestamp representing when the specific update was made available by the OS vendor. The machine's OS update service or package manager generates the information. If your OS package manager or update service doesn't provide the detail of when an update was provided by the OS vendor, the value is null. |
+|`classifications` |Category that the specific update belongs to according to the OS vendor as provided by the machine's OS update service or package manager. If your OS package manager or update service doesn't provide the detail of category, the value of the field is `Others` (for Linux) and `Updates` (for Windows Server). |
+|`rebootRequired` |Flag to specify if the specific update requires the OS to reboot to finish the installation, as provided by the machine's OS update service or package manager. If your OS package manager or update service doesn't provide information regarding need of OS reboot, the value of the field is set to `false`. |
+|`rebootBehavior` |Behavior set in the OS update installation runs the job by user, regarding allowing Update Manager to reboot the OS. |
 |`patchName` |Name or label for the specific update as provided by the machine's OS package manager or update service. |
 |`Kbid` |If the machine's OS is Windows Server, the value includes the unique KB ID for the update provided by the Windows Update service. |
-|`version` |If the machine's OS is Linux, the value includes the version details for the update as provided by Linux package manager. For example, `1.0.1.el7.3`. |
+|`version` |If the machine's OS is Linux, the value includes the version details for the update as provided by the Linux package manager. For example, `1.0.1.el7.3`. |
 
 ### Maintenance resources
 
@@ -180,4 +176,4 @@ If the property for the resource type is `configurationassignments`, it includes
 ## Next steps
 
 - For details of sample queries, see [Sample query logs](sample-query-logs.md).
-- To troubleshoot issues, see [Troubleshoot issues with Azure Update Manager (preview)](troubleshoot.md).
+- To troubleshoot issues, see [troubleshoot](troubleshoot.md) Update Manager.

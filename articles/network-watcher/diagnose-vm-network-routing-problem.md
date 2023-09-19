@@ -286,4 +286,4 @@ For outbound VM connections, you can use Network Watcher [connection troubleshoo
 
 To learn how to monitor communication between two virtual machines, advance to the next tutorial.
 > [!div class="nextstepaction"]
-> [Monitor a network connection](connection-monitor.md)
+> [Monitor a network connection](monitor-vm-communication.md)

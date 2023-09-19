@@ -180,7 +180,3 @@ Use the following series of articles to learn about securing external access to 
 9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) 
 
 10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)
-
-
- 
-

@@ -52,8 +52,8 @@ We recommend you securely store the test usernames and passwords as [secrets](..
 
 Create some test users in your tenant for testing. Since the test users are not actual humans, we recommend you assign complex passwords and securely store these passwords as [secrets](../../key-vault/secrets/about-secrets.md) in Azure Key Vault.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**.
-1. Go to **Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Users** > **All users**.
 1. Select **New user** and create one or more test user accounts in your directory.
 1. The example test later in this article uses a single test user.  [Add the test username and password as secrets](../../key-vault/secrets/quick-create-portal.md) in the key vault you created previously. Add the username as a secret named "TestUserName" and the password as a secret named "TestPassword".
 
@@ -68,7 +68,7 @@ Take note of the **Application (client) ID**, which is used in the example test 
 
 ### Enable your app for public client flows
 
-ROPC is a public client flow, so you need to enable your app for public client flows.  From your app registration in the [Azure portal](https://portal.azure.com), go to **Authentication** > **Advanced settings** > **Allow public client flows**.  Set the toggle to **Yes**.
+ROPC is a public client flow, so you need to enable your app for public client flows.  From your app registration in the [Microsoft Entra admin center](https://entra.microsoft.com), go to **Authentication** > **Advanced settings** > **Allow public client flows**.  Set the toggle to **Yes**.
 
 ### Consent to the permissions you want to use while testing
 
@@ -76,17 +76,17 @@ Since ROPC is not an interactive flow, you won't be prompted with a consent scre
 
 Add the permissions to your app. Do not add any sensitive or high-privilege permissions to the app, we recommend you scope your testing scenarios to basic integration scenarios around integrating with Azure AD.
 
-From your app registration in the [Azure portal](https://portal.azure.com), go to **API Permissions** > **Add a permission**.  Add the permissions you need to call the APIs you'll be using. A test example further in this article uses the `https://graph.microsoft.com/User.Read` and `https://graph.microsoft.com/User.ReadBasic.All` permissions.
+From your app registration in the [Microsoft Entra admin center](https://entra.microsoft.com), go to **API Permissions** > **Add a permission**.  Add the permissions you need to call the APIs you'll be using. A test example further in this article uses the `https://graph.microsoft.com/User.Read` and `https://graph.microsoft.com/User.ReadBasic.All` permissions.
 
 Once the permissions are added, you'll need to consent to them.  The way you consent to the permissions depends on if your test app is in the same tenant as the app registration and whether you're an admin in the tenant.
 
 #### App and app registration are in the same tenant and you're an admin
-If you plan on testing your app in the same tenant you registered it in and you are an administrator in that tenant, you can consent to the permissions from the [Azure portal](https://portal.azure.com). In your app registration in the Azure portal, go to **API Permissions** and select the **Grant admin consent for <your_tenant_name>** button next to the **Add a permission** button and then **Yes** to confirm.
+If you plan on testing your app in the same tenant you registered it in and you are an administrator in that tenant, you can consent to the permissions from the [Microsoft Entra admin center](https://entra.microsoft.com). In your app registration in the Azure portal, go to **API Permissions** and select the **Grant admin consent for <your_tenant_name>** button next to the **Add a permission** button and then **Yes** to confirm.
 
 #### App and app registration are in different tenants, or you're not an admin
-If you do not plan on testing your app in the same tenant you registered it in, or you are not an administrator in your tenant, you cannot consent to the permissions from the [Azure portal](https://portal.azure.com).  You can still consent to some permissions, however, by triggering a sign-in prompt in a web browser.
+If you do not plan on testing your app in the same tenant you registered it in, or you are not an administrator in your tenant, you cannot consent to the permissions from the [Microsoft Entra admin center](https://entra.microsoft.com).  You can still consent to some permissions, however, by triggering a sign-in prompt in a web browser.
 
-In your app registration in the [Azure portal](https://portal.azure.com), go to **Authentication** > **Platform configurations** > **Add a platform** > **Web**.  Add the redirect URI "https://localhost" and select **Configure**.
+In your app registration in the [Microsoft Entra admin center](https://entra.microsoft.com), go to **Authentication** > **Platform configurations** > **Add a platform** > **Web**.  Add the redirect URI "https://localhost" and select **Configure**.
 
 There is no way for non-admin users to pre-consent through the Azure portal, so send the following request in a browser.  When you are prompted with the login screen, sign in with a test account you created in a previous step.  Consent to the permissions you are prompted with.  You may need to repeat this step for each API you want to call and test user you want to use.
 
@@ -109,7 +109,8 @@ Replace *{tenant}* with your tenant ID, *{your_client_ID}* with the client ID of
 Your tenant likely has a Conditional Access policy that [requires multifactor authentication (MFA) for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md), as recommended by Microsoft.  MFA won't work with ROPC, so you'll need to exempt your test applications and test users from this requirement.
 
 To exclude user accounts:
-1. Sign in to the [Azure portal](https://portal.azure.com) to access your tenant.  Select **Azure Active Directory**.  Select **Security** in the left navigation pane and then select **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).   
+1. Browse to **Identity** > **Security Center** in the left navigation pane and then select **Conditional Access**.
 1. In **Policies**, select the Conditional Access policy that requires MFA.
 1. Select **Users or workload identities**.
 1. Select the **Exclude** tab and then the **Users and groups** checkbox.
