@@ -15,6 +15,8 @@ ms.custom: devx-track-python, devguide-python
 
 # List blobs with Python
 
+[!INCLUDE [storage-dev-guide-selector-list-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-list-blob.md)]
+
 This article shows how to list blobs using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
 ## Prerequisites
