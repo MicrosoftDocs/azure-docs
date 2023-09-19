@@ -311,15 +311,9 @@ To set up alerts without using [Azure Monitor](../azure-monitor/logs/log-query-o
 
       ![Screenshot shows the alert rule condition.](./media/monitor-logic-apps/set-up-condition-for-alert.png)
 
-   1. When you're done, select **Review + Create**.
+1. When you're ready, select **Review + Create**.
 
-   ![Screenshot shows new alert on the page named Create an alert rule.](./media/monitor-logic-apps/finished-alert-condition-cost.png)
-
-and then select **Review + Create**, 
-
-1. If you're satisfied, select **Next: Details** to finish creating the rule.
-
-      For general information, see [Create an alert rule from a specific resource - Azure Monitor](../azure-monitor/alerts/alerts-create-new-alert-rule.md#create-or-edit-an-alert-rule-in-the-azure-portal).
+For general information, see [Create an alert rule from a specific resource - Azure Monitor](../azure-monitor/alerts/alerts-create-new-alert-rule.md#create-or-edit-an-alert-rule-in-the-azure-portal).
 
 ## Next steps
 
