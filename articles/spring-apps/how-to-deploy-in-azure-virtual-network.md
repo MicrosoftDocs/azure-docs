@@ -147,7 +147,8 @@ This section shows you to grant Azure Spring Apps the [Owner](../role-based-acce
 > [!NOTE]
 > The minimal required permissions are [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor). You can grant role assignments to both of them if you can't grant `Owner` permission.
 >
-> If you're using your own route table or a user defined route feature, you also need to grant Azure Spring Apps the same role assignments to your route tables. For more information, see the [bring your own route table](#bring-your-own-route-table) section and [Control egress traffic for an Azure Spring Apps instance](how-to-create-user-defined-route-instance.md).
+> If you're using your own route table or a user defined route feature, you also need to grant Azure Spring Apps the same role assignments to your route tables. For more information, see the [Bring your own route table](#bring-your-own-route-table) section and [Control egress traffic for an Azure Spring Apps instance](how-to-create-user-defined-route-instance.md).
+
 
 ### [Azure portal](#tab/azure-portal)
 
