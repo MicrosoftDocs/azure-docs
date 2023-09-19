@@ -2,7 +2,7 @@
 title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 12/14/2022
+ms.date: 08/28/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -154,6 +154,8 @@ Azure Backup needs read-only access to back up the keys and secrets, along with 
 
 - Your Key Vault is associated with the Azure AD tenant of the Azure subscription. If you're a **Member user**, Azure Backup acquires access to the Key Vault without further action.
 - If you're a **Guest user**, you must provide permissions for Azure Backup to access the key vault. You need to have access to key vaults to configure Backup for encrypted VMs.
+
+To provide Azure RBAC permissions on Key Vault, see [this article](../key-vault/general/rbac-guide.md?tabs=azure-cli#enable-azure-rbac-permissions-on-key-vault).
 
 To set permissions:
 

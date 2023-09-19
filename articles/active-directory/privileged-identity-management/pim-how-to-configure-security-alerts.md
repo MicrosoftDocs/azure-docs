@@ -1,9 +1,9 @@
 ---
 title: Security alerts for Azure AD roles in PIM
-description: Configure security alerts for Azure AD roles Privileged Identity Management in Azure Active Directory.
+description: Configure security alerts for Azure AD roles Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 editor: ''
 
@@ -11,8 +11,8 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/29/2022
-ms.author: billmath
+ms.date: 09/13/2023
+ms.author: barclayn
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -27,7 +27,8 @@ Privileged Identity Management (PIM) generates alerts when there's suspicious or
 ![Screenshot that shows the alerts page with a list of alerts and their severity.](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
 ## License requirements
-[!INCLUDE [active-directory-p2-governance-either-license.md](../../../includes/active-directory-p2-governance-either-license.md)]
+
+[!INCLUDE [entra-id-license-pim.md](../../../includes/entra-id-license-pim.md)]
 
 ## Security alerts
 
@@ -45,7 +46,7 @@ Severity: **Low**
 | --- | --- |
 | **Why do I get this alert?** | Users that have been assigned privileged roles they don't need increases the chance of an attack. It's also easier for attackers to remain unnoticed in accounts that aren't actively being used. |
 | **How to fix?** | Review the users in the list and remove them from privileged roles that they don't need. |
-| **Prevention** | Assign privileged roles only to users who have a business justification. </br>Schedule regular [access reviews](./pim-create-azure-ad-roles-and-resource-roles-review.md) to verify that users still need their access. |
+| **Prevention** | Assign privileged roles only to users who have a business justification. </br>Schedule regular [access reviews](./pim-create-roles-and-resource-roles-review.md) to verify that users still need their access. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |
 | **Trigger** | Triggered if a user goes over a specified number of days without activating a role. |
 | **Number of days** | This setting specifies the maximum number of days, from 0 to 100, that a user can go without activating a role.|
@@ -68,7 +69,7 @@ Severity: **Low**
 | | Description |
 | --- | --- |
 | **Why do I get this alert?** | The current Azure AD organization doesn't have Microsoft Entra Premium P2 or Microsoft Entra ID Governance. |
-| **How to fix?** | Review information about [Azure AD editions](../fundamentals/active-directory-whatis.md). Upgrade to Microsoft Entra Premium P2 or Microsoft Entra ID Governance. |
+| **How to fix?** | Review information about [Azure AD editions](../fundamentals/whatis.md). Upgrade to Microsoft Entra Premium P2 or Microsoft Entra ID Governance. |
 
 ### Potential stale accounts in a privileged role
 
@@ -79,7 +80,7 @@ Severity: **Medium**
 | --- | --- |
 | **Why do I get this alert?** | This alert is no longer triggered based on the last password change date of for an account. This alert is for accounts in a privileged role that haven't signed in during the past *n* days, where *n* is a number of days that is configurable between 1-365 days. These accounts might be service or shared accounts that aren't being maintained and are vulnerable to attackers. |
 | **How to fix?** | Review the accounts in the list. If they no longer need access, remove them from their privileged roles. |
-| **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there's a change in the users that know the password. </br>Regularly review accounts with privileged roles using [access reviews](./pim-create-azure-ad-roles-and-resource-roles-review.md) and remove role assignments that are no longer needed. |
+| **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there's a change in the users that know the password. </br>Regularly review accounts with privileged roles using [access reviews](./pim-create-roles-and-resource-roles-review.md) and remove role assignments that are no longer needed. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |
 | **Best practices** | Shared, service, and emergency access accounts that authenticate using a password and are assigned to highly privileged administrative roles such as Global administrator or Security administrator should have their passwords rotated for the following cases:<ul><li>After a security incident involving misuse or compromise of administrative access rights</li><li>After any user's privileges are changed so that they're no longer an administrator (for example, after an employee who was an administrator leaves IT or leaves the organization)</li><li>At regular intervals (for example, quarterly or yearly), even if there was no known breach or change to IT staffing</li></ul>Since multiple people have access to these accounts' credentials, the credentials should be rotated to ensure that people that have left their roles can no longer access the accounts. [Learn more about securing accounts](../roles/security-planning.md) |
 
@@ -124,17 +125,11 @@ Severity: **Low**
 
 ## Customize security alert settings
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 Follow these steps to configure security alerts for Azure AD roles in Privileged Identity Management:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Open **Azure AD Privileged Identity Management**. For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
-
-1. From the left menu, select **Azure AD Roles**.
-
-1. From the left menu, select **Alerts**, and then select **Setting**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure AD Roles** > **Alerts** > **Setting**. For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
 
     ![Screenshots of alerts page with the settings highlighted.](media/pim-how-to-configure-security-alerts/alert-settings.png)
 

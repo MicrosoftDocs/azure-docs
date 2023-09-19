@@ -85,13 +85,13 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Vanilla JS SPA
-            url: how-to-single-page-app-vanillajs-prepare-tenant.md
+            url: tutorial-single-page-app-vanillajs-prepare-tenant.md
           - text: React SPA
             url: tutorial-single-page-app-react-sign-in-prepare-tenant.md
           - text: Node.js web app
             url: tutorial-web-app-node-sign-in-prepare-tenant.md
           - text: ASP.NET web app
-            url: how-to-web-app-dotnet-sign-in-prepare-tenant.md
+            url: tutorial-web-app-dotnet-sign-in-prepare-tenant.md
           - text: Secure an ASP.NET web API
             url: tutorial-protect-web-api-dotnet-core-build-app.md
           - text: More build and integrate guides

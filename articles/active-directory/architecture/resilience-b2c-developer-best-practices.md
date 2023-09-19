@@ -75,7 +75,7 @@ Upon subsequent authentication requests, Azure AD B2C reads and validates the co
 
 ### How to configure SSO
 
-[Configure SSO](../hybrid/how-to-connect-sso-quick-start.md) to be tenant-wide (default) to allow multiple applications and user flows in your tenant to share the same user session. Tenant-wide configuration provides most resiliency to fresh authentication.  
+[Configure SSO](../hybrid/connect/how-to-connect-sso-quick-start.md) to be tenant-wide (default) to allow multiple applications and user flows in your tenant to share the same user session. Tenant-wide configuration provides most resiliency to fresh authentication.  
 
 ## Safe deployment practices
 

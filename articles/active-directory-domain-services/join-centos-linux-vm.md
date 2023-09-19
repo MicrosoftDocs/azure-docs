@@ -39,7 +39,7 @@ If you have an existing CentOS Linux VM in Azure, connect to it using SSH, then 
 
 If you need to create a CentOS Linux VM, or want to create a test VM for use with this article, you can use one of the following methods:
 
-* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Microsoft Entra admin center](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

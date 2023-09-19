@@ -35,11 +35,11 @@ The following diagram displays how the sample app works:
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Follow these steps to register your application in the Azure portal:
+Follow these steps to register your application in the Microsoft Entra admin center:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
-1. Navigate to the portal's [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page, and select **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
+1. Browse to **Identity** > **Applications** > **App registrations** and select **New registration**.
 1. Enter a **Name** for your application, for example *python-webapp*. 
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 1. Under **Redirect URIs**, select **Web** for the platform.
@@ -89,7 +89,7 @@ You can also use an integrated development environment to open the folder.
 
 1. Create a virtual environment for the app:
 
-    [!INCLUDE [Virtual environment setup](<../../app-service/includes/quickstart-python/virtual-environment-setup.md>)]
+    [!INCLUDE [Virtual environment setup](../../app-service/includes/quickstart-python/virtual-environment-setup.md)]
 
 1. Install the requirements using `pip`:
 
@@ -104,7 +104,7 @@ You can also use an integrated development environment to open the folder.
     ```
 
    > [!IMPORTANT]
-   > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](active-directory-certificate-credentials.md).
+   > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](./certificate-credentials.md).
 
 
 [!INCLUDE [Help and support](includes/error-handling-and-tips/help-support-include.md)]

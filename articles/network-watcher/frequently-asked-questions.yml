@@ -6,9 +6,8 @@ metadata:
   author: halkazwini
   ms.service: network-watcher
   ms.topic: faq
-  ms.date: 07/20/2023
+  ms.date: 09/15/2023
   ms.author: halkazwini
-  ms.custom: engagement-fy23
 title: "Network Watcher frequently asked questions (FAQ)"
 summary: |
   This article provides answers to some of the frequently asked questions asked about Azure Network Watcher.
@@ -29,15 +28,15 @@ sections:
           * Monitoring
             * [Topology view](./view-network-topology.md) shows you the resources in your virtual network and the relationships between them.
             * [Connection monitor](./connection-monitor-overview.md) allows you to monitor connectivity and latency between endpoints inside and outside Azure.
-          * Diagnostics
+          * Network diagnostic tools
             * [IP flow verify](./network-watcher-ip-flow-verify-overview.md) allows you to detect traffic filtering issues at a virtual machine level.
             * [NSG diagnostics](./network-watcher-network-configuration-diagnostics-overview.md) allows you to detect traffic filtering issues at a virtual machine, virtual machine scale set, or application gateway level.
             * [Next hop](./network-watcher-next-hop-overview.md) helps you verify traffic routes and detect routing issues.
             * [Connection troubleshoot](./network-watcher-connectivity-portal.md) enables a one-time connectivity and latency check between a virtual machine and Bastion host, application gateway, or another virtual machine.
             * [Packet capture](./network-watcher-packet-capture-overview.md) enables you to capture your virtual machine traffic.
             * [VPN troubleshoot](./network-watcher-troubleshoot-overview.md) runs multiple diagnostics checks on your VPN gateways and connections to help debug issues.
-          * Logging
-            * [NSG flow logs](./network-watcher-nsg-flow-logging-overview.md) allows you to log network traffic passing through your [network security groups (NSGs)](../virtual-network/network-security-groups-overview.md).
+          * Traffic
+            * [NSG flow logs](./network-watcher-nsg-flow-logging-overview.md) and [VNet flow logs (preview)](vnet-flow-logs-overview.md) allow you to log network traffic passing through your network security groups (NSGs) and virtual networks respectively.
             * [Traffic analytics](./traffic-analytics.md) processes your NSG flow log data enabling you to visualize, query, analyze, and understand your network traffic.
           
           For more detailed information, see [Network Watcher overview](./network-watcher-monitoring-overview.md).
@@ -75,12 +74,22 @@ sections:
       - question: |
           How can I manage Network Watcher resource? 
         answer: |
-          The Network Watcher resource represents the backend service for Network Watcher, which is fully managed by Azure. You don't need to manage it. Operations like move aren't supported on the resource. However, Network Watcher instance can be deleted to disable Network Watcher in a particular region. For more information, see [Disable Network Watcher for your region](network-watcher-create.md#disable-network-watcher-for-your-region)
+          The Network Watcher resource represents the backend service for Network Watcher, which is fully managed by Azure. However, you can create or delete the Network Watcher resource to enable or disable it in a particular region. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
+
+      - question: |
+          Can I move Network Watcher instance from one region to another? 
+        answer: |
+          No. Moving Network Watcher resource or any of its child resources across regions isn't supported.
 
       - question: |
           What is the NetworkWatcherRG?
         answer: |
           NetworkWatcherRG is a resource group that's automatically created for Network Watcher resources. For example, Network Watcher regional instances and the NSG flow log resources are created in **NetworkWatcherRG** resource group. You can customize the name of Network Watcher resource group using [PowerShell](network-watcher-create.md?tabs=powershell#enable-network-watcher-for-your-region), [Azure CLI](network-watcher-create.md?tabs=cli#enable-network-watcher-for-your-region), or [REST API](/rest/api/network-watcher/network-watchers/create-or-update).
+
+      - question: |
+          Does Network Watcher store customer data?
+        answer: |
+          Azure Network Watcher doesn't store customer data, except for the Connection monitor. Connection monitor stores customer data, which is automatically stored by Network Watcher in a single region to satisfy in-region data residency requirements.
 
       - question: |
           What are the resource limits on Network Watcher?
@@ -93,12 +102,17 @@ sections:
       - question: |
           Why do I need to install the Network Watcher agent? 
         answer: |
-          The Network Watcher agent is required for any feature that generates or intercepts traffic from a virtual machine. 
+          The Network Watcher agent is required for any Network Watcher feature that generates or intercepts traffic from a virtual machine. 
 
       - question: |
           Which features require the Network Watcher agent?
         answer: |
           The Packet capture, Connection troubleshoot and Connection monitor features require the Network Watcher extension to be present.
+
+      - question: |
+          What is the latest version of the Network Watcher agent?
+        answer: |
+          [!INCLUDE [Network Watcher agent version](../../includes/virtual-machines-extensions-network-watcher-agent-version.md)]. For more information, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json).
 
       - question: |
           What ports does the Network Watcher agent use?
@@ -179,8 +193,18 @@ sections:
         answer: |
           Flow logs version 2 introduces the concept of *flow state* and stores information about bytes and packets transmitted. For more information, see [NSG flow log format](./network-watcher-nsg-flow-logging-overview.md#log-format).
 
+      - question: |
+          Can I create a flow log for a network security group that has a read-only lock?
+        answer: |
+          No. A **read-only** lock on a network security group prevents the creation of the corresponding NSG flow log.
+
+      - question: |
+          Can I create a flow log for a network security group that has a cannot-delete lock?
+        answer: |
+          Yes. A **cannot-delete** lock on the network security group doesn't prevent the creation or modification of the corresponding NSG flow log.
+
 additionalContent: |
 
   ## Next steps
   
-   - To learn more about Network Watcher, see [What is Azure Network Watcher?](network-watcher-monitoring-overview.md)
+   - To learn more about Network Watcher, see [What is Azure Network Watcher?](network-watcher-overview.md)

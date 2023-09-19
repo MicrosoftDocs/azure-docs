@@ -3,12 +3,12 @@ title: Authorize operations for data access
 titleSuffix: Azure Storage
 description: Learn about the different ways to authorize access to data in Azure Storage. Azure Storage supports authorization with Azure Active Directory, Shared Key authorization, or shared access signatures (SAS), and also supports anonymous access to blobs.
 services: storage
-author: tamram
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 05/31/2023
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: nachakra
 ms.subservice: storage-common-concepts
 ---

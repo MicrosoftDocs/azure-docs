@@ -130,7 +130,7 @@ Set up Silverfort Azure AD Adapter in your Azure AD tenant:
 
 20. Return to the Azure AD console, and navigate to **Enterprise applications**. The new Silverfort application appears. You can include this application in Conditional Access policies. 
 
-Learn more: [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md?bc=/azure/active-directory/conditional-access/breadcrumb/toc.json&toc=/azure/active-directory/conditional-access/toc.json%23create-a-conditional-access-policy).
+Learn more: [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md?bc=/azure/active-directory/conditional-access/breadcrumb/toc.json&toc=/azure/active-directory/conditional-access/toc.json#create-a-conditional-access-policy).
 
 ## Next steps
 

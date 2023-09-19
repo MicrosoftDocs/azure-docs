@@ -86,7 +86,9 @@ In this section, we create an AKS cluster with the following configuration:
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally, the cluster can take longer than a few minutes to provision. Allow up to 10 minutes for provisioning.
 
-## Add a Windows node pool
+## Add a node pool
+
+### [Add a Windows node pool](#tab/add-windows-node-pool)
 
 By default, an AKS cluster is created with a node pool that can run Linux containers. You have to add another node pool that can run Windows Server containers alongside the Linux node pool.
 
@@ -96,7 +98,7 @@ By default, an AKS cluster is created with a node pool that can run Linux contai
     New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin
     ```
 
-## Add a Windows Server 2019 or Windows Server 2022 node pool
+### [Add a Windows Server 2019 or Windows Server 2022 node pool](#tab/add-windows-server-2019-or-2022-node-pool)
 
 AKS supports Windows Server 2019 and 2022 node pools. Windows Server 2022 is the default operating system for Kubernetes versions 1.25.0 and higher. Windows Server 2019 is the default OS for earlier versions. To use Windows Server 2019 or Windows Server 2022, you need to specify the following parameters:
 
@@ -115,9 +117,11 @@ AKS supports Windows Server 2019 and 2022 node pools. Windows Server 2022 is the
     New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -OsSKU Windows2019 Windows -Name npwin
     ```
 
+---
+
 ## Connect to the cluster
 
-You use [kubectl][kubectl], the Kubernetes command-line client, to manage your Kubernetes clusters. If you use Azure Cloud Shell, `kubectl` is already installed. To you want to install `kubectl` locally, you can use the `Install-AzAksKubectl` cmdlet.
+You use [kubectl][kubectl], the Kubernetes command-line client, to manage your Kubernetes clusters. If you use Azure Cloud Shell, `kubectl` is already installed. To you want to install `kubectl` locally, you can use the `Install-AzAzAksCliTool` cmdlet.
 
 1. Configure `kubectl` to connect to your Kubernetes cluster using the [`Import-AzAksCredential`][import-azakscredential] cmdlet. This command downloads credentials and configures the Kubernetes CLI to use them.
 

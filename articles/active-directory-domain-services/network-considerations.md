@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 09/15/2023
 ms.author: justinha
 ms.reviewer: xyuan
 
@@ -86,7 +86,7 @@ You can connect a virtual network to another virtual network (VNet-to-VNet) in t
 
 ![Virtual network connectivity using a VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 
-For more information on using virtual private networking, read [Configure a VNet-to-VNet VPN gateway connection by using the Azure portal](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+For more information on using virtual private networking, read [Configure a VNet-to-VNet VPN gateway connection by using the Microsoft Entra admin center](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
 ## Name resolution when connecting virtual networks
 
@@ -127,7 +127,7 @@ The following network security group Inbound rules are required for the managed 
 | Service tag | CorpNetSaw                         | *                  | Any           | RDP     | 3389            | TCP | Allow | Optional | Debugging for support |
 
 
-Note that the **CorpNetSaw** service tag isn't available by using Azure portal, and the network security group rule for **CorpNetSaw** has to be added by using [PowerShell](powershell-create-instance.md#create-a-network-security-group).
+Note that the **CorpNetSaw** service tag isn't available by using the Microsoft Entra admin center, and the network security group rule for **CorpNetSaw** has to be added by using [PowerShell](powershell-create-instance.md#create-a-network-security-group).
 
 Azure AD DS also relies on the Default Security rules AllowVnetInBound and AllowAzureLoadBalancerInBound.
 

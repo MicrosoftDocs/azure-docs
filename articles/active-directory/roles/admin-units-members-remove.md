@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 06/09/2023
 ms.author: rolyon
 ms.reviewer: anandy
-ms.custom: oldportal;it-pro;
+ms.custom: oldportal, it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -31,22 +31,22 @@ When users, groups, or devices in an administrative unit no longer need access, 
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Azure portal
+## Microsoft Entra admin center
 
-You can remove users, groups, or devices from administrative units individually using the Azure portal. You can also remove users in a bulk operation.
+You can remove users, groups, or devices from administrative units individually using the Microsoft Entra admin center. You can also remove users in a bulk operation.
 
 ### Remove a single user, group, or device from administrative units
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory**.
+1. Browse to **Identity**.
 
-1. Select one of the following:
+1. Browse to one of the following:
 
-    - **Users**
-    - **Groups**
+    - **Users** > **All users**
+    - **Groups** > **All groups**
     - **Devices** > **All devices**
 
 1. Select the user, group, or device you want to remove from an administrative unit.
@@ -61,11 +61,11 @@ You can remove users, groups, or devices from administrative units individually 
 
 ### Remove users, groups, or devices from a single administrative unit
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory**.
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
 
-1. Select **Administrative units** and then select the administrative unit that you want to remove users, groups, or devices from.
+1. Select the administrative unit that you want to remove users, groups, or devices from.
 
 1. Select one of the following:
 
@@ -81,11 +81,11 @@ You can remove users, groups, or devices from administrative units individually 
 
 ### Remove users from an administrative unit in a bulk operation
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory**.
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
 
-1. Select **Administrative units** and then select the administrative unit that you want to remove users from.
+1. Select the administrative unit that you want to remove users from.
 
 1. Select **Users** > **Bulk operations** > **Bulk remove members**.
 

@@ -22,10 +22,14 @@ When you enable the **Allow trusted Microsoft services to bypass this fir
 | Azure API Management | <p>The API Management service allows you to send messages to a Service Bus queue/topic in your Service Bus Namespace.</p><ul><li>You can trigger custom workflows by sending messages to your Service Bus queue/topic when an API is invoked by using the [send-request policy](../../api-management/api-management-sample-send-request.md).</li><li>You can also treat a Service Bus queue/topic as your backend in an API. For a sample policy, see [Authenticate using a managed identity to access a Service Bus queue or topic](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Authenticate%20using%20Managed%20Identity%20to%20access%20Service%20Bus.xml). You also need to do the following steps:<ol><li>Enable system-assigned identity on the API Management instance. For instructions, see [Use managed identities in Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md).</li><li>Add the identity to the **Azure Service Bus Data Sender** role on the Service Bus namespace</li></ol></li></ul> | 
 | Azure IoT Central | <p>Allows IoT Central to export data to Service Bus queues or topics in your Service Bus namespace. You also need to do the following steps:</p><ul><li>Enable system-assigned identity for your IoT Central application</li><li>Add the identity to the **Azure Service Bus Data Sender** role on the Service Bus namespace. </li><li>Then, configure the Service Bus [export destination on your IoT Central application](../../iot-central/core/howto-export-data.md) to use identity-based authentication. </li>
 | Azure Digital Twins | Allows Azure Digital Twins to egress data to Service Bus topics in your Service Bus namespace. You also need to do the following steps: <p><ul><li>Enable system-assigned identity for your Azure Digital Twins instance.</li><li>Add the identity to the **Azure Service Bus Data Sender** role on the Service Bus namespace.</li><li>Then, configure an Azure Digital Twins endpoint or Azure Digital Twins data history connection that uses the system-assigned identity to authenticate. For more information about configuring endpoints and event routes to Service Bus resources from Azure Digital Twins, see [Route Azure Digital Twins events](../../digital-twins/concepts-route-events.md) and [Create endpoints in Azure Digital Twins](../../digital-twins/how-to-create-endpoints.md). </li></ul> |
+| Azure Monitor (Diagnostic Settings and Action Groups) | Allows Azure Monitor to send diagnostic information and alert notifications to Service Bus in your Service Bus namespace. Azure Monitor can read from and write data to the Service Bus namespace.|
+| Azure Synapse | Allows Azure Synapse to connect to the service bus using the Synapse Workspace Managed Identity. Add the Azure Service Bus Data Sender, Receiver or Owner role to the identity on the Service Bus namespace. | 
 
 The other trusted services for Azure Service Bus can be found below: 
--	Azure Synapse
 -	Azure Data Explorer
 -	Azure Health Data Services
--	Azure Monitor
 -	Azure Arc
+-	Azure Kubernetes 
+- Azure Machine Learning
+- Microsoft Purview
+

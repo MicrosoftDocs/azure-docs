@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Group writeback in the Azure portal (preview)
 
-Group writeback is a valuable tool for administrators of Azure Active Directory (Azure AD) tenants being synced with on-premises Active Directory groups. Microsoft is now previewing new capabilities for group writeback for tenants with an Azure AD Premium license and Azure AD Connect version 2021 December release or later. In this preview, once you have [enabled Azure AD Connect group writeback](..//hybrid/how-to-connect-group-writeback-v2.md), you can specify in the Azure portal which groups you want to write back and what you’d like each group to write back as. You can write Microsoft 365 groups back to on-premises Active Directory as Distribution, Mail-enabled Security, or Security groups, and write Security groups back as Security groups. Groups are written back with a scope of universal​.
+Group writeback is a valuable tool for administrators of Azure Active Directory (Azure AD) tenants being synced with on-premises Active Directory groups. Microsoft is now previewing new capabilities for group writeback for tenants with an Azure AD Premium license and Azure AD Connect version 2021 December release or later. In this preview, once you have [enabled Azure AD Connect group writeback](../hybrid/connect/how-to-connect-group-writeback-v2.md), you can specify in the Azure portal which groups you want to write back and what you’d like each group to write back as. You can write Microsoft 365 groups back to on-premises Active Directory as Distribution, Mail-enabled Security, or Security groups, and write Security groups back as Security groups. Groups are written back with a scope of universal​.
 
 >[!NOTE]
 > If you were previously writing Microsoft 365 groups back to on-premises Active Directory as universal distribution groups, they will appear in the Azure portal as not enabled for writeback in both the **Groups** page and in the properties page for a group. These pages display a new property introduced for the preview, “writeback enabled”. This property is not set by the current version of group writeback to ensure backward compatibility with the legacy version of group writeback and to avoid breaking existing customer setups.
@@ -81,13 +81,15 @@ Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-expl
 Replace the Group_ID with a cloud group ID, and then select on Run query.
 In the **Response Preview**, scroll to the end to see the part of the JSON file.
 
-```JSON
+```json
 "writebackConfiguration": {
-        "isEnabled": true,
+    "isEnabled": true,
+    ...
+}
 ```
 
 ## Next steps
 
 - Check out the groups REST API documentation for the [preview writeback property on the settings template](/graph/api/resources/group?view=graph-rest-beta&preserve-view=true).
-- For more about group writeback operations, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback.md).
+- For more about group writeback operations, see [Azure AD Connect group writeback](../hybrid/connect/how-to-connect-group-writeback-v2.md).
 - For more information about the writebackConfiguration resource, read [writebackConfiguration resource type](/graph/api/resources/writebackconfiguration?view=graph-rest-beta&preserve-view=true).

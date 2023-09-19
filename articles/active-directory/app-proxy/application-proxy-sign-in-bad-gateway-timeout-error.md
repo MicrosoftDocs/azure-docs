@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: asteen
 ---
@@ -59,8 +59,8 @@ As a first quick step, double check and fix the internal URL by opening the appl
 ## Check the application is assigned to a working Connector Group
 
 To verify the application is assigned to a working Connector Group:
-
-1. Open the application in the portal by going to **Azure Active Directory**, clicking on **Enterprise Applications**, then **All Applications.** Open the application, then select **Application Proxy** from the left menu.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.
 1. Look at the Connector Group field. If there are no active connectors in the group, you see a warning. If you don't see any warnings, move on to verify all [required ports](application-proxy-add-on-premises-application.md) are allowed.
 1. If the wrong Connector Group is showing, use the drop-down to select the correct group, and confirm you no longer see any warnings. If the intended Connector Group is showing, click the warning message to open the page with Connector management.
 1. From here, there are a few ways to drill in further:

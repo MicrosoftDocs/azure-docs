@@ -80,9 +80,9 @@ The following are links to specific articles that focus on monitoring and alerti
 
 | What to monitor| Risk level| Where| Notes |
 | - | - | - | - |
-| Extranet lockout trends| High| Azure AD Connect Health| See, [Monitor AD FS using Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md) for tools and techniques to help detect extranet lock-out trends. |
-| Failed sign-ins|High | Connect Health Portal| Export or download the Risky IP report and follow the guidance at [Risky IP report (public preview)](../hybrid/how-to-connect-health-adfs-risky-ip.md) for next steps. |
-| In privacy compliant| Low| Azure AD Connect Health| Configure Azure AD Connect Health to disable data collections and monitoring using the [User privacy and Azure AD Connect Health](../hybrid/reference-connect-health-user-privacy.md) article. |
+| Extranet lockout trends| High| Azure AD Connect Health| See, [Monitor AD FS using Azure AD Connect Health](../hybrid/connect/how-to-connect-health-adfs.md) for tools and techniques to help detect extranet lock-out trends. |
+| Failed sign-ins|High | Connect Health Portal| Export or download the Risky IP report and follow the guidance at [Risky IP report (public preview)](../hybrid/connect/how-to-connect-health-adfs-risky-ip.md) for next steps. |
+| In privacy compliant| Low| Azure AD Connect Health| Configure Azure AD Connect Health to disable data collections and monitoring using the [User privacy and Azure AD Connect Health](../hybrid/connect/reference-connect-health-user-privacy.md) article. |
 | Potential brute force attack on LDAP| Medium| Microsoft Defender for Identity| Use sensor to help detect potential brute force attacks against LDAP. |
 | Account enumeration reconnaissance| Medium| Microsoft Defender for Identity| Use sensor to help perform account enumeration reconnaissance. |
 | General correlation between Azure AD and Azure AD FS|Medium | Microsoft Defender for Identity| Use capabilities to correlate activities between your Azure AD and Azure AD FS environments. |
@@ -101,7 +101,7 @@ The following are specific things to look for:
 | Azure AD pass-through authentication errors|Medium | Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin| AADSTS80005 - Validation encountered unpredictable WebException| A transient error. Retry the request. If it continues to fail, contact Microsoft support. |
 | Azure AD pass-through authentication errors| Medium| Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin| AADSTS80007 - An error occurred communicating with Active Directory| Check the agent logs for more information and verify that Active Directory is operating as expected. |
 | Azure AD pass-through authentication errors|High | Win32 LogonUserA function API| Log on events 4624(s): An account was successfully logged on<br>- correlate with –<br>4625(F): An account failed to log on| Use with the suspected usernames on the domain controller that is authenticating requests. Guidance at [LogonUserA function (winbase.h)](/windows/win32/api/winbase/nf-winbase-logonusera) |
-| Azure AD pass-through authentication errors| Medium| PowerShell script of domain controller| See the query after the table. | Use the information at [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/tshoot-connect-pass-through-authentication.md)for guidance. |
+| Azure AD pass-through authentication errors| Medium| PowerShell script of domain controller| See the query after the table. | Use the information at [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/connect/tshoot-connect-pass-through-authentication.md)for guidance. |
 
 ```Kusto
 
@@ -150,11 +150,11 @@ Legacy authentication is captured in the Azure AD Sign-ins log as part of the de
 
 Azure AD Connect provides a centralized location that enables account and attribute synchronization between your on-premises and cloud-based Azure AD environment. Azure AD Connect is the Microsoft tool designed to meet and accomplish your hybrid identity goals. It provides the following features:
 
-* [Password hash synchronization](../hybrid/whatis-phs.md) - A sign-in method that synchronizes a hash of a user’s on-premises AD password with Azure AD.
+* [Password hash synchronization](../hybrid/connect/whatis-phs.md) - A sign-in method that synchronizes a hash of a user’s on-premises AD password with Azure AD.
 
-* [Synchronization](../hybrid/how-to-connect-sync-whatis.md) - Responsible for creating users, groups, and other objects. And, making sure identity information for your on-premises users and groups matches the cloud. This synchronization also includes password hashes.
+* [Synchronization](../hybrid/connect/how-to-connect-sync-whatis.md) - Responsible for creating users, groups, and other objects. And, making sure identity information for your on-premises users and groups matches the cloud. This synchronization also includes password hashes.
 
-* [Health Monitoring](../hybrid/whatis-azure-ad-connect.md) - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity.
+* [Health Monitoring](../hybrid/connect/whatis-azure-ad-connect.md) - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity.
 
 Synchronizing identity between your on-premises environment and your cloud environment introduces a new attack surface for your on-premises and cloud-based environment. We recommend:
 
@@ -188,13 +188,13 @@ For information on what and how to monitor configuration information refer to:
 
 * For Microsoft Sentinel, see [Connect to Windows servers to collect security events](/sql/relational-databases/security/auditing/sql-server-audit-records).
 
-* For information on configuring and using Azure AD Connect, see [What is Azure AD Connect?](../hybrid/whatis-azure-ad-connect.md)
+* For information on configuring and using Azure AD Connect, see [What is Azure AD Connect?](../hybrid/connect/whatis-azure-ad-connect.md)
 
 ### Monitoring and troubleshooting synchronization
 
  One function of Azure AD Connect is to synchronize hash synchronization between a user’s on-premises password and Azure AD. If passwords aren't synchronizing as expected, the synchronization might affect a subset of users or all users. Use the following to help verify proper operation or troubleshoot issues:
 
-* Information for checking and troubleshooting hash synchronization, see [Troubleshoot password hash synchronization with Azure AD Connect sync](../hybrid/tshoot-connect-password-hash-synchronization.md).
+* Information for checking and troubleshooting hash synchronization, see [Troubleshoot password hash synchronization with Azure AD Connect sync](../hybrid/connect/tshoot-connect-password-hash-synchronization.md).
 
 * Modifications to the connector spaces, see [Troubleshoot Azure AD Connect objects and attributes](/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes).
 
@@ -202,7 +202,7 @@ For information on what and how to monitor configuration information refer to:
 
 | What to monitor | Resources |
 | - | - |
-| Hash synchronization validation|See [Troubleshoot password hash synchronization with Azure AD Connect sync](../hybrid/tshoot-connect-password-hash-synchronization.md) |
+| Hash synchronization validation|See [Troubleshoot password hash synchronization with Azure AD Connect sync](../hybrid/connect/tshoot-connect-password-hash-synchronization.md) |
  Modifications to the connector spaces|see [Troubleshoot Azure AD Connect objects and attributes](/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes) |
 | Modifications to rules you configured| Monitor changes to: filtering, domain and OU, attribute, and group-based changes |
 | SQL and MSDE changes | Changes to logging parameters and addition of custom functions |
@@ -226,7 +226,7 @@ Monitoring single sign-on and Kerberos activity can help you detect general cred
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
-| Errors associated with SSO and Kerberos validation failures|Medium | Azure AD Sign-ins log| | Single sign-on list of error codes at [Single sign-on](../hybrid/tshoot-connect-sso.md). |
+| Errors associated with SSO and Kerberos validation failures|Medium | Azure AD Sign-ins log| | Single sign-on list of error codes at [Single sign-on](../hybrid/connect/tshoot-connect-sso.md). |
 | Query for troubleshooting errors|Medium | PowerShell| See query following table. check in each forest with SSO enabled.| Check in each forest with SSO enabled. |
 | Kerberos-related events|High | Microsoft Defender for Identity monitoring| | Review guidance available at [Microsoft Defender for Identity Lateral Movement Paths (LMPs)](/defender-for-identity/use-case-lateral-movement-path) |
 

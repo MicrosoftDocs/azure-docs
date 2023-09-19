@@ -6,7 +6,7 @@ ms.author: lle
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 09/26/2022
+ms.date: 08/10/2023
 ---
 
 # Enable remote access from intranet with TLS/SSL certificate (Advanced)

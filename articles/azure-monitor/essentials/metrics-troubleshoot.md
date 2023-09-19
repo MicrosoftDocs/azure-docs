@@ -105,7 +105,7 @@ SI uses decimal
 
 IEC uses binary
 
-|Value | abbreviation| IEC |Legacy|     |
+|Value | abbreviation| IEC |Legacy| SI  |
 |:----:|:-----------:|:---:|:----:|:---:|
 |1024  |  Ki         |kibi |	K	  | kilo|
 |1024^2|	Mi         |mebi |	M	  | mega|

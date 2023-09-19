@@ -42,7 +42,7 @@ highlightedContent:
       url: whats-new-docs.md
       itemType: whats-new
     - title: OAuth 2.0 and OpenID Connect (OIDC)
-      url: active-directory-v2-protocols.md
+      url: ./v2-protocols.md
       itemType: concept
     - title: Migrate apps to MSAL
       url: msal-migration.md
@@ -148,7 +148,7 @@ conceptualContent:
           url: secure-least-privileged-access.md
           itemType: concept
         - text: Build auth resilience into your apps
-          url: ../fundamentals/resilience-app-development-overview.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+          url: ../architecture/resilience-app-development-overview.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
           itemType: concept
 ## BAND 3 - CONCEPTUAL CONTENT END ##########################################################################################################################
 

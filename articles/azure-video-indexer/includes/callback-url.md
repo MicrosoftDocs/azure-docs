@@ -1,8 +1,8 @@
 ---
-author: Juliako
+author: inhenkel
 ms.topic: include
 ms.date: 11/13/2020
-ms.author: juliako
+ms.author: inhenkel
 ---
 
 A callback URL is used to notify the customer (through a POST request) about the following events:

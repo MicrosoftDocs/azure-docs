@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 09/13/2023
 
 
 ms.author: justinha
@@ -36,7 +36,7 @@ Now we'll walk through each step:
    
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in.png" alt-text="Screenshot of the Sign-in for MyApps portal.":::
   
-1. Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled, the user sees a link to **Use a certificate or smartcard** on the password page. If the user doesn't see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable Azure AD CBA?](certificate-based-authentication-faq.yml#how-can-an-administrator-enable-azure-ad-cba-).
+1. Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled, the user sees a link to **Use a certificate or smartcard** on the password page. If the user doesn't see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable Azure AD CBA?](./certificate-based-authentication-faq.yml#how-can-an-administrator-enable-azure-ad-cba-).
    
    >[!NOTE]
    > If CBA is enabled on the tenant, all users will see the link to **Use a certificate or smart card** on the password page. However, only the users in scope for CBA will be able to authenticate successfully against an application that uses Azure AD as their Identity provider (IdP).
@@ -47,14 +47,14 @@ Now we'll walk through each step:
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-alt.png" alt-text="Screenshot of the Sign-in if FIDO2 is also enabled.":::
 
-1. Once the user selects certificate-based authentication, the client is redirected to the certauth endpoint, which is [https://certauth.login.microsoftonline.com](https://certauth.login.microsoftonline.com) for Azure Global. For [Azure Government](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers), the certauth endpoint is [https://certauth.login.microsoftonline.us](https://certauth.login.microsoftonline.us).  
+1. Once the user selects certificate-based authentication, the client is redirected to the certauth endpoint, which is [https://certauth.login.microsoftonline.com](https://certauth.login.microsoftonline.com) or [`https://t<tenant id>.certauth.login.microsoftonline.com`](`https://t<tenant id>.certauth.login.microsoftonline.com`) for Azure Global. For [Azure Government](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers), the certauth endpoint is [https://certauth.login.microsoftonline.us](https://certauth.login.microsoftonline.us).  
 
    The endpoint performs TLS mutual authentication, and requests the client certificate as part of the TLS handshake. You'll see an entry for this request in the Sign-ins log.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the Sign-ins log in Azure AD." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png":::
    
    >[!NOTE]
-   >The network administrator should allow access to the User sign-in page and certauth endpoint for the customer’s cloud environment. Disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
+   >The network administrator should allow access to the User sign-in page and certauth endpoint *.certauth.login.microsoftonline.com for the customer’s cloud environment. Disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
 
    Click the log entry to bring up **Activity Details** and click **Authentication Details**. You'll see an entry for the X.509 certificate.
 
@@ -79,17 +79,17 @@ Azure AD CBA is an MFA (Multi factor authentication) capable method, that is Azu
 If CBA enabled user only has a Single Factor (SF) certificate and need MFA
    1. Use Password + SF certificate.
    1. Issue Temporary Access Pass (TAP)
-   1. Admin adds Phone Number to user account and allows Voice/SMS method for user.
+   1. Admin adds Phone Number to user account and allows Voice/text message method for user.
 
 If CBA enabled user has not yet been issued a certificate and need MFA
    1. Issue Temporary Access Pass (TAP)
-   1. Admin adds Phone Number to user account and allows Voice/SMS method for user.
+   1. Admin adds Phone Number to user account and allows Voice/text message method for user.
 
 If CBA enabled user cannot use MF cert (such as on mobile device without smart card support) and need MFA
    1. Issue Temporary Access Pass (TAP)
    1. User Register another MFA method (when user can use MF cert)
    1. Use Password + MF cert (when user can use MF cert)
-   1. Admin adds Phone Number to user account and allows Voice/SMS method for user
+   1. Admin adds Phone Number to user account and allows Voice/text message method for user
 
 
 ## MFA with Single-factor certificate-based authentication
@@ -112,14 +112,14 @@ Users need to have another way to get MFA and register passwordless sign-in or F
 
 For passwordless sign-in to work, users should disable legacy notification through mobile app.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
 
 1. Follow the steps at [Enable passwordless phone sign-in authentication](../authentication/howto-authentication-passwordless-phone.md#enable-passwordless-phone-sign-in-authentication-methods)
 
    >[!IMPORTANT]
    >In the above configuration under step 4, please choose **Passwordless** option. Change the mode for each groups added for PSI for **Authentication mode**, choose **Passwordless** for passwordless sign-in to work with CBA. If the admin configures "Any", CBA + PSI will not work.
 
-1. Select **Azure Active Directory** > **Security** > **Multifactor authentication** > **Additional cloud-based multifactor authentication settings**.
+1. Select **Protection** > **Multifactor authentication** > **Additional cloud-based multifactor authentication settings**.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/configure.png" alt-text="Screenshot of how to configure multifactor authentication settings.":::
 
@@ -230,7 +230,7 @@ Having both PrincipalName and SKI values from the user's certificate mapped to t
 
 ## Understanding the certificate revocation process
 
-The certificate revocation process allows the admin to revoke a previously issued certificate from being used for future authentication. The certificate revocation won't revoke already issued tokens of the user. Follow the steps to manually revoke tokens at [Configure revocation](active-directory-certificate-based-authentication-get-started.md#step-3-configure-revocation).
+The certificate revocation process allows the admin to revoke a previously issued certificate from being used for future authentication. The certificate revocation won't revoke already issued tokens of the user. Follow the steps to manually revoke tokens at [Configure revocation](./certificate-based-authentication-federation-get-started.md#step-3-configure-revocation).
 
 Azure AD downloads and caches the customers certificate revocation list (CRL) from their certificate authority to check if certificates are revoked during the authentication of the user.
 
@@ -295,8 +295,8 @@ For the first test scenario, configure the authentication policy where the Issue
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/single-factor.png" alt-text="Screenshot of the Authentication policy configuration showing single-factor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/single-factor.png":::  
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the test user by using CBA. The authentication policy is set where Issuer subject rule satisfies single-factor authentication.
-1. After sign-in was succeeds, click **Azure Active Directory** > **Sign-in logs**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as the test user by using CBA. The authentication policy is set where Issuer subject rule satisfies single-factor authentication.
+1. Search for and select **Sign-in logs**.
 
    Let's look closer at some of the entries you can find in the **Sign-in logs**.
 
@@ -322,8 +322,8 @@ For the next test scenario, configure the authentication policy where the **poli
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png":::  
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using CBA. Since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
-1. Click **Azure Active Directory** > **Sign-ins**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) using CBA. Since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
+1. Search for and select **Sign-ins**.
 
    You'll see several entries in the Sign-in logs, including an entry with **Interrupted** status. 
 
@@ -392,4 +392,4 @@ For more information about how to enable **Trust multi-factor authentication fro
 - [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)
-- [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
+- [Troubleshoot Azure AD CBA](./certificate-based-authentication-faq.yml)

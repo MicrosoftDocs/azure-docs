@@ -15,7 +15,6 @@ ms.reviewer: piotrci
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
-
 # Sign up for Azure Active Directory Premium editions
 
 You can purchase and associate Azure Active Directory (Azure AD) Premium editions with your Azure subscription. If you need to create a new Azure subscription, you'll also need to activate your licensing plan and Azure AD service access.
@@ -66,7 +65,7 @@ If you signed up using a new Azure AD license plan, you must activate it for you
    
     ![Confirmation email with sign in and sign up links](media/get-started-premium/MOLSEmail.png)
 
-    - **Sign in.** Choose this link if you have an existing tenant, and then sign in using your existing administrator account. You must be a global administrator on the tenant where the licenses are being activated.
+    - **Sign in.** Choose this link if you have an existing tenant, and then sign in using your existing administrator account. You must be a Global Administrator on the tenant where the licenses are being activated.
 
     - **Sign up.** Choose this link if you want to open the **Create Account Profile** page and create a new Azure AD tenant for your licensing plan.
 
@@ -99,4 +98,4 @@ The activation process typically takes only a few minutes and then you can use y
 
 ## Next steps
 
-Now that you have Azure AD Premium, you can [customize your domain](add-custom-domain.md), add your [corporate branding](customize-branding.md), [create a tenant](create-new-tenant.md), and [add groups](active-directory-groups-create-azure-portal.md) and [users](add-users-azure-active-directory.md).
+Now that you have Azure AD Premium, you can [customize your domain](add-custom-domain.md), add your [corporate branding](./how-to-customize-branding.md), [create a tenant](create-new-tenant.md), and [add groups](./how-to-manage-groups.md) and [users](./add-users.md).

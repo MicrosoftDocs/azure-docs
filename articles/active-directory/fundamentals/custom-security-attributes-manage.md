@@ -8,6 +8,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 06/29/2023
 ms.collection: M365-identity-device-management
@@ -17,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 For people in your organization to effectively work with [custom security attributes](custom-security-attributes-overview.md), you must grant the appropriate access. Depending on the information you plan to include in custom security attributes, you might want to restrict custom security attributes or you might want to make them broadly accessible in your organization. This article describes how to manage access to custom security attributes.
 
@@ -116,13 +117,11 @@ To grant access to the appropriate people, follow these steps to assign one of t
 
 The following examples show how to assign a custom security attribute role to a principal at an attribute set scope named Engineering.
 
-# [Portal](#tab/azure-portal)
+# [Admin center](#tab/admin-center)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator).
 
-1. Click **Azure Active Directory**.
-
-1. In the left navigation menu, click **Custom security attributes (Preview)**.
+1. Browse to **Protection** > **Custom security attributes**.
 
 1. Click the attribute set you want grant access to.
 
@@ -137,7 +136,7 @@ The following examples show how to assign a custom security attribute role to a 
 
 # [PowerShell](#tab/ms-powershell)
 
-[New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.devicemanagement.enrolment/new-mgrolemanagementdirectoryroleassignment)
+[New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleassignment)
 
 ```powershell
 $roleDefinitionId = "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d"
@@ -179,13 +178,11 @@ $roleAssignment = New-AzureADMSRoleAssignment -RoleDefinitionId $roleDefinitionI
 
 The following examples show how to assign a custom security attribute role to a principal at tenant scope.
 
-# [Portal](#tab/azure-portal)
+# [Admin center](#tab/admin-center)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator).
 
-1. Click **Azure Active Directory**.
-
-1. In the left navigation menu, click **Roles and administrators**.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 
     ![Screenshot of assigning attribute roles at tenant scope.](./media/custom-security-attributes-manage/manage-tenant.png)
 
@@ -193,7 +190,7 @@ The following examples show how to assign a custom security attribute role to a 
 
 # [PowerShell](#tab/ms-powershell)
 
-[New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.devicemanagement.enrolment/new-mgrolemanagementdirectoryroleassignment)
+[New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleassignment)
 
 ```powershell
 $roleDefinitionId = "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d"

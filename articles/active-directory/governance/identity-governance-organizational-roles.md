@@ -24,7 +24,7 @@ Role-based access control (RBAC) provides a framework for classifying users and 
 In Azure AD, you can use role models in several ways to manage access at scale through identity governance.
 
  * You can use access packages to represent organizational roles in your organization, such as "sales representative". An access package representing that organizational role would include all the access rights that a sales representative might typically need, across multiple resources.
- * Applications [can define their own roles](../develop/howto-add-app-roles-in-azure-ad-apps.md). For example, if you had a sales application, and that application included the app role "salesperson", you could then [include that role in an access package](entitlement-management-access-package-resources.md).
+ * Applications [can define their own roles](../develop/howto-add-app-roles-in-apps.md). For example, if you had a sales application, and that application included the app role "salesperson", you could then [include that role in an access package](entitlement-management-access-package-resources.md).
  * You can use roles for [delegating administrative access](entitlement-management-delegate.md).  If you have a catalog for all the access packages needed by sales, you could assign someone to be responsible for that catalog, by assigning them a catalog-specific role.
 
 This article discusses how to model organizational roles, using entitlement management access packages, so you can migrate your role definitions to Azure AD to enforce access.
@@ -80,7 +80,7 @@ You can [extend the Azure AD schema](../app-provisioning/user-provisioning-sync-
 
 ### Create catalogs for delegation
 
-If the ongoing maintenance of roles is delegated, then you can delegate the administration of access packages by [creating a catalog](entitlement-management-catalog-create.md ) for each part of the organization you'll be delegating to.
+If the ongoing maintenance of roles is delegated, then you can delegate the administration of access packages by [creating a catalog](entitlement-management-catalog-create.md) for each part of the organization you'll be delegating to.
 
 If you have multiple catalogs to create, you can use a PowerShell script to [create each catalog](entitlement-management-catalog-create.md#create-a-catalog-with-powershell).
 

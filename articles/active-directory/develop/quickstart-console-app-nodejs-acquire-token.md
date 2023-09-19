@@ -9,8 +9,8 @@ ms.subservice: develop
 ms.topic: quickstart
 ms.date: 09/09/2022
 ms.author: cwerner
+ms.custom: mode-other, devx-track-js
 #Customer intent: As an application developer, I want to learn how my Node.js app can get an access token and call an API that is protected by a Microsoft identity platform endpoint using client credentials flow.
-ms.custom: mode-other
 ---
 
 # Quickstart: Acquire a token and call Microsoft Graph from a Node.js console app
@@ -66,7 +66,7 @@ To register your application and add the app's registration information to your 
    - `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant ID** or **Tenant name** (for example, contoso.microsoft.com).  Find these values on the app registration's **Overview** pane in the Azure portal.
    - `Enter_the_Client_Secret_Here` - replace this value with the client secret you created earlier. To generate a new key, use **Certificates & secrets** in the app registration settings in the Azure portal.
    
-   Using a plaintext secret in the source code poses an increased security risk for your application. Although the sample in this quickstart uses a plaintext client secret, it's only for simplicity. We recommend using [certificate credentials](active-directory-certificate-credentials.md) instead of client secrets in your confidential client applications, especially those apps you intend to deploy to production.
+   Using a plaintext secret in the source code poses an increased security risk for your application. Although the sample in this quickstart uses a plaintext client secret, it's only for simplicity. We recommend using [certificate credentials](./certificate-credentials.md) instead of client secrets in your confidential client applications, especially those apps you intend to deploy to production.
 
 3. Edit *.env* and replace the Azure AD and Microsoft Graph endpoints with the following values:
    - For the Azure AD endpoint, replace `Enter_the_Cloud_Instance_Id_Here` with `https://login.microsoftonline.com`.

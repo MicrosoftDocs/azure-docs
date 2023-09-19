@@ -27,7 +27,7 @@ In this tutorial:
 >
 > - Create a _Windows Presentation Foundation (WPF)_ project in Visual Studio
 > - Install the Microsoft Authentication Library (MSAL) for .NET
-> - Register the application in the Azure portal
+> - Register the application
 > - Add code to support user sign-in and sign-out
 > - Add code to call Microsoft Graph API
 > - Test the app
@@ -47,7 +47,7 @@ The sample application that you create with this guide enables a Windows Desktop
 
 After the user is authenticated, the sample application receives a token you can use to query Microsoft Graph API or a web API that's secured by the Microsoft identity platform.
 
-APIs such as Microsoft Graph require a token to allow access to specific resources. For example, a token is required to read a user’s profile, access a user’s calendar, or send email. Your application can request an access token by using MSAL to access these resources by specifying API scopes. This access token is then added to the HTTP Authorization header for every call that's made against the protected resource.
+APIs such as Microsoft Graph require a token to allow access to specific resources. For example, a token is required to read a user's profile, access a user's calendar, or send email. Your application can request an access token by using MSAL to access these resources by specifying API scopes. This access token is then added to the HTTP Authorization header for every call that's made against the protected resource.
 
 MSAL manages caching and refreshing access tokens for you, so that your application doesn't need to.
 
@@ -55,8 +55,8 @@ MSAL manages caching and refreshing access tokens for you, so that your applicat
 
 This guide uses the following NuGet packages:
 
-| Library                                                                               | Description                                 |
-| ------------------------------------------------------------------------------------- | ------------------------------------------- |
+| Library | Description |
+| ------- | ----------- |
 | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | Microsoft Authentication Library (MSAL.NET) |
 
 ## Set up your project
@@ -92,26 +92,12 @@ Create the application using the following steps:
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-You can register your application in either of two ways.
-
-### Option 1: Express mode
-
-Use the following steps to register your application:
-
-1. Sign in to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
-1. Enter a name for your application and select **Register**.
-1. Follow the instructions to download and automatically configure your new application.
-
-### Option 2: Advanced mode
-
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 To register and configure your application, follow these steps:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. Browse to **Identity** > **Applications** > **App registrations**.
+1. Select **New registration**.
 1. Enter a **Name** for your application, for example `Win-App-calling-MsGraph`. Users of your app might see this name, and you can change it later.
 1. In the **Supported account types** section, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
 1. Select **Register**.
@@ -267,7 +253,7 @@ In this section, you use MSAL to get a token for the Microsoft Graph API.
 
 #### Get a user token interactively
 
-Calling the `AcquireTokenInteractive` method results in a window that prompts users to sign in. Applications usually require users to sign in interactively the first time they need to access a protected resource. They might also need to sign in when a silent operation to acquire a token fails (for example, when a user’s password is expired).
+Calling the `AcquireTokenInteractive` method results in a window that prompts users to sign in. Applications usually require users to sign in interactively the first time they need to access a protected resource. They might also need to sign in when a silent operation to acquire a token fails (for example, when a user's password is expired).
 
 #### Get a user token silently
 

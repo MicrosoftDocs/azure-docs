@@ -71,9 +71,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     | `https://cjoc.<CustomerDomain>/securityRealm/finishLogin` |
     | `https://<Environment>.<CustomerDomain>/securityRealm/finishLogin` |
 
-1. Perform the following step, if you wish to configure the application in **SP** initiated mode:
-
-	In the **Sign on URL** textbox, type the URL using one of the following patterns:
+	c. In the **Sign on URL** textbox, type the URL using one of the following patterns:
 
 	| **Sign on URL** |
     |------------|
@@ -118,7 +116,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to CloudBees CI Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the CloudBees CI tile in the My Apps, this will redirect to CloudBees CI Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the CloudBees CI tile in the My Apps, this will redirect to CloudBees CI Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Additional resources
 

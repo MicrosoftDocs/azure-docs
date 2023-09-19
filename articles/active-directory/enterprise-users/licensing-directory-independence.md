@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 08/08/2023
+ms.date: 09/08/2023
 ms.author: barclayn
 ms.custom: it-pro
 ms.reviewer: sumitp
@@ -35,16 +35,20 @@ If a non-administrative user of organization 'Contoso' creates a test organizati
 
 ## Synchronization independence
 
-You can configure each Azure AD organization independently to get data synchronized from different AD forests, using the Azure AD Connect tool.  See [topologies for Azure AD Connect](../hybrid/plan-connect-topologies.md) for more information on supported topologies when there are multiple Azure AD tenants.
+You can configure each Azure AD organization independently to get data synchronized from different AD forests, using the Azure AD Connect tool.  See [topologies for Azure AD Connect](../hybrid/connect/plan-connect-topologies.md) for more information on supported topologies when there are multiple Azure AD tenants.
 
 ## Add an Azure AD organization
 
-To add an Azure AD organization in the Azure portal, sign in to the [Azure portal](https://portal.azure.com) with an account that is an Azure AD Global Administrator, and select **New**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+1. Select **Manage tenants**.
+1. Choose **Create**.
+1. Select **Workforce** and provide the requested information. The new organization is created and appears in the list of organizations.
 
 > [!NOTE]
-> Unlike other Azure resources, your Azure AD organizations are not child resources of an Azure subscription. If your Azure subscription is canceled or expired, you can still access your Azure AD organization's data using Azure PowerShell, the Microsoft Graph API, or the Microsoft 365 admin center. You can also [associate another subscription with the organization](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+> Unlike other Azure resources, your Azure AD organizations are not child resources of an Azure subscription. If your Azure subscription is canceled or expired, you can still access your Azure AD organization's data using Azure PowerShell, the Microsoft Graph API, or the Microsoft 365 admin center. You can also [associate another subscription with the organization](../fundamentals/how-subscriptions-associated-directory.md).
 >
 
 ## Next steps
 
-For Azure AD licensing considerations and best practices, see [What is Azure Active Directory licensing?](../fundamentals/active-directory-licensing-whatis-azure-portal.md).
+For Azure AD licensing considerations and best practices, see [What is Azure Active Directory licensing?](../fundamentals/licensing-whatis-azure-portal.md).

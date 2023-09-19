@@ -40,8 +40,8 @@ Use LDAP synchronization when you need to synchronize identity data between your
 
 Explore the following resources to learn more about LDAP synchronization with Azure AD.
 
-* [Hybrid Identity: Directory integration tools comparison](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md) describes differences between Azure AD Connect sync and Azure AD Connect cloud provisioning.
-* [Azure AD Connect and Azure AD Connect Health installation roadmap](../hybrid/how-to-connect-install-roadmap.md) provides detailed installation and configuration steps.
+* [Hybrid Identity: Directory integration tools comparison](../hybrid/connect/plan-hybrid-identity-design-considerations-tools-comparison.md) describes differences between Azure AD Connect sync and Azure AD Connect cloud provisioning.
+* [Azure AD Connect and Azure AD Connect Health installation roadmap](../hybrid/connect/how-to-connect-install-roadmap.md) provides detailed installation and configuration steps.
 * The [Generic LDAP Connector](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) enables you to integrate the synchronization service with an LDAP v3 server.
 
    > [!NOTE]

@@ -4,6 +4,7 @@ description: Learn how to scale automatically in Azure App Service with zero con
 ms.topic: article
 ms.date: 08/02/2023
 ms.author: msangapu
+author: msangapu-msft
 
 ---
 # Automatic scaling in Azure App Service

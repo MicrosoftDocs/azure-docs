@@ -107,13 +107,13 @@ param agentPoolZones array = []
 // "string" Example: ["1", "2", "3"]
 
 @description('The size of the control plane nodes')
-param controlPlaneVmSkuName string = 'NC_G2_v1'
+param controlPlaneVmSkuName string = 'NC_G6_28_v1'
 
 @description('The number of worker nodes to be deployed in the initial agent pool')
 param systemPoolNodeCount int = 1
 
 @description('The size of the worker nodes')
-param workerVmSkuName string = 'NC_M4_v1'
+param workerVmSkuName string = 'NC_P10_56_v1'
 
 @description('The configurations for the initial agent pool')
 param initialPoolAgentOptions object = {}
@@ -138,7 +138,7 @@ param taints array = []
 //   value: 'string:NoSchedule|PreferNoSchedule|NoExecute'
 // }
 
-resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-05-01-preview' = {
+resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-07-01' = {
   name: kubernetesClusterName
   location: location
   tags: tags

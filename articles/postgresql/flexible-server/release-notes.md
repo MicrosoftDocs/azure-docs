@@ -7,7 +7,7 @@ ms.custom: references_regions, build-2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 8/2/2023
+ms.date: 8/14/2023
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -16,6 +16,8 @@ ms.date: 8/2/2023
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Flexible Server - PostgreSQL
 
+## Release: August 2023
+* Support for [minor versions](./concepts-supported-versions.md) 15.3, 14.8, 13.11, 12.15, 11.20 <sup>$</sup>
 
 ## Release: July 2023
 * General Availability of PostgreSQL 15 for Azure Database for PostgreSQL – Flexible Server.

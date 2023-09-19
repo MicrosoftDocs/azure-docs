@@ -2,9 +2,7 @@
 title: Managing Azure Monitor Logs in Azure CLI
 description: Learn how to use Azure CLI commands to manage a workspace in Azure Monitor Logs, including how workspaces interact with other Azure services.
 ms.topic: sample
-author: bwren
-ms.author: bwren
-ms.date: 08/16/2021
+ms.date: 08/09/2023
 ms.custom: devx-track-azurecli
 
 ---

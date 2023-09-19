@@ -94,7 +94,7 @@ Use the `BulkCreateGroups.ps1` provided in the [App Creation Scripts](https://gi
 
 ### v1.0 basic claims
 
-The v1.0 tokens include the following claims if applicable, but not v2.0 tokens by default. To use these claims for v2.0, the application requests them using [optional claims](active-directory-optional-claims.md).
+The v1.0 tokens include the following claims if applicable, but not v2.0 tokens by default. To use these claims for v2.0, the application requests them using [optional claims](./optional-claims.md).
 
 | Claim | Format | Description |
 |-------|--------|-------------|

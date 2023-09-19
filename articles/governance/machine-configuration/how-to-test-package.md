@@ -1,7 +1,7 @@
 ---
 title: How to test machine configuration package artifacts
 description: The experience creating and testing packages that audit or apply configurations to machines.
-ms.date: 04/18/2023
+ms.date: 08/11/2023
 ms.topic: how-to
 ---
 # How to test machine configuration package artifacts
@@ -22,8 +22,8 @@ Before you can begin testing, you need to [set up your authoring environment][01
 > To use machine configuration packages that apply configurations, Azure VM guest configuration
 > extension version 1.26.24 or later, or Arc agent 1.10.0 or later, is required.
 >
-> The **GuestConfiguration** module is only available on Ubuntu 18. However, the package and
-> policies produced by the module can be used on any Linux distro/version supported in Azure or
+> The **GuestConfiguration** module is only available on Ubuntu 18 and later. However, the package
+> and policies produced by the module can be used on any Linux distro/version supported in Azure or
 > Arc.
 >
 > Testing packages on macOS isn't available.

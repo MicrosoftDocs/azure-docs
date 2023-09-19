@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -47,7 +47,7 @@ The following table lists common capabilities required for header-based authenti
 
 :::image type="content" source="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works-updated.png" alt-text="How header-based single sign-on works with Application Proxy." lightbox="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works-updated.png":::
 
-1. The Admin customizes the attribute mappings required by the application in the Azure portal. 
+1. The Admin customizes the attribute mappings required by the application in the Microsoft Entra admin center. 
 2. When a user accesses the app, Application Proxy ensures the user is authenticated by Azure AD 
 3. The Application Proxy cloud service is aware of the attributes required. So the service fetches the corresponding claims from the ID token received during authentication. The service then translates the values into the required HTTP headers as part of the request to the Connector. 
 4. The request is then passed along to the Connector, which is then passed to the backend application. 
@@ -74,7 +74,7 @@ Before you get started with single sign-on for header-based applications, you sh
 5. Select **Add new header**. Provide a **Name** for the header and select either **Attribute** or **Transformation** and select from the drop-down which header your application needs.  
     - To learn more about the list of attribute available, see [Claims Customizations- Attributes](../develop/saml-claims-customization.md#attributes). 
     - To learn more about the list of transformation available, see [Claims Customizations- Claim Transformations](../develop/saml-claims-customization.md#claim-transformations). 
-    - You may also add a **Group Header**, to send all the groups a user is part of, or the groups assigned to the application as a header. To learn more about configuring groups as a value see: [Configure group claims for applications](../hybrid/how-to-connect-fed-group-claims.md#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration). 
+    - You may also add a **Group Header**, to send all the groups a user is part of, or the groups assigned to the application as a header. To learn more about configuring groups as a value see: [Configure group claims for applications](../hybrid/connect/how-to-connect-fed-group-claims.md#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration). 
 6. Select Save. 
 
 ## Test your app 

@@ -2,8 +2,8 @@
 title: Connection strings - Azure Database for MariaDB
 description: This document lists the currently supported connection strings for applications to connect with Azure Database for MariaDB, including ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python, and Ruby.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.date: 06/24/2022
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"

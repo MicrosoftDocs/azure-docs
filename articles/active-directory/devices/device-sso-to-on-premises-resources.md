@@ -25,7 +25,7 @@ This article explains how this works.
 
 - An [Azure AD joined device](concept-directory-join.md).
 - On-premises SSO requires line-of-sight communication with your on-premises AD DS domain controllers. If Azure AD joined devices aren't connected to your organization's network, a VPN or other network infrastructure is required. 
-- Azure AD Connect or Azure AD Connect cloud sync: To synchronize default user attributes like SAM Account Name, Domain Name, and UPN. For more information, see the article [Attributes synchronized by Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
+- Azure AD Connect or Azure AD Connect cloud sync: To synchronize default user attributes like SAM Account Name, Domain Name, and UPN. For more information, see the article [Attributes synchronized by Azure AD Connect](../hybrid/connect/reference-connect-sync-attributes-synchronized.md#windows-10).
 
 ## How it works 
 
@@ -72,7 +72,7 @@ You can use:
  
 ## What you should know
 
-- You may have to adjust your [domain-based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#domain-based-filtering) in Azure AD Connect to ensure that the data about the required domains is synchronized if you have multiple domains.
+- You may have to adjust your [domain-based filtering](../hybrid/connect/how-to-connect-sync-configure-filtering.md#domain-based-filtering) in Azure AD Connect to ensure that the data about the required domains is synchronized if you have multiple domains.
 - Apps and resources that depend on Active Directory machine authentication don't work because Azure AD joined devices don't have a computer object in AD DS. 
 - You can't share files with other users on an Azure AD-joined device.
 - Applications running on your Azure AD joined device may authenticate users. They must use the implicit UPN or the NT4 type syntax with the domain FQDN name as the domain part, for example: user@contoso.corp.com or contoso.corp.com\user.

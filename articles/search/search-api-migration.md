@@ -70,7 +70,7 @@ Existing code written against earlier API versions will break on api-version=201
 
 #### Indexer for Azure Cosmos DB - datasource is now `"type": "cosmosdb"`
 
-If you're using an [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md ), you must change `"type": "documentdb"` to `"type": "cosmosdb"`.
+If you're using an [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md), you must change `"type": "documentdb"` to `"type": "cosmosdb"`.
 
 #### Indexer execution result errors no longer have status
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: workload-identities
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/07/2023
+ms.date: 08/11/2023
 ms.author: ryanwi
 ms.reviewer: shkhalid, udayh, cbrooks
 ms.custom: aaddev, references_regions
@@ -26,7 +26,7 @@ For more information on the scenarios enabled by federated identity credentials,
 
 *Applies to: applications and user-assigned managed identities*
 
-Anyone with permissions to create an app registration and add a secret or certificate can add a federated identity credential to an app.  If the **Users can register applications** switch in the [User Settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) blade is set to **No**, however, you won't be able to create an app registration or configure the federated identity credential.  Find an admin to configure the federated identity credential on your behalf, someone in the Application Administrator or Application Owner roles.
+Anyone with permissions to create an app registration and add a secret or certificate can add a federated identity credential to an app.  If the **Users can register applications** switch is set to **No** in the **Users->User Settings** blade in the [Microsoft Entra admin center](https://entra.microsoft.com), however, you won't be able to create an app registration or configure the federated identity credential.  Find an admin to configure the federated identity credential on your behalf, someone in the Application Administrator or Application Owner roles.
 
 Federated identity credentials don't consume the Azure AD tenant service principal object quota.
 

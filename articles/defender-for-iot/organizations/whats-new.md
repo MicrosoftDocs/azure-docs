@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 07/31/2023
+ms.date: 09/14/2023
 ms.custom: enterprise-iot
 ---
 
@@ -20,34 +20,89 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [New architecture for hybrid and air-gapped support](#new-architecture-for-hybrid-and-air-gapped-support) |
+| **OT networks** | [New architecture for hybrid and air-gapped support](#new-architecture-for-hybrid-and-air-gapped-support) <br><br>**Version 23.1.3**: <br>- [Troubleshoot OT sensor connectivity](#troubleshoot-ot-sensor-connectivity) <br>- [Event timeline access for OT sensor Read Only users](#event-timeline-access-for-ot-sensor-read-only-users)|
 
 ### New architecture for hybrid and air-gapped support
 
-Defender for IoT now provides a re-architected set of guidance for connecting to and monitoring your hybrid and air-gapped environments, including:
+To enhance your SOC teams' ability to secure operational networks, Defender for IoT now provides new guidance for connecting to and monitoring hybrid and air-gapped environments.
 
-- A reliable and robust platform that allows you to integrate with your built-in, existing organizational infrastructure
-- Stronger and smarter edge functionality for OT sensors, connecting hybrid or air-gapped resources with Microsoft's cloud services. Defender for IoT's continued sensor enhancements ease connectivity and resource management from the cloud, even in hybrid and air-gapped environments.
+The updated guidance includes recommendations such as:
 
-The following image shows a high-level map of the updated architecture guidance, where each OT sensor connects directly to the Microsoft cloud or existing customer infrastructure for monitoring and maintenance services:
+- Monitoring and managing your OT sensors using existing organizational infrastructure
+- Using organizational security stack integrations that are increasingly reliable and robust
+- Controlling access to cloud and on-premises resources for global security teams
+- Adding cloud-based resources to enhance and empower your existing OT security system
+
+The following image shows a high level architecture of the updated guidance for monitoring and maintaining Defender for IoT systems. In this image, each OT sensor connects to both Azure and existing customer infrastructure.
 
 :::image type="content" source="media/on-premises-architecture/on-premises-architecture.png" alt-text="Diagram of the new architecture for hybrid and air-gapped support.":::
 
-#### Legacy on-premises management console deprecation
+####  Transitioning to the new architecture
 
-To support continued enhancements for the newly streamlined architecture, starting September 1, 2023, Defender for IoT also announces that the legacy on-premises management console will be deprecated as of September 1, 2024.
- 
-For sensor versions released after September 1, 2024, there will be no option to manage OT network sensors centrally from an on-premises management console, and all central management activities will be supported only from the cloud.
- 
-Between September 1, 2023 and September 1, 2024, sensor versions will continue to have a parallel on-premises management console, and support will continue for a full year. After September 1, 2024, air-gapped sensors that cannot connect to the cloud can continue to be managed directly on the sensor console.
+We recommend that existing customers use the following steps when transitioning to the new architecture guidance:
 
-We recommend that customers move any central management activities currently managed on the legacy on-premises management console to relevant cloud services.
+1. For each of your OT sensors, identify the existing integrations and permissions for on-premises security teams.
+1. Connect your sensors to your existing on-premises, Azure, and other cloud resources.
+1. Set up permissions and update procedures for accessing your sensors to match the new architecture.
+1. Review and validate that all security use cases and procedures support the new guidance.
+1. If you're using an on-premises management console, decommission it when the transition is complete.
 
-For more information, see:
+#### On-premises management console sunset
+
+The on-premises management console won't be available for OT network sensor software versions released after September 1, 2024. Instead, recommend running management activities via Microsoft cloud services or third-party services with APIs.
+
+- Sensor versions released after September 1, 2024 won't be able to be managed by an on-premises management console. All management activities are planned for support via Microsoft cloud services or partner services with APIs.
+- Sensor software versions released between September 1, 2023 - September 1, 2024 will continue to have a parallel on-premises management console release. Support for those versions will continue until September 1, 2024.
+- Air-gapped sensors that cannot connect to the cloud can be managed directly via the sensor console or using third-party services and APIs.
+
+Our support team is available to help with further guidance as customers begin planning for the transition to the new architecture guidance. 
 
 - [Deploy hybrid or air-gapped OT sensor management](ot-deploy/air-gapped-deploy.md)
 - [Versioning and support for on-premises software versions](release-notes.md#versioning-and-support-for-on-premises-software-versions)
 
+### Troubleshoot OT sensor connectivity
+
+Starting in version 23.1.3, OT sensors automatically help you troubleshoot connectivity issues with the Azure portal. If a cloud-managed sensor isn't connected, an error is indicated in the Azure portal on the **Sites and sensors** page, and on the sensor's **Overview** page.
+
+For example:
+
+:::image type="content" source="media/release-notes/connectivity-error.png" alt-text="Screenshot of a connectivity error on the Overview page." lightbox="media/release-notes/connectivity-error.png":::
+
+From your sensor, do one of the following to open the **Cloud connectivity troubleshooting** pane, which provides details about the connectivity issues and mitigation steps:
+
+- On the **Overview** page, select the **Troubleshoot** link at the top of the page
+- Select **System settings > Sensor management > Health and troubleshooting > Cloud connectivity troubleshooting**
+
+
+For more information, see [Check sensor - cloud connectivity issues](how-to-troubleshoot-sensor.md#check-sensor---cloud-connectivity-issues).
+
+### Event timeline access for OT sensor Read Only users
+
+Starting in version 23.1.3, *Read Only* users on the OT sensor can view the **Event Timeline** page. For example:
+
+:::image type="content" source="media/track-sensor-activity/event-timeline-view-events.png" alt-text="Screenshot of events on the event timeline." lightbox="media/track-sensor-activity/event-timeline-view-events.png":::
+
+For more information, see:
+
+- [Track network and sensor activity with the event timeline](how-to-track-sensor-activity.md)
+- [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md)
+
+## August 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [Defender for IoT's CVEs align to CVSS v3](#defender-for-iots-cves-align-to-cvss-v3) |
+
+### Defender for IoT's CVEs align to CVSS v3
+
+CVE scores shown in the OT sensor and on the Azure portal are aligned with the [National Vulnerability Database (NVD)](https://nvd.nist.gov/vuln-metrics/cvss), and starting with Defender for IoT's August threat intelligence update, CVSS v3 scores are shown if they're relevant. If there's no CVSS v3 score relevant, the CVSS v2 score is shown instead.
+
+View CVE data from the Azure portal, either on a Defender for IoT's device detail's **Vulnerabilities** tab, with resources available with the Microsoft Sentinel solution, or in a data mining query on your OT sensor. For more information, see:
+
+- [Maintain threat intelligence packages on OT network sensors](how-to-work-with-threat-intelligence-packages.md)
+- [View full device details](how-to-manage-device-inventory-for-organizations.md#view-full-device-details)
+- [Tutorial: Investigate and detect threats for IoT devices with Microsoft Sentinel](iot-advanced-threat-monitoring.md)
+- [Create data mining queries](how-to-create-data-mining-queries.md)
 
 ## July 2023
 
@@ -97,6 +152,8 @@ In new sensor installations of version 23.1.2, only the privileged *support* use
 
 In sensors that have been updated from previous versions to 23.1.2, the *cyberx* and *cyberx_host* users remain enabled as before.
 
+> [!TIP]
+> To run CLI commands that are available only to the *cyberx* or *cyberx_host* users when signed in as the *support* user, make sure to first access the host machine's system root. For more information, see [Access the system root as a *support* user](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-a-support-user).
 
 ### Migrate to site-based licenses
 

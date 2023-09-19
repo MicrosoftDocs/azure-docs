@@ -37,12 +37,12 @@ To sign in a domain user on a domain or Azure AD joined machine, use integrated 
   - In other words:
     - Either you as a developer selected the **Grant** button in the Azure portal for yourself.
     - Or, a tenant admin selected the **Grant/revoke admin consent for {tenant domain}** button on the **API permissions** tab of the registration for the application. For more information, see [Add permissions to access your web API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
-    - Or, you've provided a way for users to consent to the application. For more information, see [Requesting individual user consent](./v2-permissions-and-consent.md#requesting-individual-user-consent).
-    - Or, you've provided a way for the tenant admin to consent to the application. For more information, see [Admin consent](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
+    - Or, you've provided a way for users to consent to the application. For more information, see [Requesting individual user consent](./permissions-consent-overview.md#requesting-individual-user-consent).
+    - Or, you've provided a way for the tenant admin to consent to the application. For more information, see [Admin consent](./permissions-consent-overview.md#requesting-consent-for-an-entire-tenant).
 
 - This flow is enabled for .NET desktop, .NET Core, and UWP apps.
 
-For more information on consent, see the [Microsoft identity platform permissions and consent](./v2-permissions-and-consent.md).
+For more information on consent, see the [Microsoft identity platform permissions and consent](./permissions-consent-overview.md).
 
 ## Learn how to use it
 

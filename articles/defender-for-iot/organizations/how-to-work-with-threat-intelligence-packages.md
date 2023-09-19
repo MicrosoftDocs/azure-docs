@@ -1,7 +1,7 @@
 ---
 title: Maintain threat intelligence packages on OT network sensors - Microsoft Defender for IoT
 description: Learn how to maintain threat intelligence packages on OT network sensors.
-ms.date: 02/09/2023
+ms.date: 08/28/2023
 ms.topic: how-to
 ---
 
@@ -13,6 +13,8 @@ Microsoft security teams continually run proprietary ICS threat intelligence and
 Microsoft Defender for IoT regularly delivers threat intelligence package updates for OT network sensors, providing increased protection from known and relevant threats and insights that can help your teams triage and prioritize alerts.
 
 Threat intelligence packages contain signatures, such as malware signatures, CVEs, and other security content.
+
+CVE scores shown are aligned with the [National Vulnerability Database (NVD)](https://nvd.nist.gov/vuln-metrics/cvss), and CVSS v3 scores are shown if they're relevant. If there's no CVSS v3 score relevant, the CVSS v2 score is shown instead.
 
 > [!TIP]
 > We recommend ensuring that your OT network sensors always have the latest threat intelligence package installed so that you always have the full context of a threat before an environment is affected, and increased relevancy, accuracy, and actionable recommendations.
