@@ -140,17 +140,37 @@ By default, an AKS cluster is created with a node pool that can run Linux contai
         --node-count 1
     ```
 
-### [Add a Windows Server 2019 or Windows Server 2022 node pool](#tab/add-windows-server-2019-or-2022-node-pool)
+### [Add a Windows Server 2019 node pool](#tab/add-windows-server-2019-node-pool)
 
-AKS supports Windows Server 2019 and 2022 node pools. Windows Server 2022 is the default operating system for Kubernetes versions 1.25.0 and higher. Windows Server 2019 is the default OS for earlier versions. To use Windows Server 2019 or Windows Server 2022, you need to specify the following parameters:
+Windows Server 2022 is the default operating system for Kubernetes versions 1.25.0 and higher. Windows Server 2019 is the default OS for earlier versions. To use Windows Server 2019, you need to specify the following parameters:
 
 - `os-type` set to `Windows`
-- `os-sku` set to `Windows2019` *or* `Windows2022`
+- `os-sku` set to `Windows2019`
 
 > [!NOTE]
->
-> - Windows Server 2022 requires Kubernetes version 1.23.0 or higher.
-> - Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+> Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+
+- Add a Windows Server 2019 node pool using the `az aks nodepool add` command.
+
+    ```azurecli-interactive
+    az aks nodepool add \
+        --resource-group myResourceGroup \
+        --cluster-name myAKSCluster \
+        --os-type Windows \
+        --os-sku Windows2019 \
+        --name npwin \
+        --node-count 1
+    ```
+
+### [Add a Windows Server 2022 node pool](#tab/add-windows-server-2022-node-pool)
+
+Windows Server 2022 is the default operating system for Kubernetes versions 1.25.0 and higher. Windows Server 2019 is the default OS for earlier versions. To use Windows Server 2022, you need to specify the following parameters:
+
+- `os-type` set to `Windows`
+- `os-sku` set to `Windows2022`
+
+> [!NOTE]
+> Windows Server 2022 requires Kubernetes version 1.23.0 or higher.
 
 - Add a Windows Server 2022 node pool using the `az aks nodepool add` command.
 
