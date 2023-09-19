@@ -229,6 +229,7 @@ The following example demonstrates how the [Runtime Instrumentation](https://www
 
 ```csharp
 // Create a new OpenTelemetry meter provider and add runtime instrumentation and the Azure Monitor metric exporter.
+// It is important to keep the MetricsProvider instance active throughout the process lifetime.
 var metricsProvider = Sdk.CreateMeterProviderBuilder()
     .AddRuntimeInstrumentation()
     .AddAzureMonitorMetricExporter();
@@ -415,6 +416,8 @@ public class Program
         // Create a new MeterProvider object using the OpenTelemetry SDK.
         // The MeterProvider object is responsible for managing meters and sending
         // metric data to exporters.
+        // It is important to keep the MetricsProvider instance active
+        // throughout the process lifetime.
         //
         // The MeterProviderBuilder is configured to add a meter named
         // "OTel.AzureMonitor.Demo" and an Azure Monitor metric exporter.
@@ -559,6 +562,8 @@ public class Program
         // Create a new MeterProvider object using the OpenTelemetry SDK.
         // The MeterProvider object is responsible for managing meters and sending
         // metric data to exporters.
+        // It is important to keep the MetricsProvider instance active
+        // throughout the process lifetime.
         //
         // The MeterProviderBuilder is configured to add a meter named
         // "OTel.AzureMonitor.Demo" and an Azure Monitor metric exporter.
@@ -712,7 +717,9 @@ public class Program
     {
         // Create a new MeterProvider object using the OpenTelemetry SDK.
         // The MeterProvider object is responsible for managing meters and sending
-        // metric data to exporters.
+        // metric data to exporters. 
+        // It is important to keep the MetricsProvider instance active
+        // throughout the process lifetime.
         //
         // The MeterProviderBuilder is configured to add a meter named
         // "OTel.AzureMonitor.Demo" and an Azure Monitor metric exporter.
@@ -1047,6 +1054,7 @@ app.Run();
 
 ```csharp
 // Create an OpenTelemetry tracer provider builder.
+// It is important to keep the TracerProvider instance active throughout the process lifetime.
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
         .AddSource("ActivitySourceName")
         .AddAzureMonitorTraceExporter()
@@ -1453,6 +1461,7 @@ To add span attributes, use either of the following two ways:
 
 ```csharp
 // Create an OpenTelemetry tracer provider builder.
+// It is important to keep the TracerProvider instance active throughout the process lifetime.
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
         // Add a source named "OTel.AzureMonitor.Demo".
         .AddSource("OTel.AzureMonitor.Demo") // Add a new processor named ActivityEnrichingProcessor.
@@ -1812,6 +1821,7 @@ You might use the following ways to filter out telemetry before it leaves your a
     
     ```csharp
     // Create an OpenTelemetry tracer provider builder.
+    // It is important to keep the TracerProvider instance active throughout the process lifetime.
     using var tracerProvider = Sdk.CreateTracerProviderBuilder()
             .AddSource("OTel.AzureMonitor.Demo") // Add a source named "OTel.AzureMonitor.Demo".
             .AddProcessor(new ActivityFilteringProcessor()) // Add a new processor named ActivityFilteringProcessor.
