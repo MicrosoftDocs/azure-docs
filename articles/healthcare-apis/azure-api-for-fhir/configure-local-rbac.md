@@ -5,12 +5,14 @@ author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ms.author: kesheth
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 # Configure local RBAC for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 This article explains how to configure the Azure API for FHIR to use a secondary Azure Active Directory (Azure AD) tenant for data access. Use this mode only if it isn't possible for you to use the Azure AD tenant associated with your subscription.
 

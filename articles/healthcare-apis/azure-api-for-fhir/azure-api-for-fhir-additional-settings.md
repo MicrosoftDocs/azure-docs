@@ -6,10 +6,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/02/2022
+ms.date: 09/27/2023
 ---
 
 # Additional settings for Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 In this how-to guide, we'll review the additional settings you may want to set in your Azure API for FHIR. There are additional pages that drill into even more details.
 

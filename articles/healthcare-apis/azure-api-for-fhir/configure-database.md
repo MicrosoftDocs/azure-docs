@@ -6,10 +6,12 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: ignite-2022
 ms.topic: reference 
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ms.author: kesheth
 ---
 # Configure database settings 
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 Azure API for FHIR uses database to store its data. Performance of the underlying database depends on the number of Request Units (RU) selected during service provisioning or in database settings after the service has been provisioned.
 
