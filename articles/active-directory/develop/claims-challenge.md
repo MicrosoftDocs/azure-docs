@@ -69,7 +69,7 @@ GET https://login.microsoftonline.com/14c2f153-90a7-4689-9db7-9543bf084dad/oauth
 &claims=%7B%22access_token%22%3A%7B%22acrs%22%3A%7B%22essential%22%3Atrue%2C%22value%22%3A%22c1%22%7D%7D%7D
 ```
 
-The claims challenge should be passed as a part of all calls to Microsoft Entra ID's [/authorize](v2-oauth2-auth-code-flow.md#request-an-authorization-code) endpoint until a token is successfully retrieved, after which it is no longer needed.
+The claims challenge should be passed as a part of all calls to a Microsoft Entra [/authorize](v2-oauth2-auth-code-flow.md#request-an-authorization-code) endpoint until a token is successfully retrieved, after which it is no longer needed.
 
 To populate the claims parameter, the developer has to:
 

@@ -17,7 +17,7 @@ ms.reviewer: sureshja
 
 # Application and service principal objects in Microsoft Entra ID
 
-This article describes application registration, application objects, and service principals in Microsoft Entra ID (Microsoft Entra ID): what they are, how they're used, and how they're related to each other. A multi-tenant example scenario is also presented to illustrate the relationship between an application's application object and corresponding service principal objects.
+This article describes application registration, application objects, and service principals in Microsoft Entra ID, what they are, how they're used, and how they're related to each other. A multi-tenant example scenario is also presented to illustrate the relationship between an application's application object and corresponding service principal objects.
 
 ## Application registration
 

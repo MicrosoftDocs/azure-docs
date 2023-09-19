@@ -19,7 +19,7 @@ ms.custom: aaddev,references_regions
 
 National clouds are physically isolated instances of Azure. These regions of Azure are designed to make sure that data residency, sovereignty, and compliance requirements are honored within geographical boundaries.
 
-Including the global Azure cloud, Microsoft Entra ID (Microsoft Entra ID) is deployed in the following national clouds:
+Including the global Azure cloud, Microsoft Entra ID is deployed in the following national clouds:
 
 - Azure Government
 - Microsoft Azure operated by 21Vianet
