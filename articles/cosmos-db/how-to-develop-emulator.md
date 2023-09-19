@@ -1001,23 +1001,59 @@ Use the [Azure Tables Python SDK](table/quickstart-python.md) to connect to the 
 
 ### [JavaScript / Node.js](#tab/javascript+nodejs)
 
-TODO
+Use the [Azure Tables JavaScript SDK](cassandra/manage-data-nodejs.md) to use the emulator from a Node.js/JavaScript application.
 
 1. Start in an empty folder
 
-1. TODO
+1. Initialize a new module.
 
     ```bash
-    
+    npm init es6 --yes
     ```
 
-1. TODO
+1. Install the [`@azure/data-tables`](https://www.npmjs.com/package/@azure/data-tables) package from Node Package Manager.
 
-1. TODO
-
-    ```javascript
-    
+    ```bash
+    npm install --save @azure/data-tables
     ```
+
+1. Create the **app.js** file.
+
+1. Import the `TableClient` type from the `@azure/data-tables` module.
+
+    :::code language="javascript" source="~/cosmos-db-table-javascript-samples/601-emulator/app.js" id="imports":::
+
+1. Use [`TableClient.fromConnectionString`](/javascript/api/@azure/data-tables/tableclient#@azure-data-tables-tableclient-fromconnectionstring) to create a new client instance using the emulator's connection string.
+
+    :::code language="javascript" source="~/cosmos-db-table-javascript-samples/601-emulator/app.js" highlight="2" id="client":::
+
+1. Use [`createTable`](/javascript/api/@azure/data-tables/tableclient#@azure-data-tables-tableclient-createtable) to create a new table if it doesn't already exist.
+
+    :::code language="javascript" source="~/cosmos-db-table-javascript-samples/601-emulator/app.js" id="resources":::
+
+1. Use [`upsertEntity`](/javascript/api/%40azure/data-tables/tableclient#@azure-data-tables-tableclient-upsertentity) to create or replace the item.
+
+    :::code language="javascript" source="~/cosmos-db-table-javascript-samples/601-emulator/app.js" highlight="7" id="upsert":::
+
+1. Run the Node.js application.
+
+    ```bash
+    node app.js
+    ```
+
+    > [!WARNING]
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the client to disable TLS/SSL validation:
+    >
+    > ```javascript
+    > const client = TableClient.fromConnectionString(
+    >   ...,
+    >   ...,
+    >   {
+    >     allowInsecureConnection: true
+    >   }
+    > )
+    > ```
+    >
 
 ---
 

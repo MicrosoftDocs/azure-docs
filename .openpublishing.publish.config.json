@@ -1023,6 +1023,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "cosmos-db-table-javascript-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-table-javascript-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cosmos-db-table-python-samples",
       "url": "https://github.com/azure-samples/cosmos-db-table-python-samples",
       "branch": "main",
