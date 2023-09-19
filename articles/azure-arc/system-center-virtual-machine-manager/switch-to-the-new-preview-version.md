@@ -6,7 +6,7 @@ ms.subservice: azure-arc-scvmm
 author: jyothisuri
 ms.author: jsuri
 ms.topic: how-to 
-ms.date: 09/21/2023
+ms.date: 09/18/2023
 keywords: "VMM, Arc, Azure"
 
 #Customer intent: As a VI admin, I want to switch to the new preview version of Arc-enabled SCVMM (preview) and leverage the associated capabilities

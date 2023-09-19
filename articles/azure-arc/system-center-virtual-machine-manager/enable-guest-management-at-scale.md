@@ -6,7 +6,7 @@ ms.subservice: azure-arc-scvmm
 author: jyothisuri
 ms.author: jsuri
 ms.topic: how-to 
-ms.date: 09/21/2023
+ms.date: 09/18/2023
 keywords: "VMM, Arc, Azure"
 
 #Customer intent: As an IT infra admin, I want to install arc agents to use Azure management services for SCVMM VMs.
