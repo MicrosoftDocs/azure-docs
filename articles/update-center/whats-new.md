@@ -41,7 +41,7 @@ Update Manager now supports [generalized](../virtual-machines/linux/imaging.md#g
 
 ### Multi-subscription support
 
-The limit on the number of subscriptions that you can manage to use the Update Manager portal has now been removed. You can now manage all your subscriptions using the update Manager portal.
+The limit on the number of subscriptions that you can manage to use the Update Manager portal has now been removed. You can now manage all your subscriptions using the Update Manager portal.
 
 ## April 2023
 

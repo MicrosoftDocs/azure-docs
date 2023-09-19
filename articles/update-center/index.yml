@@ -68,12 +68,24 @@ landingContent:
             url: deploy-updates.md
           - text: Schedule recurring updates for machines
             url: scheduled-patching.md
+<<<<<<< HEAD
   
   - title: Dynamic scoping (preview)
+=======
+  # Card
+  - title: Get started
+    linkLists:     
+      - linkListType: tutorial
+        links:
+          - text: Check and install on-demand updates
+            url: quickstart-on-demand.md
+
+  - title: Dynamic Scoping
+>>>>>>> 1ffe3f44769dd0966f54a3996e1447509424ca6f
     linkLists:     
       - linkListType: concept
         links:
-          - text: About Dynamic scoping (preview)
+          - text: About Dynamic Scoping
             url: dynamic-scope-overview.md
       - linkListType: tutorial
         links:

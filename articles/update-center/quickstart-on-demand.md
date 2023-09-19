@@ -23,7 +23,11 @@ This quickstart details you how to perform manual assessment and apply updates o
 
 ## Check updates
 
+<<<<<<< HEAD
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Azure Update Manager**.
+=======
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update Manager.
+>>>>>>> 1ffe3f44769dd0966f54a3996e1447509424ca6f
 
 1. Select **Get started** > **On-demand assessment and updates**, select **Check for updates**.
 
@@ -42,7 +46,11 @@ For the assessed machines that are reporting updates, you can configure [periodi
 
 To configure the settings on your machines, follow these steps:
 
+<<<<<<< HEAD
 1. In **Azure Update Manager | Getting started**, in **On-demand assessment and updates**, select **Update settings**.
+=======
+1. In **Update Manager|Getting started**, in **On-demand assessment and updates**, select **Update settings**.
+>>>>>>> 1ffe3f44769dd0966f54a3996e1447509424ca6f
 
     :::image type="content" source="./media/quickstart-on-demand/quickstart-update-settings.png" alt-text="Screenshot showing how to access update settings option to configure updates for virtual machines.":::
 
@@ -55,9 +63,13 @@ To configure the settings on your machines, follow these steps:
 
 As per the last assessment performed on the selected machines, you can now select resources and machines to install the updates
 
+<<<<<<< HEAD
 1. In the **Azure Update Manager | Getting started** page, in **On-demand assessment and updates**, select **Install updates by machines**.
 
  :::image type="content" source="./media/quickstart-on-demand/quickstart-install-updates.png" alt-text="Screenshot showing how to access install update settings option to install the updates for virtual machines.":::
+=======
+1. In the **Update Manager|Getting started** page, in **On-demand assessment and updates**, select **Install updates by machines**.
+>>>>>>> 1ffe3f44769dd0966f54a3996e1447509424ca6f
 
 1. In the **Install one-time updates** page, select one or more machines from the list in the **Machines** tab and click **Next**.
 

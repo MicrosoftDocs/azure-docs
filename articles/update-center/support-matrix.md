@@ -76,7 +76,7 @@ Azure Update Manager is supported in the following regions currently. It implies
 --- | ---
 Africa | South Africa North
 Asia Pacific | East Asia </br> South East Asia
-Australia | Australia East
+Australia | Australia East </br> Australia Southeast
 Brazil | Brazil South
 Canada | Canada Central </br> Canada East
 Europe | North Europe </br> West Europe
@@ -84,6 +84,7 @@ France | France Central
 India | Central India
 Japan | Japan East
 Korea | Korea Central
+Norway | Norway East
 Sweden | Sweden Central
 Switzerland | Switzerland North
 United Kingdom | UK South </br> UK West
@@ -190,6 +191,7 @@ The table lists the operating systems supported on [Azure Arc-enabled servers](.
 
    |**Operating System**|
    |-------------|
+   | Amazon Linux 2023 |
    | Windows Server 2012 R2 and higher (including Server Core) |
    | Windows Server 2008 R2 SP1 with PowerShell enabled and .NET Framework 4.0+ |
    | Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS |

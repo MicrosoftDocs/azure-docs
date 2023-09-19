@@ -1,5 +1,5 @@
 ---
-title: Scheduling recurring updates in Azure Update Manager (preview)
+title: Scheduling recurring updates in Azure Update Manager
 description: The article details how to use Azure Update Manager in Azure to set update schedules that install recurring updates on your machines.
 ms.service: azure-update-manager
 ms.date: 09/18/2023
@@ -16,7 +16,7 @@ ms.author: sudhirsneha
 > - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules (Preview)** by **30th June 2023**. If you fail to update the patch orchestration by **30th June 2023**, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.[Learn more](prerequsite-for-schedule-patching.md).
 
 
-You can use Azure Update Manager in Azure to create and save recurring deployment schedules. You can create a schedule on a daily, weekly or hourly cadence, specify the machines that must be updated as part of the schedule, and the updates to be installed. This schedule will then automatically install the updates as per the created schedule for single VM and at scale.
+You can use Update Manager in Azure to create and save recurring deployment schedules. You can create a schedule on a daily, weekly or hourly cadence, specify the machines that must be updated as part of the schedule, and the updates to be installed. This schedule will then automatically install the updates as per the created schedule for single VM and at scale.
 
 Update Manager uses maintenance control schedule instead of creating its own schedules. Maintenance control enables customers to manage platform updates. For more information, see [Maintenance control documentation](/azure/virtual-machines/maintenance-control).
 
