@@ -71,7 +71,7 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
 You can protect Azure OpenAI resources in [virtual networks and private endpoints](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
 > [!NOTE]
-> If you disable public network access of Azure OpenAI resources, you can call /extensions/chat/completions API or chat with your existing index on Studio. However, vector search and blob/file ingestion on Studio are not supported.
+> If you disable public network access for your Azure OpenAI resources, you can call the `/extensions/chat/completions` API or chat with your existing index in Azure OpenAI Studio. However, vector search and blob/file ingestion in the studio is not supported.
 
 ### Azure Cognitive Search resources
 
