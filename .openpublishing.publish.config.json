@@ -987,6 +987,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "cosmos-db-mongodb-javascript-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-mongodb-javascript-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cosmos-db-mongodb-python-samples",
       "url": "https://github.com/azure-samples/cosmos-db-mongodb-python-samples",
       "branch": "main",

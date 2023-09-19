@@ -487,6 +487,12 @@ Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to 
     >     }),
     >     ConnectionMode = ConnectionMode.Gateway
     > };
+    >
+    > using CosmosClient client = new(
+    >   ...,
+    >   ...,
+    >   clientOptions: options
+    > );
     > ```
     >
 
@@ -557,7 +563,7 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
     npm install --save @azure/cosmos
     ```
 
-1. Create the **index.js** file.
+1. Create the **app.js** file.
 
 1. Import the `CosmosClient` type from the `@azure/cosmos` module.
 
@@ -578,7 +584,7 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
 1. Run the Node.js application.
 
     ```bash
-    node index.js
+    node app.js
     ```
 
     > [!WARNING]
@@ -657,19 +663,52 @@ Use the [MongoDB Node.js driver](mongodb/quickstart-nodejs.md) to use the emulat
 
 1. Start in an empty folder
 
-1. TODO
+1. Initialize a new module.
 
     ```bash
-    
+    npm init es6 --yes
     ```
 
-1. TODO
+1. Install the [`mongodb`](https://www.npmjs.com/package/mongodb) package from Node Package Manager.
 
-1. TODO
-
-    ```javascript
-    
+    ```bash
+    npm install --save mongodb
     ```
+
+1. Create the **app.js** file.
+
+1. Import the `MongoClient` type from the `mongodb` module.
+
+    :::code language="javascript" source="~/cosmos-db-mongodb-javascript-samples/601-emulator/app.js" id="imports":::
+
+1. Use [`MongoClient`](https://mongodb.github.io/node-mongodb-native/6.1/classes/MongoClient.html) to create a new client instance using the emulator's credentials. Use [`connect`](https://mongodb.github.io/node-mongodb-native/6.1/classes/MongoClient.html#connect) to connect to the emulator.
+
+    :::code language="javascript" source="~/cosmos-db-mongodb-javascript-samples/601-emulator/app.js" highlight="2" id="client":::
+
+1. Use [`db`](https://mongodb.github.io/node-mongodb-native/6.1/classes/MongoClient.html#db) and [`collection`](https://mongodb.github.io/node-mongodb-native/6.1/classes/Db.html#collection) to create a database and container.
+
+    :::code language="javascript" source="~/cosmos-db-mongodb-javascript-samples/601-emulator/app.js" id="resources":::
+
+1. Create a new item using [`insertOne`](https://mongodb.github.io/node-mongodb-native/6.1/classes/Collection.html#insertOne).
+
+    :::code language="javascript" source="~/cosmos-db-mongodb-javascript-samples/601-emulator/app.js" highlight="5" id="upsert":::
+
+1. Run the Node.js application.
+
+    ```bash
+    node app.js
+    ```
+
+    > [!WARNING]
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
+    >
+    > ```javascript
+    > const client = new MongoClient(
+    >   ...,
+    >   { tlsAllowInvalidCertificates: true }
+    > )
+    > ```
+    >
 
 ---
 
