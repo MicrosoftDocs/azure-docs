@@ -10,7 +10,7 @@ ms.date: 06/24/2022
 
 # Prepay for Azure Database for MariaDB compute resources with reserved capacity
 
-[[!INCLUDE [azure-database-for-mariadb-deprecation](Includes/azure-database-for-mariadb-deprecation.md)]]
+[[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]]
 
 Azure Database for MariaDB now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Database for MariaDB reserved capacity, you make an upfront commitment on MariaDB servers for a one or three year period to get a significant discount on the compute costs. To purchase Azure Database for MariaDB reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term. </br>
 

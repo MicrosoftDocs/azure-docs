@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 
 # Quickstart: Create an Azure Database for MariaDB server by using the Azure CLI
 
-[[!INCLUDE [azure-database-for-mariadb-deprecation](Includes/azure-database-for-mariadb-deprecation.md)]]
+[[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]]
 
 You can use the Azure CLI to create and manage Azure resources from the command line or in scripts. This quickstart describes how to use the Azure CLI to create an Azure Database for MariaDB server in an Azure resource group in about five minutes.
 

@@ -10,7 +10,7 @@ ms.date: 06/24/2022
 
 # Configuring TLS settings in Azure Database for MariaDB using Azure portal
 
-[[!INCLUDE [azure-database-for-mariadb-deprecation](Includes/azure-database-for-mariadb-deprecation.md)]]
+[[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]]
 
 This article describes how you can configure an Azure Database for MariaDB server to enforce minimum TLS version for connections to go through and deny all connections with lower TLS version than configured minimum TLS version thereby enhancing the network security.
 

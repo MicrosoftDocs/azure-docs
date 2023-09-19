@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 # Monitor Azure Database for MariaDB performance with Query Store
 
-[[!INCLUDE [azure-database-for-mariadb-deprecation](Includes/azure-database-for-mariadb-deprecation.md)]]
+[[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]]
 
 **Applies to:** Azure Database for MariaDB 10.2
 

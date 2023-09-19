@@ -9,7 +9,7 @@ ms.date: 06/24/2022
 ---
 # Planned maintenance notification in Azure Database for MariaDB
 
-[[!INCLUDE [azure-database-for-mariadb-deprecation](Includes/azure-database-for-mariadb-deprecation.md)]]
+[[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]]
 
 Learn how to prepare for planned maintenance events on your Azure Database for MariaDB.
 

@@ -10,7 +10,7 @@ ms.date: 06/24/2022
 ---
 # Auto-grow Azure Database for MariaDB storage using the Azure CLI
 
-[[!INCLUDE [azure-database-for-mariadb-deprecation](Includes/azure-database-for-mariadb-deprecation.md)]]
+[[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]]
 
 This article describes how you can configure an Azure Database for MariaDB server storage to grow without impacting the workload.
 

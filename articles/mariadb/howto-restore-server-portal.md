@@ -10,7 +10,7 @@ ms.date: 06/24/2022
 
 # How to backup and restore a server in Azure Database for MariaDB using the Azure portal
 
-[[!INCLUDE [azure-database-for-mariadb-deprecation](Includes/azure-database-for-mariadb-deprecation.md)]]
+[[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]]
 
 ## Backup happens automatically
 
