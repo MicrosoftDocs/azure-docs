@@ -18,6 +18,12 @@ This document helps set up an example application that uses the following resour
 - Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) resource that references a backend service.
 - Create a [BackendTLSPolicy](api-specification-kubernetes.md#alb.networking.azure.io/v1.BackendTLSPolicy) resource that has a client and CA certificate for the backend service referenced in the HTTPRoute.
 
+## Background
+
+Mutual Transport Layer Security (MTLS) is a process that relies on certificate authentication to create an encrypted TLS connection. You can use MTLS to secure the connection from a client device to the Application Gateway for Containers backend target. If a client certificate is revoked or otherwise invalid, the connection is denied. See the following figure:
+
+[ ![The Application Gateway for Containers backend MTLS process](./media/how-to-backend-mtls-gateway-api/backend-mtls.png) ](./media/how-to-backend-mtls-gateway-api/backend-mtls.png#lightbox)
+
 ## Prerequisites
 
 > [!IMPORTANT]
