@@ -33,7 +33,7 @@ When you **Assign Endpoint** on applications in an Azure Spring Apps service ins
 
    :::image type="content" source="media/spring-cloud-access-app-vnet/find-ip-address.png" alt-text="Screenshot of the Azure portal that shows the Vnet injection Endpoint information." lightbox="media/spring-cloud-access-app-vnet/find-ip-address.png":::
 
-#### [Azure Developer CLI](#tab/azure-CLI)
+#### [Azure CLI](#tab/azure-CLI)
 
 Find the IP Address for your Spring Cloud services. Customize the value of your Azure Spring Apps instance name based on your real environment.
 
@@ -76,7 +76,7 @@ The following procedure creates a private DNS zone for an application in the pri
 
 5. Select **Create**.
 
-#### [Azure Developer CLI](#tab/azure-CLI)
+#### [Azure CLI](#tab/azure-CLI)
 
 1. Define variables for your subscription, resource group, and Azure Spring Apps instance. Customize the values based on your real environment.
 
@@ -123,7 +123,7 @@ To link the private DNS zone to the virtual network, you need to create a virtua
 
 6. Select **OK**.
 
-#### [Azure Developer CLI](#tab/azure-CLI)
+#### [Azure CLI](#tab/azure-CLI)
 
 Link the private DNS zone you created to the virtual network holding your Azure Spring Apps service.
 
@@ -162,7 +162,7 @@ To use the private DNS zone to translate/resolve DNS, you must create an "A" typ
 
     ![Add private DNS zone record](media/spring-cloud-access-app-vnet/private-dns-zone-add-record.png)
 
-#### [Azure Developer CLI](#tab/azure-CLI)
+#### [Azure CLI](#tab/azure-CLI)
 
 Use the [IP address](#find-the-ip-for-your-application) to create the A record in your DNS zone. 
 
@@ -192,7 +192,7 @@ After following the procedure in [Deploy Azure Spring Apps in a virtual network]
 
 4. The assigned private FQDN (labeled **URL**) is now available. It can only be accessed within the private network, but not on the Internet.
 
-#### [Azure Developer CLI](#tab/azure-CLI)
+#### [Azure CLI](#tab/azure-CLI)
 
 Update your app to assign an endpoint to it. Customize the value of your app name based on your real environment.
 
