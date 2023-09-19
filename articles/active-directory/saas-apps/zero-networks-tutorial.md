@@ -100,7 +100,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ## Configure user assignment requirement
 
-1. In the Azure portal, on the **Zero Networks** application integration page, find the **Manage** section and select **Properties**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Zero Networks** application integration page, find the **Manage** section and select **Properties**.
 1. Change **User assignment required?** to **No**.
 
 ![Screenshot for User assignment required.](./media/zero-networks-tutorial/user-assignment.png)
