@@ -123,7 +123,7 @@ The **Conditions** tab will look different depending on the role you selected.
 # [Delegate condition](#tab/delegate-condition)
 
 > [!IMPORTANT]
-> Delegate Azure role assignments with conditions is currently in PREVIEW.
+> Delegating Azure role assignments with conditions is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 If you selected one of the following privileged roles, follow the steps in this section.
