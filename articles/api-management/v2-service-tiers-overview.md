@@ -110,10 +110,10 @@ Deploy an instance of the Basic v2 or Standard v2 tier using the Azure portal, A
 
 ### Q: Can I migrate from my existing API Management instance to a new v2 tier instance?
 
-A: No. Currently you can't migrate an existing API Management instance (in the Consumption, Developer, Standard, or Premium tier) to a new v2 tier instance. You must deploy a new instance in the v2 tier.
+A: No. Currently you can't migrate an existing API Management instance (in the Consumption, Developer, Basic, Standard, or Premium tier) to a new v2 tier instance. You must deploy a new instance in the v2 tier.
 
 ### Q: What's the relationship between the stv2 compute platform and the v2 tiers?
-A: They're not related. API Management's stv2 compute platform is a successor platform version used for the [retirement of the stv1 compute platform](./breaking-changes/stv1-platform-retirement-august-2024.md) in the current Developer, Standard, and Premium tiers. The v2 tiers aren't affected by the retirement of the stv1 compute platform.
+A: They're not related. API Management's stv2 compute platform is a successor platform version used for the [retirement of the stv1 compute platform](./breaking-changes/stv1-platform-retirement-august-2024.md) in the current Developer, Basic, Standard, and Premium tiers. The v2 tiers aren't affected by the retirement of the stv1 compute platform.
 
 ## Related content
 
