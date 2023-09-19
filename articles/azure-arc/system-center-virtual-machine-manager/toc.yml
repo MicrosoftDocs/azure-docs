@@ -17,11 +17,11 @@
   items:
   - name: Deploy
     items:
-    - name: Enable SCVMM inventory resources  
+    - name: Enable SCVMM inventory resources in Azure
       href: enable-scvmm-inventory-resources.md
   - name: Use Azure Management services for SCVMM VMs
     items:
-    - name: Install arc agent at scale for SCVMM VMs
+    - name: Install Arc agent at scale for SCVMM VMs
       href: enable-guest-management-at-scale.md
   - name: Administer
     items:
