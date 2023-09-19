@@ -96,6 +96,7 @@ To add a new data source to your Azure OpenAI resource, you need the following A
 |---------|---------|
 |[Cognitive Services Contributor](../how-to/role-based-access-control.md#cognitive-services-contributor) | You want to use Azure OpenAI on your data. |
 |[Search Index Data Contributor](/azure/role-based-access-control/built-in-roles#search-index-data-contributor)     | You have an existing Azure Cognitive Search index that you want to use, instead of creating a new one.        |
+|[Search Service Contributor](/azure/role-based-access-control/built-in-roles#search-service-contributor)     | You plan to create a new Azure Cognitive Search index.        |
 |[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.        |
 
 ## Document-level access control
