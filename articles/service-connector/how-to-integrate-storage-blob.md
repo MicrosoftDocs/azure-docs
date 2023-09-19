@@ -56,7 +56,7 @@ For default environment variables and sample codes of other authentication type,
 #### Sample codes
 
 Follow these steps and sample codes to connect to Azure Blob Storage with system-assigned managed identity.
-[!INCLUDE [code sample for blob](./includes/code-blob-aad.md)]
+[!INCLUDE [code sample for blob](./includes/code-blob-me-id.md)]
 
 ::: zone-end
 
@@ -74,7 +74,7 @@ For default environment variables and sample codes of other authentication type,
 #### Sample codes
 
 Follow these steps and sample codes to connect to Azure Blob Storage with user-assigned managed identity.
-[!INCLUDE [code sample for blob](./includes/code-blob-aad.md)]
+[!INCLUDE [code sample for blob](./includes/code-blob-me-id.md)]
 
 ::: zone-end
 
@@ -123,7 +123,7 @@ For default environment variables and sample codes of other authentication type,
 #### Sample codes
 
 Follow these steps and sample codes to connect to Azure Blob Storage with service principal.
-[!INCLUDE [code sample for blob](./includes/code-blob-aad.md)]
+[!INCLUDE [code sample for blob](./includes/code-blob-me-id.md)]
 
 ::: zone-end
 
