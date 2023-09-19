@@ -496,7 +496,7 @@ The following example illustrates the use of the inclusion:
 
 ### Multilevel inclusion
 
-A technical profile can include a single technical profile. There's no limit on the number of levels of inclusion. For example, the **Microsoft Entra ID-UserReadUsingAlternativeSecurityId-NoError** technical profile includes **Microsoft Entra ID-UserReadUsingAlternativeSecurityId**. This technical profile sets the `RaiseErrorIfClaimsPrincipalDoesNotExist` metadata item to `true` and raises an error if a social account doesn't exist in the directory. **Microsoft Entra ID-UserReadUsingAlternativeSecurityId-NoError** overrides this behavior and disables that error message.
+A technical profile can include a single technical profile. There's no limit on the number of levels of inclusion. For example, the **AAD-UserReadUsingAlternativeSecurityId-NoError** technical profile includes **AAD-UserReadUsingAlternativeSecurityId**. This technical profile sets the `RaiseErrorIfClaimsPrincipalDoesNotExist` metadata item to `true` and raises an error if a social account doesn't exist in the directory. **AAD-UserReadUsingAlternativeSecurityId-NoError** overrides this behavior and disables that error message.
 
 ```xml
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">
