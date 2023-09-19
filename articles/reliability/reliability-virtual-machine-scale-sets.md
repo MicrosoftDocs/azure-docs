@@ -30,7 +30,7 @@ This section contains recommendations for achieving resiliency and availability 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
 | [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [Enable automatic repair policy](#-enable-automatic-repair-policy) |
-| |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [Deploy Virtual Machine Scale Sets across availability zones with VMSS Flex](#-deploy-virtual-machine-scale-sets-across-availability-zones-with-vmss-flex) |
+| |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [Deploy Virtual Machine Scale Sets across availability zones with Virtual Machine Scale Sets Flex](#-deploy-virtual-machine-scale-sets-across-availability-zones-with-virtual-machine-scale-sets-flex) |
 | [**Scalability**](#scalability) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-1: Deploy VMs with flexible orchestration mode](#-deploy-vms-with-flexible-orchestration-mode) |
 | |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [Configure Virtual Machine Scale Sets Autoscale to Automatic](#-configure-virtual-machine-scale-sets-autoscale-to-automatic) |
 | |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [Set Virtual Machine Scale Sets custom scale-in policies to default](#-set-virtual-machine-scale-sets-custom-scale-in-policies-to-default) |
@@ -56,7 +56,7 @@ A grace period can be set using the property `automaticRepairsPolicy.gracePeriod
 ----
 
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **Deploy Virtual Machine Scale Sets across availability zones with VMSS Flex** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **Deploy Virtual Machine Scale Sets across availability zones with Virtual Machine Scale Sets Flex** 
 
 When you create your Virtual Machine Scale Sets, use availability zones to protect your applications and data against unlikely datacenter failure. For more information, see [Availability zone support](#availability-zone-support).
 

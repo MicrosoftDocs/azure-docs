@@ -29,7 +29,7 @@ This section contains recommendations for achieving resiliency and availability 
 ||:::image type="icon" source="media/icon-recommendation-high.svg"::: |[Deploy VMs across availability zones or use Virtual Machine Scale Sets Flex with zones](#-deploy-vms-across-availability-zones-or-use-virtual-machine-scale-sets-flex-with-zones) | 
 ||:::image type="icon" source="media/icon-recommendation-high.svg":::|[Migrate VMs using availability sets to Virtual Machine Scale Sets Flex](#-migrate-vms-using-availability-sets-to-virtual-machine-scale-sets-flex) | 
 ||:::image type="icon" source="media/icon-recommendation-high.svg"::: |[Use managed disks for VM disks](#-use-managed-disks-for-vm-disks)|
-|[**Disaster Recovery**](#disaster-recovery)| :::image type="icon" source="media/icon-recommendation-medium.svg":::  |[VM-4: Replicate VMs using Azure Site Recovery](#-replicate-vms-using-azure-site-recovery) |
+|[**Disaster Recovery**](#disaster-recovery)| :::image type="icon" source="media/icon-recommendation-medium.svg":::  |[Replicate VMs using Azure Site Recovery](#-replicate-vms-using-azure-site-recovery) |
 ||:::image type="icon" source="media/icon-recommendation-medium.svg"::: |[Back up data on your VMs with Azure Backup service](#-back-up-data-on-your-vms-with-azure-backup-service) |
 |[**Performance**](#performance) |:::image type="icon" source="media/icon-recommendation-low.svg":::  | [Host application and database data on a data disk](#-host-application-and-database-data-on-a-data-disk)| 
 ||:::image type="icon" source="media/icon-recommendation-high.svg"::: | [Production VMs should be using SSD disks](#-production-vms-should-be-using-ssd-disks)| 
@@ -46,7 +46,7 @@ This section contains recommendations for achieving resiliency and availability 
 |[**Storage**](#storage) |:::image type="icon" source="media/icon-recommendation-medium.svg"::: |[Shared disks should only be enabled in clustered servers](#-shared-disks-should-only-be-enabled-in-clustered-servers) | 
 |[**Compliance**](#compliance)| :::image type="icon" source="media/icon-recommendation-low.svg":::  |[VEnsure that your VMs are compliant with Azure Policies](#-ensure-that-your-vms-are-compliant-with-azure-policies) |
 |[**Monitoring**](#monitoring)| :::image type="icon" source="media/icon-recommendation-low.svg":::  |[Enable VM Insights](#-enable-vm-insights) | 
-||:::image type="icon" source="media/icon-recommendation-low.svg"::: |[ Configure diagnostic settings for all Azure resources](#-configure-diagnostic-settings-for-all-azure-resources) | 
+||:::image type="icon" source="media/icon-recommendation-low.svg"::: |[Configure diagnostic settings for all Azure resources](#-configure-diagnostic-settings-for-all-azure-resources) | 
 
 
 ### High availability
