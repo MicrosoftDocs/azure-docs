@@ -7,7 +7,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 07/24/2023
+ms.date: 09/18/2023
 ms.author: greglin
 ---
 
@@ -20,7 +20,7 @@ This document helps set up an example application that uses the following resour
 
 ## Background
 
-Mutual Transport Layer Security (MTLS) is a process that relies on certificate authentication to create an encrypted TLS connection. You can use MTLS to secure the connection from a client device to the Application Gateway for Containers backend target. If a client certificate is revoked or otherwise invalid, the connection is denied. See the following figure:
+Mutual Transport Layer Security (MTLS) is a process that relies on certificate authentication to create an encrypted TLS connection. You can use MTLS to secure the connection from a client device to the Application Gateway for Containers backend target. If a client certificate is revoked or otherwise invalid, the connection is not secure. See the following figure:
 
 [ ![The Application Gateway for Containers backend MTLS process](./media/how-to-backend-mtls-gateway-api/backend-mtls.png) ](./media/how-to-backend-mtls-gateway-api/backend-mtls.png#lightbox)
 
