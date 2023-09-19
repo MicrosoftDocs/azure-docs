@@ -186,7 +186,7 @@ You can define multiple containers in a single container app to implement the [s
 
 Examples of sidecar containers include:
 
-- An agent that reads logs from the primary app container on a [shared volume](storage-mounts.md?pivots=aca-cli#temporary-storage) and forwards them to a logging service.
+- An agent that reads logs from the primary app container on a [shared volume](storage-mounts.md?pivots=aca-cli#replica-scoped-storage) and forwards them to a logging service.
 
 - A background process that refreshes a cache used by the primary app container in a shared volume.
 
