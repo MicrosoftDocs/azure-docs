@@ -13,7 +13,7 @@ ms.date: 09/19/2023
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-While you can certainly manually create and update Directed Acyclic Graph (DAG) files for Azure Managed Apache Airflow using the Azure Storage or using the [Azure CLI](/storage/blobs/storage-quickstart-blobs-cli), many organizations prefer to streamline their processes using a Continuous Integration and Continuous Delivery (CI/CD) approach. In this scenario, each commit made to the source code repository triggers an automated workflow that synchronizes the code with the designated DAGs folder within Azure Managed Apache Airflow.
+While you can certainly manually create and update Directed Acyclic Graph (DAG) files for Azure Managed Apache Airflow using the Azure Storage or using the [Azure CLI](/azure/storage/blobs/storage-quickstart-blobs-cli.md), many organizations prefer to streamline their processes using a Continuous Integration and Continuous Delivery (CI/CD) approach. In this scenario, each commit made to the source code repository triggers an automated workflow that synchronizes the code with the designated DAGs folder within Azure Managed Apache Airflow.
 
 In this guide, you will learn how to synchronize your GitHub repository in Managed Airflow in two different ways.
 
@@ -22,7 +22,7 @@ In this guide, you will learn how to synchronize your GitHub repository in Manag
 
 ## Prerequisites
 
-- **Azure subscription** - If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) in a [region where the Managed Airflow preview is supported](concept-managed-airflow.md#region_availability_public_preview).
+- **Azure subscription** - If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) in a [region where the Managed Airflow preview is supported](concept-managed-airflow.md#region-availability-public-preview).
 - **Access to a GitHub repository**
 
 ## Using the Managed Airflow UI
