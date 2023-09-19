@@ -33,12 +33,12 @@ Here are some reasons why you might want to delegate the role assignment task to
     
 ## How you currently can delegate role assignments
 
-The [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) roles are built-in roles that allow users to create role assignments. Members of these roles can decide who can have write, read, and delete permissions for any resource in a subscription. To delegate the role assignment task to another user, you can assign the Owner or User Access Administrator role to a user, typically at the subscription scope.
+The [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) roles are built-in roles that allow users to create role assignments. Members of these roles can decide who can have write, read, and delete permissions for any resource in a subscription. To delegate the role assignment task to another user, you can assign the Owner or User Access Administrator role to a user.
 
 The following diagram shows how Alice can delegate role assignment responsibilities to Dara. For specific steps, see [Assign a user as an administrator of an Azure subscription](role-assignments-portal-subscription-admin.md).
 
-1. Alice assigns the User Access Administrator role to Dara for a subscription.
-1. Dara can now assign any role to any user, group, or service principal at subscription scope.
+1. Alice assigns the User Access Administrator role to Dara.
+1. Dara can now assign any role to any user, group, or service principal at the same scope.
 
 :::image type="content" source="./media/delegate-role-assignments-overview/delegate-role-assignments-steps.png" alt-text="Diagram that shows an example where Dara can assign any role to any user." lightbox="./media/delegate-role-assignments-overview/delegate-role-assignments-steps.png":::
 
@@ -46,7 +46,7 @@ The following diagram shows how Alice can delegate role assignment responsibilit
 
 Here are the primary issues with the current method of delegating role assignments to others in your organization.
 
-- Delegate has unrestricted access. This violates the principle of least privilege, which exposes you to a wider attack surface.
+- Delegate has unrestricted access at the role assignment scope. This violates the principle of least privilege, which exposes you to a wider attack surface.
 - Delegate can assign any role to any user within their scope, including themselves.
 - Delegate can assign the Owner or User Access Administrator roles to another user, who can then assign roles to other users.
 
@@ -242,7 +242,7 @@ To delegate role assignments with conditions, you assign roles as you currently 
 
 ## Built-in roles with conditions
 
-Currently, the [Key Vault Data Access Administrator (Preview)](built-in-roles.md#key-vault-data-access-administrator-preview) role already has a pre-built condition to constrain role assignments. If this role with a condition meets your scenario, you can just assign the role, and role assignments will be constrained. The Key Vault Data Access Administrator (Preview) role is designed to manage access to Key Vault secrets, certificates, and keys. It's exclusively focused on access control without the ability to assign privileged roles such as Owner or User Access Administrator roles. It allows better separation of duties for scenarios like managing encryption at rest across data services to further comply with least privilege principle. It includes a condition to constrain role assignments to the following Azure Key Vault roles:
+The [Key Vault Data Access Administrator (Preview)](built-in-roles.md#key-vault-data-access-administrator-preview) role already has a built-in condition to constrain role assignments. This role enables you to manage access to Key Vault secrets, certificates, and keys. It's exclusively focused on access control without the ability to assign privileged roles such as Owner or User Access Administrator roles. It allows better separation of duties for scenarios like managing encryption at rest across data services to further comply with least privilege principle. It includes a condition to constrain role assignments to the following Azure Key Vault roles:
 
 - [Key Vault Administrator](built-in-roles.md#key-vault-administrator)
 - [Key Vault Certificates Officer](built-in-roles.md#key-vault-certificates-officer)
