@@ -66,7 +66,7 @@ Enterprise State Roaming requires the device to be registered with Microsoft Ent
 
 1. Open the command prompt unelevated. To do this in Windows, open the Run launcher (Win + R) and type “cmd” to open.
 1. Once the command prompt is open, type “*dsregcmd.exe /status*”.
-1. For expected output, the **AzureAdJoined** field value should be “YES”, **WamDefaultSet** field value should be “YES”, and the **WamDefaultGUID** field value should be a GUID with “(Microsoft Entra ID)” at the end.
+1. For expected output, the **AzureAdJoined** field value should be “YES”, **WamDefaultSet** field value should be “YES”, and the **WamDefaultGUID** field value should be a GUID with “(AzureAD)” at the end.
 
 **Potential issue**: **WamDefaultSet** and **AzureAdJoined** both have “NO” in the field value, the device was domain-joined and registered with Microsoft Entra ID, and the device doesn't sync. If it's showing this, the device may need to wait for policy to be applied or the authentication for the device failed when connecting to Microsoft Entra ID. The user may have to wait a few hours for the policy to be applied. Other troubleshooting steps may include retrying autoregistration by signing out and back in, or launching the task in Task Scheduler. In some cases, running “*dsregcmd.exe /leave*” in an elevated command prompt window, rebooting, and trying registration again may help with this issue.
 
