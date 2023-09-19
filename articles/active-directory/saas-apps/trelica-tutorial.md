@@ -68,7 +68,8 @@ To configure and test Azure AD SSO with Trelica, perform the following steps:
 
 Follow these steps to enable Azure AD SSO in the Azure portal:
 
-1. In the Azure portal, on the **Trelica** application integration page, go to the **Manage** section. Select **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Trelica** application integration page, go to the **Manage** section. Select **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
