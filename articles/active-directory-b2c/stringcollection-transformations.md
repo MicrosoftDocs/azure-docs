@@ -28,7 +28,7 @@ Adds a string claim to a new unique values stringCollection claim. Check out the
 | InputClaim | collection | stringCollection | The string collection to be added to the output claim. If the collection contains items, the claims transformation copies the items, and adds the item to the end of the output collection claim. |
 | OutputClaim | collection | stringCollection | The ClaimType that is produced after this claims transformation has been invoked, with the value specified in the input claim. |
 
-Use this claims transformation to add a string to a new or existing stringCollection. It's commonly used in a **Microsoft Entra ID-UserWriteUsingAlternativeSecurityId** technical profile. Before a new social account is created, **CreateOtherMailsFromEmail** claims transformation reads the ClaimType and adds the value to the **otherMails** ClaimType.
+Use this claims transformation to add a string to a new or existing stringCollection. It's commonly used in a **AAD-UserWriteUsingAlternativeSecurityId** technical profile. Before a new social account is created, **CreateOtherMailsFromEmail** claims transformation reads the ClaimType and adds the value to the **otherMails** ClaimType.
 
 ### Example of AddItemToStringCollection
 
