@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure New Relic by Organization for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure New Relic by Organization for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to New Relic by Organization.
 services: active-directory
 author: twimmers
@@ -74,11 +74,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for New Relic by Organization in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **New Relic by Organization**.
+1. In the applications list, select **New Relic by Organization**.
 
 	![The New Relic link in the Applications list](common/all-applications.png)
 

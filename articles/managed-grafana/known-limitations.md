@@ -3,7 +3,7 @@ title: Azure Managed Grafana limitations
 description: Learn about current limitations in Azure Managed Grafana.
 ms.service: managed-grafana
 ms.topic: troubleshooting
-ms.date: 02/14/2023
+ms.date: 03/13/2023
 ms.author: malev
 ms.custom: engagement-fy23
 author: maud-lv
@@ -15,7 +15,7 @@ Azure Managed Grafana delivers the native Grafana functionality in the highest p
 
 ## Current limitations
 
-Managed Grafana has the following known limitations:
+Azure Managed Grafana has the following known limitations:
 
 * All users must have accounts in an Azure Active Directory. Microsoft (also known as MSA) and 3rd-party accounts aren't supported. As a workaround, use the default tenant of your Azure subscription with your Grafana instance and add other users as guests.
 
@@ -31,9 +31,16 @@ Managed Grafana has the following known limitations:
 
 * Azure Managed Grafana currently doesn't support the Grafana Role Based Access Control (RBAC) feature and the [RBAC API](https://grafana.com/docs/grafana/latest/developers/http_api/access_control/) is therefore disabled.
 
-* Private endpoints are currently not available in Grafana.
+*  Unified alerting is enabled by default for all instances created after December 2022. For instances created before this date, unified alerting must be enabled manually by the Azure Managed Grafana team. For activation, [contact us](mailto:ad4g@microsoft.com)
 
-* Reporting is currently not supported.
+* Some Azure Managed Grafana features aren't available in Azure Government and Microsoft Azure operated by 21Vianet due to limitations in these specific environments. This following table lists the feature differences.
+
+  | Feature | Azure Government | Microsoft Azure operated by 21Vianet |
+  |---------|:------------:|:------------:|
+  | Private link | &#x274C; | &#x274C; |
+  | Managed private endpoint | &#x274C; | &#x274C; |
+  | Team sync with Azure AD | &#x274C; | &#x274C; |
+  | Enterprise plugins | &#x274C; | &#x274C; |
 
 ## Next steps
 

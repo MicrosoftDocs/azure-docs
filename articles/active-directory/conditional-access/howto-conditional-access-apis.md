@@ -1,10 +1,11 @@
 ---
-title: Conditional Access APIs and PowerShell - Azure Active Directory
+title: Conditional Access APIs and PowerShell
 description: Using the Azure AD Conditional Access APIs and PowerShell to manage policies like code
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 09/10/2020
 

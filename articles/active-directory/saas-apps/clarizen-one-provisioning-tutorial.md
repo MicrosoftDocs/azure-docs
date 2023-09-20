@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Clarizen One for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Clarizen One for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and deprovision user accounts from Azure AD to Clarizen One.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: d8021105-eb5b-4a20-8739-f02e0e22c147
 ms.service: active-directory
@@ -52,7 +52,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
       * US Sandbox data center: https://servicesapp.clarizentb.com/scim/v2
       * EU Sandbox data center: https://serviceseu.clarizentb.com/scim/v2
 
-1. Generate an [API key](https://success.clarizen.com/hc/articles/360011833079-API-Keys-Support). This value will be entered in the **Secret Token** box on the **Provisioning** tab of your Clarizen One application in the Azure portal.
+1. Generate an [API key](https://success.clarizen.com/hc/articles/360011833079-API-Keys-Support). This value will be entered in the **Secret Token** box on the **Provisioning** tab of your Clarizen One application.
 
 ## Step 3. Add Clarizen One from the Azure AD application gallery
 
@@ -71,7 +71,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### Configure automatic user provisioning for Clarizen One in Azure AD
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise applications** > **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
       ![Screenshot that shows the Enterprise applications pane.](common/enterprise-applications.png)
 

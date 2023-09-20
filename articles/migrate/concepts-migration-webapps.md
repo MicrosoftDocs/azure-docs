@@ -5,7 +5,7 @@ author: vineetvikram
 ms.author: vivikram
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/14/2022
+ms.date: 08/31/2023
 ms.custom: template-concept, engagement-fy23
 ---
 
@@ -34,7 +34,7 @@ Azure Migrate now supports agentless at-scale migration of ASP.NET web apps to [
 Support | Details
 --- | ---
 **Supported servers** | Currently supported only for windows servers running IIS in your VMware environment.
-**Windows servers** | Windows Server 2008 R2 and later are supported.
+**Windows servers** | Windows Server 2012 R2 and later are supported.
 **Linux servers** | Currently not supported.
 **IIS access** | Web apps discovery requires a local admin user account.
 **IIS versions** | IIS 7.5 and later are supported.
@@ -42,7 +42,7 @@ Support | Details
 
 ## Next steps
 
-- Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-migrate-webapps.md).
+- Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-modernize-asp-net-appservice-code.md).
 - Once you have successfully completed migration, you may explore the following steps based on web app specific requirement(s):
   - [Map existing custom DNS name](../app-service/app-service-web-tutorial-custom-domain.md).
   - [Secure a custom DNS with a TLS/SSL binding](../app-service/configure-ssl-bindings.md).

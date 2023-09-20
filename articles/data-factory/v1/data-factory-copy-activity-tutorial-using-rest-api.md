@@ -5,7 +5,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ms.author: jianleishen 
 ms.custom: devx-track-azurepowershell
 robots: noindex
@@ -217,7 +217,7 @@ The following table provides descriptions for the JSON properties used in the sn
 | tableName | Specified the **table** to which the data is copied. | 
 | frequency/interval | The frequency is set to **Hour** and interval is **1**, which means that the output slices are produced **hourly** between the pipeline start and end times, not before or after these times.  |
 
-There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
+There are three columns - **ID**, **FirstName**, and **LastName** - in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
 
 For more information about these JSON properties, see [Azure SQL connector article](data-factory-azure-sql-connector.md#dataset-properties).
 

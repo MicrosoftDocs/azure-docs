@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Cinode for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Cinode for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Cinode.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 4d6f06dd-a798-4c22-b84f-8a11f1b8592a
 ms.service: active-directory
@@ -56,7 +56,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ![Create token](media/cinode-provisioning-tutorial/token.png)
 
-6. Copy the **Tenant URL** and the **Token**. These values will be entered in the Provisioning tab of your Cinode application in the Azure portal.
+6. Copy the **Tenant URL** and the **Token**. These values will be entered in the Provisioning tab of your Cinode application.
 
 ## Step 3. Add Cinode from the Azure AD application gallery
 
@@ -77,11 +77,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Cinode in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Cinode**.
+1. In the applications list, select **Cinode**.
 
 	![The Cinode link in the Applications list](common/all-applications.png)
 

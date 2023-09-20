@@ -1,16 +1,10 @@
 ---
-author: sdwheeler
 description: This article covers troubleshooting Cloud Shell common scenarios.
-manager: mkluck
-ms.author: sewhee
 ms.contributor: jahelmic
-ms.date: 11/14/2022
-ms.service: cloud-shell
-ms.tgt_pltfrm: vm-linux
+ms.date: 05/03/2023
 ms.topic: article
-ms.workload: infrastructure-services
-services: azure
 tags: azure-resource-manager
+ms.custom: has-azure-ad-ps-ref
 title: Azure Cloud Shell troubleshooting
 ---
 # Troubleshooting & Limitations of Azure Cloud Shell
@@ -27,6 +21,13 @@ This article covers troubleshooting Cloud Shell common scenarios.
   automatically during PowerShell startup. To speed up start time, the cmdlet no longer runs
   automatically. You can choose to restore the previous behavior by adding `Connect-AzureAD` to the
   $PROFILE file in PowerShell.
+
+  > [!NOTE]
+  > These cmdlets are part of the **AzureAD.Standard.Preview** module. That module is being
+  > deprecated and won't be supported after June 30, 2023. You can use the AD cmdlets in the
+  > **Az.Resources** module or use the Microsoft Graph API instead. The **Az.Resources** module is
+  > installed by default. The **Microsoft Graph API PowerShell SDK** modules aren't installed by
+  > default. For more information, [Upgrade from AzureAD to Microsoft Graph][06].
 
 ### Early timeouts in FireFox
 
@@ -59,9 +60,9 @@ This article covers troubleshooting Cloud Shell common scenarios.
 
 ### Storage Dialog - Error: 400 DisallowedOperation
 
-- **Details**: When using an Azure Active Directory subscription, you can't create storage.
-- **Resolution**: Use an Azure subscription capable of creating storage resources. Azure AD
-  subscriptions aren't able to create Azure resources.
+- **Details**: When using a Microsoft Entra ID subscription, you can't create storage.
+- **Resolution**: Use an Azure subscription capable of creating storage resources. Microsoft Entra
+  ID subscriptions aren't able to create Azure resources.
 
 ### Terminal output - Error: Failed to connect terminal: websocket can't be established
 
@@ -83,8 +84,8 @@ This article covers troubleshooting Cloud Shell common scenarios.
 
 - **Details**: Cloud Shell uses a container to host your shell environment, as a result running
   the daemon is disallowed.
-- **Resolution**: Utilize [docker-machine][04], which is installed by default, to manage docker
-  containers from a remote Docker host.
+- **Resolution**: Use the [docker CLI][04], which is installed by default, to remotely manage docker
+  containers.
 
 ## PowerShell troubleshooting
 
@@ -157,15 +158,21 @@ Cloud Shell supports the latest versions of following browsers:
 
 ### Copy and paste
 
-- Windows: <kbd>Ctrl</kbd>-<kbd>C</kbd> to copy is supported but use
-  <kbd>Shift</kbd>-<kbd>Insert</kbd> to paste.
+- Windows: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy is supported but use
+  <kbd>Shift</kbd>+<kbd>Insert</kbd> to paste.
   - FireFox/IE may not support clipboard permissions properly.
-- macOS: <kbd>Cmd</kbd>-<kbd>C</kbd> to copy and <kbd>Cmd</kbd>-<kbd>V</kbd> to paste.
+- macOS: <kbd>Cmd</kbd>+<kbd>c</kbd> to copy and <kbd>Cmd</kbd>+<kbd>v</kbd> to paste.
+- Linux: <kbd>CTRL</kbd>+<kbd>c</kbd> to copy and <kbd>CTRL</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> to paste.
+
+> [!NOTE]
+> If no text is selected when you type <kbd>Ctrl</kbd>+<kbd>C</kbd>, Cloud Shell sends the `Ctrl C`
+> character to the shell. This could terminate the currently running command.
 
 ### Usage limits
 
-Cloud Shell is intended for interactive use cases. As a result, any long-running non-interactive
-sessions are ended without warning.
+Cloud Shell is intended for interactive use cases. Cloud Shell sessions time out after 20 minutes
+without interactive activity. As a result, any long-running non-interactive sessions are ended
+without warning.
 
 ### User permissions
 
@@ -174,11 +181,11 @@ directory isn't persisted.
 
 ### Supported entry point limitations
 
-Cloud Shell entry points beside the Azure portal, such as Visual Studio Code & Windows Terminal,
+Cloud Shell entry points beside the Azure portal, such as Visual Studio Code and Windows Terminal,
 don't support various Cloud Shell functionalities:
 
 - Use of commands that modify UX components in Cloud Shell, such as `Code`
-- Fetching non-arm access tokens
+- Fetching non-ARM access tokens
 
 ## Bash limitations
 
@@ -222,7 +229,7 @@ TODO:
 - Should we be using a newer API version?
 -->
    ```bash
-   token=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".accessToken")
+   token=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")
    curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"Bearer $token" -s | jq
    ```
 
@@ -233,7 +240,7 @@ TODO:
        Uri = "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/"
        Headers = @{Metadata='true'}
    }
-   $token= ((Invoke-WebRequest @parameters ).content |  ConvertFrom-Json).accessToken
+   $token= ((Invoke-WebRequest @parameters ).content |  ConvertFrom-Json).access_token
    $parameters = @{
        Uri = 'https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview'
        Headers = @{Authorization = "Bearer $token"}
@@ -258,8 +265,8 @@ again.
    Bash:
 
    ```bash
-   token=$(az account get-access-token --resource "https://management.azure.com/" | jq -r ".accessToken")
-   curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"Bearer $token"
+   TOKEN=$(az account get-access-token --resource "https://management.azure.com/" | jq -r ".access_token")
+   curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"Bearer $TOKEN"
    ```
 
    PowerShell:
@@ -282,5 +289,6 @@ Azure Cloud Shell in Azure Government is only accessible through the Azure porta
 > Connecting to GCC-High or Government DoD Clouds for Exchange Online is currently not supported.
 
 <!-- link references -->
-[04]: https://docs.docker.com/machine/overview/
+[04]: https://docs.docker.com/desktop/
 [05]: persisting-shell-storage.md#mount-a-new-clouddrive
+[06]: /powershell/microsoftgraph/migration-steps

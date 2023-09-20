@@ -2,12 +2,11 @@
 title: 'Tutorial: Query from Power Apps'
 titleSuffix: Azure Cognitive Search
 description: Step-by-step guidance on how to build a Power App that connects to an Azure Cognitive Search index, sends queries, and renders results.
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 12/07/2021
+ms.date: 02/07/2023
 ---
 
 # Tutorial: Query a Cognitive Search index from Power Apps

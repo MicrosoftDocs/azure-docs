@@ -18,12 +18,12 @@ There are some differences between the features of each of the Remote Desktop cl
 
 The following table compares the features of each Remote Desktop client when connecting to Azure Virtual Desktop.
 
-| Feature | Windows Desktop | Microsoft Store | Android or Chrome OS | iOS or iPadOS | macOS | Web | Description |
+| Feature | Windows Desktop<br />&<br />Azure Virtual Desktop Store app | Remote Desktop app | Android or Chrome OS | iOS or iPadOS | macOS | Web | Description |
 |--|--|--|--|--|--|--|--|
 | Remote Desktop sessions | X | X | X | X | X | X | Desktop of a remote computer presented in a full screen or windowed mode. |
-| Integrated RemoteApp sessions | X |  |  |  | X |  | Individual remote apps integrated into the local desktop as if they are running locally. |
-| Immersive RemoteApp sessions |  | X | X | X |  | X | Individual remote apps presented in a window or maximized to a full screen. |
-| Multiple monitors | 16 monitor limit |  |  |  | 16 monitor limit |  | Lets the user run Remote Desktop or remote apps on all local monitors.<br /><br />Each monitor can have a maximum resolution of 8K, with the total resolution limited to 32K. These limits depend on factors such as session host specification and network connectivity. |
+| Integrated RemoteApp sessions | X |  |  |  | X |  | Individual applications integrated into the local desktop as if they are running locally. |
+| Immersive RemoteApp sessions |  | X | X | X |  | X | Individual applications presented in a window or maximized to a full screen. |
+| Multiple monitors | 16 monitor limit |  |  |  | 16 monitor limit |  | Enables the remote session to use all local monitors.<br /><br />Each monitor can have a maximum resolution of 8K, with the total resolution limited to 32K. These limits depend on factors such as session host specification and network connectivity. |
 | Dynamic resolution | X | X |  |  | X | X | Resolution and orientation of local monitors is dynamically reflected in the remote session. If the client is running in windowed mode, the remote desktop is resized dynamically to the size of the client window. |
 | Smart sizing | X | X |  |  | X |  | Remote Desktop in Windowed mode is dynamically scaled to the window's size. |
 | Localization | X | X | English only | X |  | X | Client user interface is available in multiple languages. |
@@ -41,7 +41,7 @@ The following tables compare support for device and other redirections across th
 
 The following table shows which input methods are available for each Remote Desktop client:
 
-| Input | Windows Desktop | Microsoft Store client | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
+| Input | Windows Desktop<br />&<br />Azure Virtual Desktop Store app | Remote Desktop app | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
 |--|--|--|--|--|--|--|
 | Keyboard | X | X | X | X | X | X |
 | Mouse | X | X | X | X | X | X |
@@ -49,13 +49,13 @@ The following table shows which input methods are available for each Remote Desk
 | Multi-touch | X | X | X | X |  |  |
 | Pen | X |  | X (as touch) | X\* |  |  |
 
-\* Pen input redirection is not supported when connecting to Windows 8, Windows 8.1, Windows Server 2012, or Windows Server 2012 R2.
+\* Pen input redirection is not supported when connecting to Windows Server 2012 or Windows Server 2012 R2.
 
 ### Port redirection
 
 The following table shows which ports can be redirected for each Remote Desktop client:
 
-| Redirection | Windows Desktop | Microsoft Store client | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
+| Redirection | Windows Desktop<br />&<br />Azure Virtual Desktop Store app | Remote Desktop app | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
 |--|--|--|--|--|--|--|
 | Serial port | X |  |  |  |  |  |
 | USB | X |  |  |  |  |  |
@@ -66,7 +66,7 @@ When you enable USB port redirection, all USB devices attached to USB ports are 
 
 The following table shows which other devices can be redirected with each Remote Desktop client:
 
-| Redirection | Windows Desktop | Microsoft Store client | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
+| Redirection | Windows Desktop<br />&<br />Azure Virtual Desktop Store app | Remote Desktop app | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
 |--|--|--|--|--|--|--|
 | Cameras | X |  | X | X | X | X (preview) |
 | Clipboard | X | X | Text | Text, images | X | Text |

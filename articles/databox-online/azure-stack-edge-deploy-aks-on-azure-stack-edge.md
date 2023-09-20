@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/01/2023
+ms.date: 07/11/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
@@ -48,7 +48,7 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 
    ```azurepowershell
    az login
-   az ad sp show --id 'bc313c14-387c-4e7d-a58e-70417303ee3b' --query id -o tsv
+   az ad sp show --id bc313c14-387c-4e7d-a58e-70417303ee3b --query id -o tsv
    ```
   
    Here's a sample output using the Azure CLI. You can run the same commands via the Cloud Shell in the Azure portal.
@@ -211,7 +211,7 @@ Follow these steps to deploy the AKS cluster.
 
 1. Select **Add** to configure AKS.
 
-1. On the **Create Kubernetes service** dialog, select the Kubernetes **Node size** for the infrastructure VM. In this example, we have selected VM size **Standard_F16s_HPN – 16 vCPUs, 32.77 GB memory**.
+1. On the **Create Kubernetes service** dialog, select the Kubernetes **Node size** for the infrastructure VM. Select a VM node size that's appropriate for the workload size you're deploying. In this example, we've selected VM size **Standard_F16s_HPN – 16 vCPUs, 32.77 GB memory**. 
 
    > [!NOTE]
    > If the node size dropdown menu isn’t populated, wait a few minutes so that it's synchronized after VMs are enabled in the preceding step.
@@ -320,5 +320,5 @@ Use the following steps in the Azure portal to remove AKS.
 
 ## Next steps
 
-- [AKS troubleshooting documentation](https://learn.microsoft.com/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes).
+- [AKS troubleshooting documentation](/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes).
  

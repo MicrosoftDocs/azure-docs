@@ -1,14 +1,15 @@
 ---
-title: What are custom security attributes in Azure AD? (Preview) - Azure Active Directory
+title: What are custom security attributes in Azure AD? (Preview)
 description: Learn about custom security attributes in Azure Active Directory.
 services: active-directory
 author: rolyon
+manager: amycolannino
 ms.author: rolyon
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 06/29/2023
 ms.collection: M365-identity-device-management
 ---
 
@@ -16,13 +17,13 @@ ms.collection: M365-identity-device-management
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 Custom security attributes in Azure Active Directory (Azure AD) are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. These attributes can be used to store information, categorize objects, or enforce fine-grained access control over specific Azure resources. Custom security attributes can be used with [Azure attribute-based access control (Azure ABAC)](../../role-based-access-control/conditions-overview.md).
 
 ## Why use custom security attributes?
 
-- Extend user profiles, such as add Employee Hire Date and Hourly Salary to all my employees.
+- Extend user profiles, such as add Hourly Salary to all my employees.
 - Ensure only administrators can see the Hourly Salary attribute in my employees' profiles.
 - Categorize hundreds or thousands of applications to easily create a filterable inventory for auditing.
 - Grant users access to the Azure Storage blobs belonging to a project.
@@ -55,13 +56,19 @@ Currently, you can add custom security attributes for the following Azure AD obj
 - Azure AD enterprise applications (service principals)
 - Managed identities for Azure resources
 
-## How do custom security attributes compare with directory extensions?
+## How do custom security attributes compare with extensions?
 
-Here are some ways that custom security attributes compare with [directory extensions](../develop/active-directory-schema-extensions.md):
+While both extensions and custom security attributes can be used to extend objects in Azure AD and Microsoft 365, they are suitable for fundamentally different custom data scenarios. Here are some ways that custom security attributes compare with [extensions](/graph/extensibility-overview):
 
-- Directory extensions cannot be used for authorization scenarios and attributes because the access control for the extension attributes is tied to the Azure AD object. Custom security attributes can be used for authorization and attributes needing access control because the custom security attributes can be managed and protected through separate permissions.
-- Directory extensions are tied to an application and share the lifecycle of an application. Custom security attributes are tenant wide and not tied to an application.
-- Directory extensions support assigning a single value to an attribute. Custom security attributes support assigning multiple values to an attribute.
+| Capability | Extensions | Custom security attributes |
+|--|--|--|
+| Extend Azure AD and Microsoft 365 objects | Yes | Yes |
+| Supported objects | Depends on the extension type | Users and service principals |
+| Restricted access | No. Anyone with permissions to read the object can read the extension data. | Yes. Read and write access is restricted through a separate set of permissions and RBAC. |
+| When to use | Store data to be used by an application <br/> Store non-sensitive data | Store sensitive data <br/> Use for authorization scenarios |
+| License requirements | Available in all editions of Azure AD | Requires an Azure AD Premium P1 or P2 license |
+
+For more information about working with extensions, see [Add custom data to resources using extensions](/graph/extensibility-overview).
 
 ## Steps to use custom security attributes
 
@@ -200,6 +207,6 @@ Depending on whether you have an Azure AD Premium P1 or P2 license, here are the
 
 ## Next steps
 
-- [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md)
+- [Add or deactivate custom security attribute definitions in Azure AD](custom-security-attributes-add.md)
 - [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md)
-- [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
+- [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)

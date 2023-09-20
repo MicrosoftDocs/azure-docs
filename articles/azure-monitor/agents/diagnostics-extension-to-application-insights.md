@@ -2,7 +2,7 @@
 title: Send Azure Diagnostics data to Application Insights
 description: Update the Azure Diagnostics public configuration to send data to Application Insights.
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 06/01/2023
 ms.reviewer: JeffWo
 
 ---
@@ -53,7 +53,7 @@ Example configuration of a sink for Application Insights:
 - The **Sink** *name* attribute is a string value that uniquely identifies the sink.
 
 - The **ApplicationInsights** element specifies instrumentation key of the Application insights resource where the Azure diagnostics data is sent.
-    - If you don't have an existing Application Insights resource, see [Create a new Application Insights resource](../app/create-new-resource.md) for more information on creating a resource and getting the instrumentation key.
+    - If you don't have an existing Application Insights resource, see [Create a new Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource) for more information on creating a resource and getting the instrumentation key.
     - If you are developing a Cloud Service with Azure SDK 2.8 and later, this instrumentation key is automatically populated. The value is based on the **APPINSIGHTS_INSTRUMENTATIONKEY** service configuration setting when packaging the Cloud Service project. See [Use Application Insights with Cloud Services](../app/azure-web-apps-net-core.md).
 
 - The **Channels** element contains one or more **Channel** elements.

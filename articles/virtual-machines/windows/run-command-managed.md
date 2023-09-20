@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: windows
 author: nikhilpatel909
 ms.author: erd
-ms.date: 11/03/2022
+ms.date: 03/10/2023
 ms.topic: how-to  
 ms.reviewer: erd
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -28,6 +28,31 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 - Support for long running (hours/days) scripts 
 - Passing secrets (parameters, passwords) in a secure manner
 
+## Prerequisites
+
+### **Windows OS’ Supported**
+| **Windows OS** |	**x64** |
+|:----|:----:|
+| Windows 10 |	Supported |
+| Windows 11 |	Supported |
+| Windows Server 2008 SP2 |	Supported |
+| Windows Server 2008 R2 |	Supported |
+| Windows Server 2012 |	Supported |
+| Windows Server 2012 R2 |	Supported |
+| Windows Server 2016 |	Supported |
+| Windows Server 2016 Core |	Supported |
+| Windows Server 2019 |	Supported |
+| Windows Server 2019 Core |	Supported |
+| Windows Server 2022 |	Supported |
+| Windows Server 2022 Core |	Supported |
+
+## Limiting access to Run Command
+
+Listing the run commands or showing the details of a command requires the `Microsoft.Compute/locations/runCommands/read` permission on Subscription Level. The built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher levels have this permission.
+
+Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/write` permission. The [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher levels have this permission.
+
+You can use one of the [built-in roles](../../role-based-access-control/built-in-roles.md) or create a [custom role](../../role-based-access-control/custom-roles.md) to use Run Command.
 
 ## Azure CLI 
 
@@ -212,7 +237,7 @@ Remove-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -RunCommandName "
 To deploy a new Run Command, execute a PUT on the VM directly and specify a unique name for the Run Command instance. 
 
 ```rest
-PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands/<runCommandName>?api-version=2019-12-01
+PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands/<runCommandName>?api-version=2023-03-01
 ```
 
 ```json
@@ -246,7 +271,8 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
         ], 
     "runAsUser": "userName",
     "runAsPassword": "userPassword", 
-    "timeoutInSeconds": 3600, 
+    "timeoutInSeconds": 3600,
+    "treatFailureAsDeploymentFailure": true,
     "outputBlobUri": "< SAS URI of a storage append blob with read, add, create, write access>", 
     "errorBlobUri": "< SAS URI of a storage append blob with read, add, create, write access >"  
     }
@@ -256,20 +282,21 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 ### Notes
  
 - You can provide an inline script, a script URI, or a built-in script [command ID](run-command.md#available-commands) as the input source. Script URI is either storage blob SAS URI with read access or public URI.
-- Only one type of source input is supported for one command execution.  
+- Only one type of source input is supported for one command execution.
+- Starting with API version 2023-03-01, you can set the property `treatFailureAsDeploymentFailure` to **true** causing the deployment to fail when there is a failure in the script. If set to **false**, ProvisioningState would only reflect whether the run command was run or not by the extensions platform. It would not indicate whether the script failed in case of script failures. 
 - Run Command supports writing output and error to Storage blobs using outputBlobUri and errorBlobUri parameters, which can be used to store large script outputs. Use SAS URI of a storage append blob with read, add, create, write access. The blob should be of type AppendBlob. Writing the script output or error blob would fail otherwise. The blob will be overwritten if it already exists. It will be created if it does not exist.
 
 
 ### List running instances of Run Command on a VM 
 
 ```rest
-GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands?api-version=2019-12-01
+GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands?api-version=2023-03-01
 ``` 
 
 ### Get output details for a specific Run Command deployment 
 
 ```rest
-GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands/<runCommandName>?$expand=instanceView&api-version=2019-12-01 
+GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands/<runCommandName>?$expand=instanceView&api-version=2023-03-01
 ```
 
 ### Delete a specific Run Command deployment
@@ -277,7 +304,7 @@ GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 You can also delete the instance of Run Command.  
 
 ```rest
-DELETE /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands/<runCommandName>?api-version=2019-12-01 
+DELETE /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands/<runCommandName>?api-version=2023-03-01
 ```
 
 ### Deploy scripts in an ordered sequence 
@@ -314,7 +341,7 @@ In this example, **secondRunCommand** will execute after **firstRunCommand**.
       {
          "type":"Microsoft.Compute/virtualMachines/runCommands",
          "name":"[concat(parameters('vmName'),'/firstRunCommand')]",
-         "apiVersion":"2019-12-01",
+         "apiVersion":"2023-03-01",
          "location":"[parameters('location')]",
          "dependsOn":[
             "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"

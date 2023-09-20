@@ -44,22 +44,7 @@ For information about how to use the gateway with these services, see these arti
 
   * Later in the Azure portal, you need to use the same Azure account to create an Azure gateway resource that's associated with your gateway installation. You can link only one gateway installation and one Azure gateway resource to each other. However, you can use your Azure account to set up different gateway installations that are each associated with an Azure gateway resource. Your logic app workflows can then use these gateway resources in triggers and actions that can access on-premises data sources.
 
-* Local computer requirements:
-
-  **Minimum requirements**
-
-  * .NET Framework 4.8
-  * 64-bit version of Windows 7 or Windows Server 2008 R2 (or later)
-
-  **Recommended requirements**
-
-  * An eight-core CPU
-  * 8 GB of memory
-  * 64-bit version of Windows Server 2012 R2 or later
-  * Solid-state drive (SSD) storage for spooling
-
-  > [!NOTE]
-  > The gateway doesn't support Windows Server Core.
+* For local computer operating system and hardware requirements, see the [main guide for how to install the on-premises data gateway](/data-integration/gateway/service-gateway-install).
 
 * Related considerations:
 
@@ -292,6 +277,7 @@ Here are ways that you can match your on-premises Active Directory accounts with
 
 ## Next steps
 
-* [Connect to on-premises data from logic apps](logic-apps-gateway-connection.md)
+* [Connect to on-premises data from logic app workflows](logic-apps-gateway-connection.md)
 * [Enterprise integration features](logic-apps-enterprise-integration-overview.md)
-* [Connectors for Azure Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](../connectors/managed.md)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to change the SKU for my Azure AD Domain Services managed domain to use different features as my business requirements change.
@@ -21,7 +21,7 @@ In Azure Active Directory Domain Services (Azure AD DS), the available performan
 
 You select a SKU when you create the managed domain, and you can switch SKUs up or down as your business needs change after the managed domain has been deployed. Changes in business requirements could include the need for more frequent backups or to create additional forest trusts. For more information on the limits and pricing of the different SKUs, see [Azure AD DS SKU concepts][concepts-sku] and [Azure AD DS pricing][pricing] pages.
 
-This article shows you how to change the SKU for an existing Azure AD DS managed domain using the Azure portal.
+This article shows you how to change the SKU for an existing Azure AD DS managed domain using the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 ## Before you begin
 
@@ -36,29 +36,26 @@ To complete this article, you need the following resources and privileges:
 
 ## SKU change limitations
 
-You can change SKUs up or down after the managed domain has been deployed. However, if you use a resource forest and have created one-way outbound forest trusts from Azure AD DS to an on-premises AD DS environment, there are some limitations for the SKU change operation. The *Premium* and *Enterprise* SKUs define a limit on the number of trusts you can create. You can't change to a SKU with a lower maximum limit than you currently have configured.
+You can change SKUs up or down after the managed domain has been deployed. However, the *Premium* and *Enterprise* SKUs define a limit on the number of trusts you can create. You can't change to a SKU with a lower maximum limit than you currently have configured.
 
-For example:
-
-* You can't change down to the *Standard* SKU. Azure AD DS resource forest doesn't support the *Standard* SKU. 
-* Or, if you have created seven trusts on the *Premium* SKU, you can't change down to the *Enterprise* SKU. The *Enterprise* SKU supports a maximum of five trusts.
+For example, if you have created seven trusts on the *Premium* SKU, you can't change down to the *Enterprise* SKU. The *Enterprise* SKU supports a maximum of five trusts.
 
 For more information on these limits, see [Azure AD DS SKU features and limits][concepts-sku].
 
 ## Select a new SKU
 
-To change the SKU for a managed domain using the Azure portal, complete the following steps:
+To change the SKU for a managed domain using the [Microsoft Entra admin center](https://entra.microsoft.com), complete the following steps:
 
-1. At the top of the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain from the list, such as *aaddscontoso.com*.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Azure AD Domain Services**. Choose your managed domain from the list, such as *aaddscontoso.com*.
 1. In the menu on the left-hand side of the Azure AD DS page, select **Settings > SKU**.
 
-    ![Select the SKU menu option for your Azure AD DS managed domain in the Azure portal](media/change-sku/overview-change-sku.png)
+    ![Select the SKU menu option for your Azure AD DS managed domain in the Microsoft Entra admin center](media/change-sku/overview-change-sku.png)
 
 1. From the drop-down menu, select the SKU you wish for your managed domain. If you have a resource forest, you can't select *Standard* SKU as forest trusts are only available on the *Enterprise* SKU or higher.
 
     Choose the SKU you want from the drop-down menu, then select **Save**.
 
-    ![Choose the required SKU from the drop-down menu in the Azure portal](media/change-sku/change-sku-selection.png)
+    ![Choose the required SKU from the drop-down menu in the Microsoft Entra admin center](media/change-sku/change-sku-selection.png)
 
 It can take a minute or two to change the SKU type.
 
@@ -68,7 +65,7 @@ If you have a resource forest and want to create additional trusts after the SKU
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [concepts-sku]: administration-concepts.md#azure-ad-ds-skus
 [create-trust]: tutorial-create-forest-trust.md

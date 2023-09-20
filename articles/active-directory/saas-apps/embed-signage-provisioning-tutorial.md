@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure embed signage for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure embed signage for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to embed signage.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 92edbf22-3f7b-43ca-9a9e-0209ac9a12ec
 ms.service: active-directory
@@ -48,7 +48,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Login to [embed signage admin console](https://app.embedsignage.com/login).
 1. Navigate to **Account settings > Security > User provisioning**.
-1. Create a token and copy this somewhere safe. This value will be entered in the **Secret Token** * field in the Provisioning tab of your embed signage application in the Azure portal.
+1. Create a token and copy this somewhere safe. This value will be entered in the **Secret Token** * field in the Provisioning tab of your embed signage application.
 
 ## Step 3. Add embed signage from the Azure AD application gallery
 
@@ -69,7 +69,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for embed signage in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 

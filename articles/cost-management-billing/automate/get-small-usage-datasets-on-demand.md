@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: The article explains how you can use the Cost Details API to get raw, unaggregated cost data that corresponds to your Azure bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2023
+ms.date: 05/10/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -23,7 +23,12 @@ The [Cost Details](/rest/api/cost-management/generate-cost-details-report) repor
 
 ## Permissions
 
-To use the Cost Details API, you need read only permissions for supported features and scopes. For more information, see: 
+To use the Cost Details API, you need read only permissions for supported features and scopes.
+
+>[!NOTE]
+> The [Cost Details API](/rest/api/cost-management/generate-cost-details-report/create-operation) doesn't support management groups for either EA or MCA customers.
+
+For more information, see: 
 
 - [Azure RBAC scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role)
 - [Enterprise Agreement scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role-1)

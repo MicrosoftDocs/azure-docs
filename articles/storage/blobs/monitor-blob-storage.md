@@ -5,12 +5,12 @@ recommendations: false
 description: Learn how to monitor the performance and availability of Azure Blob Storage. Monitor Azure Blob Storage data, learn about configuration, and analyze metric and log data.
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 08/08/2023
 ms.author: normesta
 ms.devlang: csharp
-ms.custom: "subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
+ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurepowershell
 ---
 
 # Monitoring Azure Blob Storage
@@ -50,7 +50,7 @@ You can continue using classic metrics and logs if you want to. In fact, classic
 
 Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
 
-Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
+Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
 To collect resource logs, you must create a diagnostic setting. When you create the setting, choose **blob** as the type of storage that you want to enable logs for. Then, specify one of the following categories of operations for which you want to collect logs.
 
@@ -59,6 +59,8 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 | StorageRead | Read operations on objects. |
 | StorageWrite | Write operations on objects. |
 | StorageDelete | Delete operations on objects. |
+
+The **audit** resource log category group allows you to collect the baseline of resource logs that Microsoft deems necessary for auditing your resource. What's collected is dynamic, and Microsoft may change it over time as new resource log categories become available. If you choose the **audit** category group, you can't specify any other resource categories, because the system will decide which logs to collect. For more information, see [Diagnostic settings in Azure Monitor: Resource logs](../../azure-monitor/essentials/diagnostic-settings.md#resource-logs).
 
 > [!NOTE]
 > Data Lake Storage Gen2 doesn't appear as a storage type. That's because Data Lake Storage Gen2 is a set of capabilities available to Blob storage.
@@ -69,7 +71,7 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 
 For general destination limitations, see [Destination limitations](../../azure-monitor/essentials/diagnostic-settings.md#destination-limitations). The following limitations apply only to monitoring Azure Storage accounts.
 
-- You can't send logs to the same storage account that you are monitoring with this setting. 
+- You can't send logs to the same storage account that you're monitoring with this setting. 
 
   This would lead to recursive logs in which a log entry describes the writing of another log entry. You must create an account or use another existing account to store log information.
 
@@ -317,7 +319,7 @@ Log entries are created only if there are requests made against the service endp
 
 The [Activity log](../../azure-monitor/essentials/activity-log.md) is a type of platform log located in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
-When you view a storage account in the Azure portal, the operations called by the portal are also logged. For this reason, you may see operations logged in a storage account even though you have not written any data to the account.
+When you view a storage account in the Azure portal, the operations called by the portal are also logged. For this reason, you may see operations logged in a storage account even though you haven't written any data to the account.
 
 ### Log authenticated requests
 
@@ -331,7 +333,7 @@ When you view a storage account in the Azure portal, the operations called by th
 Requests made by the Blob storage service itself, such as log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-blob-storage-reference.md).
 
 > [!NOTE]
-> Azure Monitor currently filters out logs that describe activity in the `insights-` container. You can track activities in that container by using storage analytics (classic logs).
+> Azure Monitor currently filters out logs that describe activity in the "insights-logs-" container. You can track activities in that container by using storage analytics (classic logs).
 
 ### Log anonymous requests
 
@@ -424,11 +426,9 @@ The following table lists some example scenarios to monitor and the proper metri
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
-## FAQ
+## Frequently asked questions (FAQ)
 
-**Does Azure Storage support metrics for Managed Disks or Unmanaged Disks?**
-
-No. Azure Compute supports the metrics on disks. For more information, see [Per disk metrics for Managed and Unmanaged Disks](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
+See [Metrics and Logs FAQ](storage-blob-faq.yml#metrics-and-logs).
 
 ## Next steps
 

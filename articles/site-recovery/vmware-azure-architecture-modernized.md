@@ -3,7 +3,7 @@ title: VMware VM disaster recovery architecture in Azure Site Recovery - Moderni
 description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/21/2022
+ms.date: 04/04/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -160,4 +160,4 @@ After replication is set up and you run a disaster recovery drill (test failover
 
 ## Next steps
 
-Follow [this tutorial](vmware-azure-tutorial.md) to enable VMware to Azure replication.
+Follow [this tutorial](vmware-azure-set-up-replication-tutorial-modernized.md) to enable VMware to Azure replication.

@@ -71,6 +71,8 @@ The following properties are currently configurable during the Public Preview:
 
 The Telemetry Router supports logs and metrics pipelines. These pipelines are exposed in the custom resource specification of the Arc telemetry router and available for modification.
 
+You can't remove the last pipeline from the telemetry router. If you apply a yaml file that removes the last pipeline, the service rejects the update.
+
 #### Pipeline Settings
 
 |  Setting     | Description |
@@ -100,19 +102,19 @@ metadata:
 spec:
   credentials:
     certificates:
-    - certificateName: arcdata-msft-elasticsearch-exporter-internal
+    - certificateName: arcdata-elasticsearch-exporter
     - certificateName: cluster-ca-certificate
   exporters:
     elasticsearch:
     - caCertificateName: cluster-ca-certificate
-      certificateName: arcdata-msft-elasticsearch-exporter-internal
+      certificateName: arcdata-elasticsearch-exporter
       endpoint: https://logsdb-svc:9200
       index: logstash-otel
-      name: arcdata/msft/internal
+      name: arcdata
   pipelines:
     logs:
       exporters:
-      - elasticsearch/arcdata/msft/internal
+      - elasticsearch/arcdata
 ```
 
 
@@ -204,7 +206,7 @@ spec:
       secretName: <name_of_secret>
       secretNamespace: <namespace_with_secret>
   exporters:
-    elasticsearch:
+    Elasticsearch:
     # Step 2. Declare your Elasticsearch exporter with the needed settings 
     # (certificates, endpoint, and index to export to)
     - name: myLogs

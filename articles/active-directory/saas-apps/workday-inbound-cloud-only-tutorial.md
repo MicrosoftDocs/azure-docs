@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Workday inbound provisioning in Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Workday inbound provisioning in Azure Active Directory'
 description: Learn how to configure inbound provisioning from Workday to Azure AD
 services: active-directory
 author: cmmdesai
@@ -16,6 +16,10 @@ The objective of this tutorial is to show the steps you need to perform to provi
 
 >[!NOTE]
 >Use this tutorial if the users you want to provision from Workday are cloud-only users who don't need an on-premises AD account. If the users require only on-premises AD account or both AD and Azure AD account, then please refer to the tutorial on [configure Workday to Active Directory](workday-inbound-tutorial.md) user provisioning. 
+
+The following video provides a quick overview of the steps involved when planning your provisioning integration with Workday. 
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/TfndXBlhlII]
 
 ## Overview
 
@@ -85,21 +89,12 @@ The following sections describe steps for configuring user provisioning from Wor
 
 **To configure Workday to Azure Active Directory provisioning for cloud-only users:**
 
-1. Go to the [Azure portal](https://portal.azure.com).
-
-2. In the Azure portal, search for and select **Azure Active Directory**.
-
-3. Select **Enterprise Applications**, then **All Applications**.
-
-4. Select **Add an application**, and then select the **All** category.
-
-5. Search for **Workday to Azure AD user provisioning**, and add that app from the gallery.
-
-6. After the app is added and the app details screen is shown, select **Provisioning**.
-
-7. Change the **Provisioning** **Mode** to **Automatic**.
-
-8. Complete the **Admin Credentials** section as follows:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. Search for **Workday to Azure AD user provisioning**, and add that app from the gallery.
+1. After the app is added and the app details screen is shown, select **Provisioning**.
+1. Change the **Provisioning** **Mode** to **Automatic**.
+1. Complete the **Admin Credentials** section as follows:
 
    * **Workday Username** – Enter the username of the Workday integration system account, with the tenant domain name appended. Should look something like: username@contoso4
 
@@ -113,7 +108,7 @@ The following sections describe steps for configuring user provisioning from Wor
      | https://####.workday.com/ccx/service/tenantName/Human_Resources | v21.1 | No |
      | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v##.# | Yes |
 
-      > [!NOTE]
+     > [!NOTE]
      > If no version information is specified in the URL, the app uses Workday Web Services (WWS) v21.1 and no changes are required to the default XPATH API expressions shipped with the app. To use a specific WWS API version, specify version number in the URL <br>
      > Example: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v34.0` <br>
      > <br> If you are using a WWS API v30.0+, before turning on the provisioning job, please update the **XPATH API expressions** under **Attribute Mapping -> Advanced Options -> Edit attribute list for Workday** referring to the section [Managing your configuration](workday-inbound-tutorial.md#managing-your-configuration) and [Workday attribute reference](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).  
@@ -122,9 +117,7 @@ The following sections describe steps for configuring user provisioning from Wor
 
    * Click the **Test Connection** button.
 
-   * If the connection test succeeds, click the **Save** button at
-        the top. If it fails, double-check that the Workday URL and credentials are valid
-        in Workday.
+   * If the connection test succeeds, click the **Save** button at the top. If it fails, double-check that the Workday URL and credentials are valid in Workday.
 
 ### Part 2: Configure Workday and Azure AD attribute mappings
 
@@ -153,8 +146,7 @@ In this section, you will configure how user data flows from Workday to Azure Ac
 
 4. In the **Attribute mappings** section, you can define how individual Workday attributes map to Active Directory attributes.
 
-5. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
-        mappings. An individual attribute mapping supports these properties:
+5. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new mappings. An individual attribute mapping supports these properties:
 
    * **Mapping Type**
 
@@ -162,8 +154,7 @@ In this section, you will configure how user data flows from Workday to Azure Ac
 
       * **Constant** - Write a static, constant string value to the AD attribute
 
-      * **Expression** – Allows you to write a custom value to the AD attribute, based on one or more Workday
-                attributes. [For more info, see this article on expressions](../app-provisioning/functions-for-customizing-application-data.md).
+      * **Expression** – Allows you to write a custom value to the AD attribute, based on one or more Workday attributes. [For more info, see this article on expressions](../app-provisioning/functions-for-customizing-application-data.md).
 
    * **Source attribute** - The user attribute from Workday. If the attribute you are looking for is not present, see [Customizing the list of Workday user attributes](workday-inbound-tutorial.md#customizing-the-list-of-workday-user-attributes).
 
@@ -172,12 +163,9 @@ In this section, you will configure how user data flows from Workday to Azure Ac
 
    * **Target attribute** – The user attribute in Azure AD.
 
-   * **Match objects using this attribute** – Whether or not this attribute should be used to uniquely identify users between
-            Workday and Azure AD. This value is typically set on the Worker ID field for Workday, which is typically mapped to
-            the Employee ID attribute (new) or an extension attribute in Azure AD.
+   * **Match objects using this attribute** – Whether or not this attribute should be used to uniquely identify users between Workday and Azure AD. This value is typically set on the Worker ID field for Workday, which is typically mapped to the Employee ID attribute (new) or an extension attribute in Azure AD.
 
-   * **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the
-            order defined by this field. As soon as a match is found, no further matching attributes are evaluated.
+   * **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the order defined by this field. As soon as a match is found, no further matching attributes are evaluated.
 
    * **Apply this mapping**
 
@@ -190,7 +178,7 @@ In this section, you will configure how user data flows from Workday to Azure Ac
 
 ## Enable and launch user provisioning
 
-Once the Workday provisioning app configurations have been completed, you can turn on the provisioning service in the Azure portal.
+Once the Workday provisioning app configurations have been completed, you can turn on the provisioning service.
 
 > [!TIP]
 > By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or Workday data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.
@@ -216,5 +204,3 @@ Once the Workday provisioning app configurations have been completed, you can tu
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 * [Learn how to configure single sign-on between Workday and Azure Active Directory](workday-tutorial.md)
 * [Learn how to export and import your provisioning configurations](../app-provisioning/export-import-provisioning-configuration.md)
-
-

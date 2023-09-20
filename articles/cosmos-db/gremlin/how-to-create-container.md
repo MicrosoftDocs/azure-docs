@@ -8,7 +8,7 @@ ms.date: 10/16/2020
 author: manishmsfte
 ms.author: mansha
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-csharp, devx-track-azurecli, ignite-2022, devx-track-dotnet
 ---
 
 # Create a container in Azure Cosmos DB for Gremlin
@@ -67,4 +67,4 @@ await client.CreateDocumentCollectionAsync(
 * [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
 * [Request Units in Azure Cosmos DB](../request-units.md)
 * [Provision throughput on containers and databases](../set-throughput.md)
-* [Work with Azure Cosmos DB account](../account-databases-containers-items.md)
+* [Work with Azure Cosmos DB account](../resource-model.md)

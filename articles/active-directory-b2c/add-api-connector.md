@@ -9,7 +9,7 @@ ms.date: 12/20/2022
 author: garrodonnell
 ms.author: godonnell
 manager: CelesteDG
-ms.custom: "it-pro"
+ms.custom: it-pro, b2c-support, build-2023
 zone_pivot_groups: b2c-policy-type
 ---
 
@@ -144,9 +144,8 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
- "objectId": "11111111-0000-0000-0000-000000000000",
  "givenName":"John",
- "lastName":"Smith",
+ "surname":"Smith",
  "step": "PostFederationSignup",
  "client_id":"<guid>",
  "ui_locales":"en-US"
@@ -198,7 +197,6 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
- "objectId": "11111111-0000-0000-0000-000000000000",
  "givenName":"John",
  "surname":"Smith",
  "jobTitle":"Supplier",
@@ -250,7 +248,7 @@ See an example of a [validation-error response](#example-of-a-validation-error-r
 ## Before sending the token (preview)
 
 > [!IMPORTANT]
-> API connectors used in this step are in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> API connectors used in this step are in preview. For more information about previews, see [Product Terms for Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 An API connector at this step is invoked when a token is about to be issued during sign-ins and sign-ups. An API connector for this step can be used to enrich the token with claim values from external sources.
 
@@ -331,7 +329,7 @@ Content-type: application/json
 {
     "version": "1.0.0",
     "action": "ShowBlockPage",
-    "userMessage": "There was a problem with your request. You are not able to sign up at this time.",
+    "userMessage": "There was a problem with your request. You are not able to sign up at this time. Please contact your system administrator",
 }
 
 ```

@@ -6,7 +6,9 @@ ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 04/27/2021
 ms.devlang: ruby
-ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other, devx-track-linux
+author: cephalin
+ms.author: cephalin
 ---
 
 # Create a Ruby on Rails App in App Service
@@ -229,7 +231,7 @@ http://<app-name>.azurewebsites.net
 
 1. From the left navigation, select **Deployment Center**.
 
-    ![Screenshot of the App Service in the Azure Portal. The Deployment Center option in the Deployment section of the left navigation is highlighted.](media/quickstart-ruby/azure-portal-configure-app-service-deployment-center.png)  
+    ![Screenshot of the App Service in the Azure portal. The Deployment Center option in the Deployment section of the left navigation is highlighted.](media/quickstart-ruby/azure-portal-configure-app-service-deployment-center.png)  
 
 1. Under **Settings**, select a **Source**. For this quickstart, select *GitHub*.
 
@@ -263,13 +265,7 @@ The Ruby sample code is running in an Azure App Service Linux web app.
 
 ### [Azure CLI](#tab/cli)
 
-1. From Azure Cloud Shell, launch a text editor - such as `nano` or `vim` - to edit the file in `app/controllers/application_controller.rb`.
-   
-    ```bash
-    nano app/controllers/application_controller.rb
-    ```
-
-1. Edit the *ApplicationController* class so that it shows "Hello world from Azure App Service on Linux!" instead of "Hello from Azure App Service on Linux!".
+1. From Azure Cloud Shell, launch a text editor and edit the file `app/controllers/application_controller.rb`. Edit the *ApplicationController* class so that it shows "Hello world from Azure App Service on Linux!" instead of "Hello from Azure App Service on Linux!".
 
     ```ruby
     class ApplicationController < ActionController::Base

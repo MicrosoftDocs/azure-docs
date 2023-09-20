@@ -1,6 +1,6 @@
 ---
-title: Trial User Guide - Microsoft Entra Permissions Management
-description: How to get started with your Entra Permissions free trial
+title: Trial User Guide - Microsoft Entra Permissions Management - OBSOLETE
+description: How to get started with your Microsoft Entra Permissions Management free trial
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 09/01/2022
+ms.date: 06/16/2023
 ms.author: jfields
 ---
 
@@ -47,7 +47,7 @@ If the above points are met, continue with the following steps:
 
     **Option 1 (Recommended): Automatically manage** – this option allows subscriptions to be automatically detected and monitored without additional configuration.
 
-    **Option 2**: **Enter authorization systems** - you have the ability to specify only certain subscriptions to manage and monitor with MEPM (up to 10 per collector).
+    **Option 2**: **Enter authorization systems** - you have the ability to specify only certain subscriptions to manage and monitor with MEPM (up to 100 per collector).
 
     **Option 3**: **Select authorization systems** - this option detects all subscriptions that are accessible by the Cloud Infrastructure Entitlement Management application.
 

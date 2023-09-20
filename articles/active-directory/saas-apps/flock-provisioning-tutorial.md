@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Flock  for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Flock  for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Flock.
 services: active-directory
 author: twimmers
@@ -54,7 +54,7 @@ Before configuring Flock for automatic user provisioning with Azure AD, you will
 
 	:::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Screenshot of a menu on the Flock website. The Auth and provisioning item is highlighted." border="false":::
 
-3. Copy the **API Token**. These values will be entered in the **Secret Token** field in the Provisioning tab of your Flock application in the Azure portal.
+3. Copy the **API Token**. These values will be entered in the **Secret Token** field in the Provisioning tab of your Flock application.
 
 	:::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Screenshot of a Provisioning tab on the Flock website. Under A P I token, a value is highlighted. Next to the token is a Copy token button." border="false":::
 
@@ -65,20 +65,10 @@ To configure Flock  for automatic user provisioning with Azure AD, you need to a
 
 **To add Flock  from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Flock**, select **Flock** in the results panel, and then click the **Add** button to add the application.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Flock**, select **Flock** in the search box.
+1. Select **Flock** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 	![Flock  in the results list](common/search-new-app.png)
 
 ## Configuring automatic user provisioning to Flock  
@@ -90,11 +80,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Flock  in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Flock**.
+1. In the applications list, select **Flock**.
 
 	![The Flock  link in the Applications list](common/all-applications.png)
 

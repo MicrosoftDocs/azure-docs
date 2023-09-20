@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/10/2023
+ms.date: 02/15/2023
 ms.author: alkohli
 ---
 
@@ -28,14 +28,12 @@ This release corresponds to the software version:
 
 This release contains the following bug fixes:
 
-- **Update Agent SDK** - An update to SaaS agent SDK to fix the expired certificate issue.
-- **MSRC fixes** - Security fixes.
+- **Update Azure agent SDK** - Update to SaaS agent SDK enables certificate rotation.
+- **MSRC fixes** - Critical security fixes for MSRC issues listed in [CVE-2023-21703](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-21703).
 
 This release also contains the following updates:
 
-- **Monitoring agent update**.
-- **SAAS agent SDK update** - Provides certificate rotation.
-- **Updated Nuget Package References** - Enhances security.
+- **Update Nuget Package References** - Enhances security.
 - **Other updates** - All cumulative updates and .NET framework updates through November 2022.
 
 ## Known issues in this release

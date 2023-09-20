@@ -8,7 +8,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 03/22/2022
+ms.date: 04/05/2023
 ms.author: banders
 ---
 
@@ -27,7 +27,7 @@ If your internet browser page hangs, try each of the following steps until you c
 - Use a different internet browser.
 - Use the private browsing mode for your browser:
 
-   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign in to the [Azure portal](https://portal.azure.com/). 
+   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign in to the [Azure portal](https://portal.azure.com).
    - **Chrome:** Choose **Incognito** mode.
    - **Safari:** Choose **File**, then **New Private Window**.
 
@@ -48,7 +48,7 @@ To resolve the issue, try one of the following methods:
    - **Chrome:** Choose **Settings** and select **Clear browsing data** under **Privacy and Security**.
 - Reset your browser settings to defaults.
 - Use the private browsing mode for your browser. 
-   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign in to the [Azure portal](https://portal.azure.com/). 
+   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign in to the [Azure portal](https://portal.azure.com).
    - **Chrome:** Choose **Incognito** mode.
    - **Safari:** Choose **File**, then **New Private Window**.
 
@@ -56,7 +56,7 @@ To resolve the issue, try one of the following methods:
 
 This problem occurs if you selected at the wrong directory, or if your account doesn't have sufficient permissions.
 
-**Scenario:** You receive the error signing into the [Azure portal](https://portal.azure.com/)
+**Scenario:** You receive the error signing into the [Azure portal](https://portal.azure.com).
 
 To fix this issue:
 
@@ -75,4 +75,4 @@ Other troubleshooting articles for Azure Billing and Subscriptions
 
 ## Contact us for help
 
-If you have questions or need help but can't sign into the Azure portal, [create a support request](https://support.microsoft.com/oas/?prid=15470).
+If you have questions or need help but can't sign in to the Azure portal, [create a support request](https://support.microsoft.com/oas/?prid=15470).

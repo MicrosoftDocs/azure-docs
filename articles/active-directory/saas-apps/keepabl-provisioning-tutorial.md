@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Keepabl for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Keepabl for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Keepabl.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 80b48f18-fbdd-4c35-8aa9-b5f7a8331044
 ms.service: active-directory
@@ -46,7 +46,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 2. Configure Keepabl to support provisioning with Azure AD
 
 1. Sign in to [Keepabl Admin Portal](https://app.keepabl.com) and then navigate to **Account Settings > Your Organization**, where you’ll see the **Single Sign-On (SSO)** section.
-1. Click on the **Edit Identity Provider** button.You will be taken to the SSO Setup page, where once you select Microsoft Azure as your provider and then scroll down, you will see your **Tenant URL** and **Secret Token**. These value will be entered in the Provisioning tab of your Keepabl application in the Azure portal.
+1. Click on the **Edit Identity Provider** button.You will be taken to the SSO Setup page, where once you select Microsoft Azure as your provider and then scroll down, you will see your **Tenant URL** and **Secret Token**. These value will be entered in the Provisioning tab of your Keepabl application.
 
 	![Screenshot of extraction of tenant url and token.](media/keepabl-provisioning-tutorial/token.png)
 
@@ -71,7 +71,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Keepabl in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 

@@ -1,10 +1,10 @@
 ---
 title: Move a Log Analytics workspace to another Azure region by using the Azure portal
 description: Use an Azure Resource Manager template to move a Log Analytics workspace from one Azure region to another by using the Azure portal.
-author: yossi-y
 ms.topic: how-to
-ms.date: 08/17/2021
-ms.author: yossiy
+ms.custom: devx-track-arm-template
+ms.date: 07/02/2023
+ms.reviewer: yossiy
 ---
 
 # Move a Log Analytics workspace to another region by using the Azure portal
@@ -48,7 +48,7 @@ A workspace environment can be complex and include connected sources, managed so
     | sort by ResourceProvider, ResourceType
     ```
 
-  - *Installed solutions*: Select **Solutions** on the workspace navigation pane for a list of installed solutions.
+  - *Installed solutions*: Select **Legacy solutions** on the workspace navigation pane for a list of installed solutions.
   - *Data collector API*: Data arriving through a [Data Collector API](../logs/data-collector-api.md) is stored in custom log tables. For a list of custom log tables, select **Logs** on the workspace navigation pane, and then select **Custom log** on the schema pane.
   - *Linked services*: Workspaces might have linked services to dependent resources such as an Azure Automation account, a storage account, or a dedicated cluster. Remove linked services from your workspace. Reconfigure them manually in the target workspace.
   - *Alerts*: To list alerts, select **Alerts** on your workspace navigation pane, and then select **Manage alert rules** on the toolbar. Alerts in workspaces created after June 1, 2019, or in workspaces that were [upgraded from the Log Analytics Alert API to the scheduledQueryRules API](../alerts/alerts-log-api-switch.md) can be included in the template. 

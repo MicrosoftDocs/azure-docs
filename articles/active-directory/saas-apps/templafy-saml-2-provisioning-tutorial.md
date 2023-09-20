@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Templafy SAML2 for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Templafy SAML2 for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Templafy SAML2.
 services: active-directory
 author: twimmers
@@ -60,7 +60,7 @@ Before configuring Templafy SAML2 for automatic user provisioning with Azure AD,
 
 	![Screenshot of the Templafy administration section with the Authentication method option called out.](media/templafy-saml-2-provisioning-tutorial/templafy-auth.png)
 
-3. Copy the **SCIM Api-key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Templafy SAML2 application in the Azure portal.
+3. Copy the **SCIM Api-key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Templafy SAML2 application.
 
 	![A screenshot of the S C I M A P I key.](media/templafy-saml-2-provisioning-tutorial/templafy-token.png)
 
@@ -70,20 +70,10 @@ To configure Templafy SAML2 for automatic user provisioning with Azure AD, you n
 
 **To add Templafy SAML2 from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Templafy SAML2**, select **Templafy SAML2** in the results panel, and then click the **Add** button to add the application.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Templafy SAML2**, select **Templafy SAML2** in the search box.
+1. Select **Templafy SAML2** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 	![Templafy SAML2 in the results list](common/search-new-app.png)
 
 ## Step 4. Configure automatic user provisioning to Templafy SAML2 
@@ -95,11 +85,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Templafy SAML2 in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Templafy SAML2**.
+1. In the applications list, select **Templafy SAML2**.
 
 	![The Templafy SAML2 link in the Applications list](common/all-applications.png)
 
@@ -127,6 +118,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Templafy SAML2 in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Templafy SAML2 for update operations. Select the **Save** button to commit any changes.
 
+
    |Attribute|Type|Supported for filtering|
    |---|---|---|
    |userName|String|&check;|
@@ -148,6 +140,9 @@ This section guides you through the steps to configure the Azure AD provisioning
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
 
+      > [!NOTE]
+      > Schema Discovery feature is enabled for this application.
+
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Templafy**.
 
 	![Templafy SAML2 Group Mappings](media/templafy-saml-2-provisioning-tutorial/group-mapping.png)
@@ -160,6 +155,8 @@ This section guides you through the steps to configure the Azure AD provisioning
       |members|Reference|
       |externalId|String|      
 
+      > [!NOTE]
+      > Schema Discovery feature is enabled for this application.
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -183,6 +180,10 @@ Once you've configured provisioning, use the following resources to monitor your
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## Change log
+
+* 05/04/2023 - Added support for **Schema Discovery**.
 
 ## Additional resources
 

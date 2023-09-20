@@ -3,7 +3,7 @@ title: Migrate from Azure Data Catalog to Microsoft Purview
 description: Steps to migrate from Azure Data Catalog to Microsoft's unified data governance service--Microsoft Purview.
 ms.service: data-catalog
 ms.topic: how-to 
-ms.date: 12/16/2022
+ms.date: 03/15/2023
 ms.custom: template-how-to
 #Customer intent: As an Azure Data Catalog user, I want to know why and how to migrate to Microsoft Purview so that I can use the best tools to manage my data.
 ---
@@ -51,8 +51,6 @@ Look at [Microsoft Purview](https://azure.microsoft.com/services/purview/) and u
 1. Create a migration plan using the [Microsoft Purview deployment checklist.](../purview/tutorial-azure-purview-checklist.md)
 
 ## Migrate to Microsoft Purview
-
-Manually migrate your data from Azure Data Catalog to Microsoft Purview.
 
 [Create a Microsoft Purview account](../purview/create-catalog-portal.md), [create collections](../purview/create-catalog-portal.md) in your data map, set up [permissions for your users](../purview/catalog-permissions.md), and onboard your data sources.
     

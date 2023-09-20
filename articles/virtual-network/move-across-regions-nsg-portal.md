@@ -3,6 +3,7 @@ title: Move Azure network security group (NSG) to another Azure region - Azure p
 description: Use Azure Resource Manager template to move Azure network security group from one Azure region to another using the Azure portal.
 author: asudbring
 ms.service: virtual-network
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu

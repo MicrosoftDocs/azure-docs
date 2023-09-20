@@ -7,7 +7,7 @@ author: halkazwini
 ms.service: network-watcher
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/15/2023
+ms.date: 02/23/2023
 ms.author: halkazwini
 ms.custom: template-concept, engagement-fy23
 ---
@@ -54,7 +54,7 @@ The following list is the values returned with the troubleshoot API:
       * **actionUri** - This value provides the URI to documentation on how to act.
       * **actionUriText** - This value is a short description of the action text.
 
-The following tables show the different fault types (ID under results from the preceding list) that are available and if the fault creates logs.
+The following tables show the different fault types (**id** under results from the preceding list) that are available and if the fault creates logs.
 
 ### Gateway
 
@@ -224,4 +224,6 @@ Elapsed Time            330 sec
 
 ## Next steps
 
-To learn how to diagnose a problem with a virtual network gateway or gateway connection, see [Diagnose communication problems between networks](diagnose-communication-problem-between-networks.md).
+To learn how to diagnose a problem with a virtual network gateway or gateway connection, see [Diagnose communication problems between virtual networks](diagnose-communication-problem-between-networks.md).
+
+

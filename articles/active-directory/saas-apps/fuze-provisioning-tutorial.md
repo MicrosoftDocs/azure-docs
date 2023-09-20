@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Fuze for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Fuze for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Fuze.
 services: active-directory
 author: twimmers
@@ -51,7 +51,7 @@ Before configuring Fuze for automatic user provisioning with Azure AD, you will 
 
 2. You can find these SKUs and codes in your Fuze contract and configuration documents, or by contacting your Fuze representative.
 
-3. Once the requirements are received, your Fuze representative will provide you with the Fuze authentication token that is required to enable the integration. This value will be entered in the Secret Token field in the Provisioning tab of your Fuze application in the Azure portal.
+3. Once the requirements are received, your Fuze representative will provide you with the Fuze authentication token that is required to enable the integration. This value will be entered in the Secret Token field in the Provisioning tab of your Fuze application.
 
 ## Step 3. Add Fuze from the Azure AD application gallery
 
@@ -70,11 +70,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Fuze in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Fuze**.
+1. In the applications list, select **Fuze**.
 
 	![The Fuze link in the Applications list](common/all-applications.png)
 

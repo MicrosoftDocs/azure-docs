@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuring Velpic for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configuring Velpic for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Velpic.
 services: active-directory
 author: zhchia
@@ -47,11 +47,12 @@ Before configuring and enabling the provisioning service, you will need to decid
 This section guides you through connecting your Azure AD to Velpic's user account provisioning API, and configuring the provisioning service to create, update and disable assigned user accounts in Velpic based on user and group assignment in Azure AD.
 
 > [!TIP]
-> You may also choose to enabled SAML-based Single Sign-On for Velpic, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+> You may also choose to enabled SAML-based Single Sign-On for Velpic, following the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 ### To configure automatic user account provisioning to Velpic in Azure AD:
 
-1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications**  section.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 2. If you have already configured Velpic for single sign-on, search for your instance of Velpic using the search field. Otherwise, select **Add** and search for **Velpic** in the application gallery. Select Velpic from the search results, and add it to your list of applications.
 
@@ -65,7 +66,7 @@ This section guides you through connecting your Azure AD to Velpic's user accoun
 
     ![Authorization Values](./media/velpic-provisioning-tutorial/Velpic2.png)
 
-6. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Velpic app. If the connection fails, ensure your Velpic account has Admin permissions and try step 5 again.
+6. Select **Test Connection** to ensure Azure AD can connect to your Velpic app. If the connection fails, ensure your Velpic account has Admin permissions and try step 5 again.
 
 7. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
 

@@ -2,6 +2,7 @@
 title: Use Azure Data Lake Tools for Visual Studio Code
 description: Learn how to use Azure Data Lake Tools for Visual Studio Code to create, test, and run U-SQL scripts.
 ms.service: data-lake-analytics
+ms.custom: devx-track-python
 ms.reviewer: whhender
 ms.topic: how-to
 ms.date: 10/17/2022
@@ -13,7 +14,7 @@ ms.date: 10/17/2022
 
 In this article, learn how you can use Azure Data Lake Tools for Visual Studio Code (VS Code) to create, test, and run U-SQL scripts. The information is also covered in the following video:
 
-![Video player: Azure Data Lake tools for VS Code](media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png)
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=azuredatalake&ep=azure-data-lake-tools-vscode]
 
 ## Prerequisites
 
@@ -253,7 +254,7 @@ To sign out, enter the command **ADL: Logout**.
 
 Expand **AZURE DATALAKE**, select **Sign in to Azure**, and then follow step 3 and step 4 of [To connect to Azure by using a command](#sign-in-by-command).
 
-!["Sign in to Azure" selection in the explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-sign-in-from-explorer.png )  
+!["Sign in to Azure" selection in the explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-sign-in-from-explorer.png)  
 
 You can't sign out from the explorer. To sign out, see [To connect to Azure by using a command](#sign-in-by-command).
 

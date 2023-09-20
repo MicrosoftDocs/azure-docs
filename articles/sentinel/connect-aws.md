@@ -7,8 +7,6 @@ ms.date: 12/12/2022
 ms.author: yelevin
 ---
 
----
-
 # Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data
 
 Use the Amazon Web Services (AWS) connectors to pull AWS service logs into Microsoft Sentinel. These connectors work by granting Microsoft Sentinel access to your AWS resource logs. Setting up the connector establishes a trust relationship between Amazon Web Services and Microsoft Sentinel. This is accomplished on AWS by creating a role that gives permission to Microsoft Sentinel to access your AWS logs.
@@ -26,7 +24,18 @@ This connector is available in two versions: the legacy connector for CloudTrail
 
 # [S3 connector (new)](#tab/s3)
 
-This document explains how to configure the new AWS S3 connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side.
+This article explains how to configure the new AWS S3 connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side.
+
+## Prerequisites
+
+Make sure that the logs from your selected AWS service use the format accepted by Microsoft Sentinel:
+
+- **Amazon VPC**: .csv file in GZIP format with headers; delimiter: space.
+- **Amazon GuardDuty**: json-line and GZIP formats.
+- **AWS CloudTrail**: .json file in a GZIP format.
+- **CloudWatch**: .csv file in a GZIP format without a header. If you need to convert your logs to this format, you can use this [CloudWatch lambda function](cloudwatch-lambda-function.md).
+
+## Connect the S3 connector
 
 - In your AWS environment:
 
@@ -82,10 +91,13 @@ The script takes the following actions:
 
 ### Prerequisites
 
-You must have PowerShell and the AWS CLI on your machine.
+- Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content (Public preview)](sentinel-solutions-deploy.md).
 
-   - [Installation instructions for PowerShell](/powershell/scripting/install/installing-powershell)
-   - [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+- You must have PowerShell and the AWS CLI on your machine.
+  - [Installation instructions for PowerShell](/powershell/scripting/install/installing-powershell)
+  - [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+
+
 
 ### Instructions
 
@@ -93,8 +105,11 @@ To run the script to set up the connector, use the following steps:
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
 
-1. Select **Amazon Web Services S3** from the data connectors gallery, and in the details pane, select **Open connector page**.
+1. Select **Amazon Web Services S3** from the data connectors gallery.
 
+   If you don't see the connector, install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel.
+
+1. In the details pane for the connector, select **Open connector page**.
 1. In the **Configuration** section, under **1. Set up your AWS environment**, expand **Setup with PowerShell script (recommended)**.
 
 1. Follow the on-screen instructions to download and extract the [AWS S3 Setup Script](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScripts.zip?raw=true) (link downloads a zip file containing the main setup script and helper scripts) from the connector page.
@@ -132,6 +147,8 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
 
     - Create a [standard Simple Queue Service (SQS) queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-create-queue.html) in AWS.
 
+- Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+
 ### Instructions
 
 The manual setup consists of the following steps:
@@ -143,8 +160,13 @@ The manual setup consists of the following steps:
 
 #### Create an AWS assumed role and grant access to the AWS Sentinel account
 
-1. In Microsoft Sentinel, select **Data connectors** and then select the **Amazon Web Services S3** line in the table and in the AWS pane to the right,  select **Open connector page**.
+1. In Microsoft Sentinel, select **Data connectors**.
 
+1. Select **Amazon Web Services S3** from the data connectors gallery.
+
+   If you don't see the connector, install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel.
+
+1. In the details pane for the connector, select **Open connector page**.
 1. Under **Configuration**, copy the **External ID (Workspace ID)** and paste it aside.
  
 1. In your AWS management console, under **Security, Identity & Compliance**, select **IAM**.
@@ -252,14 +274,21 @@ Learn how to [troubleshoot Amazon Web Services S3 connector issues](aws-s3-troub
 
 ## Prerequisites
 
-You must have write permission on the Microsoft Sentinel workspace.
+- You must have write permission on the Microsoft Sentinel workspace.
+-  Install the Amazon Web Services solution from the Content Hub in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 > [!NOTE]
 > Microsoft Sentinel collects CloudTrail management events from all regions. It is recommended that you do not stream events from one region to another.
 
 ## Connect AWS CloudTrail
 
-1. In Microsoft Sentinel, select **Data connectors** and then select the **Amazon Web Services** line in the table and in the AWS pane to the right,  select **Open connector page**.
+1. In Microsoft Sentinel, select **Data connectors**.
+
+1. Select **Amazon Web Services** from the data connectors gallery.
+
+   If you don't see the connector, install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel.
+
+1. In the details pane for the connector, select **Open connector page**.
 
 1. Follow the instructions under **Configuration** using the following steps.
  

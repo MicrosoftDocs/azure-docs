@@ -1,5 +1,5 @@
 ---
-title: Topologies for cross-tenant synchronization (preview)
+title: Topologies for cross-tenant synchronization
 description: Learn about topologies for cross-tenant synchronization in Azure Active Directory.
 services: active-directory
 author: rolyon
@@ -8,18 +8,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 05/05/2023
 ms.author: rolyon
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
-# Topologies for cross-tenant synchronization (preview)
-
-> [!IMPORTANT]
-> Cross-tenant synchronization is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Topologies for cross-tenant synchronization
 
 Cross-tenant synchronization provides a flexible solution to enable collaboration, but every organization is different. Each cross-tenant synchronization configuration provides one-way synchronization between two Azure AD tenants, which enables configuration of the following topologies.
 

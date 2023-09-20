@@ -1,5 +1,5 @@
 ---
-title: Create custom roles in Azure AD role-based access control | Microsoft Docs
+title: Create custom roles in Azure AD role-based access control
 description: Create and assign custom Azure AD roles with resource scope on Azure Active Directory resources.
 services: active-directory
 author: rolyon
@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 12/09/2022
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 # Create and assign a custom role in Azure Active Directory
 
 This article describes how to create new custom roles in Azure Active Directory (Azure AD). For the basics of custom roles, see the [custom roles overview](custom-overview.md). The role can be assigned either at the directory-level scope or an app registration resource scope only.
 
-Custom roles can be created in the [Roles and administrators](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) tab on the Azure AD overview page.
+Custom roles can be created in the **Roles and administrators** page of the Microsoft Entra admin center.
 
 ## Prerequisites
 
@@ -29,13 +29,17 @@ Custom roles can be created in the [Roles and administrators](https://portal.azu
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Create a role in the Azure portal
+## Create a role in the Microsoft Entra admin center
 
 ### Create a new custom role to grant access to manage app registrations
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Select **Azure Active Directory** > **Roles and administrators** > **New custom role**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
+
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
+
+1. Select **New custom role**.
 
    ![Create or edit roles from the Roles and administrators page](./media/custom-create/new-custom-role.png)
 
@@ -57,10 +61,10 @@ Your custom role will show up in the list of available roles to assign.
 
 ### Connect to Azure
 
-To connect to Azure Active Directory, use the following command:
+To connect to Microsoft Graph PowerShell, use the following command:
 
 ``` PowerShell
-Connect-AzureAD
+Connect-MgGraph -Scopes "RoleManagement.Read.All"
 ```
 
 ### Create the custom role
@@ -79,10 +83,10 @@ $allowedResourceAction =
     "microsoft.directory/applications/basic/update",
     "microsoft.directory/applications/credentials/update"
 )
-$rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
+$rolePermissions = @(@{AllowedResourceActions= $allowedResourceAction})
  
 # Create new custom admin role
-$customAdmin = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
+$customAdmin = New-MgRoleManagementDirectoryRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -IsEnabled -Description $description -TemplateId $templateId
 ```
 
 ### Assign the custom role using PowerShell
@@ -91,15 +95,15 @@ Assign the role using the below PowerShell script:
 
 ``` PowerShell
 # Get the user and role definition you want to link
-$user = Get-AzureADUser -Filter "userPrincipalName eq 'cburl@f128.info'"
-$roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Application Support Administrator'"
+$user = Get-MgUser -Filter "userPrincipalName eq 'cburl@f128.info'"
+$roleDefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "DisplayName eq 'Application Support Administrator'"
 
 # Get app registration and construct resource scope for assignment.
-$appRegistration = Get-AzureADApplication -Filter "displayName eq 'f/128 Filter Photos'"
+$appRegistration = Get-MgApplication -Filter "Displayname eq 'POSTMAN'"
 $resourceScope = '/' + $appRegistration.objectId
 
 # Create a scoped role assignment
-$roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
+$roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId $resourcescope -RoleDefinitionId $roledefinition.Id -PrincipalId $user.Id
 ```
 
 ## Create a role with the Microsoft Graph API
@@ -152,9 +156,9 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -
 
 Like built-in roles, custom roles are assigned by default at the default organization-wide scope to grant access permissions over all app registrations in your organization. Additionally, custom roles and some relevant built-in roles (depending on the type of Azure AD resource) can also be assigned at the scope of a single Azure AD resource. This allows you to give the user the permission to update credentials and basic properties of a single app without having to create a second custom role.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) with Application Developer permissions.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Developer](../roles/permissions-reference.md#application-developer).
 
-1. Select **Azure Active Directory** > **App registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. Select the app registration to which you are granting access to manage. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.
 

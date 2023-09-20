@@ -1,5 +1,5 @@
 ---
-title: Understanding security policies, initiatives, and recommendations in Microsoft Defender for Cloud
+title: Understanding security policies, initiatives, and recommendations
 description: Learn about security policies, initiatives, and recommendations in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.custom: ignite-2022
@@ -127,5 +127,5 @@ If you're reviewing the list of recommendations on our [Security recommendations
 This page explained, at a high level, the basic concepts and relationships between policies, initiatives, and recommendations. For related information, see:
 
 - [Create custom initiatives](custom-security-policies.md)
-- [Disable security policies to disable recommendations](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations)
+- [Disable security recommendations](tutorial-security-policy.md#disable-a-security-recommendation)
 - [Learn how to edit a security policy in Azure Policy](../governance/policy/tutorials/create-and-manage.md)

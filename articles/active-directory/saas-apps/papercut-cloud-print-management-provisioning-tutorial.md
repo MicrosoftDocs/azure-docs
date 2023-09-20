@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure PaperCut Cloud Print Management for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure PaperCut Cloud Print Management for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to PaperCut Cloud Print Management.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 7e65d727-2951-4aec-a7a3-7bde49ed09e2
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -50,7 +50,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 
 
-4. Once installed, an addon details page will be shown with your **Tenant URL** and **Secret Token**. These values will be entered in the Tenant URL \* field and Secret Token \* field in the Provisioning tab of your PaperCut Cloud Print Management application in the Azure portal.
+4. Once installed, an addon details page will be shown with your **Tenant URL** and **Secret Token**. These values will be entered in the Tenant URL \* field and Secret Token \* field in the Provisioning tab of your PaperCut Cloud Print Management application.
 
 
 
@@ -72,11 +72,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for PaperCut Cloud Print Management in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
    ![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **PaperCut Cloud Print Management**.
+1. In the applications list, select **PaperCut Cloud Print Management**.
 
    ![The PaperCut Cloud Print Management link in the Applications list](common/all-applications.png)
 

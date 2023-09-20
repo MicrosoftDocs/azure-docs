@@ -3,6 +3,8 @@ title: Connect Microsoft Defender for IoT with Microsoft Sentinel
 description: This tutorial describes how to integrate Microsoft Sentinel and Microsoft Defender for IoT with the Microsoft Sentinel data connector to secure your entire environment. Detect and respond to threats, including multistage attacks that may cross IT and OT boundaries.
 ms.topic: tutorial
 ms.date: 06/20/2022
+ms.custom: enterprise-iot
+ms.subservice: sentinel-integration
 ---
 
 # Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel
@@ -31,12 +33,12 @@ Before you start, make sure you have the following requirements on your workspac
 - A Defender for IoT plan on your Azure subscription with data streaming into Defender for IoT. For more information, see [Quickstart: Get started with Defender for IoT](getting-started.md).
 
 > [!IMPORTANT]
-> Currently, having both the Microsoft Defender for IoT and the [Microsoft Defender for Cloud](../../sentinel/data-connectors-reference.md#microsoft-defender-for-cloud) data connectors enabled on the same Microsoft Sentinel workspace simultaneously may result in duplicate alerts in Microsoft Sentinel. We recommend that you disconnect the Microsoft Defender for Cloud data connector before connecting to Microsoft Defender for IoT.
+> Currently, having both the Microsoft Defender for IoT and the [Microsoft Defender for Cloud](../../sentinel/data-connectors/microsoft-defender-for-cloud.md) data connectors enabled on the same Microsoft Sentinel workspace simultaneously may result in duplicate alerts in Microsoft Sentinel. We recommend that you disconnect the Microsoft Defender for Cloud data connector before connecting to Microsoft Defender for IoT.
 >
 
 ## Connect your data from Defender for IoT to Microsoft Sentinel
 
-Start by enabling the [Defender for IoT data connector](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) to stream all your Defender for IoT events into Microsoft Sentinel.
+Start by enabling the [Defender for IoT data connector](../../sentinel/data-connectors/microsoft-defender-for-iot.md) to stream all your Defender for IoT events into Microsoft Sentinel.
 
 **To enable the Defender for IoT data connector**:
 
@@ -163,4 +165,4 @@ The following types of updates generate new records in the **SecurityAlert** tab
 The [Microsoft Defender for IoT](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-unifiedmicrosoftsocforot?tab=Overview) solution is a set of bundled, out-of-the-box content that's configured specifically for Defender for IoT data, and includes analytics rules, workbooks, and playbooks.
 
 > [!div class="nextstepaction"]
-> [Install the **Microsoft Defender for IoT** solution](iot-advanced-threat-monitoring.md)
+> [Install the Microsoft Defender for IoT solution](iot-advanced-threat-monitoring.md)

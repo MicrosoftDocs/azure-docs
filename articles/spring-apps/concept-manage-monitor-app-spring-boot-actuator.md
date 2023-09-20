@@ -1,7 +1,7 @@
 ---
 title: "Manage and monitor app with Spring Boot Actuator"
 description: Learn how to manage and monitor app with Spring Boot Actuator.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: conceptual
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 After deploying new binary to your app, you may want to check the functionality and see information about your running application. This article explains how to access the API from a test endpoint provided by Azure Spring Apps and expose the production-ready features for your app.
 
@@ -58,10 +58,10 @@ Actuator endpoints let you monitor and interact with your application. By defaul
 To observe the configuration and configurable environment, we need to enable `env` and `configgrops` endpoints as well.
 
 1. Go to app **Overview** pane, select **Configuration** in the setting menu, go to the **Environment variables** configuration page.
-1. Add the following properties as in the "key:value" form. This environment will open the Spring Actuator endpoint "env", "health", "info".
+1. Add the following properties as in the "key:value" form. This environment will open the Spring Actuator endpoint "health".
 
    ```properties
-   management.endpoints.web.exposure.include: env,health,info
+   management.endpoints.web.exposure.include: health
    ```
 
 1. Select the **Save** button, your application will restart automatically and load the new environment variables.

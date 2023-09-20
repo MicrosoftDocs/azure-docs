@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: User provisioning for GitHub - Azure AD'
+title: 'Tutorial: User provisioning for GitHub'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user organization membership in GitHub Enterprise Cloud.
 services: active-directory
 author: twimmers
@@ -52,7 +52,8 @@ This section guides you through connecting your Azure AD to GitHub's SCIM provis
 
 ### Configure automatic user account provisioning to GitHub in Azure AD
 
-1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications** section.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 2. If you have already configured GitHub for single sign-on, search for your instance of GitHub using the search field. Otherwise, select **Add** and search for **GitHub** in the application gallery. Select GitHub from the search results, and add it to your list of applications.
 
@@ -78,7 +79,7 @@ This section guides you through connecting your Azure AD to GitHub's SCIM provis
 
 10. Under the Mappings section, select **Synchronize Azure Active Directory Users to GitHub**.
 
-11. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to GitHub. The attributes selected as **Matching** properties are used to match the user accounts in GitHub for update operations. Do not enable the **Matching precendence** setting for the other default attributes in the **Provisioning** section because errors might occur. Select **Save** to commit any changes.
+11. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to GitHub. The attributes selected as **Matching** properties are used to match the user accounts in GitHub for update operations. Do not enable the **Matching precedence** setting for the other default attributes in the **Provisioning** section because errors might occur. Select **Save** to commit any changes.
 
 12. To enable the Azure AD provisioning service for GitHub, change the **Provisioning Status** to **On** in the **Settings** section.
 

@@ -534,7 +534,7 @@ What to do?
 
 ## Takeaways
 
-The biggest takeaways from this article are to understand that data modeling in a schema-free world is as important as ever.
+The biggest takeaways from this article are to understand that data modeling in a world that's schema-free is as important as ever.
 
 Just as there's no single way to represent a piece of data on a screen, there's no single way to model your data. You need to understand your application and how it will produce, consume, and process the data. Then, by applying some of the guidelines presented here you can set about creating a model that addresses the immediate needs of your application. When your applications need to change, you can use the flexibility of a schema-free database to embrace that change and evolve your data model easily.
 
@@ -545,7 +545,7 @@ Just as there's no single way to represent a piece of data on a screen, there's 
 * To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](../partitioning-overview.md).
 
 * To learn how to model and partition data on Azure Cosmos DB using a real-world example, refer to [
-Data Modeling and Partitioning - a Real-World Example](how-to-model-partition-example.md).
+Data Modeling and Partitioning - a Real-World Example](model-partition-example.md).
 
 * See the training module on how to [Model and partition your data in Azure Cosmos DB.](/training/modules/model-partition-data-azure-cosmos-db/)
 

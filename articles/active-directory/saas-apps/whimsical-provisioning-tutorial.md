@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Whimsical for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Whimsical for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Whimsical.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 4457a724-ed81-4f7b-bb3e-70beea80cb51
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -62,11 +62,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Whimsical in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Whimsical**.
+1. In the applications list, select **Whimsical**.
 
 	![The Whimsical link in the Applications list](common/all-applications.png)
 

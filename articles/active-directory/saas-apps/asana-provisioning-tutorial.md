@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Configure Asana for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Asana for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Asana.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 274810a2-bd74-4500-95f1-c720abf23541
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 04/04/2023
 ms.author: thwimmer
 ---
 
@@ -46,11 +46,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Asana to support provisioning with Azure AD
  > [!TIP]
- > To enable SAML-based single sign-on for Asana, follow the instructions provided in the Azure portal. Single sign-on can be configured independently of automatic provisioning, although these two features complement each other.
+ > To enable SAML-based single sign-on for Asana, follow the instructions provided. Single sign-on can be configured independently of automatic provisioning, although these two features complement each other.
 
 ### Generate Secret Token in Asana
 
-* Sign in to [Asana](https://app.asana.com/) by using your admin account.
+* Sign in to [Asana](https://app.asana.com/-/login) by using your admin account.
 * Select the profile photo from the top bar, and select your current organization-name settings.
 * Go to the **Service Accounts** tab.
 * Select **Add Service Account**.
@@ -75,7 +75,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Asana in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
@@ -107,12 +108,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
    |Attribute|Type|Supported for filtering|Required by Asana|
    |---|---|---|---|
-   |userName|String|&check;|&check;|   
-   |active|Boolean|||
-   |name.formatted|String|||
-   |preferredLanguage|String|||
-   |title|String|||
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|||
+   |userName|String|&check;|&check;   
+   |active|Boolean||
+   |name.formatted|String||
+   |title|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String||
 
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Asana**.
@@ -122,7 +123,7 @@ This section guides you through the steps to configure the Azure AD provisioning
       |Attribute|Type|Supported for filtering|Required by Asana|
       |---|---|---|---|
       |displayName|String|&check;|&check;      
-      |members|Reference|||
+      |members|Reference||
 
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -149,7 +150,8 @@ Once you've configured provisioning, use the following resources to monitor your
 
 ## Change log
 
-* 11/06/2021 - Dropped support for **externalId, name.givenName and name.familyName**. Added support for **preferredLanguage , title and urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department**. And enabled **Group Provisioning**.
+* 11/06/2021 - Dropped support for **externalId, name.givenName and name.familyName**. Added support for **preferredLanguage , title and urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department**. Enabled **Group Provisioning**.
+* 05/23/2023 - Dropped support for **preferredLanguage** Added support for **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager**.
 
 ## More resources
 

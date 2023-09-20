@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure GoLinks for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure GoLinks for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to GoLinks.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: b8a62f41-861f-417a-8925-70b892d9a4de
 ms.service: active-directory
@@ -46,9 +46,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure GoLinks to support provisioning with Azure AD
 
-1. The Tenant URL is `https://api.golinks.io/scim/v2`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your GoLinks application in the Azure portal.
+1. The Tenant URL is `https://api.golinks.io/scim/v2`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your GoLinks application.
 
-2. For the **Secret Token**, reach out to the GoLinks Support team at support@golinks.io or your Customer Success Manager. This value will be entered in the **Secret Token** field in the Provisioning tab of your GoLinks application in the Azure portal.
+2. For the **Secret Token**, reach out to the GoLinks Support team at support@golinks.io or your Customer Success Manager. This value will be entered in the **Secret Token** field in the Provisioning tab of your GoLinks application.
 
 
 ## Step 3. Add GoLinks from the Azure AD application gallery
@@ -70,11 +70,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for GoLinks in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **GoLinks**.
+1. In the applications list, select **GoLinks**.
 
 	![The GoLinks link in the Applications list](common/all-applications.png)
 

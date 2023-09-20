@@ -1,5 +1,5 @@
 ---
-title: Find help and get support for Azure Active Directory - Azure Active Directory | Microsoft Docs
+title: Find help and get support for Azure Active Directory
 description: Instructions about how to get help and open a support request for Azure Active Directory.
 services: active-directory
 author: shlipsey3                
@@ -8,13 +8,10 @@ ms.service: active-directory
 ms.topic: troubleshooting
 ms.subservice: fundamentals
 ms.workload: identity
-ms.date: 09/22/2022
+ms.date: 09/12/2023
 ms.author: sarahlipsey
 ms.reviewer: jeffsta
-ms.custom: "it-pro, seodec18"
-ms.collection: M365-identity-device-management
 ---
-
 # Find help and get support for Azure Active Directory
 
 Microsoft documentation and learning content provide quality support and troubleshooting information, but if you have a problem not covered in our content, there are several options to get help and support for Azure Active Directory (Azure AD). This article provides the options to find support from the Microsoft community and how to submit a support request with Microsoft.
@@ -41,7 +38,7 @@ Microsoft Q&A is Azure's recommended source for community support. We recommend 
 | [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[azure-ad-graph]](/answers/topics/azure-ad-graph.html)                 |
 | All other authentication and authorization areas                            | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
 
-## Open a support request in Azure Active Directory
+## Open a support request
 
 If you're unable to find answers by using self-help resources, you can open an online support request. You should open a support request for only a single problem, so that we can connect you to the support engineers who are subject matter experts for your problem. Azure AD engineering teams prioritize their work based on incidents that are generated from support, so you're often contributing to service improvements.
 
@@ -54,11 +51,11 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 - If you're not an Azure customer, you can open a support request with [Microsoft Support for business](https://support.serviceshub.microsoft.com/supportforbusiness).
 
 > [!NOTE]
-> If you're using Azure AD B2C, open a support ticket by first switching to an Azure AD tenant that has an Azure subscription associated with it. Typically, this is your employee tenant or the default tenant created for you when you signed up for an Azure subscription. To learn more, see [how an Azure subscription is related to Azure AD](active-directory-how-subscriptions-associated-directory.md).
+> If you're using Azure AD B2C, open a support ticket by first switching to an Azure AD tenant that has an Azure subscription associated with it. Typically, this is your employee tenant or the default tenant created for you when you signed up for an Azure subscription. To learn more, see [how an Azure subscription is related to Azure AD](./how-subscriptions-associated-directory.md).
 
-1. Sign in to [the Azure portal](https://portal.azure.com) and open **Azure Active Directory**.
-   
-1. Scroll down to **Troubleshooting + Support** and select **New support request**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Service Support Administrator](../roles/permissions-reference.md#service-support-administrator).
+
+1. Browse to **Learn & support** > **New support request**.
 
 1. Follow the prompts to provide us with information about the problem you're having.
 

@@ -2,13 +2,13 @@
 title: "Quickstart: Create an Azure Active Directory tenant"
 description: In this quickstart, you learn how to create an Azure Active Directory tenant for use in developing applications that use the Microsoft identity platform for authentication and authorization.
 services: active-directory
-author: rwike77
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 09/08/2022
+ms.date: 07/11/2023
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit, mode-other
@@ -41,11 +41,13 @@ This quickstart addresses two scenarios for the type of app you want to build:
 To build an environment for either work and school accounts or personal Microsoft accounts (MSA), you can use an existing Azure AD tenant or create a new one.
 ### Use an existing Azure AD tenant
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Many developers already have tenants through services or subscriptions that are tied to Azure AD tenants, such as Microsoft 365 or Azure subscriptions.
 
 To check the tenant:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>. Use the account you'll use to manage your application.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Tenant Creator](../roles/permissions-reference.md#tenant-creator).
 1. Check the upper-right corner. If you have a tenant, you'll automatically be signed in. You see the tenant name directly under your account name.
    * Hover over your account name to see your name, email address, directory or tenant ID (a GUID), and domain.
    * If your account is associated with multiple tenants, you can select your account name to open a menu where you can switch between tenants. Each tenant has its own tenant ID.
@@ -53,13 +55,13 @@ To check the tenant:
 > [!TIP]
 > To find the tenant ID, you can:
 > * Hover over your account name to get the directory or tenant ID.
-> * Search and select **Azure Active Directory** > **Properties** > **Tenant ID** in the Azure portal.
+> * Select **Identity** > **Overview** and look for **Tenant ID**.
 
 If you don't have a tenant associated with your account, you'll see a GUID under your account name. You won't be able to do actions like registering apps until you create an Azure AD tenant.
 
 ### Create a new Azure AD tenant
 
-If you don't already have an Azure AD tenant or if you want to create a new one for development, see [Create a new tenant in Azure AD](../fundamentals/active-directory-access-create-new-tenant.md). Or use the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) in the Azure portal. 
+If you don't already have an Azure AD tenant or if you want to create a new one for development, see [Create a new tenant in Azure AD](../fundamentals/create-new-tenant.md). If you want to create a tenant for app testing, see [build a test environment](test-setup-environment.md).
 
 You'll provide the following information to create your new tenant:
 
@@ -78,4 +80,4 @@ To begin building external facing applications that sign in social and local acc
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Register an app](quickstart-register-app.md) to integrate with Microsoft identity platform.
+> [Register an app](quickstart-register-app.md)

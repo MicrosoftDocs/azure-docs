@@ -22,9 +22,9 @@ The benefit is first applied to the product that has the greatest savings plan d
 
 A savings plan discount only applies to resources associated with Enterprise Agreement, Microsoft Partner Agreement, and Microsoft Customer Agreements. Resources that run in a subscription with other offer types don't receive the discount.
 
-## Savings plans and VM reserved instances
+## Savings plans and VM reservations
 
-If you have both dynamic and stable workloads, you likely will have both Azure savings plans and VM reserved instances. Since reservation benefits are more restrictive than savings plans, and usually have greater discounts, Azure applies reservation benefits first.
+If you have both dynamic and stable workloads, you likely will have both Azure savings plans and VM reservations. Since reservation benefits are more restrictive than savings plans, and usually have greater discounts, Azure applies reservation benefits first.
 
 For example, VM *X* has the highest savings plan discount of all savings plan-eligible resources you used in a particular hour. If you have an available VM reservation that's compatible with *X*, the reservation is consumed instead of the savings plan. The approach reduces the possibility of waste and it ensures that you’re always getting the best benefit.
 

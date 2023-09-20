@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/06/2021
 ms.author: owenrichards
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-js
 #Customer intent: As an application developer, I want to learn how to change the code in my JavaScript application from using ADAL.js as its authentication library to MSAL.js.
 ---
 
@@ -73,7 +73,7 @@ window.config = {
 var authContext = new AuthenticationContext(config);
 ```
 
-In MSAL.js, you instantiate the [PublicClientApplication](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html) class instead. Like ADAL.js, the constructor expects a [configuration object](#configure-msal) that contains the `clientId` parameter at minimum. See for more: [Initialize MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md)
+In MSAL.js, you instantiate the [PublicClientApplication](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_node.PublicClientApplication.html) class instead. Like ADAL.js, the constructor expects a [configuration object](#configure-msal) that contains the `clientId` parameter at minimum. See for more: [Initialize MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md)
 
 ```javascript
 const msalConfig = {
@@ -181,7 +181,7 @@ authContext.acquireTokenRedirect("https://graph.microsoft.com", function (error,
 });
 ```
 
-MSAL.js supports both **v1.0** and **v2.0** endpoints. The **v2.0** endpoint employs a *scope-centric* model to access resources. Thus, when you request an access token for a resource, you also need to specify the scope for that resource:
+MSAL.js supports only the **v2.0** endpoint. The **v2.0** endpoint employs a *scope-centric* model to access resources. Thus, when you request an access token for a resource, you also need to specify the scope for that resource:
 
 ```javascript
 msalInstance.acquireTokenRedirect({
@@ -243,7 +243,7 @@ With the auth code flow with PKCE support, apps using MSAL.js 2.x obtain refresh
 
 When using MSAL.js, the most common type of error you might face is the `interaction_in_progress` error. This error is thrown when an interactive API (`loginPopup`, `loginRedirect`, `acquireTokenPopup`, `acquireTokenRedirect`) is invoked while another interactive API is still in progress. The `login*` and `acquireToken*` APIs are *async* so you'll need to ensure that the resulting promises have resolved before invoking another one.
 
-Another common error is `interaction_required`. This error is often resolved by initiating an interactive token acquisition prompt. For instance, the web API you're trying to access might have a [conditional access](../conditional-access/overview.md) policy in place, requiring the user to perform [multifactor authentication](../authentication/concept-mfa-howitworks.md) (MFA). In that case, handling `interaction_required` error by triggering `acquireTokenPopup` or `acquireTokenRedirect` will prompt the user for MFA, allowing them to fullfil it.
+Another common error is `interaction_required`. This error is often resolved by initiating an interactive token acquisition prompt. For instance, the web API you're trying to access might have a [Conditional Access](../conditional-access/overview.md) policy in place, requiring the user to perform [multifactor authentication](../authentication/concept-mfa-howitworks.md) (MFA). In that case, handling `interaction_required` error by triggering `acquireTokenPopup` or `acquireTokenRedirect` will prompt the user for MFA, allowing them to fullfil it.
 
 Yet another common error you might face is `consent_required`, which occurs when permissions required for obtaining an access token for a protected resource aren't consented by the user. As in `interaction_required`, the solution for `consent_required` error is often initiating an interactive token acquisition prompt, using either `acquireTokenPopup` or `acquireTokenRedirect`.
 
@@ -316,71 +316,110 @@ The snippets below demonstrates the minimal code required for a single-page appl
 ```html
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <script
-    type="text/javascript"
-    src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.18/js/adal.min.js">
-  </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://alcdn.msauth.net/lib/1.0.18/js/adal.min.js"></script>
 </head>
 
-<div>
-  <button id="loginButton">Login</button>
-  <button id="logoutButton" style="visibility: hidden;">Logout</button>
-  <button id="tokenButton" style="visibility: hidden;">Get Token</button>
-</div>
-
 <body>
-  <script>
+    <div>
+        <p id="welcomeMessage" style="visibility: hidden;"></p>
+        <button id="loginButton">Login</button>
+        <button id="logoutButton" style="visibility: hidden;">Logout</button>
+        <button id="tokenButton" style="visibility: hidden;">Get Token</button>
+    </div>
+    <script>
+        // DOM elements to work with
+        var welcomeMessage = document.getElementById("welcomeMessage");
+        var loginButton = document.getElementById("loginButton");
+        var logoutButton = document.getElementById("logoutButton");
+        var tokenButton = document.getElementById("tokenButton");
 
-    const loginButton = document.getElementById("loginButton");
-    const logoutButton = document.getElementById("logoutButton");
-    const tokenButton = document.getElementById("tokenButton");
+        // if user is logged in, update the UI
+        function updateUI(user) {
+            if (!user) {
+                return;
+            }
 
-    var authContext = new AuthenticationContext({
-        instance: 'https://login.microsoftonline.com/',
-        clientId: "ENTER_CLIENT_ID",
-        tenant: "ENTER_TENANT_ID",
-        cacheLocation: "sessionStorage",
-        redirectUri: "http://localhost:3000",
-        popUp: true,
-        callback: function (errorDesc, token, error, tokenType) {
-            console.log('Hello ' + authContext.getCachedUser().profile.upn)
-
-            loginButton.style.visibility = "hidden";
+            welcomeMessage.innerHTML = 'Hello ' + user.profile.upn + '!';
+            welcomeMessage.style.visibility = "visible";
             logoutButton.style.visibility = "visible";
             tokenButton.style.visibility = "visible";
-        }
-    });
+            loginButton.style.visibility = "hidden";
+        };
 
-    authContext.log({
-        level: 3,
-        log: function (message) {
-            console.log(message);
-        },
-        piiLoggingEnabled: false
-    });
-
-    loginButton.addEventListener('click', function () {
-        authContext.login();
-    });
-
-    logoutButton.addEventListener('click', function () {
-        authContext.logOut();
-    });
-
-    tokenButton.addEventListener('click', () => {
-        authContext.acquireTokenPopup(
-            "https://graph.microsoft.com",
-            null, null,
-            function (error, token) {
-                console.log(error, token);
+        // attach logger configuration to window
+        window.Logging = {
+            piiLoggingEnabled: false,
+            level: 3,
+            log: function (message) {
+                console.log(message);
             }
-        )
-    });
-  </script>
+        };
+
+        // ADAL configuration
+        var adalConfig = {
+            instance: 'https://login.microsoftonline.com/',
+            clientId: "ENTER_CLIENT_ID_HERE",
+            tenant: "ENTER_TENANT_ID_HERE",
+            redirectUri: "ENTER_REDIRECT_URI_HERE",
+            cacheLocation: "sessionStorage",
+            popUp: true,
+            callback: function (errorDesc, token, error, tokenType) {
+                if (error) {
+                    console.log(error, errorDesc);
+                } else {
+                    updateUI(authContext.getCachedUser());
+                }
+            }
+        };
+
+        // instantiate ADAL client object
+        var authContext = new AuthenticationContext(adalConfig);
+
+        // handle redirect response or check for cached user
+        if (authContext.isCallback(window.location.hash)) {
+            authContext.handleWindowCallback();
+        } else {
+            updateUI(authContext.getCachedUser());
+        }
+
+        // attach event handlers to button clicks
+        loginButton.addEventListener('click', function () {
+            authContext.login();
+        });
+
+        logoutButton.addEventListener('click', function () {
+            authContext.logOut();
+        });
+
+        tokenButton.addEventListener('click', () => {
+            authContext.acquireToken(
+                "https://graph.microsoft.com",
+                function (errorDesc, token, error) {
+                    if (error) {
+                        console.log(error, errorDesc);
+
+                        authContext.acquireTokenPopup(
+                            "https://graph.microsoft.com",
+                            null, // extraQueryParameters
+                            null, // claims
+                            function (errorDesc, token, error) {
+                                if (error) {
+                                    console.log(error, errorDesc);
+                                } else {
+                                    console.log(token);
+                                }
+                            }
+                        );
+                    } else {
+                        console.log(token);
+                    }
+                }
+            );
+        });
+    </script>
 </body>
 
 </html>
@@ -393,72 +432,111 @@ The snippets below demonstrates the minimal code required for a single-page appl
 ```html
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <script
-    type="text/javascript"
-    src="https://alcdn.msauth.net/browser/2.14.2/js/msal-browser.min.js">
-  </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.34.0/js/msal-browser.min.js"></script>
 </head>
 
-<div>
-  <button id="loginButton">Login</button>
-  <button id="logoutButton" style="visibility: hidden;">Logout</button>
-  <button id="tokenButton" style="visibility: hidden;">Get Token</button>
-</div>
-
 <body>
-  <script>
-    const loginButton = document.getElementById("loginButton");
-    const logoutButton = document.getElementById("logoutButton");
-    const tokenButton = document.getElementById("tokenButton");
+    <div>
+        <p id="welcomeMessage" style="visibility: hidden;"></p>
+        <button id="loginButton">Login</button>
+        <button id="logoutButton" style="visibility: hidden;">Logout</button>
+        <button id="tokenButton" style="visibility: hidden;">Get Token</button>
+    </div>
+    <script>
+        // DOM elements to work with
+        const welcomeMessage = document.getElementById("welcomeMessage");
+        const loginButton = document.getElementById("loginButton");
+        const logoutButton = document.getElementById("logoutButton");
+        const tokenButton = document.getElementById("tokenButton");
 
-    const pca = new msal.PublicClientApplication({
-        auth: {
-            clientId: "ENTER_CLIENT_ID",
-            authority: "https://login.microsoftonline.com/ENTER_TENANT_ID",
-            redirectUri: "http://localhost:3000",
-        },
-        cache: {
-            cacheLocation: "sessionStorage"
-        },
-        system: {
-            loggerOptions: {
-                loggerCallback(loglevel, message, containsPii) {
-                    console.log(message);
-                },
-                piiLoggingEnabled: false,
-                logLevel: msal.LogLevel.Verbose,
+        // if user is logged in, update the UI
+        const updateUI = (account) => {
+            if (!account) {
+                return;
             }
-        }
-    });
 
-    loginButton.addEventListener('click', () => {
-        pca.loginPopup().then((response) => {
-            console.log(`Hello ${response.account.username}!`);
-
-            loginButton.style.visibility = "hidden";
+            welcomeMessage.innerHTML = `Hello ${account.username}!`;
+            welcomeMessage.style.visibility = "visible";
             logoutButton.style.visibility = "visible";
             tokenButton.style.visibility = "visible";
-        })
-    });
+            loginButton.style.visibility = "hidden";
+        };
 
-    logoutButton.addEventListener('click', () => {
-        pca.logoutPopup().then((response) => {
-            window.location.reload();
-        })
-    });
+        // MSAL configuration
+        const msalConfig = {
+            auth: {
+                clientId: "ENTER_CLIENT_ID_HERE",
+                authority: "https://login.microsoftonline.com/ENTER_TENANT_ID_HERE",
+                redirectUri: "ENTER_REDIRECT_URI_HERE",
+            },
+            cache: {
+                cacheLocation: "sessionStorage"
+            },
+            system: {
+                loggerOptions: {
+                    loggerCallback(loglevel, message, containsPii) {
+                        console.log(message);
+                    },
+                    piiLoggingEnabled: false,
+                    logLevel: msal.LogLevel.Verbose,
+                }
+            }
+        };
 
-    tokenButton.addEventListener('click', () => {
-        pca.acquireTokenPopup({
-            scopes: ["User.Read"]
-        }).then((response) => {
-            console.log(response);
-        })
-    });
-  </script>
+        // instantiate MSAL client object
+        const pca = new msal.PublicClientApplication(msalConfig);
+
+        // handle redirect response or check for cached user
+        pca.handleRedirectPromise().then((response) => {
+            if (response) {
+                pca.setActiveAccount(response.account);
+                updateUI(response.account);
+            } else {
+                const account = pca.getAllAccounts()[0];
+                updateUI(account);
+            }
+        }).catch((error) => {
+            console.log(error);
+        });
+
+        // attach event handlers to button clicks
+        loginButton.addEventListener('click', () => {
+            pca.loginPopup().then((response) => {
+                pca.setActiveAccount(response.account);
+                updateUI(response.account);
+            })
+        });
+
+        logoutButton.addEventListener('click', () => {
+            pca.logoutPopup().then((response) => {
+                window.location.reload();
+            });
+        });
+
+        tokenButton.addEventListener('click', () => {
+            const account = pca.getActiveAccount();
+
+            pca.acquireTokenSilent({
+                account: account,
+                scopes: ["User.Read"]
+            }).then((response) => {
+                console.log(response);
+            }).catch((error) => {
+                if (error instanceof msal.InteractionRequiredAuthError) {
+                    pca.acquireTokenPopup({
+                        scopes: ["User.Read"]
+                    }).then((response) => {
+                        console.log(response);
+                    });
+                }
+
+                console.log(error);
+            });
+        });
+    </script>
 </body>
 
 </html>

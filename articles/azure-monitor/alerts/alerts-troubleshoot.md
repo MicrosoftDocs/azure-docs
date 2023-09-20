@@ -1,22 +1,20 @@
 ---
 title: Troubleshooting Azure Monitor alerts and notifications
 description: Common issues with Azure Monitor alerts and possible solutions. 
-author: ofirmanor
-ms.author: ofmanor
 ms.topic: reference
-ms.date: 2/23/2022
-ms.reviewer: ofmanor
+ms.date: 9/20/2023
+ms.reviewer: nolavime
 ---
 # Troubleshooting problems in Azure Monitor alerts
 
-This article discusses common problems in Azure Monitor alerting and notifications.
+This article discusses common problems in Azure Monitor alerting and notifications. Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](./alerts-overview.md).
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](./alerts-overview.md).
+You can see fired alerts in the Azure portal.
 
-If you have a problem with an alert firing or not firing when expected, refer to the articles below. You can see "fired" alerts in the Azure portal.
+Refer to these articles for troubleshooting information about metric or log alerts that are not behaving as expected:
 
-- [Troubleshooting Azure Monitor Metric Alerts in Microsoft Azure](alerts-troubleshoot-metric.md)  
-- [Troubleshooting Azure Monitor Log Alerts in Microsoft Azure](alerts-troubleshoot-log.md)
+- [Troubleshoot Azure Monitor metric alerts](alerts-troubleshoot-metric.md)
+- [Troubleshoot Azure Monitor log alerts](alerts-troubleshoot-log.md)
 
 If the alert fires as intended according to the Azure portal but the proper notifications do not occur, use the information in the rest of this article to troubleshoot that problem.
 
@@ -127,7 +125,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
 
     1. **Have the source IP addresses been blocked?**
     
-       Add the [IP addresses](./action-groups.md#action-specific-information) that the webhook is called from to your allowlist.
+       Add the [IP addresses](../app/ip-addresses.md) that the webhook is called from to your allowlist.
 
     1. **Does your webhook endpoint work correctly?**
 
@@ -166,8 +164,11 @@ If you have received a notification for an alert (such as an email or an SMS) mo
     ![Screenshot of multiple action groups in an alert.](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
 
 ## Action or notification has an unexpected content
+Action Groups uses two different email providers to ensure email notification delivery. The primary email provider is very resilient and quick but occasionally suffers outages. In this case, the secondary email provider handles email requests. The secondary provider is only a fallback solution. Due to provider differences, an email sent from our secondary provider may have a degraded email experience. The degradation results in slightly different email formatting and content. Since email templates differ in the two systems, maintaining parity across the two systems is not feasible. You can know that you are recieving a degraded experience, if there is a note at the top of your email notification that says: 
 
-If you have received the alert, but believe some of its fields are missing or incorrect, follow these steps: 
+"This is a degraded email experience. That means the formatting may be off or details could be missing. For more infomration on the degraded email experience, read here."
+
+If your notification does not contain this note and you have received the alert, but believe some of its fields are missing or incorrect, follow these steps: 
 
 1. **Did you pick the correct format for the action?** 
 
@@ -179,7 +180,7 @@ If you have received the alert, but believe some of its fields are missing or in
 
     Check if the format specified at the action level is what you expect. For example, you may have developed code that responds to alerts (webhook, function, logic app, etc.), expecting one format, but later in the action you or another person specified a different format.  
 
-    Also, check the payload format (JSON) for [activity log alerts](../alerts/activity-log-alerts-webhook.md), for [log search alerts](../alerts/alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](../alerts/alerts-common-schema-definitions.md), and for the deprecated [classic metric alerts](./alerts-webhooks.md).
+    Also, check the payload format (JSON) for [activity log alerts](../alerts/activity-log-alerts-webhook.md), for [log search alerts](../alerts/alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](../alerts/alerts-common-schema.md), and for the deprecated [classic metric alerts](./alerts-webhooks.md).
 
  
 1. **Activity log alerts: Is the information available in the activity log?** 
@@ -245,6 +246,57 @@ If you received an error while trying to create, update or delete an [alert proc
 1. **Did you verify the alert processing rule parameters?**  
 
     Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
+
+## How to Migrate the Get alert summary API to ARG query
+
+Get alert summary API return the summary of alerts using API, today once we opened the option to use ARG query everywhere (including alerts) you can use ARG query directly and by that to have an option to be more flexible. 
+If you are using “GetAlertSummary” API, we recommend using ARG query API and list out the benefits 
+* Ability to add new fields to the query that returns the alert summary.  
+* Ability to be more flexible in the query that returns the alert summary. 
+This is an example of how today we use “GetAlertSummary” API: 
+
+GET https://management.azure.com/subscriptions/{subId}/providers/Microsoft.AlertsManagement/alertsSummary?groupby=severity,alertState&api-version=2019-03-01 
+Response: AlertSummary_Sev_Alertstate 
+
+Instead of “GetAlertSummary” API you can create a query via ARG, examples for 2 uses of ARG query that can be used instead of “GetAlertSummary” API using different parameters. You can use this as a baseline for your query and build it exactly according to your needs. 
+* Query to ARG by Severity, AlertState: 
+    Post  https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview 
+    {
+      query: "alertsmanagementresources  
+        | where type =~ 'microsoft.alertsmanagement/alerts'   
+        | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
+        | project Severity = tostring(properties.essentials.severity), 
+        AlertState= tostring(properties.essentials.alertState) 
+        | summarize AlertsCount = count() by Severity, AlertState" 
+    } 
+* Query to ARG by Severity: 
+    Post  https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview 
+    { 
+        query: "alertsmanagementresources  
+        | where type =~ 'microsoft.alertsmanagement/alerts'   
+        | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
+        | project Severity = tostring(properties.essentials.severity) 
+        | summarize AlertsCount = count() by Severity" 
+    } 
+* Query to ARG by Severity, monitorService, TargetResourceType 
+    Post  https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview 
+    { 
+        query: "alertsmanagementresources  
+        | where type =~ 'microsoft.alertsmanagement/alerts'   
+        | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
+        | project Severity = tostring(properties.essentials.severity),  
+        MonitorCondition = tostring(properties.essentials.monitorCondition),  
+        ObjectState = tostring(properties.essentials.alertState),  
+        MonitorService = tostring(properties.essentials.monitorService),  
+        AlertRuleId = tostring(properties.essentials.alertRule),  
+        SignalType = tostring(properties.essentials.signalType),  
+        TargetResource = tostring(properties.essentials.targetResourceName), 
+        TargetResourceType = tostring(properties.essentials.targetResourceName), 
+        id   
+        | summarize AlertsCount = count() by Severity, MonitorService , TargetResourceType" 
+    } 
+
+ 
 
 
 ## Next steps

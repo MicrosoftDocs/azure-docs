@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure SoSafe for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure SoSafe for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to SoSafe.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 30de9f90-482e-43ef-9fcb-f3d4f5eac533
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -47,7 +47,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Login to [Sosafe admin console](https://manager.sosafe.de) and navigate to **Extended Data > SCIM** tab.
 1. Enter your Azure Tenant ID under **Identity Provider Tenant ID (Azure, Okta, etc.)** and select **Save**.
 1. Click on **Generate Token**.
-1. Copy the **Tenant URL** and **Token** visible on this page. These values will be entered in the **Tenant URL** and **Secret Token** * field in the Provisioning tab of your Sosafe application in the Azure portal.
+1. Copy the **Tenant URL** and **Token** visible on this page. These values will be entered in the **Tenant URL** and **Secret Token** * field in the Provisioning tab of your Sosafe application.
 
 ## Step 3. Add SoSafe from the Azure AD application gallery
 
@@ -68,7 +68,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for SoSafe in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 

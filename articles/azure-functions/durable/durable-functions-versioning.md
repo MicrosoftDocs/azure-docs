@@ -32,6 +32,15 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+[bool]$Result = Invoke-DurableActivity -FunctionName 'Foo'
+Invoke-DurableActivity -FunctionName 'Bar' -Input $Result
+```
+
 # [Java](#tab/java)
 
 ```java
@@ -58,6 +67,15 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+[string]$Result = Invoke-DurableActivity -FunctionName 'Foo'
+Invoke-DurableActivity -FunctionName 'Bar' -Input $Result
+```
+
 # [Java](#tab/java)
 
 ```java
@@ -71,7 +89,7 @@ public void fooBarOrchestration(
 
 ---
 
-This change works fine for all new instances of the orchestrator function but breaks any in-flight instances. For example, consider the case where an orchestration instance calls a function named `Foo`, gets back a boolean value, and then checkpoints. If the signature change is deployed at this point, the checkpointed instance will fail immediately when it resumes and replays the call to `Foo`. This failure happens because the result in the history table is a Boolean value but the new code tries to deserialize it into a String value, resulting in a runtime exception for type-safe languages.
+This change works fine for all new instances of the orchestrator function but may break any in-flight instances. For example, consider the case where an orchestration instance calls a function named `Foo`, gets back a boolean value, and then checkpoints. If the signature change is deployed at this point, the checkpointed instance will fail immediately when it resumes and replays the call to `Foo`. This failure happens because the result in the history table is a Boolean value but the new code tries to deserialize it into a String value, resulting in unexpected behavior or even runtime exception for type-safe languages.
 
 This example is just one of many different ways that a function signature change can break existing instances. In general, if an orchestrator needs to change the way it calls a function, then the change is likely to be problematic.
 
@@ -90,6 +108,15 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+[bool]$Result = Invoke-DurableActivity -FunctionName 'Foo'
+Invoke-DurableActivity -FunctionName 'Bar' -Input $Result
 ```
 
 # [Java](#tab/java)
@@ -121,6 +148,18 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 
     await context.CallActivityAsync("Bar", result);
 }
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+[bool]$Result = Invoke-DurableActivity -FunctionName 'Foo'
+if ($Result -eq $true) {
+    Invoke-DurableActivity -FunctionName 'SendNotification'
+}
+Invoke-DurableActivity -FunctionName 'Bar' -Input $Result
 ```
 
 # [Java](#tab/java)

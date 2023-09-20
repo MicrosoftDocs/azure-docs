@@ -6,8 +6,9 @@ author: ankitaduttaMSFT
 manager: gaggupta
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 12/03/2018
+ms.date: 03/02/2023
 ms.author: ankitadutta
+ms.custom: engagement-fy23
 ---
 
 # Upgrade Windows Server and System Center VMM 2012 R2 to 2016

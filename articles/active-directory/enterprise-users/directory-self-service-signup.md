@@ -1,5 +1,5 @@
 ---
-title: Self-service sign-up for email-verified users - Azure AD | Microsoft Docs
+title: Self-service sign up for email-verified users
 description: Use self-service sign-up in an Azure Active Directory (Azure AD) organization
 services: active-directory
 documentationcenter: ''
@@ -11,10 +11,10 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 06/23/2022
+ms.date: 03/02/2022
 ms.author: barclayn
 ms.reviewer: elkuzmen
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -46,16 +46,19 @@ Admins have two self-service controls today. They can control whether:
 
 An admin can configure these capabilities using the following Azure AD cmdlet Set-MsolCompanySettings parameters:
 
-* **AllowEmailVerifiedUsers** controls whether users can join the tenant by email validation. To join, the user must have an email address in a domain which matches one of the verified domains in the tenant. This setting is applied company-wide for all domains in the tenant. If you set that parameter to $false, no email-verified user can join the tenant.
+* **AllowEmailVerifiedUsers** controls whether users can join the tenant by email validation. To join, the user must have an email address in a domain that matches one of the verified domains in the tenant. This setting is applied company-wide for all domains in the tenant. If you set that parameter to $false, no email-verified user can join the tenant.
 * **AllowAdHocSubscriptions** controls the ability for users to perform self-service sign-up. If you set that parameter to $false, no user can perform self-service sign-up.
   
 AllowEmailVerifiedUsers and AllowAdHocSubscriptions are tenant-wide settings that can be applied to a managed or unmanaged tenant. Here's an example where:
 
 * You administer a tenant with a verified domain such as contoso.com
-* You use B2B collaboration from a different tenant to invite a user that does not already exist (userdoesnotexist@contoso.com) in the home tenant of contoso.com
+* You use B2B collaboration from a different tenant to invite a user that doesn't already exist (userdoesnotexist@contoso.com) in the home tenant of contoso.com
 * The home tenant has the AllowEmailVerifiedUsers turned on
 
 If the preceding conditions are true, then a member user is created in the home tenant, and a B2B guest user is created in the inviting tenant.
+
+>[!NOTE]
+> Office 365 for Education users, are currently the only ones who are added to existing managed tenants even when this toggle is enabled
 
 For more information on Flow and Power Apps trial sign-ups, see the following articles:
 
@@ -63,23 +66,29 @@ For more information on Flow and Power Apps trial sign-ups, see the following ar
 * [Flow in your organization Q&A](/power-automate/organization-q-and-a)
 
 ### How do the controls work together?
-These two parameters can be used in conjunction to define more precise control over self-service sign-up. For example, the following command will allow users to perform self-service sign-up, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created first cannot perform self-service sign-up):
+These two parameters can be used in conjunction to define more precise control over self-service sign-up. For example, the following command allows users to perform self-service sign-up, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created first can't perform self-service sign-up):
 
 ```powershell
-    Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
+Import-Module Microsoft.Graph.Identity.SignIns
+connect-MgGraph -Scopes "Policy.ReadWrite.Authorization"
+$param = @{
+ allowedToSignUpEmailBasedSubscriptions=$true
+ allowEmailVerifiedUsersToJoinOrganization=$false
+ }
+Update-MgPolicyAuthorizationPolicy -BodyParameter $param
 ```
 
 The following flowchart explains the different combinations for these parameters and the resulting conditions for the tenant and self-service sign-up.
 
 ![flowchart of self-service sign-up controls](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
-The details of this setting can be retrieved by the following PowerShell cmdlet Get-MsolCompanyInformation. For more information on this, see [Get-MsolCompanyInformation](/powershell/module/msonline/get-msolcompanyinformation).
+This setting's details may be retrieved using the PowerShell cmdlet Get-MsolCompanyInformation. For more information on this, see [Get-MsolCompanyInformation](/powershell/module/msonline/get-msolcompanyinformation).
 
 ```powershell
-    Get-MsolCompanyInformation | Select AllowEmailVerifiedUsers, AllowAdHocSubscriptions
+Get-MgPolicyAuthorizationPolicy | Select-Object AllowedToSignUpEmailBasedSubscriptions, AllowEmailVerifiedUsersToJoinOrganization
 ```
 
-For more information and examples of how to use these parameters, see [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings).
+For more information and examples of how to use these parameters, see [Update-MgPolicyAuthorizationPolicy](/powershell/module/microsoft.graph.identity.signins/update-mgpolicyauthorizationpolicy?view=graph-powershell-1.0&preserve-view=true).
 
 ## Next steps
 

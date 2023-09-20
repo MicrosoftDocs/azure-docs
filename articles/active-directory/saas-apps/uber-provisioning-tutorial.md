@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Uber for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Uber for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Uber.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: f16047ee-8ed6-4f8f-86e4-d9bc2cbd9016
 ms.service: active-directory
@@ -48,7 +48,7 @@ Before you start the setup, below are the requirements to enable SCIM provisioni
 
 * You must be onboarded to a [Uber for Business](https://business.uber.com/) organization and have Admin access to it.
 * You must allow syncing via identity providers, you can find this by hovering your mouse above your profile photo in the top right corner and navigating to  **Settings > Integrations section > toggle Allow**
-* Grab your `organization-id` and replace it in `https://api.uber.com/v1/scim/organizations/{organization-id}/v2` to create your **Tenant Url** .This Tenant Url is to be entered in the Provisioning tab of your Uber application in the Azure portal. 
+* Grab your `organization-id` and replace it in `https://api.uber.com/v1/scim/organizations/{organization-id}/v2` to create your **Tenant Url** .This Tenant Url is to be entered in the Provisioning tab of your Uber application. 
 
    ![Screenshot of Grab Organization ID.](media/uber-provisioning-tutorial/organization-id.png)
 
@@ -70,7 +70,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Uber in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 

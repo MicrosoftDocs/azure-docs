@@ -2,7 +2,7 @@
 title: Configure hybrid Kubernetes clusters with Container insights | Microsoft Docs
 description: This article describes how you can configure Container insights to monitor Kubernetes clusters hosted on Azure Stack or other environments.
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/21/2023
 ms.reviewer: aul
 ---
 
@@ -12,7 +12,7 @@ Container insights provides a rich monitoring experience for the Azure Kubernete
 
 ## Supported configurations
 
-The following configurations are officially supported with Container insights. If you have a different version of Kubernetes and operating system versions, send an email to askcoin@microsoft.com.
+The following configurations are officially supported with Container insights. If you have a different version of Kubernetes and operating system versions, please open a support ticket..
 
 - Environments:
     - Kubernetes on-premises.
@@ -58,7 +58,7 @@ To enable Container insights for the hybrid Kubernetes cluster:
 
 1. Enable the Container insights Helm chart with a Log Analytics workspace.
 
-For more information on monitoring solutions in Azure Monitor, see [Monitoring solutions in Azure Monitor](../../azure-monitor/insights/solutions.md).
+For more information on monitoring solutions in Azure Monitor, see [Monitoring solutions in Azure Monitor](/previous-versions/azure/azure-monitor/insights/solutions).
 
 ### Add the Azure Monitor Containers solution
 

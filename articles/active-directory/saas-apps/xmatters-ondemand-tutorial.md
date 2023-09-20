@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with xMatters OnDemand | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with xMatters OnDemand'
 description: Learn how to configure single sign-on between Azure Active Directory and xMatters OnDemand.
 services: active-directory
 author: jeevansd
@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate xMatters OnDemand with Azure Act
 
 * Control in Azure AD who has access to xMatters OnDemand.
 * Enable your users to be automatically signed-in to xMatters OnDemand with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -37,10 +37,8 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 To configure the integration of xMatters OnDemand into Azure AD, you need to add xMatters OnDemand from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **xMatters OnDemand** in the search box.
 1. Select **xMatters OnDemand** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -61,9 +59,10 @@ To configure and test Azure AD SSO with xMatters OnDemand, perform the following
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
-1. In the Azure portal, on the **xMatters OnDemand** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **xMatters OnDemand** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -91,42 +90,44 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| `https://<COMPANY_NAME>.au1.xmatters.com.au/<INSTANCE_NAME>` |
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [xMatters OnDemand Client support team](https://www.xmatters.com/company/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [xMatters OnDemand Client support team](https://www.xmatters.com/company/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
 	> [!IMPORTANT]
     > You need to forward the certificate to the [xMatters OnDemand support team](https://www.xmatters.com/company/contact-us/). The certificate needs to be uploaded by the xMatters support team before you can finalize the single sign-on configuration.
 
-6. On the **Set up xMatters OnDemand** section, copy the appropriate URL(s) as per your requirement.
+1. On the **Set up xMatters OnDemand** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to xMatters OnDemand.
+In this section, you'll enable B.Simon to use single sign-on by granting access to xMatters OnDemand.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **xMatters OnDemand**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **xMatters OnDemand**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure xMatters OnDemand SSO
 
@@ -138,17 +139,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. On the **SAML Configuration** page, perform the following steps:
 
-    ![SAML configuration section ](./media/xmatters-ondemand-tutorial/saml-configuration.png "SAML configuration section")
+    ![SAML configuration section](./media/xmatters-ondemand-tutorial/saml-configuration.png "SAML configuration section")
 
     a. Select **Enable SAML**.
 
-    b. In the **Identity Provider ID** textbox, paste **Azure AD Identifier** value which you have copied from the Azure portal.
+    b. In the **Identity Provider ID** textbox, paste **Azure AD Identifier** value which you copied previously.
 
-    c. In the **Single Sign On URL** textbox, paste **Login URL** value which you have copied from the Azure portal.
+    c. In the **Single Sign On URL** textbox, paste **Login URL** value which you copied previously.
 
-    d. In the **Logout URL Redirect** textbox, paste **Logout URL**, which you have copied from the Azure portal.
+    d. In the **Logout URL Redirect** textbox, paste **Logout URL**, which you copied previously.
 
-	e. Click on **Choose File** to upload the **Certificate (Base64)** which you have downloaded from the Azure portal. 
+	e. Click on **Choose File** to upload the **Certificate (Base64)** which you have downloaded. 
 
     f. On the Company Details page, at the top, click **Save Changes**.
 
@@ -170,7 +171,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the xMatters OnDemand for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the xMatters OnDemand for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the xMatters OnDemand tile in the My Apps, you should be automatically signed in to the xMatters OnDemand for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

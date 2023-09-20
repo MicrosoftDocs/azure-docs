@@ -8,10 +8,10 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/09/2022
 ms.author: rolyon
-
-#Customer intent: As a dev, devops, or it admin, I want to 
+#Customer intent: As a dev, devops, or it admin, I want to
 ---
 
 # Allow read access to blobs based on tags and custom security attributes (Preview)
@@ -31,7 +31,7 @@ To assign custom security attributes and add role assignments conditions in your
 - [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 
 > [!IMPORTANT]
-> By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. If you do not meet these prerequisites, you won't see the principal/user attributes in the condition builder.
+> By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. If you do not meet these prerequisites, you won't see the principal/user attributes in the condition editor.
 
 ## Condition
 
@@ -75,7 +75,7 @@ For more information about conditions, see [What is Azure attribute-based access
 
 1. Add a user as a member of the group.
 
-1. Assign the `Project` attribute with a value of `Cascade` to the user. For more information, see [Assign or remove custom security attributes for a user](../active-directory/enterprise-users/users-custom-security-attributes.md). 
+1. Assign the `Project` attribute with a value of `Cascade` to the user. For more information, see [Assign, update, list, or remove custom security attributes for a user](../active-directory/enterprise-users/users-custom-security-attributes.md). 
 
     ![Screenshot of assigning a custom security attribute.](./media/conditions-custom-security-attributes/project-users-attributes-assign.png)
 

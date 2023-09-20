@@ -12,8 +12,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/29/2023
 ms.author: justinha 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: has-azure-ad-ps-ref
 ---
 # Harden an Azure Active Directory Domain Services managed domain
 
@@ -71,7 +70,7 @@ While disabling NTLM password synchronization will improve security, many applic
 
 ## Use PowerShell to harden your domain
 
-If needed, [install and configure Azure PowerShell](/powershell/azure/install-az-ps). Make sure that you sign in to your Azure subscription using the [Connect-AzAccount][Connect-AzAccount] cmdlet. 
+If needed, [install and configure Azure PowerShell](/powershell/azure/install-azure-powershell). Make sure that you sign in to your Azure subscription using the [Connect-AzAccount][Connect-AzAccount] cmdlet. 
 
 Also if needed, [install and configure Azure AD PowerShell](/powershell/azure/active-directory/install-adv2). Make sure that you sign in to your Azure AD tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
 

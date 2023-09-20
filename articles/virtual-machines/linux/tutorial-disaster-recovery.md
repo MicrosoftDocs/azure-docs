@@ -2,9 +2,8 @@
 title: Tutorial - Set up disaster recovery for Linux VMs with Azure Site Recovery
 description: Learn how to set up disaster recovery for Linux VMs to a different Azure region, using the Azure Site Recovery service.
 author: rayne-wiselman
-ms.service: virtual-machines
+ms.service: site-recovery
 ms.collection: linux
-ms.subservice: recovery
 ms.topic: tutorial
 ms.date: 01/25/2023
 ms.author: raynew

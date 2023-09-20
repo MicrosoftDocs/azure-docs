@@ -14,6 +14,8 @@ ms.custom: kr2b-contr-experiment
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 This article describes how you can use PowerShell to configure Azure Database for PostgreSQL server storage to scale up automatically without impacting the workload.
 
 Storage auto grow prevents your server from [reaching the storage limit](./concepts-pricing-tiers.md#reaching-the-storage-limit) and
@@ -27,7 +29,7 @@ specified in the storage section of the [Azure Database for PostgreSQL pricing t
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](/powershell/azure/install-az-ps) installed locally or [Azure Cloud Shell](https://shell.azure.com/) in the browser
+- The [Az PowerShell module](/powershell/azure/install-azure-powershell) installed locally or [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for PostgreSQL server](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
 If you choose to use PowerShell locally, connect to your Azure account using the

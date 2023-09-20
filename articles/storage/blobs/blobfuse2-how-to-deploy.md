@@ -5,11 +5,10 @@ description: Learn how to mount an Azure Blob Storage container on Linux with Bl
 author: jimmart-dev
 ms.author: jammart
 ms.reviewer: tamram
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 01/26/2023
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-linux
 ---
 
 # How to mount an Azure Blob Storage container on Linux with BlobFuse2
@@ -40,7 +39,7 @@ For information about libfuse support, see the [BlobFuse2 README](https://github
 To check your version of Linux, run the following command:
 
 ```bash
-lsb_release -a
+cat /etc/*-release
 ```
 
 If no binaries are available for your distribution, you can [Option 2: Build the binaries from source code](#option-2-build-the-binaries-from-source-code).
@@ -55,6 +54,8 @@ To install BlobFuse2 from the repositories:
 
 Configure the [Linux Package Repository for Microsoft Products](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
+# [RHEL](#tab/RHEL) 
+
 As an example, on a Redhat Enterprise Linux 8 distribution:
 
 ```bash
@@ -63,10 +64,22 @@ sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-pr
 
 Similarly, change the URL to `.../rhel/7/...` to point to a Redhat Enterprise Linux 7 distribution.
 
+# [CentOS](#tab/CentOS)
+ 
+As an example, on a CentOS 8 distribution:
+
+```bash
+sudo rpm -Uvh https://packages.microsoft.com/config/centos/8/packages-microsoft-prod.rpm
+```
+
+Similarly, change the URL to `.../centos/7/...` to point to a CentOS 7 distribution.
+
+# [Ubuntu](#tab/Ubuntu)
+
 Another example on an Ubuntu 20.04 distribution:
 
 ```bash
-wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+sudo wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 sudo apt-get install libfuse3-dev fuse3 
@@ -74,25 +87,38 @@ sudo apt-get install libfuse3-dev fuse3
 
 Similarly, change the URL to `.../ubuntu/16.04/...` or `.../ubuntu/18.04/...` to reference another Ubuntu version.
 
-#### Install BlobFuse2
-
-On an Ubuntu/Debian distribution:
+# [SLES](#tab/SLES) 
 
 ```bash
-sudo apt-get install blobfuse2
+sudo rpm -Uvh https://packages.microsoft.com/config/sles/15/packages-microsoft-prod.rpm
 ```
 
-On a Redhat Enterprise Linux distribution:
+--- 
+
+#### Install BlobFuse2
+
+# [RHEL](#tab/RHEL) 
+
+```bash
+sudo yum install blobfuse2
+```
+# [CentOS](#tab/CentOS)
 
 ```bash
 sudo yum install blobfuse2
 ```
 
-On a SUSE distribution:
+# [Ubuntu](#tab/Ubuntu)
+
+```bash
+sudo apt-get install blobfuse2
+```
+# [SLES](#tab/SLES)  
 
 ```bash
 sudo zypper install blobfuse2
 ```
+---
 
 ### Option 2: Build the binaries from source code
 
@@ -117,9 +143,9 @@ To build the BlobFuse2 binaries from source code:
 1. Clone the repository:
 
    ```Git
-   git clone https://github.com/Azure/azure-storage-fuse/
-   cd ./azure-storage-fuse
-   git checkout main
+   sudo git clone https://github.com/Azure/azure-storage-fuse/
+   sudo cd ./azure-storage-fuse
+   sudo git checkout main
    ```
 
 1. Build BlobFuse2:
@@ -248,7 +274,7 @@ You can provide authorization information in a configuration file or in environm
 To mount an Azure block blob container by using BlobFuse2, run the following command. The command mounts the container specified in `./config.yaml` onto the location `~/mycontainer`:
 
 ```bash
-blobfuse2 mount ~/mycontainer --config-file=./config.yaml
+sudo blobfuse2 mount ~/mycontainer --config-file=./config.yaml
 ```
 
 > [!NOTE]

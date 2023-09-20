@@ -2,6 +2,7 @@
 title: Move Azure container registry to another region
 description: Manually move Azure container registry settings and data to another Azure region.
 ms.topic: article
+ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
@@ -69,7 +70,10 @@ Inspect the registry properties in the template JSON file you downloaded, and ma
             "apiVersion": "2020-11-01-preview",
             "name": "[parameters('myregistry_name')]",
             "location": "centralus",
-[...]
+        ...
+        }
+    ]
+}
 ```
 
 For more information, see [Use exported template from the Azure portal](../azure-resource-manager/templates/template-tutorial-export-template.md) and the [template reference](/azure/templates/microsoft.containerregistry/registries).
@@ -77,9 +81,9 @@ For more information, see [Use exported template from the Azure portal](../azure
 > [!IMPORTANT]
 > If you want to encrypt the target registry using a customer-managed key, make sure to update the template with settings for the required managed identity, key vault, and key. You can only enable the customer-managed key when you deploy the registry.
 > 
-> For more information, see [Encrypt registry using customer-managed key](./tutorial-enable-customer-managed-keys.md## Enable a customer-managed key by using a Resource Manager template).
+> For more information, see [Encrypt registry using customer-managed key](./tutorial-enable-customer-managed-keys.md#enable-a-customer-managed-key-by-using-a-resource-manager-template).
 
-### Create resource group 
+### Create resource group
 
 Create a resource group for the target registry using the [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroup* in the *eastus* location. 
 

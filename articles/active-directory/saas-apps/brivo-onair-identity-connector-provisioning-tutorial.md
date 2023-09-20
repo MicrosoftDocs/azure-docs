@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Brivo Onair Identity Connector for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Brivo Onair Identity Connector for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Brivo Onair Identity Connector.
 services: active-directory
 author: twimmers
@@ -52,7 +52,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
    ![Brivo Onair Identity Connector azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
 
-3. Click on **Copy Token** button and save the **Secret Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Brivo Onair Identity Connector application in the Azure portal.
+3. Click on **Copy Token** button and save the **Secret Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Brivo Onair Identity Connector application.
 
    ![Brivo Onair Identity Connector token](media/brivo-onair-identity-connector-provisioning-tutorial/token.png)
 
@@ -74,8 +74,8 @@ Before configuring Brivo Onair Identity Connector for automatic user provisionin
 
     ![The New application button](common/add-new-app.png)
 
-4. In the search box, enter **Brivo Onair Identity Connector**, select **Brivo Onair Identity Connector** in the results panel, and then click the **Add** button to add the application.
-
+4. In the search box, enter **Brivo Onair Identity Connector**, select **Brivo Onair Identity Connector** in the search box.
+1. Select **Brivo Onair Identity Connector** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
     ![Brivo Onair Identity Connector in the results list](common/search-new-app.png)
 
 ## Configuring automatic user provisioning to Brivo Onair Identity Connector 
@@ -84,11 +84,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Brivo Onair Identity Connector in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
     ![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Brivo Onair Identity Connector**.
+1. In the applications list, select **Brivo Onair Identity Connector**.
 
     ![The Brivo Onair Identity Connector link in the Applications list](common/all-applications.png)
 
@@ -112,7 +113,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Brivo Onair Identity Connector**.
 
-    ![Brivo Onair Identity Connector User Mappings](media/brivo-onair-identity-connector-provisioning-tutorial/user-mappings.png )
+    ![Brivo Onair Identity Connector User Mappings](media/brivo-onair-identity-connector-provisioning-tutorial/user-mappings.png)
 
 9. Review the user attributes that are synchronized from Azure AD to Brivo Onair Identity Connector in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Brivo Onair Identity Connector for update operations. Select the **Save** button to commit any changes.
 
@@ -152,4 +153,3 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
-

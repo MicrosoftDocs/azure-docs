@@ -802,7 +802,7 @@ Server-side programming mappings
 
 | HBase    | Azure Cosmos DB   | Description |
 | ----------------------- | ---------------- | ----------- |
-| Custom filters   | WHERE Clause  | If the processing implemented by the custom filter cannot be achieved by the WHERE clause in Azure Cosmos DB, use UDF in combination. See [UDF examples](query/udfs.md#examples) for an example of using UDF to further filter the results of the WHERE clause. |
+| Custom filters   | WHERE Clause  | If the processing implemented by the custom filter cannot be achieved by the WHERE clause in Azure Cosmos DB, use UDF in combination. |
 | Coprocessor  (Observer) | Trigger  | Observer is a trigger that executes before and after a particular event. Just as Observer supports pre- and post-calls, Azure Cosmos DB's Trigger also supports pre- and post-triggers. |
 | Coprocessor  (Endpoint) | Stored Procedure | Endpoint is a server-side data processing mechanism that is executed for each region. This is similar to an RDBMS stored procedure. Azure Cosmos DB stored procedures are written using JavaScript. It provides access to all the operations you can perform on Azure Cosmos DB through stored procedures. |
 
@@ -824,7 +824,7 @@ Data security is a shared responsibility of the customer and the database provid
 | Protect and  isolate sensitive data                          | For example, if  you are using Apache Ranger, you can use Ranger policy to apply the policy to  the table. | You can separate  personal and other sensitive data into specific containers and read / write,  or limit read-only access to specific users. |
 | Monitoring for  attacks                                      | It needs to be  implemented using third party products.        | By using [audit logging and activity logs](../monitor.md), you can monitor your account  for normal and abnormal activity. |
 | Responding to  attacks                                       | It needs to be  implemented using third party products.        | When you contact  Azure support and report a potential attack, a five-step incident response  process begins. |
-| Ability to  geo-fence data to adhere to data governance restrictions | You need to check  the restrictions of each country and implement it yourself. | Guarantees data  governance for sovereign regions (Germany, China, US Gov, etc.). |
+| Ability to  geo-fence data to adhere to data governance restrictions | You need to check  the restrictions of each country/region and implement it yourself. | Guarantees data  governance for sovereign regions (Germany, China, US Gov, etc.). |
 | Physical  protection of servers in protected data centers    | It depends on the  data center where the system is located.  | For a list of the latest certifications,  see the global [Azure compliance site](/compliance/regulatory/offering-home?view=o365-worldwide&preserve-view=true). |
 | Certifications     | Depends on the Hadoop  distribution.      | See [Azure compliance documentation](../compliance.md) |
 
@@ -848,7 +848,7 @@ There are several ways to get a backup of HBase. For example, Snapshot, Export, 
 
 Azure Cosmos DB automatically backs up data at periodic intervals, which does not affect the performance or availability of database operations. Backups are stored in Azure storage and can be used to recover data if needed. There are two types of Azure Cosmos DB backups:
 
-* [Periodic backup](../configure-periodic-backup-restore.md)
+* [Periodic backup](../periodic-backup-restore-introduction.md)
 
 * [Continuous backup](../continuous-backup-restore-introduction.md)
 

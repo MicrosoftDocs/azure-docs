@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure BrowserStack Single Sign-on for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure BrowserStack Single Sign-on for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to BrowserStack Single Sign-on.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 39999abc-e4a2-4058-81e0-bf88182f8864
 ms.service: active-directory
@@ -58,7 +58,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
     ![User](media/browserstack-single-sign-on-provisioning-tutorial/attributes.png)
 
-5. Copy the **Tenant URL** and **Secret Token**. These values will be entered in the Tenant URL and Secret Token fields in the Provisioning tab of your BrowserStack Single Sign-on application in the Azure portal. Click **Done**.
+5. Copy the **Tenant URL** and **Secret Token**. These values will be entered in the Tenant URL and Secret Token fields in the Provisioning tab of your BrowserStack Single Sign-on application. Click **Done**.
 
     ![Authorization](media/browserstack-single-sign-on-provisioning-tutorial/credential.png)
 
@@ -85,11 +85,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for BrowserStack Single Sign-on in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **BrowserStack Single Sign-on**.
+1. In the applications list, select **BrowserStack Single Sign-on**.
 
 	![The BrowserStack Single Sign-on link in the Applications list](common/all-applications.png)
 

@@ -7,7 +7,7 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 2/10/2022
 ms.author: madsd
-ms.custom: seodec18, fasttrack-edit
+ms.custom: "UpdateFrequency3, fasttrack-edit"
 ---
 
 # Azure App Service Hybrid Connections
@@ -52,7 +52,7 @@ Things you cannot do with Hybrid Connections include:
 
 ## Add and Create Hybrid Connections in your app ##
 
-To create a Hybrid Connection, go to the [Azure portal][portal] and select your app. Select **Networking** > **Configure your Hybrid Connection endpoints**. Here you can see the Hybrid Connections that are configured for your app.  
+To create a Hybrid Connection, go to the [Azure portal] and select your app. Select **Networking** > **Configure your Hybrid Connection endpoints**. Here you can see the Hybrid Connections that are configured for your app.  
 
 :::image type="content" source="media/app-service-hybrid-connections/hybridconn-portal.png" alt-text="Screenshot of Hybrid Connection list":::
 
@@ -109,7 +109,7 @@ In addition to there being an App Service plan SKU requirement, there's an addit
 
 ## Hybrid Connection Manager ##
 
-The Hybrid Connections feature requires a relay agent in the network that hosts your Hybrid Connection endpoint. That relay agent is called the Hybrid Connection Manager (HCM). To download HCM, from your app in the [Azure portal][portal], select **Networking** > **Configure your Hybrid Connection endpoints**.  
+The Hybrid Connections feature requires a relay agent in the network that hosts your Hybrid Connection endpoint. That relay agent is called the Hybrid Connection Manager (HCM). To download HCM, from your app in the [Azure portal], select **Networking** > **Configure your Hybrid Connection endpoints**.
 
 This tool runs on Windows Server 2012 and later. The HCM runs as a service and connects outbound to Azure Relay on port 443.  
 
@@ -152,7 +152,7 @@ Each HCM can support multiple Hybrid Connections. Also, any given Hybrid Connect
 
 ### Manually add a Hybrid Connection ###
 
-To enable someone outside your subscription to host an HCM instance for a given Hybrid Connection, share the gateway connection string for the Hybrid Connection with them. You can see the gateway connection string in the Hybrid Connection properties in the [Azure portal][portal]. To use that string, select **Enter Manually** in the HCM, and paste in the gateway connection string.
+To enable someone outside your subscription to host an HCM instance for a given Hybrid Connection, share the gateway connection string for the Hybrid Connection with them. You can see the gateway connection string in the Hybrid Connection properties in the [Azure portal]. To use that string, select **Enter Manually** in the HCM, and paste in the gateway connection string.
 
 :::image type="content" source="media/app-service-hybrid-connections/hybridconn-manual.png" alt-text="Manually add a Hybrid Connection":::
 
@@ -229,7 +229,7 @@ If you have a command-line client for your endpoint, you can test connectivity f
 
 <!--Links-->
 [HCService]: /azure/service-bus-relay/relay-hybrid-connections-protocol/
-[portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [oldhc]: /azure/biztalk-services/integration-hybrid-connection-overview/
 [sbpricing]: https://azure.microsoft.com/pricing/details/service-bus/
 [armclient]: https://github.com/projectkudu/ARMClient/

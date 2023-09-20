@@ -3,8 +3,9 @@ title: Reconfigure the Azure-SSIS integration runtime
 description: Learn how to reconfigure an Azure-SSIS integration runtime in Azure Data Factory after you have already provisioned it.
 ms.service: data-factory
 ms.subservice: integration-services
+ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 07/20/2023
 author: chugugrace
 ms.author: chugu
 ---

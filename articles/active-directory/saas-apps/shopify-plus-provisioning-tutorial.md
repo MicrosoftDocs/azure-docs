@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Shopify Plus for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Shopify Plus for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Shopify Plus.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: e2fa3ac8-a30f-4dcd-8073-ed7c65909feb
 ms.service: active-directory
@@ -44,13 +44,13 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Shopify Plus to support provisioning with Azure AD
 
-1. Login to [Shopify Plus organization admin](https://shopify.plus ). Navigate to **Users > Security**.
+1. Login to [Shopify Plus organization admin](https://shopify.plus). Navigate to **Users > Security**.
 
 2. Navigate to the **SCIM Integration** section, click **Generate API token**.
 
-3. Copy and save the generated token. This value will be entered in the **Secret Token** field in the Provisioning tab of your Shopify Plus application in the Azure portal.
+3. Copy and save the generated token. This value will be entered in the **Secret Token** field in the Provisioning tab of your Shopify Plus application.
 
-4. The base URL is `https://shopifyscim.com/scim/v2/`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Shopify Plus application in the Azure portal.
+4. The base URL is `https://shopifyscim.com/scim/v2/`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Shopify Plus application.
 
 ## Step 3. Add Shopify Plus from the Azure AD application gallery
 
@@ -71,11 +71,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Shopify Plus in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Shopify Plus**.
+1. In the applications list, select **Shopify Plus**.
 
 	![The Shopify Plus link in the Applications list](common/all-applications.png)
 
@@ -101,12 +102,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Shopify Plus in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Shopify Plus for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Shopify Plus API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for Filtering|
-   |---|---|---|
-   |userName|String|&check;|
+   |Attribute|Type|Supported for Filtering|Required by Shopify Plus
+   |---|---|---|---
+   |userName|String|&check;|&check;
+   |roles|String||
    |active|Boolean|
-   |name.givenName|String|
-   |name.familyName|String|
+   |name.givenName|String||&check;
+   |name.familyName|String||&check;
    
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -130,7 +132,10 @@ Once you've configured provisioning, use the following resources to monitor your
 
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## Change log
+06/22/2023 - Added support for **roles**.
 
 ## Additional resources
 

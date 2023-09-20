@@ -25,7 +25,7 @@ When you monitor your Azure Logic Apps resources in [Microsoft Azure Security Ce
 
 ## Enable diagnostic logging
 
-Before you can view the resource health status for your logic apps, you must first [set up diagnostic logging](monitor-logic-apps-log-analytics.md). If you already have a Log Analytics workspace, you can enable logging either when you create your logic app or on existing logic apps.
+Before you can view the resource health status for your logic apps, you must first [set up diagnostic logging](monitor-workflows-collect-diagnostic-data.md). If you already have a Log Analytics workspace, you can enable logging either when you create your logic app or on existing logic apps.
 
 > [!TIP]
 > The default recommendation is to enable diagnostic logs for Azure Logic Apps. However, you control this setting for your logic apps. When you enable diagnostic logs for your logic apps, you can use the information to help analyze security incidents.

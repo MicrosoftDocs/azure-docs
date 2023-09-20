@@ -47,4 +47,4 @@ We often see customers' on-premises resources getting attacked along with their 
 
 ## Next steps
 
-- Learn how to [create an Azure DDoS protection plan](manage-ddos-protection.md).
+* Learn more about [business continuity](ddos-disaster-recovery-guidance.md).

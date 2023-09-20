@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory External Identities"
 description: "New and updated documentation for the Azure Active Directory External Identities."
-ms.date: 10/04/2022
+ms.date: 09/01/2023
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -15,35 +15,37 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory External Identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the External Identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
-## January 2023
+## August 2023
 
 ### Updated articles
 
-- [Federation with SAML/WS-Fed identity providers for guest users](direct-federation.md)
-- [Add a self-service sign-up user flow to an app](self-service-sign-up-user-flow.md)
-- [Add a custom approval workflow to self-service sign-up](self-service-sign-up-add-approvals.md)
-- [Add Facebook as an identity provider for External Identities](facebook-federation.md)
-- [Leave an organization as an external user](leave-the-organization.md)
-- [External Identities in Azure Active Directory](external-identities-overview.md)
-- [External Identities documentation](index.yml)
+- [B2B collaboration user claims mapping in Azure Active Directory](claims-mapping.md) - UPN claims behavior update
+- [Self-service sign-up](self-service-sign-up-overview.md) - Customer content reference update 
+- [Cross-tenant access overview](cross-tenant-access-overview.md) - New storage model update
+- [Cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) - New storage model update
+- [Configure B2B direct connect](cross-tenant-access-settings-b2b-direct-connect.md) - New storage model update
+- 
+## July 2023
 
-## December 2022
+### New article
 
-### Updated articles
-
-- [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)
-- [Azure Active Directory B2B collaboration API and customization](customize-invitation-api.md)
-- [Azure Active Directory External Identities: What's new](whats-new-docs.md)
-- [Auditing and reporting a B2B collaboration user](auditing-and-reporting.md)
-
-## November 2022
+- [Sponsors field for B2B users (preview)](b2b-sponsors.md)
 
 ### Updated articles
 
-- [Tutorial: Use PowerShell to bulk invite Azure AD B2B collaboration users](bulk-invite-powershell.md)
-- [Grant B2B users in Azure AD access to your on-premises applications](hybrid-cloud-to-on-premises.md)
-- [Reset redemption status for a guest user](reset-redemption-status.md)
-- [Language customization in Azure Active Directory](user-flow-customize-language.md)
-- [B2B collaboration overview](what-is-b2b.md)
-- [Azure Active Directory External Identities: What's new](whats-new-docs.md)
-- [Tutorial: Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)
+- [Bulk invite users via PowerShell](bulk-invite-powershell.md) - Editorial and link updates
+- [Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md) - Text corrections and screenshot updates
+- [Invite internal users to B2B](invite-internal-users.md) - Text corrections and screenshot updates
+- [Grant B2B users access to local apps](hybrid-cloud-to-on-premises.md) - Text corrections
+- [Tenant restrictions V2](tenant-restrictions-v2.md) - Note update
+- [Leave an organization](leave-the-organization.md) - Screenshot update
+- [Use audit logs and access reviews](auditing-and-reporting.md) - B2B sponsors feature update
+
+## June 2023
+
+### Updated articles
+
+- [Set up tenant restrictions V2 (Preview)](tenant-restrictions-v2.md) - Microsoft Teams updates
+- [Invite guest users to an app](add-users-information-worker.md) - Link and structure updates
+
+

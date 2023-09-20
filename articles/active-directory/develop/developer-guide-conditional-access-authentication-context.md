@@ -76,7 +76,7 @@ Create or modify your Conditional Access policies to use the Conditional Access 
 These steps are the changes that you need to carry in your code base. The steps broadly comprise of
 
 - Query MS Graph to [list all the available Auth Contexts](/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences).
-- Allow IT admins to select sensitive/ high-privileged operations and assign them against the available Auth Contexts using CA policies.
+- Allow IT admins to select sensitive/ high-privileged operations and assign them against the available Auth Contexts using Conditional Access policies.
 - Save this mapping information in your database/local store.
 
 :::image type="content" source="media/developer-guide-conditional-access-authentication-context/configure-conditional-access-authentication-context.png" alt-text="Setup flow for creating an authentication context":::
@@ -154,7 +154,7 @@ These steps are the changes that you need to carry in your code base. The steps 
 
            try
            {
-               // read the header and checks if it conatins error with insufficient_claims value.
+               // read the header and checks if it contains error with insufficient_claims value.
                if (null != errorValue && "insufficient_claims" == errorValue)
                {
                    var claimChallengeParameter = GetParameterValue(parameters, "claims");
@@ -215,6 +215,7 @@ Don't use auth context where the app itself is going to be a target of Condition
 
 - [Use the Conditional Access auth context to perform step-up authentication for high-privilege operations in a web app](https://github.com/Azure-Samples/ms-identity-dotnetcore-ca-auth-context-app/blob/main/README.md)
 - [Use the Conditional Access auth context to perform step-up authentication for high-privilege operations in a web API](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md)
+- [Use the Conditional Access auth context to perform step-up authentication for high-privilege operations in a React single-page application and an Express web API](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/6-AdvancedScenarios/3-call-api-acrs)
 
 ## Authentication context [ACRs] in Conditional Access expected behavior
 

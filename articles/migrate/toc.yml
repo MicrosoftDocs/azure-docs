@@ -38,6 +38,10 @@
       href: tutorial-discover-aws.md
     - name: Discover GCP instances
       href: tutorial-discover-gcp.md
+  - name: Decide
+    items:
+    - name: Build a business case
+      href: how-to-build-a-business-case.md
   - name: Assess
     items:
     - name: Assess servers in VMware environment
@@ -46,8 +50,6 @@
         href: tutorial-assess-vmware-azure-vm.md
       - name: Assess SQL instances for migration to Azure SQL
         href: tutorial-assess-sql.md
-      - name: Assess ASP.NET web apps for migration to App Service
-        href: tutorial-assess-webapps.md
       - name: Assess servers for migration to AVS
         href: tutorial-assess-vmware-azure-vmware-solution.md
     - name: Assess servers in Hyper-V environment 
@@ -66,7 +68,9 @@
       href: tutorial-assess-aws.md
     - name: Assess GCP instances for migration to Azure
       href: tutorial-assess-gcp.md
-    - name: Assess imported servers for migration to Azure
+    - name: Assess ASP.NET web apps for migration to App Service
+      href: tutorial-assess-webapps.md
+    - name: Build business case or assess imported servers for migration to Azure
       href: tutorial-discover-import.md
   - name: Migrate
     items:
@@ -99,7 +103,9 @@
     - name: Containerize Java web apps and migrate to App Service containers
       href: tutorial-app-containerization-java-app-service.md
     - name: Modernize ASP.NET web apps to App Service code
-      href: tutorial-migrate-webapps.md
+      href: tutorial-modernize-asp-net-appservice-code.md
+    - name: Modernize ASP.NET web apps to AKS
+      href: tutorial-modernize-asp-net-aks.md
     - name: CI/CD for Day 2 operations
       href: tutorial-app-containerization-azure-pipeline.md  
 - name: Concepts
@@ -126,7 +132,7 @@
       href: discovered-metadata.md
     - name: Dependency analysis overview
       href: concepts-dependency-visualization.md
-  - name: Plan
+  - name: Decide
     items:
     - name: Business case overview
       href: concepts-business-case-calculation.md
@@ -197,6 +203,8 @@
         href: deploy-appliance-script-government.md
     - name: Limit discovery scope for servers in VMware environment
       href: set-discovery-scope.md
+    - name: Create least privilege credentials for SQL Server discovery
+      href: least-privilege-credentials.md  
     - name: How to add server credentials
       href: add-server-credentials.md
     - name: Discover applications/roles/features
@@ -207,11 +215,11 @@
       href: how-to-create-group-machine-dependencies.md
     - name: Analyze machine dependencies (agentless)
       href: how-to-create-group-machine-dependencies-agentless.md
-  - name: Plan
+  - name: Decide
     items:
-    - name: Build business case
+    - name: Build a business case
       href: how-to-build-a-business-case.md
-    - name: Review business case
+    - name: Review a business case
       href: how-to-view-a-business-case.md
   - name: Assess
     items:
@@ -255,6 +263,8 @@
         href: how-to-migrate-vmware-vms-with-cmk-disks.md
     - name: Test migration
       href: how-to-test-replicating-virtual-machines.md
+    - name: Upgrade Windows OS
+      href: how-to-upgrade-windows.md
     - name: Scale migration
       items:
       - name: How to migrate VMware VMs at scale using the agentless replication method
@@ -302,7 +312,9 @@
     - name: Troubleshoot stuck replication and slow migration issues in agentless VMware
       href: troubleshoot-replication-vmware.md
     - name: Troubleshoot web app migration issues
-      href: troubleshoot-webapps-migration.md  
+      href: troubleshoot-webapps-migration.md
+    - name: Troubleshoot Windows OS upgrade issues
+      href: troubleshoot-upgrade.md  
 - name: Reference
   items:
   - name: Azure CLI

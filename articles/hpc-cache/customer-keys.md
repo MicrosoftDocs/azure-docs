@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 11/02/2022
-ms.author: v-erinkelly
+ms.author: rohogue
 ---
 
 # Use customer-managed encryption keys for Azure HPC Cache

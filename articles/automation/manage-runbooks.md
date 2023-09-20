@@ -3,7 +3,7 @@ title: Manage runbooks in Azure Automation
 description: This article tells how to manage runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/16/2022
+ms.date: 08/28/2023
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
@@ -171,34 +171,43 @@ Some runbooks behave strangely if they run across multiple jobs at the same time
 # Ensures you do not inherit an AzContext in your runbook
 Disable-AzContextAutosave -Scope Process
 
-# Connect to Azure with system-assigned managed identity
+# Connect to Azure with system-assigned managed identity 
 $AzureContext = (Connect-AzAccount -Identity).context
 
-# set and store context
-$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
-    -DefaultProfile $AzureContext
+# set and store context 
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 
-# Check for already running or new runbooks
-$runbookName = "runbookName"
-$resourceGroupName = "resourceGroupName"
+# Check for already running or new runbooks 
+$runbookName = "runbookName" 
+$resourceGroupName = "resourceGroupName" 
 $automationAccountName = "automationAccountName"
 
-$jobs = Get-AzAutomationJob -ResourceGroupName $resourceGroupName `
-    -AutomationAccountName $automationAccountName `
-    -RunbookName $runbookName `
-    -DefaultProfile $AzureContext
+$jobs = Get-AzAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -RunbookName $runbookName -DefaultProfile $AzureContext
 
-# Check to see if it is already running
-$runningCount = ($jobs.Where( { $_.Status -eq 'Running' })).count
-
-if (($jobs.Status -contains 'Running' -and $runningCount -gt 1 ) -or ($jobs.Status -eq 'New')) {
-    # Exit code
-    Write-Output "Runbook $runbookName is already running"
-    exit 1
-} else {
-    # Insert Your code here
-    Write-Output "Runbook $runbookName is not running"
+# Ranking all the active jobs
+$activeJobs = $jobs | where {$_.status -eq 'Running' -or $_.status -eq 'Queued' -or $_.status -eq 'New' -or $_.status -eq 'Activating' -or $_.status -eq 'Resuming'} | Sort-Object -Property CreationTime 
+$jobRanking = @() 
+$rank = 0 
+ForEach($activeJob in $activeJobs) 
+{         
+    $rank = $rank + 1 
+    $activeJob | Add-Member -MemberType NoteProperty -Name jobRanking -Value $rank -Force 
+    $jobRanking += $activeJob 
 }
+    
+$AutomationJobId = $PSPrivateMetadata.JobId.Guid 
+$currentJob = $activeJobs | where {$_.JobId -eq $AutomationJobId} 
+$currentJobRank = $currentJob.jobRanking 
+
+# Only allow the Job with Rank = 1 to start processing. 
+If($currentJobRank -ne "1") 
+{ 
+    Write-Output "$(Get-Date -Format yyyy-MM-dd-hh-mm-ss.ffff) Concurrency check failed as Current Job Ranking is not 1 but $($currentJobRank) therefore exiting..." 
+    Exit 
+} Else
+{
+    Write-Output "$(Get-Date -Format yyyy-MM-dd-hh-mm-ss.ffff) Concurrency check passed. Start processing.." 
+} 
 ```
 
 If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
@@ -221,7 +230,7 @@ If your runbook normally runs within a time constraint, have the script implemen
 Runbooks often make calls to remote systems such as Azure via ARM, Azure Resource Graph, SQL services and other web services.
 When the system that the runbooks are calling is busy, temporary unavailable or implementing throttling under load, the calls are vulnerable to have runtime errors. To build resiliency in the runbooks, you must implement retry logic when making the calls so that the runbooks can handle a transient problem without failing. 
 
-For more information, refer [Retry pattern](https://learn.microsoft.com/azure/architecture/patterns/retry) and [General REST and retry guidelines](https://learn.microsoft.com/azure/architecture/best-practices/retry-service-specific#general-rest-and-retry-guidelines).
+For more information, refer [Retry pattern](/azure/architecture/patterns/retry) and [General REST and retry guidelines](/azure/architecture/best-practices/retry-service-specific#general-rest-and-retry-guidelines).
 
 ### Example 1: If your runbook makes only one or two calls
 
@@ -492,6 +501,7 @@ foreach ($item in $output) {
 
 ## Next steps
 
+* For sample queries, see [Sample queries for job logs and job streams](automation-manage-send-joblogs-log-analytics.md#job-streams)
 * To learn details of runbook management, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
 * To prepare a PowerShell runbook, see [Edit textual runbooks in Azure Automation](automation-edit-textual-runbook.md).
 * To troubleshoot issues with runbook execution, see [Troubleshoot runbook issues](troubleshoot/runbooks.md).

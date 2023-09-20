@@ -3,8 +3,8 @@ title: How to generate a configuration file for BlobFuse2 from a BlobFuse v1 con
 titleSuffix: Azure Storage
 description: How to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file.
 author: jimmart-dev
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: jammart
@@ -94,13 +94,13 @@ The following flags apply only to command `blobfuse2 mountv1` command:
 1. Mount a blob container in an Azure Data Lake Storage account using a BlobFuse v1 configuration file:
 
     ```bash
-    blobfuse2 mountv1 ./mount_dir --config-file=./config.cfg --use-adls=true
+    sudo blobfuse2 mountv1 ./mount_dir --config-file=./config.cfg --use-adls=true
     ```
 
 1. Create a BlobFuse2 configuration file from a v1 configuration file in the same directory, but do not mount any containers:
 
     ```bash
-    blobfuse2 mountv1 --config-file=./config.cfg --output-file=./config.yaml --convert-config-only=true
+    sudo blobfuse2 mountv1 --config-file=./config.cfg --output-file=./config.yaml --convert-config-only=true
     ```
 
 ## See also

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 ms.author: justinha
 
 ms.custom: contperf-fy21q1
@@ -26,7 +26,7 @@ An Azure AD DS managed domain lets you run legacy applications in the cloud that
 Azure AD DS integrates with your existing Azure AD tenant. This integration lets users sign in to services and applications connected to the managed domain using their existing credentials. You can also use existing groups and user accounts to secure access to resources. These features provide a smoother lift-and-shift of on-premises resources to Azure.
 
 > [!div class="nextstepaction"]
-> [To get started, create an Azure AD DS managed domain using the Azure portal][tutorial-create]
+> [To get started, create an Azure AD DS managed domain using the Microsoft Entra admin center][tutorial-create]
 
 Take a look at our short video to learn more about Azure AD DS.
 
@@ -70,7 +70,7 @@ To learn more about your identity options, [compare Azure AD DS with Azure AD, A
 
 The following features of Azure AD DS simplify deployment and management operations:
 
-* **Simplified deployment experience:** Azure AD DS is enabled for your Azure AD tenant using a single wizard in the Azure portal.
+* **Simplified deployment experience:** Azure AD DS is enabled for your Azure AD tenant using a single wizard in the Microsoft Entra admin center.
 * **Integrated with Azure AD:** User accounts, group memberships, and credentials are automatically available from your Azure AD tenant. New users, groups, or changes to attributes from your Azure AD tenant or your on-premises AD DS environment are automatically synchronized to Azure AD DS.
     * Accounts in external directories linked to your Azure AD aren't available in Azure AD DS. Credentials aren't available for those external directories, so can't be synchronized into a managed domain.
 * **Use your corporate credentials/passwords:** Passwords for users in Azure AD DS are the same as in your Azure AD tenant. Users can use their corporate credentials to domain-join machines, sign in interactively or over remote desktop, and authenticate against the managed domain.
@@ -82,7 +82,7 @@ The following features of Azure AD DS simplify deployment and management operati
 Some key aspects of a managed domain include the following:
 
 * The managed domain is a stand-alone domain. It isn't an extension of an on-premises domain.
-    * If needed, you can create one-way outbound forest trusts from Azure AD DS to an on-premises AD DS environment. For more information, see [Resource forest concepts and features for Azure AD DS][ forest-trusts].
+    * If needed, you can create one-way outbound forest trusts from Azure AD DS to an on-premises AD DS environment. For more information, see [Forest concepts and features for Azure AD DS][forest-trusts].
 * Your IT team doesn't need to manage, patch, or monitor domain controllers for this managed domain.
 
 For hybrid environments that run AD DS on-premises, you don't need to manage AD replication to the managed domain. User accounts, group memberships, and credentials from your on-premises directory are synchronized to Azure AD via [Azure AD Connect][azure-ad-connect]. These user accounts, group memberships, and credentials are automatically available within the managed domain.
@@ -95,7 +95,7 @@ To learn more about Azure AD DS compares with other identity solutions and how s
 * [Learn how Azure AD Domain Services synchronizes with your Azure AD directory][synchronization]
 * To learn how to administrator a managed domain, see [management concepts for user accounts, passwords, and administration in Azure AD DS][administration-concepts].
 
-To get started, [create a managed domain using the Azure portal][tutorial-create].
+To get started, [create a managed domain using the Microsoft Entra admin center][tutorial-create].
 
 <!-- INTERNAL LINKS -->
 [compare]: compare-identity-solutions.md

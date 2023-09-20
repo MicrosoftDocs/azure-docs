@@ -1,0 +1,72 @@
+### YamlMime:Landing
+
+title: Azure Cosmos DB for MongoDB vCore documentation
+summary: Azure Cosmos DB for MongoDB vCore makes it easy to create a database with full native MongoDB support. You can apply your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB vCore account's connection string.
+
+metadata:
+  title: Azure Cosmos DB for MongoDB vCore documentation
+  description: Azure Cosmos DB for MongoDB vCore makes it easy to create a database with full native MongoDB support.
+  services: service
+  ms.service: cosmos-db
+  ms.subservice: mongodb-vcore
+  ms.topic: landing-page
+  ms.collection: collection
+  author: gahl-levy
+  ms.author: gahllevy
+  ms.reviewer: sidandrews
+  ms.date: 08/28/2023
+landingContent:  
+  - title: Get started with Azure Cosmos DB for MongoDB vCore
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview
+            url: introduction.md
+      - linkListType: quickstart
+        links:
+          - text: Create resources - Azure portal
+            url: quickstart-portal.md
+          - text: Create resources - Bicep template
+            url: quickstart-bicep.md
+      - linkListType: tutorial
+        links:
+          - text: Build a Node.js web application
+            url: tutorial-nodejs-web-app.md
+  - title: Use a MongoDB vCore cluster
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Scale cluster
+            url: how-to-scale-cluster.md
+          - text: Restore cluster
+            url: how-to-restore-cluster.md
+          - text: Create transactions
+            url: how-to-transactions.md
+          - text: Create text search index
+            url: how-to-create-text-index.md
+      - linkListType: concept
+        links:
+          - text: MongoDB feature support
+            url: compatibility.md
+          - text: High availability
+            url: high-availability.md
+          - text: Migration options
+            url: migration-options.md
+  - title: Migrate to MongoDB vCore
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Migration options
+            url: migration-options.md
+      - linkListType: how-to-guide
+        links:
+          - text: Migrate using native tools
+            url: how-to-migrate-native-tools.md
+  - title: Integrate with AI
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Vector search
+            url: vector-search.md
+          - text: Build AI apps with vector search
+            url: vector-search-ai.md

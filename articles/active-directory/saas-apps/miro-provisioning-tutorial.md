@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Miro for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Miro for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Miro.
 services: active-directory
 author: twimmers
@@ -44,7 +44,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Set up Miro for provisioning
 
-To retrieve the needed **Secret Token** contact [Miro Support Team](mailto:support@miro.com). This value will be entered in the Secret Token field in the Provisioning tab of your Miro application in the Azure portal.
+To retrieve the needed **Secret Token** contact [Miro Support Team](mailto:support@miro.com). This value will be entered in the Secret Token field in the Provisioning tab of your Miro application.
 
 ## Add Miro from the gallery
 
@@ -64,8 +64,8 @@ Before configuring Miro for automatic user provisioning with Azure AD, you need 
 
 	![The New application button](common/add-new-app.png)
 
-1. In the search box, enter **Miro**, select **Miro** in the results panel, and then click the **Add** button to add the application.
-
+1. In the search box, enter **Miro**, select **Miro** in the search box.
+1. Select **Miro** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 	![Miro in the results list](common/search-new-app.png)
 
 ## Configuring automatic user provisioning to Miro 
@@ -80,7 +80,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Miro in Azure AD
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 

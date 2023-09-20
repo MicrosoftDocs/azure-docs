@@ -1,6 +1,6 @@
 ---
 title: Bing Web Search API response structure and answer types 
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: When you send Bing Web Search a search request, it returns a `SearchResponse` object in the response body.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.custom: seodec2018
 
 # Bing Web Search API response structure and answer types  
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 When you send Bing Web Search a search request, it returns a [`SearchResponse`](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) object in the response body. The object includes a field for each answer that Bing determined was relevant to query. This example illustrates a response object if Bing returned all answers:
 

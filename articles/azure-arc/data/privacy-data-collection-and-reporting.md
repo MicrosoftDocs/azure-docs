@@ -63,9 +63,9 @@ Operational data is collected for all database instances and for the Azure Arc-e
 
 - Metrics – Performance and capacity related metrics, which are collected to an Influx DB provided as part of Azure Arc-enabled data services. You can view these metrics in the provided Grafana dashboard. 
 
-- Logs – Records emitted by all components including failure, warning, and informational events are collected to an Elasticsearch database provided as part of Azure Arc-enabled data services. You can view the logs in the provided Kibana dashboard. 
+- Logs – Records emitted by all components including failure, warning, and informational events are collected to an OpenSearch database provided as part of Azure Arc-enabled data services. You can view the logs in the provided Kibana dashboard. Prior to the May, 2023 release, the log database used Elasticsearch. Thereafter, it uses OpenSearch. 
 
-The operational data stored locally requires built-in administrative privileges to view it in Grafana/Kibana. 
+The operational data stored locally requires built-in administrative privileges to view it in Grafana/Kibana.
 
 The operational data does not leave your environment unless you chooses to export/upload (indirect connected mode) or automatically send (directly connected mode) the data to Azure Monitor/Log Analytics. The data goes into a Log Analytics workspace, which you control. 
 
@@ -189,19 +189,9 @@ The following JSON document is an example of the SQL Server database - Azure Arc
 | Last uploaded date from on-premises cluster | LastUploadedDate | System.DateTime | 
 | Data controller state | ProvisioningState | string | 
 
-#### Data controller 
-
-- Location information
-   - `public OnPremiseProperty OnPremiseProperty` 
-- The raw Kubernetes information (`kubectl get datacontroller`) 
-   - `object: K8sRaw` [Details](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/crds)
-- Last uploaded date from on-premises cluster.
-   - `System.DateTime: LastUploadedDate` 
-- Data controller state
-- `string: ProvisioningState` 
-   
-
 The following JSON document is an example of the Azure Arc Data Controller resource. 
+
+
 
 
 
@@ -351,6 +341,7 @@ The following JSON document is an example of the Azure Arc Data Controller resou
 ```
 
 
+
 ### PostgreSQL server - Azure Arc
 
 | Description | Property name | Property type|
@@ -361,21 +352,6 @@ The following JSON document is an example of the Azure Arc Data Controller resou
 | The raw Kubernetes information (`kubectl get postgres12`) | K8sRaw | object |
 | Last uploaded date from on premises cluster | LastUploadedDate | System.DateTime |
 | Group provisioning state | ProvisioningState | string |
-
-#### Azure Arc-enabled PostgreSQL
-
-- The data controller ID
-   - `string: DataControllerId`
-- The instance admin name
-   - `string: Admin`
-- Username and password for basic authentication
-   - `public: BasicLoginInformation BasicLoginInformation` 
-- The raw Kubernetes information (`kubectl get postgres12`) 
-- `object: K8sRaw` [Details](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/crds)
-- Last uploaded date from on premises cluster. 
-   - `System.DateTime: LastUploadedDate` 
-- Group provisioning state
-   - `string: ProvisioningState` 
 
 ### SQL managed instance - Azure Arc
 
@@ -390,28 +366,10 @@ The following JSON document is an example of the Azure Arc Data Controller resou
 | Last uploaded date from on-premises cluster | LastUploadedDate | System.DateTime |
 | SQL managed instance provisioning state | ProvisioningState | string |
 
-The following JSON document is an example of the SQL managed instance - Azure Arc resource. 
 
-#### SQL managed instance 
-
-- The managed instance ID
-   - `public string: DataControllerId` 
-- The instance admin username 
-   - `string: Admin` 
-- The instance start time 
-   - `string: StartTime`
-- The instance end time 
-   - `string: EndTime` 
-- The raw kubernetes information (`kubectl get sqlmi`) 
-   - `object: K8sRaw` [Details](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/crds)
-- Username and password for basic authentication. 
-   - `public: BasicLoginInformation BasicLoginInformation`
-- Last uploaded date from on-premises cluster. 
-   - `public: System.DateTime LastUploadedDate` 
-- SQL managed instance provisioning state
-- `public string: ProvisioningState` 
-   
 The following JSON document is an example of the SQL Managed Instance - Azure Arc resource. 
+
+
 
 
 
@@ -711,5 +669,7 @@ In support situations, you may be asked to provide database instance logs, Kuber
 
 ## Next steps
 [Upload usage data to Azure Monitor](upload-usage-data.md)
+
+
 
 

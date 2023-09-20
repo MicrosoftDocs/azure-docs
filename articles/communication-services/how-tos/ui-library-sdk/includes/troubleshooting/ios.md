@@ -9,17 +9,18 @@ ms.service: azure-communication-services
 
 Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-chat)
 
-### Debug information
+### Get debug information
 
-`DebugInfo` is an object that contains debug information for the current CallComposite object. 
+When troubleshooting happens for voice or video calls, user may be asked to provide a CallID; this ID is used to identify Communication Services calls. Every call may have multiple Call Ids.
 
-Call ID is used to identify Communication Services calls. `currentOrLastCallId` is an ID of the current or last call for the current CallComposite object. When a CallComposite object is created and a call isn't started yet, `currentOrLastCallId` will return `nil` value. The call ID value will be set when a call is started. The value will be preserved until a new call is started or CallComposite instance is deallocated.
-
-The debug information can be retrieved from `CallComposite`:
+Call ID can be retrieved from `CallComposite`:
 
 ```swift
 let callComposite = CallComposite()
 ...
 let debugInfo = callComposite.debugInfo
-let currentOrLastCallId = debugInfo.currentOrLastCallId
+let callHistoryRecords = debugInfo.callHistoryRecords
+let callHistoryRecord = callHistoryRecords.last
+let callDate = callHistoryRecord?.callStartedOn
+let callIds = callHistoryRecord?.callIds
 ```

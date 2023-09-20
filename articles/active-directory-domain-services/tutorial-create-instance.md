@@ -1,16 +1,16 @@
 ---
 title: Tutorial - Create an Azure Active Directory Domain Services managed domain | Microsoft Docs
-description: In this tutorial, you learn how to create and configure an Azure Active Directory Domain Services managed domain using the Azure portal.
+description: In this tutorial, you learn how to create and configure an Azure Active Directory Domain Services managed domain using the Microsoft Entra admin center.
 author: justinha
 manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: tutorial
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 ms.author: justinha
-
 #Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services managed domain so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
 ---
 
@@ -18,7 +18,7 @@ ms.author: justinha
 
 Azure Active Directory Domain Services (Azure AD DS) provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. You consume these domain services without deploying, managing, and patching domain controllers yourself. Azure AD DS integrates with your existing Azure AD tenant. This integration lets users sign in using their corporate credentials, and you can use existing groups and user accounts to secure access to resources.
 
-You can create a managed domain using default configuration options for networking and synchronization, or [manually define these settings][tutorial-create-instance-advanced]. This tutorial shows you how to use default options to create and configure an Azure AD DS managed domain using the Azure portal.
+You can create a managed domain using default configuration options for networking and synchronization, or [manually define these settings][tutorial-create-instance-advanced]. This tutorial shows you how to use default options to create and configure an Azure AD DS managed domain using the Microsoft Entra admin center.
 
 In this tutorial, you learn how to:
 
@@ -46,15 +46,15 @@ Although not required for Azure AD DS, it's recommended to [configure self-servi
 > [!IMPORTANT]
 > You can't move the managed domain to a different subscription, resource group, or region after you create it. Take care to select the most appropriate subscription, resource group, and region when you deploy the managed domain.
 
-## Sign in to the Azure portal
+## Sign in to the Microsoft Entra admin center
 
-In this tutorial, you create and configure the managed domain using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+In this tutorial, you create and configure the managed domain using the Microsoft Entra admin center. To get started, first sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 ## Create a managed domain
 
 To launch the **Enable Azure AD Domain Services** wizard, complete the following steps:
 
-1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
+1. On the Microsoft Entra admin center menu or from the **Home** page, select **Create a resource**.
 1. Enter *Domain Services* into the search bar, then choose *Azure AD Domain Services* from the search suggestions.
 1. On the Azure AD Domain Services page, select **Create**. The **Enable Azure AD Domain Services** wizard is launched.
 1. Select the Azure **Subscription** in which you would like to create the managed domain.
@@ -67,7 +67,7 @@ When you create a managed domain, you specify a DNS name. There are some conside
 * **Non-routable domain suffixes:** We generally recommend that you avoid a non-routable domain name suffix, such as *contoso.local*. The *.local* suffix isn't routable and can cause issues with DNS resolution.
 
 > [!TIP]
-> If you create a custom domain name, take care with existing DNS namespaces. It's recommended to use a domain name separate from any existing Azure or on-premises DNS name space.
+> If you create a custom domain name, take care with existing DNS namespaces. Although it's supported, you may want to use a domain name separate from any existing Azure or on-premises DNS namespace.
 >
 > For example, if you have an existing DNS name space of *contoso.com*, create a managed domain with the custom domain name of *aaddscontoso.com*. If you need to use secure LDAP, you must register and own this custom domain name to generate the required certificates.
 >
@@ -83,7 +83,7 @@ The following DNS name restrictions also apply:
     * If the virtual network where you plan to enable the managed domain has a VPN connection with your on-premises network. In this scenario, ensure you don't have a domain with the same DNS domain name on your on-premises network.
     * If you have an existing Azure cloud service with that name on the Azure virtual network.
 
-Complete the fields in the *Basics* window of the Azure portal to create a managed domain:
+Complete the fields in the *Basics* window of the Microsoft Entra admin center to create a managed domain:
 
 1. Enter a **DNS domain name** for your managed domain, taking into consideration the previous points.
 1. Choose the Azure **Location** in which the managed domain should be created. If you choose a region that supports Azure Availability Zones, the Azure AD DS resources are distributed across zones for additional redundancy.
@@ -96,11 +96,7 @@ Complete the fields in the *Basics* window of the Azure portal to create a manag
 1. The **SKU** determines the performance and backup frequency. You can change the SKU after the managed domain has been created if your business demands or requirements change. For more information, see [Azure AD DS SKU concepts][concepts-sku].
 
     For this tutorial, select the *Standard* SKU.
-1. A *forest* is a logical construct used by Active Directory Domain Services to group one or more domains. By default, a managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment.
-
-    A *Resource* forest only synchronizes users and groups created directly in Azure AD. For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Azure AD DS resource forests overview][resource-forests].
-
-    For this tutorial, choose to create a *User* forest.
+1. A *forest* is a logical construct used by Active Directory Domain Services to group one or more domains. 
 
     ![Configure basic settings for an Azure AD Domain Services managed domain](./media/tutorial-create-instance/basics-window.png)
 
@@ -109,6 +105,16 @@ To quickly create a managed domain, you can select **Review + create** to accept
 * Creates a virtual network named *aadds-vnet* that uses the IP address range of *10.0.2.0/24*.
 * Creates a subnet named *aadds-subnet* using the IP address range of *10.0.2.0/24*.
 * Synchronizes *All* users from Azure AD into the managed domain.
+
+>[!NOTE]
+>You shouldn't use public IP addresses for virtual networks and their subnets due to the following issues:
+>
+>- **Scarcity of the IP address**: IPv4 public IP addresses are limited, and their demand often exceeds the available supply. Also, there are potentially overlapping IPs with public endpoints.
+>- **Security risks**: Using public IPs for virtual networks exposes your devices directly to the internet, increasing the risk of unauthorized access and potential attacks. Without proper security measures, your devices may become vulnerable to various threats.
+>
+>- **Complexity**: Managing a virtual network with public IPs can be more complex than using private IPs, as it requires dealing with external IP ranges and ensuring proper network segmentation and security.
+>
+>It is strongly recommended to use private IP addresses. If you use a public IP, ensure you are the owner/dedicated user of the chosen IPs in the public range you chose.
 
 Select **Review + create** to accept these default configuration options.
 
@@ -119,7 +125,7 @@ On the **Summary** page of the wizard, review the configuration settings for you
 1. To create the managed domain, select **Create**. A note is displayed that certain configuration options such as DNS name or virtual network can't be changed once the Azure AD DS managed has been created. To continue, select **OK**.
 1. The process of provisioning your managed domain can take up to an hour. A notification is displayed in the portal that shows the progress of your Azure AD DS deployment. Select the notification to see detailed progress for the deployment.
 
-    ![Notification in the Azure portal of the deployment in progress](./media/tutorial-create-instance/deployment-in-progress.png)
+    ![Notification in the Microsoft Entra admin center of the deployment in progress](./media/tutorial-create-instance/deployment-in-progress.png)
 
 1. The page will load with updates on the deployment process, including the creation of new resources in your directory.
 1. Select your resource group, such as *myResourceGroup*, then choose your managed domain from the list of Azure resources, such as *aaddscontoso.com*. The **Overview** tab shows that the managed domain is currently *Deploying*. You can't configure the managed domain until it's fully provisioned.
@@ -146,7 +152,7 @@ With Azure AD DS successfully deployed, now configure the virtual network to all
 1. To update the DNS server settings for the virtual network, select the **Configure** button. The DNS settings are automatically configured for your virtual network.
 
 > [!TIP]
-> If you selected an existing virtual network in the previous steps, any VMs connected to the network only get the new DNS settings after a restart. You can restart VMs using the Azure portal, Azure PowerShell, or the Azure CLI.
+> If you selected an existing virtual network in the previous steps, any VMs connected to the network only get the new DNS settings after a restart. You can restart VMs using the Microsoft Entra admin center, Azure PowerShell, or the Azure CLI.
 
 ## Enable user accounts for Azure AD DS
 
@@ -161,7 +167,7 @@ To authenticate users on the managed domain, Azure AD DS needs password hashes i
 
 The steps to generate and store these password hashes are different for cloud-only user accounts created in Azure AD versus user accounts that are synchronized from your on-premises directory using Azure AD Connect.
 
-A cloud-only user account is an account that was created in your Azure AD directory using either the Azure portal or Azure AD PowerShell cmdlets. These user accounts aren't synchronized from an on-premises directory.
+A cloud-only user account is an account that was created in your Azure AD directory using either the Microsoft Entra admin center or Azure AD PowerShell cmdlets. These user accounts aren't synchronized from an on-premises directory.
 
 > In this tutorial, let's work with a basic cloud-only user account. For more information on the additional steps required to use Azure AD Connect, see [Synchronize password hashes for user accounts synced from your on-premises AD to your managed domain][on-prem-sync].
 

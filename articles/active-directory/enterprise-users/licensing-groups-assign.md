@@ -1,6 +1,6 @@
 ---
-title: Assign licenses to a group - Azure Active Directory | Microsoft Docs
-description: How to assign licenses to users by means of Azure Active Directory group licensing
+title: Assign licenses to a group
+description: How to assign licenses to users with Azure Active Directory group licensing
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/24/2022
+ms.date: 09/08/2023
 ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -31,9 +31,12 @@ In this example, the Azure AD organization contains a security group called **HR
 
 ## Step 1: Assign the required licenses
 
-1. Sign in to the [**Azure AD admin center**](https://aad.portal.azure.com) with a license administrator account. To manage licenses, the account must be a license administrator, user administrator, or global administrator.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Select **Licenses** to open a page where you can see and manage all licensable products in the organization.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [License Administrator](../roles/permissions-reference.md#license-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+
+1. Browse to **Billing** > **Licenses** to open a page where you can see and manage all licensable products in the organization.
 
 1. Under **All products**, select both Office 365 Enterprise E5 and Enterprise Mobility + Security E3 by selecting the product names. To start the assignment, select **Assign** at the top of the page.
 
@@ -58,7 +61,7 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
 ## Step 2: Verify that the initial assignment has finished
 
-1. Go to **Azure Active Directory** > **Groups**. Select the group that licenses were assigned to.
+1. Go to **Microsoft Entra ID** > **Groups** > **All groups**. Select the group that licenses were assigned to.
 
 1. On the group page, select **Licenses**. This lets you quickly confirm if licenses have been fully assigned to users and if there are any errors that you need to look into. The following information is available:
 
@@ -70,7 +73,7 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
    ![licensing errors and license status](./media/licensing-groups-assign/assignment-errors.png)
 
-1. See more detailed information about license processing under **Azure Active Directory** > **Users and groups** > *group name* > **Audit logs**. Check the following activities:
+1. See more detailed information about license processing under **Microsoft Entra ID** >  **Groups** > **All groups** > *group name* > **Audit logs**. Check the following activities:
 
    - Activity: `Start applying group based license to users`. This is logged when the system picks up the license assignment change on the group and starts applying it to all user members. It contains information about the change that was made.
 
@@ -80,7 +83,7 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
 ## Step 3: Check for license problems and resolve them
 
-1. Go to **Azure Active Directory** > **Groups**, and find the group that licenses were assigned to.
+1. Go to **Microsoft Entra ID** > **All groups** > **Groups**, and find the group that licenses were assigned to.
 1. On the group page, select **Licenses**. The notification on top of the page shows that there are 10 users that licenses couldn't be assigned to. Open it to see a list of all users in a licensing error state for this group.
 1. The **Failed assignments** column tells us that both product licenses couldn't be assigned to the users. The **Top reason for failure** column contains the cause of the failure. In this case, it's **Conflicting service plans**.
 
@@ -96,7 +99,7 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
 To learn more about the feature set for license assignment using groups, see the following articles:
 
-- [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
+- [What is group-based licensing in Azure Active Directory?](../fundamentals/licensing-whatis-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 - [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
 - [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)
 - [How to migrate users between product licenses using group-based licensing in Azure Active Directory](licensing-groups-change-licenses.md)

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/29/2023
+ms.date: 09/13/2023
 ms.author: justinha
 
 #Customer intent: As an IT administrator or decision maker, I want to understand the differences between Active Directory Domain Services (AD DS), Azure AD, and Azure AD DS so I can choose the most appropriate identity solution for my organization.
@@ -24,17 +24,17 @@ Although the three Active Directory-based identity solutions share a common name
 * **Active Directory Domain Services (AD DS)** - Enterprise-ready lightweight directory access protocol (LDAP) server that provides key features such as identity and authentication, computer object management, group policy, and trusts.
     * AD DS is a central component in many organizations with an on-premises IT environment, and provides core user account authentication and computer management features.
     * For more information, see [Active Directory Domain Services overview in the Windows Server documentation][overview-adds].
-* **Azure Active Directory (Azure AD)** - Cloud-based identity and mobile device management that provides user account and authentication services for resources such as Microsoft 365, the Azure portal, or SaaS applications.
+* **Azure Active Directory (Azure AD)** - Cloud-based identity and mobile device management that provides user account and authentication services for resources such as Microsoft 365, the Microsoft Entra admin center, or SaaS applications.
     * Azure AD can be synchronized with an on-premises AD DS environment to provide a single identity to users that works natively in the cloud.
     * For more information about Azure AD, see [What is Azure Active Directory?][whatis-azuread]
-* **Azure Active Directory Domain Services (Azure AD DS)** - Provides managed domain services with a subset of fully-compatible traditional AD DS features such as domain join, group policy, LDAP, and Kerberos / NTLM authentication.
+* **Azure Active Directory Domain Services (Azure AD DS)** - Provides managed domain services with a subset of fully compatible traditional AD DS features such as domain join, group policy, LDAP, and Kerberos / NTLM authentication.
     * Azure AD DS integrates with Azure AD, which itself can synchronize with an on-premises AD DS environment. This ability extends central identity use cases to traditional web applications that run in Azure as part of a lift-and-shift strategy.
     * To learn more about synchronization with Azure AD and on-premises, see [How objects and credentials are synchronized in a managed domain][synchronization].
 
 This overview article compares and contrasts how these identity solutions can work together, or would be used independently, depending on the needs of your organization.
 
 > [!div class="nextstepaction"]
-> [To get started, create an Azure AD DS managed domain using the Azure portal][tutorial-create]
+> [To get started, create an Azure AD DS managed domain using the Microsoft Entra admin center][tutorial-create]
 
 ## Azure AD DS and self-managed AD DS
 
@@ -54,7 +54,6 @@ When you deploy and run a self-managed AD DS environment, you have to maintain a
 Common deployment models for a self-managed AD DS environment that provides identity to applications and services in the cloud include the following:
 
 * **Standalone cloud-only AD DS** - Azure VMs are configured as domain controllers and a separate, cloud-only AD DS environment is created. This AD DS environment doesn't integrate with an on-premises AD DS environment. A different set of credentials is used to sign in and administer VMs in the cloud.
-* **Resource forest deployment** - Azure VMs are configured as domain controllers and an AD DS domain that's part of an existing forest is created. A trust relationship is then configured to an on-premises AD DS environment. Other Azure VMs can domain-join to this resource forest in the cloud. User authentication runs over a VPN / ExpressRoute connection to the on-premises AD DS environment.
 * **Extend on-premises domain to Azure** - An Azure virtual network connects to an on-premises network using a VPN / ExpressRoute connection. Azure VMs connect to this Azure virtual network, which lets them domain-join to the on-premises AD DS environment.
     * An alternative is to create Azure VMs and promote them as replica domain controllers from the on-premises AD DS domain. These domain controllers replicate over a VPN / ExpressRoute connection to the on-premises AD DS environment. The on-premises AD DS domain is effectively extended into Azure.
 
@@ -114,11 +113,11 @@ With Azure AD DS-joined devices, applications can use the Kerberos and NTLM prot
 | Great for...                    | End-user mobile or desktop devices                  | Server VMs deployed in Azure                                              |
 
 
-If on-prem AD DS and Azure AD are configured for federated authentication using ADFS then there is no (current/valid) password hash available in Azure DS. Azure AD user accounts created before fed auth was implemented might have an old password hash but this likely doesn't match a hash of their on-prem password. Hence Azure AD DS won't be able to validate the users credentials
+If on-premises AD DS and Azure AD are configured for federated authentication using AD FS, then there's no (current/valid) password hash available in Azure DS. Azure AD user accounts created before fed auth was implemented might have an old password hash but this likely doesn't match a hash of their on-premises password. Hence Azure AD DS won't be able to validate the users credentials
 
 ## Next steps
 
-To get started with using Azure AD DS, [create an Azure AD DS managed domain using the Azure portal][tutorial-create].
+To get started with using Azure AD DS, [create an Azure AD DS managed domain using the Microsoft Entra admin center][tutorial-create].
 
 You can also learn more about 
 [management concepts for user accounts, passwords, and administration in Azure AD DS][administration-concepts] and [how objects and credentials are synchronized in a managed domain][synchronization].
@@ -130,7 +129,7 @@ You can also learn more about
 [manage-gpos]: manage-group-policy.md
 [tutorial-ldaps]: tutorial-configure-ldaps.md
 [tutorial-create]: tutorial-create-instance.md
-[whatis-azuread]: ../active-directory/fundamentals/active-directory-whatis.md
+[whatis-azuread]: ../active-directory/fundamentals/whatis.md
 [overview-adds]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
 [create-forest-trust]: tutorial-create-forest-trust.md
 [administration-concepts]: administration-concepts.md

@@ -1,9 +1,9 @@
 ---
-title: 'Tutorial: Configure Cato Networks for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Cato Networks for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Cato Networks.
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: bdaa6863-c0fe-40b0-8989-3632900464ef
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -49,7 +49,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
          ![Screenshot of navigate to SCIM setting.](media/cato-networks-provisioning-tutorial/navigate.png)
 1. Select **Enable SCIM Provisioning** to set your account to connect to the SCIM app. And then click **Save**.
          ![Screenshot of Enable SCIM Provisioning.](media/cato-networks-provisioning-tutorial/scim-setting.png)
-1. Copy the **Base URL**.Click **Generate Token** and copy the bearer token. Base Url and token will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Cato Network application in the Azure portal.     
+1. Copy the **Base URL**.Click **Generate Token** and copy the bearer token. Base Url and token will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Cato Network application.     
                                   
 
 ## Step 3. Add Cato Networks from the Azure AD application gallery
@@ -71,7 +71,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Cato Networks in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Screenshot of enterprise applications blade.](common/enterprise-applications.png)
 

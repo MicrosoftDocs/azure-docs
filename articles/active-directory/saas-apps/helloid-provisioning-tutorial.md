@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure HelloID for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure HelloID for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to HelloID.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: ffd450a5-03ec-4364-8921-5c468e119c4d
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -54,7 +54,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![New Secret button](media/helloid-provisioning-tutorial/new-secret.png)
 
-4. The **URL** and **Secret** fields are automatically populated. Copy and save the URL and Secret. These value will be entered in the **Tenant URL** * and **Secret Token** * field in the Provisioning tab of your HelloID application in the Azure portal.
+4. The **URL** and **Secret** fields are automatically populated. Copy and save the URL and Secret. These value will be entered in the **Tenant URL** * and **Secret Token** * field in the Provisioning tab of your HelloID application.
 
 	![URL and secret generated](media/helloid-provisioning-tutorial/url-secret.png)
 
@@ -77,11 +77,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for HelloID in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **HelloID**.
+1. In the applications list, select **HelloID**.
 
 	![The HelloID link in the Applications list](common/all-applications.png)
 

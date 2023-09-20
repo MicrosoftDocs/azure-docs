@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure KnowBe4 Security Awareness Training for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure KnowBe4 Security Awareness Training for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to KnowBe4 Security Awareness Training.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: e71f7de4-33d0-46cc-85c9-29f24c3e1a25
 ms.service: active-directory
@@ -97,7 +97,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for KnowBe4 Security Awareness Training in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 

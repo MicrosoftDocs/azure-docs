@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
 ms.custom: ignite-2022
-ms.date: 08/20/2021
+ms.date: 02/17/2023
 ms.author: jovanpop
 ms.reviewer: sngun 
 ---
@@ -100,7 +100,7 @@ GO
 CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = DELIMITEDTEXT );
 ```
 
-Find more information in [this article](develop-tables-external-tables.md?tabs=native#syntax-for-create-external-file-format)
+For more information, see [Use external tables with Synapse SQL](develop-tables-external-tables.md) and [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) to describe format of CSV or Parquet files.
 
 ## Explore your data
 

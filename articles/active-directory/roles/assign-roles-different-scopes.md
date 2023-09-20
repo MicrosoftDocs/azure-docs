@@ -1,5 +1,5 @@
 ---
-title: Assign Azure AD roles at different scopes - Azure Active Directory
+title: Assign Azure AD roles at different scopes
 description: Learn how to assign roles at different scopes in Azure Active Directory
 services: active-directory
 author: rolyon
@@ -10,13 +10,13 @@ ms.subservice: roles
 ms.topic: how-to
 ms.date: 02/04/2022
 ms.author: rolyon
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
 # Assign Azure AD roles at different scopes
 
-In Azure Active Directory (Azure AD), you typically assign Azure AD roles so that they apply to the entire tenant. However, you can also assign Azure AD roles for different resources, such as administrative units or application registrations. For example, you could assign the Helpdesk Administrator role so that it just applies to a particular administrative unit and not the entire tenant. The resources that a role assignment applies to is also call the scope. This article describes how to assign Azure AD roles at tenant, administrative unit, and application registration scopes. For more information about scope, see [Overview of RBAC in Azure AD](custom-overview.md#scope).
+In Azure Active Directory (Azure AD), you typically assign Azure AD roles so that they apply to the entire tenant. However, you can also assign Azure AD roles for different resources, such as administrative units or application registrations. For example, you could assign the Helpdesk Administrator role so that it just applies to a particular administrative unit and not the entire tenant. The resources that a role assignment applies to is also called the scope. This article describes how to assign Azure AD roles at tenant, administrative unit, and application registration scopes. For more information about scope, see [Overview of RBAC in Azure AD](custom-overview.md#scope).
 
 ## Prerequisites
 
@@ -30,13 +30,15 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 This section describes how to assign roles at the tenant scope.
 
-### Azure portal
+### Microsoft Entra admin center
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-    ![Roles and administrators page in Azure Active Directory.](./media/manage-roles-portal/roles-and-administrators.png)
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
+
+    ![Roles and administrators page in Azure Active Directory.](./media/common/roles-and-administrators.png)
 
 1. Select a role to see its assignments. To help you find the role you need, use **Add filters** to filter the roles.
 
@@ -120,11 +122,11 @@ Follow these instructions to assign a role using the Microsoft Graph API in [Gra
 
 This section describes how to assign roles at an [administrative unit](administrative-units.md) scope.
 
-### Azure portal
+### Microsoft Entra admin center
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory > Administrative units** to see the list of all administrative units.
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
 
 1. Select an administrative unit.
 
@@ -227,11 +229,11 @@ Follow these instructions to assign a role at administrative unit scope using th
 
 This section describes how to assign roles at an application registration scope.
 
-### Azure portal
+### Microsoft Entra admin center
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory > App registrations** to see the list of all app registrations.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. Select an application. You can use search box to find the desired app.
 

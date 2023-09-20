@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 04/11/2023
 ms.author: jeedes
 
 ---
 
 # Azure Active Directory SSO integration with QRadar SOAR
 
-In this article, you'll learn how to integrate QRadar SOAR with Azure Active Directory (Azure AD). QRadar SOAR enhances the analyst experience through accelerated incident response with simple automation, process standardization, and integration with your existing security tools. When you integrate QRadar SOAR with Azure AD, you can:
+In this article, you learn how to integrate QRadar SOAR with Azure Active Directory (Azure AD). QRadar SOAR enhances the analyst experience through accelerated incident response with simple automation, process standardization, and integration with your existing security tools. When you integrate QRadar SOAR with Azure AD, you can:
 
 * Control in Azure AD who has access to QRadar SOAR.
 * Enable your users to be automatically signed-in to QRadar SOAR with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
-You'll configure and test Azure AD single sign-on for QRadar SOAR in a test environment. QRadar SOAR supports both **SP** and **IDP** initiated single sign-on.
+You configure and test Azure AD single sign-on for QRadar SOAR in a test environment. QRadar SOAR supports both **SP** and **IDP** initiated single sign-on.
 
 ## Prerequisites
 
@@ -43,15 +43,16 @@ Add QRadar SOAR from the Azure AD application gallery to configure single sign-o
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
-1. In the Azure portal, on the **QRadar SOAR** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **QRadar SOAR** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -63,15 +64,15 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     | **Identifier** |
     |-------|
-    | `https://<UPS>.domain.extension/<ID>` |
-    | `https://<SOAR>.domain.extension` |
+    | `https://<CustomerName>.domain.extension/<ID>` |
+    | `https://<CustomerName>.domain.extension` |
 
     b. In the **Reply URL** textbox, type a URL using one of the following patterns:
 
     | **Reply URL** |
     |-------|
-    | `https://<UPS>.domain.extension/<ID>` |
-    | `https://<SOAR>.domain.extension` |
+    | `https://<CustomerName>.domain.extension/<ID>` |
+    | `https://<CustomerName>.domain.extension` |
 
 1. If you want to configure **SP** initiated SSO, then perform the following step:  
 
@@ -79,11 +80,11 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     | **Sign on URL** |
     |-------|
-    | `https://<UPS>.domain.extension/<ID>` |
-    | `https://<SOAR>.domain.extension` |
+    | `https://<CustomerName>.domain.extension/<ID>` |
+    | `https://<CustomerName>.domain.extension` |
 
     > [!Note]
-    > These values are not the real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [QRadar SOAR Client support team](mailto:mysphelp@us.ibm.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not the real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [QRadar SOAR Client support team](mailto:mysphelp@us.ibm.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -95,7 +96,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure QRadar SOAR SSO
 
-To configure single sign-on on **QRadar SOAR** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [QRadar SOAR support team](mailto:mysphelp@us.ibm.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **QRadar SOAR** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [QRadar SOAR support team](mailto:mysphelp@us.ibm.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create QRadar SOAR test user
 
@@ -107,15 +108,15 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to QRadar SOAR Sign-on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to QRadar SOAR Sign-on URL where you can initiate the login flow.  
 
 * Go to QRadar SOAR Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the QRadar SOAR for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the QRadar SOAR for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the QRadar SOAR tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the QRadar SOAR for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the QRadar SOAR tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the QRadar SOAR for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Additional resources
 

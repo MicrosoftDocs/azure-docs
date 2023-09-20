@@ -4,6 +4,7 @@ description: Tutorial - Accept and receive data using Azure Data Share
 author: sidontha
 ms.author: sidontha
 ms.service: data-share
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 11/30/2022
 ---

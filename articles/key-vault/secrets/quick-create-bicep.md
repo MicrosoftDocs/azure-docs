@@ -7,13 +7,13 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 04/08/2022
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep
+ms.date: 04/21/2023
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
 
-# Quickstart: Set and retrieve a secret from Azure Key Vault using Bicep
+# Quickstart: Create an Azure key vault and a secret using Bicep
 
 [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets. This quickstart focuses on the process of deploying a Bicep file to create a key vault and a secret.
 

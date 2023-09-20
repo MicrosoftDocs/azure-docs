@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.author: godonnell
 ms.date: 02/08/2023
-ms.custom: mvc
+ms.custom: mvc, build-2023
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
@@ -44,7 +44,7 @@ You typically use only one identity provider in your applications, but you have 
 * [LinkedIn](identity-provider-linkedin.md)
 * [Microsoft Account](identity-provider-microsoft-account.md)
 * [Mobile ID](identity-provider-mobile-id.md)
-* [PingOne](identity-provider-ping-one.md) (PingIdentity)
+* [PingOne](identity-provider-ping-one.md) (Ping Identity)
 * [QQ](identity-provider-qq.md)
 * [Salesforce](identity-provider-salesforce.md)
 * [Salesforce (SAML protocol)](identity-provider-salesforce-saml.md)

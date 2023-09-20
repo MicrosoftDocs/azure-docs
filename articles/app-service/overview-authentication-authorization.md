@@ -5,7 +5,9 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 02/03/2023
 ms.reviewer: mahender
-ms.custom: seodec18, fasttrack-edit
+ms.custom: UpdateFrequency3, seodec18, fasttrack-edit, AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
 
@@ -21,13 +23,15 @@ Implementing a secure solution for authentication (signing-in users) and authori
 - It’s built directly into the platform and doesn’t require any particular language, SDK, security expertise, or even any code to utilize.
 - You can integrate with multiple login providers. For example, Azure AD, Facebook, Google, Twitter.
 
+Your app might need to support more complex scenarios such as Visual Studio integration or incremental consent.  There are several different authentication solutions available to support these scenarios. To learn more, read [Identity scenarios](identity-scenarios.md).
+
 ## Identity providers
 
 App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_identity), in which a third-party identity provider manages the user identities and authentication flow for you. The following identity providers are available by default:
 
 | Provider | Sign-in endpoint | How-To guidance |
 | - | - | - |
-| [Microsoft Identity Platform](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [App Service Microsoft Identity Platform login](configure-authentication-provider-aad.md) |
+| [Microsoft identity platform](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [App Service Microsoft Identity Platform login](configure-authentication-provider-aad.md) |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [App Service Facebook login](configure-authentication-provider-facebook.md) |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [App Service Google login](configure-authentication-provider-google.md) |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [App Service Twitter login](configure-authentication-provider-twitter.md) |
@@ -35,7 +39,7 @@ App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_id
 | [Sign in with Apple](https://developer.apple.com/sign-in-with-apple/) | `/.auth/login/apple` | [App Service Sign in With Apple login (Preview)](configure-authentication-provider-apple.md) |
 | Any [OpenID Connect](https://openid.net/connect/) provider | `/.auth/login/<providerName>` | [App Service OpenID Connect login](configure-authentication-provider-openid-connect.md) |
 
-When you enable authentication and authorization with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider. You can provide your users with any number of these sign-in options.
+When you configure this feature with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider. You can provide your users with any number of these sign-in options.
 
 ## Considerations for using built-in authentication
 
@@ -43,7 +47,7 @@ Enabling this feature will cause all requests to your application to be automa
 
 App Service can be used for authentication with or without restricting access to your site content and APIs. To restrict app access only to authenticated users, set **Action to take when request is not authenticated** to  log in with one of the configured identity providers. To authenticate but not restrict access, set **Action to take when request is not authenticated** to "Allow anonymous requests (no action)."
 
-> [!NOTE]
+> [!IMPORTANT]
 > You should give each app registration its own permission and consent. Avoid permission sharing between environments by using separate app registrations for separate deployment slots. When testing new code, this practice can help prevent issues from affecting the production app.
 
 ## How it works
@@ -105,6 +109,9 @@ For client browsers, App Service can automatically direct all unauthenticated us
 
 ### Authorization behavior
 
+> [!IMPORTANT]
+> By default, this feature only provides authentication, not authorization. Your application may still need to make authorization decisions, in addition to any checks you configure here.
+
 In the [Azure portal](https://portal.azure.com), you can configure App Service with a number of behaviors when incoming request is not authenticated. The following headings describe the options.
 
 **Allow unauthenticated requests**
@@ -123,7 +130,7 @@ With this option, you don't need to write any authentication code in your app. F
 > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
 
 > [!NOTE]
-> By default, any user in your Azure AD tenant can request a token for your application from Azure AD. You can [configure the application in Azure AD](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users.
+> When using the Microsoft identity provider for users in your organization, the default behavior is that any user in your Azure AD tenant can request a token for your application. You can [configure the application in Azure AD](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users. App Service also offers some [basic built-in authorization checks](.\configure-authentication-provider-aad.md#authorize-requests) which can help with some validations. To learn more about authorization in the Microsoft identity platform, see [Microsoft identity platform authorization basics](../active-directory/develop/authorization-basics.md).
 
 ### Token store
 

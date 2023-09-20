@@ -7,7 +7,7 @@ author: barclayn
 manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 01/26/2023
+ms.date: 09/15/2023
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -53,34 +53,40 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 ### Set access policies for the Verified ID Admin user
 
-1. In the [Azure portal](https://portal.azure.com/), go to the key vault you use for this tutorial.
-
+1. Sign in to the [Azure portal](https://portal.azure.com) with your administrative account.
+1. Go to the key vault you use for this tutorial.
 1. Under **Settings**, select **Access policies**.
 
 1. In **Add access policies**, under **USER**, select the account you use to follow this tutorial.
 
-1. For **Key permissions**, verify that the following permissions are selected: **Create**, **Delete**, and **Sign**. By default, **Create** and **Delete** are already enabled. **Sign** should be the only key permission you need to update.
+1. For **Key permissions**, verify that the following permissions are selected: **Get**, **Create**, **Delete**, and **Sign**. By default, **Create** and **Delete** are already enabled. **Sign** should be the only key permission you need to update.
 
-:::image type="content" source="media/verifiable-credentials-configure-tenant/set-key-vault-admin-access-policy.png" alt-text="Screenshot that shows how to configure the admin access policy." border="false":::
+    :::image type="content" source="media/verifiable-credentials-configure-tenant/set-key-vault-admin-access-policy.png" alt-text="Screenshot that shows how to configure the admin access policy." border="false":::
 
 1. To save the changes, select **Save**.
 
 ## Set up Verified ID
 
+:::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started.png" alt-text="Screenshot that shows how to set up Verifiable Credentials.":::
+
 To set up Verified ID, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), search for *Verified ID*. Then, select **Verified ID**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
-1. From the left menu, select **Getting started**.
+1. Select **Verifiable Credentials**.
+
+1. From the left menu, select **Setup**.
+
+1. From the middle menu, select **Define organization settings**
 
 1. Set up your organization by providing the following information:
 
     1. **Organization name**: Enter a name to reference your business within Verified IDs. Your customers don't see this name.
 
-    1. **Domain**: Enter a domain that's added to a service endpoint in your decentralized identity (DID) document. The domain is what binds your DID to something tangible that the user might know about your business. Microsoft Authenticator and other digital wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. If the wallet can't verify the DID, it informs the user that the credential was issued by an organization it couldn't validate.
+    1. **Trusted domain**: Enter a domain that's added to a service endpoint in your decentralized identity (DID) document. The domain is what binds your DID to something tangible that the user might know about your business. Microsoft Authenticator and other digital wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. If the wallet can't verify the DID, it informs the user that the credential was issued by an organization it couldn't validate.
 
         >[!IMPORTANT]
-        > The domain can't be a redirect. Otherwise, the DID and domain can't be linked. Make sure to use HTTPS for the domain. For example: `https://contoso.com`.
+        > The domain can't be a redirect. Otherwise, the DID and domain can't be linked. Make sure to use HTTPS for the domain. For example: `https://did.woodgrove.com`.
 
     1. **Key vault**: Select the key vault that you created earlier.
 
@@ -89,9 +95,9 @@ To set up Verified ID, follow these steps:
         >[!IMPORTANT]
         > The only way to change the trust system is to opt-out of the Verified ID service and redo the onboarding.
 
-1. Select **Save and get started**.  
+1. Select **Save**.  
 
-    :::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started.png" alt-text="Screenshot that shows how to set up Verifiable Credentials.":::
+    :::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started-save.png" alt-text="Screenshot that shows how to set up Verifiable Credentials first step.":::
 
 ### Set access policies for the Verified ID service principals
 
@@ -109,13 +115,12 @@ If you ever are in need of manually resetting the permissions, the access policy
 
 Your application needs to get access tokens when it wants to call into Microsoft Entra Verified ID so it can issue or verify credentials. To get access tokens, you have to register an application and grant API permission for the Verified ID Request Service. For example, use the following steps for a web application:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID (Azure AD).
 
-1. If you have access to multiple tenants, select the **Directory + subscription**. Then, search for and select your **Azure Active Directory**.
+1. Under **Applications**, select **App registrations** > **New registration**.  
 
-1. Under **Manage**, select **App registrations** > **New registration**.  
-
-    :::image type="content" source="media/verifiable-credentials-configure-tenant/register-azure-ad-app.png" alt-text="Screenshot that shows how to select a new application registration.":::
+    :::image type="content" source="media/verifiable-credentials-configure-tenant/register-app.png" alt-text="Screenshot that shows how to select a new application registration.":::
 
 1. Enter a display name for your application. For example: *verifiable-credentials-app*.
 
@@ -123,7 +128,7 @@ Your application needs to get access tokens when it wants to call into Microsoft
 
 1. Select **Register** to create the application.
 
-    :::image type="content" source="media/verifiable-credentials-configure-tenant/register-azure-ad-app-properties.png" alt-text="Screenshot that shows how to register the verifiable credentials app.":::
+    :::image type="content" source="media/verifiable-credentials-configure-tenant/register-app-properties.png" alt-text="Screenshot that shows how to register the verifiable credentials app.":::
 
 ### Grant permissions to get access tokens
 
@@ -153,21 +158,19 @@ You can choose to grant issuance and presentation permissions separately if you 
 
 :::image type="content" source="media/verifiable-credentials-configure-tenant/granular-app-permissions.png" alt-text="Screenshot that shows how to select granular permissions for issuance or presentation.":::
 
-## Service endpoint configuration
+## Register decentralized ID and verify domain ownership
 
+After Azure Key Vault is setup, and the service have a signing key, you must complete step 2 and 3 in the setup.
 
-1. Navigate to the Verified ID service in the Azure portal.  
-1. Select **Registration**.
-1. Notice that there are two sections:
-    1. DID registration
-    1. Domain ownership verification.
-1. Select on each section and download the JSON file under each.
-1. Create a website that you can use to distribute the files. If you specified **https://contoso.com** as your domain, the URLs for each of the files would look as shown below:
-    - `https://contoso.com/.well-known/did.json`
-    - `https://contoso.com/.well-known/did-configuration.json`
+:::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started-step-2-3.png" alt-text="Screenshot that shows how to set up Verifiable Credentials step 2 and 3.":::
 
-Once that you have successfully completed the verification steps, you are ready to continue to the next tutorial.
-If you selected ION as the trust system, you will not see the DID registration section because it doesn't apply to ION. When using ION, you only have to distribute the did-configuration.json file.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select **Verifiable credentials**
+1. From the left menu, select **Setup**.
+1. From the middle menu, select **Register decentralized ID** to register your DID document, as per instructions in article [How to register your decentralized ID for did:web](how-to-register-didwebsite.md). You must complete this step before you can continue to verify your domain. If you selected did:ion as your trust system, you should skip this step.
+1. From the middle menu, select **Verify domain ownership** to verify your domain, as per instructions in article [Verify domain ownership to your Decentralized Identifier (DID)](how-to-dnsbind.md)
+
+Once that you have successfully completed the verification steps, and have green checkmarks on all three steps, you are ready to continue to the next tutorial.
 
 ## Next steps
 

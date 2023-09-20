@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse, ignite-2022
 ms.topic: conceptual
-ms.date: 09/05/2022
+ms.date: 07/13/2023
 author: chez-charlie
 ms.author: chez
 ---
@@ -40,6 +40,7 @@ All the linked service types are supported for parameterization.
 - Amazon S3 Compatible Storage
 - Azure Blob Storage
 - Azure Cosmos DB for NoSQL
+- Azure Databricks Delta Lake
 - Azure Data Explorer
 - Azure Data Lake Storage Gen1
 - Azure Data Lake Storage Gen2
@@ -53,7 +54,11 @@ All the linked service types are supported for parameterization.
 - Azure SQL Managed Instance
 - Azure Synapse Analytics 
 - Azure Table Storage
+- Dataverse
 - DB2
+- Dynamics 365
+- Dynamics AX
+- Dynamics CRM
 - File System
 - FTP
 - Generic HTTP
@@ -70,6 +75,7 @@ All the linked service types are supported for parameterization.
 - Salesforce
 - Salesforce Service Cloud
 - SAP ODP
+- SAP Table
 - SFTP
 - SharePoint Online List
 - Snowflake
@@ -117,3 +123,5 @@ Refer to the [JSON sample](#json) to add ` parameters` section to define paramet
 	}
 }
 ```
+
+

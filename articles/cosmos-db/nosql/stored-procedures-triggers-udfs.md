@@ -4,7 +4,7 @@ description: This article introduces the concepts such as stored procedures, tri
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-js
 ms.topic: conceptual
 ms.date: 08/26/2021
 ms.author: sidandrews
@@ -97,7 +97,7 @@ Similar to pre-triggers, post-triggers, are also associated with an operation on
 
 ## <a id="udfs"></a>User-defined functions
 
-[User-defined functions](query/udfs.md) (UDFs) are used to extend the API for NoSQL query language syntax and implement custom business logic easily. They can be called only within queries. UDFs do not have access to the context object and are meant to be used as compute only JavaScript. Therefore, UDFs can be run on secondary replicas. For examples, see [How to write user-defined functions](how-to-write-stored-procedures-triggers-udfs.md#udfs) article.
+User-defined functions (UDFs) are used to extend the API for NoSQL query language syntax and implement custom business logic easily. They can be called only within queries. UDFs do not have access to the context object and are meant to be used as compute only JavaScript. Therefore, UDFs can be run on secondary replicas.
 
 ## <a id="jsqueryapi"></a>JavaScript language-integrated query API
 

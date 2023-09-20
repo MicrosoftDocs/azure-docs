@@ -1,6 +1,6 @@
 ---
-title: Configure server parameters - Azure portal - Azure Database for MySQL Flexible Server
-description: This article describes how to configure MySQL server parameters in Azure Database for MySQL flexible server using the Azure portal.
+title: Configure server parameters - Azure portal - Azure Database for MySQL - Flexible Server
+description: This article describes how to configure MySQL server parameters in Azure Database for MySQL - Flexible Server using the Azure portal.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.date: 11/10/2020
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
-You can manage Azure Database for MySQL Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server.
+You can manage Azure Database for MySQL - Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server.
 
 This article describes how to view and configure server parameters by using the Azure portal. The server parameter blade on Azure portal shows both the modifiable and non-modifiable server parameter. The non-modifiable server parameters are greyed out.
 
@@ -23,8 +23,8 @@ This article describes how to view and configure server parameters by using the 
 
 ## Configure server parameters
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then locate your Azure Database for MySQL flexible server.
-2. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL flexible server.
+1. Sign in to the [Azure portal](https://portal.azure.com), then locate your Azure Database for MySQL - Flexible Server.
+2. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL - Flexible Server.
 [:::image type="content" source="./media/how-to-server-parameters/azure-portal-server-parameters.png" alt-text="Azure portal server parameters page":::](./media/how-to-server-parameters/azure-portal-server-parameters.png#lightbox)
 3. Locate any server parameter you need to adjust. Review the **Description** column to understand the purpose and allowed values.
 [:::image type="content" source="./media/how-to-server-parameters/3-toggle-parameter.png" alt-text="Enumerate drop down":::](./media/how-to-server-parameters/3-toggle-parameter.png#lightbox)

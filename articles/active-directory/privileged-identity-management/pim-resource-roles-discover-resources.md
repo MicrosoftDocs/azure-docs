@@ -1,17 +1,17 @@
 ---
-title: Discover Azure resources to manage in PIM - Azure AD | Microsoft Docs
-description: Learn how to discover Azure resources to manage in Azure AD Privileged Identity Management (PIM).
+title: Discover Azure resources to manage in PIM
+description: Learn how to discover Azure resources to manage in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: barclayn
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/27/2022
-ms.author: amsliu
+ms.date: 09/13/2023
+ms.author: barclayn
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---
@@ -27,15 +27,15 @@ When you first set up Privileged Identity Management for Azure resources, you ne
 
 ## Required permissions
 
-You can view and manage the management groups or subscriptions to which you have Microsoft.Authorization/roleAssignments/write permissions, such as User Access Administrator or Owner roles. If you are not a subscription owner, but are a Global Administrator and don't see any Azure subscriptions or management groups to manage, then you can [elevate access to manage your resources](../../role-based-access-control/elevate-access-global-admin.md).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+You can view and manage the management groups or subscriptions to which you have Microsoft.Authorization/roleAssignments/write permissions, such as User Access Administrator or Owner roles. If you aren't a subscription owner, but are a Global Administrator and don't see any Azure subscriptions or management groups to manage, then you can [elevate access to manage your resources](../../role-based-access-control/elevate-access-global-admin.md).
 
 ## Discover resources
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Open **Azure AD Privileged Identity Management**.
-
-1. Select **Azure resources**.
+1.  Browse to **Identity governance** > **Privileged Identity Management** > **Azure Resources**.
 
     If this is your first time using Privileged Identity Management for Azure resources, you'll see a **Discover resources** page.
 

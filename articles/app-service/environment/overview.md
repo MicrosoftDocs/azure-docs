@@ -3,9 +3,9 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 02/14/2023
+ms.date: 09/19/2023
 ms.author: madsd
-ms.custom: references_regions
+ms.custom: "UpdateFrequency3, references_regions"
 ---
 
 # App Service Environment overview
@@ -78,7 +78,6 @@ App Service Environment v3 differs from earlier versions in the following ways:
 
 A few features that were available in earlier versions of App Service Environment aren't available in App Service Environment v3. For example, you can no longer do the following:
 
-- Monitor your traffic with Network Watcher or network security group (NSG) flow logs.
 - Perform a backup and restore operation on a storage account behind a firewall.
 - Access the FTPS endpoint using a custom domain suffix.
 
@@ -106,7 +105,7 @@ App Service Environment v3 is available in the following regions:
 | Australia East       | ✅                           | ✅                          | ✅                           | 
 | Australia Southeast  | ✅                           |                             | ✅                           | 
 | Brazil South         | ✅                           | ✅                          | ✅                           | 
-| Brazil Southeast     |                              |                             | ✅                           |
+| Brazil Southeast     | ✅                           |                             | ✅                           |
 | Canada Central       | ✅                           | ✅                          | ✅                           |
 | Canada East          | ✅                           |                             | ✅                           | 
 | Central India        | ✅                           | ✅                          | ✅                           | 
@@ -118,15 +117,17 @@ App Service Environment v3 is available in the following regions:
 | France South         | ✅                           |                             | ✅                           | 
 | Germany North        | ✅                           |                             | ✅                           | 
 | Germany West Central | ✅                           | ✅                          | ✅                           | 
+| Italy North          | ✅                           | ✅**                        |                              | 
 | Japan East           | ✅                           | ✅                          | ✅                           | 
-| Japan West           |                              |                             | ✅                           | 
+| Japan West           | ✅                           |                             | ✅                           | 
 | Jio India West       |                              |                             | ✅                           | 
 | Korea Central        | ✅                           | ✅                          | ✅                           | 
 | Korea South          | ✅                           |                             | ✅                           | 
 | North Central US     | ✅                           |                             | ✅                           | 
 | North Europe         | ✅                           | ✅                          | ✅                           |
 | Norway East          | ✅                           | ✅                          | ✅                           | 
-| Norway West          | ✅                           |                             | ✅                           | 
+| Norway West          | ✅                           |                             | ✅                           |
+| Poland Central       | ✅                           |                             |                               |
 | Qatar Central        | ✅                           | ✅                          |                              |
 | South Africa North   | ✅                           | ✅                          | ✅                           |
 | South Africa West    | ✅                           |                             | ✅                           | 
@@ -137,7 +138,7 @@ App Service Environment v3 is available in the following regions:
 | Switzerland North    | ✅                           | ✅                          | ✅                           |
 | Switzerland West     | ✅                           |                             | ✅                           | 
 | UAE Central          |                              |                             | ✅                           | 
-| UAE North            | ✅                           |                             | ✅                           | 
+| UAE North            | ✅                           | ✅                         | ✅                           | 
 | UK South             | ✅                           | ✅                          | ✅                           | 
 | UK West              | ✅                           |                             | ✅                           | 
 | West Central US      | ✅                           |                             | ✅                           | 
@@ -147,21 +148,22 @@ App Service Environment v3 is available in the following regions:
 | West US 2            | ✅                           | ✅                          | ✅                           | 
 | West US 3            | ✅                           | ✅                          | ✅                           | 
 
-\* Limited availability and no support for dedicated host deployments
+\* Limited availability and no support for dedicated host deployments.  
+\** To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative.
 
 ### Azure Government:
 
 | Region               | Single zone support          | Availability zone support   | Single zone support         |
 | -------------------- | :--------------------------: | :-------------------------: | :-------------------------: |
 |                      | App Service Environment v3   | App Service Environment v3  | App Service Environment v1/v2 |
-| US DoD Central       |                              |                             | ✅                          |
+| US DoD Central       | ✅                           |                             | ✅                          |
 | US DoD East          |                              |                             | ✅                          |
 | US Gov Arizona       | ✅                           |                             | ✅                         |
 | US Gov Iowa          |                              |                             | ✅                          |
 | US Gov Texas         | ✅                           |                             | ✅                         |
-| US Gov Virginia      | ✅                           |                             | ✅                         |
+| US Gov Virginia      | ✅                           |✅                          | ✅                         |
 
-### Azure China:
+### Microsoft Azure operated by 21Vianet:
 
 | Region               | Single zone support          | Availability zone support   | Single zone support         |
 | -------------------- | :--------------------------: | :-------------------------: | :-------------------------: |
@@ -170,6 +172,10 @@ App Service Environment v3 is available in the following regions:
 | China East 3         | ✅                          |                              |                             |
 | China North 2        |                              |                             | ✅                          |
 | China North 3        | ✅                          | ✅                          |                              |
+
+### In-region data residency
+
+An App Service Environment will only store customer data including app content, settings and secrets within the region where it's deployed. All data is guaranteed to remain in the region. For more information, see [Data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview).
 
 ## App Service Environment v2
 

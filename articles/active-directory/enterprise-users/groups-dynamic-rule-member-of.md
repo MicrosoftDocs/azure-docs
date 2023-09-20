@@ -1,10 +1,10 @@
 ---
-title: Group membership for Azure AD dynamic groups with memberOf - Azure AD | Microsoft Docs
+title: Group membership for Azure AD dynamic groups with memberOf
 description: How to create a dynamic membership group that can contain members of other groups in Azure Active Directory. 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: billmath
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
@@ -40,14 +40,15 @@ Only administrators in the Global Administrator, Intune Administrator, or User A
 
 ## Getting started
 
-This feature can be used in the Azure AD portal, Microsoft Graph, and in PowerShell. Because memberOf isn't yet supported in the rule builder, you must enter your rule in the rule editor.  
+This feature can be used in the Azure portal, Microsoft Graph, and in PowerShell. Because memberOf isn't yet supported in the rule builder, you must enter your rule in the rule editor.  
 
 ### Steps to create a memberOf dynamic group
 
-1. Sign in to the Azure portal with an account that has Global Administrator, Intune Administrator, or User Administrator role permissions.
-1. Select **Azure Active Directory** > **Groups**, and then select **New group**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Groups** > **All groups**.
+1. Select **New group**.
 1. Fill in group details. The group type can be Security or Microsoft 365, and the membership type can be set to **Dynamic User** or **Dynamic Device**.
-1.	Select **Add dynamic query**.
+1. Select **Add dynamic query**.
 1. MemberOf isn't yet supported in the rule builder. Select **Edit** to write the rule in the **Rule syntax** box.
     1. Example user rule: `user.memberof -any (group.objectId -in ['groupId', 'groupId'])`
     1. Example device rule: `device.memberof -any (group.objectId -in ['groupId', 'groupId'])`

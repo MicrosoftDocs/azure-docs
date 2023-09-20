@@ -99,7 +99,7 @@ The following table describes several rules. On a search service, throttling or 
 | Delete Search Service (activity log alert) | Whenever the Activity Log has an event with Category='Administrative', Signal name='Delete Search Service (searchServices)', Level='critical' | Send an email if a search service is deleted in the subscription. |
 
 > [!NOTE]
-> Currently, there are no storage-related alerts (storage consumption data isn't aggregated or logged into the **AzureMetrics** table). To get storage alerts, you could [build a custom solution](../azure-monitor/insights/solutions.md) that emits resource-related notifications, where your code checks for storage size and handles the response.
+> Currently, there are no storage-related alerts (storage consumption data isn't aggregated or logged into the **AzureMetrics** table). To get storage alerts, you could [build a custom solution](/previous-versions/azure/azure-monitor/insights/solutions) that emits resource-related notifications, where your code checks for storage size and handles the response.
 
 ## Enable resource logging
 
@@ -115,7 +115,7 @@ Resource logging is billable (see the [Pricing model](../azure-monitor/usage-est
 
 1. Give the diagnostic setting a name. Use granular and descriptive names if you're creating more than one setting.
 
-1. Select the logs and metrics that are in scope for this setting. Selections include "allLogs", "OperationLogs", "AllMetrics". You can exclude activity logs by selecting the "OperationLogs" category.
+1. Select the logs and metrics that are in scope for this setting. Selections include "allLogs", "audit", "OperationLogs", "AllMetrics". You can exclude activity logs by selecting the "OperationLogs" category.
 
    + See [Microsoft.Search/searchServices (in Supported categories for Azure Monitor resource logs)](../azure-monitor/essentials/resource-logs-categories.md#microsoftsearchsearchservices)
 
@@ -128,6 +128,8 @@ Resource logging is billable (see the [Pricing model](../azure-monitor/usage-est
 1. Optionally, select [other destinations](../azure-monitor/essentials/diagnostic-settings.md#destinations).
 
 1. Select **Save**.
+
+[!INCLUDE [audit log categories tip](../azure-monitor/includes/azure-monitor-log-category-groups-tip.md)]
 
 Once the workspace contains data, you can run log queries:
 

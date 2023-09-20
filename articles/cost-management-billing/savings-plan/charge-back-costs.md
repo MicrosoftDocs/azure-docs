@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 06/14/2023
 ms.author: banders
 ---
 
@@ -16,7 +16,7 @@ ms.author: banders
 
 Enterprise Agreement and Microsoft Customer Agreement billing readers can view amortized cost data for savings plans. They can use the cost data to charge back the monetary value for a subscription, resource group, resource, or a tag to their partners. In amortized data, the effective price is the prorated hourly savings plan cost. The cost is the total cost of savings plan usage by the resource on that day.
 
-Users with an individual subscription can get the amortized cost data from their usage file. When a resource gets a savings plan discount, the _AdditionalInfo_ section in the usage file contains the savings plan details. For more information, see [Download usage from the Azure portal](../understand/download-azure-daily-usage.md#download-usage-from-the-azure-portal-csv).
+Users with an individual subscription can get the amortized cost data from their usage file. When a resource gets a savings plan discount, the _AdditionalInfo_ section in the usage file contains the savings plan details. For more information, see [View and download your Azure usage and charges](../understand/download-azure-daily-usage.md).
 
 ## View savings plan usage data for show back and charge back
 
@@ -63,7 +63,7 @@ Information in the following table about metric and filter can help solve common
 | **Usage that got savings plan discount**  | Request for an ActualCost report. <br><br> Once you've ingested all of the usage, look for records with ChargeType = 'Usage' and PricingModel = 'SavingsPlan'. |
 | **Usage that didn't get savings plan discount**  | Request for an ActualCost report.<br><br> Once you've ingested all of the usage, filter for usage records with PricingModel = 'OnDemand'. |
 | **Amortized charges (usage and purchases)** | Request for an AmortizedCost report. |
-| **Unused savings plan report**  | Request for an AmortizedCost report.<br><br> Once you've ingested all of the usage, filter for usage records with ChargeType = 'UnusedBenefit' and PricingModel ='SavingsPlan'. |
+| **Unused savings plan report**  | Request for an AmortizedCost report.<br><br> Once you've ingested all of the usage, filter for usage records with ChargeType = 'UnusedSavingsPlan' and PricingModel ='SavingsPlan'. |
 | **Savings plan purchases**  | Request for an AmortizedCost report.<br><br> Once you've ingested all of the usage, filter for usage records with ChargeType = 'Purchase' and PricingModel = 'SavingsPlan'. |
 | **Refunds**  | Request for an AmortizedCost report.<br><br> Once you've ingested all of the usage, filter for usage records with ChargeType = 'Refund'. |
 

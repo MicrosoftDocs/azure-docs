@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 02/16/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Anaplan
@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate Anaplan with Azure Active Direct
 
 * Control in Azure AD who has access to Anaplan.
 * Enable your users to be automatically signed-in to Anaplan with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -37,10 +37,8 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 To configure the integration of Anaplan into Azure AD, you need to add Anaplan from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **Anaplan** in the search box.
 1. Select **Anaplan** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -61,84 +59,63 @@ To configure and test Azure AD SSO with Anaplan, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
-1. In the Azure portal, on the **Anaplan** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Anaplan** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click the copy icon to copy the **App Federation Metadata URL** and save this to use in the Anaplan SSO configuration.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps:
-
-    a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://sdp.anaplan.com/frontdoor/saml/<tenant name>`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<subdomain>.anaplan.com`
-
-    > [!NOTE]
-    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Anaplan Client support team](mailto:support@anaplan.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
-
-    ![The Certificate download link](common/metadataxml.png)
-
-6. On the **Set up Anaplan** section, copy the appropriate URL(s) as per your requirement.
-
-    ![Copy configuration URLs](common/copy-configuration-urls.png)
-
-### Create an Azure AD test user 
-
-In this section, you'll create a test user in the Azure portal called B.Simon.
-
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Anaplan.
-
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Anaplan**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+    ![The Certificate download link.](common/copy-metadataurl.png)
 
 ## Configure Anaplan SSO
 
-1. Login to Anaplan website as an administrator.
+1. Log in to Anaplan website as an administrator.
 
-1. In Administration page, navigate to **Security > Single Sign-On**.
+1. In the Administration page, navigate to **Security > Single Sign-On**.
 
 1. Click **New**.
 
 1. Perform the following steps in the **Metadata** tab:
 
-    ![Screenshot for the security page](./media/anaplan-tutorial/security.png)
+    ![Screenshot for the security page.](./media/anaplan-tutorial/security.png)
 
     a. Enter a **Connection Name**, should match the name of your connection in the identity provider interface.
 
-    b. Select **Load from XML file** and enter the URL of the metadata XML file with your configuration information in the **Metadata URL** textbox.
+    b. Select **Load from XML file** and paste the App Federation Metadata URL you into the **Metadata URL** textbox.
 
-    C. Enabled the **Signed** toggle.
+    c. Click **Save** to create the connection.
+    
+    d. Enable the connection by setting the **Enabled** toggle.
 
-    d. Click **Save** to create the connection.
+1. From the **Config** tab, copy the following values to save them back to the Azure portal:
 
-1. When you upload a **metadata XML** file in the **Metadata** tab, the values in **Config** tab pre-populate with the information from that upload. You can skip this tab in your connection setup and click **Save**.
+    a. **Service Provider URL**.
+    b. **Assertion Consumer Service URL**.
+    c. **Entity ID**.
+    
+### Complete the Azure AD SSO Configuration
 
-    ![Screenshot for the configuration page](./media/anaplan-tutorial/configuration.png)
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
+
+   ![Edit Basic SAML Configuration.](common/edit-urls.png)
+
+1. On the **Basic SAML Configuration** section, perform the following steps:
+
+    a. In the **Identifier (Entity ID)** text box, paste the Entity ID that you copied from above, in the format:
+    `https://sdp.anaplan.com/<optional extension>`
+
+    b. In the **Sign on URL** text box, paste the Service Provider URL that you copied from above, in the format:
+    `https://us1a.app.anaplan.com/samlsp/<connection name>`
+    
+    c. In the **Reply URL (Assertion Consumer Service URL)** text box, paste the Assertion Consumer Service URL that you copied from above, in the format:
+    `https://us1a.app.anaplan.com/samlsp/login/callback?connection=<connection name>`
+
+### Complete the Anaplan SSO Configuration
 
 1. Perform the following steps in the **Advanced** tab:
 
-    ![Screenshot for the Advanced page](./media/anaplan-tutorial/advanced.png)
+    ![Screenshot for the Advanced page.](./media/anaplan-tutorial/advanced.png)
 
     a. Select **Name ID Format** as Email Address from the dropdown and keep the remaining values as default.
 
@@ -146,21 +123,47 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **Workspaces** tab, specify the workspaces that will use the identity provider from the dropdown and Click **Save**. 
 
-    ![Screenshot for the Workspaces page](./media/anaplan-tutorial/Workspaces.png)
+    ![Screenshot for the Workspaces page.](./media/anaplan-tutorial/workspaces.png)
 
     > [!NOTE]
     > Workspace connections are unique. If you have another connection already configured with a workspace, you cannot associate that workspace with a new connection.
 To access the original connection and update it, remove the workspace from the connection and then reassociate it with the new connection.
 
+### Create an Azure AD test user 
+
+In this section, you'll create a test user called B.Simon.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
+
+### Assign the Azure AD test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to Anaplan.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Anaplan**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
+
 ### Create Anaplan test user
 
-In this section, you create a user called Britta Simon in Anaplan. Work with [Anaplan support team](mailto:support@anaplan.com) to add the users in the Anaplan platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Anaplan. Work with [Anaplan support team](mailto:support@anaplan.com) to add the users in the Anaplan platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Anaplan Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Anaplan Sign-on URL where you can initiate the login flow. 
 
 * Go to Anaplan Sign-on URL directly and initiate the login flow from there.
 

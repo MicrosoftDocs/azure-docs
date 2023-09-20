@@ -1,5 +1,5 @@
 ---
-title: Restrict guest user access permissions - Azure Active Directory | Microsoft Docs
+title: Restrict guest user access permissions
 description: Restrict guest user access permissions using the Azure portal, PowerShell, or Microsoft Graph in Azure Active Directory
 services: active-directory 
 author: barclayn
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ---
@@ -33,10 +33,12 @@ You must be in the Global Administrator role to configure guest user access. The
 
 ## Update in the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 We’ve made changes to the existing Azure portal controls for guest user permissions.
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Global administrator permissions.
-1. On the **Azure Active Directory** overview page for your organization, select **User settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID (Azure AD)  > **Users** > **All users**.
 1. Under **External users**, select **Manage external collaboration settings**.
 1. On the **External collaboration settings** page, select **Guest user access is restricted to properties and memberships of their own directory objects** option.
 

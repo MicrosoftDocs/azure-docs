@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 03/23/2023
 ms.author: justinha
 
 ---
@@ -69,8 +69,6 @@ By default, a managed domain is created as a *user* forest. This type of forest 
 
 In an Azure AD DS *resource* forest, users authenticate over a one-way forest *trust* from their on-premises AD DS. With this approach, the user objects and password hashes aren't synchronized to Azure AD DS. The user objects and credentials only exist in the on-premises AD DS. This approach lets enterprises host resources and application platforms in Azure that depend on classic authentication such LDAPS, Kerberos, or NTLM, but any authentication issues or concerns are removed.
 
-For more information about forest types in Azure AD DS, see [What are resource forests?][concepts-forest] and [How do forest trusts work in Azure AD DS?][concepts-trust]
-
 ## Azure AD DS SKUs
 
 In Azure AD DS, the available performance and features are based on the SKU. You select a SKU when you create the managed domain, and you can switch SKUs as your business requirements change after the managed domain has been deployed. The following table outlines the available SKUs and the differences between them:
@@ -105,10 +103,10 @@ To get started, [create an Azure AD DS managed domain][create-instance].
 [password-policy]: password-policy.md
 [hybrid-phs]: tutorial-configure-password-hash-sync.md#enable-synchronization-of-password-hashes
 [secure-domain]: secure-your-domain.md
-[azure-ad-password-sync]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[azure-ad-password-sync]: ../active-directory/hybrid/connect/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [create-instance]: tutorial-create-instance.md
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
-[concepts-forest]: concepts-resource-forest.md
+[concepts-forest]: ./concepts-forest-trust.md
 [concepts-trust]: concepts-forest-trust.md
 
 <!-- EXTERNAL LINKS -->

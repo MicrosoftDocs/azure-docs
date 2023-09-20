@@ -2,13 +2,12 @@
 title: Expand virtual hard disks on a Linux VM
 description: Learn how to expand virtual hard disks on a Linux VM with the Azure CLI.
 author: pagienge
-ms.service: storage
+ms.service: azure-disk-storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 02/07/2023
+ms.date: 07/12/2023
 ms.author: pagienge
-ms.subservice: disks
-ms.custom: references_regions, ignite-fall-2021, devx-track-azurecli 
+ms.custom: references_regions, ignite-fall-2021, devx-track-azurecli, devx-track-linux
 ---
 
 # Expand virtual hard disks on a Linux VM
@@ -16,6 +15,8 @@ ms.custom: references_regions, ignite-fall-2021, devx-track-azurecli
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 This article describes how to expand managed disks for a Linux virtual machine (VM). You can [add data disks](add-disk.md) to provide for additional storage space, and you can also expand an existing data disk. The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux VM in Azure. This article covers expanding either OS disks or data disks.
+
+An OS disk has a maximum capacity of 4,095 GiB. However, many operating systems are partitioned with [master boot record (MBR)](https://wikipedia.org/wiki/Master_boot_record) by default. MBR limits the usable size to 2 TiB. If you need more than 2 TiB, create and attach data disks and use them for data storage. If you need to store data on the OS disk and require the additional space, convert it to GUID Partition Table (GPT).
 
 > [!WARNING]
 > Always make sure that your filesystem is in a healthy state, your disk partition table type (GPT or MBR) will support the new size, and ensure your data is backed up before you perform disk expansion operations. For more information, see the [Azure Backup quickstart](../../backup/quick-backup-vm-portal.md). 
@@ -27,7 +28,10 @@ In the case of expanding a data disk when there are several data disks present o
 Start by identifying the relationship between disk utilization, mount point, and device, with the ```df``` command.
 
 ```bash
-linux:~ # df -Th
+df -Th
+```
+
+```output
 Filesystem                Type      Size  Used Avail Use% Mounted on
 /dev/sda1                 xfs        97G  1.8G   95G   2% /
 <truncated>
@@ -39,8 +43,11 @@ Here we can see, for example, the `/opt/db/data` filesystem is nearly full, and 
 
 Now locate the LUN which correlates to `/dev/sdd` by examining the contents of `/dev/disk/azure/scsi1`.  The output of the following `ls` command will show that the device known as `/dev/sdd` within the Linux OS is located at LUN1 when looking in the Azure portal.
 
+```bash
+sudo ls -alF /dev/disk/azure/scsi1/
+```
+
 ```output
-linux:~ # ls -alF /dev/disk/azure/scsi1/
 total 0
 drwxr-xr-x. 2 root root 140 Sep  9 21:54 ./
 drwxr-xr-x. 4 root root  80 Sep  9 21:48 ../
@@ -70,7 +77,7 @@ This article requires an existing VM in Azure with at least one data disk attach
 In the following samples, replace example parameter names such as *myResourceGroup* and *myVM* with your own values.
 
 > [!IMPORTANT]
-> If your disk meets the requirements in [Expand without downtime](#expand-without-downtime), you can skip step 1 and 3. 
+> If your disk meets the requirements in [Expand without downtime](#expand-without-downtime), you can skip step 1 and 3.
 
 1. Operations on virtual hard disks can't be performed with the VM running. Deallocate your VM with [az vm deallocate](/cli/azure/vm#az-vm-deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*:
 
@@ -118,8 +125,11 @@ If a data disk was expanded without downtime using the procedure mentioned previ
 
 1. Identify the currently recognized size on the first line of output from `fdisk -l /dev/sda`
 
+   ```bash
+   sudo fdisk -l /dev/sda
    ```
-   root@linux:~# fdisk -l /dev/sda
+
+   ```output
    Disk /dev/sda: 256 GiB, 274877906944 bytes, 536870912 sectors
    Disk model: Virtual Disk
    Units: sectors of 1 * 512 = 512 bytes
@@ -131,17 +141,20 @@ If a data disk was expanded without downtime using the procedure mentioned previ
    Device     Boot Start       End   Sectors  Size Id Type
    /dev/sda1        2048 536870878 536868831  256G 83 Linux
    ```
-   
+
 1. Insert a `1` character into the rescan file for this device.  Note the reference to sda, this would change if a different disk device was resized.
 
-   ```
-   root@linux:~# echo 1 > /sys/class/block/sda/device/rescan
+   ```bash
+   echo 1 | sudo tee /sys/class/block/sda/device/rescan
    ```
 
 1. Verify that the new disk size has been recognized
 
+   ```bash
+   sudo fdisk -l /dev/sda
    ```
-   root@linux:~# fdisk -l /dev/sda
+
+   ```output
    Disk /dev/sda: 512 GiB, 549755813888 bytes, 1073741824 sectors
    Disk model: Virtual Disk
    Units: sectors of 1 * 512 = 512 bytes
@@ -175,8 +188,11 @@ On Ubuntu 16.x and newer, the root partition of the OS disk and filesystems will
 
 As shown in the following example, the OS disk has been resized from the portal to 100 GB. The **/dev/sda1** file system mounted on **/** now displays 97 GB.
 
+```bash
+df -Th
 ```
-user@ubuntu:~# df -Th
+
+```output
 Filesystem     Type      Size  Used Avail Use% Mounted on
 udev           devtmpfs  314M     0  314M   0% /dev
 tmpfs          tmpfs      65M  2.3M   63M   4% /run
@@ -198,20 +214,23 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
 1. Access your VM as the **root** user by using the ```sudo``` command after logging in as another user:
 
-   ```
+   ```bash
    sudo -i
    ```
 
 1. Use the following command to install the **growpart** package, which will be used to resize the partition, if it isn't already present:
 
-   ```
+   ```bash
    zypper install growpart
    ```
 
 1. Use the `lsblk` command to find the partition mounted on the root of the file system (**/**). In this case, we see that partition 4 of device **sda** is mounted on **/**:
 
+   ```bash
+   lsblk
    ```
-   linux:~ # lsblk
+
+   ```output
    NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
    sda      8:0    0   48G  0 disk
    ├─sda1   8:1    0    2M  0 part
@@ -224,17 +243,23 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
 1. Resize the required partition by using the `growpart` command and the partition number determined in the preceding step:
 
-   ```
+   ```bash
    growpart /dev/sda 4
+   ```
+
+   ```output
    CHANGED: partition=4 start=3151872 old: size=59762655 end=62914527 new: size=97511391 end=100663263
    ```
 
 1. Run the `lsblk` command again to check whether the partition has been increased.
 
    The following output shows that the **/dev/sda4** partition has been resized to 46.5 GB:
-   
-   ```
+
+   ```bash
    lsblk
+   ```
+
+   ```output
    NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
    sda      8:0    0   48G  0 disk
    ├─sda1   8:1    0    2M  0 part
@@ -247,8 +272,11 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
 1. Identify the type of file system on the OS disk by using the `lsblk` command with the `-f` flag:
 
-   ```
+   ```bash
    lsblk -f
+   ```
+
+   ```output
    NAME   FSTYPE LABEL UUID                                 MOUNTPOINT
    sda
    ├─sda1
@@ -260,17 +288,16 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
    ```
 
 1. Based on the file system type, use the appropriate commands to resize the file system.
-   
+
    For **xfs**, use this command:
-   
-   ```
-   linux:~ #xfs_growfs /
-   ```
-   
-   Example output:
-   
-   ```
+
+   ```bash
    xfs_growfs /
+   ```
+
+   Example output:
+
+   ```output
    meta-data=/dev/sda4              isize=512    agcount=4, agsize=1867583 blks
             =                       sectsz=512   attr=2, projid32bit=1
             =                       crc=1        finobt=0 spinodes=0 rmapbt=0
@@ -283,23 +310,22 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
    realtime =none                   extsz=4096   blocks=0, rtextents=0
    data blocks changed from 7470331 to 12188923
    ```
-   
+
    For **ext4**, use this command:
-   
-   ```
+
+   ```bash
    resize2fs /dev/sda4
    ```
-   
+
 1. Verify the increased file system size for **df -Th** by using this command:
-   
-   ```
+
+   ```bash
    df -Thl
    ```
-   
+
    Example output:
-   
-   ```
-   df -Thl
+
+   ```output
    Filesystem     Type      Size  Used Avail Use% Mounted on
    devtmpfs       devtmpfs  445M  4.0K  445M   1% /dev
    tmpfs          tmpfs     458M     0  458M   0% /dev/shm
@@ -312,10 +338,10 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
    tmpfs          tmpfs      92M     0   92M   0% /run/user/1000
    tmpfs          tmpfs      92M     0   92M   0% /run/user/490
    ```
-   
+
    In the preceding example, we can see that the file system size for the OS disk has been increased.
 
-# [Red Hat with LVM](#tab/rhellvm)
+# [Red Hat/CentOS with LVM](#tab/rhellvm)
 
 1. Follow the procedure above to expand the disk in the Azure infrastructure.
 
@@ -327,8 +353,11 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
 1. Use the `lsblk` command to determine which logical volume (LV) is mounted on the root of the file system (**/**). In this case, we see that **rootvg-rootlv** is mounted on **/**. If a different filesystem is in need of resizing, substitute the LV and mount point throughout this section.
 
-   ```shell
+   ```bash
    lsblk -f
+   ```
+
+   ```output
    NAME                  FSTYPE      LABEL   UUID                                   MOUNTPOINT
    fd0
    sda
@@ -348,6 +377,9 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
    ```bash
    vgdisplay rootvg
+   ```
+
+   ```output
    --- Volume group ---
    VG Name               rootvg
    System ID
@@ -371,17 +403,22 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
    ```
 
    In this example, the line **Free  PE / Size** shows that there's 38.02 GB free in the volume group, as the disk has already been resized.
-   
+
 1. Install the **cloud-utils-growpart** package to provide the **growpart** command, which is required to increase the size of the OS disk and the gdisk handler for GPT disk layouts  This package is preinstalled on most marketplace images
 
    ```bash
    yum install cloud-utils-growpart gdisk
    ```
 
+   In RHEL/CentOS 8.x VMs you can use `dnf` command instead of `yum`.
+
 1. Determine which disk and partition holds the LVM physical volume (PV) or volumes in the volume group named **rootvg** by using the **pvscan** command. Note the size and free space listed between the brackets (**[** and **]**).
 
    ```bash
    pvscan
+   ```
+
+   ```output
    PV /dev/sda4   VG rootvg          lvm2 [<63.02 GiB / <38.02 GiB free]
    ```
 
@@ -389,6 +426,9 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
    ```bash
    lsblk /dev/sda4
+   ```
+
+   ```output
    NAME            MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
    sda4              8:4    0  63G  0 part
    ├─rootvg-tmplv  253:1    0   2G  0 lvm  /tmp
@@ -403,6 +443,9 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
    ```bash
    growpart /dev/sda 4
+   ```
+
+   ```output
    CHANGED: partition=4 start=2054144 old: size=132161536 end=134215680 new: size=199272414 end=201326558
    ```
 
@@ -410,6 +453,9 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
    ```bash
    lsblk /dev/sda4
+   ```
+
+   ```output
    NAME            MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
    sda4              8:4    0  95G  0 part
    ├─rootvg-tmplv  253:1    0   2G  0 lvm  /tmp
@@ -424,6 +470,9 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
    ```bash
    pvresize /dev/sda4
+   ```
+
+   ```output
    Physical volume "/dev/sda4" changed
    1 physical volume(s) resized or updated / 0 physical volume(s) not resized
    ```
@@ -432,6 +481,9 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
    ```bash
    pvscan
+   ```
+
+   ```output
    PV /dev/sda4   VG rootvg          lvm2 [<95.02 GiB / <70.02 GiB free]
    ```
 
@@ -443,8 +495,7 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
    Example output:
 
-   ```bash
-   lvresize -r -L +10G /dev/mapper/rootvg-rootlv
+   ```output
    Size of logical volume rootvg/rootlv changed from 2.00 GiB (512 extents) to 12.00 GiB (3072 extents).
    Logical volume rootvg/rootlv successfully resized.
    meta-data=/dev/mapper/rootvg-rootlv isize=512    agcount=4, agsize=131072 blks
@@ -463,8 +514,11 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
    Example output:
 
-   ```shell
+   ```bash
    df -Th /
+   ```
+
+   ```output
    Filesystem                Type  Size  Used Avail Use% Mounted on
    /dev/mapper/rootvg-rootlv xfs    12G   71M   12G   1% /
    ```
@@ -472,14 +526,14 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 > [!NOTE]
 > To use the same procedure to resize any other logical volume, change the **lv** name in step **12**.
 
-# [Red Hat with raw disks](#tab/rhelraw)
+# [Red Hat/CentOS without LVM](#tab/rhelraw)
 
 1. Follow the procedure above to expand the disk in the Azure infrastructure.
 
 1. Access your VM as the **root** user by using the ```sudo``` command after logging in as another user:
 
    ```bash
-   sudo -i
+   sudo -i
    ```
 
 1. When the VM has restarted, perform the following steps:
@@ -490,10 +544,15 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
    yum install cloud-utils-growpart gdisk
    ```
 
+   In RHEL/CentOS 8.x VMs you can use `dnf` command instead of `yum`.
+
 1. Use the **lsblk -f** command to verify the partition and filesystem type holding the root (**/**) partition
 
    ```bash
    lsblk -f
+   ```
+
+   ```output
    NAME    FSTYPE LABEL UUID                                 MOUNTPOINT
    sda
    ├─sda1  xfs          2a7bb59d-6a71-4841-a3c6-cba23413a5d2 /boot
@@ -508,6 +567,9 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
    ```bash
    gdisk -l /dev/sda
+   ```
+
+   ```output
    GPT fdisk (gdisk) version 0.8.10
 
    Partition table scan:
@@ -536,6 +598,9 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
    ```bash
    growpart /dev/sda 2
+   ```
+
+   ```output
    CHANGED: partition=2 start=2050048 old: size=60862464 end=62912512 new: size=98613214 end=100663262
    ```
 
@@ -543,6 +608,9 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
    ```bash
    gdisk -l /dev/sda
+   ```
+
+   ```output
    GPT fdisk (gdisk) version 0.8.10
 
    Partition table scan:
@@ -571,6 +639,9 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
    ```bash
    xfs_growfs /
+   ```
+
+   ```output
    meta-data=/dev/sda2              isize=512    agcount=4, agsize=1901952 blks
             =                       sectsz=4096  attr=2, projid32bit=1
             =                       crc=1        finobt=0 spinodes=0
@@ -587,6 +658,9 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
    ```bash
    df -hl
+   ```
+
+   ```output
    Filesystem      Size  Used Avail Use% Mounted on
    devtmpfs        452M     0  452M   0% /dev
    tmpfs           464M     0  464M   0% /dev/shm

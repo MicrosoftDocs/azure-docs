@@ -4,8 +4,9 @@ description: Get help with dependency visualization in Azure Migrate.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 10/17/2022
+ms.date: 03/08/2023
 ms.custom: engagement-fy23
 ---
 
@@ -326,7 +327,7 @@ For Windows VMs:
 
     ![Screenshot that shows MMA status.](./media/troubleshoot-assessment/mma-properties.png)
 
-For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded. Refer to more troubleshooting guidance on [this website](../azure-monitor/vm/service-map.md#post-installation-issues).
+For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded. Refer to more troubleshooting guidance on [this website](/previous-versions/azure/azure-monitor/vm/service-map#post-installation-issues).
 
 ## Supported operating systems for agent-based dependency analysis
 

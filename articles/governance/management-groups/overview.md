@@ -1,10 +1,10 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them.
-ms.date: 01/24/2023
+ms.date: 04/20/2023
 ms.topic: overview
-author: timwarner-msft
-ms.author: timwarner
+author: tfitzmac
+ms.author: tomfitz
 ---
 # What are Azure management groups?
 
@@ -13,14 +13,10 @@ policies, and compliance for those subscriptions. _Management groups_ provide a 
 above subscriptions. You organize subscriptions into management groups; the governance conditions you apply
 cascade by inheritance to all associated subscriptions.
 
-Management groups give you
-enterprise-grade management at scale no matter what type of subscriptions you might have.
-However, all subscriptions within a single management group must trust the same Azure Active Directory (Azure AD)
-tenant.
+Management groups give you enterprise-grade management at scale, no matter what type of subscriptions you might have.
+However, all subscriptions within a single management group must trust the same Azure Active Directory (Azure AD) tenant.
 
-For example, you can apply policies to a management group that limits the regions available for
-virtual machine (VM) creation. This policy would be applied to all nested management groups,
-subscriptions, and resources, and allow VM creation only in authorized regions.
+For example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all nested management groups, subscriptions, and resources and allow VM creation only in authorized regions.
 
 ## Hierarchy of management groups and subscriptions
 
@@ -28,15 +24,12 @@ You can build a flexible structure of management groups and subscriptions to org
 into a hierarchy for unified policy and access management. The following diagram shows an example of
 creating a hierarchy for governance using management groups.
 
-:::image type="complex" source="./media/tree.png" alt-text="Diagram of a sample management group hierarchy." border="false":::
-   Diagram of a root management group holding both management groups and subscriptions. Some child management groups hold management groups, some hold subscriptions, and some hold both. One of the examples in the sample hierarchy is four levels of management groups with the child level being all subscriptions.
+:::image type="complex" source="../media/mg-org.png" alt-text="Diagram of a sample management group hierarchy." border="false":::
+   Diagram of a root management group holding both management groups and subscriptions. Some child management groups hold management groups, some hold subscriptions, and some hold both. One of the examples in the sample hierarchy is four levels of management groups, with the child level being all subscriptions.
 :::image-end:::
 
-You can create a hierarchy that applies a policy, for example, which limits VM locations to the
-West US region in the management group called "Production". This policy will inherit onto all the Enterprise
-Agreement (EA) subscriptions that are descendants of that management group and will apply to all VMs
-under those subscriptions. This security policy cannot be altered by the resource or subscription
-owner allowing for improved governance.
+You can create a hierarchy that applies a policy, for example, which limits VM locations to the West US region in the management group called "Corp". This policy will inherit all the Enterprise Agreement (EA) subscriptions that are descendants of that management group and will apply to all VMs under those subscriptions. This security policy cannot be altered by the resource or subscription
+owner, allowing for improved governance.
 
 > [!NOTE]
 > Management groups aren't currently supported in Cost Management features for Microsoft Customer Agreement (MCA) subscriptions.
@@ -66,8 +59,8 @@ fold up to it. This root management group allows for global policies and Azure r
 be applied at the directory level. The [Azure AD Global Administrator needs to elevate
 themselves](../../role-based-access-control/elevate-access-global-admin.md) to the User Access
 Administrator role of this root group initially. After elevating access, the administrator can
-assign any Azure role to other directory users or groups to manage the hierarchy. As administrator,
-you can assign your own account as owner of the root management group.
+assign any Azure role to other directory users or groups to manage the hierarchy. As an administrator,
+you can assign your account as the owner of the root management group.
 
 ### Important facts about the root management group
 
@@ -77,7 +70,7 @@ you can assign your own account as owner of the root management group.
   [Change the name of a management group](manage.md#change-the-name-of-a-management-group) to update
   the name of a management group.
 - The root management group can't be moved or deleted, unlike other management groups.
-- All subscriptions and management groups fold up to the one root management group within the
+- All subscriptions and management groups fold up into one root management group within the
   directory.
   - All resources in the directory fold up to the root management group for global management.
   - New subscriptions are automatically defaulted to the root management group when created.
@@ -114,7 +107,7 @@ Azure management groups support
 resource accesses and role definitions. These permissions are inherited to child resources that
 exist in the hierarchy. Any Azure role can be assigned to a management group that will inherit down
 the hierarchy to the resources. For example, the Azure role VM contributor can be assigned to a
-management group. This role has no action on the management group, but will inherit to all VMs under
+management group. This role has no action on the management group but will inherit to all VMs under
 that management group.
 
 The following chart shows the list of roles and the supported actions on management groups.
@@ -139,11 +132,10 @@ details on moving items within the hierarchy.
 
 ## Azure custom role definition and assignment
 
-Azure custom role support for management groups is currently in preview with some
-[limitations](#limitations). You can define the management group scope in the Role Definition's
-assignable scope. That Azure custom role will then be available for assignment on that management
-group and any management group, subscription, resource group, or resource under it. This custom role
-will inherit down the hierarchy like any built-in role.
+You can define a management group as an assignable scope in an Azure custom role definition.
+The Azure custom role will then be available for assignment on that management
+group and any management group, subscription, resource group, or resource under it. The custom role
+will inherit down the hierarchy like any built-in role. For information about the limitations with custom roles and management groups, see [Limitations](#limitations).
 
 ### Example definition
 
@@ -194,15 +186,15 @@ when trying to separate the assignment from its definition.
 
 For example, let's look at a small section of a hierarchy for a visual.
 
-:::image type="complex" source="./media/subtree.png" alt-text="Diagram of a subset of the sample management group hierarchy." border="false":::
-   The diagram focuses on the root management group with child I T and Marketing management groups. The I T management group has a single child management group named Production while the Marketing management group has two Free Trial child subscriptions.
+:::image type="complex" source="../media/mg-org-sub.png" alt-text="Diagram of a subset of the sample management group hierarchy." border="false":::
+   The diagram focuses on the root management group with child Landing zones and Sandbox management groups. The Landing zones management group has two child management groups named Corp and Online while the Sandbox management group has two child subscriptions.
 :::image-end:::
 
-Let's say there's a custom role defined on the Marketing management group. That custom role is then
-assigned on the two free trial subscriptions.
+Let's say there's a custom role defined on the Sandbox management group. That custom role is then
+assigned on the two Sandbox subscriptions.
 
-If we try to move one of those subscriptions to be a child of the Production management group, this
-move would break the path from subscription role assignment to the Marketing management group role
+If we try to move one of those subscriptions to be a child of the Corp management group, this
+move would break the path from subscription role assignment to the Sandbox management group role
 definition. In this scenario, you'll receive an error saying the move isn't allowed since it will
 break this relationship.
 
@@ -211,7 +203,7 @@ There are a couple different options to fix this scenario:
   MG.
 - Add the subscription to the role definition's assignable scope.
 - Change the assignable scope within the role definition. In the above example, you can update the
-  assignable scopes from Marketing to the root management group so that the definition can be reached by
+  assignable scopes from Sandbox to the root management group so that the definition can be reached by
   both branches of the hierarchy.
 - Create another custom role that is defined in the other branch. This new role requires the role
   assignment to be changed on the subscription also.
@@ -231,13 +223,6 @@ There are limitations that exist when using custom roles on management groups.
 - Azure Resource Manager doesn't validate the management group's existence in the role
   definition's assignable scope. If there's a typo or an incorrect management group ID listed, the
   role definition is still created.
-
-> [!IMPORTANT]
-> Adding a management group to `AssignableScopes` is currently in preview. This preview version is
-> provided without a service-level agreement, and it's not recommended for production workloads.
-> Certain features might not be supported or might have constrained capabilities. For more
-> information, see
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Moving management groups and subscriptions
 

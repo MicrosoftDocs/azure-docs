@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure TravelPerk for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure TravelPerk for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and deprovision user accounts from Azure AD to TravelPerk.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 3e40f87d-8624-4b14-b098-80ff916103c3
 ms.service: active-directory
@@ -85,11 +85,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for TravelPerk in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
    ![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **TravelPerk**.
+1. In the applications list, select **TravelPerk**.
 
    ![The TravelPerk link in the Applications list](common/all-applications.png)
 

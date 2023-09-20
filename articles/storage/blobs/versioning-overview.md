@@ -5,12 +5,11 @@ description: Blob storage versioning automatically maintains previous versions o
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 02/14/2023
 ms.author: normesta
-ms.subservice: blobs 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+ms.custom: engagement-fy23
 ---
 
 # Blob versioning

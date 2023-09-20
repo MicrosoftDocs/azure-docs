@@ -14,7 +14,6 @@ For this migration guide you'll use App Service, but the steps are similar on Az
 
 > [!NOTE]
 > Azure Spring Apps currently only supports Service Connector using connection strings.
-
 1. On the main overview page of your App Service, select **Service Connector** from the left navigation.
 
 1. Select **+ Create** from the top menu and the **Create connection** panel will open.  Enter the following values:

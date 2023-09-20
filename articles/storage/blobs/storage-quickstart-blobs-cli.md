@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: In this quickstart, you learn how to use the Azure CLI upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: stevenmatthew
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.date: 01/25/2023
 ms.author: shaas
@@ -74,7 +73,7 @@ The following example uses your Azure AD account to authorize the operation to c
 Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
-az ad signed-in-user show --query Id -o tsv | az role assignment create \
+az ad signed-in-user show --query id -o tsv | az role assignment create \
     --role "Storage Blob Data Contributor" \
     --assignee @- \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
@@ -114,6 +113,8 @@ az storage blob upload \
 ```
 
 This operation creates the blob if it doesn't already exist, and overwrites it if it does. Upload as many files as you like before continuing.
+
+When you upload a blob using the Azure CLI, it issues respective [REST API calls](/rest/api/storageservices/blob-service-rest-api) via http and https protocols. 
 
 To upload multiple files at the same time, you can use the [az storage blob upload-batch](/cli/azure/storage/blob) command.
 

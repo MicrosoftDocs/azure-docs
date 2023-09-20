@@ -11,7 +11,7 @@ ms.date: 12/06/2022
 ms.author: banders
 ---
 
-# Manage costs with Azure Budgets
+# Manage costs with budgets
 
 Cost control is a critical component to maximizing the value of your investment in the cloud. There are several scenarios where cost visibility, reporting, and cost-based orchestration are critical to continued business operations. [Cost Management APIs](/rest/api/consumption/) provide a set of APIs to support each of these scenarios. The APIs provide usage details, allowing you to view granular instance level costs.
 
@@ -26,7 +26,7 @@ These actions included in this tutorial allow you to:
 - Create an Azure Automation Runbook to stop VMs by using webhooks.
 - Create an Azure Logic App to be triggered based on the budget threshold value and call the runbook with the right parameters.
 - Create an Azure Monitor Action Group that will be configured to trigger the Azure Logic App when the budget threshold is met.
-- Create the Azure budget with the wanted thresholds and wire it to the action group.
+- Create the budget with the wanted thresholds and wire it to the action group.
 
 ## Create an Azure Automation Runbook
 
@@ -236,7 +236,7 @@ When you create the action group, you'll point to the Logic App that you created
 
 You're done with all the supporting components needed to effectively orchestrate your budget. Now all you need to do is create the budget and configure it to use the action group you created.
 
-## Create the Azure Budget
+## Create the budget
 
 You can create a budget in the Azure portal using the [Budget feature](../costs/tutorial-acm-create-budgets.md) in Cost Management. Or, you can create a budget using REST APIs, PowerShell cmdlets, or use the CLI. The following procedure uses the REST API. Before calling the REST API, you'll need an authorization token. To create an authorization token, you can use the [ARMClient](https://github.com/projectkudu/ARMClient) project. The **ARMClient** allows you to authenticate yourself to the Azure Resource Manager and get a token to call the APIs.
 
@@ -326,7 +326,7 @@ By using this tutorial, you learned:
 - How to create an Azure Automation Runbook to stop VMs.
 - How to create an Azure Logic App that is triggered based on the budget threshold values and call the related runbook with the right parameters.
 - How to create an Azure Monitor Action Group that was configured to trigger the Azure Logic App when the budget threshold is met.
-- How to create the Azure budget with the desired thresholds and wire it to the action group.
+- How to create the budget with the desired thresholds and wire it to the action group.
 
 You now have a fully functional budget for your subscription that will shut down your VMs when you reach your configured budget thresholds.
 

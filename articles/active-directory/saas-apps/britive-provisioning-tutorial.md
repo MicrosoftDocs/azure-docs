@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Britive for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Britive for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Britive.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 622688b3-9d20-482e-aab9-ce2a1f01e747
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -55,7 +55,7 @@ The application will have to be manually configured using the steps provided bel
 
 	![Configuration Page](media/britive-provisioning-tutorial/configuration.png)
 
-1. Click on **SCIM** tab. Change the SCIM provider from Generic to Azure and save the changes. Copy the SCIM URL and note it down.This values will be entered in the **Tenant URL** boxes on the Provisioning tab of your Britive application in the Azure portal.
+1. Click on **SCIM** tab. Change the SCIM provider from Generic to Azure and save the changes. Copy the SCIM URL and note it down.This values will be entered in the **Tenant URL** boxes on the Provisioning tab of your Britive application.
 
 	![SCIM Page](media/britive-provisioning-tutorial/scim.png)
 
@@ -63,7 +63,7 @@ The application will have to be manually configured using the steps provided bel
 
 	![Create Token](media/britive-provisioning-tutorial/create-token.png)
 
-1. Copy the token generated and note it down. Click OK. Please note that the user will not be able to see the token again. Click on Re-Create button to generate a new token if needed.This values will be entered in the **Secret Token** and Tenant URL boxes on the Provisioning tab of your getAbstract application in the Azure portal.
+1. Copy the token generated and note it down. Click OK. Please note that the user will not be able to see the token again. Click on Re-Create button to generate a new token if needed.This values will be entered in the **Secret Token** and Tenant URL boxes on the Provisioning tab of your getAbstract application.
 
 	![Copy Token](media/britive-provisioning-tutorial/copy-token.png) 
 
@@ -87,7 +87,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Britive in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 

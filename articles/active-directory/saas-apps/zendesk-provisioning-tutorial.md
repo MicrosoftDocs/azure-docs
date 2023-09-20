@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Zendesk for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Zendesk for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Zendesk.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 ms.assetid: 620f0aa6-42af-4356-85f9-04aa329767f3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -42,7 +42,6 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 1. Determine what data to [map between Azure AD and Zendesk](../app-provisioning/customize-application-attributes.md). 
-1. In the [Azure portal](https://portal.azure.com), in the navigation pane on the left, select **Azure Active Directory**.
 
 ## Step 2. Configure Zendesk to support provisioning with Azure AD
 
@@ -81,7 +80,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### Configure automatic user provisioning for Zendesk in Azure AD
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 
@@ -111,39 +111,39 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Zendesk Test Connection](./media/zendesk-provisioning-tutorial/ZenDesk19.png)
 
-8. In the **Notification Email** box, enter the email address of the person or group to receive the provisioning error notifications. Select the **Send an email notification when a failure occurs** check box.
+1. In the **Notification Email** box, enter the email address of the person or group to receive the provisioning error notifications. Select the **Send an email notification when a failure occurs** check box.
 
 	![Screenshot of Zendesk Notification Email](./media/zendesk-provisioning-tutorial/ZenDesk9.png)
 
-9. Select **Save**.
+1. Select **Save**.
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zendesk**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zendesk**.
 
 	![Screenshot of Zendesk user synchronization](./media/zendesk-provisioning-tutorial/ZenDesk10.png)
 
-11. Review the user attributes that are synchronized from Azure AD to Zendesk in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Zendesk for update operations. To save any changes, select **Save**.
+1. Review the user attributes that are synchronized from Azure AD to Zendesk in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Zendesk for update operations. To save any changes, select **Save**.
 
 	![Screenshot of Zendesk matching user attributes](./media/zendesk-provisioning-tutorial/ZenDesk11.png)
 
-12. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Zendesk**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Zendesk**.
 
 	![Screenshot of Zendesk group synchronization](./media/zendesk-provisioning-tutorial/ZenDesk12.png)
 
-13. Review the group attributes that are synchronized from Azure AD to Zendesk in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the groups in Zendesk for update operations. To save any changes, select **Save**.
+1. Review the group attributes that are synchronized from Azure AD to Zendesk in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the groups in Zendesk for update operations. To save any changes, select **Save**.
 
 	![Screenshot of Zendesk matching group attributes](./media/zendesk-provisioning-tutorial/ZenDesk13.png)
 
-14. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. To enable the Azure AD provisioning service for Zendesk, in the **Settings** section, change **Provisioning Status** to **On**.
+1. To enable the Azure AD provisioning service for Zendesk, in the **Settings** section, change **Provisioning Status** to **On**.
 
 	![Screenshot of Zendesk Provisioning Status](./media/zendesk-provisioning-tutorial/ZenDesk14.png)
 
-16. Define the users or groups that you want to provision to Zendesk. In the **Settings** section, select the values you want in **Scope**.
+1. Define the users or groups that you want to provision to Zendesk. In the **Settings** section, select the values you want in **Scope**.
 
 	![Screenshot of Zendesk Scope](./media/zendesk-provisioning-tutorial/ZenDesk15.png)
 
-17. When you're ready to provision, select **Save**.
+1. When you're ready to provision, select **Save**.
 
 	![Screenshot of Zendesk Save](./media/zendesk-provisioning-tutorial/ZenDesk18.png)
 

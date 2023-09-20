@@ -7,7 +7,7 @@ author: hhunter-ms
 ms.contributor: cawa
 ms.date: 11/15/2022 
 ms.subservice: change-analysis
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.custom: ignite-2022
 ---
 
 # Use Change Analysis in Azure Monitor

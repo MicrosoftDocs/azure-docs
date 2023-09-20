@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial - Multi-factor authentication for B2B - Azure AD'
+title: 'Tutorial - Multi-factor authentication for B2B'
 description: In this tutorial, learn how to require multi-factor authentication (MFA) when you use Azure AD B2B to collaborate with external users and partner organizations.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 02/03/2023
+ms.date: 07/28/2023
 
 ms.author: cmulligan
 author: csmulligan
@@ -23,7 +23,7 @@ When collaborating with external B2B guest users, it’s a good idea to protect 
 
 Example:
 
-:::image type="content" source="media/tutorial-mfa/aad-b2b-mfa-example.png" alt-text="Diagram showing a guest user signing into a company's apps.":::
+:::image type="content" source="media/tutorial-mfa/b2b-mfa-example.png" alt-text="Diagram showing a guest user signing into a company's apps.":::
 
 
 1. An admin or employee at Company A invites a guest user to use a cloud or on-premises application that is configured to require MFA for access.
@@ -50,41 +50,42 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To complete the scenario in this tutorial, you need:
 
-- **Access to [Azure AD Premium edition](/security/business/identity-access/azure-active-directory-pricing)**, which includes Conditional Access policy capabilities. To enforce MFA, you need to create an Azure AD Conditional Access policy. MFA policies are always enforced at your organization, regardless of whether the partner has MFA capabilities.
-- **A valid external email account** that you can add to your tenant directory as a guest user and use to sign in. If you don't know how to create a guest account, see [Add a B2B guest user in the Azure portal](add-users-administrator.md).
+- **Access to Azure AD Premium edition**, which includes Conditional Access policy capabilities. To enforce MFA, you need to create an Azure AD Conditional Access policy. MFA policies are always enforced at your organization, regardless of whether the partner has MFA capabilities.
+- **A valid external email account** that you can add to your tenant directory as a guest user and use to sign in. If you don't know how to create a guest account, see [Add a B2B guest user in the Microsoft Entra admin center](add-users-administrator.md).
 
 ## Create a test guest user in Azure AD
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
-1. In the Azure portal, select **Azure Active Directory**.
-1. In the left menu, under **Manage**, select **Users**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
 1. Select **New user**, and then select **Invite external user**.
 
-    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-new-user.png" alt-text="Screenshot showing where to select the new guest user option.":::
+    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-new-user.png" alt-text="Screenshot showing where to select the new guest user option." lightbox="media/tutorial-mfa/tutorial-mfa-new-user.png":::
 
-1. Under **Identity**, enter the email address of the external user. Optionally, include a name and welcome message.
+1. Under **Identity** on the **Basics** tab, enter the email address of the external user. Optionally, include a display name and welcome message.
 
     :::image type="content" source="media/tutorial-mfa/tutorial-mfa-new-user-identity.png" alt-text="Screenshot showing where to enter the guest email.":::
 
-1. Select **Invite** to automatically send the invitation to the guest user. A **Successfully invited user** message appears.
+1. Optionally, you can add further details to the user under the **Properties** and **Assignments** tabs.
+1. Select **Review + invite** to automatically send the invitation to the guest user. A **Successfully invited user** message appears.
 1. After you send the invitation, the user account is automatically added to the directory as a guest.
 
 ## Test the sign-in experience before MFA setup
 
-1. Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
-1. You should be able to access the Azure portal using only your sign-in credentials. No other authentication is required.
+1. Use your test user name and password to sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. You should be able to access the Microsoft Entra admin center using only your sign-in credentials. No other authentication is required.
 1. Sign out.
 
 ## Create a Conditional Access policy that requires MFA
 
-1. Sign in to your [Azure portal](https://portal.azure.com/) as a security administrator or a Conditional Access administrator.
-1. In the Azure portal, select **Azure Active Directory**.
-1. In the left menu, under **Manage**, select **Security**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Identity** > **Protection** > **Security Center**.
 1. Under **Protect**, select **Conditional Access**.
 1. On the **Conditional Access** page, in the toolbar on the top, select **New policy**.
 1. On the **New** page, in the **Name** textbox, type **Require MFA for B2B portal access**.
 1. In the **Assignments** section, choose the link under **Users and groups**.
-1. On the **Users and groups** page, choose **Select users and groups**, and then choose **Guest or external users**. You can assign the policy to different [external user types](authentication-conditional-access.md#assigning-conditional-access-policies-to-external-user-types-preview), built-in [directory roles](../conditional-access/concept-conditional-access-users-groups.md#include-users), or users and groups. 
+1. On the **Users and groups** page, choose **Select users and groups**, and then choose **Guest or external users**. You can assign the policy to different [external user types](authentication-conditional-access.md#assigning-conditional-access-policies-to-external-user-types), built-in directory roles, or users and groups. 
 
     :::image type="content" source="media/tutorial-mfa/tutorial-mfa-user-access.png" alt-text="Screenshot showing selecting all guest users.":::
 
@@ -129,8 +130,8 @@ To complete the scenario in this tutorial, you need:
 
 ## Test your Conditional Access policy
 
-1. Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
-1. You should see a request for additional authentication methods. It can take some time for the policy to take effect.
+1. Use your test user name and password to sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. You should see a request for more authentication methods. It can take some time for the policy to take effect.
 
     :::image type="content" source="media/tutorial-mfa/mfa-required.PNG" alt-text="Screenshot showing the More information required message.":::
 
@@ -143,12 +144,11 @@ To complete the scenario in this tutorial, you need:
 
 When no longer needed, remove the test user and the test Conditional Access policy.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
-1. In the left pane, select **Azure Active Directory**.
-1. Under **Manage**, select **Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
 1. Select the test user, and then select **Delete user**.
-1. In the left pane, select **Azure Active Directory**.
-1. Under **Security**, select **Conditional Access**.
+1. Browse to **Identity** > **Protection** > **Security Center**.
+1. Under **Protect**, select **Conditional Access**.
 1. In the **Policy Name** list, select the context menu (…) for your test policy, and then select **Delete**. Select **Yes** to confirm.
 
 ## Next steps

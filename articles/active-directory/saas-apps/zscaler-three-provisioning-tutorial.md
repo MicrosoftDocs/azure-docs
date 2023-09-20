@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Zscaler Three for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Zscaler Three for automatic user provisioning with Azure Active Directory'
 description: In this tutorial, you'll learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Zscaler Three.
 services: active-directory
 author: twimmers
@@ -35,19 +35,9 @@ To complete the steps outlined in this tutorial, you need the following:
 
 Before you configure Zscaler Three for automatic user provisioning with Azure AD, you need to add Zscaler Three from the Azure AD application gallery to your list of managed SaaS applications.
 
-In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**:
-
-![Select Azure Active Directory](common/select-azuread.png)
-
-Go to **Enterprise applications** and then select **All applications**:
-
-![Enterprise applications](common/enterprise-applications.png)
-
-To add an application, select **New application** at the top of the window:
-
-![Select New application](common/add-new-app.png)
-
-In the search box, enter **Zscaler Three**. Select **Zscaler Three** in the results and then select **Add**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Zscaler Three**. 
+1. Select **Zscaler Three** in the results and then select **Add**.
 
 ![Results list](common/search-new-app.png)
 
@@ -73,25 +63,26 @@ This section guides you through the steps for configuring the Azure AD provision
 > [!NOTE]
 > When users and groups are provisioned or de-provisioned we recommend to periodically restart provisioning to ensure that group memberships are properly updated. Doing a restart will force our service to re-evaluate all the groups and update the memberships. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Enterprise applications** > **All applications** > **Zscaler Three**:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Zscaler Three**.
 
 	![Enterprise applications](common/enterprise-applications.png)
 
-2. In the applications list, select **Zscaler Three**:
+1. In the applications list, select **Zscaler Three**:
 
 	![Applications list](common/all-applications.png)
 
-3. Select the **Provisioning** tab:
+1. Select the **Provisioning** tab:
 
 	![Zscaler Three Provisioning](./media/zscaler-three-provisioning-tutorial/provisioning-tab.png)
 
-4. Set the **Provisioning Mode** to **Automatic**:
+1. Set the **Provisioning Mode** to **Automatic**:
 
 	![Set the Provisioning Mode](./media/zscaler-three-provisioning-tutorial/provisioning-credentials.png)
 
-5. In the **Admin Credentials** section, enter the **Tenant URL** and **Secret Token** of your Zscaler Three account, as described in the next step.
+1. In the **Admin Credentials** section, enter the **Tenant URL** and **Secret Token** of your Zscaler Three account, as described in the next step.
 
-6. To get the **Tenant URL** and **Secret Token**, go to **Administration** > **Authentication Settings** in the Zscaler Three portal and select **SAML** under **Authentication Type**:
+1. To get the **Tenant URL** and **Secret Token**, go to **Administration** > **Authentication Settings** in the Zscaler Three portal and select **SAML** under **Authentication Type**:
 
 	![Zscaler Three Authentication Settings](./media/zscaler-three-provisioning-tutorial/secret-token-1.png)
 
@@ -101,43 +92,43 @@ This section guides you through the steps for configuring the Azure AD provision
 
 	Select **Enable SCIM-Based Provisioning** and copy the **Base URL** and **Bearer Token**, and then save the settings. In the Azure portal, paste the **Base URL** into the **Tenant URL** box and the **Bearer Token** into the **Secret Token** box.
 
-7. After you enter the values in the **Tenant URL** and **Secret Token** boxes, select **Test Connection** to make sure Azure AD can connect to Zscaler Three. If the connection fails, make sure your Zscaler Three account has admin permissions and try again.
+1. After you enter the values in the **Tenant URL** and **Secret Token** boxes, select **Test Connection** to make sure Azure AD can connect to Zscaler Three. If the connection fails, make sure your Zscaler Three account has admin permissions and try again.
 
 	![Test the connection](./media/zscaler-three-provisioning-tutorial/test-connection.png)
 
-8. In the **Notification Email** box, enter the email address of a person or group that should receive the provisioning error notifications. Select **Send an email notification when a failure occurs**:
+1. In the **Notification Email** box, enter the email address of a person or group that should receive the provisioning error notifications. Select **Send an email notification when a failure occurs**:
 
 	![Set up notification email](./media/zscaler-three-provisioning-tutorial/notification.png)
 
-9. Select **Save**.
+1. Select **Save**.
 
-10. In the **Mappings** section, select **Synchronize Azure Active Directory Users to ZscalerThree**:
+1. In the **Mappings** section, select **Synchronize Azure Active Directory Users to ZscalerThree**:
 
 	![Synchronize Azure AD users](./media/zscaler-three-provisioning-tutorial/user-mappings.png)
 
-11. Review the user attributes that are synchronized from Azure AD to Zscaler Three in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Zscaler Three for update operations. Select **Save** to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Zscaler Three in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Zscaler Three for update operations. Select **Save** to commit any changes.
 
 	![Screenshot of the Attribute Mappings section with seven mappings displayed.](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
 
-12. In the **Mappings** section, select **Synchronize Azure Active Directory Groups to ZscalerThree**:
+1. In the **Mappings** section, select **Synchronize Azure Active Directory Groups to ZscalerThree**:
 
 	![Synchronize Azure AD groups](./media/zscaler-three-provisioning-tutorial/group-mappings.png)
 
-13. Review the group attributes that are synchronized from Azure AD to Zscaler Three in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the groups in Zscaler Three for update operations. Select **Save** to commit any changes.
+1. Review the group attributes that are synchronized from Azure AD to Zscaler Three in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the groups in Zscaler Three for update operations. Select **Save** to commit any changes.
 
 	![Screenshot of the Attribute Mappings section with three mappings displayed.](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
 
-14. To configure scoping filters, refer to the instructions in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, refer to the instructions in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. To enable the Azure AD provisioning service for Zscaler Three, change the **Provisioning Status** to **On** in the **Settings** section:
+1. To enable the Azure AD provisioning service for Zscaler Three, change the **Provisioning Status** to **On** in the **Settings** section:
 
 	![Provisioning Status](./media/zscaler-three-provisioning-tutorial/provisioning-status.png)
 
-16. Define the users and/or groups that you want to provision to Zscaler Three by choosing the values you want under **Scope** in the **Settings** section:
+1. Define the users and/or groups that you want to provision to Zscaler Three by choosing the values you want under **Scope** in the **Settings** section:
 
 	![Scope values](./media/zscaler-three-provisioning-tutorial/scoping.png)
 
-17. When you're ready to provision, select **Save**:
+1. When you're ready to provision, select **Save**:
 
 	![Select Save](./media/zscaler-three-provisioning-tutorial/save-provisioning.png)
 

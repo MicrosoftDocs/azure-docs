@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SharePoint on-premises | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SharePoint on-premises'
 description: Learn how to implement federated authentication between Azure Active Directory and SharePoint on-premises.
 services: active-directory
 author: jeevansd
@@ -8,6 +8,7 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
@@ -39,9 +40,8 @@ To configure the federation in Azure AD, you need to create a dedicated Enterpri
 
 ### Create the enterprise application
 
-1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/).
-1. Go to **Enterprise applications**, and then select **All applications**.
-1. To add a new application, select **New application** at the top of the dialog box.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the search box, enter **SharePoint on-premises**. Select **SharePoint on-premises** from the result pane.
 1. Specify a name for your application (in this tutorial, it is `SharePoint corporate farm`), and click **Create** to add the application.
 1. In the new enterprise application, select **Properties**, and check the value for **User assignment required?**. For this scenario, set its value to **No** and click **Save**.
@@ -94,7 +94,7 @@ In this section, you configure the SAML authentication and define the claims tha
 In this step, you create a SPTrustedLoginProvider to store the configuration that SharePoint needs to trust Azure AD. For that, you need the information from Azure AD that you copied above. Start the SharePoint Management Shell and run the following script to create it:
 
 ```powershell
-# Path to the public key of the Azure AD SAML signing certificate (self-signed), downloaded from the Enterprise application in the Azure AD portal
+# Path to the public key of the Azure AD SAML signing certificate (self-signed), downloaded from the Enterprise application in the Azure portal
 $signingCert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2("C:\AAD app\SharePoint corporate farm.cer")
 # Unique realm (corresponds to the "Identifier (Entity ID)" in the Azure AD Enterprise application)
 $realm = "urn:sharepoint:federation"
@@ -197,23 +197,16 @@ Azure Active Directory has [two type of users](../external-identities/user-prope
 
 ### Create a member user in Azure Active Directory
 
-1. In the Azure portal, on the leftmost pane, select **Azure Active Directory**. In the **Manage** pane, select **Users**.
-
-1. Select **All users** > **New user** at the top of the screen.
-
-1. Select **Create User**, and in the user properties, follow these steps.
-
-    1. In the **Name** box, enter the user name. We used **TestUser**.
-  
-    1. In the **User name** box, enter `AzureUser1@<yourcompanytenant>.onmicrosoft.com`. This example shows `AzureUser1@demo1984.onmicrosoft.com`:
-
-       ![The User dialog box](./media/sharepoint-on-premises-tutorial/azure-active-directory-new-user.png)
-
-    1. Select the **Show password** check box, and then write down the value that appears in the **Password** box.
-
-    1. Select **Create**.
-
-    1. You can now share the site with `AzureUser1@demo1984.onmicrosoft.com` and permit this user to access it.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
+1. You can share the site with this user and permit access to it.
 
 ### Grant permissions to the Azure Active Directory user in SharePoint
 
@@ -253,9 +246,9 @@ Azure Active Directory user `AzureUser1@demo1984.onmicrosoft.com` can now use hi
 
 ### Create a security group in Azure Active Directory
 
-Let's create a security group in Azure Active Directory:
+Let's create a security group.
 
-1. Select **Azure Active Directory** > **Groups**.
+1. Browse to **Identity** > **Groups**.
 
 1. Select **New group**.
 
@@ -337,7 +330,8 @@ $t.Update()
 
 ### Add the URLs in the enterprise application
 
-1. In the Azure portal, select **Azure Active Directory** > **Enterprise applications**. Select the previously created enterprise application name, and select **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > Select the previously created enterprise application, and select **Single sign-on**.
 
 1. On the **Set up Single Sign-On with SAML** page, edit **Basic SAML Configuration**.
 
@@ -348,7 +342,7 @@ $t.Update()
 ### Configure the lifetime of the security token
 
 By default, Azure AD creates a SAML token that is valid for 1 hour.  
-This lifetime cannot be customized in the Azure portal, or using a conditional access policy, but it can be done by creating a [custom token lifetime policy](../develop/active-directory-configurable-token-lifetimes.md) and apply it to the enterprise application created for SharePoint.  
+This lifetime cannot be customized in the Azure portal, or using a Conditional Access policy, but it can be done by creating a [custom token lifetime policy](../develop/configurable-token-lifetimes.md) and apply it to the enterprise application created for SharePoint.  
 To do this, complete the steps below using Windows PowerShell (at the time of this writing, AzureADPreview v2.0.2.149 does not work with PowerShell Core):
 
 1. Install the module [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview/):

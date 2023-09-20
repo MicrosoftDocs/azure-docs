@@ -3,21 +3,21 @@ title: Details of the Azure Policy attestation structure
 description: Describes the components of the Azure Policy attestation JSON object.
 ms.date: 09/23/2022
 ms.topic: conceptual
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Azure Policy attestation structure
 
-Attestations are used by Azure Policy to set compliance states of resources or scopes targeted by [manual policies](effects.md#manual-preview). They also allow users to provide additional metadata or link to evidence which accompanies the attested compliance state.  
+Attestations are used by Azure Policy to set compliance states of resources or scopes targeted by [manual policies](effects.md#manual). They also allow users to provide additional metadata or link to evidence which accompanies the attested compliance state.  
 
 > [!NOTE]
-> In preview, Attestations are available only through the [Azure Resource Manager (ARM) API](/rest/api/policy/attestations).
+> Attestations can be created and managed only through Azure Policy [Azure Resource Manager (ARM) API](/rest/api/policy/attestations), [PowerShell](/powershell/module/az.policyinsights) or [Azure CLI](/cli/azure/policy/attestation). 
 
 ## Best practices
 
 Attestations can be used to set the compliance state of an individual resource for a given manual policy. This means that each applicable resource requires one attestation per manual policy assignment. For ease of management, manual policies should be designed to target the scope which defines the boundary of resources whose compliance state needs to be attested. 
 
-For example, suppose an organization divides teams by resource group, and each team is required to attest to development of procedures for handling resources within that resource group. In this scenario, the conditions of the policy rule should specify that type equals `Microsoft.Resources/resourceGroups`. This way, one attestation is required for the resource group, rather than for each individual resource within. Similarly, if the organization deivides teams by subscriptions, the policy rule should target `Microsoft.Resources/subscriptions`.  
+For example, suppose an organization divides teams by resource group, and each team is required to attest to development of procedures for handling resources within that resource group. In this scenario, the conditions of the policy rule should specify that type equals `Microsoft.Resources/resourceGroups`. This way, one attestation is required for the resource group, rather than for each individual resource within. Similarly, if the organization divides teams by subscriptions, the policy rule should target `Microsoft.Resources/subscriptions`.  
 
 Typically, the provided evidence should correspond with relevant scopes of the organizational structure. This pattern prevents the need to duplicate evidence across many attestations. Such duplications would make manual policies difficult to manage, and indicate that the policy definition targets the wrong resource(s).
 

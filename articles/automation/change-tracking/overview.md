@@ -3,7 +3,8 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/18/2023
+ms.date: 08/01/2023
+ms.custom: devx-track-linux
 ms.topic: conceptual
 ---
 
@@ -63,7 +64,7 @@ For limits that apply to Change Tracking and Inventory, see [Azure Automation se
 
 Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. See [supported operating systems](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Log Analytics agent.
 
-To understand client requirements for TLS 1.2, see [TLS 1.2 for Azure Automation](../automation-managing-data.md#tls-12-for-azure-automation).
+To understand client requirements for TLS 1.2 or higher, see [TLS 1.2 or higher for Azure Automation](../automation-managing-data.md#tls-12-or-higher-for-azure-automation).
 
 ### Python requirement
 
@@ -73,18 +74,44 @@ Change Tracking and Inventory now support Python 2 and Python 3. If your machine
 > To use the OMS agent compatible with Python 3, ensure that you first uninstall Python 2; otherwise, the OMS agent will continue to run with python 2 by default.
 
 #### [Python 2](#tab/python-2)                                                                                                                                                      
-- Red Hat, CentOS, Oracle: `yum install -y python2`
-- Ubuntu, Debian: `apt-get install -y python2`
-- SUSE: `zypper install -y python2`
+- Red Hat, CentOS, Oracle: 
+
+```bash
+   sudo yum install -y python2
+```
+- Ubuntu, Debian:
+ 
+```bash
+   sudo apt-get update
+   sudo apt-get install -y python2
+```
+- SUSE:
+ 
+```bash
+   sudo zypper install -y python2
+```
+
 > [!NOTE]
 > The Python 2 executable must be aliased to *python*.
 
 #### [Python 3](#tab/python-3)
 
-- Red Hat, CentOS, Oracle: `yum install -y python3`
-- Ubuntu, Debian: `apt-get install -y python3`
-- SUSE: `zypper install -y python3`
+- Red Hat, CentOS, Oracle:
 
+```bash
+   sudo yum install -y python3
+```
+- Ubuntu, Debian: 
+
+```bash
+   sudo apt-get update
+   sudo apt-get install -y python3
+```
+- SUSE: 
+ 
+```bash
+   sudo zypper install -y python3
+```
 --- 
 
 ## Network requirements
@@ -174,7 +201,7 @@ The following table shows the tracked item limits per machine for Change Trackin
 |Services|250|
 |Daemons|250|
 
-The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40 MB per month, depending on your environment. With the Usage and Estimated Costs feature of the Log Analytics workspace, you can view the data ingested by Change Tracking and Inventory in a usage chart. Use this data view to evaluate your data usage and determine how it affects your bill. See [Understand your usage and estimate costs](../../azure-monitor/logs/usage-estimated-costs.md#Understand your usage and optimize your pricing tier).
+The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40 MB per month, depending on your environment. With the Usage and Estimated Costs feature of the Log Analytics workspace, you can view the data ingested by Change Tracking and Inventory in a usage chart. Use this data view to evaluate your data usage and determine how it affects your bill. See [Understand your usage and estimate costs](../../azure-monitor/usage-estimated-costs.md).
 
 ### Windows services data
 

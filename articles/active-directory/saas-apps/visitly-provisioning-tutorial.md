@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Visitly for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Visitly for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Visitly.
 services: active-directory
 author: twimmers
@@ -54,7 +54,7 @@ Before you configure Visitly for automatic user provisioning with Azure AD, you 
 
 	![Azure AD section](media/Visitly-provisioning-tutorial/integration.png)
 
-3. Copy the **API Key**. These values are entered in the **Secret Token** box on the **Provisioning** tab of your Visitly application in the Azure portal.
+3. Copy the **API Key**. These values are entered in the **Secret Token** box on the **Provisioning** tab of your Visitly application.
 
 	![API Key](media/Visitly-provisioning-tutorial/token.png)
 
@@ -65,19 +65,8 @@ To configure Visitly for automatic user provisioning with Azure AD, add Visitly 
 
 To add Visitly from the Azure AD application gallery, follow these steps.
 
-1. In the [Azure portal](https://portal.azure.com), in the left navigation pane, select **Azure Active Directory**.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Visitly**, select **Visitly** in the results panel, and then select **Add** to add the application.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.Visitly**, select **Visitly** in the results panel, and then select **Add** to add the application.
 
 	![Visitly in the results list](common/search-new-app.png)
 
@@ -90,11 +79,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### Configure automatic user provisioning for Visitly in Azure AD
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications** > **All applications**.
-
-	![All applications](common/enterprise-applications.png)
-
-2. In the applications list, select **Visitly**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Visitly**.
 
 	![The Visitly link in the Applications list](common/all-applications.png)
 

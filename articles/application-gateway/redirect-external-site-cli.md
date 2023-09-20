@@ -4,6 +4,7 @@ description: Learn how to create an application gateway that redirects external 
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: greglin

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: compliance
 ms.workload: identity
 ms.topic: conceptual 
-ms.date: 01/26/2023
+ms.date: 05/31/2023
 ms.custom: template-concept
 ---
 
@@ -28,18 +28,20 @@ Versioning with Lifecycle Workflows provides many benefits over the alternative 
 
 ## Workflow properties and versions
 
-While updates to workflows can trigger the creation of a new version, this isn't always the case. There are parameters of workflows, known as basic properties, that can be updated without a new version of the workflow being created. The list of these parameters are as follows:
+While updates to workflows can trigger the creation of a new version, this isn't always the case. There are parameters of workflows known as basic properties, that 's changeable without creating a new version of the workflow. The list of these parameters are as follows:
 
 - displayName     
 - description    
 - isEnabled    
 - IsSchedulingEnabled  
+- task name
+- task description
 
 
-You'll find these corresponding parameters in the Azure portal under the **Properties** section of the workflow you're updating.
+You'll find these corresponding parameters in the Microsoft Entra admin center under the **Properties** section of the workflow you're updating.
 :::image type="content" source="media/lifecycle-workflow-versioning/basic-updateable-properties.png" alt-text="Screenshot of updated basic properties LCW" lightbox="media/lifecycle-workflow-versioning/basic-updateable-properties.png":::
 
-For a step by step guide on updating these properties using both the Azure portal and the API via Microsoft Graph, see: [Manage workflow properties](manage-workflow-properties.md).
+For a step by step guide on updating these properties using both the Microsoft Entra admin center and the API via Microsoft Graph, see: [Manage workflow properties](manage-workflow-properties.md).
 
 Properties that will trigger the creation of a new version are as follows:
 
@@ -48,7 +50,7 @@ Properties that will trigger the creation of a new version are as follows:
  
 
 
-While new versions of these workflows are made as soon as you make the updates in the Azure portal, creating a new version of a workflow using the API with Microsoft Graph requires running the createNewVersion method. For a step by step guide for updating either tasks, or execution conditions, see: [Manage Workflow Versions](manage-workflow-tasks.md).
+While new versions of these workflows are made as soon as you make the updates in the Microsoft Entra admin center, creating a new version of a workflow using the API with Microsoft Graph requires running the createNewVersion method. For a step by step guide for updating either tasks, or execution conditions, see: [Manage Workflow Versions](manage-workflow-tasks.md).
 
 > [!NOTE]
 > If the workflow is on-demand, the configure information associated with execution conditions will not be present.
@@ -57,7 +59,7 @@ While new versions of these workflows are made as soon as you make the updates i
 
 Unlike with changing basic properties of a workflow, newly created workflow versions can be vastly different from previous versions. Tasks can be added or removed, and who the workflow runs for can be different. Due to the vast changes that can happen to a workflow between versions, version details are also there to give detailed information about not only the current version of the workflow, but also its previous iterations.
 
-Details contained in version information as shown in the Azure portal:
+Details contained in version information as shown in the Microsoft Entra admin center:
 
 :::image type="content" source="media/lifecycle-workflow-versioning/workflow-version-information.png" alt-text="Screenshot of workflow versioning information.":::
 
@@ -83,6 +85,6 @@ Detailed **Version information** are as follows:
 ## Next steps
 
 - [workflowVersion resource type](/graph/api/resources/identitygovernance-workflowversion?view=graph-rest-beta&preserve-view=true)
-- [Manage workflow Properties (Preview)](manage-workflow-properties.md)
-- [Manage workflow versions (Preview)](manage-workflow-tasks.md)
+- [Manage workflow Properties](manage-workflow-properties.md)
+- [Manage workflow versions](manage-workflow-tasks.md)
 

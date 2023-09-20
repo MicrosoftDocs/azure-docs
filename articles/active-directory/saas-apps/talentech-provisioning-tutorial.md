@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Talentech for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Talentech for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Talentech.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 0a83529b-b150-4af8-bc5b-a0f4345c3356
 ms.service: active-directory
@@ -57,11 +57,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![api](media/talentech-provisioning-tutorial/token.png)
 
-5. An access token is generated. This value will be entered in the **Secret Token** field in the Provisioning tab of your Talentech application in the Azure portal.
+5. An access token is generated. This value will be entered in the **Secret Token** field in the Provisioning tab of your Talentech application.
 
 	![permanent](media/talentech-provisioning-tutorial/bearer.png)
 
-6. Reach out to Talentech support to generate a Tenant URL. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Talentech application in the Azure portal.
+6. Reach out to Talentech support to generate a Tenant URL. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Talentech application.
 
 ## Step 3. Add Talentech from the Azure AD application gallery
 
@@ -82,11 +82,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Talentech in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Talentech**.
+1. In the applications list, select **Talentech**.
 
 	![The Talentech link in the Applications list](common/all-applications.png)
 

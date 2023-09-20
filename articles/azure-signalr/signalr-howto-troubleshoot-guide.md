@@ -389,7 +389,7 @@ public class ThreadPoolStarvationDetector : EventListener
     {
         // See: https://learn.microsoft.com/dotnet/framework/performance/thread-pool-etw-events#threadpoolworkerthreadadjustmentadjustment
         if (eventData.EventId == EventIdForThreadPoolWorkerThreadAdjustmentAdjustment &&
-            eventData.Payload[3] as uint? == ReasonForStarvation)
+            eventData.Payload[2] as uint? == ReasonForStarvation)
         {
             _logger.LogWarning("Thread pool starvation detected!");
         }

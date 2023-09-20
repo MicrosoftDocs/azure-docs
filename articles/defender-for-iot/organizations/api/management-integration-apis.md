@@ -298,7 +298,7 @@ This API returns data about a specific device per a given device ID.
 | **u_mac_address_objects** |JSON array of MAC addresses | Not nullable | Array of [MAC address](#mac_address_object-fields) objects  |
 | **u_protocol_objects** | JSON array of protocols | Not nullable  | An array of [protocol](#protocol_object-fields) objects  |
 | **u_vlans**  |JSON array of VLAN objects | Not nullable | An array of [VLAN](#vlan_object-fields) objects  |
-| **u_purdue_layer**  | String | Not nullable |Defines the default [Purdue layer](../plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot) for this device type. |
+| **u_purdue_layer**  | String | Not nullable |Defines the default [Purdue layer](../best-practices/understand-network-architecture.md) for this device type. |
 | **u_sensor_ids** |JSON array of sensor ID objects |Not nullable | An array of [sensor ID](#sensor_id_object-fields) objects  |
 | **u_cm_device_url** |String |Not nullable  | The URL used to access the device on the on-premises management console. |
 | **u_device_urls** |JSON array of URL objects |Not nullable  | An array of [device URL](#device_url_object-fields) objects |
@@ -732,6 +732,7 @@ curl -k -H "Authorization: <Authorization token>" "https://<IP Address>/external
 ```rest
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https://127.0.0.1/external/v3/integration/devicecves/1664781014000"
 ```
+
 ---
 
 ## Next steps

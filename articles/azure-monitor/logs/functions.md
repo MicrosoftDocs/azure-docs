@@ -12,6 +12,12 @@ ms.date: 06/22/2022
 # Functions in Azure Monitor log queries
 A function is a log query in Azure Monitor that can be used in other log queries as though it's a command. You can use functions to provide solutions to different customers and also reuse query logic in your own environment. This article describes how to use functions and how to create your own.
 
+## Permissions required
+
+- To view or use functions, you need `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
+
+- To create or edit functions, you need `microsoft.operationalinsights/workspaces/savedSearches/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
+
 ## Types of functions
 There are two types of functions in Azure Monitor:
 
@@ -58,6 +64,9 @@ You can add parameters to a function so that you can provide values for certain 
 | Default value | Value to be used for the parameter if a value isn't provided. |
 
 Parameters are ordered as they're created. Parameters that have no default value are positioned in front of parameters that have a default value.
+
+> [!NOTE] 
+> Classic Application Insights resources don't support parameterized functions. If you have a [workspace-based Application Insights resource](../app/create-workspace-resource.md), you can create parameterized functions from your Log Analytics workspace. For information on migrating your Classic Application Insights resource to a workspace-based resource, see [Migrate to workspace-based Application Insights resources](../app/convert-classic-resource.md).
 
 ## Work with function code
 You can view the code of a function either to gain insight into how it works or to modify the code for a workspace function. Select **Load the function code** to add the function code to the current query in the editor.

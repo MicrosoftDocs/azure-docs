@@ -1,25 +1,27 @@
 ---
 
-title: One-time passcode authentication for B2B guest users - Azure AD
+title: One-time passcode authentication for B2B guest users
 description: How to use Email one-time passcode to authenticate B2B guest users without the need for a Microsoft account.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 02/21/2023
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019, contperf-fy21q4-portal"
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
+
+# Customer intent: As a tenant administrator, I want to make sure that my users can authenticate themselves with one-time passcode.
 ---
 
 # Email one-time passcode authentication
 
 The email one-time passcode feature is a way to authenticate B2B collaboration users when they can't be authenticated through other means, such as Azure AD, Microsoft account (MSA), or social identity providers. When a B2B guest user tries to redeem your invitation or sign in to your shared resources, they can request a temporary passcode, which is sent to their email address. Then they enter this passcode to continue signing in.
 
-![Diagram showing an overview of Email one-time passcode.](media/one-time-passcode/email-otp.png)
+:::image type="content" source="media/one-time-passcode/email-otp.png" alt-text="Diagram showing an overview of Email one-time passcode.":::
 
 > [!IMPORTANT]
 >
@@ -27,7 +29,7 @@ The email one-time passcode feature is a way to authenticate B2B collaboration u
 
 ## Sign-in endpoints
 
-Email one-time passcode guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using one-time passcode.
+Email one-time passcode guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-process-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using one-time passcode.
 
 Email one-time passcode guest users can also use application endpoints that include your tenant information, for example:
 
@@ -36,6 +38,9 @@ Email one-time passcode guest users can also use application endpoints that incl
   * `https://portal.azure.com/<your tenant ID>`
 
 You can also give email one-time passcode guest users a direct link to an application or resource by including your tenant information, for example `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`.
+
+> [!NOTE]
+> Email one-time passcode guest users can sign in to Microsoft Teams directly from the common endpoint without choosing **Sign-in options**. During the sign-in process to Microsoft Teams, the guest user can select a link to send a one-time passcode.
 
 ## User experience for one-time passcode guest users
 
@@ -72,7 +77,7 @@ At the time of invitation, there's no indication that the user you're inviting w
 
 ### Example
 
-Guest user teri@gmail.com is invited to Fabrikam, which doesn't have Google federation set up. Teri doesn't have a Microsoft account. They'll receive a one-time passcode for authentication.
+Guest user nicole@firstupconsultants.com is invited to Fabrikam, which doesn't have Google federation set up. Nicole doesn't have a Microsoft account. They'll receive a one-time passcode for authentication.
 
 ## Enable or disable email one-time passcodes
 
@@ -85,11 +90,11 @@ The email one-time passcode feature is now turned on by default for all new tena
 
 ### To enable or disable email one-time passcodes
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD global administrator.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. In the navigation pane, select **Azure Active Directory**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security administrator](../roles/permissions-reference.md#security-administrator).
 
-1. Select **External Identities** > **All identity providers**.
+1. Browse to **Identity** > **External Identities** > **All identity providers**.
 
 1. Select **Email one-time passcode**.
 
@@ -97,15 +102,15 @@ The email one-time passcode feature is now turned on by default for all new tena
    - **Yes**: The toggle is set to **Yes** by default unless the feature has been explicitly turned it off. To enable the feature, make sure **Yes** is selected.
    - **No**: If you want to disable the email one-time passcode feature, select **No**.
  
-   ![Screenshots showing the Email one-time passcode toggle.](media/one-time-passcode/email-one-time-passcode-toggle.png)
+:::image type="content" source="media/one-time-passcode/email-one-time-passcode-toggle.png" alt-text="Screenshots showing the Email one-time passcode toggle.":::
 
-1. Select **Save**.
+6. Select **Save**.
 
 ## Frequently asked questions
 
 **What happens to my existing guest users if I enable email one-time passcode?**
 
-Your existing guest users won't be affected if you enable email one-time passcode, as your existing users are already past the point of redemption. Enabling email one-time passcode will only affect future redemption activities where new guest users are redeeming into the tenant.
+Your existing guest users won't be affected if you enable email one-time passcode, as your existing users are already past the point of redemption. Enabling email one-time passcode will only affect future redemption process activities where new guest users are redeeming into the tenant.
 
 **What is the user experience when email one-time passcode is disabled?**
 
@@ -113,7 +118,7 @@ If you’ve disabled the email one-time passcode feature, the user is prompted t
 
 Also, when email one-time passcode is disabled, users might see a sign-in error when they're redeeming a direct application link and they weren't added to your directory in advance.
 
-For more information about the different redemption pathways, see [B2B collaboration invitation redemption](redemption-experience.md).
+For more information about the different redemption process pathways, see [B2B collaboration invitation redemption](redemption-experience.md).
 
 **Will the “No account? Create one!” option for self-service sign-up go away?**
 
@@ -125,8 +130,8 @@ When we support the ability to disable Microsoft Account in the Identity provide
 
 **Regarding the change to enable email one-time-passcode by default, does this include SharePoint and OneDrive integration with Azure AD B2B?**
 
-No, the global rollout of the change to enable email one-time passcode by default doesn't include enabling SharePoint and OneDrive integration with Azure AD B2B by default. To learn how to enable integration so that collaboration on SharePoint and OneDrive uses B2B capabilities, or how to disable this integration, see [SharePoint and OneDrive Integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration).
+No, the global rollout of the change to enable email one-time passcode by default doesn't include enabling SharePoint and OneDrive integration with Azure AD B2B by default.To learn how to enable or disable the integration of SharePoint and OneDrive with Azure AD B2B for secure collaboration, see [SharePoint and OneDrive Integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration).
 
 ## Next steps
 
-Learn about [Identity Providers for External Identities](identity-providers.md).
+Learn about [Identity Providers for External Identities](identity-providers.md), and how to reset [redemption status for a guest user](reset-redemption-status.md).

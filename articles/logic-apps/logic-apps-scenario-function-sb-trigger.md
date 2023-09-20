@@ -33,7 +33,7 @@ This how-to guide shows how to create a logic app workflow that starts with the 
 
 * A function app, which is a container for your functions. If you don't have a function app, [create your function app first](../azure-functions/functions-get-started.md), and make sure that you select .NET for the **Runtime stack** property.
 
-* Basic knowledge about [how to create a Consumption logic app workflow](quickstart-create-first-logic-app-workflow.md).
+* Basic knowledge about how to create logic app workflows. For more information, see [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md).
 
 ## Create a logic app workflow
 

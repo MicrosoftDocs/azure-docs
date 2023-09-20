@@ -4,7 +4,7 @@ description: Tutorial - Learn how to create on-demand Apache Hadoop clusters in 
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: seoapr2020, devx-track-azurepowershell
-ms.date: 04/22/2022
+ms.date: 05/26/2023
 #Customer intent: As a data worker, I need to create a Hadoop cluster and run Hive jobs on demand
 ---
 
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* The PowerShell [Az Module](/powershell/azure/install-az-ps) installed.
+* The PowerShell [Az Module](/powershell/azure/install-azure-powershell) installed.
 
 * An Azure Active Directory service principal. Once you've created the service principal, be sure to retrieve the **application ID** and **authentication key** using the instructions in the linked article. You need these values later in this tutorial. Also, make sure the service principal is a member of the *Contributor* role of the subscription or the resource group in which the cluster is created. For instructions to retrieve the required values and assign the right roles, see [Create an Azure Active Directory service principal](../active-directory/develop/howto-create-service-principal-portal.md).
 

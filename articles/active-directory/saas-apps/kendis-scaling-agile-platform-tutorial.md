@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Kendis - Azure AD Integration | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Kendis'
 description: Learn how to configure single sign-on between Azure Active Directory and Kendis - Azure AD Integration.
 services: active-directory
 author: jeevansd
@@ -14,13 +14,13 @@ ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Kendis - Azure AD Integration
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Kendis
 
 In this tutorial, you'll learn how to integrate Kendis - Azure AD Integration with Azure Active Directory (Azure AD). When you integrate Kendis - Azure AD Integration with Azure AD, you can:
 
 * Control in Azure AD who has access to Kendis - Azure AD Integration.
 * Enable your users to be automatically signed-in to Kendis - Azure AD Integration with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -41,10 +41,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 To configure the integration of Kendis - Azure AD Integration into Azure AD, you need to add Kendis - Azure AD Integration from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **Kendis - Azure AD Integration** in the search box.
 1. Select **Kendis - Azure AD Integration** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -66,9 +64,10 @@ To configure and test Azure AD SSO with Kendis - Azure AD Integration, perform t
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
-1. In the Azure portal, on the **Kendis - Azure AD Integration** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Kendis - Azure AD Integration** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -88,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.kendis.io/login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Kendis - Azure AD Integration Client support team](mailto:support@kendis.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Kendis - Azure AD Integration Client support team](mailto:support@kendis.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -100,39 +99,36 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Kendis - Azure AD Integration.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Kendis - Azure AD Integration.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Kendis - Azure AD Integration**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Kendis - Azure AD Integration**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Kendis-Azure AD Integration SSO
 
-1. To automate the configuration within Kendis - Azure AD Integration, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Set up Kendis - Azure AD Integration** will direct you to the Kendis - Azure AD Integration application. From there, provide the admin credentials to sign into Kendis - Azure AD Integration. The browser extension will automatically configure the application for you and automate steps 3-5.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup Kendis - Azure AD Integration manually, in a different web browser window, sign in to your Kendis - Azure AD Integration company site as an administrator.
+1. In a different web browser window, sign in to your Kendis - Azure AD Integration company site as an administrator
 
 4. Go to the **Settings > SAML Configurations**.
 
@@ -142,13 +138,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![SAML Configurations](./media/kendis-scaling-agile-platform-tutorial/saml-configuration-settings.png)
 
-    a. Copy **Callback URL** value, paste this value into the **Reply URL** text box in the Basic SAML Configuration section in the Azure portal.
+    a. Copy **Callback URL** value, paste this value into the **Reply URL** text box in the Basic SAML Configuration section.
 
-    b. In the **Identity Provider Single Sign On URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    b. In the **Identity Provider Single Sign On URL** textbox, paste the **Login URL** value which you copied previously.
 
-    c.  In the **Identity Provider Issuer** textbox, paste the **Azure AD Identifier(Entity ID)** value which you have copied from the Azure portal.
+    c.  In the **Identity Provider Issuer** textbox, paste the **Azure AD Identifier(Entity ID)** value which you copied previously.
 
-    d. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **X.509 Certificate** textbox.
+    d. Open the downloaded **Certificate (Base64)** into Notepad and paste the content into the **X.509 Certificate** textbox.
 
     e. **Select Default Group** from the list of options. 
 
@@ -164,13 +160,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Kendis - Azure AD Integration Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Kendis - Azure AD Integration Sign on URL where you can initiate the login flow.  
 
 * Go to Kendis - Azure AD Integration Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Kendis - Azure AD Integration for which you set up the SSO 
+* Click on **Test this application**, and you should be automatically signed in to the Kendis - Azure AD Integration for which you set up the SSO 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Kendis - Azure AD Integration tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Kendis - Azure AD Integration for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

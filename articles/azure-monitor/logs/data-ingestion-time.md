@@ -69,7 +69,7 @@ Some solutions don't collect their data from an agent and might use a collection
 - Microsoft 365 solution polls activity logs by using the Management Activity API, which currently doesn't provide any near real time latency guarantees.
 - Windows Analytics solutions (Update Compliance, for example) data is collected by the solution at a daily frequency.
 
-To determine a solution's collection frequency, see the [documentation for each solution](../insights/solutions.md).
+To determine a solution's collection frequency, see the [documentation for each solution](/previous-versions/azure/azure-monitor/insights/solutions).
 
 ### Pipeline-process time
 
@@ -79,7 +79,7 @@ After the data is available at the data collection endpoint, it takes another 30
 
 After log records are ingested into the Azure Monitor pipeline (as identified in the [_TimeReceived](./log-standard-columns.md#_timereceived) property), they're written to temporary storage to ensure tenant isolation and to make sure that data isn't lost. This process typically adds 5 to 15 seconds.
 
-Some management solutions implement heavier algorithms to aggregate data and derive insights as data is streaming in. For example, Azure Network Performance Monitoring aggregates incoming data over 3-minute intervals, which effectively adds 3-minute latency.
+Some solutions implement heavier algorithms to aggregate data and derive insights as data is streaming in. For example, Application Insights calculates application map data; Azure Network Performance Monitoring aggregates incoming data over 3-minute intervals, which effectively adds 3-minute latency.
 
 Another process that adds latency is the process that handles custom logs. In some cases, this process might add a few minutes of latency to logs that are collected from files by the agent.
 

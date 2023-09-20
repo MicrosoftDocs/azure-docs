@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Jive for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Jive for automatic user provisioning with Azure Active Directory'
 description: Learn the steps you need to perform in Jive and Azure AD to automatically provision and de-provision user accounts from Azure AD to Jive.
 services: active-directory
 author: jeevansd
@@ -42,14 +42,15 @@ Before configuring and enabling the provisioning service, you need to decide wha
 This section guides you through connecting your Azure AD to Jive's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Jive based on user and group assignment in Azure AD.
 
 > [!TIP]
-> You may also choose to enabled SAML-based Single Sign-On for Jive, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+> You may also choose to enabled SAML-based Single Sign-On for Jive, following the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 ### To configure user account provisioning:
 
 The objective of this section is to outline how to enable user provisioning of Active Directory user accounts to Jive.
 As part of this procedure, you are required to provide a user security token you need to request from Jive.com.
 
-1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications** section.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. If you have already configured Jive for single sign-on, search for your instance of Jive using the search field. Otherwise, select **Add** and search for **Jive** in the application gallery. Select Jive from the search results, and add it to your list of applications.
 
@@ -61,17 +62,17 @@ As part of this procedure, you are required to provide a user security token you
 
 1. Under the **Admin Credentials** section, provide the following configuration settings:
    
-    a. In the **Jive Admin User Name** textbox, type a Jive account name that has the **System Administrator** profile in Jive.com assigned.
+    1. In the **Jive Admin User Name** textbox, type a Jive account name that has the **System Administrator** profile in Jive.com assigned.
    
-    b. In the **Jive Admin Password** textbox, type the password for this account.
+    1. In the **Jive Admin Password** textbox, type the password for this account.
    
-    c. In the **Jive Tenant URL** textbox, type the Jive tenant URL.
+    1. In the **Jive Tenant URL** textbox, type the Jive tenant URL.
       
       > [!NOTE]
       > The Jive tenant URL is URL that is used by your organization to log in to Jive.  
       > Typically, the URL has the following format: **www.\<organization\>.jive.com**.          
 
-1. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Jive app.
+1. Select **Test Connection** to ensure Azure AD can connect to your Jive app.
 
 1. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
 

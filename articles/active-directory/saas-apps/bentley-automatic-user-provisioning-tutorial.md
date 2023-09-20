@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Bentley - Automatic User Provisioning for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Bentley - Automatic User Provisioning for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Bentley - Automatic User Provisioning.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 08778fff-f252-45c2-95d4-cc640c288af3
 ms.service: active-directory
@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Bentley - Automatic User Provisioning to support provisioning with Azure AD
 
-Reach out to the Bentley User Provisioning [support](https://communities.bentley.com/communities/other_communities/licensing_cloud_and_web_services/w/wiki/52836/microsoft-azure-ad-automatic-user-provisioning-configuration) team for Tenant URL and Secret Token. These values will be entered in the Provisioning tab of the Bentley application in the Azure portal.
+Reach out to the Bentley User Provisioning [support](https://communities.bentley.com/communities/other_communities/licensing_cloud_and_web_services/w/wiki/52836/microsoft-azure-ad-automatic-user-provisioning-configuration) team for Tenant URL and Secret Token. These values will be entered in the Provisioning tab of the Bentley application.
 
 ## Step 3. Add Bentley - Automatic User Provisioning from the Azure AD application gallery
 
@@ -65,11 +65,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Bentley - Automatic User Provisioning in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Bentley - Automatic User Provisioning**.
+1. In the applications list, select **Bentley - Automatic User Provisioning**.
 
 	![The Bentley - Automatic User Provisioning link in the Applications list](common/all-applications.png)
 

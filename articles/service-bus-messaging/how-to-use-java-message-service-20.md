@@ -3,7 +3,7 @@ title: Use Java Message Service 2.0 API with Azure Service Bus Premium
 description: How to use the Java Message Service (JMS) with Azure Service Bus
 ms.topic: article
 ms.date: 12/16/2022
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-extended-java
 ---
 
 # Use Java Message Service 2.0 API with Azure Service Bus Premium
@@ -37,10 +37,10 @@ To learn more about how to prepare your developer environment for Java on Azure,
 
 To utilize all the features available in the premium tier, add the following library to the build path of the project.
 
-[Azure-servicebus-jms](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms)
+[Azure-servicebus-jms](https://central.sonatype.com/artifact/com.microsoft.azure/azure-servicebus-jms/1.0.0)
 
 > [!NOTE]
-> To add the [Azure-servicebus-jms](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) to the build path, use the preferred dependency management tool for your project like [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/).
+> To add the [Azure-servicebus-jms](https://central.sonatype.com/artifact/com.microsoft.azure/azure-servicebus-jms/1.0.0) to the build path, use the preferred dependency management tool for your project like [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/).
 
 ## Coding Java applications
 

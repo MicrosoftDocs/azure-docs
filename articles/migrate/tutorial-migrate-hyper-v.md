@@ -5,8 +5,9 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
-ms.date: 12/12/2022
-ms.custom: MVC, fasttrack-edit, engagement-fy23
+ms.service: azure-migrate
+ms.date: 07/13/2023
+ms.custom: MVC, fasttrack-edit, engagement-fy24
 ---
 
 # Migrate Hyper-V VMs to Azure
@@ -40,7 +41,11 @@ Before you begin this tutorial, you should:
 1. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) the requirements for Hyper-V VMs that you want to migrate to Azure.
 1. We recommend that you  [assess Hyper-V VMs](tutorial-assess-hyper-v.md) before migrating them to Azure, but you don't have to.
 1. Go to the already created project or [create a new project.](./create-manage-projects.md)
-1. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
+1. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, write to an Azure managed disk, and manage failover operations for the Recovery Services Vault associated with your Azure Migrate project.
+
+> [!NOTE]
+> If you're planning to upgrade your Windows operating system, Azure Migrate may download the Windows SetupDiag for error details in case upgrade fails. Ensure the VM created in Azure post the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). In case there is no access to SetupDiag, you may not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
+
 
 ## Download the provider
 
@@ -50,7 +55,7 @@ For migrating Hyper-V VMs, the Migration and modernization tool installs softwar
 1. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with Hyper-V**.
 1. In **Target region**, select the Azure region to which you want to migrate the machines.
 1. Select **Confirm that the target region for migration is region-name**.
-1. Click **Create resources**. This creates an Azure Site Recovery vault in the background.
+1. Click **Create resources**. This creates a Recovery Services Vault in the background.
     - If you've already set up migration with the Migration and modernization tool, this option won't appear since resources were set up previously.
     - You can't change the target region for this project after clicking this button.
     - All subsequent migrations are to this region.
@@ -75,7 +80,7 @@ Run the provider setup file on each host, as described below:
 1. Select **AzureSiteRecoveryProvider.exe** file.
     - In the provider installation wizard, ensure **On (recommended)** is checked, and then select **Next**.
     - Select **Install** to accept the default installation folder.
-    - Select **Register** to register this server in Azure Site Recovery vault.
+    - Select **Register** to register this server in the Recovery Services Vault.
     - Select **Browse**.
     - Locate the registration key and select **Open**.
     - Select **Next**.
@@ -233,6 +238,7 @@ Do a test migration as follows:
     ![Screenshot of Test migration screen.](./media/tutorial-migrate-hyper-v/test-migrate.png)
 
 1. In **Test Migration**, select the Azure virtual network in which the Azure VM will be located after the migration. We recommend you use a non-production virtual network.
+1. You have an option to upgrade the Windows Server OS during test migration. For Hyper-V VMs, automatic detection of OS is not yet supported. To upgrade, select the **Check for upgrade** option. In the pane that appears, select the current OS version and the target version that you want to upgrade to. If the target version is available, it is processed accordingly. [Learn more](how-to-upgrade-windows.md).
 1. The **Test migration** job starts. Monitor the job in the portal notifications.
 1. After the migration finishes, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has a suffix **-Test**.
 1. After the test is done, right-click the Azure VM in **Replications**, and select **Clean up test migration**.
@@ -256,6 +262,7 @@ After you've verified that the test migration works as expected, you can migrate
 1. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
     - By default Azure Migrate shuts down the on-premises VM, and runs an on-demand replication to synchronize any VM changes that occurred since the last replication occurred. This ensures no data loss.
     - If you don't want to shut down the VM, select **No**.
+1. You have an option to upgrade the Windows Server OS during migration. For Hyper-V VMs, automatic detection of OS is not yet supported. To upgrade, select the **Check for upgrade** option. In the pane that appears, select the current OS version and the target version that you want to upgrade to. If the target version is available, it is processed accordingly. [Learn more](how-to-upgrade-windows.md).
 1. A migration job starts for the VM. Track the job in Azure notifications.
 1. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
 

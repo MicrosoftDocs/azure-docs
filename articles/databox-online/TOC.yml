@@ -270,6 +270,8 @@
         href: azure-stack-edge-gpu-overview-gpu-virtual-machines.md
       - name: Create VM image
         items:
+        - name: Create custom VM image
+          href: azure-stack-edge-create-vm-with-custom-size.md
         - name: Custom image from Azure VM
           href: azure-stack-edge-gpu-create-virtual-machine-image.md
         - name: Windows generalized image from VHD
@@ -279,7 +281,7 @@
         - name: Use specialized image
           href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md 
         - name: Use Azure Marketplace image
-          href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md 
+          href: azure-stack-edge-create-a-vm-from-azure-marketplace.md 
       - name: Deploy
         items:
         - name: VMs - Azure portal (preview)
@@ -469,7 +471,7 @@
     - name: Create virtual switches and virtual networks via PowerShell
       href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
     - name: Deploy via config file
-      href: azure-stack-edge-zero-touch-provisioning.md
+      href: azure-stack-edge-powershell-based-configuration.md
     - name: Manage Edge compute 
       href: azure-stack-edge-gpu-manage-compute.md
     - name: Manage Edge container registry
@@ -522,7 +524,11 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2301 - Current
+    - name: 2304 - Current
+      href: azure-stack-edge-gpu-2304-release-notes.md
+    - name: 2303
+      href: azure-stack-edge-gpu-2303-release-notes.md
+    - name: 2301
       href: azure-stack-edge-gpu-2301-release-notes.md
     - name: 2210
       href: azure-stack-edge-gpu-2210-release-notes.md

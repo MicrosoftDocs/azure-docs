@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Evercate for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Evercate for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Evercate.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: df77d462-071a-4889-b6e1-0554adaa2445
 ms.service: active-directory
@@ -63,7 +63,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Once you have successfully set up the connection to Azure AD you can configure which AD features you want to enable in Evercate.
 1. Navigate to  **Settings -> Advanced -> Connect Azure AD** you will see the token you need to enable provisioning (enabled from Azure AD) and can tick the box for allowing single sign on for your Evercate account.
-1. Copy and save the token. This value will be entered in the **Secret Token** * field in the Provisioning tab of your Evercate application in the Azure portal.
+1. Copy and save the token. This value will be entered in the **Secret Token** * field in the Provisioning tab of your Evercate application.
 
 ## Step 3. Add Evercate from the Azure AD application gallery
 
@@ -84,7 +84,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Evercate in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 

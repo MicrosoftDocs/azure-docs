@@ -2,14 +2,12 @@
 title: Detach a data disk from a Linux VM - Azure
 description: Learn to detach a data disk from a virtual machine in Azure using Azure CLI or the Azure portal.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 08/09/2023
 ms.author: rogarana
-ms.subservice: disks 
-ms.custom: devx-track-azurecli
-
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 # How to detach a data disk from a Linux virtual machine
 
@@ -41,7 +39,7 @@ dmesg | grep SCSI
 
 The output is similar to the following example:
 
-```bash
+```output
 [    0.294784] SCSI subsystem initialized
 [    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
 [    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
@@ -57,7 +55,7 @@ sudo -i blkid
 
 The output looks similar to the following example:
 
-```bash
+```output
 /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
 /dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
@@ -71,7 +69,7 @@ Edit the */etc/fstab* file to remove references to the disk.
 
 Open the **/etc/fstab** file in a text editor and remove the line containing the UUID of your disk. Using the example values in this article, the line would look like the following:
 
-```bash
+```config
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
@@ -89,10 +87,7 @@ sudo umount /dev/sdc1 /datadrive
 This example detaches the *myDataDisk* disk from VM named *myVM* in *myResourceGroup*.
 
 ```azurecli
-az vm disk detach \
-    -g myResourceGroup \
-	--vm-name myVm \
-	-n myDataDisk
+az vm disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
 ```
 
 The disk stays in storage but is no longer attached to a virtual machine.
@@ -108,7 +103,7 @@ In select regions, the disk detach latency has been reduced, so you'll see an im
 
 1. In the left menu, select **Virtual Machines**.
 1. In the virtual machine blade, select **Disks**.
-1. In the **Disks** blade, to the far right of the data disk that you would like to detach, select the **X** button, to detach the disk.
+1. In the **Disks** blade, to the far right of the data disk that you would like to detach, select the detach button, to detach the disk.
 1. After the disk has been removed, select **Save** on the top of the blade.
 
 The disk stays in storage but is no longer attached to a virtual machine. The disk is not deleted.

@@ -23,7 +23,7 @@ In this quickstart, you use an ASP.NET application to sign in using a social ide
 
 ## Prerequisites
 
-- [Visual Studio 2022](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
+- [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) with the **ASP.NET and web development** workload.
 - A social account from Facebook, Google, or Microsoft.
 - [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) or clone the sample web application from GitHub.
 
@@ -39,7 +39,7 @@ In this quickstart, you use an ASP.NET application to sign in using a social ide
 ## Run the application in Visual Studio
 
 1. In the sample application project folder, open the **B2C-WebAPI-DotNet.sln** solution in Visual Studio.
-1. For this quickstart, you run both the **TaskWebApp** and **TaskService** projects at the same time. Right-click the **B2C-WebAPI-DotNet** solution in Solution Explorer, and then select **Set StartUp Projects**.
+1. For this quickstart, you run both the **TaskWebApp** and **TaskService** projects at the same time. Right-click the **B2C-WebAPI-DotNet** solution in Solution Explorer, and then select **Configure StartUp Projects...**.
 1. Select **Multiple startup projects** and change the **Action** for both projects to **Start**.
 1. Select **OK**.
 1. Press **F5** to debug both applications. Each application opens in its own browser tab:

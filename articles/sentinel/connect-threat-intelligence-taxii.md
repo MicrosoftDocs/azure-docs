@@ -1,11 +1,10 @@
 ---
 title: Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds | Microsoft Docs
 description: Learn about how to connect Microsoft Sentinel to industry-standard threat intelligence feeds to import threat indicators.
-author: yelevin
+author: austinmccollum
 ms.topic: how-to
-ms.date: 11/09/2021
-ms.author: yelevin
-ms.custom: ignite-fall-2021
+ms.date: 03/27/2023
+ms.author: austinmc
 ---
 
 # Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds
@@ -23,7 +22,7 @@ To import STIX formatted threat indicators to Microsoft Sentinel from a TAXII se
 Learn more about [Threat Intelligence](understand-threat-intelligence.md) in Microsoft Sentinel, and specifically about the [TAXII threat intelligence feeds](threat-intelligence-integration.md#taxii-threat-intelligence-feeds) that can be integrated with Microsoft Sentinel.
 
 ## Prerequisites  
-
+- In order to install, update and delete standalone content or solutions in content hub, you need the **Template Spec Contributor** role at the resource group level. See [Azure RBAC built in roles](../role-based-access-control/built-in-roles.md#template-spec-contributor) for details on this role.
 - You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
 - You must have a TAXII 2.0 or TAXII 2.1 **API Root URI** and **Collection ID**.
 
@@ -34,7 +33,7 @@ TAXII 2.x servers advertise API Roots, which are URLs that host Collections of t
 > [!NOTE]
 > In some cases, the provider will only advertise a URL called a Discovery Endpoint. You can use the [cURL](https://en.wikipedia.org/wiki/CURL) utility to browse the discovery endpoint and request the API Root.
 
-## Enable the Threat Intelligence - TAXII data connector in Microsoft Sentinel
+## Install the Threat Intelligence solution in Microsoft Sentinel
 
 To import threat indicators into Microsoft Sentinel from a TAXII server, follow these steps:
 
@@ -42,7 +41,21 @@ To import threat indicators into Microsoft Sentinel from a TAXII server, follow 
 
 1. Choose the **workspace** to which you want to import threat indicators from the TAXII server.
 
-1. Select **Data connectors** from the menu, select **Threat Intelligence - TAXII** from the connectors gallery, and select the **Open connector page** button.
+1. Select **Content hub** from the menu.
+
+1. Find and select the **Threat Intelligence** solution.
+
+1. Select the :::image type="icon" source="media/connect-threat-intelligence-taxii/install-update-button.png"::: **Install/Update** button.
+
+    For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
+
+## Enable the Threat intelligence - TAXII data connector
+
+1. To configure the TAXII data connector, select the **Data connectors** menu. 
+
+1. Find and select the **Threat Intelligence - TAXII** data connector > **Open connector page** button.
+
+    :::image type="content" source="media/connect-threat-intelligence-taxii/taxii-data-connector-config.png" alt-text="Screenshot displaying the data connectors page with the TAXII data connector listed." lightbox="media/connect-threat-intelligence-taxii/taxii-data-connector-config.png":::
 
 1. Enter a **friendly name** for this TAXII server Collection, the **API Root URL**, the **Collection ID**, a **Username** (if required), and a **Password** (if required), and choose the group of indicators and the polling frequency you want. Select the **Add** button.
 
@@ -51,7 +64,6 @@ To import threat indicators into Microsoft Sentinel from a TAXII server, follow 
 You should receive confirmation that a connection to the TAXII server was established successfully, and you may repeat the last step above as many times as you want, to connect to multiple Collections from one or more TAXII servers.
 
 Within a few minutes, threat indicators should begin flowing into this Microsoft Sentinel workspace. You can find the new indicators in the **Threat intelligence** blade, accessible from the Microsoft Sentinel navigation menu.
-
 
 
 ## IP allow listing for the Microsoft Sentinel TAXII client

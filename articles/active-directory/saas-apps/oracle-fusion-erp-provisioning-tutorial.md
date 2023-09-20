@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Oracle Fusion ERP for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Oracle Fusion ERP for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Oracle Fusion ERP.
 services: active-directory
 author: twimmers
@@ -19,8 +19,6 @@ The objective of this tutorial is to demonstrate the steps to be performed in Or
 
 > [!NOTE]
 >  This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
->
-> This connector is currently in Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## Prerequisites
 
@@ -57,7 +55,7 @@ Before configuring Oracle Fusion ERP for automatic user provisioning with Azure 
 	
 	:::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user.png" alt-text="Screenshot of a panel in the Oracle Fusion E R P admin console. The Users item is highlighted." border="false":::
 
-4. Save the username and password for the admin user account which you will use to log into the Oracle Fusion ERP admin console. These values need to be entered in the **Admin Username** and **Password** fields in the Provisioning tab of your Oracle Fusion ERP application in the Azure portal.
+4. Save the username and password for the admin user account which you will use to log into the Oracle Fusion ERP admin console. These values need to be entered in the **Admin Username** and **Password** fields in the Provisioning tab of your Oracle Fusion ERP application.
 
 ## Add Oracle Fusion ERP from the gallery
 
@@ -65,19 +63,9 @@ To configure Oracle Fusion ERP for automatic user provisioning with Azure AD, yo
 
 **To add Oracle Fusion ERP from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Oracle Fusion ERP**, select **Oracle Fusion ERP** in the results panel.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Oracle Fusion ERP**, select **Oracle Fusion ERP** in the results panel.
 
 	![Oracle Fusion ERP in the results list](common/search-new-app.png)
 
@@ -89,15 +77,16 @@ This section guides you through the steps to configure the Azure AD provisioning
 > You may also choose to enable SAML-based single sign-on for Oracle Fusion ERP by following the instructions provided in the [Oracle Fusion ERP Single sign-on tutorial](oracle-fusion-erp-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features complement each other.
 
 > [!NOTE]
-> To learn more about Oracle Fusion ERP's SCIM endpoint, refer to [REST API for Common Features in Oracle Applications Cloud](https://docs.oracle.com/en/cloud/saas/applications-common/18b/farca/index.html).
+> To learn more about Oracle Fusion ERP's SCIM endpoint, refer to [REST API for Common Features in Oracle Applications Cloud](https://docs.oracle.com/en/cloud/saas/applications-common/23b/farca/index.html).
 
 ### To configure automatic user provisioning for Fuze in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Oracle Fusion ERP**.
+1. In the applications list, select **Oracle Fusion ERP**.
 
 	![The Oracle Fusion ERP link in the Applications list](common/all-applications.png)
 

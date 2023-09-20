@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Export or delete personal data from Azure DevTest Labs
@@ -201,7 +202,6 @@ The data columns contained in **disks.csv** are listed below:
 The exported data can be manipulated and visualized using tools, like SQL Server, Power BI, etc. This feature is especially useful when you want to report usage of your lab to your management team that may not be using the same Azure subscription as you do.
 
 ## Next steps
-See the following articles: 
+See the following article: 
 
 - [Set policies for a lab](devtest-lab-set-lab-policy.md)
-- [Frequently asked questions](devtest-lab-faq.yml)

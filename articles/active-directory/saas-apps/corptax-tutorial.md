@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Corptax | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Corptax'
 description: Learn how to configure single sign-on between Azure Active Directory and Corptax.
 services: active-directory
 author: jeevansd
@@ -19,7 +19,7 @@ Integrating Corptax with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to Corptax.
 * You can enable your users to be automatically signed-in to Corptax (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* You can manage your accounts in one central location.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -75,30 +75,31 @@ To configure and test Azure AD single sign-on with Corptax, you need to complete
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+In this section, you enable Azure AD single sign-on.
 
 To configure Azure AD single sign-on with Corptax, perform the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Corptax** application integration page, select **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Corptax** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on link](common/select_sso.png)
 
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
+1. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
     ![Single sign-on select mode](common/select_saml_option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+1. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit_urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     ![Corptax Domain and URLs single sign-on information](common/sp_intiated.png)
 
     In the **Sign-on URL** text box, type a URL:
     `https://asp.corptax.com`
 
-5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click **Download** to download **Federation Metadata XML** and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click **Download** to download **Federation Metadata XML** and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
@@ -108,33 +109,24 @@ To configure single sign-on on **Corptax** side, you need to send the downloaded
 
 ### Create an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+The objective of this section is to create a test user called Britta Simon.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![The "Users and groups" and "All users" links](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user Button](common/new_user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user_properties.png)
-
-    a. In the **Name** field, enter **BrittaSimon**.
-
-    b. In the **User name** field, type `brittasimon@<yourcompanydomain.extension>`. For example: `brittasimon@contoso.com`.
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Corptax.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Corptax**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Corptax**.
 
 	![Enterprise applications blade](common/enterprise_applications.png)
 

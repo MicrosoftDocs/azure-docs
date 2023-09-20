@@ -7,7 +7,7 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 11/16/2022
 ms.devlang: azurecli
-ms.custom: template-how-to, subject-monitoring, engagement-fy23
+ms.custom: template-how-to, subject-monitoring, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Monitoring load balancer
@@ -62,7 +62,7 @@ When you create a diagnostic setting, you specify which categories of logs to co
 
 ### Portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the search box at the top of the portal, enter **Load balancer**.
 

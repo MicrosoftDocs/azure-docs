@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Mixpanel for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Mixpanel for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Mixpanel.
 services: active-directory
 author: twimmers
@@ -41,7 +41,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 3. Determine what data to [map between Azure AD and Mixpanel](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure Mixpanel to support provisioning with Azure AD
-1. For setting up SSO and claiming a domain refer [this](https://help.mixpanel.com/hc/articles/360036428871-Single-Sign-On).
+1. For setting up SSO and claiming a domain refer [this](https://docs.mixpanel.com/docs/admin/sso).
 2. After that you will need to generate a SCIM token in the SCIM tab of the access security section of your organization settings.
 ![Mixpanel token](./media/mixpanel-provisioning-tutorial/mixpanelscim.png)
 
@@ -65,11 +65,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Mixpanel in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Mixpanel**.
+1. In the applications list, select **Mixpanel**.
 
 	![The Mixpanel link in the Applications list](common/all-applications.png)
 

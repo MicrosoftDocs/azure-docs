@@ -3,18 +3,18 @@ title: Create an autoscale scaling plan for Azure Virtual Desktop
 description: How to create an autoscale scaling plan to optimize deployment costs.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 07/18/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
 ---
 # Create an autoscale scaling plan for Azure Virtual Desktop
 
-Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down to optimize deployment costs. You can create a scaling plan based on:
+> [!IMPORTANT]
+> Autoscale for personal host pools is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-- Time of day
-- Specific days of the week
-- Session limits per session host
+Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs.
 
 To learn more about autoscale, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md).
 
@@ -25,6 +25,7 @@ To learn more about autoscale, see [Autoscale scaling plans and example scenario
 > - Autoscale doesn't support scaling of generalized or sysprepped VMs with machine-specific information removed. For more information, see [Remove machine-specific information by generalizing a VM before creating an image](../virtual-machines/generalize.md).
 > - You can't use autoscale and [scale session hosts using Azure Automation and Azure Logic Apps](scaling-automation-logic-apps.md) on the same host pool. You must use one or the other.
 > - Autoscale is available in Azure and Azure Government.
+> - You can currently only configure personal autoscale with the Azure portal.
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager templates or first-party tools from Microsoft.
 
@@ -54,67 +55,21 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 
 To use scaling plans, make sure you follow these guidelines:
 
-- You can currently only configure autoscale with existing pooled host pools.
 - You must create the scaling plan in the same Azure region as the host pool you assign it to. You can't assign a scaling plan in one Azure region to a host pool in another Azure region.
-- All host pools you use with autoscale must have a configured *MaxSessionLimit* parameter. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AzWvdHostPool](/powershell/module/az.desktopvirtualization/new-azwvdhostpool) or [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) PowerShell cmdlets.
+- When using autoscale for pooled host pools, you must have a configured *MaxSessionLimit* parameter for that host pool. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AzWvdHostPool](/powershell/module/az.desktopvirtualization/new-azwvdhostpool) or [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) PowerShell cmdlets.
 - You must grant Azure Virtual Desktop access to manage the power state of your session host VMs. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
 
 ## Assign the Desktop Virtualization Power On Off Contributor role with the Azure portal
 
-Before creating your first scaling plan, you'll need to assign the *Desktop Virtualization Power On Off Contributor* RBAC role with your Azure subscription as the assignable scope. Assigning this role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent autoscale from working properly. You'll need to add each Azure subscription as an assignable scope that contains host pools and session host VMs you want to use with autoscale. This role and assignment will allow Azure Virtual Desktop to manage the power state of any VMs in those subscriptions. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. 
+Before creating your first scaling plan, you'll need to assign the *Desktop Virtualization Power On Off Contributor* RBAC role to the Azure Virtual Desktop service principal with your Azure subscription as the assignable scope. Assigning this role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent autoscale from working properly. You'll need to add each Azure subscription as an assignable scope that contains host pools and session host VMs you want to use with autoscale. This role and assignment will allow Azure Virtual Desktop to manage the power state of any VMs in those subscriptions. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. 
 
-To assign the *Desktop Virtualization Power On Off Contributor* role with the Azure portal to the Azure Virtual Desktop service principal on the subscription your host pool is deployed to:
-
-1. Sign in to the Azure portal and go to **Subscriptions**. Select a subscription that contains a host pool and session host VMs you want to use with autoscale.
-
-1. Select **Access control (IAM)**.
-
-1. Select the **+ Add** button, then select **Add role assignment** from the drop-down menu.
-
-1. Select the **Desktop Virtualization Power On Off Contributor** role and select **Next**.
-
-1. On the **Members** tab, select **User, group, or service principal**, then select **+Select members**. In the search bar, enter and select either **Azure Virtual Desktop** or **Windows Virtual Desktop**. Which value you have depends on when the *Microsoft.DesktopVirtualization* resource provider was first registered in your Azure tenant. If you see two entries titled *Windows Virtual Desktop*, please see the tip below.
-
-1. Select **Review + assign** to complete the assignment. Repeat this for any other subscriptions that contain host pools and session host VMs you want to use with autoscale.
-
-> [!TIP]
-> The application ID for the service principal is **9cdead84-a844-4324-93f2-b2e6bb768d07**.
->
-> If you have an Azure Virtual Desktop (classic) deployment and an Azure Virtual Desktop (Azure Resource Manager) deployment where the *Microsoft.DesktopVirtualization* resource provider was registered before the display name changed, you will see two apps with the same name of *Windows Virtual Desktop*. To add the role assignment to the correct service principal, [you can use PowerShell](../role-based-access-control/role-assignments-powershell.md) which enables you to specify the application ID:
->
-> To assign the *Desktop Virtualization Power On Off Contributor* role with PowerShell to the Azure Virtual Desktop service principal on the subscription your host pool is deployed to:
->
-> 1. Open [Azure Cloud Shell](../cloud-shell/overview.md) with PowerShell as the shell type.
->
-> 1. Get the object ID for the service principal (which is unique in each Azure tenant) and store it in a variable:
->
->    ```powershell
->    $objId = (Get-AzADServicePrincipal -AppId "9cdead84-a844-4324-93f2-b2e6bb768d07").Id
->    ```
->
-> 1. Find the name of the subscription you want to add the role assignment to by listing all that are available to you:
->
->    ```powershell
->    Get-AzSubscription
->    ```
->
-> 1. Get the subscription ID and store it in a variable, replacing the value for `-SubscriptionName` with the name of the subscription from the previous step:
->
->    ```powershell
->    $subId = (Get-AzSubscription -SubscriptionName "Microsoft Azure Enterprise").Id
->    ```
->
-> 1. Add the role assignment:
->
->    ```powershell
->    New-AzRoleAssignment -RoleDefinitionName "Desktop Virtualization Power On Off Contributor" -ObjectId $objId -Scope /subscriptions/$subId
->    ```
+To learn how to assign the *Desktop Virtualization Power On Off Contributor* role to the Azure Virtual Desktop service principal, see [Assign RBAC roles to the Azure Virtual Desktop service principal](service-principal-assign-roles.md).
 
 ## Create a scaling plan
 
 Now that you've assigned the *Desktop Virtualization Power On Off Contributor* role to the service principal on your subscriptions, you can create a scaling plan. To create a scaling plan:
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
 
@@ -132,6 +87,8 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
 
 1. For **Time zone**, select the time zone you'll use with your plan.
 
+1. For **Host pool type**, select the type of host pool that you want your scaling plan to apply to. 
+
 1. In **Exclusion tags**, enter a tag name for VMs you don't want to include in scaling operations. For example, you might want to tag VMs that are set to drain mode so that autoscale doesn't override drain mode during maintenance using the exclusion tag "excludeFromScaling". If you've set "excludeFromScaling" as the tag name field on any of the VMs in the host pool, autoscale won't start, stop, or change the drain mode of those particular VMs.
         
     >[!NOTE]
@@ -142,7 +99,11 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
 
 ## Configure a schedule
 
-Schedules let you define when autoscale activates ramp-up and ramp-down modes throughout the day. In each phase of the schedule, autoscale only turns off VMs when in doing so the used host pool capacity won't exceed the capacity threshold. The default values you'll see when you try to create a schedule are the suggested values for weekdays, but you can change them as needed. 
+Schedules let you define when autoscale turns VMs on and off throughout the day. The schedule parameters are different based on the **Host pool type** you chose for the scaling plan.
+
+#### [Pooled host pools](#tab/pooled-autoscale)
+
+In each phase of the schedule, autoscale only turns off VMs when in doing so the used host pool capacity won't exceed the capacity threshold. The default values you'll see when you try to create a schedule are the suggested values for weekdays, but you can change them as needed. 
 
 To create or change a schedule:
 
@@ -192,12 +153,60 @@ To create or change a schedule:
       - Load-balancing algorithm. We recommend choosing **depth-first** to gradually reduce the number of session hosts based on sessions on each VM.
       - Just like peak hours, you can't configure the capacity threshold here. Instead, the value you entered in **Ramp-down** will carry over.
 
+#### [Personal host pools](#tab/personal-autoscale)
+
+In each phase of the schedule, define whether VMs should be deallocated based on the user session state. 
+
+To create or change a schedule:
+
+1. In the **Schedules** tab, select **Add schedule**.
+
+1. Enter a name for your schedule into the **Schedule name** field.
+
+1. In the **Repeat on** field, select which days your schedule will repeat on.
+
+1. In the **Ramp up** tab, fill out the following fields:
+
+    - For **Start time**, select the time you want the ramp-up phase to start from the drop-down menu.
+    
+    - For **Start VM on Connect**, select whether you want Start VM on Connect to be enabled during ramp up. 
+
+    - For **VMs to start**, select whether you want only personal desktops that have a user assigned to them at the start time to be started, you want all personal desktops in the host pool (regardless of user assignment) to be started, or you want no personal desktops in the pool to be started.
+
+    > [!NOTE]
+    > We highly recommend that you enable Start VM on Connect if you choose not to start your VMs during the ramp-up phase.
+
+    - For **When disconnected for**, specify the number of minutes a user session has to be disconnected before performing a specific action. This number can be anywhere between 0 and 360.
+
+    - For **Perform**, specify what action the service should take after a user session has been disconnected for the specified time. The options are to either deallocate (shut down) the VMs or do nothing.
+     
+    - For **When logged off for**, specify the number of minutes a user session has to be logged off before performing a specific action. This number can be anywhere between 0 and 360.
+
+    - For **Perform**, specify what action the service should take after a user session has been logged off for the specified time. The options are to either deallocate (shut down) the VMs or do nothing.
+
+1. In the **Peak hours**, **Ramp-down**, and **Off-peak hours** tabs, fill out the following fields:
+
+    - For **Start time**, enter a start time for each phase. This time is also the end time for the previous phase.
+    
+    - For **Start VM on Connect**, select whether you want to enable Start VM on Connect to be enabled during that phase. 
+
+    - For **When disconnected for**, specify the number of minutes a user session has to be disconnected before performing a specific action. This number can be anywhere between 0 and 360.
+
+    - For **Perform**, specify what action should be performed after a user session has been disconnected for the specified time. The options are to either deallocate (shut down) the VMs or do nothing.
+     
+    - For **When logged off for**, specify the number of minutes a user session has to be logged off before performing a specific action. This number can be anywhere between 0 and 360.
+
+    - For **Perform**, specify what action should be performed after a user session has been logged off for the specified time. The options are to either deallocate (shut down) the VMs or do nothing.
+---
+
 ## Assign host pools
 
-Now that you've set up your scaling plan, it's time to assign the plan to your host pools. Select the check box next to each host pool you want to include. If you don't want to enable autoscale, unselect all check boxes. You can always return to this setting later and change it.
+Now that you've set up your scaling plan, it's time to assign the plan to your host pools. Select the check box next to each host pool you want to include. If you don't want to enable autoscale, unselect all check boxes. You can always return to this setting later and change it. You can only assign the scaling plan to host pools that match the host pool type specified in the plan.
 
 > [!NOTE]
-> When you create or update a scaling plan that's already assigned to host pools, its changes will be applied immediately.
+> - When you create or update a scaling plan that's already assigned to host pools, its changes will be applied immediately.
+>
+> - While autoscale for personal host pools is in preview, we don't recommend assigning a scaling plan to a personal host pool with more than 2000 session hosts.
 
 ## Add tags 
 
@@ -212,13 +221,13 @@ Once you're done, go to the **Review + create** tab and select **Create** to dep
 
 To edit an existing scaling plan:
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
 
 1. Select **Scaling plans**, then select the name of the scaling plan you want to edit. The overview blade of the scaling plan should open.
 
-1. To change the scaling plan host pool assignments, under the **Manage** heading select **Host pool assignments** .
+1. To change the scaling plan host pool assignments, under the **Manage** heading select **Host pool assignments**.
 
 1. To edit schedules, under the **Manage** heading, select **Schedules**.
 

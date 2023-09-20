@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 09/13/2023
 ms.author: justinha
 ---
 
@@ -91,7 +91,7 @@ For example, when a one-way, forest trust is created between *Forest 1* (the tru
 * Members of *Forest 2* can't access resources located in *Forest 1* using the same trust.
 
 > [!IMPORTANT]
-> Azure AD Domain Services resource forest only supports a one-way forest trust to on-premises Active Directory.
+> Azure AD Domain Services only supports a one-way forest trust to on-premises Active Directory.
 
 ### Forest trust requirements
 
@@ -107,7 +107,7 @@ Before you can create a forest trust, you need to verify you have the correct Do
 
 To create a forest trust, you must be a member of the Domain Admins group (in the forest root domain) or the Enterprise Admins group in Active Directory. Each trust is assigned a password that the administrators in both forests must know. Members of Enterprise Admins in both forests can create the trusts in both forests at once and, in this scenario, a password that is cryptographically random is automatically generated and written for both forests.
 
-A managed domain forest supports up to five one-way outbound forest trusts to on-premises forests. The outbound forest trust for Azure AD Domain Services is created in the Azure portal. You don't manually create the trust with the managed domain itself. The incoming forest trust must be configured by a user with the privileges previously noted in the on-premises Active Directory. 
+A managed domain forest supports up to five one-way outbound forest trusts to on-premises forests. The outbound forest trust for Azure AD Domain Services is created in the Microsoft Entra admin center. You don't manually create the trust with the managed domain itself. The incoming forest trust must be configured by a user with the privileges previously noted in the on-premises Active Directory. 
 
 ## Trust processes and interactions
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Harness for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Harness for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Harness.
 services: active-directory
 author: twimmers
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 04/04/2023
 ms.author: thwimmer
 ---
 
@@ -20,7 +20,7 @@ In this article, you learn how to configure Azure Active Directory (Azure AD) to
 > [!NOTE]
 > This article describes a connector that's built on top of the Azure AD user provisioning service. For important information about this service and answers to frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in preview. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This connector is currently in preview. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ Before you configure and enable automatic user provisioning, decide which users 
 
 ## Set up Harness for provisioning
 
-1. Sign in to your [Harness Admin Console](https://app.harness.io/#/login), and then go to **Continuous Security** > **Access Management**.
+1. Sign in to your [Harness Admin Console](https://app.harness.io/auth/#/signin), and then go to **Continuous Security** > **Access Management**.
 
 	![Harness Admin Console](media/harness-provisioning-tutorial/admin.png)
 
@@ -74,11 +74,8 @@ Before you configure and enable automatic user provisioning, decide which users 
 
 Before you configure Harness for automatic user provisioning with Azure AD, you need to add Harness from the Azure AD application gallery to your list of managed SaaS applications.
 
-1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**.
-
-	![The "Azure Active Directory" button](common/select-azuread.png)
-
-1. Select **Enterprise applications** > **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 	![The "All applications" link](common/enterprise-applications.png)
 
@@ -102,7 +99,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 To configure automatic user provisioning for Harness in Azure AD, do the following:
 
-1. In the [Azure portal](https://portal.azure.com), select **Enterprise Applications** > **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 

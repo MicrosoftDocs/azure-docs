@@ -3,14 +3,14 @@ title: Authorize operations for data access
 titleSuffix: Azure Storage
 description: Learn about the different ways to authorize access to data in Azure Storage. Azure Storage supports authorization with Azure Active Directory, Shared Key authorization, or shared access signatures (SAS), and also supports anonymous access to blobs.
 services: storage
-author: jimmart-dev
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 10/25/2022
-ms.author: jammart
+ms.date: 05/31/2023
+ms.author: akashdubey
 ms.reviewer: nachakra
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Authorize access to data in Azure Storage
@@ -24,8 +24,8 @@ The following table describes the options that Azure Storage offers for authoriz
 | Azure artifact | Shared Key (storage account key) | Shared access signature (SAS) | Azure Active Directory (Azure AD) | On-premises Active Directory Domain Services | Anonymous public read access | Storage Local Users |
 |--|--|--|--|--|--|--|
 | Azure Blobs | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | [Supported](../blobs/authorize-access-azure-active-directory.md) | Not supported | [Supported but not recommended](../blobs/anonymous-read-access-overview.md) | [Supported, only for SFTP](../blobs/secure-file-transfer-protocol-support-how-to.md) |
-| Azure Files (SMB) | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | Not supported | [Supported, only with Azure AD Domain Services](../files/storage-files-active-directory-overview.md) | [Supported, credentials must be synced to Azure AD](../files/storage-files-active-directory-overview.md) | Not supported | Not supported |
-| Azure Files (REST) | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | Not supported | Not supported | Not supported | Not supported |
+| Azure Files (SMB) | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | Not supported | Supported, only with [Azure AD Domain Services](../files/storage-files-identity-auth-active-directory-domain-service-enable.md) for cloud-only or [Azure AD Kerberos](../files/storage-files-identity-auth-azure-active-directory-enable.md) for hybrid identities | [Supported, credentials must be synced to Azure AD](../files/storage-files-active-directory-overview.md) | Not supported | Not supported |
+| Azure Files (REST) | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | [Supported](../files/authorize-oauth-rest.md) | Not supported | Not supported | Not supported |
 | Azure Queues | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | [Supported](../queues/authorize-access-azure-active-directory.md) | Not Supported | Not supported | Not supported |
 | Azure Tables | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | [Supported](../tables/authorize-access-azure-active-directory.md) | Not supported | Not supported | Not supported |
 
@@ -47,7 +47,7 @@ Each authorization option is briefly described below:
     >
     > [The status of ABAC condition features](../../role-based-access-control/conditions-overview.md#status-of-condition-features)
     >
-    > [The status of ABAC condition features in Azure Storage](#status-of-condition-features-in-azure-storage)
+    > [The status of ABAC condition features in Azure Storage](../blobs/storage-auth-abac.md#status-of-condition-features-in-azure-storage)
 
 - **Azure Active Directory Domain Services (Azure AD DS) authentication** for Azure Files. Azure Files supports identity-based authorization over Server Message Block (SMB) through Azure AD DS. You can use Azure RBAC for granular control over a client's access to Azure Files resources in a storage account. For more information about Azure Files authentication using domain services, see the [overview](../files/storage-files-active-directory-overview.md).
 
@@ -56,21 +56,6 @@ Each authorization option is briefly described below:
 - **Anonymous public read access** for blob data is supported, but not recommended. When anonymous access is configured, clients can read blob data without authorization. We recommend that you disable anonymous access for all of your storage accounts. For more information, see [Overview: Remediating anonymous public read access for blob data](../blobs/anonymous-read-access-overview.md).
 
 - **Storage Local Users** can be used to access blobs with SFTP or files with SMB. Storage Local Users support container level permissions for authorization. See [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](../blobs/secure-file-transfer-protocol-support-how-to.md) for more information on how Storage Local Users can be used with SFTP.
-
-## Status of condition features in Azure Storage
-
-Currently, Azure attribute-based access control (Azure ABAC) is generally available (GA) for controlling access only to Azure Blob Storage, Azure Data Lake Storage Gen2, and Azure Queues using `request` and `resource` attributes in the standard storage account performance tier. It is either not available or in PREVIEW for other storage account performance tiers, resource types, and attributes.
-
-See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-The table below shows the current status of ABAC by storage account performance tier, storage resource type, and attribute type. Exceptions for specific attributes are also shown.
-
-| Performance tier | Resource types | Attribute types | Specific attributes | Availability |
-|--|--|--|--|--|
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource               | all except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
-| Standard | Data Lake Storage Gen2                      | resource                           | snapshot | Preview |
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | principal                          | all      | Preview |
-| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource<br/>principal | all      | Preview |
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 

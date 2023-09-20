@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure SuccessFactors inbound provisioning in Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure SuccessFactors inbound provisioning in Azure Active Directory'
 description: Learn how to configure inbound provisioning from SuccessFactors to Azure AD
 services: active-directory
 author: cmmdesai
@@ -16,6 +16,10 @@ The objective of this tutorial is to show the steps you need to perform to provi
 
 >[!NOTE]
 >Use this tutorial if the users you want to provision from SuccessFactors are cloud-only users who don't need an on-premises AD account. If the users require only on-premises AD account or both AD and Azure AD account, then please refer to the tutorial on [configure SAP SuccessFactors to Active Directory](sap-successfactors-inbound-provisioning-tutorial.md#overview) user provisioning. 
+
+The following video provides a quick overview of the steps involved when planning your provisioning integration with SAP SuccessFactors. 
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/66v2FR2-QrY]
 
 ## Overview
 
@@ -154,13 +158,8 @@ This section provides steps for user account provisioning from SuccessFactors to
 
 **To configure SuccessFactors to Azure AD provisioning:**
 
-1. Go to the [Azure portal](https://portal.azure.com).
-
-2. In the left navigation bar, select **Azure Active Directory**
-
-3. Select **Enterprise Applications**, then **All Applications**.
-
-4. Select **Add an application**, and select the **All** category.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 
 5. Search for **SuccessFactors to Azure Active Directory User Provisioning**, and add that app from the gallery.
 
@@ -222,8 +221,7 @@ In this section, you will configure how user data flows from SuccessFactors to A
      >[!NOTE]
      >For the complete list of SuccessFactors attribute supported by the application, please refer to [SuccessFactors Attribute Reference](../app-provisioning/sap-successfactors-attribute-reference.md)
 
-1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
-        mappings. An individual attribute mapping supports these properties:
+1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new mappings. An individual attribute mapping supports these properties:
 
       * **Mapping Type**
 
@@ -240,11 +238,9 @@ In this section, you will configure how user data flows from SuccessFactors to A
 
       * **Target attribute** – The user attribute in Active  Directory.
 
-      * **Match objects using this attribute** – Whether or not this mapping should be used to uniquely identify users between
-            SuccessFactors and Active Directory. This value is typically set on the  Worker ID field for SuccessFactors, which is typically mapped to one of the Employee ID attributes in Active Directory.
+      * **Match objects using this attribute** – Whether or not this mapping should be used to uniquely identify users between SuccessFactors and Active Directory. This value is typically set on the  Worker ID field for SuccessFactors, which is typically mapped to one of the Employee ID attributes in Active Directory.
 
-      * **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the
-            order defined by this field. As soon as a match is found, no  further matching attributes are evaluated.
+      * **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the order defined by this field. As soon as a match is found, no further matching attributes are evaluated.
 
       * **Apply this mapping**
 
@@ -258,7 +254,7 @@ Once your attribute mapping configuration is complete, you can now [enable and l
 
 ## Enable and launch user provisioning
 
-Once the SuccessFactors provisioning app configurations have been completed, you can turn on the provisioning service in the Azure portal.
+Once the SuccessFactors provisioning app configurations have been completed, you can turn on the provisioning service.
 
 > [!TIP]
 > By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or Workday data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.

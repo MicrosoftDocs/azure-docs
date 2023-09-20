@@ -1,5 +1,5 @@
 ---
-title: Managed identities for Azure resources frequently asked questions - Azure AD"
+title: Managed identities for Azure resources frequently asked questions"
 description: Frequently asked questions about managed identities
 services: active-directory
 documentationcenter: 
@@ -16,7 +16,7 @@ ms.date: 07/27/2022
 ms.author: barclayn
 ---
 
-# Managed identities for Azure resources frequently asked questions - Azure AD
+# Managed identities for Azure resources frequently asked questions
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -44,7 +44,7 @@ az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  princi
 
 You can keep your users from creating user-assigned managed identities using [Azure Policy](../../governance/policy/overview.md)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and go to **Policy**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Policy**.
 2. Choose **Definitions**
 3. Select **+ Policy definition** and enter the necessary information.
 4. In the policy rule section, paste:

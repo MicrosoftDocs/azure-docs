@@ -1,5 +1,5 @@
 ---
-title: Prerequisites to use PowerShell or Graph Explorer for Azure AD roles - Azure Active Directory
+title: Prerequisites to use PowerShell or Graph Explorer for Azure AD roles
 description: Prerequisites to use PowerShell or Graph Explorer for Azure Active Directory roles.
 services: active-directory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 03/17/2022
 ms.author: rolyon
 ms.reviewer: anandy
-ms.custom: oldportal;it-pro;
+ms.custom: oldportal, it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -184,11 +184,13 @@ To use AzureADPreview, follow these steps to make sure it is imported into the c
 
 ## Graph Explorer
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To manage Azure AD roles using the [Microsoft Graph API](/graph/overview) and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview), you must do the following:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory** > **Enterprise applications**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. In the applications list, find and select **Graph explorer**.
 

@@ -1,6 +1,6 @@
 ---
 title: Problem creating an Azure Active Directory Application Proxy application
-description: How to troubleshoot issues creating Application Proxy applications in the Azure Active Directory Admin portal
+description: How to troubleshoot issues creating Application Proxy applications in the Microsoft Entra admin center
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: asteen
 ---
@@ -42,4 +42,4 @@ The error message should display in the top right corner when you create the app
    ![Notification prompt](./media/application-proxy-config-problem/error-message.png)
 
 ## Next steps
-[Enable Application Proxy in the Azure portal](application-proxy-add-on-premises-application.md)
+[Enable Application Proxy in the Microsoft Entra admin center](application-proxy-add-on-premises-application.md)

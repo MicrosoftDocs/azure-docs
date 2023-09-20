@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 12/07/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 ---
 
 # What is application management in Azure Active Directory?
@@ -22,7 +23,7 @@ In this article, you learn these important aspects of managing the lifecycle of 
 - **Develop, add, or connect** – You take different paths depending on whether you're developing your own application, using a pre-integrated application, or connecting to an on-premises application.
 - **Manage access** – Access can be managed by using single sign-on (SSO), assigning resources, defining the way access is granted and consented to, and using automated provisioning.
 - **Configure properties** – Configure the requirements for signing into the application and how the application is represented in user portals.
-- **Secure the application** – Manage configuration of permissions, multifactor authentication (MFA), conditional access, tokens, and certificates.
+- **Secure the application** – Manage configuration of permissions, multifactor authentication (MFA), Conditional Access, tokens, and certificates.
 - **Govern and monitor** – Manage interaction and review activity using entitlement management and reporting and monitoring resources.
 - **Clean up** – When your application is no longer needed, clean up your tenant by removing access to it and deleting it.
 
@@ -64,11 +65,11 @@ You can [manage user consent settings](configure-user-consent.md) to choose whet
 
 In situations where users are unable to consent to the permissions an application is requesting, consider configuring the admin consent workflow. The workflow allows users to provide a justification and request an administrator's review and approval of an application. To learn how to configure admin consent workflow in your Azure AD tenant, see [Configure admin consent workflow](configure-admin-consent-workflow.md).
 
-As an administrator, you can [grant tenant-wide admin consent](grant-admin-consent.md) to an application. Tenant-wide admin consent is necessary when an application requires permissions that regular users aren't allowed to grant. granting tenant-wide admin consent also allows organizations to implement their own review processes. Always carefully review the permissions the application is requesting before granting consent. When an application has been granted tenant-wide admin consent, all users are able to sign into the application unless it has been configured to require user assignment.
+As an administrator, you can [grant tenant-wide admin consent](grant-admin-consent.md) to an application. Tenant-wide admin consent is necessary when an application requires permissions that regular users aren't allowed to grant. Granting tenant-wide admin consent also allows organizations to implement their own review processes. Always carefully review the permissions the application is requesting before granting consent. When an application has been granted tenant-wide admin consent, all users are able to sign into the application unless it has been configured to require user assignment.
 
 ### Single sign-on
 
-Consider implementing SSO in your application. You can manually configure most applications for SSO. The most popular options in Azure AD are [SAML-based SSO and OpenID Connect-based SSO](../develop/active-directory-v2-protocols.md). Before you start, make sure that you understand the requirements for SSO and how to [plan for deployment](plan-sso-deployment.md). For more information on how to configure SAML-based SSO for an enterprise application in your Azure AD tenant, see [Enable single sign-on for an application by using Azure Active Directory](add-application-portal-setup-sso.md).
+Consider implementing SSO in your application. You can manually configure most applications for SSO. The most popular options in Azure AD are [SAML-based SSO and OpenID Connect-based SSO](../develop/v2-protocols.md). Before you start, make sure that you understand the requirements for SSO and how to [plan for deployment](plan-sso-deployment.md). For more information on how to configure SAML-based SSO for an enterprise application in your Azure AD tenant, see [Enable single sign-on for an application by using Azure Active Directory](add-application-portal-setup-sso.md).
 
 ### User, group, and owner assignment
 
@@ -88,7 +89,7 @@ Do you have an identity provider that you want Azure AD to interact with? [Home 
 
 ### User portals
 
-Azure AD provides customizable ways to deploy applications to users in your organization. For example, the [My Apps portal or the Microsoft 365 application launcher](end-user-experiences.md). My Apps gives users a single place to start their work and find all the applications to which they have access. As an administrator of an application, you should [plan how the users in your organization will use My Apps](my-apps-deployment-plan.md).
+Azure AD provides customizable ways to deploy applications to users in your organization. For example, the [My Apps portal or the Microsoft 365 application launcher](end-user-experiences.md). My Apps gives users a single place to start their work and find all the applications to which they have access. As an administrator of an application, you should [plan how the users in your organization will use My Apps](./myapps-overview.md).
 
 ## Configure properties
 
@@ -96,7 +97,7 @@ When you add an application to your Azure AD tenant, you have the opportunity to
 
 ## Secure the application
 
-There are several methods available to help you keep your enterprise applications secure. For example, you can [restrict tenant access](tenant-restrictions.md), [manage visibility, data, and analytics](cloud-app-security.md), and possibly provide [hybrid access](secure-hybrid-access.md). Keeping your enterprise applications secure also involves managing configuration of permissions, MFA, conditional access, tokens, and certificates.
+There are several methods available to help you keep your enterprise applications secure. For example, you can [restrict tenant access](tenant-restrictions.md), [manage visibility, data, and analytics](cloud-app-security.md), and possibly provide [hybrid access](secure-hybrid-access.md). Keeping your enterprise applications secure also involves managing configuration of permissions, MFA, Conditional Access, tokens, and certificates.
 
 ### Permissions
 
@@ -104,19 +105,19 @@ It's important to periodically review and, if necessary, [manage the permissions
 
 [Permission classifications](configure-permission-classifications.md) allow you to identify the effect of different permissions according to your organization's policies and risk evaluations. For example, you can use permission classifications in consent policies to identify the set of permissions that users are allowed to consent to.
 
-### Multifactor authentication and conditional access
+### Multifactor authentication and Conditional Access
 
 Azure AD MFA helps safeguard access to data and applications, providing another layer of security by using a second form of authentication. There are many methods that can be used for a second-factor authentication. Before you start, [plan the deployment of MFA for your application](../authentication/howto-mfa-getstarted.md) in your organization.
 
-Organizations can enable MFA with [conditional access](../conditional-access/overview.md) to make the solution fit their specific needs. Conditional access policies allow administrators to assign controls to specific [applications, actions, or authentication context](../conditional-access/concept-conditional-access-cloud-apps.md).
+Organizations can enable MFA with [Conditional Access](../conditional-access/overview.md) to make the solution fit their specific needs. Conditional Access policies allow administrators to assign controls to specific [applications, actions, or authentication context](../conditional-access/concept-conditional-access-cloud-apps.md).
 
 ### Tokens and certificates
 
 Different types of security tokens are used in an authentication flow in Azure AD depending on the protocol used. For example, [SAML tokens](../develop/reference-saml-tokens.md) are used for the SAML protocol, and [ID tokens](../develop/id-tokens.md) and [access tokens](../develop/access-tokens.md) are used for the OpenID Connect protocol. Tokens are signed with the unique certificate that's generated in Azure AD and by specific standard algorithms. 
 
-You can provide more security by [encrypting the token](howto-saml-token-encryption.md). You can also manage the information in a token including the [roles that are allowed](../develop/howto-add-app-roles-in-azure-ad-apps.md) for the application.
+You can provide more security by [encrypting the token](howto-saml-token-encryption.md). You can also manage the information in a token including the [roles that are allowed](../develop/howto-add-app-roles-in-apps.md) for the application.
 
-Azure AD uses the [SHA-256 algorithm](certificate-signing-options.md) by default to sign the SAML response. Use SHA-256 unless the application requires SHA-1. Establish a process for [managing the lifetime of the certificate](manage-certificates-for-federated-single-sign-on.md). The maximum lifetime of a signing certificate is three years. To prevent or minimize outage due to a certificate expiring, use roles and email distribution lists to ensure that certificate-related change notifications are closely monitored. 
+Azure AD uses the [SHA-256 algorithm](certificate-signing-options.md) by default to sign the SAML response. Use SHA-256 unless the application requires SHA-1. Establish a process for [managing the lifetime of the certificate](./tutorial-manage-certificates-for-federated-single-sign-on.md). The maximum lifetime of a signing certificate is three years. To prevent or minimize outage due to a certificate expiring, use roles and email distribution lists to ensure that certificate-related change notifications are closely monitored. 
 
 ## Govern and monitor
 
@@ -127,6 +128,10 @@ Your Azure AD reporting and monitoring solution depends on your legal, security,
 ## Clean up
 
 You can clean up access to applications. For example, [removing a user’s access](methods-for-removing-user-access.md). You can also [disable how a user signs in](disable-user-sign-in-portal.md). And finally, you can delete the application if it's no longer needed for the organization. For more information on how to delete an enterprise application from your Azure AD tenant, see [Quickstart: Delete an enterprise application](delete-application-portal.md).
+
+## Guided walkthrough
+
+For a guided walkthrough of many of the recommendations in this article, see the [Microsoft 365 Secure your cloud apps with Single Sign On (SSO) guided walkthrough](https://go.microsoft.com/fwlink/?linkid=2221502).
 
 ## Next steps
 

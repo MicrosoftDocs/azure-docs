@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/08/2022
+ms.date: 09/06/2023
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -133,9 +133,11 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
-|[API connectors](api-connectors-overview.md) | Preview | GA | |
-|[Secure with basic authentication](secure-rest-api.md#http-basic-authentication) | Preview | GA | |
-|[Secure with client certificate authentication](secure-rest-api.md#https-client-certificate-authentication) | Preview | GA | |
+|[After federating with an identity provider during sign-up](api-connectors-overview.md?pivots=b2c-user-flow#after-federating-with-an-identity-provider-during-sign-up) | GA | GA | |
+|[Before creating the user](api-connectors-overview.md?pivots=b2c-user-flow#before-creating-the-user) | GA | GA | |
+|[Before including application claims in token](api-connectors-overview.md?pivots=b2c-user-flow#before-sending-the-token-preview)| Preview | GA | |
+|[Secure with basic authentication](secure-rest-api.md#http-basic-authentication) | GA | GA | |
+|[Secure with client certificate authentication](secure-rest-api.md#https-client-certificate-authentication) | GA | GA | |
 |[Secure with OAuth2 bearer authentication](secure-rest-api.md#oauth2-bearer-authentication) | NA | GA | |
 |[Secure API key authentication](secure-rest-api.md#api-key-authentication) | NA | GA | |
 
@@ -172,6 +174,12 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | Azure portal | GA |   |
 | [Application Insights user journey logs](troubleshoot-with-application-insights.md) | Preview | Used for troubleshooting during development.  |
 | [Application Insights event logs](analytics-with-application-insights.md) | Preview | Used to monitor user flows in production. |
+
+## Other features 
+
+| Feature | Status | Notes |
+| ------- | :--: | ----- |
+| [Go-Local add-on](data-residency.md#go-local-add-on) | GA | Azure AD B2C's [Go-Local add-on](data-residency.md#go-local-add-on) enables you to create Azure AD B2C tenant within the country/region you choose when you [create your Azure AD B2C](tutorial-create-tenant.md).  |
 
 ## Responsibilities of custom policy feature-set developers
 

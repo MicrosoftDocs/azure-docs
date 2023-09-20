@@ -1,5 +1,5 @@
 ---
-title: Assign or remove licenses - Azure Active Directory | Microsoft Docs
+title: Assign or remove licenses
 description: Instructions about how to assign or remove Azure Active Directory licenses from your users or groups.
 services: active-directory
 author: barclayn
@@ -9,14 +9,12 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 09/12/2023
 ms.author: barclayn
 ms.reviewer: jeffsta
-ms.custom: "it-pro, seodec18"
-ms.collection: M365-identity-device-management
 ---
 
-# Assign or remove licenses in the Azure Active Directory portal
+# Assign or remove licenses in the Azure portal
 
 Many Azure Active Directory (Azure AD) services require you to license each of your users or groups (and associated members) for that service. Only users with active licenses will be able to access and use the licensed Azure AD services for which that's true. Licenses are applied per tenant and don't transfer to other tenants. 
 
@@ -30,9 +28,9 @@ There are several Azure AD license plans:
 
 - Azure AD Premium P2
 
-For specific information about each license plan and the associated licensing details, see [What license do I need?](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). To sign up for Azure AD premium license plans see [here](./active-directory-get-started-premium.md).
+For specific information about each license plan and the associated licensing details, see [What license do I need?](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). To sign up for Azure AD premium license plans see [here](./get-started-premium.md).
 
-Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in the **Azure Active Directory &gt; Users &gt;** select a user **&gt; Properties &gt; Settings** area in Azure AD. When assigning licenses to a group or bulk updates such as disabling the synchronization status for the organization, any user whose usage location isn't specified inherits the location of the Azure AD organization.
+Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in **Identity** > **Users** > **All users** > *select a user* > **Properties**. When assigning licenses to a group or bulk updates such as disabling the synchronization status for the organization, any user whose usage location isn't specified inherits the location of the tenant.
 
 ## View license plans and plan details
 
@@ -40,9 +38,11 @@ You can view your available service plans, including the individual licenses, ch
 
 ### To find your service plan and plan details
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a License administrator account in your Azure AD organization.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Select **Azure Active Directory**, and then select **Licenses**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Directory Reader](../roles/permissions-reference.md#directory-readers).
+
+1. Browse to **Identity** > **Billing** > **Licenses**.
 
 1. Select **All products** to view the All Products page and to see the **Total**, **Assigned**, **Available**, and **Expiring soon** numbers for your license plans.
 
@@ -63,7 +63,11 @@ Anyone who has a business need to use a licensed Azure AD service must have the 
 
 ### To assign a license to a user
 
-1. On the **Products** page, select the name of the license plan you want to assign to the user.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [License Administrator](../roles/permissions-reference.md#license-administrator).
+
+1. Browse to **Identity** > **Billing** > **Licenses**.
+
+1. Select the name of the license plan you want to assign to the user.
 
 1. After you select the license plan, select **Assign**.
 
@@ -80,7 +84,7 @@ Anyone who has a business need to use a licensed Azure AD service must have the 
     The **Assign license** page updates to show that a user is selected and that the assignments are configured.
 
     > [!NOTE]
-    > Not all Microsoft services are available in all locations. Before a license can be assigned to a user, you must specify the **Usage location**. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD. When assigning licenses to a group or bulk updates such as disabling the synchronization status for the organization, any user whose usage location isn't specified inherits the location of the Azure AD organization.
+    > Not all Microsoft services are available in all locations. Before a license can be assigned to a user, you must specify the **Usage location**. You can set this value in **Identity** > **Users** > **All users** > *select a user* > **Properties**. When assigning licenses to a group or bulk updates such as disabling the synchronization status for the organization, any user whose usage location isn't specified inherits the location of the tenant.
 
 1. Select **Assign**.
 
@@ -90,11 +94,15 @@ Anyone who has a business need to use a licensed Azure AD service must have the 
 
 ### To assign a license to a group
 
-1. On the **Products** page, select the name of the license plan you want to assign to the user.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [License Administrator](../roles/permissions-reference.md#license-administrator).
+
+1. Browse to **Identity** > **Billing** > **Licenses**.
+
+1. Select the name of the license plan you want to assign to the group.
 
     ![Products blade, with highlighted product license plan](media/license-users-groups/license-products-blade-with-product-highlight.png)
 
-1. On the **Azure Active Directory Premium Plan 2** page, select **Assign**.
+1. On the **Product** page, select **Assign**.
 
     ![Products page, with highlighted Assign option](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
@@ -118,7 +126,7 @@ You can remove a license from a user's Azure AD user page, from the group overvi
 
 ### To remove a license from a user
 
-1. On the **Licensed users** page for the service plan, select the user that should no longer have the license. For example, _Alain Charon_.
+1. On the **Licensed users** page for the service plan, select the user that should no longer have the license. For example, *Alain Charon*.
 
 1. Select **Remove license**.
 
@@ -148,4 +156,4 @@ After you've assigned your licenses, you can perform the following processes:
 
 - [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../enterprise-users/licensing-group-advanced.md)
 
-- [Add or change profile information](active-directory-users-profile-azure-portal.md)
+- [Add or change profile information](./how-to-manage-user-profile-info.md)

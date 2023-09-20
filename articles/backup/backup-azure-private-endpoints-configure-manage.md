@@ -3,14 +3,14 @@ title: How to create and manage private endpoints (with v2 experience) for Azure
 description: This article explains how to configure and manage private endpoints for Azure Backup.
 ms.topic: how-to
 ms.service: backup
-ms.date: 02/20/2023
-author: jyothisuri
-ms.author: jsuri
+ms.date: 07/27/2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Create and use private endpoints (v2 experience) for Azure Backup
 
-Azure Backup allows you to securely perform the backup and restore operations of your data from the Recovery Services vaults using [private endpoints](/azure/private-link/private-endpoint-overview). Private endpoints use one or more private IP addresses from your Azure Virtual Network (VNet), effectively bringing the service into your VNet.
+Azure Backup allows you to securely perform the backup and restore operations of your data from the Recovery Services vaults using [private endpoints](../private-link/private-endpoint-overview.md). Private endpoints use one or more private IP addresses from your Azure Virtual Network (VNet), effectively bringing the service into your VNet.
 
 Azure Backup now provides an enhanced experience in creation and use of private endpoints compared to the [classic experience](private-endpoints-overview.md) (v1).
 
@@ -35,7 +35,8 @@ Follow these steps:
    :::image type="content" source="./media/backup-azure-private-endpoints/deny-public-network.png" alt-text="Screenshot showing how to select the Deny option.":::
 
    >[!Note]
-   >Once you deny access, you can still access the vault, but you can't move data to/from networks that don't contain private endpoints. For more information, see [Create private endpoints for Azure Backup](#create-private-endpoints-for-azure-backup).
+   >- Once you deny access, you can still access the vault, but you can't move data to/from networks that don't contain private endpoints. For more information, see [Create private endpoints for Azure Backup](#create-private-endpoints-for-azure-backup).
+   >- Denial of public access is currently not supported for vaults that have *Cross Region Restore* enabled.
 
 3. Select **Apply** to save the changes. 
 
@@ -108,9 +109,10 @@ You'll see an entry for the virtual network for which you've created the private
 
   |Zone |Service |
   |--- |--- |
-  |`privatelink.<geo>.backup.windowsazure.com` |Backup  |
-  |`privatelink.blob.core.windows.net`         |Blob    |
-  |`privatelink.queue.core.windows.net`        |Queue   |
+  |`*.privatelink.<geo>.backup.windowsazure.com` |Backup  |
+  |`*.blob.core.windows.net`                     |Blob    |
+  |`*.queue.core.windows.net`                    |Queue   |
+  |`*.storage.azure.net`                         |Blob    |
 
   >[!NOTE]
   > In the above text, `<geo>` refers to the region code (for example *eus* and *ne* for East US and North Europe respectively). Refer to the following lists for regions codes:
@@ -128,13 +130,7 @@ You'll see an entry for the virtual network for which you've created the private
     If you're using a host file for name resolution, make corresponding entries in the host file for each IP and FQDN according to the format - `<private ip><space><FQDN>`.
 
 >[!Note]
->Azure Backup may allocate new storage account for your vault for the backup data, and the extension or agent needs to access the respective endpoints. For more about how to add more DNS records after registration and backup, see [the guidance in Use Private Endpoints for Backup](private-endpoints.md#use-private-endpoints-for-backup).
-
-
-
-
-
-
+>Azure Backup may allocate new storage account for your vault for the backup data, and the extension or agent needs to access the respective endpoints. For more about how to add more DNS records after registration and backup, see [how to use private endpoints for backup](#use-private-endpoints-for-backup).
 
 ## Use private endpoints for backup
 

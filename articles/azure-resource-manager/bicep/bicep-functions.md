@@ -2,7 +2,8 @@
 title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.custom: devx-track-bicep
+ms.date: 06/05/2023
 ---
 
 # Bicep functions
@@ -52,6 +53,14 @@ The following functions are available for working with arrays. All of these func
 * [take](./bicep-functions-array.md#take)
 * [union](./bicep-functions-array.md#union)
 
+## CIDR functions
+
+The following functions are available for working with CIDR. All of these functions are in the `sys` namespace.
+
+* [parseCidr](./bicep-functions-cidr.md#parsecidr)
+* [cidrSubnet](./bicep-functions-cidr.md#cidrsubnet)
+* [cidrHost](./bicep-functions-cidr.md#cidrhost)
+
 ## Date functions
 
 The following functions are available for working with dates. All of these functions are in the `sys` namespace.
@@ -74,6 +83,7 @@ The following functions are available for loading the content from external file
 
 * [loadFileAsBase64](bicep-functions-files.md#loadfileasbase64)
 * [loadJsonContent](bicep-functions-files.md#loadjsoncontent)
+* [loadYamlContent](bicep-functions-files.md#loadyamlcontent)
 * [loadTextContent](bicep-functions-files.md#loadtextcontent)
 
 ## Lambda functions
@@ -84,7 +94,6 @@ The following functions are available for working with lambda expressions. All o
 * [map](bicep-functions-lambda.md#map)
 * [reduce](bicep-functions-lambda.md#reduce)
 * [sort](bicep-functions-lambda.md#sort)
-
 
 ## Logical functions
 
@@ -111,6 +120,12 @@ The following functions are available for working with objects. All of these fun
 * [json](./bicep-functions-object.md#json)
 * [length](./bicep-functions-object.md#length)
 * [union](./bicep-functions-object.md#union)
+
+## Parameters file functions
+
+The [getSecret function](./bicep-functions-parameters-file.md) is available in Bicep to get secure value from a KeyVault. This function is in the `az` namespace.
+
+The [readEnvironmentVariable function](./bicep-functions-parameters-file.md) is available in Bicep to read environment variable values. This function is in the `sys` namespace.
 
 ## Resource functions
 

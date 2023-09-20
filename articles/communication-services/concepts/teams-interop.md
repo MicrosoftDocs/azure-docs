@@ -2,7 +2,7 @@
 title: Teams interoperability
 titleSuffix: An Azure Communication Services concept document
 description: Teams interoperability
-author: chpalm
+author: tophpalmer
 ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
@@ -90,7 +90,7 @@ Azure Communication Services interoperability isn't compatible with Teams deploy
 ## Next steps
 
 Find more details for External user interoperability:
-- [Get access tokens for external user](../quickstarts/access-tokens.md)
+- [Get access tokens for external user](../quickstarts/identity/access-tokens.md)
 - [Join Teams meeting call as a external user](../quickstarts/voice-video-calling/get-started-teams-interop.md)
 - [Join Teams meeting chat as a external user](../quickstarts/chat/meeting-interop.md)
 

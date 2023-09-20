@@ -1,6 +1,6 @@
 ---
 title: Get image insights - Bing Image Search API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use the Bing Image Search API to get more information about an image.
 services: cognitive-services
 
@@ -15,7 +15,7 @@ ms.date: 01/05/2022
 
 # Get image insights with the Bing Image Search API
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 > [!IMPORTANT]
 > Instead of using the /images/details endpoint to get image insights, you should use [Visual Search](../bing-visual-search/overview.md) since it provides more comprehensive insights.

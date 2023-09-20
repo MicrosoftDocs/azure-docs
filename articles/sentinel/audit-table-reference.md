@@ -28,13 +28,13 @@ The following table describes the columns and data generated in the SentinelAudi
 | ColumnName               | ColumnType     | Description                                                    |
 | ------------------------ | -------------- | -------------------------------------------------------------- |
 | **TenantId**             | String         | The tenant ID for your Microsoft Sentinel workspace.           |
-| **TimeGenerated**        | Datetime       | The time (UTC) at which the audit event occurred.              |
+| **TimeGenerated**        | Datetime       | The time (UTC) at which the audited activity occurred.              |
 | <a name="operationname_audit"></a>**OperationName** | String   | The Azure operation being recorded. For example:<br>- `Microsoft.SecurityInsights/alertRules/Write`<br>- `Microsoft.SecurityInsights/alertRules/Delete` |
-| <a name="sentinelresourceid_audit"></a>**SentinelResourceId** | String         | The unique identifier of the Microsoft Sentinel workspace and the associated resource on which the audit event occurred. |
+| <a name="sentinelresourceid_audit"></a>**SentinelResourceId** | String         | The unique identifier of the Microsoft Sentinel workspace and the associated resource on which the audited activity occurred. |
 | **SentinelResourceName** | String         | The resource name. For analytics rules, this is the rule name. |
 | <a name="status_audit"></a>**Status**     | String         | Indicates `Success` or `Failure` for the [OperationName](#operationname_audit). |
 | **Description**          | String         | Describes the operation, including extended data as needed. For example, for failures, this column might indicate the failure reason. |
-| **WorkspaceId**          | String         | The workspace GUID on which the audit issue occurred. The full Azure Resource Identifier is available in the [SentinelResourceID](#sentinelresourceid_audit) column. |
+| **WorkspaceId**          | String         | The workspace GUID on which the audited activity occurred. The full Azure Resource Identifier is available in the [SentinelResourceID](#sentinelresourceid_audit) column. |
 | **SentinelResourceType** | String         | The Microsoft Sentinel resource type being monitored.          |
 | **SentinelResourceKind** | String         | The specific type of resource being monitored. For example, for analytics rules: `NRT`. |
 | **CorrelationId**        | String         | The event correlation ID in GUID format.                       |
@@ -59,15 +59,15 @@ Extended properties for analytics rules reflect certain [rule settings](detect-t
 | **CallerName**           | String         | The user or application that initiated the action.              |
 | **OriginalResourceState** | Dynamic (json) | A JSON bag that describes the rule before the change.          |
 | **Reason**               | String     | The reason why the operation failed. For example: `No permissions`. |
-| **ResourceDiffMemberNames** | Array\[String\] | An array of the properties that changed on the relevant resource. For example: `['custom_details','look_back']`. |
-| **ResourceDisplayName**  | String         | Name of the analytics rule on which the audit issue occurred.   |
-| **ResourceGroupName**    | String      | Resource group of the workspace on which the audit issue occurred. |
-| **ResourceId**      | String     | The resource ID of the analytics rule on which the audit issue occurred. |
-| **SubscriptionId**  | String      | The subscription ID of the workspace on which the audit issue occurred. |
+| **ResourceDiffMemberNames** | Array\[String\] | An array of the properties of the rule that were changed by the audited activity. For example: `['custom_details','look_back']`. |
+| **ResourceDisplayName**  | String         | Name of the analytics rule on which the audited activity occurred.   |
+| **ResourceGroupName**    | String      | Resource group of the workspace on which the audited activity occurred. |
+| **ResourceId**      | String     | The resource ID of the analytics rule on which the audited activity occurred. |
+| **SubscriptionId**  | String      | The subscription ID of the workspace on which the audited activity occurred. |
 | **UpdatedResourceState** | Dynamic (json) | A JSON bag that describes the rule after the change.            |
 | **Uri**                  | String         | The full-path resource ID of the analytics rule.                |
-| **WorkspaceId**        | String       | The resource ID of the workspace on which the audit issue occurred. |
-| **WorkspaceName**        | String         | The name of the workspace on which the audit issue occurred.    |
+| **WorkspaceId**        | String       | The resource ID of the workspace on which the audited activity occurred. |
+| **WorkspaceName**        | String         | The name of the workspace on which the audited activity occurred.    |
 
 
 ## Next steps

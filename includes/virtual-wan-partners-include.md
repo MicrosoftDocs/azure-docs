@@ -29,5 +29,6 @@ You can check the links in this section for more information about services offe
 |[Silver-Peak](https://www.silver-peak.com/silver-peak-expands-integration-with-microsoft-cloud-services)|[EdgeConnect and Microsoft Azure Virtual WAN Integration Guide](https://www.silver-peak.com/documentation/edgeconnect-and-azure-vwan-integration-guide)|
 |[VMware SD-WAN](https://kb.vmware.com/s/article/79000)|[Azure Virtual WAN VMware SD-WAN Deployment Guide](https://kb.vmware.com/s/article/79000)|
 | [Versa](https://www.versa-networks.com/partners/microsoft-azure) | [Configuring Versa SD-WAN and Microsoft Azure vWAN (Available for registered customers)](https://docs.versa-networks.com/Versa_Director/Versa_Director_Configuration/Integrate_Director_and_Azure_Virtual_WAN) |
+| [F5](https://www.f5.com/resources/deployment-guides) | [Azure Virtual WAN F5 Deployment Guide](https://www.f5.com/pdf/deployment-guide/f5-big-ip-and-azure-virtual-wan-deployment-guide.pdf) |
 
 *\* Direct link unavailable. Please contact partner company for support.*

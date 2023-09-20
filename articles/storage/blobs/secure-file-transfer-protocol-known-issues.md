@@ -4,12 +4,11 @@ titleSuffix: Azure Storage
 description: Learn about limitations and known issues of SSH File Transfer Protocol (SFTP) support for Azure Blob Storage.
 author: normesta
 
-ms.subservice: blobs
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 10/20/2022
 ms.author: normesta
-ms.reviewer: ylunagaria
+ms.reviewer: michawil
 
 ---
 
@@ -30,7 +29,7 @@ The following clients are known to be incompatible with SFTP for Azure Blob Stor
 - paramiko 1.16.0
 - SSH.NET 2016.1.0
 
-The unsupported client list above is not exhaustive and may change over time.
+The unsupported client list above isn't exhaustive and may change over time.
 
 ## Client settings
 
@@ -47,7 +46,7 @@ To transfer files to or from Azure Blob Storage via SFTP clients, see the follow
 
 | Category | Unsupported operations |
 |---|---|
-| ACLs | <li>`chgrp` - change group<li>`chmod` - change permissions/mode<li>`chown` - change owner<li>`put/get -p` - preserving permissions |
+| ACLs | <li>`chgrp` - change group<li>`chmod` - change permissions/mode<li>`chown` - change owner<li>`put/get -p` - preserving properties such as permissions |
 | Resuming Uploads | `reput`. `put -a` |
 | Random writes and appends | <li>Operations that include both READ and WRITE flags. For example: [SSH.NET create API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20SftpFileStream-,Create,-(string%20path))<li>Operations that include APPEND flag. For example: [SSH.NET append API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20void-,AppendAllLines,-(string%20path%2C%20IEnumerable%3Cstring%3E%20contents)). |
 | Links |<li>`symlink` - creating symbolic links<li>`ln` - creating hard links<li>Reading links not supported |
@@ -55,7 +54,8 @@ To transfer files to or from Azure Blob Storage via SFTP clients, see the follow
 | Extensions | Unsupported extensions include but aren't limited to: fsync@openssh.com, limits@openssh.com, lsetstat@openssh.com, statvfs@openssh.com |
 | SSH Commands | SFTP is the only supported subsystem. Shell requests after the completion of key exchange will fail. |
 | Multi-protocol writes | Random writes and appends (`PutBlock`,`PutBlockList`, `GetBlockList`, `AppendBlock`, `AppendFile`)  aren't allowed from other protocols (NFS, Blob REST, Data Lake Storage Gen2 REST) on blobs that are created by using SFTP. Full overwrites are allowed.|
-| Rename Operations | Rename operations where the target file name already exists is a protocol violation. Attempting such an operation will return an error. See [Removing and Renaming Files](https://datatracker.ietf.org/doc/html/draft-ietf-secsh-filexfer-02#section-6.5) for more information.
+| Rename Operations | Rename operations where the target file name already exists is a protocol violation. Attempting such an operation will return an error. See [Removing and Renaming Files](https://datatracker.ietf.org/doc/html/draft-ietf-secsh-filexfer-02#section-6.5) for more information.|
+| Cross Container Operations | Traversing between containers or performing operations on multiple containers from the same connection are unsupported.
 
 ## Authentication and authorization
   
@@ -71,15 +71,17 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 
 - To access the storage account using SFTP, your network must allow traffic on port 22.
  
-- Static IP addresses aren't supported for storage accounts. This is not an SFTP specific limitation.
+- Static IP addresses aren't supported for storage accounts. This isn't an SFTP specific limitation.
   
-- Internet routing is not supported. Use Microsoft network routing.
+- Internet routing isn't supported. Use Microsoft network routing.
 
-- There's a 2 minute time out for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically.
+- There's a 2-minute time out for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically.
 
 ## Other
 
 - For performance issues and considerations, see [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md).
+  
+-  By default, the Content-MD5 property of blobs that are uploaded by using SFTP are set to null. Therefore, if you want the Content-MD5 property of those blobs to contain an MD5 hash, your client must calculate that value, and then set the Content-MD5 property of the blob before the uploading the blob.
   
 - Maximum file upload size via the SFTP endpoint is 100 GB. 
 
@@ -97,9 +99,9 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 
 ## Troubleshooting
 
-- To resolve the `Failed to update SFTP settings for account 'accountname'. Error: The value 'True' is not allowed for property isSftpEnabled.` error, ensure that the following pre-requisites are met at the storage account level:
+- To resolve the `Failed to update SFTP settings for account 'accountname'. Error: The value 'True' isn't allowed for property isSftpEnabled.` error, ensure that the following prerequisites are met at the storage account level:
 
-  - The account needs to be a general-purpose v2 and premium block blob accounts.
+  - The account needs to be a general-purpose v2 or premium block blob account.
   
   - The account needs to have hierarchical namespace enabled on it.
 

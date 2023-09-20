@@ -1,17 +1,17 @@
 ---
-title: What is Privileged Identity Management? - Azure AD | Microsoft Docs
+title: What is Privileged Identity Management?
 description: Provides an overview of Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: barclayn
 manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 11/4/2022
-ms.author: amsliu
+ms.date: 09/12/2023
+ms.author: barclayn
 ms.reviewer: ilyal
 ms.custom: pim,azuread-video-2020,contperf-fy21q3-portal, content-engagement
 ms.collection: M365-identity-device-management
@@ -35,9 +35,8 @@ However, users still need to carry out privileged operations in Azure AD, Azure,
 
 ## License requirements
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+[!INCLUDE [entra-id-license-pim.md](../../../includes/entra-id-license-pim.md)]
 
-For information about licenses for users, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
 ## What does it do?
 
@@ -55,7 +54,7 @@ Privileged Identity Management provides time-based and approval-based role activ
 
 ## What can I do with it?
 
-Once you set up Privileged Identity Management, you'll see **Tasks**, **Manage**, and **Activity** options in the left navigation menu. As an administrator, you'll choose between options such as managing **Azure AD roles**, managing **Azure resource** roles, or PIM for Groups. When you choose what you want to manage, you see the appropriate set of options for that option.
+Once you set up Privileged Identity Management, you'll see **Tasks**, **Manage**, and **Activity** options in the left navigation menu. As an administrator, you can choose between options such as managing **Azure AD roles**, managing **Azure resource** roles, or PIM for Groups. When you choose what you want to manage, you see the appropriate set of options for that option.
 
 ![Screenshot of Privileged Identity Management in the Azure portal.](./media/pim-configure/pim-quickstart.png)
 
@@ -75,7 +74,7 @@ To better understand Privileged Identity Management and its documentation, you s
 | active | Type | A role assignment that doesn't require a user to perform any action to use the role. Users assigned as active have the privileges assigned to the role. |
 | activate |  | The process of performing one or more actions to use a role that a user is eligible for. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers. |
 | assigned | State | A user that has an active role assignment. |
-| activated | State | A user that has an eligible role assignment, performed the actions to activate the role, and is now active. Once activated, the user can use the role for a pre-configured period of time before they need to activate again. |
+| activated | State | A user that has an eligible role assignment, performed the actions to activate the role, and is now active. Once activated, the user can use the role for a preconfigured period of time before they need to activate again. |
 | permanent eligible | Duration | A role assignment where a user is always eligible to activate the role. |
 | permanent active | Duration | A role assignment where a user can always use the role without performing any actions. |
 | time-bound eligible | Duration | A role assignment where a user is eligible to activate the role only within start and end dates. |
@@ -119,15 +118,15 @@ The following screenshot shows how members activate their role to a limited time
 
 ![Screenshot of Privileged Identity Management role activation.](./media/pim-configure/role-activation.png)
 
-If the role requires [approval](pim-resource-roles-approval-workflow.md) to activate, a notification will appear in the upper right corner of the user's browser informing them the request is pending approval. If an approval isn't required, the member can start using the role.
+If the role requires [approval](pim-resource-roles-approval-workflow.md) to activate, a notification appears in the upper right corner of the user's browser informing them the request is pending approval. If an approval isn't required, the member can start using the role.
 
 For more information, check out the following articles: [Activate Azure AD roles](pim-how-to-activate-role.md), [Activate my Azure resource roles](pim-resource-roles-activate-your-roles.md), and [Activate my PIM for Groups roles](groups-activate-roles.md)
 
 ### Approve or deny
 
-Delegated approvers receive email notifications when a role request is pending their approval. Approvers can view, approve or deny these pending requests in PIM. After the request has been approved, the member can start using the role. For example, if a user or a group was assigned with Contribution role to a resource group, they'll be able to manage that particular resource group.
+Delegated approvers receive email notifications when a role request is pending their approval. Approvers can view, approve or deny these pending requests in PIM. After the request has been approved, the member can start using the role. For example, if a user or a group was assigned with Contribution role to a resource group, they are able to manage that particular resource group.
 
-For more information, check out the following articles: [Approve or deny requests for Azure AD roles](azure-ad-pim-approval-workflow.md), [Approve or deny requests for Azure resource roles](pim-resource-roles-approval-workflow.md), and [Approve activation requests for PIM for Groups](groups-approval-workflow.md)
+For more information, check out the following articles: [Approve or deny requests for Azure AD roles](./pim-approval-workflow.md), [Approve or deny requests for Azure resource roles](pim-resource-roles-approval-workflow.md), and [Approve activation requests for PIM for Groups](groups-approval-workflow.md)
 
 ### Extend and renew assignments
 
@@ -167,7 +166,7 @@ Privileged Identity Management supports the following scenarios:
 In Privileged Identity Management (PIM), you can now assign eligibility for membership or ownership of PIM for Groups. Starting with this preview, you can assign Azure Active Directory (Azure AD) built-in roles to cloud groups and use PIM to manage group member and owner eligibility and activation. For more information about role-assignable groups in Azure AD, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
 
 >[!Important]
-> To assign a PIM for Groups to a role for administrative access to Exchange, Security & Compliance Center, or SharePoint, use the Azure AD portal **Roles and Administrators** experience and not in the PIM for Groups experience to make the user or group eligible for activation into the group.
+> To assign a PIM for Groups to a role for administrative access to Exchange, Security & Compliance Center, or SharePoint, use the Azure portal **Roles and Administrators** experience and not in the PIM for Groups experience to make the user or group eligible for activation into the group.
 
 ### Different just-in-time policies for each group
 
@@ -175,11 +174,11 @@ Some organizations use tools like Azure AD business-to-business (B2B) collaborat
 
 ### Activate multiple role assignments in one request
 
-With the PIM for Groups preview, you can give workload-specific administrators quick access to multiple roles with a single just-in-time request. For example, your Tier 3 Office Admins might need just-in-time access to the Exchange Admin, Office Apps Admin, Teams Admin, and Search Admin roles to thoroughly investigate incidents daily. Before today it would require four consecutive requests, which are a process that takes some time. Instead, you can create a role assignable group called “Tier 3 Office Admins”, assign it to each of the four roles previously mentioned (or any Azure AD built-in roles) and enable it for Privileged Access in the group’s Activity section. Once enabled for privileged access, you can configure the just-in-time settings for members of the group and assign your admins and owners as eligible. When the admins elevate into the group, they’ll become members of all four Azure AD roles.
+With the PIM for Groups preview, you can give workload-specific administrators quick access to multiple roles with a single just-in-time request. For example, your Tier 3 Office Admins might need just-in-time access to the Exchange Admin, Office Apps Admin, Teams Admin, and Search Admin roles to thoroughly investigate incidents daily. Before today it would require four consecutive requests, which are a process that takes some time. Instead, you can create a role assignable group called “Tier 3 Office Admins”, assign it to each of the four roles previously mentioned (or any Azure AD built-in roles) and enable it for Privileged Access in the group’s Activity section. Once enabled for privileged access, you can configure the just-in-time settings for members of the group and assign your admins and owners as eligible. When an admin elevates into the group, they become members of all four Azure AD roles.
 
 ## Invite guest users and assign Azure resource roles in Privileged Identity Management
 
-Azure Active Directory (Azure AD) guest users are part of the business-to-business (B2B) collaboration capabilities within Azure AD so that you can manage external guest users and vendors as guests in Azure AD. For example, you can use these Privileged Identity Management features for Azure identity tasks with guests such as assigning access to specific Azure resources, specifying assignment duration and end date, or requiring two-step verification on active assignment or activation. For more information on how to invite a guest to your organization and manage their access, see [Add B2B collaboration users in the Azure AD portal](../external-identities/add-users-administrator.md).
+Azure Active Directory (Azure AD) guest users are part of the business-to-business (B2B) collaboration capabilities within Azure AD so that you can manage external guest users and vendors as guests in Azure AD. For example, you can use these Privileged Identity Management features for Azure identity tasks with guests such as assigning access to specific Azure resources, specifying assignment duration and end date, or requiring two-step verification on active assignment or activation. For more information on how to invite a guest to your organization and manage their access, see [Add B2B collaboration users in the Azure portal](../external-identities/add-users-administrator.md).
 
 ### When would you invite guests?
 
@@ -198,5 +197,5 @@ When you use B2B collaboration, you can invite an external user to your organiza
 ## Next steps
 
 - [License requirements to use Privileged Identity Management](subscription-requirements.md)
-- [Securing privileged access for hybrid and cloud deployments in Azure AD](../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Securing privileged access for hybrid and cloud deployments in Azure AD](../roles/security-planning.md?toc=/azure/active-directory/privileged-identity-management/toc.json)
 - [Deploy Privileged Identity Management](pim-deployment-plan.md)

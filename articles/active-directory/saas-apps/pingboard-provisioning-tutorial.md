@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: User provisioning for Pingboard - Azure AD'
+title: 'Tutorial: User provisioning for Pingboard'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Pingboard.
 services: active-directory
 author: ArvindHarinder1
@@ -48,7 +48,8 @@ This section guides you through connecting your Azure AD to the Pingboard user a
 
 ### To configure automatic user account provisioning to Pingboard in Azure AD
 
-1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory** > **Enterprise Apps** > **All applications** section.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. If you already configured Pingboard for single sign-on, search for your instance of Pingboard by using the search field. Otherwise, select **Add** and search for **Pingboard** in the application gallery. Select **Pingboard** from the search results, and add it to your list of applications.
 
@@ -70,7 +71,7 @@ This section guides you through connecting your Azure AD to the Pingboard user a
 
     e. Copy the token in **OAuth Bearer Token**, and enter it in **Secret Token**.
 
-1. In the Azure portal, select **Test Connection** to test Azure AD can connect to your Pingboard app. If the connection fails, test that your Pingboard account has admin permissions, and try the **Test Connection** step again.
+1. Select **Test Connection** to test that you can connect to your Pingboard app. If the connection fails, test that your Pingboard account has admin permissions, and try the **Test Connection** step again.
 
 1. Enter the email address of a person or group that you want to receive provisioning error notifications in **Notification Email**. Select the check box underneath.
 

@@ -9,10 +9,10 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/06/2022
+ms.date: 06/26/2023
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.custom: b2c-support
+ms.custom: b2c-support, has-azure-ad-ps-ref
 zone_pivot_groups: b2c-policy-type
 ---
 
@@ -149,7 +149,7 @@ Once a password expiration policy has been set, you must also configure force pa
 
 ### Password expiry duration
 
-The password expiry duration default value is **90** days. The value is configurable by using the [Set-MsolPasswordPolicy](/powershell/module/msonline/set-msolpasswordpolicy) cmdlet from the Azure Active Directory Module for Windows PowerShell. This command updates the tenant, so that all users' passwords expire after number of days you configure.
+By default, the password is set not to expire. However, the value is configurable by using the [Set-MsolPasswordPolicy](/powershell/module/msonline/set-msolpasswordpolicy) cmdlet from the Azure Active Directory Module for Windows PowerShell. This command updates the tenant, so that all users' passwords expire after number of days you configure.
 
 ## Next steps
 

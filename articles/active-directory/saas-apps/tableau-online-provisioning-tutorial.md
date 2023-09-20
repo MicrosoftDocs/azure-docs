@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Configure Tableau Cloud for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Tableau Cloud for automatic user provisioning with Azure Active Directory'
 
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Tableau Cloud.
 
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: b4038c18-2bfd-47cb-8e74-3873dc85a796
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -93,7 +93,7 @@ To keep track of role assignments, you can create two purpose-specific groups fo
 Once provisioning is set up, you will want to edit role changes directly in Azure Active Directory. Otherwise, you may end up with role inconsistencies between Tableau Cloud and Azure Active Directory.
 
 ### Valid Tableau site role values
-On the **Select a Role** page in your Azure Active Directory portal, the Tableau Site Role values that are valid include the following: **Creator, SiteAdministratorCreator, Explorer, SiteAdministratorExplorer, ExplorerCanPublish, Viewer, or Unlicensed**.
+On the **Select a Role** page in your Azure portal, the Tableau Site Role values that are valid include the following: **Creator, SiteAdministratorCreator, Explorer, SiteAdministratorExplorer, ExplorerCanPublish, Viewer, or Unlicensed**.
 
 
 If you select a role that is not in the above list, such as a legacy (pre-v2018.1) role, you will experience an error.
@@ -108,7 +108,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Tableau Cloud in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
@@ -200,22 +201,16 @@ In June 2022, Tableau released a SCIM 2.0 connector. Completing the steps below 
 >Be sure to note any changes that have been made to the settings listed above before completing the steps below. Failure to do so will result in the loss of customized settings.
 
 
-1. Sign into the [Azure portal](https://portal.azure.com).
-
-
-1. Navigate to your current Tableau Cloud app under **Azure Active Directory > Enterprise Applications**.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Tableau Cloud**.
 
 1. In the Properties section of your new custom app, copy the **Object ID**.
 
-
-	![Screenshot of Tableau Cloud app in the Azure portal.](media/tableau-online-provisioning-tutorial/tableau-cloud-properties.png)	
-
+	![Screenshot of Tableau Cloud app.](media/tableau-online-provisioning-tutorial/tableau-cloud-properties.png)	
 
 1. In a new web browser window, navigate to `https://developer.microsoft.com/graph/graph-explorer` and sign in as the administrator for the Azure AD tenant where your app is added.
 
 	![Screenshot of Microsoft Graph explorer sign in page.](media/tableau-online-provisioning-tutorial/tableau-graph-explorer-signin.png)
-	
 
 1. Check to make sure the account being used has the correct permissions. The permission **Directory.ReadWrite.All** is required to make this change.
 
@@ -240,7 +235,7 @@ In June 2022, Tableau released a SCIM 2.0 connector. Completing the steps below 
 1. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with **TableauOnlineSCIM**.
 
 1. Under the Admin Credentials section, select "Bearer Authentication" as the authentication method and enter the Tenant URL and Secret Token of the Tableau instance you wish to provision to.
-	![Screenshot of Admin Credentials in Tableau Cloud in the Azure portal.](media/tableau-online-provisioning-tutorial/tableau-cloud-creds.png)
+	![Screenshot of Admin Credentials in Tableau Cloud.](media/tableau-online-provisioning-tutorial/tableau-cloud-creds.png)
 
 1. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning.
 

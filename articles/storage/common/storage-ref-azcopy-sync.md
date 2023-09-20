@@ -2,11 +2,11 @@
 title: azcopy sync
 description: This article provides reference information for the azcopy sync command.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: reference
-ms.date: 05/26/2022
+ms.date: 02/09/2023
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
 ---
 
@@ -16,7 +16,7 @@ Replicates the source location to the destination location. This article provide
 
 ## Synopsis
 
-The last modified times are used for comparison. The file is skipped if the last modified time in the destination is more recent. The supported pairs are:
+The last modified times are used for comparison. The file is skipped if the last modified time in the destination is more recent. Alternatively, you can use the `--compare-hash` flag to transfer only files which differ in their MD5 hash. The supported pairs are:
   
 - Local <-> Azure Blob / Azure File (either SAS or OAuth authentication can be used)
 - Azure Blob <-> Azure Blob (Source must include a SAS or is publicly accessible; either SAS or OAuth authentication can be used for destination)
@@ -47,7 +47,7 @@ The built-in lookup table is small but on Unix it's augmented by the local syste
 
 On Windows, MIME types are extracted from the registry.
 
-Also note that sync works off of the last modified times exclusively. So in the case of Azure File <-> Azure File,
+By default sync works off of the last modified times unless you override that default behavior by using the `--compare-hash` flag. So in the case of Azure File <-> Azure File,
 the header field Last-Modified is used instead of x-ms-file-change-time, which means that metadata changes at the source can also trigger a full copy.
 
 ```azcopy
@@ -108,7 +108,7 @@ Note: if include and exclude flags are used together, only files matching the in
 
 ## Options
 
-`--block-size-mb`    (float)    Use this block size (specified in MiB) when uploading to Azure Storage or downloading from Azure Storage. Default is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25).
+`--block-size-mb`    (float)    Use this block size (specified in MiB) when uploading to Azure Storage or downloading from Azure Storage. Default is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25). When uploading or downloading, the maximum allowed block size is 0.75 * AZCOPY_BUFFER_GB. To learn more, see [Optimize memory use](storage-use-azcopy-optimize.md#optimize-memory-use).
 
 `--check-md5`    (string)    Specifies how strictly MD5 hashes should be validated when downloading. This option is only available when downloading. Available values include: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (default 'FailIfDifferent'). (default "FailIfDifferent")
 
@@ -127,6 +127,8 @@ Note: if include and exclude flags are used together, only files matching the in
 `--exclude-pattern`    (string)    Exclude files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
 
 `--exclude-regex`    (string)    Exclude the relative path of the files that match with the regular expressions. Separate regular expressions with ';'.
+
+`--force-if-read-only` When overwriting an existing file on Windows or Azure Files, force the overwrite to work even if the existing file has its read-only attribute set.
 
 `--from-to`    (string)    Optionally specifies the source destination combination. For Example: LocalBlob, BlobLocal, LocalFile, FileLocal, BlobFile, FileBlob, etc.
 

@@ -1,17 +1,18 @@
 ---
-title: Properties of a B2B guest user - Azure Active Directory | Microsoft Docs
-description: Azure Active Directory B2B invited guest user properties and states before and after invitation redemption
+title: Properties of a B2B guest user
+description: Azure Active Directory B2B collaboration guest user properties and states before and after invitation redemption. 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 05/18/2023
 ms.author: cmulligan
 author: csmulligan
 manager: celestedg
-ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019"
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
+# Customer intent: As a tenant administrator, I want to learn about B2B collaboration guest user properties and states before and after invitation redemption.
 ---
 
 # Properties of an Azure Active Directory B2B collaboration user
@@ -40,7 +41,7 @@ Now, let's see what an Azure AD B2B collaboration user looks like in Azure AD.
 
 ### Before invitation redemption
 
-B2B collaboration user accounts are the result of inviting guest users to collaborate by using the guest users' own credentials. When the invitation is initially sent to the guest user, an account is created in your tenant. This account doesn’t have any credentials associated with it because authentication is performed by the guest user's identity provider. The **Identities** property for the guest user account in your directory is set to the host's organization domain until the guest redeems their invitation. In the portal, the invited user’s profile will show an **External user state** of **PendingAcceptance**. Querying for `externalUserState` using the Microsoft Graph API will return `Pending Acceptance`.
+B2B collaboration user accounts are the result of inviting guest users to collaborate by using the guest users' own credentials. When the invitation is initially sent to the guest user, an account is created in your tenant. This account doesn’t have any credentials associated with it because authentication is performed by the guest user's identity provider. The **Identities** property for the guest user account in your directory is set to the host's organization domain until the guest redeems their invitation. The user sending the invitation is added as a default value for the **Sponsor** (preview) attribute on the guest user account. In the portal, the invited user’s profile will show an **External user state** of **PendingAcceptance**. Querying for `externalUserState` using the Microsoft Graph API will return `Pending Acceptance`.
 
 ![Screenshot of user profile before redemption.](media/user-properties/before-redemption.png)
 
@@ -75,10 +76,10 @@ This property indicates the relationship of the user to the host tenancy. This p
 
 ### Identities
 
-This property indicates the user’s primary identity provider. A user can have several identity providers, which can be viewed by selecting the link next to **Identities** in the user’s profile or by querying the `onPremisesSyncEnabled` property via the Microsoft Graph API.
+This property indicates the user’s primary identity provider. A user can have several identity providers, which can be viewed by selecting the link next to **Identities** in the user’s profile or by querying the `identities` property via the Microsoft Graph API.
 
 > [!NOTE]
-> Identities and UserType are independent properties. A value of Identities does not imply a particular value for UserType
+> Identities and UserType are independent properties. A value of Identities does not imply a particular value for UserType.
 
 Identities property value | Sign-in state
 --------------------- | -------------------------
@@ -89,6 +90,8 @@ google.com | This user has a Gmail account and has signed up by using self-servi
 facebook.com | This user has a Facebook account and has signed up by using self-service to the other organization.
 mail | This user has signed up by using Azure AD Email one-time passcode (OTP).
 {issuer URI} | This user is homed in an external organization that doesn't use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed-based identity provider. The issuer URI is shown when the Identities field is clicked.
+
+Phone sign-in is not supported for external users. B2B accounts cannot use `phone`value as an identity provider. 
 
 ### Directory synced
 
@@ -131,6 +134,6 @@ If a guest user accepts your invitation and they subsequently change their email
 
 ## Next steps
 
-* [What is Azure AD B2B collaboration?](what-is-b2b.md)
+* [B2B user claims mapping](claims-mapping.md)
 * [B2B collaboration user tokens](user-token.md)
-* [B2B collaboration user claims mapping](claims-mapping.md)
+* [B2B collaboration for hybrid organizations](hybrid-organizations.md)

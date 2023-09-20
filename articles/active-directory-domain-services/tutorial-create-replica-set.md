@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create a replica set in Azure AD Domain Services | Microsoft Docs
-description: Learn how to create and use replica sets in the Azure portal for service resiliency with Azure AD Domain Services
+description: Learn how to create and use replica sets in the Microsoft Entra admin center for service resiliency with Azure AD Domain Services
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2022
+ms.date: 09/15/2023
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create and use replica sets in Azure Active Directory Domain Services to provide resiliency or geographical distributed managed domain data.
@@ -42,11 +42,11 @@ To complete this tutorial, you need the following resources and privileges:
     * If needed, [create and configure an Azure Active Directory Domain Services managed domain][tutorial-create-instance].
 
     > [!IMPORTANT]
-    > Managed domains created using the Classic deployment model can't use replica sets. You also need to use a minimum of *Enterprise* SKU for your managed domain. If needed, [change the SKU for a managed domain][howto-change-sku].
+    > You need to use a minimum of *Enterprise* SKU for your managed domain to support replica sets. If needed, [change the SKU for a managed domain][howto-change-sku].
 
-## Sign in to the Azure portal
+## Sign in to the Microsoft Entra admin center
 
-In this tutorial, you create and manage replica sets using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+In this tutorial, you create and manage replica sets using the Microsoft Entra admin center. To get started, first sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 ## Networking considerations
 
@@ -60,9 +60,9 @@ Before you can use replica sets in Azure AD DS, review the following Azure virtu
 * Peered virtual networks are NOT transitive.
 
 > [!TIP]
-> When you create a replica set in the Azure portal, the network peerings between virtual networks is created for you.
+> When you create a replica set in the Microsoft Entra admin center, the network peerings between virtual networks is created for you.
 >
-> If needed, you can create a virtual network and subnet when you add a replica set in the Azure portal. Or, you can choose existing virtual network resources in the destination region for a replica set and let the peerings be created automatically if they don't already exist.
+> If needed, you can create a virtual network and subnet when you add a replica set in the Microsoft Entra admin center. Or, you can choose existing virtual network resources in the destination region for a replica set and let the peerings be created automatically if they don't already exist.
 
 ## Create a replica set
 
@@ -72,11 +72,11 @@ In this tutorial, you create an additional replica set in an Azure region differ
 
 To create an additional replica set, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**.
+1. In the Microsoft Entra admin center, search for and select **Azure AD Domain Services**.
 1. Choose your managed domain, such as *aaddscontoso.com*.
 1. On the left-hand side, select **Replica sets**. Each managed domain includes one initial replica set in the selected region, as shown in the following example screenshot:
 
-    ![Example screenshot to view and add a replica set in the Azure portal](./media/tutorial-create-replica-set/replica-set-list.png)
+    ![Example screenshot to view and add a replica set in the Microsoft Entra admin center](./media/tutorial-create-replica-set/replica-set-list.png)
 
     To create an additional replica set, select **+ Add**.
 
@@ -88,7 +88,7 @@ To create an additional replica set, complete the following steps:
 
     The following example screenshot shows the process to create a new replica set in *East US*:
 
-    ![Example screenshot to create a replica set in the Azure portal](./media/tutorial-create-replica-set/create-replica-set.png)
+    ![Example screenshot to create a replica set in the Microsoft Entra admin center](./media/tutorial-create-replica-set/create-replica-set.png)
 
 1. When ready, select **Save**.
 
@@ -96,7 +96,7 @@ The process to create the replica set takes some time as the resources are creat
 
 The replica set reports as *Provisioning* as deployment continues, as shown in the following example screenshot. When complete, the replica set shows as *Running*.
 
-![Example screenshot of replica set deployment status in the Azure portal](./media/tutorial-create-replica-set/replica-set-provisioning.png)
+![Example screenshot of replica set deployment status in the Microsoft Entra admin center](./media/tutorial-create-replica-set/replica-set-provisioning.png)
 
 ## Delete a replica set
 
@@ -107,7 +107,7 @@ A managed domain is currently limited to five replicas - the initial replica set
 
 To delete a replica set, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**.
+1. In the Microsoft Entra admin center, search for and select **Azure AD Domain Services**.
 1. Choose your managed domain, such as *aaddscontoso.com*.
 1. On the left-hand side, select **Replica sets**. From the list of replica sets, select the **...** context menu next to the replica set you want to delete.
 1. Select **Delete** from the context menu, then confirm you want to delete the replica set.

@@ -2,6 +2,7 @@
 title: PowerShell samples
 description: Learn about the Azure PowerShell sample scripts available for App Configuration.
 ms.service: azure-app-configuration
+ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ms.date: 01/19/2023
 ms.author: malev

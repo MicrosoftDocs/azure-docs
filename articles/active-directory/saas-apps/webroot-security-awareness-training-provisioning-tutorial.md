@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Webroot Security Awareness Training for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Webroot Security Awareness Training for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Webroot Security Awareness Training.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 455f4396-930e-4db5-a167-d3ea6a860a17
 ms.service: active-directory
@@ -58,7 +58,7 @@ To connect your site to Azure AD, you will need to obtain a **Secret Token** for
 
     ![Configure Azure AD Integration](./media/webroot-security-awareness-training-provisioning-tutorial/configure-azure-ad-integration.png)
 
-4. Copy and save the **Secret Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Webroot Security Awareness Training application in the Azure portal.
+4. Copy and save the **Secret Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Webroot Security Awareness Training application.
 
 5. Click **Done**.
 
@@ -83,11 +83,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Webroot Security Awareness Training in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Webroot Security Awareness Training**.
+1. In the applications list, select **Webroot Security Awareness Training**.
 
 	![The Webroot Security Awareness Training link in the Applications list](common/all-applications.png)
 

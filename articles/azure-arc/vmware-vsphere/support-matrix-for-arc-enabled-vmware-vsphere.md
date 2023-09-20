@@ -1,9 +1,10 @@
 ---
-title: Support matrix for Azure Arc-enabled VMware vSphere (preview)
+title: Plan for deployment
 description: Learn about the support matrix for Arc-enabled VMware vSphere including vCenter Server versions supported, network requirements, and more.
 ms.topic: how-to 
-ms.date: 10/21/2022
-
+ms.date: 08/18/2023
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
 # Customer intent: As a VI admin, I want to understand the support matrix for Arc-enabled VMware vSphere.
 ---
 
@@ -19,7 +20,7 @@ The following requirements must be met in order to use Azure Arc-enabled VMware 
 
 ### Supported vCenter Server versions
 
-Azure Arc-enabled VMware vSphere (preview) works with vCenter Server versions 6.7 and 7.
+Azure Arc-enabled VMware vSphere (preview) works with vCenter Server versions 6.7, 7 and 8.
 
 > [!NOTE]
 > Azure Arc-enabled VMware vSphere (preview) currently supports vCenters with a maximum of 9500 VMs. If your vCenter has more than 9500 VMs, it is not recommended to use Arc-enabled VMware vSphere with it at this point.

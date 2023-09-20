@@ -18,13 +18,13 @@ Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions.
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint and connection string** for this quickstart.
-- Create *three* Azure Communication Services Users and issue them a [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- Create *three* Azure Communication Services Users and issue them a [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope chat --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity//access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -88,7 +88,7 @@ Create a file in the root directory of your project called **client.js** to cont
 
 To create a chat client in your web app, you'll use the Communications Service **endpoint** and the **access token** that was generated as part of prerequisite steps.
 
-User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. This quickstart doesn't cover creating a service tier to manage tokens for your chat application. See [chat concepts](../../../concepts/chat/concepts.md) for more information about chat architecture, and [user access tokens](../../access-tokens.md) for more information about access tokens.
+User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. This quickstart doesn't cover creating a service tier to manage tokens for your chat application. See [chat concepts](../../../concepts/chat/concepts.md) for more information about chat architecture, and [user access tokens](../../identity/access-tokens.md) for more information about access tokens.
 
 Inside **client.js** use the endpoint and access token in the code below to add chat capability using the Azure Communication Chat SDK for JavaScript.
 
@@ -308,7 +308,7 @@ const addParticipantsRequest =
 await chatThreadClient.addParticipants(addParticipantsRequest);
 
 ```
-Replace **NEW_PARTICIPANT_USER_ID** with a [new user ID](../../access-tokens.md)
+Replace **NEW_PARTICIPANT_USER_ID** with a [new user ID](../../identity/access-tokens.md)
 Add this code in place of the `<ADD NEW PARTICIPANT TO THREAD>` comment in **client.js**
 
 ## List users in a chat thread

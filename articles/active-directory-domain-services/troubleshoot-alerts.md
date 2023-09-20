@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 ms.author: justinha
 
 ---
@@ -68,7 +68,7 @@ Inside a virtual network, VMs can make requests to Azure resources in the same I
 To resolve this alert, delete your existing managed domain and recreate it in a virtual network with a private IP address range. This process is disruptive as the managed domain is unavailable and any custom resources you've created like OUs or service accounts are lost.
 
 1. [Delete the managed domain](delete-aadds.md) from your directory.
-1. To update the virtual network IP address range, search for and select *Virtual network* in the Azure portal. Select the virtual network for Azure AD DS that incorrectly has a public IP address range set.
+1. To update the virtual network IP address range, search for and select *Virtual network* in the Microsoft Entra admin center. Select the virtual network for Azure AD DS that incorrectly has a public IP address range set.
 1. Under **Settings**, select *Address Space*.
 1. Update the address range by choosing the existing address range and editing it, or adding an additional address range. Make sure the new IP address range is in a private IP range. When ready, **Save** the changes.
 1. Select **Subnets** in the left-hand navigation.
@@ -129,7 +129,7 @@ Azure AD DS creates additional resources to function properly, such as public IP
 
 This alert is generated when one of these required resources is deleted. If the resource was deleted less than 4 hours ago, there's a chance that the Azure platform can automatically recreate the deleted resource. The following steps outline how to check the health status and timestamp for resource deletion:
 
-1. In the Azure portal, search for and select **Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
 1. In the left-hand navigation, select **Health**.
 1. In the health page, select the alert with the ID *AADDS109*.
 1. The alert has a timestamp for when it was first found. If that timestamp is less than 4 hours ago, the Azure platform may be able to automatically recreate the resource and resolve the alert by itself.
@@ -159,7 +159,7 @@ This error is unrecoverable. To resolve the alert, [delete your existing managed
 
 Some automatically generated service principals are used to manage and create resources for a managed domain. If the access permissions for one of these service principals is changed, the domain is unable to correctly manage resources. The following steps show you how to understand and then grant access permissions to a service principal:
 
-1. Read about [Azure role-based access control and how to grant access to applications in the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Read about [Azure role-based access control and how to grant access to applications in the Microsoft Entra admin center](../role-based-access-control/role-assignments-portal.md).
 2. Review the access that the service principal with the ID *abba844e-bc0e-44b0-947a-dc74e5d09022* has and grant the access that was denied at an earlier date.
 
 ## AADDS112: Not enough IP address in the managed domain
@@ -175,7 +175,7 @@ The virtual network subnet for Azure AD DS needs enough IP addresses for the aut
 To resolve this alert, delete your existing managed domain and re-create it in a virtual network with a large enough IP address range. This process is disruptive as the managed domain is unavailable and any custom resources you've created like OUs or service accounts are lost.
 
 1. [Delete the managed domain](delete-aadds.md) from your directory.
-1. To update the virtual network IP address range, search for and select *Virtual network* in the Azure portal. Select the virtual network for the managed domain that has the small IP address range.
+1. To update the virtual network IP address range, search for and select *Virtual network* in the Microsoft Entra admin center. Select the virtual network for the managed domain that has the small IP address range.
 1. Under **Settings**, select *Address Space*.
 1. Update the address range by choosing the existing address range and editing it, or adding an additional address range. Make sure the new IP address range is large enough for the managed domain's subnet range. When ready, **Save** the changes.
 1. Select **Subnets** in the left-hand navigation.
@@ -219,7 +219,7 @@ Resource locks can be applied to Azure resources to prevent change or deletion. 
 
 To check for resource locks on the Azure AD DS components and remove them, complete the following steps:
 
-1. For each of the managed domain's network components in your resource group, such as virtual network, network interface, or public IP address, check the operation logs in the Azure portal. These operation logs should indicate why an operation is failing and where a resource lock is applied.
+1. For each of the managed domain's network components in your resource group, such as virtual network, network interface, or public IP address, check the operation logs in the Microsoft Entra admin center. These operation logs should indicate why an operation is failing and where a resource lock is applied.
 1. Select the resource where a lock is applied, then under **Locks**, select and remove the lock(s).
 
 ## AADDS116: Resources are unusable
@@ -234,8 +234,29 @@ Policies are applied to Azure resources and resource groups that control what co
 
 To check for applied policies on the Azure AD DS components and update them, complete the following steps:
 
-1. For each of the managed domain's network components in your resource group, such as virtual network, NIC, or public IP address, check the operation logs in the Azure portal. These operation logs should indicate why an operation is failing and where a restrictive policy is applied.
+1. For each of the managed domain's network components in your resource group, such as virtual network, NIC, or public IP address, check the operation logs in the Microsoft Entra admin center. These operation logs should indicate why an operation is failing and where a restrictive policy is applied.
 1. Select the resource where a policy is applied, then under **Policies**, select and edit the policy so it's less restrictive.
+
+## AADDS120: The managed domain has encountered an error onboarding one or more custom attributes
+
+### Alert message
+
+*The following Azure AD extension properties have not successfully onboarded as a custom attribute for synchronization. This may happen if a property conflicts with the built-in schema: \[extensions]*
+
+### Resolution
+
+>[!WARNING]
+>If a custom attribute's LDAPName conflicts with an existing AD built-in schema attribute, it can't be onboarded and results in an error. Contact Microsoft Support if your scenario is blocked. For more information, see [Onboarding Custom Attributes](https://aka.ms/aadds-customattr).
+
+Review the [Azure AD DS Health](check-health.md) alert and see which Azure AD extension properties failed to onboard successfully. Navigate to the **Custom Attributes** page to find the expected Azure AD DS LDAPName of the extension. Make sure the LDAPName doesn't conflict with another AD schema attribute, or that it's one of the allowed built-in AD attributes. 
+
+Then follow these steps to retry onboarding the custom attribute in the **Custom Attributes** page:
+
+1. Select the attributes that were unsuccessful, then click **Remove** and **Save**.
+1. Wait for the health alert to be removed, or verify that the corresponding attributes have been removed from the **AADDSCustomAttributes** OU from a domain-joined VM.
+1. Select **Add** and choose the desired attributes again, then click **Save**.
+
+Upon successful onboarding, Azure AD DS will back fill synchronized users and groups with the onboarded custom attribute values. The custom attribute values appear gradually, depending on the size of the tenant. To check the backfill status, go to [Azure AD DS Health](check-health.md) and verify the **Synchronization with Azure AD** monitor timestamp has updated within the last hour.
 
 ## AADDS500: Synchronization has not completed in a while
 
@@ -292,6 +313,19 @@ When the managed domain is enabled again, the managed domain's health automatica
 > If a managed domain is suspended for an extended period of time, there's a danger of it being deleted. Resolve the reason for suspension as quickly as possible. For more information, see [Understand the suspended states for Azure AD DS](suspension.md).
 
 [Check the Azure AD DS health](check-health.md) for alerts that indicate problems in the configuration of the managed domain. If you're able to resolve alerts that indicate a configuration issue, wait two hours and check back to see if the synchronization has completed. When ready, [open an Azure support request][azure-support] to re-enable the managed domain.
+
+## AADDS600: Unresolved health alerts for 30 days
+
+### Alert Message
+
+*Microsoft can’t manage the domain controllers for this managed domain due to unresolved health alerts \[IDs\]. This is blocking critical security updates as well as a planned migration to Windows Server 2019 for these domain controllers. Follow steps in the alert to resolve the issue. Failure to resolve this issue within 30 days will result in suspension of the managed domain.*
+
+### Resolution
+
+> [!WARNING]
+> If a managed domain is suspended for an extended period of time, there's a danger of it being deleted. Resolve the reason for suspension as quickly as possible. For more information, see [Understand the suspended states for Azure AD DS](suspension.md).
+
+[Check the Azure AD DS health](check-health.md) for alerts that indicate problems in the configuration of the managed domain. If you're able to resolve alerts that indicate a configuration issue, wait six hours and check back to see if the alert is removed. [Open an Azure support request][azure-support] if you need assistance.
 
 ## Next steps
 

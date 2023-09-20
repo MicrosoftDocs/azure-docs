@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure PrinterLogic SaaS for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure PrinterLogic SaaS for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to PrinterLogic SaaS.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 001cfccf-b8a4-46e6-b355-94e8b694b122
 ms.service: active-directory
@@ -57,9 +57,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
       ![Scim Token](media/printer-logic-saas-provisioning-tutorial/token.png)
 
-6. Copy and save the **Bearer token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your PrinterLogic SaaS application in the Azure portal.
+6. Copy and save the **Bearer token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your PrinterLogic SaaS application.
 
-7. Enter https://gw.app.printercloud.com/{instance_name}/scim/v2 in the **Tenant URL** field in the Provisioning tab of your PrinterLogic SaaS application in the Azure portal.
+7. Enter https://gw.app.printercloud.com/{instance_name}/scim/v2 in the **Tenant URL** field in the Provisioning tab of your PrinterLogic SaaS application.
 
 ## Step 3. Add PrinterLogic SaaS from the Azure AD application gallery
 
@@ -80,11 +80,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for PrinterLogic SaaS in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **PrinterLogic SaaS**.
+1. In the applications list, select **PrinterLogic SaaS**.
 
 	![The PrinterLogic SaaS link in the Applications list](common/all-applications.png)
 

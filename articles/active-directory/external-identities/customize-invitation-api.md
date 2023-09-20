@@ -1,10 +1,11 @@
 ---
-title: B2B collaboration API and customization - Azure Active Directory
+title: B2B collaboration API and customization
 description: Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 12/02/2022
 
@@ -13,7 +14,7 @@ author: csmulligan
 manager: celestedg
 
 ms.collection: engagement-fy23, M365-identity-device-management
-# Customer intent: As a tenant administrator, I want to customize the invitation process with the API.   
+# Customer intent: As a tenant administrator, I want to customize the invitation process with the API.
 ---
 # Azure Active Directory B2B collaboration API and customization
 
@@ -130,4 +131,3 @@ Check out the invitation API reference in [https://developer.microsoft.com/graph
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - [Add and invite guest users](add-users-administrator.md)
 - [The elements of the B2B collaboration invitation email](invitation-email-elements.md)
-

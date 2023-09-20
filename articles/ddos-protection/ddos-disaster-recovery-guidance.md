@@ -43,4 +43,4 @@ To create a virtual network, see [Create a virtual network](../virtual-network/m
 
 ## Next steps
 
-- Learn how to [create a DDoS protection plan](manage-ddos-protection.md).
+- Learn how to [configure diagnostic logging](diagnostic-logging.md).

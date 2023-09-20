@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure GitHub AE for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure GitHub AE for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to GitHub AE.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: d9818c05-e279-45b4-8aad-0fa156abd74e
 ms.service: active-directory
@@ -65,11 +65,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for GitHub AE in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **GitHub AE**.
+1. In the applications list, select **GitHub AE**.
 
 	![The GitHub AE link in the Applications list](common/all-applications.png)
 

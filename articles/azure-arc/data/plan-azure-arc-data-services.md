@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 11/03/2021
+ms.date: 07/19/2023
 ms.topic: how-to
 ---
 # Plan an Azure Arc-enabled data services deployment
@@ -28,7 +28,8 @@ In order to experience Azure Arc-enabled data services, you'll need to complete 
 1. [Install client tools](install-client-tools.md).
 
 1. Register the Microsoft.AzureArcData provider for the subscription where the Azure Arc-enabled data services will be deployed, as follows:
-   ```console
+
+   ```azurecli
    az provider register --namespace Microsoft.AzureArcData
    ```  
 
@@ -42,7 +43,7 @@ In order to experience Azure Arc-enabled data services, you'll need to complete 
 
 1. Create data services.
 
-   For example, [Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md).
+   For example, [Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md).
 
 1. Connect with Azure Data Studio.
 
@@ -64,6 +65,7 @@ Verify that:
 - The other [client tools](install-client-tools.md) are installed.
 - You have access to the Kubernetes cluster.
 - Your *kubeconfig* file is configured. It should point to the Kubernetes cluster that you want to deploy to. To verify the current context of the cluster, run the following command:
+
    ```console
    kubectl cluster-info
    ```  
@@ -138,6 +140,9 @@ As outlined in [Connectivity modes and requirements](./connectivity.md), you can
    You can perform all three of these steps in a single step by using the Azure Arc data controller creation wizard in the Azure portal.
 
 After you've installed the Azure Arc data controller, you can create and access data services such as Azure Arc-enabled SQL Managed Instance or Azure Arc-enabled PostgreSQL server.
+
+## Known limitations
+Currently, only one Azure Arc data controller per Kubernetes cluster is supported. However, you can create multiple Arc data services, such as Arc-enabled SQL managed instances and Arc-enabled PostgreSQL servers, that are managed by the same Azure Arc data controller.
 
 ## Next steps
 

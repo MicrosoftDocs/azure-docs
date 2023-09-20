@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Elium for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Elium for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Elium.
 services: active-directory
 author: twimmers
@@ -20,7 +20,7 @@ This tutorial shows how to configure Elium and Azure Active Directory (Azure AD)
 > [!NOTE]
 > This tutorial describes a connector that's built on top of the Azure AD User Provisioning service. For important details about what this service does and how it works, and for frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in preview. For the general terms of use for Azure features in preview, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This connector is currently in preview. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ Before configuring Elium for automatic user provisioning with Azure AD, you must
 
     ![Security link in Elium](media/Elium-provisioning-tutorial/security.png)
 
-1. Copy the **Tenant URL** and **Secret token** values. You'll use these values later, in corresponding fields in the **Provisioning** tab of your Elium application in the Azure portal.
+1. Copy the **Tenant URL** and **Secret token** values. You'll use these values later, in corresponding fields in the **Provisioning** tab of your Elium application.
 
     ![Tenant URL and Secret token fields in Elium](media/Elium-provisioning-tutorial/token.png)
 
@@ -65,11 +65,8 @@ Before configuring Elium for automatic user provisioning with Azure AD, you must
 
 To configure Elium for automatic user provisioning with Azure AD, you must also add Elium from the Azure AD application gallery to your list of managed software-as-a-service (SaaS) applications. Follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), in the left navigation panel, select **Azure Active Directory**.
-
-    ![Azure Active Directory menu item](common/select-azuread.png)
-
-1. Go to **Enterprise applications**, and then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
      ![Azure AD Enterprise applications blade](common/enterprise-applications.png)
 
@@ -90,7 +87,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 To configure automatic user provisioning for Elium in Azure AD, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com), select **Enterprise applications**, and then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
     ![Azure AD Enterprise applications blade](common/enterprise-applications.png)
 

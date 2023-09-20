@@ -2,8 +2,8 @@
 title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
 author: Heidilohr
-ms.topic: overview
-ms.date: 01/09/2023
+ms.topic: release-notes
+ms.date: 09/07/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -21,12 +21,93 @@ Make sure to check back here often to keep up with new updates.
 
 ## Latest agent versions
 
-New versions of the Azure Virtual Desktop Agent are installed automatically. When new versions are released, they are rolled out progressively to all session hosts. This process is called *flighting* and it enables Microsoft to monitor the rollout. The following table lists the version that is in-flight and the version that is generally available.
+New versions of the Azure Virtual Desktop Agent are installed automatically. When new versions are released, they're rolled out progressively to session hosts. This process is called *flighting* and it enables Microsoft to monitor the rollout in [validation environments](create-validation-host-pool.md) first.
+
+A rollout may take several weeks before the agent is available in all environments. Some agent versions may not reach non-validation environments, so you may see multiple versions of the agent deployed across your environments.
 
 | Release | Latest version |
-|---|---|
-| Generally available | 1.0.5739.9000/1.0.5739.9800 |
-| In-flight | N/A |
+|--|--|
+| Production | 1.0.7255.1400 |
+| Validation | 1.0.7539.5800 |
+
+The agent is automatically installed when adding session hosts in most scenarios. If you need to download the agent, you find it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
+
+## Version 1.0.7539.5800 (validation)
+
+This update was released at the beginning of September 2023 and includes the following changes: 
+
+- Security improvements and bug fixes. 
+
+## Version 1.0.7255.800
+
+This update was released at the end of July 2023 and includes the following changes: 
+
+- Fixed an issue that would disable the Traversal Using Relay NAT (TURN) health check when a user disabled the Unified Datagram Protocol (UDP). 
+- Security improvements and bug fixes. 
+
+## Version 1.0.7033.1401 
+
+This update was released at the end of July 2023 and includes the following changes: 
+
+- Security improvements and bug fixes. 
+
+## Version 1.0.6713.1603
+
+This update was released at the end of July 2023 and includes the following changes:
+
+- Security improvements and bug fixes.
+
+## Version 1.0.7033.900
+
+This update was released at the beginning of July 2023 and includes the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.6713.1300/1.0.6713.1600
+
+This update was released at the beginning of June 2023 and includes the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.6713.400
+
+This update was released at the end of May 2023 and includes the following changes:
+
+- Fixed an issue that made the Remote Desktop Agent incorrectly report Hybrid Azure Active Directory (AD) Join virtual machines (VMs) as domain-joined.
+- General improvements and bug fixes.
+
+## Version 1.0.6425.1200
+
+This update was released at the beginning of May 2023 and includes the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.6425.300
+
+This update was released at the beginning of April 2023 and includes the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.6298.2100
+
+This update was released at the end of March 2023 and includes the following changes:
+
+- Health check reliability improved.
+- Reliability issues in agent upgrade fixed.
+- VM will be marked unhealthy when health check detects a required URL isn't unblocked.
+
+## Version 1.0.6129.9100
+
+This update was released in March 2023 and includes the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.6028.2200
+
+This update was released in February 2023 and includes the following changes:
+
+- Domain Trust health check is now enabled. When virtual machines fail the Domain Trust health check, they're now given the *Unavailable* status.
+- General improvements and bug fixes.
 
 ## Version 1.0.5739.9000/1.0.5739.9800
 

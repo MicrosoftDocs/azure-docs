@@ -48,7 +48,7 @@ In Xcode, create a new project:
     
     target 'UILibraryQuickStart' do
         use_frameworks!
-        pod 'AzureCommunicationUICalling', '1.1.0'
+        pod 'AzureCommunicationUICalling', '1.2.0'
     end
     ```
 
@@ -211,6 +211,29 @@ You can get a Microsoft Teams meeting link by using Graph APIs. This process is 
 
 The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, under the [joinWebUrl property](/graph/api/resources/onlinemeeting?preserve-view=true&view=graph-rest-beta). You also can get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
+### Set up a Rooms call
+
+[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
+
+To set up a ACS Rooms call, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.roomCall` locator. Replace `<ROOM_ID>` with the Room ID for your call. Initialize a `LocalOptions` instance with `roleHint`.
+
+Replace `<DISPLAY_NAME>` with your name.
+
+`CallComposite` will use role hint before connecting to the call. Once call is connected, actual up-to-date participant role is retrieved from ACS.
+
+
+For more information about Rooms, how to create and manage one see [Rooms Quickstart](../../../rooms/get-started-rooms.md)
+
+```swift
+let remoteOptions = RemoteOptions(for: .roomCall(roomId: "<ROOM_ID>"),
+                                  credential: communicationTokenCredential,
+                                  displayName: "<DISPLAY_NAME>")
+let localOptions = LocalOptions(roleHint: participantRole)
+
+let callComposite = CallComposite()
+callComposite.launch(remoteOptions: remoteOptions, localOptions: localOptions)
+```
+
 ### Launch the composite
 
 Inside the `startCallComposite` function, call `launch` on the `CallComposite` instance:
@@ -221,7 +244,16 @@ callComposite?.launch(remoteOptions: remoteOptions)
 
 ### Subscribe to events
 
-You can implement closures to act on composite events. The following example shows an error event for a failed composite:
+You can implement closures to act on composite events. The following errorCodes might be sent to the error handler:
+
+- `callJoin`
+- `callEnd`
+- `cameraFailure`
+- `tokenExpired`
+- `microphonePermissionNotGranted`
+- `networkConnectionNotAvailable`
+
+The following example shows an error event for a failed composite event:
 
 ```swift
 callComposite?.events.onError = { error in
@@ -264,6 +296,30 @@ let callCompositeOptions = CallCompositeOptions(localization: localizationOption
 ```
 
 For more information about localization and for a list of supported languages, see the [localization guide](../../../../how-tos/ui-library-sdk/localization.md).
+
+### Subscribe to CallComposite call state changed event
+
+You can implement closures to act on composite events. The call states will be sent to the call state changed handler.
+
+The following example shows an event for a call state changed.
+
+```swift
+callComposite?.events.onCallStateChanged = { callStateEvent in
+   print("CallComposite call state changed:\(callStateEvent.requestString)")
+}
+```
+
+### Dismiss CallComposite and subscribe to dismissed event
+
+To dismiss CallComposite, call `dismiss`. The following dismiss event be sent on call composite dismissed:
+
+```swift
+callComposite?.events.onDismissed = { dismissed in
+   print("CallComposite dismissed:\(dismissed.errorCode)")
+}
+
+callComposite.dismiss()
+```
 
 ## Add notifications to your mobile app
 

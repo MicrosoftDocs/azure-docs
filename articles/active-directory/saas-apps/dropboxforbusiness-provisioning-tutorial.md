@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Dropbox for Business for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Dropbox for Business for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Dropbox for Business.
 services: active-directory
 author: twimmers
@@ -37,20 +37,10 @@ Before configuring Dropbox for Business for automatic user provisioning with Azu
 
 **To add Dropbox for Business from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Dropbox for Business**, select **Dropbox for Business** in the results panel, and then click the **Add** button to add the application.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Dropbox for Business**, select **Dropbox for Business** in the search box.
+1. Select **Dropbox for Business** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 	![Dropbox for Business in the results list](common/search-new-app.png)
 
 ## Assigning users to Dropbox for Business
@@ -76,11 +66,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Dropbox for Business in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Dropbox for Business**.
+1. In the applications list, select **Dropbox for Business**.
 
 	![The Dropbox for Business link in the Applications list](common/all-applications.png)
 
@@ -94,7 +85,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, click **Authorize**. It opens a Dropbox for Business login dialog in a new browser window.
 
-	![Provisioning ](common/provisioning-oauth.png)
+	![Provisioning](common/provisioning-oauth.png)
 
 6. On the **Sign-in to Dropbox for Business to link with Azure AD** dialog, sign in to your Dropbox for Business tenant and verify your identity.
 
@@ -156,4 +147,3 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
-

@@ -3,7 +3,7 @@ title: Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL
 description: This article describes Apache Spark concepts to help U-SQL developers understand Spark code concepts.
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.custom: Understand-apache-spark-code-concepts
+ms.custom: Understand-apache-spark-code-concepts, devx-track-dotnet
 ms.date: 01/20/2023
 ---
 
@@ -15,10 +15,10 @@ This section provides high-level guidance on transforming U-SQL Scripts to Apach
 
 - It starts with a [comparison of the two language's processing paradigms](#understand-the-u-sql-and-spark-language-and-processing-paradigms)
 - Provides tips on how to:
-   - [Transform scripts](#transform-u-sql-scripts) including U-SQL's [rowset expressions](#transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions)
-   - [.NET code](#transform-net-code)
-   - [Data types](#transform-typed-values)
-   - [Catalog objects](#transform-u-sql-catalog-objects).
+  - [Transform scripts](#transform-u-sql-scripts) including U-SQL's [rowset expressions](#transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions)
+  - [.NET code](#transform-net-code)
+  - [Data types](#transform-typed-values)
+  - [Catalog objects](#transform-u-sql-catalog-objects).
 
 ## Understand the U-SQL and Spark language and processing paradigms
 
@@ -48,13 +48,13 @@ Spark programs are similar in that you would use Spark connectors to read the da
 
 U-SQL's expression language is C# and it offers various ways to scale out custom .NET code with user-defined functions, user-defined operators and user-defined aggregators.
 
-Azure Synapse and Azure HDInsight Spark both now natively support executing .NET code with .NET for Apache Spark. This means that you can potentially reuse some or all of your [.NET user-defined functions with Spark](#transform-user-defined-scalar-net-functions-and-user-defined-aggregators). Note though that U-SQL uses the .NET Framework while .NET for Apache Spark is based on .NET Core 3.1 or later. 
+Azure Synapse and Azure HDInsight Spark both now natively support executing .NET code with .NET for Apache Spark. This means that you can potentially reuse some or all of your [.NET user-defined functions with Spark](#transform-user-defined-scalar-net-functions-and-user-defined-aggregators). Note though that U-SQL uses the .NET Framework while .NET for Apache Spark is based on .NET Core 3.1 or later.
 
 [U-SQL user-defined operators (UDOs)](#transform-user-defined-operators-udos) are using the U-SQL UDO model to provide scaled-out execution of the operator's code. Thus, UDOs will have to be rewritten into user-defined functions to fit into the Spark execution model.
 
 .NET for Apache Spark currently doesn't support user-defined aggregators. Thus, [U-SQL user-defined aggregators](#transform-user-defined-scalar-net-functions-and-user-defined-aggregators) will have to be translated into Spark user-defined aggregators written in Scala.
 
-If you don't want to take advantage of the .NET for Apache Spark capabilities, you'll have to rewrite your expressions into an equivalent Spark, Scala, Java, or Python expression, function, aggregator or connector. 
+If you don't want to take advantage of the .NET for Apache Spark capabilities, you'll have to rewrite your expressions into an equivalent Spark, Scala, Java, or Python expression, function, aggregator or connector.
 
 In any case, if you have a large amount of .NET logic in your U-SQL scripts, please contact us through your Microsoft Account representative for further guidance.
 
@@ -90,11 +90,11 @@ The other types of U-SQL UDOs will need to be rewritten using user-defined funct
 
 ### Transform U-SQL's optional libraries
 
-U-SQL provides a set of optional and demo libraries that offer [Python](data-lake-analytics-u-sql-python-extensions.md), [R](data-lake-analytics-u-sql-r-extensions.md), [JSON, XML, AVRO support](https://github.com/Azure/usql/tree/master/Examples/DataFormats), and some [cognitive services capabilities](data-lake-analytics-u-sql-cognitive.md).
+U-SQL provides a set of optional and demo libraries that offer [Python](data-lake-analytics-u-sql-python-extensions.md), [R](data-lake-analytics-u-sql-r-extensions.md), [JSON, XML, AVRO support](https://github.com/Azure/usql/tree/master/Examples/DataFormats), and some [Azure AI services capabilities](data-lake-analytics-u-sql-cognitive.md).
 
 Spark offers its own Python and R integration, pySpark and SparkR respectively, and provides connectors to read and write JSON, XML, and AVRO.
 
-If you need to transform a script referencing the cognitive services libraries, we recommend contacting us via your Microsoft Account representative.
+If you need to transform a script referencing the Azure AI services libraries, we recommend contacting us via your Microsoft Account representative.
 
 ## Transform typed values
 
@@ -137,9 +137,9 @@ For more information, see:
 
 In Spark, types per default allow NULL values while in U-SQL, you explicitly mark scalar, non-object as nullable. While Spark allows you to define a column as not nullable, it will not enforce the constraint and [may lead to wrong result](https://medium.com/@weshoffman/apache-spark-parquet-and-troublesome-nulls-28712b06f836).
 
-In Spark, NULL indicates that the value is unknown. A Spark NULL value is different from any value, including itself. Comparisons between two Spark NULL values, or between a NULL value and any other value, return unknown because the value of each NULL is unknown.  
+In Spark, NULL indicates that the value is unknown. A Spark NULL value is different from any value, including itself. Comparisons between two Spark NULL values, or between a NULL value and any other value, return unknown because the value of each NULL is unknown.
 
-This behavior is different from U-SQL, which follows C# semantics where `null` is different from any value but equal to itself.  
+This behavior is different from U-SQL, which follows C# semantics where `null` is different from any value but equal to itself.
 
 Thus a SparkSQL `SELECT` statement that uses `WHERE column_name = NULL` returns zero rows even if there are NULL values in `column_name`, while in U-SQL, it would return the rows where `column_name` is set to `null`. Similarly, A Spark `SELECT` statement that uses `WHERE column_name != NULL` returns zero rows even if there are non-null values in `column_name`, while in U-SQL, it would return the rows that have non-null. Thus, if you want the U-SQL null-check semantics, you should use [isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) and [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) respectively (or their DSL equivalent).
 
@@ -203,7 +203,7 @@ Most of the settable system variables have no direct equivalent in Spark. Some o
 
 ### U-SQL hints
 
-U-SQL offers several syntactic ways to provide hints to the query optimizer and execution engine:  
+U-SQL offers several syntactic ways to provide hints to the query optimizer and execution engine:
 
 - Setting a U-SQL system variable
 - an `OPTION` clause associated with the rowset expression to provide a data or plan hint
@@ -214,7 +214,7 @@ Spark's cost-based query optimizer has its own capabilities to provide hints and
 ## Next steps
 
 - [Understand Spark data formats for U-SQL developers](understand-spark-data-formats.md)
-- [.NET for Apache Spark](/dotnet/spark/what-is-apache-spark-dotnet)
+- [.NET for Apache Spark](/previous-versions/dotnet/spark/what-is-apache-spark-dotnet)
 - [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md)
 - [Transform data using Spark activity in Azure Data Factory](../data-factory/transform-data-using-spark.md)
 - [Transform data using Hadoop Hive activity in Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)

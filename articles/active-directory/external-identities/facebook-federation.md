@@ -1,6 +1,6 @@
 ---
 
-title: Add Facebook as an identity provider - Azure AD
+title: Add Facebook as an identity provider
 description: Federate with Facebook to enable external users (guests) to sign in to your Azure AD apps with their own Facebook accounts.
 
 services: active-directory
@@ -12,13 +12,15 @@ ms.date: 01/20/2023
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.custom: "it-pro, seo-update-azuread-jan"
+ms.custom: it-pro, seo-update-azuread-jan, has-azure-ad-ps-ref
 ms.collection: engagement-fy23, M365-identity-device-management
-
-# Customer intent: As a tenant administrator, I want to set up Facebook as an identity provider for guest user login. 
+# Customer intent: As a tenant administrator, I want to set up Facebook as an identity provider for guest user login.
 ---
 
 # Add Facebook as an identity provider for External Identities
+
+> [!TIP]
+> This article describes adding Facebook as an identity provider for B2B collaboration. If your tenant is configured for customer identity and access management, see [Add Facebook as an identity provider](customers/how-to-facebook-federation-customers.md) for customers.
 
 You can add Facebook to your self-service sign-up user flows so that users can sign in to your applications using their own Facebook accounts. To allow users to sign in using Facebook, you'll first need to [enable self-service sign-up](self-service-sign-up-user-flow.md) for your tenant. After you add Facebook as an identity provider, set up a user flow for the application and select Facebook as one of the sign-in options.
 
@@ -60,19 +62,20 @@ To use a Facebook account as an [identity provider](identity-providers.md), you 
 1. To make your Facebook application available to Azure AD, select the **App Mode** selector at the top of the page and turn it **Live** to make the Application public.
 	
 ## Configure a Facebook account as an identity provider
-Now you'll set the Facebook client ID and client secret, either by entering it in the Azure AD portal or by using PowerShell. You can test your Facebook configuration by signing up via a user flow on an app enabled for self-service sign-up.
+Now you'll set the Facebook client ID and client secret, either by entering it in the Microsoft Entra admin center or by using PowerShell. You can test your Facebook configuration by signing up via a user flow on an app enabled for self-service sign-up.
 
-### To configure Facebook federation in the Azure AD portal
-1. Sign in to the [Azure portal](https://portal.azure.com) as an External Identity Provider Administrator or a Global Administrator.
-2. Under **Azure services**, select **Azure Active Directory**.
-3. In the left menu, select **External Identities**.
-4. Select **All identity providers**, then select **Facebook**.
-5. For the **Client ID**, enter the **App ID** of the Facebook application that you created earlier.
-6. For the **Client secret**, enter the **App secret** that you recorded.
+### To configure Facebook federation in the Microsoft Entra admin center
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [External Identity Provider administrator](../roles/permissions-reference.md#external-identity-provider-administrator).
+1. Browse to **Identity** > **External Identities** > **All identity providers**, then select **Facebook**.
+1. For the **Client ID**, enter the **App ID** of the Facebook application that you created earlier.
+1. For the **Client secret**, enter the **App secret** that you recorded.
 
    :::image type="content" source="media/facebook-federation/add-social-identity-provider-page.png" alt-text="Screenshot showing the Add social identity provider page.":::
 
-7. Select **Save**.
+1. Select **Save**.
 ### To configure Facebook federation by using PowerShell
 1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
 2. Run the following command:
@@ -88,13 +91,12 @@ Now you'll set the Facebook client ID and client secret, either by entering it i
 ## How do I remove Facebook federation?
 You can delete your Facebook federation setup. If you do so, any users who have signed up through user flows with their Facebook accounts will no longer be able to sign in. 
 
-### To delete Facebook federation in the Azure AD portal: 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of your Azure AD tenant.
-2. Under **Azure services**, select **Azure Active Directory**.
-3. In the left menu, select **External Identities**.
-3. Select **All identity providers**.
-4. Select the **Facebook** line, and then select **Delete**. 
-5. Select **Yes** to confirm deletion.
+### To delete Facebook federation in the Microsoft Entra admin center: 
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [External Identity Provider administrator](../roles/permissions-reference.md#external-identity-provider-administrator).
+1. Browse to **Identity** > **External Identities** > **All identity providers**.
+1. Select the **Facebook** line, and then select **Delete**. 
+1. Select **Yes** to confirm deletion.
 
 ### To delete Facebook federation by using PowerShell: 
 1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).

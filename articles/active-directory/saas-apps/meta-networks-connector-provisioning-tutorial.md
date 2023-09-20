@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Meta Networks Connector for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Meta Networks Connector for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Meta Networks Connector.
 services: active-directory
 author: twimmers
@@ -66,7 +66,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Meta Networks Connector privileges](media/meta-networks-connector-provisioning-tutorial/privileges.png)
 
-1. Click on **Add**. Copy the **SECRET** and save it as this will be the only time you can view it. This value will be entered in the Secret Token field in the Provisioning tab of your Meta Networks Connector application in the Azure portal.
+1. Click on **Add**. Copy the **SECRET** and save it as this will be the only time you can view it. This value will be entered in the Secret Token field in the Provisioning tab of your Meta Networks Connector application.
 
 	:::image type="content" source="media/meta-networks-connector-provisioning-tutorial/token.png" alt-text="Screenshot of a window telling users that the A P I key was added. The Secret box contains an indecipherable value and is highlighted." border="false":::
 
@@ -84,7 +84,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Meta Networks Connector configure SCIM](media/meta-networks-connector-provisioning-tutorial/configure.png)
 
-1. Navigate to **Administration > Settings > IdP tab**. Click on the name of the IdP configuration created in the previous steps to view the **IdP ID**. This **ID** is added to the end of **Tenant URL** while entering the value in **Tenant URL** field in the Provisioning tab of your Meta Networks Connector application in the Azure portal.
+1. Navigate to **Administration > Settings > IdP tab**. Click on the name of the IdP configuration created in the previous steps to view the **IdP ID**. This **ID** is added to the end of **Tenant URL** while entering the value in **Tenant URL** field in the Provisioning tab of your Meta Networks Connector application.
 
 	![Meta Networks Connector IdP ID](media/meta-networks-connector-provisioning-tutorial/idpid.png)
 
@@ -113,7 +113,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Meta Networks Connector in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 

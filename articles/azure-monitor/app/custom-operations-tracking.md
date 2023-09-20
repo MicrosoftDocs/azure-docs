@@ -3,9 +3,9 @@ title: Track custom operations with Application Insights .NET SDK
 description: Learn how to track custom operations with the Application Insights .NET SDK.
 ms.topic: conceptual
 ms.devlang: csharp
-ms.custom: devx-track-csharp
-ms.date: 11/26/2019
-ms.reviewer: casocha
+ms.custom: devx-track-csharp, devx-track-dotnet
+ms.date: 08/11/2023
+ms.reviewer: mmcc
 ---
 
 # Track custom operations with Application Insights .NET SDK
@@ -22,7 +22,7 @@ This article provides guidance on how to track custom operations with the Applic
 
 ## Overview
 
-An operation is a logical piece of work run by an application. It has a name, start time, duration, result, and a context of execution like user name, properties, and result. If operation A was initiated by operation B, then operation B is set as a parent for A. An operation can have only one parent, but it can have many child operations. For more information on operations and telemetry correlation, see [Application Insights telemetry correlation](correlation.md).
+An operation is a logical piece of work run by an application. It has a name, start time, duration, result, and a context of execution like user name, properties, and result. If operation A was initiated by operation B, then operation B is set as a parent for A. An operation can have only one parent, but it can have many child operations. For more information on operations and telemetry correlation, see [Application Insights telemetry correlation](distributed-tracing-telemetry-correlation.md).
 
 In the Application Insights .NET SDK, the operation is described by the abstract class [OperationTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) and its descendants [RequestTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) and [DependencyTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
 
@@ -80,6 +80,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
         catch (Exception e)
         {
             requestTelemetry.Success = false;
+            requestTelemetry.ResponseCode;
             telemetryClient.TrackException(e);
             throw;
         }
@@ -134,7 +135,7 @@ For tracing information, see [Distributed tracing and correlation through Azure 
 
 ### Azure Storage queue
 
-The following example shows how to track the [Azure Storage queue](../../storage/queues/storage-dotnet-how-to-use-queues.md) operations and correlate telemetry between the producer, the consumer, and Azure Storage.
+The following example shows how to track the [Azure Storage queue](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli) operations and correlate telemetry between the producer, the consumer, and Azure Storage.
 
 The Storage queue has an HTTP API. All calls to the queue are tracked by the Application Insights Dependency Collector for HTTP requests. It's configured by default on ASP.NET and ASP.NET Core applications. With other kinds of applications, see the [Console applications documentation](./console.md).
 
@@ -413,9 +414,9 @@ Each Application Insights operation (request or dependency) involves `Activity`.
 
 ## Next steps
 
-- Learn the basics of [telemetry correlation](correlation.md) in Application Insights.
+- Learn the basics of [telemetry correlation](distributed-tracing-telemetry-correlation.md) in Application Insights.
 - Check out how correlated data powers [transaction diagnostics experience](./transaction-diagnostics.md) and [Application Map](./app-map.md).
-- See the [data model](./data-model.md) for Application Insights types and data model.
+- See the [data model](./data-model-complete.md) for Application Insights types and data model.
 - Report custom [events and metrics](./api-custom-events-metrics.md) to Application Insights.
 - Check out standard [configuration](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) for context properties collection.
 - Check the [System.Diagnostics.Activity User Guide](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) to see how we correlate telemetry.

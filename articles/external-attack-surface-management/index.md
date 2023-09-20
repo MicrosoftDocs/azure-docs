@@ -3,7 +3,7 @@ title: Overview
 description: Microsoft Defender External Attack Surface Management (Defender EASM) continuously discovers and maps your digital attack surface to provide an external view of your online infrastructure.
 author: danielledennis
 ms.author: dandennis
-ms.service: security
+ms.service: defender-easm
 ms.date: 07/14/2022
 ms.topic: conceptual
 ---
@@ -45,13 +45,18 @@ Customers can filter their inventory to surface the specific insights they care 
 
 ![Screenshot of Inventory View](media/Overview-4.png)
 
+## User permissions 
+
+Users that have been assigned either Owner or Contributor roles can create, delete, and edit Defender EASM resources and the inventory assets within it. These roles can utilize all capabilities offered in the platform. Users that have been assigned the Reader role are able to view Defender EASM data, but are unable to create, delete or edit inventory assets or the resource itself.  
+
+
 ## Data residency, availability and privacy
 
 Microsoft Defender External Attack Surface Management contains both global data and customer-specific data. The underlying internet data is global Microsoft data; labels applied by customers are considered customer data. All customer data is stored in the region of the customer’s choosing.
 
 For security purposes, Microsoft collects users' IP addresses when they log in. This data is stored for up to 30 days but may be stored longer if needed to investigate potential fraudulent or malicious use of the product.
 
-In the case of a region down scenario, customers should see no downtime as Defender EASM uses technologies that replicate data to a backup region. Defender EASM processes customer data. By default, customer data is replicated to the paired region.
+In the case of a region down scenario, only the customers in the affected region will experience downtime.
 
 The Microsoft compliance framework requires that all customer data be deleted within 180 days of that organization no longer being a customer of Microsoft.  This also includes storage of customer data in offline locations, such as database backups. Once a resource is deleted, it cannot be restored by our teams.  The customer data will be retained in our data stores for 75 days, however the actual resource cannot be restored.  After the 75 day period, customer data will be permanently deleted.  
 
@@ -61,3 +66,4 @@ The Microsoft compliance framework requires that all customer data be deleted wi
 - [Deploying the EASM Azure resource](deploying-the-defender-easm-azure-resource.md)
 - [Understanding inventory assets](understanding-inventory-assets.md)
 - [What is discovery?](what-is-discovery.md)
+

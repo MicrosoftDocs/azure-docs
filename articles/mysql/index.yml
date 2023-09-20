@@ -5,8 +5,8 @@ metadata:
   description: "Azure Database for MySQL is a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition. You can choose either Single server or Flexible Server to deploy your MySQL database in Azure."
   ms.service: mysql
   ms.topic: landing-page
-  author: savjani
-  ms.author: pariks
+  author: SudheeshGH
+  ms.author: sunaray
   ms.reviewer: maghan
   ms.date: 09/15/2022
 
@@ -119,7 +119,7 @@ landingContent:
           - text: Migrate using Data Migration Service
             url: single-server/how-to-migrate-online.md
           - text: Azure Data migration guide
-            url: https://datamigration.microsoft.com/scenario/mysql-to-azuremysql?step=1
+            url: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
           - text: Troubleshoot migration errors
             url: single-server/how-to-troubleshoot-common-errors.md
 
@@ -189,7 +189,7 @@ landingContent:
           - text: Troubleshoot data encryption
             url: single-server/how-to-data-encryption-troubleshoot.md
           - text: Troubleshoot replication latency
-            url: single-server/how-to-troubleshoot-replication-latency.md
+            url: how-to-troubleshoot-replication-latency.md
           - text: Troubleshoot database corruption
             url: single-server/how-to-fix-corrupt-database.md
           - text: Troubleshoot connectivity issues

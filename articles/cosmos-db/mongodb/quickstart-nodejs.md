@@ -8,12 +8,21 @@ ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 07/06/2022
-ms.custom: devx-track-js, ignite-2022, devguide-js, cosmos-db-dev-journey
+ms.custom: devx-track-js, ignite-2022, devguide-js, cosmos-db-dev-journey, devx-track-azurecli
 ---
 
 # Quickstart: Azure Cosmos DB for MongoDB driver for Node.js
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+
+> [!div class="op_single_selector"]
+>
+> * [.NET](quickstart-dotnet.md)
+> * [Python](quickstart-python.md)
+> * [Java](quickstart-java.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Go](quickstart-go.md)
+>
 
 Get started with the MongoDB npm package to create databases, collections, and docs within your Azure Cosmos DB resource. Follow these steps to  install the package and try out example code for basic tasks.
 

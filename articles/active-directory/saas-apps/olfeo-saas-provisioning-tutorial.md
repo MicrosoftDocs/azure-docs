@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Olfeo SAAS for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Olfeo SAAS for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Olfeo SAAS.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 5f6b0320-dfe7-451c-8cd8-6ba7f2e40434
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -48,7 +48,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Navigate to **Configuration > Annuaires**.
 1. Create a new directory and then name it.
 1. Select **Azure** provider and then click on **Créer** to save the new directory. 
-1. Navigate to the **Synchronisation** tab to see the **Tenant URL** and the **Jeton secret**. These values will be copied and pasted in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Olfeo SAAS application in the Azure portal.
+1. Navigate to the **Synchronisation** tab to see the **Tenant URL** and the **Jeton secret**. These values will be copied and pasted in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Olfeo SAAS application.
 
 ## Step 3. Add Olfeo SAAS from the Azure AD application gallery
 
@@ -69,7 +69,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Olfeo SAAS in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 

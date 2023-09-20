@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: Introduction/Overview
 titleSuffix: Azure Cosmos DB for Apache Gremlin
 description: Use Azure Cosmos DB for Apache Gremlin to store, query, and traverse massive graphs with the Gremlin graph query language of Apache TinkerPop.
 author: manishmsfte
@@ -7,11 +7,11 @@ ms.author: mansha
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
 ms.topic: overview
-ms.date: 11/30/2022
+ms.date: 02/28/2023
 ms.custom: ignite-2022
 ---
 
-# Introduction to Azure Cosmos DB for Apache Gremlin
+# What is Azure Cosmos DB for Apache Gremlin?
 
 [!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
@@ -31,9 +31,9 @@ The API for Gremlin combines the power of graph database algorithms with highly 
 
 The API for Gremlin has added benefits of being built on Azure Cosmos DB:
 
-- **Elastically scalable throughput and storage**: Graphs in the real world need to scale beyond the capacity of a single server. Azure Cosmos DB supports horizontally scalable graph databases that can have an unlimited size in terms of storage and provisioned throughput. As the graph database scale grows, the data will be automatically distributed using [graph partitioning](./partitioning.md).
+- **Elastically scalable throughput and storage**: Graphs in the real world need to scale beyond the capacity of a single server. Azure Cosmos DB supports horizontally scalable graph databases that can have an unlimited size in terms of storage and provisioned throughput. As the graph database scale grows, the data is automatically distributed using [graph partitioning](./partitioning.md).
 
-- **Multi-region replication**: Azure Cosmos DB can automatically replicate your graph data to any Azure region worldwide. Global replication simplifies the development of applications that require global access to data. In addition to minimizing read and write latency anywhere around the world, Azure Cosmos DB provides automatic regional failover mechanism. This mechanism can ensure the continuity of your application in the rare case of a service interruption in a region.
+- **Multi-region replication**: Azure Cosmos DB can automatically replicate your graph data to any Azure region worldwide. Global replication simplifies the development of applications that require global access to data. In addition to minimizing read and write latency anywhere around the world, Azure Cosmos DB provides a service-managed regional failover mechanism. This mechanism can ensure the continuity of your application in the rare case of a service interruption in a region.
 
 - **Fast queries and traversals with the most widely adopted graph query standard**: Store heterogeneous vertices and edges and query them through a familiar Gremlin syntax. Gremlin is an imperative, functional query language that provides a rich interface to implement common graph algorithms. The API for Gremlin enables rich real-time queries and traversals without the need to specify schema hints, secondary indexes, or views. For more information, see [query graphs by using Gremlin](tutorial-query.md).
 
@@ -65,7 +65,7 @@ A graph database approach relies on persisting relationships in the storage laye
 
 ### Property graph objects
 
-A property [graph](http://mathworld.wolfram.com/Graph.html) is a structure that's composed of [vertices](http://mathworld.wolfram.com/GraphVertex.html) and [edges](http://mathworld.wolfram.com/GraphEdge.html). Both objects can have an arbitrary number of key-value pairs as properties.
+A property [graph](https://mathworld.wolfram.com/Graph.html) is a structure that's composed of [vertices](https://mathworld.wolfram.com/GraphVertex.html) and [edges](https://mathworld.wolfram.com/GraphEdge.html). Both objects can have an arbitrary number of key-value pairs as properties.
 
 - **Vertices/nodes**: Vertices denote discrete entities, such as a person, place, or an event.
 
@@ -93,7 +93,7 @@ This graph has the following *vertex* types. These types are also called *labels
 
 - **Operating Systems**: The operating systems that the devices run on.
 
-- **Place**: The places from which the devices are accessed.
+- **Place**: The place\[s\] where devices are accessed.
 
 We represent the relationships between these entities via the following *edge* types:
 
@@ -153,10 +153,6 @@ g.V('thomas.1').
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Get started with our Java Quickstart](quickstart-java.md)
-
-Want to learn more?
-
 - Get started with the [API for Graph .NET quickstart](quickstart-dotnet.md).
 - Learn how to [query graphs in API for Graph using Gremlin](tutorial-query.md).
+- Learn about [graph data modeling](modeling.md).

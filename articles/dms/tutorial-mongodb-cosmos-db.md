@@ -2,16 +2,15 @@
 title: "Tutorial: Migrate MongoDB offline to Azure Cosmos DB for MongoDB"
 titleSuffix: Azure Database Migration Service
 description: Migrate from MongoDB on-premises to Azure Cosmos DB for MongoDB offline via Azure Database Migration Service.
-services: dms
 author: croblesm
 ms.author: roblescarlos
-manager: craigg
 ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: seo-lt-2019, ignite-2022
-ms.topic: tutorial
 ms.date: 09/21/2021
+ms.service: dms
+ms.topic: tutorial
+ms.custom:
+  - seo-lt-2019
+  - ignite-2022
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB for MongoDB offline
@@ -235,9 +234,9 @@ After you migrate the data stored in MongoDB database to the Azure Cosmos DB for
 ## Additional resources
 
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../cosmos-db/convert-vcore-to-request-unit.md) 
+    * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../cosmos-db/convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](../cosmos-db/mongodb/estimate-ru-capacity-planner.md)
 
 ## Next steps
 
-Review migration guidance for additional scenarios in the [Azure Database Migration Guide](https://datamigration.microsoft.com/).
+Review migration guidance for additional scenarios in the [Azure Database Migration Guide](/data-migration/).
