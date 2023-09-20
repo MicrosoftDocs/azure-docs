@@ -82,7 +82,7 @@ Your app should display a sign-in button that redirects users to the sign-in end
 
 ### Pictogram and “Sign in with Microsoft”
 
-It’s the association of the Microsoft logo and the “Sign in with Microsoft” terms that uniquely represent Microsoft Entra amongst other identity providers your app may support. If you don’t have enough space for “Sign in with Microsoft,” it’s ok to shorten it to “Sign in.” You can use a light or dark color scheme for the buttons.
+It’s the association of the Microsoft logo and the “Sign in with Microsoft” terms that uniquely represent Microsoft Entra ID amongst other identity providers your app may support. If you don’t have enough space for “Sign in with Microsoft,” it’s ok to shorten it to “Sign in.” You can use a light or dark color scheme for the buttons.
 
 The following diagram shows the Microsoft-recommended redlines when using the assets with your app. The redlines apply to "Sign in with Microsoft" or the shorter "Sign in" version.
 
