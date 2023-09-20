@@ -7,7 +7,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 07/24/2023
+ms.date: 09/20/2023
 ms.author: greglin
 ---
 
@@ -19,7 +19,7 @@ This document helps set up an example application that uses the following resour
 
 ## Background
 
-Application Gateway for Containers enables SSL offloading. See the following example scenario:
+Application Gateway for Containers enables SSL [offloading](/azure/architecture/patterns/gateway-offloading) for better backend performance. See the following example scenario:
 
 ![A figure showing SSL offloading with Application Gateway for Containers](./media/how-to-ssl-offloading-gateway-api/ssl-offloading.png)
 
