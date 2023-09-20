@@ -47,7 +47,7 @@ When using [pass-through authentication](../hybrid/connect/how-to-connect-pta.md
 For example, if you want your Azure AD smart lockout duration to be higher than AD DS, then Azure AD would be 120 seconds (2 minutes) while your on-premises AD is set to 1 minute (60 seconds). If you want your Azure AD lockout threshold to be 5, then you want your on-premises AD lockout threshold to be 10.  This configuration would ensure smart lockout prevents your on-premises AD accounts from being locked out by brute force attacks on your Azure AD accounts.
 
 > [!IMPORTANT]
-> An administrator can unlock the users' cloud account if they have been locked out by the Smart Lockout capability, without the need of waiting for the lockout duration to expire. Follow this guidance which details how an administrator can reset a user's password using [Azure Active Directory - Reset a user's password - Microsoft Entra | Microsoft Learn](../fundamentals/users-reset-password-azure-portal.md).
+> An administrator can unlock the users' cloud account if they have been locked out by the Smart Lockout capability, without the need of waiting for the lockout duration to expire. For information, see [Reset a user's password using Azure Active Directory](../fundamentals/users-reset-password-azure-portal.md).
 
 ## Verify on-premises account lockout policy
 
