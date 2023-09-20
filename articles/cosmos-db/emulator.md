@@ -56,4 +56,4 @@ In some cases, you may wish to manually import the TLS/SS certificate from the e
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Get started with Azure Cosmos DB](../index.yml)
+> [Get started using the Azure Comsos DB emulator for development](how-to-develop-emulator.md)
