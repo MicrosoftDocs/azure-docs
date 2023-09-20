@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 # What are Azure regions and availability zones?
 
-An Azure region is a geographic perimeter that contains a set of datacenters. 
+An Azure *region* is a geographic perimeter that contains a set of datacenters. 
 
 Azure regions have a variety of configurations, which are also called *region architectures*.
 
