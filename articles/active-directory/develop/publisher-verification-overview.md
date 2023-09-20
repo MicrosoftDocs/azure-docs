@@ -20,7 +20,7 @@ Publisher verification gives app users and organization admins information about
 
 When an app has a verified publisher, this means that the organization that publishes the app has been verified as authentic by Microsoft. Verifying an app includes using a Microsoft Cloud Partner Program (CPP), formerly known as Microsoft Partner Network (MPN), account that's been [verified](/partner-center/verification-responses) and associating the verified PartnerID with an app registration.
 
-When the publisher of an app has been verified, a blue *verified* badge appears in the Microsoft Entra ID consent prompt for the app and on other webpages:
+When the publisher of an app has been verified, a blue *verified* badge appears in the Microsoft Entra consent prompt for the app and on other webpages:
 
 :::image type="content" source="media/publisher-verification-overview/consent-prompt.png" alt-text="Screenshot that shows an example of a Microsoft app consent prompt.":::
 
