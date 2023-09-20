@@ -34,7 +34,7 @@ For more details on specific benefits, requirements, and frequently asked questi
 ## Mark your app as publisher verified
 Make sure you meet the [pre-requisites](publisher-verification-overview.md#requirements), then follow these steps to mark your app(s) as Publisher Verified.  
 
-1. Sign in using [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) to an organizational (Microsoft Entra ID) account authorized to make changes to the app you want to mark as Publisher Verified and on the CPP Account in Partner Center.
+1. Sign in using [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) to an organizational (Microsoft Entra) account authorized to make changes to the app you want to mark as Publisher Verified and on the CPP Account in Partner Center.
 
     - The Microsoft Entra user must have one of the following [roles](../roles/permissions-reference.md): Application Admin, Cloud Application Admin, or Global Administrator. 
 
