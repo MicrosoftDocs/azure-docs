@@ -27,7 +27,7 @@ To create a shared device mode app, developers and cloud device admins work toge
 
 - Developers write a single-account app (multiple-account apps aren't supported in shared device mode), add `"shared_device_mode_supported": true` to the app's configuration, and write code to handle things like shared device sign-out.
 - Device admins prepare the device to be shared by installing the authenticator app, and setting the device to shared mode using the authenticator app. Only users who are in the [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator) role can put a device into shared mode by using the [Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc). You can configure the membership of your organizational roles in the Azure portal via:
-  **Microsoft Entra ID** > **Roles and Administrators** > **Cloud Device Administrator**.
+  **Identity** > **Roles & admins** > **Roles & admins** > **Cloud Device Administrator**.
 
 This article focuses primarily what developers should think about.
 
