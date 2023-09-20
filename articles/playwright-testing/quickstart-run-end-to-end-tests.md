@@ -160,6 +160,10 @@ Once your tests are running smoothly with the service, experiment with varying t
 
 Learn more about how to [determine the optimal configuration for optimizing test suite completion](./concept-determine-optimal-configuration.md).
 
+## Troubleshooting
+
+[!INCLUDE [include-troubleshooting-unauthorized](includes/include-troubleshooting-unauthorized.md)]
+
 ## Next step
 
 You've successfully created a Microsoft Playwright Testing workspace in the Playwright portal and run your Playwright tests on cloud browsers.
