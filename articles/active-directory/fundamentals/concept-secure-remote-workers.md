@@ -62,7 +62,7 @@ There are many recommendations that Microsoft Entra ID Free, Office 365, or Micr
 
 <a name='guidance-for-azure-ad-premium-plan-1-customers'></a>
 
-## Guidance for Microsoft Entra ID P1 or P2 Plan 1 customers.
+## Guidance for Microsoft Entra ID P1 customers.
 
 The following table is intended to highlight the key actions for the following license subscriptions:
 
