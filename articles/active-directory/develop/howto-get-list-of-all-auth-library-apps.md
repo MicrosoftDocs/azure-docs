@@ -22,7 +22,7 @@ Azure Active Directory Authentication Library (ADAL) has been deprecated. While 
 
 ## Sign-ins workbook
 
-Workbooks are a set of queries that collect and visualize information that is available in Microsoft Entra ID logs. [Learn more about the sign-in logs schema here](../reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md). The Sign-ins workbook in the Azure portal now has a table to assist you in determining which applications use ADAL and how often they are used. First, we’ll detail how to access the workbook before showing the visualization for the list of applications.
+Workbooks are a set of queries that collect and visualize information that is available in Microsoft Entra logs. [Learn more about the sign-in logs schema here](../reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md). The Sign-ins workbook in the Azure portal now has a table to assist you in determining which applications use ADAL and how often they are used. First, we’ll detail how to access the workbook before showing the visualization for the list of applications.
 
 <a name='step-1-send-azure-ad-sign-in-events-to-azure-monitor'></a>
 
