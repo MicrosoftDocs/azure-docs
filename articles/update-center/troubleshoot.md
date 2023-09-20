@@ -40,7 +40,7 @@ To review the logs related to all actions performed by the extension, check for 
 
 Here's the scenario.
 
-### Problem
+### Issue
 
 The Azure machine has the patch orchestration option as `AutomaticByOS/Windows` automatic updates and you're unable to change the patch orchestration to Manual Updates by using **Change update settings**.
 
@@ -54,7 +54,7 @@ If you don't want any patch installation to be orchestrated by Azure or aren't u
 
 Here's the scenario.
 
-### Problem
+### Issue
 
 * You have machines that show as `Not assessed` under **Compliance**, and you see an exception message below them.
 * You see an `HRESULT` error code in the portal.
@@ -67,7 +67,7 @@ The Update Agent (Windows Update Agent on Windows and the package manager for a 
 
 Try to perform updates locally on the machine. If this operation fails, it typically means that there's an Update Agent configuration error.
 
-This problem is frequently caused by network configuration and firewall problems. Use the following checks to correct the problem:
+This issue is frequently caused by network configuration and firewall problems. Use the following checks to correct the issue:
 
 * For Linux, check the appropriate documentation to make sure you can reach the network endpoint of your package repository.
 * For Windows, check your agent configuration as described in [Updates aren't downloading from the intranet endpoint (WSUS/SCCM)](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm).
@@ -106,7 +106,7 @@ To review the logs related to all actions performed by the extension, on Windows
 * `cmd_execution_<numeric>_stdout.txt`: There's a wrapper above the patch action. It's used to manage the extension and invoke specific patch operation. This log contains information about the wrapper. For autopatching, the log has information on whether the specific patch operation was invoked.
 * `cmd_excution_<numeric>_stderr.txt`
 
-## Known problems in schedule patching
+## Known issues in schedule patching
 
 - For concurrent or conflicting schedules, only one schedule is triggered. The other schedule is triggered after a schedule is finished.
 - If a machine is newly created, the schedule might have 15 minutes of schedule trigger delay for Azure VMs.
@@ -116,7 +116,7 @@ To review the logs related to all actions performed by the extension, on Windows
 
 Here's the scenario.
 
-#### Problem
+#### Issue
 
 Patches aren't getting applied for the machines that are in shutdown state. You might also see that machines are losing their associated maintenance configurations or schedules.
 
@@ -132,7 +132,7 @@ Keep your machines turned on at least 15 minutes before the scheduled update. Fo
 
 Here's the scenario.
 
-#### Problem
+#### Issue
 
 When you view an update deployment in **Update History**, the property **Failed with Maintenance window exceeded** shows **true** even though enough time was left for execution. In this case, one of the following problems is possible:
 
