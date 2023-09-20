@@ -232,7 +232,7 @@ Change detection logic is built into the data platforms. How an indexer supports
 
 + Azure Storage has built-in change detection, which means an indexer can recognize new and updated documents automatically. Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. An indexer automatically uses this information to determine which documents to update in the index. For more information about deletion detection, see [Delete detection using indexers for Azure Storage in Azure Cognitive Search](search-howto-index-changed-deleted-blobs.md).
 
-+ Cloud database technologies provide optional change detection features in their platforms. For these data sources, change detection isn't automatic. You need to specify in the data source definition which change detection policy is used:
++ Cloud database technologies provide optional change detection features in their platforms. For these data sources, change detection isn't automatic. You need to specify in the data source definition which policy is used:
 
   + [Azure SQL (change detection)](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#indexing-new-changed-and-deleted-rows)
   + [Azure DB for MySQL (change detection)](search-howto-index-mysql.md#indexing-new-and-changed-rows)
