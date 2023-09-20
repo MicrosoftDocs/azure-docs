@@ -1416,11 +1416,11 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | legacypeerings | No | No | No |
 > | peerasns | No | No | No |
 > | peeringlocations | No | No | No |
-> | peerings | No | No | No |
+> | peerings | **Yes** | **Yes** | No |
 > | peeringservicecountries | No | No | No |
 > | peeringservicelocations | No | No | No |
 > | peeringserviceproviders | No | No | No |
-> | peeringservices | No | No | No |
+> | peeringservices | **Yes** | **Yes** | No |
 
 ## Microsoft.PolicyInsights
 

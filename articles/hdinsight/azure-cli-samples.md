@@ -3,7 +3,7 @@ title: 'Azure HDInsight: Azure CLI samples'
 description: Azure CLI examples for common tasks in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 09/23/2019 
+ms.date: 09/19/2023
 ms.custom: devx-track-azurecli
 ---
 
@@ -20,7 +20,7 @@ This article provides sample scripts for common tasks. For each example, update 
 
 * Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli) for steps.
 
-* Optional: Bash. The examples in this article use the Bash shell on Windows 10. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  The examples will work from a Windows Command prompt with some slight modifications.
+* Optional: Bash. The examples in this article use the Bash shell on Windows 10. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  The examples work from a Windows Command prompt with some slight modifications.
 
 ## az login
 
