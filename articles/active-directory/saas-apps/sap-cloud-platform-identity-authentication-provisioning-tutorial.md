@@ -63,7 +63,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 1.  You'll get an email to activate your account and set up a password for the **SAP Cloud Identity Services Service**.
 
 1. Copy the **User ID** and **Password**. These values are entered in the Admin Username and Admin Password fields respectively.
-This is done in the Provisioning tab of your SAP Cloud Identity Services application in the Azure portal.
+This is done in the Provisioning tab of your SAP Cloud Identity Services application.
 
 ## Add SAP Cloud Identity Services from the gallery
 
@@ -83,8 +83,8 @@ Before configuring SAP Cloud Identity Services for automatic user provisioning w
 
 	![Screenshot of the New application button.](common/add-new-app.png)
 
-1. In the search box, enter **SAP Cloud Identity Services**, select **SAP Cloud Identity Services** in the results panel, and then click the **Add** button to add the application.
-
+1. In the search box, enter **SAP Cloud Identity Services**, select **SAP Cloud Identity Services** in the search box.
+1. Select **SAP Cloud Identity Services** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 	![Screenshot of the SAP Cloud Identity Services in the results list.](common/search-new-app.png)
 
 ## Configuring automatic user provisioning to SAP Cloud Identity Services 
@@ -96,7 +96,8 @@ This section guides you through the steps to configure the Microsoft Entra ID pr
 
 ### To configure automatic user provisioning for SAP Cloud Identity Services in Microsoft Entra ID:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 

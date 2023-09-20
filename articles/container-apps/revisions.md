@@ -64,7 +64,6 @@ Running status values include:
 |---|---|
 | Running | The revision is running. There are no issues to report. |
 | Unhealthy | The revision isn't operating properly. Use the revision state details for details. Common issues include:<br>• Container crashes<br>• Resource quota exceeded<br>• Image access issues, including [_ImagePullBackOff_ errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster) |
-| Failed | The revision isn't operating properly. Use the *revision state details* for more information. Common issues include:<br>• Container crashes<br>• Resource quota exceeded<br>• Image access issues, including [_ImagePullBackOff_ errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster) |
 | Failed | Critical errors caused revisions to fail. The _running state_ provides details. Common causes include:<br>• Termination<br>• Exit code `137` |
 
 Use running state details to learn more about the current status.

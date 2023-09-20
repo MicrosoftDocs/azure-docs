@@ -20,7 +20,7 @@ In this article, you learn how to integrate Vera Suite with Azure Active Directo
 
 * Control in Azure AD who has access to Vera Suite.
 * Enable your users to be automatically signed-in to Vera Suite with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You configure and test Azure AD single sign-on for Vera Suite in a test environment. Vera Suite supports **SP** initiated single sign-on and **Just In Time** user provisioning.
 
@@ -46,15 +46,16 @@ Add Vera Suite from the Azure AD application gallery to configure single sign-on
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
-1. In the Azure portal, on the **Vera Suite** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Vera Suite** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 
 1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
@@ -75,11 +76,11 @@ In this section, a user called B.Simon is created in Vera Suite. Vera Suite supp
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Vera Suite Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Vera Suite Sign-on URL where you can initiate the login flow. 
 
 * Go to Vera Suite Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Vera Suite tile in the My Apps, this will redirect to Vera Suite Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Vera Suite tile in the My Apps, this will redirect to Vera Suite Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Additional resources
 

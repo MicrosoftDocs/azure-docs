@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN Preview volume from a 
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 07/11/2023
+ms.date: 09/12/2023
 ms.author: rogarana
 ms.custom: references_regions, ignite-2022, devx-track-linux
 ---
@@ -71,6 +71,10 @@ Before you can connect to a volume, you'll need to get **StorageTargetIQN**, **S
 Run the following command to get these values:
 
 ```azurecli
+# Connect to Azure
+az login
+
+# Get volume information
 az elastic-san volume show -e yourSanName -g yourResourceGroup -v yourVolumeGroupName -n yourVolumeName
 ```
 

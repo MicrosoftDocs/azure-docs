@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -17,7 +17,7 @@ ms.reviewer: ashishj
 
 Customers utilize Azure AD's Application Proxy for more scenarios and applications. So we've made App Proxy even more flexible by enabling more topologies. You can create Application Proxy connector groups so that you can assign specific connectors to serve specific applications. This capability gives you more control and ways to optimize your Application Proxy deployment.
 
-Each Application Proxy connector is assigned to a connector group. All the connectors that belong to the same connector group act as a separate unit for high-availability and load balancing. All connectors belong to a connector group. If you don't create groups, then all your connectors are in a default group. Your admin can create new groups and assign connectors to them in the Azure portal.
+Each Application Proxy connector is assigned to a connector group. All the connectors that belong to the same connector group act as a separate unit for high-availability and load balancing. All connectors belong to a connector group. If you don't create groups, then all your connectors are in a default group. Your admin can create new groups and assign connectors to them in the Microsoft Entra admin center.
 
 All applications are assigned to a connector group. If you don't create groups, then all your applications are assigned to a default group. But if you organize your connectors into groups, you can set each application to work with a specific connector group. In this case, only the connectors in that group serve the application upon request. This feature is useful if your applications are hosted in different locations. You can create connector groups based on location, so that applications are always served by connectors that are physically close to them.
 
@@ -31,9 +31,8 @@ To group your connectors, you have to make sure you [installed multiple connecto
 ## Create connector groups
 
 Use these steps to create as many connector groups as you want.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select **Azure Active Directory** > **Enterprise applications** > **Application proxy**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.
 1. Select **New connector group**. The New Connector Group blade appears.
 
    ![Shows the screen to select a new connector group](./media/application-proxy-connector-groups/new-group.png)

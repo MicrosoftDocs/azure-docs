@@ -164,7 +164,7 @@ Some of these are global settings so can be re-used for publishing more applicat
 
 4. Before you select **Next**, confirm the BIG-IP can successfully connect to your tenant.
 
-   ![ Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-oracle-ebs/configuration-general-and-service-account-properties.png)
+   ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-oracle-ebs/configuration-general-and-service-account-properties.png)
 
 ### Service Provider
 
@@ -323,7 +323,7 @@ The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorizati
 * **Header Name:** USER_ORCLGUID
 * **Header Value:** %{session.ldap.last.attr.orclguid}
 
-   ![ Screenshot for SSO and HTTP headers](./media/f5-big-ip-oracle-ebs/sso-and-http-headers.png)
+   ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-oracle-ebs/sso-and-http-headers.png)
 
 >[!NOTE] 
 >APM session variables defined within curly brackets are CASE sensitive. For example, if you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure
