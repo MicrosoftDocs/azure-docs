@@ -63,7 +63,7 @@ In most cases you might only need the commandOutput or the exitCode. Here is an 
 
 ## How to run an `sstable` command
 
-The `sstable` commands require read/write access to the cassandra data directory and the cassandra database to be stopped. To accommodate this, two extra parameters `--cassandra-stop-start true` and  `--readwrite true` need to be given:
+The `sstable` commands require read/write access to the Cassandra data directory and the Cassandra database to be stopped. To accommodate this, two extra parameters `--cassandra-stop-start true` and  `--readwrite true` need to be given:
 
 ```azurecli-interactive
     az managed-cassandra cluster invoke-command  --resource-group  <test-rg>   --cluster-name <test-cluster> --host <ip> --cassandra-stop-start true --readwrite true  --command-name sstableutil --arguments "system"="peers"
@@ -77,11 +77,11 @@ The `sstable` commands require read/write access to the cassandra data directory
     }
 ```
 ## How to run other commands
-The `cassandra-reset-password` command lets a user change their password for the cassandra user.
+The `cassandra-reset-password` command lets a user change their password for the Cassandra user.
 ```azurecli-interactive
     az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name cassandra-reset-password --arguments password="<password>"
 ```
-The `cassandra-reset-auth-replication` command lets a user change their schema for the cassandra user. Seperate the datacenter names by space.
+The `cassandra-reset-auth-replication` command lets a user change their schema for the Cassandra user. Separate the datacenter names by space.
 ```azurecli-interactive
     az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name cassandra-reset-auth-replication --arguments password="<datacenters>"
 ```
