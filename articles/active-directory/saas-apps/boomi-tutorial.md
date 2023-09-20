@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Boomi with Azure Active Director
 
 * Control in Azure AD who has access to Boomi.
 * Enable your users to be automatically signed-in to Boomi with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ To configure and test Azure AD SSO with Boomi, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Boomi** > **Single sign-on**.
@@ -107,7 +107,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -121,7 +121,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Boomi.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Boomi.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Boomi**.
@@ -149,9 +149,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	e. For **SAML Authentication Context**, select the **Password Protected Transport** radio button.
 
-	f. Copy the **AtomSphere Sign In URL**, paste this value into the **Sign on URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+	f. Copy the **AtomSphere Sign In URL**, paste this value into the **Sign on URL** text box in the **Basic SAML Configuration** section.
 
-	g. Copy the **AtomSphere MetaData URL**, go to the **MetaData URL** via the browser of your choice, and save the output to a file. Upload the **MetaData URL** in the **Basic SAML Configuration** section in the Azure portal.
+	g. Copy the **AtomSphere MetaData URL**, go to the **MetaData URL** via the browser of your choice, and save the output to a file. Upload the **MetaData URL** in the **Basic SAML Configuration** section.
 
 	h. Click **Save** button.
 
@@ -188,7 +188,7 @@ In order to enable Azure AD users to sign in to Boomi, they must be provisioned 
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the Boomi for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the Boomi for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the Boomi tile in the My Apps, you should be automatically signed in to the Boomi for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

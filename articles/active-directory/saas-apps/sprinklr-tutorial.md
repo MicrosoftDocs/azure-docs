@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate Sprinklr with Azure Active Direc
 
 * Control in Azure AD who has access to Sprinklr.
 * Enable your users to be automatically signed-in to Sprinklr with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ To configure and test Azure AD SSO with Sprinklr, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Sprinklr** > **Single sign-on**.
@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.sprinklr.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Sprinklr Client support team](https://www.sprinklr.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Sprinklr Client support team](https://www.sprinklr.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -103,7 +103,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Sprinklr.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Sprinklr.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Sprinklr**.
@@ -141,11 +141,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     1. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity Provider Certificate** textbox.
 
-    1. Paste the **Azure AD Identifier** value which you have copied from Azure portal into the **Entity Id** textbox.
+    1. Paste the **Azure AD Identifier** value which you have into the **Entity Id** textbox.
 
-    1. Paste the **Login URL** value which you have copied from Azure portal into the **Identity Provider Login URL** textbox.
+    1. Paste the **Login URL** value which you have into the **Identity Provider Login URL** textbox.
 
-    1. Paste the **Logout URL** value which you have copied from Azure portal into the **Identity Provider Logout URL** textbox.
+    1. Paste the **Logout URL** value which you have into the **Identity Provider Logout URL** textbox.
 
     1. As **SAML User ID Type**, select **Assertion contains User’s sprinklr.com username**.
 
@@ -203,7 +203,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Sprinklr Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Sprinklr Sign-on URL where you can initiate the login flow. 
 
 * Go to Sprinklr Sign-on URL directly and initiate the login flow from there.
 

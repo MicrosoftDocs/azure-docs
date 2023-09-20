@@ -46,9 +46,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure GoLinks to support provisioning with Azure AD
 
-1. The Tenant URL is `https://api.golinks.io/scim/v2`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your GoLinks application in the Azure portal.
+1. The Tenant URL is `https://api.golinks.io/scim/v2`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your GoLinks application.
 
-2. For the **Secret Token**, reach out to the GoLinks Support team at support@golinks.io or your Customer Success Manager. This value will be entered in the **Secret Token** field in the Provisioning tab of your GoLinks application in the Azure portal.
+2. For the **Secret Token**, reach out to the GoLinks Support team at support@golinks.io or your Customer Success Manager. This value will be entered in the **Secret Token** field in the Provisioning tab of your GoLinks application.
 
 
 ## Step 3. Add GoLinks from the Azure AD application gallery

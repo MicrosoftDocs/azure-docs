@@ -51,7 +51,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 3. On the next page, provide your **Azure AD tenant ID** and allow list to configure OIDC.
 
-4. Under SCIM Details, copy and save your SCIM **Tenant URL** and **Secret Token**. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Smallstep SSH application in the Azure portal.
+4. Under SCIM Details, copy and save your SCIM **Tenant URL** and **Secret Token**. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Smallstep SSH application.
 
 >Note! 
 >You would need to grant access to your Smallstep managed hosts via Active Directory Groups. For example, you might have a group for your ssh users and one for your sudo users. Learn more about access control in [Azure AD Quickstart](https://smallstep.com/docs/ssh/azure-ad) and [Host Quickstart Guide](https://smallstep.com/docs/ssh/hosts).

@@ -49,7 +49,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Log in to [Lucid Admin Console](https://lucid.app/). Navigate to **Admin**.
 1. Click **App integration** in the left-hand menu.
 1. Select the **SCIM** tile.
-1. Click **Generate Token**. Lucid will populate the **Bearer Token** text field with a unique code for you to share with Azure.Copy and save the **Bearer token**. This value will be entered in the **Secret Token** * field in the Provisioning tab of your Lucid(All Products) application in the Azure portal.
+1. Click **Generate Token**. Lucid will populate the **Bearer Token** text field with a unique code for you to share with Azure.Copy and save the **Bearer token**. This value will be entered in the **Secret Token** * field in the Provisioning tab of your Lucid(All Products) application.
 
 	![Screenshot of token generation.](media/lucid-all-products-provisioning-tutorial/generate-token.png)
 

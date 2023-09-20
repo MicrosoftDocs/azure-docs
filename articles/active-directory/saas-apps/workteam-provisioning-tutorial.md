@@ -54,7 +54,7 @@ Before configuring Workteam  for automatic user provisioning with Azure AD, you 
 
 	![Screenshot of the bottom of the SETTINGS section with the S C I M User Provisioning gear icon called out.](media/workteam-provisioning-tutorial/icon.png)
 
-3. Copy the **Base Url** and **Bearer Token**. These values will be entered in the **Tenant URL**and **Secret Token** field in the Provisioning tab of your Workteam application in the Azure portal.
+3. Copy the **Base Url** and **Bearer Token**. These values will be entered in the **Tenant URL**and **Secret Token** field in the Provisioning tab of your Workteam application.
 
 	![Screenshot of the S C I M Settings dialog box with the BASE U R L and BEARER TOKEN text boxes called out.](media/workteam-provisioning-tutorial/scim.png)
 

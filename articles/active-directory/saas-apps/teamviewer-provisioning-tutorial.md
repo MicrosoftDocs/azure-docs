@@ -53,7 +53,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
  	![TeamViewer Token Name](./media/teamviewer-provisioning-tutorial/tokenname.png)
 
-4. Copy the **Token** and click **OK**. This value will be entered in the **Secret Token** field of your TeamViewer application in the Azure portal.
+4. Copy the **Token** and click **OK**. This value will be entered in the **Secret Token** field of your TeamViewer application.
 
  	![TeamViewer Token](./media/teamviewer-provisioning-tutorial/token.png)
 

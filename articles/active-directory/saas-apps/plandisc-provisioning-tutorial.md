@@ -47,9 +47,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 	![Plandisc navigate Enterprise](media/plandisc-provisioning-tutorial/get-scim-token-from-plandisc-step-1.png)
 
 1. Scroll down to see section **Manage users with SCIM** section.
-Here you'll find values to be entered in the Provisioning tab of your Plandisc application in the Azure portal. 
-The **SCIM endpoint** is inserted into the Tenant URL field in the Azure portal.
-The **SCIM token** is inserted into the Secret Token field in the Azure portal.
+Here you'll find values to be entered in the Provisioning tab of your Plandisc application. 
+The **SCIM endpoint** is inserted into the Tenant URL field.
+The **SCIM token** is inserted into the Secret Token field.
 
 	![Copy SCIM token from Plandisc](media/plandisc-provisioning-tutorial/get-scim-token-from-plandisc-step-2.png)
 

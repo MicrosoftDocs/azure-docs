@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Appraisd with Azure Active Direc
 
 * Control in Azure AD who has access to Appraisd.
 * Enable your users to be automatically signed-in to Appraisd with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ To configure and test Azure AD SSO with Appraisd, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Appraisd** application integration page, find the **Manage** section and select **Single sign-on**.
@@ -95,15 +95,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B. Simon.
+In this section, you'll create a test user called B. Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B. Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B. Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
@@ -144,11 +146,11 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 
 	![Screenshot shows Identifying users where you can enter values from this step.](./media/appraisd-tutorial/identifying-users.png)
 
-	a. In the **Identity Provider Single Sign-On URL** textbox, paste the value of **Login URL**, which you have copied from the Azure portal and click **Save**.
+	a. In the **Identity Provider Single Sign-On URL** textbox, paste the value of **Login URL**, which you have copied and click **Save**.
 
-	b. In the **Identity Provider Issuer URL** textbox, paste the value of **Azure AD Identifier**, which you have copied from the Azure portal and click **Save**.
+	b. In the **Identity Provider Issuer URL** textbox, paste the value of **Azure AD Identifier**, which you have copied and click **Save**.
 
-	c. In Notepad, open the base-64 encoded certificate that you downloaded from the Azure portal, copy its content, and then paste it into the **X.509 Certificate** box and click **Save**.
+	c. In Notepad, open the base-64 encoded certificate that you downloaded, copy its content, and then paste it into the **X.509 Certificate** box and click **Save**.
 
 ### Create Appraisd test user
 
@@ -184,13 +186,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Appraisd Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Appraisd Sign on URL where you can initiate the login flow.  
 
 * Go to Appraisd Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Appraisd for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the Appraisd for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Appraisd tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Appraisd for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
