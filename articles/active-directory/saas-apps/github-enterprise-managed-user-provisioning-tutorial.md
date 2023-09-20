@@ -53,7 +53,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure GitHub Enterprise Managed User to support provisioning with Azure AD
 
-1. The Tenant URL is `https://api.github.com/scim/v2/enterprises/{enterprise}`. This value will be entered in the Tenant URL field in the Provisioning tab of your GitHub Enterprise Managed User application in the Azure portal.
+1. The Tenant URL is `https://api.github.com/scim/v2/enterprises/{enterprise}`. This value will be entered in the Tenant URL field in the Provisioning tab of your GitHub Enterprise Managed User application.
 
 2. As a GitHub Enterprise Managed administrator navigate to the upper-right corner -> click your profile photo -> then click **Settings**.
 
@@ -67,7 +67,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 7. Click **Generate Token**.
 
-8. Copy and save the **secret token**. This value will be entered in the Secret Token field in the Provisioning tab of your GitHub Enterprise Managed User application in the Azure portal.
+8. Copy and save the **secret token**. This value will be entered in the Secret Token field in the Provisioning tab of your GitHub Enterprise Managed User application.
 
 ## Step 3. Add GitHub Enterprise Managed User from the Azure AD application gallery
 

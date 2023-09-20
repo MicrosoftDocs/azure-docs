@@ -49,7 +49,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
  
 	![Preciate generate](media/preciate-provisioning-tutorial/preciate-secret-generate.png)
 
-3.  A new **Secret Key** will appear. Copy and save the **Secret Key**. Also make a note that Tenant URL is `https://preciate.com/api/v1/scim`. These values will be entered in the **Secret Token** and **Tenant URL** field in the Provisioning tab of your Preciate's application in the Azure portal.
+3.  A new **Secret Key** will appear. Copy and save the **Secret Key**. Also make a note that Tenant URL is `https://preciate.com/api/v1/scim`. These values will be entered in the **Secret Token** and **Tenant URL** field in the Provisioning tab of your Preciate's application.
  
 > [!NOTE]
 >Every time you click the Generate button a new secret key is created. This will immediately invalidate the current one. If an integration is already actively using the current key, generating the new one will cause the integration to stop functioning until the Secret Token is updated in Preciate's application in the Azure porta.

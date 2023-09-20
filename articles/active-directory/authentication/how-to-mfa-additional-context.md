@@ -9,7 +9,7 @@ ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
 
-# Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
+# Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Microsoft Entra ID to improve and secure user sign-in events.
 ---
 # How to use additional context in Microsoft Authenticator notifications - Authentication methods policy
 
@@ -73,7 +73,7 @@ https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMetho
 | Property | Type | Description |
 |----------|------|-------------|
 | authenticationMode | String | Possible values are:<br>**any**: Both passwordless phone sign-in and traditional second factor notifications are allowed.<br>**deviceBasedPush**: Only passwordless phone sign-in notifications are allowed.<br>**push**: Only traditional second factor push notifications are allowed. |
-| id | String | Object ID of an Azure AD user or group. |
+| id | String | Object ID of a Microsoft Entra user or group. |
 | targetType | authenticationMethodTargetType | Possible values are: **user**, **group**.|
 
 #### MicrosoftAuthenticator featureSettings properties
@@ -94,7 +94,7 @@ https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMetho
 |----------|------|-------------|
 | excludeTarget | featureTarget | A single entity that is excluded from this feature. <br>You can only exclude one group for each feature.|
 | includeTarget | featureTarget | A single entity that is included in this feature. <br>You can only include one group for each feature.|
-| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
+| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Microsoft Entra ID to manage whether the feature is enabled or not for the selected group. |
 
 #### Feature target properties
 
@@ -438,5 +438,4 @@ Additional context isn't supported for Network Policy Server (NPS) or Active Dir
 
 ## Next steps
 
-[Authentication methods in Azure Active Directory - Microsoft Authenticator app](concept-authentication-authenticator-app.md)
-
+[Authentication methods in Microsoft Entra ID - Microsoft Authenticator app](concept-authentication-authenticator-app.md)

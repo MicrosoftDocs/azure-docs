@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 3. Determine what data to [map between Azure AD and Boxcryptor](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure Boxcryptor to support provisioning with Azure AD
-To configure provisioning on Boxcryptor, reach out to your Boxcryptor account manager or the [Boxcryptor support team](mailto:support@boxcryptor.com) who will enable provisioning on Boxcryptor and reach out to you with your Boxcryptor Tenant URL and Secret Token. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Boxcryptor application in the Azure portal.
+To configure provisioning on Boxcryptor, reach out to your Boxcryptor account manager or the [Boxcryptor support team](mailto:support@boxcryptor.com) who will enable provisioning on Boxcryptor and reach out to you with your Boxcryptor Tenant URL and Secret Token. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Boxcryptor application.
 
 ## Step 3. Add Boxcryptor from the Azure AD application gallery
 

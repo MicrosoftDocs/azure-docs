@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate AppNeta Performance Manager with
 
 - Control in Azure AD who has access to AppNeta Performance Manager.
 - Enable your users to be automatically signed-in to AppNeta Performance Manager with their Azure AD accounts.
-- Manage your accounts in one central location - the Azure portal.
+- Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ To configure and test Azure AD SSO with AppNeta Performance Manager, perform the
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **AppNeta Performance Manager** > **Single sign-on**.
@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
 
    > [!NOTE]
-   > The Sign-on URL value above is an example. Update this value with the actual Sign-On URL. Contact [AppNeta Performance Manager customer support team](mailto:support@appneta.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+   > The Sign-on URL value above is an example. Update this value with the actual Sign-On URL. Contact [AppNeta Performance Manager customer support team](mailto:support@appneta.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. AppNeta Performance Manager application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes:
 
@@ -101,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    | title     | user.jobtitle          |
    |           |                        |
 
-1. In order to properly pass along your ”groups” SAML assertions, you need to configure App roles and set the value to match the role mappings that are set within AppNeta Performance Manager. Under **Azure Active Directory** > **App registrations** >  **All applications**, select **Appneta Performance Manager**.
+1. In order to properly pass along your ”groups” SAML assertions, you need to configure App roles and set the value to match the role mappings that are set within AppNeta Performance Manager. Under **Identity** > **Applications** > **App registrations**, select **Appneta Performance Manager**.
 
    ![Screenshot that shows the App Registrations with Appneta Performance Manager at the bottom.](./media/appneta-tutorial/app-registrations.png)
 
@@ -119,16 +119,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Screenshot of the Create App Role dialog with the fields filled out as described.](./media/appneta-tutorial/create-app-role.png)
 
-1. After creating the roles, you need to map them to your users/groups. Navigate to **Azure Active Directory** > **Enterprise Applications** > **Appneta Performance Manger** > **Users and groups**.
+1. After creating the roles, you need to map them to your users/groups. Browse to **Identity** > **Applications** > **Enterprise applications** > **Appneta Performance Manger** > **Users and groups**.
 1. Select a user/group and then assign your desired App role (created in the previous step).
-1. Once you have mapped the App roles, navigate to **Azure Active Directory** > **Enterprise Applications** > **Appneta Performance Manager** > **Single sign-on**.
+1. Once you have mapped the App roles, browse to **Identity** > **Applications** > **Enterprise applications** > **Appneta Performance Manager** > **Single sign-on**.
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
    ![The Certificate download link](common/metadataxml.png)
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -142,7 +142,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to AppNeta Performance Manager.
+In this section, you'll enable B.Simon to use single sign-on by granting access to AppNeta Performance Manager.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **AppNeta Performance Manager**.

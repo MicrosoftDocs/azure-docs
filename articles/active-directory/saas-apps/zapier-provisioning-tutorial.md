@@ -49,7 +49,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
     ![Zapier Add SCIM](media/zapier-provisioning-tutorial/user.png)
 
-3. Copy the **SCIM Base URL** and **SCIM Bearer Token**. These values will be entered in the Tenant URL and Secret Token fields respectively in the Provisioning tab of your Zapier application in the Azure portal.
+3. Copy the **SCIM Base URL** and **SCIM Bearer Token**. These values will be entered in the Tenant URL and Secret Token fields respectively in the Provisioning tab of your Zapier application.
 
     ![Zapier Create Token](media/zapier-provisioning-tutorial/token.png)
 

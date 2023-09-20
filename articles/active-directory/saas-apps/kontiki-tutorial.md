@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate Kontiki with Azure Active Direct
 
 * Control in Azure AD who has access to Kontiki.
 * Enable your users to be automatically signed-in to Kontiki with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ To configure and test Azure AD SSO with Kontiki, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Kontiki** > **Single sign-on**.
@@ -80,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	`https://<companyname>.mc.eval.kontiki.com`
 
    	> [!NOTE]
-	> Contact the [Kontiki Client support team](https://kollective.com/support/) to get the correct value to use. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> Contact the [Kontiki Client support team](https://kollective.com/support/) to get the correct value to use. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. In the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, select **Download** next to **Federation Metadata XML**. Select a download option based on your requirements. Save the certificate on your computer.
 
@@ -92,7 +92,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user 
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -106,7 +106,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Kontiki.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Kontiki.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Kontiki**.
@@ -118,7 +118,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Kontiki SSO
 
-To configure single sign-on on the Kontiki side, send the downloaded Federation Metadata XML file and the relevant URLs that you copied from the Azure portal to the [Kontiki support team](https://kollective.com/support/). The Kontiki support team uses the information you send them to ensure that the SAML single sign-on connection is set properly on both sides.
+To configure single sign-on on the Kontiki side, send the downloaded Federation Metadata XML file and the relevant URLs that you copied to the [Kontiki support team](https://kollective.com/support/). The Kontiki support team uses the information you send them to ensure that the SAML single sign-on connection is set properly on both sides.
 
 ### Create Kontiki test user
 
@@ -128,7 +128,7 @@ There's no action item for you to configure user provisioning in Kontiki. When a
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Kontiki Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Kontiki Sign-on URL where you can initiate the login flow. 
 
 * Go to Kontiki Sign-on URL directly and initiate the login flow from there.
 

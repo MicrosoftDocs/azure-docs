@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate Leadfamly with Azure Active Dire
 
 * Control in Azure AD who has access to Leadfamly.
 * Enable your users to be automatically signed-in to Leadfamly with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ To configure and test Azure AD SSO with Leadfamly, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Leadfamly** > **Single sign-on**.
@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://appv2.leadfamly.com/saml-sso/<INSTANCE ID>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL. Contact [Leadfamly Client support team](mailto:support@leadfamly.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL. Contact [Leadfamly Client support team](mailto:support@leadfamly.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -105,7 +105,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Leadfamly.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Leadfamly.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Leadfamly**.
@@ -127,13 +127,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ![Information](./media/leadfamly-tutorial/account.png "Information") 
 
-  a. Copy **Identifier** value, paste this value into the **Identifier** URL text box in the **Basic SAML Configuration** section in the Azure portal.
+  a. Copy **Identifier** value, paste this value into the **Identifier** URL text box in the **Basic SAML Configuration** section.
 
-  b. Copy **Reply URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+  b. Copy **Reply URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section.
 
-  c. Copy **Sign on URL** value, paste this value into the **Sign on URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+  c. Copy **Sign on URL** value, paste this value into the **Sign on URL** text box in the **Basic SAML Configuration** section.
 
-  d. Open the downloaded **Federation Metadata XML** file from the Azure portal into Notepad and upload the content into **Federation Metadata XML**.
+  d. Open the downloaded **Federation Metadata XML** file into Notepad and upload the content into **Federation Metadata XML**.
 
   e.Click **Save**.
 
@@ -153,7 +153,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Leadfamly Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Leadfamly Sign-on URL where you can initiate the login flow. 
 
 * Go to Leadfamly Sign-on URL directly and initiate the login flow from there.
 

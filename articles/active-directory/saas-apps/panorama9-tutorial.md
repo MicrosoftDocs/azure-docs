@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate Panorama9 with Azure Active Dire
 
 * Control in Azure AD who has access to Panorama9.
 * Enable your users to be automatically signed-in to Panorama9 with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ To configure and test Azure AD SSO with Panorama9, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Panorama9** > **Single sign-on**.
@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://www.panorama9.com/saml20/<TENANT_NAME>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Panorama9 Client support team](https://support.panorama9.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Panorama9 Client support team](https://support.panorama9.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 5. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user 
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -107,7 +107,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Panorama9.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Panorama9.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Panorama9**.
@@ -129,9 +129,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
    
 	a. Enable the Single Sign-On.
     
-    b. In **Identity URL** textbox, paste the value of **Identifier(Entity ID)**, which you have copied from Azure portal.
+    b. In **Identity URL** textbox, paste the value of **Identifier(Entity ID)**.
    
-	c. In **Certificate fingerprint** textbox, paste the **Thumbprint** value of certificate, which you have copied from Azure portal.    
+	c. In **Certificate fingerprint** textbox, paste the **Thumbprint** value of certificate.    
          
 5. Click **Save Changes**.
 
@@ -155,7 +155,7 @@ In the case of Panorama9, provisioning is a manual task.
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Panorama9 Sign on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Panorama9 Sign on URL where you can initiate the login flow. 
 
 * Go to Panorama9 Sign on URL directly and initiate the login flow from there.
 

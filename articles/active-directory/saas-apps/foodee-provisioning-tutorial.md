@@ -56,7 +56,7 @@ Before you configure Foodee for automatic user provisioning by using Azure AD, y
 
 	![The Foodee Enterprise Portal left-pane menu](media/Foodee-provisioning-tutorial/scim.png)
 
-1. Copy the value in the **API Token** box for later use. You'll enter it in the **Secret Token** box in the **Provisioning** tab of your Foodee application in the Azure portal.
+1. Copy the value in the **API Token** box for later use. You'll enter it in the **Secret Token** box in the **Provisioning** tab of your Foodee application.
 
 	:::image type="content" source="media/Foodee-provisioning-tutorial/token.png" alt-text="Screenshot of a page in the Foodee enterprise portal. An A P I token value is highlighted." border="false":::
 
@@ -66,11 +66,8 @@ To configure Foodee for automatic user provisioning by using Azure AD, you need 
 
 To add Foodee from the Azure AD application gallery, do the following:
 
-1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**.
-
-	![The Azure Active Directory command](common/select-azuread.png)
-
-1. Select **Enterprise applications** > **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 	![The Enterprise applications pane](common/enterprise-applications.png)
 
@@ -91,7 +88,8 @@ In this section, you configure the Azure AD provisioning service to create, upda
 
 Configure automatic user provisioning for Foodee in Azure AD by doing the following:
 
-1. In the [Azure portal](https://portal.azure.com), select **Enterprise Applications** > **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 	![Enterprise applications pane](common/enterprise-applications.png)
 

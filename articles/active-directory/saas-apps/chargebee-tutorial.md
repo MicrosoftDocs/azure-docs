@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Chargebee with Azure Active Dire
 
 * Control in Azure AD who has access to Chargebee.
 * Enable your users to be automatically signed-in to Chargebee with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ To configure and test Azure AD SSO with Chargebee, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Chargebee** application integration page, find the **Manage** section and select **Single sign-on**.
@@ -83,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<domainname>.chargebee.com`
 
 	> [!NOTE]
-	> `<domainname>` is the name of the domain that the user creates after claiming the account. In case of any other information, contact [Chargebee Client support team](mailto:support@chargebee.com). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> `<domainname>` is the name of the domain that the user creates after claiming the account. In case of any other information, contact [Chargebee Client support team](mailto:support@chargebee.com). You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -95,7 +95,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -109,7 +109,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Chargebee.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Chargebee.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Chargebee**.
@@ -133,7 +133,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. Select **SAML**.
 
-	b. In the **Login URL** text box, Paste the **Login URL** value, which you have copied from the Azure portal.
+	b. In the **Login URL** text box, Paste the **Login URL** value, which you copied previously.
 
 	c. Open the Base64 encoded certificate in notepad, copy its content and paste it into the **SAML Certificate** text box.
 
@@ -161,13 +161,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Chargebee Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Chargebee Sign on URL where you can initiate the login flow.  
 
 * Go to Chargebee Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Chargebee for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the Chargebee for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Chargebee tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Chargebee for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
