@@ -29,9 +29,9 @@ Spring Boot registers several metrics, such as JVM. The following example uses `
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. On the left navigation menu, select **Application Insights** to go to the Application Insights overview page.
+1. On the navigation menu, select **Application Insights** to go to the Application Insights overview page.
 
-1. On the left navigation menu, select **Metrics**, select the edit icon in the chart title, and then rename the chart title to `JVM Memory Used`.
+1. On the navigation menu, select **Metrics**, select the edit icon in the chart title, and then rename the chart title to `JVM Memory Used`.
 
 1. Select **Add metric**. For **Metric**, select the corresponding dropdown list to choose the **jvm_memory_used** metric under the **Log-based metrics** namespace, and then select `Avg` for **Avg**.
 
@@ -61,7 +61,7 @@ To check the liveness for each app on Azure Spring Apps, use the following steps
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. On the left navigation menu, select **Application Insights** to go to the Application Insights overview page.
+1. On the navigation menu, select **Application Insights** to go to the Application Insights overview page.
 
 1. Select **Availability**, and then select **Add Standard test** to add a test.
 
@@ -114,7 +114,7 @@ Use the following steps to pin the various charts to the dashboard.
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. On the left navigation menu, select **Metrics**, select the edit icon in the chart title, and then rename the chart title to `App CPU Usage`.
+1. On the navigation menu, select **Metrics**, select the edit icon in the chart title, and then rename the chart title to `App CPU Usage`.
 
 1. Select **Add metric**. For **Metric**, select the corresponding dropdown list to choose the **App CPU Usage** metric, and then select `Avg` for **Aggregation**.
 
@@ -149,9 +149,9 @@ For the **App Network In** metric, perform the following steps:
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. On the left navigation menu, select **Application Insights** to go to the Application Insights overview page.
+1. On the navigation menu, select **Application Insights** to go to the Application Insights overview page.
 
-1. On the left navigation menu, select **Metrics**, select the edit icon in the chart title, and then rename the chart title to `Availability`.
+1. On the navigation menu, select **Metrics**, select the edit icon in the chart title, and then rename the chart title to `Availability`.
 
 1. Select **Add metric**. 
 
@@ -207,9 +207,9 @@ To pin the common blades of Azure portal to the dashboard, use the following ste
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. On the left navigation menu, select **Application Insights** to go to the Application Insights overview page.
+1. On the navigation menu, select **Application Insights** to go to the Application Insights overview page.
 
-1. On the left navigation menu, select **Application map**, and select the **Pin blade to dashboard** icon in each page header.
+1. On the navigation menu, select **Application map**, and select the **Pin blade to dashboard** icon in each page header.
 
 1. On the **Pin to dashboard** page, select the dashboard you created, and then select **Pin** to pin the quickstart chart to the dashboard.
 
@@ -233,7 +233,7 @@ To set up an action group, use the following steps:
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. On the left navigation menu, select **Alert**, select **Action groups** to go to the action groups list page, and then select **Create** to create an action group.
+1. On the navigation menu, select **Alert**, select **Action groups** to go to the action groups list page, and then select **Create** to create an action group.
 
 1. On the **Create action group** page, select the subscription and resource group you want to cover. Enter the following information:
 
@@ -253,7 +253,7 @@ To set up an alert rule, use the following steps:
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. On the left navigation menu, select **Alert**, select **Alert rules** to go to the Alert rules list page, and then select **Create** to create an alert rule.
+1. On the navigation menu, select **Alert**, select **Alert rules** to go to the Alert rules list page, and then select **Create** to create an alert rule.
 
 1. On the **Create an alert rule** page, for **signal name**, select the dropdown list, and then select **See all signals**. 
 
@@ -269,24 +269,24 @@ To set up an alert rule, use the following steps:
 
 1. Select **Review and Create** to review your selections. Select **Create** to create the alert rule.
 
-1. To create an alert rule for `App Memory Usage` metric signal, use the following inputs:
+1. To create an alert rule for **App Memory Usage** metric signal, use the following inputs:
 
-   - **Signal name**: `App Memory Usage`
-   - **Threshold value**: `90`
-   - **Dimension name**: `App`
+   - **Signal name**: *App Memory Usage*
+   - **Threshold value**: *90*
+   - **Dimension name**: *App*
    - **Dimension values**: Select all
-   - **Action group name**: `email-notification`
-   - **Alert rule name**: `app-memory-high-alert`
+   - **Action group name**: *email-notification*
+   - **Alert rule name**: *app-memory-high-alert*
 
-1. To create an alert rule for `App Network In` metric signal, use the following inputs:
+1. To create an alert rule for **App Network In** metric signal, use the following inputs:
 
-   - **Signal name**: `App Network In`
-   - **Unit**: `GB`
-   - **Threshold value**: `1`
-   - **Dimension name**: `App`
-   - **Dimension values**: `api-gateway`
-   - **Action group name**: `email-notification`
-   - **Alert rule name**: `network-in-high-alert`
+   - **Signal name**: *App Network In*
+   - **Unit**: *GB*
+   - **Threshold value**: *1*
+   - **Dimension name**: *App*
+   - **Dimension values**: *api-gateway*
+   - **Action group name**: *email-notification*
+   - **Alert rule name**: *network-in-high-alert*
 
 1. After you've created all the alert rules, you can view the alert rules list.
 
@@ -296,4 +296,4 @@ To pin the quickstart chart to the dashboard, use the following steps:
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. On the left navigation menu, select **Alert**, and then select the **Pin blade to dashboard** icon.
+1. On the navigation menu, select **Alert**, and then select the **Pin blade to dashboard** icon.
