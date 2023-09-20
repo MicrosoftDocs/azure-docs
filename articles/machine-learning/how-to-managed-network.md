@@ -805,7 +805,7 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
 ## Manually provision a managed virtual network
 
-The managed network is automatically provisioned when you create a compute resource. When allowing automatic creation, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules, the first FQDN rule adds around __10 minutes__ to the provisioning time. 
+The managed network is automatically provisioned when you create a compute resource. When you rely on automatic provisioning, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules, the first FQDN rule adds around __10 minutes__ to the provisioning time. 
 
 To reduce the wait time when someone attempts to create the first compute, you can manually provision the managed virtual network after creating the workspace without creating a compute resource:
 
