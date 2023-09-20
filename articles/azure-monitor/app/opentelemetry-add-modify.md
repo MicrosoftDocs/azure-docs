@@ -324,6 +324,7 @@ The following table represents the currently supported custom telemetry types:
 | **Python**                                |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
 | &nbsp;&nbsp;&nbsp;Python Logging Module   |               |                |              |            |            |          | Yes    |
+| &nbsp;&nbsp;&nbsp;Azure Monitor Events Extension   |   Yes         |                |              |            |            |          | Yes    |
 
 > [!NOTE]
 > Application Insights Java 3.x listens for telemetry that's sent to the Application Insights [Classic API](api-custom-events-metrics.md). Similarly, Application Insights Node.js 3.x collects events created with the Application Insights [Classic API](api-custom-events-metrics.md). This makes upgrading easier and fills a gap in our custom telemetry support until all custom telemetry types are supported via the OpenTelemetry API.
@@ -1194,9 +1195,55 @@ with tracer.start_as_current_span("my request span", kind=SpanKind.SERVER) as sp
 
 ---
 
-<!--
-
 ### Add Custom Events
+
+The OpenTelemetry Events API is still under development. In the meantime, there are workarounds for each language to allow sending of "custom events", which populate the customEvents table in Application Insights.
+
+#### [ASP.NET Core](#tab/aspnetcore)
+
+Currently unavailable.
+
+#### [.NET](#tab/net)
+
+Currently unavailable.
+
+#### [Java](#tab/java)
+
+Currently unavailable.
+
+#### [Node.js](#tab/nodejs)
+
+Currently unavailable.
+  
+#### [Python](#tab/python)
+
+Until the OpenTelemetry Events API is stable, the [Azure Monitor Events Extension](https://pypi.org/project/azure-monitor-events-extension/0.1.0/) can be used in conjunction with the Azure Monitor OpenTelemetry Distro to send customEvents to Application Insights.
+
+Install the distro and the extension:
+
+```console
+pip install azure-monitor-opentelemetry
+pip install azure-monitor-events-extension
+```
+
+Use the `track_event` API offered in the extension to send customEvents.
+
+```python
+...
+from azure.monitor.events.extension import track_event
+from azure.monitor.opentelemetry import configure_azure_monitor
+
+configure_azure_monitor()
+
+# Use the track_event() api to send custom event telemetry
+# Takes event name and custom dimensions
+track_event("Test event", {"key1": "value1", "key2": "value2"})
+
+input()
+...
+```
+
+<!--
 
 #### Span Events
 
