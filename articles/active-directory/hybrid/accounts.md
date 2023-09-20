@@ -47,4 +47,4 @@ Microsoft Entra Connect uses three accounts to *synchronize information* from on
 |Microsoft Entra Global Administrator account|Used to create the Microsoft Entra Connector account and to configure Microsoft Entra ID. You can view Global Administrator and Hybrid Identity Administrator accounts in the [Microsoft Entra admin center](https://entra.microsoft.com). See [List Microsoft Entra role assignments](../roles/view-assignments.md).|
 |SQL SA account (optional)|Used to create the ADSync database when you use the full version of SQL Server. The instance of SQL Server can be local or remote to the Microsoft Entra Connect installation. This account can be the same account as the Enterprise Administrator account.|
 
-For more information, on Microsoft Entra Connet accounts, and how to configure them, see [Accounts and permissions](connect/reference-connect-accounts-permissions.md).
+For more information, on Microsoft Entra Connect accounts, and how to configure them, see [Accounts and permissions](connect/reference-connect-accounts-permissions.md).

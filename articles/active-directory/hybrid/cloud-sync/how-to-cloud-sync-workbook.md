@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 
 # Microsoft Entra cloud sync insights workbook
-The Cloud sync workbook provides a flexible canvas for data analysis. The workbook allows you to create rich visual reports within the Microsoft Entra portal. To learn more, see Azure Monitor Workbooks overview.
+The cloud sync workbook provides a flexible canvas for data analysis. The workbook allows you to create rich visual reports within the Microsoft Entra admin center. To learn more, see Azure Monitor Workbooks overview.
 
 This workbook is intended for Hybrid Identity Admins who use cloud sync to sync users from AD to Microsoft Entra ID.  It allows admins to gain insights into sync status and details.
 

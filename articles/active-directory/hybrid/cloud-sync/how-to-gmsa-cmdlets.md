@@ -51,7 +51,7 @@ The following prerequisites are required to use these cmdlets.
 
 ## Using Set-AADCloudSyncPermissions
 
-`Set-AADCloudSyncPermissions` supports the following permission types which are identical to the permissions used by Microsoft Entra Connect Classic Sync (ADSync). The following permission types are supported:
+`Set-AADCloudSyncPermissions` supports the following permission types which are identical to the permissions used by Azure AD Connect Classic Sync (ADSync). The following permission types are supported:
 
 |Permission type|Description|
 |-----|-----|

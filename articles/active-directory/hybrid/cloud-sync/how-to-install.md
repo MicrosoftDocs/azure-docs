@@ -1,6 +1,6 @@
 ---
 title: 'Install the Microsoft Entra Connect provisioning agent'
-description: Learn how to install the Microsoft Entra Connect provisioning agent and how to configure it in the Microsoft Entra portal.
+description: Learn how to install the Microsoft Entra Connect provisioning agent and how to configure it in the Microsoft Entra admin center.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Install the Microsoft Entra Connect provisioning agent
 
-This article walks you through the installation process for the Microsoft Entra Connect provisioning agent and how to initially configure it in the Microsoft Entra portal.
+This article walks you through the installation process for the Microsoft Entra Connect provisioning agent and how to initially configure it in the Microsoft Entra admin center.
 
 > [!IMPORTANT]
 > The following installation instructions assume that you've met all the [prerequisites](how-to-prerequisites.md).

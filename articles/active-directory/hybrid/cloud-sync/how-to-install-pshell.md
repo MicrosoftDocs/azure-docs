@@ -87,7 +87,7 @@ The Windows server must have TLS 1.2 enabled before you install the Microsoft En
        ```
        Restart-Service -Name AADConnectProvisioningAgent  
        ```
- 16. Go to the Microsoft Entra portal to create the cloud sync configuration.
+ 16. Go to the Microsoft Entra admin center to create the cloud sync configuration.
 
 ## Provisioning agent gMSA PowerShell cmdlets
 Now that you've installed the agent, you can apply more granular permissions to the gMSA. For information and step-by-step instructions on how to configure the permissions, see [Microsoft Entra Connect cloud provisioning agent gMSA PowerShell cmdlets](how-to-gmsa-cmdlets.md).

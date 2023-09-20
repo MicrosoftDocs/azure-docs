@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # AADCloudSyncTools PowerShell module for Microsoft Entra Connect cloud sync
 
-The AADCloudSyncTools module provides a set of useful tools that can help you manage your deployments of Microsoft Entra Connect (Microsoft Entra Connect) cloud sync.
+The AADCloudSyncTools module provides a set of useful tools that can help you manage your deployments of Microsoft Entra Connect cloud sync.
 
 ## Prerequisites
 

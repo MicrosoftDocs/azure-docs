@@ -22,7 +22,7 @@ You can use the cloud sync attribute mapping feature to map attributes between y
 You can customize (change, delete, or create) the default attribute mappings according to your business needs. For a list of attributes that are synchronized, see [Attributes synchronized to Microsoft Entra ID](../connect/reference-connect-sync-attributes-synchronized.md).
 
 > [!NOTE]
-> This article describes how to use the Microsoft Entra portal to map attributes.  For information on using Microsoft Graph, see [Transformations](how-to-transformation.md).
+> This article describes how to use the Microsoft Entra admin center to map attributes.  For information on using Microsoft Graph, see [Transformations](how-to-transformation.md).
 
 ## Understand types of attribute mapping
 With attribute mapping, you control how attributes are populated in Microsoft Entra ID. Microsoft Entra ID supports four mapping types:
