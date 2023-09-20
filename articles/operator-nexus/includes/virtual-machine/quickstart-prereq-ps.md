@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 * Use the Bash environment in [Azure Cloud Shell](../../../cloud-shell/overview.md). For more information, see [Quickstart for Bash in Azure Cloud Shell.](../../../cloud-shell/quickstart.md)
 
-[LaunchCloudShell](../../../../includes/media/cloud-shell-powershell/launchcloudshell.png)
+[:::image type="icon" source="~/articles/reusable-content/azure-cli/media/hdi-launch-cloud-shell.png" alt-text="Launch Azure Cloud Shell" :::](https://shell.azure.com)
 
 * If you are running PowerShell locally, install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell][install-azure-powershell].
 
