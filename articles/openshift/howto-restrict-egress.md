@@ -81,13 +81,6 @@ URLs listed below are required for this integration to work properly.  This inte
 
 ---
 
-### OTHER POSSIBLE OPENSHIFT REQUIREMENTS
-
-| Destination FQDN | Port | Use |
-| ----------- | ----------- | ------------- |
-| **`*.apps.<cluster_name>.<base_domain>`** (OR EQUIVALENT ARO URL) | **HTTPS:443** | When allowlisting domains, this is used in your corporate network to reach applications deployed in OpenShift, or to access the OpenShift console. |
-
-
 ## ARO integrations
 
 ### Azure Monitor container insights
