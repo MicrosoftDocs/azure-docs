@@ -7,7 +7,7 @@ editor: ''
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 09/20/2023
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -24,7 +24,7 @@ Currently in preview, the following v2 tiers are available:
 
 ## Key capabilities
 
-* **Faster deployment and scaling** - Deploy a production-ready API Management instance in minutes. Scale a v2 instance quickly to any number of units to meet the needs of your API management workloads.
+* **Faster deployment and scaling** - Deploy a production-ready API Management instance in minutes. Scale a Basic v2 or Standard v2 instance quickly to up to 10 units to meet the needs of your API management workloads.
 
 * **Simplified networking** - The Standard v2 tier supports [outbound connections](#networking-options) to network-isolated backends.
 
@@ -84,37 +84,36 @@ Currently, the following API Management capabilities are unavailable in the v2 t
 **Infrastructure and networking**
 * Zone redundancy (*Standard v2*)
 * Multi-region deployment (*Standard v2*)
+* Multiple custom domain names (*Standard v2*)
 * Capacity metric
 * Autoscaling
-* Multiple custom domain names (*Standard v2*)
-* Deployment (injection) in a VNet (*Standard v2*) 
 * Inbound connection using a private endpoint
 * Upgrade to v2 tiers from v1 tiers 
 * Workspaces
-* Compute platform version property  
 
 **Developer portal**
 * Delegation of user registration and product subscription
 
 **Gateway**
-* Management of Websocket APIs
 * Self-hosted gateway (*Standard v2*)
+* Management of Websocket APIs
 * Rate limit by key and quota by key policies
 * Cipher configuration
+* Client certificate renegotiation
 * Requests to the gateway over localhost
 
 ## Deployment
 
-Deploy an instance of the Basic v2 or Standard v2 tier using the Azure portal, Azure REST API, or Azure Resource Manager template.
+Deploy an instance of the Basic v2 or Standard v2 tier using the Azure portal, Azure REST API, or Azure Resource Manager or Bicep template.
 
 ## Frequently asked questions
 
 ### Q: Can I migrate from my existing API Management instance to a new v2 tier instance?
 
-A: No. Currently you can't migrate an existing API Management instance (in the Consumption, Developer, Standard, or Premium tier) to a new v2 tier instance. You must deploy a new instance in the v2 tier.
+A: No. Currently you can't migrate an existing API Management instance (in the Consumption, Developer, Basic, Standard, or Premium tier) to a new v2 tier instance. You must deploy a new instance in the v2 tier.
 
 ### Q: What's the relationship between the stv2 compute platform and the v2 tiers?
-A: They're not related. API Management's stv2 compute platform is a successor platform version used for the [retirement of the stv1 compute platform](./breaking-changes/stv1-platform-retirement-august-2024.md) in the current Developer, Standard, and Premium tiers. The v2 tiers aren't affected by the retirement of the stv1 compute platform.
+A: They're not related. API Management's stv2 compute platform is a successor platform version used for the [retirement of the stv1 compute platform](./breaking-changes/stv1-platform-retirement-august-2024.md) in the current Developer, Basic, Standard, and Premium tiers. The v2 tiers aren't affected by the retirement of the stv1 compute platform.
 
 ## Related content
 
