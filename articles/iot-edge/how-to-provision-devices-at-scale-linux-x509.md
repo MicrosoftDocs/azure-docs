@@ -89,6 +89,8 @@ Have the following information ready:
    sudo nano /etc/aziot/config.toml
    ```
 
+Do we need a tabbed experience here? One tab for snaps and one for all other distributions? It looks like there's custom provisioning instructions for snaps.
+
 1. Find the **Provisioning** section of the file. Uncomment the lines for DPS provisioning with X.509 certificate, and make sure any other provisioning lines are commented out.
 
    ```toml
@@ -139,6 +141,8 @@ Have the following information ready:
 ## Verify successful installation
 
 If the runtime started successfully, you can go into your IoT Hub and start deploying IoT Edge modules to your device.
+
+Do we need a tabbed experience here? One tab for snaps and one for all other distributions? It looks like there's custom verification instructions for snaps.
 
 # [Individual enrollment](#tab/individual-enrollment)
 

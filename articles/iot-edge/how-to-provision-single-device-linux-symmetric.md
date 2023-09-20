@@ -75,6 +75,8 @@ Install both the Azure IoT Edge and Azure IoT Hub extensions:
 
 Now that the container engine and the IoT Edge runtime are installed on your device, you're ready to set up the device with its cloud identity and authentication information.
 
+Do we need a tabbed experience here? One tab for snaps and one for all other distributions? It looks like there's custom provisioning instructions for snaps.
+
 You can quickly configure your IoT Edge device with symmetric key authentication using the following command:
 
    ```bash
@@ -117,6 +119,8 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 
 > [!TIP]
 > You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use `sudo` in front of the commands.
+
+Do we need a tabbed experience here? One tab for snaps and one for all other distributions? It looks like there's custom verification instructions for snaps.
 
 1. Check to see that the IoT Edge system service is running.
 
