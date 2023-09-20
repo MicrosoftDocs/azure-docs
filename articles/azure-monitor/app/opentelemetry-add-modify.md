@@ -1329,7 +1329,7 @@ Not available in .NET.
 
 
 If you would like to add custom events or need access to the Application Insights API, you will need to replace the @azure/monitor-opentelemetry package with the `applicationinsights` v3 Beta package (https://www.npmjs.com/package/applicationinsights/v/beta). Same methods and interfaces should be available there, all sample code in documented for @azure/monitor-opentelemetry apply to v3 Beta package as well.
-=======
+
 You need to use `applicationinsights` v3 Beta package to send custom telemetry using the Application Insights Classic API. (https://www.npmjs.com/package/applicationinsights/v/beta)
 
 ```javascript
