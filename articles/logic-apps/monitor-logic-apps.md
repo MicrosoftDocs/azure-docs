@@ -208,30 +208,59 @@ You can view run history only for stateful workflows, not stateless workflows. T
 
    ![Screenshot shows Standard workflow and Overview page with selected option for Run History.](./media/monitor-logic-apps/overview-logic-app-runs-history-standard.png)
 
-   The following table lists the possible run statuses:
+   The following table lists the possible final statuses that each workflow run can have and show in the portal:
 
-   | Run status | Description |
-   |------------|-------------|
-   | **Aborted** | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | **Cancelled** | The run was triggered and started, but received a cancellation request. |
-   | **Failed** | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
-   | **Running** | The run was triggered and is in progress. However, this status can also appear for a run that's throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Tip**: If you set up [diagnostics logging](monitor-workflows-collect-diagnostic-data.md), you can get information about any throttle events that happen. |
-   | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
-   | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the runs history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the runs history based on whether the run's duration exceeded the retention limit. |
-   | **Waiting** | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
+   | Run status | Icon | Description |
+   |------------|------|-------------|
+   | **Aborted** | ![Aborted icon][aborted-icon] | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
+   | **Cancelled** | ![Canceled icon][canceled-icon] | The run was triggered and started, but received a cancellation request. |
+   | **Failed** | ![Failed icon][failed-icon] | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
+   | **Running** | ![Running icon][running-icon] | The run was triggered and is in progress. However, this status can also appear for a run that's throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Tip**: If you set up [diagnostics logging](monitor-workflows-collect-diagnostic-data.md), you can get information about any throttle events that happen. |
+   | **Skipped** | ![Skipped icon][skipped-icon] | The trigger condition was checked but wasn't met, so the run never started. |
+   | **Succeeded** | ![Succeeded icon][succeeded-icon] | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
+   | **Timed out** | ![Timed-out icon][timed-out-icon] | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the runs history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the runs history based on whether the run's duration exceeded the retention limit. |
+   | **Waiting** | ![Waiting icon][waiting-icon] | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
 
-1. To review the steps and other information for a specific run, under **Run History**, select that run. If the list shows many runs, and you can't find the entry that you want, try filtering the list.
+1. On the **Run History** tab, select the run that you want to review.
+
+   The run details view opens and shows the status for each step in the run.
 
    > [!TIP]
    >
-   > If the run status doesn't appear, try refreshing the overview pane by selecting **Refresh**.
+   > If the run status doesn't appear, on the **Overview** page toolbar, select **Refresh**. 
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 
-   ![Screenshot shows the selected Standard workflow run.](./media/monitor-logic-apps/select-specific-logic-app-run-standard.png)
+   If the list shows many runs, and you can't find the entry that you want, try filtering the list.
+
+   ![Screenshot shows selected Standard workflow run.](./media/monitor-logic-apps/select-specific-logic-app-run-standard.png)
 
    The workflow run pane shows each step in the selected run, each step's run status, and the time taken for each step to run, for example:
 
    ![Screenshot shows each action in selected Standard workflow run.](./media/monitor-logic-apps/logic-app-run-pane-standard.png)
+
+   The following table shows the possible statuses that each workflow action can have and show in the portal:
+
+   | Action status | Icon | Description |
+   |---------------|------|-------------|
+   | **Aborted** | ![Aborted icon][aborted-icon] | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
+   | **Cancelled** | ![Canceled icon][canceled-icon] | The action was running but received a cancel request. |
+   | **Failed** | ![Failed icon][failed-icon] | The action failed. |
+   | **Running** | ![Running icon][running-icon] | The action is currently running. |
+   | **Skipped** | ![Skipped icon][skipped-icon] | The action was skipped because its **runAfter** conditions weren't met, for example, a preceding action failed. Each action has a `runAfter` object where you can set up conditions that must be met before the current action can run. |
+   | **Succeeded** | ![Succeeded icon][succeeded-icon] | The action succeeded. |
+   | **Succeeded with retries** | ![Succeeded-with-retries-icon][succeeded-with-retries-icon] | The action succeeded but only after a single or multiple retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
+   | **Timed out** | ![Timed-out icon][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
+   | **Waiting** | ![Waiting icon][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
+
+   [aborted-icon]: ./media/monitor-logic-apps/aborted.png
+   [canceled-icon]: ./media/monitor-logic-apps/cancelled.png
+   [failed-icon]: ./media/monitor-logic-apps/failed.png
+   [running-icon]: ./media/monitor-logic-apps/running.png
+   [skipped-icon]: ./media/monitor-logic-apps/skipped.png
+   [succeeded-icon]: ./media/monitor-logic-apps/succeeded.png
+   [succeeded-with-retries-icon]: ./media/monitor-logic-apps/succeeded-with-retries.png
+   [timed-out-icon]: ./media/monitor-logic-apps/timed-out.png
+   [waiting-icon]: ./media/monitor-logic-apps/waiting.png
 
 1. After all the steps in the run appear, select each step to review more information such as inputs, outputs, and any errors that happened in that step.
 
