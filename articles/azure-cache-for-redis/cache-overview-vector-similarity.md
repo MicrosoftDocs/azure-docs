@@ -48,13 +48,23 @@ Many machine learning models support embeddings APIs. For an example of how to c
 
 ## What is a vector database?
 
+### Concept
 A vector database is a database that can store, manage, retrieve, and compare vectors. Vector databases must be able to efficiently store a high-dimensional vector and retrive it with minimal latency and high throughput. Non-relational datastores are most commonly used as vector databases, although it's possible to use relational databases like PostgreSQL, for example, with the [pgvector](https://github.com/pgvector/pgvector) extension. 
 
+### Index method
 Vector databases need to index data for fast search and retrieval. Common indexing methods include K-Nearest Neighbors (KNN), an exhaustive method that provides the most precision but with higher computational cost, and Approximate Nearest Neighbors (ANN), which is more efficient by trading precision for greater speed and lower processing overhead. 
 
-Finally, vector databases execute vector searches by using the chosen vector comparison method to return the most similar vectors. Some vector databases can also perform _hybrid_ searches by first narrowing results based on characteristics or metadata before conducting the vector search. This is a way to make the vector search more effective and customizable. 
+### Search capabilities
+Finally, vector databases execute vector searches by using the chosen vector comparison method to return the most similar vectors. Some vector databases can also perform _hybrid_ searches by first narrowing results based on characteristics or metadata also stored in the database before conducting the vector search. This is a way to make the vector search more effective and customizable. For example, a vector search could be limited to only vectors with a specific tag in the database, or vectors with geolocation data in a certain region. 
 
-## When should I use it?
+## Vector search key scenarios
+
+Vector similiarity search can be used in multiple applications. Some common use-cases include:
+
+- **Semantic Q&A**. Create a chatbot that can respond to questions about your own data. For instance, a chatbot that can respond to employee questions on their healthcare coverage. Hundreds of pages of dense healthcare coverage documentation can be split into chunks, converted into embeddings vectors, and searched based on vector similarity. The resulting documents can then be summarized for employees using another large language model (LLM). [Example](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)
+- **Document Retrieval**. Use the deeper semantic understanding of text provided by LLMs to provide a richer document search experience where traditional keyword-based search falls short. [Example](https://github.com/RedisVentures/redis-arXiv-search)
+- **Product Recommendation**. Find similar products or services to recommend based on past user activities. [Example](https://github.com/RedisVentures/LLM-Recommender)
+- **Visual Search**
 
 You could rename this to "key scenarios". When does it make sense to use Redis
 in this capacity -- as a vector database?
