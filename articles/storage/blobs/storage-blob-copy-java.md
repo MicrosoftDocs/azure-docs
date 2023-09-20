@@ -15,7 +15,7 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 
 # Copy a blob with Java
 
-[!INCLUDE [storage-dev-guide-selector-copy](../../includes/storage-dev-guides/storage-dev-guide-selector-copy.md)]
+[!INCLUDE [storage-dev-guide-selector-copy](../../../includes/storage-dev-guides/storage-dev-guide-selector-copy.md)]
 
 This article provides an overview of copy operations using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 

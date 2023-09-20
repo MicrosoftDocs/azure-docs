@@ -15,7 +15,7 @@ ms.custom: devx-track-python, devguide-python
 
 # Copy a blob with Python
 
-[!INCLUDE [storage-dev-guide-selector-copy](../../includes/storage-dev-guides/storage-dev-guide-selector-copy.md)]
+[!INCLUDE [storage-dev-guide-selector-copy](../../../includes/storage-dev-guides/storage-dev-guide-selector-copy.md)]
 
 This article provides an overview of copy operations using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
