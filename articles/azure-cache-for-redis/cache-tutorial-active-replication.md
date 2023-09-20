@@ -27,18 +27,18 @@ In this tutorial, you will host a simple inventory application on Azure Kubernet
 
 This tutorial uses a sample inventory page which shows three different T-shirt options. The user can "purchase" each T-shirt and see the inventory drop. The unique thing about this demo is that we run the inventory app in two different regions. Typically, you would have to run the database storing inventory data in a single region so that there are no consistency issues. That can result in unpleasant customer experience due to higher latency for calls across different Azure regions. By using Azure Cache for Redis Enterprise as the backend, however, you can link two caches together with active geo-replication so that the inventory remains consistent across both regions while enjoying low latency performance from Redis Enterprise in the same region.
 
-## Set up an Azure Cache for Redis instance
+## Set up two Azure Cache for Redis instances
 
 1. Create a new Azure Cache for Redis Enterprise instance in **West US 2** region by using the Azure portal or your preferred CLI tool. Alternately, you can use any region of your choice. Use the [quickstart guide](quickstart-create-redis-enterprise.md) to get started.
 
 1. On the **Advanced** tab:
 
-   - Enable **Non-TLS access only**.
-   - set **Clustering Policy** to Enterprise
-   - set up active geo-replication using [this guide](cache-how-to-active-geo-replication.md)
+   1. Enable **Non-TLS access only**.
+   1. Set **Clustering Policy** to **Enterprise**
+   1. Configure active geo-replication using [this guide](cache-how-to-active-geo-replication.md) to both caches to the same replication group. Create the group name with the first cache, and add the second cache to the same group.
 
-> [!IMPORTANT]
-> This tutorial uses a non-TLS port for demonstration, but we highly recommend that you use a TLS port for anything in production.
+    > [!IMPORTANT]
+    > This tutorial uses a non-TLS port for demonstration, but we highly recommend that you use a TLS port for anything in production.
 
 1. Set up another Azure Cache for Redis Enterprise in **East US** region with the exact same configuration as the first cache. Alternately, you can use any region of your choice. Ensure that you choose the same replication group as the first cache.
 
@@ -106,7 +106,9 @@ spec:
 
 Save another copy of the same YAML file as app_east.yaml. This time, update the REDIS_HOST, REDIS_PASSWORD and APP_LOCATION to point to Redis Enterprise instance in East US or your second region of choice.
 
-## Connect to your AKS cluster
+## Install and connect to your AKS cluster
+
+In this section, you first install the Kubernetes CLI and then connect to an AKS cluster.
 
 ### Install the Kubernetes CLI
 
@@ -217,6 +219,6 @@ kubectl delete service shoppingcart-svc -n east
 
 ## Related Content
 
-- 
+- [Tutorial: Connect to Azure Cache for Redis from your application hosted on Azure Kubernetes Service](cache-tutorial-aks-get-started.md)
 - [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal)
 - [AKS sample voting application](https://github.com/Azure-Samples/azure-voting-app-redis/tree/master)
