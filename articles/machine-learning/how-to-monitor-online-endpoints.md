@@ -224,7 +224,9 @@ The following tables provide details on the data stored in each log:
 
 ## Using Application Insights
 
-Curated environments include integration with Application Insights, and you can enable or disable this integration when you create an online deployment. Built-in metrics and logs are sent to Application Insights, and you can use the built-in features of Application Insights (such as Live metrics, Transaction search, Failures, and Performance) for further analysis. 
+Curated environments include integration with Application Insights, and you can enable or disable this integration when you create an online deployment. Built-in metrics and logs are sent to Application Insights, and you can use the built-in features of Application Insights (such as Live metrics, Transaction search, Failures, and Performance) for further analysis.
+
+See [Application Insights overview](../azure-monitor/app/app-insights-overview.md) for more.
 
 
 ## Next steps
