@@ -50,8 +50,6 @@ The tiles on the Advisor **Score** page show the different categories of recomme
 
 * The **Commitments** button lets you adjust your subscription **Cost** recommendations to reflect your committed **Term (years)** and chosen **Look-back period (days)**.
 
-* To download your recommendations from the **Score** or any **Recommendations** page, click **Download as CSV** or **Download as PDF** on the action bar at the top. The download option respects any filters you have applied to Advisor.  If you select the download option while viewing a specific recommendation category or recommendation, the downloaded summary only includes information for that category or recommendation.
-
 ## Get recommendation details and solution options
 
 View recommendation details – such as the recommended actions and impacted resources – and the solution options, including postponing or dismissing a recommendation.
@@ -70,28 +68,24 @@ View recommendation details – such as the recommended actions and impacted res
 
    You can't dismiss the recommendation without certain privileges. For information on permissions, see [Permissions in Azure Advisor](permissions.md).
 
-## Manage subscriptions and Advisor rules
+## Download recommendations
 
-You can exclude subscriptions or resources, such as 'test' resources, from Advisor recommendations. You can also set Advisor compute rules for VM sizing recommendations.
+To download your recommendations from the **Score** or any **Recommendation details** page, click **Download as CSV** or **Download as PDF** on the action bar at the top. The download option respects any filters you have applied to Advisor.  If you select the download option while viewing a specific recommendation category or recommendation, the downloaded summary only includes information for that category or recommendation.
+
+## Configure recommendations
+
+You can exclude subscriptions or resources, such as 'test' resources, from Advisor recommendations and configure Advisor to generate recommendations only for specific subscriptions and resource groups.
 
 > [!NOTE]
-> To change subscriptions or Advisor compute rules, you must be a subscription Owner.  If you do not have the required permissions, the option is disabled in the user interface. For information on permissions, see [Permissions in Azure Advisor](permissions.md).
+> To change subscriptions or Advisor compute rules, you must be a subscription Owner.  If you do not have the required permissions, the option is disabled in the user interface. For information on permissions, see [Permissions in Azure Advisor](permissions.md). For details on right sizing VMs, see [Reduce service costs by using Azure Advisor](advisor-cost-recommendations.md).
 
-### Resources (subscriptions)
+From any Azure Advisor page, click **Configuration** in the left navigation pane. The Advisor **Configuration** page opens with the default **Resources** tab selected. 
 
-1. From any Azure Advisor page, click **Configuration** in the left navigation pane. The Advisor **Configuration** page opens with the default **Resources** tab selected. 
+  ![Advisor configure resources example](./media/advisor-get-started/advisor-configure-resources-no-wsp.png)
 
-    ![Advisor configure resources example](./media/advisor-get-started/advisor-configure-resources-no-wsp.png)
+* **Resources**: Uncheck any subscriptions you don't want to receive Advisor recommendations for, click **Apply**. The page refreshes.
 
-1. Uncheck any subscriptions you don't want to receive Advisor recommendations for, click **Apply**. The page refreshes.
-
-### VM/VMSS right sizing
-
-You can adjust the average CPU utilization rule and the look back period on a per-subscription basis. Doing virtual machine (VM) right sizing requires specialized knowledge. 
-
-Advisor monitors your VM usage for seven days by default, and then identifies your low-utilization VMs. Azure Advisor considers VMs low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2%, or if the VM's current workload can be accommodated with a smaller VM.
-
-You can set the  CPU utilization rule to 5%, 10%, 15%, 20%, or 100% (the default). If the trigger is set to 100%, Advisor presents recommendations for VMs with less than 5%, 10%, 15%, and 20% of CPU utilization. You can also select how far back in historical data, the look back, you want to analyze: seven days (default), 14, 21, 30, 60, or 90 days.
+* **VM/VMSS right sizing**: You can adjust the average CPU utilization rule and the look back period on a per-subscription basis. Doing virtual machine (VM) right sizing requires specialized knowledge. 
 
 1. Select the subscriptions you’d like to adjust the average CPU utilization rule for, and then click **Edit**. Not all subscriptions can be edited for VM/VMSS right sizing.
 
