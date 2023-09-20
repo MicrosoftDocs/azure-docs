@@ -1,5 +1,5 @@
 items:  
-- name: Microsoft Entra ID for customers documentation  
+- name: Microsoft Entra External ID for customers documentation  
   href: index.yml  
 - name: Overview  
   expanded: true  
