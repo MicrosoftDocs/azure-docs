@@ -141,8 +141,6 @@ items:
             href: app/javascript-sdk-upgrade.md
           - name: Troubleshooting
             href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
-          - name: FAQ
-            href: /azure/azure-monitor/faq#can-i-filter-out-or-modify-some-telemetry-
         - name: Advanced SDK topics
           items:
           - name: Application Insights API summary

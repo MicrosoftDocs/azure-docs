@@ -52,7 +52,7 @@ Before configuring Rollbar for automatic user provisioning with Azure AD, you wi
 
 	![Rollbar Identity Provider](media/rollbar-provisioning-tutorial/idp.png)
 
-3. Scroll down to **Provisioning Options**. Copy the access token. This value will be entered in the **Secret Token** field in the provisioning tab of your Rollbar application in the Azure portal. Select the **Enable user and team provisioning** checkbox and click on **Save**.
+3. Scroll down to **Provisioning Options**. Copy the access token. This value will be entered in the **Secret Token** field in the provisioning tab of your Rollbar application. Select the **Enable user and team provisioning** checkbox and click on **Save**.
 
 	![Rollbar Access Token](media/rollbar-provisioning-tutorial/token.png)
 
@@ -76,11 +76,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Rollbar in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Rollbar**.
+1. In the applications list, select **Rollbar**.
 
 	![The Rollbar link in the Applications list](common/all-applications.png)
 
