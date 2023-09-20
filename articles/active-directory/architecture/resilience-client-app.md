@@ -87,13 +87,13 @@ We recommend developers build a process to use the latest MSAL release because a
 
 Find the latest version and release notes:
 
-* [Microsoft Authentication Library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)
-* [Microsoft Authentication Library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/releases)
-* [Microsoft Authentication Library-for-python](https://github.com/AzureAD/microsoft-authentication-library-for-python/releases)
-* [Microsoft Authentication Library-for-java](https://github.com/AzureAD/microsoft-authentication-library-for-java/releases)
-* [Microsoft Authentication Library-for-objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc/releases)
-* [Microsoft Authentication Library-for-android](https://github.com/AzureAD/microsoft-authentication-library-for-android/releases)
-* [Microsoft Authentication Library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)
+* [microsoft-authentication-library-for--js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)
+* [microsoft-authentication-library-for--dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/releases)
+* [microsoft-authentication-library-for--python](https://github.com/AzureAD/microsoft-authentication-library-for-python/releases)
+* [microsoft-authentication-library-for--java](https://github.com/AzureAD/microsoft-authentication-library-for-java/releases)
+* [microsoft-authentication-library-for--objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc/releases)
+* [microsoft-authentication-library-for--android](https://github.com/AzureAD/microsoft-authentication-library-for-android/releases)
+* [microsoft-authentication-library-for--js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)
 * [microsoft-identity-web](https://github.com/AzureAD/microsoft-identity-web/releases)
 
 ## Resilient patterns for token handling
