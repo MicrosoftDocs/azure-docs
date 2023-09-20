@@ -150,7 +150,7 @@ If you want to use the extra features provided by plugins for specific framework
 
    It might take a few minutes for data to show up in the portal. If the only data you see showing up is a load failure exception, see [Troubleshoot SDK load failure for JavaScript web apps](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting#troubleshoot-sdk-load-failure-for-javascript-web-apps).
 
-   In some cases, if multiple instances of different versions of Application Insights are running on the same page, conflicts can occur during initialization. For these cases and the error message that appears, see [Running multiple versions of the Application Insights JavaScript SDK in one session](https://github.com/microsoft/ApplicationInsights-JS/blob/main/versionConflict.md). If needed, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
+   In some cases, if multiple instances of different versions of Application Insights are running on the same page, errors can occur during initialization. For these cases and the error message that appears, see [Running multiple versions of the Application Insights JavaScript SDK in one session](https://github.com/microsoft/ApplicationInsights-JS/blob/main/versionConflict.md). If you've encountered one of these errors, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 
    :::image type="content" source="media/javascript-sdk/confirm-data-flowing.png" alt-text="Screenshot of the Application Insights Transaction search pane in the Azure portal with the Page View option selected. The page views are highlighted." lightbox="media/javascript-sdk/confirm-data-flowing.png":::
 
