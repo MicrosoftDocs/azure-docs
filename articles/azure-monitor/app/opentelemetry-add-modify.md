@@ -152,7 +152,7 @@ Dependencies
 - [Redis-4](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis-4)
 - [Azure SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk)
 
-Auto instrumentation of Logs are currently only supported when using `applicationinsights` v3 Beta package. (https://www.npmjs.com/package/applicationinsights/v/beta)
+Auto instrumentation of Logs is currently only supported when using `applicationinsights` v3 Beta package. (https://www.npmjs.com/package/applicationinsights/v/beta)
 Logs
 - [Node.js console](https://nodejs.org/api/console.html)
 - [Bunyan](https://github.com/trentm/node-bunyan#readme)
@@ -1327,13 +1327,14 @@ Not available in .NET.
 
 #### [Node.js](#tab/nodejs)
 
+If you want to add custom events or access the Application Insights API, replace the @azure/monitor-opentelemetry package with the `applicationinsights` [v3 Beta package](https://www.npmjs.com/package/applicationinsights/v/beta). It offers the same methods and interfaces, and all sample code for @azure/monitor-opentelemetry applies to the v3 Beta package.
 
-You need to use `applicationinsights` v3 Beta package to achieve this. (https://www.npmjs.com/package/applicationinsights/v/beta)
+To send custom telemetry with the Application Insights Classic API, use the `applicationinsights` [v3 Beta package](https://www.npmjs.com/package/applicationinsights/v/beta).
 
 ```javascript
     const { TelemetryClient } = require("applicationinsights");
 
-    const appInsights = new TelemetryClient();
+    const telemetryClient = new TelemetryClient();
 ```
 
 Then use the `TelemetryClient` to send custom telemetry:
@@ -1344,7 +1345,7 @@ Then use the `TelemetryClient` to send custom telemetry:
     let eventTelemetry = {
         name: "testEvent"
     };
-    appInsights.trackEvent(eventTelemetry);
+    telemetryClient.trackEvent(eventTelemetry);
 ```
 
 ##### Logs
@@ -1354,7 +1355,7 @@ Then use the `TelemetryClient` to send custom telemetry:
         message: "testMessage",
         severity: "Information"
     };
-    appInsights.trackTrace(traceTelemetry);
+    telemetryClient.trackTrace(traceTelemetry);
 ```
     
 ##### Exceptions
@@ -1367,13 +1368,13 @@ Then use the `TelemetryClient` to send custom telemetry:
             exception: error,
             severity: "Critical"
         };
-        appInsights.trackException(exceptionTelemetry);
+        telemetryClient.trackException(exceptionTelemetry);
     }
 ```
 
 #### [Python](#tab/python)
   
-Unlike the other languages, there does not exist an Application Insights SDK for Python. You will be able to achieve all your monitoring needs with the Azure Monitor OpenTelemetry Distro, except for sending `customEvents`. Until the OpenTelemetry Events API is stable, the [Azure Monitor Events Extension](https://pypi.org/project/azure-monitor-events-extension/0.1.0/) can be used in conjunction with the Azure Monitor OpenTelemetry Distro to send `customEvents` to Application Insights.
+Unlike other languages, Python doesn't have an Application Insights SDK. You can meet all your monitoring needs with the Azure Monitor OpenTelemetry Distro, except for sending `customEvents`. Until the OpenTelemetry Events API stabilizes, use the [Azure Monitor Events Extension](https://pypi.org/project/azure-monitor-events-extension/0.1.0/) with the Azure Monitor OpenTelemetry Distro to send `customEvents` to Application Insights.
 
 Install the distro and the extension:
 
@@ -2088,7 +2089,7 @@ Get the request trace ID and the span ID in your code:
 
 - To further configure the OpenTelemetry distro, see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md)
 - To review the source code, see the [Azure Monitor AspNetCore GitHub repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore).
-- To install the NuGet package, check for updates, or view release notes, see the [Azure Monitor AspNetCore NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.AspNetCore) page.
+- To install the Nuget package, check for updates, or view release notes, see the [Azure Monitor AspNetCore Nuget Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.AspNetCore) page.
 - To become more familiar with Azure Monitor and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/tests/Azure.Monitor.OpenTelemetry.AspNetCore.Demo).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry .NET GitHub repository](https://github.com/open-telemetry/opentelemetry-dotnet).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
@@ -2097,7 +2098,7 @@ Get the request trace ID and the span ID in your code:
 
 - To further configure the OpenTelemetry distro, see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md)
 - To review the source code, see the [Azure Monitor Exporter GitHub repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter).
-- To install the NuGet package, check for updates, or view release notes, see the [Azure Monitor Exporter NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) page.
+- To install the Nuget package, check for updates, or view release notes, see the [Azure Monitor Exporter Nuget Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) page.
 - To become more familiar with Azure Monitor and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry .NET GitHub repository](https://github.com/open-telemetry/opentelemetry-dotnet).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
