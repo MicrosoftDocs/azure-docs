@@ -1,6 +1,6 @@
 ---
 title: Microsoft Entra app consent experiences
-description: Learn more about the Microsoft Entra ID consent experiences to see how you can use it when managing and developing applications on Microsoft Entra ID
+description: Learn more about the Microsoft Entra consent experiences to see how you can use it when managing and developing applications on Microsoft Entra ID
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -122,6 +122,6 @@ This section outlines the common issues with the consent experience and possible
 For troubleshooting steps, see [Unexpected error when performing consent to an application](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
 ## Next steps
 
-- Get a step-by-step overview of [how the Microsoft Entra ID consent framework implements consent](./quickstart-register-app.md).
+- Get a step-by-step overview of [how the Microsoft Entra consent framework implements consent](./quickstart-register-app.md).
 - For more depth, learn [how a multi-tenant application can use the consent framework](./howto-convert-app-to-be-multi-tenant.md) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
 - Learn [how to configure the app's publisher domain](howto-configure-publisher-domain.md).
