@@ -516,6 +516,8 @@
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge.md
+    - name: Develop with the emulator
+      href: ../how-to-develop-emulator.md?pivots=api-nosql
     - name: Tools, SDKs, and providers
       items:
         - name: Develop locally with emulator
