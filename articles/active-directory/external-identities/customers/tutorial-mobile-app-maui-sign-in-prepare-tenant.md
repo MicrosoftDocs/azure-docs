@@ -14,7 +14,7 @@ ms.date: 06/05/2023
 
 # Tutorial: Register and configure .NET MAUI mobile app in a customer tenant
 
-This three-part tutorial series demonstrates how to build a .NET Multi-platform App UI (MAUI) mobile app that authenticates using Microsoft Entra ID for customers tenant.
+This three-part tutorial series demonstrates how to build a .NET Multi-platform App UI (MAUI) mobile app that authenticates using Microsoft Entra External ID for customers tenant.
 
 The tutorial aims to demonstrate how to create a .NET MAUI app that uses cross-platform code while enhancing the default application class with Android platform-specific code.
 
