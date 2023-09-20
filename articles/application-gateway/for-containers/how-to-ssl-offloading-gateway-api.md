@@ -17,6 +17,12 @@ This document helps set up an example application that uses the following resour
 - Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
 - Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) that references a backend service.
 
+## Background
+
+Application Gateway for Containers enables SSL offloading. See the following example scenario:
+
+![A figure showing SSL offloading with Application Gateway for Containers](./media/how-to-ssl-offloading-gateway-api/ssl-offloading.png)
+
 ## Prerequisites
 
 > [!IMPORTANT]

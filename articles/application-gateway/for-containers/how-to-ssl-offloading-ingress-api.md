@@ -15,6 +15,12 @@ ms.author: greglin
 
 This document helps set up an example application that uses the _Ingress_ resource from [Ingress API](https://kubernetes.io/docs/concepts/services-networking/ingress/):
 
+## Background
+
+Application Gateway for Containers enables SSL offloading. See the following example scenario:
+
+![A figure showing SSL offloading with Application Gateway for Containers](./media/how-to-ssl-offloading-ingress-api/ssl-offloading.png)
+
 ## Prerequisites
 
 > [!IMPORTANT]
