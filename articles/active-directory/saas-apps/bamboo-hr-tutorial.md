@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate BambooHR with Azure Active Direc
 
 * Control in Azure AD who has access to BambooHR.
 * Enable your users to be automatically signed-in to BambooHR with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ To configure and test Azure AD SSO with BambooHR, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **BambooHR** > **Single sign-on**.
@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | `https://<company>.bamboohr.co.uk/saml/consume.php` |
 
 	> [!NOTE]
-	> These values are not real. Update these values with actual sign-on URL and Reply URL. Contact [BambooHR Client support team](https://www.bamboohr.com/contact.php) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with actual sign-on URL and Reply URL. Contact [BambooHR Client support team](https://www.bamboohr.com/contact.php) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -99,7 +99,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -113,7 +113,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to BambooHR.
+In this section, you'll enable B.Simon to use single sign-on by granting access to BambooHR.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **BambooHR**.
@@ -141,9 +141,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
    
     ![The SAML Single Sign-On pane](./media/bamboo-hr-tutorial/IC796692.png "SAML Single Sign-On")
    
-    a. Into the **SSO Login Url** box, paste the **Login URL** that you copied from the Azure portal in step 6.
+    a. Into the **SSO Login Url** box, paste the **Login URL** that you copied in step 6.
       
-    b. In Notepad, open the base-64 encoded certificate that you downloaded from the Azure portal, copy its content, and then paste it into the **X.509 Certificate** box.
+    b. In Notepad, open the base-64 encoded certificate that you downloaded, copy its content, and then paste it into the **X.509 Certificate** box.
    
     c. Select **Save**.
 
@@ -172,7 +172,7 @@ To enable Azure AD users to sign in to BambooHR, set them up manually in BambooH
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to BambooHR Sign-on URL where you can initiate the login flow. 
+1. Click on **Test this application**, this will redirect to BambooHR Sign-on URL where you can initiate the login flow. 
 
 2. Go to BambooHR Sign-on URL directly and initiate the login flow from there.
 

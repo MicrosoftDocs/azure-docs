@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate OpenLearning with Azure Active D
 
 * Control in Azure AD who has access to OpenLearning.
 * Enable your users to be automatically signed-in to OpenLearning with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ To configure and test Azure AD SSO with OpenLearning, perform the following step
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **OpenLearning** > **Single sign-on**.
@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://www.openlearning.com/saml-redirect/<institution_id>/<idp_name>/`
 
 	> [!Note]
-	> If the **Identifier** value does not get auto populated, then please fill in the value manually according to your requirement. The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [OpenLearning Client support team](mailto:dev@openlearning.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> If the **Identifier** value does not get auto populated, then please fill in the value manually according to your requirement. The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [OpenLearning Client support team](mailto:dev@openlearning.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. OpenLearning Identity Authentication application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -113,13 +113,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Screenshot shows to copy Configuration appropriate U R L.](common/copy-configuration-urls.png "Configuration")
 	
-1. OpenLearning application expects to enable token encryption in order to make SSO work. To activate token encryption, go to the **Azure Active Directory** > **Enterprise applications** and select **Token encryption**. For more information, please refer this [link](../manage-apps/howto-saml-token-encryption.md).
+1. OpenLearning application expects to enable token encryption in order to make SSO work. To activate token encryption, Browse to **Identity** > **Applications** > **Enterprise applications** > select your application > **Token encryption**. For more information see the article [Configure Azure Active Directory SAML token encryption](../manage-apps/howto-saml-token-encryption.md).
 
     ![Screenshot shows the activation of Token Encryption.](./media/openlearning-tutorial/token.png "Token Encryption")
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -133,7 +133,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to OpenLearning.
+In this section, you'll enable B.Simon to use single sign-on by granting access to OpenLearning.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **OpenLearning**.
@@ -155,15 +155,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     1. In the **Name (required)** textbox, type a short configuration name.
 
-    1. Copy **Reply(ACS) Url** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+    1. Copy **Reply(ACS) Url** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section.
 
-    1. In the **Entity ID/Issuer URL (required)** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+    1. In the **Entity ID/Issuer URL (required)** textbox, paste the **Azure AD Identifier** value which you copied previously.
 
-    1. In the **Sign-In URL (required)** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    1. In the **Sign-In URL (required)** textbox, paste the **Login URL** value which you copied previously.
 
-    1. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Certificate (required)** textbox.
+    1. Open the downloaded **Certificate (Base64)** into Notepad and paste the content into the **Certificate (required)** textbox.
 
-    1. Download the **Metadata XML** into Notepad and upload the file into **Basic SAML Configuration** section in the Azure portal.
+    1. Download the **Metadata XML** into Notepad and upload the file into **Basic SAML Configuration** section.
 
     1. Click **Save**.
 
@@ -175,7 +175,7 @@ In this section, a user called Britta Simon is created in OpenLearning. OpenLear
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to OpenLearning Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to OpenLearning Sign-on URL where you can initiate the login flow. 
 
 * Go to OpenLearning Sign-on URL directly and initiate the login flow from there.
 

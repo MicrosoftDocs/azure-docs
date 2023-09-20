@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 Before configuring IDEO for automatic user provisioning with Azure AD, you will need to retrieve some provisioning information from IDEO.
 
-* For **Secret Token** contact IDEO support team at productsupport@ideo.com. This value will be entered in the **Secret Token** field in the Provisioning tab of your IDEO application in the Azure portal. 
+* For **Secret Token** contact IDEO support team at productsupport@ideo.com. This value will be entered in the **Secret Token** field in the Provisioning tab of your IDEO application. 
 
 ## Step 3. Add IDEO from the Azure AD application gallery
 

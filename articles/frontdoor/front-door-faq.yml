@@ -180,6 +180,14 @@ sections:
           What is the HTTP keep-alive timeout for Azure Front Door?
         answer:  |   
           The HTTP keep-alive timeout for Azure Front Door is 90 seconds. Which means that if a client doesn't send any data for 90 seconds, the connection is closed. This timeout value can't be configured.
+      - question: |
+          Can I share the same domain across two Front Door endpoints?
+        answer:  |   
+          Sharing domains across two Front Door endpoints is not supported as a route (protocol + host + path combination) has to be unique in order for Front Door to handle requests for it.
+      - question: |
+          Can I migrate a domain from one endpoint to another endpoint without downtime?
+        answer:  |   
+          Zero downtime migration of domains between endpoints is not supported currently. 
 
   - name: Performance
     questions:

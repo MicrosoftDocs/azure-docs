@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate Check Point Harmony Connect with
 
 * Control in Azure AD who has access to Check Point Harmony Connect.
 * Enable your users to be automatically signed-in to Check Point Harmony Connect with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ To configure and test Azure AD SSO with Check Point Harmony Connect, perform the
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Check Point Harmony Connect** > **Single sign-on**.
@@ -99,7 +99,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -113,7 +113,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Check Point Harmony Connect.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Check Point Harmony Connect.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Check Point Harmony Connect**.
@@ -143,9 +143,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![screenshot for Allow Connectivity page.](./media/check-point-harmony-connect-tutorial/allow-connectivity.png)
 
-	a. Copy **ENTITY ID** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
+	a. Copy **ENTITY ID** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section.
 
-	b. Copy **REPLY URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+	b. Copy **REPLY URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section.
 
 	c. Click **NEXT**.
 

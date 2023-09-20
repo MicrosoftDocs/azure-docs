@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate OrgVitality SSO with Azure Activ
 
 * Control in Azure AD who has access to OrgVitality SSO.
 * Enable your users to be automatically signed-in to OrgVitality SSO with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ To configure and test Azure AD SSO with OrgVitality SSO, perform the following s
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **OrgVitality SSO** > **Single sign-on**.
@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://rpt.orgvitality.com/<COMPANY_NAME>Auth/default.aspx`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [OrgVitality SSO support team](https://orgvitality.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [OrgVitality SSO support team](https://orgvitality.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Your OrgVitality SSO application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. OrgVitality SSO application expects **nameidentifier** to be mapped with **user.employeeid**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
@@ -95,7 +95,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -109,7 +109,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to OrgVitality SSO.
+In this section, you'll enable B.Simon to use single sign-on by granting access to OrgVitality SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **OrgVitality SSO**.
@@ -121,7 +121,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure OrgVitality SSO
 
-To configure single sign-on on **OrgVitality SSO** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [OrgVitality SSO support team](https://orgvitality.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **OrgVitality SSO** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the application configuration to [OrgVitality SSO support team](https://orgvitality.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create OrgVitality SSO test user
 
@@ -131,7 +131,7 @@ In this section, you create a user called Britta Simon in OrgVitality SSO. Work 
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the OrgVitality SSO for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the OrgVitality SSO for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the OrgVitality SSO tile in the My Apps, you should be automatically signed in to the OrgVitality SSO for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

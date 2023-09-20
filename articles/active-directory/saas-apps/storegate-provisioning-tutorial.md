@@ -57,7 +57,7 @@ Before configuring Storegate for automatic user provisioning with Azure AD, you 
 
 	![Storegate toggle button](media/storegate-provisioning-tutorial/sso.png)
 
-3. Copy the **Tenant URL** and **Token**. These values will be entered in the **Tenant URL** and **Secret Token** fields respectively in the Provisioning tab of your Storegate application in the Azure portal. 
+3. Copy the **Tenant URL** and **Token**. These values will be entered in the **Tenant URL** and **Secret Token** fields respectively in the Provisioning tab of your Storegate application. 
 
 	![Storegate Create Token](media/storegate-provisioning-tutorial/token.png)
 

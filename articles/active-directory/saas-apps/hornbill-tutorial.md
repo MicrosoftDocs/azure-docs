@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate Hornbill with Azure Active Direc
 
 * Control in Azure AD who has access to Hornbill.
 * Enable your users to be automatically signed-in to Hornbill with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with Hornbill, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Hornbill** > **Single sign-on**.
@@ -92,7 +92,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 `https://live.hornbill.com/<INSTANCE_NAME>/`
 
 	> [!NOTE]
-	> These values are not real. Update the <INSTANCE_NAME> and <API_SUBDOMAIN> values with the actual values in the Identifier(s), Reply URL(s) and Sign on URL. These values can be retrieved from the Hornbill Solution Center in your Hornbill instance, under **_Your usage > Support_**.  Contact [Hornbill Support](https://www.hornbill.com/support) for assistance in getting these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update the <INSTANCE_NAME> and <API_SUBDOMAIN> values with the actual values in the Identifier(s), Reply URL(s) and Sign on URL. These values can be retrieved from the Hornbill Solution Center in your Hornbill instance, under **_Your usage > Support_**.  Contact [Hornbill Support](https://www.hornbill.com/support) for assistance in getting these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 6. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -100,7 +100,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -114,7 +114,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Hornbill.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Hornbill.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Hornbill**.
@@ -148,7 +148,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot shows Hornbill Meta logo.](./media/hornbill-tutorial/import-metadata.png "Hornbill logo")
 
-7. On the pop-up, in the **URL** text box, paste the **App Federation Metadata Url**, which you have copied from Azure portal and click **Process**.
+7. On the pop-up, in the **URL** text box, paste the **App Federation Metadata Url**,. and click **Process**.
 
 	![Screenshot shows Hornbill process.](./media/hornbill-tutorial/metadata-url.png "Hornbill process")
 
@@ -169,7 +169,7 @@ In this section, a user called Britta Simon is created in Hornbill. Hornbill sup
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Hornbill Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Hornbill Sign-on URL where you can initiate the login flow. 
 
 * Go to Hornbill Sign-on URL directly and initiate the login flow from there.
 

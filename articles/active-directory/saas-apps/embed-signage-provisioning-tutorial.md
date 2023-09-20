@@ -48,7 +48,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Login to [embed signage admin console](https://app.embedsignage.com/login).
 1. Navigate to **Account settings > Security > User provisioning**.
-1. Create a token and copy this somewhere safe. This value will be entered in the **Secret Token** * field in the Provisioning tab of your embed signage application in the Azure portal.
+1. Create a token and copy this somewhere safe. This value will be entered in the **Secret Token** * field in the Provisioning tab of your embed signage application.
 
 ## Step 3. Add embed signage from the Azure AD application gallery
 

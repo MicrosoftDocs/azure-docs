@@ -55,7 +55,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Leapsome Add SCIM](media/Leapsome-provisioning-tutorial/leapsome-add-scim.png)
 
-3.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Leapsome application in the Azure portal.
+3.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Leapsome application.
 
 	![Leapsome Create Token](media/Leapsome-provisioning-tutorial/leapsome-create-token.png)
 

@@ -47,7 +47,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Login to [Sosafe admin console](https://manager.sosafe.de) and navigate to **Extended Data > SCIM** tab.
 1. Enter your Azure Tenant ID under **Identity Provider Tenant ID (Azure, Okta, etc.)** and select **Save**.
 1. Click on **Generate Token**.
-1. Copy the **Tenant URL** and **Token** visible on this page. These values will be entered in the **Tenant URL** and **Secret Token** * field in the Provisioning tab of your Sosafe application in the Azure portal.
+1. Copy the **Tenant URL** and **Token** visible on this page. These values will be entered in the **Tenant URL** and **Secret Token** * field in the Provisioning tab of your Sosafe application.
 
 ## Step 3. Add SoSafe from the Azure AD application gallery
 
