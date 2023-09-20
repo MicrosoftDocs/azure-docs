@@ -28,9 +28,9 @@ Microsoft Playwright Testing workspaces uses three Azure built-in roles. To gran
 
 | Role | Access level |
 | --- | --- |
-| **Reader** | Have read-only access to the workspace in the Microsoft Playwright Testing portal. Readers can view test results for the workspace. Readers can't [create or delete workspace access tokens](./how-to-manage-access-tokens.md). |
-| **Contributor** | Have full access to manage the workspace in the Azure portal but can't assign roles in Azure RBAC. Contributors have full access to the workspace in the Microsoft Playwright Testing portal and can create and revoke access tokens in the workspace. |
-| **Owner** | Have full access to manage the workspace in the Azure portal, including assigning roles in Azure RBAC. Owners have full access to the workspace in the Microsoft Playwright Testing portal and can create and revoke access tokens in the workspace. |
+| **Reader** | <ul><li>Read-only access to the workspace in the Playwright portal.</li><li>View test results for the workspace.</li><li>Can't [create or delete workspace access tokens](./how-to-manage-access-tokens.md).</li><li>Can't run Playwright tests on the service.</li></ul> |
+| **Contributor** | <ul><li>Full access to manage the workspace in the Azure portal but can't assign roles in Azure RBAC.</li><li>Full access to the workspace in the Playwright portal.</li><li>Create and delete their access tokens.</li><li>Run Playwright tests on the service.</li></ul> |
+| **Owner** | <ul><li>Full access to manage the workspace in the Azure portal, including assigning roles in Azure RBAC.</li><li>Full access to the workspace in the Playwright portal. </li><li>Create and delete their access tokens.</li><li>Run Playwright tests on the service.</li></ul> |
 
 > [!IMPORTANT]
 > Before you assign an Azure RBAC role, determine the scope of access that is needed. Best practices dictate that it's always best to grant only the narrowest possible scope. Azure RBAC roles defined at a broader scope are inherited by the resources beneath them. For more information about scope for Azure RBAC role assignments, see [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
