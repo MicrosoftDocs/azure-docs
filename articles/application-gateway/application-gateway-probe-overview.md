@@ -28,7 +28,7 @@ A gateway starts firing probes immediately after you configure a Rule by associa
 
 :::image type="content" source="media/application-gateway-probe-overview/appgatewayprobe.png" alt-text="Diagram showing Application Gateway initiating health probes to individual backend targets within a backend pool":::
 
-The required probes are determined based on the unique combination of the Backend Server and Backend Setting. For example, consider a gateway with a single backend pool with two servers and two backend settings, each having different port numbers. When these distinct backend settings are associated with the same backend pool using their respective rules, the gateway creates probes for each server and the combination of the backend setting. You can view this on the [Backend health page](./application-gateway-diagnostics.md#backend-health).
+The required probes are determined based on the unique combination of the Backend Server and Backend Setting. For example, consider a gateway with a single backend pool with two servers and two backend settings, each having different port numbers. When these distinct backend settings are associated with the same backend pool using their respective rules, the gateway creates probes for each server and the combination of the backend setting. You can view this on the [Backend health page](application-gateway-backend-health.md).
 
 :::image type="content" source="media/application-gateway-probe-overview/multiple-be-settings.png" alt-text="Diagram showing health probes report on the Backend Health page":::
 
