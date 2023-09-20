@@ -41,40 +41,6 @@ Azure Virtual Machines supports enabling Trusted Launch on existing [Azure Gener
 
 ## Enable Trusted Launch on existing VM
 
-### [Portal](#tab/portal)
-
-This section steps through using the Azure portal to enable Trusted Launch on existing Azure Generation 2 VM.
-
-1. Log in to [Azure portal](https://portal.azure.com)
-2. Validate virtual machine generation is **V2** and **Stop** VM.
-
-:::image type="content" source="./media/trusted-launch/02-g2totl-stop-vm.png" alt-text="Screenshot of the Gen2 VM to be de-allocated":::
-
-3. On **Overview** page in VM **Properties**, Select **Standard** under **Security type**. This navigates to **Configuration** page for VM.
-
-:::image type="content" source="./media/trusted-launch/03-g2totl-click-standard.png" alt-text="Screenshot of the Security type Standard":::
-
-4. Select drop-down **Security type** under **Security type** section of **Configuration** page.
-
-:::image type="content" source="./media/trusted-launch/04-g2totl-select-dropdown.png" alt-text="Screenshot of the Security type drop-down.":::
-
-5. Select **Trusted Launch** under drop-down and select check-boxes to enable **Secure Boot** and **vTPM**. Click **Save** after making required changes.
-
-> [!NOTE]
->
-> - Generation 2 VMs created using [Azure Compute Gallery (ACG)](azure-compute-gallery.md), [Managed Image](capture-image-resource.md), [OS Disk](./scripts/create-vm-from-managed-os-disks.md) cannot be upgraded to Trusted Launch using Portal. Please ensure [OS Version is supported for Trusted Launch](trusted-launch.md#operating-systems-supported) and use PowerShell, CLI or ARM template to execute upgrade.
-> - After enabling Trusted Launch, currently virtual machine cannot be rolled back to security type **Standard** (Non-Trusted Launch configuration).
-> - **vTPM** is enabled by default.
-> - **Secure Boot** is recommended to be enabled (not enabled by default) if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
-
-:::image type="content" source="./media/trusted-launch/05-g2totl-select-uefi-settings.png" alt-text="Screenshot of the Secure boot and vTPM settings.":::
-
-6. Close the **Configuration** page once the update is successfully complete and validate **Security type** under VM properties on **Overview** page.
-
-:::image type="content" source="./media/trusted-launch/06-g2totl-validate-uefi.png" alt-text="Screenshot of the Trusted Launch upgraded VM.":::
-
-7. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
-
 ### [CLI](#tab/cli)
 
 This section steps through using the Azure CLI to enable Trusted Launch on existing Azure Generation 2 VM.
