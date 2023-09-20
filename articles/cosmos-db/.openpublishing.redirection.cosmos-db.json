@@ -6169,6 +6169,11 @@
       "source_path_from_root": "/articles/cosmos-db/mongodb/overview.md",
       "redirect_url": "/azure/cosmos-db/mongodb/introduction",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/rag-data-openai.md",
+      "redirect_url": "/azure/cosmos-db/cosmos-db/vector-search",
+      "redirect_document_id": true
     }
   ]
 }
