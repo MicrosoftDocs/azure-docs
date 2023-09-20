@@ -261,6 +261,8 @@
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge.md
+    - name: Develop with the emulator
+      href: ../how-to-develop-emulator.md?pivots=api-table
     - name: Use developer tools
       items:
         - name: Set up CI/CD with Azure Pipelines

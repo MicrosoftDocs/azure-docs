@@ -293,6 +293,8 @@
           href: ../emulator.md
     - name: How to
       items:
+        - name: Develop with the emulator
+          href: ../how-to-develop-emulator.md?pivots=api-mongodb
         - name: Use developer tools
           items:
             - name: MongoDB extension commands
