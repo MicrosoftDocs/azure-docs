@@ -21,19 +21,19 @@ You can delete the Azure resource group, which includes all the resources in the
 
 1. Locate your resource group in the Azure portal. 
 
-1. On the navigation menu, select **Resource groups**. Then, select the name of your resource group - for example,**myresourcegroup**.
+1. On the navigation menu, select **Resource groups**. Then, select the name of your resource group - for example, **myresourcegroup**.
 
 1. On your resource group page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion - for example, **myresourcegroup**. Then, select **Delete**.
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-1. Use the following command to delete all the Azure resources used in this sample application:
+Use the following command to delete all the Azure resources used in this sample application:
 
    ```bash
    azd down
    ```
 
-The following list describes the command interactions:
+The following list describes the command interaction:
 
 - **Total resources to delete: [your-resources-total], are you sure you want to continue?**: Enter `y`.
 

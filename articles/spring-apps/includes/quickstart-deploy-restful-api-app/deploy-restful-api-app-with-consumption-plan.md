@@ -27,7 +27,7 @@ Use the following steps to clone and run the app locally.
    git clone https://github.com/Azure-Samples/ASA-Samples-Restful-Application.git
    ```
 
-1. If you want to run the app locally, complete steps [Expose RESTful APIs](#expose-restful-apis) and [Update the application configuration](#update-the-application-configuration) first, and then use the following command to run the sample application by Maven.
+1. If you want to run the app locally, complete the steps in the [Expose RESTful APIs](#expose-restful-apis) and [Update the application configuration](#update-the-application-configuration) sections first, and then use the following command to run the sample application with Maven.
 
    ```bash
    cd ASA-Samples-Restful-Application
@@ -36,7 +36,7 @@ Use the following steps to clone and run the app locally.
 
 #### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-Use Azure Developer CLI to initialize the web application from the templates.
+Use the following steps to initialize the web application from Azure Developer CLI templates:
 
 1. Open a terminal, create a new empty folder, and then change directory to it.
 
@@ -48,8 +48,8 @@ Use Azure Developer CLI to initialize the web application from the templates.
 
    The following list describes the command interactions:
 
-    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-    - **Please enter a new environment name**: Provide an environment name. This name is used as a suffix for the resource group that is created to hold all the Azure resources. This name should be unique within your Azure subscription.
+   - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+   - **Please enter a new environment name**: Provide an environment name. This name is used as a suffix for the resource group that is created to hold all the Azure resources. This name should be unique within your Azure subscription.
 
    The console outputs messages similar to the following example:
 
@@ -70,9 +70,9 @@ Use Azure Developer CLI to initialize the web application from the templates.
 
 ## 3. Prepare the cloud environment
 
-The main resources required to run this sample app are an Azure Spring Apps instance and an Azure Database for PostgreSQL instance. This section provides the steps to create these resources.
+The main resources required to run this sample app are an Azure Spring Apps instance and an Azure Database for PostgreSQL instance. Use the following steps to create these resources.
 
-#### [Azure portal](#tab/Azure-portal)
+### [Azure portal](#tab/Azure-portal)
 
 ### 3.1. Sign in to the Azure portal
 
@@ -88,9 +88,7 @@ Use the following steps to create a service instance:
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-service-instance.png" alt-text="Screenshot of the Azure portal that shows the Create a resource page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-restful-api-app/create-service-instance.png":::
 
-1. Fill out the **Basics** form with the following information:
-
-   Use the following table as a guide for completing the form. The recommended **Plan** is `Standard consumption & dedicated (preview)`.
+1. Fill out the **Basics** form. Use the following table as a guide for completing the form. The recommended **Plan** value is **Standard consumption & dedicated (preview)**.
 
    | Setting                    | Suggested value                              | Description                                                                                                                                                                                                                                                                                        |
    |----------------------------|----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -115,7 +113,7 @@ Use the following steps to create a service instance:
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
-1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. 
+1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. 
 
 1. Select **Go to resource** to open the service's **Overview** page.
 
@@ -136,15 +134,15 @@ Use the following steps to connect your service instances:
 
 1. From the navigation menu, open the **Apps** pane and select **Create App**.
 
-1. On the **Create App** page, fill in the app name *simple-todo-api* and select *Java artifacts* as the deployment type.
+1. On the **Create App** page, fill in the app name *simple-todo-api* and select **Java artifacts** as the deployment type.
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-consumption-app.png" alt-text="Screenshot of the Azure portal that shows the consumption app creation." lightbox="../../media/quickstart-deploy-restful-api-app/create-consumption-app.png":::
 
-1. Select **Create** to finish the app creation and select the app to view details.
+1. Select **Create** to finish the app creation and select the app to view the details.
 
 1. Go to the created app, expand **Settings** and select **Configuration** from the navigation menu, and then select **Environment variables** to set the environment variables.
 
-1. Add the following environment variables for the PostgreSQL connection, and then select **Save** to finish the app configuration update. Be sure to replace the placeholders with your own values you created in the previous step.
+1. Add the following environment variables for the PostgreSQL connection, and then select **Save** to finish the app configuration update. Be sure to replace the placeholders with your own values you created previously.
 
    ```shell
    SPRING_DATASOURCE_URL=jdbc:postgresql://<your-PostgreSQL-server-name>:5432/<your-PostgreSQL-database-name>
@@ -154,9 +152,9 @@ Use the following steps to connect your service instances:
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/consumption-app-env-variables.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection pane for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-restful-api-app/consumption-app-env-variables.png":::
 
-#### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-1. Run the following command to log in to Azure with OAuth2. Ignore this step if you have already logged in.
+1. Run the following command to log in to Azure with OAuth2. Ignore this step if you've already logged in.
 
    ```bash
    azd auth login
@@ -188,7 +186,7 @@ Use the following steps to connect your service instances:
    ```
 
    > [!NOTE]
-   > This may take a while to complete. You'll see a progress indicator as it provisions Azure resources.
+   > This command may take a while to complete. You'll see a progress indicator as it provisions Azure resources.
 
 ---
 
@@ -204,7 +202,7 @@ Use the following steps to expose your RESTful APIs in Microsoft Entra ID.
 
 1. Under **Manage**, select **App registrations** > **New registration**.
 
-1. Enter a name for your application in the **Name** field, for example `Todo`. Users of your app might see this name, and you can change it later.
+1. Enter a name for your application in the **Name** field - for example, *Todo*. Users of your app might see this name, and you can change it later.
 
 1. For **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts**.
 
@@ -225,15 +223,15 @@ Use the following steps to expose your RESTful APIs in Microsoft Entra ID.
     - For **State**, keep **Enabled**.
     - Select **Add scope**.
 
-1. Repeat the previous step to add the two other scopes: `ToDo.Write` and `ToDo.Delete`.
+1. Repeat the previous step to add the two other scopes: *ToDo.Write* and *ToDo.Delete*.
 
-   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/expose-an-api.png" alt-text="Screenshot of the Azure portal that shows the Expose an API of a RESTful API application." lightbox="../../media/quickstart-deploy-restful-api-app/expose-an-api.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/expose-an-api.png" alt-text="Screenshot of the Azure portal that shows the Expose an API page of a RESTful API application." lightbox="../../media/quickstart-deploy-restful-api-app/expose-an-api.png":::
 
 ### Update the application configuration
 
-This section provides the steps to update the YAML file to use with your Microsoft Entra ID registered application information to establish a relationship with the RESTful API application.
+Use the following steps to update the YAML file to use with your Microsoft Entra ID registered application information to establish a relationship with the RESTful API application:
 
-Use the following commands to update the configuration of `spring.cloud.azure.active-directory` in the configuration file. Be sure to replace the placeholders with your own values you created in the previous step.
+1. Use the following YAML to update the `spring.cloud.azure.active-directory` configuration in the configuration file. Be sure to replace the placeholders with your own values that you created previously.
 
 ```yaml
 spring:
@@ -247,10 +245,10 @@ spring:
         app-id-uri: <your-application-ID-URI-of-ToDo>
 ```
 
-> [!NOTE]
-> In v1.0 tokens, the configuration requires the client ID of the API, while in v2.0 tokens, you can use the client ID or the application ID URI in the request. You can configure both to properly complete the audience validation.
+   > [!NOTE]
+   > In v1.0 tokens, the configuration requires the client ID of the API, while in v2.0 tokens, you can use the client ID or the application ID URI in the request. You can configure both to properly complete the audience validation.
 
-Use the following command to rebuild the sample project:
+1. Use the following command to rebuild the sample project:
 
 ```bash
 ./mvnw clean package
