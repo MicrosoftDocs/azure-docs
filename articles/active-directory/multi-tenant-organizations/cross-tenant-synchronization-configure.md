@@ -245,7 +245,7 @@ Attribute mappings allow you to define how data should flow between the source t
 
 1. In the source tenant, select **Provisioning** and expand the **Mappings** section.
 
-1. Select **Provision Microsoft Entra Users**.
+1. Select **Provision Azure Active Directory Users**.
 
 1. On the **Attribute Mapping** page, scroll down to review the user attributes that are synchronized between tenants in the **Attribute Mappings** section.
 
