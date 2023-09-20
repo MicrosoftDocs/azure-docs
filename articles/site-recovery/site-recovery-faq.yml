@@ -4,7 +4,7 @@ metadata:
   description: This article discusses popular general questions about Azure Site Recovery.
   ms.topic: faq
   ms.service: site-recovery
-  ms.date: 05/27/2021
+  ms.date: 09/20/2023
 
 
 title: General questions about Azure Site Recovery
@@ -43,6 +43,12 @@ sections:
          Does Azure Site Recovery currently support Ephemeral Disks?
         answer: |
              No, Azure Site Recovery currently does not support Ephemeral Disks.
+
+      - question: |
+         What is the Microsoft Azure Recovery Services agent used for?
+        answer: |
+             Microsoft Azure Recovery Services agent is used for configuring/registering with Site Recovery services, and for monitoring the health of all the components. This component is one of the basic building blocks of the entire Azure Site Recovery on-premises infrastructure. It helps to replicate your workloads to another Azure region from an on-premises site, and fail over to Azure in case of a disaster.
+
 
   - name: Service providers
     questions:
