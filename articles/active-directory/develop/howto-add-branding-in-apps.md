@@ -33,7 +33,7 @@ Microsoft manages two kinds of user accounts:
 - **Personal accounts** (formerly known as Windows Live ID). These accounts represent the relationship between *individual* users and Microsoft, and are used to access consumer devices and services from Microsoft. These accounts are intended for personal use.
 - **Work or school accounts.** These accounts are managed by Microsoft on behalf of organizations that use Microsoft Entra ID. These accounts are used to sign in to Microsoft 365 and other business services from Microsoft.
 
-Microsoft work or school accounts are typically assigned to end users (employees, students, federal employees) by their organizations (company, school, government agency). These accounts are mastered directly in the cloud (in the Microsoft Entra platform) or synced to Microsoft Entra ID from an on-premises directory, such as Windows Server Active Directory. Microsoft is the *custodian* of the work or school accounts, but the accounts are owned and controlled by the organization.
+Microsoft work or school accounts are typically assigned to end users (employees, students, federal employees) by their organizations (company, school, government agency). These accounts are mastered directly in the cloud (in Microsoft Entra ID) or synced to Microsoft Entra ID from an on-premises directory, such as Windows Server Active Directory. Microsoft is the *custodian* of the work or school accounts, but the accounts are owned and controlled by the organization.
 
 <a name='referring-to-azure-ad-accounts-in-your-application'></a>
 
