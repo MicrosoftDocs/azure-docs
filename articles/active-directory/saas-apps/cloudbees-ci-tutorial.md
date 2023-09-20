@@ -20,7 +20,7 @@ In this article, you'll learn how to integrate CloudBees CI with Azure Active Di
 
 * Control in Azure AD who has access to CloudBees CI.
 * Enable your users to be automatically signed-in to CloudBees CI with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You'll configure and test Azure AD single sign-on for CloudBees CI in a test environment. CloudBees CI supports only **SP** initiated single sign-on.
 
@@ -43,15 +43,16 @@ Add CloudBees CI from the Azure AD application gallery to configure single sign-
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
-1. In the Azure portal, on the **CloudBees CI** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **CloudBees CI** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -81,7 +82,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     | `https://<Environment>.<CustomerDomain>` |
 
 	> [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [CloudBees CI support team](mailto:support@cloudbees.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [CloudBees CI support team](mailto:support@cloudbees.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. CloudBees CI application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -106,13 +107,13 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure CloudBees CI SSO
 
-To configure single sign-on in CloudBees CI, please follow [Configure Azure](https://github.com/jenkinsci/saml-plugin/blob/main/doc/CONFIGURE_AZURE.md) using the Federation Metadata XML and copied URLs from the Azure portal.
+To configure single sign-on in CloudBees CI, please follow [Configure Azure](https://github.com/jenkinsci/saml-plugin/blob/main/doc/CONFIGURE_AZURE.md) using the Federation Metadata XML and copied URLs.
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on **Test this application** in Azure portal. This will redirect to CloudBees CI Sign-on URL where you can initiate the login flow.
+* Click on **Test this application**, this will redirect to CloudBees CI Sign-on URL where you can initiate the login flow.
 
 * Go to CloudBees CI Sign-on URL directly and initiate the login flow from there.
 

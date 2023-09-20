@@ -22,7 +22,7 @@ To adjust to changing application demands, such as between workdays and evenings
 * The **cluster autoscaler** watches for pods that can't be scheduled on nodes because of resource constraints. The cluster then automatically increases the number of nodes. For more information, see [How does scale-up work?](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-up-work)
 * The **horizontal pod autoscaler** uses the Metrics Server in a Kubernetes cluster to monitor the resource demand of pods. If an application needs more resources, the number of pods is automatically increased to meet the demand.
 
-![The cluster autoscaler and horizontal pod autoscaler often work together to support the required application demands](media/autoscaler/cluster-autoscaler.png)
+:::image type="content" source="media/autoscaler/cluster-autoscaler.png" alt-text="Screenshot of how the cluster autoscaler and horizontal pod autoscaler often work together to support the required application demands.":::
 
 Both the horizontal pod autoscaler and cluster autoscaler can decrease the number of pods and nodes as needed. The cluster autoscaler decreases the number of nodes when there has been unused capacity after a period of time. Any pods on a node removed by the cluster autoscaler are safely scheduled elsewhere in the cluster.
 
@@ -228,7 +228,7 @@ Use the following steps to configure logs to be pushed from the cluster autoscal
 
     As long as there are logs to retrieve, you should see logs similar to the following logs:
 
-    ![Log Analytics logs](media/autoscaler/autoscaler-logs.png)
+    :::image type="content" source="media/autoscaler/autoscaler-logs.png" alt-text="Screenshot of Log Analytics logs.":::
 
     The cluster autoscaler also writes out the health status to a `configmap` named `cluster-autoscaler-status`. You can retrieve these logs using the following `kubectl` command:
 

@@ -2,7 +2,7 @@
 title: An overview of Dynamic Scoping 
 description: This article provides information about Dynamic Scoping, its purpose and advantages.
 ms.service: azure-update-manager
-ms.date: 07/05/2023
+ms.date: 09/18/2023
 ms.topic: conceptual
 author: SnehaSudhir 
 ms.author: sudhirsneha
@@ -20,7 +20,7 @@ Dynamic Scoping is an advanced capability of schedule patching that allows users
 The criteria will be evaluated at the scheduled run time, which will be the final list of machines that will be patched by the schedule. The machines evaluated during create or edit phase may differ from the group at schedule run time. 
 
 ## Key benefits
- 
+
 **At Scale and simplified patching** - You don't have to manually change associations between machines and schedules. For example, if you want to remove a machine from a schedule and your scope was defined based on tag(s) criteria, removing the tag on the machine will automatically drop the association. These associations can be dropped and added for multiple machines at scale.
   > [!NOTE]
   > Subscription is mandatory for the creation of dynamic scope and you can't edit it after the dynamic scope is created.

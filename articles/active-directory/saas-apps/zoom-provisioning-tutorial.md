@@ -61,7 +61,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Zoom in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/?feature.userProvisioningV2Authentication=true), ensure you are using the link (https://portal.azure.com/?feature.userProvisioningV2Authentication=true) then Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 
 	![Screenshot of the Enterprise applications blade.](common/enterprise-applications.png)
 
