@@ -32,58 +32,58 @@ After you complete this quickstart, you have a CI workflow that runs your Playwr
 
 ---
 
-## Configure a service access key
+## Configure a service access token
 
-Microsoft Playwright Testing uses access keys to authorize users to run Playwright tests with the service. You can generate a service access key in the Playwright portal, and then specify the access key in the service configuration file.
+Microsoft Playwright Testing uses access tokens to authorize users to run Playwright tests with the service. You can generate a service access token in the Playwright portal, and then specify the access token in the service configuration file.
 
-To generate an access key and store it as a CI workflow secret, perform the following steps:
+To generate an access token and store it as a CI workflow secret, perform the following steps:
 
 1. Sign in to the [Microsoft Playwright Testing portal](https://aka.ms/mpt/portal) with your Azure account.
 
-1. Select **Generate new access key**.
+1. Select the settings icon on the home page, and then select **Generate new token**.
 
-    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-new-access-key.png" alt-text="Screenshot that shows the workspace home page in the Playwright Testing portal, highlighting the 'Generate new access key' button.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-new-access-token.png" alt-text="Screenshot that shows the access tokens settings page in the Playwright Testing portal, highlighting the 'Generate new token' button.":::
 
-1. Select **Generate key** and then copy the access key value.
+1. Enter the access token details, and then select **Generate token**.
 
-    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-key.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate key' button.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-token.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate token' button.":::
 
-    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-copy-access-key.png" alt-text="Screenshot that shows how to copy the generated access key in the Playwright Testing portal.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-copy-access-token.png" alt-text="Screenshot that shows how to copy the generated access token in the Playwright Testing portal.":::
 
-1. Store the access key in a CI workflow secret to avoid specifying the key in clear text in the workflow definition:
+1. Store the access token in a CI workflow secret to avoid specifying the key in clear text in the workflow definition:
 
-    The following steps describe how to create a workflow secret in GitHub Actions or Azure Pipelines. Follow the specific instructions of your CI platform to create store the access key securely.
+    The following steps describe how to create a workflow secret in GitHub Actions or Azure Pipelines. Follow the specific instructions of your CI platform to create store the access token securely.
 
-# [GitHub Actions](#tab/github)
+    # [GitHub Actions](#tab/github)
+    
+    1. Go to your GitHub repository, and select **Settings** > **Secrets and variables** > **Actions**.
+    1. Select **New repository secret**.
+    1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
+    
+        | Parameter | Value |
+        | ----------- | ------------ |
+        | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |  
+        | **Value** | Paste the workspace access token you copied previously. |
+    
+    1. Select **OK** to create the workflow secret.
 
-1. Go to your GitHub repository, and select **Settings** > **Secrets and variables** > **Actions**.
-1. Select **New repository secret**.
-1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
-
-    | Parameter | Value |
-    | ----------- | ------------ |
-    | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |  
-    | **Value** | Paste the workspace access key you copied previously. |
-
-1. Select **OK** to create the workflow secret.
-
-# [Azure Pipelines](#tab/pipelines)
-
-1. Go to your Azure DevOps project.
-1. Go to the **Pipelines** page, select the appropriate pipeline, and then select **Edit**.
-1. Locate the **Variables** for this pipeline.
-1. Add a new variable.
-1. Enter the variable details, and then select **Add secret** to create the CI/CD secret.
-
-    | Parameter | Value |
-    | ----------- | ------------ |
-    | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |
-    | **Value** | Paste the workspace access key you copied previously. |
-    | **Keep this value secret** | Check this value |
-
-1. Select **OK**, and then **Save** to create the workflow secret.
-
----
+    # [Azure Pipelines](#tab/pipelines)
+    
+    1. Go to your Azure DevOps project.
+    1. Go to the **Pipelines** page, select the appropriate pipeline, and then select **Edit**.
+    1. Locate the **Variables** for this pipeline.
+    1. Add a new variable.
+    1. Enter the variable details, and then select **Add secret** to create the CI/CD secret.
+    
+        | Parameter | Value |
+        | ----------- | ------------ |
+        | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |
+        | **Value** | Paste the workspace access token you copied previously. |
+        | **Keep this value secret** | Check this value |
+    
+    1. Select **OK**, and then **Save** to create the workflow secret.
+    
+    ---
 
 ## Get the service region endpoint URL
 
@@ -173,7 +173,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
     - name: Run Playwright tests
       working-directory: path/to/playwright/folder # update accordingly
       env:
-        # Access key and regional endpoint for Microsoft Playwright Testing
+        # Access token and regional endpoint for Microsoft Playwright Testing
         PLAYWRIGHT_SERVICE_ACCESS_KEY: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_KEY }}
         PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
       run: npx playwright test -c playwright.service.config.ts --workers=20
