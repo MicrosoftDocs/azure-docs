@@ -45,7 +45,7 @@ To view the enterprise applications registered in your tenant:
 To search for a particular application:
 
 1. Select the **Application Type** filter option. Select **All applications** from the **Application Type** drop-down menu, and choose **Apply**.
-1. Enter the name of the application you want to find. If the application has been added to your Microsoft Entra tenant, it appears in the search results. For example, you can search for the **Microsoft Entra SAML Toolkit 1** application that is used in the previous quickstarts. 
+1. Enter the name of the application you want to find. If the application has been added to your Microsoft Entra tenant, it appears in the search results. For example, you can search for the **Azure AD SAML Toolkit 1** application that is used in the previous quickstarts. 
 1. Try entering the first few letters of an application name.
 
 ## Select viewing options
