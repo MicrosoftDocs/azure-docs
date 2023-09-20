@@ -86,7 +86,7 @@ If you need help with one of the Microsoft Authentication Libraries (MSAL), open
 
 - [What's new in docs](./whats-new-docs.md): Get to know what's new in the Microsoft identity platform documentation.
 
-- [Microsoft Entra identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity): Get news and information about Microsoft Entra ID.
+- [Microsoft Entra Blog](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/bg-p/Identity): Get news and information about Microsoft Entra ID.
 
 - [Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity/): Share your experiences, engage, and learn from experts.
 

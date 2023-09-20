@@ -25,7 +25,7 @@ RBAC is a popular mechanism to enforce authorization in applications. When an or
 
 RBAC helps an application developer to manage resources and their usage. RBAC also allows an application developer to control the areas of an application that users can access. Administrators can control which users have access to an application using the *User assignment required* property. Developers need to account for specific users within the application and what users can do within the application.
 
-An application developer first creates a role definition within the registration section of the application in the Microsoft Entra administration center. The role definition includes a value that is returned for users who are assigned to that role. A developer can then use this value to implement application logic to determine what those users can or can't do in an application.
+An application developer first creates a role definition within the registration section of the application in the Microsoft Entra admin center. The role definition includes a value that is returned for users who are assigned to that role. A developer can then use this value to implement application logic to determine what those users can or can't do in an application.
 
 ## RBAC options
 

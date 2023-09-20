@@ -30,7 +30,7 @@ The following diagram depicts the sign-in flow integrated with a custom authenti
 1. The Microsoft Entra ID **event listener** service (custom authentication extension) sends an HTTP request to your **REST API endpoint**. The request contains information about the event, the user profile, session data, and other context information.
 1. The **REST API** performs a custom workflow.
 1. The **REST API** returns an HTTP response to Microsoft Entra ID.
-1. The Microsoft Entra ID **custom authentication extension** processes the response and customizes the authentication based on the event type and the HTTP response payload.
+1. The Microsoft Entra **custom authentication extension** processes the response and customizes the authentication based on the event type and the HTTP response payload.
 1. A **token** is returned to the **app**.
 
 ## Custom authentication extension REST API endpoint

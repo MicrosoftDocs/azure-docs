@@ -89,7 +89,7 @@ Use the following table to diagnose an error code.
 
 ## Call your REST API directly
 
-Your REST API is protected by Microsoft Entra ID access token. You can test your API by obtaining an access token with the [application registration](custom-extension-get-started.md#22-grant-admin-consent) associated with the custom authentiction extensions. After you acquire an access token, pass it the HTTP `Authorization` header. To obtain an access token, follow these steps:
+Your REST API is protected by a Microsoft Entra access token. You can test your API by obtaining an access token with the [application registration](custom-extension-get-started.md#22-grant-admin-consent) associated with the custom authentiction extensions. After you acquire an access token, pass it the HTTP `Authorization` header. To obtain an access token, follow these steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Application registrations**.
