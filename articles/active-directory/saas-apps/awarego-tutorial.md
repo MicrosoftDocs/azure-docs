@@ -38,10 +38,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment. Awa
 
 To configure the integration of AwareGo into Azure AD, you need to add AwareGo from the gallery to your list of managed software as a service (SaaS) apps.
 
-1. Sign in to the Azure portal by using a work account, a school account, or a personal Microsoft account.
-1. On the left pane, select the **Azure Active Directory** service.
-1. Select **Enterprise Applications** > **All Applications**.
-1. To add a new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **AwareGo** in the search box.
 1. In the results pane, select **AwareGo**, and then add the app. In a few seconds, the app is added to your tenant.
 
@@ -66,7 +64,8 @@ To configure and test Azure AD SSO with AwareGo, do the following:
 
 To enable Azure AD SSO in the Azure portal, do the following:
 
-1. In the Azure portal, on the **AwareGo** application integration page, under **Manage**, select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **AwareGo** application integration page, under **Manage**, select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. To edit the settings, on the **Set up Single Sign-On with SAML** pane, select the **Edit** button.
 
@@ -84,7 +83,7 @@ To enable Azure AD SSO in the Azure portal, do the following:
     c. In the **Reply URL** box, enter a URL in the following format: `https://<SUBDOMAIN>.awarego.com/auth/sso/callback`
 
 	> [!NOTE]
-	> The preceding values are not real. Update them with the actual identifier and reply URLs. To obtain the values, contact the [AwareGo client support team](mailto:support@awarego.com). You can also refer to the examples in the **Basic SAML Configuration** section in the Azure portal.
+	> The preceding values are not real. Update them with the actual identifier and reply URLs. To obtain the values, contact the [AwareGo client support team](mailto:support@awarego.com). You can also refer to the examples in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, next to **Certificate (Base64)**, select **Download** to download the certificate and save it to your computer.
 
@@ -96,22 +95,23 @@ To enable Azure AD SSO in the Azure portal, do the following:
 
 ### Create an Azure AD test user
 
-In this section, you create a test user in the Azure portal called B.Simon.
+In this section, you create a test user called B.Simon.
 
-1. In the left pane of the Azure portal, select **Azure Active Directory**, and then select **Users** > **All users**.
-1. Select **New user** at the top of the screen.
-1. On the **User** properties pane, do the following:
-
-   a. In the **Name** box, enter **B.Simon**.  
-   b. In the **User name** box, enter the username in the following format: `<username>@<companydomain>.<extension>` (for example, B.Simon@contoso.com).  
-   c. Select the **Show password** check box, and then note the value that's displayed in the **Password** box for later use.  
-   d. Select **Create**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
 In this section, you enable user B.Simon to use Azure SSO by granting access to AwareGo.
 
-1. In the Azure portal, select **Enterprise Applications** > **All applications**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. In the **Applications** list, select **AwareGo**.
 1. On the app overview page, in the **Manage** section, select **Users and groups**.
 1. Select **Add user** and then, on the **Add Assignment** pane, select **Users and groups**.
@@ -121,7 +121,7 @@ In this section, you enable user B.Simon to use Azure SSO by granting access to 
 
 ## Configure AwareGo SSO
 
-To configure single sign-on on the **AwareGo** side, send the **Certificate (Base64)** certificate you downloaded earlier and the URLs you copied earlier from the Azure portal to the [AwareGo support team](mailto:support@awarego.com). The support team creates this setting to establish the SAML SSO connection properly on both sides.
+To configure single sign-on on the **AwareGo** side, send the **Certificate (Base64)** certificate you downloaded earlier and the URLs you copied earlier to the [AwareGo support team](mailto:support@awarego.com). The support team creates this setting to establish the SAML SSO connection properly on both sides.
 
 ### Create an AwareGo test user
 
