@@ -33,7 +33,7 @@ You must have the [latest version](/powershell/azure/install-azure-powershell) o
 
 ## Required permissions
 
-To complete this article, you must have sufficient permissions in both your Microsoft Entra ID and Azure subscription. Specifically, you must be able to create an app in the Microsoft Entra ID, and assign the service principal to a role.
+To complete this article, you must have sufficient permissions in both your Microsoft Entra ID and Azure subscription. Specifically, you must be able to create an app in Microsoft Entra ID, and assign the service principal to a role.
 
 The easiest way to check whether your account has adequate permissions is through the portal. See [Check required permission](howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
