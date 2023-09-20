@@ -274,5 +274,5 @@ After you disable Okta provisioning, the Microsoft Entra cloud sync agent can sy
 ## Next steps
 
 - [Tutorial: Migrate your applications from Okta to Microsoft Entra ID](migrate-applications-from-okta.md)
-- [Tutorial: Migrate Okta federation to Microsoft Entra ID-managed authentication](migrate-okta-federation.md)
+- [Tutorial: Migrate Okta federation to Microsoft Entra managed authentication](migrate-okta-federation.md)
 - [Tutorial: Migrate Okta sign-on policies to Microsoft Entra Conditional Access](./migrate-okta-sign-on-policies-conditional-access.md)
