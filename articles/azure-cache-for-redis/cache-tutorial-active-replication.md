@@ -219,8 +219,11 @@ You did it! Click on the buttons and explore the demo. To reset the count, add "
 To clean up your cluster, run the following commands:
 
 ```bash
+set kubeconfig=AKS_WestUS2
 kubectl delete deployment shoppingcart-app -n west
 kubectl delete service shoppingcart-svc -n west
+
+set kubeconfig=AKS_EastUS
 kubectl delete deployment shoppingcart-app -n east
 kubectl delete service shoppingcart-svc -n east
 ```
