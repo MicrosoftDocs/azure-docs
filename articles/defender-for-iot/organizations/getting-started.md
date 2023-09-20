@@ -40,7 +40,7 @@ This procedure describes how to add a trial license for Defender for IoT to your
 
 1. After receiving the code, enter it in the **Enter your verification code** box.
 
-1. In the **How you'll sign in** page, enter a username and password and select <what?>
+1. In the **How you'll sign in** page, enter a username and password and select **Next**.
 
 1. In the **Confirmation details** page, note your order number and username, and then select **Start using Microsoft Defender for IoT - OT Site License (1000 max devices per site) Trial** button to continue.
 
