@@ -39,10 +39,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 To configure the integration of Jamf Pro into Azure AD, you need to add Jamf Pro from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal by using either a work or school account or your personal Microsoft account.
-1. In the left pane, select the **Azure Active Directory** service.
-1. Go to **Enterprise Applications**, and then select **All Applications**.
-1. To add a new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, enter *Jamf Pro* in the search box.
 1. Select **Jamf Pro** from results panel, and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -63,7 +61,7 @@ In this section, you configure and test Azure AD SSO with Jamf Pro.
 
 ## Configure SSO in Azure AD
 
-In this section, you enable Azure AD SSO in the Azure portal.
+In this section, you enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Jamf Pro** application integration page, find the **Manage** section and select **Single Sign-On**.
@@ -84,7 +82,7 @@ In this section, you enable Azure AD SSO in the Azure portal.
     `https://<subdomain>.jamfcloud.com`
 
 	> [!NOTE]
-	> These values aren't real. Update these values with the actual identifier, reply URL, and sign-on URL. You'll get the actual identifier value from the **Single Sign-On** section in Jamf Pro portal, which is explained later in the tutorial. You can extract the actual subdomain value from the identifier value and use that subdomain information as your sign-on URL and reply URL. You can also refer to the formulas shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values aren't real. Update these values with the actual identifier, reply URL, and sign-on URL. You'll get the actual identifier value from the **Single Sign-On** section in Jamf Pro portal, which is explained later in the tutorial. You can extract the actual subdomain value from the identifier value and use that subdomain information as your sign-on URL and reply URL. You can also refer to the formulas shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, go to the **SAML Signing Certificate** section, select the **copy** button to copy **App Federation Metadata URL**, and then save it to your computer.
 
@@ -92,7 +90,7 @@ In this section, you enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you create a test user in the Azure portal called B.Simon.
+In this section, you create a test user called B.Simon.
 
 1. In the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
@@ -144,12 +142,12 @@ In this section, you grant B.Simon access to Jamf Pro.
 
 	c. Select **Azure** as an option from the **Identity Provider** drop-down menu.
 
-	d. Copy the **ENTITY ID** value and paste it into the **Identifier (Entity ID)** field in the **Basic SAML Configuration** section in the Azure portal.
+	d. Copy the **ENTITY ID** value and paste it into the **Identifier (Entity ID)** field in the **Basic SAML Configuration** section.
 
 	> [!NOTE]
-	> Use the value in the `<SUBDOMAIN>` field to complete the sign-on URL and reply URL in the **Basic SAML Configuration** section in the Azure portal.
+	> Use the value in the `<SUBDOMAIN>` field to complete the sign-on URL and reply URL in the **Basic SAML Configuration** section.
 
-	e. Select **Metadata URL** from the **Identity Provider Metadata Source** drop-down menu. In the field that appears, paste the **App Federation Metadata Url** value that you've copied from the Azure portal.
+	e. Select **Metadata URL** from the **Identity Provider Metadata Source** drop-down menu. In the field that appears, paste the **App Federation Metadata Url** value that you've copied.
 
 	f. (Optional) Edit the token expiration value or select "Disable SAML token expiration".
 
@@ -215,13 +213,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Jamf Pro Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Jamf Pro Sign on URL where you can initiate the login flow.  
 
 * Go to Jamf Pro Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Jamf Pro for which you set up the SSO 
+* Click on **Test this application**, and you should be automatically signed in to the Jamf Pro for which you set up the SSO 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Jamf Pro tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Jamf Pro for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

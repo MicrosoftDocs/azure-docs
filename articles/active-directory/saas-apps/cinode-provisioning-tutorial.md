@@ -56,7 +56,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ![Create token](media/cinode-provisioning-tutorial/token.png)
 
-6. Copy the **Tenant URL** and the **Token**. These values will be entered in the Provisioning tab of your Cinode application in the Azure portal.
+6. Copy the **Tenant URL** and the **Token**. These values will be entered in the Provisioning tab of your Cinode application.
 
 ## Step 3. Add Cinode from the Azure AD application gallery
 

@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate ITRP with Azure Active Directory
 
 * Control in Azure AD who has access to ITRP.
 * Enable your users to be automatically signed-in to ITRP with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ To configure and test Azure AD SSO with ITRP, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ITRP** > **Single sign-on**.
@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
        `https://<tenant-name>.itrp.com`   
 
 	> [!NOTE]
-	> These values are placeholders. You need to use the actual Identifier and Sign on URL. Contact the [ITRP support team](https://www.4me.com/support/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
+	> These values are placeholders. You need to use the actual Identifier and Sign on URL. Contact the [ITRP support team](https://www.4me.com/support/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box.
 
 5. In the **SAML Signing Certificate** section, select the **Edit** icon to open the **SAML Signing Certificate** dialog box:
 
@@ -95,7 +95,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -109,7 +109,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to ITRP.
+In this section, you'll enable B.Simon to use single sign-on by granting access to ITRP.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ITRP**.
@@ -139,11 +139,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	1. Select **Enabled**.
 
-	1. In the **Remote logout URL** box, paste the **Logout URL** value that you copied from the Azure portal.
+	1. In the **Remote logout URL** box, paste the **Logout URL** value that you copied.
 
-	1. In the **SAML SSO URL** box, paste the **Login URL** value that you copied from the Azure portal.
+	1. In the **SAML SSO URL** box, paste the **Login URL** value that you copied.
 
-	1. In the **Certificate fingerprint** box, paste the **Thumbprint** value of the certificate, which you copied from the Azure portal.
+	1. In the **Certificate fingerprint** box, paste the **Thumbprint** value of the certificate, which you copied.
 
     1. Select **Save**.
 
@@ -182,7 +182,7 @@ To create a user account, take these steps:
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to ITRP Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to ITRP Sign-on URL where you can initiate the login flow. 
 
 * Go to ITRP Sign-on URL directly and initiate the login flow from there.
 

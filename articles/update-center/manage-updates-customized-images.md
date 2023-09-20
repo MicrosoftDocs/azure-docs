@@ -4,7 +4,7 @@ description: This article describes customized image support, how to register an
 ms.service: azure-update-manager
 author: snehasudhirG
 ms.author: sudhirsneha
-ms.date: 05/02/2023
+ms.date: 09/18/2023
 ms.topic: conceptual
 ---
 
@@ -25,31 +25,6 @@ If you're using Azure Compute Gallery (formerly known as Shared Image Gallery) t
 With marketplace images, support is validated even before Update Manager operation is triggered. Here, there are no preexisting validations in place and the Update Manager operations are triggered. Only their success or failure determines support.
 
 For instance, an assessment call attempts to fetch the latest patch that's available from the image's OS family to check support. It stores this support-related data in an Azure Resource Graph table, which you can query to see the support status for your Azure Compute Gallery image.
-
-## Enable a subscription for public preview
-
-To self-register your subscription for public preview in the Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **More services**.
-
-   :::image type="content" source="./media/manage-updates-customized-images/access-more-services.png" alt-text="Screenshot that shows how to access the More services option.":::
-
-1. On the **All services** page, search for **Preview features**.
-   
-    :::image type="content" source="./media/manage-updates-customized-images/access-preview-services.png" alt-text="Screenshot that shows how to access preview features.":::
-
-1. On the **Preview features** page, enter **gallery** and select **VM Guest Patch Gallery Image Preview**.
-
-   :::image type="content" source="./media/manage-updates-customized-images/access-gallery.png" alt-text="Screenshot that shows how to access the gallery.":::
-    
-1. On the **VM Guest Patch Gallery Image Preview** page, select **Register** to register your subscription.
-    
-   :::image type="content" source="./media/manage-updates-customized-images/register-preview.png" alt-text="Screenshot that shows how to register the Preview feature.":::
-
-## Prerequisites to test the Azure Compute Gallery custom images (preview)
-
-- Register the subscription for preview by following the steps in [Enable a subscription for public preview](#enable-a-subscription-for-public-preview).
-- Ensure that the VM where you intend to run the API calls is in the same subscription that's enrolled for the feature.
 
 ## Check the preview
 

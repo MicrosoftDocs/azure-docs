@@ -20,7 +20,7 @@ In this article, you'll learn how to integrate ThreatQ Platform with Azure Activ
 
 * Control in Azure AD who has access to ThreatQ Platform.
 * Enable your users to be automatically signed-in to ThreatQ Platform with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You'll configure and test Azure AD single sign-on for ThreatQ Platform in a test environment. ThreatQ Platform supports **SP** initiated single sign-on and **Just In Time** user provisioning.
 
@@ -43,13 +43,13 @@ Add ThreatQ Platform from the Azure AD application gallery to configure single s
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ThreatQ Platform** > **Single sign-on**.
@@ -70,7 +70,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     `https://<Customer_Environment>.threatq.online/`
 
 	> [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [ThreatQ Platform support team](mailto:support@threatq.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [ThreatQ Platform support team](mailto:support@threatq.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Your ThreatQ Platform application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but ThreatQ Platform expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
@@ -93,7 +93,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure ThreatQ Platform SSO
 
-To configure single sign-on on **ThreatQ Platform** side, you need to send the downloaded **Certificate (PEM)** and appropriate copied URLs from Azure portal to [ThreatQ Platform support team](mailto:support@threatq.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **ThreatQ Platform** side, you need to send the downloaded **Certificate (PEM)** and appropriate copied URLs from the application configuration to [ThreatQ Platform support team](mailto:support@threatq.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create ThreatQ Platform test user
 
@@ -103,7 +103,7 @@ In this section, a user called B.Simon is created in ThreatQ Platform. ThreatQ P
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to ThreatQ Platform Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to ThreatQ Platform Sign-on URL where you can initiate the login flow. 
 
 * Go to ThreatQ Platform Sign-on URL directly and initiate the login flow from there.
 

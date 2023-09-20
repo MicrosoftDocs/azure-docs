@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate SumoLogic with Azure Active Dire
 
 * Control in Azure AD who has access to SumoLogic.
 * Enable your users to be automatically signed-in to SumoLogic with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ To configure and test Azure AD SSO with SumoLogic, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SumoLogic** > **Single sign-on**.
@@ -99,7 +99,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     |
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [SumoLogic Client support team](https://www.sumologic.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [SumoLogic Client support team](https://www.sumologic.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. SumoLogic application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -126,7 +126,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -140,7 +140,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to SumoLogic.
+In this section, you'll enable B.Simon to use single sign-on by granting access to SumoLogic.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SumoLogic**.
@@ -174,9 +174,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. Select **Debug Mode**.
 
-    c. In the **Issuer** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
+    c. In the **Issuer** textbox, paste the value of **Azure AD Identifier**.
 
-    d. In the **Authn Request URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+    d. In the **Authn Request URL** textbox, paste the value of **Login URL**.
 
     e. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **X.509 Certificate** textbox.
 
@@ -221,7 +221,7 @@ In order to enable Azure AD users to sign in to SumoLogic, they must be provisio
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the SumoLogic for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the SumoLogic for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the SumoLogic tile in the My Apps, you should be automatically signed in to the SumoLogic for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

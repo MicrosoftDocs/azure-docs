@@ -50,7 +50,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 
 
-4. Once installed, an addon details page will be shown with your **Tenant URL** and **Secret Token**. These values will be entered in the Tenant URL \* field and Secret Token \* field in the Provisioning tab of your PaperCut Cloud Print Management application in the Azure portal.
+4. Once installed, an addon details page will be shown with your **Tenant URL** and **Secret Token**. These values will be entered in the Tenant URL \* field and Secret Token \* field in the Provisioning tab of your PaperCut Cloud Print Management application.
 
 
 
