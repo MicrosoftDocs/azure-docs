@@ -35,7 +35,7 @@ Ensure the following before you install Arc agents at scale for SCVMM VMs:
 
 An admin can install agents for multiple machines from the Azure portal if the machines share the same administrator credentials.
 
-1. Navigate to the SCVMM management servers blade on [Azure Arc Center](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/overview), and select the SCVMM management server resource.
+1. Navigate to the **SCVMM management servers** blade on [Azure Arc Center](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/overview), and select the SCVMM management server resource.
 2. Select all the machines and choose the **Enable in Azure** option.
 3. Select **Enable guest management** checkbox to install Arc agents on the selected machine.
 4. If you want to connect the Arc agent via proxy, provide the proxy server details.
