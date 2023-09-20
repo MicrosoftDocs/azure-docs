@@ -4,7 +4,7 @@ description: Learn about regions and availability zones and how they work to hel
 ms.service: reliability
 ms.subservice: availability-zones
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 09/20/2023
 ms.author: anaharris
 author: anaharris
 ms.reviewer: asinghal
@@ -14,13 +14,7 @@ ms.custom: references_regions
 
 # What are Azure regions and availability zones?
 
-An Azure *region* is a geographic perimeter that contains a set of datacenters. 
-
-Azure regions have a variety of configurations, which are also called *region architectures*.
-
-Many Azure regions provide *availability zones*, which are separated groups of datacenters within a region. Availability zones are close enough to have low-latency connections to other availability zones. They're connected by a high-performance network with a round-trip latency of less than 2ms.
-
-However, availability zones are far enough apart to reduce the likelihood that more than one will be affected by local outages or weather. Availability zones have independent power, cooling, and networking infrastructure. They're designed so that if one zone experiences an outage, then regional services, capacity, and high availability are supported by the remaining zones. They help your data stay synchronized and accessible when things go wrong.
+An Azure *region* is a geographic perimeter that contains a set of datacenters. Many Azure regions provide *availability zones*, which are separated groups of datacenters within a region. Availability zones are close enough to have low-latency connections to other availability zones. They're connected by a high-performance network with a round-trip latency of less than 2ms. However, availability zones are far enough apart to reduce the likelihood that more than one will be affected by local outages or weather. Availability zones have independent power, cooling, and networking infrastructure. They're designed so that if one zone experiences an outage, then regional services, capacity, and high availability are supported by the remaining zones. They help your data stay synchronized and accessible when things go wrong.
 
 Datacenter locations are selected by using rigorous vulnerability risk assessment criteria. This process identifies all significant datacenter-specific risks and considers shared risks between availability zones.
 
@@ -35,7 +29,7 @@ To see which regions support availability zones, see [Azure regions with availab
 
 Many regions also have a [*paired region*](./cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). Paired regions support certain types of multi-region deployment approaches. Some newer regions have [multiple availability zones and don't have a paired region](./cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair). You can still deploy multi-region solutions into these regions, but the approaches you use might be different.
 
-## Availability zones
+## Zonal and zone redundant availability zones
 
 When you deploy into an Azure region that contains availability zones, you can use multiple availability zones together. By using multiple availability zones, you can keep separate copies of your application and data within separate physical datacenters in a large metropolitan area.
 
@@ -56,10 +50,19 @@ Each datacenter is assigned to a physical zone. Physical zones are mapped to log
 
 To understand the mapping between logical and physical zones for your subscription, use the [List Locations Azure Resource Manager API](/rest/api/resources/subscriptions/list-locations). You can use the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/what-is-azure-powershell) to retrieve the information from the API.
 
-#### [Azure CLI](#tab/azure-cli)
+# [CLI](#tab/azure-cli)
 
 ```azurecli
 az rest --method get --uri '/subscriptions/{subscriptionId}/locations?api-version=2022-12-01' --query 'value'
+```
+
+# [PowerShell](#tab/azure-powershell)
+```azurepowershell
+$subscriptionId = (Get-AzContext).Subscription.ID
+$response = Invoke-AzRestMethod -Method GET -Path "/subscriptions/$subscriptionId/locations?api-version=2022-12-01"
+$locations = ($response.Content | ConvertFrom-Json).value
+```
+
 ## Availability zones and Azure updates
 
 Microsoft aims to deploy updates to Azure services to a single availability zone at a time. This approach reduces the impact that updates might have on an active workload, because the workload can continue to run in other zones while the update is in process. For more information about how Azure deploys updates, see [Advancing safe deployment practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/).
@@ -70,9 +73,15 @@ The [shared responsibility model](./overview.md#shared-responsibility) describes
 
 Microsoft provides availability zones and regions to give you flexibility in how you design your solution to meet your requirements. When you use managed services, Microsoft takes on more of the management responsibilities for your resources, which might even include data replication, failover, failback, and other tasks related to operating a distributed system.
 
-<!--
-Regardless of the approach you use, your own code needs to follow [recommended practices for handling transient failures](handle-transient-faults.md). These practices are even more important in a multi-zone or multi-region solution, because failover between zones or regions usually requires that your application retry connections to services.
--->
+# Availability zone architectural guidance
+
+To achieve more reliable workloads:
+
+- Production workloads should be configured to use availability zones if the region they are in supports availability zones.
+- For mission-critical workloads, you should consider a solution that is *both* multi-region and multi-zone.
+
+For more detailed information on how to use regions and availability zones in a solution architecture, see [Recommendations for using availability zones and regions](/azure/well-architected/resiliency/regions-availability-zones).
+
 
 ## Next steps
 
