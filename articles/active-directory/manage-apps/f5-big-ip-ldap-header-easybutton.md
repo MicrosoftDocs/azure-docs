@@ -173,7 +173,8 @@ Use the optional **Security Settings** to specify whether Microsoft Entra ID enc
 
 This section contains properties to manually configure a new BIG-IP SAML application in your Microsoft Entra tenant. Easy Button has application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP, and an SHA template for other apps. 
 
-For this scenario, select **F5 BIG-IP APM Microsoft Entra Integration > Add**.
+For this scenario, select **F5 BIG-IP APM Azure AD Integration > Add**.
+
 
    ![Screenshot of the Add option under Configuration Properties on Azure Configuration.](./media/f5-big-ip-easy-button-ldap/azure-config-add-app.png)
 
