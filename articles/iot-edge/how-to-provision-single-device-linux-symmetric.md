@@ -75,9 +75,9 @@ Install both the Azure IoT Edge and Azure IoT Hub extensions:
 
 Now that the container engine and the IoT Edge runtime are installed on your device, you're ready to set up the device with its cloud identity and authentication information.
 
-Do we need a tabbed experience here? One tab for snaps and one for all other distributions? It looks like there's custom provisioning instructions for snaps.
+# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
 
-You can quickly configure your IoT Edge device with symmetric key authentication using the following command:
+You can configure your IoT Edge device with symmetric key authentication using the following command:
 
    ```bash
    sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
@@ -96,6 +96,31 @@ You can quickly configure your IoT Edge device with symmetric key authentication
    ```bash
    sudo nano /etc/aziot/config.toml
    ```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+Create a **config.toml** file in your home directory and configure your IoT Edge device with a symmetric key authentication for the snap.
+
+```bash
+sudo nano ~/config.toml
+```
+
+You can manual provision with connection string using the following provisioning settings:
+
+```toml
+[provisioning]
+source = "manual"
+connection_string = "PASTE_DEVICE_CONNECTION_STRING_HERE"
+```
+
+Set the configuration for IoT Edge and the Identity Service using the following command:
+
+```bash
+sudo snap set azure-iot-edge raw-config="$(cat ~/config.toml)"
+```
+
+---
+
 
 ## Deploy modules
 
@@ -119,8 +144,6 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 
 > [!TIP]
 > You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use `sudo` in front of the commands.
-
-Do we need a tabbed experience here? One tab for snaps and one for all other distributions? It looks like there's custom verification instructions for snaps.
 
 1. Check to see that the IoT Edge system service is running.
 
@@ -241,6 +264,21 @@ Leave out the `--purge` flag if you plan to reinstall IoT Edge and use the same 
 ```bash
 sudo yum remove aziot-edge
 ```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+Remove the IoT Edge runtime:
+
+```bash
+sudo snap remove azure-iot-edge
+```
+
+Remove Azure Identity Service:
+
+```bash
+sudo snap remove azure-iot-identity
+```
+
 ---
 
 When the IoT Edge runtime is removed, any containers that it created are stopped but still exist on your device. View all containers to see which ones remain.
@@ -267,6 +305,8 @@ sudo apt-get autoremove --purge moby-engine
 sudo yum remove moby-cli
 sudo yum remove moby-engine
 ```
+
+---
 
 ## Next steps
 

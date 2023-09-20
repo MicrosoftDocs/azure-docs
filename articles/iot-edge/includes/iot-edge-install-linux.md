@@ -121,7 +121,7 @@ Install the Moby engine and CLI.
 
 # [Ubuntu Core snaps](#tab/snaps)
 
-IoT Edge has dependencies on Docker and IoT Identity Service. Install the dependencies:
+IoT Edge has dependencies on Docker and IoT Identity Service. Install the dependencies using the following commands:
 
 ```bash
 sudo snap install docker
