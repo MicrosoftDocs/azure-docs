@@ -80,10 +80,10 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `compute.runtime_version` | String | **Optional**. Defines Spark runtime version. | `3.1`, `3.2` | `3.2`|
 | `monitoring_target` | Object | Azure Machine Learning asset(s) associated with model monitoring. | | |
 | `monitoring_target.ml_task` | String | Machine learning task for the model. | Allowed values are: `classification`, `regression`, `question_answering`| |
-| `monitoring_target.endpoint_deployment_id` | String | **Optional**. The associated Azure Machine Learning endpoint/deployment ID in format of `azureml:myEnpointName:myDeploymentName`. This field is required if your endpoint/deployment has enabled model data collection to be used for model monitoring. | | |
+| `monitoring_target.endpoint_deployment_id` | String | **Optional**. The associated Azure Machine Learning endpoint/deployment ID in format of `azureml:myEndpointName:myDeploymentName`. This field is required if your endpoint/deployment has enabled model data collection to be used for model monitoring. | | |
 | `monitoring_target.model_id` | String | **Optional**. The associated model ID for model monitoring. | | |
 | `monitoring_signals` | Object | Dictionary of monitoring signals to be included. The key is a name for monitoring signal within the context of monitor and the value is an object containing a [monitoring signal specification](#monitoring-signals). **Optional** for basic model monitoring that uses recent past production data as comparison baseline and has 3 monitoring signals: data drift, prediction drift, and data quality. | | |
-| `alert_notification` | String or Object | Description of alert notification recipients. | One of two alert desitnation is allowed: String `azmonitoring` or Object `emails` containing an array of email recipients |  |
+| `alert_notification` | String or Object | Description of alert notification recipients. | One of two alert destinations is allowed: String `azmonitoring` or Object `emails` containing an array of email recipients |  |
 | `alert_notification.emails` | Object | List of email addresses to receive alert notification. | | |
 
 ### Monitoring signals
@@ -110,7 +110,7 @@ As the data used to train the model evolves in production, the distribution of t
 | `features` | Object | **Optional**. Target features to be monitored for data drift. Some models might have hundreds or thousands of features, it's always recommended to specify interested features for monitoring. | One of following values: list of feature names, `features.top_n_feature_importance`, or `all_features` | Default `features.top_n_feature_importance = 10` if `production_data.data_context` is `training`, otherwise, default is `all_features` |
 | `alert_enabled` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
 | `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_enabled` is `true`, user will receive alert notification. | | |
-| `metric_thresholds.numerical` | Object | Optional. List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed numberical metric names: `jensen_shannon_distance`, `normalized_wasserstein_distance`, `population_stability_index`, `two_sample_kolmogorov_smirnov_test`| |
+| `metric_thresholds.numerical` | Object | Optional. List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed numerical metric names: `jensen_shannon_distance`, `normalized_wasserstein_distance`, `population_stability_index`, `two_sample_kolmogorov_smirnov_test`| |
 | `metric_thresholds.categorical` | Object | Optional. List of metrics and thresholds in 'key:value' format, 'key' is the metric name, 'value' is the threshold. | Allowed `categorical` metric names: `jensen_shannon_distance`, `chi_squared_test`, `population_stability_index`| |
 
 
@@ -134,7 +134,7 @@ Prediction drift tracks changes in the distribution of a model's prediction outp
 | `reference_data.pre_processing_component` | String | Component ID in the format of `azureml:myPreprocessing@latest` for a registered component. **Required** if `reference_data.input_data.type` is `uri_folder`, see [preprocessing component specification](./how-to-monitor-model-performance.md#set-up-model-monitoring-by-bringing-your-own-production-data-to-azure-machine-learning). | | |
 | `alert_enabled` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
 | `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_enabled` is `true`, user will receive alert notification. | | |
-| `metric_thresholds.numerical` | Object | Optional. List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed numberical metric names: `jensen_shannon_distance`, `normalized_wasserstein_distance`, `population_stability_index`, `two_sample_kolmogorov_smirnov_test`| |
+| `metric_thresholds.numerical` | Object | Optional. List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed numerical metric names: `jensen_shannon_distance`, `normalized_wasserstein_distance`, `population_stability_index`, `two_sample_kolmogorov_smirnov_test`| |
 | `metric_thresholds.categorical` | Object | Optional. List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed `categorical` metric names: `jensen_shannon_distance`, `chi_squared_test`, `population_stability_index`| |
 
 
@@ -159,7 +159,7 @@ Data quality signal tracks data quality issues in production by comparing to tra
 | `features` | Object | **Optional**. Target features to be monitored for data quality. Some models might have hundreds or thousands of features. It's always recommended to specify interested features for monitoring. | One of following values: list of feature names, `features.top_n_feature_importance`, or `all_features` | Default to `features.top_n_feature_importance = 10` if `reference_data.data_context` is `training`, otherwise default is `all_features` |
 | `alert_enabled` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
 | `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_enabled` is `true`, user will receive alert notification. | | |
-| `metric_thresholds.numerical` | Object | **Optional** List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed numberical metric names: `data_type_error_rate`, `null_value_rate`, `out_of_bounds_rate`| |
+| `metric_thresholds.numerical` | Object | **Optional** List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed numerical metric names: `data_type_error_rate`, `null_value_rate`, `out_of_bounds_rate`| |
 | `metric_thresholds.categorical` | Object | **Optional** List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed `categorical` metric names: `data_type_error_rate`, `null_value_rate`, `out_of_bounds_rate`| |
 
 #### Feature attribution drift
@@ -169,7 +169,7 @@ The feature attribution of a model may change over time due to changes in the di
 | Key | Type | Description | Allowed values | Default value |
 | --- | --- | ------------| --------------| ----------|
 | `type` | String | **Required**. Type of monitoring signal. Prebuilt monitoring signal processing component is automatically loaded according to the `type` specified here | `feature_attribution_drift` |  `feature_attribution_drift` |
-| `production_data` | Array | **Optional**, default to collected data associated with AzureML endpoint if this is not provided. The `production_data` is a list of dataset and its associated meta data, it must include both model inputs and model outputs data. It could be a single dataset with both model inputs and outputs, or it could be two seperate datasets containing one model inputs and one model outputs.| | |
+| `production_data` | Array | **Optional**, default to collected data associated with Azure Machine Learning endpoint if this is not provided. The `production_data` is a list of dataset and its associated meta data, it must include both model inputs and model outputs data. It could be a single dataset with both model inputs and outputs, or it could be two separate datasets containing one model inputs and one model outputs.| | |
 | `production_data.input_data` | Object | **Optional**. Description of input data source,  see [job input data](./reference-yaml-job-command.md#job-inputs) specification.| | |
 | `production_data.data_context` | String | The context of data. It refers to production model inputs data. | `model_inputs`, `model_outputs`, `model_inputs_outputs` |  |
 | `production_data.data_column_names` | Object | Correlation column name and prediction colum names in `key:value` format, needed for data joining. | Allowed keys are: `correlation_id`, `prediction`, `prediction_probability`  |

@@ -267,8 +267,8 @@ create_monitor:
     feature_attribution_drift_signal:
       type: feature_attribution_drift
       # production_data: is not required input here
-      # Please ensure AzureML online endpoint is enabled to collected both model_inputs and model_outputs data
-      # AzureML model monitoring will automatically join both model_inputs and model_outputs data and used it for computation
+      # Please ensure Azure Machine Learning online endpoint is enabled to collected both model_inputs and model_outputs data
+      # Azure Machine Learning model monitoring will automatically join both model_inputs and model_outputs data and used it for computation
       reference_data:
         input_data:
           path: azureml:my_model_training_data:1
@@ -588,7 +588,7 @@ create_monitor:
     feature_attribution_drift_signal:
       type: feature_attribution_drift
       production_data:
-      # using production_data collected outside of AzureML
+      # using production_data collected outside of Azure Machine Learning
         - input_data:
             path: azureml:my_model_inputs:1
             type: uri_folder
