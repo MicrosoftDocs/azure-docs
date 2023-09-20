@@ -45,11 +45,11 @@ Follow the steps to modify the configurations:
 
    :::image type="content" source="./media/trino-service-configuration/azure-portal-configuration-management.png" alt-text="Screenshot showing Azure portal configuration management.":::
 
-6. Add new or update the existing key value pairs for the configurations you want to modify. For example, config.properties -> Custom configurations and then click "Add" to add new configuration setting.
+6. Add new or update the existing key value pairs for the configurations you want to modify. For example, config.properties -> Custom configurations -> click "Add" to add new configuration setting and then click Ok.
 
    :::image type="content" source="./media/trino-service-configuration/configuration-properties.png" alt-text="Screenshot showing custom configuration.":::
    
-8. Select OK and then click Save.
+8. Click "Save" to save the configurations.
 
    :::image type="content" source="./media/trino-service-configuration/save-configuration.png" alt-text="Screenshot showing how to save the configuration.":::
    

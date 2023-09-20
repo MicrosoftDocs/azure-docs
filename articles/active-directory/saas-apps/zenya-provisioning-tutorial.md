@@ -78,35 +78,36 @@ For more information (in dutch) also read: [`Implementatie SCIM koppeling`](http
 
 ### To configure automatic user provisioning for Zenya in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Screenshot showing the Enterprise applications blade.](common/enterprise-applications.png)
 
-2. In the applications list, select **Zenya**.
+1. In the applications list, select **Zenya**.
 
 	![Screenshot showing Zenya link in the Applications list.](media/zenya-provisioning-tutorial/browse-application.png)
 
-3. Select the **Provisioning** tab.
+1. Select the **Provisioning** tab.
 
 	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
-4. Set the **Provisioning Mode** to **Automatic**.
+1. Set the **Provisioning Mode** to **Automatic**.
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. In the **Admin Credentials** section, input the **SCIM 2.0 base URL and Permanent Token** values retrieved earlier in the **Tenant URL** and add /scim/ to it. Also add the  **Secret Token**. You can generate a secret token in Zenya by using the **permanent token** button. Select **Test Connection** to ensure Azure AD can connect to Zenya. If the connection fails, ensure your Zenya account has Admin permissions and try again. 
+1. In the **Admin Credentials** section, input the **SCIM 2.0 base URL and Permanent Token** values retrieved earlier in the **Tenant URL** and add /scim/ to it. Also add the  **Secret Token**. You can generate a secret token in Zenya by using the **permanent token** button. Select **Test Connection** to ensure Azure AD can connect to Zenya. If the connection fails, ensure your Zenya account has Admin permissions and try again. 
 
 	![Screenshot showing the Test connection page and fields for Tenant URL and Token.](common/provisioning-testconnection-tenanturltoken.png)
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
+1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
 	![Screenshot showing the field for entering an email address for notification.](common/provisioning-notification-email.png)
 
-7. Select **Save**.
+1. Select **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zenya**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zenya**.
 
-9. Review the user attributes that are synchronized from Azure AD to Zenya in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zenya for update operations. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Zenya in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zenya for update operations. Select the **Save** button to commit any changes.
 
    |Attribute|Type|
    |---|---|
@@ -120,9 +121,9 @@ For more information (in dutch) also read: [`Implementatie SCIM koppeling`](http
 
 
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Zenya**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Zenya**.
 
-11. Review the group attributes that are synchronized from Azure AD to Zenya in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zenya for update operations. Select the **Save** button to commit any changes.
+1. Review the group attributes that are synchronized from Azure AD to Zenya in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zenya for update operations. Select the **Save** button to commit any changes.
 
       |Attribute|Type|
       |---|---|
@@ -130,17 +131,17 @@ For more information (in dutch) also read: [`Implementatie SCIM koppeling`](http
       |members|Reference|
       |externalID|String|
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for Zenya, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Azure AD provisioning service for Zenya, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Screenshot showing the provisioning status toggled on.](common/provisioning-toggle-on.png)
 
-14. Define the users and/or groups that you would like to provision to Zenya by choosing the desired values in **Scope** in the **Settings** section. You'll need a P1 or P2 license in order to allow provisioning assigned users and groups. 
+1. Define the users and/or groups that you would like to provision to Zenya by choosing the desired values in **Scope** in the **Settings** section. You'll need a P1 or P2 license in order to allow provisioning assigned users and groups. 
 
 	![Screenshot showing where to select the provisioning scope.](common/provisioning-scope.png)
 
-15. When you're ready to provision, select **Save**.
+1. When you're ready to provision, select **Save**.
 
 	![Screenshot showing the Save button to save the provisioning configuration.](common/provisioning-configuration-save.png)
 

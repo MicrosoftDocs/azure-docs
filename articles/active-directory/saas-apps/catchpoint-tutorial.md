@@ -66,7 +66,7 @@ Complete the following sections:
 Follow these steps in the Azure portal to enable Azure AD SSO:
 
 1. Sign in to the Azure portal.
-1. On the **Catchpoint** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Catchpoint** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set Up Single Sign-On with SAML** page, select the pencil icon to edit the **Basic SAML Configuration** settings.
 

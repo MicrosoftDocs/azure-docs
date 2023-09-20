@@ -62,20 +62,10 @@ Before configuring OfficeSpace Software for automatic user provisioning with Azu
 
 **To add OfficeSpace Software from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **OfficeSpace Software**, select **OfficeSpace Software** in the results panel, and then click the **Add** button to add the application.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **OfficeSpace Software**, select **OfficeSpace Software** in the search box.
+1. Select **OfficeSpace Software** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 	![OfficeSpace Software in the results list](common/search-new-app.png)
 
 ## Configuring automatic user provisioning to OfficeSpace Software 
@@ -87,11 +77,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for OfficeSpace Software in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **OfficeSpace Software**.
+1. In the applications list, select **OfficeSpace Software**.
 
 	![The OfficeSpace Software link in the Applications list](common/all-applications.png)
 
