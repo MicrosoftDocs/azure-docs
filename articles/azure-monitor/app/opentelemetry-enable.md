@@ -56,6 +56,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 - A Java application using Java 8+
 
 ### [Node.js](#tab/nodejs)
+
 > [!NOTE]
 > If you rely on any properties in the [not-supported table](https://github.com/microsoft/ApplicationInsights-node.js/blob/beta/README.md#ApplicationInsights-Shim-Unsupported-Properties), use the distro, and we'll provide a migration guide soon. If not, the App Insights shim is your easiest path forward when it's out of beta. 
 
