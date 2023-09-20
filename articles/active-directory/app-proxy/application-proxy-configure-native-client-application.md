@@ -9,7 +9,7 @@ ms.subservice: app-proxy
 ms.workload: identity
 ms.custom: devx-track-dotnet
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -35,12 +35,12 @@ Publish your proxy application as you would any other application and assign use
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 You now need to register your application in Azure AD, as follows:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **App registrations**. The list of all app registrations appears.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
+1. Browse to **Identity** > **Applications** > **App registrations**. The list of all app registrations appears.
 1. Select **New registration**. The **Register an application** page appears.
 
-   ![Create a new app registration in the Azure portal](./media/application-proxy-configure-native-client-application/create.png)
+   ![Create a new app registration in the Microsoft Entra admin center](./media/application-proxy-configure-native-client-application/create.png)
 
 1. In the **Name** heading, specify a user-facing display name for your application.
 1. Under the **Supported account types** heading, select an access level using these guidelines:
@@ -101,9 +101,9 @@ if (authResult != null)
  }
 ```
 
-The required info in the sample code can be found in the Azure portal, as follows:
+The required info in the sample code can be found in the Microsoft Entra admin center, as follows:
 
-| Info required | How to find it in the Azure portal |
+| Info required | How to find it in the Microsoft Entra admin center |
 | --- | --- |
 | \<Tenant ID> | **Azure Active Directory** > **Properties** > **Directory ID** |
 | \<App ID of the Native app> | **Application registration** > *your native application* > **Overview** > **Application ID** |

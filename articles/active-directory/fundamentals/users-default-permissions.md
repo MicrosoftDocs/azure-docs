@@ -56,11 +56,11 @@ You can restrict default permissions for member users in the following ways:
 | ---------- | ------------ |
 | **Register applications** | Setting this option to **No** prevents users from creating application registrations. You can then grant the ability back to specific individuals, by adding them to the application developer role. |
 | **Allow users to connect work or school account with LinkedIn** | Setting this option to **No** prevents users from connecting their work or school account with their LinkedIn account. For more information, see [LinkedIn account connections data sharing and consent](../enterprise-users/linkedin-user-consent.md). |
-| **Create security groups** | Setting this option to **No** prevents users from creating security groups. Global administrators and user administrators can still create security groups. To learn how, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md). |
-| **Create Microsoft 365 groups** | Setting this option to **No** prevents users from creating Microsoft 365 groups. Setting this option to **Some** allows a set of users to create Microsoft 365 groups. Global administrators and user administrators can still create Microsoft 365 groups. To learn how, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md). |
+| **Create security groups** | Setting this option to **No** prevents users from creating security groups. Global Administrators and User Administrators can still create security groups. To learn how, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md). |
+| **Create Microsoft 365 groups** | Setting this option to **No** prevents users from creating Microsoft 365 groups. Setting this option to **Some** allows a set of users to create Microsoft 365 groups. Global Administrators and User Administrators can still create Microsoft 365 groups. To learn how, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md). |
 | **Restrict access to Azure AD administration portal** | **What does this switch do?** <br>**No** lets non-administrators browse the Azure AD administration portal. <br>**Yes** Restricts non-administrators from browsing the Azure AD administration portal. Non-administrators who are owners of groups or applications are unable to use the Azure portal to manage their owned resources. </p><p></p><p>**What does it not do?** <br> It doesn't restrict access to Azure AD data using PowerShell, Microsoft GraphAPI, or other clients such as Visual Studio. <br>It doesn't restrict access as long as a user is assigned a custom role (or any role). </p><p></p><p>**When should I use this switch?** <br>Use this option to prevent users from misconfiguring the resources that they own. </p><p></p><p>**When should I not use this switch?** <br>Don't use this switch as a security measure. Instead, create a Conditional Access policy that targets Microsoft Azure Management that blocks non-administrators access to [Microsoft Azure Management](../conditional-access/concept-conditional-access-cloud-apps.md#microsoft-azure-management). </p><p></p><p> **How do I grant only a specific non-administrator users the ability to use the Azure AD administration portal?** <br> Set this option to **Yes**, then assign them a role like global reader. </p><p></p><p>**Restrict access to the Entra administration portal** <br>A Conditional Access policy that targets Microsoft Azure Management targets access to all Azure management. |
 | **Restrict non-admin users from creating tenants** | Users can create tenants in the Azure AD and Entra administration portal under Manage tenant. The creation of a tenant is recorded in the Audit log as category DirectoryManagement and activity Create Company. Anyone who creates a tenant becomes the Global Administrator of that tenant. The newly created tenant doesn't inherit any settings or configurations. </p><p></p><p>**What does this switch do?** <br> Setting this option to **Yes** restricts creation of Azure AD tenants to the Global Administrator or tenant creator roles. Setting this option to **No** allows non-admin users to create Azure AD tenants. Tenant create will continue to be recorded in the Audit log. </p><p></p><p>**How do I grant only a specific non-administrator users the ability to create new tenants?** <br> Set this option to Yes, then assign them the tenant creator role.|
-| **Restrict users from recovering the BitLocker key(s) for their owned devices** | This setting can be found in the Azure AD and Entral portal in the Device Settings. Setting this option to **Yes** restricts users from being able to self-service recover BitLocker key(s) for their owned devices. Users will have to contact their organization's helpdesk to retrieve their BitLocker keys. Setting this option to **No** allows users to recover their BitLocker key(s). |
+| **Restrict users from recovering the BitLocker key(s) for their owned devices** | This setting can be found in the Azure AD and Entra portal in the Device Settings. Setting this option to **Yes** restricts users from being able to self-service recover BitLocker key(s) for their owned devices. Users will have to contact their organization's helpdesk to retrieve their BitLocker keys. Setting this option to **No** allows users to recover their BitLocker key(s). |
 | **Read other users** | This setting is available in Microsoft Graph and PowerShell only. Setting this flag to `$false` prevents all non-admins from reading user information from the directory. This flag doesn't prevent reading user information in other Microsoft services like Exchange Online.</p><p>This setting is meant for special circumstances, so we don't recommend setting the flag to `$false`. |
 
 The **Restrict non-admin users from creating tenants** option is shown [below](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/UserSettings)
@@ -86,19 +86,19 @@ Permission | Setting explanation
 
 When a user registers an application, they're automatically added as an owner for the application. As an owner, they can manage the metadata of the application, such as the name and permissions that the app requests. They can also manage the tenant-specific configuration of the application, such as the single sign-on (SSO) configuration and user assignments. 
 
-An owner can also add or remove other owners. Unlike global administrators, owners can manage only the applications that they own.
+An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the applications that they own.
 
 ### Enterprise application owner permissions
 
 When a user adds a new enterprise application, they're automatically added as an owner. As an owner, they can manage the tenant-specific configuration of the application, such as the SSO configuration, provisioning, and user assignments. 
 
-An owner can also add or remove other owners. Unlike global administrators, owners can manage only the applications that they own.
+An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the applications that they own.
 
 ### Group owner permissions
 
 When a user creates a group, they're automatically added as an owner for that group. As an owner, they can manage properties of the group (such as the name) and manage group membership. 
 
-An owner can also add or remove other owners. Unlike global administrators and user administrators, owners can manage only the groups that they own. 
+An owner can also add or remove other owners. Unlike Global Administrators and User Administrators, owners can manage only the groups that they own. 
 
 To assign a group owner, see [Managing owners for a group](./how-to-manage-groups.md).
 
@@ -162,7 +162,7 @@ Users can perform the following actions on owned devices:
 Users can perform the following actions on owned groups.
 
 > [!NOTE]
-> Owners of dynamic groups must have a global administrator, group administrator, Intune administrator, or user administrator role to edit group membership rules. For more information, see [Create or update a dynamic group in Azure Active Directory](../enterprise-users/groups-create-rule.md).
+> Owners of dynamic groups must have a Global Administrator, Group Administrator, Intune Administrator, or User Administrator role to edit group membership rules. For more information, see [Create or update a dynamic group in Azure Active Directory](../enterprise-users/groups-create-rule.md).
 
 | **Action** | **Description** |
 | --- | --- |

@@ -96,7 +96,7 @@ Here's the initial set of permissions:
 
 If an application or service attempts to perform a protection action, it must be able to handle the required Conditional Access policy. In some cases, a user might need to intervene and satisfy the policy. For example, they may be required to complete multi-factor authentication. The following applications support step-up authentication for protected actions:
 
-- Azure Active Directory administrator experiences for the actions in the [Entra admin center](https://entra.microsoft.com) or the [Azure portal](https://portal.azure.com)
+- Azure Active Directory administrator experiences for the actions in the [Microsoft Entra admin center](https://entra.microsoft.com)
 - [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview?branch=main)
 - [Microsoft Graph Explorer](/graph/graph-explorer/graph-explorer-overview?branch=main)
 
@@ -104,7 +104,7 @@ There are some known and expected limitations. The following applications will f
  
 - [Azure PowerShell](/powershell/azure/what-is-azure-powershell?branch=main) 
 - [Azure AD PowerShell](/powershell/azure/active-directory/overview?branch=main)
-- Creating a new [terms of use](../conditional-access/terms-of-use.md) page or [custom control](../conditional-access/controls.md) in the Entra admin center or Azure portal. New terms of use pages or custom controls are registered with Conditional Access so are subject to Conditional Access create, update, and delete protected actions. Temporarily removing the policy requirement from the Conditional Access create, update, and delete actions will allow the creation of a new terms of use page or custom control.
+- Creating a new [terms of use](../conditional-access/terms-of-use.md) page or [custom control](../conditional-access/controls.md) in the Microsoft Entra admin center. New terms of use pages or custom controls are registered with Conditional Access so are subject to Conditional Access create, update, and delete protected actions. Temporarily removing the policy requirement from the Conditional Access create, update, and delete actions will allow the creation of a new terms of use page or custom control.
 
 If your organization has developed an application that calls the Microsoft Graph API to perform a protected action, you should review the code sample for how to handle a claims challenge using step-up authentication. For more information, see [Developer guide to Conditional Access authentication context](../develop/developer-guide-conditional-access-authentication-context.md).
 
