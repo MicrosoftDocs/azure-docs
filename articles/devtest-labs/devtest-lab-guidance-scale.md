@@ -67,7 +67,7 @@ A DevTest Labs proof of concept has three primary roles with defined responsibil
 ## Orchestrate the implementation of DevTest Labs
 This section provides a recommended approach for rapid deployment and implementation of Azure DevTest Labs. The following image emphasizes the overall process as prescriptive guidance while observing flexibility for supporting various industry requirements and scenarios.
 
-:::image type="content" source="media/devtest-lab-guidance-scale/implementation-steps.png" alt-text="Steps for implementing Azure DevTest Labs":::
+:::image type="content" source="media/devtest-lab-guidance-scale/implementation-steps.png" alt-text="Diagram showing steps for implementing Azure DevTest Labs.":::
 ### Assumptions
 This article assumes that you have the following items in place before implementing a DevTest Labs pilot:
 
