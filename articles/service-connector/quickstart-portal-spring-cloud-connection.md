@@ -1,8 +1,8 @@
 ---
 title: Create a service connection in Azure Spring Apps from the Azure portal
 description: This quickstart shows you how to create a service connection in Azure Spring Apps from the Azure portal.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
 ms.date: 08/10/2022

@@ -51,11 +51,12 @@ Alternatively, you can also use the [Enterprise App Configuration Wizard](https:
 
 Complete the following steps to enable Azure AD single sign-on in the Azure portal.
 
-1. In the Azure portal, on the **Vbrick Rev Cloud** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Vbrick Rev Cloud** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   [ ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration") ](common/edit-urls.png#lightbox)
+   [ ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")](common/edit-urls.png#lightbox)
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -91,11 +92,11 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-    [ ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate") ](common/metadataxml.png#lightbox)
+    [ ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")](common/metadataxml.png#lightbox)
 
 1. On the **Set up Vbrick Rev Cloud** section, copy the appropriate URL(s) based on your requirement.
 
-	[ ![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata") ](common/copy-configuration-urls.png#lightbox)
+	[ ![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")](common/copy-configuration-urls.png#lightbox)
 
 ## Configure Vbrick Rev Cloud
 
@@ -105,7 +106,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. In the **SAML SINGLE SIGN ON** section, perform the following steps:
 	
-	[ ![Screenshot shows the administration portal.](media/vbrick-rev-cloud-tutorial/manage.png "Admin") ](media/vbrick-rev-cloud-tutorial/manage.png#lightbox)
+	[ ![Screenshot shows the administration portal.](media/vbrick-rev-cloud-tutorial/manage.png "Admin")](media/vbrick-rev-cloud-tutorial/manage.png#lightbox)
 
 	1. Check the **Enable Single Sign On** checkbox.
 
@@ -130,7 +131,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Vbrick Rev Cloud Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Vbrick Rev Cloud tile in the My Apps, this will redirect to Vbrick Rev Cloud Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Vbrick Rev Cloud tile in the My Apps, this will redirect to Vbrick Rev Cloud Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Additional resources
 

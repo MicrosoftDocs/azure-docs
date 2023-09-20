@@ -75,7 +75,8 @@ To configure and test Azure AD SSO with Raketa, perform the following steps:
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Raketa** application integration page, find the **Manage** section and select **single sign-on** [9].
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Raketa** application integration page, find the **Manage** section and select **single sign-on** [9].
 
     ![rkt_4](./media/raketa-tutorial/integration.png)
 
@@ -172,7 +173,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Raketa Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Raketa tile in the My Apps, this will redirect to Raketa Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Raketa tile in the My Apps, this will redirect to Raketa Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

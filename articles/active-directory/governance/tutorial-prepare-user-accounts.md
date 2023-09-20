@@ -100,8 +100,8 @@ Next, we create Britta Simon.  This is the account that is used as our manager.
 
 As an alternative, the following PowerShell script may also be used to quickly create two users needed execute a lifecycle workflow.  One user represents our new employee and the second represents the new employee's manager.
 
->[!IMPORTANT]
->The following PowerShell script is provided to quickly create the two users required for this tutorial.  These users can also be created manually by signing in to the Azure portal as a global administrator and creating them.
+> [!IMPORTANT]
+> The following PowerShell script is provided to quickly create the two users required for this tutorial. These users can also be created in the Microsoft Entra Admin center.
 
 In order to create this step, save the following PowerShell script to a location on a machine that has access to Azure. 
 
@@ -111,10 +111,10 @@ You need to do perform this action for both $UPN_employee and $UPN_manager
 
 After editing the script, save it and follow these steps:
 
- 1.  Open a Windows PowerShell command prompt, with Administrative privileges, from a machine that has access to the Azure portal.
-2. Navigate to the saved PowerShell script location and run it.
-3. If prompted select **Yes to all** when installing the Azure AD module.
-4. When prompted, sign in to the Azure portal with a global administrator for your Azure AD tenant.
+ 1.  Open a Windows PowerShell command prompt, with Administrative privileges, from a machine that has access to the Microsoft Entra admin center.
+1. Navigate to the saved PowerShell script location and run it.
+1. If prompted select **Yes to all** when installing the Azure AD module.
+1. When prompted, sign in to the Microsoft Entra admin center with a global administrator for your tenant.
 
 ```powershell
 #
@@ -156,11 +156,11 @@ Once your user(s) has been successfully created in Azure AD, you may proceed to 
 
 ## Additional steps for pre-hire scenario
 
-There are some additional steps that you should be aware of when testing either the [On-boarding users to your organization using Lifecycle workflows with Azure portal](tutorial-onboard-custom-workflow-portal.md) tutorial or the [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph](tutorial-onboard-custom-workflow-graph.md) tutorial.
+There are some additional steps that you should be aware of when testing either the [On-boarding users to your organization using Lifecycle workflows with the Microsoft Entra Admin Center](tutorial-onboard-custom-workflow-portal.md) tutorial or the [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph](tutorial-onboard-custom-workflow-graph.md) tutorial.
 
-### Edit the users attributes using the Azure portal
+### Edit the users attributes using the Microsoft Entra admin center
 
-Some of the attributes required for the pre-hire onboarding tutorial are exposed through the Azure portal and can be set there. 
+Some of the attributes required for the pre-hire onboarding tutorial are exposed through the Microsoft Entra admin center and can be set there. 
 
  These attributes are:
 
@@ -171,17 +171,16 @@ Some of the attributes required for the pre-hire onboarding tutorial are exposed
 
 For the tutorial, the **mail** attribute only needs to be set on the manager account and the **manager** attribute set on the employee account.  Use the following steps:
 
- 1. Sign in to the [Azure portal](https://portal.azure.com).
- 2. On the right, select **Azure Active Directory**.
- 3. Select **Users**.
- 4. Select **Melva Prince**.
- 5. At the top, select **Edit**.
- 6. Under manager, select **Change** and Select **Britta Simon**.
- 7. At the top, select **Save**.
- 8. Go back to users and select **Britta Simon**.
- 9. At the top, select **Edit**.
- 10. Under **Email**, enter a valid email address.
- 11. Select **Save**.
+ 1. Sign in to the [Microsoft Entra admin Center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+ 1. Browse to > **Identity** > **Users** > **All Users**.
+ 1. Select **Melva Prince**.
+ 1. At the top, select **Edit**.
+ 1. Under manager, select **Change** and Select **Britta Simon**.
+ 1. At the top, select **Save**.
+ 1. Go back to users and select **Britta Simon**.
+ 1. At the top, select **Edit**.
+ 1. Under **Email**, enter a valid email address.
+ 1. Select **Save**.
 
 ### Edit employeeHireDate
 
@@ -192,15 +191,14 @@ The employeeHireDate attribute is new to Azure AD.  It isn't exposed through the
 
 In order to do this, we must get the object ID for our user Melva Prince.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the right, select **Azure Active Directory**.
-3. Select **Users**.
-4. Select **Melva Prince**.
-5. Select the copy sign next to the **Object ID**.
-6. Now navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-7. Sign-in to Graph Explorer with the global administrator account for your tenant.
-8. At the top, change **GET** to **PATCH** and add `https://graph.microsoft.com/v1.0/users/<id>` to the box.  Replace `<id>` with the value we copied before.
-9. Copy the following in to the **Request body** and select **Run query**
+1. Sign in to the [Microsoft Entra admin Center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to > **Identity** > **Users** > **All Users**.
+1. Select **Melva Prince**.
+1. Select the copy sign next to the **Object ID**.
+1. Now navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+1. Sign-in to Graph Explorer with the global administrator account for your tenant.
+1. At the top, change **GET** to **PATCH** and add `https://graph.microsoft.com/v1.0/users/<id>` to the box.  Replace `<id>` with the value we copied before.
+1. Copy the following in to the **Request body** and select **Run query**
     ```Example
     {
     "employeeHireDate": "2022-04-15T22:10:00Z"
@@ -208,17 +206,17 @@ In order to do this, we must get the object ID for our user Melva Prince.
     ```
     :::image type="content" source="media/tutorial-lifecycle-workflows/update-1.png" alt-text="Screenshot of the PATCH employeeHireDate." lightbox="media/tutorial-lifecycle-workflows/update-1.png":::
 
-10. Verify the change by changing **PATCH** back to **GET** and **v1.0** to **beta**. Select **Run query**. You should see the attributes for Melva set.  
+1. Verify the change by changing **PATCH** back to **GET** and **v1.0** to **beta**. Select **Run query**. You should see the attributes for Melva set.  
     :::image type="content" source="media/tutorial-lifecycle-workflows/update-3.png" alt-text="Screenshot of the GET employeeHireDate." lightbox="media/tutorial-lifecycle-workflows/update-3.png":::
 
 ### Edit the manager attribute on the employee account
 The manager attribute is used for email notification tasks.  It's used by the lifecycle workflow to email the manager a temporary password for the new employee.   Use the following steps to ensure your Azure AD users have a value for the manager attribute.
 
 1. Still in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-2. Make sure the top is still set to **PUT** and `https://graph.microsoft.com/v1.0/users/<id>/manager/$ref` is in the box. Change `<id>` to the ID of Melva Prince. 
-3. Copy the code below in to the **Request body** 
-4. Replace `<managerid>` in the following code with the value of Britta Simons ID.
-5. Select **Run query**
+1. Make sure the top is still set to **PUT** and `https://graph.microsoft.com/v1.0/users/<id>/manager/$ref` is in the box. Change `<id>` to the ID of Melva Prince. 
+1. Copy the code below in to the **Request body** 
+1. Replace `<managerid>` in the following code with the value of Britta Simons ID.
+1. Select **Run query**
     ```Example
     {
       "@odata.id": "https://graph.microsoft.com/v1.0/users/<managerid>"
@@ -227,9 +225,9 @@ The manager attribute is used for email notification tasks.  It's used by the li
 
     :::image type="content" source="media/tutorial-lifecycle-workflows/graph-add-manager.png" alt-text="Screenshot of Adding a manager in Graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-add-manager.png":::
 
-6. Now, we can verify that the manager has been set correctly by changing the **PUT** to **GET**.
-7. Make sure `https://graph.microsoft.com/v1.0/users/<id>/manager/` is in the box.  The `<id>` is still that of Melva Prince. 
-8. Select **Run query**.  You should see Britta Simon returned in the Response.
+1. Now, we can verify that the manager has been set correctly by changing the **PUT** to **GET**.
+1. Make sure `https://graph.microsoft.com/v1.0/users/<id>/manager/` is in the box.  The `<id>` is still that of Melva Prince. 
+1. Select **Run query**.  You should see Britta Simon returned in the Response.
 
     :::image type="content" source="media/tutorial-lifecycle-workflows/graph-get-manager.png" alt-text="Screenshot of getting a manager in Graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-get-manager.png":::
 
@@ -239,16 +237,17 @@ For more information about updating manager information for a user in Graph API,
 
 A Temporary Access Pass is a time-limited pass issued by an admin that satisfies strong authentication requirements.  
 
-In this scenario, we use this feature of Azure AD to generate a temporary access pass for our new employee.  It is then mailed to the employee's manager.
+In this scenario, we use this feature of Azure AD to generate a temporary access pass for our new employee.  It's then mailed to the employee's manager.
 
 To use this feature, it must be enabled on our Azure AD tenant.  To do this, use the following steps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator and select **Azure Active Directory** > **Security** > **Authentication methods** > **Temporary Access Pass**
-2. Select **Yes** to enable the policy and add Britta Simon and select which users have the policy applied, and any **General** settings.
+1. Sign in to the [Microsoft Entra admin Center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator). 
+1. Browse to **Protection** > **Authentication methods** > **Temporary Access Pass**
+1. Select **Yes** to enable the policy and add Britta Simon and select which users have the policy applied, and any **General** settings.
 
 ## Additional steps for leaver scenario
 
-There are some additional steps that you should be aware of when testing either the Off-boarding users from your organization using Lifecycle workflows with Azure portal tutorial or the Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph tutorial.
+There are some additional steps that you should be aware of when testing either the Off-boarding users from your organization using Lifecycle workflows with the Microsoft Entra admin center tutorial, or the Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph tutorial.
 
 ### Set up user with groups and Teams with team membership
 
@@ -256,7 +255,7 @@ A user with groups and Teams memberships is required before you begin the tutori
 
 
 ## Next steps
-- [On-boarding users to your organization using Lifecycle workflows with Azure portal](tutorial-onboard-custom-workflow-portal.md)
+- [On-boarding users to your organization using Lifecycle workflows with the Microsoft Entra admin center](tutorial-onboard-custom-workflow-portal.md)
 - [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph](tutorial-onboard-custom-workflow-graph.md)
-- [Tutorial: Off-boarding users from your organization using Lifecycle workflows with Azure portal](tutorial-offboard-custom-workflow-portal.md)
+- [Tutorial: Off-boarding users from your organization using Lifecycle workflows with The Microsoft Entra Admin Center](tutorial-offboard-custom-workflow-portal.md)
 - [Tutorial: Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph](tutorial-offboard-custom-workflow-graph.md)

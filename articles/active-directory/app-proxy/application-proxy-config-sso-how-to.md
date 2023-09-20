@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj, asteen
 ---
@@ -18,11 +18,17 @@ ms.reviewer: ashishj, asteen
 Single sign-on (SSO) allows your users to access an application without authenticating multiple times. It allows the single authentication to occur in the cloud, against Azure Active Directory, and allows the service or Connector to impersonate the user to complete any additional authentication challenges from the application.
 
 ## How to configure single-sign on
-To configure SSO, first make sure that your application is configured for Pre-Authentication through Azure Active Directory. To do this configuration, go to **Azure Active Directory** -&gt; **Enterprise Applications** -&gt; **All Applications** -&gt; Your application **-&gt; Application Proxy**. On this page, you see the “Pre Authentication” field, and make sure that is set to “Azure Active Directory. 
+To configure SSO, first make sure that your application is configured for Pre-Authentication through Azure Active Directory.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.
+
+ Look for the “Pre Authentication” field, and make sure that is set. 
 
 For more information on the Pre-Authentication methods, see step 4 of the [app publishing document](application-proxy-add-on-premises-application.md).
 
-   ![Pre-authentication method in Azure portal](./media/application-proxy-config-sso-how-to/app-proxy.png)
+   ![Pre-authentication method in Microsoft Entra admin center](./media/application-proxy-config-sso-how-to/app-proxy.png)
 
 ## Configuring single sign-on modes for Application Proxy Applications
 Configure the specific type of single sign-on. The sign-on methods are classified based on what type of authentication the backend application uses. App Proxy applications support three types of sign-on:
