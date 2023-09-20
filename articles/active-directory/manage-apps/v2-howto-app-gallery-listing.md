@@ -106,7 +106,7 @@ To escalate issues of any kind, send an email to the [Microsoft Entra SSO Integr
 
 You can submit your application update request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). The first time you try to sign into the portal you're presented with one of two screens. 
 
-- If you receive the message "That didn't work", then you need to contact the [Microsoft Entra SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). Provide the email account that you want to use for submitting the request. A business email address such as `name@yourbusiness.com` is preferred. The Microsoft Entra ID team then adds the account in the Microsoft Application Network portal.
+- If you receive the message "That didn't work", then you need to contact the [Microsoft Entra SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). Provide the email account that you want to use for submitting the request. A business email address such as `name@yourbusiness.com` is preferred. The Microsoft Entra team then adds the account in the Microsoft Application Network portal.
 
 - If you see a "Request Access" page, then fill in the business justification and select **Request Access**.
 
