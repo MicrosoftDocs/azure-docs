@@ -1,12 +1,14 @@
 ---
 title: NSG flow logs
 titleSuffix: Azure Network Watcher
-description: Learn about NSG flow logs feature of Azure Network Watcher.
+description: Learn about NSG flow logs feature of Azure Network Watcher, which allows you to log information about IP traffic flowing through a network security group.
 ms.author: halkazwini
 author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
 ms.date: 09/20/2023
+
+#CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can better monitor and optimize my network.
 ---
 
 # Flow logging for network security groups
@@ -566,5 +568,5 @@ Storage of logs is charged separately. For relevant prices, see [Azure Blob Stor
 ## Related content
 
 - To learn how to manage NSG flow logs, see [Create, change, disable, or delete NSG flow logs using the Azure portal](nsg-flow-logging.md).
+- To find answers to some of the most frequently asked questions about NSG flow logs, see [NSG flow logs FAQ](frequently-asked-questions.md#nsg-flow-logs).
 - To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md).
-- To learn how to read flow logs, see [Read NSG flow logs](network-watcher-read-nsg-flow-logs.md).
