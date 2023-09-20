@@ -86,35 +86,35 @@ If you use Azure Active Directory or third-party authentication, enable the [coo
 
 Throughout this guide, you will need to define several variables. 
 
-    ```powershell
-    # These variables must be changed.
-    $subscriptionId = "00000000-0000-0000-0000-000000000000"      # GUID of your Azure subscription
-    $domain = "contoso.net"                                       # The custom domain for your certificate
-    $apimServiceName = "ContosoApi"                               # API Management service instance name, must be globally unique    
-    $apimDomainNameLabel = $apimServiceName                       # Domain name label for API Management's public IP address, must be globally unique
-    $apimAdminEmail = "admin@contoso.net"                         # Administrator's email address - use your email address
+```powershell
+# These variables must be changed.
+$subscriptionId = "00000000-0000-0000-0000-000000000000"      # GUID of your Azure subscription
+$domain = "contoso.net"                                       # The custom domain for your certificate
+$apimServiceName = "ContosoApi"                               # API Management service instance name, must be globally unique    
+$apimDomainNameLabel = $apimServiceName                       # Domain name label for API Management's public IP address, must be globally unique
+$apimAdminEmail = "admin@contoso.net"                         # Administrator's email address - use your email address
 
-    $gatewayHostname = "api.$domain"                              # API gateway host
-    $portalHostname = "portal.$domain"                            # API developer portal host
-    $managementHostname = "management.$domain"                    # API management endpoint host
-    
-    $baseCertPath = "C:\Users\Contoso\"                           # The base path where all certificates are stored
-    $trustedRootCertCerPath = "${baseCertPath}trustedroot.cer"    # Full path to contoso.net trusted root .cer file
-    $gatewayCertPfxPath = "${baseCertPath}gateway.pfx"            # Full path to api.contoso.net .pfx file
-    $portalCertPfxPath = "${baseCertPath}portal.pfx"              # Full path to portal.contoso.net .pfx file
-    $managementCertPfxPath = "${baseCertPath}management.pfx"      # Full path to management.contoso.net .pfx file
-    
-    $gatewayCertPfxPassword = "certificatePassword123"            # Password for api.contoso.net pfx certificate
-    $portalCertPfxPassword = "certificatePassword123"             # Password for portal.contoso.net pfx certificate
-    $managementCertPfxPassword = "certificatePassword123"         # Password for management.contoso.net pfx certificate
+$gatewayHostname = "api.$domain"                              # API gateway host
+$portalHostname = "portal.$domain"                            # API developer portal host
+$managementHostname = "management.$domain"                    # API management endpoint host
+
+$baseCertPath = "C:\Users\Contoso\"                           # The base path where all certificates are stored
+$trustedRootCertCerPath = "${baseCertPath}trustedroot.cer"    # Full path to contoso.net trusted root .cer file
+$gatewayCertPfxPath = "${baseCertPath}gateway.pfx"            # Full path to api.contoso.net .pfx file
+$portalCertPfxPath = "${baseCertPath}portal.pfx"              # Full path to portal.contoso.net .pfx file
+$managementCertPfxPath = "${baseCertPath}management.pfx"      # Full path to management.contoso.net .pfx file
+
+$gatewayCertPfxPassword = "certificatePassword123"            # Password for api.contoso.net pfx certificate
+$portalCertPfxPassword = "certificatePassword123"             # Password for portal.contoso.net pfx certificate
+$managementCertPfxPassword = "certificatePassword123"         # Password for management.contoso.net pfx certificate
 
 
-    # These variables may be changed.
-    $resGroupName = "apim-appGw-RG"                               # Resource group name that will hold all assets
-    $location = "West US"                                         # Azure region that will hold all assets
-    $apimOrganization = "Contoso"                                 # Organization name    
-    $appgwName = "apim-app-gw"                                    # The name of the Application Gateway
-    ```
+# These variables may be changed.
+$resGroupName = "apim-appGw-RG"                               # Resource group name that will hold all assets
+$location = "West US"                                         # Azure region that will hold all assets
+$apimOrganization = "Contoso"                                 # Organization name    
+$appgwName = "apim-app-gw"                                    # The name of the Application Gateway
+```
 
 ## Create a resource group for Resource Manager
 
