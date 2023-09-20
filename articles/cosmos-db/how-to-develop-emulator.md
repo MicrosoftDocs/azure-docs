@@ -580,18 +580,42 @@ Use the [MongoDB .NET driver](mongodb/quickstart-dotnet.md) to connect to the em
 
 1. Start in an empty folder.
 
-1. TODO
+1. Create a new .NET console application
 
     ```bash
-    
+    dotnet new console
     ```
 
-1. TODO
+1. Add the [`MongoDB.Driver`](https://www.nuget.org/packages/MongoDB.Driver) package from NuGet.
 
-1. TODO
+    ```bash
+    dotnet add package MongoDB.Driver
+    ```
 
-    ```csharp
-    
+1. Open the **Program.cs** file.
+
+1. Delete any existing content within the file.
+
+1. Add a using block for the [`MongoDB.Driver`](https://mongodb.github.io/mongo-csharp-driver/2.21/apidocs/html/N_MongoDB_Driver.htm) namespace.
+
+    :::code language="csharp" source="~/cosmos-db-mongodb-dotnet-samples/601-emulator/Program.cs" id="imports":::
+
+1. Create a new instance of [`MongoClient`](https://mongodb.github.io/mongo-csharp-driver/2.21/apidocs/html/T_MongoDB_Driver_MongoClient.htm) using the emulator's credentials.
+
+    :::code language="csharp" source="~/cosmos-db-mongodb-dotnet-samples/601-emulator/Program.cs" highlight="2" id="client":::
+
+1. Get the database and container using [`GetDatabase`](https://mongodb.github.io/mongo-csharp-driver/2.21/apidocs/html/M_MongoDB_Driver_MongoClient_GetDatabase.htm) and [`GetCollection<>`](https://mongodb.github.io/mongo-csharp-driver/2.21/apidocs/html/Overload_MongoDB_Driver_MongoDatabase_GetCollection.htm).
+
+    :::code language="csharp" source="~/cosmos-db-mongodb-dotnet-samples/601-emulator/Program.cs" id="resources":::
+
+1. Create a new item in the XXX using [`InsertOneAsync`](https://mongodb.github.io/mongo-csharp-driver/2.21/apidocs/html/Overload_MongoDB_Driver_MongoCollectionBase_1_InsertOneAsync.htm).
+
+    :::code language="csharp" source="~/cosmos-db-mongodb-dotnet-samples/601-emulator/Program.cs" highlight="6" id="insert":::
+
+1. Run the .NET application.
+
+    ```bash
+    dotnet run
     ```
 
 ### [Python](#tab/python)
