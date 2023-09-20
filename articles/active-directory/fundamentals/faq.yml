@@ -105,7 +105,7 @@ sections:
           
           Implementing SSO from on-premises can be easily achieved with federation solutions such as Active Directory Federation Services (AD FS), or by configuring password hash sync. You can easily deploy both options by using the Microsoft Entra Connect configuration wizard.
           
-          For more information, see [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
+          For more information, see [Integrating your on-premises identities with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md).
           
           
           
