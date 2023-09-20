@@ -64,7 +64,7 @@ This method restores the content and metadata of a soft-deleted blob and any ass
 
 #### Restore soft-deleted objects when versioning is enabled
 
-To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob. You can use the following method:
+If a storage account is configured to enable blob versioning, deleting a blob causes the current version of the blob to become the previous version. To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob. You can use the following method:
 
 - [copyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-summary)
 
