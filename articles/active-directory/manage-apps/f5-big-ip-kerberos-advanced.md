@@ -95,7 +95,8 @@ Before BIG-IP can hand off pre-authentication to Microsoft Entra ID, register it
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
 2. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**, then select **New application**.
 3. The **Browse Microsoft Entra Gallery** pane appears with tiles for cloud platforms, on-premises applications, and featured applications. Applications in the **Featured applications** section have icons that indicate whether they support federated SSO and provisioning. 
-4. In the Azure gallery, search for **F5**, and select **F5 BIG-IP APM Microsoft Entra integration**.
+4. In the Azure gallery, search for **F5**, and select **F5 BIG-IP APM Azure AD integration**.
+
 5. Enter a name for the new application to recognize the application instance. 
 6. Select **Add/Create** to add it to your tenant.
 

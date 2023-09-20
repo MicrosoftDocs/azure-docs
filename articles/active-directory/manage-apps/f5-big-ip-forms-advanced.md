@@ -102,7 +102,7 @@ BIG-IP registration is the first step for SSO between entities. The app you crea
 4. The **Browse Microsoft Entra Gallery** pane opens.
 5. Tiles appear for cloud platforms, on-premises applications, and featured applications. **Featured applications** icons indicate support of federated SSO and provisioning. 
 6. In the Azure gallery, search for **F5**.
-7. Select **F5 BIG-IP APM Microsoft Entra integration**.
+7. Select **F5 BIG-IP APM Azure AD integration**.
 8. Enter a **Name** the new application uses to recognize the application instance. 
 9. Select **Add**.
 10. Select **Create**.

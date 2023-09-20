@@ -98,7 +98,8 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 2. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 3. On the top ribbon, select **+ New application**.
 4. In the gallery, search for **F5**.
-5. Select **F5 BIG-IP APM Microsoft Entra integration**.
+5. Select **F5 BIG-IP APM Azure AD integration**.
+
 6. Enter an application **Name**.
 7. Select **Add/Create**. 
 8. The name reflects the service.

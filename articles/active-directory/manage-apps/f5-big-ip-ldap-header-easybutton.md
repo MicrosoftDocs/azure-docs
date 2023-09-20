@@ -113,7 +113,8 @@ This first step creates a tenant app registration to authorize the **Easy Button
 
 Initiate the APM **Guided Configuration** to launch the **Easy Button** template.
 
-1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Microsoft Entra Application**.
+1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
+
 
     ![Screenshot of the Microsoft Entra Application option on Guided Configuration.](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 

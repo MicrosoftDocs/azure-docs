@@ -196,7 +196,7 @@ Use the following instructions to configure a new BIG-IP SAML application in you
 1. In **Azure Configuration**, under **Configuration Properties**, select **F5 BIG-IP APM Microsoft Entra Integration**.
 2. Select **Add**.
 
-   ![Screenshot of the F5 BIG-IP APM Microsoft Entra Integration option under Configuration Properties.](./media/f5-big-ip-easy-button-ldap/azure-config-add-app.png)
+   ![Screenshot of the F5 BIG-IP APM Azure AD Integration option under Configuration Properties.](./media/f5-big-ip-easy-button-ldap/azure-config-add-app.png)
 
 #### Azure Configuration
 

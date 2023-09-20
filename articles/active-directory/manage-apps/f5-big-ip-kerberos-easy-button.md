@@ -114,7 +114,8 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 
 Initiate the APM Guided Configuration to launch the Easy Button template.
 
-1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Microsoft Entra Application**.
+1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
+
 
     ![Screenshot of the Microsoft Entra Application option on Guided Configuration.](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 
@@ -174,7 +175,8 @@ The optional **Security Settings** specify whether Microsoft Entra ID encrypts i
 
 This section defines properties to manually configure a new BIG-IP SAML application in your Microsoft Entra tenant. Easy Button has application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP, and an SHA template for other apps. 
 
-For this scenario, select **F5 BIG-IP APM Microsoft Entra Integration > Add.**
+For this scenario, select **F5 BIG-IP APM Azure AD Integration > Add.**
+
 
    ![Screenshot of the Add option, under Configuration Properties, on Azure Configuration.](./media/f5-big-ip-kerberos-easy-button/azure-config-add-app.png)
 
