@@ -1327,7 +1327,7 @@ Not available in .NET.
 #### [Node.js](#tab/nodejs)
 
 
-You need to use `applicationinsights` v3 Beta package to achieve this. (https://www.npmjs.com/package/applicationinsights/v/beta). Same methods and intefaces should be available there, all sample code in documented for @azure/monitor-opentelemetry apply to v3 Beta package as well.
+If you would like to add custom events or need access to the Application Insights API, you will need to replace the @azure/monitor-opentelemetry package with the `applicationinsights` v3 Beta package (https://www.npmjs.com/package/applicationinsights/v/beta). Same methods and interfaces should be available there, all sample code in documented for @azure/monitor-opentelemetry apply to v3 Beta package as well.
 
 ```javascript
     const { TelemetryClient } = require("applicationinsights");
