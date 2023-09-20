@@ -116,6 +116,32 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
+### [Spring](#tab/spring)
+
+Update the `bootstrap.yml` file of your application with the following configurations.
+
+```yml
+spring:
+  cloud:
+    azure:
+      appconfiguration:
+        stores:
+         -
+           endpoint: <your-endpoint>
+           selects:
+             -
+              snapshot-name: <name-of-your-snapshot>
+           trim-key-prefix: 
+             - <prefix-to-trim>
+```
+
+> [!NOTE]
+> Any prefix such as `/application/` which is automatically trimmed when using a key filter will need to be specified for snapshots or they will not be properly mapped to the correct `@ConfigurationProperties` classes.
+> Snapshot support is available if you use version **4.12.0-beta.1**/**5.6.0-beta.1** or later of any of the following packages.
+> - `spring-cloud-azure-appconfiguration-config`
+> - `spring-cloud-azure-appconfiguration-config-web`
+> - `spring-cloud-azure-starter-appconfiguration-config`
+
 ---
 
 ## Manage active snapshots
