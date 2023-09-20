@@ -31,6 +31,9 @@ This article uses the following starter queries:
 - [List all storage accounts with specific tag value](#list-specific-tag)
 - [List all tags and their values](#list-all-tag-values)
 - [Show unassociated network security groups](#unassociated-nsgs)
+- [List alerts by severity](#list-alerts-by-severity)
+- [List alerts by severity and resource type](#list-alerts-by-severity-and-type)
+- [List alerts by severity and resource type with a specific tag](#list-alerts-by-severity-and-type-and-tag)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
@@ -654,7 +657,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 ---
 
-## <a name="alerts-severity"></a>Show alerts ordered by severity: 
+## <a name="alerts-severity"></a>List alerts ordered by severity: 
 
 ```azurecli
 { 
@@ -665,7 +668,7 @@ query: "alertsmanagementresources
 | summarize AlertsCount = count() by Severity" 
 } 
 ```
-## <a name="alerts-severity-state"></a>Show alerts ordered by severity and alert state
+## <a name="alerts-severity-state"></a>List alerts ordered by severity and alert state
 
 ```azurecli
 {
@@ -678,7 +681,7 @@ query: "alertsmanagementresources
 }
 ```
 
-## <a name="alerts-severity-service-type"></a>Show alerts ordered by severity, monitor service, and target resource type 
+## <a name="alerts-severity-service-type"></a>List alerts ordered by severity, monitor service, and target resource type 
 
 ```azurecli
 { 
