@@ -1,0 +1,54 @@
+### YamlMime:Landing
+
+title: Azure IoT Operations # < 60 chars
+summary: A unified data plane for the edge # < 160 chars
+
+metadata:
+  title: Azure IoT Operations # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: A unified data plane for the edge # Required; article description that is displayed in search results. < 160 chars.
+  ms.service: iot-operations #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  author: dominicbetts
+  ms.author: dobett
+  ms.date: 09/08/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is Azure IoT Operations?
+            url: get-started/overview-iot-operations.md
+          - text: Deploy
+            url: get-started/quickstart-deploy.md
+  # Card
+  - title: Common scenarios
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy IoT Operations
+            url: deploy/overview-deploy-iot-operations.md
+          - text: Manage devices and assets
+            url: manage-devices-assets/overview-manage-assets.md
+          - text: Route messages
+            url: route-messages/overview-route-messages.md
+          - text: Process messages
+            url: process-data/overview-data-processor.md
+          - text: Connect to the cloud
+            url: connect-to-cloud/overview-connect-to-cloud.md
+          - text: Visualize and analyze telemetry
+            url: analyze-telemetry/overview-analyze-telemetry.md
+
+  - title: Guides
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Developer guide
+            url: develop/overview-develop-customizations.md
+          - text: Administrator guide
+            url: administer/overview-manage-solution.md
