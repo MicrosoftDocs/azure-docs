@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 08/11/2022
 ms.custom: event-tier1-build-2022
 ---
-
 # Integrate Apache Kafka on Confluent Cloud with Service Connector
 
 This page shows the supported authentication types and client types of Apache kafka on Confluent Cloud with Service using Service Connector. You might still be able to connect to Apache kafka on Confluent Cloud in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
@@ -16,15 +15,16 @@ This page shows the supported authentication types and client types of Apache ka
 ## Supported compute services
 
 - Azure App Service
+- Azure Functions
 - Azure Container Apps
 - Azure Spring Apps
 
 ## Supported Authentication types and client types
 
-Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+Supported authentication and clients for App Service, Functions, Container Apps and Azure Spring Apps:
 
-| Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
-|--------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
+| Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string         | Service principal |
+| ------------------ | -------------------------------- | ------------------------------ | ---------------------------------- | ----------------- |
 | .NET               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Java               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Java - Spring Boot |                                  |                                | ![yes icon](./media/green-check.png) |                   |
@@ -38,8 +38,8 @@ Use the connection details below to connect compute services to Kafka. For each 
 
 ### Azure App Service and Azure Container Apps
 
-| Default environment variable name           | Description                              | Example value                                                                                                                              |
-|---------------------------------------------|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| Default environment variable name           | Description                              | Example value                                                                                                                                |
+| ------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | AZURE_CONFLUENTCLOUDKAFKA_BOOTSTRAPSERVER   | Your Kafka bootstrap server              | `pkc-<server-name>.eastus.azure.confluent.cloud:9092`                                                                                      |
 | AZURE_CONFLUENTCLOUDKAFKA_KAFKASASLCONFIG   | Your Kafka SASL configuration            | `org.apache.kafka.common.security.plain.PlainLoginModule required username='<Bootstrap-server-key>' password='<Bootstrap-server-secret>';` |
 | AZURE_CONFLUENTCLOUDSCHEMAREGISTRY_URL      | Your Confluent registry URL              | `https://psrc-<server-name>.westus2.azure.confluent.cloud`                                                                                 |
@@ -47,8 +47,8 @@ Use the connection details below to connect compute services to Kafka. For each 
 
 ### Azure Spring Apps
 
-| Default environment variable name                            | Description                              | Example value                                                                                                                              |
-|--------------------------------------------------------------|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| Default environment variable name                            | Description                              | Example value                                                                                                                                |
+| ------------------------------------------------------------ | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | spring.kafka.properties.bootstrap.servers                    | Your Kafka bootstrap server              | `pkc-<server-name>.eastus.azure.confluent.cloud:9092`                                                                                      |
 | spring.kafka.properties.sasl.jaas.config                     | Your Kafka SASL configuration            | `org.apache.kafka.common.security.plain.PlainLoginModule required username='<Bootstrap-server-key>' password='<Bootstrap-server-secret>';` |
 | spring.kafka.properties.schema.registry.url                  | Your Confluent registry URL              | `https://psrc-<server-name>.westus2.azure.confluent.cloud`                                                                                 |

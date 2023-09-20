@@ -11,7 +11,6 @@ ms.custom:
 - kr2b-contr-experiment
 - event-tier1-build-2022
 ---
-
 # Integrate Azure SignalR Service with Service Connector
 
 This article shows the supported authentication types and client types of Azure SignalR Service using Service Connector. This article also shows default environment variable name and value or Spring Boot configuration that you get when you create the service connection. For more information, see [Service Connector environment variable naming convention](concept-service-connector-internals.md).
@@ -19,23 +18,31 @@ This article shows the supported authentication types and client types of Azure 
 ## Supported compute service
 
 - Azure App Service
+- Azure Functions
 - Azure Container Apps
 
 ## Supported authentication types and client types
 
-Supported authentication and clients for App Service and Container Apps:
+Supported authentication and clients for App Service, Functions and Container Apps:
 
 ### [Azure App Service](#tab/app-service)
 
-| Client type | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
-|-------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+| Client type | System-assigned managed identity   | User-assigned managed identity     | Secret / connection string         | Service principal                  |
+| ----------- | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| .NET        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| None        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+
+### [Azure F](#tab/app-service)unctions
+
+| Client type | System-assigned managed identity   | User-assigned managed identity     | Secret / connection string         | Service principal                  |
+| ----------- | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
 | .NET        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | None        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 ### [Azure Container Apps](#tab/container-apps)
 
-| Client type | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
-|-------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+| Client type | System-assigned managed identity   | User-assigned managed identity     | Secret / connection string         | Service principal                  |
+| ----------- | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
 | .NET        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | None        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
@@ -50,27 +57,27 @@ Use the connection details below to connect compute services to SignalR. For eac
 
 #### Secret / Connection string
 
-  | Default environment variable name | Description | Example value |
-  | --- | --- | --- |
-  | AZURE_SIGNALR_CONNECTIONSTRING | SignalR Service connection string | `Endpoint=https://<SignalR-name>.service.signalr.net;AccessKey=<access-key>;Version=1.0;` |
+| Default environment variable name | Description                       | Example value                                                                               |
+| --------------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------- |
+| AZURE_SIGNALR_CONNECTIONSTRING    | SignalR Service connection string | `Endpoint=https://<SignalR-name>.service.signalr.net;AccessKey=<access-key>;Version=1.0;` |
 
 #### System-assigned Managed Identity
 
-  | Default environment variable name | Description | Example value |
-  | --- | --- | --- |
-  | AZURE_SIGNALR_CONNECTIONSTRING | SignalR Service connection string with Managed Identity | `Endpoint=https://<SignalR-name>.service.signalr.net;AuthType=aad;<client-ID>;Version=1.0;` |
+| Default environment variable name | Description                                             | Example value                                                                                 |
+| --------------------------------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| AZURE_SIGNALR_CONNECTIONSTRING    | SignalR Service connection string with Managed Identity | `Endpoint=https://<SignalR-name>.service.signalr.net;AuthType=aad;<client-ID>;Version=1.0;` |
 
 #### User-assigned Managed Identity
 
-  | Default environment variable name | Description | Example value |
-  | --- | --- | --- |
-  | AZURE_SIGNALR_CONNECTIONSTRING | SignalR Service connection string with Managed Identity | `Endpoint=https://<SignalR-name>.service.signalr.net;AuthType=aad;client-id=<client-id>;Version=1.0;` |
+| Default environment variable name | Description                                             | Example value                                                                                           |
+| --------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| AZURE_SIGNALR_CONNECTIONSTRING    | SignalR Service connection string with Managed Identity | `Endpoint=https://<SignalR-name>.service.signalr.net;AuthType=aad;client-id=<client-id>;Version=1.0;` |
 
 #### Service Principal
 
-  | Default environment variable name | Description | Example value |
-  | --- | --- | --- |
-  | AZURE_SIGNALR_CONNECTIONSTRING | SignalR Service connection string with Service Principal | `Endpoint=https://<SignalR-name>.service.signalr.net;AuthType=aad;ClientId=<client-ID>;ClientSecret=<client-secret>;TenantId=<tenant-ID>;Version=1.0;` |
+| Default environment variable name | Description                                              | Example value                                                                                                                                            |
+| --------------------------------- | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AZURE_SIGNALR_CONNECTIONSTRING    | SignalR Service connection string with Service Principal | `Endpoint=https://<SignalR-name>.service.signalr.net;AuthType=aad;ClientId=<client-ID>;ClientSecret=<client-secret>;TenantId=<tenant-ID>;Version=1.0;` |
 
 ## Next steps
 
