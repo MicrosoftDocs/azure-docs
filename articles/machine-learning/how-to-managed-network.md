@@ -57,14 +57,6 @@ Part of Azure Machine Learning studio runs locally in the client's web browser, 
 
 For more information on creating a private endpoint or service endpoint, see the [Connect privately to a storage account](/azure/storage/common/storage-private-endpoints) and [Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) articles.
 
-## Supported scenarios
-
-|Scenarios|Supported|
-|---|---|
-|Isolation Mode| &#x2022; Allow internet outbound<br>&#x2022; Allow only approved outbound|
-|Compute|&#x2022; [Compute Instance](concept-compute-instance.md)<br>&#x2022; [Compute Cluster](how-to-create-attach-compute-cluster.md)<br>&#x2022; [Serverless](how-to-use-serverless-compute.md)<br>&#x2022; [Serverless spark](apache-spark-azure-ml-concepts.md)<br>&#x2022; New managed online endpoint creation<br>&#x2022; No Public IP option of Compute Instance, Compute Cluster and Serverless |
-|Outbound|&#x2022; Private Endpoint<br>&#x2022; Service Tag<br>&#x2022; FQDN | 
-
 ## Prerequisites
 
 Before following the steps in this article, make sure you have the following prerequisites:
@@ -129,9 +121,10 @@ Before following the steps in this article, make sure you have the following pre
 
 ## Configure a managed virtual network to allow internet outbound
 
+> [!TIP]
+> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. When allowing automatic creation, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. For more information, see [Manually provision the network](#manually-provision-a-managed-virtual-network).
+
 > [!IMPORTANT]
-> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. If you want to provision the managed virtual network and private endpoints, use the `az ml workspace provision-network` command from the Azure CLI. For example, `az ml workspace provision-network --name ws --resource-group rg`.
->
 > __If you plan to submit serverless spark jobs__, you must manually start provisioning. For more information, see the [configure for serverless spark jobs](#configure-for-serverless-spark-jobs) section.
 
 # [Azure CLI](#tab/azure-cli)
@@ -345,9 +338,10 @@ To configure a managed VNet that allows internet outbound communications, use th
 
 ## Configure a managed virtual network to allow only approved outbound
 
+> [!TIP]
+> The managed network is automatically provisioned when you create a compute resource. When allowing automatic creation, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules, the first FQDN rule adds around __10 minutes__ to the provisioning time. For more information, see [Manually provision the network](#manually-provision-a-managed-virtual-network).
+
 > [!IMPORTANT]
-> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. If you want to provision the managed virtual network and private endpoints, use the `az ml workspace provision-network` command from the Azure CLI. For example, `az ml workspace provision-network --name ws --resource-group rg`.
->
 > __If you plan to submit serverless spark jobs__, you must manually start provisioning. For more information, see the [configure for serverless spark jobs](#configure-for-serverless-spark-jobs) section.
 
 # [Azure CLI](#tab/azure-cli)
@@ -809,6 +803,94 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     --- 
 
+## Manually provision a managed virtual network
+
+The managed network is automatically provisioned when you create a compute resource. When allowing automatic creation, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules, the first FQDN rule adds around __10 minutes__ to the provisioning time. 
+
+To reduce the wait time when someone attempts to create the first compute, you can manually provision the managed virtual network after creating the workspace without creating a compute resource:
+
+> [!NOTE]
+> If your workspace is already configured for a public endpoint (for example, with an Azure Virtual Network), and has [public network access enabled](how-to-configure-private-link.md#enable-public-access), you must disable it before provisioning the managed virtual network. If you don't disable public network access when provisioning the managed virtual network, the private endpoints for the managed endpoint may not be created successfully.
+
+# [Azure CLI](#tab/azure-cli)
+
+The following example shows how to provision a managed virtual network.
+
+> [!TIP]
+> If you plan to submit serverless spark jobs, add the `--include-spark` parameter.
+
+```azurecli
+az ml workspace provision-network -g my_resource_group -n my_workspace_name
+```
+
+# [Python SDK](#tab/python)
+
+The following example shows how to provision a managed virtual network:
+
+```python
+# Connect to a workspace named "myworkspace"
+ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name="myworkspace")
+
+# whether to provision spark vnet as well
+include_spark = True
+
+provision_network_result = ml_client.workspaces.begin_provision_network(workspace_name=ws_name, include_spark=include_spark).result()
+```
+
+# [Azure portal](#tab/portal)
+
+Use the __Azure CLI__ or __Python SDK__ tabs to learn how to manually provision the managed VNet with serverless spark support.
+
+--- 
+
+## Configure image builds
+
+When the Azure Container Registry for your workspace is behind a virtual network, it can't be used to directly build Docker images. Instead, configure your workspace to use a compute cluster or compute instance to build images.
+
+> [!IMPORTANT]
+> The compute resource used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. If you're using a network configured to allow only approved outbound, you may need to add [rules that allow access to public repos](#scenario-access-public-machine-learning-packages) or [use private Python packages](concept-vulnerability-management.md#using-a-private-package-repository).
+
+# [Azure CLI](#tab/azure-cli)
+
+To update a workspace to use a compute cluster or compute instance to build Docker images, use the `az ml workspace update` command with the `--image-build-compute` parameter:
+
+```azurecli
+az ml workspace update --name ws --resource-group rg --image-build-compute mycompute
+```
+
+# [Python SDK](#tab/python)
+
+The following example demonstrates how to update a workspace to use a compute cluster to build images:
+
+```python
+# import required libraries
+from azure.ai.ml import MLClient
+from azure.identity import DefaultAzureCredential
+
+subscription_id = "<your subscription ID>"
+resource_group = "<your resource group name>"
+workspace = "<your workspace name>"
+
+ml_client = MLClient(
+    DefaultAzureCredential(), subscription_id, resource_group, workspace
+)
+
+# Get workspace info
+ws=ml_client.workspaces.get(name=workspace)
+# Update to use cpu-cluster for image builds
+ws.image_build_compute="mycompute"
+ml_client.workspaces.begin_update(ws)
+# To switch back to using ACR to build (if ACR is not in the virtual network):
+# ws.image_build_compute = ''
+# ml_client.workspaces.begin_update(ws)
+```
+
+# [Azure portal](#tab/portal)
+
+Currently there isn't a way to set the image build compute from the Azure portal. Use the __Azure CLI__ or __Python SDK__ tabs to learn how to manually configure image builds.
+
+---
+
 ## Manage outbound rules
 
 # [Azure CLI](#tab/azure-cli)
@@ -972,6 +1054,7 @@ The Azure Machine Learning managed virtual network feature is free. However, you
 * The managed network is deleted when the workspace is deleted. 
 * Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add other outbound rules, such as to FQDNs, Microsoft can't guarantee that you're protected from data exfiltration to those outbound destinations.
 * Creating a compute cluster in a different region than the workspace isn't supported when using a managed virtual network.
+* Kubernetes and attached VMs aren't supported in an Azure Machine Learning managed virtual network.
 
 ### Migration of compute resources
 
