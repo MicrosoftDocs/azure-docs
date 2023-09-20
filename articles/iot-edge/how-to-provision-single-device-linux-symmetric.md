@@ -75,7 +75,30 @@ Install both the Azure IoT Edge and Azure IoT Hub extensions:
 
 Now that the container engine and the IoT Edge runtime are installed on your device, you're ready to set up the device with its cloud identity and authentication information.
 
-# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
+# [Ubuntu / Debian](#tab/ubuntu+debian)
+
+You can configure your IoT Edge device with symmetric key authentication using the following command:
+
+   ```bash
+   sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
+   ```
+
+   This `iotedge config mp` command creates a configuration file on the device and enters your connection string in the configuration file.
+
+1. Apply the configuration changes.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+1. To view the configuration file, you can open it:
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+# [Red Hat Enterprise Linux](#tab/rhel)
+<!-- Duplicate of Ubuntu+Debian to match tabs -->
 
 You can configure your IoT Edge device with symmetric key authentication using the following command:
 
