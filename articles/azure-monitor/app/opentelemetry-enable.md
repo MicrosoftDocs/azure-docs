@@ -56,6 +56,8 @@ Follow the steps in this section to instrument your application with OpenTelemet
 - A Java application using Java 8+
 
 ### [Node.js](#tab/nodejs)
+> [!NOTE]
+> If you rely on any properties in the [not-supported table](https://github.com/microsoft/ApplicationInsights-node.js/blob/beta/README.md#ApplicationInsights-Shim-Unsupported-Properties), use the distro, and we'll provide a migration guide soon. If not, the App Insights shim is your easiest path forward when it's out of beta. 
 
 - Application using an officially [supported version](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments) of Node.js runtime:
   - [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
@@ -64,6 +66,10 @@ Follow the steps in this section to instrument your application with OpenTelemet
 ### [Python](#tab/python)
 
 - Python Application using Python 3.7+
+
+
+
+
 
 ---
 
@@ -133,6 +139,10 @@ Install the latest [azure-monitor-opentelemetry](https://pypi.org/project/azure-
 ```sh
 pip install azure-monitor-opentelemetry
 ```
+
+
+
+
 
 ---
 
@@ -239,6 +249,10 @@ with tracer.start_as_current_span("hello"):
 input()
 
 ```
+
+
+
+
 
 ---
 
@@ -354,4 +368,6 @@ As part of using Application Insights instrumentation, we collect and send diagn
 - To see available OpenTelemetry instrumentations and components, see the [OpenTelemetry Contributor Python GitHub repository](https://github.com/open-telemetry/opentelemetry-python-contrib).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
 
+
 ---
+
