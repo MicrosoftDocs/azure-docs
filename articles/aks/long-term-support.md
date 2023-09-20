@@ -40,7 +40,7 @@ We will be maintaining a single version of Kubernetes as LTS at any one time, an
 
 ### Creating a cluster with LTS enabled
 ```
-az aks create --resource-group myResourceGroup --name myAKSCluster --tier premium --k8s-support-plan AKSLongTermSupport
+az aks create --resource-group myResourceGroup --name myAKSCluster --tier premium --k8s-support-plan AKSLongTermSupport --kubernetes-version 1.27
 ```
 
 > [!NOTE]
