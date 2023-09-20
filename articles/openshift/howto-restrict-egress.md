@@ -20,7 +20,7 @@ This article provides the necessary details that allow you to secure outbound tr
 
 This article assumes that you're creating a new cluster. If you need a basic ARO cluster, see the [ARO quickstart](./tutorial-create-cluster.md).
 
-## Minimum Required FQDN - Proxied through ARO service
+## ARO Proxied FQDNs
 
 This list is based on the list of FQDNs found in the OpenShift docs here: https://docs.openshift.com/container-platform/latest/installing/install_config/configuring-firewall.html
 
