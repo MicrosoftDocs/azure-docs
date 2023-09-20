@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 09/15/2023
+ms.date: 09/20/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
@@ -172,7 +172,6 @@ The following features and services aren't supported for account failover:
 
 - Azure File Sync doesn't support storage account failover. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync shouldn't be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files.
 - A storage account containing premium block blobs can't be failed over. Storage accounts that support premium block blobs don't currently support geo-redundancy.
-- A storage account containing any [WORM immutability policy](../blobs/immutable-storage-overview.md) enabled containers can't be failed over. Unlocked/locked time-based retention or legal hold policies prevent failover in order to maintain compliance.
 - Customer-managed failover isn't supported for either the source or the destination account in an [object replication policy](../blobs/object-replication-overview.md).
 - To failover an account with SSH File Transfer Protocol (SFTP) enabled, you must first [disable SFTP for the account](../blobs/secure-file-transfer-protocol-support-how-to.md#disable-sftp-support). If you want to resume using SFTP after the failover is complete, simply [re-enable it](../blobs/secure-file-transfer-protocol-support-how-to.md#enable-sftp-support).
 - Network File System (NFS) 3.0 (NFSv3) isn't supported for storage account failover. You can't create a storage account configured for global-redundancy with NFSv3 enabled.
@@ -189,7 +188,9 @@ Storage accounts containing archived blobs support account failover. However, af
 
 Microsoft provides two REST APIs for working with Azure Storage resources. These APIs form the basis of all actions you can perform against Azure Storage. The Azure Storage REST API enables you to work with data in your storage account, including blob, queue, file, and table data. The Azure Storage resource provider REST API enables you to manage the storage account and related resources.
 
-As part of a failover, the Azure Storage resource provider fails over too. As a result, resource management operations can occur in the new primary region after the failover. The [Location](/dotnet/api/microsoft.azure.management.storage.models.trackedresource.location) property will return the new primary location as well.
+After a failover is complete, clients can again read and write Azure Storage data in the new primary region. However, the Azure Storage resource provider does not fail over, so resource management operations must still take place in the primary region. If the primary region is unavailable, you will not be able to perform management operations on the storage account.
+
+Because the Azure Storage resource provider does not fail over, the [Location](/dotnet/api/microsoft.azure.management.storage.models.trackedresource.location) property will return the original primary location after the failover is complete.
 
 ### Azure virtual machines
 
