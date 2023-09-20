@@ -26,7 +26,7 @@ sections:
   - name: Access Azure and Microsoft Entra ID
     questions:
       - question: |
-          Why do I get "No subscriptions found" when I try to access Microsoft Entra ID in the Azure portal?
+          Why do I get "No subscriptions found" when I try to access the Microsoft Entra admin center or the Azure portal?
         answer: |
           To access the Azure portal, each user needs permissions with an Azure subscription. If you don't have a paid Microsoft 365 or Microsoft Entra subscription, you will need to activate a free [Azure account](https://azure.microsoft.com/free/) or a paid subscription.
           
