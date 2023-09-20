@@ -1013,15 +1013,15 @@ Use the [Azure Tables SDK for .NET](table/quickstart-dotnet.md) to connect to th
 
 1. Delete any existing content within the file.
 
-1. Add a using block for the [`Azure.Data.Tables`](https://learn.microsoft.com/dotnet/api/azure.data.tables) namespace.
+1. Add a using block for the [`Azure.Data.Tables`](/dotnet/api/azure.data.tables) namespace.
 
     :::code language="csharp" source="~/cosmos-db-table-dotnet-samples/601-emulator/Program.cs" id="imports":::
 
-1. Create a new instance of [`TableServiceClient`](https://learn.microsoft.com/dotnet/api/azure.data.tables.tableserviceclient) using the emulator's credentials.
+1. Create a new instance of [`TableServiceClient`](/dotnet/api/azure.data.tables.tableserviceclient) using the emulator's credentials.
 
     :::code language="csharp" source="~/cosmos-db-table-dotnet-samples/601-emulator/Program.cs" highlight="2" id="client":::
 
-1. Use [`GetTableClient`](https://learn.microsoft.com/dotnet/api/azure.data.tables.tableserviceclient.gettableclient) to create a new instance of [`TableClient`](https://learn.microsoft.com/dotnet/api/azure.data.tables.tableclient) with the table's name. Then ensure the table exists using [`CreateIfNotExistsAsync`](https://learn.microsoft.com/dotnet/api/azure.data.tables.tableclient.createifnotexistsasync).
+1. Use [`GetTableClient`](/dotnet/api/azure.data.tables.tableserviceclient.gettableclient) to create a new instance of [`TableClient`](/dotnet/api/azure.data.tables.tableclient) with the table's name. Then ensure the table exists using [`CreateIfNotExistsAsync`](/dotnet/api/azure.data.tables.tableclient.createifnotexistsasync).
 
     :::code language="csharp" source="~/cosmos-db-table-dotnet-samples/601-emulator/Program.cs" highlight="1,5" id="resources":::
 
@@ -1029,7 +1029,7 @@ Use the [Azure Tables SDK for .NET](table/quickstart-dotnet.md) to connect to th
 
     :::code language="csharp" source="~/cosmos-db-table-dotnet-samples/601-emulator/Product.cs" id="entity":::
 
-1. Create a new item in the table using [`UpsertEntityAsync`](https://learn.microsoft.com/dotnet/api/azure.data.tables.tableclient.upsertentityasync) and the `Replace` mode.
+1. Create a new item in the table using [`UpsertEntityAsync`](/dotnet/api/azure.data.tables.tableclient.upsertentityasync) and the `Replace` mode.
 
     :::code language="csharp" source="~/cosmos-db-table-dotnet-samples/601-emulator/Program.cs" highlight="9,11" id="upsert":::
 
