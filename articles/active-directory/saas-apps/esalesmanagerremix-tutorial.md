@@ -50,11 +50,8 @@ The scenario outlined in this tutorial consists of two main building blocks:
 ## Add E Sales Manager Remix from the gallery
 To configure the integration of Azure AD with E Sales Manager Remix, add E Sales Manager Remix from the gallery to your list of managed SaaS apps by doing the following:
 
-1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**. 
-
-	![The Azure Active Directory button][1]
-
-1. Select **Enterprise applications** > **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 	![The "Enterprise applications" window][2]
 	
@@ -148,15 +145,15 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 	
 	b. In the **Collaboration item** section, in the drop-down list, select **email**.
 
-	c. In the **Collaboration item** box, paste the claim value that you copied earlier from the Azure portal (that is, **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**).
+	c. In the **Collaboration item** box, paste the claim value that you copied earlier (that is, **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**).
 
-	d. In the **Issuer (entity ID)** box, paste the identifier value that you copied earlier from the **E Sales Manager Remix Domain and URLs** section of the Azure portal.
+	d. In the **Issuer (entity ID)** box, paste the identifier value that you copied earlier from the **E Sales Manager Remix Domain and URLs** section.
 
-	e. To upload your downloaded certificate from the Azure portal, select **File selection**.
+	e. To upload your downloaded certificate, select **File selection**.
 
-	f. In the **ID provider login URL** box, paste the SAML single sign-on service URL that you copied earlier in the Azure portal.
+	f. In the **ID provider login URL** box, paste the SAML single sign-on service URL that you copied earlier.
 
-	g. In **Identity Provider Logout URL** box, paste the sign-out URL value that you copied earlier in the Azure portal.
+	g. In **Identity Provider Logout URL** box, paste the sign-out URL value that you copied earlier.
 
 	h. Select **Setting complete**.
 
@@ -166,35 +163,17 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 
 ### Create an Azure AD test user
 
-In this section, you create test user Britta Simon in the Azure portal by doing the following:
+In this section, you create test user.
 
-![Create an Azure AD test user][100]
-
-1. In the Azure portal, in the left pane, select **Azure Active Directory**.
-
-    ![The Azure Active Directory link](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
-
-1. To display a list of current users, select **Users and groups** > **All users**.
-
-    ![The "Users and groups" and "All users" links](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
-
-1. At the top of the **All Users** window, select **Add**.
-
-    ![The Add button](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
-    
-    The **User** window opens.
-
-1. In the **User** window, do the following:
-
-    ![The User window](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then note the value that's displayed in the **Password** box.
-
-    d. Select **Create**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
  
 ### Create an E Sales Manager Remix test user
 
@@ -230,7 +209,8 @@ In this section, you enable user Britta Simon to use Azure single sign-on by gra
 
 ![Assign the user role][200] 
 
-1. In the Azure portal, open the **Applications** view, go to the **Directory** view, and then select **Enterprise applications** > **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 	![The "Enterprise applications" and "All applications" links][201] 
 

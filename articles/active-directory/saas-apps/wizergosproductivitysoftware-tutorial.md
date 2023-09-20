@@ -19,7 +19,7 @@ Integrating Wizergos Productivity Software with Azure AD provides you with the f
 
 * You can control in Azure AD who has access to Wizergos Productivity Software.
 * You can enable your users to be automatically signed-in to Wizergos Productivity Software (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* You can manage your accounts in one central location.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -65,7 +65,7 @@ To configure and test Azure AD single sign-on with Wizergos Productivity Softwar
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+In this section, you enable Azure AD single sign-on.
 
 To configure Azure AD single sign-on with Wizergos Productivity Software, perform the following steps:
 
@@ -121,9 +121,9 @@ To configure Azure AD single sign-on with Wizergos Productivity Software, perfor
 	
 	a. Click **UPLOAD** button to upload the downloaded certificate from Azure AD.
 	
-	b. In the **Issuer URL** textbox, paste the **Azure AD Identifier** value that you copied from the Azure portal.
+	b. In the **Issuer URL** textbox, paste the **Azure AD Identifier** value that you copied.
 	
-	c. In the **Single Sign-On URL** textbox, paste the **Login URL** value that you copied from the Azure portal.
+	c. In the **Single Sign-On URL** textbox, paste the **Login URL** value that you copied.
 	
 	d. In the **Single Sign-Out URL** textbox, paste the **Logout URL** value that you copied from Azure portal.
 	
@@ -131,7 +131,7 @@ To configure Azure AD single sign-on with Wizergos Productivity Software, perfor
 
 ### Create an Azure AD test user 
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+The objective of this section is to create a test user called Britta Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.

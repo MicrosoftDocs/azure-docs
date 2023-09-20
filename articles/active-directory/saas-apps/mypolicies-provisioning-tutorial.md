@@ -48,7 +48,7 @@ Before configuring myPolicies for automatic user provisioning with Azure AD, you
 
 1. Reach out to your myPolicies representative at **support@mypolicies.com** to obtain the secret token needed to configure SCIM provisioning.
 
-2.  Save the token value provided by the myPolicies representative. This value will be entered in the **Secret Token** field in the Provisioning tab of your myPolicies application in the Azure portal.
+2.  Save the token value provided by the myPolicies representative. This value will be entered in the **Secret Token** field in the Provisioning tab of your myPolicies application.
 
 ## Add myPolicies from the gallery
 

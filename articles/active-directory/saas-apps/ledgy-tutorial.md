@@ -20,7 +20,7 @@ In this article, you learn how to integrate Ledgy with Azure Active Directory (A
 
 * Control in Azure AD who has access to Ledgy.
 * Enable your users to be automatically signed-in to Ledgy with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You configure and test Azure AD single sign-on for Ledgy in a test environment. Ledgy supports both **SP** and **IDP** initiated single sign-on and **Just In Time** user provisioning.
 
@@ -43,13 +43,13 @@ Add Ledgy from the Azure AD application gallery to configure single sign-on with
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Ledgy** > **Single sign-on**.
@@ -72,7 +72,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	`https://app.ledgy.com/login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Ledgy Client support team](mailto:support@ledgy.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Ledgy Client support team](mailto:support@ledgy.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section.
 
 1. Ledgy application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -105,13 +105,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated
 
-* Click on **Test this application** in Azure portal. This will redirect to Ledgy Sign-on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Ledgy Sign-on URL where you can initiate the login flow.  
 
 * Go to Ledgy Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Ledgy for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the Ledgy for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Ledgy tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Ledgy for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

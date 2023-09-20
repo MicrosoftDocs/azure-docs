@@ -20,7 +20,7 @@ In this article, you'll learn how to integrate CLOUD ATTENDANCE MANAGEMENT SYSTE
 
 * Control in Azure AD who has access to CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME.
 * Enable your users to be automatically signed-in to CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You'll configure and test Azure AD single sign-on for CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME in a test environment. CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME supports **SP** initiated single sign-on.
 
@@ -46,13 +46,13 @@ Add CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME from the Azure AD applicatio
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME** > **Single sign-on**.
@@ -96,7 +96,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME SSO
 
-To configure single sign-on on **CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME support team](https://www.kingoftime.jp/contact/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME support team](https://www.kingoftime.jp/contact/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME test user
 
@@ -106,7 +106,7 @@ In this section, you create a user called Britta Simon in CLOUD ATTENDANCE MANAG
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME Sign-on URL where you can initiate the login flow. 
 
 * Go to CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME Sign-on URL directly and initiate the login flow from there.
 

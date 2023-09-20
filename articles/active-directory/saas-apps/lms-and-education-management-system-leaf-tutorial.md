@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate LMS and Education Management Sys
 
 * Control in Azure AD who has access to LMS and Education Management System Leaf.
 * Enable your users to be automatically signed-in to LMS and Education Management System Leaf with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with LMS and Education Management System Leaf
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **LMS and Education Management System Leaf** > **Single sign-on**.
@@ -84,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.leaf-hrm.jp/loginusers/sso/1`
 
     > [!Note]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [LMS and Education Management System Leaf support team](mailto:leaf-jimukyoku@insource.co.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [LMS and Education Management System Leaf support team](mailto:leaf-jimukyoku@insource.co.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Your LMS and Education Management System Leaf application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but LMS and Education Management System Leaf expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
@@ -100,7 +100,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -114,7 +114,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to LMS and Education Management System Leaf.
+In this section, you'll enable B.Simon to use single sign-on by granting access to LMS and Education Management System Leaf.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **LMS and Education Management System Leaf**.
@@ -126,7 +126,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure LMS and Education Management System Leaf SSO
 
-To configure single sign-on on **LMS and Education Management System Leaf** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [LMS and Education Management System Leaf support team](mailto:leaf-jimukyoku@insource.co.jp). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **LMS and Education Management System Leaf** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [LMS and Education Management System Leaf support team](mailto:leaf-jimukyoku@insource.co.jp). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create LMS and Education Management System Leaf test user
 
@@ -159,7 +159,7 @@ and NameID format (format) on which IdP (authentication server) is specified.
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to LMS and Education Management System Leaf Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to LMS and Education Management System Leaf Sign-on URL where you can initiate the login flow. 
 
 * Go to LMS and Education Management System Leaf Sign-on URL directly and initiate the login flow from there.
 

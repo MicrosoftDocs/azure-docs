@@ -62,12 +62,12 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![Generate](media/cloud-academy-sso-provisioning-tutorial/key.png)
 
-6. Copy the full API Key. This value will be entered in the **Secret Token** field in the Provisioning tab of your Cloud Academy - SSO application in the Azure portal.
+6. Copy the full API Key. This value will be entered in the **Secret Token** field in the Provisioning tab of your Cloud Academy - SSO application.
 
    >[!Note]
    >You can generate a new API Key as required. The old API Key will be marked as expired in the next **8 hours** to allow the time needed to update the configuration in the AD Portal.
 
-7. The Tenant URL is `https://cloudacademy.com/webhooks/ad/v1/scim` or `https://app.qa.com/webhooks/ad/v1/scim` based on where your company is registered. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Cloud Academy - SSO application in the Azure portal.
+7. The Tenant URL is `https://cloudacademy.com/webhooks/ad/v1/scim` or `https://app.qa.com/webhooks/ad/v1/scim` based on where your company is registered. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Cloud Academy - SSO application.
 
 ## Step 3. Add Cloud Academy - SSO from the Azure AD application gallery
 

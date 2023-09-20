@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate AirWatch with Azure Active Direc
 
 * Control in Azure AD who has access to AirWatch.
 * Enable your users to be automatically signed-in to AirWatch with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with AirWatch, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **AirWatch** application integration page, find the **Manage** section and select **Single sign-on**.
@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
 
 	> [!NOTE]
-	> These values are not the real. Update these values with the actual Reply URL and Sign-on URL. Contact [AirWatch Client support team](https://www.vmware.com/in/support/acquisitions/airwatch.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not the real. Update these values with the actual Reply URL and Sign-on URL. Contact [AirWatch Client support team](https://www.vmware.com/in/support/acquisitions/airwatch.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. AirWatch application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
@@ -126,7 +126,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -140,7 +140,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to AirWatch.
+In this section, you'll enable B.Simon to use single sign-on by granting access to AirWatch.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **AirWatch**.
@@ -159,44 +159,30 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Select the **User** tab, in the **Base DN** field, type your `domain name`, and then select **Save**.
 1. Select the **Group** tab, in the **Base DN** field, type your `domain name`, and then select **Save**.
 1. Select the **Server** tab and perform the following steps:
-
-   a. As **Directory Type**, select **None**.
-
-   b. Enable the **Use SAML For Authentication** option.
-
-   c. Select the **Import Identity Provider Settings** and click **Upload** to upload the XML file that you downloaded in Step4 above.
-
+   1. As **Directory Type**, select **None**.
+   1. Enable the **Use SAML For Authentication** option.
+   1. Select the **Import Identity Provider Settings** and click **Upload** to upload the XML file that you downloaded in Step4 above.
 1. In the **Request** section, perform the following steps:
-
-   a. As **Request Binding Type**, select **POST**.
-
-   b. In the Azure portal, under the **AirWatch Configuration** section, select **Configure AirWatch** to open **Configure sign-on** window, and then copy the **SAML Single Sign-On Service URL** from the **Quick Reference** section, and then paste it into the **Identity Provider Single Sign-On URL** textbox.
-
-   c. As **NameID Format**, select **Email Address**.
-
-   d. Select **Save**.
-
+   1. As **Request Binding Type**, select **POST**.
+   1. Browse to **Identity** > **Applications** > **Enterprise applications** > **AirWatch**. 
+   1. Under the **AirWatch Configuration** section, select **Configure AirWatch** to open **Configure sign-on** window
+   1. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference** section, and then paste it into the **Identity Provider Single Sign-On URL** textbox.
+   1. As **NameID Format**, select **Email Address**.
+   1. Select **Save**.
 1. In the **Response** section, under **Response Binding Type**, select **Post**.
 1. Select the **User** tab again.
 1. Select **Show Advanced** to display the advanced user settings. 
-
 1. In the **Attribute** section, perform the following steps:
 
-    ![Attribute](./media/airwatch-tutorial/attributes.png "Attribute")
+   ![Attribute](./media/airwatch-tutorial/attributes.png "Attribute")
 
-    a. In the **Object Identifier** textbox, type `http://schemas.microsoft.com/identity/claims/objectidentifier`.
-
-    b. In the **Username** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
-
-    c. In the **Display Name** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
-
-    d. In the **First Name** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
-
-    e. In the **Last Name** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
-
-    f. In the **Email** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
-
-    g. Click **Save**.
+   1. In the **Object Identifier** textbox, type `http://schemas.microsoft.com/identity/claims/objectidentifier`.
+   1. In the **Username** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+   1. In the **Display Name** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+   1. In the **First Name** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+   1. In the **Last Name** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+   1. In the **Email** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+   1. Click **Save**.
 
 ### Create AirWatch test user
 
@@ -223,7 +209,7 @@ To enable Azure AD users to sign in to AirWatch, they must be provisioned in to 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to AirWatch Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to AirWatch Sign-on URL where you can initiate the login flow. 
 
 * Go to AirWatch Sign-on URL directly and initiate the login flow from there.
 

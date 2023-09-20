@@ -46,21 +46,12 @@ Follow these instructions to configure writeback of user email addresses and use
 
 **To configure Workday Writeback connector:**
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. In the Azure portal, search for and select **Azure Active Directory**.
-
-3. Select **Enterprise Applications**, then **All Applications**.
-
-4. Select **Add an application**, then select the **All** category.
-
-5. Search for **Workday Writeback**, and add that app from the gallery.
-
-6. After the app is added and the app details screen is shown, select **Provisioning**.
-
-7. Change the **Provisioning** **Mode** to **Automatic**.
-
-8. Complete the **Admin Credentials** section as follows:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. Search for **Workday Writeback**, and add that app from the gallery.
+1. After the app is added and the app details screen is shown, select **Provisioning**.
+1. Change the **Provisioning** **Mode** to **Automatic**.
+1. Complete the **Admin Credentials** section as follows:
 
    * **Admin Username** – Enter the username of the Workday integration system account, with the tenant domain name appended. Should look something like: *username\@contoso4*
 
@@ -131,16 +122,20 @@ By default, the Workday Writeback app will try to set the work email and userID 
 
 If you want to delay the UserID or Email writeback so that it happens on or after hire date, follow the steps given below. 
 
-  1) There is an attribute in Azure AD called *employeeHireDate* in which you can capture the user's employment start date.
-  1) If you are using [Workday to on-premises Active Directory](workday-inbound-tutorial.md) provisioning job, configure it to flow the Workday *StatusHireDate* field to an attribute in on-premises Active Directory (e.g. *extensionAttribute8*). Configure AAD Connect to sync the on-premises value to *employeeHireDate* in Azure AD. 
-  1) If you are using [Workday to Azure AD](workday-inbound-cloud-only-tutorial.md) provisioning job, configure it to flow the Workday *StatusHireDate* field directly to *employeeHireDate* attribute in Azure AD. 
-      > [!NOTE]
-      > If you are storing the employee start date in any other Azure AD *extensionAttribute*, you can use that attribute instead of *employeeHireDate* in the expression below.
-  1) In your Workday Writeback application, use the following expression rule to export AAD userPrincipalName to Workday UserID field.
-      ```C#
-      IgnoreFlowIfNullOrEmpty(IIF(DateDiff("d", Now(), CDate([employeeHireDate])) >= 0, "", [userPrincipalName]))
-      ```
-      The expression above uses the [DateDiff](../app-provisioning/functions-for-customizing-application-data.md#datediff) function to evaluate the difference between *employeeHireDate* and today's date in UTC obtained using [Now](../app-provisioning/functions-for-customizing-application-data.md#now) function. If *employeeHireDate* is greater than or equal to today's date, then it updates the UserID. Else it returns an empty value and the [IgnoreFlowIfNullOrEmpty](../app-provisioning/functions-for-customizing-application-data.md#ignoreflowifnullorempty) function excludes this attribute from Writeback.
+1. There is an attribute in Azure AD called *employeeHireDate* in which you can capture the user's employment start date.
+1. If you are using [Workday to on-premises Active Directory](workday-inbound-tutorial.md) provisioning job, configure it to flow the Workday *StatusHireDate* field to an attribute in on-premises Active Directory (e.g. *extensionAttribute8*). Configure AAD Connect to sync the on-premises value to *employeeHireDate* in Azure AD. 
+1. If you are using [Workday to Azure AD](workday-inbound-cloud-only-tutorial.md) provisioning job, configure it to flow the Workday *StatusHireDate* field directly to *employeeHireDate* attribute in Azure AD. 
+
+   > [!NOTE]
+   > If you are storing the employee start date in any other Azure AD *extensionAttribute*, you can use that attribute instead of *employeeHireDate* in the expression below.
+
+1. In your Workday Writeback application, use the following expression rule to export AAD userPrincipalName to Workday UserID field.
+
+   ```C#
+   IgnoreFlowIfNullOrEmpty(IIF(DateDiff("d", Now(), CDate([employeeHireDate])) >= 0, "", [userPrincipalName]))
+   ```
+
+   The expression above uses the [DateDiff](../app-provisioning/functions-for-customizing-application-data.md#datediff) function to evaluate the difference between *employeeHireDate* and today's date in UTC obtained using [Now](../app-provisioning/functions-for-customizing-application-data.md#now) function. If *employeeHireDate* is greater than or equal to today's date, then it updates the UserID. Else it returns an empty value and the [IgnoreFlowIfNullOrEmpty](../app-provisioning/functions-for-customizing-application-data.md#ignoreflowifnullorempty) function excludes this attribute from Writeback.
 
 > [!IMPORTANT]
 > For the delayed Writeback to work as expected, an operation in on-premises AD or Azure AD must trigger a change to the user just a day before the arrival or on the hire date, so that this user's profile is updated and is considered for Writeback. It must be a change, that updates an attribute value on the user profile, where the new attribute value is different from the old attribute value. 
@@ -287,7 +282,7 @@ Replace(Replace([telephoneNumber], , "\+(?<isdCode>\d* )(?<phoneNumber>.* )[x](?
 
 ## Enable and launch user provisioning
 
-Once the Workday provisioning app configurations have been completed, you can turn on the provisioning service in the Azure portal.
+Once the Workday provisioning app configurations have been completed, you can turn on the provisioning service in the Microsoft Entra admin center.
 
 > [!TIP]
 > By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or Workday data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users using the [provision on demand](../app-provisioning/provision-on-demand.md) feature before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.

@@ -65,7 +65,7 @@ Use these instructions to begin the configuration process for the SignalFx SSO.
 
 ## Step 3: Configure Azure AD SSO
 
-Use these instructions to enable Azure AD SSO in the Azure portal.
+Use these instructions to enable Azure AD SSO.
 
 1. Return to the Azure portal, and on the **SignalFx** application integration page, locate the **Manage** section, and then select **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
@@ -101,7 +101,7 @@ Use these instructions to enable Azure AD SSO in the Azure portal.
 
 ## Step 4: Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -115,7 +115,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ## Step 5: Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to SignalFx.
+In this section, you'll enable B.Simon to use single sign-on by granting access to SignalFx.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SignalFx**.
@@ -128,9 +128,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ## Step 6: Complete the SignalFx SSO configuration 
 
 1. Open the previous tab, and return to the SignalFx UI to view the current Azure Active Directory integration page. 
-1. Next to **Certificate (Base64)**, click **Upload File**, and then locate the **Base64 encoded certificate** file that you previously downloaded from Azure portal.
-1. Next to **Azure AD Identifier**, paste the **Azure AD Identifier** value that you copied earlier from the Azure portal. 
-1. Next to **Federation Metadata URL**, paste the **App Federation Metadata Url** value that you copied earlier from the Azure portal. 
+1. Next to **Certificate (Base64)**, click **Upload File**, and then locate the **Base64 encoded certificate** file that you previously downloaded previously.
+1. Next to **Azure AD Identifier**, paste the **Azure AD Identifier** value that you copied earlier. 
+1. Next to **Federation Metadata URL**, paste the **App Federation Metadata Url** value that you copied earlier. 
 1. Click **Save**.
 
 ## Step 7: Test SSO
@@ -139,7 +139,7 @@ Review the following information regarding how to test SSO, as well as expectati
 
 ### Test logins
 
-* To test the login, you should use a private / incognito window, or you can log out of the Azure portal. If not, cookies for the user who configured the application will interfere and prevent a successful login with the test user.
+* To test the login, you should use a private / incognito window, or you can log out. If not, cookies for the user who configured the application will interfere and prevent a successful login with the test user.
 
 * When a new test user logs in for the first time, Azure will force a password change. When this occurs, the SSO login process will not be completed; the test user will be directed to the Azure portal. To troubleshoot, the test user should change their password, and navigate to the SignalFx login page or to the MyApps and try again.
     * When you click the SignalFx tile in the MyApps, you should be automatically logged into the SignalFx. 

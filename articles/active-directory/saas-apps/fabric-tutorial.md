@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate Fabric with Azure Active Directo
 
 * Control in Azure AD who has access to Fabric.
 * Enable your users to be automatically signed-in to Fabric with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ To configure and test Azure AD SSO with Fabric, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Fabric** > **Single sign-on**.
@@ -83,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
       `https://<HOSTNAME>:<PORT>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact K2View COE team to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact K2View COE team to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -97,7 +97,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -111,7 +111,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Fabric.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Fabric.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Fabric**.
@@ -123,7 +123,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Fabric SSO
 
-To configure single sign-on on the **Fabric** side, send the downloaded **Certificate (Base64)** and the appropriate copied URLs from the Azure portal to the K2View COE support team. The team configures the setting so that the SAML SSO connection is set properly on both sides.
+To configure single sign-on on the **Fabric** side, send the downloaded **Certificate (Base64)** and the appropriate copied URLs to the K2View COE support team. The team configures the setting so that the SAML SSO connection is set properly on both sides.
 
 For more information, see *Fabric SAML Configuration* and *Azure AD SAML Setup Guide* in the [K2view Knowledge Base](https://support.k2view.com/knowledge-base.html).
 
