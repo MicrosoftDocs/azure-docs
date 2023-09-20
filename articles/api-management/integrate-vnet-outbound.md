@@ -29,6 +29,7 @@ When an API Management instance is integrated with a virtual network for outboun
 
 The subnet used for integration must be delegated to the **Microsoft.Web/serverFarms** service. In the subnet settings, in **Delegate subnet to a service**, select **Microsoft.Web/serverFarms**.
 
+:::image type="content" source="media/integrate-vnet-outbound/delegate-subnet.png" alt-text="Screenshot of delegating the subnet to a service in the portal.":::
 
 For details, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
