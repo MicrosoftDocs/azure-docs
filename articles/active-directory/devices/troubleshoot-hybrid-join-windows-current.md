@@ -149,7 +149,7 @@ Possible reasons for failure:
 
 -  The service connection point object is misconfigured or can't be read from the domain controller.
    - A valid service connection point object is required in the AD forest, to which the device belongs, that points to a verified domain name in Microsoft Entra ID.
-   - For more information, see the "Configure a service connection point" section of [Tutorial: Configure Microsoft Entra hybrid join for federated domains](./how-to-hybrid-join.md#configure-hybrid-azure-ad-join).
+   - For more information, see the "Configure a service connection point" section of [Tutorial: Configure Microsoft Entra hybrid join for federated domains](./how-to-hybrid-join.md).
 - Failure to connect to and fetch the discovery metadata from the discovery endpoint.
    - The device should be able to access `https://enterpriseregistration.windows.net`, in the system context, to discover the registration and authorization endpoints.
    - If the on-premises environment requires an outbound proxy, the IT admin must ensure that the computer account of the device can discover and silently authenticate to the outbound proxy.

@@ -98,7 +98,7 @@ When you configure a **Microsoft Entra hybrid join** task in the Microsoft Entra
 
 ## Post validation
 
-After you verify that everything works as expected, you can automatically register the rest of your Windows current and down-level devices with Microsoft Entra ID. Automate Microsoft Entra hybrid join by [configuring the SCP using Microsoft Entra Connect](./how-to-hybrid-join.md#configure-hybrid-azure-ad-join).
+After you verify that everything works as expected, you can automatically register the rest of your Windows current and down-level devices with Microsoft Entra ID. Automate Microsoft Entra hybrid join by [configuring the SCP using Microsoft Entra Connect](./how-to-hybrid-join.md).
 
 ## Next steps
 
