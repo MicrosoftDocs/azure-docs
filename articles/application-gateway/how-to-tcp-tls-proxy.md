@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 08/21/2023
+ms.date: 09/20/2023
 ms.author: greglin
 ---
 
@@ -66,7 +66,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
 
 4. Enter the following information on the **Basics** tab:
     - **Subscription**: Select your Azure subscription name. 
-    - **Resource group**: Select an existing resource group, or create a new resource group.
+    - **Resource group**: Create a new resource group so that you can easily remove it after testing, for example: **myresourcegroup**.
     - **Virtual machine name**: mySQLVM
     - **Region**: Select the same region as your resource group.
     - **Availability options**: Accept the default settings.
@@ -122,7 +122,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
 4. Select **Next: Frontends**.
 5. Select a **Frontend IP address type** of **Public** and either use an existing IP address or create a new one.
 
-    ![A screenshot displaying creation of a new public IP address.](./media/how-to-tcp-tls-proxy/create-a-public-ip-address.png)
+    <img src="./media/how-to-tcp-tls-proxy/create-a-public-ip-address.png" alt="A screenshot displaying creation of a new public IP address." width="60%">
 
 6. Select **Next: Backends**.
 7. On the **Backends** tab, select **Add a backend pool**.
@@ -130,9 +130,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
     - **Name**: Enter a name for the backend pool, for example **sql-vm**.
     - **Target type**: Select **IP address or FQDN** and enter the public IP address of the SQL server virtual machine that you wrote down previously.
 
-    ![A screenshot displaying backend pool creation.](./media/how-to-tcp-tls-proxy/add-backend-pool.png)
-
-    <img src="./media/how-to-tcp-tls-proxy/add-backend-pool.png" alt="A screenshot displaying backend pool creation." width="213">
+    <img src="./media/how-to-tcp-tls-proxy/add-backend-pool.png" alt="A screenshot displaying backend pool creation." width="50%">
  
 9. Select **Add** and then select **Next: Configuration**.
 
@@ -144,7 +142,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
     - **Protocol**: TCP
     - **Port**: 1433
 
-       ![A screenshot displaying routing rule creation.](./media/how-to-tcp-tls-proxy/create-routing-rule.png) 
+        <img src="./media/how-to-tcp-tls-proxy/create-routing-rule.png" alt="A screenshot displaying routing rule creation." width="50%">
 
 11. Select the **Backend targets** tab and enter the following settings:
 
@@ -156,32 +154,35 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
         - **Backend port**: 1433
         - **Time-out (seconds)**: 20
 
-            ![A screenshot displaying backend settings creation.](./media/how-to-tcp-tls-proxy/create-backend-settings.png) 
+            <img src="./media/how-to-tcp-tls-proxy/create-backend-settings.png" alt="A screenshot displaying backend settings creation." width="50%">
 
 12. Select **Add** to add the backend settings, and then select **Add** to add the routing rule. 
 
-    ![A screenshot adding a routing rule.](./media/how-to-tcp-tls-proxy/add-routing-rule.png) 
+    <img src="./media/how-to-tcp-tls-proxy/add-routing-rule.png" alt="A screenshot adding a routing rule." width="50%">
 
 13. Select **Next: Tags** and add tags if desired. No tags are required for this demonstration.
 14. Select Next: **Review + Create** and then select **Create**. The deployment process takes a few minutes. 
 
 ## Connect to the SQL server
 
-1. On a client device with [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) installed, connect to the public IP address of the Azure virtual machine.
+Before connecting to the SQL server, verify that you have:
 
-    ![A screenshot displaying the connection to a SQL server.](./media/how-to-tcp-tls-proxy/sql-connect.png) 
+- The public IP address of the virtual machine
+- Configured the SQL server to accept SQL authentication
+- Created an admin account on the SQL server
 
-2. 
+On a client device with [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) installed, connect to the public IP address of the Azure virtual machine.
 
+<img src="./media/how-to-tcp-tls-proxy/sql-connect.png" alt="A screenshot displaying the connection to a SQL server." width="60%">
 
 ## Clean up resources
 
-
+When no longer needed, remove the application gateway and all related resources by deleting the resource group you created, **myresourcegroup**.
 
 ## Unregister from the preview
 
-
+Using the same process that you used to register for the preview, unregister from the preview by selecting the preview feature and then selecting **Unregister**.
 
 ## Next steps
 
-If you want to monitor the health of your backend pool, see [Backend health and diagnostic logs for Application Gateway](application-gateway-diagnostics.md).
+To monitor the health of your backend pool, see [Backend health and diagnostic logs for Application Gateway](application-gateway-diagnostics.md).
