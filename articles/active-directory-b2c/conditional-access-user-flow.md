@@ -74,7 +74,7 @@ These are the components that enable Conditional Access in Azure AD B2C:
 When using the Microsoft Entra Conditional Access, consider the following:
 
 - Identity Protection is available for both local and social identities, such as Google or Facebook. For social identities, you need to manually activate Conditional Access. Detection is limited because social account credentials are managed by the external identity provider.
-- In Azure AD B2C tenants, only a subset of [Microsoft Entra Conditional Access](../active-directory/conditional-access/overview.md) policies is available.
+- In Azure AD B2C tenants, only a subset of [Microsoft Entra Conditional Access](../active-directory/conditional-access/overview.md) policies are available.
 
 ## Prerequisites
 
