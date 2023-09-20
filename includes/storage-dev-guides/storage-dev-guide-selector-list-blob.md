@@ -12,7 +12,7 @@ ms.custom: include file
 
 > [!div class="op_single_selector"]
 >
-> - [.NET](../../articles/storage/blobs/storage-blobs-list.mdmd)
+> - [.NET](../../articles/storage/blobs/storage-blobs-list.md)
 > - [Java](../../articles/storage/blobs/storage-blobs-list-java.md)
 > - [JavaScript](../../articles/storage/blobs/storage-blobs-list-javascript.md)
 > - [TypeScript](../../articles/storage/blobs/storage-blobs-list-typescript.md)
