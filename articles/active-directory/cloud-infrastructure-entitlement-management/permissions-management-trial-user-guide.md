@@ -1,5 +1,5 @@
 ---
-title: Trial User Guide - Microsoft Entra Permissions Management
+title: Trial User Guide - Microsoft Entra Permissions Management - OBSOLETE
 description: How to get started with your Microsoft Entra Permissions Management free trial
 services: active-directory
 author: jenniferf-skc

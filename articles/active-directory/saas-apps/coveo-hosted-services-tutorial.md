@@ -20,7 +20,7 @@ In this article, you'll learn how to integrate Coveo Hosted Services with Azure 
 
 * Control in Azure AD who has access to Coveo Hosted Services.
 * Enable your users to be automatically signed-in to Coveo Hosted Services with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You'll configure and test Azure AD single sign-on for Coveo Hosted Services in a test environment. Coveo Hosted Services supports both **SP** and **IDP** initiated single sign-on.
 
@@ -46,15 +46,16 @@ Add Coveo Hosted Services from the Azure AD application gallery to configure sin
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
-1. In the Azure portal, on the **Coveo Hosted Services** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Coveo Hosted Services** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -111,7 +112,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Coveo Hosted Services SSO
 
-To configure single sign-on on **Coveo Hosted Services** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Coveo Hosted Services support team](mailto:support@coveo.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Coveo Hosted Services** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the application configuration to [Coveo Hosted Services support team](mailto:support@coveo.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Coveo Hosted Services test user
 
@@ -123,15 +124,15 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Coveo Hosted Services Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Coveo Hosted Services Sign on URL where you can initiate the login flow.  
 
 * Go to Coveo Hosted Services Sign on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Coveo Hosted Services for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the Coveo Hosted Services for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Coveo Hosted Services tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Coveo Hosted Services for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Coveo Hosted Services tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Coveo Hosted Services for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Additional resources
 

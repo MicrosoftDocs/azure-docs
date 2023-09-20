@@ -20,7 +20,7 @@ In this article, you learn how to integrate HashiCorp Cloud Platform (HCP) with 
 
 * Control in Azure AD who has access to HashiCorp Cloud Platform (HCP).
 * Enable your users to be automatically signed-in to HashiCorp Cloud Platform (HCP) with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You configure and test Azure AD single sign-on for HashiCorp Cloud Platform (HCP) in a test environment. HashiCorp Cloud Platform (HCP) supports only **SP** initiated single sign-on.
 
@@ -43,15 +43,16 @@ Add HashiCorp Cloud Platform (HCP) from the Azure AD application gallery to conf
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
-1. In the Azure portal, on the **HashiCorp Cloud Platform (HCP)** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **HashiCorp Cloud Platform (HCP)** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -69,7 +70,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     `https://portal.cloud.hashicorp.com/sign-in?conn-id=HCP-SSO-<HCP_ORG_ID>-samlp`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. These values are also pregenerated for you on the "Setup SAML SSO" page within your Organization settings in HashiCorp Cloud Platform (HCP). For more information SAML documentation is provided on [HashiCorp's Developer site](https://developer.hashicorp.com/hcp/docs/hcp/security/sso/sso-aad). Contact [HashiCorp Cloud Platform (HCP) Client support team](mailto:support@hashicorp.com) for any questions about this process. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. These values are also pregenerated for you on the "Setup SAML SSO" page within your Organization settings in HashiCorp Cloud Platform (HCP). For more information SAML documentation is provided on [HashiCorp's Developer site](https://developer.hashicorp.com/hcp/docs/hcp/security/sso/sso-aad). Contact [HashiCorp Cloud Platform (HCP) Client support team](mailto:support@hashicorp.com) for any questions about this process. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -85,7 +86,7 @@ To configure single sign-on on the **HashiCorp Cloud Platform (HCP)** side, you 
 
 ## Test SSO 
 
-In the previous [Create and assign Azure AD test user](#create-and-assign-azure-ad-test-user) section, you created a user called B.Simon and assigned it to the HashiCorp Cloud Platform (HCP) app within the Azure portal. This can now be used for testing the SSO connection. You may also use any account that is already associated with the HashiCorp Cloud Platform (HCP) app in the Azure portal. 
+In the previous [Create and assign Azure AD test user](#create-and-assign-azure-ad-test-user) section, you created a user called B.Simon and assigned it to the HashiCorp Cloud Platform (HCP) app within the Azure portal. This can now be used for testing the SSO connection. You may also use any account that is already associated with the HashiCorp Cloud Platform (HCP) app. 
 
 ## Additional resources
 

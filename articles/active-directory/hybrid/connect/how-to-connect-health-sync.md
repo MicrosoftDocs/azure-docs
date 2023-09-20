@@ -35,7 +35,7 @@ By selecting an alert you will be provided with additional information as well a
 ### Limited Evaluation of Alerts
 If Azure AD Connect is NOT using the default configuration (for example, if Attribute Filtering is changed from the default configuration to a custom configuration), then the Azure AD Connect Health agent will not upload the error events related to Azure AD Connect.
 
-This limits the evaluation of alerts by the service. You will see a banner that indicates this condition in the Azure portal under your service.
+This limits the evaluation of alerts by the service. You will see a banner that indicates this condition in the [Microsoft Entra admin center](https://entra.microsoft.com) under your service.
 
 ![Screenshot of the the alert banner that says Alert evaluation is limited. Update your settings to enable all alerts.](./media/how-to-connect-health-sync/banner.png)
 

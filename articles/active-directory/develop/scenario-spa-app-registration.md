@@ -24,10 +24,9 @@ To register a single-page application (SPA) in the Microsoft identity platform, 
 
 For both MSAL.js 1.0- and 2.0-based applications, start by completing the following steps to create the initial app registration.
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
+1. Browse to **Identity** > **Applications** > **App registrations**, select **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
 1. Choose the **Supported account types** for the application. Do **NOT** enter a **Redirect URI**. For a description of the different account types, see the [Register an application](quickstart-register-app.md).
 1. Select **Register** to create the app registration.
@@ -41,7 +40,7 @@ Next, configure the app registration with a **Redirect URI** to specify where th
 
 Follow these steps to add a redirect URI for an app that uses MSAL.js 2.0 or later. MSAL.js 2.0+ supports the authorization code flow with PKCE and CORS in response to [browser third party cookie restrictions](reference-third-party-cookies-spas.md). The implicit grant flow is not supported in MSAL.js 2.0+.
 
-1. In the Azure portal, select the app registration you created earlier in [Create the app registration](#create-the-app-registration).
+1. In the Microsoft Entra admin center, select the app registration you created earlier in [Create the app registration](#create-the-app-registration).
 1. Under **Manage**, select **Authentication** > **Add a platform**.
 1. Under **Web applications**, select the **Single-page application** tile.
 1. Under **Redirect URIs**, enter a [redirect URI](reply-url.md). Do **NOT** select either checkbox under **Implicit grant and hybrid flows**.
@@ -55,7 +54,7 @@ Follow the [tutorial](tutorial-v2-javascript-auth-code.md) for further guidance.
 
 Follow these steps to add a redirect URI for a single-page app that uses MSAL.js 1.3 or earlier and the implicit grant flow. Applications that use MSAL.js 1.3 or earlier do not support the auth code flow.
 
-1. In the Azure portal, select the app registration you created earlier in [Create the app registration](#create-the-app-registration).
+1. In the Microsoft Entra admin center, select the app registration you created earlier in [Create the app registration](#create-the-app-registration).
 1. Under **Manage**, select **Authentication** > **Add a platform**.
 1. Under **Web applications**, select **Single-page application** tile.
 1. Under **Redirect URIs**, enter a [redirect URI](reply-url.md).
@@ -72,7 +71,7 @@ By default, an app registration created by using single-page application platfor
 
 As mentioned previously, single-page applications using MSAL.js 1.3 are restricted to the implicit grant flow. Current [OAuth 2.0 best practices](v2-oauth2-auth-code-flow.md) recommend using the authorization code flow rather than the implicit flow for SPAs. Having limited-lifetime refresh tokens also helps your application adapt to [modern browser cookie privacy limitations](reference-third-party-cookies-spas.md), like Safari ITP.
 
-When all your production single-page applications represented by an app registration are using MSAL.js 2.0 and the authorization code flow, uncheck the implicit grant settings on the app registration's **Authentication** pane in the Azure portal. Applications using MSAL.js 1.x and the implicit flow can continue to function, however, if you leave the implicit flow enabled (checked).
+When all your production single-page applications represented by an app registration are using MSAL.js 2.0 and the authorization code flow, uncheck the implicit grant settings on the app registration's **Authentication** pane in the Microsoft Entra admin center. Applications using MSAL.js 1.x and the implicit flow can continue to function, however, if you leave the implicit flow enabled (checked).
 
 ## Next steps
 

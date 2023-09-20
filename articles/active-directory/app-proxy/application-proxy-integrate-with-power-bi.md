@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ms.custom: has-adal-ref
@@ -132,7 +132,7 @@ Before the Power BI mobile app can connect and access Report Services, you must 
 
 You can use Microsoft Intune to manage the client apps that your company's workforce uses. Intune allows you to use capabilities such as data encryption and additional access requirements. To learn more about app management through Intune, see Intune App Management. To enable the Power BI mobile application to work with the Intune policy, use the following steps.
 
-1. Go to **Azure Active Directory** and then **App Registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 2. Select the application configured in Step 3 when registering your native client application.
 3. On the application’s page, select **API Permissions**.
 4. Click **Add a permission**.

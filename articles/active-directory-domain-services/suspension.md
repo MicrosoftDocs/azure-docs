@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 ms.author: justinha
 
 ---
@@ -87,13 +87,13 @@ The following behavior is experienced when a managed domain is in the *Suspended
 
 ### How do you know if your managed domain is suspended?
 
-You see an [alert][resolve-alerts] on the Azure AD DS Health page in the Azure portal that notes the domain is suspended. The state of the domain also shows *Suspended*.
+You see an [alert][resolve-alerts] on the Azure AD DS Health page in the Microsoft Entra admin center that notes the domain is suspended. The state of the domain also shows *Suspended*.
 
 ### Restore a suspended domain
 
 To restore the health of a managed domain that's in the *Suspended* state, complete the following steps:
 
-1. In the Azure portal, search for and select **Domain services**.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Domain services**.
 1. Choose your managed domain from the list, such as *aaddscontoso.com*, then select **Health**.
 1. Select the alert, such as *AADDS503* or *AADDS504*, depending on the cause of suspension.
 1. Choose the resolution link that's provided in the alert and follow the steps to resolve it.
