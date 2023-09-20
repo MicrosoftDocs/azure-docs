@@ -88,7 +88,10 @@ Gather the resource ID of the L2 isolation domain that you [created](#l2-isolati
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-New-AzNetworkCloudL2Network -Name "<YourL2NetworkName>" -ResourceGroupName "<YourResourceGroupName>" -ExtendedLocationName "<ClusterCustomLocationId>" -ExtendedLocationType "CustomLocation" -L2IsolationDomainId "<YourL2IsolationDomainId>" -Location "<ClusterAzureRegion>" -InterfaceName "<InterfaceName>" -Subscription "<YourSubscription>" -Tag "<YourTag>"
+New-AzNetworkCloudL2Network -Name "<YourL2NetworkName>" -ResourceGroupName "<YourResourceGroupName>" `
+-ExtendedLocationName "<ClusterCustomLocationId>" -ExtendedLocationType "CustomLocation" `
+-L2IsolationDomainId "<YourL2IsolationDomainId>" -Location "<ClusterAzureRegion>" `
+-InterfaceName "<InterfaceName>" -Subscription "<YourSubscription>"
 ```
 
 ---
@@ -123,7 +126,11 @@ You need:
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-New-AzNetworkCloudL3Network -ResourceGroupName "<YourResourceGroupName>" -Name "<YourL3NetworkName>" -Location "<ClusterAzureRegion>" -ExtendedLocationName "<ClusterCustomLocationId>" -ExtendedLocationType "CustomLocation" -Vlan "<YourNetworkVlan>" -L3IsolationDomainId "<YourL3IsolationDomainId>" -Ipv4ConnectedPrefix "<YourNetworkIpv4Prefix>" -Ipv6ConnectedPrefix "<YourNetworkIpv6Prefix>" -Subscription "<YourSubscription>" -Tag "<YourTag>"
+New-AzNetworkCloudL3Network -ResourceGroupName "<YourResourceGroupName>" -Name "<YourL3NetworkName>" `
+-Location "<ClusterAzureRegion>" -ExtendedLocationName "<ClusterCustomLocationId>" `
+-ExtendedLocationType "CustomLocation" -Vlan "<YourNetworkVlan>" `
+-L3IsolationDomainId "<YourL3IsolationDomainId>" -Ipv4ConnectedPrefix "<YourNetworkIpv4Prefix>" `
+-Ipv6ConnectedPrefix "<YourNetworkIpv6Prefix>" -Subscription "<YourSubscription>"
 ```
 
 ---
@@ -154,7 +161,10 @@ Gather the `resourceId` values of the L2 and L3 isolation domains that you creat
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-New-AzNetworkCloudTrunkedNetwork -Name "<YourTrunkedNetworkName>" -ResourceGroupName "<YourResourceGroupName>" -SubscriptionId "<YourSubscription>" -ExtendedLocationName "<ClusterCustomLocationId>" -ExtendedLocationType "CustomLocation" -Location "<ClusterAzureRegion>" -Vlan "<YourVlanList>" -IsolationDomainId "<YourL3IsolationDomainId>" -InterfaceName "<YourNetworkInterfaceName>" -Tag "<YourTag>"
+New-AzNetworkCloudTrunkedNetwork -Name "<YourTrunkedNetworkName>" -ResourceGroupName "<YourResourceGroupName>" `
+-SubscriptionId "<YourSubscription>" -ExtendedLocationName "<ClusterCustomLocationId>" `
+-ExtendedLocationType "CustomLocation" -Location "<ClusterAzureRegion>" -Vlan "<YourVlanList>" `
+-IsolationDomainId "<YourL3IsolationDomainId>" -InterfaceName "<YourNetworkInterfaceName>"
 ```
 
 ---
@@ -187,10 +197,11 @@ $additionalEgressEndpoint = New-AzNetworkCloudEgressEndpointObject `
   -Category "YourCategory" `
   -Endpoint "YourEndPointList"
 $endpointEgressList+= $additionalEgressEndpoint
-```
 
-```azurepowershell-interactive
-New-AzNetworkCloudServicesNetwork -CloudServicesNetworkName "<YourCloudServicesNeworkName>" -ResourceGroupName "<YourResourceGroupName>" -ExtendedLocationName "<ClusterCustomLocationId>" -ExtendedLocationType "CustomLocation" -Location "<ClusterAzureRegion>" -Tag "<YourTag>" -AdditionalEgressEndpoint $endpointEgressList -EnableDefaultEgressEndpoint "False" -Subscription "<YourSubscription>"
+New-AzNetworkCloudServicesNetwork -CloudServicesNetworkName "<YourCloudServicesNetworkName>" `
+-ResourceGroupName "<YourResourceGroupName>" -ExtendedLocationName "<ClusterCustomLocationId>" `
+-ExtendedLocationType "CustomLocation" -Location "<ClusterAzureRegion>" `
+-AdditionalEgressEndpoint $endpointEgressList -EnableDefaultEgressEndpoint "False" -Subscription "<YourSubscription>"
 ```
 
 ---
@@ -223,9 +234,23 @@ If you don't specify a zone when you're creating a Nexus Kubernetes cluster, the
 
 To get the list of available zones in the Azure Operator Nexus instance, you can use the following command:
 
-```azurecli
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
     az networkcloud cluster show \
       --resource-group <Azure Operator Nexus on-premises cluster resource group> \
       --name <Azure Operator Nexus on-premises cluster name> \
       --query computeRackDefinitions[*].availabilityZone
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Get-AzNetworkCloudCluster -Name "<Azure Operator Nexus on-premises cluster name>" `
+-ResourceGroupName "<Azure Operator Nexus on-premises cluster resource group>" `
+-SubscriptionId fca2e8ee-1179-48b8-9532-428ed0873a2e `
+| Select -ExpandProperty ComputeRackDefinition `
+| Select-Object -Property AvailabilityZone
+```
+
+---

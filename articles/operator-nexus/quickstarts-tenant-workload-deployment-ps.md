@@ -2,10 +2,10 @@
 title: Create an Azure Operator Nexus virtual machine by using Azure PowerShell
 description: Learn how to create an Azure Operator Nexus virtual machine (VM) for virtual network function (VNF) workloads using PowerShell
 author: rashirg
-ms.author: rashirg
+ms.author: rajeshwarig
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 09/15/2023
+ms.date: 09/20/2023
 ms.custom: template-how-to-pattern, devx-track-azurepowershell
 ---
 
@@ -44,15 +44,14 @@ Before you run the commands, you need to set several variables to define the con
 | ACR_URL                    | The URL of the Azure Container Registry.                                                              |
 | ACR_USERNAME               | The username for the Azure Container Registry.                                                        |
 | ACR_PASSWORD               | The password for the Azure Container Registry.                                                        |
-| VIRTIOINTERFACE            | The VirtioInterface defaults to Modern.                                                               |
+| VIRTIOINTERFACE            | The VirtioInterface options Modern or Transitional, defaults to Modern.                               |
+| VMDEVICEMODEL            | The VirtioInterface ignored if VMDeviceModel is specified, options T2(Modern) and T1(Transitional).     |
+| USERDATA                 | The base64 encoded string of cloud-init userdata.                                                       |
 | BOOTMETHOD                 | The Method used to boot the virutalmachine UEFI or BIOS.    |
 | OS_DISK                    | The OS disk specifies storage options for the boot disk.    |
-| HintType                   | The placement hint supported parameter for affinity or anti-affinity.                                  |
-| SchedulingExecution        | The placement hint supported parameter for hard or soft during scheduling.                            |
-| Scope                      | The placement hint to specify scope of virtual machine, Machine or Rack.                              |
-| ResourceId                 | The placement hint resourceid specifies the target object placement hints would be checked against.    |
-| IpAllocationMethod         | The IpAllocationMethod valid for L3Networks specify Dynamic or Static or Disabled.    |
-| AttachNetworkId            | The Network to attach for workload.      |
+| IP_AllOCATION_METHOD        | The IpAllocationMethod valid for L3Networks specify Dynamic or Static or Disabled.    |
+| NETWORKATTACHMENTNAME            | The name of the Network to attach for workload.      |
+| NETWORKDATA            | The base64 encoded string of cloud-init network data.      |
 
 Once you've defined these variables, you can run the Azure PowerShell command to create the virtual machine. Add the ```-Debug``` flag at the end to provide more detailed output for troubleshooting purposes.
 
@@ -71,6 +70,7 @@ $VM_NAME="myNexusVirtualMachine"
 $BOOT_METHOD="UEFI"
 $OS_DISK_CREATE_OPTION="Ephemeral"
 $OS_DISK_DELETE_OPTION="Delete"
+$NETWORKDATA="bmV0d29ya0RhdGVTYW1wbGU="
 
 # VM credentials
 $ADMIN_USERNAME="admin"
@@ -86,6 +86,7 @@ $CSN_ATTACHMENT_DEFAULTGATEWAY="False"
 $CSN_ATTACHMENT_NAME="<l3Network-name>"
 $ISOLATE_EMULATOR_THREAD="True"
 $VIRTIOINTERFACE="Modern"
+$NETWORKATTACHMENTNAME="mgmt0"
 
 # VM Size parameters
 $CPU_CORES=4
@@ -98,16 +99,10 @@ $ACR_URL="<Azure container registry URL, example: myacr.azurecr.io>"
 $ACR_USERNAME="<Azure container registry username>"
 
 $NETWORKATTACHMENT = New-AzNetworkCloudNetworkAttachmentObject `
-    -AttachedNetworkId "<$L3_NETWORK_ID>" `
-    -IpAllocationMethod "<$IP_AllOCATION_METHOD>" `
+    -AttachedNetworkId $L3_NETWORK_ID `
+    -IpAllocationMethod $IP_AllOCATION_METHOD `
     -DefaultGateway "True" `
-    -Name "<YourNetworkAttachmentName>"
-
-$HINT = New-AzNetworkCloudVirtualMachinePlacementHintObject `
-    -HintType "<YourHintType>" `
-    -SchedulingExecution "<YourSchedulingExecution>" `
-    -ResourceId "<YourBareMetalMachineId>" `
-    -Scope "<YourScopeType>"
+    -Name $NETWORKATTACHMENTNAME
 
 $SECUREPASSWORD = ConvertTo-SecureString "<YourPassword>" -asplaintext -force
 ```
@@ -118,7 +113,15 @@ $SECUREPASSWORD = ConvertTo-SecureString "<YourPassword>" -asplaintext -force
 After defining these variables, you can create the virtual machine by executing the following Azure PowerShell command.
 
 ```azure-powershell
-New-AzNetworkCloudVirtualMachine -Name $VM_NAME -ResourceGroupName "myResourceGroup" -AdminUsername $ADMIN_USERNAME -CloudServiceNetworkAttachmentAttachedNetworkId $CSN_ARM_ID -CloudServiceNetworkAttachmentIPAllocationMethod $IP_AllOCATION_METHOD -CpuCore $CPU_CORES -ExtendedLocationName $CUSTOM_LOCATION -ExtendedLocationType $CUSTOM_LOCATION_TYPE -Location $LOCATION -SubscriptionId $SUBSCRIPTION -MemorySizeGb $MEMORY_SIZE -OSDiskSizeGb $VM_DISK_SIZE -VMImage $VM_IMAGE -BootMethod $BOOT_METHOD -CloudServiceNetworkAttachmentDefaultGateway $CSN_ATTACHMENT_DEFAULTGATEWAY -CloudServiceNetworkAttachmentName $CSN_ATTACHMENT_NAME -IsolateEmulatorThread $ISOLATE_EMULATOR_THREAD -NetworkAttachment $NETWORKATTACHMENT -NetworkData "" -OSDiskCreateOption $OS_DISK_CREATE_OPTION -OSDiskDeleteOption $OS_DISK_DELETE_OPTION -PlacementHint $HINT -SshPublicKey $SSH_PUBLIC_KEY -Tag $TAG -UserData "" -VirtioInterface $VIRTIOINTERFACE -VMDeviceModel "" -VMImageRepositoryCredentialsUsername $ACR_USERNAME -VMImageRepositoryCredentialsPassword $SECUREPASSWORD -VMImageRepositoryCredentialsRegistryUrl $ACR_URL -Debug
+New-AzNetworkCloudVirtualMachine -Name $VM_NAME -ResourceGroupName $RESOURCE_GROUP -AdminUsername $ADMIN_USERNAME `
+-CloudServiceNetworkAttachmentAttachedNetworkId $CSN_ARM_ID -CloudServiceNetworkAttachmentIPAllocationMethod $IP_AllOCATION_METHOD `
+-CpuCore $CPU_CORES -ExtendedLocationName $CUSTOM_LOCATION -ExtendedLocationType $CUSTOM_LOCATION_TYPE `
+-Location $LOCATION -SubscriptionId $SUBSCRIPTION -MemorySizeGb $MEMORY_SIZE -OSDiskSizeGb $VM_DISK_SIZE `
+-VMImage $VM_IMAGE -BootMethod $BOOT_METHOD -CloudServiceNetworkAttachmentDefaultGateway $CSN_ATTACHMENT_DEFAULTGATEWAY `
+-CloudServiceNetworkAttachmentName $CSN_ATTACHMENT_NAME -IsolateEmulatorThread $ISOLATE_EMULATOR_THREAD `
+-NetworkAttachment $NETWORKATTACHMENT -NetworkData $NETWORKDATA -OSDiskCreateOption $OS_DISK_CREATE_OPTION `
+-OSDiskDeleteOption $OS_DISK_DELETE_OPTION -SshPublicKey $SSH_PUBLIC_KEY -UserData "" -VirtioInterface $VIRTIOINTERFACE -VMDeviceModel "" `
+-VMImageRepositoryCredentialsUsername $ACR_USERNAME -VMImageRepositoryCredentialsPassword $SECUREPASSWORD -VMImageRepositoryCredentialsRegistryUrl $ACR_URL -Debug
 ```
 
 After a few minutes, the command completes and returns information about the virtual machine. You've created the virtual machine. You're now ready to use them.
@@ -128,11 +131,11 @@ After a few minutes, the command completes and returns information about the vir
 
 ## Review deployed resources
 
-[!INCLUDE [quickstart-review-deployment-poweshell](./includes/virtual-machine/quickstart-review-deployment.md)]
+[!INCLUDE [quickstart-review-deployment-poweshell](./includes/virtual-machine/quickstart-review-deployment-ps.md)]
 
 ## Clean up resources
 
-[!INCLUDE [quickstart-cleanup](./includes/virtual-machine/quickstart-cleanup.md)]
+[!INCLUDE [quickstart-cleanup](./includes/virtual-machine/quickstart-cleanup-ps.md)]
 
 ## Next steps
 

@@ -110,11 +110,11 @@ After a few minutes, the command completes and returns information about the vir
 
 ## Review deployed resources
 
-[!INCLUDE [quickstart-review-deployment-cli](./includes/virtual-machine/quickstart-review-deployment.md)]
+[!INCLUDE [quickstart-review-deployment-cli](./includes/virtual-machine/quickstart-review-deployment-cli.md)]
 
 ## Clean up resources
 
-[!INCLUDE [quickstart-cleanup](./includes/virtual-machine/quickstart-cleanup.md)]
+[!INCLUDE [quickstart-cleanup](./includes/virtual-machine/quickstart-cleanup-cli.md)]
 
 ## Next steps
 
