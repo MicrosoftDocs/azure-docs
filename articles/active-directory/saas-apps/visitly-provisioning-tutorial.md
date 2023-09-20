@@ -54,7 +54,7 @@ Before you configure Visitly for automatic user provisioning with Azure AD, you 
 
 	![Azure AD section](media/Visitly-provisioning-tutorial/integration.png)
 
-3. Copy the **API Key**. These values are entered in the **Secret Token** box on the **Provisioning** tab of your Visitly application in the Azure portal.
+3. Copy the **API Key**. These values are entered in the **Secret Token** box on the **Provisioning** tab of your Visitly application.
 
 	![API Key](media/Visitly-provisioning-tutorial/token.png)
 

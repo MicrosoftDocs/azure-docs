@@ -20,7 +20,7 @@ In this article, you'll learn how to integrate Deem Mobile with Azure Active Dir
 
 * Control in Azure AD who has access to Deem Mobile.
 * Enable your users to be automatically signed-in to Deem Mobile with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You'll configure and test Azure AD single sign-on for Deem Mobile in a test environment. Deem Mobile supports both **SP** and **IDP** initiated single sign-on.
 
@@ -43,13 +43,13 @@ Add Deem Mobile from the Azure AD application gallery to configure single sign-o
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Deem Mobile** > **Single sign-on**.
@@ -71,7 +71,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     `https://go.deem.com/idp/ACS.saml2`
 
     > [!Note]
-    >  The Identifier value is not real. Update this value with the actual Identifier. Contact [Deem Mobile support team](mailto:customer.success@deem.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    >  The Identifier value is not real. Update this value with the actual Identifier. Contact [Deem Mobile support team](mailto:customer.success@deem.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Your Deem Mobile application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Deem Mobile expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
@@ -93,7 +93,7 @@ In this section, you create a user called Britta Simon in Deem Mobile. Work with
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the Deem Mobile for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the Deem Mobile for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the Deem Mobile tile in the My Apps, you should be automatically signed in to the Deem Mobile for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

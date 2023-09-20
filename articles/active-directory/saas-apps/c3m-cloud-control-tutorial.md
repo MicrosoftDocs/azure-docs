@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate C3M Cloud Control with Azure Act
 
 * Control in Azure AD who has access to C3M Cloud Control.
 * Enable your users to be automatically signed-in to C3M Cloud Control with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ To configure and test Azure AD SSO with C3M Cloud Control, perform the following
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **C3M Cloud Control** > **Single sign-on**.
@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<C3MCLOUDCONTROL_ACCESS_URL>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. Contact [C3M Cloud Control Client support team](mailto:support@c3m.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. Contact [C3M Cloud Control Client support team](mailto:support@c3m.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -94,7 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -108,7 +108,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to C3M Cloud Control.
+In this section, you'll enable B.Simon to use single sign-on by granting access to C3M Cloud Control.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **C3M Cloud Control**.
@@ -130,7 +130,7 @@ In this section, a user called B.Simon is created in C3M Cloud Control. C3M Clou
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to C3M Cloud Control Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to C3M Cloud Control Sign-on URL where you can initiate the login flow. 
 
 * Go to C3M Cloud Control Sign-on URL directly and initiate the login flow from there.
 

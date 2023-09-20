@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate OfficeSpace Software with Azure 
 
 * Control in Azure AD who has access to OfficeSpace Software.
 * Enable your users to be automatically signed-in to OfficeSpace Software with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ To configure and test Azure AD SSO with OfficeSpace Software, perform the follow
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **OfficeSpace Software** > **Single sign-on**.
@@ -80,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `<company name>.officespacesoftware.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [OfficeSpace Software Client support team](mailto:support@officespacesoftware.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [OfficeSpace Software Client support team](mailto:support@officespacesoftware.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. OfficeSpace Software application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. OfficeSpace Software application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
@@ -109,7 +109,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -123,7 +123,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to OfficeSpace Software.
+In this section, you'll enable B.Simon to use single sign-on by granting access to OfficeSpace Software.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **OfficeSpace Software**.
@@ -149,11 +149,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Configure Single Sign-On On App Side](./media/officespace-tutorial/configuration.png)
 
-	a. In the **Logout provider url** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+	a. In the **Logout provider url** textbox, paste the value of **Logout URL**..
 
-	b. In the **Client idp target url** textbox, paste the value of **Login URL** which you have copied from Azure portal.
+	b. In the **Client idp target url** textbox, paste the value of **Login URL**..
 
-	c. Paste the **Thumbprint** value which you have copied from Azure portal, into the **Client IDP certificate fingerprint** textbox. 
+	c. Paste the **Thumbprint** value., into the **Client IDP certificate fingerprint** textbox. 
 
 	d. Click **Save Settings**.
 
@@ -168,7 +168,7 @@ In this section, a user called B.Simon is created in OfficeSpace Software. Offic
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to OfficeSpace Software Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to OfficeSpace Software Sign-on URL where you can initiate the login flow. 
 
 * Go to OfficeSpace Software Sign-on URL directly and initiate the login flow from there.
 

@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate SpaceIQ with Azure Active Direct
 
 * Control in Azure AD who has access to SpaceIQ.
 * Enable your users to be automatically signed-in to SpaceIQ with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with SpaceIQ, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SpaceIQ** > **Single sign-on**.
@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -107,7 +107,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to SpaceIQ.
+In this section, you'll enable B.Simon to use single sign-on by granting access to SpaceIQ.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SpaceIQ**.
@@ -135,9 +135,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. In the **SAML Issuer URL** box, paste the **Azure AD Identifier** value copied from the Azure AD application configuration window.
 
-	b. Copy the **SAML CallBack Endpoint URL (read-only)** value and paste the value in the **Reply URL** box in the **Basic SAML Configuration** section in the Azure portal.
+	b. Copy the **SAML CallBack Endpoint URL (read-only)** value and paste the value in the **Reply URL** box in the **Basic SAML Configuration** section.
 
-	c. Copy the **SAML Audience URI (read-only)** value and paste the value in the **Identifier** box in the **Basic SAML Configuration** section in the Azure portal.
+	c. Copy the **SAML Audience URI (read-only)** value and paste the value in the **Identifier** box in the **Basic SAML Configuration** section.
 
 	d. Open the downloaded certificate file in notepad, copy the content, and then paste it in the **X.509 Certificate** box.
 
@@ -153,7 +153,7 @@ SpaceIQ also supports automatic user provisioning, you can find more details [he
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the SpaceIQ for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the SpaceIQ for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the SpaceIQ tile in the My Apps, you should be automatically signed in to the SpaceIQ for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

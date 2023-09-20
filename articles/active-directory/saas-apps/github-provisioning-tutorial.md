@@ -52,7 +52,8 @@ This section guides you through connecting your Azure AD to GitHub's SCIM provis
 
 ### Configure automatic user account provisioning to GitHub in Azure AD
 
-1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications** section.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 2. If you have already configured GitHub for single sign-on, search for your instance of GitHub using the search field. Otherwise, select **Add** and search for **GitHub** in the application gallery. Select GitHub from the search results, and add it to your list of applications.
 

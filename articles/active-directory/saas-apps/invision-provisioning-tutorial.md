@@ -57,7 +57,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
    ![SCIM enable provisioning](./media/invision-provisioning-tutorial/enable-scim-provisioning.png)
 
-4. Copy the **SCIM API URL** and append `/scim/v2` to the URL. Copy the **Authentication token**. Save these values for later to use in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your InVision application in the Azure portal.
+4. Copy the **SCIM API URL** and append `/scim/v2` to the URL. Copy the **Authentication token**. Save these values for later to use in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your InVision application.
 
    ![SCIM access token](./media/invision-provisioning-tutorial/invision-access-token.png)
 
