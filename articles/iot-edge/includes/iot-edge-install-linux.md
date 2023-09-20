@@ -80,65 +80,7 @@ Installing can be done with a few commands. Open a terminal and run the followin
 
 # [Ubuntu Core snaps](#tab/snaps)
 
-Installing can be done with a few commands. Open a terminal and run the following commands.
-
-IoT Edge has dependencies on Docker and IoT Identity Service. Install the dependencies first:
-
-```bash
-sudo snap install docker
-sudo snap install --edge azure-iot-identity
-```
-
-Install IoT Edge from the snap store:
-
-```bash
-sudo snap install --edge azure-iot-edge
-```
-
-### Connect snaps
-
-By default, snaps are dependency-free, untrusted, and strictly confined. Hence, snaps must be connected to other snaps and system resources after installation. Use the following commands to connect the IoT Identity Service and IoT Edge snaps to each other and to system resources. To get started, snaps need to be manually connected. For production deployments, they can be configured to automatically connect to reduce the provisioning workload.
-
-```bash
-#------------------------
-#  IoT Identity Service
-#------------------------
-
-# Connect the Identity Service snap to the logging system,
-# grant permission to query system info, and enable TPM access
-
-sudo snap connect azure-iot-identity:log-observe
-sudo snap connect azure-iot-identity:mount-observe
-sudo snap connect azure-iot-identity:system-observe
-sudo snap connect azure-iot-identity:tpm
-
-####! For x.509, should the previous command be replaced with the following?
-sudo snap connect azure-iot-identity:hostname-control
-### If so, we may need to break out the includes. Or the connection section needs to be in it's own include.
-
-#------------
-#  IoT Edge
-#------------
-
-# Connect to your /home directory to enable writing support bundles
-
-sudo snap connect azure-iot-edge:home
-
-# Connect to logging and grant permission to query system info
-
-sudo snap connect azure-iot-edge:log-observe
-sudo snap connect azure-iot-edge:mount-observe
-sudo snap connect azure-iot-edge:system-observe
-
-# Allow IoT Edge to connect to the /var/run/iotedge folder and use sockets
-
-sudo snap connect azure-iot-edge:run-iotedge
-
-# Connect IoT Edge to Docker
-
-sudo snap connect azure-iot-edge:docker-executables docker:docker-executables
-sudo snap connect azure-iot-edge:docker docker:docker-daemon
-```
+You install IoT Edge runtime from the snap store in a later step. Continue to the next section.
 
 ---
 
@@ -179,11 +121,16 @@ Install the Moby engine and CLI.
 
 # [Ubuntu Core snaps](#tab/snaps)
 
-What do we put here? Do we need to install Moby? We say Moby is the only engine we support, but we installed Docker earlier.
+IoT Edge has dependencies on Docker and IoT Identity Service. Install the dependencies:
+
+```bash
+sudo snap install docker
+sudo snap install --edge azure-iot-identity
+```
 
 ---
 
-By default, the Moby container engine does not set container log size limits. Over time, this can lead to the device filling up with logs and running out of disk space. However, you can configure your log to show locally, though it's optional. To learn more about logging configuration, see [Production Deployment Checklist](../production-checklist.md#set-up-default-logging-driver).
+By default, the Moby container engine doesn't set container log size limits. Over time, this can lead to the device filling up with logs and running out of disk space. However, you can configure your log to show locally, though it's optional. To learn more about logging configuration, see [Production Deployment Checklist](../production-checklist.md#set-up-default-logging-driver).
 
 The following steps show you how to configure your container to use [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. 
 
@@ -264,5 +211,55 @@ The optional defender-iot-micro-agent-edge package includes the Microsoft Defend
 
 # [Ubuntu Core snaps](#tab/snaps)
 
-Should the snap be installed here? Followed by the connect commands?
+Install IoT Edge from the snap store:
+
+```bash
+sudo snap install --edge azure-iot-edge
+```
+
+### Connect snaps
+
+By default, snaps are dependency-free, untrusted, and strictly confined. Hence, snaps must be connected to other snaps and system resources after installation. Use the following commands to connect the IoT Identity Service and IoT Edge snaps to each other and to system resources. To get started, snaps need to be manually connected. For production deployments, they can be configured to automatically connect to reduce the provisioning workload.
+
+```bash
+#------------------------
+#  IoT Identity Service
+#------------------------
+
+# Connect the Identity Service snap to the logging system
+# and grant permission to query system info
+
+sudo snap connect azure-iot-identity:log-observe
+sudo snap connect azure-iot-identity:mount-observe
+sudo snap connect azure-iot-identity:system-observe
+sudo snap connect azure-iot-identity:hostname-control
+
+# If using a TPM, enable TPM access
+
+sudo snap connect azure-iot-identity:tpm
+
+#------------
+#  IoT Edge
+#------------
+
+# Connect to your /home directory to enable writing support bundles
+
+sudo snap connect azure-iot-edge:home
+
+# Connect to logging and grant permission to query system info
+
+sudo snap connect azure-iot-edge:log-observe
+sudo snap connect azure-iot-edge:mount-observe
+sudo snap connect azure-iot-edge:system-observe
+
+# Allow IoT Edge to connect to the /var/run/iotedge folder and use sockets
+
+sudo snap connect azure-iot-edge:run-iotedge
+
+# Connect IoT Edge to Docker
+
+sudo snap connect azure-iot-edge:docker-executables docker:docker-executables
+sudo snap connect azure-iot-edge:docker docker:docker-daemon
+```
+
 ---
