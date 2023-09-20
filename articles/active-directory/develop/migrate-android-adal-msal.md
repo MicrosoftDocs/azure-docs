@@ -23,7 +23,7 @@ This article highlights changes you need to make to migrate an app that uses the
 
 ## Difference highlights
 
-ADAL works with the Microsoft Entra v1.0 endpoint. The Microsoft Authentication Library (MSAL) works with the Microsoft identity platform--formerly known as the Microsoft Entra v2.0 endpoint. The Microsoft identity platform differs from Microsoft Entra v1.0 in that it:
+ADAL works with the Azure AD v1.0 endpoint. The Microsoft Authentication Library (MSAL) works with the Microsoft identity platform, formerly known as the Azure AD v2.0 endpoint. The Microsoft identity platform differs from Azure AD v1.0 in that it:
 
 Supports:
   - Organizational Identity (Microsoft Entra ID)
@@ -64,7 +64,7 @@ In your app registration in the portal, you will see an **API permissions** tab.
 
 ### User consent
 
-With ADAL and the Microsoft Entra v1 endpoint, user consent to resources they own was granted on first use. With MSAL and the Microsoft identity platform, consent can be requested incrementally. Incremental consent is useful for permissions that a user may consider high privilege, or may otherwise question if not provided with a clear explanation of why the permission is required. In ADAL, those permissions may have resulted in the user abandoning signing in to your app.
+With ADAL and the Azure AD v1.0 endpoint, user consent to resources they own was granted on first use. With MSAL and the Microsoft identity platform, consent can be requested incrementally. Incremental consent is useful for permissions that a user may consider high privilege, or may otherwise question if not provided with a clear explanation of why the permission is required. In ADAL, those permissions may have resulted in the user abandoning signing in to your app.
 
 > [!TIP]
 > Use incremental consent to provide additional context to your users about why your app needs a permission.

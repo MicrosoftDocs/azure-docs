@@ -20,9 +20,9 @@ ms.custom: aaddev, has-adal-ref
 
 The Azure Active Directory Authentication Library ([ADAL Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc)) was created to work with  Microsoft Entra accounts via the v1.0 endpoint.
 
-The Microsoft Authentication Library for iOS and macOS (MSAL) is built to work with all Microsoft identities such as Microsoft Entra accounts, personal Microsoft accounts, and Azure AD B2C accounts via the Microsoft identity platform (formally the Microsoft Entra v2.0 endpoint).
+The Microsoft Authentication Library for iOS and macOS (MSAL) is built to work with all Microsoft identities such as Microsoft Entra accounts, personal Microsoft accounts, and Azure AD B2C accounts via the Microsoft identity platform (formally the Azure AD v2.0 endpoint).
 
-The Microsoft identity platform has a few key differences with Microsoft Entra v1.0. This article highlights these differences and provides guidance to migrate an app from ADAL to MSAL.
+The Microsoft identity platform has a few key differences with Azure AD v1.0. This article highlights these differences and provides guidance to migrate an app from ADAL to MSAL.
 
 ## ADAL and MSAL app capability differences
 
@@ -42,7 +42,7 @@ The Microsoft identity platform has a few key differences with Microsoft Entra v
 
 ## ADAL and MSAL library differences
 
-The MSAL public API reflects a few key differences between Microsoft Entra v1.0 and the Microsoft identity platform.
+The MSAL public API reflects a few key differences between Azure AD v1.0 and the Microsoft identity platform.
 
 ### MSALPublicClientApplication instead of ADAuthenticationContext
 
@@ -52,7 +52,7 @@ In MSAL, the main interaction is through an `MSALPublicClientApplication` object
 
 ### Scopes instead of resources
 
-In ADAL, an app had to provide a *resource* identifier like `https://graph.microsoft.com` to acquire tokens from the Microsoft Entra v1.0 endpoint. A resource can define a number of scopes, or oAuth2Permissions in the app manifest, that it understands. This allowed client apps to request tokens from that resource for a certain set of scopes pre-defined during app registration.
+In ADAL, an app had to provide a *resource* identifier like `https://graph.microsoft.com` to acquire tokens from the Azure AD v1.0 endpoint. A resource can define a number of scopes, or oAuth2Permissions in the app manifest, that it understands. This allowed client apps to request tokens from that resource for a certain set of scopes pre-defined during app registration.
 
 In MSAL, instead of a single resource identifier, apps provide a set of scopes per request. A scope is a resource identifier followed by a permission name in the form resource/permission. For example, `https://graph.microsoft.com/user.read`
 
