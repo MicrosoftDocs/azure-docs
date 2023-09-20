@@ -7,7 +7,7 @@ ms.custom: event-tier1-build-2022, build-2023, devx-track-extended-java, devx-tr
 ms.date: 4/17/2023
 ms.author: drskwier
 ms.reviewer: glenga
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure SQL output binding for Azure Functions
@@ -15,6 +15,10 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 The Azure SQL output binding lets you write to a database.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-azure-sql.md).
+
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
 
 ## Examples
 <a id="example"></a>
@@ -664,7 +668,7 @@ public class PostToDoWithLog {
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript,programming-language-typescript"
 
 More samples for the Azure SQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-js).
 
@@ -677,11 +681,32 @@ The examples refer to a database table:
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
-
 <a id="http-trigger-write-records-to-table-javascript"></a>
 ### HTTP trigger, write records to a table
 
-The following example shows a SQL output binding in a function.json file and a JavaScript function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
+The following example shows a SQL output binding that adds records to a table, using data provided in an HTTP POST request as a JSON body.
+
+::: zone-end
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/sqlOutput1.ts" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-javascript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/sqlOutput1.js" :::
+
+# [Model v3](#tab/nodejs-v3)
 
 The following is binding data in the function.json file:
 
@@ -715,29 +740,23 @@ The following is sample JavaScript code:
 
 ```javascript
 module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger and SQL output binding function processed a request.');
-    context.log(req.body);
+    context.log('HTTP trigger and SQL output binding function processed a request.');
 
-    if (req.body) {
-        context.bindings.todoItems = req.body;
-        context.res = {
-            body: req.body,
-            mimetype: "application/json",
-            status: 201
-        }
-    } else {
-        context.res = {
-            status: 400,
-            body: "Error reading request body"
-        }
+    context.bindings.todoItems = req.body;
+    context.res = {
+        status: 201
     }
 }
 ```
+---
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
 
 <a id="http-trigger-write-to-two-tables-javascript"></a>
 ### HTTP trigger, write to two tables
 
-The following example shows a SQL output binding in a function.json file and a JavaScript function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
+The following example shows a SQL output binding that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
 
 The second table, `dbo.RequestLog`, corresponds to the following definition:
 
@@ -748,6 +767,28 @@ CREATE TABLE dbo.RequestLog (
     ItemCount int not null
 )
 ```
+
+::: zone-end
+::: zone pivot="programming-language-typescript"
+
+# [Model v4](#tab/nodejs-v4)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/sqlOutput2.ts" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-javascript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/sqlOutput2.js" :::
+
+# [Model v3](#tab/nodejs-v3)
 
 The following is binding data in the function.json file:
 
@@ -788,35 +829,22 @@ The following is sample JavaScript code:
 
 ```javascript
 module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger and SQL output binding function processed a request.');
-    context.log(req.body);
+    context.log('HTTP trigger and SQL output binding function processed a request.');
 
     const newLog = {
-        RequestTimeStamp = Date.now(),
-        ItemCount = 1
-    }
+        RequestTimeStamp: Date.now(),
+        ItemCount: 1
+    };
+    context.bindings.requestLog = newLog;
 
-    if (req.body) {
-        context.bindings.todoItems = req.body;
-        context.bindings.requestLog = newLog;
-        context.res = {
-            body: req.body,
-            mimetype: "application/json",
-            status: 201
-        }
-    } else {
-        context.res = {
-            status: 400,
-            body: "Error reading request body"
-        }
+    context.bindings.todoItems = req.body;
+    context.res = {
+        status: 201
     }
 }
 ```
 
-
-::: zone-end  
-
-
+::: zone-end
 ::: zone pivot="programming-language-powershell"
 
 More samples for the Azure SQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-powershell).
@@ -1159,9 +1187,35 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 |**name** |  Required. The unique name of the function binding. | 
 
 ::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"
 
+## Configuration
 
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+# [Model v4](#tab/nodejs-v4)
+
+The following table explains the properties that you can set on the `options` object passed to the `output.sql()` method.
+
+| Property | Description |
+|---------|----------------------|
+| **commandText** | Required. The name of the table being written to by the binding.  |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
+
+# [Model v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+| Property | Description |
+|---------|----------------------|
+|**type** | Required. Must be set to `sql`.|
+|**direction** | Required. Must be set to `out`. |
+|**name** | Required. The name of the variable that represents the entity in function code. | 
+| **commandText** | Required. The name of the table being written to by the binding.  |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-powershell,programming-language-python"
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
@@ -1180,15 +1234,11 @@ The following table explains the binding configuration properties that you set i
 
 ## Usage
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java"
 The `CommandText` property is the name of the table where the data is to be stored. The connection string setting name corresponds to the application setting that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.
 
 The output bindings use the T-SQL [MERGE](/sql/t-sql/statements/merge-transact-sql) statement which requires [SELECT](/sql/t-sql/statements/merge-transact-sql#permissions) permissions on the target database.
 
 If an exception occurs when a SQL output binding is executed then the function code stop executing.  This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.  If the `IAsyncCollector` is used in a .NET function then the function code can handle exceptions throw by the call to `FlushAsync()`.
-
-
-::: zone-end
 
 ## Next steps
 
