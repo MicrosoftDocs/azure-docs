@@ -715,22 +715,46 @@ Use the [MongoDB Node.js driver](mongodb/quickstart-nodejs.md) to connect to the
 
 ### [C#](#tab/csharp)
 
-TODO
+Use the [Apache Cassandra .NET driver](cassandra/manage-data-dotnet.md) to connect to the emulator from a .NET application.
 
 1. Start in an empty folder.
 
-1. TODO
+1. Create a new .NET console application
 
     ```bash
-    
+    dotnet new console
     ```
 
-1. TODO
+1. Add the [`CassandraCSharpDriver`](https://www.nuget.org/packages/CassandraCSharpDriver/) package from NuGet.
 
-1. TODO
+    ```bash
+    dotnet add package CassandraCSharpDriver
+    ```
 
-    ```csharp
-    
+1. Open the **Program.cs** file.
+
+1. Delete any existing content within the file.
+
+1. Add a using block for the [`Cassandra`](https://docs.datastax.com/en/latest-csharp-driver-api/api/Cassandra.html) namespace.
+
+    :::code language="csharp" source="~/cosmos-db-apache-cassandra-dotnet-samples/601-emulator/Program.cs" id="imports":::
+
+1. Create a new instance of [`Cluster`](https://docs.datastax.com/en/latest-csharp-driver-api/api/Cassandra.Cluster.html) using the emulator's credentials. Create a new session using [`Connect`](https://docs.datastax.com/en/latest-csharp-driver-api/api/Cassandra.Cluster.html#Cassandra_Cluster_Connect).
+
+    :::code language="csharp" source="~/cosmos-db-apache-cassandra-dotnet-samples/601-emulator/Program.cs" highlight="8-9" id="client":::
+
+1. Create a new database and container using [`PrepareAsync`](https://docs.datastax.com/en/latest-csharp-driver-api/api/Cassandra.ISession.html#Cassandra_ISession_PrepareAsync_System_String_) and [`ExecuteAsync`](https://docs.datastax.com/en/latest-csharp-driver-api/api/Cassandra.ISession.html#Cassandra_ISession_ExecuteAsync_Cassandra_IStatement_).
+
+    :::code language="csharp" source="~/cosmos-db-apache-cassandra-dotnet-samples/601-emulator/Program.cs" highlight="2,5" id="resources":::
+
+1. Create a new item in the table using `ExecuteAsync`. Use [`Bind`](https://docs.datastax.com/en/latest-csharp-driver-api/api/Cassandra.PreparedStatement.html#Cassandra_PreparedStatement_Bind_System_Object___) to assign properties to the item.
+
+    :::code language="csharp" source="~/cosmos-db-apache-cassandra-dotnet-samples/601-emulator/Program.cs" highlight="9,11" id="insert":::
+
+1. Run the .NET application.
+
+    ```bash
+    dotnet run
     ```
 
 ### [Python](#tab/python)
@@ -836,24 +860,51 @@ Use the [Apache Cassandra Node.js driver](cassandra/manage-data-nodejs.md) to us
 
 ::: zone pivot="api-apache-gremlin"  
 
+> [!IMPORTANT]
+> Prior to starting, the API for Apache Gremlin requires you to create your resources in the emulator. Create a database named `db1` and a container named `coll1`. The throughput settings are irrelevant for this guide and can be set as low as you'd like.
+
 ### [C#](#tab/csharp)
 
-TODO
+Use the [Apache Gremlin .NET driver](gremlin/quickstart-dotnet.md) to connect to the emulator from a .NET application.
 
 1. Start in an empty folder.
 
-1. TODO
+1. Create a new .NET console application
 
     ```bash
-    
+    dotnet new console
     ```
 
-1. TODO
+1. Add the [`Gremlin.Net`](https://www.nuget.org/packages/Gremlin.Net) package from NuGet.
 
-1. TODO
+    ```bash
+    dotnet add package Gremlin.Net 
+    ```
 
-    ```csharp
-    
+1. Open the **Program.cs** file.
+
+1. Delete any existing content within the file.
+
+1. Add a using block for the [`Gremlin.Net.Driver`](https://tinkerpop.apache.org/dotnetdocs/3.4.6/api/Gremlin.Net.Driver.html) namespace.
+
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/601-emulator/Program.cs" id="imports":::
+
+1. Create a new instance of [`GremlinServer`](https://tinkerpop.apache.org/dotnetdocs/3.4.6/api/Gremlin.Net.Driver.GremlinServer.html) and [`GremlinClient`](https://tinkerpop.apache.org/dotnetdocs/3.4.6/api/Gremlin.Net.Driver.GremlinClient.html) using the emulator's credentials.
+
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/601-emulator/Program.cs" highlight="" id="client":::
+
+1. Clean up the graph using [`SubmitAsync`](https://tinkerpop.apache.org/dotnetdocs/3.4.6/api/Gremlin.Net.Driver.GremlinClient.html#Gremlin_Net_Driver_GremlinClient_SubmitAsync__1_RequestMessage_).
+
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/601-emulator/Program.cs" highlight="1" id="resources":::
+
+1. Use `SubmitAsync` again to add a new item to the graph with the specified parameters.
+
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/601-emulator/Program.cs" highlight="1" id="insert":::
+
+1. Run the .NET application.
+
+    ```bash
+    dotnet run
     ```
 
 ### [Python](#tab/python)
@@ -882,7 +933,7 @@ Use the [Apache Gremlin Python driver](gremlin/quickstart-python.md) to connect 
 
     :::code language="python" source="~/cosmos-db-apache-gremlin-python-samples/601-emulator/app.py" id="graph":::
 
-1. Use `client.submit` to add a new item.
+1. Use `client.submit` again to add a new item to the graph with the specified parameters.
 
     :::code language="python" source="~/cosmos-db-apache-gremlin-python-samples/601-emulator/app.py" highlight="1" id="insert":::
 
@@ -942,22 +993,50 @@ Use the [Apache Gremlin Node.js driver](gremlin/quickstart-nodejs.md) to use the
 
 ### [C#](#tab/csharp)
 
-TODO
+Use the [Azure Tables SDK for .NET](table/quickstart-dotnet.md) to connect to the emulator from a .NET application.
 
 1. Start in an empty folder.
 
-1. TODO
+1. Create a new .NET console application
 
     ```bash
-    
+    dotnet new console
     ```
 
-1. TODO
+1. Add the [`Azure.Data.Tables`](https://www.nuget.org/packages/Azure.Data.Tables) package from NuGet.
 
-1. TODO
+    ```bash
+    dotnet add package Azure.Data.Tables
+    ```
 
-    ```csharp
-    
+1. Open the **Program.cs** file.
+
+1. Delete any existing content within the file.
+
+1. Add a using block for the [`Azure.Data.Tables`](https://learn.microsoft.com/dotnet/api/azure.data.tables) namespace.
+
+    :::code language="csharp" source="~/cosmos-db-table-dotnet-samples/601-emulator/Program.cs" id="imports":::
+
+1. Create a new instance of [`TableServiceClient`](https://learn.microsoft.com/dotnet/api/azure.data.tables.tableserviceclient) using the emulator's credentials.
+
+    :::code language="csharp" source="~/cosmos-db-table-dotnet-samples/601-emulator/Program.cs" highlight="2" id="client":::
+
+1. Use [`GetTableClient`](https://learn.microsoft.com/dotnet/api/azure.data.tables.tableserviceclient.gettableclient) to create a new instance of [`TableClient`](https://learn.microsoft.com/dotnet/api/azure.data.tables.tableclient) with the table's name. Then ensure the table exists using [`CreateIfNotExistsAsync`](https://learn.microsoft.com/dotnet/api/azure.data.tables.tableclient.createifnotexistsasync).
+
+    :::code language="csharp" source="~/cosmos-db-table-dotnet-samples/601-emulator/Program.cs" highlight="1,5" id="resources":::
+
+1. Create a new `record` type for items.
+
+    :::code language="csharp" source="~/cosmos-db-table-dotnet-samples/601-emulator/Product.cs" id="entity":::
+
+1. Create a new item in the table using [`UpsertEntityAsync`](https://learn.microsoft.com/dotnet/api/azure.data.tables.tableclient.upsertentityasync) and the `Replace` mode.
+
+    :::code language="csharp" source="~/cosmos-db-table-dotnet-samples/601-emulator/Program.cs" highlight="9,11" id="upsert":::
+
+1. Run the .NET application.
+
+    ```bash
+    dotnet run
     ```
 
 ### [Python](#tab/python)
