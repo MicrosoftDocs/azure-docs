@@ -30,7 +30,7 @@ Below is a set of the important fields in a Kubernetes Event. For a comprehensiv
 
 ## Accessing events
 
-# [Azure CLI](#tab/azure-cli/linux)
+### [Azure CLI](#tab/azure-cli/linux)
 
 You can find events for your cluster and its components by using `kubectl`. Keep in mind the Kubernetes API server only retains events for 1 hour after the last occurrence.
 
@@ -46,7 +46,7 @@ kubectl get pods
 kubectl describe pods <pod-name>
 ```
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 You can browse the events for your cluster by navigating to **Events** under **Kubernetes resources** from the Azure portal overview page for your cluster. By default, all events are shown.
 
@@ -62,7 +62,7 @@ by reason:
 
 or by pods or nodes:
 
-:::image type="content" source="./media/events/filter-pod-node-inline.png" alt-text="{alt-text}" lightbox="./media/events/filter-pod-node.png":::
+:::image type="content" source="./media/events/filter-pod-node-inline.png" alt-text="The Azure portal page for the A K S cluster is shown. 'Events' is selected, and the filter 'Object equals all' is highlighted. lightbox="./media/events/filter-pod-node.png":::
 
 These filters can be combined to scope the query to your specific needs.
 
