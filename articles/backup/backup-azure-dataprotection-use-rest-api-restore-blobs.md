@@ -206,7 +206,7 @@ For our example, this translates to:
 POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d/validateRestore?api-version=2021-01-01"
 ```
 
-The request body for this POST API is detailed [here](/rest/api/dataprotection/backup-instances/validate-for-restore#request-body). We have constructed the same in the  above section for [all blobs restore](#construct-the-request-body-for-point-in-time-restore-of-all-blobs) and [few items restore](#constructing-the-request-body-for-point-in-time-restore-of-selected-containers-or-few-blobs) scenarios. We will use the same to trigger a validate operation.
+The request body for this POST API is detailed [here](/rest/api/dataprotection/backup-instances/validate-for-restore#request-body). We have constructed the same in the  above section for [all blobs restore](#constructing-the-request-body-for-point-in-time-restore-of-all-blobs) and [few items restore](#construct-the-request-body-for-point-in-time-restore-of-selected-containers-or-few-blobs) scenarios. We will use the same to trigger a validate operation.
 
 ### Response to validate restore requests
 
