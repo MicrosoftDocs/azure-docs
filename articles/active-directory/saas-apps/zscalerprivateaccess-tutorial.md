@@ -44,10 +44,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 To configure the integration of Zscaler Private Access (ZPA) into Azure AD, you need to add Zscaler Private Access (ZPA) from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **Zscaler Private Access (ZPA)** in the search box.
 1. Select **Zscaler Private Access (ZPA)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -70,7 +68,8 @@ To configure and test Azure AD SSO with Zscaler Private Access (ZPA), perform th
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Zscaler Private Access (ZPA)** application integration page, find the **Manage** section and select **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Zscaler Private Access (ZPA)** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -111,13 +110,13 @@ In this section, you'll create a test user in the Azure portal called Britta Sim
 
 In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Zscaler Private Access (ZPA).
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Zscaler Private Access (ZPA)**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Zscaler Private Access (ZPA)**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Zscaler Private Access (ZPA) SSO
 
@@ -126,15 +125,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign in to your Zscaler Private Access (ZPA) company site as an administrator
 
-4. From the left side of menu, click **Administration** and navigate to **AUTHENTICATION** section click **IdP Configuration**.
+1. From the left side of menu, click **Administration** and navigate to **AUTHENTICATION** section click **IdP Configuration**.
 
 	![Zscaler Private Access Administrator administration](./media/zscalerprivateaccess-tutorial/administration.png)
 
-5. In the top right corner, click **Add IdP Configuration**. 
+1. In the top right corner, click **Add IdP Configuration**. 
 
 	![Zscaler Private Access Administrator idp](./media/zscalerprivateaccess-tutorial/metadata.png)
 
-6. On the **Add IdP Configuration** page perform the following steps:
+1. On the **Add IdP Configuration** page perform the following steps:
  
 	![Zscaler Private Access Administrator select](./media/zscalerprivateaccess-tutorial/select.png)
 

@@ -3,22 +3,22 @@ title: Configure PIM for Groups settings
 description: Learn how to configure PIM for Groups settings.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 6/7/2023
-ms.author: billmath
+ms.date: 09/12/2023
+ms.author: barclayn
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
 # Configure PIM for Groups settings
 
-In Privileged Identity Management (PIM) for groups in Azure Active Directory (Azure AD), which is part of Microsoft Entra, role settings define membership or ownership assignment properties. These properties include multifactor authentication and approval requirements for activation, assignment maximum duration, and notification settings. This article shows you how to configure role settings and set up the approval workflow to specify who can approve or deny requests to elevate privilege.
+In Privileged Identity Management (PIM) for groups in Entra ID (Azure AD), role settings define membership or ownership assignment properties. These properties include multifactor authentication and approval requirements for activation, assignment maximum duration, and notification settings. This article shows you how to configure role settings and set up the approval workflow to specify who can approve or deny requests to elevate privilege.
 
 You need group management permissions to manage settings. For role-assignable groups, you must have a Global Administrator or Privileged Role Administrator role or be an owner of the group. For non-role assignable groups, you must have a Global Administrator, Directory Writer, Groups Administrator, Identity Governance Administrator, or User Administrator role or be an owner of the group. Role assignments for administrators should be scoped at directory level (not at the administrative unit level).
 

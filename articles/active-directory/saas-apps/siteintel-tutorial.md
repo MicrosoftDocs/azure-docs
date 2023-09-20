@@ -72,7 +72,8 @@ To configure and test Azure AD SSO with SiteIntel, complete the following buildi
 
 To enable Azure AD SSO in the Azure portal, do the following:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **SiteIntel** application integration page, go to the **Manage** section, and then select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SiteIntel** application integration page, go to the **Manage** section, and then select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, next to **Basic SAML Configuration**, select **Edit** (pen icon).
 
@@ -152,7 +153,7 @@ When you select the **SiteIntel** tile in the Access Panel, you should be automa
 
 ## Additional resources
 
-- [List of tutorials about how to integrate SaaS apps with Azure Active Directory ](./tutorial-list.md)
+- [List of tutorials about how to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
 - [What are application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 - [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)

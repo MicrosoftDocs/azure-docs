@@ -81,7 +81,8 @@ To configure and test Azure AD SSO with Citrix ADC SAML Connector for Azure AD, 
 
 To enable Azure AD SSO by using the Azure portal, complete these steps:
 
-1. In the Azure portal, on the **Citrix ADC SAML Connector for Azure AD** application integration pane, under **Manage**, select **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Citrix ADC SAML Connector for Azure AD** application integration pane, under **Manage**, select **Single sign-on**.
 
 1. On the **Select a single sign-on method** pane, select **SAML**.
 

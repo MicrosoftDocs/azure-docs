@@ -13,6 +13,8 @@ ms.custom:
 
 # Restart Azure Database for MariaDB server using PowerShell
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 This article describes how you can restart an Azure Database for MariaDB server. You may need to restart
 your server for maintenance reasons, which causes a short outage during the operation.
 

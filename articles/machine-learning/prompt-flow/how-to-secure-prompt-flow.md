@@ -30,10 +30,11 @@ When you're developing your LLM application using prompt flow, you may want a se
 - Container registry: you may also want to secure your container registry with virtual network.
 - Endpoint: you may want to limit Azure services or IP address to access your endpoint.
 - Related Azure Cognitive Services as such Azure OpenAI, Azure content safety and Azure cognitive search, you can use network config to make them as private then using private endpoint to let Azure Machine Learning services communicate with them.
+- Other non Azure resources such as SerpAPI, pinecone etc. If you have strict outbound rule, you need add FQDN rule to access them. 
 
 ## Secure prompt flow with workspace managed virtual network
 
-Workspace managed virtual network is the recommend way to support network isolation in prompt flow. It provides easily configuration to secure your workspace. After you enable managed virtual network in the workspace level, resources related to workspace in the same virtual network, will use the same network setting in the workspace level. You can also configure the workspace to use private endpoint to access other Azure resources such as Azure OpenAI, Azure content safety, and Azure cognitive search. You also can configure FQDN rule to approve outbound to non-Azure resources use by your prompt flow such as OpenAI, Pinecone etc.
+Workspace managed virtual network is the recommended way to support network isolation in prompt flow. It provides easily configuration to secure your workspace. After you enable managed virtual network in the workspace level, resources related to workspace in the same virtual network, will use the same network setting in the workspace level. You can also configure the workspace to use private endpoint to access other Azure resources such as Azure OpenAI, Azure content safety, and Azure cognitive search. You also can configure FQDN rule to approve outbound to non-Azure resources use by your prompt flow such as OpenAI, Pinecone etc.
 
 1. Follow [Workspace managed network isolation](../how-to-managed-network.md) to enable workspace managed virtual network.
 
@@ -53,14 +54,18 @@ Workspace managed virtual network is the recommend way to support network isolat
 
     :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-rule-non-azure-resources.png" alt-text="Screenshot of user defined outbound rule for non Azure resource." lightbox = "./media/how-to-secure-prompt-flow/outbound-rule-non-azure-resources.png":::
 
+4. In workspace which enable managed VNet, you can only deploy prompt flow to managed online endpoint. You can follow [Secure your managed online endpoints with network isolation](../how-to-secure-kubernetes-inferencing-environment.md) to secure your managed online endpoint.
+
 ## Secure prompt flow use your own virtual network
 
 - To set up Azure Machine Learning related resources as private, see [Secure workspace resources](../how-to-secure-workspace-vnet.md).
 - Meanwhile, you can follow [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md) to make them as private.
+- If you want to deploy prompt flow in workspace which secured by your own virtual network, you can deploy it to AKS cluster which is in the same virtual network. You can follow [Secure your RAG workflows with network isolation](../how-to-secure-rag-workflows.md) to secure your AKS cluster.
 - You can either create private endpoint to the same virtual network or leverage virtual network peering to make them communicate with each other.
 
-## Limitations
+## Known limitations
 
+- Only public access enable storage account is supported. You can't use private storage account now. Find workaround here: [Why can't I create or upgrade my flow when I disable public network access of storage account?](./tools-reference/troubleshoot-guidance.md#why-cant-i-create-or-upgrade-my-flow-when-i-disable-public-network-access-of-storage-account)
 - Workspace hub / lean workspace and AI studio don't support bring your own virtual network.
 - Managed online endpoint only supports workspace managed virtual network. If you want to use your own virtual network, you may need one workspace for prompt flow authoring with your virtual network and another workspace for prompt flow deployment using managed online endpoint with workspace managed virtual network.
 
@@ -68,3 +73,6 @@ Workspace managed virtual network is the recommend way to support network isolat
 
 - [Secure workspace resources](../how-to-secure-workspace-vnet.md)
 - [Workspace managed network isolation](../how-to-managed-network.md)
+- [Secure Azure Kubernetes Service inferencing environment](../how-to-secure-online-endpoint.md)
+- [Secure your managed online endpoints with network isolation](../how-to-secure-kubernetes-inferencing-environment.md)
+- [Secure your RAG workflows with network isolation](../how-to-secure-rag-workflows.md)

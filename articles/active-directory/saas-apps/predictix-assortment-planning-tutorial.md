@@ -78,7 +78,8 @@ In this section, you'll enable Azure AD single sign-on in the Azure portal.
 
 To configure Azure AD single sign-on with Predictix Assortment Planning, take these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Predictix Assortment Planning** application integration page, select **Single sign-on**:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Predictix Assortment Planning** application integration page, select **Single sign-on**:
 
     ![Select Single sign-on](common/select-sso.png)
 
@@ -86,7 +87,7 @@ To configure Azure AD single sign-on with Predictix Assortment Planning, take th
 
     ![Select a single sign-on method](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
+1. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
 
 	![Edit icon](common/edit-urls.png)
 
@@ -111,7 +112,7 @@ To configure Azure AD single sign-on with Predictix Assortment Planning, take th
 	> [!NOTE]
 	> These values are placeholders. You need to use the actual sign-on URL and identifier. Contact the [Predictix Assortment Planning support team](https://www.infor.com/support) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer:
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer:
 
 	![Certificate download link](common/certificatebase64.png)
 
