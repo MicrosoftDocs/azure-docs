@@ -80,6 +80,7 @@ URLs listed below are required for this integration to work properly.  This inte
 | **`cert-api.access.redhat.com`** | **HTTPS:443** | Used for Red Hat telemetry. |
 | **`api.access.redhat.com`** | **HTTPS:443** | Used for Red Hat telemetry. |
 | **`infogw.api.openshift.com`** | **HTTPS:443** | Used for Red Hat telemetry. |
+| **`api.openshift.com`** | **HTTPS:443** | Used for Red Hat telemetry. |
 | **`cloud.redhat.com/api/ingress`** | **HTTPS:443** | Used by the insights operator which integrates with Red Hat Insights (required in 4.10 and earlier only). |
 | **`cloud.redhat.com/api/ingress`** | **HTTPS:443** | Used by the insights operator which integrates with Red Hat Insights. |
 
