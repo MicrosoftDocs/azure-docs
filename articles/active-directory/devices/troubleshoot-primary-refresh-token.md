@@ -102,16 +102,16 @@ To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO 
 
    | Level           | Date and Time            | Source  | Event ID | Task Category                  |
    |-----------------|--------------------------|---------|----------|--------------------------------|
-   | **Information** | **6/24/2020 3:35:35 AM** | **Microsoft Entra ID** | **1006** | **AadCloudAPPlugin Operation** |
-   | Information     | 6/24/2020 3:35:35 AM     | Microsoft Entra ID     | 1018     | AadCloudAPPlugin Operation     |
-   | Information     | 6/24/2020 3:35:35 AM     | Microsoft Entra ID     | 1144     | AadCloudAPPlugin Operation     |
-   | Information     | 6/24/2020 3:35:35 AM     | Microsoft Entra ID     | 1022     | AadCloudAPPlugin Operation     |
-   | Error           | 6/24/2020 3:35:35 AM     | Microsoft Entra ID     | 1084     | AadCloudAPPlugin Operation     |
-   | Error           | 6/24/2020 3:35:35 AM     | Microsoft Entra ID     | 1086     | AadCloudAPPlugin Operation     |
-   | Error           | 6/24/2020 3:35:35 AM     | Microsoft Entra ID     | 1160     | AadCloudAPPlugin Operation     |
-   | **Information** | **6/24/2020 3:35:35 AM** | **Microsoft Entra ID** | **1007** | **AadCloudAPPlugin Operation** |
-   | Information     | 6/24/2020 3:35:35 AM     | Microsoft Entra ID     | 1157     | AadCloudAPPlugin Operation     |
-   | Information     | 6/24/2020 3:35:35 AM     | Microsoft Entra ID     | 1158     | AadCloudAPPlugin Operation     |
+   | **Information** | **6/24/2020 3:35:35 AM** | **AAD** | **1006** | **AadCloudAPPlugin Operation** |
+   | Information     | 6/24/2020 3:35:35 AM     | AAD     | 1018     | AadCloudAPPlugin Operation     |
+   | Information     | 6/24/2020 3:35:35 AM     | AAD     | 1144     | AadCloudAPPlugin Operation     |
+   | Information     | 6/24/2020 3:35:35 AM     | AAD     | 1022     | AadCloudAPPlugin Operation     |
+   | Error           | 6/24/2020 3:35:35 AM     | AAD     | 1084     | AadCloudAPPlugin Operation     |
+   | Error           | 6/24/2020 3:35:35 AM     | AAD     | 1086     | AadCloudAPPlugin Operation     |
+   | Error           | 6/24/2020 3:35:35 AM     | AAD     | 1160     | AadCloudAPPlugin Operation     |
+   | **Information** | **6/24/2020 3:35:35 AM** | **AAD** | **1007** | **AadCloudAPPlugin Operation** |
+   | Information     | 6/24/2020 3:35:35 AM     | AAD     | 1157     | AadCloudAPPlugin Operation     |
+   | Information     | 6/24/2020 3:35:35 AM     | AAD     | 1158     | AadCloudAPPlugin Operation     |
 
 1. Double-click the row that contains Event ID 1007. The **Event Properties** dialog box for this event appears.
 1. In the description box on the **General** tab, copy the error code. The error code is a 10-character string that begins with `0x`, followed by an 8-digit hexadecimal number.
