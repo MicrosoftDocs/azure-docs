@@ -324,7 +324,7 @@ The following table represents the currently supported custom telemetry types:
 | **Python**                                |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
 | &nbsp;&nbsp;&nbsp;Python Logging Module   |               |                |              |            |            |          | Yes    |
-| &nbsp;&nbsp;&nbsp;Azure Monitor Events Extension   |   Yes         |                |              |            |            |          | Yes    |
+| &nbsp;&nbsp;&nbsp;Events Extension        |   Yes         |                |              |            |            |          | Yes    |
 
 > [!NOTE]
 > Application Insights Java 3.x listens for telemetry that's sent to the Application Insights [Classic API](api-custom-events-metrics.md). Similarly, Application Insights Node.js 3.x collects events created with the Application Insights [Classic API](api-custom-events-metrics.md). This makes upgrading easier and fills a gap in our custom telemetry support until all custom telemetry types are supported via the OpenTelemetry API.
