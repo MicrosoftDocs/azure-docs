@@ -28,7 +28,7 @@ For complete information on the cause and solution of the Unhealthy and Unknown 
 ## Methods to view Backend health
 The backend server health report can be generated through the Azure portal, REST API, PowerShell, and Azure CLI.
 
-### Azure portal
+### Using Azure portal
 The Application Gateway portal provides an information-rich backend health report with visualizations and tools for faster troubleshooting. Each row shows the exact target server, the backend pool it belongs to, its backend setting association (including port and protocol), and the response received by the latest probe. Visit the [Health Probes article](application-gateway-probe-overview.md) to understand how this report is composed based on the number of Backend pools, servers, and Backend settings.
 
 For Unhealthy and Unknown statuses, you will also find a Troubleshoot link presenting you with the following tools:
@@ -44,4 +44,50 @@ For Unhealthy and Unknown statuses, you will also find a Troubleshoot link prese
 - You must act on the respective property (Application Gateway's Backend Setting or the Backend Server) depending on the error indication and location.
 - A solution for each error type is available at the top, or you can visit the given documentation link to know more.
 
+### Using PowerShell
+
+The following PowerShell code shows how to view backend health by using the `Get-AzApplicationGatewayBackendHealth` cmdlet:
+
+```powershell
+Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
+```
+
+### Using Azure CLI
+
+```azurecli
+az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
+```
+
+### Results
+
+The following snippet shows an example of the response:
+
+```json
+{
+"BackendAddressPool": {
+    "Id": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/appGatewayBackendPool"
+},
+"BackendHttpSettingsCollection": [
+    {
+    "BackendHttpSettings": {
+        "Id": "/00000000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings"
+    },
+    "Servers": [
+        {
+        "Address": "hostname.westus.cloudapp.azure.com",
+        "Health": "Healthy"
+        },
+        {
+        "Address": "hostname.westus.cloudapp.azure.com",
+        "Health": "Healthy"
+        }
+    ]
+    }
+]
+}
+```
+
+## Next steps
+* Understanding [Application Gateway probes behavior](application-gateway-probe-overview.md).
+* [Generate a self-signed certificate](self-signed-certificates.md) with a custom root CA.
 
