@@ -68,7 +68,6 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 - Python Application using Python 3.7+
 
-
 ---
 
 > [!TIP]
@@ -137,10 +136,6 @@ Install the latest [azure-monitor-opentelemetry](https://pypi.org/project/azure-
 ```sh
 pip install azure-monitor-opentelemetry
 ```
-
-
-
-
 
 ---
 
@@ -247,10 +242,6 @@ with tracer.start_as_current_span("hello"):
 input()
 
 ```
-
-
-
-
 
 ---
 
