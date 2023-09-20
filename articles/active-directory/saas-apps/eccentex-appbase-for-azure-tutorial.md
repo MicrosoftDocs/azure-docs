@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate Eccentex AppBase for Azure with 
 
 * Control in Azure AD who has access to Eccentex AppBase for Azure.
 * Enable your users to be automatically signed-in to Eccentex AppBase for Azure with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with Eccentex AppBase for Azure, perform the 
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Eccentex AppBase for Azure** > **Single sign-on**.
@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | `https://<CustomerName>.eccentex.com:<PortNumber>/Ecx.Web/Account/sso?tenantCode=<TenantCode>&authCode=<AuthConfigurationCode>` |
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Eccentex AppBase for Azure Client support team](mailto:eccentex.support@eccentex.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Eccentex AppBase for Azure Client support team](mailto:eccentex.support@eccentex.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
@@ -101,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -115,7 +115,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Eccentex AppBase for Azure.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Eccentex AppBase for Azure.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Eccentex AppBase for Azure**.
@@ -143,9 +143,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     1. In the **Name** textbox, type a short configuration name. 
 
-    1. In the **Issuer Url** textbox, enter the Azure **Application ID** which you have copied from the Azure portal.
+    1. In the **Issuer Url** textbox, enter the Azure **Application ID** which you copied previously.
 
-    1. Copy **Application Url** value, paste this value into the **Identifier(Entity ID)** text box in the **Basic SAML Configuration** section in the Azure portal.
+    1. Copy **Application Url** value, paste this value into the **Identifier(Entity ID)** text box in the **Basic SAML Configuration** section.
 
     1. In the **AppBase New Users Onboarding**, select **Invitation Only** from the dropdown.
 
@@ -162,27 +162,27 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
         > [!NOTE]
         > Make sure the **Sign Outbound Requests** is not checked.
 
-    1. Copy **Assertion Consumer Service Url** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+    1. Copy **Assertion Consumer Service Url** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section.
 
-    1. In the **Auth Request Destination Url** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    1. In the **Auth Request Destination Url** textbox, paste the **Login URL** value which you copied previously.
 
-    1. In the **Service Provider Resource URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    1. In the **Service Provider Resource URL** textbox, paste the **Login URL** value which you copied previously.
 
-    1. In the **Artifact Identification Url** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    1. In the **Artifact Identification Url** textbox, paste the **Login URL** value which you copied previously.
 
     1. In the **Auth Request Protocol Binding**, select **HTTP-POST** from the dropdown.
 
     1. In the **Auth Request Name ID Policy**, select **Persistent** from the dropdown.
 
-    1. In the **Artifact Responder URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    1. In the **Artifact Responder URL** textbox, paste the **Login URL** value which you copied previously.
 
     1. Enable **Enforce Response Signature Verification** checkbox.
 
-    1. Open the downloaded **Certificate(Raw)** from the Azure portal into Notepad and paste the content into the **SAML Mutual Certificate Upload** textbox.
+    1. Open the downloaded **Certificate(Raw)** into Notepad and paste the content into the **SAML Mutual Certificate Upload** textbox.
 
     1. In the **Logout Response Protocol Binding**, select **HTTP-POST** from the dropdown.
 
-    1. In the **AppBase Custom Logout URL** textbox, paste the **Logout URL** value which you have copied from the Azure portal.
+    1. In the **AppBase Custom Logout URL** textbox, paste the **Logout URL** value which you copied previously.
     
     1. Click **Save**.
 
@@ -194,7 +194,7 @@ In this section, a user called Britta Simon is created in Eccentex AppBase for A
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Eccentex AppBase for Azure Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Eccentex AppBase for Azure Sign-on URL where you can initiate the login flow. 
 
 * Go to Eccentex AppBase for Azure Sign-on URL directly and initiate the login flow from there.
 

@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate Work.com with Azure Active Direc
 
 * Control in Azure AD who has access to Work.com.
 * Enable your users to be automatically signed-in to Work.com with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ To configure and test Azure AD SSO with Work.com, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Work.com** > **Single sign-on**.
@@ -74,7 +74,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `http://<companyname>.my.salesforce.com`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Work.com Client support team](https://help.salesforce.com/articleView?id=000159855&type=3) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [Work.com Client support team](https://help.salesforce.com/articleView?id=000159855&type=3) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -86,19 +86,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-2. Select **New user** at the top of the screen.
-3. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   2. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   3. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   4. Click **Create**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Work.com.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Work.com.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Work.com**.
@@ -152,7 +154,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     > [!NOTE]
     > Providing a value for **Name** does automatically populate the **API Name** textbox.
     
-    b. In **Issuer** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal.
+    b. In **Issuer** textbox, paste the value of **Azure AD Identifier**..
     
     c. To upload the downloaded certificate from Azure portal, click **Browse**.
     
@@ -162,9 +164,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     
     f. As **SAML Identity Location**, select **Identity is in the NameIdentfier element of the Subject statement**.
     
-    g. In **Identity Provider Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
+    g. In **Identity Provider Login URL** textbox, paste the value of **Login URL**..
 
-    h. In **Identity Provider Logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+    h. In **Identity Provider Logout URL** textbox, paste the value of **Logout URL**..
     
     i. As **Service Provider Initiated Request Binding**, select **HTTP Post**.
     
@@ -230,7 +232,7 @@ For Azure Active Directory users to be able to sign in, they must be provisioned
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Work.com Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Work.com Sign-on URL where you can initiate the login flow. 
 
 * Go to Work.com Sign-on URL directly and initiate the login flow from there.
 

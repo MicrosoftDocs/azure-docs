@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate FreshDesk with Azure Active Dire
 
 * Control in Azure AD who has access to FreshDesk.
 * Enable your users to be automatically signed-in to FreshDesk with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -78,7 +78,7 @@ To configure and test Azure AD SSO with FreshDesk, perform the following steps:
     `https://<tenant-name>.freshdesk.com/login/saml`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. FreshDesk application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, whereas **Unique User Identifier** is mapped with **user.userprincipalname** but FreshDesk expects this claim to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on Edit icon and change the attribute mapping.
 
@@ -95,7 +95,7 @@ To configure and test Azure AD SSO with FreshDesk, perform the following steps:
 
 ### Create an Azure AD test user 
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -109,7 +109,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to  FreshDesk.
+In this section, you'll enable B.Simon to use single sign-on by granting access to  FreshDesk.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **FreshDesk**.
@@ -131,13 +131,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     1. In the **Login Method**, select **SAML SSO**.
 
-    1. In the **Entity ID provided by the IdP** textbox, paste **Entity ID** value, which you have copied from the Azure portal.
+    1. In the **Entity ID provided by the IdP** textbox, paste **Entity ID** value, which you copied previously.
 
-    1. In the **SAML SSO URL** textbox, paste **Login URL** value, which you have copied from the Azure portal.
+    1. In the **SAML SSO URL** textbox, paste **Login URL** value, which you copied previously.
 
     1. In the **Signing Options**, select **Only Signed Assertions** from the dropdown.
 
-    1. In the **Logout URL** textbox, paste **Logout URL** value, which you have copied from the Azure portal.
+    1. In the **Logout URL** textbox, paste **Logout URL** value, which you copied previously.
 
     1. In the **Security Certificate** textbox, paste **Certificate (Base64)** value, which you have obtained earlier.
   
@@ -174,7 +174,7 @@ In the case of FreshDesk, provisioning is a manual task.
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to FreshDesk Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to FreshDesk Sign-on URL where you can initiate the login flow. 
 
 * Go to FreshDesk Sign-on URL directly and initiate the login flow from there.
 

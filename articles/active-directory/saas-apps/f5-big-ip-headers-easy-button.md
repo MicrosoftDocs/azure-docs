@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate F5 with Azure Active Directory (
 
 * Control in Azure AD who has access to F5.
 * Enable your users to be automatically signed-in to F5 with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 > [!NOTE]
 > F5 BIG-IP APM [Purchase Now](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/f5-networks.f5-big-ip-best?tab=Overview).

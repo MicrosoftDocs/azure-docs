@@ -54,7 +54,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 	![generate](./media/bluejeans-provisioning-tutorial/token.png)
 	
 4. Copy and save the Token. 
-5. The BlueJeans Tenant URL is `https://api.bluejeans.com/v2/scim`. The **Tenant URL** and the **Secret Token** from the previous step will be entered in the Provisioning tab of your BlueJeans application in the Azure portal.
+5. The BlueJeans Tenant URL is `https://api.bluejeans.com/v2/scim`. The **Tenant URL** and the **Secret Token** from the previous step will be entered in the Provisioning tab of your BlueJeans application.
 
 ## Step 3. Add BlueJeans from the Azure AD application gallery
 

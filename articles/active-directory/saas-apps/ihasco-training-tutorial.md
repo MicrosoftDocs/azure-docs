@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate iHASCO Training with Azure Activ
 
 * Control in Azure AD who has access to iHASCO Training.
 * Enable your users to be automatically signed-in to iHASCO Training with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ To configure and test Azure AD SSO with iHASCO Training, perform the following s
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **iHASCO Training** > **Single sign-on**.
@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://app.ihasco.co.uk/<ID>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [iHASCO Training Client support team](mailto:support@ihasco.co.uk) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [iHASCO Training Client support team](mailto:support@ihasco.co.uk) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -96,7 +96,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -110,7 +110,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to iHASCO Training.
+In this section, you'll enable B.Simon to use single sign-on by granting access to iHASCO Training.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **iHASCO Training**.
@@ -139,13 +139,13 @@ the **ADVANCED** tile and click **Configure Single Sign On**.
 
     a. Under **GENERAL**, enter a **Description** to identify this configuration.
 
-    b. Under **IDENTITY PROVIDER DETAILS**, in the **Single Sign-on URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    b. Under **IDENTITY PROVIDER DETAILS**, in the **Single Sign-on URL** textbox, paste the **Login URL** value which you copied previously.
 
-    c. In the **Single Logout URL** textbox, paste the **Logout URL** value which you have copied from the Azure portal.
+    c. In the **Single Logout URL** textbox, paste the **Logout URL** value which you copied previously.
 
-    d. In the **Entity ID** textbox, paste the **Identifier** value which you have copied from the Azure portal.
+    d. In the **Entity ID** textbox, paste the **Identifier** value which you copied previously.
 
-    e. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **X509 (Public) Certificate** textbox.
+    e. Open the downloaded **Certificate (Base64)** into Notepad and paste the content into the **X509 (Public) Certificate** textbox.
 
     f. Under **USER ATTRIBUTE MAPPING**, in the **Email address** enter the value like `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
@@ -171,7 +171,7 @@ In this section, a user called Britta Simon is created in iHASCO Training. iHASC
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to iHASCO Training Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to iHASCO Training Sign-on URL where you can initiate the login flow. 
 
 * Go to iHASCO Training Sign-on URL directly and initiate the login flow from there.
 

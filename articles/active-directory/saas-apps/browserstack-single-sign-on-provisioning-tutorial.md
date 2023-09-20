@@ -58,7 +58,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
     ![User](media/browserstack-single-sign-on-provisioning-tutorial/attributes.png)
 
-5. Copy the **Tenant URL** and **Secret Token**. These values will be entered in the Tenant URL and Secret Token fields in the Provisioning tab of your BrowserStack Single Sign-on application in the Azure portal. Click **Done**.
+5. Copy the **Tenant URL** and **Secret Token**. These values will be entered in the Tenant URL and Secret Token fields in the Provisioning tab of your BrowserStack Single Sign-on application. Click **Done**.
 
     ![Authorization](media/browserstack-single-sign-on-provisioning-tutorial/credential.png)
 

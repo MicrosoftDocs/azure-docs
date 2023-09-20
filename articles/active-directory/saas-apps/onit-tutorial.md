@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Onit with Azure Active Directory
 
 * Control in Azure AD who has access to Onit.
 * Enable your users to be automatically signed-in to Onit with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ To configure and test Azure AD SSO with Onit, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Onit** > **Single sign-on**.
@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.onit.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Onit Client support team](https://www.onit.com/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Onit Client support team](https://www.onit.com/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
@@ -94,7 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -108,7 +108,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Onit.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Onit.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Onit**.
@@ -140,11 +140,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. As **Authentication Strategy**, select **Single Sign On and Password**.
 	
-	b. In **Idp Target URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+	b. In **Idp Target URL** textbox, paste the value of **Login URL**.
 
-	c. In **Idp logout URL** textbox, paste the value of  **Logout URL**, which you have copied from Azure portal.
+	c. In **Idp logout URL** textbox, paste the value of  **Logout URL**.
 
-	d. In **Idp Cert Fingerprint (SHA1)** textbox, paste the  **Thumbprint** value of certificate, which you have copied from Azure portal.
+	d. In **Idp Cert Fingerprint (SHA1)** textbox, paste the  **Thumbprint** value of certificate.
 
 ### Create Onit test user
 
@@ -173,7 +173,7 @@ In order to enable Azure AD users to log into Onit, they must be provisioned int
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Onit Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Onit Sign-on URL where you can initiate the login flow. 
 
 * Go to Onit Sign-on URL directly and initiate the login flow from there.
 

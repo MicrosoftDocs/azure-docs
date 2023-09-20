@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate AWS ClientVPN with Azure Active 
 
 * Control in Azure AD who has access to AWS ClientVPN.
 * Enable your users to be automatically signed-in to AWS ClientVPN with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -66,7 +66,7 @@ To configure and test Azure AD SSO with AWS ClientVPN, perform the following ste
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **AWS ClientVPN** > **Single sign-on**.
@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     |
 
 	> [!NOTE]
-	> These values are not real.  Update these values with the actual Sign on URL and Reply URL.  The Sign on URL and Reply URL can have the same value (`http://127.0.0.1:35001`). Refer to [AWS Client VPN Documentation](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html#ad) for details.   You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal. Contact [AWS ClientVPN support team](https://aws.amazon.com/contact-us/) for any configuration issues. 
+	> These values are not real.  Update these values with the actual Sign on URL and Reply URL.  The Sign on URL and Reply URL can have the same value (`http://127.0.0.1:35001`). Refer to [AWS Client VPN Documentation](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html#ad) for details.   You can also refer to the patterns shown in the **Basic SAML Configuration** section. Contact [AWS ClientVPN support team](https://aws.amazon.com/contact-us/) for any configuration issues. 
 
 1. In the Azure Active Directory service, navigate to **App registrations** and then select **All Applications**.
 
@@ -125,7 +125,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -139,7 +139,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to AWS ClientVPN.
+In this section, you'll enable B.Simon to use single sign-on by granting access to AWS ClientVPN.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **AWS ClientVPN**.
@@ -161,7 +161,7 @@ In this section, a user called Britta Simon is created in AWS ClientVPN. AWS Cli
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to AWS ClientVPN Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to AWS ClientVPN Sign-on URL where you can initiate the login flow. 
 
 * Go to AWS ClientVPN Sign-on URL directly and initiate the login flow from there.
 
