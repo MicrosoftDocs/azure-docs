@@ -114,17 +114,19 @@ az aks install-cli
 ```
 If you use Azure Cloud Shell, _kubectl_ is already installed, and you can skip this step.
 
-### Connect to your AKS cluster
+### Connect to your AKS clusters in two regions
 
-Use the portal to copy the resource group and cluster name for your AKS cluster. To configure _kubectl_ to connect to your AKS cluster, use the following command with your resource group and cluster name:
+Use the portal to copy the resource group and cluster name for your AKS cluster in the West US 2 region. To configure _kubectl_ to connect to your AKS cluster, use the following command with your resource group and cluster name:
 
 ```bash
- az aks get-credentials --resource-group myResourceGroup --name myClusterName
+ az aks get-credentials --resource-group myResourceGroup --name myClusterName -f AKS_WestUS2
  ```
 
 Verify that you are able to connect to your cluster by running the following command:
 
 ```bash
+set kubeconfig=AKS_WestUS2
+
 kubectl get nodes
 ```
 
@@ -137,11 +139,27 @@ aks-agentpool-21274953-vmss000003   Ready    agent   1d    v1.24.15
 aks-agentpool-21274953-vmss000006   Ready    agent   1d    v1.24.15
 ```
 
+Now, repeat the steps for getting credentials for your AKS cluster in East US region.
+
+```bash
+az aks get-credentials --resource-group myResourceGroup --name myClusterName -f AKS_EastUS
+
+set kubeconfig=AKS_EastUS
+
+kubectl get nodes
+```
+
+Thus, you now have context on your machine to connect to both the AKS clusters on your machine. 
+Alternately, you can apply the YAML files to appropriate AKS clusters through portal directly. To apply YAML through portal, go to the "Services and ingresses" blade for your AKS cluster, and click on the "Create" and choose "Apply a YAML" option. This will open an editor where you can copy paste your YAML file.
+
+
 ## Deploy and test your application
 
 Run the following command to deploy the application instance to your AKS cluster in **West US 2**:
 
 ```bash
+set kubeconfig=AKS_WestUS2
+
 kubectl apply -f app_west.yaml
 ```
 
@@ -183,6 +201,8 @@ Once the External-IP is available, open a web browser to the External-IP address
 Run the same deployment steps and deploy an instance of the demo application to run in East US region.
 
 ```bash
+set kubeconfig=AKS_EastUS
+
 kubectl apply -f app_east
 
 kubectl get pods -n east
