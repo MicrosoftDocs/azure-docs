@@ -6174,6 +6174,21 @@
       "source_path_from_root": "/articles/cosmos-db/local-emulator.md",
       "redirect_url": "/azure/cosmos-db/emulator",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/docker-emulator-linux.md",
+      "redirect_url": "/azure/cosmos-db/emulator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/docker-emulator-windows.md",
+      "redirect_url": "/azure/cosmos-db/emulator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/docker-emulator-rest-api.md",
+      "redirect_url": "/azure/cosmos-db/emulator",
+      "redirect_document_id": false
     }
   ]
 }
