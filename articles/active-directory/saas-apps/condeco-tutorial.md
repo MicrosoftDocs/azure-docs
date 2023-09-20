@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate Condeco with Azure Active Direct
 
 * Control in Azure AD who has access to Condeco.
 * Enable your users to be automatically signed-in to Condeco with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ To configure and test Azure AD SSO with Condeco, perform the following steps:
 
 ### Configure Azure AD SSO 
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Condeco** > **Single sign-on**.
@@ -76,7 +76,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<companyname>.condecosoftware.com`
 
     > [!NOTE]
-    > The value is not real. Update the value with the actual Sign-On URL. Contact [Condeco Client support team](mailto:supportna@condecosoftware.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > The value is not real. Update the value with the actual Sign-On URL. Contact [Condeco Client support team](mailto:supportna@condecosoftware.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user 
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -103,7 +103,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Condeco.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Condeco.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Condeco**.
@@ -115,7 +115,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Configure Condeco SSO
 
-To configure single sign-on on **Condeco** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Condeco support team](mailto:supportna@condecosoftware.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Condeco** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [Condeco support team](mailto:supportna@condecosoftware.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Condeco test user
 
@@ -125,7 +125,7 @@ In this section, a user called B.Simon is created in Condeco. Condeco supports j
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Condeco Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Condeco Sign-on URL where you can initiate the login flow. 
 
 * Go to Condeco Sign-on URL directly and initiate the login flow from there.
 

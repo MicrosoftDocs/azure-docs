@@ -29,7 +29,7 @@ Register-AzProviderFeature -ProviderNamespace Microsoft.Maintenance -FeatureName
 
 #### [Azure VMs](#tab/avms)
 
-- Patch Orchestration must be set to Customer Managed Schedules (Preview). This sets patch mode to AutomaticByPlatform and the **BypassPlatformSafetyChecksOnUserSchedule** = *True*.
+- Patch Orchestration must be set to Customer Managed Schedules. This sets patch mode to AutomaticByPlatform and the **BypassPlatformSafetyChecksOnUserSchedule** = *True*.
 - Associate a Schedule with the VM.
              
 #### [Arc-enabled VMs](#tab/arcvms)

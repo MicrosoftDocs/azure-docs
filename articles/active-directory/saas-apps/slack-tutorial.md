@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Slack with Azure Active Director
 
 * Control in Azure AD who has access to Slack.
 * Enable your users to be automatically signed-in to Slack with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ To configure and test Azure AD SSO with Slack, perform the following steps:
 
 ### Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Slack** > **Single sign-on**.
@@ -96,7 +96,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| `https://<DOMAIN NAME>.enterprise.slack.com/sso/saml` |
 
 	> [!NOTE]
-	> These values aren't real. You need to update these values with the actual Sign-on URL and Reply URL. Contact [Slack Client support team](https://slack.com/help/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values aren't real. You need to update these values with the actual Sign-on URL and Reply URL. Contact [Slack Client support team](https://slack.com/help/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 	> [!NOTE]
 	> The value for **Identifier (Entity ID)** can be a variable if you have more than one Slack instance that you need to integrate with the tenant. Use the pattern `https://<DOMAIN NAME>.slack.com`. In this scenario, you also must pair with another setting in Slack by using the same value.
@@ -122,7 +122,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -136,7 +136,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Slack.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Slack.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Slack**.
@@ -169,9 +169,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. In the top right, toggle **Test** mode on.
     
-    b.  In the **SAML SSO URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+    b.  In the **SAML SSO URL** textbox, paste the value of **Login URL**.
 
-    c.  In the **Identity provider issuer** textbox, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
+    c.  In the **Identity provider issuer** textbox, paste the value of **Azure Ad Identifier**.
 
     d.  Open your downloaded certificate file in Notepad, copy the content of it into your clipboard, and then paste it to the **Public Certificate** textbox.
 
@@ -211,7 +211,7 @@ The objective of this section is to create a user called B.Simon in Slack. Slack
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on **Test this application** in Azure portal. This will redirect to Slack Sign-on URL where you can initiate the login flow.
+* Click on **Test this application**, this will redirect to Slack Sign-on URL where you can initiate the login flow.
 
 * Go to Slack Sign-on URL directly and initiate the login flow from there.
 

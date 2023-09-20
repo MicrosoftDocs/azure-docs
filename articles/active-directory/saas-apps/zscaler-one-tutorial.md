@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Zscaler One with Azure Active Di
 
 * Control in Azure AD who has access to Zscaler One.
 * Enable your users to be automatically signed-in to Zscaler One with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -67,7 +67,7 @@ To configure and test Azure AD SSO with Zscaler One, perform the following steps
 
 ### Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Zscaler One** > **Single sign-on**.
@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    a. In the **Sign-on URL** textbox, type the URL used by your users to sign-on to your Zscaler One application.
 
    > [!NOTE]
-   > You update the value with the actual Sign-On URL. Contact [Zscaler One Client support team](https://www.zscaler.com/company/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+   > You update the value with the actual Sign-On URL. Contact [Zscaler One Client support team](https://www.zscaler.com/company/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Your Zscaler One application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
@@ -118,7 +118,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -132,7 +132,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Zscaler One.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Zscaler One.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Zscaler One**.
@@ -157,7 +157,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    ![Manage Users & Authentication](./media/zscaler-one-tutorial/users.png "Manage Users & Authentication")
 
-   a. In the **SAML Portal URL** textbox, Paste the **Login URL** which you have copied from Azure portal.
+   a. In the **SAML Portal URL** textbox, Paste the **Login URL**..
 
    b. In the **Login Name Attribute** textbox, enter **NameID**.
 
@@ -227,7 +227,7 @@ In this section, a user called Britta Simon is created in Zscaler One. Zscaler O
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Zscaler One Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Zscaler One Sign-on URL where you can initiate the login flow. 
 
 * Go to Zscaler One Sign-on URL directly and initiate the login flow from there.
 

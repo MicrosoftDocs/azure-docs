@@ -52,7 +52,8 @@ This section guides you through connecting your Azure AD to Salesforce Sandbox's
 
 The objective of this section is to outline how to enable user provisioning of Active Directory user accounts to Salesforce Sandbox.
 
-1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications** section.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. If you have already configured Salesforce Sandbox for single sign-on, search for your instance of Salesforce Sandbox using the search field. Otherwise, select **Add** and search for **Salesforce Sandbox** in the application gallery. Select Salesforce Sandbox from the search results, and add it to your list of applications.
 
@@ -84,7 +85,7 @@ The objective of this section is to outline how to enable user provisioning of A
 
 1. Copy the token, go to your Azure AD window, and paste it into the **Secret Token** field.
 
-1. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Salesforce Sandbox app.
+1. Select **Test Connection** to ensure Azure AD can connect to your Salesforce Sandbox app.
 
 1. In the **Notification Email** field, enter the email address of a person or group who should receive provisioning error notifications, and check the checkbox.
 

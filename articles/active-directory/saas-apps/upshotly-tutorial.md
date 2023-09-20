@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Upshotly with Azure Active Direc
 
 * Control in Azure AD who has access to Upshotly.
 * Enable your users to be automatically signed-in to Upshotly with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ To configure and test Azure AD SSO with Upshotly, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Upshotly** > **Single sign-on**.
@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://app.upshotly.com/api/sso/login/<companyID>`
 
 	> [!NOTE]
-	> The Sign-on URL value is not real. Update this values with the actual Sign-on URL. You will get the **companyID** value explained later in the tutorial. Contact [Upshotly Client support team](mailto:support@upshotly.com) for queries. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Sign-on URL value is not real. Update this values with the actual Sign-on URL. You will get the **companyID** value explained later in the tutorial. Contact [Upshotly Client support team](mailto:support@upshotly.com) for queries. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -103,7 +103,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Upshotly.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Upshotly.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Upshotly**.
@@ -126,7 +126,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Upshotly Configuration](./media/upshotly-tutorial/config1.png)
 
-	a. Copy the **Company ID** value and use this **Company ID** value to replace **Company ID** value present in the **Sign On URL** in the **Basic SAML Configuration** section in the Azure portal.
+	a. Copy the **Company ID** value and use this **Company ID** value to replace **Company ID** value present in the **Sign On URL** in the **Basic SAML Configuration** section.
 
 	b. Open downloaded **Federation metadata XML** from Azure portal into Notepad, copy the content of metadata XML and paste it into **XML metadata** textbox.
 
@@ -140,13 +140,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Upshotly Sign on URL where you can initiate the login flow.
+* Click on **Test this application**, this will redirect to Upshotly Sign on URL where you can initiate the login flow.
 
 * Go to Upshotly Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Upshotly for which you set up the SSO
+* Click on **Test this application**, and you should be automatically signed in to the Upshotly for which you set up the SSO
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Upshotly tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Upshotly for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

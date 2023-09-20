@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate VergeSense with Azure Active Dir
 
 * Control in Azure AD who has access to VergeSense.
 * Enable your users to be automatically signed-in to VergeSense with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ To configure and test Azure AD SSO with VergeSense, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **VergeSense** > **Single sign-on**.
@@ -97,7 +97,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -111,7 +111,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to VergeSense.
+In this section, you'll enable B.Simon to use single sign-on by granting access to VergeSense.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **VergeSense**.
@@ -123,7 +123,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure VergeSense SSO
 
-To configure single sign-on on **VergeSense** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [VergeSense support team](mailto:support@vergesense.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **VergeSense** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the application configuration to [VergeSense support team](mailto:support@vergesense.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create VergeSense test user
 
@@ -135,13 +135,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to VergeSense Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to VergeSense Sign on URL where you can initiate the login flow.  
 
 * Go to VergeSense Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the VergeSense for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the VergeSense for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the VergeSense tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the VergeSense for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
