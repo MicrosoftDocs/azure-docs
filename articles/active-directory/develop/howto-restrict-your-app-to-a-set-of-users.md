@@ -80,7 +80,7 @@ Follow the steps in this section to secure app-to-app authentication access for 
       New-MgServicePrincipal `
       -AppId $appId
       ```
-1. Explicitly assign client apps to resource apps (this functionality is available only in API and not in the Microsoft Entra portal):
+1. Explicitly assign client apps to resource apps (this functionality is available only in API and not in the Microsoft Entra admin center):
       ```powershell
       $clientAppId = “[guid]”
                      $clientId = (Get-MgServicePrincipal -Filter "AppId eq '$clientAppId'").Id
