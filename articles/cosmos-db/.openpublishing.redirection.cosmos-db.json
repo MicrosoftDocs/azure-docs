@@ -6207,7 +6207,7 @@
     },
     {
       "source_path_from_root": "/articles/cosmos-db/troubleshoot-local-emulator.md",
-      "redirect_url": "/azure/cosmos-db/emulator",
+      "redirect_url": "/troubleshooting/azure/cosmos-db/emulator",
       "redirect_document_id": false
     }
   ]
