@@ -15,7 +15,7 @@ ms.custom: mvc, engagement-fy24
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
 ## Update (September 2023)
-- Public Preview: Azure Migrate now supports assessments of ASP.NET web apps to Azure App Service Containers. [Learn more](tutorial-assess-webapps.md).
+- Public Preview: Azure Migrate now supports assessments of ASP.NET web apps for migration to Azure App Service Containers. [Learn more](tutorial-assess-webapps.md).
 
 ## Update (August 2023)
 - Azure Migrate now helps you gain deeper insights into the support posture of your IT estate by providing insights into Windows server and SQL Server license support information. You can stay ahead of license support deadlines with *Support ends in* information that helps to understand the time left until the end of support for respective servers and databases.
