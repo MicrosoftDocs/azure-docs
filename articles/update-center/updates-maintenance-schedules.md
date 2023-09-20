@@ -14,11 +14,11 @@ ms.author: sudhirsneha
 
 > [!IMPORTANT]
 > - For a seamless scheduled patching experience, we recommend that for all Azure virtual machines (VMs), you update the patch orchestration to **Customer Managed Schedules**. If you fail to update the patch orchestration, you can experience a disruption in business continuity because the schedules fail to patch the VMs. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](prerequsite-for-schedule-patching.md).
-> - For Azure Arc-enabled servers, the updates and maintenance options such as automatic VM guest patching in Azure, Windows automatic updates, and hotpatching aren't supported.
+> - For Azure Arc-enabled servers, the updates and maintenance options such as automatic VM guest patching in Azure, Windows automatic updates, and hot patching aren't supported.
 
 This article provides an overview of the various update and maintenance options available by Azure Update Manager.
 
-Update Manager provides you with the flexibility to take an immediate action or schedule an update within a defined maintenance window. It also supports new patching methods, such as [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) and [hotpatching](../automanage/automanage-hotpatch.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext).
+Update Manager provides you with the flexibility to take an immediate action or schedule an update within a defined maintenance window. It also supports new patching methods, such as [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) and [hot patching](../automanage/automanage-hotpatch.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext).
 
 ## Update now/One-time update
 
@@ -45,11 +45,11 @@ On the **Azure Update Manager** home page, go to **Update Settings** and select 
 
 This mode of patching allows the operating system to automatically install updates as soon as they're available. It uses the VM property that's enabled by setting the patch orchestration to OS orchestrated/automatic by the OS.
 
-## Hotpatching
+## Hot patching
 
-Hotpatching allows you to install updates on supported Windows Server Azure Edition VMs without requiring a reboot after installation. It reduces the number of reboots required on your mission-critical application workloads running on Windows Server. For more information, see [Hotpatch for new virtual machines](../automanage/automanage-hotpatch.md)
+Hot patching allows you to install updates on supported Windows Server Azure Edition VMs without requiring a reboot after installation. It reduces the number of reboots required on your mission-critical application workloads running on Windows Server. For more information, see [Hot patch for new virtual machines](../automanage/automanage-hotpatch.md)
 
-The hotpatching property is available as a setting in Update Manager. You can enable it by using the Update settings flow. For detailed instructions, see [Manage update configuration settings](manage-update-settings.md#configure-settings-on-a-single-vm)
+The hot patching property is available as a setting in Update Manager. You can enable it by using the Update settings flow. For detailed instructions, see [Manage update configuration settings](manage-update-settings.md#configure-settings-on-a-single-vm)
 
 :::image type="content" source="media/updates-maintenance/hot-patch-inline.png" alt-text="Screenshot that shows the Hotpatch option." lightbox="media/updates-maintenance/hot-patch-expanded.png":::
 

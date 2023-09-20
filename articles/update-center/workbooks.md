@@ -55,11 +55,11 @@ The following four tabs help you organize workbook types.
       
    - **Schedules/Maintenance configurations**: Provides a summary of schedules, maintenance configurations, and a list of machines attached to the schedule. You can also access the maintenance configuration overview page from this section.
    
-      :::image type="content" source="./media/workbooks/workbooks-schedules-maintenance-inline.png" alt-text="Screenshot that shows a summary of schedules and maintenance configurations." lightbox="./media/workbooks/workbooks-schedules-maintenance-expanded.png":::
+     :::image type="content" source="./media/workbooks/workbooks-schedules-maintenance-inline.png" alt-text="Screenshot that shows a summary of schedules and maintenance configurations." lightbox="./media/workbooks/workbooks-schedules-maintenance-expanded.png":::
 
    - **History of installation runs**: Provides a history of machines and maintenance runs.
 
-       :::image type="content" source="./media/workbooks/workbooks-history-installation-inline.png" alt-text="Screenshot that shows a history of installation runs." lightbox="./media/workbooks/workbooks-history-installation-expanded.png":::
+     :::image type="content" source="./media/workbooks/workbooks-history-installation-inline.png" alt-text="Screenshot that shows a history of installation runs." lightbox="./media/workbooks/workbooks-history-installation-expanded.png":::
 
 For information on how to use the workbooks for customized reporting, see [Edit a workbook](manage-workbooks.md#edit-a-workbook).
 
