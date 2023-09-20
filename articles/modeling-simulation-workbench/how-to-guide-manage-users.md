@@ -12,26 +12,26 @@ ms.date: 01/01/2023
 
 # Manage users in Azure Modeling and Simulation Workbench
 
-For users to access the Azure Modeling and Simulation Workbench chamber, they need explicit access. The workbench uses the built-in role-based assignments in Azure to manage chamber access. Only the User Access Administrator can manage role assignments on Azure resources. In the workbench, the [IT Admin or Workbench Owner](./concept-user-personas.md) is responsible for managing user access to a chamber.
+For users to access an Azure Modeling and Simulation Workbench chamber, they need explicit access. Azure Modeling and Simulation Workbench uses the built-in role-based assignments in Azure to manage chamber access. Only the User Access Administrator can manage role assignments on Azure resources. In Azure Modeling and Simulation Workbench, the [IT Admin or Workbench Owner](./concept-user-personas.md) is responsible for managing user access to a chamber.
 
 This article describes how to grant or remove user access to your chamber.
 
 ## Prerequisites
 
-- For you to provision any users within a chamber, those users must exist in your company's Microsoft Entra tenant. If you want to invite guests to collaborate within your chamber, they must be added to your Microsoft Entra tenant.
+- To provision users in a chamber, make sure that those users exist in your company's Microsoft Entra tenant. If you want to invite guests to collaborate in your chamber, you must add them to your Microsoft Entra tenant.
 
-- You use email aliases to identify and enable users' access to the chamber workloads. Each user must have an email account set within the user profile. The email alias must exactly match the user Microsoft Entra sign-in alias. For example, an Microsoft Entra sign-in alias of jane.doe@contoso.com must also have email alias of jane.doe@contoso.com.
+- You use email aliases to identify and enable users' access to the chamber workloads. Each user must have an email account set in the user profile. The email alias must exactly match the user's Microsoft Entra sign-in alias. For example, a Microsoft Entra sign-in alias of jane.doe@contoso.com must also have email alias of jane.doe@contoso.com.
 
 ## Assign user roles
 
 You can assign user roles at either of these levels:
 
-- Users assigned at the *resource group level* can see Azure Modeling and Simulation Workbench resources and create workloads with a chamber.
+- Users assigned at the *resource group level* can see Azure Modeling and Simulation Workbench resources and create workloads in a chamber.
 - Users assigned at the *chamber level* can perform Azure Modeling and Simulation Workbench operations in the Azure portal and access the chamber workloads.
 
 ### Assign access to read and create workloads
 
-To allow users to see Azure Modeling and Simulation Workbench resources and to create workloads with a chamber, you need to assign Azure roles to them. Assign these roles at the resource group level, where the Azure Modeling and Simulation Workbench instance exists. The recommendation to assign these roles at the resource group level is in line with least-privilege principles, but you can also assign these roles at the subscription level.
+To allow users to see Azure Modeling and Simulation Workbench resources and to create workloads in a chamber, you need to assign Azure roles to them. Assign these roles at the resource group level, where the Azure Modeling and Simulation Workbench instance exists. The recommendation to assign these roles at the resource group level is in line with least-privilege principles, but you can also assign these roles at the subscription level.
 
    | Setting          | Value                                   |
    | :--------------- | :-------------------------------------- |
@@ -49,7 +49,7 @@ To allow users to see Azure Modeling and Simulation Workbench resources and to c
 
 To allow users to perform Azure Modeling and Simulation Workbench operations in the Azure portal and access the chamber workloads, assign them Azure roles assigned *at the chamber level*. Assigning the roles at any other level fails to grant users access to the remote desktop dashboard or chamber workloads.
 
-Don't assign both roles to a single user. The user should be _either_ Chamber User or Chamber Admin.
+Don't assign both roles to a single user. The user should be *either* a Chamber User or a Chamber Admin.
 
 1. Go to the chamber that you want to allow users to access. Select **Chamber (preview)**, and then select and open your chamber. The following screenshot shows an example chamber named **myFirstChamber**.
 
@@ -77,7 +77,7 @@ Allow five minutes for the provisioning of the users to propagate throughout the
 
 ## Remove access
 
-When you want to remove user access to your chamber, you need to remove the Chamber Admin or Chamber User roles assigned to those users.
+When you want to remove user access to your chamber, you need to remove the Chamber Admin or Chamber User roles assigned to those users:
 
 1. Go to the chamber where you want to remove user access. Select **Chamber (preview)**, and then select and open your chamber. The following screenshot shows an example chamber named **myFirstChamber**.
 
@@ -90,7 +90,7 @@ When you want to remove user access to your chamber, you need to remove the Cham
 1. When you're prompted to confirm role assignment removal, select **Yes**.
 
 > [!NOTE]
-> This procedure won't immediately interrupt active remote desktop dashboard sessions, but it will block future logins. To interrupt or block any active sessions, a connector restart is required. A connector restart will affect all active users and sessions, so use it with caution. It won't stop any active jobs that are running on the workloads.
+> This procedure won't immediately interrupt active remote desktop dashboard sessions, but it will block future logins. To interrupt or block any active sessions, you must restart the connector. A connector restart will affect all active users and sessions, so use it with caution. It won't stop any active jobs that are running on the workloads.
 
 ## Next steps
 

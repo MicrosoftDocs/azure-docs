@@ -23,7 +23,7 @@ This article explains the steps to export data from Azure Modeling and Simulatio
 - A user who's a Workbench Owner (Subscription Owner or Subscription Contributor), and a user who's provisioned as a Chamber Admin or Chamber User.
 - [AzCopy](/azure/storage/common/storage-ref-azcopy) installed on the machine, with access to the configured network for the target chamber. Only machines on the specified network path for the chamber can export files.
 
-## Sign in to Azure portal
+## Sign in to the Azure portal
 
 Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
 

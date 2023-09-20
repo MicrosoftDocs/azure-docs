@@ -27,7 +27,7 @@ When you create the connector, the Workbench Owner (Subscription Owner) can link
 
 To add a VPN or ExpressRoute connection:
 
-1. Before you create a [connector](./concept-connector.md) for private IP networking via VPN or Azure ExpressRoute, perform this role assignment. Azure Modeling and Simulation Workbench needs the **Network Contributor** role set for the resource group in which you're hosting your virtual network connected with ExpressRoute or VPN.
+1. Before you create a [connector](./concept-connector.md) for private IP networking via VPN or ExpressRoute, perform this role assignment. Azure Modeling and Simulation Workbench needs the **Network Contributor** role set for the resource group in which you're hosting your virtual network connected with ExpressRoute or VPN.
 
    | Setting          | Value                                   |
    | :--------------- | :-------------------------------------- |
@@ -41,7 +41,7 @@ To add a VPN or ExpressRoute connection:
 
 ## Edit allowed public IP addresses
 
-For organizations that don't have an Azure network set up or prefer to use a public IP, the Azure portal allows IP addresses to be allowlisted to connect into the chamber.  To use this connectivity method, you need to specify at least one IP address for the connector object when you create the workbench. Workbench Owners and Chamber Admins can add to and edit the allowlisted public addresses for a connector after the connector object is created.
+For organizations that don't have an Azure network set up or that prefer to use a public IP, the Azure portal allows IP addresses to be allowlisted to connect into the chamber.  To use this connectivity method, you need to specify at least one IP address for the connector object when you create the workbench. Workbench Owners and Chamber Admins can add to and edit the allowlisted public addresses for a connector after the connector object is created.
 
 To edit the list of allowed IP addresses:
 

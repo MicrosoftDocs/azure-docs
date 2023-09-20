@@ -46,7 +46,7 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 1. Confirm that the uploaded file resource with the source file name appears under **Chamber** > **Data Pipeline** > **File**.
 
-The Chamber Admin and Chamber User roles can access the uploaded file from the chamber by accessing the path: */mount/datapipeline/datain*.
+A Chamber Admin or Chamber User can access the uploaded file from the chamber by accessing the following path: */mount/datapipeline/datain*.
 
 > [!IMPORTANT]
 > If you're importing multiple smaller files, we recommend that you zip or tarball them into a single file. Gigabyte-sized tarballs and zipped files are supported, depending on your connection type and network speed.

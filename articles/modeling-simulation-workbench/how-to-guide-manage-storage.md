@@ -22,7 +22,7 @@ This article explains how Chamber Admins and Workbench Owners manage chamber sto
 - An instance of Azure Modeling and Simulation Design Workbench installed with at least one chamber.
 - A user who's provisioned as a Chamber Admin or Workbench Owner.
 
-## Sign in to Azure portal
+## Sign in to the Azure portal
 
 Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
 
