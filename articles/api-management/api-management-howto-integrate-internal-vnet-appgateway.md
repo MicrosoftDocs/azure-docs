@@ -91,6 +91,7 @@ Throughout this guide, you will need to define several variables.
     $subscriptionId = "00000000-0000-0000-0000-000000000000"      # GUID of your Azure subscription
     $domain = "contoso.net"                                       # The custom domain for your certificate
     $apimServiceName = "ContosoApi"                               # API Management service instance name, must be globally unique    
+    $apimDomainNameLabel = $apimServiceName                       # Domain name label for API Management's public IP address, must be globally unique
     $apimAdminEmail = "admin@contoso.net"                         # Administrator's email address - use your email address
 
     $gatewayHostname = "api.$domain"                              # API gateway host
@@ -213,7 +214,7 @@ The following example shows how to create an API Management instance in a virtua
 
     ```powershell
     $apimPublicIpAddressId = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "pip-apim" -location $location `
-        -AllocationMethod Static -Sku Standard -Force -DomainNameLabel "apim-contoso"
+        -AllocationMethod Static -Sku Standard -Force -DomainNameLabel $apimDomainNameLabel
     ```
 
 1. Create an API Management virtual network object by using the subnet `$apimSubnetData` you created.
