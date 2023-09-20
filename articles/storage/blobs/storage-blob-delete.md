@@ -80,7 +80,7 @@ If a storage account is configured to enable blob versioning, deleting a blob ca
 
 The following code example shows how to get the latest version of a deleted blob, and restore the latest version by copying it to the base blob:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/DeleteBlob.cs" id="RestoreBlobWithVersioning":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/DeleteBlob.cs" id="Snippet_RestoreBlobWithVersioning":::
 
 ## Resources
 
@@ -93,6 +93,10 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 - [Delete Blob](/rest/api/storageservices/delete-blob) (REST API)
 - [Undelete Blob](/rest/api/storageservices/undelete-blob) (REST API)
 
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/dotnet/BlobDevGuideBlobs/DeleteBlob.cs)
+- 
 [!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
 
 ### See also
