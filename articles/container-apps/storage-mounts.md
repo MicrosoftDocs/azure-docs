@@ -43,14 +43,14 @@ Container file system storage has the following characteristics:
 
 ### Replica-scoped storage
 
-You can mount an ephemeral, temporary volume that is equivalent to [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) (empty directory) in Kubernetes. This storage is scoped to a single replica. Use an `emptyDir` volume to share data between containers in the same replica.
+You can mount an ephemeral, temporary volume that is equivalent to [EmptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) (empty directory) in Kubernetes. This storage is scoped to a single replica. Use an `EmptyDir` volume to share data between containers in the same replica.
 
 Replica-scoped storage has the following characteristics:
 
 * Files are persisted for the lifetime of the replica.
     * If a container in a replica restarts, the files in the volume remain.
 * Any init or app containers in the replica can mount the same volume.
-* A container can mount multiple `emptyDir` volumes.
+* A container can mount multiple `EmptyDir` volumes.
 
 To configure replica-scoped storage, first define an `EmptyDir` volume in the revision. Then define a volume mount in one or more containers in the revision.
 
