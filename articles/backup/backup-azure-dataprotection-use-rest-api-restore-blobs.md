@@ -18,7 +18,7 @@ This article describes how to restore [blobs](blob-backup-overview.md) to any po
 
 ## Prerequisites
 
-This article assumes that you have an operational blob backup configured for one or more of your storage accounts. [Learn how to configure a backup for block blob data](backup-azure-dataprotection-use-rest-api-backup-blobs.md), if not done.
+This article assumes that you have an operational-blob-backup configured for one or more of your storage accounts. [Learn how to configure a backup for block blob data](backup-azure-dataprotection-use-rest-api-backup-blobs.md), if not done.
 
 To illustrate the restoration steps in this article, we will refer to blobs in a storage account named `"msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d"` protected with an existing Backup vault `TestBkpVault`, under the resource group `testBkpVaultRG`.
 
@@ -194,7 +194,7 @@ The key points to remember in this scenario are:
 
 ## Validate restore requests
 
-Once request body is prepared, it can be validated using the [validate for restore API](/rest/api/dataprotection/backup-instances/validate-for-restore). Like the validate for backup API, this is a *POST* operation.
+Once request body is prepared, it can be validated using the [validate for restore API](/rest/api/dataprotection/backup-instances/validate-for-restore). Like the Validate-for-backup API, this is a *POST* operation.
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName}/validateRestore?api-version=2021-01-01
@@ -206,20 +206,20 @@ For our example, this translates to:
 POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d/validateRestore?api-version=2021-01-01"
 ```
 
-The request body for this POST API is detailed [here](/rest/api/dataprotection/backup-instances/validate-for-restore#request-body). We have constructed the same in the  above section for [all blobs restore](#constructing-the-request-body-for-point-in-time-restore-of-all-blobs) and [few items restore](#constructing-the-request-body-for-point-in-time-restore-of-selected-containers-or-few-blobs) scenarios. We will use the same to trigger a validate operation.
+The request body for this POST API is detailed [here](/rest/api/dataprotection/backup-instances/validate-for-restore#request-body). We have constructed the same in the  above section for [all blobs restore](#construct-the-request-body-for-point-in-time-restore-of-all-blobs) and [few items restore](#constructing-the-request-body-for-point-in-time-restore-of-selected-containers-or-few-blobs) scenarios. We will use the same to trigger a validate operation.
 
 ### Response to validate restore requests
 
 The validate restore request is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     |         |  Status of validate request       |
 |202 Accepted     |         |     Accepted    |
 
-#### Example response to restore validate request
+#### Example response to restore validate-request
 
 Once the *POST* operation is submitted, the initial response will be 202 Accepted along with an Azure-asyncOperation header.
 
@@ -276,7 +276,7 @@ Once the requests are validated, the same request body can be used to trigger th
 
 #### Example request body for all blobs restore
 
-The only change from the validate restore request body is to remove the "restoreRequest" object at the start.
+The only change from the validate-restore-request body is to remove the "restoreRequest" object at the start.
 
 ```json
 {
@@ -302,7 +302,7 @@ The only change from the validate restore request body is to remove the "restore
 
 #### Example request body for items or few blobs restore
 
-The only change from the validate restore request body is to remove the "restoreRequest" object at the start.
+The only change from the validate-restore-request body is to remove the "restoreRequest" object at the start.
 
 ```json
 {
@@ -337,7 +337,7 @@ The only change from the validate restore request body is to remove the "restore
 
 The trigger restore request is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
