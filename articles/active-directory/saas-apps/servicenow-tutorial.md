@@ -81,7 +81,8 @@ To configure and test Azure AD SSO with ServiceNow, perform the following steps:
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **ServiceNow** application integration page, find the **Manage** section. Select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ServiceNow** application integration page, find the **Manage** section. Select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pen icon for **Basic SAML Configuration** to edit the settings.
 
@@ -158,7 +159,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Configure Azure AD SSO for ServiceNow Express
 
-1. In the [Azure portal](https://portal.azure.com/), on the **ServiceNow** application integration page, select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ServiceNow** application integration page, select **single sign-on**.
 
     ![Screenshot of ServiceNow application integration page, with Single sign-on highlighted](common/select-sso.png)
 
