@@ -64,7 +64,7 @@ The Azure Resource Explorer is now opened with your web app selected in the reso
 
 In the left browser, drill down to **config** > **authsettingsV2**.
 
-In the **authsettingsV2** view, select **Edit**. Find the **login** section of **identityProviders** -> **Microsoft Entra ID** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]` .
+In the **authsettingsV2** view, select **Edit**. Find the **login** section of **identityProviders** -> **azureActiveDirectory** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]` .
 
 ```json
 "identityProviders": {

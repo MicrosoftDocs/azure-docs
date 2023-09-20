@@ -28,7 +28,7 @@ If any of your applications use the Azure Active Directory Authentication Librar
 
 ## Why switch to MSAL?
 
-If you've developed apps against Microsoft Entra ID (v1.0) endpoint in the past, you're likely using ADAL. Since Microsoft identity platform (v2.0) endpoint has changed significantly, the new library (MSAL) was entirely built for the new endpoint.
+If you've developed apps against Azure Active Directory (v1.0) endpoint in the past, you're likely using ADAL. Since Microsoft identity platform (v2.0) endpoint has changed significantly, the new library (MSAL) was entirely built for the new endpoint.
 
 The following diagram shows the v2.0 vs v1.0 endpoint experience at a high level, including the app registration experience, SDKs, endpoints, and supported identities.
 

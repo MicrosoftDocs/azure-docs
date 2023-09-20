@@ -25,7 +25,7 @@ ms.custom: has-adal-ref, devx-track-js
 
 ## Update app registration settings
 
-When working with ADAL Node, you were likely using the **Microsoft Entra v1.0 endpoint**. Apps migrating from ADAL to MSAL should switch to **Microsoft Entra v2.0 endpoint**.
+When working with ADAL Node, you were likely using the **Azure AD v1.0 endpoint**. Apps migrating from ADAL to MSAL should switch to **Azure AD v2.0 endpoint**.
 
 ## Install and import MSAL
 
