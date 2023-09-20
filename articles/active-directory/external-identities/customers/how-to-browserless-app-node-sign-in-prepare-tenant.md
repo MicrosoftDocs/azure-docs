@@ -48,7 +48,7 @@ If you've already registered a browserless application in the Microsoft Entra ad
 
 ## Next steps
 
-Prepare your app to sign in users in a Microsoft Entra ID for customers tenant:
+Prepare your app to sign in users in a Microsoft Entra External ID for customers tenant:
 
 > [!div class="nextstepaction"]
 > [Prepare your app to sign in users >](how-to-browserless-app-node-sign-in-prepare-app.md)
