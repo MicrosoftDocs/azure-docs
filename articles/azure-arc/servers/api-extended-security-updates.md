@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Programmatically deploy and manage Azure Arc Extended Security Updates licenses
 
-This article provides steps to programmatically provision and manage Windows Server 2012 and 2012 R2 Extended Security Update lifecycle operations through the Azure Arc WS2012 ESU ARM APIs.
+This article provides instructions to programmatically provision and manage Windows Server 2012 and Windows Server 2012 R2 Extended Security Updates lifecycle operations through the Azure Arc WS2012 ESU ARM APIs.
 
 > [!NOTE]
 > For each of the API commands, be sure to enter accurate parameter information for location, state, edition, type, and processors depending on your particular scenario
@@ -76,11 +76,11 @@ https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOUR
 
 To modify a license, execute the following commands:
 
+```json
 PUT/PATCH 
 
 https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.HybridCompute/licenses/LICENSE_NAME?api-version=2023-06-20-preview 
 
-```json
 {  
 
     "location": "ENTER-REGION",  
