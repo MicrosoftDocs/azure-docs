@@ -61,8 +61,6 @@ az rest --method get --uri '/subscriptions/{subscriptionId}/locations?api-versio
 $subscriptionId = (Get-AzContext).Subscription.ID
 $response = Invoke-AzRestMethod -Method GET -Path "/subscriptions/$subscriptionId/locations?api-version=2022-12-01"
 $locations = ($response.Content | ConvertFrom-Json).value
-```
-
 ## Availability zones and Azure updates
 
 Microsoft aims to deploy updates to Azure services to a single availability zone at a time. This approach reduces the impact that updates might have on an active workload, because the workload can continue to run in other zones while the update is in process. For more information about how Azure deploys updates, see [Advancing safe deployment practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/).
