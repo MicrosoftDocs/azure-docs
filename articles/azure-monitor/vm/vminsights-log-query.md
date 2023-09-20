@@ -430,6 +430,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 Records with a type of *InsightsMetrics* have performance data from the guest operating system of the virtual machine. These records are collected at 60 second intervals and have the properties in the following table:
 
 
+
 | Property | Description |
 |:--|:--|
 |TenantId | Unique identifier for the workspace |
@@ -468,9 +469,12 @@ The performance counters currently collected into the *InsightsMetrics* table ar
 
 
 
+
+
 ## Next steps
 
 * If you're new to writing log queries in Azure Monitor, review [how to use Log Analytics](../logs/log-analytics-tutorial.md) in the Azure portal to write log queries.
 
 * Learn about [writing search queries](../logs/get-started-queries.md).
+
 
