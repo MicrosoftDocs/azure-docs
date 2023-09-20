@@ -22,21 +22,20 @@ ms.custom: devx-track-azurepowershell
 
 * Create a resource group using the the [New-AzResourceGroup][new-azresourcegroup] cmdlet. An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is the storage location of your resource group metadata and where your resources run in Azure if you don't specify another region during resource creation. The following example creates a resource group named myResourceGroup in the eastus location.
 
-```azurepowershell-interactive
-New-AzResourceGroup -Name myResourceGroup -Location eastus
-```
+    ```azurepowershell-interactive
+    New-AzResourceGroup -Name myResourceGroup -Location eastus
+    ```
 
-The following output example resembles successful creation of the resource group:
+    The following output example resembles successful creation of the resource group:
 
-```plaintext
-ResourceGroupName : myResourceGroup
-Location          : eastus
-ProvisioningState : Succeeded
-Tags              :
-ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup
-```
+    ```plaintext
+    ResourceGroupName : myResourceGroup
+    Location          : eastus
+    ProvisioningState : Succeeded
+    Tags              :
+    ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup
+    ```
 
-* To deploy a Bicep file or ARM template, you need write access on the resources you're deploying and access to all operations on the Microsoft.Resources/deployments resource type. For example, to deploy a cluster, you need Microsoft.NetworkCloud/virtualMachines/write and Microsoft.Resources/deployments/* permissions. For a list of roles and permissions, see [Azure built-in roles](../../../role-based-access-control/built-in-roles.md).
 * You need the `custom location` resource ID of your Azure Operator Nexus cluster.
 * You need to create [various networks](../../quickstarts-tenant-workload-prerequisites.md#create-networks-for-tenant-workloads) according to your specific workload requirements, and it's essential to have the appropriate IP addresses available for your workloads. To ensure a smooth implementation, it's advisable to consult the relevant support teams for assistance.
 

@@ -88,9 +88,12 @@ Gather the resource ID of the L2 isolation domain that you [created](#l2-isolati
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-New-AzNetworkCloudL2Network -Name "<YourL2NetworkName>" -ResourceGroupName "<YourResourceGroupName>" `
--ExtendedLocationName "<ClusterCustomLocationId>" -ExtendedLocationType "CustomLocation" `
--L2IsolationDomainId "<YourL2IsolationDomainId>" -Location "<ClusterAzureRegion>" `
+New-AzNetworkCloudL2Network -Name "<YourL2NetworkName>" `
+-ResourceGroupName "<YourResourceGroupName>" `
+-ExtendedLocationName "<ClusterCustomLocationId>" `
+-ExtendedLocationType "CustomLocation" `
+-L2IsolationDomainId "<YourL2IsolationDomainId>" `
+-Location "<ClusterAzureRegion>" `
 -InterfaceName "<InterfaceName>" -Subscription "<YourSubscription>"
 ```
 
@@ -126,11 +129,15 @@ You need:
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-New-AzNetworkCloudL3Network -ResourceGroupName "<YourResourceGroupName>" -Name "<YourL3NetworkName>" `
--Location "<ClusterAzureRegion>" -ExtendedLocationName "<ClusterCustomLocationId>" `
+New-AzNetworkCloudL3Network -Name "<YourL3NetworkName>" `
+-ResourceGroupName "<YourResourceGroupName>" `
+-Subscription "<YourSubscription>" ``
+-Location "<ClusterAzureRegion>" `
+-ExtendedLocationName "<ClusterCustomLocationId>" `
 -ExtendedLocationType "CustomLocation" -Vlan "<YourNetworkVlan>" `
--L3IsolationDomainId "<YourL3IsolationDomainId>" -Ipv4ConnectedPrefix "<YourNetworkIpv4Prefix>" `
--Ipv6ConnectedPrefix "<YourNetworkIpv6Prefix>" -Subscription "<YourSubscription>"
+-L3IsolationDomainId "<YourL3IsolationDomainId>" `
+-Ipv4ConnectedPrefix "<YourNetworkIpv4Prefix>" `
+-Ipv6ConnectedPrefix "<YourNetworkIpv6Prefix>"
 ```
 
 ---
@@ -161,10 +168,13 @@ Gather the `resourceId` values of the L2 and L3 isolation domains that you creat
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-New-AzNetworkCloudTrunkedNetwork -Name "<YourTrunkedNetworkName>" -ResourceGroupName "<YourResourceGroupName>" `
--SubscriptionId "<YourSubscription>" -ExtendedLocationName "<ClusterCustomLocationId>" `
--ExtendedLocationType "CustomLocation" -Location "<ClusterAzureRegion>" -Vlan "<YourVlanList>" `
--IsolationDomainId "<YourL3IsolationDomainId>" -InterfaceName "<YourNetworkInterfaceName>"
+New-AzNetworkCloudTrunkedNetwork -Name "<YourTrunkedNetworkName>" `
+-ResourceGroupName "<YourResourceGroupName>" `
+-SubscriptionId "<YourSubscription>" `
+-ExtendedLocationName "<ClusterCustomLocationId>" `
+-ExtendedLocationType "CustomLocation" -Location "<ClusterAzureRegion>" `
+-IsolationDomainId "<YourL3IsolationDomainId>" -InterfaceName "<YourNetworkInterfaceName>" `
+-Vlan "<YourVlanList>"
 ```
 
 ---
@@ -195,13 +205,15 @@ $endpoint = New-AzNetworkCloudEndpointDependencyObject `
 $endpointList+= $endpoint
 $additionalEgressEndpoint = New-AzNetworkCloudEgressEndpointObject `
   -Category "YourCategory" `
-  -Endpoint "YourEndPointList"
+  -Endpoint $endpointList
 $endpointEgressList+= $additionalEgressEndpoint
 
 New-AzNetworkCloudServicesNetwork -CloudServicesNetworkName "<YourCloudServicesNetworkName>" `
--ResourceGroupName "<YourResourceGroupName>" -ExtendedLocationName "<ClusterCustomLocationId>" `
+-ResourceGroupName "<YourResourceGroupName>" `
+-Subscription "<YourSubscription>" `
+-ExtendedLocationName "<ClusterCustomLocationId>" `
 -ExtendedLocationType "CustomLocation" -Location "<ClusterAzureRegion>" `
--AdditionalEgressEndpoint $endpointEgressList -EnableDefaultEgressEndpoint "False" -Subscription "<YourSubscription>"
+-AdditionalEgressEndpoint $endpointEgressList -EnableDefaultEgressEndpoint "False"
 ```
 
 ---
@@ -248,7 +260,7 @@ To get the list of available zones in the Azure Operator Nexus instance, you can
 ```azurepowershell-interactive
 Get-AzNetworkCloudCluster -Name "<Azure Operator Nexus on-premises cluster name>" `
 -ResourceGroupName "<Azure Operator Nexus on-premises cluster resource group>" `
--SubscriptionId fca2e8ee-1179-48b8-9532-428ed0873a2e `
+-SubscriptionId "<YourSubscription>" `
 | Select -ExpandProperty ComputeRackDefinition `
 | Select-Object -Property AvailabilityZone
 ```

@@ -48,7 +48,8 @@ Before you run the commands, you need to set several variables to define the con
 | VMDEVICEMODEL            | The VirtioInterface ignored if VMDeviceModel is specified, options T2(Modern) and T1(Transitional).     |
 | USERDATA                 | The base64 encoded string of cloud-init userdata.                                                       |
 | BOOTMETHOD                 | The Method used to boot the virutalmachine UEFI or BIOS.    |
-| OS_DISK                    | The OS disk specifies storage options for the boot disk.    |
+| OS_DISK_CREATE_OPTION       | The OS disk create specifies ephemeral disk option.    |
+| OS_DISK_DELETE_OPTION       | The OS disk delete specifies delete disk option.   |
 | IP_AllOCATION_METHOD        | The IpAllocationMethod valid for L3Networks specify Dynamic or Static or Disabled.    |
 | NETWORKATTACHMENTNAME            | The name of the Network to attach for workload.      |
 | NETWORKDATA            | The base64 encoded string of cloud-init network data.      |
@@ -57,7 +58,7 @@ Once you've defined these variables, you can run the Azure PowerShell command to
 
 To define these variables, use the following set commands and replace the example values with your preferred values. You can also use the default values for some of the variables, as shown in the following example:
 
-```azure-powershell
+```azurepowershell-interactive
 # Azure parameters
 $RESOURCE_GROUP="myResourceGroup"
 $SUBSCRIPTION="<Azure subscription ID>"
@@ -71,6 +72,8 @@ $BOOT_METHOD="UEFI"
 $OS_DISK_CREATE_OPTION="Ephemeral"
 $OS_DISK_DELETE_OPTION="Delete"
 $NETWORKDATA="bmV0d29ya0RhdGVTYW1wbGU="
+$VMDEVICEMODEL=""
+$USERDATA=""
 
 # VM credentials
 $ADMIN_USERNAME="admin"
@@ -99,10 +102,10 @@ $ACR_URL="<Azure container registry URL, example: myacr.azurecr.io>"
 $ACR_USERNAME="<Azure container registry username>"
 
 $NETWORKATTACHMENT = New-AzNetworkCloudNetworkAttachmentObject `
-    -AttachedNetworkId $L3_NETWORK_ID `
-    -IpAllocationMethod $IP_AllOCATION_METHOD `
-    -DefaultGateway "True" `
-    -Name $NETWORKATTACHMENTNAME
+-AttachedNetworkId $L3_NETWORK_ID `
+-IpAllocationMethod $IP_AllOCATION_METHOD `
+-DefaultGateway "True" `
+-Name $NETWORKATTACHMENTNAME
 
 $SECUREPASSWORD = ConvertTo-SecureString "<YourPassword>" -asplaintext -force
 ```
@@ -112,16 +115,22 @@ $SECUREPASSWORD = ConvertTo-SecureString "<YourPassword>" -asplaintext -force
 
 After defining these variables, you can create the virtual machine by executing the following Azure PowerShell command.
 
-```azure-powershell
-New-AzNetworkCloudVirtualMachine -Name $VM_NAME -ResourceGroupName $RESOURCE_GROUP -AdminUsername $ADMIN_USERNAME `
--CloudServiceNetworkAttachmentAttachedNetworkId $CSN_ARM_ID -CloudServiceNetworkAttachmentIPAllocationMethod $IP_AllOCATION_METHOD `
+```azurepowershell-interactive
+New-AzNetworkCloudVirtualMachine -Name $VM_NAME `
+-ResourceGroupName $RESOURCE_GROUP -AdminUsername $ADMIN_USERNAME `
+-CloudServiceNetworkAttachmentAttachedNetworkId $CSN_ARM_ID `
+-CloudServiceNetworkAttachmentIPAllocationMethod $IP_AllOCATION_METHOD `
 -CpuCore $CPU_CORES -ExtendedLocationName $CUSTOM_LOCATION -ExtendedLocationType $CUSTOM_LOCATION_TYPE `
--Location $LOCATION -SubscriptionId $SUBSCRIPTION -MemorySizeGb $MEMORY_SIZE -OSDiskSizeGb $VM_DISK_SIZE `
--VMImage $VM_IMAGE -BootMethod $BOOT_METHOD -CloudServiceNetworkAttachmentDefaultGateway $CSN_ATTACHMENT_DEFAULTGATEWAY `
+-Location $LOCATION -SubscriptionId $SUBSCRIPTION -MemorySizeGb $MEMORY_SIZE `
+-OSDiskSizeGb $VM_DISK_SIZE -VMImage $VM_IMAGE -BootMethod $BOOT_METHOD `
+-CloudServiceNetworkAttachmentDefaultGateway $CSN_ATTACHMENT_DEFAULTGATEWAY `
 -CloudServiceNetworkAttachmentName $CSN_ATTACHMENT_NAME -IsolateEmulatorThread $ISOLATE_EMULATOR_THREAD `
 -NetworkAttachment $NETWORKATTACHMENT -NetworkData $NETWORKDATA -OSDiskCreateOption $OS_DISK_CREATE_OPTION `
--OSDiskDeleteOption $OS_DISK_DELETE_OPTION -SshPublicKey $SSH_PUBLIC_KEY -UserData "" -VirtioInterface $VIRTIOINTERFACE -VMDeviceModel "" `
--VMImageRepositoryCredentialsUsername $ACR_USERNAME -VMImageRepositoryCredentialsPassword $SECUREPASSWORD -VMImageRepositoryCredentialsRegistryUrl $ACR_URL -Debug
+-OSDiskDeleteOption $OS_DISK_DELETE_OPTION -SshPublicKey $SSH_PUBLIC_KEY -UserData $USERDATA `
+-VirtioInterface $VIRTIOINTERFACE -VMDeviceModel $VMDEVICEMODEL `
+-VMImageRepositoryCredentialsUsername $ACR_USERNAME `
+-VMImageRepositoryCredentialsPassword $SECUREPASSWORD `
+-VMImageRepositoryCredentialsRegistryUrl $ACR_URL -Debug
 ```
 
 After a few minutes, the command completes and returns information about the virtual machine. You've created the virtual machine. You're now ready to use them.
