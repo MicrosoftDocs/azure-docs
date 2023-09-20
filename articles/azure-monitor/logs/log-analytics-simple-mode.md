@@ -92,7 +92,10 @@ To begin an inquiry in simple mode, either:
 
 ## Explore and analyze data in simple mode 
 
-After you [initiate an inquiry in simple mode](#start-an-inquiry-in-simple-mode), you can explore and analyze data using the [top query bar](#top-query-bar). The order in which you apply filters and operators affects your inquiry and results. For example, if you apply a filter and then aggregate, Log Analytics applies the aggregation to the filtered data. If you aggregate and then filter, the aggregation is applied to the unfiltered data.
+After you [initiate an inquiry in simple mode](#start-an-inquiry-in-simple-mode), you can explore and analyze data using the [top query bar](#top-query-bar). 
+
+> [!NOTE]
+> The order in which you apply filters and operators affects your inquiry and results. For example, if you apply a filter and then aggregate, Log Analytics applies the aggregation to the filtered data. If you aggregate and then filter, the aggregation is applied to the unfiltered data.
 
 **Change time range and number of records displayed**
 
