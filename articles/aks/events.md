@@ -62,7 +62,7 @@ by reason:
 
 or by pods or nodes:
 
-:::image type="content" source="./media/events/filter-pod-node-inline.png" alt-text="The Azure portal page for the A K S cluster is shown. 'Events' is selected, and the filter 'Object equals all' is highlighted. lightbox="./media/events/filter-pod-node.png":::
+:::image type="content" source="./media/events/filter-pod-node-inline.png" alt-text="The Azure portal page for the A K S cluster is shown. 'Events' is selected, and the filter 'Object equals all' is highlighted." lightbox="./media/events/filter-pod-node.png":::
 
 These filters can be combined to scope the query to your specific needs.
 
