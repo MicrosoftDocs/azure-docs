@@ -115,7 +115,7 @@ See the [ID token reference](id-tokens.md) for more details.
 
 ## Managed identities
 
-Eliminate the need for developers to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication. Applications may use the managed identity to obtain Microsoft Entra tokens. For example, an application may use a managed identity to access resources like Azure Key Vault where developers can store credentials in a secure manner or to access storage accounts. For more information, see [managed identities overview](../managed-identities-azure-resources/overview.md).
+Eliminate the need for developers to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication. Applications may use the managed identity to obtain Microsoft identity platform tokens. For example, an application may use a managed identity to access resources like Azure Key Vault where developers can store credentials in a secure manner or to access storage accounts. For more information, see [managed identities overview](../managed-identities-azure-resources/overview.md).
 
 ## Microsoft identity platform
 
