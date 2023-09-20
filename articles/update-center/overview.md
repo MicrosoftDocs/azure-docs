@@ -36,12 +36,12 @@ Before you enable your machines for Update Manager, make sure that you understan
 Update Manager has been redesigned and doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [Azure Automation Update Management feature](../automation/update-management/overview.md). Update Manager offers many new features and provides enhanced functionality over the original version available with Azure Automation. Some of those benefits are listed here:
 
 - Provides native experience with zero on-boarding.
-    - Built as native functionality on Azure Compute and Azure Arc for Servers platform for ease of use.
+    - Built as native functionality on Azure compute and the Azure Arc for Servers platform for ease of use.
     - No dependency on Log Analytics and Azure Automation.
-    - Azure policy support.
-    - Global availability in all Azure Compute and Azure Arc regions.
+    - Azure Policy support.
+    - Global availability in all Azure compute and Azure Arc regions.
 - Works with Azure roles and identity.
-    - Granular access control at per resource level instead of access control at Azure Automation account and Log Analytics workspace level.
+    - Granular access control at the per-resource level instead of access control at the level of the Azure Automation account and Log Analytics workspace.
     - Update Manager now has Azure Resource Manager-based operations. It allows role-based access control and roles based on Azure Resource Manager in Azure.
 - Offers enhanced flexibility.
     - Ability to take immediate action either by installing updates immediately or scheduling them for a later date.
