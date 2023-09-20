@@ -108,8 +108,8 @@ Additionally, the feature also adds support for .NET and Go stack traces, which 
 
 Customers must [enable ContainerLogV2](./container-insights-logging-v2.md#enable-the-containerlogv2-schema) for multi-line logging to work.
 
-### How to enable This is currently a preview feature
-Multi-line logging can be enabled by setting **enabled** flag to "true" under the [log_collection_settings.enable_multiline_logs] section in the [the config map](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml)
+### How to enable - this is currently a preview feature
+Multi-line logging is a preview feature and can be enabled by setting **enabled** flag to "true" under the [log_collection_settings.enable_multiline_logs] section in the [the config map](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml)
 
     ```yaml
        [log_collection_settings.enable_multiline_logs]
