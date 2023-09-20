@@ -15,11 +15,11 @@ zone_pivot_groups: arm-azure-cli-portal
 
 A container app has access to different types of storage. A single app can take advantage of more than one type of storage if necessary.
 
-| Storage type | Description | Usage examples |
+| Storage type | Description | Persistence | Usage example |
 |--|--|--|
-| [Container-scoped storage](#container-scoped-storage) | Ephemeral storage scoped to the local container | Writing a local app cache.  |
-| [Replica-scoped storage](#replica-scoped-storage) | Ephemeral storage scoped to an individual replica | Sharing files between containers in a replica. For instance, the main app container can write log files that are processed by a sidecar container. |
-| [Azure Files](#azure-files) | Permanent storage | Writing files to a file share to make data accessible by other systems. |
+| [Container-scoped storage](#container-scoped-storage) | Ephemeral storage available to a running container | Data is available until container shuts down | Writing a local app cache.  |
+| [Replica-scoped storage](#replica-scoped-storage) | Ephemeral storage for sharing files between containers in the same replica | Data is available until replica shuts down | The main app container writing log files that are processed by a sidecar container. |
+| [Azure Files](#azure-files) | Permanent storage | Data is persisted to Azure Files | Writing files to a file share to make data accessible by other systems. |
 
 ## Ephemeral storage
 
