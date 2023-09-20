@@ -15,19 +15,9 @@ This article describes how to restore [blobs](blob-backup-overview.md) to any po
 > [!IMPORTANT]
 > Before proceeding to restore Azure blobs using Azure Backup, see [important points](blob-restore.md#before-you-start).
 
-In this article, you'll learn how to:
-
-- Restore Azure blobs to point-in-time
-
-- Track the restore operation status
-
 ## Prerequisites
 
-- [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
-
-- [Create a blob backup policy](backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md)
-
-- [Configure a blob backup](backup-azure-dataprotection-use-rest-api-backup-blobs.md)
+This article assumes that you have an operational blob backup configured for one or more of your storage accounts. [Learn how to configure a backup for block blob data](backup-azure-dataprotection-use-rest-api-backup-blobs.md), if not done.
 
 We will refer to an existing backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_, where blobs in a storage account named "msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d" in the examples.
 
