@@ -669,7 +669,7 @@ alertsmanagementresources
 ```
 ## <a name="alerts-severity-state"></a>List alerts ordered by severity and alert state
 
-```azurecli
+```kusto
 alertsmanagementresources
 | where type =~ 'microsoft.alertsmanagement/alerts'   
 | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
