@@ -54,7 +54,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![API Key](media/prodpad-provisioning-tutorial/api-key.png)
 
-1. Copy and save the **API key**. This value will be entered in the **Secret Token** field in the Provisioning tab of your ProdPad application in the Azure portal.
+1. Copy and save the **API key**. This value will be entered in the **Secret Token** field in the Provisioning tab of your ProdPad application.
 
 ## Step 3. Add ProdPad from the Azure AD application gallery
 
@@ -75,7 +75,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for ProdPad in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 

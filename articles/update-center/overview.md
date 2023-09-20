@@ -4,32 +4,32 @@ description: This article tells what Azure Update Manager in Azure is and the sy
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/05/2023
+ms.date: 09/18/2023
 ms.topic: overview
 ---
 
 # About Azure Update Manager
 
 > [!Important]
-> - [Automation Update Management](../automation/update-management/overview.md) relies on [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) (also called the MMA agent), which is on a deprecation path and won't be supported after **August 31, 2024**. Update Manager is the v2 version of Azure Automation Update Management and the future of Update Management in Azure. Azure Update Manager is a native service in Azure and doesn't rely on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) or the [Azure Monitor agent](../azure-monitor/agents/agents-overview.md).
-> - Guidance for migrating from Automation Update Management to Update Manager will be provided to customers after the latter is generally available. For customers using Automation Update Management, we recommend continuing to use the Log Analytics agent and *not* migrating to the Azure Monitor agent until migration guidance is provided for Update Management or else Automation Update Management won't work. Also, the Log Analytics agent wouldn't be deprecated before moving all Automation Update Management customers to Update Manager.
+> - Azure Update Manager is the v2 version of Automation Update Management and the future of update management in Azure.
+> - [Automation Update Management](../automation/update-management/overview.md) relies on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) (also called MMA agent), which is on a deprecation path and won't be supported after **August 31, 2024**.  
+> - Update Manager is a native service in Azure and doesn't rely on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) or the [Azure Monitor agent](../azure-monitor/agents/agents-overview.md).
+> - Guidance for migrating from Automation Update Management to Update Manager is provided to customers after the latter is generally available.
+> - For customers using Automation Update Management, we recommend continuing to use the Log Analytics agent and *not* migrating to the Azure Monitor agent until migration guidance is provided for update management or else Automation Update Management won't work.
+> - The Log Analytics agent wouldn't be deprecated before moving all Automation Update Management customers to Update Manager.
+> - Update Manager doesn't store any customer data.
 
-Update Manager is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. You can also use Update Manager to make real-time updates or schedule them within a defined maintenance window.
+Update Manager is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on other cloud platforms from a single dashboard. You can also use Update Manager to make real-time updates or schedule them within a defined maintenance window.
 
 You can use Update Manager in Azure to:
 
 - Oversee update compliance for your entire fleet of machines in Azure, on-premises, and in other cloud environments.
 - Instantly deploy critical updates to help secure your machines.
-- Use flexible patching options such as [automatic virtual machine (VM) guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hotpatching](../automanage/automanage-hotpatch.md), and customer-defined maintenance schedules.
+- Use flexible patching options such as [automatic virtual machine (VM) guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hot patching](../automanage/automanage-hotpatch.md), and customer-defined maintenance schedules.
 
 We also offer other capabilities to help you manage updates for your Azure VMs that you should consider as part of your overall update management strategy. To learn more about the options that are available, see the Azure VM [update options](../virtual-machines/updates-maintenance-overview.md).
 
 Before you enable your machines for Update Manager, make sure that you understand the information in the following sections.
-
-> [!IMPORTANT]
-> - Update Manager doesn't store any customer data.
-> - Update Manager can manage machines that are currently managed by Automation [Update Management](../automation/update-management/overview.md) without interrupting your update management process. However, we don't recommend migrating from Automation Update Management because this preview gives you a chance to evaluate and provide feedback on features before it's generally available.
-> - While Update Manager is in preview, the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Key benefits
 
@@ -41,21 +41,19 @@ Update Manager has been redesigned and doesn't depend on Azure Automation or Azu
     - Azure policy support.
     - Global availability in all Azure Compute and Azure Arc regions.
 - Works with Azure roles and identity.
-    - Granular access control at per resource level instead of access control at Automation account and Log Analytics workspace level.
-    - Update Manager now as Azure Resource Manager-based operations. It allows role-based access control and roles based on Azure Resource Manager in Azure.
-- Provides enhanced flexibility.
-    - Ability to take action either by installing updates immediately or scheduling them for a later date.
-    - Checks updates automatically or on-demand.
-    - Helps secure machines with new ways of patching, such as [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hotpatching](../automanage/automanage-hotpatch.md), or custom maintenance schedules.
-    - Syncs patch cycles in relation to "patch Tuesday." This unofficial term is used for Microsoft's scheduled security fix release on the second Tuesday of each month.
+    - Granular access control at per resource level instead of access control at Azure Automation account and Log Analytics workspace level.
+    - Update Manager now has Azure Resource Manager-based operations. It allows role-based access control and roles based on Azure Resource Manager in Azure.
+- Offers enhanced flexibility.
+    - Ability to take immediate action either by installing updates immediately or scheduling them for a later date.
+    - Check updates automatically or on demand.
+    - Helps secure machines with new ways of patching, such as [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hot patching](../automanage/automanage-hotpatch.md), or custom maintenance schedules.
+    - Sync patch cycles in relation to "patch Tuesday," the unofficial term for Microsoft's scheduled security fix release on every second Tuesday of each month.
 
 The following diagram illustrates how Update Manager assesses and applies updates to all Azure machines and Azure Arc-enabled servers for both Windows and Linux.
 
 ![Diagram that shows the Update Manager workflow.](./media/overview/update-management-center-overview.png)
 
-To support management of your Azure VM or non-Azure machine, Update Manager relies on a new [Azure extension](../virtual-machines/extensions/overview.md) designed to provide all the functionality required to interact with the operating system to manage the assessment and application of updates. This extension is automatically installed when you initiate any Update Manager operations such as **Check for updates**, **Install one-time update**, and **Periodic assessment** on your machine.
-
-The extension supports deployment to Azure VMs or Azure Arc-enabled servers by using the extension framework. The Update Manager extension is installed and managed by using the:
+To support management of your Azure VM or non-Azure machine, Update Manager relies on a new [Azure extension](../virtual-machines/extensions/overview.md) designed to provide all the functionality required to interact with the operating system to manage the assessment and application of updates. This extension is automatically installed when you initiate any Update Manager operations, such as **Check for updates**, **Install one-time update**, and **Periodic Assessment** on your machine. The extension supports deployment to Azure VMs or Azure Arc-enabled servers by using the extension framework. The Update Manager extension is installed and managed by using:
 
 - [Azure VM Windows agent](../virtual-machines/extensions/agent-windows.md) or the [Azure VM Linux agent](../virtual-machines/extensions/agent-linux.md) for Azure VMs.
 - [Azure Arc-enabled servers agent](../azure-arc/servers/agent-overview.md) for non-Azure Linux and Windows machines or physical servers.

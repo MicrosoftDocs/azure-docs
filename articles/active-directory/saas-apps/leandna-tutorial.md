@@ -20,7 +20,7 @@ In this article, you learn how to integrate LeanDNA with Azure Active Directory 
 
 * Control in Azure AD who has access to LeanDNA.
 * Enable your users to be automatically signed-in to LeanDNA with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You'll configure and test Azure AD single sign-on for LeanDNA in a test environment. LeanDNA supports only **SP** initiated single sign-on.
 
@@ -43,15 +43,16 @@ Add LeanDNA from the Azure AD application gallery to configure single sign-on wi
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
-1. In the Azure portal, on the **LeanDNA** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **LeanDNA** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -77,7 +78,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     `https://www.leandna.com/application/sso.html`
 
     > [!Note]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [LeanDNA Client support team](mailto:support@leandna.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [LeanDNA Client support team](mailto:support@leandna.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -89,7 +90,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure LeanDNA SSO
 
-To configure single sign-on on **LeanDNA** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [LeanDNA support team](mailto:support@leandna.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **LeanDNA** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [LeanDNA support team](mailto:support@leandna.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create LeanDNA test user
 
@@ -99,7 +100,7 @@ In this section, you create a user called Britta Simon at LeanDNA. Work with [Le
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to LeanDNA Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to LeanDNA Sign-on URL where you can initiate the login flow. 
 
 * Go to LeanDNA Sign-on URL directly and initiate the login flow from there.
 

@@ -51,14 +51,14 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Choose type: **SCIM**.
 1. Add **Description** and set **Expiration date**. For security purposes, we recommend setting an expiration date when generating a new key.
 1. Click **Generate key**.
-1. Copy and save the API Key as it won't be available next. This value will be entered in the **Secret Token** field in the Provisioning tab of your Torii application in the Azure portal.
+1. Copy and save the API Key as it won't be available next. This value will be entered in the **Secret Token** field in the Provisioning tab of your Torii application.
 1. Click **Got it**.
 
 	![Screenshot of Create API Key.](media/torii-provisioning-tutorial/create-key.png)
 
 	![Screenshot of Copy API Key.](media/torii-provisioning-tutorial/copy-key.png)
    
-1. **Torii Tenant Url:** `https://api.toriihq.com/v1.0/scim/v2` will be entered in the **Tenant URL** field in the Provisioning tab of your Torii application in the Azure portal.
+1. **Torii Tenant Url:** `https://api.toriihq.com/v1.0/scim/v2` will be entered in the **Tenant URL** field in the Provisioning tab of your Torii application.
 
 ## Step 3. Add Torii from the Azure AD application gallery
 
@@ -79,7 +79,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Torii in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 

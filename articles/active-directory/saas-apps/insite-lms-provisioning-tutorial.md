@@ -49,7 +49,7 @@ To generate the Secret Token
 	![Screenshot of generate API Key.](media/insite-lms-provisioning-tutorial/generate-api-key.png)
 
 1. Click on **Generate Api Key**.
-Copy and save the **Api Key**. This value is entered in the **Secret Token** field in the Provisioning tab of your Insite LMS application in the Azure portal.
+Copy and save the **Api Key**. This value is entered in the **Secret Token** field in the Provisioning tab of your Insite LMS application.
 
 >[!NOTE]
 >The Access Token is only valid for 1 year.
@@ -73,7 +73,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Insite LMS in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 

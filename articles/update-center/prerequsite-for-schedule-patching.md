@@ -2,7 +2,7 @@
 title: Configure schedule patching on Azure VMs for business continuity
 description: The article describes the new prerequisites to configure scheduled patching to ensure business continuity in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 05/09/2023
+ms.date: 09/18/2023
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha
@@ -33,14 +33,12 @@ VMs in a common availability set are updated within Update Domain boundaries. VM
 
 To identify the list of VMs with the associated schedules for which you have to enable a new VM property:
 
-1. Go to the **Update Manager** home page and select the **Machines** tab.
+1. Go to **Azure Update Manager** home page and select the **Machines** tab.
 1. In the **Patch orchestration** filter, select **Azure Managed - Safe Deployment**.
-1. Use **Select all** to select the machines and then select **Export to CSV**.
+1. Use the **Select all** option to select the machines and then select **Export to CSV**.
 1. Open the CSV file and in the column **Associated schedules**, select the rows that have an entry.
 
-    In the corresponding **Name** column, you can view the list the VMs to which you would need to enable the **ByPassPlatformSafetyChecksOnUserSchedule** flag.
-
-    In the corresponding **Name** column, you can view the list of VMs to which you need to enable the `ByPassPlatformSafetyChecksOnUserSchedule` flag.
+    - In the corresponding **Name** column, you can view the list of VMs to which you need to enable the `ByPassPlatformSafetyChecksOnUserSchedule` flag.
 
 ## Enable schedule patching on Azure VMs
 
@@ -81,10 +79,10 @@ If **Patch orchestration** is set as **Azure-orchestrated** or **Azure Managed -
 To update the patch mode:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to **Update Manager** and select **Update settings**.
-1. On the **Change update settings** pane, select **Add machine**.
+1. Go to **Azure Update Manager** and select **Update Settings**.
+1. In **Change update settings**, select **Add machine**.
 1. In **Select resources**, select your VMs and then select **Add**.
-1. On the  **Change update settings** pane, under **Patch orchestration**, select **Customer Managed Schedules** and then select **Save**.
+1. On the **Change update settings** pane, under **Patch orchestration**, select **Customer Managed Schedules** and then select **Save**.
 
 Attach a schedule after you finish the preceding steps.
 
