@@ -6172,7 +6172,7 @@
     },
     {
       "source_path_from_root": "/articles/cosmos-db/rag-data-openai.md",
-      "redirect_url": "/azure/cosmos-db/cosmos-db/vector-search",
+      "redirect_url": "/azure/cosmos-db/vector-search",
       "redirect_document_id": true
     }
   ]

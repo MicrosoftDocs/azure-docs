@@ -29,7 +29,7 @@ To jump right into tutorials and sample code for RAG patterns with Azure Cosmos 
 
 This section includes key concepts that are critical to implementing RAG with Azure Cosmos DB and Azure OpenAI.
 
-### Retrieval Augmented Generation (RAG)
+### Retrieval Augmented Generation (RAG) <a id="retrieval-augmented-generation"></a>
 
 RAG involves the process of retrieving supplementary data to provide the LLM with the ability to use this data when it generates responses. When presented with a user's question or prompt, RAG aims to select the most pertinent and current domain-specific knowledge from external sources, such as articles or documents. This retrieved information serves as a valuable reference for the model when generating its response. For example, a simple RAG pattern using Azure Cosmos DB for NoSQL could be:
 
