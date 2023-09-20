@@ -17,7 +17,7 @@ ms.custom: aaddev, identityplatformtop40, fasttrack-edit, mode-other
 
 # Quickstart: Set up a tenant
 
-To build apps that use the Microsoft identity platform for identity and access management, you need access to a Microsoft Entra ID *tenant*. It's in the Microsoft Entra tenant that you register and manage your apps, configure their access to data in Microsoft 365 and other web APIs, and enable features like Conditional Access.
+To build apps that use the Microsoft identity platform for identity and access management, you need access to a Microsoft Entra *tenant*. It's in the Microsoft Entra tenant that you register and manage your apps, configure their access to data in Microsoft 365 and other web APIs, and enable features like Conditional Access.
 
 A tenant represents an organization. It's a dedicated instance of Microsoft Entra ID that an organization or app developer receives at the beginning of a relationship with Microsoft. That relationship could start with signing up for Azure, Microsoft Intune, or Microsoft 365, for example.
 
