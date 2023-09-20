@@ -21,6 +21,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) is now generally available (GA).
+
+* The [non-browsable shares](azure-netapp-files-create-volumes-smb.md#non-browsable-share) feature is now generally available (GA).
+
 ## September 2023
 
 * [Standard network features in select US Gov regions (Preview)](azure-netapp-files-network-topologies.md)
