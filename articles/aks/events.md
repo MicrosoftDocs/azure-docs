@@ -50,21 +50,23 @@ kubectl describe pods <pod-name>
 
 You can browse the events for your cluster by navigating to **Events** under **Kubernetes resources** from the Azure portal overview page for your cluster. By default, all events are shown.
 
-:::image type="content" source="./media/events/filter-all-inline.png" alt-text="{alt-text}" lightbox="./media/events/filter-all.png":::
+:::image type="content" source="./media/events/filter-all-inline.png" alt-text="The Azure portal page for the A K S cluster is shown. 'Events' is selected, and the filter 'Type equals all' is highlighted." lightbox="./media/events/filter-all.png":::
 
 You can also filter by event type:
 
-:::image type="content" source="./media/events/filter-warning-inline.png" alt-text="{alt-text}" lightbox="./media/events/filter-warning.png":::
+:::image type="content" source="./media/events/filter-warning-inline.png" alt-text="The Azure portal page for the A K S cluster is shown. 'Events' is selected, and the filter 'Type equals warning' is highlighted." lightbox="./media/events/filter-warning.png":::
 
 by reason:
 
-:::image type="content" source="./media/events/filter-reason-inline.png" alt-text="{alt-text}" lightbox="./media/events/filter-reason.png":::
+:::image type="content" source="./media/events/filter-reason-inline.png" alt-text="The Azure portal page for the A K S cluster is shown. 'Events' is selected, and the filter 'Reason equals all' is highlighted." lightbox="./media/events/filter-reason.png":::
 
 or by pods or nodes:
 
 :::image type="content" source="./media/events/filter-pod-node-inline.png" alt-text="{alt-text}" lightbox="./media/events/filter-pod-node.png":::
 
 These filters can be combined to scope the query to your specific needs.
+
+---
 
 ## Best practices for troubleshooting with events
 
