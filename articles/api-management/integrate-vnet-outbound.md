@@ -5,7 +5,7 @@ author: dlepow
 ms.author: danlep
 ms.service: api-management
 ms.topic: how-to 
-ms.date: 08/23/2023
+ms.date: 09/20/2023
 ---
 
 # Integrate an Azure API Management instance with a private VNet for outbound connections (preview)
@@ -23,8 +23,14 @@ When an API Management instance is integrated with a virtual network for outboun
 - An Azure API Management instance in the [Standard v2](v2-service-tiers-overview.md) pricing tier
 - A virtual network with a subnet where your API Management backend APIs are hosted
     - The network must be deployed in the same region as your API Management instance
-    - The subnet must be delegated to the **Microsoft.Web/serverFarms** service. [Learn how](../virtual-network/manage-subnet-delegation.md) to add a subnet delegation.
 - (Optional) For testing, a sample backend API hosted within a different subnet in the virtual network. For example, see [Tutorial: Establish Azure Functions private site access](../azure-functions/functions-create-private-site-access.md).
+
+## Delegate the subnet
+
+The subnet used for integration must be delegated to the **Microsoft.Web/serverFarms** service. In the subnet settings, in **Delegate subnet to a service**, select **Microsoft.Web/serverFarms**.
+
+
+For details, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
 ## Enable VNet integration
 
