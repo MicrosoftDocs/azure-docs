@@ -20,7 +20,7 @@ This document helps set up an example application that uses the following resour
 
 ## Background
 
-Mutual Transport Layer Security (MTLS) is a process that relies on certificates to encrypt and identify itself to a service.  This enabels a backend workload to further increase its security posture by only trusting connections from authenticated devices/clients.
+Mutual Transport Layer Security (MTLS) is a process that relies on certificates to encrypt and identify itself to a service.  This enables backend workloads to further increase its security posture by only trusting connections from authenticated devices/clients.
 
 See the following figure:
 
