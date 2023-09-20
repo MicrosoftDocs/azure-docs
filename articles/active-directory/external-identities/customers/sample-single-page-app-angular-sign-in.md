@@ -93,7 +93,7 @@ All the required code snippets have been added, so the application can now be ca
 
 1. Open a web browser and navigate to `http://localhost:4200/`.
 
-1. Sign-in with an account registered to the Microsoft Entra ID for customers tenant.
+1. Sign-in with an account registered to the Microsoft Entra External ID for customers tenant.
 
 1. Once you successfully sign-in, the display name is shown next to the **Sign out** button.
 
