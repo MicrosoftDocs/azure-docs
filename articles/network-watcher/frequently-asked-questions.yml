@@ -78,12 +78,12 @@ sections:
       - question: |
           Can I move Network Watcher instance from one region to another? 
         answer: |
-          No, moving Network Watcher resource or any of its child resources across regions isn't supported. For more information, see [Move operation support for networking resources](/azure-resource-manager/management/move-support-resources.md#microsoftnetwork).
+          No, moving Network Watcher resource or any of its child resources across regions isn't supported. For more information, see [Move operation support for networking resources](../azure-resource-manager/management/move-support-resources.md#microsoftnetwork).
 
       - question: |
           Can I move Network Watcher instance from one resource group to another? 
         answer: |
-          Yes, moving Network Watcher resource between resource groups is supported. For more information, see [Move operation support for networking resources](/azure-resource-manager/management/move-support-resources.md#microsoftnetwork).
+          Yes, moving Network Watcher resource between resource groups is supported. For more information, see [Move operation support for networking resources](../azure-resource-manager/management/move-support-resources.md#microsoftnetwork).
 
       - question: |
           What is the NetworkWatcherRG?
