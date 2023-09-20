@@ -44,6 +44,49 @@ The My Security Info management portal ([My Sign-Ins | Security Info | Microsoft
 
 ---
 
+### General Availability - Authenticator on Android is FIPS 140 compliant
+
+**Type:**  New feature            
+**Service category:**  Microsoft Authenticator App                                  
+**Product capability:**  User Authentication                        
+
+Authenticator version and higher on Android version will be FIPS 140 compliant for all Azure AD authentications using push multi-factor authentications (MFA), Passwordless Phone Sign-In (PSI), and time-based one-time passcodes (TOTP). No changes in configuration are required in the Authenticator app or Azure Portal to enable this capability. For more information, see: [Authentication methods in Microsoft Entra ID - Microsoft Authenticator app](../authentication/concept-authentication-authenticator-app.md).
+
+---
+
+### General Availability - Recovery of deleted application and service principals is now available
+
+**Type:**  New feature            
+**Service category:**  Enterprise Apps                                
+**Product capability:**  Identity Lifecycle Management                        
+
+With this release, you can now recover applications along with their original service principals, eliminating the need for extensive reconfiguration and code changes ([Learn more](../manage-apps/delete-recover-faq.yml)). It significantly improves the application recovery story and addresses a long-standing customer need. This change will be beneficial to you on:
+
+- **Faster Recovery**: You can now recover their systems in a fraction of the time it used to take, reducing downtime and minimizing disruptions.
+- **Cost Savings**: With quicker recovery, you can save on operational costs associated with extended outages and labor-intensive recovery efforts.
+- **Preserved Data**: Previously lost data, such as SMAL configurations, is now retained, ensuring a smoother transition back to normal operations.
+- **Improved User Experience**: Faster recovery times translate to improved user experience and customer satisfaction, as applications are back up and running swiftly.
+
+---
+
+### Public Preview - New provisioning connectors in the Azure AD Application Gallery - September 2023
+
+**Type:** New feature   
+**Service category:** App Provisioning               
+**Product capability:** 3rd Party Integration    
+      
+
+We've added the following new applications in our App gallery with Provisioning support. You can now automate creating, updating, and deleting of user accounts for these newly integrated apps:
+
+- [Datadog](../saas-apps/datadog-provisioning-tutorial.md)
+- [Litmos](../saas-apps/litmos-provisioning-tutorial.md)
+- [Postman](../saas-apps/postman-provisioning-tutorial.md)
+- [Recnice](../saas-apps/recnice-provisioning-tutorial.md)
+
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+
+---
+
 ### General Availability - Web Sign-In for Windows
 
 **Type:** Changed feature              
