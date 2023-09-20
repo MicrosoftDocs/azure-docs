@@ -85,7 +85,6 @@ To begin an inquiry in simple mode, either:
 - Click **Select a table** and select a table from the **Tables** tab to view table data.
 
     :::image type="content" source="media/log-analytics-explorer/log-analytics-select-table.png" alt-text="Screenshot that shows the Select a table button in Log Analytics.":::
-    By default, simple mode lists the last 1000 entries in the table from the last 24 hours. 
 
 - Use an existing query, such as a shared or [saved query](../logs/save-query.md), or an example query:
 
@@ -97,9 +96,11 @@ After you [initiate an inquiry in simple mode](#start-an-inquiry-in-simple-mode)
 
 **Change time range and number of records displayed**
 
-1. To change the time range and number of records displayed, use the **Time range** and **Limit** selectors.
+By default, simple mode lists the last 1000 entries in the table from the last 24 hours. 
+
+To change the time range and number of records displayed, use the **Time range** and **Limit** selectors.
     
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-time-range-limit.png" alt-text="Screenshot that shows the time range and limit selectors in Log Analytics.":::
+:::image type="content" source="media/log-analytics-explorer/log-analytics-time-range-limit.png" alt-text="Screenshot that shows the time range and limit selectors in Log Analytics.":::
 
 **Filter by column**
 
