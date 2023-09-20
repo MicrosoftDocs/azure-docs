@@ -55,7 +55,7 @@ Before configuring Oracle Fusion ERP for automatic user provisioning with Azure 
 	
 	:::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user.png" alt-text="Screenshot of a panel in the Oracle Fusion E R P admin console. The Users item is highlighted." border="false":::
 
-4. Save the username and password for the admin user account which you will use to log into the Oracle Fusion ERP admin console. These values need to be entered in the **Admin Username** and **Password** fields in the Provisioning tab of your Oracle Fusion ERP application in the Azure portal.
+4. Save the username and password for the admin user account which you will use to log into the Oracle Fusion ERP admin console. These values need to be entered in the **Admin Username** and **Password** fields in the Provisioning tab of your Oracle Fusion ERP application.
 
 ## Add Oracle Fusion ERP from the gallery
 

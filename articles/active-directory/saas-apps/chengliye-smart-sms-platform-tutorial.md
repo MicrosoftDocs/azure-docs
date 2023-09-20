@@ -20,7 +20,7 @@ In this article, you'll learn how to integrate Chengliye Smart SMS Platform with
 
 * Control in Azure AD who has access to Chengliye Smart SMS Platform.
 * Enable your users to be automatically signed-in to Chengliye Smart SMS Platform with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You'll configure and test Azure AD single sign-on for Chengliye Smart SMS Platform in a test environment. Chengliye Smart SMS Platform supports **IDP** initiated single sign-on and **Just In Time** user provisioning.
 
@@ -43,13 +43,13 @@ Add Chengliye Smart SMS Platform from the Azure AD application gallery to config
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Chengliye Smart SMS Platform** > **Single sign-on**.
@@ -76,7 +76,7 @@ In this section, a user called B.Simon is created in Chengliye Smart SMS Platfor
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the Chengliye Smart SMS Platform for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the Chengliye Smart SMS Platform for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the Chengliye Smart SMS Platform tile in the My Apps, you should be automatically signed in to the Chengliye Smart SMS Platform for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

@@ -63,7 +63,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 1.  You'll get an email to activate your account and set up a password for the **SAP Cloud Identity Services Service**.
 
 1. Copy the **User ID** and **Password**. These values are entered in the Admin Username and Admin Password fields respectively.
-This is done in the Provisioning tab of your SAP Cloud Identity Services application in the Azure portal.
+This is done in the Provisioning tab of your SAP Cloud Identity Services application.
 
 ## Add SAP Cloud Identity Services from the gallery
 

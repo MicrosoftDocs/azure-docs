@@ -68,7 +68,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### Configure automatic user provisioning for Zscaler One in Azure AD
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise applications** > **All applications** > **Zscaler One**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Zscaler One**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
@@ -94,7 +95,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Zscaler One Configure SAML](./media/zscaler-one-provisioning-tutorial/secret-token-2.png)
 
-	b. Select **Enable SCIM-Based Provisioning** to get the settings in **Base URL** and **Bearer Token**. Then save the settings. Copy the **Base URL** setting to **Tenant URL** in the Azure portal. Copy the **Bearer Token** setting to **Secret Token** in the Azure portal.
+	b. Select **Enable SCIM-Based Provisioning** to get the settings in **Base URL** and **Bearer Token**. Then save the settings. Copy the **Base URL** setting to **Tenant URL**. Copy the **Bearer Token** setting to **Secret Token**.
 
 7. After you fill in the boxes shown in Step 5, select **Test Connection** to make sure that Azure AD can connect to Zscaler One. If the connection fails, make sure your Zscaler One account has admin permissions and try again.
 

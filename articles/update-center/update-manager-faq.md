@@ -97,7 +97,7 @@ You can resolve machines manually for those saved searches, Arc-enable them and 
 
 If you have purchased a Defender for Servers Plan 2, then you won't have to pay to remediate the unhealthy resources for the above two recommendations. But if you're using any other Defender for server plan for your Arc machines, then you would be charged for those machines at the daily prorated $0.167/server by Azure Update Manager.
 
-## I have been using Automation Update Management for free on Arc machines, would I have to pay to use UMC on those machines? 
+## I have been using Automation Update Management for free on Arc machines, would I have to pay to use Azure Update Manager on those machines? 
 
 We'll provide Azure Update Manager for free for one year (starting from when Azure Update Manager goes GA) to all subscriptions that were using Automation Update Management on Arc-enabled machines for free. Post this period, machines are charged. 
 

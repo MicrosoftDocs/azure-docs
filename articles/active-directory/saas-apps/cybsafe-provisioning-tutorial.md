@@ -41,10 +41,10 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure CybSafe to support provisioning with Azure AD
 
-1. The **Tenant URL** for CybSafe is: `https://app.cybsafe.com/scim/v2/`. This value will be entered in the Provisioning tab of your CybSafe application in the Azure portal.
+1. The **Tenant URL** for CybSafe is: `https://app.cybsafe.com/scim/v2/`. This value will be entered in the Provisioning tab of your CybSafe application.
 2. Login to [CybSafe](https://app.cybsafe.com/login) with your administrator account.
 3. Navigate to [Settings->Identity Management](https://app.cybsafe.com/settings/identity-management). 
-4. Click **Generate Token** in the User Provisioning section. This value will be entered in the Provisioning tab of your CybSafe application in the Azure portal.
+4. Click **Generate Token** in the User Provisioning section. This value will be entered in the Provisioning tab of your CybSafe application.
 
 ## Step 3. Add CybSafe from the Azure AD application gallery
 

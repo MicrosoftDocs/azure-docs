@@ -61,7 +61,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Screenshot of the Employee Provisioning section with the Enable option called out.](media/Peakon-provisioning-tutorial/peakon05.png)
 
-4.	Copy the values for **SCIM 2.0 URL** and **OAuth Bearer Token**. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Peakon application in the Azure portal.
+4.	Copy the values for **SCIM 2.0 URL** and **OAuth Bearer Token**. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Peakon application.
 
 	![Peakon Create Token](media/Peakon-provisioning-tutorial/peakon04.png)
 

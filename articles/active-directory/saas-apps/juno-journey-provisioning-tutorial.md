@@ -41,7 +41,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Juno Journey to support provisioning with Azure AD
 
-1. For **Secret Token**  and **Tenant URL** contact Juno Journey support team at support@the-juno.com. This value will be entered in the **Secret Token**  and **Tenant URL** fields respectively in the Provisioning tab of your Juno Journey application in the Azure portal. 
+1. For **Secret Token**  and **Tenant URL** contact Juno Journey support team at support@the-juno.com. This value will be entered in the **Secret Token**  and **Tenant URL** fields respectively in the Provisioning tab of your Juno Journey application. 
 
 ## Step 3. Add Juno Journey from the Azure AD application gallery
 
