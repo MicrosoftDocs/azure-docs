@@ -88,7 +88,7 @@ The sample application needs to authenticate to your Azure Cosmos DB account. To
 1.    Navigate to your Azure Cosmos DB account.
 1.    Open the **Keys** pane and copy the **URI** and **PRIMARY KEY** of your account.
 
-If you're using the Azure Cosmos DB Emulator, obtain the [emulator credentials from this article](../emulator.md#authenticate-requests).
+If you're using the Azure Cosmos DB Emulator, obtain the [emulator credentials from this article](../emulator.md).
 
 ## Step 5: Initialize the CosmosClient object with bulk execution support
 
