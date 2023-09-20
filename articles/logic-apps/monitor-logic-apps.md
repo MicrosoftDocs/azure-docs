@@ -284,7 +284,7 @@ You can view run history only for stateful workflows, not stateless workflows. T
 
 ## Rerun a workflow with same inputs
 
-You can rerun an existing workflow run with the same inputs that the workflow run previously used.
+You can rerun an previously finished workflow run using the same inputs that the run previously used by resubmitting the run to Azure Logic Apps.
 
 > [!NOTE]
 >
