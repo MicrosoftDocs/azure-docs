@@ -18,9 +18,6 @@ For a detailed, step-by-step tutorial on setting up and configuring a domain in 
 
 Enterprise Security Package (ESP) provides Active Directory integration for Azure HDInsight. This integration allows domain users to use their domain credentials to authenticate with HDInsight clusters and run big data jobs.
 
-> [!NOTE]  
-> ESP is generally available in HDInsight 3.6 and 4.0 for these cluster types: Apache Spark, Interactive, Hadoop, and HBase. ESP for the Apache Kafka cluster type is in preview with best-effort support only. ESP clusters created before the ESP GA date (October 1, 2018) are not supported.
-
 ## Prerequisites
 
 There are a few prerequisites to complete before you can create an ESP-enabled HDInsight cluster:
