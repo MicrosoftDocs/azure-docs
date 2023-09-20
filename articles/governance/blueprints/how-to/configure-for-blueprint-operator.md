@@ -6,6 +6,8 @@ ms.topic: how-to
 ---
 # Configure your environment for a Blueprint Operator
 
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
+
 The management of your blueprint definitions and blueprint assignments can be assigned to different
 teams. It's common for an architect or governance team to be responsible for the lifecycle
 management of your blueprint definitions while an operations team is responsible for managing

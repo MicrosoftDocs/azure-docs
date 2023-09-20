@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Contact the Parsable Customer Success representative to opt-in to this pre-release feature.
 2. They will further assist in raising a support ticket to obtain the necessary **Bearer token** (secret token).
-3. Copy and save the **Bearer token**. This value will be entered in the **Secret Token** * field in the Provisioning tab of your Parsable application in the Azure portal.
+3. Copy and save the **Bearer token**. This value will be entered in the **Secret Token** * field in the Provisioning tab of your Parsable application.
 
 ## Step 3. Add Parsable from the Azure AD application gallery
 
@@ -65,11 +65,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Parsable in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Parsable**.
+1. In the applications list, select **Parsable**.
 
 	![The Parsable link in the Applications list](common/all-applications.png)
 

@@ -50,7 +50,7 @@ To configure user provisioning on **BlogIn**, login to your BlogIn account and f
 1. Navigate to **Settings** > **User Authentication** > **Configure SSO & User provisioning**.
 2. Switch to the **User provisioning** tab and change User provisioning status to **On**.
 3. Click the **Save changes** button. Upon first save, the **Secret (Bearer) token** will be generated.
-4. Copy **Base (Tenant) URL** and **Secret (Bearer) token** values. These values will be entered in the Tenant URL and Secret Token fields in the Provisioning tab of your BlogIn application in the Azure portal.
+4. Copy **Base (Tenant) URL** and **Secret (Bearer) token** values. These values will be entered in the Tenant URL and Secret Token fields in the Provisioning tab of your BlogIn application.
 
 For a more detailed explanation of setting up user provisioning on BlogIn, see [Set up User Provisioning via SCIM](https://blogin.co/blog/set-up-user-provisioning-via-scim-254/). Please reach out to the [BlogIn support team](mailto:support@blogin.co) if you have any questions or need help.
 
@@ -73,11 +73,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for BlogIn in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
     ![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **BlogIn**.
+1. In the applications list, select **BlogIn**.
 
     ![The BlogIn link in the Applications list](common/all-applications.png)
 

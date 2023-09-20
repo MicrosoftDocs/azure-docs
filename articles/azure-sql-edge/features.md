@@ -3,7 +3,7 @@ title: Supported features of Azure SQL Edge
 description: Learn about details of features supported by Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 06/29/2023
+ms.date: 09/14/2023
 ms.service: sql-edge
 ms.topic: conceptual
 keywords:
@@ -12,6 +12,9 @@ keywords:
   - SQL Edge overview
 ---
 # Supported features of Azure SQL Edge
+
+> [!IMPORTANT]  
+> Azure SQL Edge no longer supports the ARM64 platform.
 
 Azure SQL Edge is built on the latest version of the SQL Database Engine. It supports a subset of the features supported in SQL Server 2022 on Linux, in addition to some features that are currently not supported or available in SQL Server 2022 on Linux (or in SQL Server on Windows).
 
@@ -36,19 +39,19 @@ The recommended and supported file system for Azure SQL Edge is EXT4 and XFS. If
 
 ## Hardware support
 
-Azure SQL Edge requires a 64-bit processor (either x64 or ARM64), with a minimum of 1 CPU and 1 GB of RAM on the host. While the startup memory footprint of Azure SQL Edge is close to 450 MB, the additional memory is needed for other IoT Edge modules or processes running on the edge device. The actual memory and CPU requirements for Azure SQL Edge will vary based on the complexity of the workload and volume of data being processed. When choosing hardware for your solution, Microsoft recommends that you run extensive performance tests to ensure that the required performance characteristics for your solution are met.
+Azure SQL Edge requires an x86 64-bit processor, with a minimum of 1 CPU core, and 1 GB of RAM on the host. While the startup memory footprint of Azure SQL Edge is close to 450 MB, the additional memory is needed for other IoT Edge modules or processes running on the edge device. The actual memory and CPU requirements for Azure SQL Edge will vary based on the complexity of the workload and volume of data being processed. When you choose hardware for your solution, Microsoft recommends that you run extensive performance tests to ensure that the required performance characteristics for your solution are met.
 
 ## Azure SQL Edge components
 
-Azure SQL Edge only supports the database engine. It doesn't include support for other components available with SQL Server 2022 on Windows or with SQL Server 2022 on Linux. Specifically, Azure SQL Edge doesn't support SQL Server components like Analysis Services, Reporting Services, Integration Services, Master Data Services, Machine Learning Services (In-Database), and Machine Learning Server (standalone).
+Azure SQL Edge only supports the Database Engine. It doesn't include support for other components available with SQL Server 2022 on Windows or with SQL Server 2022 on Linux. Specifically, Azure SQL Edge doesn't support SQL Server components like Analysis Services, Reporting Services, Integration Services, Master Data Services, Machine Learning Services (In-Database), and Machine Learning Server (standalone).
 
 ## Supported features
 
 In addition to supporting a subset of features of SQL Server on Linux, Azure SQL Edge includes support for the following new features:
 
 - SQL streaming, which is based on the same engine that powers Azure Stream Analytics, provides real-time data streaming capabilities in Azure SQL Edge.
-- The T-SQL function call `Date_Bucket` for Time-Series data analytics.
-- Machine learning capabilities through the ONNX runtime, included with the SQL engine.
+- The T-SQL function call `DATE_BUCKET` for Time-Series data analytics.
+- Machine learning capabilities through the ONNX runtime, included with the SQL Database Engine.
 
 ## Unsupported features
 

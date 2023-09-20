@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Citrix ADC SAML Connector for Az
 
 * Control in Azure AD who has access to Citrix ADC SAML Connector for Azure AD.
 * Enable your users to be automatically signed in to Citrix ADC SAML Connector for Azure AD with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -45,13 +45,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment. The
 
 To integrate Citrix ADC SAML Connector for Azure AD with Azure AD, first add Citrix ADC SAML Connector for Azure AD to your list of managed SaaS apps from the gallery:
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-
-1. In the left menu, select **Azure Active Directory**.
-
-1. Go to **Enterprise Applications**, and then select **All Applications**.
-
-1. To add a new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 
 1. In the **Add from the gallery** section, enter **Citrix ADC SAML Connector for Azure AD** in the search box.
 
@@ -81,7 +76,8 @@ To configure and test Azure AD SSO with Citrix ADC SAML Connector for Azure AD, 
 
 To enable Azure AD SSO by using the Azure portal, complete these steps:
 
-1. In the Azure portal, on the **Citrix ADC SAML Connector for Azure AD** application integration pane, under **Manage**, select **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Citrix ADC SAML Connector for Azure AD** application integration pane, under **Manage**, select **Single sign-on**.
 
 1. On the **Select a single sign-on method** pane, select **SAML**.
 
@@ -103,7 +99,7 @@ To enable Azure AD SSO by using the Azure portal, complete these steps:
     `https://<YOUR_FQDN>/CitrixAuthService/AuthService.asmx`
 
 	> [!NOTE]
-	> * The URLs that are used in this section aren't real values. Update these values with the actual values for Identifier, Reply URL, and Sign-on URL. Contact the [Citrix ADC SAML Connector for Azure AD client support team](https://www.citrix.com/contact/technical-support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> * The URLs that are used in this section aren't real values. Update these values with the actual values for Identifier, Reply URL, and Sign-on URL. Contact the [Citrix ADC SAML Connector for Azure AD client support team](https://www.citrix.com/contact/technical-support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
     > * To set up SSO, the URLs must be accessible from public websites. You must enable the firewall or other security settings on the Citrix ADC SAML Connector for Azure AD side to enable Azure AD to post the token at the configured URL.
 
 1. On the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, for **App Federation Metadata Url**, copy the URL and save it in Notepad.
@@ -116,27 +112,23 @@ To enable Azure AD SSO by using the Azure portal, complete these steps:
 
 ### Create an Azure AD test user
 
-In this section, you create a test user in the Azure portal called B.Simon.
+In this section, you create a test user called B.Simon.
 
-1. On the left menu in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-1. Select **New user** at the top of the pane.
-
-1. In **User** properties, complete these steps:
-
-   1. For **Name**, enter `B.Simon`.  
-
-   1. For **User name**, enter _username@companydomain.extension_. For example, `B.Simon@contoso.com`.
-
-   1. Select the **Show password** check box, and then write down or copy the value that's displayed in **Password**.
-
-   1. Select **Create**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
 In this section, you enable the user B.Simon to use Azure SSO by granting the user access to Citrix ADC SAML Connector for Azure AD.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. In the applications list, select **Citrix ADC SAML Connector for Azure AD**.
 
@@ -436,7 +428,7 @@ In this section, a user called B.Simon is created in Citrix ADC SAML Connector f
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Citrix ADC SAML Connector for Azure AD Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Citrix ADC SAML Connector for Azure AD Sign-on URL where you can initiate the login flow. 
 
 * Go to Citrix ADC SAML Connector for Azure AD Sign-on URL directly and initiate the login flow from there.
 

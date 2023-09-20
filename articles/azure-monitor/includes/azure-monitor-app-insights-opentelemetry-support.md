@@ -6,6 +6,30 @@ ms.topic: include
 ms.date: 08/26/2023
 ---
 
+## Troubleshooting
+
+### [ASP.NET Core](#tab/aspnetcore)
+
+Not working? Check out the troubleshooting page for [ASP.NET Core](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-dotnet).
+
+#### [.NET](#tab/net)
+
+Not working? Check out the troubleshooting page for [.NET](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-dotnet).
+
+### [Java](#tab/java)
+
+Not working? Check out the troubleshooting page for [Java](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-java).
+
+### [Node.js](#tab/nodejs)
+
+Not working? Check out the troubleshooting page for [Node.js](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-nodejs).
+
+### [Python](#tab/python)
+
+Not working? Check out the troubleshooting page for [Python](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-python).
+
+---
+
 ## Support
 
 Select a tab for the language of your choice to discover support options.

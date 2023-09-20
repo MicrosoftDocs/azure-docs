@@ -126,4 +126,4 @@ Now head over to your browser and visit your deployed Web App. The url usually i
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Check out more Socket.IO samples](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-socketio-extension/examples)
+> [Check out more Socket.IO samples](https://aka.ms/awps/sio/sample)
