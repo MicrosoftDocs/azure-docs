@@ -654,6 +654,50 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 ---
 
+## <a name="alerts-severity"></a>Show alerts ordered by severity: 
+
+```azurecli
+{ 
+query: "alertsmanagementresources  
+| where type =~ 'microsoft.alertsmanagement/alerts'   
+| where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
+| project Severity = tostring(properties.essentials.severity) 
+| summarize AlertsCount = count() by Severity" 
+} 
+```
+## <a name="alerts-severity-state"></a>Show alerts ordered by severity and alert state
+
+```azurecli
+{
+query: "alertsmanagementresources
+| where type =~ 'microsoft.alertsmanagement/alerts'   
+| where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
+| project Severity = tostring(properties.essentials.severity), 
+    AlertState= tostring(properties.essentials.alertState) 
+| summarize AlertsCount = count() by Severity, AlertState" 
+}
+```
+
+## <a name="alerts-severity-service-type"></a>Show alerts ordered by severity, monitor service, and target resource type 
+
+```azurecli
+{ 
+query: "alertsmanagementresources  
+| where type =~ 'microsoft.alertsmanagement/alerts'   
+| where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
+| project Severity = tostring(properties.essentials.severity),  
+MonitorCondition = tostring(properties.essentials.monitorCondition),  
+ObjectState = tostring(properties.essentials.alertState),  
+MonitorService = tostring(properties.essentials.monitorService),  
+AlertRuleId = tostring(properties.essentials.alertRule),  
+SignalType = tostring(properties.essentials.signalType),  
+TargetResource = tostring(properties.essentials.targetResourceName), 
+TargetResourceType = tostring(properties.essentials.targetResourceName), id 
+| summarize AlertsCount = count() by Severity, MonitorService , TargetResourceType" 
+}
+```
+
+
 ## Next steps
 
 - Learn more about the [query language](../concepts/query-language.md).
