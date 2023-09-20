@@ -97,7 +97,7 @@ Get your existing 'config/authsettingsv2’ settings and save to a local *authse
 az rest --method GET --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Web/sites/{WEBAPP_NAME}/config/authsettingsv2/list?api-version=2020-06-01' > authsettings.json
 ```
 
-Open the authsettings.json file using your preferred text editor. Find the **login** section of **identityProviders** -> **Microsoft Entra ID** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]` .
+Open the authsettings.json file using your preferred text editor. Find the **login** section of **identityProviders** -> **azureActiveDirectory** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]` .
 
 ```json
 "identityProviders": {
