@@ -28,9 +28,9 @@ Microsoft Playwright Testing workspaces uses three Azure built-in roles. To gran
 
 | Role | Access level |
 | --- | --- |
-| **Reader** | Have read-only access to the workspace in the Microsoft Playwright Testing portal. Readers can view test results for the workspace. Readers can't [create or delete workspace access keys](./how-to-manage-access-keys.md). |
-| **Contributor** | Have full access to manage the workspace in the Azure portal but can't assign roles in Azure RBAC. Contributors have full access to the workspace in the Microsoft Playwright Testing portal and can create and revoke access keys in the workspace. |
-| **Owner** | Have full access to manage the workspace in the Azure portal, including assigning roles in Azure RBAC. Owners have full access to the workspace in the Microsoft Playwright Testing portal and can create and revoke access keys in the workspace. |
+| **Reader** | Have read-only access to the workspace in the Microsoft Playwright Testing portal. Readers can view test results for the workspace. Readers can't [create or delete workspace access tokens](./how-to-manage-access-keys.md). |
+| **Contributor** | Have full access to manage the workspace in the Azure portal but can't assign roles in Azure RBAC. Contributors have full access to the workspace in the Microsoft Playwright Testing portal and can create and revoke access tokens in the workspace. |
+| **Owner** | Have full access to manage the workspace in the Azure portal, including assigning roles in Azure RBAC. Owners have full access to the workspace in the Microsoft Playwright Testing portal and can create and revoke access tokens in the workspace. |
 
 > [!IMPORTANT]
 > Before you assign an Azure RBAC role, determine the scope of access that is needed. Best practices dictate that it's always best to grant only the narrowest possible scope. Azure RBAC roles defined at a broader scope are inherited by the resources beneath them. For more information about scope for Azure RBAC role assignments, see [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
