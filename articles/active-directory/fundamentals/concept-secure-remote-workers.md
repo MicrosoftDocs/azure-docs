@@ -96,7 +96,7 @@ The following table is intended to highlight the key actions for the following l
 
 <a name='guidance-for-azure-ad-premium-plan-2-customers'></a>
 
-## Guidance for Microsoft Entra ID P1 or P2 Plan 2 customers.
+## Guidance for Microsoft Entra ID P2 customers.
 
 The following table is intended to highlight the key actions for the following license subscriptions:
 
