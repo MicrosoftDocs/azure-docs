@@ -77,12 +77,12 @@ To check the liveness for each app on Azure Spring Apps, use the following steps
 
 1. Use the following table to add other tests with these test names and URLs. Make sure the test name and app name are consistent.
 
-   | Test name         | URL                                                                                                                    | Content must contain |
-   |-------------------|------------------------------------------------------------------------------------------------------------------------|----------------------|
-   | admin-server      | https://[your-Azure-Spring-Apps-instance-name]-admin-server.azuremicroservices.io/actuator/health/liveness             | UP                   |
-   | customers-service | https://[your-Azure-Spring-Apps-instance-name]-api-gateway.azuremicroservices.io/api/customer/actuator/health/liveness | UP                   |
-   | vets-service      | https://[your-Azure-Spring-Apps-instance-name]-api-gateway.azuremicroservices.io/api/vet/actuator/health/liveness      | UP                   |
-   | visits-service    | https://[your-Azure-Spring-Apps-instance-name]-api-gateway.azuremicroservices.io/api/visit/actuator/health/liveness    | UP                   |
+   | Test name           | URL                                                                                                                      | Content must contain   |
+   |---------------------|--------------------------------------------------------------------------------------------------------------------------|------------------------|
+   | `admin-server`      | `https://<your-Azure-Spring-Apps-instance-name>-admin-server.azuremicroservices.io/actuator/health/liveness`             | `UP`                   |
+   | `customers-service` | `https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io/api/customer/actuator/health/liveness` | `UP`                   |
+   | `vets-service`      | `https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io/api/vet/actuator/health/liveness`      | `UP`                   |
+   | `visits-service`    | `https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io/api/visit/actuator/health/liveness`    | `UP`                   |
 
 ### 2.3. Monitor the dashboard
 
@@ -116,7 +116,7 @@ Use the following steps to pin the various charts to the dashboard.
 
 1. On the navigation menu, select **Metrics**, select the edit icon in the chart title, and then rename the chart title to `App CPU Usage`.
 
-1. Select **Add metric**. For **Metric**, select the corresponding dropdown list to choose the **App CPU Usage** metric, and then select `Avg` for **Aggregation**.
+1. Select **Add metric**. For **Metric**, select the corresponding dropdown list to choose the **App CPU Usage** metric, and then select **Avg** for **Aggregation**.
 
 1. Select **Apply splitting**. For **Values**, select the corresponding dropdown list and then select **App**.
 
@@ -134,12 +134,12 @@ For the **App Memory Usage** metric, save the **App Memory Usage** chart to the 
 
 ##### Pin the "App Network In" chart
 
-For the **App Network In** metric, perform the following steps:
+1. For the **App Network In** metric, provide the following information:
 
-- **Add filter**: Select this option.
-- **Property**: Select the corresponding dropdown list to choose `App` 
-- **Operator**: Select `=`  
-- **Values**: Select `admin-server` and `api-gateway`
+   - **Add filter**: Select this option.
+   - **Property**: Select the corresponding dropdown list to choose **App**.
+   - **Operator**: Select **=**
+   - **Values**: Select **admin-server** and **api-gateway**.
 
 1. Save the **App Network In Usage** chart to the dashboard.
 
@@ -155,7 +155,7 @@ For the **App Network In** metric, perform the following steps:
 
 1. Select **Add metric**. 
 
-1. For **Metric**, select the corresponding dropdown list to choose the `Availability` metric under the **Application Insights standard metrics** namespace, and then select `Avg` for **Aggregation**.
+1. For **Metric**, open the corresponding dropdown list, select **Availability** under the **Application Insights standard metrics** namespace, and then select **Avg** for **Aggregation**.
 
 1. Select **Apply splitting**. For **Values**, select the corresponding dropdown list to check the `Test name` box, and then save the **Availability** chart to the dashboard.
 
@@ -237,9 +237,9 @@ To set up an action group, use the following steps:
 
 1. On the **Create action group** page, select the subscription and resource group you want to cover. Enter the following information:
 
-- **Action group name**: Enter `email-notifacation`
-- **Short name**: Enter `email`
-- **Region**: Select the region you want to use
+   - **Action group name**: Enter *email-notifacation*.
+   - **Short name**: Enter *email*.
+   - **Region**: Select the region you want to use.
 
 1. Navigate to the **Notification** tab on the **Create action group** page. For **Notification type**, select `Email/SMS message/Push/Voice`, for **Name**, enter `email-support`.
 
@@ -257,7 +257,7 @@ To set up an alert rule, use the following steps:
 
 1. On the **Create an alert rule** page, for **signal name**, select the dropdown list, and then select **See all signals**. 
 
-1. In the **Metrics** area, select `App CPU Usage`, and then select **Apply**.
+1. In the **Metrics** area, select **App CPU Usage**, and then select **Apply**.
 
 1. In the alert logic section, use the following inputs:
 
