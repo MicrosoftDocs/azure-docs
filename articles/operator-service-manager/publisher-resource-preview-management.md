@@ -84,7 +84,7 @@ Use the following API to update the state of a network function definition versi
 
 ### URL
 
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/networkfunctiondefinitiongroups/TestNFDGroup/networkfunctiondefinitionversions/1.0.0/updateState?api-version=2023-09-01
+GET 'https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/networkfunctiondefinitiongroups/TestNFDGroup/networkfunctiondefinitionversions/1.0.0/updateState?api-version=2023-09-01'
 
 ### URI parameters
 
