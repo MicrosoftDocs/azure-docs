@@ -49,6 +49,7 @@ The following FQDNs are proxied through the service, and won't need additional f
 | ----------- | ----------- | ------------- |
 | **`registry.redhat.io`** | **HTTPS:443** | Used to install the default [OperatorHub catalogs](https://docs.openshift.com/container-platform/4.13/operators/understanding/olm-rh-catalogs.html). |
 | **`*.quay.io`** | **HTTPS:443** | May be used to download images from the Red Hat managed Quay registry. Also a possible fall-back target for ARO required system images. If your firewall can't use wildcards, you can find the [full list of subdomains in the Red Hat documentation.](https://docs.openshift.com/container-platform/latest/installing/install_config/configuring-firewall.html). |
+| **`registry.connect.redhat.com`** | **HTTPS:443** | Hosts container images from the Red Hat ecosystem catalog, located at registry.redhat.com. |
 
 ---
 
