@@ -43,9 +43,7 @@ The following FQDNs are proxied through the service, and won't need additional f
 
 ---
 
-## List of optional FQDNs
-
-### ADDITIONAL CONTAINER IMAGES
+## ADDITIONAL CONTAINER IMAGES
 
 | Destination FQDN | Port | Use |
 | ----------- | ----------- | ------------- |
@@ -54,7 +52,18 @@ The following FQDNs are proxied through the service, and won't need additional f
 
 ---
 
-### TELEMETRY
+## UPGRADES
+
+You may restrict access to these URLs, however please understand the disconnected upgrade process as documented [here](https://docs.openshift.com/container-platform/4.13/updating/updating-restricted-network-cluster/restricted-network-update.html).
+
+| Destination FQDN | Port | Use |
+| ----------- | ----------- | ------------- |
+| **`mirror.openshift.com`** | **HTTPS:443** | Required to access mirrored installation content and images. This site is also a source of release image signatures. |
+| **`api.openshift.com`** | **HTTPS:443** | Used by the cluster for release graph parsing. https://access.redhat.com/labs/ocpupgradegraph/ can be used as an alternative. |
+
+---
+
+## TELEMETRY (OPTIONAL)
 
 In OpenShift Container Platform, customers can opt out of reporting health and usage information. However, connected clusters allow Red Hat to react more quickly to problems and better support our customers, and better understand how product upgrades clusters. Check details here: https://docs.openshift.com/container-platform/4.13/support/remote_health_monitoring/opting-out-of-remote-health-reporting.html.
 
