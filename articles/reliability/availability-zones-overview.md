@@ -73,7 +73,7 @@ The [shared responsibility model](./overview.md#shared-responsibility) describes
 
 Microsoft provides availability zones and regions to give you flexibility in how you design your solution to meet your requirements. When you use managed services, Microsoft takes on more of the management responsibilities for your resources, which might even include data replication, failover, failback, and other tasks related to operating a distributed system.
 
-# Availability zone architectural guidance
+## Availability zone architectural guidance
 
 To achieve more reliable workloads:
 
