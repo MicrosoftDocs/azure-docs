@@ -105,9 +105,8 @@ There's a user provisioning failure. The provisioning logs displays an error mes
 2. Select the ```UserPrincipalName``` mapping and copy and paste this expression into the expression input box: 
 ```Join("", Replace([userName], , "(?<Suffix>@(.)*)", "Suffix", "", , ), RandomString(3, 3, 0, 0, 0, ), "@", DefaultDomain())```
 
-This expression fixes the issue by appending a default domain to the UPN value accepted by Azure AD. 
+This expression fixes the issue by appending a default domain to the UPN value accepted by Microsoft Entra ID. 
 
 ## Next steps
 
 * [Learn more about API-driven inbound provisioning](inbound-provisioning-api-concepts.md)
-
