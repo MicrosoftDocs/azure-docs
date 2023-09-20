@@ -339,7 +339,7 @@ New-AzVM -Name MyVm -Credential $vmCred -SecurityType Standard
 
 ---
 
-## Feature Support
+## Feature support
 
 ### Does trusted launch support Azure Compute Gallery?
 
@@ -368,13 +368,14 @@ Backups taken before [upgrading existing Generation 2 VM to Trusted Launch](trus
 ### Will backup continue to work after enabling Trusted Launch?
 Backups configured with [enhanced policy](../backup/backup-azure-vms-enhanced-policy.md) will continue to take backup of VM after enabling Trusted Launch.
 
-## Boot Integrity Monitoring
+## Boot integrity monitoring
 
 ### What happens when an integrity fault is detected?
 
 Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert is triggered. Alerts are only available if [Defender for Cloud's enhanced security features](../security-center/enable-enhanced-security.md) are enabled.
 
 Microsoft Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert is triggered. Trusted launch attestation can fail for the following reasons:
+
 - The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). This deviation indicates an untrusted module(s) have been loaded and the OS may be compromised.
 - The attestation quote could not be verified to originate from the vTPM of the attested VM. This verification failure indicates a malware is present and may be intercepting traffic to the TPM.
 - The attestation extension on the VM is not responding. This unresponsive extension indicates a denial-of-service attack by malware or an OS admin.

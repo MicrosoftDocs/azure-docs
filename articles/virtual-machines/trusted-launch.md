@@ -66,6 +66,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 ## Additional information
 
 **Regions**:
+
 - All public regions
 - All Azure Government regions
 

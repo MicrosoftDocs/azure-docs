@@ -34,7 +34,7 @@ Azure Virtual Machines supports enabling Trusted Launch on existing [Azure Gener
 - Azure Generation 2 VM(s) should be **stopped and deallocated** before enabling Trusted Launch security type.
 - Azure Backup if enabled for Generation 2 VM(s) should be configured with [Enhanced Backup Policy](../backup/backup-azure-vms-enhanced-policy.md). Trusted Launch security type cannot be enabled for Generation 2 VM(s) configured with *Standard Policy* backup protection.
 
-## Best Practices
+## Best practices
 
 - [Create restore point](create-restore-points.md) for Azure Generation 2 VM(s) before enabling Trusted Launch security type. You can use the Restore Point to re-create the disks and Generation 2 VM with the previous well-known state.
 - Enable Trusted launch on a test Generation 2 VM and ensure if any changes are required to meet the prerequisites before enabling Trusted Launch on Generation 2 VMs running production workloads.
@@ -268,7 +268,7 @@ New-AzResourceGroupDeployment `
 
 5. Verify that the deployment is successful. Check for the security type and UEFI settings of the VM using Azure portal. Check the Security type section in the Overview page.
 
-:::image type="content" source="./media/trusted-launch/gen2-tvm-settings.png" alt-text="Screenshot of the Trusted Launch properties of the VM.":::
+:::image type="content" source="./media/trusted-launch/generation-2-trusted-launch-settings.png" alt-text="Screenshot of the Trusted Launch properties of the VM.":::
 
 6. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
 

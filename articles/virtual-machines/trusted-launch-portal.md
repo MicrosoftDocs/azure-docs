@@ -165,9 +165,10 @@ You can deploy trusted launch VMs using a quickstart template:
 - **Recommended** [Trusted launch VM Supported (`TrustedLaunchSupported`) images](#trusted-launch-vm-supported-images) are images where the source does not have VM Guest state information and can be used to create either [Generation 2 VMs](generation-2.md) or [Trusted Launch VMs](trusted-launch.md).
 - [Trusted launch VM (`TrustedLaunch`) images](#trusted-launch-vm-images) are images where the source usually has [VM Guest state information](trusted-launch-faq.md#what-is-vm-guest-state-vmgs) and can be used to create only [Trusted Launch VMs](trusted-launch.md).
 
-### Trusted launch VM Supported Images
+### Trusted launch VM supported images
 
 For the following image sources, the security type on the image definition should be set to `TrustedLaunchsupported`:
+
 - Gen2 OS Disk VHD
 - Gen2 Managed Image
 - Gen2 Gallery Image Version
