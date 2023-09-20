@@ -7,7 +7,7 @@ editor: ''
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 09/20/2023
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -104,7 +104,7 @@ Currently, the following API Management capabilities are unavailable in the v2 t
 
 ## Deployment
 
-Deploy an instance of the Basic v2 or Standard v2 tier using the Azure portal, Azure REST API, or Azure Resource Manager template.
+Deploy an instance of the Basic v2 or Standard v2 tier using the Azure portal, Azure REST API, or Azure Resource Manager or Bicep template.
 
 ## Frequently asked questions
 
