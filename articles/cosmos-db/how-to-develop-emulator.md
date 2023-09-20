@@ -44,6 +44,12 @@ To get started, get the Linux-variant of the container image from the [Microsoft
     docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
     ```
 
+1. Check to make sure that the emulator image has been pulled to your local Docker host.
+
+    ```bash
+    docker images
+    ```
+
 ### [Docker (Windows container)](#tab/docker-windows)
 
 To get started, get the Windows-variant of the container image from the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com).
@@ -52,6 +58,12 @@ To get started, get the Windows-variant of the container image from the [Microso
 
     ```powershell
     docker pull mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
+    ```
+
+1. Check to make sure that the emulator image has been pulled to your local Docker host.
+
+    ```powershell
+    docker images
     ```
 
 ### [Windows (local)](#tab/windows)
@@ -81,6 +93,12 @@ To get started, get the Linux-variant of the container image from the [Microsoft
 
     ```bash
     docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:mongodb
+    ```
+
+1. Check to make sure that the emulator image has been pulled to your local Docker host.
+
+    ```bash
+    docker images
     ```
 
 ### [Docker (Windows container)](#tab/docker-windows)
