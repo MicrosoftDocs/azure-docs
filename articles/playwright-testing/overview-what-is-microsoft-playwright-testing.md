@@ -41,7 +41,7 @@ You can use Microsoft Playwright Testing for testing both publicly and privately
 
 Microsoft Playwright Testing instantiates cloud-hosted browsers across different operating systems. Playwright runs on the client machine and interacts with Microsoft Playwright Testing to run your Playwright tests on the hosted browsers. The client machine can be your developer workstation or a CI agent machine if you run your tests as part of your CI workflow. The Playwright test code remains on the client machine during the test run.
 
-To run existing tests with Microsoft Playwright Testing requires no changes to your test code. Add a service configuration file to your test project, and specify your workspace settings, such as the access key and the service endpoint.
+To run existing tests with Microsoft Playwright Testing requires no changes to your test code. Add a service configuration file to your test project, and specify your workspace settings, such as the access token and the service endpoint.
 
 After a test run completes, Playwright sends the test run metadata to the service. The test results, trace files, and other test run files are available on the client machine. 
 

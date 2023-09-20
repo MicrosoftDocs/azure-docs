@@ -52,7 +52,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Manage access keys
-            url: how-to-manage-access-keys.md
+          - text: Manage access tokens
+            url: how-to-manage-access-tokens.md
           - text: Manage workspace access
             url: how-to-manage-workspace-access.md
