@@ -67,7 +67,7 @@ When your application is added to the gallery, documentation is created that exp
 
 After you've tested that your application works with Microsoft Entra ID, submit your application request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). The first time you try to sign in to the portal you're presented with one of two screens.
 
-- If you receive the message "That didn't work", then you need to contact the [Microsoft Entra SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). Provide the email account that you want to use for submitting the request. A business email address such as `name@yourbusiness.com` is preferred. The Microsoft Entra ID team then adds the account in the Microsoft Application Network portal.
+- If you receive the message "That didn't work", then you need to contact the [Microsoft Entra SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). Provide the email account that you want to use for submitting the request. A business email address such as `name@yourbusiness.com` is preferred. The Microsoft Entra team then adds the account in the Microsoft Application Network portal.
 - If you see a "Request Access" page, then fill in the business justification and select **Request Access**.
 
 After your account is added, you can sign in to the Microsoft Application Network portal and submit the request by selecting the **Submit Request (ISV)** tile on the home page. If you see the "Your sign-in was blocked" error while logging in, see [Troubleshoot sign-in to the Microsoft Application Network portal](troubleshoot-app-publishing.md).
