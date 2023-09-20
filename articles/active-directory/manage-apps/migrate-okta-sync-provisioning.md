@@ -120,7 +120,7 @@ After you prepare your list of source and destination targets, install a Microso
 
 1. Download and install Microsoft Entra Connect on a server. See, [Custom installation of Microsoft Entra Connect](../hybrid/connect/how-to-connect-install-custom.md).
 2. In the left panel, select **Identifying users**.
-3. On the **Uniquely identifying your users** page, under **Select how users should be identified with Microsoft Entra ID**, select **Choose a specific attribute**. 
+3. On the **Uniquely identifying your users** page, under **Select how users should be identified with Azure AD**, select **Choose a specific attribute**. 
 4. If you haven't modified the Okta default, select **mS-DS-ConsistencyGUID**.
 
    >[!WARNING]

@@ -35,7 +35,7 @@ If you’re not able to configure the Identifier or the Reply URL, confirm the I
 
 To know the patterns pre-configured for the application:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). Go to step 4. If you are already in the application configuration blade on Microsoft Entra ID.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). Go to step 4. If you are already in the application configuration blade in Microsoft Entra ID.
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 1. Select the application you want to configure single sign-on.
 1. Once the application loads, select the **Single sign-on** from the application’s left-hand navigation menu.

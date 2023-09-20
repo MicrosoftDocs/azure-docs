@@ -30,9 +30,9 @@ Silverfort connects assets with Microsoft Entra ID. These bridged assets appear 
 - File shares and databases
 - Infrastructure and industrial systems
 
-Silverfort integrates your corporate assets and third-party Identity and Access Management (IAM) platforms. This includes Active Directory, Active Directory Federation Services (ADFS), and Remote Authentication Dial-In User Service (RADIUS) on Microsoft Entra ID, including hybrid and multicloud environments.
+Silverfort integrates your corporate assets and third-party Identity and Access Management (IAM) platforms. This includes Active Directory, Active Directory Federation Services (ADFS), and Remote Authentication Dial-In User Service (RADIUS) in Microsoft Entra ID, including hybrid and multicloud environments.
 
-Use this tutorial to configure and test the Silverfort Microsoft Entra ID bridge in your Microsoft Entra tenant to communicate with your Silverfort implementation. After configuration, you can create Silverfort authentication policies that bridge authentication requests from identity sources to Microsoft Entra ID for SSO. After an application is bridged, you can manage it in Microsoft Entra ID.
+Use this tutorial to configure and test the Silverfort Azure AD bridge in your Microsoft Entra tenant to communicate with your Silverfort implementation. After configuration, you can create Silverfort authentication policies that bridge authentication requests from identity sources to Microsoft Entra ID for SSO. After an application is bridged, you can manage it in Microsoft Entra ID.
 
 <a name='silverfort-with-azure-ad-authentication-architecture'></a>
 
@@ -56,7 +56,7 @@ The following diagram shows the authentication architecture orchestrated by Silv
 
 You need Silverfort deployed in your tenant or infrastructure to perform this tutorial. To deploy Silverfort in your tenant or infrastructure, go to silverfort.com [Silverfort](https://www.silverfort.com/) to install the Silverfort desktop app on your workstations.
 
-Set up Silverfort Microsoft Entra Adapter in your Microsoft Entra tenant:
+Set up Silverfort Azure AD Adapter in your Microsoft Entra tenant:
 
 - An Azure account with an active subscription
   - You can create an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -65,17 +65,17 @@ Set up Silverfort Microsoft Entra Adapter in your Microsoft Entra tenant:
   - Cloud Application Administrator
   - Application Administrator
   - Service Principal Owner
-- The Silverfort Microsoft Entra Adapter application in the Microsoft Entra gallery is pre-configured to support SSO. From the gallery, add the Silverfort Microsoft Entra Adapter to your tenant as an Enterprise application.
+- The Silverfort Azure AD Adapter application in the Microsoft Entra gallery is pre-configured to support SSO. From the gallery, add the Silverfort Azure AD Adapter to your tenant as an Enterprise application.
 
 ## Configure Silverfort and create a policy
 
 1. From a browser, sign in to the Silverfort admin console.
-2. In the main menu, navigate to **Settings** and then scroll to **Microsoft Entra ID Bridge Connector** in the General section. 
+2. In the main menu, navigate to **Settings** and then scroll to **Azure AD Bridge Connector** in the General section. 
 3. Confirm your tenant ID, and then select **Authorize**.
 4. Select **Save Changes**.
 5. On the **Permissions requested** dialog, select **Accept**.
 
-   ![image shows Microsoft Entra ID bridge connector](./media/silverfort-integration/bridge-connector.png)
+   ![image shows Microsoft Entra bridge connector](./media/silverfort-integration/bridge-connector.png)
 
    ![image shows registration confirmation](./media/silverfort-integration/grant-permission.png)
 
@@ -85,9 +85,9 @@ Set up Silverfort Microsoft Entra Adapter in your Microsoft Entra tenant:
 
 7. On the **Settings** page, select **Save Changes**.
 
-   ![image shows the Microsoft Entra adapter](./media/silverfort-integration/silverfort-adapter.png)
+   ![image shows the Azure AD Adapter](./media/silverfort-integration/silverfort-adapter.png)
 
-8. Sign in to your Microsoft Entra ID console. In the left pane, select **Enterprise applications**. The **Silverfort Microsoft Entra Adapter** application appears as registered.
+8. Sign in to your Microsoft Entra account. In the left pane, select **Enterprise applications**. The **Silverfort Azure AD Adapter** application appears as registered.
 
    ![image shows enterprise application](./media/silverfort-integration/enterprise-application.png)
 
@@ -118,24 +118,24 @@ Set up Silverfort Microsoft Entra Adapter in your Microsoft Entra tenant:
 
     ![image shows destination](./media/silverfort-integration/destination.png)
 
-17. For Action, select **Microsoft Entra ID BRIDGE**.
+17. For Action, select **Azure AD BRIDGE**.
 
-    ![image shows save Microsoft Entra ID bridge](./media/silverfort-integration/save-bridge.png)
+    ![image shows save Azure AD bridge](./media/silverfort-integration/save-bridge.png)
 
 18. Select **Save**. You're prompted to turn on the policy. 
 
     ![image shows change status](./media/silverfort-integration/change-status.png)
 
-19. In the Microsoft Entra ID Bridge section, the policy appears on the Policies page.
+19. In the Azure AD Bridge section, the policy appears on the Policies page.
 
     ![image shows add policy](./media/silverfort-integration/add-policy.png)
 
-20. Return to the Microsoft Entra ID console, and navigate to **Enterprise applications**. The new Silverfort application appears. You can include this application in Conditional Access policies. 
+20. Return to the Microsoft Entra account, and navigate to **Enterprise applications**. The new Silverfort application appears. You can include this application in Conditional Access policies. 
 
 Learn more: [Tutorial: Secure user sign-in events with Microsoft Entra multifactor authentication](../authentication/tutorial-enable-azure-mfa.md?bc=/azure/active-directory/conditional-access/breadcrumb/toc.json&toc=/azure/active-directory/conditional-access/toc.json#create-a-conditional-access-policy).
 
 ## Next steps
 
-- [Silverfort Microsoft Entra adapter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.silverfortazureadadapter?tab=overview)
+- [Silverfort Azure AD Adapter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.silverfortazureadadapter?tab=overview)
 - [Silverfort resources](https://www.silverfort.com/resources/)
 - [Silverfort, company contact](https://www.silverfort.com/company/contact/)
