@@ -41,11 +41,11 @@ To create a new workspace access key:
 
 1. Select **Generate key** to generate a new access key for your account and workspace.
 
-    :::image type="content" source="./media/how-to-manage-access-keys/playwright-testing-generate-key.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate key' button.":::
+    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-testing-generate-key.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate key' button.":::
 
 1. Copy the access key for the workspace.
 
-    :::image type="content" source="./media/how-to-manage-access-keys/playwright-testing-copy-access-key.png" alt-text="Screenshot that shows how to copy the generated access key in the Playwright Testing portal.":::
+    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-testing-copy-access-key.png" alt-text="Screenshot that shows how to copy the generated access key in the Playwright Testing portal.":::
     
     > [!IMPORTANT]
     > You can only access the key value immediately after you've created it. You can't access the key value anymore at a later time.

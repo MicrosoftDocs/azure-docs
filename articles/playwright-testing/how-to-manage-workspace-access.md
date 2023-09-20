@@ -28,7 +28,7 @@ Microsoft Playwright Testing workspaces uses three Azure built-in roles. To gran
 
 | Role | Access level |
 | --- | --- |
-| **Reader** | Have read-only access to the workspace in the Microsoft Playwright Testing portal. Readers can view test results for the workspace. Readers can't [create or delete workspace access tokens](./how-to-manage-access-keys.md). |
+| **Reader** | Have read-only access to the workspace in the Microsoft Playwright Testing portal. Readers can view test results for the workspace. Readers can't [create or delete workspace access tokens](./how-to-manage-access-tokens.md). |
 | **Contributor** | Have full access to manage the workspace in the Azure portal but can't assign roles in Azure RBAC. Contributors have full access to the workspace in the Microsoft Playwright Testing portal and can create and revoke access tokens in the workspace. |
 | **Owner** | Have full access to manage the workspace in the Azure portal, including assigning roles in Azure RBAC. Owners have full access to the workspace in the Microsoft Playwright Testing portal and can create and revoke access tokens in the workspace. |
 
