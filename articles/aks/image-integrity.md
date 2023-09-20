@@ -5,14 +5,14 @@ author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 09/19/2023
+ms.date: 09/20/2023
 ---
 
 # Use Image Integrity to validate signed images before deploying them to your Azure Kubernetes Service (AKS) clusters (Preview)
 
-Azure Kubernetes Service (AKS) and its underlying container model provide increased scalability and manageability for cloud native applications. With AKS, you can launch flexible software applications according to the runtime needs of your system. However, this flexible can introduce new challenges.
+Azure Kubernetes Service (AKS) and its underlying container model provide increased scalability and manageability for cloud native applications. With AKS, you can launch flexible software applications according to the runtime needs of your system. However, this flexibility can introduce new challenges.
 
-In these application environments, using signed container images helps verify that your deployments are built from a trusted entity and that images haven't been tampered with since their creation. Image Integrity is a service that allows you to add deploy-time policy enforcements to your AKS clusters to check whether the images are signed.
+In these application environments, using signed container images helps verify that your deployments are built from a trusted entity and that images haven't been tampered with since their creation. Image Integrity is a service that allows you to add an AKS built-in policy to verify and enforce that only signed images are deployed to your AKS clusters.
 
 > [!NOTE]
 > Image Integrity is a feature based on [Ratify][ratify]. On an AKS cluster, the feature name and property name is `ImageIntegrity`, while the relevant Image Integrity pods' names contain `Ratify`.
@@ -25,7 +25,7 @@ In these application environments, using signed container images helps verify th
 * [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install].
 * `aks-preview` CLI extension version 0.5.96 or later.
 * The Azure Policy add-on for AKS. If you don't have this add-on installed, see [Install Azure Policy add-on for AKS](../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks).
-* An AKS cluster enabled with OIDC Issuer. To create a new cluster or update an existing cluster, see [Configure an AKS cluster with OIDC Issuer](/cluster-configuration.md#oidc-issuer).
+* An AKS cluster enabled with OIDC Issuer. To create a new cluster or update an existing cluster, see [Configure an AKS cluster with OIDC Issuer](./use-oidc-issuer.md).
 * The `EnableImageIntegrityPreview` and `AKS-AzurePolicyExternalData` feature flags registered on your Azure subscription. Register the feature flags using the following commands:
   
     1. Register the `EnableImageIntegrityPreview` and `AKS-AzurePolicyExternalData` feature flags using the [`az feature register`][az-feature-register] command.
@@ -68,7 +68,7 @@ In these application environments, using signed container images helps verify th
 
 :::image type="content" source="./media/image-integrity/aks-image-integrity-architecture.png" alt-text="Screenshot showing the basic architecture for Image Integrity" lightbox="./media/image-integrity/aks-image-integrity-architecture.png":::
 
-Enabling Image Integrity on your cluster also deploys a `Ratify` pod. This `Ratify` pod performs the following tasks:
+Image Integrity uses Ratify, Azure Policy, and Gatekeeper to validate signed images before deploying them to your AKS clusters. Enabling Image Integrity on your cluster deploys a `Ratify` pod. This `Ratify` pod performs the following tasks:
 
 1. Reconciles certificates from Azure Key Vault per the configuration you set up through `Ratify` CRDs.
 2. Accesses images stored in ACR when validation requests come from [Azure Policy](../governance/policy/concepts/policy-for-kubernetes.md), an admission controller webhook that extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper).
@@ -116,7 +116,7 @@ Enabling Image Integrity on your cluster also deploys a `Ratify` pod. This `Rati
 
 For Image Integrity to properly verify the target signed image, you need to set up `Ratify` configurations through K8s [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions) using `kubectl`.
 
-In this article, we use an example CRD to set up verification configurations For more examples, see [Ratify CRDs](https://github.com/deislabs/ratify/blob/main/docs/reference/ratify-configuration.md).
+In this article, we use a self-signed CA cert from the official Ratify documentation to set up verification configurations. For more examples, see [Ratify CRDs](https://github.com/deislabs/ratify/blob/main/docs/reference/ratify-configuration.md).
 
 1. Create a `VerifyConfig` file named `verify-config.yaml` and copy in the following YAML:
 
