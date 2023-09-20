@@ -59,7 +59,7 @@ To configure and test Azure AD SSO with Azure AD SSO for Splunk Enterprise and S
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Azure AD SSO for Splunk Enterprise and Splunk Cloud** > **Single sign-on**.
@@ -80,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<splunkserver>/saml/acs`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Azure AD SSO for Splunk Enterprise and Splunk Cloud Client support team](https://www.splunk.com/en_us/about-splunk/contact-us.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Azure AD SSO for Splunk Enterprise and Splunk Cloud Client support team](https://www.splunk.com/en_us/about-splunk/contact-us.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -102,7 +102,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Azure AD SSO for Splunk Enterprise and Splunk Cloud.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Azure AD SSO for Splunk Enterprise and Splunk Cloud.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Azure AD SSO for Splunk Enterprise and Splunk Cloud**.
@@ -128,9 +128,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot that shows Configure Splunk to SAML configuration.](./media/splunk-enterprise-and-splunk-cloud-tutorial/sso-configuration.png)
 
-    a. Click on the **Select File** button to upload the **Federation Metadata XML** file, which you have downloaded from Azure portal.
+    a. Click on the **Select File** button to upload the **Federation Metadata XML** file, which you have downloaded previously.
 
-    b. In the **Entity ID** field, enter the **Identifier** value, which you have copied from the Azure portal.
+    b. In the **Entity ID** field, enter the **Identifier** value, which you copied previously.
 
     c. Check the **Verify SAML response** checkbox.This will be a requirement moving forward in Splunk Cloud for security best practices, so please make sure this is checked.
 
@@ -166,7 +166,7 @@ In this section, you create a user called Britta Simon in Azure AD SSO for Splun
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Azure AD SSO for Splunk Enterprise and Splunk Cloud Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Azure AD SSO for Splunk Enterprise and Splunk Cloud Sign-on URL where you can initiate the login flow. 
 
 * Go to Azure AD SSO for Splunk Enterprise and Splunk Cloud Sign-on URL directly and initiate the login flow from there.
 

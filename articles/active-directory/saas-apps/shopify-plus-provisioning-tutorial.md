@@ -48,9 +48,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 2. Navigate to the **SCIM Integration** section, click **Generate API token**.
 
-3. Copy and save the generated token. This value will be entered in the **Secret Token** field in the Provisioning tab of your Shopify Plus application in the Azure portal.
+3. Copy and save the generated token. This value will be entered in the **Secret Token** field in the Provisioning tab of your Shopify Plus application.
 
-4. The base URL is `https://shopifyscim.com/scim/v2/`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Shopify Plus application in the Azure portal.
+4. The base URL is `https://shopifyscim.com/scim/v2/`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Shopify Plus application.
 
 ## Step 3. Add Shopify Plus from the Azure AD application gallery
 

@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate In Case of Crisis - Online Porta
 
 * Control in Azure AD who has access to In Case of Crisis - Online Portal.
 * Enable your users to be automatically signed-in to In Case of Crisis - Online Portal with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -41,10 +41,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 To configure the integration of In Case of Crisis - Online Portal into Azure AD, you need to add In Case of Crisis - Online Portal from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **In Case of Crisis - Online Portal** in the search box.
 1. Select **In Case of Crisis - Online Portal** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -66,7 +64,7 @@ To configure and test Azure AD SSO with In Case of Crisis - Online Portal, compl
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **In Case of Crisis - Online Portal** > **Single sign-on**.
@@ -88,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -102,7 +100,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to In Case of Crisis - Online Portal.
+In this section, you'll enable B.Simon to use single sign-on by granting access to In Case of Crisis - Online Portal.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **In Case of Crisis - Online Portal**.
@@ -120,7 +118,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure In Case of Crisis Online Portal SSO
 
-To configure single sign-on on **In Case of Crisis - Online Portal** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [In Case of Crisis - Online Portal support team](mailto:support@rockdovesolutions.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **In Case of Crisis - Online Portal** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the application configuration to [In Case of Crisis - Online Portal support team](mailto:support@rockdovesolutions.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create In Case of Crisis Online Portal test user
 

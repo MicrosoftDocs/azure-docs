@@ -22,7 +22,7 @@ When you integrate Signiant Media Shuttle with Azure AD, you can:
 
 * Control in Azure AD who has access to Signiant Media Shuttle.
 * Enable your users to be automatically signed-in to Signiant Media Shuttle with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You must configure and test Azure AD single sign-on for Signiant Media Shuttle in a test environment. Signiant Media Shuttle supports **SP** initiated single sign-on and **Just In Time** user provisioning.
 
@@ -45,13 +45,13 @@ Add Signiant Media Shuttle from the Azure AD application gallery to configure si
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-You can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+You can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Signiant Media Shuttle** > **Single sign-on**.
@@ -84,7 +84,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
    | Portal Level | `https://<PORTALNAME>.mediashuttle.com/auth` |
 
 	> [!Note]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Signiant Media Shuttle support team](mailto:support@signiant.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Signiant Media Shuttle support team](mailto:support@signiant.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section.
 
 1. Your Signiant Media Shuttle application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example. The default value of **Unique User Identifier** is **user.userprincipalname** but Signiant Media Shuttle expects to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
@@ -102,7 +102,7 @@ To add Azure AD Metadata in Media Shuttle:
 
 1. Log into your IT Administration Console.
 
-2. On the Security page, in the Identity Provider Metadata field, paste the **App Federation Metadata Url** which you've copied from the Azure portal.
+2. On the Security page, in the Identity Provider Metadata field, paste the **App Federation Metadata Url** which you've copied.
 
 3. Click **Save**.
 
@@ -118,7 +118,7 @@ If **Auto-add SAML authenticated members to this portal** is not enabled as part
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Signiant Media Shuttle Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Signiant Media Shuttle Sign-on URL where you can initiate the login flow. 
 
 * Go to Signiant Media Shuttle Sign-on URL directly and initiate the login flow from there.
 

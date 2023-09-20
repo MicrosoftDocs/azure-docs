@@ -48,7 +48,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 2. Click **Generate Token**. 
 
-3. Save the **Token** and the **SCIM base URL**. These values will be entered in the Tenant URL and Secret Token field in the Provisioning tab of your AuditBoard application in the Azure portal.
+3. Save the **Token** and the **SCIM base URL**. These values will be entered in the Tenant URL and Secret Token field in the Provisioning tab of your AuditBoard application.
 
    > [!NOTE]
    > Generating a new token will invalidate the previous token.
