@@ -54,6 +54,8 @@ To get the service endpoint URL, perform the following steps:
 
     The endpoint URL matches the Azure region that you selected when creating the workspace.
 
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-region-endpoint.png" alt-text="Screenshot that shows how to copy the workspace region endpoint in the Playwright Testing portal.":::
+
 ## Set up your environment
 
 Ensure that the `PLAYWRIGHT_SERVICE_ACCESS_KEY` and `PLAYWRIGHT_SERVICE_URL` environment variables that you obtained in the previous steps are available in your environment.

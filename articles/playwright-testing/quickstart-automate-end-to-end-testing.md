@@ -50,9 +50,7 @@ To generate an access token and store it as a CI workflow secret, perform the fo
 
     :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-copy-access-token.png" alt-text="Screenshot that shows how to copy the generated access token in the Playwright Testing portal.":::
 
-1. Store the access token in a CI workflow secret to avoid specifying the key in clear text in the workflow definition:
-
-    The following steps describe how to create a workflow secret in GitHub Actions or Azure Pipelines. Follow the specific instructions of your CI platform to create store the access token securely.
+1. Store the access token in a CI workflow secret to avoid specifying the token in clear text in the workflow definition:
 
     # [GitHub Actions](#tab/github)
     
