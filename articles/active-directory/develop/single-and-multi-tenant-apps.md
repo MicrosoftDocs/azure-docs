@@ -1,6 +1,6 @@
 ---
-title: Single and multi-tenant apps in Azure AD
-description: Learn about the features and differences between single-tenant and multi-tenant apps in Azure AD.
+title: Single and multi-tenant apps in Microsoft Entra ID
+description: Learn about the features and differences between single-tenant and multi-tenant apps in Microsoft Entra ID.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -15,9 +15,9 @@ ms.reviewer: justhu
 ms.custom: aaddev
 ---
 
-# Tenancy in Azure Active Directory
+# Tenancy in Microsoft Entra ID
 
-Azure Active Directory (Azure AD) organizes objects like users and apps into groups called _tenants_. Tenants allow an administrator to set policies on the users within the organization and the apps that the organization owns to meet their security and operational policies.
+Microsoft Entra ID organizes objects like users and apps into groups called _tenants_. Tenants allow an administrator to set policies on the users within the organization and the apps that the organization owns to meet their security and operational policies.
 
 ## Who can sign in to your app?
 
@@ -31,8 +31,8 @@ When you register an application, you can configure it to be single-tenant or mu
 | Audience | Single/multi-tenant | Who can sign in |
 | -------- | ------------------- | --------------- |
 | Accounts in this directory only | Single tenant | All user and guest accounts in your directory can use your application or API.<br>Use this option if your target audience is internal to your organization. |
-| Accounts in any Azure AD directory | Multi-tenant | All users and guests with a work or school account from Microsoft can use your application or API. This includes schools and businesses that use Microsoft 365.<br>Use this option if your target audience is business or educational customers. |
-| Accounts in any Azure AD directory and personal Microsoft accounts (such as Skype, Xbox, Outlook.com) | Multi-tenant | All users with a work or school, or personal Microsoft account can use your application or API. It includes schools and businesses that use Microsoft 365 as well as personal accounts that are used to sign in to services like Xbox and Skype.<br>Use this option to target the widest set of Microsoft accounts. |
+| Accounts in any Microsoft Entra directory | Multi-tenant | All users and guests with a work or school account from Microsoft can use your application or API. This includes schools and businesses that use Microsoft 365.<br>Use this option if your target audience is business or educational customers. |
+| Accounts in any Microsoft Entra directory and personal Microsoft accounts (such as Skype, Xbox, Outlook.com) | Multi-tenant | All users with a work or school, or personal Microsoft account can use your application or API. It includes schools and businesses that use Microsoft 365 as well as personal accounts that are used to sign in to services like Xbox and Skype.<br>Use this option to target the widest set of Microsoft accounts. |
 
 ## Best practices for multi-tenant apps
 
@@ -44,7 +44,7 @@ Building great multi-tenant apps can be challenging because of the number of dif
 
 ## Next steps
 
-For more information about tenancy in Azure AD, see:
+For more information about tenancy in Microsoft Entra ID, see:
 
 - [How to convert an app to be multi-tenant](howto-convert-app-to-be-multi-tenant.md)
 - [Enable multi-tenant log-ins](howto-convert-app-to-be-multi-tenant.md)
