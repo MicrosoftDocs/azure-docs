@@ -25,20 +25,16 @@ Enterprise IoT security in Microsoft 365 Defender provides IoT-specific security
 
 - If you don't have ME5/E5 Security licenses, but you are a Microsoft Defender for Endpoint customer, start with a [free trial](billing.md#free-trial) or purchase standalone, per-device licenses to gain the same IoT-specific security value.
 
-<!--removing this- Azure access as a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner)-->
-
-
-<!--not sure this is still correct. 
-The following image shows the architecture and extra features added with an Enterprise IoT plan in Microsoft 365 Defender:
+The following image shows the architecture and extra features added with **Enterprise IoT security** in Microsoft 365 Defender:
 
 :::image type="content" source="media/enterprise-iot/architecture-endpoint-only.png" alt-text="Diagram of the service architecture when you have an Enterprise IoT plan added to Defender for Endpoint." border="false":::
--->
+
 
 For more information, see:
 
 - [Defender for IoT subscription billing](billing.md)
 - [Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery)
-- [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response) <!--do we still have alerts?-->
+- [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response)
 - [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
 - [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses)
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
@@ -74,11 +70,10 @@ For more information, see:
 - [Get started with enterprise IoT monitoring in Microsoft 365 Defender](eiot-defender-for-endpoint.md)
 - [Manage enterprise IoT monitoring support with Microsoft Defender for IoT](manage-subscriptions-enterprise.md)
 
-<!-->
 ## What permissions do I need to add a Defender for IoT plan? Can I use any Azure subscription?
 
 For information on required permissions, see [Prerequisites](eiot-defender-for-endpoint.md#prerequisites).
--->
+
 ### Which devices are billable?
 
 For more information see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
@@ -110,12 +105,9 @@ For more information, see [Turn off enterprise IoT security](manage-subscription
 
 ### What happens when the 90-day trial ends?
 
-<!--amit what happens?>
+If you haven't added a standalone license by the time your trial ends, your trial is automatically canceled, and you’ll lose access to Enterprise IoT security features.
 
-If you haven't changed your plan from a trial to a monthly commitment by the time your trial ends, your plan is automatically canceled, and you’ll lose access to Defender for IoT security features.
-
-To change your plan from a trial to a monthly commitment before the end of the trial, you'll need to cancel your trial plan and onboard a new plan in Defender for Endpoint. For more information, see [Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
--->
+For more information, see [Defender for IoT subscription billing](billing.md).
 
 ### How can I resolve billing issues associated with my Defender for IoT plan?
 

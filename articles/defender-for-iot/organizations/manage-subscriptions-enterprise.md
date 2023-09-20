@@ -35,7 +35,6 @@ Before performing the procedures in this article, make sure that you have:
 
 - Access to the Microsoft 365 Defender portal as a [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator)
 
-<!--do you no longer need an azure subscription?>
 - An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/free/).
 
 
@@ -43,13 +42,12 @@ Before performing the procedures in this article, make sure that you have:
 
     - **In Azure Active Directory**:
     - **In Azure RBAC**:  [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) for the Azure subscription that you'll be using for the integration
--->
 
 ## Obtain a trial license
 
 This procedure describes how to start using a trial, standalone license for enterprise IoT monitoring, for customers who have a Microsoft Defender for Endpoint P2 license only.
 
-Customers with ME5/E5 Security plans have support for enterprise IoT monitoring available on by default, and don't need to start a trial.
+Customers with ME5/E5 Security plans have support for enterprise IoT monitoring available on by default, and don't need to start a trial. For more information, see [Get started with enterprise IoT monitoring in Microsoft 365 Defender](eiot-defender-for-endpoint.md).
 
 1. Go to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) > **Trials**.
 

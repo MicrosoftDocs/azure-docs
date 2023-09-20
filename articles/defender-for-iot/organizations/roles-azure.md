@@ -35,6 +35,7 @@ Permissions are applied to user roles across an entire Azure subscription, or in
 |  **[Recover on-premises management console passwords](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal)** <br>Apply per subscription only  | -      |   ✔     | ✔ | ✔ |
 |  **[Download OT threat intelligence packages](how-to-work-with-threat-intelligence-packages.md#manually-update-locally-managed-sensors)** <br>Apply per subscription only | ✔      |  ✔       |   ✔      | ✔ |
 |  **[Push OT threat intelligence updates](how-to-work-with-threat-intelligence-packages.md#manually-push-updates-to-cloud-connected-sensors)** <br>Apply per subscription only | -     |   ✔     | ✔ | ✔ |
+| **[Toggle on enterprise IoT security in Microsoft 365 Defender](eiot-defender-for-endpoint.md)** [*](#enterprise-iot-security)<br>Apply per subscription only | - | ✔ | - | - |
 | **[View Azure alerts](how-to-manage-cloud-alerts.md)** <br>Apply per subscription or site | ✔ | ✔ |✔ | ✔|
 | **[Modify Azure alerts](how-to-manage-cloud-alerts.md) (write access - change status, learn, download PCAP)** <br>Apply per subscription or site|  - | ✔ |✔ | ✔ |
 | **[View Azure device inventory](how-to-manage-device-inventory-for-organizations.md)**  <br>Apply per subscription or site  |  ✔ | ✔ |✔ | ✔|
@@ -43,23 +44,6 @@ Permissions are applied to user roles across an entire Azure subscription, or in
 | **[Manage Azure workbooks](workbooks.md) (write access)**  <br>Apply per subscription or site |  - | ✔ |✔ | ✔ |
 | **[View Defender for IoT settings](configure-sensor-settings-portal.md)** <br>Apply per subscription | ✔ | ✔ |✔ | ✔ |
 | **[Configure Defender for IoT settings](configure-sensor-settings-portal.md)** <br>Apply per subscription | - | ✔ |✔ | ✔ |
-
-<!--
-| **[Onboard an Enterprise IoT plan from Microsoft 365 Defender](eiot-defender-for-endpoint.md)** [*](#enterprise-iot-security)<br>Apply per subscription only | - | ✔ | - | - |
--->
-
-<!--do we need to mention this at all?
-## Enterprise IoT security
-
-Add, edit, or cancel an Enterprise IoT plan with [Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) from Microsoft 365 Defender. Alerts, vulnerabilities, and recommendations for Enterprise IoT networks are also only available from Microsoft 365 Defender.
-
-In addition to the permissions listed above, Enterprise IoT security with Defender for IoT has the following requirements:
-
-- **To add an Enterprise IoT plan**, you'll need an E5 license and specific permissions in your Microsoft 365 Defender tenant.
-- **To view Enterprise IoT devices in your Azure device inventory**, you'll need an Enterprise IoT network sensor registered.
-
-For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md).
--->
 
 ## Next steps
 

@@ -30,7 +30,6 @@ Make sure that you have:
 
 - Access to the Microsoft 365 Defender portal as a [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator)
 
-<!--do we still need this in azure?
 - An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/free/).
 
 - The following user roles:
@@ -39,7 +38,6 @@ Make sure that you have:
     |---------|---------|
     |**In Azure Active Directory**     |         |
     |**In Azure RBAC**     | [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) for the Azure subscription that you'll be using for the integration        |
--->
 
 ## Turn on enterprise IoT monitoring
 
