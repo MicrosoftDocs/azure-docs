@@ -47,7 +47,7 @@ When using [pass-through authentication](../hybrid/connect/how-to-connect-pta.md
 For example, if you want your Microsoft Entra smart lockout duration to be higher than AD DS, then Microsoft Entra ID would be 120 seconds (2 minutes) while your on-premises AD is set to 1 minute (60 seconds). If you want your Microsoft Entra lockout threshold to be 5, then you want your on-premises AD lockout threshold to be 10.  This configuration would ensure smart lockout prevents your on-premises AD accounts from being locked out by brute force attacks on your Microsoft Entra accounts.
 
 > [!IMPORTANT]
-> Currently, an administrator can't unlock the users' cloud accounts if they have been locked out by the Smart Lockout capability. The administrator must wait for the lockout duration to expire. However, the user can unlock by using self-service password reset (SSPR) from a trusted device or location.
+> An administrator can unlock the users' cloud account if they have been locked out by the Smart Lockout capability, without the need of waiting for the lockout duration to expire. For more information, see [Reset a user's password using Azure Active Directory](../fundamentals/users-reset-password-azure-portal.md).
 
 ## Verify on-premises account lockout policy
 
