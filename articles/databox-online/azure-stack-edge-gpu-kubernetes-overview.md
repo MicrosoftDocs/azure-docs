@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 01/13/2023
+ms.date: 07/26/2023
 ms.author: alkohli
 ---
 
@@ -113,12 +113,9 @@ For more information on deploying Kubernetes cluster, go to [Deploy a Kubernetes
 
 ### Kubernetes and IoT Edge
 
-Kubernetes can also be integrated with IoT Edge workloads on Azure Stack Edge device where Kubernetes provides scale and the ecosystem and IoT provides the IoT centric ecosystem. The Kubernetes layer is used as an infrastructure layer to deploy Azure IoT Edge workloads. The module lifetime and network load balancing are managed by Kubernetes whereas the edge application platform is managed by IoT Edge.
+This feature has been deprecated. Support will end soon.
 
-For more information on deploying applications on your Kubernetes cluster via IoT Edge, go to: 
-
-- [Expose stateless applications on Azure Stack Edge device via IoT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
-
+All new deployments of IoT Edge on Azure Stack Edge must be on a Linux VM. For detailed steps, see [Deploy IoT runtime on Ubuntu VM on Azure Stack Edge](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md).
 
 ### Kubernetes and Azure Arc
 
