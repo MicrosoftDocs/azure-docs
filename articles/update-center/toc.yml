@@ -30,7 +30,7 @@
     href: prerequsite-for-schedule-patching.md
   - name: Assessment options
     href: assessment-options.md
-  - name: Dynamic scope (preview)
+  - name: Dynamic scope
     href: dynamic-scope-overview.md
   - name: Query resources with Azure Resource Graph
     href: query-logs.md 
@@ -62,7 +62,7 @@
       href: deploy-updates.md
     - name: Schedule updates
       href: scheduled-patching.md
-    - name: Manage dynamic scope (preview)
+    - name: Manage dynamic scope
       href: manage-dynamic-scoping.md
     - name: Manage update settings
       href: manage-update-settings.md
