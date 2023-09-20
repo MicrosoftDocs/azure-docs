@@ -140,7 +140,7 @@ If you're using an Azure DevOps service connection that automatically creates a 
 
 ### Add a federated credential
 
-Federated identity credentials are a type of credential that allows workloads, such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure access Microsoft Entra ID protected resources without needing to manage secrets using [workload identity federation](/azure/active-directory/workload-identities/workload-identity-federation).
+Federated identity credentials are a type of credential that allows workloads, such as GitHub Actions, workloads running on Kubernetes, or workloads running in compute platforms outside of Azure access Microsoft Entra protected resources without needing to manage secrets using [workload identity federation](/azure/active-directory/workload-identities/workload-identity-federation).
 
 To add a federated credential, follow these steps:
 
