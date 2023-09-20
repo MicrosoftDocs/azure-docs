@@ -292,5 +292,4 @@ To change the number of containers available in the emulator, run the following 
 
 ## Next steps
 
-- [Export the emulator certificates for use with Java, Python, and Node.js apps](local-emulator-export-ssl-certificates.md)
 - [Debug issues with the emulator](troubleshoot-local-emulator.md)

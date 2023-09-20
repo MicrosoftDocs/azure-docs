@@ -80,5 +80,4 @@ To collect debugging traces, run the following commands from an administrative c
 
 In this article, you've learned how to debug issues with the local emulator. You can now proceed to the next articles:
 
-* [Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js apps](local-emulator-export-ssl-certificates.md)
 * [Use command line parameters and PowerShell commands to control the emulator](emulator-command-line-parameters.md)

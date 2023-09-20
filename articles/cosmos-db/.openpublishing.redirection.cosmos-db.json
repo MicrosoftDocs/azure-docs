@@ -6189,6 +6189,16 @@
       "source_path_from_root": "/articles/cosmos-db/docker-emulator-rest-api.md",
       "redirect_url": "/azure/cosmos-db/emulator",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/local-emulator-export-ssl-certificates.md",
+      "redirect_url": "/azure/cosmos-db/emulator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/docker-emulator-release-notes.md",
+      "redirect_url": "/azure/cosmos-db/emulator",
+      "redirect_document_id": false
     }
   ]
 }
