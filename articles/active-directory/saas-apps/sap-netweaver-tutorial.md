@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver'
-description: Learn how to configure single sign-on between Azure Active Directory and SAP NetWeaver.
+title: 'Tutorial: Tutorial: Microsoft Entra Single sign-on (SSO) integration with SAP NetWeaver'
+description: Learn how to configure single sign-on between Microsoft Entra ID and SAP NetWeaver.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,25 +14,25 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver
+# Tutorial: Microsoft Entra Single sign-on (SSO) integration with SAP NetWeaver
 
-In this tutorial, you'll learn how to integrate SAP NetWeaver with Azure Active Directory (Azure AD). When you integrate SAP NetWeaver with Azure AD, you can:
+In this tutorial, you'll learn how to integrate SAP NetWeaver with Microsoft Entra ID. When you integrate SAP NetWeaver with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to SAP NetWeaver.
-* Enable your users to be automatically signed-in to SAP NetWeaver with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to SAP NetWeaver.
+* Enable your users to be automatically signed-in to SAP NetWeaver with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * SAP NetWeaver single sign-on (SSO) enabled subscription.
 * SAP NetWeaver V7.20 required atleast
 
 ## Scenario description
 
-* SAP NetWeaver supports both **SAML** (**SP initiated SSO**) and **OAuth**. In this tutorial, you configure and test Azure AD SSO in a test environment. 
+* SAP NetWeaver supports both **SAML** (**SP initiated SSO**) and **OAuth**. In this tutorial, you configure and test Microsoft Entra SSO in a test environment. 
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -42,7 +42,7 @@ To get started, you need the following items:
 
 ## Adding SAP NetWeaver from the gallery
 
-To configure the integration of SAP NetWeaver into Azure AD, you need to add SAP NetWeaver from the gallery to your list of managed SaaS apps.
+To configure the integration of SAP NetWeaver into Microsoft Entra ID, you need to add SAP NetWeaver from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -51,25 +51,29 @@ To configure the integration of SAP NetWeaver into Azure AD, you need to add SAP
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for SAP NetWeaver
+<a name='configure-and-test-azure-ad-sso-for-sap-netweaver'></a>
 
-Configure and test Azure AD SSO with SAP NetWeaver using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in SAP NetWeaver.
+## Configure and test Microsoft Entra SSO for SAP NetWeaver
 
-To configure and test Azure AD SSO with SAP NetWeaver, perform the following steps:
+Configure and test Microsoft Entra SSO with SAP NetWeaver using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in SAP NetWeaver.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
-	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with SAP NetWeaver, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
+	1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** to test Microsoft Entra single sign-on with B.Simon.
+	1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure SAP NetWeaver using SAML](#configure-sap-netweaver-using-saml)** to configure the SSO settings on application side.
-	1. **[Create SAP NetWeaver test user](#create-sap-netweaver-test-user)** to have a counterpart of B.Simon in SAP NetWeaver that is linked to the Azure AD representation of user.
+	1. **[Create SAP NetWeaver test user](#create-sap-netweaver-test-user)** to have a counterpart of B.Simon in SAP NetWeaver that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 1. **[Configure SAP NetWeaver for OAuth​](#configure-sap-netweaver-for-oauth)** to configure the OAuth settings on application side.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-In this section, you enable Azure AD single sign-on.
+## Configure Microsoft Entra SSO
 
-To configure Azure AD single sign-on with SAP NetWeaver, perform the following steps:
+In this section, you enable Microsoft Entra single sign-on.
+
+To configure Microsoft Entra single sign-on with SAP NetWeaver, perform the following steps:
 
 1. Open a new web browser window and sign into your SAP NetWeaver company site as an administrator
 
@@ -116,11 +120,11 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 1. Replace **Provider Name** from T01122 to `http://T01122` and click on **Save**.
 
 	> [!NOTE]
-	> By default provider name come as `<sid><client>` format but Azure AD expects name in the format of `<protocol>://<name>`, recommending to maintain provider name as `https://<sid><client>` to allow multiple SAP NetWeaver ABAP engines to configure in Azure AD.
+	> By default provider name come as `<sid><client>` format but Microsoft Entra ID expects name in the format of `<protocol>://<name>`, recommending to maintain provider name as `https://<sid><client>` to allow multiple SAP NetWeaver ABAP engines to configure in Microsoft Entra ID.
 
 	![The multiple SAP NetWeaver ABAP engines](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 
-1. **Generating Service Provider Metadata**:- Once we are done with configuring the **Local Provider** and **Trusted Providers** settings on SAML 2.0 User Interface, the next step would be to generate the service provider’s metadata file (which would contain all the settings, authentication contexts and other configurations in SAP). Once this file is generated we need to upload this in Azure AD.
+1. **Generating Service Provider Metadata**:- Once we are done with configuring the **Local Provider** and **Trusted Providers** settings on SAML 2.0 User Interface, the next step would be to generate the service provider’s metadata file (which would contain all the settings, authentication contexts and other configurations in SAP). Once this file is generated we need to upload this in Microsoft Entra ID.
 
 	![Generating Service Provider Metadata](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_generatesp.png)
 
@@ -130,7 +134,7 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 
 	c. Save the generated **Metadata XML file** on your computer and upload it in **Basic SAML Configuration** section to autopopulate the **Identifier** and **Reply URL** values in Azure portal.
 
-Follow these steps to enable Azure AD SSO.
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SAP NetWeaver** application integration page, find the **Manage** section and select **Single sign-on**.
@@ -183,7 +187,9 @@ Follow these steps to enable Azure AD SSO.
 
    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -197,7 +203,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to SAP NetWeaver.
 
@@ -213,7 +221,7 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 1. Sign in to SAP system and go to transaction code SAML2. It opens new browser window with SAML configuration screen.
 
-2. For configuring End points for trusted Identity provider (Azure AD) go to **Trusted Providers** tab.
+2. For configuring End points for trusted Identity provider (Microsoft Entra ID) go to **Trusted Providers** tab.
 
 	![Configure Single Sign-On Trusted Providers](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_samlconfig.png)
 
@@ -265,15 +273,17 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/nameid-format.png)
 
-14. Note that **User ID Source** and **User ID mapping mode** values determine the link between SAP user and Azure AD claim.
+14. Note that **User ID Source** and **User ID mapping mode** values determine the link between SAP user and Microsoft Entra claim.
 
-	#### Scenario: SAP User to Azure AD user mapping.
+	#<a name='scenario-sap-user-to-azure-ad-user-mapping'></a>
+
+### Scenario: SAP User to Microsoft Entra user mapping.
 
 	a. NameID details screenshot from SAP.
 
 	![Configure Single Sign-On 13](./media/sapnetweaver-tutorial/nameiddetails.png)
 
-	b. Screenshot mentioning Required claims from Azure AD.
+	b. Screenshot mentioning Required claims from Microsoft Entra ID.
 
 	![Configure Single Sign-On 14](./media/sapnetweaver-tutorial/claimsaad1.png)
 
@@ -283,7 +293,7 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 	![Configure Single Sign-On 15](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
 
-	b. screenshot mentioning Required claims from Azure AD.
+	b. screenshot mentioning Required claims from Microsoft Entra ID.
 
 	![Configure Single Sign-On 16](./media/sapnetweaver-tutorial/claimsaad2.png)
 
@@ -301,7 +311,7 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 ## Test SSO
 
-1. Once the identity provider Azure AD was activated, try accessing below URL to check SSO (there will no prompt for username & password)
+1. Once the identity provider Microsoft Entra ID was activated, try accessing below URL to check SSO (there will no prompt for username & password)
 
 	`https://<sapurl>/sap/bc/bsp/sap/it00/default.htm`
 
@@ -312,7 +322,7 @@ If you are expecting a role to be assigned to the users, you can select it from 
 	> [!NOTE]
 	> Replace sapurl with actual SAP hostname.
 
-2. The above URL should take you to below mentioned screen. If you are able to reach up to the below page, Azure AD SSO setup is successfully done.
+2. The above URL should take you to below mentioned screen. If you are able to reach up to the below page, Microsoft Entra SSO setup is successfully done.
 
 	![test Single Sign-On](./media/sapnetweaver-tutorial/testingsso.png)
 
@@ -328,7 +338,7 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 	![Activate and Maintain services](./media/sapnetweaver-tutorial/oauth01.png)
 
-3. In this example we want to connect the OData service: `DAAG_MNGGRP` with OAuth to Azure AD SSO. Use the technical service name search for the service `DAAG_MNGGRP` and activate if not yet active, already (look for `green` status under ICF nodes tab). Ensure if system alias (the connected backend system, where the service actually running) is correct.
+3. In this example we want to connect the OData service: `DAAG_MNGGRP` with OAuth to Microsoft Entra SSO. Use the technical service name search for the service `DAAG_MNGGRP` and activate if not yet active, already (look for `green` status under ICF nodes tab). Ensure if system alias (the connected backend system, where the service actually running) is correct.
 
 	![OData service](./media/sapnetweaver-tutorial/oauth02.png)
 
@@ -362,13 +372,13 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 	![OAuth 2.0 Client ID](./media/sapnetweaver-tutorial/oauth05.png)
 
-3. Select the already added **SAML2 IdP – Azure AD** from the dropdown list and save.
+3. Select the already added **SAML2 IdP – Microsoft Entra ID** from the dropdown list and save.
 
-	![SAML2 IdP – Azure AD 1](./media/sapnetweaver-tutorial/oauth06.png)
+	![SAML2 IdP – Microsoft Entra ID 1](./media/sapnetweaver-tutorial/oauth06.png)
 
-	![SAML2 IdP – Azure AD 2](./media/sapnetweaver-tutorial/oauth07.png)
+	![SAML2 IdP – Microsoft Entra ID 2](./media/sapnetweaver-tutorial/oauth07.png)
 
-	![SAML2 IdP – Azure AD 3](./media/sapnetweaver-tutorial/oauth08.png)
+	![SAML2 IdP – Microsoft Entra ID 3](./media/sapnetweaver-tutorial/oauth08.png)
 
 4. Click on **Add** under scope assignment to add the previously created scope: `DAAG_MNGGRP_001`
 
@@ -380,4 +390,4 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 ## Next Steps
 
-Once you configure Azure AD SAP NetWeaver you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
+Once you configure Microsoft Entra SAP NetWeaver you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
