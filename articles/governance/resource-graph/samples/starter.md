@@ -31,9 +31,9 @@ This article uses the following starter queries:
 - [List all storage accounts with specific tag value](#list-specific-tag)
 - [List all tags and their values](#list-all-tag-values)
 - [Show unassociated network security groups](#unassociated-nsgs)
-- [List alerts by severity](#list-alerts-by-severity)
-- [List alerts by severity and resource type](#list-alerts-by-severity-and-type)
-- [List alerts by severity and resource type with a specific tag](#list-alerts-by-severity-and-type-and-tag)
+- [List alerts by severity](#alerts-severity)
+- [List alerts by severity and resource type](#alerts-severity-state)
+- [List alerts by severity and resource type with a specific tag](#alerts-severity-service-type)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
