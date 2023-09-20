@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 The [What If tool](what-if-tool.md) in Conditional Access is powerful when trying to understand why a policy was or wasn't applied to a user in a specific circumstance or if a policy would apply in a known state.
 
-The What If tool is located in the **Azure portal** > **Azure Active Directory** > **Security** > **Conditional Access** > **What If**.
+The What If tool is located in the **Azure portal** > **Microsoft Entra ID** > **Security** > **Conditional Access** > **What If**.
 
 ![Conditional Access What If tool at default state](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
 
@@ -40,7 +40,7 @@ The following additional information is optional but will help to narrow the sco
 * Service principal risk (Preview)
 * Filter for devices
 
-This information can be gathered from the user, their device, or the Azure AD sign-ins log.
+This information can be gathered from the user, their device, or the Microsoft Entra sign-ins log.
 
 ## Generating results
 
@@ -73,6 +73,6 @@ This test could be expanded to incorporate other data points to narrow the scope
 ## Next steps
 
 * [What is Conditional Access report-only mode?](concept-conditional-access-report-only.md)
-* [What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)
+* [What is Microsoft Entra ID Protection?](../identity-protection/overview-identity-protection.md)
 * [What is a device identity?](../devices/overview.md)
-* [How it works: Azure AD Multifactor Authentication](../authentication/concept-mfa-howitworks.md)
+* [How it works: Microsoft Entra multifactor authentication](../authentication/concept-mfa-howitworks.md)
