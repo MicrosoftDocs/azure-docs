@@ -1143,55 +1143,126 @@ Use the Azure Cosmos DB emulator with a test suite from your framework of choice
 
 Run a test suite using the built-in test driver for .NET and a testing framework such as **MSTest**, **NUnit**, or **XUnit**.
 
-1. Validate that the test suite for your application works as expected.
+1. Validate that the unit test suite for your application works as expected.
 
     ```bash
-    
+    dotnet test
     ```
 
-1. TODO
+1. Create a new workflow in your GitHub repository in a file named `.github/workflows/ci.yml`.
 
-1. TODO
+1. Add a job to your workflow to start the Azure Cosmos DB emulator using PowerShell and run your unit test suite.
 
     ```yaml
-    
+    name: Continuous Integration
+    on:
+      push:
+        branches:
+          - main
+    jobs:
+      unit_tests:
+        name: Run .NET unit tests
+        runs-on: windows-latest
+        steps:
+          - name: Checkout (GitHub)
+            uses: actions/checkout@v3
+          - name: Start Azure Cosmos DB emulator
+            run: >-
+              Write-Host "Launching Cosmos DB Emulator"
+              Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
+              Start-CosmosDbEmulator
+          - name: Run .NET tests
+            run: dotnet test
     ```
+
+    > [!NOTE]
+    > Start the emulator from the command line using various arguments or PowerShell commands. For more information, see [emulator command-line arguments](emulator-windows-arguments.md).
 
 ### [Python](#tab/python)
 
 Test your Python application and database operations using [`pytest`](https://pypi.org/project/pytest/).
 
-1. TODO
+1. Validate that the unit test suite for your application works as expected.
 
     ```bash
-    
+    pip install -U pytest
+
+    pytest
     ```
 
-1. TODO
+1. Create a new workflow in your GitHub repository in a file named `.github/workflows/ci.yml`.
 
-1. TODO
+1. Add a job to your workflow to start the Azure Cosmos DB emulator using PowerShell and run your unit test suite.
 
     ```yaml
-    
+    name: Continuous Integration
+    on:
+      push:
+        branches:
+          - main
+    jobs:
+      unit_tests:
+        name: Run Python unit tests
+        runs-on: windows-latest
+        steps:
+          - name: Checkout (GitHub)
+            uses: actions/checkout@v3
+          - name: Start Azure Cosmos DB emulator
+            run: >-
+              Write-Host "Launching Cosmos DB Emulator"
+              Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
+              Start-CosmosDbEmulator
+          - name: Install test runner
+            run: pip install pytest
+          - name: Run Python tests
+            run: pytest
     ```
+
+    > [!NOTE]
+    > Start the emulator from the command line using various arguments or PowerShell commands. For more information, see [emulator command-line arguments](emulator-windows-arguments.md).
 
 ### [JavaScript / Node.js](#tab/javascript+nodejs)
 
 Use [`mocha`](https://www.npmjs.com/package/mocha) to test your Node.js application and its database modifications.
 
-1. TODO
+1. Validate that the unit test suite for your application works as expected.
 
     ```bash
-    
+    npm install --global mocha
+
+    mocha
     ```
 
-1. TODO
+1. Create a new workflow in your GitHub repository in a file named `.github/workflows/ci.yml`.
 
-1. TODO
+1. Add a job to your workflow to start the Azure Cosmos DB emulator using PowerShell and run your unit test suite.
 
     ```yaml
-    
+    name: Continuous Integration
+    on:
+      push:
+        branches:
+          - main
+    jobs:
+      unit_tests:
+        name: Run Node.js unit tests
+        runs-on: windows-latest
+        steps:
+          - name: Checkout (GitHub)
+            uses: actions/checkout@v3
+          - name: Start Azure Cosmos DB emulator
+            run: >-
+              Write-Host "Launching Cosmos DB Emulator"
+              Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
+              Start-CosmosDbEmulator
+          - name: Install test runner
+            run: npm install --global mocha
+          - name: Run Node.js tests
+            run: mocha
     ```
+
+    > [!NOTE]
+    > Start the emulator from the command line using various arguments or PowerShell commands. For more information, see [emulator command-line arguments](emulator-windows-arguments.md).
 
 ---
 
