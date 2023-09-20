@@ -136,9 +136,9 @@ Before configuring a Credential Set, you have to create and store secrets in the
     az acr cache delete -r MyRegistry -n MyRule
     ```
 
-3. Run[az acr credential set list][az-acr-credential-set-list] to list the credential sets in an Azure Container Registry. 
+3. Run[az acr credential set list][az-acr-credential-set-list] to list the credential in an Azure Container Registry. 
 
-    - For example, to list the credential sets for a given `MyRegistry` Azure Container Registry.
+    - For example, to list the credential for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
     az acr credential-set list -r MyRegistry
