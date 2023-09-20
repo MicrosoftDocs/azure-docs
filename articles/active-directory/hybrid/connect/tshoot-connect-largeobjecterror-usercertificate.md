@@ -71,7 +71,7 @@ Ensure no synchronization takes place while you are in the middle of implementin
 2. Disable scheduled synchronization by running cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
 > [!Note]
-> The preceding steps are only applicable to newer versions (1.1.xxx.x) of Microsoft Entra Connect with the built-in scheduler. If you are using older versions (1.0.xxx.x) of Microsoft Entra Connect that uses Windows Task Scheduler, or you are using your own custom scheduler (not common) to trigger periodic synchronization, you need to disable them accordingly.
+> The preceding steps are only applicable to newer versions (1.1.xxx.x) of Azure AD Connect with the built-in scheduler. If you are using older versions (1.0.xxx.x) of Azure AD Connect that uses Windows Task Scheduler, or you are using your own custom scheduler (not common) to trigger periodic synchronization, you need to disable them accordingly.
 
 1. Start the **Synchronization Service Manager** by going to START → Synchronization Service.
 
