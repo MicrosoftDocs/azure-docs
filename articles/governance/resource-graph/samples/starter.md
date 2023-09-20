@@ -657,9 +657,9 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 ---
 
-## <a name="alerts-severity"></a>List alerts ordered by severity: 
+## <a name="alerts-severity"></a>List alerts ordered by severity
 
-```azurecli
+```kusto
 alertsmanagementresources  
 | where type =~ 'microsoft.alertsmanagement/alerts'   
 | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
@@ -680,7 +680,7 @@ alertsmanagementresources
 
 ## <a name="alerts-severity-service-type"></a>List alerts ordered by severity, monitor service, and target resource type 
 
-```azurecli
+```kusto
 alertsmanagementresources  
 | where type =~ 'microsoft.alertsmanagement/alerts'   
 | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
@@ -694,7 +694,6 @@ TargetResource = tostring(properties.essentials.targetResourceName),
 TargetResourceType = tostring(properties.essentials.targetResourceName), id 
 | summarize AlertsCount = count() by Severity, MonitorService , TargetResourceType
 ```
-
 
 ## Next steps
 
