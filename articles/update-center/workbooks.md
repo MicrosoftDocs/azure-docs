@@ -2,7 +2,7 @@
 title: An overview of workbooks
 description: This article provides information on how workbooks provide a flexible canvas for data analysis and the creation of rich visual reports.
 ms.service: azure-update-manager
-ms.date: 01/16/2023
+ms.date: 09/18/2023
 ms.topic: conceptual
 author: SnehaSudhir 
 ms.author: sudhirsneha
@@ -12,7 +12,7 @@ ms.author: sudhirsneha
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-Workbooks help you to create visual reports that help in data analysis. This article describes the various features that workbooks offer in Azure Update Manager (preview).
+Workbooks help you to create visual reports that help in data analysis. This article describes the various features that workbooks offer in Azure Update Manager.
 
 ## Key benefits
 
@@ -32,7 +32,7 @@ The following four tabs help you organize workbook types.
 
    | Tab              | Description                                       |
    |------------------|---------------------------------------------------|
-   | All | Shows the top four items for workbooks, public templates, and my templates. Workbooks are sorted by modified date, so you see the most recent eight modified workbooks.|
+   | All | Shows the top four items for **Workbooks**, **Public Templates**, and **My Templates**. Workbooks are sorted by modified date, so you see the most recent eight modified workbooks.|
    | Workbooks | Shows the list of all the available workbooks that you created or are shared with you. |
    | Public Templates | Shows the list of all the available ready-to-use, get-started functional workbook templates published by Microsoft. Grouped by category. |
    | My Templates | Shows the list of all the available deployed workbook templates that you created or are shared with you. Grouped by category. |
@@ -41,10 +41,8 @@ The following four tabs help you organize workbook types.
 
   :::image type="content" source="./media/workbooks/quickstart-workbooks.png" alt-text="Screenshot that shows creating a new workbook by using Quick start.":::
 
-- On the **Recently modified** tile, you can view and edit the workbooks.
-
-- On the **Update Manager** tile, you can view the following summary.
-
+- On the **Azure Update Manager** tile, you can view the following summary.
+- 
   :::image type="content" source="./media/workbooks/workbooks-summary-inline.png" alt-text="Screenshot that shows a workbook summary." lightbox="./media/workbooks/workbooks-summary-expanded.png":::
  
    - **Machines overall status and configurations**: Provides the status of all machines in a specific subscription.
@@ -55,16 +53,16 @@ The following four tabs help you organize workbook types.
 
      :::image type="content" source="./media/workbooks/workbooks-machines-updates-status-inline.png" alt-text="Screenshot that shows a summary of machines that have no updates and assessments needed." lightbox="./media/workbooks/workbooks-machines-updates-status-expanded.png":::
       
-   - **Schedules/Maintenance configurations**: Provides a summary of schedules, maintenance configurations, and list of machines attached to the schedule. You can also access the maintenance configuration overview page from this section.
+   - **Schedules/Maintenance configurations**: Provides a summary of schedules, maintenance configurations, and a list of machines attached to the schedule. You can also access the maintenance configuration overview page from this section.
    
       :::image type="content" source="./media/workbooks/workbooks-schedules-maintenance-inline.png" alt-text="Screenshot that shows a summary of schedules and maintenance configurations." lightbox="./media/workbooks/workbooks-schedules-maintenance-expanded.png":::
 
    - **History of installation runs**: Provides a history of machines and maintenance runs.
 
-       :::image type="content" source="./media/workbooks/workbooks-history-installation-inline.png" alt-text="Screenshot that shows history of installation runs." lightbox="./media/workbooks/workbooks-history-installation-expanded.png":::
+       :::image type="content" source="./media/workbooks/workbooks-history-installation-inline.png" alt-text="Screenshot that shows a history of installation runs." lightbox="./media/workbooks/workbooks-history-installation-expanded.png":::
 
 For information on how to use the workbooks for customized reporting, see [Edit a workbook](manage-workbooks.md#edit-a-workbook).
 
 ## Next steps
 
- To learn about how to deploy updates to your machines to maintain security compliance, see [Deploy updates](deploy-updates.md).
+ To learn how to deploy updates to your machines to maintain security compliance, see [Deploy updates](deploy-updates.md).

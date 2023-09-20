@@ -73,11 +73,12 @@ To configure and test Azure AD single sign-on with TurboRater, you need to compl
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+In this section, you enable Azure AD single sign-on.
 
 To configure Azure AD single sign-on with TurboRater, take the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **TurboRater** application integration page, select **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **TurboRater** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on option](common/select-sso.png)
 
@@ -105,7 +106,7 @@ To configure Azure AD single sign-on with TurboRater, take the following steps:
        | Live  | `https://www.itcratingservices.com/webservices/imp/saml/login` |
 
     > [!NOTE]
-    > These values aren't real. Update these values with the actual identifier and reply URL. To get these values, contact the [TurboRater support team](https://www.getitc.com/support). You can also refer to the patterns shown in the **Basic SAML Configuration** pane in the Azure portal.
+    > These values aren't real. Update these values with the actual identifier and reply URL. To get these values, contact the [TurboRater support team](https://www.getitc.com/support). You can also refer to the patterns shown in the **Basic SAML Configuration** pane.
 
 1. On the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, select **Download** to download the **Federation Metadata XML** from the given options and save it on your computer.
 
@@ -121,37 +122,27 @@ To configure Azure AD single sign-on with TurboRater, take the following steps:
 
 ### Configure TurboRater single sign-on
 
-To configure single sign-on on the TurboRater side, you need to send the downloaded Federation Metadata XML and the appropriate copied URLs from the Azure portal to the [TurboRater support team](https://www.getitc.com/support). The TurboRater team will make sure the SAML SSO connection is set properly on both sides.
+To configure single sign-on on the TurboRater side, you need to send the downloaded Federation Metadata XML and the appropriate copied URLs to the [TurboRater support team](https://www.getitc.com/support). The TurboRater team will make sure the SAML SSO connection is set properly on both sides.
 
 ### Create an Azure AD test user
 
-In this section, you create a test user named Britta Simon in the Azure portal.
+In this section, you create a test user named Britta Simon.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**   > **Users** > **All users**.
-
-    ![The Users and "All users" options](common/users.png)
-
-1. At the top of the screen, select **+ New user**.
-
-    ![New user option](common/new-user.png)
-
-1. In the **User** pane, do the following steps:
-
-    ![The User pane](common/user-properties.png)
-
-    1. In the **Name** box, enter **BSimon**.
-  
-    1. In the **User name** box, enter **BSimon\@\<yourcompanydomain>.\<extension>**. For example, **BSimon\@contoso.com**.
-
-    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-
-    1. Select **Create**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
 In this section, you enable B. Simon to use Azure single sign-on by granting their access to TurboRater.
 
-1. In the Azure portal, select **Enterprise applications** > **All applications** > **TurboRater**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **TurboRater**.
 
     ![Enterprise applications pane](common/enterprise-applications.png)
 
