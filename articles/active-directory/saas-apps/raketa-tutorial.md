@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Raketa with Azure Active Directo
 
 * Control in Azure AD who has access to Raketa.
 * Enable your users to be automatically signed-in to Raketa with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -41,14 +41,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 To configure the integration of Raketa into Azure AD, you need to add Raketa from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service [1].
-
-    ![rkt_1](./media/raketa-tutorial/azure-active-directory.png)
-
-1. Navigate to **Enterprise Applications** [2] and then select **All Applications** [3].
-
-1. To add new application, select **New application** [4]. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 
     ![rkt_2](./media/raketa-tutorial/new-app.png)
 
@@ -73,9 +67,10 @@ To configure and test Azure AD SSO with Raketa, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
-1. In the Azure portal, on the **Raketa** application integration page, find the **Manage** section and select **single sign-on** [9].
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Raketa** application integration page, find the **Manage** section and select **single sign-on** [9].
 
     ![rkt_4](./media/raketa-tutorial/integration.png)
 
@@ -94,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     ![rkt_6](./media/raketa-tutorial/values.png)
 
 	> [!NOTE]
-	> The Reply URL value is not real. Update the value with the actual Reply URL. Contact [Raketa Client support team](mailto:help@raketa.travel) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Reply URL value is not real. Update the value with the actual Reply URL. Contact [Raketa Client support team](mailto:help@raketa.travel) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** [15] to download the certificate and save it on your computer.
 
@@ -110,33 +105,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory** [1], select **Users** [19], and then select **All users** [20].
-
-1. Select **New user** [21] at the top of the screen.
-
-    ![rkt_8](./media/raketa-tutorial/new-user.png)
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-
-   1. In the **User name** field [22], enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-
-   1. In the **Name** field [23], enter `B.Simon`.
-
-   1. Select the **Show password** check box [25], and then write down the value that's displayed in the **Password** box [24].
-
-   1. Click **Create** [26]. 
-
-    ![rkt_9](./media/raketa-tutorial/create-user.png)
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Raketa.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Raketa.
 
-1. In the Azure portal, select **Enterprise Applications** [2], and then select **All applications** [3].
-
-1. In the applications list, select **Raketa** [27].  
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Raketa** [27].  
 
     ![rkt_10](./media/raketa-tutorial/add-raketa.png)
 
@@ -158,7 +144,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Raketa SSO
 
-To configure single sign-on on **Raketa** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Raketa support team](mailto:help@raketa.travel). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Raketa** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the application configuration to [Raketa support team](mailto:help@raketa.travel). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Raketa test user
 
@@ -168,7 +154,7 @@ In this section, you create a user called B.Simon in Raketa. Work with [Raketa s
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Raketa Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Raketa Sign-on URL where you can initiate the login flow. 
 
 * Go to Raketa Sign-on URL directly and initiate the login flow from there.
 

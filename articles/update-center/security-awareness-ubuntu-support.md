@@ -4,7 +4,7 @@ description: Guidance on security awareness and Ubuntu Pro support in Azure Upda
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 08/24/2023
+ms.date: 09/18/2023
 ms.author: sudhirsneha
 ---
 

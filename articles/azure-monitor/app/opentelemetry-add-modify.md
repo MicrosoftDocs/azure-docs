@@ -206,13 +206,20 @@ To add a community library, use the `ConfigureOpenTelemetryMeterProvider` or `Co
 The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect extra metrics.
 
 ```csharp
+// Create a new ASP.NET Core web application builder.
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure the OpenTelemetry meter provider to add runtime instrumentation.
 builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddRuntimeInstrumentation());
+
+// Add the Azure Monitor telemetry service to the application.
+// This service will collect and send telemetry data to Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
+// Build the ASP.NET Core web application.
 var app = builder.Build();
 
+// Start the ASP.NET Core web application.
 app.Run();
 ```
 
@@ -221,6 +228,8 @@ app.Run();
 The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect extra metrics.
 
 ```csharp
+// Create a new OpenTelemetry meter provider and add runtime instrumentation and the Azure Monitor metric exporter.
+// It is important to keep the MetricsProvider instance active throughout the process lifetime.
 var metricsProvider = Sdk.CreateMeterProviderBuilder()
     .AddRuntimeInstrumentation()
     .AddAzureMonitorMetricExporter();
@@ -355,23 +364,36 @@ describes the instruments and provides examples of when you might use each one.
 Application startup must subscribe to a Meter by name.
 
 ```csharp
+// Create a new ASP.NET Core web application builder.
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure the OpenTelemetry meter provider to add a meter named "OTel.AzureMonitor.Demo".
 builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
+
+// Add the Azure Monitor telemetry service to the application.
+// This service will collect and send telemetry data to Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
+// Build the ASP.NET Core web application.
 var app = builder.Build();
 
+// Start the ASP.NET Core web application.
 app.Run();
 ```
 
 The `Meter` must be initialized using that same name.
 
 ```csharp
+// Create a new meter named "OTel.AzureMonitor.Demo".
 var meter = new Meter("OTel.AzureMonitor.Demo");
+
+// Create a new histogram metric named "FruitSalePrice".
 Histogram<long> myFruitSalePrice = meter.CreateHistogram<long>("FruitSalePrice");
 
+// Create a new Random object.
 var rand = new Random();
+
+// Record a few random sale prices for apples and lemons, with different colors.
 myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "red"));
 myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
 myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
@@ -385,18 +407,35 @@ myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "
 ```csharp
 public class Program
 {
+    // Create a static readonly Meter object named "OTel.AzureMonitor.Demo".
+    // This meter will be used to track metrics about the application.
     private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
 
     public static void Main()
     {
+        // Create a new MeterProvider object using the OpenTelemetry SDK.
+        // The MeterProvider object is responsible for managing meters and sending
+        // metric data to exporters.
+        // It is important to keep the MetricsProvider instance active
+        // throughout the process lifetime.
+        //
+        // The MeterProviderBuilder is configured to add a meter named
+        // "OTel.AzureMonitor.Demo" and an Azure Monitor metric exporter.
         using var meterProvider = Sdk.CreateMeterProviderBuilder()
             .AddMeter("OTel.AzureMonitor.Demo")
             .AddAzureMonitorMetricExporter()
             .Build();
 
+        // Create a new Histogram metric named "FruitSalePrice".
+        // This metric will track the distribution of fruit sale prices.
         Histogram<long> myFruitSalePrice = meter.CreateHistogram<long>("FruitSalePrice");
 
+        // Create a new Random object. This object will be used to generate random sale prices.
         var rand = new Random();
+        
+        // Record a few random sale prices for apples and lemons, with different colors.
+        // Each record includes a timestamp, a value, and a set of attributes.
+        // The attributes can be used to filter and analyze the metric data.
         myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "red"));
         myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
         myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
@@ -404,6 +443,9 @@ public class Program
         myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "red"));
         myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
 
+        // Display a message to the user and wait for them to press Enter.
+        // This allows the user to see the message and the console before the
+        // application exits.
         System.Console.WriteLine("Press Enter key to exit.");
         System.Console.ReadLine();
     }
@@ -471,22 +513,33 @@ input()
 Application startup must subscribe to a Meter by name.
 
 ```csharp
+// Create a new ASP.NET Core web application builder.
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure the OpenTelemetry meter provider to add a meter named "OTel.AzureMonitor.Demo".
 builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
+
+// Add the Azure Monitor telemetry service to the application.
+// This service will collect and send telemetry data to Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
+// Build the ASP.NET Core web application.
 var app = builder.Build();
 
+// Start the ASP.NET Core web application.
 app.Run();
 ```
 
 The `Meter` must be initialized using that same name.
 
 ```csharp
+// Create a new meter named "OTel.AzureMonitor.Demo".
 var meter = new Meter("OTel.AzureMonitor.Demo");
+
+// Create a new counter metric named "MyFruitCounter".
 Counter<long> myFruitCounter = meter.CreateCounter<long>("MyFruitCounter");
 
+// Record the number of fruits sold, grouped by name and color.
 myFruitCounter.Add(1, new("name", "apple"), new("color", "red"));
 myFruitCounter.Add(2, new("name", "lemon"), new("color", "yellow"));
 myFruitCounter.Add(1, new("name", "lemon"), new("color", "yellow"));
@@ -500,17 +553,30 @@ myFruitCounter.Add(4, new("name", "lemon"), new("color", "yellow"));
 ```csharp
 public class Program
 {
+    // Create a static readonly Meter object named "OTel.AzureMonitor.Demo".
+    // This meter will be used to track metrics about the application.
     private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
 
     public static void Main()
     {
+        // Create a new MeterProvider object using the OpenTelemetry SDK.
+        // The MeterProvider object is responsible for managing meters and sending
+        // metric data to exporters.
+        // It is important to keep the MetricsProvider instance active
+        // throughout the process lifetime.
+        //
+        // The MeterProviderBuilder is configured to add a meter named
+        // "OTel.AzureMonitor.Demo" and an Azure Monitor metric exporter.
         using var meterProvider = Sdk.CreateMeterProviderBuilder()
             .AddMeter("OTel.AzureMonitor.Demo")
             .AddAzureMonitorMetricExporter()
             .Build();
 
+        // Create a new counter metric named "MyFruitCounter".
+        // This metric will track the number of fruits sold.
         Counter<long> myFruitCounter = meter.CreateCounter<long>("MyFruitCounter");
 
+        // Record the number of fruits sold, grouped by name and color.
         myFruitCounter.Add(1, new("name", "apple"), new("color", "red"));
         myFruitCounter.Add(2, new("name", "lemon"), new("color", "yellow"));
         myFruitCounter.Add(1, new("name", "lemon"), new("color", "yellow"));
@@ -518,6 +584,9 @@ public class Program
         myFruitCounter.Add(5, new("name", "apple"), new("color", "red"));
         myFruitCounter.Add(4, new("name", "lemon"), new("color", "yellow"));
 
+        // Display a message to the user and wait for them to press Enter.
+        // This allows the user to see the message and the console before the
+        // application exits.
         System.Console.WriteLine("Press Enter key to exit.");
         System.Console.ReadLine();
     }
@@ -594,28 +663,42 @@ input()
 Application startup must subscribe to a Meter by name.
 
 ```csharp
+// Create a new ASP.NET Core web application builder.
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure the OpenTelemetry meter provider to add a meter named "OTel.AzureMonitor.Demo".
 builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
+
+// Add the Azure Monitor telemetry service to the application.
+// This service will collect and send telemetry data to Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
+// Build the ASP.NET Core web application.
 var app = builder.Build();
 
+// Start the ASP.NET Core web application.
 app.Run();
 ```
 
 The `Meter` must be initialized using that same name.
 
 ```csharp
+// Get the current process.
 var process = Process.GetCurrentProcess();
 
+// Create a new meter named "OTel.AzureMonitor.Demo".
 var meter = new Meter("OTel.AzureMonitor.Demo");
+
+// Create a new observable gauge metric named "Thread.State".
+// This metric will track the state of each thread in the current process.
 ObservableGauge<int> myObservableGauge = meter.CreateObservableGauge("Thread.State", () => GetThreadState(process));
 
 private static IEnumerable<Measurement<int>> GetThreadState(Process process)
 {
+    // Iterate over all threads in the current process.
     foreach (ProcessThread thread in process.Threads)
     {
+        // Create a measurement for each thread, including the thread state, process ID, and thread ID.
         yield return new((int)thread.ThreadState, new("ProcessId", process.Id), new("ThreadId", thread.Id));
     }
 }
@@ -626,27 +709,45 @@ private static IEnumerable<Measurement<int>> GetThreadState(Process process)
 ```csharp
 public class Program
 {
+    // Create a static readonly Meter object named "OTel.AzureMonitor.Demo".
+    // This meter will be used to track metrics about the application.
     private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
 
     public static void Main()
     {
+        // Create a new MeterProvider object using the OpenTelemetry SDK.
+        // The MeterProvider object is responsible for managing meters and sending
+        // metric data to exporters. 
+        // It is important to keep the MetricsProvider instance active
+        // throughout the process lifetime.
+        //
+        // The MeterProviderBuilder is configured to add a meter named
+        // "OTel.AzureMonitor.Demo" and an Azure Monitor metric exporter.
         using var meterProvider = Sdk.CreateMeterProviderBuilder()
             .AddMeter("OTel.AzureMonitor.Demo")
             .AddAzureMonitorMetricExporter()
             .Build();
 
+        // Get the current process.
         var process = Process.GetCurrentProcess();
         
+        // Create a new observable gauge metric named "Thread.State".
+        // This metric will track the state of each thread in the current process.
         ObservableGauge<int> myObservableGauge = meter.CreateObservableGauge("Thread.State", () => GetThreadState(process));
 
+        // Display a message to the user and wait for them to press Enter.
+        // This allows the user to see the message and the console before the
+        // application exits.
         System.Console.WriteLine("Press Enter key to exit.");
         System.Console.ReadLine();
     }
     
     private static IEnumerable<Measurement<int>> GetThreadState(Process process)
     {
+        // Iterate over all threads in the current process.
         foreach (ProcessThread thread in process.Threads)
         {
+            // Create a measurement for each thread, including the thread state, process ID, and thread ID.
             yield return new((int)thread.ThreadState, new("ProcessId", process.Id), new("ThreadId", thread.Id));
         }
     }
@@ -735,12 +836,15 @@ to draw attention in relevant experiences including the failures section and end
 
 - To log an Exception using an Activity:
   ```csharp
+  // Start a new activity named "ExceptionExample".
   using (var activity = activitySource.StartActivity("ExceptionExample"))
   {
+      // Try to execute some code.
       try
       {
           throw new Exception("Test exception");
       }
+      // If an exception is thrown, catch it and set the activity status to "Error".
       catch (Exception ex)
       {
           activity?.SetStatus(ActivityStatusCode.Error);
@@ -750,14 +854,18 @@ to draw attention in relevant experiences including the failures section and end
   ```
 - To log an Exception using `ILogger`:
   ```csharp
+  // Create a logger using the logger factory. The logger category name is used to filter and route log messages.
   var logger = loggerFactory.CreateLogger(logCategoryName);
 
+  // Try to execute some code.
   try
   {
       throw new Exception("Test Exception");
   }
   catch (Exception ex)
   {
+      // Log an error message with the exception. The log level is set to "Error" and the event ID is set to 0.
+      // The log message includes a template and a parameter. The template will be replaced with the value of the parameter when the log message is written.
       logger.Log(
           logLevel: LogLevel.Error,
           eventId: 0,
@@ -771,12 +879,15 @@ to draw attention in relevant experiences including the failures section and end
 
 - To log an Exception using an Activity:
   ```csharp
+  // Start a new activity named "ExceptionExample".
   using (var activity = activitySource.StartActivity("ExceptionExample"))
   {
+      // Try to execute some code.
       try
       {
           throw new Exception("Test exception");
       }
+      // If an exception is thrown, catch it and set the activity status to "Error".
       catch (Exception ex)
       {
           activity?.SetStatus(ActivityStatusCode.Error);
@@ -786,14 +897,18 @@ to draw attention in relevant experiences including the failures section and end
   ```
 - To log an Exception using `ILogger`:
   ```csharp
+  // Create a logger using the logger factory. The logger category name is used to filter and route log messages.
   var logger = loggerFactory.CreateLogger("ExceptionExample");
 
   try
   {
+      // Try to execute some code.
       throw new Exception("Test Exception");
   }
   catch (Exception ex)
   {
+      // Log an error message with the exception. The log level is set to "Error" and the event ID is set to 0.
+      // The log message includes a template and a parameter. The template will be replaced with the value of the parameter when the log message is written.
       logger.Log(
           logLevel: LogLevel.Error,
           eventId: 0,
@@ -896,25 +1011,35 @@ You may want to add a custom span in two scenarios. First, when there's a depend
 
 
 ```csharp
+// Define an activity source named "ActivitySourceName". This activity source will be used to create activities for all requests to the application.
 internal static readonly ActivitySource activitySource = new("ActivitySourceName");
 
+// Create an ASP.NET Core application builder.
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure the OpenTelemetry tracer provider to add a source named "ActivitySourceName". This will ensure that all activities created by the activity source are traced.
 builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddSource("ActivitySourceName"));
+
+// Add the Azure Monitor telemetry service to the application. This service will collect and send telemetry data to Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
+// Build the ASP.NET Core application.
 var app = builder.Build();
 
+// Map a GET request to the root path ("/") to the specified action.
 app.MapGet("/", () =>
 {
+    // Start a new activity named "CustomActivity". This activity will be traced and the trace data will be sent to Azure Monitor.
     using (var activity = activitySource.StartActivity("CustomActivity"))
     {
         // your code here
     }
 
+    // Return a response message.
     return $"Hello World!";
 });
 
+// Start the ASP.NET Core application.
 app.Run();
 ```
 
@@ -928,13 +1053,17 @@ app.Run();
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. You create `ActivitySource` directly by using its constructor instead of by using `TracerProvider`. Each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) class must be explicitly connected to `TracerProvider` by using `AddSource()`. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
 ```csharp
+// Create an OpenTelemetry tracer provider builder.
+// It is important to keep the TracerProvider instance active throughout the process lifetime.
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
         .AddSource("ActivitySourceName")
         .AddAzureMonitorTraceExporter()
         .Build();
 
+// Create an activity source named "ActivitySourceName".
 var activitySource = new ActivitySource("ActivitySourceName");
 
+// Start a new activity named "CustomActivity". This activity will be traced and the trace data will be sent to Azure Monitor.
 using (var activity = activitySource.StartActivity("CustomActivity"))
 {
     // your code here
@@ -1279,13 +1408,19 @@ To add span attributes, use either of the following two ways:
 > Add the processor shown here *before* adding Azure Monitor.
 
 ```csharp
+// Create an ASP.NET Core application builder.
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure the OpenTelemetry tracer provider to add a new processor named ActivityEnrichingProcessor.
 builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddProcessor(new ActivityEnrichingProcessor()));
+
+// Add the Azure Monitor telemetry service to the application. This service will collect and send telemetry data to Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
+// Build the ASP.NET Core application.
 var app = builder.Build();
 
+// Start the ASP.NET Core application.
 app.Run();
 ```
 
@@ -1325,10 +1460,13 @@ To add span attributes, use either of the following two ways:
 > Add the processor shown here *before* the Azure Monitor Exporter.
 
 ```csharp
+// Create an OpenTelemetry tracer provider builder.
+// It is important to keep the TracerProvider instance active throughout the process lifetime.
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-        .AddSource("OTel.AzureMonitor.Demo")
-        .AddProcessor(new ActivityEnrichingProcessor())
-        .AddAzureMonitorTraceExporter()
+        // Add a source named "OTel.AzureMonitor.Demo".
+        .AddSource("OTel.AzureMonitor.Demo") // Add a new processor named ActivityEnrichingProcessor.
+        .AddProcessor(new ActivityEnrichingProcessor()) // Add the Azure Monitor trace exporter.
+        .AddAzureMonitorTraceExporter() // Add the Azure Monitor trace exporter.
         .Build();
 ```
 
@@ -1337,10 +1475,13 @@ Add `ActivityEnrichingProcessor.cs` to your project with the following code:
 ```csharp
 public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 {
+    // The OnEnd method is called when an activity is finished. This is the ideal place to enrich the activity with additional data.
     public override void OnEnd(Activity activity)
     {
+        // Update the activity's display name.
         // The updated activity will be available to all processors which are called after this processor.
         activity.DisplayName = "Updated-" + activity.DisplayName;
+        // Set custom tags on the activity.
         activity.SetTag("CustomDimension1", "Value1");
         activity.SetTag("CustomDimension2", "Value2");
     }
@@ -1444,6 +1585,7 @@ You can populate the _client_IP_ field for requests by setting the `http.client_
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code in `ActivityEnrichingProcessor.cs`:
 
 ```C#
+// Add the client IP address to the activity as a tag.
 // only applicable in case of activity.Kind == Server
 activity.SetTag("http.client_ip", "<IP Address>");
 ```
@@ -1453,6 +1595,7 @@ activity.SetTag("http.client_ip", "<IP Address>");
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code in `ActivityEnrichingProcessor.cs`:
 
 ```C#
+// Add the client IP address to the activity as a tag.
 // only applicable in case of activity.Kind == Server
 activity.SetTag("http.client_ip", "<IP Address>");
 ```
@@ -1500,6 +1643,7 @@ You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by u
 Use the add [custom property example](#add-a-custom-property-to-a-span).
 
 ```csharp
+// Add the user ID to the activity as a tag, but only if the activity is not null.
 activity?.SetTag("enduser.id", "<User Id>");
 ```
 
@@ -1508,6 +1652,7 @@ activity?.SetTag("enduser.id", "<User Id>");
 Use the add [custom property example](#add-a-custom-property-to-a-span).
 
 ```csharp
+// Add the user ID to the activity as a tag, but only if the activity is not null.
 activity?.SetTag("enduser.id", "<User Id>");
 ```
 
@@ -1629,14 +1774,20 @@ You might use the following ways to filter out telemetry before it leaves your a
     > Add the processor shown here *before* adding Azure Monitor.
 
     ```csharp
+    // Create an ASP.NET Core application builder.
     var builder = WebApplication.CreateBuilder(args);
 
+    // Configure the OpenTelemetry tracer provider to add a new processor named ActivityFilteringProcessor.
     builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddProcessor(new ActivityFilteringProcessor()));
+    // Configure the OpenTelemetry tracer provider to add a new source named "ActivitySourceName".
     builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddSource("ActivitySourceName"));
+    // Add the Azure Monitor telemetry service to the application. This service will collect and send telemetry data to Azure Monitor.
     builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
+    // Build the ASP.NET Core application.
     var app = builder.Build();
 
+    // Start the ASP.NET Core application.
     app.Run();
     ```
     
@@ -1645,6 +1796,7 @@ You might use the following ways to filter out telemetry before it leaves your a
     ```csharp
     public class ActivityFilteringProcessor : BaseProcessor<Activity>
     {
+        // The OnStart method is called when an activity is started. This is the ideal place to filter activities.
         public override void OnStart(Activity activity)
         {
             // prevents all exporters from exporting internal activities
@@ -1668,10 +1820,12 @@ You might use the following ways to filter out telemetry before it leaves your a
 1. Use a custom processor:
     
     ```csharp
+    // Create an OpenTelemetry tracer provider builder.
+    // It is important to keep the TracerProvider instance active throughout the process lifetime.
     using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-            .AddSource("OTel.AzureMonitor.Demo")
-            .AddProcessor(new ActivityFilteringProcessor())
-            .AddAzureMonitorTraceExporter()
+            .AddSource("OTel.AzureMonitor.Demo") // Add a source named "OTel.AzureMonitor.Demo".
+            .AddProcessor(new ActivityFilteringProcessor()) // Add a new processor named ActivityFilteringProcessor.
+            .AddAzureMonitorTraceExporter() // Add the Azure Monitor trace exporter.
             .Build();
     ```
     
@@ -1680,6 +1834,7 @@ You might use the following ways to filter out telemetry before it leaves your a
     ```csharp
     public class ActivityFilteringProcessor : BaseProcessor<Activity>
     {
+        // The OnStart method is called when an activity is started. This is the ideal place to filter activities.
         public override void OnStart(Activity activity)
         {
             // prevents all exporters from exporting internal activities
@@ -1830,8 +1985,11 @@ You might want to get the trace ID or span ID. If you have logs sent to a destin
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
 ```csharp
+// Get the current activity.
 Activity activity = Activity.Current;
+// Get the trace ID of the activity.
 string traceId = activity?.TraceId.ToHexString();
+// Get the span ID of the activity.
 string spanId = activity?.SpanId.ToHexString();
 ```
 
@@ -1841,8 +1999,11 @@ string spanId = activity?.SpanId.ToHexString();
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
 ```csharp
+// Get the current activity.
 Activity activity = Activity.Current;
+// Get the trace ID of the activity.
 string traceId = activity?.TraceId.ToHexString();
+// Get the span ID of the activity.
 string spanId = activity?.SpanId.ToHexString();
 ```
 

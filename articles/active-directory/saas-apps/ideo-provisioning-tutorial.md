@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 Before configuring IDEO for automatic user provisioning with Azure AD, you will need to retrieve some provisioning information from IDEO.
 
-* For **Secret Token** contact IDEO support team at productsupport@ideo.com. This value will be entered in the **Secret Token** field in the Provisioning tab of your IDEO application in the Azure portal. 
+* For **Secret Token** contact IDEO support team at productsupport@ideo.com. This value will be entered in the **Secret Token** field in the Provisioning tab of your IDEO application. 
 
 ## Step 3. Add IDEO from the Azure AD application gallery
 
@@ -65,11 +65,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for IDEO in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **IDEO**.
+1. In the applications list, select **IDEO**.
 
 	![The IDEO link in the Applications list](common/all-applications.png)
 
