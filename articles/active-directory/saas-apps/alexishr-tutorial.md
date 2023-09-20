@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate AlexisHR with Azure Active Direc
 
 * Control in Azure AD who has access to AlexisHR.
 * Enable your users to be automatically signed-in to AlexisHR with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ To configure and test Azure AD SSO with AlexisHR, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **AlexisHR** > **Single sign-on**.
@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://auth.alexishr.com/login/callback?connection=<YOUR_CONNECTION_NAME>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [AlexisHR Client support team](mailto:support@alexishr.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [AlexisHR Client support team](mailto:support@alexishr.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. AlexisHR application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -101,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -115,7 +115,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to AlexisHR.
+In this section, you'll enable B.Simon to use single sign-on by granting access to AlexisHR.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **AlexisHR**.
@@ -135,11 +135,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot shows the Account Settings.](./media/alexishr-tutorial/account.png "Settings")
 
-    1. In the **Identity provider SSO URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    1. In the **Identity provider SSO URL** textbox, paste the **Login URL** value which you copied previously.
 
-    1. In the **Identity provider sign out URL** textbox,   paste the **Logout URL** value which you have copied from the Azure portal.
+    1. In the **Identity provider sign out URL** textbox,   paste the **Logout URL** value which you copied previously.
 
-    1. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Public x509 certificate** textbox.
+    1. Open the downloaded **Certificate (Base64)** into Notepad and paste the content into the **Public x509 certificate** textbox.
 
     1. Click **Create identity provider**.
 
@@ -147,9 +147,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot shows the SSO Settings.](./media/alexishr-tutorial/certificate.png "SSO configuration")
 
-    1. Copy **Audience URI** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
+    1. Copy **Audience URI** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section.
 
-    1. Copy **Assertion Consumer Service URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+    1. Copy **Assertion Consumer Service URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section.
 
 ### Create AlexisHR test user
 
@@ -159,7 +159,7 @@ In this section, you create a user called Britta Simon in AlexisHR. Work with [
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the AlexisHR for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the AlexisHR for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the AlexisHR tile in the My Apps, you should be automatically signed in to the AlexisHR for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

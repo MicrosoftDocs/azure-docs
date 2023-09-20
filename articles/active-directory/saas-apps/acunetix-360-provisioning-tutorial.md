@@ -45,10 +45,10 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Log in to [Acunetix 360 admin console](https://online.acunetix360.com/). 
 1. Click on profile logo and navigate to **API Settings**.
 1. Enter your **Current Password** and then click on **Submit**.
-1. Copy and save the **Token**.This value will be entered in the **Secret Token** field in the Provisioning tab of your Acunetix 360 application in the Azure portal. 
+1. Copy and save the **Token**.This value will be entered in the **Secret Token** field in the Provisioning tab of your Acunetix 360 application. 
    >[!NOTE]
    >Click on **Reset API Token** in order to reset the Token.
-1. And `https://online.acunetix360.com/scim/v2` will be entered in the **Tenant Url** field in the Provisioning tab of your Acunetix 360 application in the Azure portal.
+1. And `https://online.acunetix360.com/scim/v2` will be entered in the **Tenant Url** field in the Provisioning tab of your Acunetix 360 application.
 
 
 

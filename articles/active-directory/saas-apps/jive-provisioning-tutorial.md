@@ -49,7 +49,8 @@ This section guides you through connecting your Azure AD to Jive's user account 
 The objective of this section is to outline how to enable user provisioning of Active Directory user accounts to Jive.
 As part of this procedure, you are required to provide a user security token you need to request from Jive.com.
 
-1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications** section.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. If you have already configured Jive for single sign-on, search for your instance of Jive using the search field. Otherwise, select **Add** and search for **Jive** in the application gallery. Select Jive from the search results, and add it to your list of applications.
 
@@ -71,7 +72,7 @@ As part of this procedure, you are required to provide a user security token you
       > The Jive tenant URL is URL that is used by your organization to log in to Jive.  
       > Typically, the URL has the following format: **www.\<organization\>.jive.com**.          
 
-1. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Jive app.
+1. Select **Test Connection** to ensure Azure AD can connect to your Jive app.
 
 1. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
 

@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate TrackVia with Azure Active Direc
 
 * Control in Azure AD who has access to TrackVia.
 * Enable your users to be automatically signed-in to TrackVia with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ To configure and test Azure AD SSO with TrackVia, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **TrackVia** > **Single sign-on**.
@@ -84,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://companyname.trackvia.com`
 
 	> [!NOTE]
-	> The Sign-on URL value is not real. Update the value with the actual Sign-on URL. Contact [TrackVia Client support team](mailto:support@trackvia.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Sign-on URL value is not real. Update the value with the actual Sign-on URL. Contact [TrackVia Client support team](mailto:support@trackvia.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -96,7 +96,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user 
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -110,7 +110,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to TrackVia.
+In this section, you'll enable B.Simon to use single sign-on by granting access to TrackVia.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **TrackVia**.
@@ -128,9 +128,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![TrackVia configuration](./media/trackvia-tutorial/settings.png)
 
-	a. In the **Identity Provider Entity ID** textbox, paste **Azure AD Identifier** value, which you have copied from the Azure portal.
+	a. In the **Identity Provider Entity ID** textbox, paste **Azure AD Identifier** value, which you copied previously.
 
-	b. Select the **Choose File** to upload the metadata file that you downloaded from the Azure portal.
+	b. Select the **Choose File** to upload the metadata file that you downloaded.
 
 	c. Click **Save**.
 
@@ -147,13 +147,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to TrackVia Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to TrackVia Sign on URL where you can initiate the login flow.  
 
 * Go to TrackVia Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the TrackVia for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the TrackVia for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the TrackVia tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the TrackVia for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

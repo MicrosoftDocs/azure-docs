@@ -42,7 +42,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Iris Intranet to support provisioning with Azure AD
 
-To configure Iris Intranet to support provisioning with Azure AD one needs to get the **Tenant URL** and **Secret Token** by dropping a mail to [Iris Intranet support team](mailto:support@triptic.nl).These values will be entered in the **Secret Token** and **Tenant URL** field in the Provisioning tab of your Iris Intranet's application in the Azure portal.
+To configure Iris Intranet to support provisioning with Azure AD one needs to get the **Tenant URL** and **Secret Token** by dropping a mail to [Iris Intranet support team](mailto:support@triptic.nl).These values will be entered in the **Secret Token** and **Tenant URL** field in the Provisioning tab of your Iris Intranet's application.
 
 ## Step 3. Add Iris Intranet from the Azure AD application gallery
 
