@@ -1,7 +1,7 @@
 ---
 title: Create an indexer
 titleSuffix: Azure Cognitive Search
-description: Set properties on an indexer to determine data origin and destinations. You can set parameters to modify runtime behaviors.
+description: Configure an indexer to automate data import and indexing from Azure data sources into a search index in Azure Cognitive Search.
 
 manager: nitinme
 author: HeidiSteen
@@ -10,26 +10,36 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: 
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 09/20/2023
 ---
 
-# Creating indexers in Azure Cognitive Search
+# Create an indexer in Azure Cognitive Search
 
-An indexer is a named object on a search service that automates an indexing workload by connecting to an external data source, retrieving and processing data, and then passing the data on to the search engine for indexing. Using indexers significantly reduces the quantity and complexity of the code you need to write. 
+Use an indexer to automate data import and indexing in Azure Cognitive Search. An indexer is a named object on a search service that connects to an external Azure data source, reads data, and passes it to a search engine for indexing. Using indexers significantly reduces the quantity and complexity of the code you need to write if you're using a supported data source. 
 
 Indexers support two workflows:
 
-+ Text-based indexing, extracting strings and metadata from textual content for full text search scenarios.
++ Text-based indexing, extract strings and metadata from textual content for full text search scenarios.
 
 + Skills-based indexing, using built-in or custom skills that add integrated machine learning for analysis over images and large undifferentiated content, extracting or inferring text and structure. Skill-based indexing enables search over content that isn't otherwise easily full text searchable. To learn more, see [AI enrichment in Cognitive Search](cognitive-search-concept-intro.md).
 
 This article focuses on the basic steps of creating an indexer. Depending on the data source and your workflow, more configuration might be necessary.
 
-## Indexer definitions
+## Prerequisites
 
-When you create an indexer, the definition will adhere to one of two patterns: text-based indexing or AI enrichment with skills. The patterns are the same except that skills-based indexing has more definitions.
++ A [supported data source](search-indexer-overview.md#supported-data-sources) that contains the content you want to ingest.
 
-### Indexer definition for text-based indexing
++ An [indexer data source](#prepare-a-data-source) that sets up a connection to external data.
+
++ A [search index](search-how-to-create-search-index.md) that can accept incoming data.
+
++ Be under the [maximum limits](search-limits-quotas-capacity.md#indexer-limits) for your service tier. The Free tier allows three objects of each type and 1-3 minutes of indexer processing, or 3-10 if there's a skillset.
+
+## Indexer definition at a glance
+
+When you create an indexer, the definition is one of two patterns: text-based indexing or AI enrichment with skills. The patterns are the same, except that skills-based indexing has more definitions.
+
+### Indexer for text-based indexing
 
 Text-based indexing for full text search is the primary use case for indexers, and for this workflow, an indexer will look like this example.
 
@@ -69,7 +79,7 @@ By default, an indexer runs immediately when you create it on the search service
 
 You can also [specify a schedule](search-howto-schedule-indexers.md) or set an [encryption key](search-security-manage-encryption-keys.md) for supplemental encryption of the indexer definition.
 
-### Indexer definition for skills-based indexing and AI enrichment
+### Indexer for skills-based indexing and AI enrichment
 
 Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of the above properties and parameters for apply, but the following extra properties are specific to AI enrichment: "skillSetName", "cache", "outputFieldMappings". 
 
@@ -90,16 +100,6 @@ Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of t
 ```
 
 AI enrichment is its own subject area and is out of scope for this article. For more information, start with [AI enrichment](cognitive-search-concept-intro.md), [Skillsets in Azure Cognitive Search](cognitive-search-working-with-skillsets.md), [Create a skillset](cognitive-search-defining-skillset.md), [Map enrichment output fields](cognitive-search-output-field-mapping.md), and [Enable caching for AI enrichment](search-howto-incremental-index.md).
-
-## Prerequisites
-
-+ Identify a [supported data source](search-indexer-overview.md#supported-data-sources) that contains the content you want to ingest.
-
-+ [Create an indexer data source](#prepare-a-data-source) that sets up a connection to external data.
-
-+ [Create a search index](search-how-to-create-search-index.md) that can accept incoming data.
-
-+ Be under the [maximum limits](search-limits-quotas-capacity.md#indexer-limits) for your service tier. The Free tier allows three objects of each type and 1-3 minutes of indexer processing or 3-10 if there's a skillset.
 
 ## Prepare external data
 
@@ -132,7 +132,7 @@ Indexers require a data source that specifies the type, container, and connectio
    + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
    + [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
-1. If the data source is a database, such as Azure SQL or Cosmos DB, enable change tracking. The above links for the various data sources explain which change tracking methods are supported by indexers.
+1. If the data source is a database, such as Azure SQL or Cosmos DB, enable change tracking. Azure Storage has built-in change tracking through the `LastModified` property on every blob, file, and table. The above links for the various data sources explain which change tracking methods are supported by indexers.
 
 ## Prepare an index
 
