@@ -40,7 +40,7 @@ The status in the top right indicates the overall health of the managed domain. 
 | Running | <img src= "./media/Active Directory Domain Services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | The managed domain is running correctly and doesn't have any critical or warning alerts. The domain may have informational alerts. |
 | Needs attention (warning) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | There are no critical alerts on the managed domain, but there are one or more warning alerts that should be addressed. |
 | Needs attention (critical) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | There are one or more critical alerts on the managed domain that must be addressed. You may also have warning and / or informational alerts. |
-| Deploying | <img src= "./media/Active Directory Domain Services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | The managed domain is being deployed. |
+| Deploying | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | The managed domain is being deployed. |
 
 ## Understand monitors and alerts
 
