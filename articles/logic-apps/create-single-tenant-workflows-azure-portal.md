@@ -338,19 +338,30 @@ In this example, the workflow runs when the Request trigger receives an inbound 
 
       ![Screenshot that shows Outlook email as described in the example](./media/create-single-tenant-workflows-azure-portal/workflow-app-result-email.png)
 
+## Best practices and recommendations
+
+For optimal designer responsiveness and performance, review and follow these guidelines:
+
+- Use no more than 50 actions per workflow. Exceeding this number of actions raises the possibility for slower designer performance. 
+
+- Consider splitting business logic into multiple workflows where necessary.
+
+- Have no more than 10-15 workflows per logic app resource.
+
 <a name="review-run-history"></a>
 
-## Review run history
+## Review workflow run history
 
 For a stateful workflow, after each workflow run, you can view the run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs. In the Azure portal, run history and trigger histories appear at the workflow level, not the logic app level. To review the trigger histories outside the run history context, see [Review trigger histories](#review-trigger-history).
 
 1. In the Azure portal, on the workflow menu, select **Overview**.
 
-1. On the **Overview** pane, select **Run History**, which shows the run history for that workflow.
+1. On the **Overview** pane, select **Run History**, which shows the run history for current workflow.
 
-   ![Screenshot that shows the workflow's "Overview" pane with "Run History" selected.](./media/create-single-tenant-workflows-azure-portal/find-run-history.png)
+   ![Screenshot that shows the workflow's Overview pane with the selected tab named Run History.](./media/create-single-tenant-workflows-azure-portal/find-run-history.png)
 
    > [!TIP]
+   >
    > If the most recent run status doesn't appear, on the **Overview** pane toolbar, select **Refresh**. 
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 
@@ -366,7 +377,7 @@ For a stateful workflow, after each workflow run, you can view the run history, 
    | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the runs history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the runs history based on whether the run's duration exceeded the retention limit. |
    | **Waiting** | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
 
-1. To review the status for each step in a run, select the run that you want to review.
+1. On the **Run History** tab, select the run that you want to review.
 
    The run details view opens and shows the status for each step in the run.
 
@@ -402,29 +413,17 @@ For a stateful workflow, after each workflow run, you can view the run history, 
 
 1. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
 
+<a name="resubmit-workflow-run"></a>
+
+## Resubmit workflow run with same inputs
+
+For an existing stateful workflow run, you can rerun the entire workflow with the same inputs that were previously used for that run. For more information, see [Monitor workflow status, view trigger history and run history, and set up alerts](monitor-logic-apps.md?tabs=standard#resubmit-workflow-run).
+
 <a name="review-trigger-history"></a>
 
 ## Review trigger history
 
-For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [run history context](#review-run-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level. To find this historical data, follow these steps:
-
-1. In the Azure portal, on the workflow menu, select **Overview**.
-
-1. On the **Overview** page, select **Trigger Histories**.
-
-   The **Trigger Histories** pane shows the trigger histories for your workflow's runs.
-
-1. To review a specific trigger history, select the ID for that run.
-
-## Best practices and recommendations
-
-For optimal designer responsiveness and performance, review and follow these guidelines:
-
-- Use no more than 50 actions per workflow. Exceeding this number of actions raises the possibility for slower designer performance. 
-
-- Consider splitting business logic into multiple workflows where necessary.
-
-- Have no more than 10-15 workflows per logic app resource.
+For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [run history context](#review-run-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level. To find this historical data, see [Monitor workflow status, view trigger history and run history, and set up alerts](monitor-logic-apps.md?tabs=standard#review-trigger-history).
 
 <a name="enable-open-application-insights"></a>
 

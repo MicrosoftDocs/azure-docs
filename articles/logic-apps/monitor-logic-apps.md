@@ -41,17 +41,13 @@ For real-time event monitoring and richer debugging, you can set up diagnostics 
 
 ## Review trigger history
 
-Each workflow run starts with a trigger, which either fires on a schedule or waits for an incoming request or event. The trigger history lists all the trigger attempts that your logic app made and information about the inputs and outputs for each trigger attempt.
+Each workflow run starts with a trigger, which either fires on a schedule or waits for an incoming request or event. The trigger history lists all the trigger attempts that your workflow made and information about the inputs and outputs for each trigger attempt.
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-   To find your logic app, in the portal search box, enter **logic apps**, and then select **Logic apps**.
-
-   The Azure portal shows all the logic app resources in your Azure subscription. You can filter this list based on name, subscription, resource group, location, and so on.
-
-1. Select your logic app resource. On your logic app menu, select **Overview**. On the **Overview** pane, select **Trigger history**.
+1. On your logic app menu, select **Overview**. On the **Overview** pane, select **Trigger history**.
 
    ![Screenshot shows Overview pane for Consumption logic app workflow with selected option named Trigger history.](./media/monitor-logic-apps/overview-logic-app-trigger-history-consumption.png)
 
@@ -84,19 +80,17 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [workflow's run history](#review-runs-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level.
 
-   To find your logic app, in the portal search box, enter **logic apps**, and then select **Logic apps**.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-   The Azure portal shows all the logic app resources in your Azure subscription. You can filter this list based on name, subscription, resource group, location, and so on.
+1. On the workflow menu, select **Overview**. On the **Overview** page, select **Trigger history**.
 
-1. Select your logic app resource. On your logic app menu, select **Overview**. On the **Overview** pane, select **Trigger history**.
-
-   ![Screenshot shows Overview pane for Standard logic app with selected option named Trigger history.](./media/monitor-logic-apps/overview-logic-app-trigger-history-standard.png)
+   ![Screenshot shows Overview page for Standard workflow with selected option named Trigger history.](./media/monitor-logic-apps/overview-logic-app-trigger-history-standard.png)
 
    Under **Trigger history**, all trigger attempts appear. Each time the trigger successfully fires, Azure Logic Apps creates an individual workflow instance and runs that instance. By default, each instance runs in parallel so that no workflow has to wait before starting a run. If your workflow triggers for multiple events or items at the same time, a trigger entry appears for each item with the same date and time. 
 
-   ![Screenshot shows Overview pane with Standard logic app workflow and multiple trigger attempts for different items.](./media/monitor-logic-apps/logic-app-triggers-history-standard.png)
+   ![Screenshot shows Overview page for Standard workflow and multiple trigger attempts for different items.](./media/monitor-logic-apps/logic-app-triggers-history-standard.png)
 
    The following table lists the possible trigger statuses:
 
@@ -109,9 +103,9 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
    > [!TIP]
    >
    > You can recheck the trigger without waiting for the next recurrence. On the 
-   > **Overview** pane toolbar, select **Run Trigger** > **Run**.
+   > **Overview** page toolbar, select **Run Trigger** > **Run**.
 
-1. To view information about a specific trigger attempt, select that trigger event.
+1. To view information about a specific trigger attempt, select the identifier for that trigger attempt.
 
    ![Screenshot shows Standard workflow trigger entry selected.](./media/monitor-logic-apps/select-trigger-event-for-review-standard.png)
 
@@ -139,17 +133,13 @@ Each time a trigger successfully fires, Azure Logic Apps creates a workflow inst
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-   To find your logic app, in the Azure search box, enter **logic apps**, and then select **Logic apps**.
-
-   The Azure portal shows all the logic apps in your Azure subscriptions. You can filter this list based on name, subscription, resource group, location, and so on.
-
-1. Select your logic app resource. On your logic app menu, select **Overview**. On the **Overview** pane, select **Runs history**.
+1. On your logic app menu, select **Overview**. On the **Overview** page, select **Runs history**.
 
    Under **Runs history**, all the past, current, and any waiting runs appear. If the trigger fires for multiple events or items at the same time, an entry appears for each item with the same date and time.
 
-   ![Screenshot shows Consumption workflow and Overview pane with selected option for Runs history.](./media/monitor-logic-apps/overview-logic-app-runs-history-consumption.png)
+   ![Screenshot shows Consumption workflow and Overview page with selected option for Runs history.](./media/monitor-logic-apps/overview-logic-app-runs-history-consumption.png)
 
    The following table lists the possible run statuses:
 
@@ -208,24 +198,15 @@ Each time a trigger successfully fires, Azure Logic Apps creates a workflow inst
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+You can view run history only for stateful workflows, not stateless workflows. To enable run history for a stateless workflow, see [Enable run history for stateless workflows](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless).
 
-   To find your logic app, in the Azure search box, enter **logic apps**, and then select **Logic apps**.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-   The Azure portal shows all the logic apps in your Azure subscriptions. You can filter this list based on name, subscription, resource group, location, and so on.
-
-1. Select your logic app resource. On your logic app menu, under **Workflows**, select **Workflows**, and then select your workflow.
-
-   > [!NOTE]
-   >
-   > By default, stateless workflows don't store run history unless you enable this capability for debugging. 
-   > For more information, review [Stateful versus stateless workflows](single-tenant-overview-compare.md#stateful-stateless).
-
-1. On your workflow's menu, select **Overview**. On the **Overview** pane, select **Run History**.
+1. On your workflow menu, select **Overview**. On the **Overview** page, select **Run History**.
 
    Under **Run History**, all the past, current, and any waiting runs appear. If the trigger fires for multiple events or items at the same time, an entry appears for each item with the same date and time.
 
-   ![Screenshot shows Standard workflow and Overview pane with selected option for Run History.](./media/monitor-logic-apps/overview-logic-app-runs-history-standard.png)
+   ![Screenshot shows Standard workflow and Overview page with selected option for Run History.](./media/monitor-logic-apps/overview-logic-app-runs-history-standard.png)
 
    The following table lists the possible run statuses:
 
@@ -246,11 +227,11 @@ Each time a trigger successfully fires, Azure Logic Apps creates a workflow inst
    > If the run status doesn't appear, try refreshing the overview pane by selecting **Refresh**.
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 
-   ![Screenshot shows the Standard workflow run selected.](./media/monitor-logic-apps/select-specific-logic-app-run-standard.png)
+   ![Screenshot shows the selected Standard workflow run.](./media/monitor-logic-apps/select-specific-logic-app-run-standard.png)
 
    The workflow run pane shows each step in the selected run, each step's run status, and the time taken for each step to run, for example:
 
-   ![Screenshot shows each action in selected workflow run.](./media/monitor-logic-apps/logic-app-run-pane-standard.png)
+   ![Screenshot shows each action in selected Standard workflow run.](./media/monitor-logic-apps/logic-app-run-pane-standard.png)
 
 1. After all the steps in the run appear, select each step to review more information such as inputs, outputs, and any errors that happened in that step.
 
@@ -260,13 +241,53 @@ Each time a trigger successfully fires, Azure Logic Apps creates a workflow inst
 
    The following screenshot shows the outputs from the failed step.
 
-   ![Screenshot shows Standard logic app workflow with failed step outputs.](./media/monitor-logic-apps/failed-action-outputs-standard.png)
+   ![Screenshot shows Standard workflow with failed step outputs.](./media/monitor-logic-apps/failed-action-outputs-standard.png)
 
    > [!NOTE]
    >
    > All runtime details and events are encrypted within Azure Logic Apps and 
    > are decrypted only when a user requests to view that data. You can 
    > [hide inputs and outputs in run history](logic-apps-securing-a-logic-app.md#obfuscate).
+
+---
+
+<a name="resubmit-workflow-run"></a>
+
+## Rerun a workflow with same inputs
+
+You can rerun an existing workflow run with the same inputs that the workflow run previously used.
+
+> [!NOTE]
+>
+> If your workflow has operations such as create or delete operations, resubmitting a run might 
+> create duplicate data or try to delete data that no longer exists, resulting in an error. 
+
+### [Consumption](#tab/consumption)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. On your logic app menu, select **Overview**. On the **Overview** page, select **Runs history**.
+
+   Under **Runs history**, all the past, current, and any waiting runs appear. If the trigger fires for multiple events or items at the same time, an entry appears for each item with the same date and time.
+
+### [Standard](#tab/standard)
+
+You can rerun only stateful workflows, not stateless workflows. To enable run history for a stateless workflow, see [Enable run history for stateless workflows](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless).
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. On the workflow menu, select **Overview**. On the **Overview** page, select **Run History**, which shows the run history for the current workflow.
+
+1. On the **Run History** tab, select the run that you want to resubmit.
+
+1. On the run history toolbar, select **Resubmit**.
+
+1. Return to the **Overview** page and the **Run History** tab, which now shows the resubmitted run.
+
+   > [!TIP]
+   >
+   > If the resubmitted run doesn't appear, on the **Overview** page toolbar, select **Refresh**. 
+   > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 
 ---
 
