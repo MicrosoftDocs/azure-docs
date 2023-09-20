@@ -391,30 +391,46 @@ $requestURL = "https://management.azure.com$RespondId/providers/microsoft.insigh
 
 
 ```
-
-### Using PowerShell for offboarding
-```PowerShell
-#This will remove the monitor object
-$TenantID = "xxxxxxxxx-xxxx-xxx"  #Your Tenant ID
-$SubscriptionID = "xxxxxx-xxxx-xxxxx" #Your Subscription ID
-$ResourceGroup = "rg-yourResourseGroup" #Your resroucegroup
-
-Connect-AzAccount -Tenant $TenantID
-
-#Select the subscription
-Select-AzSubscription -SubscriptionId $SubscriptionID
-
-#Delete monitored object
-$requestURL = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
-#Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method Delete
-
-```
-
 ## Verify successful setup
 Check the ‘Heartbeat’ table (and other tables you configured in the rules) in the Log Analytics workspace that you specified as a destination in the data collection rule(s).
 The `SourceComputerId`, `Computer`, `ComputerIP` columns should all reflect the client device information respectively, and the `Category` column should say 'Azure Monitor Agent'. See example below:
 
 [![Diagram shows agent heartbeat logs on Azure portal.](media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png)](media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png)
+
+### Using PowerShell for offboarding
+```PowerShell
+#This will remove the monitor object
+$TenantID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  #Your Tenant ID
+
+Connect-AzAccount -Tenant $TenantID
+
+#Create Auth Token
+$auth = Get-AzAccessToken
+
+$AuthenticationHeader = @{
+    "Content-Type" = "application/json"
+    "Authorization" = "Bearer " + $auth.Token
+}
+
+#Get Monitored Object
+$requestURL = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
+$MonitoredObject =  Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method Get
+
+#Get Monitored Object Data Collection Rule Associations
+$requestURL = "https://management.azure.com$($MonitoredObject.id)/providers/microsoft.insights/datacollectionruleassociations?api-version=2021-09-01-preview"
+$MonitoredObjectAssociations = Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method Get
+
+#Disassociate from all Data Collection Rule
+foreach ($Association in $MonitoredObjectAssociations.value){
+    $requestURL = "https://management.azure.com$($Association.id)?api-version=2022-06-01"
+    Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method Delete
+}
+
+#Delete monitored object
+$requestURL = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
+Invoke-AzRestMethod -Uri $requestURL -Method Delete
+
+```
 
 
 ## Manage the agent
