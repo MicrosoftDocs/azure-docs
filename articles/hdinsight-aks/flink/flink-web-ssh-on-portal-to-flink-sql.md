@@ -17,7 +17,7 @@ This example guides how to enter the HDInsight on AKS Flink CLI client using SSH
 
 Once the Flink cluster is created, you can observe on the left pane the **Settings** option to access **Secure Shell**
 
-:::image type="content" source="./media/flink-web-ssh-on-portal-to-flink-sql/create-pod-and-connect-to-web-ssh.png" alt-text="Screenshot showing How to create POD and connect to webssh.":::
+:::image type="content" source="./media/flink-web-ssh-on-portal-to-flink-sql/create-pod-and-connect-to-web-ssh.png" alt-text="Screenshot showing How to create POD and connect to webssh." lightbox="./media/flink-web-ssh-on-portal-to-flink-sql/create-pod-and-connect-to-web-ssh.png":::
 
 ## Apache Flink SQL 
 
