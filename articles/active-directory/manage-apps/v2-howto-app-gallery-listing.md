@@ -31,7 +31,7 @@ To publish your application in the gallery, you must first read and agree to spe
     - For password SSO, make sure that your application supports form authentication so that password vaulting can be used.
 	- For federated applications (OpenID and SAML/WS-Fed), the application must support the [software-as-a-service (SaaS) model](https://azure.microsoft.com/overview/what-is-saas/). Enterprise gallery applications must support multiple user configurations and not any specific user.
 	- For federated applications (OpenID and SAML/WS-Fed), the application can be single **or** multitenanted
-	- For OpenID Connect, if the application is multitenanted the [Microsoft Entra ID consent framework](../develop/application-consent-experience.md) must be correctly implemented.
+	- For OpenID Connect, if the application is multitenanted the [Microsoft Entra consent framework](../develop/application-consent-experience.md) must be correctly implemented.
 - Provisioning is optional yet highly recommended. To learn more about Microsoft Entra SCIM, see [build a SCIM endpoint and configure user provisioning with Microsoft Entra ID](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 You can sign up for a free, test Development account. It's free for 90 days and you get all of the premium Microsoft Entra features with it. You can also extend the account if you use it for development work: [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
