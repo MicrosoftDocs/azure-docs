@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: ignite-2022
 ms.author: dacurwin
 author: dcurwin
-ms.date: 09/19/2023
+ms.date: 09/20/2023
 ---
 
 # Enable Microsoft Defender for SQL servers on machines

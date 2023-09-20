@@ -4,16 +4,24 @@ description: Learn how to enable SQL server-targeted Azure Monitoring Agent's au
 ms.topic: install-set-up-deploy
 ms.author: dacurwin
 author: dcurwin
-ms.date: 09/19/2023
+ms.date: 09/20/2023
 ---
 
 # Migrate to SQL server-targeted Azure Monitoring Agent's (AMA) autoprovisioning process (Preview)
 
 Microsoft Monitoring Agent (MMA) is set to be retired in August 2024. As a result, a new SQL server-targeted Azure Monitoring Agent (AMA) autoprovisioning process is being released in preview. You can learn more about the [Defender for SQL Server on machines Log Analytics Agent's upcoming deprecation plan](upcoming-changes.md#defender-for-sql-server-on-machines).
 
-Customers who are using the MMA process are requested to migrate to the SQL server-targeted AMA for SQL server on machines (Preview) autoprovisioning process.
+Customers who are using the MMA process are requested to migrate to the SQL server-targeted AMA for SQL server on machines (Preview) autoprovisioning process. The migration process is seamless and provides continuous protection for all machines.
 
-## Migrate to the AMA autoprovisioning process
+## The AMA autoprovisioning process
+
+If you are currently using the Microsoft Monitoring Agent (MMA) autoprovisioning process, you can [migrate to SQL server-targeted AMA for SQL server on machines (Preview) autoprovisioning process](#migrate-to-the-ama-autoprovisioning-process). However if you have not enabled the Microsoft Monitoring Agent (MMA) autoprovisioning process, you can skip the migration process and [enable the SQL server-targeted AMA for SQL server on machines (Preview) autoprovisioning process](#enable-the-ama-autoprovisioning-process).
+
+### Migrate to the AMA autoprovisioning process
+
+Follow these instructions if you are currently using the MMA autoprovisioning process. If not, you can skip these instructions and [enable the SQL server-targeted AMA for SQL server on machines (Preview) autoprovisioning process](#enable-the-ama-autoprovisioning-process).
+
+**To migrate to the AMA autoprovisioning process**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -56,7 +64,31 @@ Once the SQL server-targeted AMA autoprovisioning process has been enabled, you 
 1. Select **Save**.
 
 > [Note!]
-> If you are also have the Defender for Server plan enabled, you will need to review the Defender for Servers Log Analytics deprecation plan for Log Analytics agent/Azure Monitor agent dependency before disabling the process.  
+> If you are also have the Defender for Server plan enabled, you will need to [review the Defender for Servers Log Analytics deprecation plan](upcoming-changes.md#defender-for-servers) for Log Analytics agent/Azure Monitor agent dependency before disabling the process.  
+
+### Enable the AMA autoprovisioning process
+
+Follow these instructions if this is your first time enabling Defender for SQL servers on machines and you want to enable the SQL server-targeted AMA autoprovisioning process.
+
+**Enable the SQL server-targeted AMA for SQL server on machines (Preview) autoprovisioning process**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Search for and select **Microsoft Defender for Cloud**.
+
+1. In the Defender for Cloud menu, select **Environment settings**.
+
+1. Select the relevant subscription.
+
+1. Under the Database plan, select **Settings**.
+
+    :::image type="content" source="media/defender-sql-autoprovisioning/select-settings.png" alt-text="Screenshot that shows where the settings button is located on the defenders plan page." lightbox="media/defender-sql-autoprovisioning/select-settings.png":::
+
+1. Toggle the Azure Monitoring Agent for SQL server on machines (Preview) to **On**.
+
+1. Select **Continue**.
+
+1. Select **Save**. 
 
 ## Next steps
 
