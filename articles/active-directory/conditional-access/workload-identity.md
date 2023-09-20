@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access for workload identities 
 
-Conditional Access policies have historically applied only to users when they access apps and services like SharePoint online or the Azure portal. We're now extending support for Conditional Access policies to be applied to service principals owned by the organization. We call this capability Conditional Access for workload identities. 
+Conditional Access policies have historically applied only to users when they access apps and services like SharePoint Online. We're now extending support for Conditional Access policies to be applied to service principals owned by the organization. We call this capability Conditional Access for workload identities. 
 
 A [workload identity](../workload-identities/workload-identities-overview.md) is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
 
@@ -42,8 +42,8 @@ Conditional Access for workload identities enables blocking service principals f
 
 Create a location based Conditional Access policy that applies to service principals.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
@@ -61,8 +61,8 @@ Create a risk-based Conditional Access policy that applies to service principals
 
 :::image type="content" source="media/workload-identity/conditional-access-workload-identity-risk-policy.png" alt-text="Creating a Conditional Access policy with a workload identity and risk as a condition." lightbox="media/workload-identity/conditional-access-workload-identity-risk-policy.png":::
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
@@ -73,7 +73,7 @@ Create a risk-based Conditional Access policy that applies to service principals
    1. Set the **Configure** toggle to **Yes**.
    1. Select the levels of risk where you want this policy to trigger.
    1. Select **Done**.
-1. Under **Grant**, **Block access** is the only available option. Access is blocked when a token request is made from outside the allowed range.
+1. Under **Grant**, **Block access** is the only available option. Access is blocked when the specified risk levels are seen.
 1. Your policy can be saved in **Report-only** mode, allowing administrators to estimate the effects, or policy is enforced by turning policy **On**.
 1. Select **Create** to complete your policy.
 
@@ -85,7 +85,7 @@ If you wish to roll back this feature, you can delete or disable any created pol
 
 The sign-in logs are used to review how policy is enforced for service principals or the expected affects of policy when using report-only mode.
 
-1. Browse to **Azure Active Directory** > **Sign-in logs** > **Service principal sign-ins**.
+1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs** > **Service principal sign-ins**.
 1. Select a log entry and choose the **Conditional Access** tab to view evaluation information.
 
 Failure reason when Service Principal is blocked by Conditional Access: “Access has been blocked due to Conditional Access policies.” 
@@ -102,7 +102,7 @@ To view results of a risk-based policy, refer to the **Report-only** tab of even
 
 You can get the objectID of the service principal from Azure AD Enterprise Applications. The Object ID in Azure AD App registrations can’t be used. This identifier is the Object ID of the app registration, not of the service principal.
 
-1. Browse to the **Azure portal** > **Azure Active Directory** > **Enterprise Applications**, find the application you registered.
+1. Browse to **Identity** > **Applications** > **Enterprise Applications**, find the application you registered.
 1. From the **Overview** tab, copy the **Object ID** of the application. This identifier is the unique to the service principal, used by Conditional Access policy to find the calling app.
 
 ### Microsoft Graph

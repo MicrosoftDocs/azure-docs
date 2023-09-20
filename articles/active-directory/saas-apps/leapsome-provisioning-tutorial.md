@@ -20,7 +20,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Le
 > [!NOTE]
 >  This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This connector is currently in Preview. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Leapsome Add SCIM](media/Leapsome-provisioning-tutorial/leapsome-add-scim.png)
 
-3.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Leapsome application in the Azure portal.
+3.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Leapsome application.
 
 	![Leapsome Create Token](media/Leapsome-provisioning-tutorial/leapsome-create-token.png)
 
@@ -65,20 +65,10 @@ Before configuring Leapsome for automatic user provisioning with Azure AD, you n
 
 **To add Leapsome from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Leapsome**, select **Leapsome** in the results panel, and then click the **Add** button to add the application.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Leapsome**, select **Leapsome** in the search box.
+1. Select **Leapsome** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 	![Leapsome in the results list](common/search-new-app.png)
 
 ## Configuring automatic user provisioning to Leapsome 
@@ -90,11 +80,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Leapsome in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Leapsome**.
+1. In the applications list, select **Leapsome**.
 
 	![The Leapsome link in the Applications list](common/all-applications.png)
 

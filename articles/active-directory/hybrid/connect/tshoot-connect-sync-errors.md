@@ -13,7 +13,7 @@ ms.topic: troubleshooting
 ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
-ms.custom: contperf-fy21q3-portal
+ms.custom: contperf-fy21q3-portal, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -26,7 +26,7 @@ Errors can occur when identity data is synced from Windows Server Active Directo
 >[!IMPORTANT]
 >This article attempts to address the most common synchronization errors.  Unfortunately, covering every scenario in one document is not possible.  For more information including in-depth troubleshooting steps, see [End-to-end troubleshooting of Azure AD Connect objects and attributes](/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes) and the [User Provisioning and Synchronization](/troubleshoot/azure/active-directory/welcome-azure-ad) section under the Azure AD troubleshooting documentation.
 
-With the latest version of Azure AD Connect \(August 2016 or higher\), a Synchronization Errors Report is available in the [Azure portal](https://aka.ms/aadconnecthealth) as part of Azure AD Connect Health for sync.
+With the latest version of Azure AD Connect \(August 2016 or higher\), a Synchronization Errors Report is available in the [Microsoft Entra admin center](https://entra.microsoft.com) as part of Azure AD Connect Health for sync.
 
 Starting September 1, 2016, [Azure AD duplicate attribute resiliency](how-to-connect-syncservice-duplicate-attribute-resiliency.md) is enabled by default for all the *new* Azure AD tenants. This feature is automatically enabled for existing tenants.
 

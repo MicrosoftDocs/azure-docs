@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2022
+ms.date: 09/15/2023
 ms.author: dhruvinshah
 ms.reviewer: dhruvinshah
 ---
@@ -51,7 +51,7 @@ This article provides you with the information you need to configure wildcard ap
 
 ## Pre-requisites
 Before you get started with Application Proxy Complex application scenario apps, make sure your environment is ready with the following settings and configurations:
-- You need to enable Application Proxy and install a connector that has line of site to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector.
+- You need to enable Application Proxy and install a connector that has line of sight to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector.
 
 
 ## Configure application segment(s) for complex application. 
@@ -75,7 +75,7 @@ To publish complex distributed app through Application Proxy with application se
 
 5. In the External Url field, drop down the list and select the custom domain you want to use.
 
-6. Add CORS Rules (optional).  For more information see [Configuring CORS Rule](/graph/api/resources/corsconfiguration_v2?view=graph-rest-beta).
+6. Add CORS Rules (optional).  For more information see [Configuring CORS Rule](/graph/api/resources/corsconfiguration_v2?view=graph-rest-beta&preserve-view=true).
 
 7. Select Create.
 

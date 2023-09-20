@@ -40,14 +40,14 @@ Prerequisite roles: Global administrator, Identity Governance administrator, or 
 
 To add a Logic App workflow to an existing catalog, you use an ARM template for the Logic App creation here: 
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Figaelmprodportalhosting.blob.core.windows.net%2Farm-deployment-template%2FLogicAppServiceNowIntegration.json ).
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Figaelmprodportalhosting.blob.core.windows.net%2Farm-deployment-template%2FLogicAppServiceNowIntegration.json).
 
 :::image type="content" source="media/entitlement-management-servicenow-integration/logic-app-arm-template.png" alt-text="Screenshot of Logic App ARM template." lightbox="media/entitlement-management-servicenow-integration/logic-app-arm-template.png":::
 
 Provide the Azure subscription, resource group details, along with the Logic App name and the Catalog ID to associate the Logic App with and select purchase. For more information on how to create a new catalog, please follow the steps in this document: [Create and manage a catalog of resources in entitlement management](entitlement-management-catalog-create.md).
 
 
-1. Navigate To Entra portal [Identity Governance - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmEntitlement)
+1. Navigate To Microsoft Entra admin center [Identity Governance - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmEntitlement)
 
 1. In the left menu, select **Catalogs**. 
 
@@ -98,15 +98,15 @@ After setting up custom extensibility in the catalog, administrators can create 
 
 
 
-## Register an application with secrets in Azure portal
+## Register an application with secrets in the Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-With Azure, you're able to use [Azure Key Vault](/azure/key-vault/secrets/about-secrets) to store application secrets such as passwords. To register an application with secrets within the Azure portal, follow these steps:
+With Azure, you're able to use [Azure Key Vault](/azure/key-vault/secrets/about-secrets) to store application secrets such as passwords. To register an application with secrets within the Microsoft Entra admin center, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. Search for and select Azure Active Directory.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. Under Manage, select App registrations > New registration.
 
@@ -118,7 +118,9 @@ With Azure, you're able to use [Azure Key Vault](/azure/key-vault/secrets/about-
 
 After registering your application, you must add a client secret by following these steps: 
 
-1. In the Azure portal, in App registrations, select your application.
+1. Browse to **Identity** > **Applications** > **App registrations**.
+
+1. select your application.
 
 1. Select Certificates & secrets > Client secrets > New client secret.
 
@@ -133,7 +135,7 @@ After registering your application, you must add a client secret by following th
 
 To authorize the created application to call the [MS Graph resume API](/graph/api/accesspackageassignmentrequest-resume) you'd do the following steps:
 
-1. Navigate to the Entra portal [Identity Governance - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmEntitlement)
+1. Navigate to the Microsoft Entra admin center [Identity Governance - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmEntitlement)
 
 1. In the left menu, select **Catalogs**.
 
@@ -155,7 +157,7 @@ At this point it's time to configure ServiceNow for resuming the entitlement man
     1. Sign in to ServiceNow and navigate to the Application Registry.
     1. Select “*New*” and then select “**Connect to a third party OAuth Provider**”.
     1. Provide a name for the application, and select Client Credentials in the Default Grant type.
-    1. Enter the Client Name, ID, Client Secret, Authorization URL, Token URL that were generated when you registered the Azure Active Directory application in the Azure portal.
+    1. Enter the Client Name, ID, Client Secret, Authorization URL, Token URL that were generated when you registered the Azure Active Directory application in the Microsoft Entra admin center.
     1. Submit the application.
         :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-application-registry.png" alt-text="Screenshot of the application registry within ServiceNow." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-application-registry.png":::
 1. Create a System Web Service REST API message by following these steps: 

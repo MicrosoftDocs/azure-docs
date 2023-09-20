@@ -143,7 +143,7 @@ Now that we're done building the app, we can test it by following these steps:
 
 1. In your terminal, ensure you're in project directory that contains the *package.json* file.  For example, *ciam-sign-in-node-browserless-app*. 
 
-1. Use the steps in [Run and test the browserless app](how-to-browserless-app-node-sample-sign-in.md?#run-and-test-sample-browserless-app) article to test your browserless app.
+1. Use the steps in [Run and test the browserless app](./sample-browserless-app-node-sign-in.md#run-and-test-sample-browserless-app) article to test your browserless app.
 
 
 ## Next steps 

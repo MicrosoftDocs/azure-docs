@@ -36,25 +36,23 @@ After you sign in to the [Azure portal](https://portal.azure.com), you can creat
 
 1. From the Azure portal menu, select **Azure Active Directory**.
 
-1.  On the overview page, select **Manage tenants**
+1. On the overview page, select **Manage tenants**
  
 1. Select **Create**.
 
-    ![Azure Active Directory - Overview page - Create a tenant](media/active-directory-access-create-new-tenant/azure-ad-portal.png) 
+   ![Azure Active Directory - Overview page - Create a tenant](media/create-new-tenant/portal.png) 
 
 1. On the Basics tab, select the type of tenant you want to create, either **Azure Active Directory** or **Azure Active Directory (B2C)**.
 
 1. Select **Next: Configuration** to move on to the Configuration tab.
 
-1.  On the Configuration tab, enter the following information:
+1. On the Configuration tab, enter the following information:
 
-    ![Azure Active Directory - Create a tenant page - configuration tab ](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
+   ![Azure Active Directory - Create a tenant page - configuration tab](media/create-new-tenant/create-new-tenant.png)
 
-    - Type your desired Organization name (for example _Contoso Organization_) into the **Organization name** box.
-
-    - Type your desired Initial domain name (for example _Contosoorg_) into the **Initial domain name** box.
-
-    - Select your desired Country/Region or leave the _United States_ option in the **Country or region** box.
+   - Type your desired Organization name (for example _Contoso Organization_) into the **Organization name** box.
+   - Type your desired Initial domain name (for example _Contosoorg_) into the **Initial domain name** box.
+   - Select your desired Country/Region or leave the _United States_ option in the **Country or region** box.
 
 1. Select **Next: Review + Create**. Review the information you entered and if the information is correct, select **create**.
 
@@ -67,7 +65,7 @@ When you create a new Azure AD tenant, you become the first user of that tenant.
 By default, you're also listed as the [technical contact](/microsoft-365/admin/manage/change-address-contact-and-more#what-do-these-fields-mean) for the tenant. Technical contact information is something you can change in [**Properties**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
 > [!WARNING]
-> Ensure your directory has at least two accounts with global administrator privileges assigned to them. This will help in the case that one global administrator is locked out. For more detail see the article, [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
+> Ensure your directory has at least two accounts with Global Administrator privileges assigned to them. This will help in the case that one Global Administrator is locked out. For more detail see the article, [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
 
 ## Clean up resources
 
@@ -78,16 +76,16 @@ If you're not going to continue to use this application, you can delete the tena
 
     The tenant and its associated information are deleted.
 
-    ![Overview page, with highlighted Delete directory button](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![Overview page, with highlighted Delete directory button](media/create-new-tenant/delete-new-tenant.png)
 
 ## Next steps
 
 - Change or add other domain names, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md)
 
-- Add users, see [Add or delete a new user](add-users-azure-active-directory.md)
+- Add users, see [Add or delete a new user](./add-users.md)
 
-- Add groups and members, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
+- Add groups and members, see [Create a basic group and add members](./how-to-manage-groups.md)
 
 - Learn about [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) and [Conditional Access](../conditional-access/overview.md) to help manage your organization's application and resource access.
 
-- Learn about Azure AD, including [basic licensing information, terminology, and associated features](active-directory-whatis.md).
+- Learn about Azure AD, including [basic licensing information, terminology, and associated features](./whatis.md).

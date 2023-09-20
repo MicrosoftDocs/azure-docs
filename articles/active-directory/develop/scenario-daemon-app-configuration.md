@@ -130,7 +130,7 @@ When you build a confidential client with certificates, the [parameters.json](ht
 }
 ```
 
-# [.NET (low level) ](#tab/dotnet)
+# [.NET (low level)](#tab/dotnet)
 
 Here's an example of defining the configuration in an [*appsettings.json*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) file. This example is taken from the [.NET Core console daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) code sample on GitHub.
 

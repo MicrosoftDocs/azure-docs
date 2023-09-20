@@ -40,7 +40,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * Review the [adobe documentation](https://helpx.adobe.com/enterprise/admin-guide.html/enterprise/using/add-azure-sync.ug.html) on user provisioning 
 
 > [!NOTE]
-> If your organization uses the User Sync Tool or a UMAPI integration, you must first pause the integration. Then, add Azure AD automatic provisioning to automate user management from the Azure portal. Once Azure AD automatic provisioning is configured and running, you can completely remove the User Sync Tool or UMAPI integration.
+> If your organization uses the User Sync Tool or a UMAPI integration, you must first pause the integration. Then, add Azure AD automatic provisioning to automate user management. Once Azure AD automatic provisioning is configured and running, you can completely remove the User Sync Tool or UMAPI integration.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -59,7 +59,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
     ![Screenshot that shows 'Sync users from Microsoft Azure Active Directory' selected.](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
 
-1. Copy and save the **Tenant URL** and the **Secret token**. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Adobe Identity Management (OIDC) application in the Azure portal.
+1. Copy and save the **Tenant URL** and the **Secret token**. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Adobe Identity Management (OIDC) application.
 
     ![Sync](media/adobe-identity-management-provisioning-tutorial/token.png)
 
@@ -82,7 +82,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Adobe Identity Management (OIDC) in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
     ![Enterprise applications blade](common/enterprise-applications.png)
 
@@ -121,6 +122,10 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.givenName|String||
    |name.familyName|String||
    |urn:ietf:params:scim:schemas:extension:Adobe:2.0:User:emailAliases|String||
+   |urn:ietf:params:scim:schemas:extension:Adobe:2.0:User:eduRole|String||
+
+    > [!NOTE]
+    > The **eduRole** field accepts values like `Teacher or Student`, anything else will be ignored.
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Adobe Identity Management (OIDC)**.
 
@@ -152,7 +157,10 @@ Once you've configured provisioning, use the following resources to monitor your
 
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## Change log
+08/15/2023 - Added support for Schema Discovery.
 
 ## More resources
 

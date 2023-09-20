@@ -39,7 +39,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](../
     To install the SDK you can either, 
     * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md) for more information. 
 
-    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
+    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
 
     [!INCLUDE [automl-sdk-version](../includes/machine-learning-automl-sdk-version.md)]
     
@@ -212,10 +212,10 @@ Doing so, schedules distributed training of the NLP models and automatically sca
 ## Example notebooks
 
 See the sample notebooks for detailed code examples for each NLP task. 
-* [Multi-class text classification](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/automl-nlp-multiclass/automl-nlp-text-classification-multiclass.ipynb)
+* [Multi-class text classification](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/automl-nlp-multiclass/automl-nlp-text-classification-multiclass.ipynb)
 * [Multi-label text classification](
-https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/automl-nlp-multilabel/automl-nlp-text-classification-multilabel.ipynb)
-* [Named entity recognition](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/automl-nlp-ner/automl-nlp-ner.ipynb)
+https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/automl-nlp-multilabel/automl-nlp-text-classification-multilabel.ipynb)
+* [Named entity recognition](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/automl-nlp-ner/automl-nlp-ner.ipynb)
 
 ## Next steps
 + Learn more about [how and where to deploy a model](../how-to-deploy-online-endpoints.md).

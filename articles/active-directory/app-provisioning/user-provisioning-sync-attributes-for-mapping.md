@@ -7,6 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: troubleshooting
 ms.date: 10/20/2022
 ms.author: kenwith
@@ -24,10 +25,10 @@ Adding missing attributes needed for an application will start in either on-prem
 First, identify which users in your Azure AD tenant will need access to the application and therefore are going to be in scope of being provisioned into the application.
 
 >[!NOTE]
-> For users in on-premises Active Directory, you must sync the users to Azure AD. You can sync users and attributes using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) or [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md). Both of these solutions automatically synchronizes certain attributes to Azure AD, but not all attributes. Furthermore, some attributes (such as SAMAccountName) that are synchronized by default might not be exposed using the Graph API. In these cases, you can [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect) or [use Azure AD Connect cloud sync](#create-an-extension-attribute-using-cloud-sync). That way, the attribute will be visible to the Graph API and the Azure AD provisioning service.
+> For users in on-premises Active Directory, you must sync the users to Azure AD. You can sync users and attributes using [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md) or [Azure AD Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md). Both of these solutions automatically synchronizes certain attributes to Azure AD, but not all attributes. Furthermore, some attributes (such as SAMAccountName) that are synchronized by default might not be exposed using the Graph API. In these cases, you can [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect) or [use Azure AD Connect cloud sync](#create-an-extension-attribute-using-cloud-sync). That way, the attribute will be visible to the Graph API and the Azure AD provisioning service.
 
   1. Check with the on-premises Active Directory domain admins whether the required attributes are part of the AD DS schema, and if they are not, extend the AD DS schema in the domains where those users have accounts.
-  1. Configure [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) or Azure AD Connect cloud sync to synchronize the users with their extension attribute from Active Directory to Azure AD.   Azure AD Connect automatically synchronizes certain attributes to Azure AD, but not all attributes. Furthermore, some attributes (such as `sAMAccountName`) that are synchronized by default might not be exposed using the Graph API. In these cases, you can [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect). That way, the attribute will be visible to the Graph API and the Azure AD provisioning service.
+  1. Configure [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md) or Azure AD Connect cloud sync to synchronize the users with their extension attribute from Active Directory to Azure AD.   Azure AD Connect automatically synchronizes certain attributes to Azure AD, but not all attributes. Furthermore, some attributes (such as `sAMAccountName`) that are synchronized by default might not be exposed using the Graph API. In these cases, you can [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect). That way, the attribute will be visible to the Graph API and the Azure AD provisioning service.
   1. If the users in on-premises Active Directory do not already have the required attributes, you will need to update the users in Active Directory.  This can be done either by reading the properties from [Workday](../saas-apps/workday-inbound-tutorial.md), from [SAP SuccessFactors](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md), or if you are using a different HR system, using Microsoft Identity Manager (MIM).
   1. Wait for Azure AD Connect to synchronize those updates you made in the Active Directory schema and the Active Directory users into Azure AD.
 
@@ -42,7 +43,7 @@ Next, if one or more of the users that will need access to the application do no
 The following sections outline how to create extension attributes for a tenant with cloud only users, and for a tenant with Active Directory users.
 
 ## Create an extension attribute in a tenant with cloud only users
-You can use Microsoft Graph and PowerShell to extend the user schema for users in Azure AD.  This is necessary if you do not have any users who need that attribute and originate in on-premises Active Directory. (If you do have Active Directory, then continue reading below in the section on how to [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect).)
+You can use Microsoft Graph and PowerShell to extend the user schema for users in Azure AD.  This is necessary if you have any users who need that attribute and do not originate in on-premises Active Directory. (If you do have Active Directory, then continue reading below in the section on how to [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect).)
 
 Once schema extensions are created, these extension attributes are automatically discovered when you next visit the provisioning page in the Azure portal, in most cases.
 
@@ -81,7 +82,7 @@ Content-type: application/json
   "extension_inputAppId_extensionName": "extensionValue"
 }
 ```
-Finally, verify the attribute for the user. To learn more, see [Get a user](/graph/api/user-get).
+Finally, verify the attribute for the user. To learn more, see [Get a user](/graph/api/user-get).  Note that the Graph v1.0 does not by default return any of a user's directory extension attributes, unless the attributes are specified in the request as one of the properties to return.
 
 ```json
 GET https://graph.microsoft.com/v1.0/users/{id}?$select=displayName,extension_inputAppId_extensionName
@@ -127,7 +128,7 @@ Cloud sync will automatically discover your extensions in on-premises Active Dir
 8. Fill in the type of mapping you want and click **Apply**.
    [![Custom attribute mapping](media/user-provisioning-sync-attributes-for-mapping/schema-1.png)](media/user-provisioning-sync-attributes-for-mapping/schema-1.png#lightbox)
 
-For more information, see [Cloud Sync Custom Attribute Mapping](../cloud-sync/custom-attribute-mapping.md)
+For more information, see [Cloud Sync Custom Attribute Mapping](../hybrid/cloud-sync/custom-attribute-mapping.md)
 
 
 

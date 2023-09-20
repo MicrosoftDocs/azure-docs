@@ -8,12 +8,32 @@ ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: whats-new
-ms.date: 07/27/2023
+ms.date: 09/15/2023
 recommendations: false
 keywords:  
 ---
 
 # What's new in Azure OpenAI Service
+
+## September 2023
+
+### Whisper public preview
+
+Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whisper model. Get AI-generated text based on the speech audio you provide. To learn more, check out the [quickstart](./whisper-quickstart.md). 
+
+> [!NOTE]
+> Azure AI Speech also supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](../speech-service/batch-transcription-create.md#using-whisper-models) guide. Check out [What is the Whisper model?](../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
+
+## August 2023
+
+### Azure OpenAI on your own data (preview) updates
+
+- You can now deploy Azure OpenAI on your data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
+- [Azure OpenAI on your data](./concepts/use-your-data.md#virtual-network-support--private-endpoint-support) now supports private endpoints.
+- Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control).
+- [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
+- [Vector search and semantic search options](./concepts/use-your-data.md#search-options). 
+- [View your chat history in the deployed web app](./concepts/use-your-data.md#chat-history)
 
 ## July 2023
 

@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 The following are design considerations for all isolation configurations. Throughout this content, there are many links. We link to content, rather than duplicate it here, so you'll always have access to the most up-to-date information.
 
-For general guidance on how to configure Azure Active Directory (Azure AD) tenants (isolated or not), refer to the [Azure AD feature deployment guide](../fundamentals/active-directory-deployment-checklist-p2.md).
+For general guidance on how to configure Azure Active Directory (Azure AD) tenants (isolated or not), refer to the [Azure AD feature deployment guide](../fundamentals/concept-secure-remote-workers.md).
 
 >[!NOTE]
 >For all isolated tenants we suggest you use clear and differentiated branding to help avoid human error of working in the wrong tenant.
@@ -44,7 +44,7 @@ When designing isolated environments, it's important to consider the following p
 
 * **Directory-level role assignments** - Avoid or reduce numbers of directory-level role assignments (User Administrator on directory scope instead of AU-scoping) or service-specific directory roles with control plane actions (Knowledge Admin with permissions to manage security group memberships).
 
-In addition to the guidance in the [Azure Active Directory general operations guide](../fundamentals/ops-guide-ops.md), we also recommend the following considerations for isolated environments.
+In addition to the guidance in the [Azure Active Directory general operations guide](./ops-guide-ops.md), we also recommend the following considerations for isolated environments.
 
 ## Human identity provisioning
 
@@ -52,7 +52,7 @@ In addition to the guidance in the [Azure Active Directory general operations gu
 
 Provision accounts in the isolated environment for administrative personnel and IT teams who operate the environment. This enables you to add stronger security policies such as device-based access control for [secure workstations](/security/compass/privileged-access-deployment). As discussed in previous sections, nonproduction environments can potentially utilize Azure AD B2B collaboration to onboard privileged accounts to the non-production tenants using the same posture and security controls designed for privileged access in their production environment.
 
-Cloud-only accounts are the simplest way to provision human identities in an Azure AD tenant and it's a good fit for green field environments. However, if there's an existing on-premises infrastructure that corresponds to the isolated environment (for example, pre-production or management Active Directory forest), you could consider synchronizing identities from there. This holds especially true if the on-premises infrastructure described herein is used for IaaS solutions that require server access to manage the solution data plane. For more information on this scenario, see [Protecting Microsoft 365 from on-premises attacks](../fundamentals/protect-m365-from-on-premises-attacks.md). Synchronizing from isolated on-premises environments might also be needed if there are specific regulatory compliance requirements such as smart-card only authentication.
+Cloud-only accounts are the simplest way to provision human identities in an Azure AD tenant and it's a good fit for green field environments. However, if there's an existing on-premises infrastructure that corresponds to the isolated environment (for example, pre-production or management Active Directory forest), you could consider synchronizing identities from there. This holds especially true if the on-premises infrastructure described herein is used for IaaS solutions that require server access to manage the solution data plane. For more information on this scenario, see [Protecting Microsoft 365 from on-premises attacks](./protect-m365-from-on-premises-attacks.md). Synchronizing from isolated on-premises environments might also be needed if there are specific regulatory compliance requirements such as smart-card only authentication.
 
 >[!NOTE]
 >There are no technical controls to do identity proofing for Azure AD B2B accounts. External identities provisioned with Azure AD B2B are bootstrapped with a single factor. The mitigation is for the organization to have a process to proof the required identities prior to a B2B invitation being issued, and regular access reviews of external identities to manage the lifecycle. Consider enabling a Conditional Access policy to control the MFA registration.
@@ -89,7 +89,7 @@ We recommend you use security groups to grant access to Microsoft services that 
 
 Azure AD cloud native groups can be natively governed from the cloud when combined with [Azure AD access reviews](../governance/access-reviews-overview.md) and [Azure AD entitlement management](../governance/access-reviews-overview.md). Organizations who already have on-premises group governance tools can continue to use those tools and rely on identity synchronization with Azure AD Connect to reflect group membership changes.
 
-Azure AD also supports direct user assignment to third-party SaaS services (for example, Salesforce, Service Now) for single sign-on and identity provisioning. Direct assignments to resources can be natively governed from the cloud when combined with [Azure AD access reviews](../governance/access-reviews-overview.md) and [Azure AD entitlement management](../fundamentals/ops-guide-ops.md). Direct assignment might be a good fit for end-user facing assignment.
+Azure AD also supports direct user assignment to third-party SaaS services (for example, Salesforce, Service Now) for single sign-on and identity provisioning. Direct assignments to resources can be natively governed from the cloud when combined with [Azure AD access reviews](../governance/access-reviews-overview.md) and [Azure AD entitlement management](./ops-guide-ops.md). Direct assignment might be a good fit for end-user facing assignment.
 
 Some scenarios might require granting access to on-premises resources through on-premises Active Directory security groups. For those cases, consider the synchronization cycle to Azure AD when designing processes SLA.
 
@@ -132,7 +132,7 @@ Check this example to [create service principals with self-signed certificate](.
 
 ### Access policies
 
-In the following sections are recommendations for Azure solutions. For general guidance on Conditional Access policies for individual environments, check the [Conditional Access Best practices](../conditional-access/overview.md), [Azure AD Operations Guide](../fundamentals/ops-guide-auth.md), and [Conditional Access for Zero Trust](/azure/architecture/guide/security/conditional-access-zero-trust):
+In the following sections are recommendations for Azure solutions. For general guidance on Conditional Access policies for individual environments, check the [Conditional Access Best practices](../conditional-access/overview.md), [Azure AD Operations Guide](./ops-guide-auth.md), and [Conditional Access for Zero Trust](/azure/architecture/guide/security/conditional-access-zero-trust):
 
 * Define [Conditional Access policies](../conditional-access/workload-identity.md) for the [Microsoft Azure Management](../authentication/howto-password-smart-lockout.md) cloud app to enforce identity security posture when accessing Azure Resource Manager. This should include controls on MFA and device-based controls to enable access only through secure workstations (more on this in the Privileged Roles section under Identity Governance). Additionally, use [Conditional Access to filter for devices](../conditional-access/concept-condition-filters-for-devices.md).
 
@@ -150,7 +150,7 @@ In the following sections are recommendations for Azure solutions. For general g
 
 * Use [External identities cross-tenant access settings](../external-identities/cross-tenant-access-overview.md) to manage how they collaborate with other Azure AD organizations and other Microsoft Azure clouds through B2B collaboration and [B2B direct connect](../external-identities/cross-tenant-access-settings-b2b-direct-connect.md).
 
-* For specific device configuration and control, you can use device filters in Conditional Access policies to [target or exclude specific devices](../conditional-access/concept-condition-filters-for-devices.md). This enables you to restrict access to Azure management tools from a designated secure admin workstation (SAW). Other approaches you can take include using [Azure Virtual desktop](../../virtual-desktop/environment-setup.md), [Azure Bastion](../../bastion/bastion-overview.md), or [Cloud PC](/graph/cloudpc-concept-overview).
+* For specific device configuration and control, you can use device filters in Conditional Access policies to [target or exclude specific devices](../conditional-access/concept-condition-filters-for-devices.md). This enables you to restrict access to Azure management tools from a designated secure admin workstation (SAW). Other approaches you can take include using [Azure Virtual desktop](../../virtual-desktop/terminology.md), [Azure Bastion](../../bastion/bastion-overview.md), or [Cloud PC](/graph/cloudpc-concept-overview).
 
 * Billing management applications such as Azure EA portal or MCA billing accounts aren't represented as cloud applications for Conditional Access targeting. As a compensating control, define separate administration accounts and target Conditional Access policies to those accounts using an "All Apps" condition.
 
@@ -174,7 +174,7 @@ Below are some identity governance principles to consider across all the tenant 
 
 * **Privileged access from secure workstations** - All privileged access should occur from secure, locked down devices. Separating these sensitive tasks and accounts from daily use workstations and devices protect privileged accounts from phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks such as keystroke logging, [Pass-the-Hash](https://aka.ms/AzureADSecuredAzure/27a), and Pass-The-Ticket.
 
-Some approaches you can use for [using secure devices as part of your privileged access story](/security/compass/privileged-access-devices) include using Conditional Access policies to [target or exclude specific devices](../conditional-access/concept-condition-filters-for-devices.md), using [Azure Virtual desktop](../../virtual-desktop/environment-setup.md), [Azure Bastion](../../bastion/bastion-overview.md), or [Cloud PC](/graph/cloudpc-concept-overview), or creating Azure-managed workstations or privileged access workstations.
+Some approaches you can use for [using secure devices as part of your privileged access story](/security/compass/privileged-access-devices) include using Conditional Access policies to [target or exclude specific devices](../conditional-access/concept-condition-filters-for-devices.md), using [Azure Virtual desktop](../../virtual-desktop/terminology.md), [Azure Bastion](../../bastion/bastion-overview.md), or [Cloud PC](/graph/cloudpc-concept-overview), or creating Azure-managed workstations or privileged access workstations.
 
 * **Privileged role process guardrails** - Organizations must define processes and technical guardrails to ensure that privileged operations can be executed whenever needed while complying with regulatory requirements. Examples of guardrails criteria include:
 
@@ -381,7 +381,7 @@ All hybrid identity infrastructure OS logs should be archived and carefully moni
 
 * NPS that has the Azure AD Multi-Factor Authentication RADIUS extension
 
-[Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md) must be deployed to monitor identity synchronization and federation (when applicable) for all environments.
+[Azure AD Connect Health](../hybrid/connect/whatis-azure-ad-connect.md) must be deployed to monitor identity synchronization and federation (when applicable) for all environments.
 
 **Log storage retention** - All environments should have a cohesive log storage retention strategy, design, and implementation to facilitate a consistent toolset (for example, SIEM systems such as Azure Sentinel), common queries, investigation, and forensics playbooks. Azure Policy can be used to set up diagnostic settings.
 
@@ -393,7 +393,7 @@ The following scenarios must be explicitly monitored and investigated:
 
 * **User entity behavioral analytics (UEBA) alerts** - UEBA should be used to get insightful information based on anomaly detection. [Microsoft Microsoft 365 Defender for Cloud Apps](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-cloud-apps) provides [UEBA in the cloud](/defender-cloud-apps/tutorial-ueba). Customers can integrate [on-premises UEBA from Microsoft Microsoft 365 Defender for Identity](/defender-cloud-apps/mdi-integration). MCAS reads signals from Azure AD Identity Protection.
 
-* **Emergency access accounts activity** - Any access using [emergency access accounts](../fundamentals/security-operations-privileged-accounts.md) should be monitored and [alerts](../users-groups-roles/directory-emergency-access.md) created for investigations. This monitoring must include:
+* **Emergency access accounts activity** - Any access using [emergency access accounts](./security-operations-privileged-accounts.md) should be monitored and [alerts](../roles/security-emergency-access.md) created for investigations. This monitoring must include:
 
   * Sign-ins
 
@@ -497,7 +497,7 @@ Similarly, Azure Monitor can be integrated with ITSM systems through the [IT Ser
 
 * [Introduction to delegated administration and isolated environments](secure-introduction.md)
 
-* [Azure AD fundamentals](../fundamentals/secure-fundamentals.md)
+* [Azure AD fundamentals](./secure-fundamentals.md)
 
 * [Azure resource management fundamentals](secure-resource-management.md)
 

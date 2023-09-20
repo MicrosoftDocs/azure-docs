@@ -1,6 +1,6 @@
 ---
-title: Limitations with Azure AD certificate-based authentication without federation
-description: Learn supported and unsupported scenarios for Azure AD certificate-based authentication
+title: Limitations with Microsoft Entra certificate-based authentication without federation
+description: Learn supported and unsupported scenarios for Microsoft Entra certificate-based authentication
 
 services: active-directory
 ms.service: active-directory
@@ -16,9 +16,9 @@ ms.reviewer: vimrang
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Limitations with Azure AD certificate-based authentication 
+# Limitations with Microsoft Entra certificate-based authentication 
 
-This topic covers supported and unsupported scenarios for Azure Active Directory (Azure AD) certificate-based authentication.
+This topic covers supported and unsupported scenarios for Microsoft Entra certificate-based authentication.
 
 ## Supported scenarios
 
@@ -78,13 +78,11 @@ The following scenarios aren't supported:
 
 ## Next steps
 
-- [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
-- [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)   
-- [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
-- [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
-- [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
+- [Overview of Microsoft Entra CBA](concept-certificate-based-authentication.md)
+- [Technical deep dive for Microsoft Entra CBA](concept-certificate-based-authentication-technical-deep-dive.md)   
+- [How to configure Microsoft Entra CBA](how-to-certificate-based-authentication.md)
+- [Windows SmartCard logon using Microsoft Entra CBA](concept-certificate-based-authentication-smartcard.md)
+- [Microsoft Entra CBA on mobile devices (Android and iOS)](./concept-certificate-based-authentication-mobile-ios.md)
 - [CertificateUserIDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)
-
-

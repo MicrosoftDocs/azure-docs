@@ -4,8 +4,8 @@ description: This quickstart provides several Go code samples you can use to con
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: quickstart
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.custom: mvc, mode-api, devx-track-go, devx-track-linux
 ms.devlang: golang
 ms.date: 05/03/2023

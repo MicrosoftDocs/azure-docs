@@ -1,9 +1,9 @@
 ---
 title: Start using PIM
-description: Learn how to enable and get started using Azure AD Privileged Identity Management (PIM) in the Azure portal.
+description: Learn how to enable and get started using Privileged Identity Management (PIM) in the Microsoft Entra admin center.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 editor: ''
 
@@ -11,8 +11,8 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/07/2021
-ms.author: billmath
+ms.date: 09/13/2023
+ms.author: barclayn
 ms.reviewer: shaunliu
 ms.custom: pim  
 ms.collection: M365-identity-device-management
@@ -21,13 +21,13 @@ ms.collection: M365-identity-device-management
 
 This article describes how to enable Privileged Identity Management (PIM) and get started using it.
 
-Use Privileged Identity Management (PIM) to manage, control, and monitor access within your Azure Active Directory (Azure AD) organization. With PIM you can provide as-needed and just-in-time access to Azure resources, Azure AD resources, and other Microsoft online services like Microsoft 365 or Microsoft Intune.
+Use Privileged Identity Management (PIM) to manage, control, and monitor access within your Entra ID (Azure AD) organization. With PIM you can provide as-needed and just-in-time access to Azure resources, Azure AD resources, and other Microsoft online services like Microsoft 365 or Microsoft Intune.
 
 ## Prerequisites
 
 To use Privileged Identity Management, you must have one of the following licenses:
 
-- [!INCLUDE [active-directory-p2-governance-either-license.md](../../../includes/active-directory-p2-governance-either-license.md)]
+- [!INCLUDE [entra-id-license-pim.md](../../../includes/entra-id-license-pim.md)]
 
 
 For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
@@ -72,27 +72,6 @@ Once Privileged Identity Management is set up, you can learn your way around.
 | **Azure AD roles** | Displays a dashboard and settings for Privileged role administrators to manage Azure AD role assignments. This dashboard is disabled for anyone who isn't a privileged role administrator. These users have access to a special dashboard titled My view. The My view dashboard only displays information about the user accessing the dashboard, not the entire organization. |
 | **Azure resources** | Displays a dashboard and settings for Privileged role administrators to manage Azure resource role assignments. This dashboard is disabled for anyone who isn't a privileged role administrator. These users have access to a special dashboard titled My view. The My view dashboard only displays information about the user accessing the dashboard, not the entire organization. |
 
-## Add a PIM tile to the dashboard
-
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
-To make it easier to open Privileged Identity Management, add a PIM tile to your Azure portal dashboard.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Select **All services** and find the **Azure AD Privileged Identity Management** service.
-
-    ![Azure AD Privileged Identity Management in All services](./media/pim-getting-started/pim-all-services-find.png)
-
-1. Select the Privileged Identity Management **Quick start**.
-
-1. Select **Pin blade to dashboard** to pin the Privileged Identity Management **Quick start** page to the dashboard.
-
-    ![Pushpin icon to pin Privileged Identity Management page to dashboard](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
-
-    On the Azure dashboard, you'll see a tile like this:
-
-    ![Privileged Identity Management Quick start tile on dashboard](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
 ## Next steps
 

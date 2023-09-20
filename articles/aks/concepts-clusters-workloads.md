@@ -329,7 +329,7 @@ Like StatefulSets, a DaemonSet is defined as part of a YAML definition using `ki
 For more information, see [Kubernetes DaemonSets][kubernetes-daemonset].
 
 > [!NOTE]
-> If using the [Virtual Nodes add-on](virtual-nodes-cli.md#enable-virtual-nodes-addon), DaemonSets will not create pods on the virtual node.
+> If using the [Virtual Nodes add-on](virtual-nodes-cli.md#enable-the-virtual-nodes-addon), DaemonSets will not create pods on the virtual node.
 
 ## Namespaces
 

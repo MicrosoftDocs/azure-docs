@@ -86,7 +86,7 @@ If the information in the `login_hint` claim doesn't match any existing user, th
 
 #### Using a session ID
 
-To use a session ID, add `sid` as an [optional claim](active-directory-optional-claims.md) to your app's ID tokens. The `sid` claim allows an application to identify a user's Azure AD session independent of their account name or username. To learn how to add optional claims like `sid`, see [Provide optional claims to your app](active-directory-optional-claims.md). Use the session ID (SID) in silent authentication requests you make with `ssoSilent` in MSAL.js.
+To use a session ID, add `sid` as an [optional claim](./optional-claims.md) to your app's ID tokens. The `sid` claim allows an application to identify a user's Azure AD session independent of their account name or username. To learn how to add optional claims like `sid`, see [Provide optional claims to your app](./optional-claims.md). Use the session ID (SID) in silent authentication requests you make with `ssoSilent` in MSAL.js.
 
 ```javascript
 const request = {
@@ -218,5 +218,5 @@ const msalInstance = new msal.PublicClientApplication(config);
 For more information about SSO, see:
 
 - [MSAL.js prompt behavior](msal-js-prompt-behavior.md)
-- [Optional token claims](active-directory-optional-claims.md)
+- [Optional token claims](./optional-claims.md)
 - [Configurable token lifetimes](configurable-token-lifetimes.md)

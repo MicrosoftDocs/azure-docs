@@ -3,7 +3,7 @@ title: Troubleshoot Azure Automation shared resource issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation shared resources.
 services: automation
 ms.subservice:
-ms.date: 01/27/2021
+ms.date: 08/24/2023
 ms.topic: troubleshooting 
 ms.custom:
 ---
@@ -130,6 +130,10 @@ You don't have the permissions that you need to create or update the Run As acco
 To create or update a Run As account, you must have appropriate [permissions](../automation-security-overview.md#permissions) to the various resources used by the Run As account.
 
 If the problem is because of a lock, verify that the lock can be removed. Then go to the resource that is locked in Azure portal, right-click the lock, and select **Delete**.
+
+> [!NOTE]
+> Azure Automation Run As account will retire on **September 30, 2023** and will be replaced with Managed Identities. Ensure that you start migrating your runbooks to use [managed identities](../automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](../migrate-run-as-accounts-managed-identity.md#sample-scripts) to start migrating the runbooks from Run As accounts to managed identities before **September 30, 2023**.
+
 
 ### <a name="iphelper"></a>Scenario: You receive the error "Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'" when executing a runbook
 

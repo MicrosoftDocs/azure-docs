@@ -120,7 +120,7 @@ Configuration settings such authentication methods allowed, hybrid configuration
 
 * [Introduction to delegated administration and isolated environments](secure-introduction.md)
 
-* [Azure AD fundamentals](../fundamentals/secure-fundamentals.md)
+* [Azure AD fundamentals](./secure-fundamentals.md)
 
 * [Azure resource management fundamentals](secure-resource-management.md)
 

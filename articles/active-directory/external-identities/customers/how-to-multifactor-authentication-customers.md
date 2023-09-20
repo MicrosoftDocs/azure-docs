@@ -35,9 +35,9 @@ Create a Conditional Access policy in your customer tenant that prompts users fo
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 
-1. Make sure you're using the directory that contains your Azure AD customer tenant: Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar and find your customer tenant in the list. If it's not the current directory, select **Switch**.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 
-1. Browse to **Azure Active Directory** > **Protect & secure** > **Security Center**.
+1. Browse to **Identity** > **Protection** > **Security Center**.
 
 1. Select **Conditional Access** > **Policies**, and then select **New policy**.
 
@@ -77,9 +77,9 @@ Create a Conditional Access policy in your customer tenant that prompts users fo
 
 Enable the email one-time passcode authentication method in your customer tenant for all users.
 
-1. Sign in to your customer tenant in the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Browse to **Azure Active Directory** > **Protect & secure** > **Authentication Methods**.
+1. Browse to **Identity** > **Protection** > **Authentication methods**.
 
 1. In the **Method** list, select **Email OTP**.
 

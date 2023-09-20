@@ -45,7 +45,7 @@ In addition to individual user resiliency described above, enterprises should pl
 
 * Deploy [Passwordless credentials](../authentication/howto-authentication-passwordless-deployment.md) such as Windows Hello for Business, Phone Authentication, and FIDO2 security keys to reduce dependencies.
 * Deploy the [Microsoft Authenticator App](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) as a second factor.
-* Turn on [password hash synchronization](../hybrid/whatis-phs.md) for hybrid accounts that are synchronized from Windows Server Active Directory. This option can be enabled alongside federation services such as Active Directory Federation Services (AD FS) and provides a fallback in case the federation service fails.
+* Turn on [password hash synchronization](../hybrid/connect/whatis-phs.md) for hybrid accounts that are synchronized from Windows Server Active Directory. This option can be enabled alongside federation services such as Active Directory Federation Services (AD FS) and provides a fallback in case the federation service fails.
 * [Analyze usage of Multi-factor authentication methods](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/) to improve user experience.
 * [Implement a resilient access control strategy](../authentication/concept-resilient-controls.md)
 

@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 02/04/2022
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -42,7 +42,7 @@ Granting the update permission is done in two steps:
 1. Create a custom role with permission `microsoft.directory/servicePrincipals/appRoleAssignedTo/update`
 1. Grant users or groups permissions to manage user and group assignments to enterprise apps. This is when you can set the scope to the organization-wide level or to a single application.
 
-## Azure portal
+## Microsoft Entra admin center
 
 ### Create a new custom role
 
@@ -51,9 +51,11 @@ Granting the update permission is done in two steps:
 >[!NOTE]
 > Custom roles are created and managed at an organization-wide level and are available only from the organization's Overview page.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Roles and administrators** and then select **New custom role**.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
+
+1. Select **New custom role**.
 
     ![Add a new custom role from the roles list in Azure AD](./media/custom-enterprise-apps/new-custom-role.png)
 
@@ -69,13 +71,13 @@ Granting the update permission is done in two steps:
 
     ![Now you can create the custom role](./media/custom-enterprise-apps/role-custom-create.png)
 
-### Assign the role to a user using the Azure portal
+### Assign the role to a user using the Microsoft Entra admin center
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Roles and administrators**.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 
-1. Select the **Grant permissions to manage user and group assignments** role.
+1. Select the **Manage user and group assignments** role.
 
     ![Open Roles and Administrators and search for the custom role](./media/custom-enterprise-apps/select-custom-role.png)
 
@@ -93,7 +95,7 @@ Granting the update permission is done in two steps:
 
 ## PowerShell
 
-For more detail, see [Create and assign a custom role](custom-create.md) and [Assign custom roles with resource scope using PowerShell](custom-assign-powershell.md).
+For more detail, see [Create and assign a custom role in Azure Active Directory](custom-create.md) and [Assign custom roles with resource scope using PowerShell](custom-assign-powershell.md).
 
 ### Create a custom role
 
@@ -134,7 +136,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 
 ## Microsoft Graph API
 
-Use the [Create unifiedRoleDefinition](/graph/api/rbacapplication-post-roledefinitions) API to create a custom role. For more information, see [Create and assign a custom role](custom-create.md) and [Assign custom admin roles using the Microsoft Graph API](custom-assign-graph.md).
+Use the [Create unifiedRoleDefinition](/graph/api/rbacapplication-post-roledefinitions) API to create a custom role. For more information, see [Create and assign a custom role in Azure Active Directory](custom-create.md) and [Assign custom admin roles using the Microsoft Graph API](custom-assign-graph.md).
 
 ```http
 POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions

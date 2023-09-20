@@ -40,7 +40,10 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * Review the [adobe documentation](https://helpx.adobe.com/enterprise/admin-guide.html/enterprise/using/add-azure-sync.ug.html) on user provisioning 
 
 > [!NOTE]
-> If your organization uses the User Sync Tool or a UMAPI integration, you must first pause the integration. Then, add Azure AD automatic provisioning to automate user management from the Azure portal. Once Azure AD automatic provisioning is configured and running, you can completely remove the User Sync Tool or UMAPI integration.
+> If your organization uses the User Sync Tool or a UMAPI integration, you must first pause the integration. Then, add Azure AD automatic provisioning to automate user management. Once Azure AD automatic provisioning is configured and running, you can completely remove the User Sync Tool or UMAPI integration.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -59,7 +62,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
     ![Screenshot that shows 'Sync users from Microsoft Azure Active Directory' selected.](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
 
-4. Copy and save the **Tenant URL** and the **Secret token**. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Adobe Identity Management application in the Azure portal.
+4. Copy and save the **Tenant URL** and the **Secret token**. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Adobe Identity Management application.
 
     ![Sync](media/adobe-identity-management-provisioning-tutorial/token.png)
 
@@ -85,11 +88,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Adobe Identity Management in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
     ![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Adobe Identity Management**.
+1. In the applications list, select **Adobe Identity Management**.
 
     ![The Adobe Identity Management link in the Applications list](common/all-applications.png)
 
@@ -115,24 +119,28 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Adobe Identity Management in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Adobe Identity Management for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Adobe Identity Management API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|
-   |---|---|
-   |userName|String|
-   |emails[type eq "work"].value|String|
-   |active|Boolean|
-   |addresses[type eq "work"].country|String|
-   |name.givenName|String|
-   |name.familyName|String|
-   |urn:ietf:params:scim:schemas:extension:Adobe:2.0:User:emailAliases|String|
+   |Attribute|Type|Supported for filtering|Required by Adobe Identity Management
+   |---|---|---|---|
+   |userName|String|&check;|&check;   
+   |active|Boolean||
+   |emails[type eq "work"].value|String||
+   |addresses[type eq "work"].country|String||
+   |name.givenName|String||
+   |name.familyName|String||
+   |urn:ietf:params:scim:schemas:extension:Adobe:2.0:User:emailAliases|String||
+   |urn:ietf:params:scim:schemas:extension:Adobe:2.0:User:eduRole|String||
+
+    > [!NOTE]
+    > The **eduRole** field accepts values like `Teacher or Student`, anything else will be ignored.
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Adobe Identity Management**.
 
 11. Review the group attributes that are synchronized from Azure AD to Adobe Identity Management in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Adobe Identity Management for update operations. Select the **Save** button to commit any changes.
 
-      |Attribute|Type|
-      |---|---|
-      |displayName|String|
-      |members|Reference|
+      |Attribute|Type|Supported for filtering|Required by Adobe Identity Management
+      |---|---|---|---|
+      |displayName|String|&check;|&check;
+      |members|Reference||
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -153,11 +161,15 @@ This operation starts the initial synchronization cycle of all users and groups 
 ## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
-1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+* Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully.
+* Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion.
+* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
-## Additional resources
+## Change log
+* 07/18/2023 - The app was added to Gov Cloud.
+* 08/15/2023 - Added support for Schema Discovery.
+
+## More resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

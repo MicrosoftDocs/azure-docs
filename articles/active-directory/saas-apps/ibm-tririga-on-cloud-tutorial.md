@@ -20,7 +20,7 @@ In this article, you learn how to integrate IBM TRIRIGA on Cloud with Azure Acti
 
 * Control in Azure AD who has access to IBM TRIRIGA on Cloud.
 * Enable your users to be automatically signed-in to IBM TRIRIGA on Cloud with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You configure and test Azure AD single sign-on for IBM TRIRIGA on Cloud in a test environment. IBM TRIRIGA on Cloud supports **IDP** initiated single sign-on.
 
@@ -43,15 +43,16 @@ Add IBM TRIRIGA on Cloud from the Azure AD application gallery to configure sing
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
-1. In the Azure portal, on the **IBM TRIRIGA on Cloud** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **IBM TRIRIGA on Cloud** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -74,7 +75,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	| `https://<CustomerName-Environment>.tririga.com/samlsps` |
 
 	> [!Note]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [IBM TRIRIGA on Cloud support team](https://www.ibm.com/mysupport) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [IBM TRIRIGA on Cloud support team](https://www.ibm.com/mysupport) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -86,7 +87,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure IBM TRIRIGA on Cloud SSO
 
-To configure single sign-on on **IBM TRIRIGA on Cloud** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [IBM TRIRIGA on Cloud support team](https://www.ibm.com/mysupport). They set this setting to have the SAML SSO connection set properly on both sides
+To configure single sign-on on **IBM TRIRIGA on Cloud** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [IBM TRIRIGA on Cloud support team](https://www.ibm.com/mysupport). They set this setting to have the SAML SSO connection set properly on both sides
 
 ### Create IBM TRIRIGA on Cloud test user
 
@@ -96,9 +97,9 @@ In this section, you create a user called Britta Simon in IBM TRIRIGA on Cloud. 
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the IBM TRIRIGA on Cloud for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the IBM TRIRIGA on Cloud for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the IBM TRIRIGA on Cloud tile in the My Apps, you should be automatically signed in to the IBM TRIRIGA on Cloud for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the IBM TRIRIGA on Cloud tile in the My Apps, you should be automatically signed in to the IBM TRIRIGA on Cloud for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Additional resources
 

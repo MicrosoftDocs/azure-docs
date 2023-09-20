@@ -41,7 +41,18 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Xledger](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Xledger to support provisioning with Azure AD
-Contact Xledger support to configure Xledger to support provisioning with Azure AD.
+
+1. Sign into **Xledger** with role of Domain Administrator (or similar) and navigate to **Administration > System Access > API Access Tokens**.
+
+1. Generate a Secret Token and take note of it
+
+   ![Screenshot of API Access Tokens (new token).](media/xledger-provisioning-tutorial/generate-new-token.png)
+
+1. Take note of the Tenant URL
+
+   ![Screenshot of API Access Token (api url).](media/xledger-provisioning-tutorial/generate-new-token-api-url.png)
+
+These values will be used in the Provisioning tab of your Xledger application. (Step 5)
 
 ## Step 3. Add Xledger from the Azure AD application gallery
 
@@ -62,7 +73,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Xledger in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 

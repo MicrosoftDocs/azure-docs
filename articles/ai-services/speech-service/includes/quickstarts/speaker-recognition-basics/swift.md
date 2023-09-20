@@ -8,4 +8,4 @@ ms.author: eur
 
 [!INCLUDE [Header](../../common/swift.md)]
 
-The Speech SDK for Swift does not support speaker recognition. Please select another programming language or the Swift reference and samples linked from the beginning of this article. 
+The Speech SDK for Swift doesn't support speaker recognition. Please select another programming language or the Swift reference and samples linked from the beginning of this article. 

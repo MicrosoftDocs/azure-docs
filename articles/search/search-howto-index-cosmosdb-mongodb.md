@@ -5,7 +5,7 @@ description: Set up a search indexer to index data stored in Azure Cosmos DB for
 author: gmndrg 
 ms.author: gimondra
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: how-to
 ms.date: 01/18/2023
 ---

@@ -85,7 +85,7 @@ Investigate access to your sensitive apps for awareness about external access. S
 If your email and network plans are enabled, you can investigate content sharing through email or unauthorized software as a service (SaaS) apps. 
 
 * Identify, prevent, and monitor accidental sharing
-  * [Learn about data loss prevention](/microsoft-365/compliance/dlp-learn-about-dlp?view=o365-worldwide&preserve-view=true )
+  * [Learn about data loss prevention](/microsoft-365/compliance/dlp-learn-about-dlp?view=o365-worldwide&preserve-view=true)
 * Identify unauthorized apps
   * [Microsoft Defender for Cloud Apps overview](/defender-cloud-apps/what-is-defender-for-cloud-apps)
 
@@ -112,4 +112,3 @@ Use the following series of articles to learn about securing external access to 
 9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) 
 
 10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)
-

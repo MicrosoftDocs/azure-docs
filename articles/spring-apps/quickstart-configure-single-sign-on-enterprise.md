@@ -182,7 +182,7 @@ To complete the single sign-on experience, use the following steps to deploy the
        --name identity-routes \
        --service <Azure-Spring-Apps-service-instance-name> \
        --app-name identity-service \
-       --routes-file azure/routes/identity-service.json
+       --routes-file azure-spring-apps-enterprise/resources/json/routes/identity-service.json
    ```
 
 ## Configure single sign-on for Spring Cloud Gateway

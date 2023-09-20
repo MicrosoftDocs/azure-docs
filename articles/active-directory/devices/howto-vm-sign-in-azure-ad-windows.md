@@ -12,8 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: sandeo
-
-ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
+ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 # Log in to a Windows virtual machine in Azure by using Azure AD including passwordless
@@ -95,11 +94,9 @@ There are two ways to enable Azure AD login for your Windows VM:
 - Azure Cloud Shell, when you're creating a Windows VM or using an existing Windows VM.
 
 > [!NOTE]
-> If a device object with the same displayMame as the hostname of a VM where an extension is installed exists, the VM fails to join Azure AD with a hostname duplication error. Avoid duplication by [modifying the hostname](../../virtual-network/virtual-networks-viewing-and-modifying-hostnames.md#modify-a-hostname).
+> If a device object with the same displayName as the hostname of a VM where an extension is installed exists, the VM fails to join Azure AD with a hostname duplication error. Avoid duplication by [modifying the hostname](../../virtual-network/virtual-networks-viewing-and-modifying-hostnames.md#modify-a-hostname).
 
 ### Azure portal
-
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 You can enable Azure AD login for VM images in Windows Server 2019 Datacenter or Windows 10 1809 and later. 
 
@@ -204,7 +201,7 @@ To configure role assignments for your Azure AD-enabled Windows Server 2019 Data
     | Role | **Virtual Machine Administrator Login** or **Virtual Machine User Login** |
     | Assign access to | User, group, service principal, or managed identity |
 
-    ![Screenshot that shows the page for adding a role assignment in the Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot that shows the page for adding a role assignment.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ### Azure Cloud Shell
 
@@ -322,9 +319,9 @@ The AADLoginForWindows extension must be installed successfully for the VM to co
 
    | Command to run | Expected output |
    | --- | --- |
-   | `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"` | Correct information about the Azure VM |
-   | `curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"` | Valid tenant ID associated with the Azure subscription |
-   | `curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
+   | `curl.exe -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"` | Correct information about the Azure VM |
+   | `curl.exe -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"` | Valid tenant ID associated with the Azure subscription |
+   | `curl.exe -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
 
    > [!NOTE]
    > You can decode the access token by using a tool like [calebb.net](http://calebb.net/). Verify that the `oid` value in the access token matches the managed identity that's assigned to the VM.
@@ -370,7 +367,7 @@ Exit code -2145648607 translates to `DSREG_AUTOJOIN_DISC_FAILED`. The extension 
    - `curl https://pas.windows.net/ -D -`
    
    > [!NOTE]
-   > Replace `<TenantID>` with the Azure AD tenant ID that's associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name or select **Azure Active Directory** > **Properties** > **Directory ID** in the Azure portal.
+   > Replace `<TenantID>` with the Azure AD tenant ID that's associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name or select **Azure Active Directory** > **Properties** > **Directory ID**.
    >
    > Attempts to connect to `enterpriseregistration.windows.net` might return 404 Not Found, which is expected behavior. Attempts to connect to `pas.windows.net` might prompt for PIN credentials or might return 404 Not Found. (You don't need to enter the PIN.) Either one is sufficient to verify that the URL is reachable.
 
@@ -470,8 +467,8 @@ Share your feedback about this feature or report problems with using it on the [
 
 If the Azure Windows VM Sign-In application is missing from Conditional Access, make sure that the application is in the tenant:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. Remove the filters to see all applications, and search for **VM**. If you don't see **Azure Windows VM Sign-In** as a result, the service principal is missing from the tenant.
 
 Another way to verify it is via Graph PowerShell:
@@ -489,4 +486,4 @@ Another way to verify it is via Graph PowerShell:
 
 ## Next steps
 
-For more information about Azure AD, see [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
+For more information about Azure AD, see [What is Azure Active Directory?](../fundamentals/whatis.md).

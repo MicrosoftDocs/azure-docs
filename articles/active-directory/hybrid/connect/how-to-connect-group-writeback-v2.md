@@ -33,7 +33,7 @@ There are two versions of group writeback. The original version is in general av
 - Written-back groups nested as members of on-premises Active Directory synced groups will be synced up to Azure AD as nested. 
 - Devices that are members of writeback-enabled groups in Azure AD will be written back as members of Active Directory. Azure AD-registered and Azure AD-joined devices require device writeback to be enabled for group membership to be written back.
 - You can configure the common name in an Active Directory group's distinguished name to include the group's display name when it's written back.  
-- You can use the Azure portal, Graph Explorer, and PowerShell to configure which Azure AD groups are written back. 
+- You can use the [Microsoft Entra admin center](https://entra.microsoft.com), Graph Explorer, and PowerShell to configure which Azure AD groups are written back. 
 
 The new version is enabled on the tenant and not per Azure AD Connect client instance. Make sure that all Azure AD Connect client instances are updated to a minimal build of [Azure AD Connect version 2.0 or later](https://www.microsoft.com/download/details.aspx?id=47594) if group writeback is currently enabled on the client instance. 
 
