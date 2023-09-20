@@ -132,6 +132,6 @@ In this article, you learned how to update or rotate service principal and Azure
 [az-ad-app-credential-list]: /cli/azure/ad/app/credential#az_ad_app_credential_list
 [az-ad-app-credential-reset]: /cli/azure/ad/app/credential#az_ad_app_credential_reset
 [node-image-upgrade]: ./node-image-upgrade.md
-[node-surge-upgrade]: upgrade-cluster.md#customize-node-surge-upgrade
+[node-surge-upgrade]: upgrade-aks-cluster.md#customize-node-surge-upgrade
 [update-cluster-service-principal-credentials]: #update-aks-cluster-with-service-principal-credentials
 [reset-existing-service-principal-credentials]: #reset-the-existing-service-principal-credentials

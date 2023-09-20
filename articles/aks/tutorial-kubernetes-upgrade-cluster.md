@@ -109,7 +109,7 @@ If no upgrades are available, create a new cluster with a supported version of K
 
 AKS nodes are carefully cordoned and drained to minimize any potential disruptions to running applications. During this process, AKS performs the following steps:
 
-* Adds a new buffer node (or as many nodes as configured in [max surge](./upgrade-cluster.md#customize-node-surge-upgrade)) to the cluster that runs the specified Kubernetes version.
+* Adds a new buffer node (or as many nodes as configured in [max surge](./upgrade-aks-cluster.md#customize-node-surge-upgrade)) to the cluster that runs the specified Kubernetes version.
 * [Cordons and drains][kubernetes-drain] one of the old nodes to minimize disruption to running applications. If you're using max surge, it [cordons and drains][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified.
 * When the old node is fully drained, it's reimaged to receive the new version and becomes the buffer node for the following node to be upgraded.
 * This process repeats until all nodes in the cluster have been upgraded.

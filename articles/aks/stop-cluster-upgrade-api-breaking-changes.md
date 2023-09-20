@@ -46,18 +46,18 @@ You have two options to mitigate the issue. You can either [remove usage of depr
 
     :::image type="content" source="./media/upgrade-cluster/applens-api-detection-full-v2.png" alt-text="A screenshot of the Azure portal showing the 'Selected Kubernetes API deprecations' section.":::
 
-3. Wait 12 hours from the time the last deprecated API usage was seen. Check the verb in the deprecated api usage to know if it is a [watch][k8s-api].
+3. Wait 12 hours from the time the last deprecated API usage was seen. Check the verb in the deprecated api usage to know if it's a [watch][k8s-api].
 
 4. Retry your cluster upgrade.
 
-You can also check past API usage by enabling [Container Insights][container-insights] and exploring kube audit logs. Check the verb in the deprecated api usage to understand, if it is a [watch][k8s-api] use case.
+You can also check past API usage by enabling [Container Insights][container-insights] and exploring kube audit logs. Check the verb in the deprecated api usage to understand, if it's a [watch][k8s-api] use case.
 
 ### Bypass validation to ignore API changes
 
 > [!NOTE]
 > This method requires you to use the `aks-preview` Azure CLI extension version 0.5.134 or later. This method isn't recommended, as deprecated APIs in the targeted Kubernetes version may not work long term. We recommend to removing them as soon as possible after the upgrade completes.
 
-* Bypass validation to ignore API breaking changes using the [`az aks update`][az-aks-update] command, specifying `enable-force-upgrade`, and setting the `upgrade-override-until` property to define the end of the window during which validation is bypassed. If no value is set, it defaults the window to three days from the current time. The date and time you specify must be in the future.
+* Bypass validation to ignore API breaking changes using the [`az aks update`][az-aks-update] command, specify the `enable-force-upgrade` flag, and set the `upgrade-override-until` property to define the end of the window during which validation is bypassed. If no value is set, it defaults the window to three days from the current time. The date and time you specify must be in the future.
 
     ```azurecli-interactive
     az aks update --name myAKSCluster --resource-group myResourceGroup --enable-force-upgrade --upgrade-override-until 2023-10-01T13:00:00Z

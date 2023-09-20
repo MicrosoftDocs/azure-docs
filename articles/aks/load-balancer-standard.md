@@ -557,6 +557,6 @@ To learn more about using internal load balancer for inbound traffic, see the [A
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
 [service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags
-[maxsurge]: upgrade-cluster.md#customize-node-surge-upgrade
+[maxsurge]: ./upgrade-aks-cluster.md#customize-node-surge-upgrade
 [az-lb]: ../load-balancer/load-balancer-overview.md
 [alb-outbound-rules]: ../load-balancer/outbound-rules.md
