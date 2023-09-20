@@ -59,7 +59,7 @@ In order to provision user accounts to Cerner Central, you’ll need to request 
 
    * Production:  https://cernercare.com/accounts/create  
 
-2. Next, a system account must be created for Azure AD. Use the instructions below to request a System Account for your sandbox and production environments.
+1. Next, a system account must be created for Azure AD. Use the instructions below to request a System Account for your sandbox and production environments.
 
    * Instructions:  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
@@ -67,7 +67,7 @@ In order to provision user accounts to Cerner Central, you’ll need to request 
 
    * Production:  https://cernercentral.com/system-accounts/
 
-3. Next, generate an OAuth bearer token for each of your system accounts. To do this, follow the instructions below.
+1. Next, generate an OAuth bearer token for each of your system accounts. To do this, follow the instructions below.
 
    * Instructions:  https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
@@ -75,19 +75,20 @@ In order to provision user accounts to Cerner Central, you’ll need to request 
 
    * Production:  https://cernercentral.com/system-accounts/
 
-4. Finally, you need to acquire User Roster Realm IDs for both the sandbox and production environments in Cerner to complete the configuration. For information on how to acquire this, see: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
+1. Finally, you need to acquire User Roster Realm IDs for both the sandbox and production environments in Cerner to complete the configuration. For information on how to acquire this, see: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
 
-5. Now you can configure Azure AD to provision user accounts to Cerner. Sign in to the [Azure portal](https://portal.azure.com), and browse to the **Azure Active Directory > Enterprise Apps > All applications**  section.
+1. Now you can configure Azure AD to provision user accounts to Cerner. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 
-6. If you have already configured Cerner Central for single sign-on, search for your instance of Cerner Central using the search field. Otherwise, select **Add** and search for **Cerner Central** in the application gallery. Select Cerner Central from the search results, and add it to your list of applications.
+1. If you have already configured Cerner Central for single sign-on, search for your instance of Cerner Central using the search field. Otherwise, select **Add** and search for **Cerner Central** in the application gallery. Select Cerner Central from the search results, and add it to your list of applications.
 
-7. Select your instance of Cerner Central, then select the **Provisioning** tab.
+1. Select your instance of Cerner Central, then select the **Provisioning** tab.
 
-8. Set the **Provisioning Mode** to **Automatic**.
+1. Set the **Provisioning Mode** to **Automatic**.
 
    ![Cerner Central Provisioning](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
 
-9. Fill in the following fields under **Admin Credentials**:
+1. Fill in the following fields under **Admin Credentials**:
 
    * In the **Tenant URL** field, enter a URL in the format below, replacing "User-Roster-Realm-ID" with the realm ID you acquired in step #4.
 

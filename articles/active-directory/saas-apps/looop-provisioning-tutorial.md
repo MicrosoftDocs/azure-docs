@@ -55,7 +55,7 @@ Before configuring Looop for automatic user provisioning with Azure AD, you will
 
 	![Looop Token](media/looop-provisioning-tutorial/resettoken.png)
 
-3. Copy the **SCIM Endpoint** and the **Token**. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Looop application in the Azure portal. 
+3. Copy the **SCIM Endpoint** and the **Token**. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Looop application. 
 
 	![Looop Create Token](media/looop-provisioning-tutorial/token.png)
 
@@ -63,19 +63,9 @@ Before configuring Looop for automatic user provisioning with Azure AD, you will
 
 To configure Looop for automatic user provisioning with Azure AD, you need to add Looop from the Azure AD application gallery to your list of managed SaaS applications.
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Looop**, select **Looop** in the results panel. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Looop**, select **Looop** in the results panel. 
 
 	![Looop in the results list](common/search-new-app.png)
 
@@ -97,11 +87,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Looop in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Looop**.
+1. In the applications list, select **Looop**.
 
 	![The Looop link in the Applications list](common/all-applications.png)
 

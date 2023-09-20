@@ -77,19 +77,8 @@ Before you configure Wrike for automatic user provisioning with Azure AD, add Wr
 
 To add Wrike from the Azure AD application gallery, follow these steps.
 
-1. In the [Azure portal](https://portal.azure.com), in the left navigation pane, select **Azure Active Directory**.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Wrike**, select **Wrike** in the results panel, and then select **Add** to add the application.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.Wrike**, select **Wrike** in the results panel, and then select **Add** to add the application.
 
 	![Wrike in the results list](common/search-new-app.png)
 
@@ -103,51 +92,48 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### Configure automatic user provisioning for Wrike in Azure AD
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications** > **All applications**.
-
-	![All applications](common/enterprise-applications.png)
-
-2. In the applications list, select **Wrike**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Wrike**.
 
 	![The Wrike link in the Applications list](common/all-applications.png)
 
-3. Select the **Provisioning** tab.
+1. Select the **Provisioning** tab.
 
 	![Provisioning tab](common/provisioning.png)
 
-4. Set the **Provisioning Mode** to **Automatic**.
+1. Set the **Provisioning Mode** to **Automatic**.
 
 	![Provisioning Mode set to Automatic](common/provisioning-automatic.png)
 
-5. Under the Admin Credentials section, input the **Base URL** and **Permanent access token** values retrieved earlier in **Tenant URL** and **Secret Token**, respectively. Select **Test Connection** to ensure that Azure AD can connect to Wrike. If the connection fails, make sure that your Wrike account has admin permissions and try again.
+1. Under the Admin Credentials section, input the **Base URL** and **Permanent access token** values retrieved earlier in **Tenant URL** and **Secret Token**, respectively. Select **Test Connection** to ensure that Azure AD can connect to Wrike. If the connection fails, make sure that your Wrike account has admin permissions and try again.
 
 	![Tenant URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
-7. In the **Notification Email** box, enter the email address of a person or group who should receive the provisioning error notifications. Select the **Send an email notification when a failure occurs** check box.
+1. In the **Notification Email** box, enter the email address of a person or group who should receive the provisioning error notifications. Select the **Send an email notification when a failure occurs** check box.
 
 	![Notification email](common/provisioning-notification-email.png)
 
-8. Select **Save**.
+1. Select **Save**.
 
-9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Wrike**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Wrike**.
 
 	![Wrike user mappings](media/Wrike-provisioning-tutorial/Wrike-user-mappings.png)
 
-10. Review the user attributes that are synchronized from Azure AD to Wrike in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Wrike for update operations. Select **Save** to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Wrike in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Wrike for update operations. Select **Save** to commit any changes.
 
 	![Wrike user attributes](media/Wrike-provisioning-tutorial/Wrike-user-attributes.png)
 
-11. To configure scoping filters, follow the instructions in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, follow the instructions in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. To enable the Azure AD provisioning service for Wrike, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Azure AD provisioning service for Wrike, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status toggled On](common/provisioning-toggle-on.png)
 
-13. Define the users or groups that you want to provision to Wrike by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users or groups that you want to provision to Wrike by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-14. When you're ready to provision, select **Save**.
+1. When you're ready to provision, select **Save**.
 
 	![Saving provisioning configuration](common/provisioning-configuration-save.png)
 

@@ -173,6 +173,7 @@ There are currently a few known limitations to on-demand provisioning. Post your
 * On-demand provisioning of roles isn't supported.
 * On-demand provisioning supports disabling users that have been unassigned from the application. However, it doesn't support disabling or deleting users that have been disabled or deleted from Azure AD. Those users don't appear when you search for a user.
 * On-demand provisioning doesn't support nested groups that aren't directly assigned to the application.
+* The on-demand provisioning request API can only accept a single group with up to 5 members at a time.
 
 ## Next steps
 

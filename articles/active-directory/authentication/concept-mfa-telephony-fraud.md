@@ -1,6 +1,6 @@
 ---
-title: Understanding telephony fraud risk for Azure AD Multi-Factor Authentication (MFA) | Azure Active Directory
-description: Understanding International Revenue Share Fraud (IRSF) is crucial for implementing preventive measures for Azure AD Multi-Factor Authentication (MFA) telephony verification.
+title: Understanding telephony fraud risk for Microsoft Entra multifactor authentication | Microsoft Entra ID
+description: Understanding International Revenue Share Fraud (IRSF) is crucial for implementing preventive measures for Microsoft Entra multifactor authentication telephony verification.
 
 services: active-directory
 ms.service: active-directory
@@ -19,7 +19,7 @@ ms.custom: references_regions
 
 # Understanding telephony fraud  
 
-In today's digital landscape, telecommunication services have seamlessly integrated into our daily lives. But technological progress also brings the risk of fraudulent activities like International Revenue Share Fraud (IRSF), which poses financial consequences and service disruptions. IRSF involves exploiting telecommunication billing systems by unauthorized actors. They divert telephony traffic and generate profits through a technique called *traffic pumping*. Traffic pumping targets multifactor authentication (MFA) systems, and causes inflated charges, service unreliability, and system errors. 
+In today's digital landscape, telecommunication services have seamlessly integrated into our daily lives. But technological progress also brings the risk of fraudulent activities like International Revenue Share Fraud (IRSF), which poses financial consequences and service disruptions. IRSF involves exploiting telecommunication billing systems by unauthorized actors. They divert telephony traffic and generate profits through a technique called *traffic pumping*. Traffic pumping targets multifactor authentication systems, and causes inflated charges, service unreliability, and system errors. 
 
 To counter this risk, a thorough understanding of IRSF is crucial for implementing preventive measures like regional restrictions and phone number verification, while our system aims to minimize disruptions and safeguard both our business, users, and your business we prioritize your security and as such we may sometimes take proactive measures.  
 
@@ -42,6 +42,6 @@ In addition, you may sometimes encounter throttles because you're requesting tra
 
 ## Next steps
 
-* [Authentication methods in Azure Active Directory](concept-authentication-authenticator-app.md)
+* [Authentication methods in Microsoft Entra ID](concept-authentication-authenticator-app.md)
 * [Securing phone-based MFA in B2C](/azure/active-directory-b2c/phone-based-mfa)
 * [Regions that need to opt in for MFA telephony verification](concept-mfa-regional-opt-in.md)
