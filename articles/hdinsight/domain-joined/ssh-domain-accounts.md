@@ -8,7 +8,7 @@ ms.date: 09/19/2023
 
 # Manage SSH access for domain accounts in Azure HDInsight
 
-On secure clusters, by default, all domain users in [Azure AD DS](../../active-directory-domain-services/overview.md) are allowed to [SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) into the head and edge nodes. These users are not part of the sudoers group and do not get root access. The SSH user created during cluster creation will have root access.
+On secure clusters, by default, all domain users in [Azure AD DS](../../active-directory-domain-services/overview.md) are allowed to [SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) into the head and edge nodes. These users are not part of the sudoers group and do not get root access. The SSH user created during cluster creation has root access.
 
 ## Manage access
 
