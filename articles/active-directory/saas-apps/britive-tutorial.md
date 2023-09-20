@@ -154,11 +154,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-<<<<<<< HEAD
 * Click on **Test this application**, this will redirect to Britive Sign-on URL where you can initiate the login flow. 
-=======
-* Select **Test this application** in Azure portal. This will redirect to Britive Sign-on URL where you can initiate the login flow. 
->>>>>>> 583f4d6daf031cd65c4656b3dbd804824ebb0258
 
 * Go to Britive Sign-on URL directly and initiate the login flow from there.
 
