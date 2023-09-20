@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how a Windows virtual machine (VM) can use a system-assigned managed identity to access [Azure Key Vault](../../key-vault/general/overview.md). Key Vault makes it possible for your client application to use a secret to access resources not secured by Azure Active Directory (Azure AD). Managed identities are automatically managed by Azure. They enable you to authenticate to services that support Azure AD authentication, without including authentication information in your code.
+This tutorial shows you how a Windows virtual machine (VM) can use a system-assigned managed identity to access [Azure Key Vault](../../key-vault/general/overview.md). Key Vault makes it possible for your client application to use a secret to access resources not secured by Microsoft Entra ID. Managed identities are automatically managed by Azure. They enable you to authenticate to services that support Microsoft Entra authentication, without including authentication information in your code.
 
 You learn how to:
 
@@ -41,7 +41,7 @@ You learn how to:
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-This section shows how to grant your VM access to a secret stored in a Key Vault. When you use managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication.  However, not all Azure services support Azure AD authentication. To use managed identities for Azure resources with those services, store the service credentials in Azure Key Vault, and use the VM's managed identity to access Key Vault to retrieve the credentials.
+This section shows how to grant your VM access to a secret stored in a Key Vault. When you use managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Microsoft Entra authentication.  However, not all Azure services support Microsoft Entra authentication. To use managed identities for Azure resources with those services, store the service credentials in Azure Key Vault, and use the VM's managed identity to access Key Vault to retrieve the credentials.
 
 First, we need to create a Key Vault and grant our VM’s system-assigned managed identity access to the Key Vault.
 
