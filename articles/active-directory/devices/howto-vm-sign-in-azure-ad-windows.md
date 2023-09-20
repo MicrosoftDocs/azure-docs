@@ -94,11 +94,9 @@ There are two ways to enable Azure AD login for your Windows VM:
 - Azure Cloud Shell, when you're creating a Windows VM or using an existing Windows VM.
 
 > [!NOTE]
-> If a device object with the same displayMame as the hostname of a VM where an extension is installed exists, the VM fails to join Azure AD with a hostname duplication error. Avoid duplication by [modifying the hostname](../../virtual-network/virtual-networks-viewing-and-modifying-hostnames.md#modify-a-hostname).
+> If a device object with the same displayName as the hostname of a VM where an extension is installed exists, the VM fails to join Azure AD with a hostname duplication error. Avoid duplication by [modifying the hostname](../../virtual-network/virtual-networks-viewing-and-modifying-hostnames.md#modify-a-hostname).
 
 ### Azure portal
-
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 You can enable Azure AD login for VM images in Windows Server 2019 Datacenter or Windows 10 1809 and later. 
 
@@ -469,8 +467,8 @@ Share your feedback about this feature or report problems with using it on the [
 
 If the Azure Windows VM Sign-In application is missing from Conditional Access, make sure that the application is in the tenant:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
-1. Browse to **Azure Active Directory** > **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. Remove the filters to see all applications, and search for **VM**. If you don't see **Azure Windows VM Sign-In** as a result, the service principal is missing from the tenant.
 
 Another way to verify it is via Graph PowerShell:

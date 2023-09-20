@@ -5,7 +5,7 @@ author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 04/17/2023
 ms.author: owenrichards
 ms.reviewer: ludwignick
@@ -41,7 +41,7 @@ This diagram shows a high-level view of the authentication flow:
 Redirect URIs for SPAs that use the auth code flow require special configuration.
 
 - **Add a redirect URI** that supports auth code flow with PKCE and cross-origin resource sharing (CORS): Follow the steps in [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow).
-- **Update a redirect URI**: Set the redirect URI's `type` to `spa` by using the [application manifest editor](reference-app-manifest.md) in the Azure portal.
+- **Update a redirect URI**: Set the redirect URI's `type` to `spa` by using the [application manifest editor](reference-app-manifest.md) in the Microsoft Entra admin center.
 
 The `spa` redirect type is backward-compatible with the implicit flow. Apps currently using the implicit flow to get tokens can move to the `spa` redirect URI type without issues and continue using the implicit flow.
 
@@ -80,7 +80,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter    | Required/optional | Description |
 |--------------|-------------|--------------|
 | `tenant`     | required    | The `{tenant}` value in the path of the request can be used to control who can sign into the application. Valid values are `common`, `organizations`, `consumers`, and tenant identifiers. For guest scenarios where you sign a user from one tenant into another tenant, you *must* provide the tenant identifier to sign them into the resource tenant. For more information, see [Endpoints](./v2-protocols.md#endpoints). |
-| `client_id`  | required    | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app.  |
+| `client_id`  | required    | The **Application (client) ID** that the [Microsoft Entra admin center – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app.  |
 | `response_type` | required    | Must include `code` for the authorization code flow. Can also include `id_token` or `token` if using the [hybrid flow](#request-an-id-token-as-well-or-hybrid-flow). |
 | `redirect_uri` | required | The `redirect_uri` of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except it must be URL-encoded. For native and mobile apps, use one of the recommended values: `https://login.microsoftonline.com/common/oauth2/nativeclient` for apps using embedded browsers or `http://localhost` for apps that use system browsers. |
 | `scope`  | required    | A space-separated list of [scopes](./permissions-consent-overview.md) that you want the user to consent to.  For the `/authorize` leg of the request, this parameter can cover multiple resources. This value allows your app to get consent for multiple web APIs you want to call. |
@@ -222,7 +222,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter  | Required/optional | Description     |
 |------------|-------------------|----------------|
 | `tenant`   | required   | The `{tenant}` value in the path of the request can be used to control who can sign into the application. Valid values are `common`, `organizations`, `consumers`, and tenant identifiers. For more information, see [Endpoints](./v2-protocols.md#endpoints).  |
-| `client_id` | required  | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
+| `client_id` | required  | The **Application (client) ID** that the [Microsoft Entra admin center – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
 | `scope`      | optional   | A space-separated list of scopes. The scopes must all be from a single resource, along with OIDC scopes (`profile`, `openid`, `email`). For more information, see [Permissions and consent in the Microsoft identity platform](./permissions-consent-overview.md). This parameter is a Microsoft extension to the authorization code flow, intended to allow apps to declare the resource they want the token for during token redemption.|
 | `code`          | required  | The `authorization_code` that you acquired in the first leg of the flow. |
 | `redirect_uri`  | required  | The same `redirect_uri` value that was used to acquire the `authorization_code`. |
@@ -250,7 +250,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter  | Required/optional | Description     |
 |------------|-------------------|----------------|
 | `tenant`   | required   | The `{tenant}` value in the path of the request can be used to control who can sign into the application. Valid values are `common`, `organizations`, `consumers`, and tenant identifiers. For more detail, see [Endpoints](./v2-protocols.md#endpoints).  |
-| `client_id` | required  | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
+| `client_id` | required  | The **Application (client) ID** that the [Microsoft Entra admin center – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
 | `scope`      | optional   | A space-separated list of scopes. The scopes must all be from a single resource, along with OIDC scopes (`profile`, `openid`, `email`). For more information, see [permissions, consent, and scopes](./permissions-consent-overview.md). This parameter is a Microsoft extension to the authorization code flow. This extension allows apps to declare the resource they want the token for during token redemption.|
 | `code`          | required  | The `authorization_code` that you acquired in the first leg of the flow. |
 | `redirect_uri`  | required  | The same `redirect_uri` value that was used to acquire the `authorization_code`. |
@@ -367,7 +367,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 | Parameter     | Type           | Description        |
 |---------------|----------------|--------------------|
 | `tenant`        | required     | The `{tenant}` value in the path of the request can be used to control who can sign into the application. Valid values are `common`, `organizations`, `consumers`, and tenant identifiers. For more information, see [Endpoints](./v2-protocols.md#endpoints).   |
-| `client_id`     | required    | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
+| `client_id`     | required    | The **Application (client) ID** that the [Microsoft Entra admin center – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
 | `grant_type`    | required    | Must be `refresh_token` for this leg of the authorization code flow. |
 | `scope`         | optional    | A space-separated list of scopes. The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the original `authorization_code` request leg. If the scopes specified in this request span multiple resource server, then the Microsoft identity platform returns a token for the resource specified in the first scope. For more information, see [Permissions and consent in the Microsoft identity platform](./permissions-consent-overview.md). |
 | `refresh_token` | required    | The `refresh_token` that you acquired in the second leg of the flow. |

@@ -36,8 +36,8 @@ Source IP restoration in Global Secure Access (preview) allows backward compatib
 
 To enable the required setting to allow source IP restoration, an administrator must take the following steps.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator.
-1. Browse to **Global Secure Access** > **Session management** > **Adaptive Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference#global-secure-access-administrator).
+1. Browse to **Global Secure Access** > **Global settings** > **Session management** > **Adaptive Access**.
 1. Select the toggle to **Enable Global Secure Access signaling in Conditional Access**.
 
 This functionality allows services like Microsoft Graph, Microsoft Entra ID, SharePoint Online, and Exchange Online to see the actual source IP address.
@@ -51,7 +51,7 @@ This functionality allows services like Microsoft Graph, Microsoft Entra ID, Sha
 
 To see source IP restoration in action, administrators can take the following steps.
 
-1. Sign in to the **Microsoft Entra admin center** as a [Security Reader](/azure/active-directory/roles/permissions-reference#security-reader).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Reader](/azure/active-directory/roles/permissions-reference#security-reader).
 1. Browse to **Identity** > **Users** > **All users** > select one of your test users > **Sign-in logs**.
 1. With source IP restoration enabled, you see IP addresses that include their actual IP address. 
    - If source IP restoration is disabled, you can't see their actual IP address.

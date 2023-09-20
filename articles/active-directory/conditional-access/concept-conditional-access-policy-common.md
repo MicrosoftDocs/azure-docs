@@ -88,12 +88,12 @@ Policies in this category provide new ways to protect against compromise.
 
 ---
 
-Find these templates in the [Microsoft Entra admin center](https://entra.microsoft.com) > **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access** > **Create new policy from templates**. Select **Show more** to see all policy templates in each category.
+Find these templates in the [Microsoft Entra admin center](https://entra.microsoft.com) > **Protection** > **Conditional Access** > **Create new policy from templates**. Select **Show more** to see all policy templates in each category.
 
 :::image type="content" source="media/concept-conditional-access-policy-common/create-policy-from-template-identity.png" alt-text="Screenshot that shows how to create a Conditional Access policy from a preconfigured template in the Microsoft Entra admin center." lightbox="media/concept-conditional-access-policy-common/create-policy-from-template-identity.png":::
 
 > [!IMPORTANT]
-> Conditional Access template policies will exclude only the user creating the policy from the template. If your organization needs to [exclude other accounts](../roles/security-emergency-access.md), you will be able to modify the policy once they are created. You can find these policies in the [Microsoft Entra admin center](https://entra.microsoft.com) > **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access** > **Policies**. Select a policy to open the editor and modify the excluded users and groups to select accounts you want to exclude.
+> Conditional Access template policies will exclude only the user creating the policy from the template. If your organization needs to [exclude other accounts](../roles/security-emergency-access.md), you will be able to modify the policy once they are created. You can find these policies in the [Microsoft Entra admin center](https://entra.microsoft.com) > **Protection** > **Conditional Access** > **Policies**. Select a policy to open the editor and modify the excluded users and groups to select accounts you want to exclude.
 
 By default, each policy is created in [report-only mode](concept-conditional-access-report-only.md), we recommended organizations test and monitor usage, to ensure intended result, before turning on each policy.
 

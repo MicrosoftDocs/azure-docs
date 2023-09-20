@@ -36,7 +36,7 @@ Using Azure Automation requires you to have an Azure subscription.
 
 **Prerequisite role**: Azure subscription or resource group owner
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Make sure you have access to the subscription or resource group where the Azure Automation account will be located.
+1. Sign in to the [Azure portal](https://portal.azure.com) . Make sure you have access to the subscription or resource group where the Azure Automation account will be located.
 
 1. Select the subscription or resource group, and select **Create**.  Type **Automation**, select the **Automation** Azure service from Microsoft, then select **Create**.
 
@@ -93,7 +93,9 @@ Next, you'll create an app registration in Azure AD, so that Azure AD recognizes
 
 **Prerequisite role**: Global Administrator or other administrator who can consent applications to application permissions
 
-1. In the Azure portal, browse to **Azure Active Directory** > **App registrations**.
+1. Sign in to the [Microsoft Entra admin Center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator). 
+
+1. Browse to > **Identity** > **Applications** > **App registrations**.
 
 1. Select **New registration**.
 
@@ -171,8 +173,12 @@ $TenantId = Get-AutomationVariable -Name 'TenantId'
 $Thumbprint = Get-AutomationVariable -Name 'Thumbprint'
 $auth = Connect-MgGraph -clientId $ClientId -tenantid $TenantId -certificatethumbprint $Thumbprint
 Import-Module Microsoft.Graph.Identity.Governance
-$ap = Get-MgEntitlementManagementAccessPackage -All -ErrorAction Stop
-$ap | Select-Object -Property Id,DisplayName | ConvertTo-Json
+$ap = @(Get-MgEntitlementManagementAccessPackage -All -ErrorAction Stop)
+if ($null -eq $ap -or $ap.Count -eq 0) {
+   ConvertTo-Json @()
+} else {
+   $ap | Select-Object -Property Id,DisplayName | ConvertTo-Json -AsArray
+}
 ```
 
 2. Select **Test pane**, and select **Start**.  Wait a few seconds for the Azure Automation processing of your runbook script to complete.

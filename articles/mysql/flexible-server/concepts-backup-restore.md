@@ -86,6 +86,9 @@ In Azure Database for MySQL, performing a restore creates a new server from the 
 - Point-in-time restore: is available with either backup redundancy option and creates a new server in the same region as your original server.
 - Geo-restore: is available only if you configured your server for geo-redundant storage and it allows you to restore your server to either a geo-paired region or any other azure supported region where flexible server is available. Please note, feature of geo-restore to other regions is currently supported in public preview.
 
+> [!NOTE]
+> Universal Geo Restore (Geo-restore to other regions which is different from a paired region) in Azure Database for MySQL - Flexible Server is currently in **public preview**. Few regions that are currently not supported for universal geo-restore feature in public preview are "Brazil South", "USGov Virginia" and "West US 3".
+
 The estimated time for the recovery of the server depends on several factors: 
 
 - The size of the databases 
@@ -222,5 +225,6 @@ The estimated time for the recovery of the server depends on several factors:
 -   Learn about [business continuity](./concepts-business-continuity.md)
 -   Learn about [zone redundant high availability](./concepts-high-availability.md)
 -   Learn about [backup and recovery](./concepts-backup-restore.md)
+
 
 

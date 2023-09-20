@@ -6,7 +6,7 @@ metadata:
   ms.service: defender-for-cloud
   author: dcurwin
   ms.author: dacurwin
-  ms.date: 06/20/2023
+  ms.date: 08/16/2023
 title: Common questions about Defender for Servers
 summary: Get answers to common questions about Microsoft Defender for Servers.
 
@@ -89,7 +89,11 @@ sections:
             - For the Log Analytics agent, connected machines from all subscriptions are billed, including subscriptions that don't have the Defender for Servers plan enabled.
             - For the Azure Monitor agent, billing and feature coverage for Defender for Servers depends only on the plan being enabled in the subscription.
           
-          
+      - question: |
+          What happens if I enabled the Defender for Servers plan at the workspace level only (not at subscription)?
+        answer: |
+          You can enable Microsoft Defender for Servers at the Log Analytics workspace level, but only servers reporting to that workspace will be protected and billed, and those servers won't receive some benefits, such as Microsoft Defender for Endpoint, vulnerability assessment, and just-in-time VM access.       
+      
       - question: |
           Is the 500 MB of free data ingestion allowance applied per workspace or per machine?
         answer: |

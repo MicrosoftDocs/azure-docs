@@ -152,10 +152,10 @@ To provide more security for sign-ins, you can enforce Azure AD Multi-Factor Aut
 
 Learn more: [Tutorial: Secure user sign-in events with Azure AD MFA](../authentication/tutorial-enable-azure-mfa.md)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
-2. Select **Azure Active Directory** > **Manage** > **Properties**.
-3. Under **Properties**, select **Manage security defaults**.
-4. Under **Enable Security defaults**, select **Yes**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+2. Browse to **Identity** > **Overview** > **Properties** tab.
+3. Under **Security defaults**, select **Manage security defaults**.
+4. On the **Security defaults** pane, toggle the dropdown menu to select **Enabled**.
 5. Select **Save**.
 
 ## Enable SSO in the Oracle PeopleSoft console

@@ -1,9 +1,9 @@
 ---
 title: Configure Azure AD role settings in PIM
-description: Learn how to configure Azure AD role settings in Azure AD Privileged Identity Management (PIM).
+description: Learn how to configure Azure AD role settings in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 6/7/2023
-ms.author: billmath
+ms.author: barclayn
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -25,14 +25,14 @@ PIM role settings are also known as PIM policies.
 
 ## Open role settings
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 To open the settings for an Azure AD role:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure AD Privileged Identity Management** > **Azure AD Roles** > **Roles**. This page shows a list of Azure AD roles available in the tenant, including built-in and custom roles.
-    :::image type="content" source="media/pim-how-to-change-default-settings/role-settings.png" alt-text="Screenshot that shows the list of Azure AD roles available in the tenant, including built-in and custom roles." lightbox="media/pim-how-to-change-default-settings/role-settings.png":::
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure AD roles** > **Roles**.
+
+1. On this page you see a list of Azure AD roles available in the tenant, including built-in and custom roles.
+        :::image type="content" source="media/pim-how-to-change-default-settings/role-settings.png" alt-text="Screenshot that shows the list of Azure AD roles available in the tenant, including built-in and custom roles." lightbox="media/pim-how-to-change-default-settings/role-settings.png":::
 
 1. Select the role whose settings you want to configure.
 
@@ -156,6 +156,7 @@ On the **Notifications** tab on the **Role settings** page, Privileged Identity 
 
 >[!NOTE]
 >One event in Privileged Identity Management can generate email notifications to multiple recipients – assignees, approvers, or administrators. The maximum number of notifications sent per one event is 1000. If the number of recipients exceeds 1000 – only the first 1000 recipients will receive an email notification. This does not prevent other assignees, administrators, or approvers from using their permissions in Microsoft Entra and Privileged Identity Management.
+
 ## Manage role settings by using Microsoft Graph
 
 To manage settings for Azure AD roles by using PIM APIs in Microsoft Graph, use the [unifiedRoleManagementPolicy resource type and related methods](/graph/api/resources/unifiedrolemanagementpolicy).

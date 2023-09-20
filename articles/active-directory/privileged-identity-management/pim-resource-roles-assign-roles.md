@@ -1,24 +1,24 @@
 ---
 title: Assign Azure resource roles in Privileged Identity Management
-description: Learn how to assign Azure resource roles in Azure AD Privileged Identity Management (PIM).
+description: Learn how to assign Azure resource roles in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/29/2022
-ms.author: billmath
+ms.date: 09/13/2023
+ms.author: barclayn
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
 # Assign Azure resource roles in Privileged Identity Management
 
-With Azure AD Privileged Identity Management (Azure AD PIM), part of Microsoft Entra, you can manage the built-in Azure resource roles, and custom roles, including (but not limited to):
+With Microsoft Entra Privileged Identity Management (PIM), you can manage the built-in Azure resource roles, and custom roles, including (but not limited to):
 
 - Owner
 - User Access Administrator
@@ -50,15 +50,11 @@ For more information, see [What is Azure attribute-based access control (Azure A
 
 ## Assign a role
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 Follow these steps to make a user eligible for an Azure resource role.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with Owner or User Access Administrator role permissions.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Access Administrator](../roles/permissions-reference.md#user-administrator).
 
-1. Open **Azure AD Privileged Identity Management**.
-
-1. Select **Azure resources**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure resources**.
 
 1. Select the **Resource type** you want to manage. For example, such as **Resource**, or **Resource group**.  Then select the resource you want to manage to open its overview page.
 
@@ -85,7 +81,7 @@ Follow these steps to make a user eligible for an Azure resource role.
 
     Azure AD PIM for Azure resources provides two distinct assignment types:
 
-    - **Eligible** assignments require the member to activate the role before using it. Administrator may require role member to perform certain actions before role activation which might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers.
+    - **Eligible** assignments require the member to activate the role before using it. Administrator may require role member to perform certain actions before role activation, which might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers.
 
     - **Active** assignments don't require the member to activate the role before usage. Members assigned as active have the privileges assigned ready to use. This type of assignment is also available to customers that don't use Azure AD PIM.
 

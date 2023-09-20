@@ -124,7 +124,7 @@ Microsoft Graph APIs are highly customizable based on your organizational needs.
 
 *Securely store these configuration exports with access provided to a limited number of admins.
 
-The [Azure AD Exporter](https://github.com/microsoft/azureadexporter) can provide most of the documentation you need:
+The [Entra Exporter](https://github.com/microsoft/entraexporter) can provide most of the documentation you need:
 
 - Verify that you've implemented the desired configuration.
 - Use the exporter to capture current configurations.
@@ -132,7 +132,7 @@ The [Azure AD Exporter](https://github.com/microsoft/azureadexporter) can provid
 - Store the output in a secure location with limited access.
 
 > [!NOTE]
-> Settings in the legacy multifactor authentication portal for Application Proxy and federation settings might not be exported with the Azure AD Exporter, or with the Microsoft Graph API.
+> Settings in the legacy multifactor authentication portal for Application Proxy and federation settings might not be exported with the Entra Exporter, or with the Microsoft Graph API.
 The [Microsoft 365 Desired State Configuration](https://github.com/microsoft/Microsoft365DSC/wiki/What-is-Microsoft365DSC) module uses Microsoft Graph and PowerShell to retrieve the state of many of the configurations in Azure AD. This information can be used as reference information or, by using PowerShell Desired State Configuration scripting, to reapply a known good state.
 
  Use [Conditional Access Graph APIs](https://github.com/Azure-Samples/azure-ad-conditional-access-apis) to manage policies like code. Automate approvals to promote policies from preproduction environments, backup and restore, monitor change, and plan ahead for emergencies.
@@ -152,7 +152,7 @@ The deletion of some objects can cause a ripple effect because of dependencies. 
 
 ## Monitoring and data retention
 
-The [Azure AD Audit log](../reports-monitoring/concept-audit-logs.md) contains information on all delete and configuration operations performed in your tenant. We recommend that you export these logs to a security information and event management tool such as [Microsoft Sentinel](../../sentinel/overview.md). You can also use Microsoft Graph to audit changes and build a custom solution to monitor differences over time. For more information on finding deleted items by using Microsoft Graph, see [List deleted items - Microsoft Graph v1.0 ](/graph/api/directory-deleteditems-list?tabs=http).
+The [Azure AD Audit log](../reports-monitoring/concept-audit-logs.md) contains information on all delete and configuration operations performed in your tenant. We recommend that you export these logs to a security information and event management tool such as [Microsoft Sentinel](../../sentinel/overview.md). You can also use Microsoft Graph to audit changes and build a custom solution to monitor differences over time. For more information on finding deleted items by using Microsoft Graph, see [List deleted items - Microsoft Graph v1.0](/graph/api/directory-deleteditems-list?tabs=http).
 
 ### Audit logs
 
@@ -190,7 +190,7 @@ The [Sensitive operations report workbook](../reports-monitoring/workbook-sensit
 - Directory role and group membership updates for service principals.
 - Modified federation settings.
 
-The [Cross-tenant access activity workbook ](../reports-monitoring/workbook-cross-tenant-access-activity.md)can help you monitor which applications in external tenants your users are accessing and which applications in your tenant external users are accessing. Use this workbook to look for anomalous changes in either inbound or outbound application access across tenants.
+The [Cross-tenant access activity workbook](../reports-monitoring/workbook-cross-tenant-access-activity.md)can help you monitor which applications in external tenants your users are accessing and which applications in your tenant external users are accessing. Use this workbook to look for anomalous changes in either inbound or outbound application access across tenants.
 
 ## Operational security
 

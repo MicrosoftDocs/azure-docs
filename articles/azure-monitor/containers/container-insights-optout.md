@@ -132,7 +132,7 @@ To remove the solution and clean up the configuration on your AKS cluster, run t
 ```azurecli
 az login   
 az account set --subscription "Subscription Name"
-az deployment group create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
+az deployment group create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters ./OptOutParam.json  
 ```
 
 The configuration change can take a few minutes to finish. The result is returned in a message similar to the following example:

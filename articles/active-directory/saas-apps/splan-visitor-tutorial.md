@@ -68,7 +68,8 @@ To configure and test Azure AD SSO with Splan Visitor, perform the following ste
 
 Follow these steps to enable Azure AD SSO in the Azure portal:
 
-1. In the Azure portal, on the **Splan Visitor** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Splan Visitor** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, select the **pencil** icon for **Basic SAML Configuration** to edit the settings.
 
@@ -100,8 +101,8 @@ In this section, you'll create a test user named B.Simon in the Azure portal.
 
 In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Splan Visitor.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Splan Visitor** to open the app overview.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Splan Visitor** to open the app overview.
 1. Find the **Manage** section, and then select **Users and groups**.
 1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
 1. In the **Users and groups** dialog box, select **B.Simon** from the **Users** list, and then click **Select** at the bottom of the screen.

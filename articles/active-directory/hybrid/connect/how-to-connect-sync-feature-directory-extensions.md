@@ -19,8 +19,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Directory extensions
-You can use directory extensions to extend the schema in Azure Active Directory (Azure AD) with your own attributes from on-premises Active Directory. This feature enables you to build LOB apps by consuming attributes that you continue to manage on-premises. These attributes can be consumed through [extensions](/graph/extensibility-overview
-). You can see the available attributes by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). You can also use this feature to create dynamic groups in Azure AD.
+You can use directory extensions to extend the schema in Azure Active Directory (Azure AD) with your own attributes from on-premises Active Directory. This feature enables you to build LOB apps by consuming attributes that you continue to manage on-premises. These attributes can be consumed through [extensions](/graph/extensibility-overview). You can see the available attributes by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). You can also use this feature to create dynamic groups in Azure AD.
 
 At present, no Microsoft 365 workload consumes these attributes.
 
@@ -55,7 +54,7 @@ An object in Azure AD can have up to 100 attributes for directory extensions. Th
 
 ## Configuration changes in Azure AD made by the wizard
 
-During installation of Azure AD Connect, an application is registered where these attributes are available. You can see this application in the Azure portal. Its name is always **Tenant Schema Extension App**.
+During installation of Azure AD Connect, an application is registered where these attributes are available. You can see this application in the [Microsoft Entra admin center](https://entra.microsoft.com). Its name is always **Tenant Schema Extension App**.
 
 ![Schema extension app](./media/how-to-connect-sync-feature-directory-extensions/extension3new.png)
 
