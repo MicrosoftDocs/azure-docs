@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Cisco Webex Meetings with Azure 
 
 * Control in Azure AD who has access to Cisco Webex Meetings.
 * Enable your users to be automatically signed-in to Cisco Webex Meetings with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ To configure and test Azure AD SSO with Cisco Webex Meetings, perform the follow
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Cisco Webex Meetings** > **Single sign-on**.
@@ -118,7 +118,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -132,7 +132,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Cisco Webex Meetings.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Cisco Webex Meetings.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Cisco Webex Meetings**.
@@ -153,8 +153,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
    ![Screenshot shows the Webex Administration page with the information described in this step.](./media/cisco-webex-tutorial/metadata.png)
 
    1. Select **SAML 2.0** as **Federation Protocol**.
-   1. Click on **Import SAML Metadata** link to upload the metadata file, which you have downloaded from Azure portal.
-   1. Select **SSO Profile** as **IDP initiated**  and click on **Export** button to download the Service Provider Metadata file and upload it in the **Basic SAML Configuration** section on Azure portal.
+   1. Click on **Import SAML Metadata** link to upload the metadata file, which you have downloaded previously.
+   1. Select **SSO Profile** as **IDP initiated**  and click on **Export** button to download the Service Provider Metadata file and upload it in the **Basic SAML Configuration** section.
    1. Select **Auto Account Creation**.
    
       > [!NOTE]
@@ -177,13 +177,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated
 
-* Click on **Test this application** in Azure portal. This will redirect to Cisco Webex Meetings Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Cisco Webex Meetings Sign on URL where you can initiate the login flow.  
 
 * Go to Cisco Webex Meetings Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Cisco Webex Meetings for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the Cisco Webex Meetings for which you set up the SSO.
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Cisco Webex Meetings tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Cisco Webex Meetings for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

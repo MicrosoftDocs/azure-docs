@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate NAVEX IRM (Lockpath/Keylight) wi
 
 * Control in Azure AD who has access to NAVEX IRM (Lockpath/Keylight).
 * Enable your users to be automatically signed-in to NAVEX IRM (Lockpath/Keylight) with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -60,9 +60,9 @@ To configure and test Azure AD SSO with NAVEX IRM (Lockpath/Keylight), perform t
 
 ## Configure Azure AD SSO
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+In this section, you enable Azure AD single sign-on.
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **NAVEX IRM (Lockpath/Keylight)** > **Single sign-on**.
@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<COMPANY_NAME>.keylightgrc.com/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [NAVEX IRM (Lockpath/Keylight) Client support team](https://www.lockpath.com/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [NAVEX IRM (Lockpath/Keylight) Client support team](https://www.lockpath.com/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
 
@@ -94,7 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -108,7 +108,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to NAVEX IRM (Lockpath/Keylight).
+In this section, you'll enable B.Simon to use single sign-on by granting access to NAVEX IRM (Lockpath/Keylight).
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **NAVEX IRM (Lockpath/Keylight)**.
@@ -142,9 +142,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. Set **SAML authentication** to **Active**.
 
-    b. In the **Identity Provider Login URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    b. In the **Identity Provider Login URL** textbox, paste the **Login URL** value which you copied previously.
 
-    c. In the **Identity Provider Logout URL** textbox, paste the **Logout URL** value which you have copied from the Azure portal.
+    c. In the **Identity Provider Logout URL** textbox, paste the **Logout URL** value which you copied previously.
 
     d. Click **Choose File** to select your downloaded NAVEX IRM (Lockpath/Keylight) certificate, and then click **Open** to upload the certificate.
 
@@ -176,7 +176,7 @@ In this section, a user called Britta Simon is created in NAVEX IRM (Lockpath/Ke
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to NAVEX IRM (Lockpath/Keylight) Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to NAVEX IRM (Lockpath/Keylight) Sign-on URL where you can initiate the login flow. 
 
 * Go to NAVEX IRM (Lockpath/Keylight) Sign-on URL directly and initiate the login flow from there.
 

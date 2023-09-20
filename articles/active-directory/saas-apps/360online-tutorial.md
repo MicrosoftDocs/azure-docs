@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate 360 Online with Azure Active Dir
 
 * Control in Azure AD who has access to 360 Online.
 * Enable your users to be automatically signed-in to 360 Online with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ To configure and test Azure AD SSO with 360 Online, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **360 Online** > **Single sign-on**.
@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<company name>.public360online.com`
 
     > [!NOTE]
-    > The value is not real. Update the value with the actual Sign-On URL. Contact [360 Online Client support team](mailto:360online@software-innovation.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > The value is not real. Update the value with the actual Sign-On URL. Contact [360 Online Client support team](mailto:360online@software-innovation.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -89,19 +89,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
-1. In the Azure portal, in the **Azure services** pane, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to 360 Online.
+In this section, you'll enable B.Simon to use single sign-on by granting access to 360 Online.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **360 Online**.
@@ -113,7 +115,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure 360 Online SSO
 
-To configure single sign-on on **360 Online** side, you need to send the downloaded **Metadata XML** and appropriate copied URLs from Azure portal to [360 Online support team](mailto:360online@software-innovation.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **360 Online** side, you need to send the downloaded **Metadata XML** and appropriate copied URLs from the application configuration to [360 Online support team](mailto:360online@software-innovation.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create 360 Online test user
 
@@ -123,7 +125,7 @@ In this section, you create a user called Britta Simon in 360 Online. Work withÂ
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to 360 Online Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to 360 Online Sign-on URL where you can initiate the login flow. 
 
 * Go to 360 Online Sign-on URL directly and initiate the login flow from there.
 

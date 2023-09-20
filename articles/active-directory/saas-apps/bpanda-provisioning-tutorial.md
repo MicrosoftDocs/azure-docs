@@ -67,7 +67,7 @@ $headers.Add("Authorization", "Basic {0}" -f $base64AuthInfo)
 $response = Invoke-WebRequest -Uri "{Your tenant specific authentication endpoint}/protocol/openid-connect/token" -Method POST -Headers $headers -ContentType 'application/x-www-form-urlencoded' -Body 'grant_type=client_credentials' 
 ```
 
-This value will be entered in the **Secret Token** field in the Provisioning tab of your Bpanda application in the Azure portal.
+This value will be entered in the **Secret Token** field in the Provisioning tab of your Bpanda application.
 
 
 ## Step 3. Add Bpanda from the Azure AD application gallery

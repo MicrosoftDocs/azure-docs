@@ -20,7 +20,7 @@ In this article, you'll learn how to integrate Scilife Azure AD SSO with Azure A
 
 * Control in Azure AD who has access to Scilife Azure AD SSO.
 * Enable your users to be automatically signed-in to Scilife Azure AD SSO with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You'll configure and test Azure AD single sign-on for Scilife Azure AD SSO in a test environment. Scilife Azure AD SSO supports **SP** initiated single sign-on and **Just In Time** user provisioning.
 
@@ -43,13 +43,13 @@ Add Scilife Azure AD SSO from the Azure AD application gallery to configure sing
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Scilife Azure AD SSO** > **Single sign-on**.
@@ -86,7 +86,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	| `https://<CustomerUrlPrefix>-<Environment>.scilife.io/<languageCode>/login` |
 
 	> [!Note]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Scilife Azure AD SSO support team](mailto:support@scilife.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Scilife Azure AD SSO support team](mailto:support@scilife.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Scilife Azure AD SSO application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -122,7 +122,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	1. Select **AD Azure** type from the drop-down.
 
-	1. Download the **Federation Metadata XML file** from the Azure portal and **Upload MetadataXML** file by clicking on **Choose file**.
+	1. Download the **Federation Metadata XML file** and **Upload MetadataXML** file by clicking on **Choose file**.
 
 	1. Click **Parse Metadata**.
 
@@ -130,9 +130,9 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 		
 	![Screenshot shows the Scilife Azure tenant ID.](media/scilife-azure-ad-sso-tutorial/tenant.png "App")
 
-1. Copy **AD TRUST URL**, paste this value into the **Identifier (Entity ID)** text box in the **Basic SAML Configuration** section in the Azure portal.
+1. Copy **AD TRUST URL**, paste this value into the **Identifier (Entity ID)** text box in the **Basic SAML Configuration** section.
 
-1. Copy **AD CONSUMER SERVICE URL**, paste this value into the **Reply URL (Assertion Consumer Service URL)** text box in the **Basic SAML Configuration** section in the Azure portal.
+1. Copy **AD CONSUMER SERVICE URL**, paste this value into the **Reply URL (Assertion Consumer Service URL)** text box in the **Basic SAML Configuration** section.
 
 	![Screenshot shows the Scilife Azure portal URLs.](media/scilife-azure-ad-sso-tutorial/portal.png "Azure Configuration")
 
@@ -146,7 +146,7 @@ In this section, a user called B.Simon is created in Scilife Azure AD SSO. Scili
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Scilife Azure AD SSO Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Scilife Azure AD SSO Sign-on URL where you can initiate the login flow. 
 
 * Go to Scilife Azure AD SSO Sign-on URL directly and initiate the login flow from there.
 

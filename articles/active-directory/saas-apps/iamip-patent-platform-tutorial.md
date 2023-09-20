@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate IamIP Platform with Azure Active
 
 * Control in Azure AD who has access to IamIP Platform.
 * Enable your users to be automatically signed-in to IamIP Platform with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -42,10 +42,8 @@ In this tutorial, you'll configure and test Azure AD SSO in a test environment.
 
 To configure the integration of IamIP Platform into Azure AD, you need to add IamIP Platform from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal with a work or school account or with a personal Microsoft account.
-1. In the left pane, select **Azure Active Directory**.
-1. Go to **Enterprise applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **IamIP Platform** in the search box.
 1. Select **IamIP Platform** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -66,7 +64,7 @@ To configure and test Azure AD SSO with IamIP Platform, perform the following st
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **IamIP Platform** > **Single sign-on**.
@@ -107,19 +105,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user named B.Simon in the Azure portal.
+In this section, you'll create a test user named B.Simon.
 
-1. In the left pane of the Azure portal, select **Azure Active Directory**. Select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, complete these steps:
-   1. In the **Name** box, enter **B.Simon**.  
-   1. In the **User name** box, enter \<username>@\<companydomain>.\<extension>. For example, `B.Simon@contoso.com`.
-   1. Select **Show password**, and then write down the value that's displayed in the **Password** box.
-   1. Select **Create**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to IamIP Platform.
+In this section, you'll enable B.Simon to use single sign-on by granting access to IamIP Platform.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **IamIP Platform**.
@@ -131,7 +131,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure IamIP Platform SSO
 
-To configure single sign-on on **IamIP Platform** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [IamIP Platform support team](mailto:info@iamip.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **IamIP Platform** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the application configuration to [IamIP Platform support team](mailto:info@iamip.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create IamIP Platform test user
 
@@ -143,13 +143,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to IamIP Platform Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to IamIP Platform Sign on URL where you can initiate the login flow.  
 
 * Go to IamIP Platform Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the IamIP Platform for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the IamIP Platform for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the IamIP Platform tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the IamIP Platform for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

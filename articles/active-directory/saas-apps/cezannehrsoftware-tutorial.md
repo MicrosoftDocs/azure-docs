@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate Cezanne HR Software with Azure A
 
 * Control in Azure AD who has access to Cezanne HR Software.
 * Enable your users to be automatically signed-in to Cezanne HR Software with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ To configure and test Azure AD SSO with Cezanne HR Software, perform the followi
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Cezanne HR Software** > **Single sign-on**.
@@ -94,7 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -108,7 +108,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Cezanne HR Software.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Cezanne HR Software.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Cezanne HR Software**.
@@ -140,11 +140,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. **Display Name** - Enter the name of your Identity Provider as the Display Name..
 
-	b. **Entity Identifier** - In the Entity Identifier textbox, paste the value of Azure Ad Identifier which you have copied from the Azure portal.
+	b. **Entity Identifier** - In the Entity Identifier textbox, paste the value of Azure Ad Identifier which you copied previously.
 
 	c. **SAML Binding** - Change the SAML Binding to 'POST'.
 
-	d. **Security Token Service Endpoint** - In the Security Token Service Endpoint textbox, paste the value of Login URL which you have copied from the Azure portal.
+	d. **Security Token Service Endpoint** - In the Security Token Service Endpoint textbox, paste the value of Login URL which you copied previously.
 
 	e. **User ID Attribute Name** - In the User ID Attribute Name textbox, enter 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'.
 
@@ -209,7 +209,7 @@ In order to enable Azure AD users to log into Cezanne HR Software, they must be 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Cezanne HR Software Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Cezanne HR Software Sign-on URL where you can initiate the login flow. 
 
 * Go to Cezanne HR Software Sign-on URL directly and initiate the login flow from there.
 

@@ -19,7 +19,7 @@ Integrating BGS Online with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to BGS Online.
 * You can enable your users to be automatically signed-in to BGS Online (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* You can manage your accounts in one central location.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -65,7 +65,7 @@ To configure and test Azure AD single sign-on with BGS Online, you need to compl
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+In this section, you enable Azure AD single sign-on.
 
 To configure Azure AD single sign-on with BGS Online, perform the following steps:
 
@@ -117,19 +117,21 @@ To configure Azure AD single sign-on with BGS Online, perform the following step
 
 ### Configure BGS Online Single Sign-On
 
-To configure single sign-on on **BGS Online** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [BGS Online support team](mailto:bgsdashboardteam@millwardbrown.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **BGS Online** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [BGS Online support team](mailto:bgsdashboardteam@millwardbrown.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+The objective of this section is to create a test user called Britta Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 

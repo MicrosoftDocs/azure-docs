@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Freshservice with Azure Active D
 
 * Control in Azure AD who has access to Freshservice.
 * Enable your users to be automatically signed-in to Freshservice with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ To configure and test Azure AD SSO with Freshservice, complete the following bui
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Freshservice** > **Single sign-on**.
@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<company-name>.freshservice.com/login/saml`
 	
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Freshservice Client support team](https://support.freshservice.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Freshservice Client support team](https://support.freshservice.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -97,7 +97,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -111,7 +111,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Freshservice.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Freshservice.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Freshservice**.
@@ -144,13 +144,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	b. In the **Login Method**, select **SAML SSO**.
 
-    c. In the **Entity ID provided by the IdP** textbox, paste **Entity ID** value, which you have copied from the Azure portal.
+    c. In the **Entity ID provided by the IdP** textbox, paste **Entity ID** value, which you copied previously.
 
-	d. In the **SAML SSO URL** textbox, paste **Login URL** value, which you have copied from the Azure portal.
+	d. In the **SAML SSO URL** textbox, paste **Login URL** value, which you copied previously.
 
 	e. In the **Signing Options**, select **Only Signed Assertions** from the dropdown.
 
-    f. In the **Logout URL** textbox, paste **Logout URL** value, which you have copied from the Azure portal.
+    f. In the **Logout URL** textbox, paste **Logout URL** value, which you copied previously.
 
     g. In the **Security Certificate** textbox, paste **Certificate (Base64)** value, which you have obtained earlier.
   
@@ -192,7 +192,7 @@ To enable Azure AD users to sign in to FreshService, they must be provisioned in
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to  Freshservice Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to  Freshservice Sign-on URL where you can initiate the login flow. 
 
 * Go to  Freshservice Sign-on URL directly and initiate the login flow from there.
 

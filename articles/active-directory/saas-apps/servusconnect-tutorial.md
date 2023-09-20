@@ -22,7 +22,7 @@ When you integrate ServusConnect with Azure AD, you can:
 
 * Control in Azure AD who has access to ServusConnect.
 * Enable your users to be automatically signed-in to ServusConnect with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You'll configure and test Azure AD single sign-on for ServusConnect in your own Azure environment. ServusConnect supports **SP** initiated SSO and **Just In Time** user provisioning.
 
@@ -47,11 +47,11 @@ Add ServusConnect from the Azure AD application gallery to configure single sign
 
 Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a user (if required) and assign one or more users to the ServusConnect enterprise application. Only those users that you assign to the application will be able to access ServusConnect via single sign-on. Note that you can assign individual users or entire groups.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides).
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides).
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ServusConnect** > **Single sign-on**.
@@ -102,7 +102,7 @@ An existing ServusConnect user with appropriate access may complete the ServusCo
 
 You may test your Azure AD single sign-on configuration using one of the following methods:
 
-* Click on **Test this application** in Azure portal. This will redirect to ServusConnect Sign-on URL where you can initiate the login flow.
+* Click on **Test this application**, this will redirect to ServusConnect Sign-on URL where you can initiate the login flow.
 
 * Go to [ServusConnect Sign-on URL](https://app.servusconnect.com/) directly and initiate the login flow from there. See **[Sign-on with SSO](#sign-on-with-sso)**, below.
 

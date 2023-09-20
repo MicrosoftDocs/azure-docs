@@ -20,7 +20,7 @@ In this tutorial, you will learn how to integrate Phenom TXM with Azure Active D
 
 * Control in Azure AD who has access to Phenom TXM.
 * Enable your users to be automatically signed-in to Phenom TXM with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with Phenom TXM, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Phenom TXM** > **Single sign-on**.
@@ -140,15 +140,15 @@ In this section, you will enable B.Simon to use Azure single sign-on by granting
 
     b. Enter a valid name in the **Display Name** textbox.
 
-    c. In the **Single SignOn URL** textbox, paste the **Login URL** value, which you've copied from the Azure portal.
+    c. In the **Single SignOn URL** textbox, paste the **Login URL** value, which you've copied.
 
-    d. In the **Meta data URL** textbox, paste the **App Federation Metadata Url** value, which you've copied from the Azure portal.
+    d. In the **Meta data URL** textbox, paste the **App Federation Metadata Url** value, which you've copied.
 
-    e. Copy **Entity ID** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
+    e. Copy **Entity ID** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section.
 
-    f. Copy **Redirect URI (ACS URL)** value, paste this value into the first **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+    f. Copy **Redirect URI (ACS URL)** value, paste this value into the first **Reply URL** text box in the **Basic SAML Configuration** section.
 
-    g. Copy **Redirect URI (ACS URL) SP Initiated Flow** value, paste this value into the second **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+    g. Copy **Redirect URI (ACS URL) SP Initiated Flow** value, paste this value into the second **Reply URL** text box in the **Basic SAML Configuration** section.
 
 ### Create Phenom TXM test user
 
@@ -180,13 +180,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Phenom TXM Sign-on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Phenom TXM Sign-on URL where you can initiate the login flow.  
 
 * Go to Phenom TXM Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Phenom TXM for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the Phenom TXM for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Phenom TXM tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Phenom TXM for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate TigerConnect Secure Messenger wi
 
 * Control in Azure AD who has access to TigerConnect Secure Messenger.
 * Enable your users to be automatically signed-in to TigerConnect Secure Messenger with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ To configure and test Azure AD single sign-on with TigerConnect Secure Messenger
 
 ## Configure Azure AD SSO
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+In this section, you enable Azure AD single sign-on.
 
 To configure Azure AD single sign-on with TigerConnect Secure Messenger, take the following steps:
 
@@ -82,7 +82,7 @@ To configure Azure AD single sign-on with TigerConnect Secure Messenger, take th
        `https://saml-lb.tigertext.me/v1/organization/<INSTANCE_ID>`
 
     > [!NOTE]
-    > The **Identifier (Entity ID)** value isn't real. Update this value with the actual identifier. To get the value, contact the [TigerConnect Secure Messenger support team](mailto:prosupport@tigertext.com). You can also refer to the patterns shown in the **Basic SAML Configuration** pane in the Azure portal.
+    > The **Identifier (Entity ID)** value isn't real. Update this value with the actual identifier. To get the value, contact the [TigerConnect Secure Messenger support team](mailto:prosupport@tigertext.com). You can also refer to the patterns shown in the **Basic SAML Configuration** pane.
 
 1. On the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, select **Download** to download the **Federation Metadata XML** from the given options and save it on your computer.
 
@@ -95,7 +95,7 @@ To configure Azure AD single sign-on with TigerConnect Secure Messenger, take th
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -109,7 +109,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to TigerConnect Secure Messenger.
+In this section, you'll enable B.Simon to use single sign-on by granting access to TigerConnect Secure Messenger.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **TigerConnect Secure Messenger**.
@@ -121,7 +121,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure TigerConnect Secure Messenger SSO
 
-To configure single sign-on on the TigerConnect Secure Messenger side, you need to send the downloaded Federation Metadata XML and the appropriate copied URLs from the Azure portal to the [TigerConnect Secure Messenger support team](mailto:prosupport@tigertext.com). The TigerConnect Secure Messenger team will make sure the SAML SSO connection is set properly on both sides.
+To configure single sign-on on the TigerConnect Secure Messenger side, you need to send the downloaded Federation Metadata XML and the appropriate copied URLs to the [TigerConnect Secure Messenger support team](mailto:prosupport@tigertext.com). The TigerConnect Secure Messenger team will make sure the SAML SSO connection is set properly on both sides.
 
 ## Create a TigerConnect Secure Messenger test user
 
@@ -131,7 +131,7 @@ In this section, you create a user called Britta Simon in TigerConnect Secure Me
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to TigerConnect Secure Messenger Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to TigerConnect Secure Messenger Sign-on URL where you can initiate the login flow. 
 
 * Go to TigerConnect Secure Messenger Sign-on URL directly and initiate the login flow from there.
 

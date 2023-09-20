@@ -54,7 +54,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![API Key](media/prodpad-provisioning-tutorial/api-key.png)
 
-1. Copy and save the **API key**. This value will be entered in the **Secret Token** field in the Provisioning tab of your ProdPad application in the Azure portal.
+1. Copy and save the **API key**. This value will be entered in the **Secret Token** field in the Provisioning tab of your ProdPad application.
 
 ## Step 3. Add ProdPad from the Azure AD application gallery
 

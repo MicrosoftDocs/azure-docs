@@ -36,10 +36,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment. Ver
 
 To configure the integration of Veracode into Azure AD, add Veracode from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal by using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Go to **Enterprise Applications**, and then select **All Applications**.
-1. To add a new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type "Veracode" in the search box.
 1. Select **Veracode** from the results panel, and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -60,7 +58,7 @@ To configure and test Azure AD SSO with Veracode, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. In the Azure AD navigate to the **Veracode** application page under **Enterprise Applications**, scroll down to the **Manage** section, and click on **single sign-on**.
 1. Again under the **Manage** tab, click on **Single sign-on**, then select **SAML**.
@@ -92,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -106,7 +104,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Veracode.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Veracode.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Veracode**.
@@ -135,11 +133,11 @@ Notes:
 
     ![Screenshot of Organization SAML Settings section.](./media/veracode-tutorial/saml.png "Administration")
 
-    a.  For **Issuer**, paste the value of the **Azure AD Identifier** that you've copied from the Azure portal.
+    a.  For **Issuer**, paste the value of the **Azure AD Identifier** that you've copied.
     
-    b. For **IdP Server URL**, paste the value of the **Logout URL** that you've copied from the Azure portal.
+    b. For **IdP Server URL**, paste the value of the **Logout URL** that you've copied.
 
-    c. For **Assertion Signing Certificate**, select **Choose File** to upload your downloaded certificate from the Azure portal.
+    c. For **Assertion Signing Certificate**, select **Choose File** to upload your downloaded certificate.
 
     d. Note the values of the three URLs (**SAML Assertion URL**, **SAML Audience URL**, **Relay state URL**).
 
@@ -184,7 +182,7 @@ In this section, a user called B.Simon is created in Veracode. Veracode supports
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the Veracode for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the Veracode for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the Veracode tile in the My Apps, you should be automatically signed in to the Veracode for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

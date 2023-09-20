@@ -74,7 +74,7 @@ When using Microsoft Azure AD Connect, the ObjectGUID attribute of users is not 
 
    ![Generate](./media/cisco-umbrella-user-management-provisioning-tutorial/token.png)
 
-1. The generated token will be displayed only once. Copy and save the URL and the token. These values will be entered in the **Tenant URL** and **Secret Token** fields respectively in the Provisioning tab of your Cisco Umbrella User Management application in the Azure portal.
+1. The generated token will be displayed only once. Copy and save the URL and the token. These values will be entered in the **Tenant URL** and **Secret Token** fields respectively in the Provisioning tab of your Cisco Umbrella User Management application.
 
 
 ## Step 4. Add Cisco Umbrella User Management from the Azure AD application gallery

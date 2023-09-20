@@ -58,7 +58,7 @@ To connect your site to Azure AD, you will need to obtain a **Secret Token** for
 
     ![Configure Azure AD Integration](./media/webroot-security-awareness-training-provisioning-tutorial/configure-azure-ad-integration.png)
 
-4. Copy and save the **Secret Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Webroot Security Awareness Training application in the Azure portal.
+4. Copy and save the **Secret Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Webroot Security Awareness Training application.
 
 5. Click **Done**.
 

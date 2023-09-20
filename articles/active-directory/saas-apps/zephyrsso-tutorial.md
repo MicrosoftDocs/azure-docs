@@ -19,7 +19,7 @@ Integrating ZephyrSSO with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to ZephyrSSO.
 * You can enable your users to be automatically signed-in to ZephyrSSO (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* You can manage your accounts in one central location.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -65,7 +65,7 @@ To configure and test Azure AD single sign-on with ZephyrSSO, you need to comple
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+In this section, you enable Azure AD single sign-on.
 
 To configure Azure AD single sign-on with ZephyrSSO, perform the following steps:
 
@@ -93,7 +93,7 @@ To configure Azure AD single sign-on with ZephyrSSO, perform the following steps
     `https://<SUBDOMAIN>.yourzephyr.com/flex/saml/sso`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [ZephyrSSO Client support team](https://support.getzephyr.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [ZephyrSSO Client support team](https://support.getzephyr.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -111,11 +111,11 @@ To configure Azure AD single sign-on with ZephyrSSO, perform the following steps
 
 ### Configure ZephyrSSO Single Sign-On
 
-To configure single sign-on on **ZephyrSSO** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [ZephyrSSO support team](https://support.getzephyr.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **ZephyrSSO** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [ZephyrSSO support team](https://support.getzephyr.com/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+The objective of this section is to create a test user called Britta Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
