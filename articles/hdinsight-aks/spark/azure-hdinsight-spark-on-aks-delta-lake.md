@@ -14,11 +14,11 @@ ms.date: 08/29/2023
 
 1. Create an [Azure HDInsight on AKS Spark cluster](./create-spark-cluster.md)
 
-    :::image type="content" source="./media/azure-hdinsight-spark-on-aks-delta-lake/create-spark-cluster.png" alt-text="Screenshot showing spark cluster creation.":::
+    :::image type="content" source="./media/azure-hdinsight-spark-on-aks-delta-lake/create-spark-cluster.png" alt-text="Screenshot showing spark cluster creation." lightbox="./media/azure-hdinsight-spark-on-aks-delta-lake/create-spark-cluster.png":::
 
 1. Run Delta Lake scenario in Jupyter Notebook. Create a Jupyter notebook and select "Spark" while creating a notebook, since the following example is in Scala.
    
-    :::image type="content" source="./media/azure-hdinsight-spark-on-aks-delta-lake/delta-lake-scenario.png" alt-text="Screenshot showing how to run delta lake scenario.":::
+    :::image type="content" source="./media/azure-hdinsight-spark-on-aks-delta-lake/delta-lake-scenario.png" alt-text="Screenshot showing how to run delta lake scenario." lightbox="./media/azure-hdinsight-spark-on-aks-delta-lake/delta-lake-scenario.png":::
 
 ## Scenario
 
