@@ -31,7 +31,20 @@ Redis has access to a wide range of search capabilities through the [RediSearch 
 - `FLAT` and `Hierarchical Navigable Small World (HNSW)`  indexing methods
 - Hybrid filtering with [powerful query features](https://redis.io/docs/interact/search-and-query/)
 ```
-## What are embeddings?
+## What are vector embeddings?
+
+### Concept
+Vector embeddings are a fundamental concept in machine learning and natural language processing that enable the representation of data, such as words, documents, or even images, as numerical vectors in a high-dimension vector space. The primary idea behind vector embeddings is to capture the underlying relationships and semantics of the data by mapping them to points in this vector space. This allows complex data to be manipulated and analyzed mathematically, making it easier to perform tasks like similarity comparison, recommendation, and classification.
+
+#! TODO - Add image example
+
+How a machine learning model classifies data and produces the vector is different for each machine learning model, and it's typically not possible to determine exactly what semantic menaing each vector dimension represents. But because the model is consistent between each block of data inputed, similar words, documents, or images will have vectors that are also similar. For example, the words `basketball` and `baseball` will likely have a embeddings vectors much closer to each other than a word like `rainforest`. 
+
+### Vector comparison
+Vectors can be compared using a variety of metrics. The most popular way to compare vectors is to use [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity), which measures the cosine of the angle between two vectors in a multi-dimensional space. The closer the vectors, the smaller the angle. Other common distance metrics include [euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance) and [inner product](https://en.wikipedia.org/wiki/Inner_product_space). 
+
+### Generating embeddings
+Many machine learning models support emeddings APIs. For an example of how to create vector embeddings using Azure OpenAI Service, see [Learn how to generate embeddings with Azure OpenAI](../ai-services/openai/how-to/embeddings.md)
 
 ## What is a vector database?
 
