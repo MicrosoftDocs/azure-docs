@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 08/08/2023
+ms.date: 09/08/2023
 ms.author: barclayn
 ms.custom: it-pro
 ms.reviewer: sumitp
@@ -39,7 +39,11 @@ You can configure each Azure AD organization independently to get data synchroni
 
 ## Add an Azure AD organization
 
-To add an Azure AD organization in the Azure portal, sign in to the [Azure portal](https://portal.azure.com) with an account that is an Azure AD Global Administrator, and select **New**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+1. Select **Manage tenants**.
+1. Choose **Create**.
+1. Select **Workforce** and provide the requested information. The new organization is created and appears in the list of organizations.
 
 > [!NOTE]
 > Unlike other Azure resources, your Azure AD organizations are not child resources of an Azure subscription. If your Azure subscription is canceled or expired, you can still access your Azure AD organization's data using Azure PowerShell, the Microsoft Graph API, or the Microsoft 365 admin center. You can also [associate another subscription with the organization](../fundamentals/how-subscriptions-associated-directory.md).

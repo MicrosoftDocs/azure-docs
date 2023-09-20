@@ -132,7 +132,7 @@ Configuring an alternative sign-in ID for AD FS consists of two main steps:
 
    ![Screenshot that shows the "Ready to configure" page with a list of actions to be completed after you select "Install".](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
 
-    ![Screenshot that shows the "Installation complete" page. ](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
+    ![Screenshot that shows the "Installation complete" page.](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
 
 ## <a name="addwapserver"></a>Add an AD FS WAP server 
 

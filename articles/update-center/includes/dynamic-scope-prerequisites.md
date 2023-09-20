@@ -17,7 +17,7 @@ Ensure to register the preview feature in your Azure subscription by following t
   1. Search for **Dynamic scoping**. 
   1. Select **Register** and then select **OK** to get started with Dynamic scope (preview).
 
-### [PowerShell](#tab/ps)
+#### [PowerShell](#tab/ps)
 To register the preview feature, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) cmdlet
 
 ```powershell-interactive
@@ -29,7 +29,7 @@ Register-AzProviderFeature -ProviderNamespace Microsoft.Maintenance -FeatureName
 
 #### [Azure VMs](#tab/avms)
 
-- Patch Orchestration must be set to Customer Managed Schedules (Preview). This sets patch mode to AutomaticByPlatform and the **BypassPlatformSafetyChecksOnUserSchedule** = *True*.
+- Patch Orchestration must be set to Customer Managed Schedules. This sets patch mode to AutomaticByPlatform and the **BypassPlatformSafetyChecksOnUserSchedule** = *True*.
 - Associate a Schedule with the VM.
              
 #### [Arc-enabled VMs](#tab/arcvms)

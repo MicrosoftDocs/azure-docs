@@ -3,8 +3,9 @@ title: Deploy files to App Service
 description: Learn to deploy various app packages or discrete libraries, static files, or startup scripts to Azure App Service
 ms.topic: article
 ms.date: 07/21/2023
-ms.author: msangapu
 ms.custom: seodec18
+author: cephalin
+ms.author: cephalin
 ---
 
 # Deploy files to App Service

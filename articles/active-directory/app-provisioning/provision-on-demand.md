@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 09/11/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
@@ -147,7 +147,7 @@ The **View details** section displays the attributes that were modified in the t
 
 #### Troubleshooting tips
 
-* Failures for exporting changes can vary greatly. Check the [documentation for provisioning logs](../reports-monitoring/concept-provisioning-logs.md#error-codes) for common failures.
+* Failures for exporting changes can vary greatly. Check the [documentation for provisioning logs](../reports-monitoring/howto-analyze-provisioning-logs.md#error-codes) for common failures.
 * On-demand provisioning says the group or user can't be provisioned because they're not assigned to the application. There's a replication delay of up to a few minutes between when an object is assigned to an application and when that assignment is honored in on-demand provisioning. You may need to wait a few minutes and try again.  
 
 ## Frequently asked questions
@@ -163,13 +163,17 @@ There are currently a few known limitations to on-demand provisioning. Post your
 ::: zone pivot="app-provisioning"
 > [!NOTE]
 > The following limitations are specific to the on-demand provisioning capability. For information about whether an application supports provisioning groups, deletions, or other capabilities, check the tutorial for that application.
-
-* On-demand provisioning of groups supports updating up to five members at a time
+* On-demand provisioning of groups supports updating up to five members at a time. Connectors for cross-tenant synchronization, Workday, etc. do not support group provisioning and as a result do not support on-demand provisioning of groups.  
 ::: zone-end
+::: zone pivot="cross-tenant-synchronization"
+* On-demand provisioning of groups is not supported for cross-tenant synchronization. 
+::: zone-end
+* On-demand provisioning supports provisioning one user at a time through the Microsoft Entra portal.
 * Restoring a previously soft-deleted user in the target tenant with on-demand provisioning isn't supported. If you try to soft-delete a user with on-demand provisioning and then restore the user, it can result in duplicate users.
 * On-demand provisioning of roles isn't supported.
 * On-demand provisioning supports disabling users that have been unassigned from the application. However, it doesn't support disabling or deleting users that have been disabled or deleted from Azure AD. Those users don't appear when you search for a user.
 * On-demand provisioning doesn't support nested groups that aren't directly assigned to the application.
+* The on-demand provisioning request API can only accept a single group with up to 5 members at a time.
 
 ## Next steps
 

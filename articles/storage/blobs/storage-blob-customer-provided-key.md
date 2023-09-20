@@ -5,12 +5,11 @@ description: Learn how to specify a customer-provided key on a request to Blob s
 services: storage
 author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 05/09/2022
 ms.author: akashdubey
 ms.reviewer: ozgun
-ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---

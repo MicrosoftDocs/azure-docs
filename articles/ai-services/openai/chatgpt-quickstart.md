@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
-ms.custom: build-2023, build-2023-dataai, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js
+ms.custom: build-2023, build-2023-dataai, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-go
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
@@ -59,5 +59,11 @@ Use this article to get started using Azure OpenAI.
 ::: zone pivot="rest-api"
 
 [!INCLUDE [REST API quickstart](includes/chatgpt-rest.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
+[!INCLUDE [PowerShell quickstart](includes/chatgpt-powershell.md)]
 
 ::: zone-end
