@@ -122,7 +122,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
 4. Select **Next: Frontends**.
 5. Select a **Frontend IP address type** of **Public** and either use an existing IP address or create a new one.
 
-    <img src="./media/how-to-tcp-tls-proxy/create-a-public-ip-address.png" alt="A screenshot displaying creation of a new public IP address." width="60%">
+    <br><img src="./media/how-to-tcp-tls-proxy/create-a-public-ip-address.png" alt="A screenshot displaying creation of a new public IP address." width="70%">
 
 6. Select **Next: Backends**.
 7. On the **Backends** tab, select **Add a backend pool**.
@@ -130,7 +130,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
     - **Name**: Enter a name for the backend pool, for example **sql-vm**.
     - **Target type**: Select **IP address or FQDN** and enter the public IP address of the SQL server virtual machine that you wrote down previously.
 
-    <img src="./media/how-to-tcp-tls-proxy/add-backend-pool.png" alt="A screenshot displaying backend pool creation." width="50%">
+    <img src="./media/how-to-tcp-tls-proxy/add-backend-pool.png" alt="A screenshot displaying backend pool creation." width="70%">
  
 9. Select **Add** and then select **Next: Configuration**.
 
@@ -142,7 +142,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
     - **Protocol**: TCP
     - **Port**: 1433
 
-        <img src="./media/how-to-tcp-tls-proxy/create-routing-rule.png" alt="A screenshot displaying routing rule creation." width="50%">
+        <br><img src="./media/how-to-tcp-tls-proxy/create-routing-rule.png" alt="A screenshot displaying routing rule creation." width="70%">
 
 11. Select the **Backend targets** tab and enter the following settings:
 
@@ -154,11 +154,11 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
         - **Backend port**: 1433
         - **Time-out (seconds)**: 20
 
-            <img src="./media/how-to-tcp-tls-proxy/create-backend-settings.png" alt="A screenshot displaying backend settings creation." width="50%">
+            <br><img src="./media/how-to-tcp-tls-proxy/create-backend-settings.png" alt="A screenshot displaying backend settings creation." width="70%">
 
 12. Select **Add** to add the backend settings, and then select **Add** to add the routing rule. 
 
-    <img src="./media/how-to-tcp-tls-proxy/add-routing-rule.png" alt="A screenshot adding a routing rule." width="50%">
+    <br><img src="./media/how-to-tcp-tls-proxy/add-routing-rule.png" alt="A screenshot adding a routing rule." width="70%">
 
 13. Select **Next: Tags** and add tags if desired. No tags are required for this demonstration.
 14. Select Next: **Review + Create** and then select **Create**. The deployment process takes a few minutes. 
@@ -173,7 +173,7 @@ Before connecting to the SQL server, verify that you have:
 
 On a client device with [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) installed, connect to the public IP address of the Azure virtual machine.
 
-<img src="./media/how-to-tcp-tls-proxy/sql-connect.png" alt="A screenshot displaying the connection to a SQL server." width="60%">
+<br><img src="./media/how-to-tcp-tls-proxy/sql-connect.png" alt="A screenshot displaying the connection to a SQL server." width="60%">
 
 ## Clean up resources
 
