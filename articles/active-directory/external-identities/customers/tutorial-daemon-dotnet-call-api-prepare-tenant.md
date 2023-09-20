@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Prepare your customer tenant to authorize a .NET daemon application"
-description: Learn about how to prepare your Microsoft Entra ID for customers tenant to acquire an access token using client credentials flow in your .NET daemon application
+description: Learn about how to prepare your Microsoft Entra External ID for customers tenant to acquire an access token using client credentials flow in your .NET daemon application
 services: active-directorya
 author: SHERMANOUKO
 manager: mwongerapk

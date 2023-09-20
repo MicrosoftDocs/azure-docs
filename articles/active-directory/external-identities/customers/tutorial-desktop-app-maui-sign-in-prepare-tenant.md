@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Register and configure .NET MAUI app in a customer tenant"
-description: The tutorials provide a step-by-step guide on how to register and configure a .NET MAUI desktop app with Microsoft Entra ID for the customer's tenant.
+description: The tutorials provide a step-by-step guide on how to register and configure a .NET MAUI desktop app with Microsoft Entra External ID for the customer's tenant.
 author: henrymbuguakiarie
 manager: mwongerapk
 
