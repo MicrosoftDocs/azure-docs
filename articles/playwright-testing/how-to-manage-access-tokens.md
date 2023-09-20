@@ -100,6 +100,10 @@ You can only delete access tokens that you created in a workspace. To create an 
 > [!CAUTION]
 > You can't undo the delete operation of an access token. Any existing scripts for running tests with this token will fail after deleting the access token.
 
+## Troubleshooting
+
+[!INCLUDE [include-troubleshooting-unauthorized](includes/include-troubleshooting-unauthorized.md)]
+
 ## Related content
 
 - Learn more about [managing access to a workspace](./how-to-manage-workspace-access.md).
