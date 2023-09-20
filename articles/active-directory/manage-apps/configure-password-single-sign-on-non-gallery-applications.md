@@ -54,7 +54,7 @@ After you've assigned users and groups, you can provide credentials to be used f
 
 ## Manual configuration
 
-If Microsoft Entra ID's parsing attempt fails, you can configure sign-on manually.
+If the parsing attempt by Microsoft Entra ID fails, you can configure sign-on manually.
 
 1. Select **Configure {application name} Password Single Sign-on Settings** to display the **Configure sign-on** page.
 1. Select **Manually detect sign-in fields**. More instructions that describe manual detection of sign-in fields appear.

@@ -17,7 +17,7 @@ ms.custom: enterprise-apps
 
 # Unexpected consent prompt when signing in to an application
 
-Many applications that integrate with Microsoft Entra ID require permissions to various resources in order to run. When these resources are also integrated with Microsoft Entra ID, the permission to access them is requested using the Microsoft Entra ID consent framework. These requests result in a consent prompt being shown the first time an application is used, which is often a one-time operation.
+Many applications that integrate with Microsoft Entra ID require permissions to various resources in order to run. When these resources are also integrated with Microsoft Entra ID, permission to access them is requested using the Microsoft Entra consent framework. These requests result in a consent prompt being shown the first time an application is used, which is often a one-time operation.
 
 In certain scenarios, additional consent prompts can appear when a user attempts to sign-in. In this article, we diagnose the reason for the unexpected consent prompts showing, and how to troubleshoot.
 
