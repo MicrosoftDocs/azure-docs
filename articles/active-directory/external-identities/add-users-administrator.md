@@ -24,7 +24,7 @@ After you add a guest user to the directory, you can either send the guest user 
 > [!IMPORTANT]
 > You should follow the steps in [How-to: Add your organization's privacy info in Microsoft Entra ID](../fundamentals/properties-area.md) to add the URL of your organization's privacy statement. As part of the first time invitation redemption process, an invited user must consent to your privacy terms to continue. 
 
-The updated experience for creating new users covered in this article is available as a Microsoft Entra ID preview feature. This feature is enabled by default, but you can opt out by going to **Microsoft Entra ID** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Universal License Terms for Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
+The updated experience for creating new users covered in this article is available as a Microsoft Entra ID preview feature. This feature is enabled by default, but you can opt out by going to **Identity** > **Overview** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Universal License Terms for Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 Instructions for the legacy create user process can be found in the [Add or delete users](../fundamentals/add-users.md) article.
 
@@ -62,7 +62,7 @@ Either select the **Review + invite** button to create the new user or **Next: P
 
 ### Properties
 
-There are six categories of user properties you can provide. These properties can be added or updated after the user is created. To manage these details, go to **Microsoft Entra ID** > **Users** and select a user to update.
+There are six categories of user properties you can provide. These properties can be added or updated after the user is created. To manage these details, go to **Identity** > **Users** > **All users** and select a user to update.
 
 - **Identity:** Enter the user's first and last name. Set the User type as either Member or Guest. For more information about the difference between external guests and members, see [B2B collaboration user properties](user-properties.md)
 
@@ -105,7 +105,7 @@ The final tab captures several key details from the user creation process. Revie
 
 When you invite an external guest user by sending an email invitation, you can check the status of the invitation from the user's details. If they haven't redeemed their invitation, you can resend the invitation email.
 
-1. Go to **Microsoft Entra ID** > **Users** and select the invited guest user.
+1. Go to **Identity** > **Users** > **All users** and select the invited guest user.
 1. In the **My Feed** section, locate the **B2B collaboration** tile. 
     - If the invitation state is **PendingAcceptance**, select the **Resend invitation** link to send another email and follow the prompts.
     - You can also select the **Properties** for the user and view the **Invitation state**.
