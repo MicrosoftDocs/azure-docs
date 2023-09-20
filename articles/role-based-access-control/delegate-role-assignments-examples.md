@@ -40,7 +40,7 @@ You must add this condition to any role assignments for the delegate that includ
 
 # [Template](#tab/template)
 
-Here are the settings to add this condition using using the Azure portal and a condition template.
+Here are the settings to add this condition using the Azure portal and a condition template.
 
 > [!div class="mx-tableFixed"]
 > | Condition | Setting |
@@ -124,7 +124,7 @@ You must add this condition to any role assignments for the delegate that includ
 
 # [Template](#tab/template)
 
-Here are the settings to add this condition using using the Azure portal and a condition template.
+Here are the settings to add this condition using the Azure portal and a condition template.
 
 > [!div class="mx-tableFixed"]
 > | Condition | Setting |
@@ -225,7 +225,7 @@ You must add this condition to any role assignments for the delegate that includ
 
 # [Template](#tab/template)
 
-Here are the settings to add this condition using using the Azure portal and a condition template.
+Here are the settings to add this condition using the Azure portal and a condition template.
 
 > [!div class="mx-tableFixed"]
 > | Condition | Setting |
@@ -330,7 +330,7 @@ You must add this condition to any role assignments for the delegate that includ
 
 # [Template](#tab/template)
 
-Here are the settings to add this condition using using the Azure portal and a condition template.
+Here are the settings to add this condition using the Azure portal and a condition template.
 
 > [!div class="mx-tableFixed"]
 > | Condition | Setting |
@@ -435,7 +435,7 @@ You must add this condition to any role assignments for the delegate that includ
 
 # [Template](#tab/template)
 
-Here are the settings to add this condition using using the Azure portal and a condition template.
+Here are the settings to add this condition using the Azure portal and a condition template.
 
 > [!div class="mx-tableFixed"]
 > | Condition | Setting |
@@ -540,7 +540,7 @@ You must add this condition to any role assignments for the delegate that includ
 
 # [Template](#tab/template)
 
-Here are the settings to add this condition using using the Azure portal and a condition template.
+Here are the settings to add this condition using the Azure portal and a condition template.
 
 > [!div class="mx-tableFixed"]
 > | Condition | Setting |

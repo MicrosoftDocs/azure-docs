@@ -81,7 +81,7 @@ There are two ways that you can add a condition. You can use a condition templat
     | Constrain roles and principal types | Constrain the roles a user can assign and the types of principals the user can assign roles to |
     | Constrain roles and principals | Constrain the roles a user can assign and the principals the user can assign roles to |
 
-1. In the configure pane, add the the required configurations.
+1. In the configure pane, add the required configurations.
 
     :::image type="content" source="./media/delegate-role-assignments-portal/condition-template-configure-pane.png" alt-text="Screenshot of configure pane for a condition with selection added." lightbox="./media/delegate-role-assignments-portal/condition-template-configure-pane.png":::
 
@@ -177,7 +177,7 @@ If the condition templates don't work for your scenario or if you want more cont
 
     :::image type="content" source="./media/shared/constrained-roles-assign.png" alt-text="Screenshot of role assignments constrained to specific roles." lightbox="./media/shared/constrained-roles-assign.png":::
 
-    If their is a condition for principals, the list of principals available for assignment are also filtered.
+    If there is a condition for principals, the list of principals available for assignment are also filtered.
 
     :::image type="content" source="./media/shared/constrained-principals-assign.png" alt-text="Screenshot of role assignments constrained to specific groups." lightbox="./media/shared/constrained-principals-assign.png":::
 
