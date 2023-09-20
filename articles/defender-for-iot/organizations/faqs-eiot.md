@@ -8,6 +8,8 @@ ms.custom: enterprise-iot
 
 # Enterprise IoT network security frequently asked questions
 
+<!--remove this file and add a redirect-->
+
 This article provides a list of frequently asked questions about securing Enterprise IoT networks with Microsoft Defender for IoT.
 
 ## What is the difference between OT and Enterprise IoT?

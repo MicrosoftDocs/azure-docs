@@ -49,14 +49,9 @@
     - name: Defender for IoT and your SOC
       href: concept-sentinel-integration.md
       displayName: Microsoft Sentinel, modernize SOC
-    - name: Enterprise IoT monitoring
-      items:
-      - name: Securing enterprise IoT devices
-        href: concept-enterprise.md
-        displayName: Microsoft Defender for Endpoint, MDE
-      - name: Enterprise IoT networks FAQ
-        href: faqs-eiot.md
-        displayName: Microsoft Defender for Endpoint, MDE, frequently asked questions
+    - name: Securing enterprise IoT devices
+      href: concept-enterprise.md
+      displayName: Microsoft Defender for Endpoint, MDE, frequently asked questions
 - name: Deploy OT monitoring
   items:
   - name: OT deployment path

@@ -16,11 +16,12 @@ This article describes how to:
 - Calculate the devices detected in your environment so that you can understand if you need extra, standalone licenses.
 - Cancel support for enterprise IoT monitoring with Microsoft Defender for IoT
 
-<!-->
+<!--
 Enterprise IoT security monitoring with Defender for IoT is managed by an Enterprise IoT plan on your Azure subscription. While you can view your plan in Microsoft Defender for IoT, onboarding and canceling a plan is done with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) in Microsoft 365 Defender.
 
 For each monthly price plan, you'll be asked to define an approximate number of [devices](billing.md#defender-for-iot-devices) that you want to monitor and cover by your plan.
 -->
+
 If you're looking to manage OT plans, see [Manage Defender for IoT plans for OT security monitoring](how-to-manage-subscriptions.md).
 
 ## Prerequisites
