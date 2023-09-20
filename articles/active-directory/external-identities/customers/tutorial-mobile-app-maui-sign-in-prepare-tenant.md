@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Register and configure .NET MAUI mobile app in a customer tenant"
-description: The tutorials provide a step-by-step guide on how to register and configure a .NET MAUI app with Microsoft Entra ID for the customer's tenant.
+description: The tutorials provide a step-by-step guide on how to register and configure a .NET MAUI app with Microsoft Entra External ID for the customer's tenant.
 author: henrymbuguakiarie
 manager: mwongerapk
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Microsoft Entra ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
+- Microsoft Entra External ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
 ## Register .NET MAUI mobile app
 
