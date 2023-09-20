@@ -1,5 +1,5 @@
 ---
-title: Nudge users to set up Microsoft Authenticator
+title: How to run a registration campaign to set up Microsoft Authenticator
 description: Learn how to move your organization away from less secure authentication methods to Microsoft Authenticator
 
 services: active-directory
@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/13/2023
+ms.date: 09/15/2023
 
 ms.author: justinha
 author: mjsantani
