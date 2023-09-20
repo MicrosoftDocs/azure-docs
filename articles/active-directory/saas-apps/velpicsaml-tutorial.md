@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Velpic SAML'
-description: Learn how to configure single sign-on between Azure Active Directory and Velpic SAML.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with Velpic SAML'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Velpic SAML.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,31 +13,31 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Velpic SAML
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with Velpic SAML
 
-In this tutorial, you'll learn how to integrate Velpic SAML with Azure Active Directory (Azure AD). When you integrate Velpic SAML with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Velpic SAML with Microsoft Entra ID. When you integrate Velpic SAML with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Velpic SAML.
-* Enable your users to be automatically signed-in to Velpic SAML with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Velpic SAML.
+* Enable your users to be automatically signed-in to Velpic SAML with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Velpic SAML single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * Velpic SAML supports **SP** initiated SSO.
 * Velpic SAML supports  [Automated user provisioning](velpic-provisioning-tutorial.md).
 
 ## Adding Velpic SAML from the gallery
 
-To configure the integration of Velpic SAML into Azure AD, you need to add Velpic SAML from the gallery to your list of managed SaaS apps.
+To configure the integration of Velpic SAML into Microsoft Entra ID, you need to add Velpic SAML from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -46,22 +46,26 @@ To configure the integration of Velpic SAML into Azure AD, you need to add Velpi
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Velpic SAML
+<a name='configure-and-test-azure-ad-sso-for-velpic-saml'></a>
 
-Configure and test Azure AD SSO with Velpic SAML using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Velpic SAML.
+## Configure and test Microsoft Entra SSO for Velpic SAML
 
-To configure and test Azure AD SSO with Velpic SAML, perform the following steps:
+Configure and test Microsoft Entra SSO with Velpic SAML using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Velpic SAML.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Velpic SAML, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Velpic SAML SSO](#configure-velpic-saml-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Velpic SAML test user](#create-velpic-saml-test-user)** - to have a counterpart of B.Simon in Velpic SAML that is linked to the Azure AD representation of user.
+    1. **[Create Velpic SAML test user](#create-velpic-saml-test-user)** - to have a counterpart of B.Simon in Velpic SAML that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Velpic SAML** > **Single sign-on**.
@@ -89,7 +93,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -103,7 +109,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to Velpic SAML.
 
@@ -136,15 +144,15 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 7. Enter the name of the new SAML plugin and click the **Add** button.
 
-	![Screenshot shows the Add new SAML plugin dialog box with Azure A D entered.](./media/velpicsaml-tutorial/new-plugin.png)
+	![Screenshot shows the Add new SAML plugin dialog box with Microsoft Entra ID entered.](./media/velpicsaml-tutorial/new-plugin.png)
 
 8. Enter the details as follows:
 
-	![Screenshot shows the Azure A D page where you can enter the values described.](./media/velpicsaml-tutorial/details.png)
+	![Screenshot shows the Microsoft Entra ID page where you can enter the values described.](./media/velpicsaml-tutorial/details.png)
 
 	a. In the **Name** textbox, type the name of SAML plugin.
 
-	b. In the **Issuer URL** textbox, paste the **Azure AD Identifier** you copied from the **Configure sign-on** window.
+	b. In the **Issuer URL** textbox, paste the **Microsoft Entra Identifier** you copied from the **Configure sign-on** window.
 
 	c. In the **Provider Metadata Config** upload the Metadata XML file which you downloaded previously.
 
@@ -185,13 +193,13 @@ Sign into your Velpic SAML company site as an administrator and perform followin
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the My Apps.
+In this section, you test your Microsoft Entra single sign-on configuration using the My Apps.
 
-1. When you click the Velpic SAML tile in the My Apps, you should get login page of Velpic SAML application. You should see the **Log In With Azure AD** button on the sign in page.
+1. When you click the Velpic SAML tile in the My Apps, you should get login page of Velpic SAML application. You should see the **Log In With Microsoft Entra ID** button on the sign in page.
 
-	![Screenshot shows the Learning Portal with Log In With Azure A D selected.](./media/velpicsaml-tutorial/login.png)
+	![Screenshot shows the Learning Portal with Log In With Microsoft Entra ID selected.](./media/velpicsaml-tutorial/login.png)
 
-1. Click on the **Log In With Azure AD** button to log in to Velpic using your Azure AD account.
+1. Click on the **Log In With Microsoft Entra ID** button to log in to Velpic using your Microsoft Entra account.
 
 ## Next steps
 
