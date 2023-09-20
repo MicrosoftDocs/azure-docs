@@ -1,5 +1,5 @@
 ---
-title: Manage the 'Stay signed in' prompt - Microsoft Entra ID - Microsoft Entra
+title: Manage the 'Stay signed in' prompt in Microsoft Entra ID
 description: Instructions about how to set up the 'Stay signed in' prompt for Microsoft Entra users.
 services: active-directory
 author: shlipsey3
@@ -34,8 +34,7 @@ Some features of SharePoint Online and Office 2010 depend on users being able to
 
 Configuring the 'keep me signed in' (KMSI) option requires one of the following licenses:
 
-- Microsoft Entra ID P1 or P2 1
-- Microsoft Entra ID P1 or P2 2
+- Microsoft Entra ID P1 or P2
 - Office 365 (for Office apps)
 - Microsoft 365
 
@@ -55,7 +54,7 @@ The KMSI setting is managed in **User settings**.
 
 ## Troubleshoot 'Stay signed in?' issues
 
-If a user doesn't act on the **Stay signed in?** prompt but abandons the sign-in attempt, a sign-in log entry appears in the Microsoft Entra ID **Sign-ins** page. The prompt the user sees is called an "interrupt."
+If a user doesn't act on the **Stay signed in?** prompt but abandons the sign-in attempt, a sign-in log entry appears in the Microsoft Entra sign-ins logs. The prompt the user sees is called an "interrupt."
 
 ![Sample 'Stay signed in?' prompt](media/how-to-manage-stay-signed-in-prompt/kmsi-stay-signed-in-prompt.png)
 
