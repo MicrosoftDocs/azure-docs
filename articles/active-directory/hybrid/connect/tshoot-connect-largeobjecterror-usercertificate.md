@@ -177,7 +177,7 @@ Now that the issue is resolved, re-enable the built-in sync scheduler:
 2. Re-enable scheduled synchronization by running cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 > [!Note]
-> The preceding steps are only applicable to newer versions (1.1.xxx.x) of Microsoft Entra Connect with the built-in scheduler. If you are using older versions (1.0.xxx.x) of Microsoft Entra Connect that uses Windows Task Scheduler, or you are using your own custom scheduler (not common) to trigger periodic synchronization, you need to disable them accordingly.
+> The preceding steps are only applicable to newer versions (1.1.xxx.x) of Azure AD Connect with the built-in scheduler. If you are using older versions (1.0.xxx.x) of Azure AD Connect that uses Windows Task Scheduler, or you are using your own custom scheduler (not common) to trigger periodic synchronization, you need to disable them accordingly.
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).
