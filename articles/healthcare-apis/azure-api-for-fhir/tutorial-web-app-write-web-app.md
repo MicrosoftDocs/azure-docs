@@ -7,10 +7,12 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ---
 
 # Write Azure web application to read FHIR data in Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 Now that you're able to connect to your FHIR server and POST data, you’re ready to write a web application that will read FHIR data. In this final step of the tutorial, we’ll walk through writing and accessing the web application.
 

@@ -7,12 +7,14 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ms.custom: devx-track-js
 
 ---
 
 # Deploy JavaScript app to read data from Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 In this tutorial, you'll deploy a small JavaScript app, which reads data from a FHIR service. The steps in this tutorial are:
 
