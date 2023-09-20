@@ -1,12 +1,13 @@
 ---
-title: Create and provision an IoT Edge device on Linux using symmetric keys - Azure IoT Edge | Microsoft Docs
+title: Create IoT Edge device on Linux using symmetric keys
+titleSuffix: Azure IoT Edge
 description: Create and provision a single IoT Edge device in IoT Hub for manual provisioning with symmetric keys
 author: PatAltimore
 ms.service: iot-edge
 ms.custom: linux-related-content
 services: iot-edge
-ms.topic: conceptual
-ms.date: 04/25/2023
+ms.topic: how-to
+ms.date: 02/09/2024
 ms.author: patricka
 ms.reviewer: mattmcinnes
 ---
@@ -15,7 +16,7 @@ ms.reviewer: mattmcinnes
 
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
-This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device, which includes installing IoT Edge.
+This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device that includes installing IoT Edge.
 
 Each device that connects to an [IoT hub](../iot-hub/index.yml) has a device ID that's used to track [cloud-to-device](../iot-hub/iot-hub-devguide-c2d-guidance.md) or [device-to-cloud](../iot-hub/iot-hub-devguide-d2c-guidance.md) communications. You configure a device with its connection information, which includes:
 
@@ -75,7 +76,9 @@ Install both the Azure IoT Edge and Azure IoT Hub extensions:
 
 Now that the container engine and the IoT Edge runtime are installed on your device, you're ready to set up the device with its cloud identity and authentication information.
 
-You can quickly configure your IoT Edge device with symmetric key authentication using the following command:
+# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
+
+You can configure your IoT Edge device with symmetric key authentication using the following command:
 
    ```bash
    sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
@@ -95,6 +98,30 @@ You can quickly configure your IoT Edge device with symmetric key authentication
    sudo nano /etc/aziot/config.toml
    ```
 
+# [Ubuntu Core snaps](#tab/snaps)
+
+1. Create a **config.toml** file in your home directory and configure your IoT Edge device with a symmetric key authentication for the snap.
+
+    ```bash
+    sudo nano ~/config.toml
+    ```
+
+1. You can manually provision with a connection string using the following provisioning settings:
+
+    ```toml
+    [provisioning]
+    source = "manual"
+    connection_string = "REPLACE_WITH_DEVICE_CONNECTION_STRING"
+    ```
+
+1. Set the configuration for IoT Edge and the Identity Service using the following command:
+
+    ```bash
+    sudo snap set azure-iot-edge raw-config="$(cat ~/config.toml)"
+    ```
+
+---
+
 ## Deploy modules
 
 To deploy your IoT Edge modules, go to your IoT hub in the Azure portal, then:
@@ -107,8 +134,8 @@ To deploy your IoT Edge modules, go to your IoT hub in the Azure portal, then:
 
 1. Since we want to deploy the IoT Edge default modules (edgeAgent and edgeHub), we don't need to add any modules to this pane, so select **Review + create** at the bottom.
 
-1. You see the JSON confirmation of your modules. Select **Create** to deploy the modules.<br>
-
+1. You see the JSON confirmation of your modules. Select **Create** to deploy the modules.
+   
 For more information, see [Deploy a module](quickstart-linux.md#deploy-a-module).
 
 ## Verify successful configuration
@@ -177,6 +204,8 @@ The steps in this section are for scenarios not covered by the standard installa
 
 Use the steps in this section if you want to install a [specific version of the Azure IoT Edge runtime](version-history.md) that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
 
+If you are using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
+
 Using curl commands, you can target the component files directly from the IoT Edge GitHub repository.
 
 >[!NOTE]
@@ -201,6 +230,10 @@ Using curl commands, you can target the component files directly from the IoT Ed
       ```bash
       curl -L <identity service link> -o aziot-identity-service.rpm && sudo yum localinstall ./aziot-identity-service.rpm
       ```
+
+      # [Ubuntu Core snaps](#tab/snaps)
+      If you are using Ubuntu snaps, you can download a snap package and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
+
       ---
 
    3. Find the **aziot-edge** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
@@ -216,9 +249,11 @@ Using curl commands, you can target the component files directly from the IoT Ed
       ```bash
       curl -L <iotedge link> -o aziot-edge.rpm && sudo yum localinstall ./aziot-edge.rpm
       ```
-      ---
 
-Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step, which is to [Provision the device with its cloud identity](#provision-the-device-with-its-cloud-identity).
+      # [Ubuntu Core snaps](#tab/snaps)
+      If you are using Ubuntu snaps, you can download a snap package and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
+
+      ---
 
 ## Uninstall IoT Edge
 
@@ -237,6 +272,21 @@ Leave out the `--purge` flag if you plan to reinstall IoT Edge and use the same 
 ```bash
 sudo yum remove aziot-edge
 ```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+Remove the IoT Edge runtime:
+
+```bash
+sudo snap remove azure-iot-edge
+```
+
+Remove Azure Identity Service:
+
+```bash
+sudo snap remove azure-iot-identity
+```
+
 ---
 
 When the IoT Edge runtime is removed, any containers that it created are stopped but still exist on your device. View all containers to see which ones remain.
@@ -259,10 +309,19 @@ sudo apt-get autoremove --purge moby-engine
 ```
 
 # [Red Hat Enterprise Linux](#tab/rhel)
+
 ```bash
 sudo yum remove moby-cli
 sudo yum remove moby-engine
 ```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+```bash
+sudo snap remove docker
+```
+
+---
 
 ## Next steps
 

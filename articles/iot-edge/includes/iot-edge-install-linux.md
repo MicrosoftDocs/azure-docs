@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 05/03/2023
+ms.date: 02/09/2024
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
@@ -70,6 +70,10 @@ Installing can be done with a few commands. Open a terminal and run the followin
     rm packages-microsoft-prod.rpm
     ```
 
+# [Ubuntu Core snaps](#tab/snaps)
+
+You install IoT Edge runtime from the snap store in a later step. Continue to the next section.
+
 ---
 
 For more information about operating system versions, see [Azure IoT Edge supported platforms](../support.md?#linux-containers).
@@ -106,13 +110,23 @@ Install the Moby engine and CLI.
    ```bash
    sudo yum install moby-engine moby-cli
    ```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+IoT Edge has dependencies on Docker and IoT Identity Service. Install the dependencies using the following commands:
+
+```bash
+sudo snap install docker
+sudo snap install azure-iot-identity
+```
+
 ---
 
-By default, the Moby container engine does not set container log size limits. Over time, this can lead to the device filling up with logs and running out of disk space. However, you can configure your log to show locally, though it's optional. To learn more about logging configuration, see [Production Deployment Checklist](../production-checklist.md#set-up-default-logging-driver).
+By default, the container engine doesn't set container log size limits. Over time, this can lead to the device filling up with logs and running out of disk space. However, you can configure your log to show locally, though it's optional. To learn more about logging configuration, see [Production Deployment Checklist](../production-checklist.md#set-up-default-logging-driver).
 
 The following steps show you how to configure your container to use [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. 
 
-1. Create (if the file's not there already) or open the Docker [daemon's config file](https://docs.docker.com/config/daemon/) at `/etc/docker/daemon.json`.
+1. Create (if the file's not there already) or open the Docker [daemon's config file](https://docs.docker.com/config/daemon/) at `/etc/docker/daemon.json`. If you're using a snap, the file is located at `/var/snap/docker/current/config/daemon.json`.
 
 1. Set the default logging driver to the `local` logging driver as shown in the example below.   
    
@@ -123,9 +137,19 @@ The following steps show you how to configure your container to use [`local` log
     ```
 1. Restart the container engine for the changes to take effect.
 
+    # [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
+
     ```bash
     sudo systemctl restart docker
     ```
+
+    # [Ubuntu Core snaps](#tab/snaps)
+
+    ```bash
+    sudo systemctl restart snap.docker.dockerd.service
+    ```
+
+    ---
 
    > [!TIP]
    > If you get errors when you install the Moby container engine, verify your Linux kernel for Moby compatibility. Some embedded device manufacturers ship device images that contain custom Linux kernels without the features required for container engine compatibility. Run the following command, which uses the [check-config script](https://github.com/moby/moby/blob/master/contrib/check-config.sh) provided by Moby, to check your kernel configuration:
@@ -186,5 +210,58 @@ The optional defender-iot-micro-agent-edge package includes the Microsoft Defend
    ```bash
    sudo yum install aziot-edge
    ```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+Install IoT Edge from the snap store:
+
+```bash
+sudo snap install azure-iot-edge
+```
+
+### Connect snaps
+
+By default, snaps are dependency-free, untrusted, and strictly confined. Hence, snaps must be connected to other snaps and system resources after installation. Use the following commands to connect the IoT Identity Service and IoT Edge snaps to each other and to system resources. To get started, snaps need to be manually connected. For production deployments, they can be configured to automatically connect to reduce the provisioning workload.
+
+```bash
+#------------------------
+#  IoT Identity Service
+#------------------------
+
+# Connect the Identity Service snap to the logging system
+# and grant permission to query system info
+
+sudo snap connect azure-iot-identity:log-observe
+sudo snap connect azure-iot-identity:mount-observe
+sudo snap connect azure-iot-identity:system-observe
+sudo snap connect azure-iot-identity:hostname-control
+
+# If using a TPM, enable TPM access
+
+sudo snap connect azure-iot-identity:tpm
+
+#------------
+#  IoT Edge
+#------------
+
+# Connect to your /home directory to enable writing support bundles
+
+sudo snap connect azure-iot-edge:home
+
+# Connect to logging and grant permission to query system info
+
+sudo snap connect azure-iot-edge:log-observe
+sudo snap connect azure-iot-edge:mount-observe
+sudo snap connect azure-iot-edge:system-observe
+sudo snap connect azure-iot-edge:hostname-control
+# Allow IoT Edge to connect to the /var/run/iotedge folder and use sockets
+
+sudo snap connect azure-iot-edge:run-iotedge
+
+# Connect IoT Edge to Docker
+
+sudo snap connect azure-iot-edge:docker-executables docker:docker-executables
+sudo snap connect azure-iot-edge:docker docker:docker-daemon
+```
 
 ---

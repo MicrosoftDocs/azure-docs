@@ -1,10 +1,11 @@
 ---
-title: Create and provision IoT Edge devices at scale using X.509 certificates on Linux - Azure IoT Edge | Microsoft Docs
+title: Create IoT Edge devices at scale using X.509 certificates on Linux
+titleSuffix: Azure IoT Edge
 description: Use X.509 certificates to test provisioning devices at scale for Azure IoT Edge with device provisioning service
 author: PatAltimore
 ms.author: patricka
-ms.date: 08/17/2022
-ms.topic: conceptual
+ms.date: 02/09/2024
+ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
 ---
@@ -76,17 +77,35 @@ Have the following information ready:
 * The device identity certificate chain file on the device.
 * The device identity key file on the device.
 
-1. Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
+Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
 
-   ```bash
-   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
-   ```
+# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
 
-1. Open the configuration file on the IoT Edge device.
+```bash
+sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+```
 
-   ```bash
-   sudo nano /etc/aziot/config.toml
-   ```
+Open the configuration file on the IoT Edge device.
+
+```bash
+sudo nano /etc/aziot/config.toml
+```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+If using a snap installation of IoT Edge, the template file is located at `/var/snap/iotedge/current/config/aziot/config.toml.edge.template`. Create a copy of the template file in your home directory and name it config.toml. For example:
+
+```bash
+cp /var/snap/iotedge/current/config/aziot/config.toml.edge.template ~/config.toml
+```
+
+Open the configuration file in your home directory on the IoT Edge device.
+
+```bash
+nano ~/config.toml
+```
+
+---
 
 1. Find the **Provisioning** section of the file. Uncomment the lines for DPS provisioning with X.509 certificate, and make sure any other provisioning lines are commented out.
 
@@ -129,11 +148,20 @@ Have the following information ready:
 
 1. Save and close the file.
 
-1. Apply the configuration changes that you made to IoT Edge.
+Apply the configuration changes that you made to IoT Edge.
 
-   ```bash
-   sudo iotedge config apply
-   ```
+# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
+```bash
+sudo iotedge config apply
+```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+```bash
+sudo snap set azure-iot-edge raw-config="$(cat ~/config.toml)"
+```
+
+---
 
 ## Verify successful installation
 
