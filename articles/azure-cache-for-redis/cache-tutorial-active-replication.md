@@ -13,12 +13,12 @@ ms.date: 09/18/2023
 
 # Get started using Azure Cache for Redis Enterprise active replication with an AKS-hosted application
 
-In this tutorial, you will host a simple inventory application on Azure Kubernetes Service (AKS) and find out how you can leverage active geo-replication to replicate data in your Azure Cache for Redis Enterprise instances across Azure regions.
+In this tutorial, you will host a simple inventory application on Azure Kubernetes Service (AKS) and find out how you can use active geo-replication to replicate data in your Azure Cache for Redis Enterprise instances across Azure regions.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Two Azure Kubernetes Service Clusters in different regions- For more information on creating a cluster, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal). Alternately, you can host two instances of the demo application on the same AKS cluster.
+- Two Azure Kubernetes Service Clusters in different regions- For more information on creating a cluster, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal). Alternatively, you can host two instances of the demo application on the same AKS cluster.
 
 > [!IMPORTANT]
 > This tutorial assumes that you are familiar with basic Kubernetes concepts like containers, pods and service.
@@ -35,76 +35,81 @@ This tutorial uses a sample inventory page which shows three different T-shirt o
 
    1. Enable **Non-TLS access only**.
    1. Set **Clustering Policy** to **Enterprise**
-   1. Configure active geo-replication using [this guide](cache-how-to-active-geo-replication.md) to both caches to the same replication group. Create the group name with the first cache, and add the second cache to the same group.
+   1. Configure a new active geo-replication group using [this guide](cache-how-to-active-geo-replication.md). Eventually, you add both caches to the same replication group. Create the group name with the first cache, and add the second cache to the same group.
 
     > [!IMPORTANT]
     > This tutorial uses a non-TLS port for demonstration, but we highly recommend that you use a TLS port for anything in production.
 
-1. Set up another Azure Cache for Redis Enterprise in **East US** region with the exact same configuration as the first cache. Alternately, you can use any region of your choice. Ensure that you choose the same replication group as the first cache.
+1. Set up another Azure Cache for Redis Enterprise in **East US** region with the same configuration as the first cache. Alternatively, you can use any region of your choice. Ensure that you choose the same replication group as the first cache.
 
 ## Prepare Kubernetes deployment files
 
-To demonstrate data replication across regions, we will run two instances of the same application in different regions. Let's assume one instance runs in Seattle (west) while the second in New York (east).
+Create two .yml files using the following procedure. One file for each cache you created in the two regions.
 
-Update the following fields in the YAML file below and save it as app_west.yaml
+To demonstrate data replication across regions, we run two instances of the same application in different regions. Let's make one instance run in Seattle (west), while the second runs in New York (east).
 
-- Update environment variables REDIS_HOST and REDIS_PASSWORD with hostname and access key of your Azure Cache for Redis Enterprise instance in West US 2 or one of the two regions your chose earlier.
-- Update APP_LOCATION to display the region where this application instance is running. In this sample, we are configuring the APP_LOCATION to Seattle to indicate this application instance is running in Seattle.
+1. Update the following fields in the YAML file below and save it as _app_west.yaml_.
 
-```YAML
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: shoppingcart-app
-  namespace: west
-spec:
-  replicas: 1 
-  selector:
-    matchLabels:
-      app: shoppingcart
-  template:
+    1. Update environment variables `REDIS_HOST` and `REDIS_PASSWORD` with _hostname_ and _access key_ of your _West US 2_ cache.
+    1. Update `APP_LOCATION` to display the region where this application instance is running. For this cache, configure the `APP_LOCATION` to _Seattle_ to indicate this application instance is running in Seattle.
+
+    ```YAML
+    apiVersion: apps/v1
+    kind: Deployment
     metadata:
-      labels:
-        app: shoppingcart
+      name: shoppingcart-app
+      namespace: west
     spec:
-      containers:
-      - name: demoapp
-        image: mcr.microsoft.com/azure-redis-cache/redisactivereplicationdemo:latest
-        resources:
-          limits:
-            cpu: "0.5"
-            memory: "250Mi"
-          requests:
-            cpu: "0.5"
-            memory: "128Mi"
-        env:
-         - name: REDIS_HOST
-           value: "DemoWest.westus.redisenterprise.cache.azure.net"
-         - name: REDIS_PASSWORD
-           value: "myaccesskey"
-         - name: REDIS_PORT
-           value: "10000"   # redis enterprise port
-         - name: HTTP_PORT
-           value: "8080"
-         - name: APP_LOCATION
-           value: "Seattle, WA" 
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: shoppingcart-svc
-  namespace: west
-spec:
-  type: LoadBalancer
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8080
-  selector:
-    app: shoppingcart
-```
+      replicas: 1 
+      selector:
+        matchLabels:
+          app: shoppingcart
+      template:
+        metadata:
+          labels:
+            app: shoppingcart
+        spec:
+          containers:
+          - name: demoapp
+            image: mcr.microsoft.com/azure-redis-cache/redisactivereplicationdemo:latest
+            resources:
+              limits:
+                cpu: "0.5"
+                memory: "250Mi"
+              requests:
+                cpu: "0.5"
+                memory: "128Mi"
+            env:
+             - name: REDIS_HOST
+               value: "DemoWest.westus.redisenterprise.cache.azure.net"
+             - name: REDIS_PASSWORD
+               value: "myaccesskey"
+             - name: REDIS_PORT
+               value: "10000"   # redis enterprise port
+             - name: HTTP_PORT
+               value: "8080"
+             - name: APP_LOCATION
+               value: "Seattle, WA" 
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: shoppingcart-svc
+      namespace: west
+    spec:
+      type: LoadBalancer
+      ports:
+      - protocol: TCP
+        port: 80
+        targetPort: 8080
+      selector:
+        app: shoppingcart
+    ```
 
-Save another copy of the same YAML file as app_east.yaml. This time, update the REDIS_HOST, REDIS_PASSWORD and APP_LOCATION to point to Redis Enterprise instance in East US or your second region of choice.
+1. Save another copy of the same YAML file as _app_east.yaml_. This time, use different values.
+
+   1. Update environment variables `REDIS_HOST` and `REDIS_PASSWORD` with _hostname_ and _access key_ of your _East US_ cache.
+   1. Update `APP_LOCATION` to display the region where this application instance is running. For this cache, configure the `APP_LOCATION` to _New York_ to indicate this application instance is running in New York.
 
 ## Install and connect to your AKS cluster
 
