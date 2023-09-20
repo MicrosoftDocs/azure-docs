@@ -161,16 +161,15 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
     ![A screenshot adding a routing rule.](./media/how-to-tcp-tls-proxy/add-routing-rule.png) 
 
 13. Select **Next: Tags** and add tags if desired. No tags are required for this demonstration.
-14. Select Next: **Review + Create** and then select **Create**. The deployment process takes a few minutes.
-
-
-
-
-
-
+14. Select Next: **Review + Create** and then select **Create**. The deployment process takes a few minutes. 
 
 ## Connect to the SQL server
 
+1. On a client device with [SQL Server Management Studio](https://learn.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16) installed, connect to the public IP address of the Azure virtual machine.
+
+    ![A screenshot displaying the connection to a SQL server.](./media/how-to-tcp-tls-proxy/sql-connect.png) 
+
+2. 
 
 
 ## Clean up resources
