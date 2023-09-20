@@ -34,26 +34,25 @@ Redis has access to a wide range of search capabilities through the [RediSearch 
 ## What are vector embeddings?
 
 ### Concept
-Vector embeddings are a fundamental concept in machine learning and natural language processing that enable the representation of data, such as words, documents, or even images, as numerical vectors in a high-dimension vector space. The primary idea behind vector embeddings is to capture the underlying relationships and semantics of the data by mapping them to points in this vector space. This allows complex data to be manipulated and analyzed mathematically, making it easier to perform tasks like similarity comparison, recommendation, and classification.
+Vector embeddings are a fundamental concept in machine learning and natural language processing that enable the representation of data, such as words, documents, or images as numerical vectors in a high-dimension vector space. The primary idea behind vector embeddings is to capture the underlying relationships and semantics of the data by mapping them to points in this vector space. In simplier terms, that means converting your text or images into a sequence of numbers that represents the data, and then comparing the different number sequences. This allows complex data to be manipulated and analyzed mathematically, making it easier to perform tasks like similarity comparison, recommendation, and classification. 
 
 #! TODO - Add image example
 
-How a machine learning model classifies data and produces the vector is different for each machine learning model, and it's typically not possible to determine exactly what semantic menaing each vector dimension represents. But because the model is consistent between each block of data inputed, similar words, documents, or images will have vectors that are also similar. For example, the words `basketball` and `baseball` will likely have a embeddings vectors much closer to each other than a word like `rainforest`. 
+How a machine learning model classifies data and produces the vector is different for each machine learning model, and it's typically not possible to determine exactly what semantic menaing each vector dimension represents. But because the model is consistent between each block of data inputed, similar words, documents, or images will have vectors that are also similar. For example, the words `basketball` and `baseball` will have embeddings vectors much closer to each other than a word like `rainforest`. 
 
 ### Vector comparison
 Vectors can be compared using a variety of metrics. The most popular way to compare vectors is to use [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity), which measures the cosine of the angle between two vectors in a multi-dimensional space. The closer the vectors, the smaller the angle. Other common distance metrics include [euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance) and [inner product](https://en.wikipedia.org/wiki/Inner_product_space). 
 
 ### Generating embeddings
-Many machine learning models support emeddings APIs. For an example of how to create vector embeddings using Azure OpenAI Service, see [Learn how to generate embeddings with Azure OpenAI](../ai-services/openai/how-to/embeddings.md)
+Many machine learning models support embeddings APIs. For an example of how to create vector embeddings using Azure OpenAI Service, see [Learn how to generate embeddings with Azure OpenAI](../ai-services/openai/how-to/embeddings.md).
 
 ## What is a vector database?
 
-It might be nice to level set here. This would contextualize this article for those
-who may not be familiar with LLMs, embeddings, vectors, nearest neighbor / cosine
-similarity searches, etc. You don't have to go deep.
+A vector database is a database that can store, manage, retrieve, and compare vectors. Vector databases must be able to efficiently store a high-dimensional vector and retrive it with minimal latency and high throughput. Non-relational datastores are most commonly used as vector databases, although it's possible to use relational databases like PostgreSQL, for example, with the [pgvector](https://github.com/pgvector/pgvector) extension. 
 
-Alternatively, you could create the section "Who is this for?" but that seems a bit
-more uncouth.
+Vector databases need to index data for fast search and retrieval. Common indexing methods include K-Nearest Neighbors (KNN), an exhaustive method that provides the most precision but with higher computational cost, and Approximate Nearest Neighbors (ANN), which is more efficient by trading precision for greater speed and lower processing overhead. 
+
+Finally, vector databases execute vector searches by using the chosen vector comparison method to return the most similar vectors. Some vector databases can also perform _hybrid_ searches by first narrowing results based on characteristics or metadata before conducting the vector search. This is a way to make the vector search more effective and customizable. 
 
 ## When should I use it?
 
