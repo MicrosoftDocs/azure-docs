@@ -38,10 +38,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 To configure the integration of Profit.co into Azure AD, you need to add Profit.co from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal by using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Go to **Enterprise Applications**, and then select **All Applications**.
-1. To add a new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **Profit.co** in the search box.
 1. Select **Profit.co** from the results panel, and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -62,9 +60,10 @@ Here are the general steps to configure and test Azure AD SSO with Profit.co:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
-1. In the Azure portal, on the **Profit.co** application integration page, find the **Manage** section. Select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Profit.co** application integration page, find the **Manage** section. Select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -78,21 +77,23 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you create a test user in the Azure portal called B.Simon.
+In this section, you create a test user called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
-1. Select **New user** at the top of the screen.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's shown in the **Password** field.
-   1. Select **Create**.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
 In this section, you enable B.Simon to use Azure single sign-on by granting access to Profit.co.
 
-1. In the Azure portal, select **Enterprise Applications** > **All applications**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. In the applications list, select **Profit.co**.
 1. In the app's overview page, find the **Manage** section, and select **Users and groups**.
 1. Select **Add user**. In the **Add Assignment** dialog box, select **Users and groups**.
@@ -112,7 +113,7 @@ In this section, you create a user called B.Simon in Profit.co. Work with the [P
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the Profit.co for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the Profit.co for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the Profit.co tile in the My Apps, you should be automatically signed in to the Profit.co for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

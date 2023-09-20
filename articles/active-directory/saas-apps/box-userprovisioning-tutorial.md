@@ -82,7 +82,8 @@ If automatic provisioning is enabled, then the assigned users and/or groups are 
 
 The objective of this section is to outline how to enable provisioning of Active Directory user accounts to Box.
 
-1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications** section.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 2. If you have already configured Box for single sign-on, search for your instance of Box using the search field. Otherwise, select **Add** and search for **Box** in the application gallery. Select Box from the search results, and add it to your list of applications.
 
@@ -102,7 +103,7 @@ The objective of this section is to outline how to enable provisioning of Active
    
     ![Screenshot of the authorize access screen in Box, showing an explanatory message and the Grant access to Box button.](./media/box-userprovisioning-tutorial/IC769549.png "Enable automatic user provisioning")
 
-8. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Box app. If the connection fails, ensure your Box account has Team Admin permissions and try the **"Authorize"** step again.
+8. Select **Test Connection** to ensure Azure AD can connect to your Box app. If the connection fails, ensure your Box account has Team Admin permissions and try the **"Authorize"** step again.
 
 9. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox.
 
