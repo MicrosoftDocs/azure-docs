@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Fivetran with Azure Active Direc
 
 * Control in Azure AD who has access to Fivetran.
 * Enable your users to be automatically signed-in to Fivetran with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ To configure and test Azure AD SSO with Fivetran, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Fivetran** > **Single sign-on**.
@@ -96,7 +96,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -110,7 +110,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Fivetran.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Fivetran.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Fivetran**.
@@ -135,8 +135,8 @@ In this section, you'll configure single sign-on on the **Fivetran** side.
    ![Screenshot that shows the SAML Config pane with configuration options highlighted.](media/fivetran-tutorial/settings.png)
 
    1. For **Enable SAML authentication**, select **ON**.
-   1. In **Sign on URL**, paste the value of **Login URL**, which you copied from the Azure portal.
-   1. In **Issuer**, paste the value of **Azure Ad Identifier**, which you copied from the Azure portal.
+   1. In **Sign on URL**, paste the value of **Login URL**, which you copied.
+   1. In **Issuer**, paste the value of **Azure Ad Identifier**, which you copied.
    1. Open your downloaded certificate file in a text editor, copy the certificate into your clipboard, and then paste it to in the **Public certificate** text box.
    1. Select **SAVE CONFIG**.
 
@@ -148,7 +148,7 @@ In this section, a user called B.Simon is created in Fivetran. Fivetran supports
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the Fivetran for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the Fivetran for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the Fivetran tile in the My Apps, you should be automatically signed in to the Fivetran for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

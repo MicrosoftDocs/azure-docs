@@ -63,7 +63,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![Screenshot of token generation.](media\ideagen-cloud-provisioning-tutorial\generate-token.png)
 
-1. **Copy** and save the Bearer Token. This value will be entered in the Secret Token * field in the Provisioning tab of your Ideagen Cloud application in the Azure portal. 
+1. **Copy** and save the Bearer Token. This value will be entered in the Secret Token * field in the Provisioning tab of your Ideagen Cloud application. 
 
 	![Screenshot of copying token.](media\ideagen-cloud-provisioning-tutorial\copy-token.png)
 

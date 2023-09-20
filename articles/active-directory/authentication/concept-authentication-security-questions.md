@@ -1,6 +1,6 @@
 ---
 title: Security questions authentication method
-description: Learn about using security questions in Azure Active Directory to help improve and secure sign-in events
+description: Learn about using security questions in Microsoft Entra ID to help improve and secure sign-in events
 
 services: active-directory
 ms.service: active-directory
@@ -14,9 +14,9 @@ manager: amycolannino
 
 ms.collection: M365-identity-device-management
 
-# Customer intent: As an identity administrator, I want to understand how to use security questions in Azure AD to improve and secure user sign-in events.
+# Customer intent: As an identity administrator, I want to understand how to use security questions in Microsoft Entra ID to improve and secure user sign-in events.
 ---
-# Authentication methods in Azure Active Directory - security questions
+# Authentication methods in Microsoft Entra ID - security questions
 
 Security questions aren't used as an authentication method during a sign-in event. Instead, security questions can be used during the self-service password reset (SSPR) process to confirm who you are. Administrator accounts can't use security questions as verification method with SSPR.
 
@@ -90,7 +90,7 @@ For both default and custom security questions, the following requirements and l
 
 To get started, see the [tutorial for self-service password reset (SSPR)][tutorial-sspr].
 
-To learn more about SSPR concepts, see [How Azure AD self-service password reset works][concept-sspr].
+To learn more about SSPR concepts, see [How Microsoft Entra self-service password reset works][concept-sspr].
 
 Learn more about configuring authentication methods using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).
 

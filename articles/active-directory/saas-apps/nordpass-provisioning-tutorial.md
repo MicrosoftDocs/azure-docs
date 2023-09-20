@@ -50,7 +50,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![NordPass Admin Credentials](media/nordpass-provisioning-tutorial/nordpass-admin-credentials.png)
 
-1. Copy and save the **Tenant Url** and **Secret Token** that you see in the new window.This value will be entered in the **Tenant Url** and **Secret Token** field in the Provisioning tab of your NordPass application in the Azure portal.
+1. Copy and save the **Tenant Url** and **Secret Token** that you see in the new window.This value will be entered in the **Tenant Url** and **Secret Token** field in the Provisioning tab of your NordPass application.
 
 ## Step 3. Add NordPass from the Azure AD application gallery
 

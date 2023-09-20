@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate HackerOne with Azure Active Dire
 
 * Control in Azure AD who has access to HackerOne.
 * Enable your users to be automatically signed-in to HackerOne with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with HackerOne, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **HackerOne** > **Single sign-on**.
@@ -84,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://hackerone.com/users/saml/sign_in?email=<CONFIGURED_DOMAIN>`
 
     > [!Note]
-    > The Sign-on URL value is not real. Update this value with the actual Sign-on URL.You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > The Sign-on URL value is not real. Update this value with the actual Sign-on URL.You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -96,7 +96,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -110,7 +110,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to HackerOne.
+In this section, you'll enable B.Simon to use single sign-on by granting access to HackerOne.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **HackerOne**.
@@ -138,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. In the **Email Domain** textbox, type a registered domain.
 
-    b. In  **Single Sign On URL** textboxes, paste the value of **Login URL** which you have copied from Azure portal.
+    b. In  **Single Sign On URL** textboxes, paste the value of **Login URL**..
 
 	c. Open your downloaded **Certificate file** from Azure portal into Notepad, copy the content of it into your clipboard, and then paste it to the **X509 Certificate**  textbox.
 
@@ -166,7 +166,7 @@ In this section, a user called Britta Simon is created in HackerOne. HackerOne s
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to HackerOne Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to HackerOne Sign-on URL where you can initiate the login flow. 
 
 * Go to HackerOne Sign-on URL directly and initiate the login flow from there.
 

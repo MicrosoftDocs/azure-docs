@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate Learning Pool LMS with Azure Act
 
 * Control in Azure AD who has access to Learning Pool LMS.
 * Enable your users to be automatically signed-in to Learning Pool LMS with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ To configure and test Azure AD SSO with Learning Pool LMS, perform the following
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Learning Pool LMS** > **Single sign-on**.

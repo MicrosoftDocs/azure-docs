@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Zendesk with Azure Active Direct
 
 * Control in Azure AD who has access to Zendesk.
 * Enable your users to be automatically signed-in to Zendesk with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 
 ## Prerequisites
@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with Zendesk, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Zendesk** > **Single sign-on**.
@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     c. In the **Reply URL** text box, type a URL using the following pattern: `https://<subdomain>.zendesk.com/access/saml`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Zendesk Client support team](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Zendesk Client support team](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Zendesk application expects the SAML assertions in a specific format. There are no mandatory SAML attributes but optionally you can manage from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
@@ -105,7 +105,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -119,7 +119,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Zendesk.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Zendesk.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Zendesk**.
@@ -144,11 +144,11 @@ You can set up one SAML configuration for team members and a second SAML configu
 
     a. In **Configuration name**, enter a name for your configuration. Up to two SAML and two JWT configurations are possible.
 
-    b. In **SAML SSO URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
+    b. In **SAML SSO URL** textbox, paste the value of **Login URL**..
 
-    c. In **Certificate fingerprint** textbox, paste the **Thumbprint** value of certificate which you have copied from Azure portal.
+    c. In **Certificate fingerprint** textbox, paste the **Thumbprint** value of certificate..
 
-    d. In **Remote logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+    d. In **Remote logout URL** textbox, paste the value of **Logout URL**..
 
     e. Click **Save**.
 
@@ -172,7 +172,7 @@ The objective of this section is to create a user called Britta Simon in Zendesk
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Zendesk Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Zendesk Sign-on URL where you can initiate the login flow. 
 
 * Go to Zendesk Sign-on URL directly and initiate the login flow from there.
 

@@ -62,7 +62,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
     ![Button](media/eletive-provisioning-tutorial/connect.png)
 
-6.	Copy and save the SCIM 2.0 URL and Bearer token. These values will be entered in the Tenant URL and Secret Token field in the Provisioning tab of your Eletive application in the Azure portal.
+6.	Copy and save the SCIM 2.0 URL and Bearer token. These values will be entered in the Tenant URL and Secret Token field in the Provisioning tab of your Eletive application.
 
 
 ## Step 3. Add Eletive from the Azure AD application gallery

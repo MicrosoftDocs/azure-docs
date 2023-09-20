@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate SensoScientific Wireless Tempera
 
 * Control in Azure AD who has access to SensoScientific Wireless Temperature Monitoring System.
 * Enable your users to be automatically signed-in to SensoScientific Wireless Temperature Monitoring System with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ To configure and test Azure AD SSO with SensoScientific Wireless Temperature Mon
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SensoScientific Wireless Temperature Monitoring System** > **Single sign-on**.
@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -96,7 +96,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to SensoScientific Wireless Temperature Monitoring System.
+In this section, you'll enable B.Simon to use single sign-on by granting access to SensoScientific Wireless Temperature Monitoring System.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SensoScientific Wireless Temperature Monitoring System**.
@@ -116,11 +116,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. Select **Issuer Name** as Azure AD.
 
-	b. In the **Issuer URL** textbox, paste the **Azure AD Identifier** which you have copied from Azure portal.
+	b. In the **Issuer URL** textbox, paste the **Azure AD Identifier**..
 
-	c. In the **Single Sign-On Service URL** textbox, paste the **Login URL** which you have copied from Azure portal.
+	c. In the **Single Sign-On Service URL** textbox, paste the **Login URL**..
 
-	d. In the **Single Sign-Out Service URL** textbox, paste the **Logout URL** which you have copied from Azure portal.
+	d. In the **Single Sign-Out Service URL** textbox, paste the **Logout URL**..
 
 	e. Browse the certificate which you have downloaded from Azure portal and upload here.
 
@@ -134,7 +134,7 @@ To enable Azure AD users to sign in to SensoScientific Wireless Temperature Moni
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the SensoScientific Wireless Temperature Monitoring System for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the SensoScientific Wireless Temperature Monitoring System for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the SensoScientific Wireless Temperature Monitoring System tile in the My Apps, you should be automatically signed in to the SensoScientific Wireless Temperature Monitoring System for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

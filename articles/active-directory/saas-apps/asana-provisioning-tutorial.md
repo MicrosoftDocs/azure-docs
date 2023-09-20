@@ -46,7 +46,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Asana to support provisioning with Azure AD
  > [!TIP]
- > To enable SAML-based single sign-on for Asana, follow the instructions provided in the Azure portal. Single sign-on can be configured independently of automatic provisioning, although these two features complement each other.
+ > To enable SAML-based single sign-on for Asana, follow the instructions provided. Single sign-on can be configured independently of automatic provisioning, although these two features complement each other.
 
 ### Generate Secret Token in Asana
 

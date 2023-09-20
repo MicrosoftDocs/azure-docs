@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate Balsamiq Wireframes with Azure A
 
 * Control in Azure AD who has access to Balsamiq Wireframes.
 * Enable your users to be automatically signed-in to Balsamiq Wireframes with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ To configure and test Azure AD SSO with Balsamiq Wireframes, perform the followi
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Balsamiq Wireframes** > **Single sign-on**.
@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://balsamiq.cloud/<ID>/projects`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, Sign-on URL and Relay State. Contact [Balsamiq Wireframes Client support team](mailto:support@balsamiq.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, Sign-on URL and Relay State. Contact [Balsamiq Wireframes Client support team](mailto:support@balsamiq.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Balsamiq Wireframes application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -113,7 +113,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -127,7 +127,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Balsamiq Wireframes.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Balsamiq Wireframes.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Balsamiq Wireframes**.
@@ -153,11 +153,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot shows the IDP Metadata.](./media/balsamiq-wireframes-tutorial/certificate.png "IDP Metadata")
 
-    1. In the **SAML 2.0 Endpoint(HTTP)** textbox, paste the value of **Login URL**, which you have copied from the Azure portal.
+    1. In the **SAML 2.0 Endpoint(HTTP)** textbox, paste the value of **Login URL**, which you copied previously.
 
-    1. In the **Identity Provider Issuer** textbox, paste the value of **Azure AD Identifier**, which you have copied from the Azure portal.
+    1. In the **Identity Provider Issuer** textbox, paste the value of **Azure AD Identifier**, which you copied previously.
 
-    1. Open the downloaded **Federation Metadata XML** file from the Azure portal and **Upload** the file into **Public Certificate** section.
+    1. Open the downloaded **Federation Metadata XML** file and **Upload** the file into **Public Certificate** section.
     
     1. Click **Next**.
 
@@ -182,13 +182,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Balsamiq Wireframes Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Balsamiq Wireframes Sign on URL where you can initiate the login flow.  
 
 * Go to Balsamiq Wireframes Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Balsamiq Wireframes for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the Balsamiq Wireframes for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Balsamiq Wireframes tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Balsamiq Wireframes for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

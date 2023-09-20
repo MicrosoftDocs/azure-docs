@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate Ziflow with Azure Active Directo
 
 * Control in Azure AD who has access to Ziflow.
 * Enable your users to be automatically signed-in to Ziflow with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ To configure and test Azure AD SSO with Ziflow, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Ziflow** > **Single sign-on**.
@@ -92,7 +92,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user 
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -106,7 +106,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Ziflow.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Ziflow.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Ziflow**.
@@ -134,11 +134,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. Select **Type** as **SAML2.0**.
 
-	b. In the **Sign In URL** textbox, paste the value of **Login URL**, which you have copied from the Azure portal.
+	b. In the **Sign In URL** textbox, paste the value of **Login URL**, which you copied previously.
 
-    c. Upload the base-64 encoded certificate that you have downloaded from the Azure portal, into the **X509 Signing Certificate**.
+    c. Upload the base-64 encoded certificate that you have downloaded, into the **X509 Signing Certificate**.
 
-	d. In the **Sign Out URL** textbox, paste the value of **Logout URL**, which you have copied from the Azure portal.
+	d. In the **Sign Out URL** textbox, paste the value of **Logout URL**, which you copied previously.
 
 	e. From the **Configuration Settings for your Identifier Provider** section, copy the highlighted unique ID value and append it with the Identifier and Sign on URL in the **Basic SAML Configuration** on Azure portal.
 
@@ -179,7 +179,7 @@ To provision a user account, perform the following steps:
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Ziflow Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Ziflow Sign-on URL where you can initiate the login flow. 
 
 * Go to Ziflow Sign-on URL directly and initiate the login flow from there.
 
