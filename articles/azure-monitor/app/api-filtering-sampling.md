@@ -330,7 +330,7 @@ Insert a telemetry initializer by adding the onInit callback function in the [Ja
 ```html
 <script type="text/javascript">
 !function(v,y,T){<!-- Removed the JavaScript (Web) SDK Loader Script code for brevity -->}(window,document,{
-src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
+src: "https://js.monitor.azure.com/scripts/b/ai.3.gbl.min.js",
 crossOrigin: "anonymous",
 onInit: function (sdk) {
   sdk.addTelemetryInitializer(function (envelope) {
