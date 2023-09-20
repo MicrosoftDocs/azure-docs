@@ -28,7 +28,7 @@ To configure SSO, first make sure that your application is configured for Pre-Au
 
 For more information on the Pre-Authentication methods, see step 4 of the [app publishing document](application-proxy-add-on-premises-application.md).
 
-   ![Pre-authentication method in Azure portal](./media/application-proxy-config-sso-how-to/app-proxy.png)
+   ![Pre-authentication method in Microsoft Entra admin center](./media/application-proxy-config-sso-how-to/app-proxy.png)
 
 ## Configuring single sign-on modes for Application Proxy Applications
 Configure the specific type of single sign-on. The sign-on methods are classified based on what type of authentication the backend application uses. App Proxy applications support three types of sign-on:

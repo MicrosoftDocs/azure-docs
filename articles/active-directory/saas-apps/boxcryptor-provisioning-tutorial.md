@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 3. Determine what data to [map between Azure AD and Boxcryptor](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure Boxcryptor to support provisioning with Azure AD
-To configure provisioning on Boxcryptor, reach out to your Boxcryptor account manager or the [Boxcryptor support team](mailto:support@boxcryptor.com) who will enable provisioning on Boxcryptor and reach out to you with your Boxcryptor Tenant URL and Secret Token. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Boxcryptor application in the Azure portal.
+To configure provisioning on Boxcryptor, reach out to your Boxcryptor account manager or the [Boxcryptor support team](mailto:support@boxcryptor.com) who will enable provisioning on Boxcryptor and reach out to you with your Boxcryptor Tenant URL and Secret Token. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Boxcryptor application.
 
 ## Step 3. Add Boxcryptor from the Azure AD application gallery
 
@@ -65,11 +65,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Boxcryptor in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Boxcryptor**.
+1. In the applications list, select **Boxcryptor**.
 
 	![The Boxcryptor link in the Applications list](common/all-applications.png)
 

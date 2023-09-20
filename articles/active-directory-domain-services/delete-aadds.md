@@ -1,6 +1,6 @@
 ---
 title: Delete Azure Active Directory Domain Services | Microsoft Docs
-description: Learn how to disable, or delete, an Azure Active Directory Domain Services managed domain using the Azure portal
+description: Learn how to disable, or delete, an Azure Active Directory Domain Services managed domain 
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 ms.author: justinha
 
 ---
-# Delete an Azure Active Directory Domain Services managed domain using the Azure portal
+# Delete an Azure Active Directory Domain Services managed domain
 
 If you no longer need an Azure Active Directory Domain Services (Azure AD DS) managed domain, you can delete it. There's no option to turn off or temporarily disable an Azure AD DS managed domain. Deleting the managed domain doesn't delete or otherwise adversely impact the Azure AD tenant.
 
-This article shows you how to use the Azure portal to delete a managed domain.
+This article shows you how to use the Microsoft Entra admin center to delete a managed domain.
 
 > [!WARNING]
 > **Deletion is permanent and can't be reversed.**
@@ -33,7 +33,8 @@ This article shows you how to use the Azure portal to delete a managed domain.
 
 To delete a managed domain, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator).
+1. Search for and select **Azure AD Domain Services**.
 1. Select the name of your managed domain, such as *aaddscontoso.com*.
 1. On the **Overview** page, select **Delete**. To confirm the deletion, type the domain name of the managed domain again, then select **Delete**.
 

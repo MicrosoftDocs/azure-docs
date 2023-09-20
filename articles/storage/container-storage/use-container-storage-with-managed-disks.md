@@ -4,7 +4,7 @@ description: Configure Azure Container Storage Preview for use with Azure manage
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 09/07/2023
+ms.date: 09/15/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -31,19 +31,21 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
-1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want.
+1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want. For **skuName**, specify the level of performance and redundancy. Acceptable values are Premium_LRS, Standard_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, PremiumV2_LRS, and StandardSSD_ZRS. For **storage**, specify the amount of storage capacity for the pool in Gi or Ti.
 
    ```yml
-   apiVersion: containerstorage.azure.com/v1alpha1
+   apiVersion: containerstorage.azure.com/v1beta1
    kind: StoragePool
    metadata:
      name: azuredisk
      namespace: acstor
    spec:
      poolType:
-       azureDisk: {}
+       azureDisk:
+         skuName: Premium_LRS
      resources:
-       requests: {"storage": 1Ti}
+       requests:
+         storage: 1Ti
    ```
 
 1. Apply the YAML manifest file to create the storage pool.

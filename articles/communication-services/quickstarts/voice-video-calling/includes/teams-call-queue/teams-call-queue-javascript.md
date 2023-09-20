@@ -29,7 +29,7 @@ Use the `npm install` command to install the Azure Communication Services Callin
 > This quickstart uses the Azure Communication Services Calling SDK version `latest`.
 
 ```console
-npm install @azure/communication-common@next --save
+npm install @azure/communication-common@latest --save
 npm install @azure/communication-calling@latest --save
 ```
 

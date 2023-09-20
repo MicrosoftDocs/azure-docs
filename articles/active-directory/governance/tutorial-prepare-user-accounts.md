@@ -100,8 +100,8 @@ Next, we create Britta Simon.  This is the account that is used as our manager.
 
 As an alternative, the following PowerShell script may also be used to quickly create two users needed execute a lifecycle workflow.  One user represents our new employee and the second represents the new employee's manager.
 
->[!IMPORTANT]
->The following PowerShell script is provided to quickly create the two users required for this tutorial.  These users can also be created manually by signing in to the Microsoft Entra Admin center as a global administrator and creating them.
+> [!IMPORTANT]
+> The following PowerShell script is provided to quickly create the two users required for this tutorial. These users can also be created in the Microsoft Entra Admin center.
 
 In order to create this step, save the following PowerShell script to a location on a machine that has access to Azure. 
 

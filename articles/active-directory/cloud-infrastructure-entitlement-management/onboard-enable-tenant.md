@@ -66,5 +66,3 @@ Use the **Data Collectors** dashboard in Permissions Management to configure dat
 ## Next steps
 
 - For an overview of Permissions Management, see [What's Microsoft Entra Permissions Management?](overview.md)
-- For a list of frequently asked questions (FAQs) about Permissions Management, see [FAQs](faqs.md).
-- To start viewing information about your authorization system in Permissions Management, see [View key statistics and data about your authorization system](ui-dashboard.md).

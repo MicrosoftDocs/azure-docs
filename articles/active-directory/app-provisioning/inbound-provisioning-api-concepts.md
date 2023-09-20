@@ -41,7 +41,7 @@ With API-driven inbound provisioning, HR ISVs can ship native synchronization ex
 ### Scenario 3: Enable system integrators to build more connectors to systems of record
 Partners can build custom HR connectors to meet different integration requirements around data flow from systems of record to Azure AD. 
 
-In all the above scenarios, the integration is greatly simplified as Azure AD provisioning service takes over the responsibility of performing identity profile comparison, restricting the data sync to scoping logic configured by the IT admin and executing rule-based attribute flow and transformation managed in the Microsoft Entra admin portal.   
+In all the above scenarios, the integration is greatly simplified as Azure AD provisioning service takes over the responsibility of performing identity profile comparison, restricting the data sync to scoping logic configured by the IT admin and executing rule-based attribute flow and transformation managed in the Microsoft Entra admin center.   
 
 ## End-to-end flow
 :::image type="content" source="media/inbound-provisioning-api-concepts/end-to-end-workflow.png" alt-text="Diagram of the end-to-end workflow of inbound provisioning." lightbox="media/inbound-provisioning-api-concepts/end-to-end-workflow.png":::
