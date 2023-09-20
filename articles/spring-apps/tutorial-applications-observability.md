@@ -1,5 +1,5 @@
 ---
-title: "Tutorial - Optimize and observe your applications in Azure Spring Apps"
+title: "Tutorial: Optimize application observability for Azure Spring Apps"
 description: Learn how to observe the application of Azure Spring Apps.
 author: karlerickson
 ms.author: v-shilichen
@@ -9,7 +9,7 @@ ms.date: 09/15/2023
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Tutorial: Optimize and observe your applications in Azure Spring Apps
+# Tutorial: Optimize application observability for Azure Spring Apps
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -53,7 +53,7 @@ This section explains how to use Log Analytics to query the application logs, an
 
 ### 4.1. Log queries
 
-This section explains how to query application logs from the table `AppPlatformLogsforSpring` hosted by the Azure Spring Apps. You can use [Kusto Query Language](/azure/data-explorer/kusto/query/) to customize your queries for application logs. 
+This section explains how to query application logs from the table `AppPlatformLogsforSpring` hosted by Azure Spring Apps. You can use [Kusto Query Language](/azure/data-explorer/kusto/query/) to customize your queries for application logs. 
 
 To see the built-in example query statements or to write your own queries, open the Azure Spring Apps instance and go to the **Logs** menu.
 
