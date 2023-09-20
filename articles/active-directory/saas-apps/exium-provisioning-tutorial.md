@@ -49,11 +49,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 2. On Exium workspace [profile settings](https://service.exium.net/sign-in) page, navigate to **SCIM Configuration** tab.
 
-3. Copy the **SCIM 2.0 Bearer Token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Exium application in the Azure portal.
+3. Copy the **SCIM 2.0 Bearer Token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Exium application.
 
    	![The Exium SCIM Configuration](media/exium-provisioning-tutorial/api.png)
 
-4. The Exium **Tenant URL** is `https://subapi.exium.net/scim`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Exium application in the Azure portal.
+4. The Exium **Tenant URL** is `https://subapi.exium.net/scim`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Exium application.
 
 ## Step 3. Add Exium from the Azure AD application gallery
 
@@ -74,11 +74,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Exium in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Exium**.
+1. In the applications list, select **Exium**.
 
 	![The Exium link in the Applications list](common/all-applications.png)
 
