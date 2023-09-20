@@ -19,11 +19,9 @@ This article describes how to restore [blobs](blob-backup-overview.md) to any po
 
 This article assumes that you have an operational blob backup configured for one or more of your storage accounts. [Learn how to configure a backup for block blob data](backup-azure-dataprotection-use-rest-api-backup-blobs.md), if not done.
 
-We will refer to an existing backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_, where blobs in a storage account named "msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d" in the examples.
+To illustrate the restoration steps in this article, we will refer to blobs in a storage account named `"msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d"` protected with an existing Backup vault `TestBkpVault`, under the resource group `testBkpVaultRG`.
 
-## Restoring Azure blobs within a storage account
-
-### Fetching the valid time range for restore
+## Fetching the valid time range for restore
 
 As the operational backup for blobs is continuous, there are no distinct points to restore from. Instead, we need to fetch the valid time-range under which blobs can be restored to any point-in-time. In this example, let's check for valid time-ranges to restore within the last 30 days.
 
@@ -39,7 +37,7 @@ For our example, this translates to
 POST https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d/findRestorableTimeRanges?api-version=2021-01-01
 ```
 
-#### Create the request body to fetch valid time ranges for restore
+### Create the request body to fetch valid time ranges for restore
 
 To trigger an operation to calculate valid time ranges, following are the components of a request body
 
@@ -49,7 +47,7 @@ To trigger an operation to calculate valid time ranges, following are the compon
 |startTime     |    String     |  Start time for the List Restore Ranges request. ISO 8601 format.       |
 |endTime     |    String     |    End time for the List Restore Ranges request. ISO 8601 format.     |
 
-##### Example request body to fetch valid time range
+#### Example request body to fetch valid time range
 
 The following request body defines properties required to fetch the time ranges of the continuous data which can be restored. Since blob backups reside in the storage account, the datastore is 'Operational'. You can give start and end time that helps to narrow the search process and return the available time range.
 
@@ -105,15 +103,13 @@ X-Powered-By: ASP.NET
 }
 ```
 
-### Preparing the restore request
-
 Once the point-in-time to restore to the same storage account is fixed, there are multiple options to restore.
 
-#### Restoring all the blobs to a point-in-time
+## Option 1: Restore all the blobs to a point-in-time
 
 Using this option restores all block blobs in the storage account by rolling them back to the selected point in time. Storage accounts containing large amounts of data or witnessing a high churn may take longer times to restore.
 
-##### Constructing the request body for point-in-time restore of all blobs
+### Constructing the request body for point-in-time restore of all blobs
 
 The key points to remember in this scenario are:
 
@@ -146,7 +142,7 @@ The key points to remember in this scenario are:
 }
 ```
 
-#### Restoring few containers to a point-in-time
+## Option 2: Restore few containers to a point-in-time
 
 Using this option allows you to select up to 10 containers to restore or restore a subset of blobs using a prefix match. You can specify up to 10 lexicographical ranges of blobs within a single container or across multiple containers to return those blobs to their previous state at a given point in time. In case of using prefixes, here are a few things to keep in mind:
 
@@ -155,7 +151,7 @@ Using this option allows you to select up to 10 containers to restore or restore
 
 [Learn more](blob-restore.md#use-prefix-match-for-restoring-blobs) about using prefixes to restore blob ranges.
 
-##### Constructing the request body for point-in-time restore of selected containers or few blobs
+### Constructing the request body for point-in-time restore of selected containers or few blobs
 
 The key points to remember in this scenario are:
 
@@ -195,7 +191,7 @@ The key points to remember in this scenario are:
 }
 ```
 
-#### Validating restore requests
+## Validate restore requests
 
 Once request body is prepared, it can be validated using the [validate for restore API](/rest/api/dataprotection/backup-instances/validate-for-restore). Like the validate for backup API, this is a *POST* operation.
 
@@ -211,7 +207,7 @@ POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBk
 
 The request body for this POST API is detailed [here](/rest/api/dataprotection/backup-instances/validate-for-restore#request-body). We have constructed the same in the  above section for [all blobs restore](#constructing-the-request-body-for-point-in-time-restore-of-all-blobs) and [few items restore](#constructing-the-request-body-for-point-in-time-restore-of-selected-containers-or-few-blobs) scenarios. We will use the same to trigger a validate operation.
 
-##### Response to validate restore requests
+### Response to validate restore requests
 
 The validate restore request is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
@@ -222,7 +218,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |200 OK     |         |  Status of validate request       |
 |202 Accepted     |         |     Accepted    |
 
-###### Example response to restore validate request
+#### Example response to restore validate request
 
 Once the *POST* operation is submitted, the initial response will be 202 Accepted along with an Azure-asyncOperation header.
 
@@ -259,7 +255,7 @@ Track the Azure-AsyncOperation header with a simple *GET* request. When the requ
 }
 ```
 
-#### Triggering restore requests
+## Trigger restore requests
 
 The triggering restore operation is a ***POST*** API. All details about the trigger restore operation are documented [here](/rest/api/dataprotection/backup-instances/trigger-restore).
 
@@ -273,11 +269,11 @@ For our example, this translates to:
 POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d/restore?api-version=2021-01-01"
 ```
 
-##### Creating a request body for restore operations
+### Create a request body for restore operations
 
 Once the requests are validated, the same request body can be used to trigger the restore request with minor changes.
 
-###### Example request body for all blobs restore
+#### Example request body for all blobs restore
 
 The only change from the validate restore request body is to remove the "restoreRequest" object at the start.
 
@@ -303,7 +299,7 @@ The only change from the validate restore request body is to remove the "restore
 }
 ```
 
-###### Example request body for items or few blobs restore
+#### Example request body for items or few blobs restore
 
 The only change from the validate restore request body is to remove the "restoreRequest" object at the start.
 
@@ -336,7 +332,7 @@ The only change from the validate restore request body is to remove the "restore
 }
 ```
 
-#### Response to trigger restore requests
+### Response to trigger restore requests
 
 The trigger restore request is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
@@ -347,7 +343,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |200 OK     |         |  Status of restore request       |
 |202 Accepted     |         |     Accepted    |
 
-##### Example response to trigger restore request
+#### Example response to trigger restore request
 
 Once the *POST* operation is submitted, the initial response will be 202 Accepted along with an Azure-asyncOperation header.
 
@@ -388,7 +384,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 }
 ```
 
-#### Tracking jobs
+## Track jobs
 
 The trigger restore requests triggered the restore job and the resultant Job ID should be tracking using the [GET Jobs API](/rest/api/dataprotection/jobs/get).
 
