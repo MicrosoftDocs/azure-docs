@@ -13,7 +13,7 @@ For clarity of structure, a separate markdown file is used to describe how to pr
 
 -->
 
-Use the following steps to create an Azure Database for PostgreSQL server:
+Use the following steps to create an Azure Database for the PostgreSQL server:
 
 1. Go to the Azure portal and select **Create a resource**.
 
@@ -45,10 +45,10 @@ Use the following steps to create an Azure Database for PostgreSQL server:
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/postgresql-create-server-networking.png" alt-text="Screenshot of the Azure portal that shows the Networking tab." lightbox="../../media/quickstart-deploy-restful-api-app/postgresql-create-server-networking.png":::
 
-1. Select **Review + create** to review your selections, then select **Create** to provision the server. This operation may take a few minutes.
+1. Select **Review + create** to review your selections, and select **Create** to provision the server. This operation may take a few minutes.
 
 1. Go to your PostgreSQL server in the Azure portal. On the **Overview** page, look for the **Server name** value, and then record it for later use. You need it to configure environment variables for app in Azure Spring Apps.
 
-1. Select **Databases** from the navigation pane to create a database.
+1. Select **Databases** from the navigation menu to create a database.
 
-   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/postgresql-create-database.png" alt-text="Screenshot of the Azure portal that shows the Databases page with the Create Database pane open." lightbox="../../media/quickstart-deploy-restful-api-app/postgresql-create-database.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/postgresql-create-database.png" alt-text="Screenshot of the Azure portal that shows the Databases page with the Create Database menu open." lightbox="../../media/quickstart-deploy-restful-api-app/postgresql-create-database.png":::

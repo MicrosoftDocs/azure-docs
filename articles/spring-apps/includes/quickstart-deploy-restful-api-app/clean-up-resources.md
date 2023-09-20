@@ -29,9 +29,9 @@ You can delete the Azure resource group, which includes all the resources in the
 
 Use the following command to delete all the Azure resources used in this sample application:
 
-   ```bash
-   azd down
-   ```
+```bash
+azd down
+```
 
 The following list describes the command interaction:
 
@@ -39,8 +39,8 @@ The following list describes the command interaction:
 
 The console outputs messages similar to the following example:
 
-   ```text
-   SUCCESS: Your application was removed from Azure in xx minutes xx seconds.
-   ```
+```text
+SUCCESS: Your application was removed from Azure in xx minutes xx seconds.
+```
 
 ---
