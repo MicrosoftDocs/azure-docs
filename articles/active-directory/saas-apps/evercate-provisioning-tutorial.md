@@ -63,7 +63,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Once you have successfully set up the connection to Azure AD you can configure which AD features you want to enable in Evercate.
 1. Navigate to  **Settings -> Advanced -> Connect Azure AD** you will see the token you need to enable provisioning (enabled from Azure AD) and can tick the box for allowing single sign on for your Evercate account.
-1. Copy and save the token. This value will be entered in the **Secret Token** * field in the Provisioning tab of your Evercate application in the Azure portal.
+1. Copy and save the token. This value will be entered in the **Secret Token** * field in the Provisioning tab of your Evercate application.
 
 ## Step 3. Add Evercate from the Azure AD application gallery
 

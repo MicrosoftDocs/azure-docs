@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Visibly with Azure Active Direct
 
 * Control in Azure AD who has access to Visibly.
 * Enable your users to be automatically signed-in to Visibly with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ To configure and test Azure AD SSO with Visibly, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Visibly** > **Single sign-on**.
@@ -101,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -115,7 +115,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Visibly.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Visibly.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Visibly**.
@@ -145,13 +145,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot shows S S O Integration page where you can enter the values described.](./media/visibly-tutorial/configuration.png)
 
-	a. In the **Entity ID** textbox, paste the **Entity ID** value which you have copied from the Azure portal.
+	a. In the **Entity ID** textbox, paste the **Entity ID** value which you copied previously.
 
-	b. In the **SSO url** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+	b. In the **SSO url** textbox, paste the **Login URL** value which you copied previously.
 
 	c. In the **SSO name** textbox, give any valid name.
 
-	d. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Certificate** textbox or you can also upload the **Certificate** by selecting the **Upload Certificate**.
+	d. Open the downloaded **Certificate (Base64)** into Notepad and paste the content into the **Certificate** textbox or you can also upload the **Certificate** by selecting the **Upload Certificate**.
 
 	e. Click **Save**.
 

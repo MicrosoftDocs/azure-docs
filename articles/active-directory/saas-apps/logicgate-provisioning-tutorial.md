@@ -53,7 +53,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 	
 	![Access tab](./media/logicgate-provisioning-tutorial/key.png)
 
-4. Copy and save the **Access Key**.This value will be entered in the **Secret Token** * field in the Provisioning tab of your LogicGate application in the Azure portal. 
+4. Copy and save the **Access Key**.This value will be entered in the **Secret Token** * field in the Provisioning tab of your LogicGate application. 
 	
 	![Key tab](./media/logicgate-provisioning-tutorial/access.png)
 

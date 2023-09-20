@@ -44,10 +44,8 @@ NetSuite supports:
 
 To configure the integration of NetSuite into Azure AD, add NetSuite from the gallery to your list of managed SaaS apps by doing the following:
 
-1. Sign in to the Azure portal with either a work or school account, or a personal Microsoft account.
-1. In the left pane, select the **Azure Active Directory** service.
-1. Go to **Enterprise Applications**, and then select **All Applications**.
-1. To add a new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **NetSuite** in the search box.
 1. In the results pane, select **NetSuite**, and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -103,18 +101,17 @@ To enable Azure AD SSO in the Azure portal, do the following:
 
 ### Create an Azure AD test user
 
-In this section, you create a test user in the Azure portal called B.Simon.
+In this section, you create a test user called B.Simon.
 
-1. In the left pane of the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
-
-1. Select **New user** at the top of the screen.
-
-1. In the **User** properties pane, follow these steps:
-
-   a. In the **Name** box, enter **B.Simon**.  
-   b. In the **User name** box, enter the username@companydomain.extension (for example, B.Simon@contoso.com).  
-   c. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.  
-   d. Select **Create**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
@@ -165,7 +162,7 @@ In this section, you enable user B.Simon to use Azure single sign-on by granting
   
     a. Select the **Primary Authentication Method** check box.
 
-    b. Under **SAMLV2 Identity Provider Metadata**, select **Upload IDP Metadata File**, and then select **Browse** to upload the metadata file that you downloaded from the Azure portal.
+    b. Under **SAMLV2 Identity Provider Metadata**, select **Upload IDP Metadata File**, and then select **Browse** to upload the metadata file that you downloaded.
 
     c. Select **Submit**.
 
@@ -233,7 +230,7 @@ In this section, a user called B.Simon is created in NetSuite. NetSuite supports
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-- Click on Test this application in Azure portal and you should be automatically signed in to the NetSuite for which you set up the SSO
+- Click on **Test this application**, and you should be automatically signed in to the NetSuite for which you set up the SSO
 
 - You can use Microsoft My Apps. When you click the NetSuite tile in the My Apps, you should be automatically signed in to the NetSuite for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

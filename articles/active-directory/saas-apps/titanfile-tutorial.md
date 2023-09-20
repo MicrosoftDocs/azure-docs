@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Titanfile with Azure Active Dire
 
 * Control in Azure AD who has access to Titanfile.
 * Enable your users to be automatically signed-in to Titanfile with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ To configure and test Azure AD SSO with Titanfile, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Titanfile** > **Single sign-on**.
@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.titanfile.com/saml2/acs/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Titanfile Client support team](mailto:support@titanfile.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Titanfile Client support team](mailto:support@titanfile.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -90,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -104,7 +104,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Titanfile.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Titanfile.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Titanfile**.
@@ -116,7 +116,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Titanfile SSO
 
-To configure single sign-on on **Titanfile** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Titanfile support team](mailto:support@titanfile.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Titanfile** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [Titanfile support team](mailto:support@titanfile.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Titanfile test user
 
@@ -126,7 +126,7 @@ In this section, you create a user called B.Simon in Titanfile. Work with [Tita
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the Titanfile for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the Titanfile for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the Titanfile tile in the My Apps, you should be automatically signed in to the Titanfile for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

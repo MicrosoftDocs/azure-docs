@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate SmartDraw with Azure Active Dire
 
 * Control in Azure AD who has access to SmartDraw.
 * Enable your users to be automatically signed-in to SmartDraw with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ To configure and test Azure AD SSO with SmartDraw, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SmartDraw** > **Single sign-on**.
@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://cloud.smartdraw.com/sso/saml/login/<DOMAIN>`
 
     > [!NOTE]
-	> The Sign-on URL value is not real. You will update the Sign-on URL value with the actual Sign-on URL, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Sign-on URL value is not real. You will update the Sign-on URL value with the actual Sign-on URL, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Click **Save**.
 
@@ -105,7 +105,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -119,7 +119,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to SmartDraw.
+In this section, you'll enable B.Simon to use single sign-on by granting access to SmartDraw.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SmartDraw**.
@@ -150,9 +150,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	c. In the **Security Groups to Allow SmartDraw Access** textbox, type **Everyone**.
 
-	d. In the **Your SAML Issuer Url** textbox, paste the value of **Azure AD Identifier** which you have copied from the Azure portal.
+	d. In the **Your SAML Issuer Url** textbox, paste the value of **Azure AD Identifier** which you copied previously.
 
-	e. In Notepad, open the Metadata XML file that you downloaded from the Azure portal, copy its content, and then paste it into the **Your SAML MetaData** box.
+	e. In Notepad, open the Metadata XML file that you downloaded, copy its content, and then paste it into the **Your SAML MetaData** box.
 
 	f. Click **Save Configuration**	
 
@@ -166,13 +166,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to SmartDraw Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to SmartDraw Sign on URL where you can initiate the login flow.  
 
 * Go to SmartDraw Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the SmartDraw for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the SmartDraw for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the SmartDraw tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SmartDraw for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

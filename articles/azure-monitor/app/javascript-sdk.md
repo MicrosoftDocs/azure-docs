@@ -207,7 +207,7 @@ Yes, the Application Insights JavaScript SDK is open source. To view the source 
 ## Support
 
 - If you can't run the application or you aren't getting data as expected, see the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
-- For common question about the JavaScript SDK, see the [FAQ](/azure/azure-monitor/faq#can-i-filter-out-or-modify-some-telemetry-).
+- For common question about the JavaScript SDK, see the [FAQ](#frequently-asked-questions).
 - For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For a list of open issues related to the Application Insights JavaScript SDK, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-JS/issues).
 - Use the [Telemetry Viewer extension](https://github.com/microsoft/ApplicationInsights-JS/tree/master/tools/chrome-debug-extension) to list out the individual events in the network payload and monitor the internal calls within Application Insights.

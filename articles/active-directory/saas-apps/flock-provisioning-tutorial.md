@@ -54,7 +54,7 @@ Before configuring Flock for automatic user provisioning with Azure AD, you will
 
 	:::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Screenshot of a menu on the Flock website. The Auth and provisioning item is highlighted." border="false":::
 
-3. Copy the **API Token**. These values will be entered in the **Secret Token** field in the Provisioning tab of your Flock application in the Azure portal.
+3. Copy the **API Token**. These values will be entered in the **Secret Token** field in the Provisioning tab of your Flock application.
 
 	:::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Screenshot of a Provisioning tab on the Flock website. Under A P I token, a value is highlighted. Next to the token is a Copy token button." border="false":::
 

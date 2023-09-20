@@ -76,7 +76,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 	[Convert]::ToBase64String($bytes)
    	 ```
 
-3.	Copy the bearer token. This value will be entered in the Secret Token field in the Provisioning tab of your Infor CloudSuite application in the Azure portal.
+3.	Copy the bearer token. This value will be entered in the Secret Token field in the Provisioning tab of your Infor CloudSuite application.
 
 ## Add Infor CloudSuite from the gallery
 

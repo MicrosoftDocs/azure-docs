@@ -46,9 +46,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. On your Freshservice account, install the **Azure Provisioning (SCIM)** app from the marketplace by navigating to **Freshservice Admin** > **Apps** > **Get Apps**.
 2. In the configuration screen, provide your **Freshservice Domain** (for example, `acme.freshservice.com`) and the **Organization Admin API key**.
 3. Click **Continue**.
-4. Highlight and copy the **Bearer Token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Freshservice Provisioning application in the Azure portal.
+4. Highlight and copy the **Bearer Token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Freshservice Provisioning application.
 5. Click **Install** to complete the installation.
-6. The **Tenant URL** is `https://scim.freshservice.com/scim/v2`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Freshservice Provisioning application in the Azure portal.
+6. The **Tenant URL** is `https://scim.freshservice.com/scim/v2`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Freshservice Provisioning application.
 
 ## Step 3. Add Freshservice Provisioning from the Azure AD application gallery
 
