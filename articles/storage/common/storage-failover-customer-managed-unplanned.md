@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 09/15/2023
+ms.date: 09/20/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: 
@@ -90,13 +90,13 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 If the primary storage service endpoints become unavailable for any reason (1), the client is no longer able to write to the storage account. Depending on the underlying cause of the outage, replication to the secondary region may no longer be functioning (2), so [some data loss should be expected](storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies). The following image shows the scenario where the primary endpoints have become unavailable, but no recovery has occurred yet:
 
-![The primary is unavailable, so clients cannot write data](media/storage-failover-customer-managed-unplanned/primary-unavailable-before-failover-grs.png).
+![The primary is unavailable, so clients cannot write data](media/storage-failover-customer-managed-unplanned/primary-unavailable-before-failover-grs.png)
 
 ### The failover process (GRS/RA-GRS)
 
 To restore write access to your data, you can [initiate a failover](storage-initiate-account-failover.md).  The storage service endpoint URIs for blobs, tables, queues, and files remain the same but their DNS entries are changed to point to the secondary region (1) as show in this image:
 
-![Customer initiates account failover to secondary endpoint](media/storage-failover-customer-managed-unplanned/failover-to-secondary-grs.png).
+![Customer initiates account failover to secondary endpoint](media/storage-failover-customer-managed-unplanned/failover-to-secondary-grs.png)
 
 Customer-managed failover typically takes about an hour.
 
@@ -132,7 +132,7 @@ Once the issue causing the original outage has been resolved, you can initiate a
 
 After the failback is complete, the original primary region becomes the current one again (1) and the copy of the storage account in the original secondary is deleted (2). The storage account is configured as locally redundant in the primary region and is no longer geo-redundant. Users can resume writing data to the storage account (3) as shown in this image:
 
-![Post-failback status (GRS)](media/storage-failover-customer-managed-unplanned/post-failback-grs.png).
+![Post-failback status (GRS)](media/storage-failover-customer-managed-unplanned/post-failback-grs.png)
 
 To resume replication to the original secondary region, configure the account for geo-redundancy again.
 
@@ -141,7 +141,7 @@ To resume replication to the original secondary region, configure the account fo
 
 After re-configuring the account as GRS, replication to the original secondary region resumes as shown in this image:
 
-![The redundancy configuration returns to its original state](media/storage-failover-customer-managed-unplanned/post-failback-grs-geo.png).
+![The redundancy configuration returns to its original state](media/storage-failover-customer-managed-unplanned/post-failback-grs-geo.png)
 
 ## [GZRS/RA-GZRS](#tab/gzrs-ra-gzrs)
 
@@ -155,7 +155,7 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 If the primary storage service endpoints become unavailable for any reason (1), the client is no longer able to write to the storage account. Depending on the underlying cause of the outage, replication to the secondary region may no longer be functioning (2), [so some data loss should be expected](storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies). The following image shows the scenario where the primary endpoints have become unavailable, but no recovery has occurred yet:
 
-![The primary is unavailable, so clients cannot write data (GZRS)](media/storage-failover-customer-managed-unplanned/primary-unavailable-before-failover-gzrs.png).
+![The primary is unavailable, so clients cannot write data (GZRS)](media/storage-failover-customer-managed-unplanned/primary-unavailable-before-failover-gzrs.png)
 
 ### The failover process (GZRS/RA-GZRS)
 
@@ -163,7 +163,7 @@ To restore write access to your data, you can [initiate a failover](storage-init
 
 1. The DNS entries for the storage service endpoints are changed such that those for the secondary region become the new primary endpoints for your storage account.
 
-![Customer initiates account failover to secondary endpoint (GZRS)](media/storage-failover-customer-managed-unplanned/failover-to-secondary-gzrs.png).
+![Customer initiates account failover to secondary endpoint (GZRS)](media/storage-failover-customer-managed-unplanned/failover-to-secondary-gzrs.png)
 
 The failover typically takes about an hour.
 
@@ -201,7 +201,7 @@ Once the issue causing the original outage has been resolved, you can initiate a
 
 After the failback is complete, the original primary region becomes the current one again (1) and the copy of the storage account in the original secondary is deleted (2). The storage account is configured as ZRS in the primary region and is no longer geo-redundant. Users can resume writing data to the storage account (3) as shown in this image:
 
-![Post-failback status (GZRS)](media/storage-failover-customer-managed-unplanned/post-failback-gzrs.png).
+![Post-failback status (GZRS)](media/storage-failover-customer-managed-unplanned/post-failback-gzrs.png)
 
 To resume replication to the original secondary region, configure the account for geo-redundancy again.
 
@@ -210,12 +210,12 @@ To resume replication to the original secondary region, configure the account fo
 
 After re-configuring the account as GZRS, replication to the original secondary region resumes as shown in this image:
 
-![The redundancy configuration returns to its original state](media/storage-failover-customer-managed-unplanned/post-failback-gzrs-geo.png).
+![The redundancy configuration returns to its original state](media/storage-failover-customer-managed-unplanned/post-failback-gzrs-geo.png)
 
 ---
 
 ## See also
 
-- [Disaster recovery planning](storage-disaster-recovery-guidance.md)
+- [Disaster recovery planning and failover](storage-disaster-recovery-guidance.md)
 - [Azure Storage redundancy](storage-redundancy.md)
 - [Initiate an account failover](storage-initiate-account-failover.md)
