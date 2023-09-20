@@ -69,9 +69,6 @@ Follow the steps in this section to instrument your application with OpenTelemet
 - Python Application using Python 3.7+
 
 
-
-
-
 ---
 
 > [!TIP]
