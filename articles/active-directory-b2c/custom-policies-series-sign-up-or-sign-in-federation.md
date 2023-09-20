@@ -257,11 +257,11 @@ Just like in sign-in with a local account, you need to configure the [Microsoft 
     
         </TechnicalProfile>
     ```
-    We've added a new Microsoft Entra Technical Profile *Microsoft Entra ID-UserWriteUsingAlternativeSecurityId* that writes a new social account into Microsoft Entra ID. 
+    We've added a new Microsoft Entra Technical Profile *AAD-UserWriteUsingAlternativeSecurityId* that writes a new social account into Microsoft Entra ID. 
 
 1. Replace *B2C_1A_TokenSigningKeyContainer* with the token signing key you created in [Configure the signing](custom-policies-series-hello-world.md#step-1---configure-the-signing-and-encryption-keys).  
  
-1. In the `ContosoCustomPolicy.XML` file, add another Microsoft Entra technical profile after the *Microsoft Entra ID-UserWriteUsingAlternativeSecurityId* Technical Profile by using the following code:   
+1. In the `ContosoCustomPolicy.XML` file, add another Microsoft Entra technical profile after the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile by using the following code:   
 
      ```xml
         <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
@@ -290,7 +290,7 @@ Just like in sign-in with a local account, you need to configure the [Microsoft 
         </TechnicalProfile>
      ```
 
-    We've added a new Microsoft Entra Technical Profile *Microsoft Entra ID-UserReadUsingAlternativeSecurityId* that reads a new social account from Microsoft Entra ID. It uses `alternativeSecurityId` as a unique identifier for the social account. 
+    We've added a new Microsoft Entra Technical Profile *AAD-UserReadUsingAlternativeSecurityId* that reads a new social account from Microsoft Entra ID. It uses `alternativeSecurityId` as a unique identifier for the social account. 
 
 1. Replace *B2C_1A_TokenSigningKeyContainer* with the token signing key you created in [Configure the signing](custom-policies-series-hello-world.md#step-1---configure-the-signing-and-encryption-keys).
 
@@ -374,7 +374,7 @@ In the `ContosoCustomPolicy.XML` file, locate the *ClaimsProviders* section, and
     <!--</ClaimsProviders>-->
 ```
 
-The claims provider we've added contains a self-asserted technical profile, *SelfAsserted-Social*. The self-asserted technical profile uses the *Microsoft Entra ID-UserWriteUsingAlternativeSecurityId* Technical Profile as a validation technical profile. So, the *Microsoft Entra ID-UserWriteUsingAlternativeSecurityId* Technical Profile executes when the user selects the **Continue** button (see screenshot in [step 7](#step-7---test-policy)).     
+The claims provider we've added contains a self-asserted technical profile, *SelfAsserted-Social*. The self-asserted technical profile uses the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile as a validation technical profile. So, the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile executes when the user selects the **Continue** button (see screenshot in [step 7](#step-7---test-policy)).     
 
 Also, notice that we've added the content definition, *socialAccountsignupContentDefinition*, that we configured in [step 3.5](#step-35---configure-content-definition) in the metadata section.  
 
@@ -442,11 +442,11 @@ When the custom policy runs:
 
 -  **Orchestration Step 2** - The *Facebook-OAUTH* technical profile executes, so the user is redirected to Facebook to sign in. 
 
-- **Orchestration Step 3** - In step 3, the *Microsoft Entra ID-UserReadUsingAlternativeSecurityId* technical profile executes to try to read the user social account from Microsoft Entra storage. If the social account is found, `objectId` is returned as an output claim.    
+- **Orchestration Step 3** - In step 3, the *AAD-UserReadUsingAlternativeSecurityId* technical profile executes to try to read the user social account from Microsoft Entra storage. If the social account is found, `objectId` is returned as an output claim.    
 
 - **Orchestration Step 4** - This step runs if the user doesn't already exist (`objectId` doesn't exist). It shows the form that collects more information from the user or updates similar information obtained from the social account.
 
--  **Orchestration Step 5** - This step runs if the user doesn't already exist (`objectId` doesn't exist), so the *Microsoft Entra ID-UserWriteUsingAlternativeSecurityId* Technical Profile executes to write the social account into Microsoft Entra ID.  
+-  **Orchestration Step 5** - This step runs if the user doesn't already exist (`objectId` doesn't exist), so the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile executes to write the social account into Microsoft Entra ID.  
 
 - **Orchestration Step 6** - Finally, step 6 assembles and returns the JWT token at the end of the policy’s execution.
 

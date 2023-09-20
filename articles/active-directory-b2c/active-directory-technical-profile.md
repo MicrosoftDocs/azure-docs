@@ -28,16 +28,16 @@ The **Name** attribute of the **Protocol** element needs to be set to `Proprieta
 
 Following [custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) Microsoft Entra technical profiles include the **AAD-Common** technical profile. The Microsoft Entra technical profiles don't specify the protocol because the protocol is configured in the **AAD-Common** technical profile:
  
-- **Microsoft Entra ID-UserReadUsingAlternativeSecurityId** and **Microsoft Entra ID-UserReadUsingAlternativeSecurityId-NoError** - Look up a social account in the directory.
-- **Microsoft Entra ID-UserWriteUsingAlternativeSecurityId** - Create a new social account.
-- **Microsoft Entra ID-UserReadUsingEmailAddress** - Look up a local account in the directory.
-- **Microsoft Entra ID-UserWriteUsingLogonEmail** - Create a new local account.
-- **Microsoft Entra ID-UserWritePasswordUsingObjectId** - Update a password of a local account.
-- **Microsoft Entra ID-UserWriteProfileUsingObjectId** - Update a user profile of a local or social account.
-- **Microsoft Entra ID-UserReadUsingObjectId** - Read a user profile of a local or social account.
-- **Microsoft Entra ID-UserWritePhoneNumberUsingObjectId** - Write the MFA phone number of a local or social account
+- **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingAlternativeSecurityId-NoError** - Look up a social account in the directory.
+- **AAD-UserWriteUsingAlternativeSecurityId** - Create a new social account.
+- **AAD-UserReadUsingEmailAddress** - Look up a local account in the directory.
+- **AAD-UserWriteUsingLogonEmail** - Create a new local account.
+- **AAD-UserWritePasswordUsingObjectId** - Update a password of a local account.
+- **AAD-UserWriteProfileUsingObjectId** - Update a user profile of a local or social account.
+- **AAD-UserReadUsingObjectId** - Read a user profile of a local or social account.
+- **AAD-UserWritePhoneNumberUsingObjectId** - Write the MFA phone number of a local or social account
 
-The following example shows the **Microsoft Entra ID-Common** technical profile:
+The following example shows the **AAD-Common** technical profile:
 
 ```xml
 <TechnicalProfile Id="AAD-Common">
@@ -70,7 +70,7 @@ The **OutputClaims** element contains a list of claims returned by the Microsoft
 
 The [OutputClaimsTransformations](technicalprofiles.md#output-claims-transformations) element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
-For example, the **Microsoft Entra ID-UserWriteUsingLogonEmail** technical profile creates a local account and returns the following claims:
+For example, the **AAD-UserWriteUsingLogonEmail** technical profile creates a local account and returns the following claims:
 
 - **objectId**, which is identifier of the new account
 - **newUser**, which indicates whether the user is new
@@ -92,7 +92,7 @@ For example, the **Microsoft Entra ID-UserWriteUsingLogonEmail** technical profi
 
 The **PersistedClaims** element contains all of the values that should be persisted by Microsoft Entra ID with possible mapping information between a claim type already defined in the [ClaimsSchema](claimsschema.md) section in the policy and the Microsoft Entra attribute name.
 
-The **Microsoft Entra ID-UserWriteUsingLogonEmail** technical profile, which creates new local account, persists following claims:
+The **AAD-UserWriteUsingLogonEmail** technical profile, which creates new local account, persists following claims:
 
 ```xml
   <PersistedClaims>

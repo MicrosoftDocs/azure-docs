@@ -303,7 +303,7 @@ When the custom policy runs:
 - **Orchestration Step 4** - This step runs if the user signs up (objectId doesn't exist), so we display the sign-up form by invoking the
 *UserInformationCollector* self-asserted technical profile. This step runs whether a user signs up or signs in. 
 
-- **Orchestration Step 5** - This step reads account information from Microsoft Entra ID (we invoke *Microsoft Entra ID-UserRead* Microsoft Entra technical profile), so it runs whether a user signs up or signs in.   
+- **Orchestration Step 5** - This step reads account information from Microsoft Entra ID (we invoke *AAD-UserRead* Microsoft Entra technical profile), so it runs whether a user signs up or signs in.   
 
 - **Orchestration Step 6** -  This step invokes the *UserInputMessageClaimGenerator* technical profile to assemble the user’s greeting message.
 

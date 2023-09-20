@@ -170,7 +170,7 @@ For example, the `SM-AAD`session management technical profile uses the `DefaultS
 
 ## ExternalLoginSSOSessionProvider
 
-The `ExternalLoginSSOSessionProvider` session provider is used to skip the "identity provider selection" screen and sign-out from a federated identity provider. It’s typically referenced in a technical profile configured for a federated identity provider, such as Facebook, or Microsoft Entra ID.
+The `ExternalLoginSSOSessionProvider` session provider is used to skip the "identity provider selection" screen and sign-out from a federated identity provider. It’s typically referenced in a technical profile configured for a federated identity provider, such as Facebook or Microsoft Entra ID.
 
 - **Fresh logon**
   - The `PersistedClaims` element will write claims into the session cookie. Persisted claims can’t be rewritten.
@@ -289,7 +289,7 @@ The `NoopSSOSessionProvider` session provider is used to suppress single sign on
 - [Claims transformation](claims-transformation-technical-profile.md) - To create, or transform claims that are later used to determine which orchestration steps to process or skip.
 - [Restful](restful-technical-profile.md) - Fetch updated data from a Restful service each time the policy runs. You can also call a Restful for extended logging, and auditing.
 - [Self-asserted](self-asserted-technical-profile.md) - Force the user to provide data each time the policy runs. For example, verify emails with one-time pass-code, or ask the user's consent.
-- [Phonefactor](phone-factor-technical-profile.md) - Force the user to perform multifactor authentication as part of a "step up authentication", even during subsequent logons (single sign-on).
+- [Phonefactor](phone-factor-technical-profile.md) - Force the user to perform multifactor authentication as part of a "step up authentication" even during subsequent logons (single sign-on).
 
 This type of session provider doesn't persist claims to the user's session cookie. The following `SM-Noop` technical profile is type of `NoopSSOSessionProvider` session provider. The `SM-Noop` technical profile can be found in the [custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack).
 

@@ -109,7 +109,7 @@ You need to configure two [Microsoft Entra Technical Profile](active-directory-t
         </TechnicalProfile>
     ```
 
-    We've added a new Microsoft Entra technical profile, *Microsoft Entra ID-UserWrite*. You need to take note of the following important parts of the technical profile: 
+    We've added a new Microsoft Entra technical profile, *AAD-UserWrite*. You need to take note of the following important parts of the technical profile: 
     
     -  *Operation*: The operation specifies the action to be performed, in this case, *Write*. Learn more about other [operations in a Microsoft Entra technical provider](active-directory-technical-profile.md#azure-ad-technical-profile-operations). 
     
