@@ -2,7 +2,8 @@
 title: Restore blobs in a storage account using Azure Data Protection REST API
 description: In this article, learn how to restore blobs of a storage account using REST API.
 ms.topic: conceptual
-ms.date: 07/09/2021
+ms.date: 09/20/2023
+ms.custom: engagement-fy24
 ms.assetid: 9b8d21e6-3e23-4345-bb2b-e21040996afd
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -151,7 +152,7 @@ Using this option allows you to select up to 10 containers to restore or restore
 
 [Learn more](blob-restore.md#use-prefix-match-for-restoring-blobs) about using prefixes to restore blob ranges.
 
-### Constructing the request body for point-in-time restore of selected containers or few blobs
+### Construct the request body for point-in-time restore of selected containers or few blobs
 
 The key points to remember in this scenario are:
 
