@@ -72,7 +72,7 @@ Select options according to what you're looking for:
 
 ## Clean up resources
 
-If you created a test application named **Microsoft Entra SAML Toolkit 1** that was used throughout the quickstarts, you can consider deleting it now to clean up your tenant. For more information, see [Delete an application](delete-application-portal.md).
+If you created a test application named **Azure AD SAML Toolkit 1** that was used throughout the quickstarts, you can consider deleting it now to clean up your tenant. For more information, see [Delete an application](delete-application-portal.md).
 
 ## Next steps
 
