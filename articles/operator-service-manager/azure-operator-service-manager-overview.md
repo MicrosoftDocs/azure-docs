@@ -15,13 +15,13 @@ Azure Operator Service Manager is an Azure service designed to assist telecom op
 
 As part of the Azure AI Operations program, Azure Operator Service Manager transforms the traditional operator service management experience into a modern cloud service. Support for Azure For Operator platforms, like Azure Operator Nexus and services like Azure Operator 5G Core, operators can simplify complex service deployments. This simplification ensures carrier grade service reliability while accelerating both service innovation and service monetization.
 
-:::image type="content" source="media/overview-unified-service.png" alt-text="Image showing unified service orchestration across Azure domains.":::
+:::image type="content" source="media/overview-unified-service.png" alt-text="Diagram that shows unified service orchestration across Azure domains.":::
 
 ## Technical overview
 
 Managing complex network services efficiently and reliably can be a challenge.  Azure Operator Service Manager’s unique role-based approach introduces curated experiences for publishers, designers and operators.  Use of Network Service Design (NSD) artifacts to onboard service requirements and configuration group schemas/values to define run-time inputs. The following diagram illustrates the Azure Operator Service Manager (AOSM) deployment workflow.
 
-:::image type="content" source="media/overview-deployment-workflows.png" alt-text="Image showing the Azure Operator Service Manager AOSM deployment workflow.":::
+:::image type="content" source="media/overview-deployment-workflows.png" alt-text="Illustration that shows the Azure Operator Service Manager (AOSM) deployment workflow.":::
 
 ## Product features
 

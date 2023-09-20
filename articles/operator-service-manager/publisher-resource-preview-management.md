@@ -84,6 +84,22 @@ Use the following API to update the state of a network function definition versi
 
 ### URL
 
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/networkfunctiondefinitiongroups/TestNFDGroup/networkfunctiondefinitionversions/1.0.0/updateState?api-version=2023-09-01
+
+### URI parameters
+
+The following table describes the parameters used with the preceding URL.
+
+|Name  |Description |
+|---------|---------|
+|subscriptionId     |  The subscription ID.
+|resourceGroupName    |       The name of the resource group.  |
+|publisherName    |      The name of the publisher.   |
+|networkfunctiondefinitiongroups | The name of the network function definition groups.
+|networkfunctiondefinitionversions | The network function definition version. |
+|api-version | The API version to use for this operation. |
+
+
 ### Request body
 
 ```json
