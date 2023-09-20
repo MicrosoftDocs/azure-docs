@@ -10,7 +10,7 @@ ms.author: greglin
 ms.custom: devx-track-azurepowershell
 ---
 
-# Application Gateway health monitoring overview
+# Application Gateway health probes overview
 
 Azure Application Gateway monitors the health of all the servers in its backend pool and automatically stops sending traffic to any server it considers unhealthy. The probes continue to monitor such an unhealthy server, and the gateway starts routing the traffic to it once again as soon as the probes detect it as healthy. 
 
