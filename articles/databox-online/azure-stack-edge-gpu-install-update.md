@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/07/2023
+ms.date: 09/20/2023
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -24,8 +24,8 @@ The current update is Update 2309. This update installs two updates, the device 
 
 The associated versions for this update are:
 
-- Device software version: Azure Stack Edge 2304 (2.2.2257.1193)
-- Device Kubernetes version: Azure Stack Kubernetes Edge 2304 (2.2.2257.1193)
+- Device software version: Azure Stack Edge 2309 (3.2.2380.1632)
+- Device Kubernetes version: Azure Stack Kubernetes Edge 2304 (3.2.2380.1632)
 - Kubernetes server version: v1.24.6
 - IoT Edge version: 0.1.0-beta15
 - Azure Arc version: 1.10.6
@@ -40,7 +40,7 @@ For information on what's new in this update, go to [Release notes](azure-stack-
  
   *Update package cannot be installed as its dependencies are not met.*
 
-- You can update to 2207 from 2106 or later, and then install 2307.
+- You can update to 2207 from 2106 or later, and then install 2309.
 
 Supported update paths:
 
@@ -71,9 +71,9 @@ If you are running 2210, you can update both your device version and Kubernetes 
 If you are running 2303, you can update both your device version and Kubernetes version directly to
 2309.
 
-In Azure portal, the process will require two clicks, the first update gets your device version to 2307 and your Kubernetes version to 2210, and the second update gets your Kubernetes version upgraded to 2307.
+In Azure portal, the process will require two clicks, the first update gets your device version to 2309 and your Kubernetes version to 2210, and the second update gets your Kubernetes version upgraded to 2309.
 
-From the local UI, you will have to run each update separately: update the device version to 2307, then update Kubernetes version to 2210, and then update Kubernetes version to 2307.
+From the local UI, you will have to run each update separately: update the device version to 2309, then update Kubernetes version to 2210, and then update Kubernetes version to 2309.
 
 ### Updates for a single-node vs two-node
 
@@ -227,16 +227,16 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
 2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge**, and then click **Search**.
    
-    The update listing appears as **Azure Stack Edge Update 2307**.
+    The update listing appears as **Azure Stack Edge Update 2309**.
 
 	Specify the update package for your environment:
 
-    - Azure Stack Edge Update 2307 Software Package.
+    - Azure Stack Edge Update 2309 Software Package.
 	   - host update .exe
-	- Azure Stack Edge Update 2307 Kubernetes Package for Private MEC/SAP Workloads.
+	- Azure Stack Edge Update 2309 Kubernetes Package for Private MEC/SAP Workloads.
 	   - msk8.0.exe
 	   - msk8.1.exe
-	- Azure Stack Edge Update 2307 Kubernetes Package for Non Private MEC/Non SAP Workloads.
+	- Azure Stack Edge Update 2309 Kubernetes Package for Non Private MEC/Non SAP Workloads.
 	   - asek8.0.exe
        - asek8.1.exe
    
@@ -274,7 +274,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 5. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2303**. 
+6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2309**. 
 
 
 7. You will now update the Kubernetes software version. Select the remaining three Kubernetes files together (file with the *Kubernetes_Package.0.exe*, *Kubernetes_Package.1.exe*, and *Kubernetes_Package.2.exe* suffix) and repeat the above steps to apply update.   
