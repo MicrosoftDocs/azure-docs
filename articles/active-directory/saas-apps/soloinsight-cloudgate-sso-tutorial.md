@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Soloinsight-CloudGate SSO with A
 
 * Control in Azure AD who has access to Soloinsight-CloudGate SSO.
 * Enable your users to be automatically signed-in to Soloinsight-CloudGate SSO with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ To configure and test Azure AD SSO with Soloinsight-CloudGate SSO, perform the f
 
 ### Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Soloinsight-CloudGate SSO** application integration page, find the **Manage** section and select **Single sign-on**.
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -105,7 +105,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Soloinsight-CloudGate SSO.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Soloinsight-CloudGate SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Soloinsight-CloudGate SSO**.
@@ -154,7 +154,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 8. **AD Identifier and Login URL**
 
-	* The copied **Login URL** from the Azure portal **Set up Soloinsight-CloudGate SSO** configurations are to be entered in the CloudGate Web Portal SSO settings section.
+	* The copied **Login URL** **Set up Soloinsight-CloudGate SSO** configurations are to be entered in the CloudGate Web Portal SSO settings section.
 
 	* Paste the **Login URL** link from Azure portal in the CloudGate Web Portal **AD Login URL** field.
 
@@ -175,7 +175,7 @@ To Create a test user, Select **Employees** from the main menu of your CloudGate
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Soloinsight-CloudGate SSO Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Soloinsight-CloudGate SSO Sign-on URL where you can initiate the login flow. 
 
 * Go to Soloinsight-CloudGate SSO Sign-on URL directly and initiate the login flow from there.
 

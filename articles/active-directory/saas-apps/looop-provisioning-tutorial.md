@@ -55,7 +55,7 @@ Before configuring Looop for automatic user provisioning with Azure AD, you will
 
 	![Looop Token](media/looop-provisioning-tutorial/resettoken.png)
 
-3. Copy the **SCIM Endpoint** and the **Token**. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Looop application in the Azure portal. 
+3. Copy the **SCIM Endpoint** and the **Token**. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Looop application. 
 
 	![Looop Create Token](media/looop-provisioning-tutorial/token.png)
 

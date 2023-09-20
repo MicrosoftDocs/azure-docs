@@ -56,11 +56,11 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 
 1. Sign in to Account Center.
 
-2. Select **Admin &gt; Admin Settings** .
+1. Select **Admin &gt; Admin Settings** .
 
-3. Click **Advanced Integrations** on the left sidebar. You are directed to the account center.
+1. Click **Advanced Integrations** on the left sidebar. You are directed to the account center.
 
-4. Click **+ Add new SCIM configuration** and follow the procedure by filling in each field.
+1. Click **+ Add new SCIM configuration** and follow the procedure by filling in each field.
 
     > [!NOTE]
     > When auto-assign licenses is not enabled, it means that only user data is synced.
@@ -72,21 +72,22 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 
     ![Screenshot shows the S C I M Setup page.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
 
-5. Click **Generate token**. You should see your access token display under the **Access token** field.
+1. Click **Generate token**. You should see your access token display under the **Access token** field.
 
-6. Save your access token to your clipboard or computer before leaving the page.
+1. Save your access token to your clipboard or computer before leaving the page.
 
-7. Next, sign in to the [Azure portal](https://portal.azure.com), and browse to the **Azure Active Directory > Enterprise Apps > All applications**  section.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
-8. If you have already configured LinkedIn Elevate for single sign-on, search for your instance of LinkedIn Elevate using the search field. Otherwise, select **Add** and search for **LinkedIn Elevate** in the application gallery. Select LinkedIn Elevate from the search results, and add it to your list of applications.
+1. If you have already configured LinkedIn Elevate for single sign-on, search for your instance of LinkedIn Elevate using the search field. Otherwise, select **Add** and search for **LinkedIn Elevate** in the application gallery. Select LinkedIn Elevate from the search results, and add it to your list of applications.
 
-9. Select your instance of LinkedIn Elevate, then select the **Provisioning** tab.
+1. Select your instance of LinkedIn Elevate, then select the **Provisioning** tab.
 
-10. Set the **Provisioning Mode** to **Automatic**.
+1. Set the **Provisioning Mode** to **Automatic**.
 
     ![Screenshot shows the LinkedIn Elevate Provisioning page.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
-11. Fill in the following fields under **Admin Credentials** :
+1. Fill in the following fields under **Admin Credentials** :
 
     * In the **Tenant URL** field, enter `https://api.linkedin.com`.
 
@@ -94,17 +95,17 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 
     * You should see a success notification on the upper-right side of your portal.
 
-12. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
+1. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
 
-13. Click **Save**.
+1. Click **Save**.
 
-14. In the **Attribute Mappings** section, review the user and group attributes that will be synchronized from Azure AD to LinkedIn Elevate. Note that the attributes selected as **Matching** properties will be used to match the user accounts and groups in LinkedIn Elevate for update operations. Select the Save button to commit any changes.
+1. In the **Attribute Mappings** section, review the user and group attributes that will be synchronized from Azure AD to LinkedIn Elevate. Note that the attributes selected as **Matching** properties will be used to match the user accounts and groups in LinkedIn Elevate for update operations. Select the Save button to commit any changes.
 
     ![Screenshot shows Mappings, including Attribute Mappings.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
 
-15. To enable the Azure AD provisioning service for LinkedIn Elevate, change the **Provisioning Status** to **On** in the **Settings** section
+1. To enable the Azure AD provisioning service for LinkedIn Elevate, change the **Provisioning Status** to **On** in the **Settings** section
 
-16. Click **Save**.
+1. Click **Save**.
 
 This will start the initial synchronization of any users and/or groups assigned to LinkedIn Elevate in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your LinkedIn Elevate app.
 

@@ -51,7 +51,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 3. Choose to give your **API Integration** a name to help you easily recognize where the keys are being used.
 4. Select the admin with which you’d like to associate the integration.
 5. Click the **Generate Keys** and **Save** button.
-6. Copy and save the **Client Token** from your integration. This is used as the **Secret Token** in the Provisioning tab of your AlertMedia application in the Azure portal.
+6. Copy and save the **Client Token** from your integration. This is used as the **Secret Token** in the Provisioning tab of your AlertMedia application.
 
 
 ## Step 3. Add AlertMedia from the Azure AD application gallery

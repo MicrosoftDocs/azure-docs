@@ -43,9 +43,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure SECURE DELIVER to support provisioning with Azure AD
 
-1. The Tenant URL is `https://fcapi.i-securedeliver.jp/sdms/v2/scim`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your SECURE DELIVER application in the Azure portal.
+1. The Tenant URL is `https://fcapi.i-securedeliver.jp/sdms/v2/scim`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your SECURE DELIVER application.
 
-2. Reach out to [SECURE DELIVER support](mailto:iw-sd-support@fujifilm.com) team to get your Secret Token. This value will be entered in the **Secret Token** field in the Provisioning tab of your SECURE DELIVER application in the Azure portal.
+2. Reach out to [SECURE DELIVER support](mailto:iw-sd-support@fujifilm.com) team to get your Secret Token. This value will be entered in the **Secret Token** field in the Provisioning tab of your SECURE DELIVER application.
 
 ## Step 3. Add SECURE DELIVER from the Azure AD application gallery
 

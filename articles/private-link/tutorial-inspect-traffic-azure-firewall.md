@@ -19,6 +19,8 @@ You may need to inspect or block traffic from clients to the services exposed vi
 
 For more information and scenarios that involve private endpoints and Azure Firewall, see [Azure Firewall scenarios to inspect traffic destined to a private endpoint](inspect-traffic-with-azure-firewall.md).
 
+:::image type="content" source="./media/tutorial-inspect-traffic-azure-firewall/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-inspect-traffic-azure-firewall/resources-diagram.png":::
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]

@@ -19,7 +19,7 @@ Integrating Brandfolder with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to Brandfolder.
 * You can enable your users to be automatically signed-in to Brandfolder (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* You can manage your accounts in one central location.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -67,7 +67,7 @@ To configure and test Azure AD single sign-on with Brandfolder, you need to comp
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+In this section, you enable Azure AD single sign-on.
 
 To configure Azure AD single sign-on with Brandfolder, perform the following steps:
 
@@ -95,7 +95,7 @@ To configure Azure AD single sign-on with Brandfolder, perform the following ste
     `https://brandfolder.com/organizations/<ORG_SLUG>/saml`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Brandfolder Client support team](mailto:support@brandfolder.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Brandfolder Client support team](mailto:support@brandfolder.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -107,7 +107,7 @@ To configure single sign-on on **Brandfolder** side, you need to send the **App 
 
 ### Create an Azure AD test user 
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+The objective of this section is to create a test user called Britta Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.

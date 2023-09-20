@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate Amazon Managed Grafana with Azur
 
 * Control in Azure AD who has access to Amazon Managed Grafana.
 * Enable your users to be automatically signed-in to Amazon Managed Grafana with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with Amazon Managed Grafana, perform the foll
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Amazon Managed Grafana** > **Single sign-on**.
@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<namespace>.grafana-workspace.<region>.amazonaws.com/login/saml`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Amazon Managed Grafana Client support team](https://aws.amazon.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Amazon Managed Grafana Client support team](https://aws.amazon.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Amazon Managed Grafana application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -104,7 +104,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -118,7 +118,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Amazon Managed Grafana.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Amazon Managed Grafana.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Amazon Managed Grafana**.
@@ -160,13 +160,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot shows SAML Setup.](./media/amazon-managed-grafana-tutorial/configuration.png "SAML Setup")
 
-	1. Copy **Service provider identifier(Entity ID)** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
+	1. Copy **Service provider identifier(Entity ID)** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section.
 
-	1. Copy **Service provider reply URL(Assertion consumer service URL)** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+	1. Copy **Service provider reply URL(Assertion consumer service URL)** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section.
 
-	1. Copy **Service provider login URL** value, paste this value into the **Sign on URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+	1. Copy **Service provider login URL** value, paste this value into the **Sign on URL** text box in the **Basic SAML Configuration** section.
 
-	1. Open the downloaded **Federation Metadata XML** from the Azure portal into Notepad and upload the XML file by clicking **Choose file** option.
+	1. Open the downloaded **Federation Metadata XML** into Notepad and upload the XML file by clicking **Choose file** option.
 
 	1. In the **Assertion mapping** section, fill the required values according to your requirement.
 
@@ -180,7 +180,7 @@ In this section, a user called Britta Simon is created in Amazon Managed Grafana
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Amazon Managed Grafana Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Amazon Managed Grafana Sign-on URL where you can initiate the login flow. 
 
 * Go to Amazon Managed Grafana Sign-on URL directly and initiate the login flow from there.
 

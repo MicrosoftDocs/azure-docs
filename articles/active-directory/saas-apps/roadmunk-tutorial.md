@@ -39,10 +39,8 @@ Roadmunk supports SSO that's started by the *service provider* (SP) and by the *
 
 To integrate Roadmunk into Azure AD, from the gallery, add Roadmunk to your list of managed SaaS apps:
 
-1. Sign in to the Azure portal by using a work or school account or a personal Microsoft account.
-1. In the left pane, select **Azure Active Directory**.
-1. Go to **Enterprise Applications**, and then select **All Applications**.
-1. To add a new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, in the search box, type **Roadmunk**.
 1. Select **Roadmunk** from the results, and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -104,21 +102,23 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal. You'll name the user *B.Simon*.
+In this section, you'll create a test user. You'll name the user *B.Simon*.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
-1. At the top of the window, select **New user**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, enter `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Select **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
 In this section, you'll enable B.Simon to use Azure SSO by granting access to Roadmunk.
 
-1. In the Azure portal, select **Enterprise Applications** > **All applications**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. In the applications list, select **Roadmunk**.
 1. On the app's overview page, find the **Manage** section, and then select **Users and groups**.
 1. Select **Add user**. Then in the **Add Assignment** dialog box, select **Users and groups**.

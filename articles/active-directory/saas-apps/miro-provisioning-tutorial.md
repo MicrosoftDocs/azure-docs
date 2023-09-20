@@ -44,7 +44,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Set up Miro for provisioning
 
-To retrieve the needed **Secret Token** contact [Miro Support Team](mailto:support@miro.com). This value will be entered in the Secret Token field in the Provisioning tab of your Miro application in the Azure portal.
+To retrieve the needed **Secret Token** contact [Miro Support Team](mailto:support@miro.com). This value will be entered in the Secret Token field in the Provisioning tab of your Miro application.
 
 ## Add Miro from the gallery
 

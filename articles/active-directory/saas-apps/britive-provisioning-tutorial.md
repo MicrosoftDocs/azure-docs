@@ -55,7 +55,7 @@ The application will have to be manually configured using the steps provided bel
 
 	![Configuration Page](media/britive-provisioning-tutorial/configuration.png)
 
-1. Click on **SCIM** tab. Change the SCIM provider from Generic to Azure and save the changes. Copy the SCIM URL and note it down.This values will be entered in the **Tenant URL** boxes on the Provisioning tab of your Britive application in the Azure portal.
+1. Click on **SCIM** tab. Change the SCIM provider from Generic to Azure and save the changes. Copy the SCIM URL and note it down.This values will be entered in the **Tenant URL** boxes on the Provisioning tab of your Britive application.
 
 	![SCIM Page](media/britive-provisioning-tutorial/scim.png)
 
@@ -63,7 +63,7 @@ The application will have to be manually configured using the steps provided bel
 
 	![Create Token](media/britive-provisioning-tutorial/create-token.png)
 
-1. Copy the token generated and note it down. Click OK. Please note that the user will not be able to see the token again. Click on Re-Create button to generate a new token if needed.This values will be entered in the **Secret Token** and Tenant URL boxes on the Provisioning tab of your getAbstract application in the Azure portal.
+1. Copy the token generated and note it down. Click OK. Please note that the user will not be able to see the token again. Click on Re-Create button to generate a new token if needed.This values will be entered in the **Secret Token** and Tenant URL boxes on the Provisioning tab of your getAbstract application.
 
 	![Copy Token](media/britive-provisioning-tutorial/copy-token.png) 
 
