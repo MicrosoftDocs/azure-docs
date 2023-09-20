@@ -60,12 +60,12 @@ For general KEDA questions, we recommend [visiting the FAQ overview][keda-faq].
 
 ## Supported Kubernetes and KEDA versions
 
-AKS supports specific KEDA versions depending on the Kubernetes version of your cluster. To determine which versions are in support, see [AKS components supported versions and breaking changes](./supported-kubernetes-versions.md#aks-components-breaking-changes-by-version).
+Your cluster Kubernetes version determines what KEDA version will be installed on your AKS cluster. To see which KEDA version maps to each AKS version, see the **AKS managed add-ons** column of the [Kubernetes component version table](./supported-kubernetes-versions.md#aks-components-breaking-changes-by-version). 
 
 For GA Kubernetes versions, AKS offers full support of the corresponding KEDA minor version in the table. Kubernetes preview versions and the latest KEDA patch are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use. For more information, see the following support articles:
 
-- AKS support policies
-- Azure support FAQ
+- [AKS support policies][support-policies]
+- [Azure support FAQ][azure-support-faq]
 
 ## Next steps
 
@@ -82,6 +82,7 @@ For GA Kubernetes versions, AKS offers full support of the corresponding KEDA mi
 [keda-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
 [workload-identity]: ./workload-identity-overview.md
 [workload-identity-deploy]: ./workload-identity-deploy-cluster.md
+[support-policies]: ./support-policies.md
 
 <!-- LINKS - external -->
 [keda]: https://keda.sh/
@@ -91,3 +92,4 @@ For GA Kubernetes versions, AKS offers full support of the corresponding KEDA mi
 [keda-scalers]: https://keda.sh/docs/scalers/
 [keda-http-add-on]: https://github.com/kedacore/http-add-on
 [keda-cosmos-db-scaler]: https://github.com/kedacore/external-scaler-azure-cosmos-db
+[azure-support-faq]: https://azure.microsoft.com/en-us/support/legal/faq/

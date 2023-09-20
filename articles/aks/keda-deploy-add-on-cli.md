@@ -12,16 +12,14 @@ ms.custom: template-how-to, devx-track-azurecli
 
 This article shows you how to install the Kubernetes Event-driven Autoscaling (KEDA) add-on to Azure Kubernetes Service (AKS) by using Azure CLI. The article includes steps to verify that it's installed and running.
 
-[!INCLUDE [Current version callout](./includes/keda/current-version-callout.md)]
-
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli).
 - Firewall rules are configured to allow access to the Kubernetes API server. ([learn more][aks-firewall-requirements])
-- Your AKS cluster Kubernetes version and the KEDA version must be compatible. For more details, see [supported Kubernetes and KEDA versions](./keda-about.md#supported-kubernetes-and-keda-versions).
 
 ## Install the KEDA add-on with Azure CLI
+
 To install the KEDA add-on, use `--enable-keda` when creating or updating a cluster.
 
 The following example creates a *myResourceGroup* resource group. Then it creates a *myAKSCluster* cluster with the KEDA add-on.
@@ -61,6 +59,7 @@ The following example shows the status of the KEDA add-on for *myAKSCluster* in 
 ```azurecli-interactive
 az aks show -g "myResourceGroup" --name myAKSCluster --query "workloadAutoScalerProfile.keda.enabled" 
 ```
+
 ## Verify that KEDA is running on your cluster
 
 You can verify KEDA that's running on your cluster. Use `kubectl` to display the operator and metrics server installed in the AKS cluster under kube-system namespace. For example:
