@@ -46,9 +46,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. On your Freshservice account, install the **Azure Provisioning (SCIM)** app from the marketplace by navigating to **Freshservice Admin** > **Apps** > **Get Apps**.
 2. In the configuration screen, provide your **Freshservice Domain** (for example, `acme.freshservice.com`) and the **Organization Admin API key**.
 3. Click **Continue**.
-4. Highlight and copy the **Bearer Token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Freshservice Provisioning application in the Azure portal.
+4. Highlight and copy the **Bearer Token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Freshservice Provisioning application.
 5. Click **Install** to complete the installation.
-6. The **Tenant URL** is `https://scim.freshservice.com/scim/v2`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Freshservice Provisioning application in the Azure portal.
+6. The **Tenant URL** is `https://scim.freshservice.com/scim/v2`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Freshservice Provisioning application.
 
 ## Step 3. Add Freshservice Provisioning from the Azure AD application gallery
 
@@ -69,11 +69,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Freshservice Provisioning in Azure AD
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Freshservice Provisioning**.
+1. In the applications list, select **Freshservice Provisioning**.
 
 	![The Freshservice Provisioning link in the Applications list](common/all-applications.png)
 

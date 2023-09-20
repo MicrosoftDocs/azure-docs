@@ -91,9 +91,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 **To configure Azure AD single sign-on with Jobscience, perform the following steps:**
 
-1. In the Azure portal, on the **Jobscience** application integration page, click **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Jobscience** application integration page, click **Single sign-on**.
 
-    ![Screenshot shows Single sign-on selected under Manage in the Azure portal.][4]
+    ![Screenshot shows Single sign-on selected under Manage.][4]
 
 1. On the **Single sign-on** dialog, select **Mode** as    **SAML-based Sign-on** to enable single sign-on.
  
@@ -153,7 +154,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
     a. In the **Name** textbox, type a name for your configuration.
 
-    b. In **Issuer** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
+    b. In **Issuer** textbox, paste the value of **SAML Entity ID**.
 
     c. In the **Entity Id** textbox, type `https://salesforce-jobscience.com`
 
@@ -163,9 +164,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     f. As **SAML Identity Location**, select **Identity is in the NameIdentfier element of the Subject statement**.
 
-    g. In **Identity Provider Login URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
+    g. In **Identity Provider Login URL** textbox, paste the value of **SAML Single Sign-On Service URL**.
 
-    h. In **Identity Provider Logout URL** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal.
+    h. In **Identity Provider Logout URL** textbox, paste the value of **Sign-Out URL**.
 
     i. Click **Save**.
 
@@ -192,7 +193,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 > 
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+The objective of this section is to create a test user called Britta Simon.
 
 ![Create Azure AD User][100]
 
@@ -200,7 +201,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-    ![Screenshot shows the Azure A D icon in the Azure portal.](./media/jobscience-tutorial/create_aaduser_01.png) 
+    ![Screenshot shows the Azure A D icon.](./media/jobscience-tutorial/create_aaduser_01.png) 
 
 1. To display the list of users, go to **Users and groups** and click **All users**.
     
@@ -273,17 +274,14 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 **To assign Britta Simon to Jobscience, perform the following steps:**
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-    ![Screenshot shows Enterprise Applications in the Azure portal menu with All applications selected.][201] 
-
-1. In the applications list, select **Jobscience**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Jobscience**.
 
     ![Screenshot shows Jobscience selected.](./media/jobscience-tutorial/tutorial_jobscience_app.png) 
 
 1. In the menu on the left, click **Users and groups**.
 
-    ![Screenshot shows Users and Groups selected from the Azure portal menu.][202] 
+    ![Screenshot shows Users and Groups selected menu.][202] 
 
 1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
