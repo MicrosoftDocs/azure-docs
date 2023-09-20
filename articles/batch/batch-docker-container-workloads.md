@@ -69,23 +69,24 @@ For Linux container workloads, Batch currently supports the following Linux imag
   The docker data root of the above images lie in different places:
   - for the batch image  `microsoft-azure-batch` (Offer: `centos-container-rdma`, etc), the docker data root is mapped to /mnt/batch/docker, which is usually located on the temporary disk.
   - for the HPC image, or  `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc), the docker data root is unchanged from the Docker default which is "/var/lib/docker" on Linux and "C:\ProgramData\Docker" on windows. This folders are usually located on the OS disk.
+
     When using non-Batch images, the OS disk has the potential risk of being filled up quickly as container images are downloaded.
     #### Potential Solutions for Customer
-    (a) Change the docker data root in a start task when creating a pool in BatchExplorer
-        example of Start Task command like this:
-        ```Shell
-        1) sudo systemctl stop docker
-        2) sudo vi /lib/systemd/system/docker.service
-           +++
-           FROM:
-           ExecStart=/usr/bin/docker daemon -H fd://
-           TO:
-           ExecStart=/usr/bin/docker daemon -g /new/path/docker -H fd://
-           +++
-        3) sudo systemctl daemon-reload
-        4) sudo systemctl start docker
-        ```
-    (b) Make a custom image with the Docker data root remapped somewhere else, avoiding the need for a start task.
+a) Change the docker data root in a start task when creating a pool in BatchExplorer，example of Start Task command like this:
+```csharp
+1)  sudo systemctl stop docker
+2)  sudo vi /lib/systemd/system/docker.service
+    +++
+    FROM:
+    ExecStart=/usr/bin/docker daemon -H fd://
+    TO:
+    ExecStart=/usr/bin/docker daemon -g /new/path/docker -H fd://
+    +++
+3)  sudo systemctl daemon-reload
+4)  sudo systemctl start docker
+```
+
+b) Make a custom image with the Docker data root remapped somewhere else, avoiding the need for a start task.
 
 These images are only supported for use in Azure Batch pools and are geared for Docker container execution. They feature:
 
