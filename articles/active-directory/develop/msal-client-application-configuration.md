@@ -100,7 +100,7 @@ Currently, the only way to get an app to sign in users with only personal Micros
 
 ## Client ID
 
-The client ID is the unique **Application (client) ID** assigned to your app by Microsoft Entra ID when the app was registered. You can find the **Application (Client) ID** in your Azure subscription by Microsoft Entra ID => Enterprise applications => Application ID.
+The client ID is the unique **Application (client) ID** assigned to your app by Microsoft Entra ID when the app was registered. You can find the **Application (Client) ID** on the Overview page for the application in **Identity** > **Applications** > **Enterprise applications**.
 
 ## Redirect URI
 
