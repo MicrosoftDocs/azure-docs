@@ -103,7 +103,7 @@ In the **Select a rule to configure** table, you'll see the list of activated an
 
 This tab contains several graphical representations of various groupings of the incidents in your environment that match the filters at the top of the workbook.
 
-- A trend line graph, labeled **Incidents trend**, shows the numbers of incidents over time. These incidents are grouped (represented by different colored lines and shadings) by default according to the analytics rule that generated them. You can select alternate groupings for these incidents from the **Detail incidents by** drop-down.
+- A trend line graph, labeled **Incidents trend**, shows the numbers of incidents over time. These incidents are grouped (represented by different colored lines and shadings) by default according to the control family represented by the rule that generated them. You can select alternate groupings for these incidents from the **Detail incidents by** drop-down.
 
     :::image type="content" source="media/sap-audit-controls-workbook/incident-trend-graph.png" alt-text="Screenshot of trendline of numbers of incidents, grouped by rule.":::
 
