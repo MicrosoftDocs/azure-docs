@@ -74,7 +74,7 @@ The following properties are supported for MongoDB Atlas linked service:
 | type |The type property must be set to: **MongoDbAtlas** |Yes |
 | connectionString |Specify the MongoDB Atlas connection string e.g. `mongodb+srv://<username>:<password>@<clustername>.<randomString>.<hostName>/<dbname>?<otherProperties>`. <br/><br /> You can also put a connection string in Azure Key Vault. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. |Yes |
 | database | Name of the database that you want to access. | Yes |
-| mongoDbAtlasDriverVersion | Specify the driver version to 2.19.0 which supports MongoDB version 3.6 and higher. For more information, go to this [article](https://www.mongodb.com/docs/drivers/csharp/current/compatibility/). |No |
+| driverVersion | Specify the driver version to 2.19.0 which supports MongoDB version 3.6 and higher. For more information, go to this [article](https://www.mongodb.com/docs/drivers/csharp/current/compatibility/). |No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -87,7 +87,7 @@ The following properties are supported for MongoDB Atlas linked service:
         "typeProperties": {
             "connectionString": "mongodb+srv://<username>:<password>@<clustername>.<randomString>.<hostName>/<dbname>?<otherProperties>",
             "database": "myDatabase",
-            "mongoDbAtlasDriverVersion": "<driver version>"
+            "driverVersion": "<driver version>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
