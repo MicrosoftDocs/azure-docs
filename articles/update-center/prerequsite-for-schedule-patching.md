@@ -38,7 +38,7 @@ To identify the list of VMs with the associated schedules for which you have to 
 1. Use the **Select all** option to select the machines and then select **Export to CSV**.
 1. Open the CSV file and in the column **Associated schedules**, select the rows that have an entry.
 
-    - In the corresponding **Name** column, you can view the list of VMs to which you need to enable the `ByPassPlatformSafetyChecksOnUserSchedule` flag.
+   In the corresponding **Name** column, you can view the list of VMs to which you need to enable the `ByPassPlatformSafetyChecksOnUserSchedule` flag.
 
 ## Enable schedule patching on Azure VMs
 
