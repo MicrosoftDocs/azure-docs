@@ -39,7 +39,7 @@ Take the following steps to recover a recently deleted enterprise application. F
 :::zone pivot="aad-powershell"
 
 > [!IMPORTANT]
-> Make sure you're using the Azure AD PowerShell module. This is important if you've installed both the [Microsoft Entra ID](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) module and the AzureADPreview module.
+> Make sure you're using the Azure AD PowerShell module. This is important if you've installed both the [Azure AD PowerShell](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) module and the AzureADPreview module.
 1. Run the following commands:
 
     ```powershell
