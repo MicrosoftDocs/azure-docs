@@ -1,5 +1,5 @@
 ---
-title: Azure Update Manager (preview) support matrix
+title: Azure Update Manager support matrix
 description: This article provides a summary of supported regions and operating system settings.
 ms.service: azure-update-manager
 author: SnehaSudhirG
@@ -9,17 +9,17 @@ ms.topic: overview
 ms.custom: references_regions
 ---
 
-# Support matrix for Azure Update Manager (preview)
+# Support matrix for Azure Update Manager
 
-This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Azure Update Manager (preview). The article includes the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure VMs or machines managed by Azure Arc-enabled servers.
+This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Azure Update Manager. The article includes the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure VMs or machines managed by Azure Arc-enabled servers.
 
 ## Update sources supported
 
-**Windows**: [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) reports to Microsoft Update by default, but you can configure it to report to [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus). If you configure WUA to report to WSUS, based on the last synchronization from WSUS with Microsoft Update, the results in Update Manager (preview) might differ from what Microsoft Update shows.
+**Windows**: [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) reports to Microsoft Update by default, but you can configure it to report to [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus). If you configure WUA to report to WSUS, based on the last synchronization from WSUS with Microsoft Update, the results in Update Manager might differ from what Microsoft Update shows.
 
-To specify sources for scanning and downloading updates, see [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings?branch=main#specify-intranet-microsoft-update-service-location). To restrict machines to the internal update service, see [Do not connect to any Windows Update internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates?branch=main#do-not-connect-to-any-windows-update-internet-locations).
+To specify sources for scanning and downloading updates, see [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings?branch=main#specify-intranet-microsoft-update-service-location). To restrict machines to the internal update service, see [Do not connect to any Windows Update internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates?branch=main#do-not-connect-to-any-windows-update-internet-locations)
 
-**Linux**: You can configure Linux machines to report to a local or public YUM or APT package repository. The results shown in Update Manager (preview) depend on where the machines are configured to report.
+**Linux**: You can configure Linux machines to report to a local or public YUM or APT package repository. The results shown in Update Manager depend on where the machines are configured to report.
 
 ## Types of updates supported
 
@@ -27,9 +27,9 @@ The following types of updates are supported.
 
 ### Operating system updates
 
-Update Manager (preview) supports operating system updates for both Windows and Linux.
+Update Manager supports operating system updates for both Windows and Linux.
 
-Update Manager (preview) doesn't support driver updates.
+Update Manager doesn't support driver Updates.
 
 ### First-party updates on Windows
 
@@ -37,7 +37,7 @@ By default, the Windows Update client is configured to provide updates only for 
 
 Use one of the following options to perform the settings change at scale:
 
-- For servers configured to patch on a schedule from Update Manager (preview) (with VM `PatchSettings` set to `AutomaticByPlatform = Azure-Orchestrated`), and for all Windows Servers running on an earlier operating system than Windows Server 2016, run the following PowerShell script on the server you want to change:
+- For servers configured to patch on a schedule from Update Manager (with VM `PatchSettings` set to `AutomaticByPlatform = Azure-Orchestrated`), and for all Windows Servers running on an earlier operating system than Windows Server 2016, run the following PowerShell script on the server you want to change:
 
     ```powershell
     $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -46,7 +46,7 @@ Use one of the following options to perform the settings change at scale:
     $ServiceManager.AddService2($ServiceId,7,"")
     ```
 
-- For servers running Windows Server 2016 or later that aren't using Update Manager (preview) scheduled patching (with VM `PatchSettings` set to `AutomaticByOS = Azure-Orchestrated`), you can use Group Policy to control this process by downloading and using the latest Group Policy [Administrative template files](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
+- For servers running Windows Server 2016 or later that aren't using Update Manager scheduled patching (with VM `PatchSettings` set to `AutomaticByOS = Azure-Orchestrated`), you can use Group Policy to control this process by downloading and using the latest Group Policy [Administrative template files](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
 
 > [!NOTE]
 > Run the following PowerShell script on the server to disable first-party updates:
@@ -60,30 +60,29 @@ Use one of the following options to perform the settings change at scale:
 
 ### Third-party updates
 
-**Windows**: Update Manager (preview) relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows Update Manager (preview) to update machines that use Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/mem/configmgr/sum/tools/install-updates-publisher).
+**Windows**: Update Manager relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows Update Manager to update machines that use Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/mem/configmgr/sum/tools/install-updates-publisher).
 
 **Linux**: If you include a specific third-party software repository in the Linux package manager repository location, it's scanned when it performs software update operations. The package isn't available for assessment and installation if you remove it.
 
-> [!NOTE]
-> Update Manager (preview) doesn't support managing the Configuration Manager client.
+Update Manager doesn't support managing the Configuration Manager client.
 
 ## Supported regions
 
-Update Manager (preview) scales to all regions for both Azure VMs and Azure Arc-enabled servers. The following table lists the Azure public clouds where you can use Update Manager (preview).
+Update Manager scales to all regions for both Azure VMs and Azure Arc-enabled servers. The following table lists the Azure public cloud where you can use Update Manager.
 
 # [Azure virtual machine](#tab/azurevm)
 
-Update Manager (preview) is available in all Azure public regions where compute virtual machines (VMs) are available.
+Update Manager is available in all Azure public regions where compute virtual machines are available.
 
 # [Azure Arc-enabled servers](#tab/azurearc)
 
-Currently, Update Manager (preview) is supported in the following regions.
+Currently, Update Manager is supported in the following regions, which implies that VMs must be in the following regions.
 
 **Geography** | **Supported regions**
 --- | ---
 Africa | South Africa North
 Asia Pacific | East Asia </br> South East Asia
-Australia | Australia East
+Australia | Australia East </br> Australia Southeast
 Brazil | Brazil South
 Canada | Canada Central </br> Canada East
 Europe | North Europe </br> West Europe
@@ -91,6 +90,7 @@ France | France Central
 India | Central India
 Japan | Japan East
 Korea | Korea Central
+Norway | Norway East
 Sweden | Sweden Central
 Switzerland | Switzerland North
 United Kingdom | UK South </br> UK West
@@ -101,16 +101,16 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 ## Supported operating systems
 
 All operating systems are assumed to be x64. For this reason, x86 isn't supported for any operating system.
-
-Update Manager (preview) doesn't support CIS-hardened images.
+Update Manager doesn't support CIS-hardened images.
 
 # [Azure VMs](#tab/azurevm-os)
 
-Currently, Update Manager (preview) has the following limitation regarding operating system support:
-
-- [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery aren't fully supported for now. You can use on-demand operations such as **One-time update** and **Check for updates** in Update Manager (preview).
-
-For the preceding limitation, we recommend that you use [Automation Update management](../automation/update-management/overview.md) until the support is available in Update Manager (preview).
+> [!NOTE]
+> Currently, Update Manager has the following limitation regarding operating system support:
+>
+> - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and *VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery* aren't fully supported for now. You can use on-demand operations such as **One-time update** and **Check for updates** in Update Manager.
+>
+> For the preceding limitation, we recommend that you use [Automation Update Management](../automation/update-management/overview.md) until support is available in Update Manager.
 
 ### Marketplace/PIR images
 
@@ -121,7 +121,7 @@ The Marketplace image in Azure has the following attributes:
 - **SKU**: An instance of an offer, such as a major release of a distribution. Examples are `18.04LTS` and `2019-Datacenter`.
 - **Version**: The version number of an image SKU.
 
-Update Manager (preview) supports the following operating system versions. You might experience failures if there are any configuration changes on the VMs, such as package or repository.
+Update Manager supports the following operating system versions. You might experience failures if there are any configuration changes on the VMs, such as package or repository.
 
 #### Windows operating systems
 
@@ -170,7 +170,7 @@ The following table lists the operating systems for Marketplace images that aren
 
 ### Custom images
 
-We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. The following table lists the operating systems that we support for generalized images. For instructions on how to start using Update Manager (preview) to manage updates on custom images, see [Custom images (preview)](manage-updates-customized-images.md).
+We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. The following table lists the operating systems that we support for generalized images. For instructions on how to start using Update Manager to manage updates on custom images, see [Custom images (preview)](manage-updates-customized-images.md).
 
    |**Windows operating system**|
    |-- |
@@ -196,6 +196,7 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
 
    |**Operating system**|
    |-------------|
+   | Amazon Linux 2023 |
    | Windows Server 2012 R2 and higher (including Server Core) |
    | Windows Server 2008 R2 SP1 with PowerShell enabled and .NET Framework 4.0+ |
    | Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS |
@@ -219,7 +220,7 @@ The following table lists the operating systems that aren't supported.
    | Virtual machine scale sets| We recommend that you use [Automatic upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) to patch the virtual machine scale sets.|
    | Azure Kubernetes Service nodes| We recommend the patching described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](/azure/aks/node-updates-kured).|
 
-The Update Manager (preview) depends on your machine's OS package manager or update service. Ensure that the Linux package manager or Windows Update client are enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [Configure Windows Update settings](configure-wu-agent.md).
+The Update Manager depends on your machine's OS package manager or update service. Ensure that the Linux package manager or Windows Update client are enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [Configure Windows Update settings](configure-wu-agent.md).
 
 ## Next steps
 

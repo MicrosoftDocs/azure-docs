@@ -53,7 +53,7 @@ OrbitalResources
 | project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.status, Provisioning_Status=properties.provisioningState 
 ```
 
-### List Past ‘x’ days Contacts - sorted by reservation start time 
+### List Contacts from Past ‘x’ Days – sorted by reservation start time 
 
 ```kusto
 OrbitalResources  
@@ -64,7 +64,7 @@ OrbitalResources
 | project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.status, Provisioning_Status=properties.provisioningState 
 ```
 
-### List Past ‘x’ days Contacts on specified ground station – sorted by reservation start time 
+#### On a specified ground station 
 
 This query will help customers track all the past contacts sorted by reservation start time for a specified ground station. 
 
@@ -77,7 +77,7 @@ OrbitalResources
 | project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.status, Provisioning_Status=properties.provisioningState 
 ```
 
-### List Past ‘x’ days Contacts on specified contact profile – sorted by reservation start time 
+#### On specified contact profile 
 
 This query will help customers track all the past contacts sorted by reservation start time for a specified contact profile.
 

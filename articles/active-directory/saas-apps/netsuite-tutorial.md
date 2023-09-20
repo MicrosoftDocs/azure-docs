@@ -70,7 +70,8 @@ To configure and test Azure AD SSO with NetSuite, perform the following steps:
 
 To enable Azure AD SSO in the Azure portal, do the following:
 
-1. In the Azure portal, on the **NetSuite** application integration page, look for the **Manage** section, and then select **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **NetSuite** application integration page, look for the **Manage** section, and then select **Single sign-on**.
 1. In the **Select a single sign-on method** pane, select **SAML**.
 1. In the **Set up Single Sign-On with SAML** pane, select the **Edit** ("pencil") icon next to **Basic SAML Configuration**.
 
@@ -119,8 +120,8 @@ In this section, you create a test user in the Azure portal called B.Simon.
 
 In this section, you enable user B.Simon to use Azure single sign-on by granting access to NetSuite.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **NetSuite**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **NetSuite**.
 1. In the overview pane, look for the **Manage** section, and then select the **Users and groups** link.
 1. Select **Add user** and then, in the **Add Assignment** pane, select **Users and groups**.
 1. In the **Users and groups** pane, in the **Users** drop-down list, select **B.Simon**, and then select the **Select** button at the bottom of the screen.

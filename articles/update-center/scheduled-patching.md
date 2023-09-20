@@ -1,6 +1,6 @@
 ---
-title: Schedule recurring updates in Update Manager (preview)
-description: This article describes how to use Azure Update Manager (preview) to set update schedules that install recurring updates on your machines.
+title: Scheduling recurring updates in Azure Update Manager
+description: This article details how to use Azure Update Manager to set update schedules that install recurring updates on your machines.
 ms.service: azure-update-manager
 ms.date: 05/30/2023
 ms.topic: conceptual
@@ -15,20 +15,20 @@ ms.author: sudhirsneha
 > [!IMPORTANT]
 > For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules (Preview)** by **June 30, 2023**. If you fail to update the patch orchestration by June 30, 2023, you can experience a disruption in business continuity because the schedules will fail to patch the VMs. To learn more, see [Enable schedule patching on Azure VMs](prerequsite-for-schedule-patching.md).
 
-You can use Update Manager (preview) in Azure to create and save recurring deployment schedules. You can:
+You can use Update Manager in Azure to create and save recurring deployment schedules. You can:
 
 - Create a schedule on a daily, weekly, or hourly cadence.
 - Specify the machines that must be updated as part of the schedule.
 - Select the updates to be installed.
 
-This schedule then automatically installs the updates according to the created schedule for a single virtual machine (VM) and at scale.
+This schedule then automatically installs the updates according to the created schedule for a single VM and at scale.
 
-Update Manager (preview) uses a maintenance control schedule instead of creating its own schedules. Maintenance control enables customers to manage platform updates. For more information, see [Maintenance control documentation](/azure/virtual-machines/maintenance-control).
+Update Manager uses a maintenance control schedule instead of creating its own schedules. Maintenance control enables customers to manage platform updates. For more information, see [Maintenance control documentation](/azure/virtual-machines/maintenance-control).
 
 ## Prerequisites for scheduled patching
 
-- See [Prerequisites for Update Manager (preview)](./overview.md#prerequisites).
-- Patch orchestration of the Azure machines should be set to **Customer Managed Schedules (Preview)**. For more information, see [Enable schedule patching on existing VMs](prerequsite-for-schedule-patching.md#enable-schedule-patching-on-azure-vms). For Azure Arc-enabled machines, it isn't a requirement.
+1. See [Prerequisites for Update Manager](./overview.md#prerequisites)
+1. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules (Preview)**. For more information, see [how to enable schedule patching on existing VMs](prerequsite-for-schedule-patching.md#enable-schedule-patching-on-azure-vms). For Azure Arc-enabled machines, it isn't a requirement.
 
 	> [!NOTE]
 	> If you set the patch mode to Azure orchestrated (`AutomaticByPlatform`) but do not enable the `BypassPlatformSafetyChecksOnUserSchedule` flag and do not attach a maintenance configuration to an Azure machine, it's treated as an [automatic guest patching](../virtual-machines/automatic-vm-guest-patching.md) enabled machine. Azure then automatically installs updates according to its own schedule. For more information, see [About Azure Update Manager (preview)](./overview.md#prerequisites).
@@ -56,15 +56,13 @@ We recommend the following limits for the indicators.
 
 ## Schedule recurring updates on a single VM
 
-You can schedule updates from **Overview** or **Machines** on the **Update Manager (preview**) page or from the selected VM.
-
-# [From Overview pane](#tab/schedule-updates-single-overview)
+You can schedule updates from the **Overview** or **Machines** pane on the **Update Manager** page or from the selected VM.
 
 To schedule recurring updates on a single VM:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the **Update Manager (preview)** page, select **Overview**, select your subscription and select **Schedule updates**.
+1. On the **Update Manager** | **Overview** page, select your subscription and select **Schedule updates**.
 
 1. On the **Create new maintenance configuration** page, you can create a schedule for a single VM.
 
@@ -91,9 +89,7 @@ To schedule recurring updates on a single VM:
 
 1. On the **Machines** tab, select your machine and select **Next**.
 
-1. On the **Updates** tab, specify the updates to include in the deployment, such as update classifications or Knowledge Base (KB) ID/packages that must be installed when you trigger your schedule.
-
-   Update Manager (preview) doesn't support driver updates.
+   Update Manager doesn't support driver updates.
 
 1. On the **Tags** tab, assign tags to maintenance configurations.
 
@@ -103,7 +99,7 @@ To schedule recurring updates on a single VM:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the **Update Manager (preview)** page, on the **Machines** tab, select your subscription, select your machine, and select **Schedule updates**.
+1. On the **Update Manager | Machines** page, select your subscription, select your machine, and select **Schedule updates**.
 
 1. On the **Create new maintenance configuration** page, you can create a schedule for a single VM and assign machines and tags. Follow the procedure from step 3 listed in **From Overview pane** of [Schedule recurring updates on a single VM](#schedule-recurring-updates-on-a-single-vm) to create a maintenance configuration and assign a schedule.
 
@@ -127,7 +123,7 @@ You can schedule updates from the **Overview** or **Machines** pane.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the **Update Manager (preview)** page, under **Overview**, select your subscription and select **Schedule updates**.
+1. On the **Update Manager | Overview** page, select your subscription and select **Schedule updates**.
 
 1. On the **Create new maintenance configuration** page, you can create a schedule for multiple machines.
 
@@ -146,9 +142,9 @@ You can schedule updates from the **Overview** or **Machines** pane.
 
 1. On the **Machines** tab, verify if the selected machines are listed. You can add or remove machines from the list. Select **Next**.
 
-1. On the **Updates** tab, specify the updates to include in the deployment, such as update classifications or KB ID/ packages that must be installed when you trigger your schedule.
+1. On the **Updates** tab, specify the updates to include in the deployment, such as update classifications or KB ID/packages that must be installed when you trigger your schedule.
 
-	Update Manager (preview) doesn't support driver updates.
+	Update Manager doesn't support driver updates.
 
 1. On the **Tags** tab, assign tags to maintenance configurations.
 
@@ -158,14 +154,14 @@ You can schedule updates from the **Overview** or **Machines** pane.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the **Update Manager (preview)** page, on the **Machines** tab, select your subscription, select your machines, and select **Schedule updates**.
+1. On the **Update Manager | Machines** page, select your subscription, select your machines, and select **Schedule updates**.
 
 On the **Create new maintenance configuration** page, you can create a schedule for a single VM. Follow the procedure from step 3 listed in **From Overview pane** of [Schedule recurring updates on a single VM](#schedule-recurring-updates-on-a-single-vm) to create a maintenance configuration and assign a schedule.
 
 ---
 A notification confirms that the deployment was created.
 
- ## Attach a maintenance configuration
+## Attach a maintenance configuration
 
  A maintenance configuration can be attached to multiple machines. It can be attached to machines at the time of creating a new maintenance configuration or even after you create one.
 
@@ -218,7 +214,7 @@ You can create a new guest OS update maintenance configuration or modify an exis
 
 ## Onboard to schedule by using Azure Policy
 
-Update Manager (preview) allows you to target a group of Azure or non-Azure VMs for update deployment via Azure Policy. The grouping that uses Azure Policy keeps you from having to edit your deployment to update machines. Use subscription, resource group, tags, or regions to define the scope. You can use this feature for built-in policies that you can customize according to your use case.
+Update Manager allows you to target a group of Azure or non-Azure VMs for update deployment via Azure Policy. The grouping that uses a policy keeps you from having to edit your deployment to update machines. You can use subscription, resource group, tags, or regions to define the scope. You can use this feature for built-in policies, which you can customize according to your use case.
 
 This policy also ensures that the patch orchestration property for Azure machines is set to **Customer Managed Schedules (Preview)** because it's a prerequisite for scheduled patching.
 
@@ -271,5 +267,5 @@ You can check the deployment status and history of your maintenance configuratio
 
 ## Next steps
 
-* To view update assessment and deployment logs generated by Update Manager (preview), see [Query logs](query-logs.md).
-* To troubleshoot issues, see [Troubleshoot issues with Update Manager (preview)](troubleshoot.md).
+* To view update assessment and deployment logs generated by Update Manager, see [Query logs](query-logs.md).
+* To troubleshoot issues, see [Troubleshoot Update Manager](troubleshoot.md).

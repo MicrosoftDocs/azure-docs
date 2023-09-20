@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot known problems with Azure Update Manager (preview)
-description: This article provides information on known problems and describes how to troubleshoot problems with Azure Update Manager (preview).
+title: Troubleshoot known issues with Azure Update Manager
+description: This article provides details on known issues and how to troubleshoot any problems with Azure Update Manager.
 ms.service: azure-update-manager
 ms.date: 05/30/2023
 ms.topic: conceptual
@@ -8,9 +8,9 @@ ms.author: sudhirsneha
 author: SnehaSudhirG
 ---
 
-# Troubleshoot problems with Azure Update Manager (preview)
+# Troubleshoot issues with Azure Update Manager
 
-This article describes the errors that might occur when you deploy or use Azure Update Manager (preview), how to resolve them, and the known problems and limitations of scheduled patching.
+This article describes the errors that might occur when you deploy or use Azure Update Manager, how to resolve them, and the known issues and limitations of scheduled patching.
 
 ## General troubleshooting
 
@@ -18,7 +18,7 @@ The following troubleshooting steps apply to the Azure VMs related to the patch 
 
 ### Azure Linux VM
 
-To verify if the Microsoft Azure Virtual Machine agent (VM agent) is running, has triggered appropriate actions on the machine, and the sequence number for the autopatching request, check the agent log for more information in `/var/log/waagent.log`. Every autopatching request has a unique sequence number associated with it on the machine. Look for a log similar to `2021-01-20T16:57:00.607529Z INFO ExtHandler`.
+To verify if the Microsoft Azure Virtual Machine agent (VM agent) is running and has triggered appropriate actions on the machine and the sequence number for the autopatching request, check the agent log for more information in `/var/log/waagent.log`. Every autopatching request has a unique sequence number associated with it on the machine. Look for a log similar to `2021-01-20T16:57:00.607529Z INFO ExtHandler`.
 
 The package directory for the extension is `/var/lib/waagent/Microsoft.CPlat.Core.Edp.LinuxPatchExtension-<version>`. The `/status` subfolder has a `<sequence number>.status` file. It includes a brief description of the actions performed during a single autopatching request and the status. It also includes a short list of errors that occurred while applying updates.
 
@@ -29,7 +29,7 @@ To review the logs related to all actions performed by the extension, check for 
 
 ### Azure Windows VM
 
-To verify if the VM agent is running, has triggered appropriate actions on the machine, and the sequence number for the autopatching request, check the agent log for more information in `C:\WindowsAzure\Logs\AggregateStatus`. The package directory for the extension is `C:\Packages\Plugins\Microsoft.CPlat.Core.WindowsPatchExtension<version>`.
+To verify if the VM agent is running and has triggered appropriate actions on the machine and the sequence number for the autopatching request, check the agent log for more information in `C:\WindowsAzure\Logs\AggregateStatus`. The package directory for the extension is `C:\Packages\Plugins\Microsoft.CPlat.Core.WindowsPatchExtension<version>`.
 
 To review the logs related to all actions performed by the extension, check for more information in `C:\WindowsAzure\Logs\Plugins\Microsoft.CPlat.Core.WindowsPatchExtension<version>`. It includes the following two log files of interest:
 
@@ -61,7 +61,7 @@ Here's the scenario.
 
 ### Cause
 
-The Update Agent (Windows Update Agent on Windows and the package manager for a Linux distribution) isn't configured correctly. Update Manager (preview) relies on the machine's Update Agent to provide the updates that are needed, the status of the patch, and the results of deployed patches. Without this information, Update Manager (preview) can't properly report on the patches that are needed or installed.
+The Update Agent (Windows Update Agent on Windows and the package manager for a Linux distribution) isn't configured correctly. Update Manager relies on the machine's Update Agent to provide the updates that are needed, the status of the patch, and the results of deployed patches. Without this information, Update Manager can't properly report on the patches that are needed or installed.
 
 ### Resolution
 
@@ -156,5 +156,5 @@ Set a longer time range for maximum duration when you're triggering an [on-deman
 
 ## Next steps
 
-* To learn more about Update Manager (preview), see the [Overview](overview.md).
-* To view logged results from all your machines, see [Query logs and results from Update Manager (preview)](query-logs.md).
+* To learn more about Update Manager, see [Overview](overview.md).
+* To view logged results from all your machines, see [Query logs and results from Update Manager](query-logs.md).
