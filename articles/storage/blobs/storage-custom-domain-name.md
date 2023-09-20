@@ -383,13 +383,13 @@ To remove a custom domain registration, use the [az storage account update](/cli
 
 This approach involves more steps, but it enables HTTPS access.
 If you don't need users to access your blob or web content by using HTTPS, then see the [Map a custom domain with only HTTP enabled](#enable-http) section of this article.
-The approach involves using [Azure Front Door (preferred)](../../frontdoor/front-door-overview) or [Azure CDN](../../cdn/cdn-overview.md) which are Content Delivery Network services offered by Azure.
+The approach involves using [Azure Front Door (preferred)](../../frontdoor/front-door-overview.md) or [Azure CDN](../../cdn/cdn-overview.md) which are Content Delivery Network services offered by Azure.
 
 
 ### Using Azure Front Door
-1. Enable [Azure Front Door](../../frontdoor/front-door-overview) on your blob or website endpoint.
+1. Enable [Azure Front Door](../../frontdoor/front-door-overview.md) on your blob or website endpoint.
 
-   For steps, see [Integrate an Azure storage account with Azure Front Door](../../frontdoor/integrate-storage-account,md).
+   For steps, see [Integrate an Azure storage account with Azure Front Door](../../frontdoor/integrate-storage-account.md).
 
 2. [Configure a custom domain on Azure Front Door](../../frontdoor/standard-premium/how-to-add-custom-domain.md).
 
@@ -400,9 +400,9 @@ The approach involves using [Azure Front Door (preferred)](../../frontdoor/front
 
 4. (Optional) Review the following guidance:
 
-   - Learn how to use [Azure Front Door with Azure Storage blobs](scenario-storage-blobs.md).
-   - Learn how to [enable Azure Front Door Private Link with Azure Blob Storage](standard-premium/how-to-enable-private-link-storage-account.md).
-   - Learn how to [enable Azure Front Door Private Link with Storage Static Website](how-to-enable-private-link-storage-static-website.md).
+   - Learn how to use [Azure Front Door with Azure Storage blobs](../../frontdoor/scenario-storage-blobs.md).
+   - Learn how to [enable Azure Front Door Private Link with Azure Blob Storage](../../frontdoor/standard-premium/how-to-enable-private-link-storage-account.md).
+   - Learn how to [enable Azure Front Door Private Link with Storage Static Website](../../frontdoor/how-to-enable-private-link-storage-static-website.md).
    - [HTTP-to-HTTPS redirection with AFD](../../frontdoor/front-door-how-to-redirect-https.md).
    - [Front Door Billing](../../frontdoor/billing.md).
 
