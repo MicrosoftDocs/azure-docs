@@ -65,11 +65,12 @@ This section guides you through connecting your Azure AD to Slack's user account
 
 ### To configure automatic user account provisioning to Slack in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Slack**.
+1. In the applications list, select **Slack**.
 
 	![The Slack link in the Applications list](common/all-applications.png)
 
@@ -90,7 +91,7 @@ This section guides you through connecting your Azure AD to Slack's user account
 
     ![Authorization Dialog](./media/slack-provisioning-tutorial/slackauthorize.png)
 
-7. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Slack app. If the connection fails, ensure your Slack account has Team Admin permissions and try the "Authorize" step again.
+7. Select **Test Connection** to ensure Azure AD can connect to your Slack app. If the connection fails, ensure your Slack account has Team Admin permissions and try the "Authorize" step again.
 
 8. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 

@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate eCornell with Azure Active Direc
 
 * Control in Azure AD who has access to eCornell.
 * Enable your users to be automatically signed-in to eCornell with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -41,10 +41,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 To configure the integration of eCornell into Azure AD, you need to add eCornell from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **eCornell** in the search box.
 1. Select **eCornell** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -65,9 +63,10 @@ To configure and test Azure AD SSO with eCornell, complete the following buildin
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **eCornell** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **eCornell** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
@@ -85,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2?saasid=<CustomGUID>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [eCornell Client support team](mailto:jschichor@ecornell.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [eCornell Client support team](mailto:jschichor@ecornell.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. eCornell application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -110,22 +109,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to eCornell.
+In this section, you'll enable B.Simon to use single sign-on by granting access to eCornell.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **eCornell**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **eCornell**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
    ![The "Users and groups" link](common/users-groups-blade.png)
@@ -140,7 +141,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure eCornell SSO
 
-To configure single sign-on on **eCornell** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [eCornell support team](mailto:jschichor@ecornell.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **eCornell** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [eCornell support team](mailto:jschichor@ecornell.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create eCornell test user
 
@@ -154,8 +155,8 @@ When you click the eCornell tile in the Access Panel, you should be automaticall
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
