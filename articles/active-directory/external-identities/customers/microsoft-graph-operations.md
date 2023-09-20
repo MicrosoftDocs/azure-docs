@@ -97,7 +97,7 @@ The application uses the client secret to prove its identity when it requests fo
 
 ## User flows (Preview)
 
-User flows are used to enable a self-service sign-up experience for users within a Microsoft Entra customer tenant.  User flows define the experience the end user sees while signing up, including which identity providers they can use to authenticate, along with which attributes are collected as part of the sign-up process.  The sign-up experience for an application is defined by a user flow, and multiple applications can use the same user flow.
+User flows are used to enable a self-service sign-up experience for users within a Microsoft Entra External ID for customers tenant.  User flows define the experience the end user sees while signing up, including which identity providers they can use to authenticate, along with which attributes are collected as part of the sign-up process.  The sign-up experience for an application is defined by a user flow, and multiple applications can use the same user flow.
 
 Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in, password reset, and profile update.
 

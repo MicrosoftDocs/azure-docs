@@ -1,6 +1,6 @@
 ---
 title: Call an API in a sample .NET daemon application
-description: Learn how to configure a sample .NET daemon application that calls an API protected with Microsoft Entra ID for customers
+description: Learn how to configure a sample .NET daemon application that calls an API protected with Microsoft Entra External ID for customers
 services: active-directory
 author: SHERMANOUKO
 manager: mwongerapk
@@ -11,14 +11,14 @@ ms.subservice: ciam
 ms.custom: devx-track-dotnet
 ms.topic: sample
 ms.date: 07/13/2023
-#Customer intent: As a dev, devops, I want to configure a sample .NET daemon application that calls an API protected by Microsoft Entra ID for customers tenant
+#Customer intent: As a dev, devops, I want to configure a sample .NET daemon application that calls an API protected by Microsoft Entra External ID for customers tenant
 ---
 
 # Call an API in a sample .NET daemon application 
 
-This article uses a sample .NET daemon application to show you how a daemon application acquires a token to call a protected web API. Microsoft Entra ID for customers protects the Web API. 
+This article uses a sample .NET daemon application to show you how a daemon application acquires a token to call a protected web API. Microsoft Entra External ID for customers protects the Web API. 
 
-A daemon application acquires a token on behalf of itself (not on behalf of a user). Users can't interact with a daemon application because it requires its own identity. This type of application requests an access token by using its application identity and presenting its application ID, credential (password or certificate), and application ID URI to Microsoft Entra ID. 
+A daemon application acquires a token on behalf of itself (not on behalf of a user). Users can't interact with a daemon application because it requires its own identity. This type of application requests an access token by using its application identity and presenting its application ID, credential (password or certificate), and application ID URI to External ID. 
 
 ## Prerequisites
 
