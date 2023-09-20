@@ -53,7 +53,7 @@ Before configuring Figma for automatic user provisioning with Azure AD, you will
 
 	:::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Screenshot of the General tab of the Figma admin console. Under Log in and provisioning, Update log in settings is highlighted." border="false":::
 
-3. Copy the **Tenant ID**. This value will be used to construct the SCIM endpoint URL to be entered into the **Tenant URL** field in the Provisioning tab of your Figma application in the Azure portal.
+3. Copy the **Tenant ID**. This value will be used to construct the SCIM endpoint URL to be entered into the **Tenant URL** field in the Provisioning tab of your Figma application.
 
 	:::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Screenshot of the S A M L S S O section in the Figma admin console. A Tenant ID label and an adjacent link that says Copy are highlighted." border="false":::
 
@@ -61,7 +61,7 @@ Before configuring Figma for automatic user provisioning with Azure AD, you will
 
 	:::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Screenshot of the S C I M provisioning section in the Figma admin console. A link labeled Generate A P I token is highlighted." border="false":::
 
-5. Copy the  **API Token** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Figma application in the Azure portal. 
+5. Copy the  **API Token** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Figma application. 
 
 	:::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Screenshot of a page in the Figma admin console. Under Your provisioning A P I token, a placeholder for the token is highlighted." border="false":::
 
@@ -69,20 +69,10 @@ Before configuring Figma for automatic user provisioning with Azure AD, you will
 
 To configure Figma for automatic user provisioning with Azure AD, you need to add Figma from the Azure AD application gallery to your list of managed SaaS applications.
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Figma**, select **Figma** in the results panel, and then click the **Add** button to add the application.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Figma**, select **Figma** in the search box.
+1. Select **Figma** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 	![Figma  in the results list](common/search-new-app.png)
 
 ## Configuring automatic user provisioning to Figma 
@@ -94,11 +84,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Figma  in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Figma**.
+1. In the applications list, select **Figma**.
 
 	![The Figma  link in the Applications list](common/all-applications.png)
 

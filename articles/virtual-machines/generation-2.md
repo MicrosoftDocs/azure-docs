@@ -51,7 +51,7 @@ Azure now offers generation 2 support for the following selected VM series:
 |[Ddsv5-series](ddv5-ddsv5-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Ev3-series](ev3-esv3-series.md) | :heavy_check_mark: | :x: |
 |[Esv3-series](ev3-esv3-series.md) | :heavy_check_mark: | :heavy_check_mark: |
-|[Ev4-series](ev4-esv4-series.md) |  :heavy_check_mark:|  :x: |
+|[Ev4-series](ev4-esv4-series.md) |  :heavy_check_mark:|  :heavy_check_mark: |
 |[Esv4-series](ev4-esv4-series.md) |  :heavy_check_mark:| :heavy_check_mark: |
 |[Eav4-series](eav4-easv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
 |[Easv4-series](eav4-easv4-series.md) | :heavy_check_mark: | :heavy_check_mark: |
@@ -70,12 +70,10 @@ Azure now offers generation 2 support for the following selected VM series:
 |[Fsv2-series](fsv2-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[FX-series](fx-series.md) |  :x:  | :heavy_check_mark: |
 |[GS-series](sizes-previous-gen.md#gs-series) | :x:| :heavy_check_mark: |
-|[H-series](h-series.md) |  :heavy_check_mark:  |  :x:  |
 |[HB-series](hb-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[HBv2-series](hbv2-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[HBv3-series](hbv3-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[HC-series](hc-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
-|[Ls-series](sizes-previous-gen.md#ls-series) |  :x: | :heavy_check_mark: |
 |[Lsv2-series](lsv2-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[M-series](m-series.md) |  :heavy_check_mark:  | :heavy_check_mark: |
 |[Mv2-series](mv2-series.md)<sup>1</sup> |  :x: | :heavy_check_mark: |

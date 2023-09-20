@@ -114,7 +114,7 @@ Sometimes, the external guest user you're inviting conflicts with an existing [C
 
 ## How does ‘\#’, which isn't normally a valid character, sync with Azure AD?
 
-“\#” is a reserved character in UPNs for Azure AD B2B collaboration or external users, because the invited account user@contoso.com becomes user_contoso.com#EXT#@fabrikam.onmicrosoft.com. Therefore, \# in UPNs coming from on-premises aren't allowed to sign in to the Azure portal. 
+“\#” is a reserved character in UPNs for Azure AD B2B collaboration or external users, because the invited account user@contoso.com becomes user_contoso.com#EXT#@fabrikam.onmicrosoft.com. Therefore, \# in UPNs coming from on-premises aren't allowed to sign in to the Microsoft Entra admin center. 
 
 ## I receive an error when adding external users to a synchronized group
 
@@ -171,7 +171,7 @@ When you try to collaborate with another Azure AD organization in a separate Mic
 
 ## Invitation is blocked due to disabled Microsoft B2B Cross Cloud Worker application
 
-Rarely, you might see this message: “This action can't be completed because the Microsoft B2B Cross Cloud Worker application has been disabled in the invited user’s tenant. Ask the invited user’s admin to re-enable it, then try again.” This error means that the Microsoft B2B Cross Cloud Worker application has been disabled in the B2B collaboration user’s home tenant. This app is typically enabled, but it might have been disabled by an admin in the user’s home tenant, either through PowerShell or the portal (see [Disable how a user signs in](../manage-apps/disable-user-sign-in-portal.md)). An admin in the user’s home tenant can re-enable the app through PowerShell or the Azure portal. In the portal, search for “Microsoft B2B Cross Cloud Worker” to find the app, select it, and then choose to re-enable it.
+Rarely, you might see this message: “This action can't be completed because the Microsoft B2B Cross Cloud Worker application has been disabled in the invited user’s tenant. Ask the invited user’s admin to re-enable it, then try again.” This error means that the Microsoft B2B Cross Cloud Worker application has been disabled in the B2B collaboration user’s home tenant. This app is typically enabled, but it might have been disabled by an admin in the user’s home tenant, either through PowerShell or the portal (see [Disable how a user signs in](../manage-apps/disable-user-sign-in-portal.md)). An admin in the user’s home tenant can re-enable the app through PowerShell or the Microsoft Entra admin center. In the admin center, search for “Microsoft B2B Cross Cloud Worker” to find the app, select it, and then choose to re-enable it.
 
 ## I receive the error that Azure AD can't find the aad-extensions-app in my tenant
 
@@ -185,7 +185,7 @@ If you accidentally deleted the `aad-extensions-app`, you have 30 days to recove
 1. Find the application in the list where the display name begins with `aad-extensions-app` and copy its `ObjectId` property value.
 1. Run the PowerShell command `Restore-AzureADDeletedApplication -ObjectId {id}`. Replace the `{id}` portion of the command with the `ObjectId` from the previous step.
 
-You should now see the restored app in the Azure portal.
+You should now see the restored app in the Microsoft Entra admin center.
 
 ## A guest user was invited successfully but the email attribute isn't populating
 

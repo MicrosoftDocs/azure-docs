@@ -19,7 +19,7 @@ This article teaches you how to integrate Document360 with Azure AD. Document360
 
 * Control in Azure AD who has access to Document360.
 * Enable your users to be automatically signed in to Document360 with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You configure and test Azure AD single sign-on for Document360 in a test environment. Document360 supports **Service Provider (SP)** and **Identity Provider (IdP)** initiated SSO.
 
@@ -45,21 +45,22 @@ Add Document360 from the Azure AD application gallery to configure SSO with Docu
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
-1. In the Azure portal, on the **Document360** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Document360** application integration page, find the **Manage** section and select **single sign-on**.
 2. On the **Select a single sign-on method** page, select **SAML**.
 3. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-4. On the **Basic SAML Configuration** section, perform the following steps. Choose any one of the Identifiers, Reply URL, and Sign on URL based on your Data center region.
+1. On the **Basic SAML Configuration** section, perform the following steps. Choose any one of the Identifiers, Reply URL, and Sign on URL based on your Data center region.
 
     a. In the **Identifier** textbox, type/copy & paste one of the following URLs:
 
@@ -133,17 +134,17 @@ In this section, you test your Azure AD single sign-on configuration with the fo
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to the Document360 Sign-on URL, where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to the Document360 Sign-on URL, where you can initiate the login flow.  
 
 * Go to Document360 Sign-on URL directly and initiate the login flow.
 
 #### IDP initiated:
 
-* Click on **Test this application** in the Azure portal, and you should be automatically signed in to the Document360 for which you set up the SSO. 
+* Click on **Test this application**, in the Azure portal, and you should be automatically signed in to the Document360 for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Document360 tile in the My Apps if configured in SP mode, you will be redirected to the application sign-on page for initiating the login flow. If configured in IDP mode, you should be automatically signed in to the Document360 for which you set up the SSO. 
 
-For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Additional resources
 

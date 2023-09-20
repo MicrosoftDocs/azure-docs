@@ -84,9 +84,8 @@ When you complete the wizard, Seamless SSO is enabled on your tenant.
 
 To verify that you have enabled Seamless SSO correctly:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with the Hybrid Identity Administrator account credentials for your tenant.
-1. In the left menu, select **Azure Active Directory**.
-1. Select **Azure AD Connect**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
+2. Browse to **Identity** > **Hybrid management** > **Azure AD Connect** > **Connect sync**.
 1. Verify that **Seamless single sign-on** is set to **Enabled**.
 
 :::image type="content" source="media/how-to-connect-sso-quick-start/sso10.png" alt-text="Screenshot that shows the Azure AD Connect pane in the admin portal.":::

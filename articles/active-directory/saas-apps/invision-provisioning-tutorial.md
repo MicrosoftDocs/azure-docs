@@ -57,7 +57,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
    ![SCIM enable provisioning](./media/invision-provisioning-tutorial/enable-scim-provisioning.png)
 
-4. Copy the **SCIM API URL** and append `/scim/v2` to the URL. Copy the **Authentication token**. Save these values for later to use in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your InVision application in the Azure portal.
+4. Copy the **SCIM API URL** and append `/scim/v2` to the URL. Copy the **Authentication token**. Save these values for later to use in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your InVision application.
 
    ![SCIM access token](./media/invision-provisioning-tutorial/invision-access-token.png)
 
@@ -81,11 +81,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for InVision in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **InVision**.
+1. In the applications list, select **InVision**.
 
 	![The InVision link in the Applications list](common/all-applications.png)
 
