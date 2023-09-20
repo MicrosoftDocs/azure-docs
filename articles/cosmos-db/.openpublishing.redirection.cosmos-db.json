@@ -6197,6 +6197,16 @@
     },
     {
       "source_path_from_root": "/articles/cosmos-db/docker-emulator-release-notes.md",
+      "redirect_url": "/azure/cosmos-db/emulator-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/emulator-command-line-parameters.md",
+      "redirect_url": "/azure/cosmos-db/emulator-windows-arguments",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/troubleshoot-local-emulator.md",
       "redirect_url": "/azure/cosmos-db/emulator",
       "redirect_document_id": false
     }
