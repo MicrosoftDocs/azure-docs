@@ -7,7 +7,7 @@ ms.author: tejaswikolli
 ---
 # Artifact Cache - Overview 
 
-Artifact Cache feature allows users to cache container images in a private container registry. Artifact Cache, is available in *Basic*, *Standard*, and *Premium* [service tiers](container-registry-skus.md).
+Artifact Cache feature allows users to cache container images in a private container registry. Artifact Cache is available in *Basic*, *Standard*, and *Premium* [service tiers](container-registry-skus.md).
 
 This article is part one in a six-part tutorial series. The tutorial covers:
 
