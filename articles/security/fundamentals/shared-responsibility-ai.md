@@ -24,7 +24,7 @@ As you consider and evaluate AI enabled integration, it's critical to understand
 ## Division of responsibility
 When developing your own AI capabilities, such as training a new Machine Learning (ML) algorithm or fine-tuning Large Language Models (LLMs), you own the compute and Microsoft provides the AI infrastructure. As you move towards more managed solutions, such as one of many Microsoft Copilot solutions *(add link to an article about Microsoft Copilot)*, responsibilities transfer to Microsoft. The following diagram illustrates the areas of responsibility between you and Microsoft according to the type of deployment.
 
-:::image type="content" source="media/shared-responsibility-ai/ai-shared-responsibility.png" alt-text="Diagram showing responsibility zones." border="false":::
+:::image type="content" source="media/shared-responsibility-ai/ai-shared-responsibility.svg" alt-text="Diagram showing responsibility zones." border="false":::
 
 ## AI layer overview
 An AI enabled application consists of three layers of functionality that group together tasks which may be performed by you or by an AI provider. The security responsibilities generally reside with whoever performs the tasks, but an AI provider may choose to expose security or other controls as a configuration option to you as appropriate. These three layers include:
