@@ -156,7 +156,7 @@ The following samples use the `Perf` table with custom performance data. For inf
 | `Perf | where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" | summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName` | Hourly 70 percentile of every % percent counter for a particular computer |
 | `Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" | summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer` |Hourly average, minimum, maximum, and 75-percentile CPU usage for a specific computer |
 | `Perf | where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master"` | All Performance data from the Database performance object for the master database from the named SQL Server instance INST2. | 
-| `Perf | where TimeGenerated >ago(5m) | where ObjectName == "Process" and InstanceName != "_Total" and InstanceName != "Idle" | where CounterName == "% Processor Time" | summarize cpuVal=avg(CounterValue) by Computer,InstanceName | join (Perf| where TimeGenerated >ago(5m)| where ObjectName == "Process" and CounterName == "ID Process" | summarize arg_max(TimeGenerated,*) by ProcID=CounterValue ) on Computer,InstanceName | sort by TimeGenerated desc | summarize AvgCPU = avg(cpuVal) by InstanceName,ProcID` |  Average of CPU over last 5 min for each Process ID
+| `Perf | where TimeGenerated >ago(5m) | where ObjectName == "Process" and InstanceName != "_Total" and InstanceName != "Idle" | where CounterName == "% Processor Time" | summarize cpuVal=avg(CounterValue) by Computer,InstanceName | join (Perf| where TimeGenerated >ago(5m)| where ObjectName == "Process" and CounterName == "ID Process" | summarize arg_max(TimeGenerated,*) by ProcID=CounterValue ) on Computer,InstanceName | sort by TimeGenerated desc | summarize AvgCPU = avg(cpuVal) by InstanceName,ProcID` |  Average of CPU over last 5 min for each Process ID. |
 
 
 ## Collect text logs
@@ -313,4 +313,5 @@ The runbook can access any resources on the local machine to gather required dat
 
 * [Analyze monitoring data collected for virtual machines](monitor-virtual-machine-analyze.md)
 * [Create alerts from collected data](monitor-virtual-machine-alerts.md)
+
 
