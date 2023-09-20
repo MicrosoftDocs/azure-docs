@@ -111,3 +111,7 @@ Execute the following command to publish the Network Function Definition (NFD) a
 az aosm nfd publish -f input.json --definition-type cnf
 ```
 When the command completes, inspect the resources within your Publisher Resource Group to review the created components and artifacts.
+
+## Next steps
+
+- [Quickstart: Design a Containerized Network Function (CNF) Network Service Design with Nginx](quickstart-containerized-network-function-network-design.md)

@@ -507,3 +507,7 @@ spec:
         {{- toYaml . | nindent 8 }} 
     {{- end }}
 ```
+
+## Next steps
+
+- [Quickstart: Publish Nginx container as Containerized Network Function (CNF)](quickstart-publish-containerized-network-function-definition.md)
