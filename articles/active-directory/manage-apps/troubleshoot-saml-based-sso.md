@@ -46,10 +46,10 @@ To know the patterns pre-configured for the application:
     - if the pattern is not supported, you see a red exclamation mark when you try to enter the value in the textbox. If you hover your mouse over the red exclamation mark, you see the supported patterns.
     - In the tutorial for the application, you can also get information about the supported patterns. Under the **Configure Microsoft Entra single sign-on** section. Go to the step for configured the values under the **Domain and URLs** section.
 
-If the values don’t match with the patterns pre-configured on Microsoft Entra ID. You can:
+If the values don’t match with the patterns pre-configured in Microsoft Entra ID. You can:
 
-- Work with the application vendor to get values that match the pattern pre-configured on Microsoft Entra ID
-- Or, you can contact Microsoft Entra ID team at <aadapprequest@microsoft.com> or leave a comment in the tutorial to request the update of the supported patterns for the application
+- Work with the application vendor to get values that match the pattern pre-configured in Microsoft Entra ID
+- Or, you can contact Microsoft Entra team at <aadapprequest@microsoft.com> or leave a comment in the tutorial to request the update of the supported patterns for the application
 
 ## Where do I set the EntityID (User Identifier) format
 

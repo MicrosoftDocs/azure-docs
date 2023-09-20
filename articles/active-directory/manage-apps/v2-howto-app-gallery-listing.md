@@ -16,9 +16,9 @@ ms.custom: kr2b-contr-experiment, contperf-fy22q4, enterprise-apps-article
 
 # Submit a request to publish your application in Microsoft Entra application gallery
 
-You can publish applications you develop in the *Microsoft Entra ID* (Microsoft Entra ID) application gallery, which is a catalog of thousands of apps. When you publish your applications, they're made publicly available for users to add to their tenants. For more information, see [Overview of the Microsoft Entra application gallery](overview-application-gallery.md).
+You can publish applications you develop in the Microsoft Entra application gallery, which is a catalog of thousands of apps. When you publish your applications, they're made publicly available for users to add to their tenants. For more information, see [Overview of the Microsoft Entra application gallery](overview-application-gallery.md).
 
-To publish your application in the Microsoft Entra gallery, you need to complete the following tasks:
+To publish your application in the Microsoft Entra application gallery, you need to complete the following tasks:
 
 - Make sure that you complete the prerequisites.
 - Create and publish documentation.
