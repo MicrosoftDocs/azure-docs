@@ -357,6 +357,4 @@ As part of using Application Insights instrumentation, we collect and send diagn
 - To see available OpenTelemetry instrumentations and components, see the [OpenTelemetry Contributor Python GitHub repository](https://github.com/open-telemetry/opentelemetry-python-contrib).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
 
-
 ---
-
