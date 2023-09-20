@@ -30,7 +30,7 @@ With Microsoft Entra ID, usage and assignment reporting is fully integrated, ena
 
 ### Assigning users and groups to an app
 
-Microsoft Entra ID's application assignment focuses on two primary assignment modes:
+Microsoft Entra application assignment focuses on two primary assignment modes:
 
 * **Individual assignment** An IT admin with directory Global Administrator permissions can select individual user accounts and grant them access to the application.
 
