@@ -210,8 +210,8 @@
           href: ../security-controls-policy.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?bc=/azure/cosmos-db/breadcrumb/toc.json&toc=/azure/cosmos-db/toc.json
-      - name: Optimize your Azure Cosmos DB costs
-        href: ../optimize-costs.yml
+    - name: Optimize your Azure Cosmos DB costs
+      href: ../optimize-costs.yml
     - name: Enterprise readiness
       items:
         - name: Service quotas
