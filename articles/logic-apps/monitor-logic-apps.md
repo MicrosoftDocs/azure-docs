@@ -299,6 +299,19 @@ You can rerun a previously finished workflow run using the same inputs that the 
 
    Under **Runs history**, all the past, current, and any waiting runs appear. If the trigger fires for multiple events or items at the same time, an entry appears for each item with the same date and time.
 
+1. On the **Runs history** pane, select the run that you want to resubmit.
+
+1. On the **Logic app run** toolbar, select **Resubmit**, and then select **Yes**.
+
+   The **Runs history** pane now shows the resubmitted run.
+
+   > [!TIP]
+   >
+   > If the resubmitted run doesn't appear, on the **Runs history** pane toolbar, select **Refresh**. 
+   > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
+
+1. To review the resubmitted workflow run, on the **Runs history** tab, select that run.
+
 ### [Standard](#tab/standard)
 
 You can rerun only stateful workflows, not stateless workflows. To enable run history for a stateless workflow, see [Enable run history for stateless workflows](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless).
