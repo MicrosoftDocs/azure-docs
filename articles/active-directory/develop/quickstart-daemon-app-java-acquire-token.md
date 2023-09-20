@@ -102,7 +102,7 @@ From your shell or command line:
 $ mvn clean compile assembly:single
 ```
 
-This will generate a MSAL-client-credential-secret-1.0.0.jar file in your /targets directory. Run this using your Java executable like below:
+This will generate a msal-client-credential-secret-1.0.0.jar file in your /targets directory. Run this using your Java executable like below:
 
 ```
 $ java -jar msal-client-credential-secret-1.0.0.jar
