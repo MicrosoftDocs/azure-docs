@@ -163,4 +163,5 @@ Only the most recent version of the Azure Cosmos DB emulator is actively support
 
 ## Next steps
 
-- [Get started with Azure Cosmos DB](../index.yml)
+- [Learn more about the Azure Cosmos DB emulator](emulator.md)
+- [Get started using the Azure Comsos DB emulator for development](how-to-develop-emulator.md)

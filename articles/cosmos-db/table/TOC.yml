@@ -261,26 +261,10 @@
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge.md
+    - name: Develop with the emulator
+      href: ../how-to-develop-emulator.md?pivots=api-table
     - name: Use developer tools
       items:
-        - name: Develop locally with emulator
-          items:
-            - name: Install and use the emulator
-              href: ../local-emulator.md
-            - name: Run the emulator on Docker
-              items:
-                - name: Run the emulator on Docker for Windows
-                  href: ../local-emulator-on-docker-windows.md
-            - name: Export emulator certificates
-              href: ../local-emulator-export-ssl-certificates.md
-            - name: Emulator command-line parameters
-              href: ../emulator-command-line-parameters.md
-            - name: Emulator troubleshooting
-              href: ../troubleshoot-local-emulator.md
-            - name: Emulator release notes
-              href: ../local-emulator-release-notes.md
-            - name: Visual Studio Code extension
-              href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
         - name: Set up CI/CD with Azure Pipelines
           href: ../tutorial-setup-ci-cd.md
         - name: Use Azure Cosmos DB Explorer

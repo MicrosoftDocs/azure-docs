@@ -18,7 +18,7 @@ ms.reviewer: chmutali
 
 | **Applies to** |
 |--|
-| * Workday to on-premises Active Directory user provisioning <br> * Workday to Azure Active Directory user provisioning |
+| * Workday to on-premises Active Directory user provisioning <br> * Workday to Microsoft Entra user provisioning |
 | **Issue Description** | 
 | You have just configured the Workday inbound provisioning app and successfully connected to the Workday tenant URL. You ran a test sync and you observed that the provisioning app is not retrieving certain attributes from Workday. Only some attributes are read and provisioned to the target. |
 | **Probable Cause** | 
@@ -30,9 +30,9 @@ ms.reviewer: chmutali
 
 | **Applies to** |
 |--|
-| * Workday to on-premises Active Directory user provisioning <br> * Workday to Azure Active Directory user provisioning |
+| * Workday to on-premises Active Directory user provisioning <br> * Workday to Microsoft Entra user provisioning |
 | **Issue Description** | 
-| You have just configured the Workday inbound provisioning app and successfully connected to the Workday tenant URL. You have an integration system configured in Workday and you have configured XPATHs that point to attributes in the Workday Integration System. However, the Azure AD provisioning app isn't fetching values associated with these integration system attributes or calculated fields. |
+| You have just configured the Workday inbound provisioning app and successfully connected to the Workday tenant URL. You have an integration system configured in Workday and you have configured XPATHs that point to attributes in the Workday Integration System. However, the Microsoft Entra provisioning app isn't fetching values associated with these integration system attributes or calculated fields. |
 | **Cause** | 
 | This is a known limitation. The Workday provisioning app currently doesn't support fetching calculated fields/integration system attributes using the *Field_And_Parameter_Criteria_Data* Get_Workers request filter.  |
 | **Resolution Options** | 
@@ -47,5 +47,5 @@ ms.reviewer: chmutali
 
 ## Next steps
 
-* [Learn more about Azure AD and Workday integration scenarios and web service calls](workday-integration-reference.md)
+* [Learn more about Microsoft Entra ID and Workday integration scenarios and web service calls](workday-integration-reference.md)
 * [Learn how to review logs and get reports on provisioning activity](check-status-user-account-provisioning.md)
