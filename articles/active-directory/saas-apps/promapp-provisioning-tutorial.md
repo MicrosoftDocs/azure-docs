@@ -56,7 +56,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Promapp Add Name](media/promapp-provisioning-tutorial/addname.png)
 
-4.	Copy the access token and save it as this will be the only time you can view it. This value will be entered in the Secret Token field in the Provisioning tab of your Promapp application in the Azure portal.
+4.	Copy the access token and save it as this will be the only time you can view it. This value will be entered in the Secret Token field in the Provisioning tab of your Promapp application.
 
 	![Promapp Create Token](media/promapp-provisioning-tutorial/token.png)
 

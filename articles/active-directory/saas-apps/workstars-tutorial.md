@@ -19,7 +19,7 @@ Integrating Workstars with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to Workstars.
 * You can enable your users to be automatically signed-in to Workstars (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* You can manage your accounts in one central location.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -65,7 +65,7 @@ To configure and test Azure AD single sign-on with Workstars, you need to comple
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+In this section, you enable Azure AD single sign-on.
 
 To configure Azure AD single sign-on with Workstars, perform the following steps:
 
@@ -93,7 +93,7 @@ To configure Azure AD single sign-on with Workstars, perform the following steps
     `https://<subdomain>.workstars.com/saml/login_check`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Reply URL. Contact [Workstars Client support team](http://support.workstars.com/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Reply URL. Contact [Workstars Client support team](http://support.workstars.com/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -129,13 +129,13 @@ To configure Azure AD single sign-on with Workstars, perform the following steps
 
 	a. In **Identity Provider Name** textbox, type **Office 365**.
 
-	b. In the **Identity Provider Entity ID** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
+	b. In the **Identity Provider Entity ID** textbox, paste the value of **Azure AD Identifier**.
 
 	c. Copy the content of the downloaded certificate file in notepad, and then paste it into the **x509 Certificate** textbox. 
 
-	d. In the **SAML SSO URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+	d. In the **SAML SSO URL** textbox, paste the value of **Login URL**.
 	
-	e. In the **Remote Logout URL** textbox, paste the value of **Logout URL**, which you have copied from Azure portal. 
+	e. In the **Remote Logout URL** textbox, paste the value of **Logout URL**. 
 
 	f. select **Name ID** as **Email (Default)**.
 
@@ -143,7 +143,7 @@ To configure Azure AD single sign-on with Workstars, perform the following steps
 
 ### Create an Azure AD test user 
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+The objective of this section is to create a test user called Britta Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.

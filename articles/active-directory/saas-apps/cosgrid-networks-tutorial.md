@@ -20,7 +20,7 @@ In this article, you learn how to integrate Cosgrid Networks with Azure Active D
 
 * Control in Azure AD who has access to Cosgrid Networks.
 * Enable your users to be automatically signed-in to Cosgrid Networks with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You configure and test Azure AD single sign-on for Cosgrid Networks in a test environment. Cosgrid Networks supports **SP** initiated single sign-on.
 
@@ -46,13 +46,13 @@ Add Cosgrid Networks from the Azure AD application gallery to configure single s
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Cosgrid Networks** > **Single sign-on**.
@@ -88,7 +88,7 @@ In this section, you create a user called Britta Simon at Cosgrid Networks. Work
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Cosgrid Networks Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Cosgrid Networks Sign-on URL where you can initiate the login flow. 
 
 * Go to Cosgrid Networks Sign-on URL directly and initiate the login flow from there.
 

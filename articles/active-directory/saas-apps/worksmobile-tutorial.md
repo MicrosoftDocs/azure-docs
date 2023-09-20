@@ -19,7 +19,7 @@ Integrating LINE WORKS with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to LINE WORKS.
 * You can enable your users to be automatically signed-in to LINE WORKS (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* You can manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with LINE WORKS, perform the following steps:
 
 ### Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **LINE WORKS** > **Single sign-on**.
@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://auth.worksmobile.com/acs/ <domain>`
 
     > [!NOTE]
-    > These values are not real. Update these values with actual Sign-On URL and Response URL. Contact [LINE WORKS support team](https://line.worksmobile.com/jp/en/contactus/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with actual Sign-On URL and Response URL. Contact [LINE WORKS support team](https://line.worksmobile.com/jp/en/contactus/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -107,7 +107,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to LINE WORKS.
+In this section, you'll enable B.Simon to use single sign-on by granting access to LINE WORKS.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **LINE WORKS**.
@@ -133,7 +133,7 @@ In this section, you create a user called Britta Simon in LINE WORKS. Access [LI
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to LINE WORKS Sign-on URL where you can initiate the login flow. 
+1. Click on **Test this application**, this will redirect to LINE WORKS Sign-on URL where you can initiate the login flow. 
 
 2. Go to LINE WORKS Sign-on URL directly and initiate the login flow from there.
 

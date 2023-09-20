@@ -52,7 +52,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Airstack Add SCIM](media/airstack-provisioning-tutorial/azureconfig.png)
 
-3.	Click on **Generate** button. Copy the **Secret Token for Azure**. This value will be entered in the Secret Token field in the Provisioning tab of your Airstack application in the Azure portal.
+3.	Click on **Generate** button. Copy the **Secret Token for Azure**. This value will be entered in the Secret Token field in the Provisioning tab of your Airstack application.
 
 	![Airstack Create Token](media/airstack-provisioning-tutorial/generatetoken.png)
 

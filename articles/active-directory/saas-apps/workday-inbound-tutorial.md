@@ -259,9 +259,10 @@ To provision to Active Directory on-premises, the Provisioning agent must be ins
 Transfer the downloaded agent installer to the server host and follow the steps listed [in the **Install agent** section](../cloud-sync/how-to-install.md) to complete the agent configuration.
 
 ### Part 3: In the provisioning app, configure connectivity to Workday and Active Directory
-In this step, we establish connectivity with Workday and Active Directory in the Azure portal. 
+In this step, we establish connectivity with Workday and Active Directory. 
 
-1. In the Azure portal, go back to the Workday to Active Directory User Provisioning App created in [Part 1](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > Workday to Active Directory User Provisioning App created in [Part 1](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent).
 
 1. Complete the **Admin Credentials** section as follows:
 
@@ -405,7 +406,7 @@ Once your attribute mapping configuration is complete, you can test provisioning
 
 ## Enable and launch user provisioning
 
-Once the Workday provisioning app configurations have been completed and you have verified provisioning for a single user with [on-demand provisioning](../app-provisioning/provision-on-demand.md), you can turn on the provisioning service in the Azure portal.
+Once the Workday provisioning app configurations have been completed and you have verified provisioning for a single user with [on-demand provisioning](../app-provisioning/provision-on-demand.md), you can turn on the provisioning service.
 
 > [!TIP]
 > By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or Workday data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users using [on-demand provisioning](../app-provisioning/provision-on-demand.md) before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.
@@ -556,7 +557,7 @@ Yes, one Provisioning Agent can be configured to handle multiple AD domains as l
 
 #### How do I de-register the domain associated with my Provisioning Agent?
 
-* From the Azure portal, get the *tenant ID* of your Azure AD tenant.
+*, get the *tenant ID* of your Azure AD tenant.
 * Sign in to the Windows server running the Provisioning Agent.
 * Open PowerShell as Windows Administrator.
 * Change to the directory containing the registration scripts and run the following commands replacing the \[tenant ID\] parameter with the value of your tenant ID.
@@ -931,7 +932,7 @@ The Workday provisioning apps for Active Directory and Azure AD both include a d
 
 The Azure AD provisioning service supports the ability to customize your list or Workday attribute to include any attributes exposed in the [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) operation of the Human Resources API.
 
-To do this change, you must use [Workday Studio](https://community.workday.com/studio-download) to extract the XPath expressions that represent the attributes you wish to use, and then add them to your provisioning configuration using the advanced attribute editor in the Azure portal.
+To do this change, you must use [Workday Studio](https://community.workday.com/studio-download) to extract the XPath expressions that represent the attributes you wish to use, and then add them to your provisioning configuration using the advanced attribute editor.
 
 **To retrieve an XPath expression for a Workday user attribute:**
 

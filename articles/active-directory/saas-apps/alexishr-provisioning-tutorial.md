@@ -46,7 +46,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![Access User Management](media/alexishr-provisioning-tutorial/login.png)
 
-1. Once on the Access token page, fill in the **Name** and **Description** textbox and click on **Save**.A pop-up window will appear with the token in it.Copy and save the token. This value will be entered in the **Secret Token** * field in the Provisioning tab of your AlexisHR application in the Azure portal.
+1. Once on the Access token page, fill in the **Name** and **Description** textbox and click on **Save**.A pop-up window will appear with the token in it.Copy and save the token. This value will be entered in the **Secret Token** * field in the Provisioning tab of your AlexisHR application.
 
 	![Access tokens](media/alexishr-provisioning-tutorial/token.png)
 

@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Vtiger CRM (SAML) with Azure Act
 
 * Control in Azure AD who has access to Vtiger CRM (SAML).
 * Enable your users to be automatically signed-in to Vtiger CRM (SAML) with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ To configure and test Azure AD SSO with Vtiger CRM (SAML), perform the following
 
 ### Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Vtiger CRM (SAML)** application integration page, find the **Manage** section and select **Single sign-on**.
@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    |
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Vtiger CRM (SAML) Client support team](mailto:support@vtiger.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Vtiger CRM (SAML) Client support team](mailto:support@vtiger.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -97,7 +97,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -111,7 +111,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Vtiger CRM (SAML).
+In this section, you'll enable B.Simon to use single sign-on by granting access to Vtiger CRM (SAML).
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Vtiger CRM (SAML)**.
@@ -123,7 +123,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Vtiger CRM (SAML) SSO
 
-To configure single sign-on on **Vtiger CRM (SAML)** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Vtiger CRM (SAML) support team](mailto:support@vtiger.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Vtiger CRM (SAML)** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the application configuration to [Vtiger CRM (SAML) support team](mailto:support@vtiger.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Vtiger CRM (SAML) test user
 
@@ -133,7 +133,7 @@ In this section, a user called Britta Simon is created in Vtiger CRM (SAML). Vti
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Vtiger CRM (SAML) Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Vtiger CRM (SAML) Sign-on URL where you can initiate the login flow. 
 
 * Go to Vtiger CRM (SAML) Sign-on URL directly and initiate the login flow from there.
 

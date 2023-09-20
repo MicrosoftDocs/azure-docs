@@ -57,11 +57,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![api](media/talentech-provisioning-tutorial/token.png)
 
-5. An access token is generated. This value will be entered in the **Secret Token** field in the Provisioning tab of your Talentech application in the Azure portal.
+5. An access token is generated. This value will be entered in the **Secret Token** field in the Provisioning tab of your Talentech application.
 
 	![permanent](media/talentech-provisioning-tutorial/bearer.png)
 
-6. Reach out to Talentech support to generate a Tenant URL. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Talentech application in the Azure portal.
+6. Reach out to Talentech support to generate a Tenant URL. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Talentech application.
 
 ## Step 3. Add Talentech from the Azure AD application gallery
 

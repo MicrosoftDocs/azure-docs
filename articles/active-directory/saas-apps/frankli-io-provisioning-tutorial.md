@@ -50,7 +50,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ![Active Directory Name](media/frankli-io-provisioning-tutorial/ad-name.png)
 1. Click on **Create Directory**.
 ![Active Directory Details](media/frankli-io-provisioning-tutorial/ad-details.png)
-1. Take note of the **Base URL** and the **Bearer Token**.The **Base URL** will be entered into the **Tenant URL** field in the Azure portal. The **Bearer Token** will be entered into the **Secret Token** field in the Azure portal.
+1. Take note of the **Base URL** and the **Bearer Token**.The **Base URL** will be entered into the **Tenant URL** field. The **Bearer Token** will be entered into the **Secret Token** field.
 
 ## Step 3. Add frankli from the Azure AD application gallery
 

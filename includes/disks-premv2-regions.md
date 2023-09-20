@@ -28,4 +28,7 @@ Currently only available in the following regions:
 - South Central US (Three availability zones)
 - West US 2 (Three availability zones)
 - West US 3 (Three availability zones)
-
+- Australia East (Three availability zones)
+- France Central (Three availability zones)
+- Norway East (Three availability zones)
+- UAE North (Three availability zones)

@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate 4me with Azure Active Directory 
 
 * Control in Azure AD who has access to 4me.
 * Enable your users to be automatically signed-in to 4me with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ To configure and test Azure AD SSO with 4me, complete the following building blo
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **4me** > **Single sign-on**.
@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| | |
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [4me Client support team](mailto:support@4me.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [4me Client support team](mailto:support@4me.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. 4me application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -120,7 +120,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -134,7 +134,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to 4me.
+In this section, you'll enable B.Simon to use single sign-on by granting access to 4me.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **4me**.
@@ -158,11 +158,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. Select the **Enabled** option.
 
-	b. In the **Remote logout URL** textbox, paste the value of **Logout URL**, which you have copied from the Azure portal.
+	b. In the **Remote logout URL** textbox, paste the value of **Logout URL**, which you copied previously.
 
-	c. Under **SAML** section, in the **SAML SSO URL** textbox, paste the value of **Login URL**, which you have copied from the Azure portal.
+	c. Under **SAML** section, in the **SAML SSO URL** textbox, paste the value of **Login URL**, which you copied previously.
 
-	d. In the **Certificate fingerprint** textbox, paste the **THUMBPRINT** value separated by a colon in duplets order (AA:BB:CC:DD:EE:FF:GG:HH:II), which you have copied from the Azure portal.
+	d. In the **Certificate fingerprint** textbox, paste the **THUMBPRINT** value separated by a colon in duplets order (AA:BB:CC:DD:EE:FF:GG:HH:II), which you copied previously.
 
 	e. Click **Save**.
 
@@ -177,7 +177,7 @@ In this section, a user called Britta Simon is created in 4me. 4me supports just
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to 4me Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to 4me Sign-on URL where you can initiate the login flow. 
 
 * Go to 4me Sign-on URL directly and initiate the login flow from there.
 

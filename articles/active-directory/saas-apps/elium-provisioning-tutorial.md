@@ -57,7 +57,7 @@ Before configuring Elium for automatic user provisioning with Azure AD, you must
 
     ![Security link in Elium](media/Elium-provisioning-tutorial/security.png)
 
-1. Copy the **Tenant URL** and **Secret token** values. You'll use these values later, in corresponding fields in the **Provisioning** tab of your Elium application in the Azure portal.
+1. Copy the **Tenant URL** and **Secret token** values. You'll use these values later, in corresponding fields in the **Provisioning** tab of your Elium application.
 
     ![Tenant URL and Secret token fields in Elium](media/Elium-provisioning-tutorial/token.png)
 
@@ -65,11 +65,8 @@ Before configuring Elium for automatic user provisioning with Azure AD, you must
 
 To configure Elium for automatic user provisioning with Azure AD, you must also add Elium from the Azure AD application gallery to your list of managed software-as-a-service (SaaS) applications. Follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), in the left navigation panel, select **Azure Active Directory**.
-
-    ![Azure Active Directory menu item](common/select-azuread.png)
-
-1. Go to **Enterprise applications**, and then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
      ![Azure AD Enterprise applications blade](common/enterprise-applications.png)
 
@@ -90,7 +87,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 To configure automatic user provisioning for Elium in Azure AD, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com), select **Enterprise applications**, and then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
     ![Azure AD Enterprise applications blade](common/enterprise-applications.png)
 

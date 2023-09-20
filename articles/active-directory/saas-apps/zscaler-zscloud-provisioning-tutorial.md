@@ -36,19 +36,13 @@ To complete the steps outlined in this tutorial, you need the following:
 
 Before you configure Zscaler ZSCloud for automatic user provisioning with Azure AD, you need to add Zscaler ZSCloud from the Azure AD application gallery to your list of managed SaaS applications.
 
-In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 
-![Select Azure Active Directory](common/select-azuread.png)
+   ![Enterprise applications](common/enterprise-applications.png)
 
-Go to **Enterprise applications** and then select **All applications**:
-
-![Enterprise applications](common/enterprise-applications.png)
-
-To add an application, select **New application** at the top of the window:
-
-![Select New application](common/add-new-app.png)
-
-In the search box, enter **Zscaler ZSCloud**. Select **Zscaler ZSCloud** in the results and then select **Add**.
+1. In the search box, enter **Zscaler ZSCloud**. 
+1. Select **Zscaler ZSCloud** in the results and then select **Add**.
 
 ![Results list](common/search-new-app.png)
 

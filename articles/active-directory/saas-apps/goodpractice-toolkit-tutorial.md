@@ -41,10 +41,8 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 To configure the integration of Mind Tools Toolkit into Azure AD, you need to add Mind Tools Toolkit from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal by using either a work or school account, or a personal Microsoft account.
-1. On the leftmost navigation pane, select the **Azure Active Directory** service.
-1. Go to **Enterprise Applications**, and then select **All Applications**.
-1. To add a new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, enter **Mind Tools Toolkit** in the search box.
 1. Select **Mind Tools Toolkit** from the search results, and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -65,7 +63,7 @@ To configure and test Azure AD SSO with Mind Tools Toolkit, perform the followin
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Mind Tools Toolkit** > **Single sign-on**.
@@ -89,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -103,7 +101,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Mind Tools Toolkit.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Mind Tools Toolkit.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Mind Tools Toolkit**.
@@ -125,7 +123,7 @@ In this section, a user called B.Simon is created in Mind Tools Toolkit. Mind To
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Mind Tools Toolkit Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Mind Tools Toolkit Sign-on URL where you can initiate the login flow. 
 
 * Go to Mind Tools Toolkit Sign-on URL directly and initiate the login flow from there.
 

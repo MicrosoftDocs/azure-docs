@@ -62,22 +62,20 @@ In this tutorial, you configure and test Azure AD SSO for on-premises confluence
 
 ## Download and Install the App Proxy Connector Service
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an application administrator of the directory that uses Application Proxy. 
-2. Select **App proxy** from Azure Services section.
-3. Select **Download connector service**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.
+1. Select **Download connector service**.
 
     ![Screenshot for Download connector service.](./media/confluence-app-proxy-tutorial/download-connector-service.png)
 
-4. Accept terms & conditions to download connector. Once downloaded, install it to the system, which hosts the confluence application.
+1. Accept terms & conditions to download connector. Once downloaded, install it to the system, which hosts the confluence application.
 
 ## Add an On-premises Application in Azure AD
 
 To add an Application proxy, we need to create an enterprise application.
 
-1. Sign in as an administrator in the Azure portal.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. Choose **Add an on-premises application**.
 
     ![Screenshot for Add an on-premises application.](./media/confluence-app-proxy-tutorial/add-on-premises-application.png)
@@ -99,15 +97,15 @@ To add an Application proxy, we need to create an enterprise application.
 
 Now that you've prepared your environment and installed a connector, you're ready to add confluence applications to Azure AD.
 
-1.	Sign in as an administrator in the Azure portal.
-2.	In the left navigation panel, select Azure Active Directory.
-3.	Select Enterprise applications, and then select New applications.
-4.	Select **Confluence SAML SSO by Microsoft** widget from the Azure AD Gallery.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1.	Select **Confluence SAML SSO by Microsoft** widget from the Azure AD Gallery.
 
 
 ## Configure SSO for Confluence SAML SSO Application in Azure AD
 
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. Open the **Confluence SAML SSO by Microsoft** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
@@ -118,7 +116,7 @@ Now that you've prepared your environment and installed a connector, you're read
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -132,7 +130,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assigning the test user for the Confluence Azure AD App
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Confluence Azure AD App.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Confluence Azure AD App.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Confluence SAML SSO by Microsoft**.

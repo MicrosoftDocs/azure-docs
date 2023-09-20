@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate LiquidFiles with Azure Active Di
 
 * Control in Azure AD who has access to LiquidFiles.
 * Enable your users to be automatically signed-in to LiquidFiles with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ To configure and test Azure AD SSO with LiquidFiles, perform the following steps
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **LiquidFiles** > **Single sign-on**.
@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<YOUR_SERVER_URL>/saml/init`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. Contact [LiquidFiles Client support team](https://www.liquidfiles.com/support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. Contact [LiquidFiles Client support team](https://www.liquidfiles.com/support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 5. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
@@ -98,7 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -112,7 +112,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to LiquidFiles.
+In this section, you'll enable B.Simon to use single sign-on by granting access to LiquidFiles.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **LiquidFiles**.
@@ -134,11 +134,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. As **Single Sign On Method**, select **SAML 2**.
 
-	b. In the **IDP Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+	b. In the **IDP Login URL** textbox, paste the value of **Login URL**.
 
-	c. In the **IDP Logout URL** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
+	c. In the **IDP Logout URL** textbox, paste the value of **Logout URL**.
 
-	d. In the **IDP Cert Fingerprint** textbox, paste the **THUMBPRINT** value which you have copied from Azure portal.
+	d. In the **IDP Cert Fingerprint** textbox, paste the **THUMBPRINT** value..
 
 	e. In the Name Identifier Format textbox, type the value `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
 
@@ -154,7 +154,7 @@ The objective of this section is to create a user called Britta Simon in LiquidF
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to LiquidFiles Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to LiquidFiles Sign-on URL where you can initiate the login flow. 
 
 * Go to LiquidFiles Sign-on URL directly and initiate the login flow from there.
 
