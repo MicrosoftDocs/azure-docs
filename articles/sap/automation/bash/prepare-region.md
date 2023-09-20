@@ -1,28 +1,29 @@
 ---
-online version: https://github.com/Azure/sap-hana
+online version: https://github.com/Azure/SAP-automation
 schema: 2.0.0
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/21/2021
+ms.date: 09/19/2023
 ms.topic: reference
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-title: Prepare region
+title: Deploy Control Plane
 description: Deploys the control plane (deployer, SAP library) using a shell script.
 ---
 
 # deploy_controlplane.sh
 
 ## Synopsis
-The `deploy_controlplane.sh` script deploys the control plane, including the deployer VM, Azure Key Vault, and the SAP library.
+The `deploy_controlplane.sh` script deploys the control plane, including the deployer VMs, Azure Key Vault, and the SAP library.
 
-The deployer VM has installations of Ansible and Terraform. This VM deploys the SAP artifacts.
+The deployer VM has installations of Ansible and Terraform. This VM is used to deploy the SAP systems.
 
 ## Syntax
 
 ```bash
-prepare_region.sh [ --deployer_parameter_file ] <String> [ --library_parameter_file ] <String>
+
+deploy_controlplane.sh [ --deployer_parameter_file ] <String> [ --library_parameter_file ] <String>
  [[ --subscription] <String>] [[ --spn_id  ] <String>] [[ --spn_secret ] <String>] [[ --tenant_id ] <String>]
  [[ --storageaccountname] <String>] [ --force ] [ --auto-approve ]
 ```
@@ -37,9 +38,22 @@ Deploys the control plane, which includes the deployer VM and the SAP library. F
 This example deploys the control plane, as defined by the parameter files. The process prompts you for the SPN details.
 
 ```bash
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                         \
-        --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
-        --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      
+export      ARM_SUBSCRIPTION_ID="<subscriptionId>"
+export            ARM_CLIENT_ID="<appId>"
+export        ARM_CLIENT_SECRET="<password>"
+export            ARM_TENANT_ID="<tenantId>"
+export                 env_code="MGMT"
+export              region_code="WEEU"
+export                vnet_code="DEP01"
+export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+export         CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
+
+az logout
+az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
+
+sudo ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh                                                                                                            \
+    --deployer_parameter_file "${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars" \
+    --library_parameter_file "${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"
 ```
 
 ### Example 2
@@ -47,23 +61,32 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
 This example deploys the control plane, as defined by the parameter files. The process adds the deployment credentials to the deployment's key vault.
 
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
+
+export ARM_SUBSCRIPTION_ID="<subscriptionId>"
+export       ARM_CLIENT_ID="<appId>"
+export   ARM_CLIENT_SECRET="<password>"
+export       ARM_TENANT_ID="<tenantId>"
+export            env_code="MGMT"
+export         region_code="WEEU"
+export           vnet_code="DEP01"
+
+export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
+export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 
 az logout
-az login
+az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
 
-export subscriptionId=<subscriptionID>
-export appId=<appID>
-export spnSecret="<password>"
-export tenantId=<tenantID>
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                         \
-        --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
-        --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      \
-        --subscription $subscriptionId                                                                           \
-        --spn_id $appId                                                                                          \
-        --spn_secret $spnSecret                                                                                  \
-        --tenant_id $tenantId
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
+
+
+sudo ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh                                                                                                            \
+    --deployer_parameter_file "${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars" \
+    --library_parameter_file "${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"                                   \
+    --subscription "${ARM_SUBSCRIPTION_ID}"                                                                                                                                       \
+    --spn_id "${ARM_CLIENT_ID}"                                                                                                                                                   \
+    --spn_secret "${ARM_CLIENT_SECRET}"                                                                                                                                           \
+    --tenant_id "${ARM_TENANT_ID}"
 ```
 
 ## Parameters

@@ -47,7 +47,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Segment to support provisioning with Azure AD
 
-1. The Tenant URL is `https://scim.segmentapis.com/scim/v2`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Segment application in the Azure portal.
+1. The Tenant URL is `https://scim.segmentapis.com/scim/v2`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Segment application.
 
 2. Login to [Segment](https://www.segment.com/) app.
 
@@ -59,7 +59,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![access](media/segment-provisioning-tutorial/token.png)
 
-5. Copy and save the Bearer token. This value will be entered in the **Secret Token** field in the Provisioning tab of your Segment application in the Azure portal.
+5. Copy and save the Bearer token. This value will be entered in the **Secret Token** field in the Provisioning tab of your Segment application.
 
 	![token](media/segment-provisioning-tutorial/access.png)
 
@@ -82,11 +82,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Segment in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Segment**.
+1. In the applications list, select **Segment**.
 
 	![The Segment link in the Applications list](common/all-applications.png)
 

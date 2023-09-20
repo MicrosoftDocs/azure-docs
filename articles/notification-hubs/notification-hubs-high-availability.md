@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs high availability and cross-region disaster recovery (preview)
+title: Azure Notification Hubs high availability and cross-region disaster recovery
 description: Learn about high availability and cross-region disaster recovery options in Azure Notification Hubs. 
 author: sethmanheim
 ms.author: sethm
@@ -10,7 +10,7 @@ ms.date: 09/11/2023
 
 ---
 
-# High availability for Azure Notification Hubs (preview)
+# High availability for Azure Notification Hubs
 
 [Azure Notification Hubs][] provides an easy-to-use and scaled-out push engine that enables you to send notifications to any platform (iOS,
 Android, Windows, etc.) from any back-end (cloud or on-premises). This article describes the configuration options to achieve the availability characteristics required by your solution. For more information about our SLA, see the [Notification Hubs SLA][].

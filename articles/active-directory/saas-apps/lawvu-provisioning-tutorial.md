@@ -67,7 +67,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for LawVu in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 
@@ -110,7 +111,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
 
 	>[!NOTE]
-	>LawVu app support **Schema Discovery**. The `/schemas` request will be made by the Azure AD Provisioning Service every time someone saves the provisioning configuration in the Azure portal or every time a user lands on the edit provisioning page in the Azure portal. Other attributes discovered will be surfaced to customers in the attribute mappings under the target attribute list. Schema discovery only leads to more target attributes being added. It will not result in attributes being removed.
+	>LawVu app support **Schema Discovery**. The `/schemas` request will be made by the Azure AD Provisioning Service every time someone saves the provisioning configuration in the Azure portal or every time a user lands on the edit provisioning page. Other attributes discovered will be surfaced to customers in the attribute mappings under the target attribute list. Schema discovery only leads to more target attributes being added. It will not result in attributes being removed.
 	
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

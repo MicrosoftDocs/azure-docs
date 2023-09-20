@@ -52,8 +52,8 @@ Before we proceed we need to obtain a *Tenant Url* and a *Secret Token*, to conf
 1. Log in to Ardoq admin console. 
 1. In the left menu click on profile logo and, navigate to **Organization Settings->Manage Organization->Manage SCIM Token**.
 1. Click on **Generate new**.
-1. Copy and save the **Token**.This value will be entered in the **Secret Token** field in the Provisioning tab of your Ardoq application in the Azure portal. 
-1. To create your *tenant URL*, use this template: `https://<YOUR-SUBDOMAIN>.ardoq.com/api/scim/v2` by replacing the placeholder text `<YOUR-SUBDOMAIN>`.This value will be entered in the **Tenant Url** field in the Provisioning tab of your Ardoq application in the Azure portal.
+1. Copy and save the **Token**.This value will be entered in the **Secret Token** field in the Provisioning tab of your Ardoq application. 
+1. To create your *tenant URL*, use this template: `https://<YOUR-SUBDOMAIN>.ardoq.com/api/scim/v2` by replacing the placeholder text `<YOUR-SUBDOMAIN>`.This value will be entered in the **Tenant Url** field in the Provisioning tab of your Ardoq application.
 
 	>[!NOTE]
 	>`<YOUR-SUBDOMAIN>` is the subdomain your organization has chosen to access Ardoq. This is the same URL segment you use when you access the Ardoq app. For example, if your organization accesses Ardoq at `https://acme.ardoq.com` you'd fill in `acme`.  If you're in the US and access Ardoq at `https://piedpiper.us.ardoq.com`  then you'd fill in `piedpiper.us`.
@@ -77,7 +77,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Ardoq in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 
