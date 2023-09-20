@@ -37,7 +37,7 @@ Many regions also have a [*paired region*](./cross-region-replication-azure.md#a
 
 ## Availability zones
 
-If you deploy into an Azure region that contains availability zones, you can use multiple availability zones together. By using multiple availability zones, you can keep separate copies of your application and data within separate physical datacenters in a large metropolitan area.
+When you deploy into an Azure region that contains availability zones, you can use multiple availability zones together. By using multiple availability zones, you can keep separate copies of your application and data within separate physical datacenters in a large metropolitan area.
 
 There are two ways to use availability zones in a solution:
 
