@@ -69,7 +69,7 @@ If you don't already have a Microsoft Entra tenant or if you want to create a ne
 
 You'll provide the following information to create your new tenant:
 
-- **Tenant type** - Choose between a Microsoft Entra ID and Azure AD B2C tenant
+- **Tenant type** - Choose between a Microsoft Entra tenant and an Azure AD B2C tenant
 - **Organization name**
 - **Initial domain** - Initial domain `<domainname>.onmicrosoft.com` can't be edited or deleted. You can add a customized domain name later.
 - **Country or region**
