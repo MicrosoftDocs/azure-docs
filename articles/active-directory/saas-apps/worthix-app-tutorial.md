@@ -20,7 +20,7 @@ In this article, you'll learn how to integrate Worthix App with Azure Active Dir
 
 * Control in Azure AD who has access to Worthix App.
 * Enable your users to be automatically signed-in to Worthix App with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You'll configure and test Azure AD single sign-on for Worthix App in a test environment. Worthix App supports **IDP** initiated single sign-on and **Just In Time** user provisioning.
 
@@ -43,15 +43,16 @@ Add Worthix App from the Azure AD application gallery to configure single sign-o
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
-1. In the Azure portal, on the **Worthix App** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Worthix App** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -66,7 +67,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     `https://production-worthix.us.auth0.com/login/callback?connection=<Company_Name>Saml`
 	
 	> [!NOTE]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Worthix App support team](mailto:support@worthix.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Worthix App support team](mailto:support@worthix.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -78,7 +79,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Worthix App SSO
 
-To configure single sign-on on **Worthix App** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Worthix App support team](mailto:support@worthix.com). They set this setting to have the SAML SSO connection set properly on both sides
+To configure single sign-on on **Worthix App** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the application configuration to [Worthix App support team](mailto:support@worthix.com). They set this setting to have the SAML SSO connection set properly on both sides
 
 ### Create Worthix App test user
 
@@ -88,9 +89,9 @@ In this section, a user called B.Simon is created in Worthix App. Worthix App su
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the Worthix App for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the Worthix App for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the Worthix App tile in the My Apps, you should be automatically signed in to the Worthix App for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Worthix App tile in the My Apps, you should be automatically signed in to the Worthix App for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Additional resources
 

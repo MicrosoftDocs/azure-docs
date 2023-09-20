@@ -98,11 +98,11 @@ After setting up custom extensibility in the catalog, administrators can create 
 
 
 
-## Register an application with secrets in Azure portal
+## Register an application with secrets in the Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-With Azure, you're able to use [Azure Key Vault](/azure/key-vault/secrets/about-secrets) to store application secrets such as passwords. To register an application with secrets within the Azure portal, follow these steps:
+With Azure, you're able to use [Azure Key Vault](/azure/key-vault/secrets/about-secrets) to store application secrets such as passwords. To register an application with secrets within the Microsoft Entra admin center, follow these steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -118,7 +118,9 @@ With Azure, you're able to use [Azure Key Vault](/azure/key-vault/secrets/about-
 
 After registering your application, you must add a client secret by following these steps: 
 
-1. In the Azure portal, in App registrations, select your application.
+1. Browse to **Identity** > **Applications** > **App registrations**.
+
+1. select your application.
 
 1. Select Certificates & secrets > Client secrets > New client secret.
 

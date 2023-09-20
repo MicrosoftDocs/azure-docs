@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
 ms.topic: how-to
-author: ChenJieting
-ms.author: chenjieting
+author: likebupt
+ms.author: keli19
 ms.reviewer: lagayhar
 ms.date: 09/12/2023
 ---
 
 # Custom tool package creation and usage (preview)
 
-In this article, we'll guide you through the process of developing your own tool package, offering detailed steps and advice on how to utilize your creation.
+When develop flows, you can not only use the built-in tools provided by Prompt Flow, but also develop your own custom tool. In this article, we'll guide you through the process of developing your own tool package, offering detailed steps and advice on how to utilize your creation.
 
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.

@@ -1,28 +1,28 @@
 ---
-online version: https://github.com/Azure/sap-hana
+online version: https://github.com/Azure/SAP-automation
 schema: 2.0.0
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 12/10/2021
+ms.date: 09/19/2023
 ms.topic: reference
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-title: Remove_region.sh
+title: remove_controlplane.sh
 description: Removes the SAP Control Plane (Deployer, Library) using a shell script.
 ---
 
-# Remove_region.sh
+# remove_controlplane.sh
 
 ## Synopsis
 
-Removes the control plane, including the deployer VM and the SAP library. It is important to remove the terraform deployed artifacts using Terraform to ensure that the removals are done correctly.
+Removes the control plane, including the deployer VM and the SAP library. It's important to remove the terraform deployed artifacts using Terraform to ensure that the removals are done correctly.
 
 ## Syntax
 
 ```bash
 
-remove_region.sh  [-d or --deployer_parameter_file ] <String> [-l or --library_parameter_file ] <String>
+remove_controlplane.sh  [-d or --deployer_parameter_file ] <String> [-l or --library_parameter_file ] <String>
 ```
 
 ## Description
@@ -32,18 +32,45 @@ Removes the SAP control plane, including the deployer VM and the SAP library.
 
 ### Example 1
 ```bash
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                                                         \
-        --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
-        --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      
+export      ARM_SUBSCRIPTION_ID="<subscriptionId>"
+export            ARM_CLIENT_ID="<appId>"
+export        ARM_CLIENT_SECRET="<password>"
+export            ARM_TENANT_ID="<tenantId>"
+export                 env_code="MGMT"
+export              region_code="WEEU"
+export                vnet_code="DEP01"
+export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+export         CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
+
+az logout
+az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
+
+sudo ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/remove_controlplane.sh.sh                                                                                                            \
+    --deployer_parameter_file "${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars" \
+    --library_parameter_file "${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"
+              
 ```
 
 ### Example 2
 ```bash
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                                                          \
-        --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
-        --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      \
-        --subscription xxxxxxxxxxx
-        --storage_account mgmtweeutfstate###
+export      ARM_SUBSCRIPTION_ID="<subscriptionId>"
+export            ARM_CLIENT_ID="<appId>"
+export        ARM_CLIENT_SECRET="<password>"
+export            ARM_TENANT_ID="<tenantId>"
+export                 env_code="MGMT"
+export              region_code="WEEU"
+export                vnet_code="DEP01"
+export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+export         CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
+
+az logout
+az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
+
+sudo ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/remove_controlplane.sh.sh                                                                                                            \
+    --deployer_parameter_file "${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars" \
+    --library_parameter_file "${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"
+    --subscription xxxxxxxxxxx
+    --storage_account mgmtweeutfstate###
 ```
 
 ## Parameters

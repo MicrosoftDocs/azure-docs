@@ -46,7 +46,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Asana to support provisioning with Azure AD
  > [!TIP]
- > To enable SAML-based single sign-on for Asana, follow the instructions provided in the Azure portal. Single sign-on can be configured independently of automatic provisioning, although these two features complement each other.
+ > To enable SAML-based single sign-on for Asana, follow the instructions provided. Single sign-on can be configured independently of automatic provisioning, although these two features complement each other.
 
 ### Generate Secret Token in Asana
 
@@ -75,7 +75,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Asana in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 

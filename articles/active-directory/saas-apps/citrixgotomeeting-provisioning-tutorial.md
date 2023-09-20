@@ -49,7 +49,8 @@ This section guides you through connecting your Azure AD to GoToMeeting's user a
 
 ### To configure automatic user account provisioning:
 
-1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications** section.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. If you have already configured GoToMeeting for single sign-on, search for your instance of GoToMeeting using the search field. Otherwise, select **Add** and search for **GoToMeeting** in the application gallery. Select GoToMeeting from the search results, and add it to your list of applications.
 
@@ -63,7 +64,7 @@ This section guides you through connecting your Azure AD to GoToMeeting's user a
 1. Under the Admin Credentials section, click **Authorize** and log into GoToMeeting in pop-up windows that appears
    
 
-1. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your GoToMeeting app. If the connection fails, ensure your GoToMeeting account has Team Admin permissions and try the **"Admin Credentials"** step again.
+1. Select **Test Connection** to ensure Azure AD can connect to your GoToMeeting app. If the connection fails, ensure your GoToMeeting account has Team Admin permissions and try the **"Admin Credentials"** step again.
 
 
 1. Click **Save.**

@@ -53,7 +53,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 	
 	![Access tab](./media/logicgate-provisioning-tutorial/key.png)
 
-4. Copy and save the **Access Key**.This value will be entered in the **Secret Token** * field in the Provisioning tab of your LogicGate application in the Azure portal. 
+4. Copy and save the **Access Key**.This value will be entered in the **Secret Token** * field in the Provisioning tab of your LogicGate application. 
 	
 	![Key tab](./media/logicgate-provisioning-tutorial/access.png)
 
@@ -76,11 +76,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for LogicGate in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **LogicGate**.
+1. In the applications list, select **LogicGate**.
 
 	![The LogicGate link in the Applications list](common/all-applications.png)
 

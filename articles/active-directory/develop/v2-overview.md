@@ -26,7 +26,7 @@ There are several components that make up the Microsoft identity platform:
   - Personal Microsoft accounts (Skype, Xbox, Outlook.com)
   - Social or local accounts, by using Azure AD B2C
 - **Open-source libraries**: Microsoft Authentication Library (MSAL) and support for other standards-compliant libraries.
-- **Application management portal**: A registration and configuration experience in the Azure portal, along with the other Azure management capabilities.
+- **Application management portal**: A registration and configuration experience in the Microsoft Entra admin center, along with the other Azure management capabilities.
 - **Application configuration API and PowerShell**: Programmatic configuration of your applications through the Microsoft Graph API and PowerShell so you can automate your DevOps tasks.
 - **Developer content**: Technical documentation including quickstarts, tutorials, how-to guides, and code samples.
 
