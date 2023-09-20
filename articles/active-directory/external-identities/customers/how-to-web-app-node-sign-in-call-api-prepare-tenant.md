@@ -1,6 +1,6 @@
 ---
 title: Sign in users and call an API in a Node.js web application  - prepare your tenant
-description: Learn about how to prepare your Microsoft Entra tenant for customers to sign in users and call an API in your own Node.js web application.
+description: Learn about how to prepare your Microsoft Entra External ID for customers tenant to sign in users and call an API in your own Node.js web application.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
