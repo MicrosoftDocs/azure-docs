@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Genesys Cloud for Azure'
-description: Learn how to configure single sign-on between Azure Active Directory and Genesys Cloud for Azure.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with Genesys Cloud for Azure'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Genesys Cloud for Azure.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,24 +13,24 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Genesys Cloud for Azure
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with Genesys Cloud for Azure
 
-In this tutorial, you'll learn how to integrate Genesys Cloud for Azure with Azure Active Directory (Azure AD). When you integrate Genesys Cloud for Azure with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Genesys Cloud for Azure with Microsoft Entra ID. When you integrate Genesys Cloud for Azure with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Genesys Cloud for Azure.
-* Enable your users to be automatically signed-in to Genesys Cloud for Azure with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Genesys Cloud for Azure.
+* Enable your users to be automatically signed-in to Genesys Cloud for Azure with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have one, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have one, you can get a [free account](https://azure.microsoft.com/free/).
 * A Genesys Cloud for Azure single sign-on (SSO)–enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * Genesys Cloud for Azure supports **SP and IDP** initiated SSO.
 
@@ -41,7 +41,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Add Genesys Cloud for Azure from the gallery
 
-To configure integration of Genesys Cloud for Azure into Azure AD, you must add Genesys Cloud for Azure from the gallery to your list of managed SaaS apps. To do this, follow these steps:
+To configure integration of Genesys Cloud for Azure into Microsoft Entra ID, you must add Genesys Cloud for Azure from the gallery to your list of managed SaaS apps. To do this, follow these steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -50,22 +50,26 @@ To configure integration of Genesys Cloud for Azure into Azure AD, you must add 
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Genesys Cloud for Azure
+<a name='configure-and-test-azure-ad-sso-for-genesys-cloud-for-azure'></a>
 
-Configure and test Azure AD SSO with Genesys Cloud for Azure using a test user named **B.Simon**. For SSO to work, you must establish a link relationship between an Azure AD user and the related user in Genesys Cloud for Azure.
+## Configure and test Microsoft Entra SSO for Genesys Cloud for Azure
 
-To configure and test Azure AD SSO with Genesys Cloud for Azure, perform the following steps:
+Configure and test Microsoft Entra SSO with Genesys Cloud for Azure using a test user named **B.Simon**. For SSO to work, you must establish a link relationship between a Microsoft Entra user and the related user in Genesys Cloud for Azure.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Genesys Cloud for Azure, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Genesys Cloud for Azure SSO](#configure-genesys-cloud-for-azure-sso)** to configure the single sign-on settings on application side.
-    1. **[Create Genesys Cloud for Azure test user](#create-genesys-cloud-for-azure-test-user)** to have a counterpart of B.Simon in Genesys Cloud for Azure that's linked to the Azure AD representation of user.
+    1. **[Create Genesys Cloud for Azure test user](#create-genesys-cloud-for-azure-test-user)** to have a counterpart of B.Simon in Genesys Cloud for Azure that's linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-To enable Azure AD SSO in the Azure portal, follow these steps:
+## Configure Microsoft Entra SSO
+
+To enable Microsoft Entra SSO in the Azure portal, follow these steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Genesys Cloud for Azure** application integration page, find the **Manage** section and select **single sign-on**.
@@ -130,7 +134,9 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user named B.Simon in the Azure portal:
 
@@ -144,7 +150,9 @@ In this section, you'll create a test user named B.Simon in the Azure portal:
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to Genesys Cloud for Azure.
 
@@ -170,7 +178,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 	a. Select **Browse** to upload the base-64 encoded certificate that you downloaded into the **ADFS Certificate**.
 
-	b. In the **ADFS Issuer URI** box, paste the value of **Azure AD Identifier** that you copied.
+	b. In the **ADFS Issuer URI** box, paste the value of **Microsoft Entra Identifier** that you copied.
 
 	c. In the **Target URI** box, paste the value of **Login URL** that you copied.
 
@@ -182,7 +190,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 ### Create Genesys Cloud for Azure test user
 
-To enable Azure AD users to sign in to Genesys Cloud for Azure, they must be provisioned into Genesys Cloud for Azure. In Genesys Cloud for Azure, provisioning is a manual task.
+To enable Microsoft Entra users to sign in to Genesys Cloud for Azure, they must be provisioned into Genesys Cloud for Azure. In Genesys Cloud for Azure, provisioning is a manual task.
 
 **To provision a user account, follow these steps:**
 
@@ -211,7 +219,7 @@ To enable Azure AD users to sign in to Genesys Cloud for Azure, they must be pro
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 
