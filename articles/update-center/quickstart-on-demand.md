@@ -38,7 +38,7 @@ This quickstart details you how to perform manual assessment and apply updates o
     
 ## Configure settings
 
-For the assessed machines that are reporting updates, you can configure [periodic assessment](assessment-options.md#periodic-assessment) [hotpatching](updates-maintenance-schedules.md#hotpatching),and [patch orchestration](manage-multiple-machines.md#summary-of-machine-status) either immediately or schedule the updates by defining the maintenance window.
+For the assessed machines that are reporting updates, you can configure [periodic assessment](assessment-options.md#periodic-assessment) [hot patching](updates-maintenance-schedules.md#hot-patching),and [patch orchestration](manage-multiple-machines.md#summary-of-machine-status) either immediately or schedule the updates by defining the maintenance window.
 
 To configure the settings on your machines, follow these steps:
 
