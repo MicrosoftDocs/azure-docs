@@ -122,7 +122,7 @@ After the account is added, you can sign in to the Microsoft Application Network
 
 * If you want to improve User Provisioning feature, select **Improve my application’s User Provisioning feature**.
 
-* If you want to remove the application from Microsoft Entra gallery, select **Remove my application listing from the gallery**.
+* If you want to remove the application from Microsoft Entra application gallery, select **Remove my application listing from the gallery**.
 
 If you see the **Your sign-in was blocked** error while logging in, see [Troubleshoot sign-in to the Microsoft Application Network portal](troubleshoot-app-publishing.md).
 
