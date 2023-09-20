@@ -279,6 +279,9 @@ There are more circuit bandwidths that can be utilized on ExpressRoute Direct to
 
 **SkuFamily** can only be **MeteredData** at creation. To use **Unlimited** data, you'll need to update the *SkuFamily* after creation.
 
+> [!NOTE]
+> Once you change to **Unlimited** data, you won't be able to change it back without recreating the ExpressRoute circuit.
+
 Create a circuit on the ExpressRoute Direct resource.
 
   ```powershell
