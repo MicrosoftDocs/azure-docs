@@ -7,7 +7,7 @@ ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 01/01/2023
-# Customer intent: As an Azure Modeling and Simulation Workbench owner, I want to manage users who can access a chamber.
+# Customer intent: As a Workbench Owner in Azure Modeling and Simulation Workbench, I want to manage users who can access a chamber.
 ---
 
 # Manage users in Azure Modeling and Simulation Workbench
@@ -49,7 +49,7 @@ To allow users to see Azure Modeling and Simulation Workbench resources and to c
 
 To allow users to perform Azure Modeling and Simulation Workbench operations in the Azure portal and access the chamber workloads, assign them Azure roles assigned *at the chamber level*. Assigning the roles at any other level fails to grant users access to the remote desktop dashboard or chamber workloads.
 
-Don't assign both roles to a single user. The user should be _either_ **Chamber User** or **Chamber Admin**.
+Don't assign both roles to a single user. The user should be _either_ Chamber User or Chamber Admin.
 
 1. Go to the chamber that you want to allow users to access. Select **Chamber (preview)**, and then select and open your chamber. The following screenshot shows an example chamber named **myFirstChamber**.
 
@@ -71,13 +71,13 @@ Don't assign both roles to a single user. The user should be _either_ **Chamber 
 
 1. Select **Review + assign** to assign the selected role.
 
-1. Repeat steps 1 to 6 to allow more users access to the chamber as the **Chamber User** or **Chamber Admin** role.
+1. Repeat steps 1 to 6 to allow more users access to the chamber as the Chamber User or Chamber Admin role.
 
 Allow five minutes for the provisioning of the users to propagate throughout the chamber, so they have a successful login experience.
 
 ## Remove access
 
-When you want to remove user access to your chamber, you need to remove the **Chamber Admin** or **Chamber User** roles assigned to those users.
+When you want to remove user access to your chamber, you need to remove the Chamber Admin or Chamber User roles assigned to those users.
 
 1. Go to the chamber where you want to remove user access. Select **Chamber (preview)**, and then select and open your chamber. The following screenshot shows an example chamber named **myFirstChamber**.
 

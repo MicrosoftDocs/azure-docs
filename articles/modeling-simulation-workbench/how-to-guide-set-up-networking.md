@@ -7,7 +7,7 @@ ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 01/01/2023
-# Customer intent: As an Azure Modeling and Simulation Workbench owner, I want to set up networking for chamber access.
+# Customer intent: As Workbench Owner in Azure Modeling and Simulation Workbench, I want to set up networking for chamber access.
 ---
 
 # Set up networking in Azure Modeling and Simulation Workbench

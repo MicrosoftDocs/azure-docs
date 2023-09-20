@@ -1,13 +1,13 @@
 ---
 title: Import data into Azure Modeling and Simulation Workbench
-description: Learn how to import data to chamber in Azure Modeling and Simulation Workbench
+description: Learn how to import data into a chamber in Azure Modeling and Simulation Workbench.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 01/01/2023
-# Customer intent: As an Azure Modeling and Simulation Workbench chamber user, I want to import data into my chamber.
+# Customer intent: As a Chamber User in Azure Modeling and Simulation Workbench, I want to import data into my chamber.
 ---
 
 # Import data into Azure Modeling and Simulation Workbench
@@ -18,8 +18,8 @@ You can use Azure Modeling and Simulation Workbench to run your design applicati
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An instance of Azure Modeling and Simulation Design Workbench installed with at least one chamber.
-- Chamber Admin or Chamber User permissions.
-- [AzCopy](/azure/storage/common/storage-ref-azcopy) installed on machine, with access to the configured network for the target chamber. Only machines on the specified network path for the chamber can upload files.
+- A user who's provisioned as a Chamber Admin or Chamber User.
+- [AzCopy](/azure/storage/common/storage-ref-azcopy) installed on the machine, with access to the configured network for the target chamber. Only machines on the specified network path for the chamber can upload files.
 
 ## Sign in to the Azure portal
 
@@ -39,17 +39,17 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 1. Use the AzCopy command to upload your file. For example, use `azcopy copy <sourceFilePath> "<uploadURL>"`.
 
-  > [!NOTE]
-  > Supported characters for the file name are alphanumerics, underscores, periods, and hyphens.
-  >
-  > The data pipeline processes only files at the root. It doesn't process subfolders.
+   > [!NOTE]
+   > Supported characters for the file name are alphanumeric characters, underscores, periods, and hyphens.
+   >
+   > The data pipeline processes only files at the root. It doesn't process subfolders.
 
 1. Confirm that the uploaded file resource with the source file name appears under **Chamber** > **Data Pipeline** > **File**.
 
-The Chamber Admins and Chamber Users can access the uploaded file from the chamber by accessing the path: */mount/datapipeline/datain*.
+The Chamber Admin and Chamber User roles can access the uploaded file from the chamber by accessing the path: */mount/datapipeline/datain*.
 
 > [!IMPORTANT]
-> If you're importing multiple smaller files, it's recommended to zip or tarball them into a single file. GB sized tarballs/zipped files are supported, depending on your connection type and network speed.
+> If you're importing multiple smaller files, we recommend that you zip or tarball them into a single file. Gigabyte-sized tarballs and zipped files are supported, depending on your connection type and network speed.
 
 ## Next steps
 

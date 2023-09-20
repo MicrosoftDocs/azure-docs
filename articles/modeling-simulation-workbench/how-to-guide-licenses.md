@@ -7,7 +7,7 @@ ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 09/15/2023
-# Customer intent: As an Azure Modeling and Simulation Workbench Chamber admin, I want to activate a license service in a chamber so that chamber users can run applications that require licenses.
+# Customer intent: As a Chamber Admin in Azure Modeling and Simulation Workbench, I want to activate a license service in a chamber so that Chamber Users can run applications that require licenses.
 ---
 
 # Manage a license service for Azure Modeling and Simulation Workbench
