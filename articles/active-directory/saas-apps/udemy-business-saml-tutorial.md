@@ -20,7 +20,7 @@ In this article, you learn how to integrate Udemy Business SAML with Azure Activ
 
 * Control in Azure AD who has access to Udemy Business SAML.
 * Enable your users to be automatically signed-in to Udemy Business SAML with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You'll configure and test Azure AD single sign-on for Udemy Business SAML in a test environment. Udemy Business SAML supports **SP** initiated single sign-on and **Just In Time** user provisioning.
 
@@ -46,15 +46,16 @@ Add Udemy Business SAML from the Azure AD application gallery to configure singl
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
-1. In the Azure portal, on the **Udemy Business SAML** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Udemy Business SAML** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -72,7 +73,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	`https://<SUBDOMAIN>.udemy.com`
 
 	> [!Note]
-    > This value is not real. Update this value with the actual Sign-on URL. Contact [Udemy Business SAML Client support team](mailto:ufbsupport@udemy.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > This value is not real. Update this value with the actual Sign-on URL. Contact [Udemy Business SAML Client support team](mailto:ufbsupport@udemy.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Udemy Business SAML application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -102,7 +103,7 @@ In this section, a user called B.Simon is created in Udemy Business SAML. Udemy 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Udemy Business SAML Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Udemy Business SAML Sign-on URL where you can initiate the login flow. 
 
 * Go to Udemy Business SAML Sign-on URL directly and initiate the login flow from there.
 

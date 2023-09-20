@@ -234,7 +234,7 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Add video calling to your Android WebView client app
       href: quickstarts/voice-video-calling/get-started-android-webview.md
-    - name: Using Event Grid to send VOIP push notifications to devices
+    - name: Using Event Grid to send calling push notifications
       href: tutorials/add-voip-push-notifications-event-grid.md
     - name: Proxy your calling traffic
       href: tutorials/proxy-calling-support-tutorial.md
@@ -1047,6 +1047,8 @@ items:
       href: concepts/numbers/phone-number-management-for-israel.md
     - name: Phone number management for Italy
       href: concepts/numbers/phone-number-management-for-italy.md
+    - name: Phone number management for Japan
+      href: concepts/numbers/phone-number-management-for-japan.md
     - name: Phone number management for Latvia
       href: concepts/numbers/phone-number-management-for-latvia.md
     - name: Phone number management for Lithuania

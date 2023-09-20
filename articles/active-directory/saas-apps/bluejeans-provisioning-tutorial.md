@@ -54,7 +54,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 	![generate](./media/bluejeans-provisioning-tutorial/token.png)
 	
 4. Copy and save the Token. 
-5. The BlueJeans Tenant URL is `https://api.bluejeans.com/v2/scim`. The **Tenant URL** and the **Secret Token** from the previous step will be entered in the Provisioning tab of your BlueJeans application in the Azure portal.
+5. The BlueJeans Tenant URL is `https://api.bluejeans.com/v2/scim`. The **Tenant URL** and the **Secret Token** from the previous step will be entered in the Provisioning tab of your BlueJeans application.
 
 ## Step 3. Add BlueJeans from the Azure AD application gallery
 
@@ -74,11 +74,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for BlueJeans in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **BlueJeans**.
+1. In the applications list, select **BlueJeans**.
 
 	![The BlueJeans link in the Applications list](common/all-applications.png)
 

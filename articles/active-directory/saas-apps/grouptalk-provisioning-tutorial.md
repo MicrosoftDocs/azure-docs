@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Reach out to GroupTalk Support at support@grouptalk.com with the **Tenant name** and **ID** you would like to integrate with  Azure AD.
 2. When you've been notified that the necessary setup for your Azure AD integration is ready, login to GroupTalk Admin and navigate to your Organization view. 
 3. An Azure AD Integration configuration item should be visible. Click on it to verify the **Tenant name** and **ID**  to obtain a **JWT (Secret Token)**. 
-4. The GroupTalk Tenant URL is `https://api.grouptalk.com/api/scim/`. The **Tenant URL** and the **Secret Token** retrieved in the previous step will be entered in the Provisioning tab of your GroupTalk application in the Azure portal. 
+4. The GroupTalk Tenant URL is `https://api.grouptalk.com/api/scim/`. The **Tenant URL** and the **Secret Token** retrieved in the previous step will be entered in the Provisioning tab of your GroupTalk application. 
 
 ## Step 3. Add GroupTalk from the Azure AD application gallery
 
@@ -75,11 +75,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for GroupTalk in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **GroupTalk**.
+1. In the applications list, select **GroupTalk**.
 
 	![The GroupTalk link in the Applications list](common/all-applications.png)
 
