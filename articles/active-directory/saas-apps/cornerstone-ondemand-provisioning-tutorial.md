@@ -41,19 +41,9 @@ Before you configure Cornerstone OnDemand for automatic user provisioning with A
 
 To add Cornerstone OnDemand from the Marketplace, follow these steps.
 
-1. In the [Azure portal](https://portal.azure.com), in the navigation pane on the left, select **Azure Active Directory**.
-
-	![The Azure Active Directory icon](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select **New application** at the top of the dialog box.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Cornerstone OnDemand** and select **Cornerstone OnDemand** from the result panel. To add the application, select **Add**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type ****Cornerstone OnDemand** and select **Cornerstone OnDemand** from the result panel. To add the application, select **Add**.
 
 	![Cornerstone OnDemand in the results list](common/search-new-app.png)
 
@@ -79,7 +69,7 @@ To configure automatic user provisioning for Cornerstone OnDemand in Azure AD, f
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Cornerstone OnDemand**.
+1. In the applications list, select **Cornerstone OnDemand**.
 
 	![The Cornerstone OnDemand link in the applications list](common/all-applications.png)
 

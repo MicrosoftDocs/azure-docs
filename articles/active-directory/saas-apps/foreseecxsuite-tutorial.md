@@ -40,10 +40,8 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 To configure the integration of ForeSee CX Suite into Azure AD, you need to add ForeSee CX Suite from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **ForeSee CX Suite** in the search box.
 1. Select **ForeSee CX Suite** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -66,13 +64,14 @@ To configure and test Azure AD SSO with ForeSee CX Suite, perform the following 
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **ForeSee CX Suite** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ForeSee CX Suite** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Screenshot showing the edit Basic SAML Configuration screen.](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
+1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
 
 	a. Click **Upload metadata file**.
 
@@ -92,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!Note]
 	> If the **Identifier** value do not get auto polulated, then please fill in the value manually according to above pattern. The Identifier value is not real. Update this value with the actual Identifier. Contact [ForeSee CX Suite Client support team](mailto:support@foresee.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
@@ -116,8 +115,8 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 In this section, you'll enable B.Simon to use Azure single sign-on by granting access to ForeSee CX Suite.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-2. In the applications list, select **ForeSee CX Suite**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ForeSee CX Suite**.
 3. In the app's overview page, find the **Manage** section and select **Users and groups**.
 4. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 5. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
