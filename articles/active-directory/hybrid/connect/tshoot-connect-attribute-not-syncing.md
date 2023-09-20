@@ -29,7 +29,6 @@ Before investigating attribute syncing issues, let’s understand the **Microsof
 * **CS:** Connector Space, a table in database.
 * **MV:** Metaverse, a table in database.
 * **AD:** Active Directory
-* **Microsoft Entra ID:** Microsoft Entra ID
 
 ### **Synchronization Steps**
 
