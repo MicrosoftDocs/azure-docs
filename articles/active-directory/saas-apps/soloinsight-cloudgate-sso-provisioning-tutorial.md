@@ -52,7 +52,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Soloinsight-CloudGate SSO Add SCIM](media/soloinsight-cloudgate-sso-provisioning-tutorial/config.png)
 
-3.	Scroll down to the end of the page to get the **Tenant URL** and **Secret Token**. Copy the **Secret Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Soloinsight-CloudGate SSO application in the Azure portal.
+3.	Scroll down to the end of the page to get the **Tenant URL** and **Secret Token**. Copy the **Secret Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Soloinsight-CloudGate SSO application.
 
 	![Soloinsight-CloudGate SSO Create Token](media/soloinsight-cloudgate-sso-provisioning-tutorial/token.png)
 

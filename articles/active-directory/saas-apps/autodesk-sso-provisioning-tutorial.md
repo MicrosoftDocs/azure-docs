@@ -51,7 +51,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![Set Up Directory Sync](media/autodesk-sso-provisioning-tutorial/step2-2-set-up-directory-sync.png)
 
-3. Copy and save the Base URL and API token. These values will be entered in the Tenant URL * field and Secret Token * field respectively in the Provisioning tab of your Autodesk application in the Azure portal.
+3. Copy and save the Base URL and API token. These values will be entered in the Tenant URL * field and Secret Token * field respectively in the Provisioning tab of your Autodesk application.
 
 	![Get Credentials](media/autodesk-sso-provisioning-tutorial/step2-3-get-credentials.png)
 

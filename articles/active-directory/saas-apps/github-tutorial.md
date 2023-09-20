@@ -18,7 +18,7 @@ ms.author: jeedes
 In this tutorial, you'll learn how to integrate a GitHub Enterprise Cloud **Organization** with Azure Active Directory (Azure AD). When you integrate a GitHub Enterprise Cloud Organization with Azure AD, you can:
 
 * Control in Azure AD who has access to your GitHub Enterprise Cloud Organization.
-* Manage access to your GitHub Enterprise Cloud Organization in one central location - the Azure portal.
+* Manage access to your GitHub Enterprise Cloud Organization in one central location.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ To configure and test Azure AD SSO with GitHub, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **GitHub** > **Single sign-on**.
@@ -98,7 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -112,7 +112,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to GitHub.
+In this section, you'll enable B.Simon to use single sign-on by granting access to GitHub.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **GitHub**.
@@ -137,17 +137,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot that shows the "S A M L single sign-on" section with "Enable S A M L authentication" with U R L text boxes highlighted.](./media/github-tutorial/authentication.png)
 
-    a. Copy **single sign-on URL** value and paste this value into the **Sign on URL** text box in the **Basic SAML Configuration** in the Azure portal.
+    a. Copy **single sign-on URL** value and paste this value into the **Sign on URL** text box in the **Basic SAML Configuration**.
     
-    b. Copy **assertion consumer service URL** value and paste this value into the **Reply URL** text box in the **Basic SAML Configuration** in the Azure portal.
+    b. Copy **assertion consumer service URL** value and paste this value into the **Reply URL** text box in the **Basic SAML Configuration**.
 
 4. Configure the following fields:
 
     ![Screenshot that shows the "Sign on URL", "Issuer", and "Public certificate" text boxes.](./media/github-tutorial/configure.png)
 
-    a. In the **Sign on URL** textbox, paste **Login URL** value which you have copied from the Azure portal.
+    a. In the **Sign on URL** textbox, paste **Login URL** value which you copied previously.
 
-    b. In the **Issuer** textbox, paste **Azure AD Identifier** value which you have copied from the Azure portal.
+    b. In the **Issuer** textbox, paste **Azure AD Identifier** value which you copied previously.
 
     c. Open the downloaded certificate from Azure portal in notepad, paste the content into the **Public Certificate** textbox.
 
@@ -199,7 +199,7 @@ The objective of this section is to create a user called Britta Simon in GitHub.
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to GitHub Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to GitHub Sign-on URL where you can initiate the login flow. 
 
 * Go to GitHub Sign-on URL directly and initiate the login flow from there.
 

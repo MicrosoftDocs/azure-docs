@@ -59,7 +59,7 @@ Before configuring Symantec Web Security Service (WSS) for automatic user provis
 
 	![Screenshot of the Third-Party Users & Groups Sync option.](media/symantec-web-security-service/third-party-users.png)
 
-4.  Copy the **SCIM URL** and **Token**. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Symantec Web Security Service (WSS)  		application in the Azure portal.
+4.  Copy the **SCIM URL** and **Token**. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Symantec Web Security Service (WSS)  		application.
 
 	![Screenshot of the New Integration dialog box with the S C I M U R L and Token text boxes called out.](media/symantec-web-security-service/scim.png)
 

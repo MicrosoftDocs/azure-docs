@@ -42,11 +42,11 @@ Add SpedTrack from the Azure AD application gallery to configure single sign-on 
 
 ### Assign an Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal. This test user will also need to be created within SpedTrack with a matching email.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account. This test user will also need to be created within SpedTrack with a matching email.
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SpedTrack** > **Single sign-on**.
@@ -94,7 +94,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. Download the SP Metadata file or copy the values of Identifier, Reply URL, Sign on URL and Logout URL. 
 
-1. Select **Upload Metadata** to upload the **Federation Metadata XML** file, which you've downloaded from the Azure portal.
+1. Select **Upload Metadata** to upload the **Federation Metadata XML** file, which you've downloaded.
 
 1. **Save** the changes within SpedTrack after uploading the file. 
 
@@ -113,7 +113,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the SpedTrack for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the SpedTrack for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the SpedTrack tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SpedTrack for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

@@ -68,7 +68,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Zscaler Private Access (ZPA) IdP ID](media/zscaler-private-access-provisioning-tutorial/idpid.png)
 
-7.	Scroll down to **Enable SCIM Sync**. Click on **Generate New Token** button. Copy the **Bearer Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Zscaler Private Access (ZPA) application in the Azure portal.
+7.	Scroll down to **Enable SCIM Sync**. Click on **Generate New Token** button. Copy the **Bearer Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Zscaler Private Access (ZPA) application.
 
 	![Zscaler Private Access (ZPA) Create Token](media/zscaler-private-access-provisioning-tutorial/token.png)
 
@@ -76,7 +76,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Zscaler Private Access (ZPA) Idp Name](media/zscaler-private-access-provisioning-tutorial/idpname.png)
 
-9.	Scroll down to view the **SCIM Service Provider Endpoint** at the end of the page. Copy the **SCIM Service Provider Endpoint**. This value will be entered in the Tenant URL field in the Provisioning tab of your Zscaler Private Access (ZPA) application in the Azure portal.
+9.	Scroll down to view the **SCIM Service Provider Endpoint** at the end of the page. Copy the **SCIM Service Provider Endpoint**. This value will be entered in the Tenant URL field in the Provisioning tab of your Zscaler Private Access (ZPA) application.
 
 	![Zscaler Private Access (ZPA) SCIM URL](media/zscaler-private-access-provisioning-tutorial/tenanturl.png)
 

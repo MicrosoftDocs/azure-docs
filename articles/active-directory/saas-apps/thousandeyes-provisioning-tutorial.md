@@ -72,7 +72,7 @@ This section guides you through connecting your Azure AD to ThousandEyes's user 
 
 	![Screenshot shows where to find the Account Settings link for the Current Account Group.](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
-6. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your ThousandEyes app. If the connection fails, ensure your ThousandEyes account has Admin permissions and try step 5 again.
+6. Select **Test Connection** to ensure Azure AD can connect to your ThousandEyes app. If the connection fails, ensure your ThousandEyes account has Admin permissions and try step 5 again.
 
 7. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 

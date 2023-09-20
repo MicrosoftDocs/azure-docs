@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Khoros Care with Azure Active Di
 
 * Control in Azure AD who has access to Khoros Care.
 * Enable your users to be automatically signed-in to Khoros Care with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with Khoros Care, perform the following steps
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Khoros Care** > **Single sign-on**.
@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.response.lithium.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Khoros Care Client support team](mailto:support@khoros.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Khoros Care Client support team](mailto:support@khoros.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Khoros Care application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -109,7 +109,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -123,7 +123,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Khoros Care.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Khoros Care.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Khoros Care**.
@@ -135,7 +135,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Khoros Care SSO
 
-To configure single sign-on on **Khoros Care** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Khoros Care support team](mailto:support@khoros.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Khoros Care** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [Khoros Care support team](mailto:support@khoros.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Khoros Care test user
 
@@ -147,13 +147,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Khoros Care Sign-On URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Khoros Care Sign-On URL where you can initiate the login flow.  
 
 * Go to Khoros Care Sign-On URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Khoros Care for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the Khoros Care for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Khoros Care tile in the My Apps, if configured in SP mode you would be redirected to the application Sign-On page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Khoros Care for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

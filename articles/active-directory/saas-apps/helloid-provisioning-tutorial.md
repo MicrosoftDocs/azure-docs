@@ -54,7 +54,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![New Secret button](media/helloid-provisioning-tutorial/new-secret.png)
 
-4. The **URL** and **Secret** fields are automatically populated. Copy and save the URL and Secret. These value will be entered in the **Tenant URL** * and **Secret Token** * field in the Provisioning tab of your HelloID application in the Azure portal.
+4. The **URL** and **Secret** fields are automatically populated. Copy and save the URL and Secret. These value will be entered in the **Tenant URL** * and **Secret Token** * field in the Provisioning tab of your HelloID application.
 
 	![URL and secret generated](media/helloid-provisioning-tutorial/url-secret.png)
 
