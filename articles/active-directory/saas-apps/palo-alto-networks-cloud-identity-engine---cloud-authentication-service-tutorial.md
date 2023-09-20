@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate Palo Alto Networks Cloud Identit
 
 * Control in Azure AD who has access to Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service.
 * Enable your users to be automatically signed-in to Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with Palo Alto Networks Cloud Identity Engine
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service** > **Single sign-on**.
@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<RegionUrl>.paloaltonetworks.com/sp/acs`
 
 	> [!Note]
-	> If the **Identifier** value does not get auto populated, then please fill in the value manually according to your requirement. The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service Client support team](mailto:support@paloaltonetworks.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> If the **Identifier** value does not get auto populated, then please fill in the value manually according to your requirement. The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service Client support team](mailto:support@paloaltonetworks.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -107,7 +107,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -121,7 +121,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service**.
@@ -145,7 +145,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. From Step 1, click **Download SP Metadata** to download the metadata file and save it on your computer.
 
-	b. From Step 2, fill the required fields to **Configure your Identity Provider Profile** which you have copied from the Azure portal. 
+	b. From Step 2, fill the required fields to **Configure your Identity Provider Profile** which you copied previously. 
 
 	c. From Step 3, click **Test SAML Setup** to verify the profile configuration and select **MFA is enabled on the IDP**.
 

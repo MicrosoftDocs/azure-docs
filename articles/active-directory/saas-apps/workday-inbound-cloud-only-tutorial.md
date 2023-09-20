@@ -178,7 +178,7 @@ In this section, you will configure how user data flows from Workday to Azure Ac
 
 ## Enable and launch user provisioning
 
-Once the Workday provisioning app configurations have been completed, you can turn on the provisioning service in the Azure portal.
+Once the Workday provisioning app configurations have been completed, you can turn on the provisioning service.
 
 > [!TIP]
 > By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or Workday data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.

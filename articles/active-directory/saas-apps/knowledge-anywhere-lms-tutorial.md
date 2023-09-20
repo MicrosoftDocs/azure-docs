@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Knowledge Anywhere LMS with Azur
 
 * Control in Azure AD who has access to Knowledge Anywhere LMS.
 * Enable your users to be automatically signed-in to Knowledge Anywhere LMS with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ To configure and test Azure AD SSO with Knowledge Anywhere LMS, perform the foll
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Knowledge Anywhere LMS** application integration page, find the **Manage** section and select **Single sign-on**.
@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<CLIENTNAME>.knowledgeanywhere.com/`
 
 	> [!NOTE]
-	> The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [Knowledge Anywhere LMS Client support team](https://knowany.zendesk.com/hc/en-us/articles/360000469034-SAML-2-0-Single-Sign-On-SSO-Set-Up-Guide) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [Knowledge Anywhere LMS Client support team](https://knowany.zendesk.com/hc/en-us/articles/360000469034-SAML-2-0-Single-Sign-On-SSO-Set-Up-Guide) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -98,19 +98,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B. Simon.
+In this section, you'll create a test user called B. Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B. Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `BrittaSimon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Knowledge Anywhere LMS.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Knowledge Anywhere LMS.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Knowledge Anywhere LMS**.
@@ -147,17 +149,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. In the **IDP Entity ID** textbox, paste **Azure AD Identifier** value ,which you have copied from Azure portal.
 
-    c. In the **IDP URL** textbox, paste **Login URL** value, which you have copied from Azure portal.
+    c. In the **IDP URL** textbox, paste **Login URL** value.
 
-    d. Open the downloaded certificate file from the Azure portal into notepad, copy the content of the certificate and paste it into **Certificate** textbox.
+    d. Open the downloaded certificate file into notepad, copy the content of the certificate and paste it into **Certificate** textbox.
 
-    e. In the **Logout URL** textbox, paste **Logout URL** value, which you have copied from Azure portal.
+    e. In the **Logout URL** textbox, paste **Logout URL** value.
 
     f. Select **Main Site** from the dropdown for the **Domain**.
 
-    g. Copy the **SP Entity ID** value and paste it into **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
+    g. Copy the **SP Entity ID** value and paste it into **Identifier** text box in the **Basic SAML Configuration** section.
 
-    h. Copy the **SP Response(ACS) URL** value and paste it into **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+    h. Copy the **SP Response(ACS) URL** value and paste it into **Reply URL** text box in the **Basic SAML Configuration** section.
 
     i. Click **Save**.
 
@@ -169,7 +171,7 @@ In this section, a user called B. Simon is created in Knowledge Anywhere LMS. Kn
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Knowledge Anywhere LMS Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Knowledge Anywhere LMS Sign-on URL where you can initiate the login flow. 
 
 * Go to Knowledge Anywhere LMS Sign-on URL directly and initiate the login flow from there.
 

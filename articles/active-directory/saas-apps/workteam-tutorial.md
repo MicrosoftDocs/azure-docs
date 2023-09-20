@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Workteam with Azure Active Direc
 
 * Control in Azure AD who has access to Workteam.
 * Enable your users to be automatically signed-in to Workteam with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ To configure and test Azure AD SSO with Workteam, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Workteam** > **Single sign-on**.
@@ -87,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -101,7 +101,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Workteam.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Workteam.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Workteam**.
@@ -132,11 +132,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. Select **SAML IdP** as **AD Azure**.
 
-	b. In the **SAML Single Sign-On Service URL** textbox, paste the value of **Login URL**, which you have copied from the Azure portal.
+	b. In the **SAML Single Sign-On Service URL** textbox, paste the value of **Login URL**, which you copied previously.
 
-	c. In the **SAML Entity ID** textbox, paste the value of **Azure AD Identifier**, which you have copied from the Azure portal.
+	c. In the **SAML Entity ID** textbox, paste the value of **Azure AD Identifier**, which you copied previously.
 
-	d. In Notepad, open the **base-64 encoded certificate** that you downloaded from the Azure portal, copy its content, and then paste it into the **SAML Signing Certificate (Base64)** box.
+	d. In Notepad, open the **base-64 encoded certificate** that you downloaded, copy its content, and then paste it into the **SAML Signing Certificate (Base64)** box.
 
 	e. Click **OK**.
 
@@ -171,13 +171,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Workteam Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Workteam Sign on URL where you can initiate the login flow.  
 
 * Go to Workteam Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Workteam for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the Workteam for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Workteam tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Workteam for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

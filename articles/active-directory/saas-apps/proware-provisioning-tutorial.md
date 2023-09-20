@@ -48,8 +48,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Sign in to the [Proware](https://www.metaware.nl/Proware) application. 
 2. Navigate to **Control panel** -> **Admin**.
 3. Select **Control panel settings**, scroll down to **User Provisioning** and then **enable** User Provisioning. 
-4. Click on the **Create bearer token** button and copy the **Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Proware application in the Azure portal.
-5. Copy the **Tenant URL**. This value will be entered in the Tenant URL field in the Provisioning tab of your Proware application in the Azure portal.
+4. Click on the **Create bearer token** button and copy the **Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Proware application.
+5. Copy the **Tenant URL**. This value will be entered in the Tenant URL field in the Provisioning tab of your Proware application.
 
 ## Step 3. Add Proware from the Azure AD application gallery
 

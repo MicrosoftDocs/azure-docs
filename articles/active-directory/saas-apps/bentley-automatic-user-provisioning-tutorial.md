@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Bentley - Automatic User Provisioning to support provisioning with Azure AD
 
-Reach out to the Bentley User Provisioning [support](https://communities.bentley.com/communities/other_communities/licensing_cloud_and_web_services/w/wiki/52836/microsoft-azure-ad-automatic-user-provisioning-configuration) team for Tenant URL and Secret Token. These values will be entered in the Provisioning tab of the Bentley application in the Azure portal.
+Reach out to the Bentley User Provisioning [support](https://communities.bentley.com/communities/other_communities/licensing_cloud_and_web_services/w/wiki/52836/microsoft-azure-ad-automatic-user-provisioning-configuration) team for Tenant URL and Secret Token. These values will be entered in the Provisioning tab of the Bentley application.
 
 ## Step 3. Add Bentley - Automatic User Provisioning from the Azure AD application gallery
 

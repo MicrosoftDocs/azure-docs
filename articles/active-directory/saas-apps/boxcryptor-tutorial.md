@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate Boxcryptor with Azure Active Dir
 
 * Control in Azure AD who has access to Boxcryptor.
 * Enable your users to be automatically signed-in to Boxcryptor with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ To configure and test Azure AD SSO with Boxcryptor, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Boxcryptor** > **Single sign-on**.
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user 
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -105,7 +105,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Boxcryptor.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Boxcryptor.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Boxcryptor**.
@@ -117,7 +117,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Boxcryptor SSO
 
-To configure single sign-on on **Boxcryptor** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Boxcryptor support team](mailto:support@boxcryptor.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Boxcryptor** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the application configuration to [Boxcryptor support team](mailto:support@boxcryptor.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Boxcryptor test user
 
@@ -129,7 +129,7 @@ Boxcryptor also supports automatic user provisioning, you can find more details 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Boxcryptor Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Boxcryptor Sign-on URL where you can initiate the login flow. 
 
 * Go to Boxcryptor Sign-on URL directly and initiate the login flow from there.
 

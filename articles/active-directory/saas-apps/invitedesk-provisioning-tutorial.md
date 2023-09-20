@@ -52,7 +52,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
       ![InviteDesk token page](./media\invitedesk-provisioning-tutorial\invitedesk-token-page.png)
 
 
-1. On clicking the toggle button **access code** corresponding to the **Azure Tenant-Id** would be generated.This value will be entered in the **Secret Token** * field in the Provisioning tab of your LucidChart application in the Azure portal. 
+1. On clicking the toggle button **access code** corresponding to the **Azure Tenant-Id** would be generated.This value will be entered in the **Secret Token** * field in the Provisioning tab of your LucidChart application. 
 
       ![InviteDesk token generate](./media\invitedesk-provisioning-tutorial\invitedesk-token-generate.png)
 

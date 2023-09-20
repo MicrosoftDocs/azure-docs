@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate AnswerHub with Azure Active Dire
 
 * Control in Azure AD who has access to AnswerHub.
 * Enable your users to be automatically signed-in to AnswerHub with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ To configure and test Azure AD SSO with AnswerHub, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **AnswerHub** > **Single sign-on**.
@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<company>.answerhub.com`
 
     > [!NOTE]
-    > These values aren't real. Update these values with the actual Identifier and Sign on URL. Contact the [AnswerHub support team](mailto:success@answerhub.com) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values aren't real. Update these values with the actual Identifier and Sign on URL. Contact the [AnswerHub support team](mailto:success@answerhub.com) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer.
 
@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -103,7 +103,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to AnswerHub.
+In this section, you'll enable B.Simon to use single sign-on by granting access to AnswerHub.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **AnswerHub**.
@@ -132,9 +132,9 @@ In this section, you set up single sign-on for AnswerHub.
 
     ![Screenshot shows AnswerHub page with the Users & Groups tab selected.](./media/answerhub-tutorial/admin.png "SAML Setup")  
 
-    a. In the **IDP Login URL** box, paste the **Login URL** that you copied from the Azure portal.
+    a. In the **IDP Login URL** box, paste the **Login URL** that you copied.
 
-    b. In the **IDP Logout URL** box, paste the **Logout URL** that you copied from the Azure portal.
+    b. In the **IDP Logout URL** box, paste the **Logout URL** that you copied.
 
     c. In the **IDP Name Identifier Format** box, enter the **Identifier** value selected in the **User Attributes** section on the Azure portal.
 
@@ -144,7 +144,7 @@ In this section, you set up single sign-on for AnswerHub.
 
     ![Keys and Certificates section](./media/answerhub-tutorial/users.png "Keys and Certificates")  
 
-    a. Open the Base64-encoded certificate that you downloaded from the Azure portal in Notepad, copy its contents, and then paste the contents into the **IDP Public Key (x509 Format)** box.
+    a. Open the Base64-encoded certificate that you downloaded in Notepad, copy its contents, and then paste the contents into the **IDP Public Key (x509 Format)** box.
 
     b. Select **Save**.
 
@@ -175,7 +175,7 @@ To enable Azure AD users to sign in to AnswerHub, you need to add them in Answer
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to AnswerHub Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to AnswerHub Sign-on URL where you can initiate the login flow. 
 
 * Go to AnswerHub Sign-on URL directly and initiate the login flow from there.
 

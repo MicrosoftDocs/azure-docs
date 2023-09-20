@@ -69,47 +69,49 @@ For the following reasons, this action should not be done with the profile they 
 
 1. Log on to your **Concur** tenant.
 
-2. From the **Administration** menu, select **Web Services**.
+1. From the **Administration** menu, select **Web Services**.
    
     ![Concur tenant](./media/concur-provisioning-tutorial/IC721729.png "Concur tenant")
 
-3. On the left side, from the **Web Services** pane, select **Enable Partner Application**.
+1. On the left side, from the **Web Services** pane, select **Enable Partner Application**.
    
     ![Enable Partner Application](./media/concur-provisioning-tutorial/ic721730.png "Enable Partner Application")
 
-4. From the **Enable Application** list, select **Azure Active Directory**, and then click **Enable**.
+1. From the **Enable Application** list, select **Azure Active Directory**, and then click **Enable**.
    
     ![Microsoft Azure Active Directory](./media/concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
 
-5. Click **Yes** to close the **Confirm Action** dialog.
+1. Click **Yes** to close the **Confirm Action** dialog.
    
     ![Confirm Action](./media/concur-provisioning-tutorial/ic721732.png "Confirm Action")
 
-6. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications** section.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
-7. If you have already configured Concur for single sign-on, search for your instance of Concur using the search field. Otherwise, select **Add** and search for **Concur** in the application gallery. Select Concur from the search results, and add it to your list of applications.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
-8. Select your instance of Concur, then select the **Provisioning** tab.
+1. If you have already configured Concur for single sign-on, search for your instance of Concur using the search field. Otherwise, select **Add** and search for **Concur** in the application gallery. Select Concur from the search results, and add it to your list of applications.
 
-9. Set the **Provisioning Mode** to **Automatic**. 
+1. Select your instance of Concur, then select the **Provisioning** tab.
+
+1. Set the **Provisioning Mode** to **Automatic**. 
  
     ![Screenshot of the Provisioning tab for Concur in Azure portal. Provisioning Mode is set to Automatic and the Test Connection button is highlighted.](./media/concur-provisioning-tutorial/provisioning.png)
 
-10. Under the **Admin Credentials** section, enter the **user name** and the **password** of your Concur administrator.
+1. Under the **Admin Credentials** section, enter the **user name** and the **password** of your Concur administrator.
 
-11. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Concur app. If the connection fails, ensure your Concur account has Team Admin permissions.
+1. Select **Test Connection** to ensure Azure AD can connect to your Concur app. If the connection fails, ensure your Concur account has Team Admin permissions.
 
-12. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox.
+1. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox.
 
-13. Click **Save.**
+1. Click **Save.**
 
-14. Under the Mappings section, select **Synchronize Azure Active Directory Users to Concur.**
+1. Under the Mappings section, select **Synchronize Azure Active Directory Users to Concur.**
 
-15. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to Concur. The attributes selected as **Matching** properties are used to match the user accounts in Concur for update operations. Select the Save button to commit any changes.
+1. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to Concur. The attributes selected as **Matching** properties are used to match the user accounts in Concur for update operations. Select the Save button to commit any changes.
 
-16. To enable the Azure AD provisioning service for Concur, change the **Provisioning Status** to **On** in the **Settings** section
+1. To enable the Azure AD provisioning service for Concur, change the **Provisioning Status** to **On** in the **Settings** section
 
-17. Click **Save.**
+1. Click **Save.**
 
 You can now create a test account. Wait for up to 20 minutes to verify that the account has been synchronized to Concur.
 

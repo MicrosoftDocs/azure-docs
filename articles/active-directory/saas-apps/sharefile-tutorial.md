@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate Citrix ShareFile with Azure Acti
 
 * Control in Azure AD who has access to Citrix ShareFile.
 * Enable your users to be automatically signed-in to Citrix ShareFile with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ To configure and test Azure AD single sign-on with Citrix ShareFile, perform the
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Citrix ShareFile** > **Single sign-on**.
@@ -97,7 +97,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<tenant-name>.sharefile.com/saml/login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. Contact [Citrix ShareFile Client support team](https://www.citrix.co.in/products/citrix-content-collaboration/support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. Contact [Citrix ShareFile Client support team](https://www.citrix.co.in/products/citrix-content-collaboration/support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -109,7 +109,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user 
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -123,7 +123,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Citrix ShareFile.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Citrix ShareFile.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Citrix ShareFile**.
@@ -154,15 +154,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
    
 	a. Select **YES** in the **Enable SAML**.
 
-	b. Copy the **ShareFile Issuer/ Entity ID** value and paste it into the **Identifier URL** box in the **Basic SAML Configuration** dialog box in the Azure portal.
+	b. Copy the **ShareFile Issuer/ Entity ID** value and paste it into the **Identifier URL** box in the **Basic SAML Configuration** dialog box.
 	
-	c. In **Your IDP Issuer/ Entity ID** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal.
+	c. In **Your IDP Issuer/ Entity ID** textbox, paste the value of **Azure Ad Identifier**..
 
-	d. Click **Change** next to the **X.509 Certificate** field and then upload the certificate you downloaded from the Azure portal.
+	d. Click **Change** next to the **X.509 Certificate** field and then upload the certificate you downloaded.
 	
-	e. In **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
+	e. In **Login URL** textbox, paste the value of **Login URL**..
 	
-	f. In **Logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+	f. In **Logout URL** textbox, paste the value of **Logout URL**..
 
 	g. In the **Optional Settings**, choose **SP-Initiated Auth Context** as **User Name and Password** and **Exact**.
 
@@ -195,7 +195,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on **Test this application** in Azure portal. This will redirect to Citrix ShareFile Sign-on URL where you can initiate the login flow.
+* Click on **Test this application**, this will redirect to Citrix ShareFile Sign-on URL where you can initiate the login flow.
 
 * Go to Citrix ShareFile Sign-on URL directly and initiate the login flow from there.
 

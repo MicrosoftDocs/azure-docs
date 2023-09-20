@@ -52,7 +52,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
    ![Screenshot of API Access Token (api url).](media/xledger-provisioning-tutorial/generate-new-token-api-url.png)
 
-These values will be used in the Provisioning tab of your Xledger application in the Azure portal. (Step 5)
+These values will be used in the Provisioning tab of your Xledger application. (Step 5)
 
 ## Step 3. Add Xledger from the Azure AD application gallery
 

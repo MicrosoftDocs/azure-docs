@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate Tango Reserve by AgilQuest (EU I
 
 * Control in Azure AD who has access to Tango Reserve by AgilQuest (EU Instance).
 * Enable your users to be automatically signed-in to Tango Reserve by AgilQuest (EU Instance) with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with Tango Reserve by AgilQuest (EU Instance)
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Tango Reserve by AgilQuest (EU Instance)** > **Single sign-on**.
@@ -92,7 +92,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://euauth.agilquest.com/eas-saml/saml/web/auth/<CustomerAlias>`
 
     > [!Note]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Tango Reserve by AgilQuest (EU Instance) support team](mailto:support-agilquest@tangoanalytics.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Tango Reserve by AgilQuest (EU Instance) support team](mailto:support-agilquest@tangoanalytics.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -104,7 +104,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -118,7 +118,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Tango Reserve by AgilQuest (EU Instance).
+In this section, you'll enable B.Simon to use single sign-on by granting access to Tango Reserve by AgilQuest (EU Instance).
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Tango Reserve by AgilQuest (EU Instance)**.
@@ -130,7 +130,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Tango Reserve by AgilQuest SSO
 
-To configure single sign-on on **Tango Reserve by AgilQuest (EU Instance)** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Tango Reserve by AgilQuest (EU Instance) support team](mailto:support-agilquest@tangoanalytics.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Tango Reserve by AgilQuest (EU Instance)** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [Tango Reserve by AgilQuest (EU Instance) support team](mailto:support-agilquest@tangoanalytics.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Tango Reserve by AgilQuest test user
 
@@ -142,13 +142,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Tango Reserve by AgilQuest (EU Instance) Sign-on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Tango Reserve by AgilQuest (EU Instance) Sign-on URL where you can initiate the login flow.  
 
 * Go to Tango Reserve by AgilQuest (EU Instance) Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Tango Reserve by AgilQuest (EU Instance) for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the Tango Reserve by AgilQuest (EU Instance) for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Tango Reserve by AgilQuest (EU Instance) tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Tango Reserve by AgilQuest (EU Instance) for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

@@ -57,7 +57,7 @@ Before configuring Dialpad for automatic user provisioning with Azure AD, you wi
 
 	:::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Screenshot of the Edit A P I key page in the Dialpad admin console. The Save button is highlighted." border="false":::
 
-3. Click the **Click to show value** button for your recently created API key and copy the value shown. This value will be entered in the **Secret Token** field in the Provisioning tab of your Dialpad application in the Azure portal. 
+3. Click the **Click to show value** button for your recently created API key and copy the value shown. This value will be entered in the **Secret Token** field in the Provisioning tab of your Dialpad application. 
 
 	![Dialpad Create Token](media/dialpad-provisioning-tutorial/dialpad04.png)
 

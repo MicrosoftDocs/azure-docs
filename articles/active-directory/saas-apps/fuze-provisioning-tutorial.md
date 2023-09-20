@@ -51,7 +51,7 @@ Before configuring Fuze for automatic user provisioning with Azure AD, you will 
 
 2. You can find these SKUs and codes in your Fuze contract and configuration documents, or by contacting your Fuze representative.
 
-3. Once the requirements are received, your Fuze representative will provide you with the Fuze authentication token that is required to enable the integration. This value will be entered in the Secret Token field in the Provisioning tab of your Fuze application in the Azure portal.
+3. Once the requirements are received, your Fuze representative will provide you with the Fuze authentication token that is required to enable the integration. This value will be entered in the Secret Token field in the Provisioning tab of your Fuze application.
 
 ## Step 3. Add Fuze from the Azure AD application gallery
 
