@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate Citrix Cloud SAML SSO with Azure
 
 * Control in Azure AD who has access to Citrix Cloud SAML SSO.
 * Enable your users to be automatically signed-in to Citrix Cloud SAML SSO with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with Citrix Cloud SAML SSO, perform the follo
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Citrix Cloud SAML SSO** > **Single sign-on**.
@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.cloud.com`
 
 	> [!NOTE]
-	> The value is not real. Update the value with your Citrix Workspace URL. Access your Citrix Cloud account to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with your Citrix Workspace URL. Access your Citrix Cloud account to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Citrix Cloud SAML SSO application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -107,7 +107,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -124,7 +124,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 	
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Citrix Cloud SAML SSO.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Citrix Cloud SAML SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Citrix Cloud SAML SSO**.
@@ -150,17 +150,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot shows Configuration.](./media/citrix-cloud-saml-sso-tutorial/connect.png "Configuration")
 
-	a. In the **Entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+	a. In the **Entity ID** textbox, paste the **Azure AD Identifier** value which you copied previously.
 
 	b. In the **Sign Authentication Request**, select **Yes**, if you want to use `SAML Request signing`, else select **No**.
 
-	c. In the **SSO Service URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+	c. In the **SSO Service URL** textbox, paste the **Login URL** value which you copied previously.
 
 	d. Select **Binding Mechanism** from the drop-down, you can select either **HTTP-POST** or **HTTP-Redirect** binding.
 
 	e. Under **SAML Response**, select **Sign Either Response or Assertion** from the dropdown.
 
-	f. Upload the **Certificate (PEM)** from the Azure portal into the **X.509 Certificate** section.
+	f. Upload the **Certificate (PEM)** into the **X.509 Certificate** section.
 
 	g. In the **Authentication Context**, select **Unspecified** and **Exact**  from the dropdown.
 

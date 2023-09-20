@@ -48,7 +48,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	[ ![kpifire token generation](media/kpifire-provisioning-tutorial/kpifire-token-generation.png) ](media/kpifire-provisioning-tutorial/kpifire-token-generation.png#lightbox)
 
-1. Copy and save the SCIM token. This value will be entered in the **Secret Token** field in the Provisioning tab of your kpifire application in the Azure portal. 
+1. Copy and save the SCIM token. This value will be entered in the **Secret Token** field in the Provisioning tab of your kpifire application. 
 
 
 ## Step 3. Add kpifire from the Azure AD application gallery

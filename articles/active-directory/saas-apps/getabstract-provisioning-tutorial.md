@@ -69,7 +69,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![Screenshot that shows the getAbstract SCIM Token 2.](media/getabstract-provisioning-tutorial/scim-generate-token-step-1.png)
 
-1. Either select the copy-to-clipboard icon or select the whole token and copy it. Also make a note that the Tenant/Base URL is `https://www.getabstract.com/api/scim/v2`. These values will be entered in the **Secret Token** and **Tenant URL** boxes on the **Provisioning** tab of your getAbstract application in the Azure portal.
+1. Either select the copy-to-clipboard icon or select the whole token and copy it. Also make a note that the Tenant/Base URL is `https://www.getabstract.com/api/scim/v2`. These values will be entered in the **Secret Token** and **Tenant URL** boxes on the **Provisioning** tab of your getAbstract application.
 
 	![Screenshot that shows the getAbstract SCIM Token 3.](media/getabstract-provisioning-tutorial/scim-generate-token-step-3.png)
 
@@ -91,7 +91,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### Configure automatic user provisioning for getAbstract in Azure AD
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise applications** > **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 	![Screenshot that shows the Enterprise applications pane.](common/enterprise-applications.png)
 

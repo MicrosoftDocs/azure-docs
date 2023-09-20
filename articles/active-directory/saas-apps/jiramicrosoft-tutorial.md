@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate JIRA SAML SSO by Microsoft with 
 
 * Control in Azure AD who has access to JIRA SAML SSO by Microsoft.
 * Enable your users to be automatically signed-in to JIRA SAML SSO by Microsoft with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Description
 
@@ -90,7 +90,7 @@ To configure and test Azure AD SSO with JIRA SAML SSO by Microsoft, perform the 
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **JIRA SAML SSO by Microsoft** > **Single sign-on**.
@@ -161,7 +161,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -175,7 +175,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to JIRA SAML SSO by Microsoft.
+In this section, you'll enable B.Simon to use single sign-on by granting access to JIRA SAML SSO by Microsoft.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **JIRA SAML SSO by Microsoft**.
@@ -223,7 +223,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, upon resolving the metadata, admin gets an error.
 
-	a. In the **Metadata URL** textbox, paste **App Federation Metadata Url** value which you have copied from the Azure portal and click the **Resolve** button. It reads the IdP metadata URL and populates all the fields information.
+	a. In the **Metadata URL** textbox, paste **App Federation Metadata Url** value which you have copied and click the **Resolve** button. It reads the IdP metadata URL and populates all the fields information.
 
 	b. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **JIRA SAML SSO by Microsoft Domain and URLs** section on Azure portal.
 
@@ -297,7 +297,7 @@ To enable Azure AD users to sign in to JIRA on-premises server, they must be pro
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to JIRA SAML SSO by Microsoft Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to JIRA SAML SSO by Microsoft Sign-on URL where you can initiate the login flow. 
 
 * Go to JIRA SAML SSO by Microsoft Sign-on URL directly and initiate the login flow from there.
 

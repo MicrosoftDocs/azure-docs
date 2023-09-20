@@ -53,7 +53,7 @@ Before configuring Figma for automatic user provisioning with Azure AD, you will
 
 	:::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Screenshot of the General tab of the Figma admin console. Under Log in and provisioning, Update log in settings is highlighted." border="false":::
 
-3. Copy the **Tenant ID**. This value will be used to construct the SCIM endpoint URL to be entered into the **Tenant URL** field in the Provisioning tab of your Figma application in the Azure portal.
+3. Copy the **Tenant ID**. This value will be used to construct the SCIM endpoint URL to be entered into the **Tenant URL** field in the Provisioning tab of your Figma application.
 
 	:::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Screenshot of the S A M L S S O section in the Figma admin console. A Tenant ID label and an adjacent link that says Copy are highlighted." border="false":::
 
@@ -61,7 +61,7 @@ Before configuring Figma for automatic user provisioning with Azure AD, you will
 
 	:::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Screenshot of the S C I M provisioning section in the Figma admin console. A link labeled Generate A P I token is highlighted." border="false":::
 
-5. Copy the  **API Token** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Figma application in the Azure portal. 
+5. Copy the  **API Token** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Figma application. 
 
 	:::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Screenshot of a page in the Figma admin console. Under Your provisioning A P I token, a placeholder for the token is highlighted." border="false":::
 

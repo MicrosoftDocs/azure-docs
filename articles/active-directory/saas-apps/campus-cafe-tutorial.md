@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Campus Café with Azure Active D
 
 * Control in Azure AD who has access to Campus Café.
 * Enable your users to be automatically signed-in to Campus Café with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ To configure and test Azure AD SSO with Campus Café, perform the following step
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Campus Café** > **Single sign-on**.
@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://{SSO}-web.scansoftware.com/cafeweb/loginsso`
 
 	> [!Note]
-	> If the **Identifier** value does not get auto polulated, then please fill in the value manually according to your requirement. The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [Campus Café Client support team](mailto:support@campuscafesoftware.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> If the **Identifier** value does not get auto polulated, then please fill in the value manually according to your requirement. The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [Campus Café Client support team](mailto:support@campuscafesoftware.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -97,7 +97,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -111,7 +111,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Campus Café.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Campus Café.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Campus Café**.
@@ -123,7 +123,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Campus Cafe SSO
 
-To configure single sign-on on **Campus Café** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Campus Café support team](mailto:support@campuscafesoftware.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Campus Café** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [Campus Café support team](mailto:support@campuscafesoftware.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Campus Cafe test user
 
@@ -133,7 +133,7 @@ In this section, you create a user called B.Simon in Campus Café. Work with [C
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Campus Cafe Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Campus Cafe Sign-on URL where you can initiate the login flow. 
 
 * Go to Campus Cafe Sign-on URL directly and initiate the login flow from there.
 

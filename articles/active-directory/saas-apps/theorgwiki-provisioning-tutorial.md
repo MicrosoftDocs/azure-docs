@@ -63,7 +63,7 @@ Before configuring TheOrgWiki for automatic user provisioning with Azure AD, you
 
 	![Screenshot of the New Service Account dialog box with the Service Account Type, Token Based, and Save options called out.](media/theorgwiki-provisioning-tutorial/auth.png)
 
-5. 	Copy the **Active Tokens**. This value will be entered in the Secret Token field in the Provisioning tab of your TheOrgWiki application in the Azure portal.
+5. 	Copy the **Active Tokens**. This value will be entered in the Secret Token field in the Provisioning tab of your TheOrgWiki application.
 	 
 	![Screenshot of the Manage Tokens for S C I M provisioning dialog box.](media/theorgwiki-provisioning-tutorial/token.png)
 

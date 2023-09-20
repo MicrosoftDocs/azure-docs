@@ -42,7 +42,6 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 1. Determine what data to [map between Azure AD and Zendesk](../app-provisioning/customize-application-attributes.md). 
-1. In the [Azure portal](https://portal.azure.com), in the navigation pane on the left, select **Azure Active Directory**.
 
 ## Step 2. Configure Zendesk to support provisioning with Azure AD
 
