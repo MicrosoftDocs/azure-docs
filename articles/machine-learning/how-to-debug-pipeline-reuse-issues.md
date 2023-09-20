@@ -37,7 +37,7 @@ Azure Machine Learning pipeline has holistic logic to calculate whether a compon
 Reuse criteria:
 
 - Component definition `is_determinstic` = true
-- Pipeline runtime setting ForceReRun = false
+- Pipeline runtime setting `ForceReRun` = false
 - Component code, environment definition, inputs and parameters, output settings, and run settings are all the same.
 
 If a component meets the reuse criteria, the pipeline service skips execution for the component, copies original component's status, displays original component's output/logs/metrics for the reused component. In the pipeline UI, the reused component shows a little recycle icon to indicate this component has been reused.  
