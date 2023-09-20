@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate Coupa Risk Assess with Azure Act
 
 * Control in Azure AD who has access to Coupa Risk Assess.
 * Enable your users to be automatically signed-in to Coupa Risk Assess with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ To configure and test Azure AD SSO with Coupa Risk Assess, perform the following
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Coupa Risk Assess** > **Single sign-on**.
@@ -100,7 +100,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<PROD ENTITY>.hiperos.com/sp/<CUSTOMERIDENTIFIER>.login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Coupa Risk Assess Client support team](mailto:rasupport@coupa.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Coupa Risk Assess Client support team](mailto:rasupport@coupa.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -111,7 +111,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -125,7 +125,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Coupa Risk Assess.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Coupa Risk Assess.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Coupa Risk Assess**.
@@ -137,7 +137,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Coupa Risk Assess SSO
 
-To configure single sign-on on **Coupa Risk Assess** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Coupa Risk Assess support team](mailto:rasupport@coupa.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Coupa Risk Assess** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [Coupa Risk Assess support team](mailto:rasupport@coupa.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Coupa Risk Assess test user
 
@@ -149,13 +149,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-1. Click on **Test this application** in Azure portal. This will redirect to Coupa Risk Assess Sign on URL where you can initiate the login flow.  
+1. Click on **Test this application**, this will redirect to Coupa Risk Assess Sign on URL where you can initiate the login flow.  
 
 1. Go to Coupa Risk Assess Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Coupa Risk Assess for which you set up the SSO 
+* Click on **Test this application**, and you should be automatically signed in to the Coupa Risk Assess for which you set up the SSO 
 
 You can also use Microsoft Access Panel to test the application in any mode. When you click the Coupa Risk Assess tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Coupa Risk Assess for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

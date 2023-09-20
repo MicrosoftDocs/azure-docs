@@ -64,7 +64,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
    ![Next](media/sigma-computing-provisioning-tutorial/sigma-create-token.png)
 
-8. Sigma will provide you with a **Bearer Token** and **Directory Base URL**. Copy and save these values in a secure location. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Sigma Computing application in the Azure portal. Click **Done**.
+8. Sigma will provide you with a **Bearer Token** and **Directory Base URL**. Copy and save these values in a secure location. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Sigma Computing application. Click **Done**.
 
    ![Sigma](media/sigma-computing-provisioning-tutorial/sigma-copy-keys.png)
    

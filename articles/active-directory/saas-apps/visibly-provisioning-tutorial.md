@@ -45,7 +45,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Visibly to support provisioning with Azure AD
 
-Reach out to Visibly support team for **Tenant URL** and **Secret Token**. These values will be entered in the Provisioning tab of your Visibly application in the Azure portal.
+Reach out to Visibly support team for **Tenant URL** and **Secret Token**. These values will be entered in the Provisioning tab of your Visibly application.
 
 ## Step 3. Add Visibly from the Azure AD application gallery
 

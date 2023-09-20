@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate foundU with Azure Active Directo
 
 * Control in Azure AD who has access to foundU.
 * Enable your users to be automatically signed-in to foundU with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ To configure and test Azure AD SSO with foundU, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **foundU** > **Single sign-on**.
@@ -95,7 +95,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -109,7 +109,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to foundU.
+In this section, you'll enable B.Simon to use single sign-on by granting access to foundU.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **foundU**.
@@ -131,17 +131,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot for foundU sso configuration](./media/foundu-tutorial/configuration-1.png)
 
-    a. Copy **Identifier(Entity ID)** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration section** in the Azure portal.
+    a. Copy **Identifier(Entity ID)** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration section**.
 
-    b. Copy **Reply URL (Assertion Consumer Service URL)** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration section** in the Azure portal.
+    b. Copy **Reply URL (Assertion Consumer Service URL)** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration section**.
 
-    c. Copy **Logout URL** value, paste this value into the **Logout URL** text box in the **Basic SAML Configuration section** in the Azure portal.
+    c. Copy **Logout URL** value, paste this value into the **Logout URL** text box in the **Basic SAML Configuration section**.
 
-    d. In the **Entity ID** textbox, paste the **Identifier** value which you have copied from the Azure portal.
+    d. In the **Entity ID** textbox, paste the **Identifier** value which you copied previously.
 
-    e. In the **Single Sign-on Service URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    e. In the **Single Sign-on Service URL** textbox, paste the **Login URL** value which you copied previously.
 
-    f. In the **Single Logout Service URL** textbox, paste the **Logout URL** value which you have copied from the Azure portal.
+    f. In the **Single Logout Service URL** textbox, paste the **Logout URL** value which you copied previously.
 
     g. Click **Choose File** to upload the downloaded **Certificate (Base64)** file from Azure portal.
 
@@ -157,13 +157,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to foundU Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to foundU Sign on URL where you can initiate the login flow.  
 
 * Go to foundU Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the foundU for which you set up the SSO 
+* Click on **Test this application**, and you should be automatically signed in to the foundU for which you set up the SSO 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the foundU tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the foundU for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

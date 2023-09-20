@@ -57,7 +57,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![Envoy Save](media/envoy-provisioning-tutorial/microsoft-azure.png)
 
-4. Copy the **OAUTH BEARER TOKEN**. This value will be entered in the **Secret Token** field in the provisioning tab of your Envoy application in the Azure portal.
+4. Copy the **OAUTH BEARER TOKEN**. This value will be entered in the **Secret Token** field in the provisioning tab of your Envoy application.
 	
 	![Envoy OAUTH](media/envoy-provisioning-tutorial/token.png)
 

@@ -41,7 +41,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure WEDO to support provisioning with Azure AD
 
-* Reach out to WEDO support at [info@wedo.swiss](mailto:info@wedo.swiss) to get your **Tenant URL** and **Secret Token**. These values will be entered in the Tenant URL * field and Secret Token * field in the Provisioning tab of your WEDO application in the Azure portal.
+* Reach out to WEDO support at [info@wedo.swiss](mailto:info@wedo.swiss) to get your **Tenant URL** and **Secret Token**. These values will be entered in the Tenant URL * field and Secret Token * field in the Provisioning tab of your WEDO application.
 
 ## Step 3. Add WEDO from the Azure AD application gallery
 

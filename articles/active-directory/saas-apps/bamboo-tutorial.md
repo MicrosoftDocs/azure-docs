@@ -60,7 +60,7 @@ To configure and test Azure AD SSO with SAML SSO for Bamboo by resolution GmbH, 
 
 ### Configure Azure AD SSO
 
-In this section, you enable Azure AD SSO in the Azure portal.
+In this section, you enable Azure AD SSO.
  
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SAML SSO for  Bamboo by resolution GmbH** application integration page, find the **Manage** section and select **Single Sign-On**.
@@ -82,7 +82,7 @@ In this section, you enable Azure AD SSO in the Azure portal.
     `https://<server-base-url>/plugins/servlet/samlsso`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [SAML SSO for Bamboo by resolution GmbH Client support team](https://marketplace.atlassian.com/plugins/com.resolution.atlasplugins.samlsso-bamboo/server/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [SAML SSO for Bamboo by resolution GmbH Client support team](https://marketplace.atlassian.com/plugins/com.resolution.atlasplugins.samlsso-bamboo/server/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -95,21 +95,23 @@ In this section, you enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you create a test user in the Azure portal called B.Simon.
+In this section, you create a test user called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
-1. Select **New user** at the top of the screen.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write the password down.
-   1. Select **Create**.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
 In this section, you enable B.Simon to use Azure single sign-on by granting access to SAML SSO for bamboo by resolution GmbH.
 
-1. In the Azure portal, select **Enterprise Applications** > **All applications**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. In the applications list, select **SAML SSO for bamboo by resolution GmbH**.
 1. In the app's overview page, find the **Manage** section, and select **Users and groups**.
 1. Select **Add user**. Then, in the **Add Assignment** dialog box, select **Users and groups**.
@@ -149,7 +151,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
 	![The identity config](./media/bamboo-tutorial/identity-configuration.png)
 
-1. On the **Import SAML Idp Metadata** Page, click **Load File** to upload the **METADATA XML** file which you have downloaded from Azure portal.
+1. On the **Import SAML Idp Metadata** Page, click **Load File** to upload the **METADATA XML** file which you have downloaded previously.
 
 	![The idpmetadata](./media/bamboo-tutorial/metadata.png)
 
@@ -167,13 +169,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to SAML SSO for  Bamboo by resolution GmbH Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to SAML SSO for  Bamboo by resolution GmbH Sign on URL where you can initiate the login flow.  
 
 * Go to SAML SSO for  Bamboo by resolution GmbH Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the SAML SSO for Bamboo by resolution GmbH for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the SAML SSO for Bamboo by resolution GmbH for which you set up the SSO.
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the SAML SSO for Bamboo by resolution GmbH tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SAML SSO for  Bamboo by resolution GmbH for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

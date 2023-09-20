@@ -52,7 +52,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![OfficeSpace Software Add SCIM](media/officespace-software-provisioning-tutorial/scim.png)
 
-3.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your OfficeSpace Software application in the Azure portal.
+3.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your OfficeSpace Software application.
 
 	![OfficeSpace Software Create Token](media/officespace-software-provisioning-tutorial/token.png)
 

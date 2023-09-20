@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate Hoxhunt with Azure Active Direct
 
 * Control in Azure AD who has access to Hoxhunt.
 * Enable your users to be automatically signed-in to Hoxhunt with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ To configure and test Azure AD SSO with Hoxhunt, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Hoxhunt** > **Single sign-on**.
@@ -83,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://game.hoxhunt.com/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Hoxhunt Client support team](mailto:support@hoxhunt.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Hoxhunt Client support team](mailto:support@hoxhunt.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -95,7 +95,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -109,7 +109,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Hoxhunt.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Hoxhunt.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Hoxhunt**.
@@ -121,7 +121,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Hoxhunt SSO
 
-To configure single sign-on on **Hoxhunt** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Hoxhunt support team](mailto:support@hoxhunt.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Hoxhunt** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the application configuration to [Hoxhunt support team](mailto:support@hoxhunt.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Hoxhunt test user
 
@@ -133,7 +133,7 @@ Hoxhunt also supports automatic user provisioning, you can find more details [he
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Hoxhunt Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Hoxhunt Sign-on URL where you can initiate the login flow. 
 
 * Go to Hoxhunt Sign-on URL directly and initiate the login flow from there.
 
