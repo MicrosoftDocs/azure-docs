@@ -895,7 +895,7 @@ Use the [Apache Gremlin .NET driver](gremlin/quickstart-dotnet.md) to connect to
 
 1. Clean up the graph using [`SubmitAsync`](https://tinkerpop.apache.org/dotnetdocs/3.4.6/api/Gremlin.Net.Driver.GremlinClient.html#Gremlin_Net_Driver_GremlinClient_SubmitAsync__1_RequestMessage_).
 
-    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/601-emulator/Program.cs" highlight="1" id="resources":::
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/601-emulator/Program.cs" highlight="1" id="graph":::
 
 1. Use `SubmitAsync` again to add a new item to the graph with the specified parameters.
 
