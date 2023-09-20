@@ -242,7 +242,7 @@ To delegate role assignments with conditions, you assign roles as you currently 
 
 ## Built-in roles with conditions
 
-The [Key Vault Data Access Administrator (Preview)](built-in-roles.md#key-vault-data-access-administrator-preview) role already has a built-in condition to constrain role assignments. This role enables you to manage access to Key Vault secrets, certificates, and keys. It's exclusively focused on access control without the ability to assign privileged roles such as Owner or User Access Administrator roles. It allows better separation of duties for scenarios like managing encryption at rest across data services to further comply with least privilege principle. It includes a condition to constrain role assignments to the following Azure Key Vault roles:
+The [Key Vault Data Access Administrator (Preview)](built-in-roles.md#key-vault-data-access-administrator-preview) role already has a built-in condition to constrain role assignments. This role enables you to manage access to Key Vault secrets, certificates, and keys. It's exclusively focused on access control without the ability to assign privileged roles such as Owner or User Access Administrator roles. It allows better separation of duties for scenarios like managing encryption at rest across data services to further comply with least privilege principle. The condition constrains role assignments to the following Azure Key Vault roles:
 
 - [Key Vault Administrator](built-in-roles.md#key-vault-administrator)
 - [Key Vault Certificates Officer](built-in-roles.md#key-vault-certificates-officer)
