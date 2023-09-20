@@ -165,15 +165,14 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
 
 ## Connect to the SQL server
 
-Before connecting to the SQL server, verify that you have:
+1. Before connecting to the SQL server, verify that you have:
+    - The public IP address of the virtual machine
+    - Configured the SQL server to accept SQL authentication
+    - Created an admin account on the SQL server
 
-- The public IP address of the virtual machine
-- Configured the SQL server to accept SQL authentication
-- Created an admin account on the SQL server
+2. On a client device with [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) installed, connect to the public IP address of the Azure virtual machine.
 
-On a client device with [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) installed, connect to the public IP address of the Azure virtual machine.
-
-<br><img src="./media/how-to-tcp-tls-proxy/sql-connect.png" alt="A screenshot displaying the connection to a SQL server." width="60%">
+    <br><img src="./media/how-to-tcp-tls-proxy/sql-connect.png" alt="A screenshot displaying the connection to a SQL server." width="60%">
 
 ## Clean up resources
 
