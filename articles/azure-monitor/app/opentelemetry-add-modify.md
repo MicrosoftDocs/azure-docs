@@ -1327,10 +1327,9 @@ Not available in .NET.
 
 #### [Node.js](#tab/nodejs)
 
+If you want to add custom events or access the Application Insights API, replace the @azure/monitor-opentelemetry package with the `applicationinsights` [v3 Beta package](https://www.npmjs.com/package/applicationinsights/v/beta). It offers the same methods and interfaces, and all sample code for @azure/monitor-opentelemetry applies to the v3 Beta package.
 
-If you would like to add custom events or need access to the Application Insights API, you will need to replace the @azure/monitor-opentelemetry package with the `applicationinsights` v3 Beta package (https://www.npmjs.com/package/applicationinsights/v/beta). Same methods and interfaces should be available there, all sample code in documented for @azure/monitor-opentelemetry apply to v3 Beta package as well.
-
-You need to use `applicationinsights` v3 Beta package to send custom telemetry using the Application Insights Classic API. (https://www.npmjs.com/package/applicationinsights/v/beta)
+To send custom telemetry with the Application Insights Classic API, use the `applicationinsights` [v3 Beta package](https://www.npmjs.com/package/applicationinsights/v/beta).
 
 ```javascript
     const { TelemetryClient } = require("applicationinsights");
