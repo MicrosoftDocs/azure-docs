@@ -76,7 +76,7 @@ The following properties are supported for Google AdWords linked service:
 | type | The type property must be set to: **GoogleAdWords** | Yes |
 | connectionProperties | A group of properties that defines how to connect to Google AdWords. | Yes |
 | ***Under `connectionProperties`:*** | | |
-| googleAdsApiVersion | The Google Ads API version that you use. Please upgrade to the latest version before December 31, 2023. Learn how to upgrade your linked service [here](#upgrade-the-google-adwords-linked-service). | Yes |
+| googleAdsApiVersion | The Google Ads API version that you use.| No |
 | clientCustomerID | The Client customer ID of the AdWords account that you want to fetch report data for.  | Yes |
 | loginCustomerID | The customer ID of the Google AdWords manager account through which you want to fetch report data of specific customer.| No |
 | developerToken | The developer token associated with the manager account that you use to grant access to the AdWords API.  You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
@@ -85,10 +85,10 @@ The following properties are supported for Google AdWords linked service:
 | clientId | The client ID of the Google application used to acquire the refresh token. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | clientSecret | The client secret of the google application used to acquire the refresh token. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | email | The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.  | No |
-| privateKey | The service private key that is used for ServiceAuthentication for Google Ads API version v14. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md).| No |
-| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Specify this when you use ServiceAuthentication for Google Ads API version v12. | No |
-| trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over TLS. This property can only be set when using TLS on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Specify this when you use ServiceAuthentication for Google Ads API version v12. | No |
-| useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Specify this when you use ServiceAuthentication for Google Ads API version v12. | No |
+| privateKey | The service private key that is used for ServiceAuthentication for recommended driver version (Google Ads API version v14). You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md).| No |
+| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Specify this when you use ServiceAuthentication for the legacy driver version. | No |
+| trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over TLS. This property can only be set when using TLS on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Specify this when you use ServiceAuthentication for the legacy driver version. | No |
+| useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Specify this when you use ServiceAuthentication for the legacy driver version. | No |
 
 **Example:**
 
@@ -208,15 +208,15 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 ## Upgrade the Google AdWords linked service
 
-To upgrade your Google AdWords linked service, you need update your linked service and learn how to migrate from SQL to Google AdWords query language (GAQL).
+To upgrade your Google AdWords linked service, you need update your linked service and learn how to migrate from SQL to Google Ads Query Language (GAQL).
 
 ### Update the linked service configuration
 
-In **Edit linked service** page, select **v14** in **Google Ads API version**. If you use **Service authentication**, note that the configuration for it has changed and you need to apply new configuration. Refer to [Linked service properties](#linked-service-properties) for the detailed configuration. 
+Create a new Google AdWords linked service and configure it by referring to [Linked service properties](#linked-service-properties). Note that you need to select **Recommended** in **Driver version**, and if you use **Service authentication**, the configuration for it has changed and you need to apply new configuration.
 
 ### Migrate from SQL to GAQL
 
-If you use SQL statements in your pipelines that refer to the old Google AdWords linked service, you need to update it to GAQL statements. 
+If you use SQL statements in your pipelines that refer to the old Google AdWords linked service, you need to update them to GAQL statements. 
 
 In contrast to SQL, the query in GAQL is made up of six kinds of clauses:
 
@@ -237,7 +237,7 @@ You can follow the guidance below to convert the SQL statement to the correspond
 
 1. If `*` (asterisk) is used after the `SELECT` clause, then you need to specify all the required fields in place of the asterisk as GAQL doesn't support `SELECT *`. Go to this [article](https://developers.google.com/google-ads/api/fields/v14/ad_group) to see all the selectable fields in the specific resource.
 2. If the field name is used after the `SELECT` clause, then you need to convert the name to the corresponding field name in GAQL as they have different naming conventions. For example, the field name `campaign_id` in SQL query statement should be converted to `campaign.id` in GAQL. See [Field name](#field-name) for more details on field name conversion.
-3. The resource name should be left as it is.
+3. The resource name can be left as it is unless its case is inconsistent with what is specified [here](https://developers.google.com/google-ads/api/fields/v14/overview#list-of-all-resources).
 4. `WHERE` clause should be updated according to the [GAQL grammar](https://developers.google.com/google-ads/api/docs/query/grammar) as the operators supported by GAQL are not consistent with SQL, and field name should also be converted as described in the second point.
 
 Here are two very useful tools offered by Google and they are highly recommended when building the corresponding GAQL query statements:
@@ -249,7 +249,7 @@ Here are two very useful tools offered by Google and they are highly recommended
 
 The field name used in SQL is not aligned with GAQL. You also need to learn the conversion rules from field names in SQL to field names in GAQL. The conversion rule can be summarized as follows:
 
-1. If the field name belongs to a resource, the underscore (`_`) in SQL will be changed to dot (`.`) in GAQL. And for the words between the dot, the camelCase type statement used in SQL will be changed to standalone words with added underscores in between. The the first string of type PascalCase in SQL will be changed to normal words in GAQL.
+1. If the field name belongs to a resource, the underscore (`_`) in SQL will be changed to dot (`.`) in GAQL. And for the words between the dot, the camelCase type statement used in SQL will be changed to standalone words with added underscores in between. The first string of type PascalCase in SQL will be changed to the corresponding resource name in GAQL.
 
 2. If the field name belongs to segments or metrics, the prefix `segments.` or `metrics.` should be added in GAQL, then follow the same rule as described in the first point to convert the name.
 
