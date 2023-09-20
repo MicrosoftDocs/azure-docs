@@ -16,33 +16,20 @@ This article provides instructions to programmatically provision and manage Wind
 
 To provision a license, execute the following commands:
 
-```json
+```
 PUT  
-
 https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.HybridCompute/licenses/LICENSE_NAME?api-version=2023-06-20-preview 
-
 {  
-
     "location": "ENTER-REGION",  
-
     "properties": {  
-
         "licenseDetails": {  
-
             "state": "Activated",  
-
             "target": "Windows Server 2012",  
-
             "Edition": "Datacenter",  
-
             "Type": "pCore",  
-
             "Processors": 12  
-
         }  
-
     }  
-
 }
 ```
 
@@ -50,25 +37,16 @@ https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOUR
 
 To link a license, execute the following commands:
 
-```json
+```
 PUT  
-
 https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.HybridCompute/machines/MACHINE_NAME/licenseProfiles/default?api-version=2023-06-20-preview 
-
 { 
-
   “location”: “SAME_REGION_AS_MACHINE”, 
-
   “properties”: { 
-
     “esuProfile”: { 
-
       “assignedLicense”: “RESOURCE_ID_OF_LICENSE” 
-
     } 
-
   } 
-
 }
 ```
 
@@ -76,33 +54,20 @@ https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOUR
 
 To modify a license, execute the following commands:
 
-```json
+```
 PUT/PATCH 
-
 https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.HybridCompute/licenses/LICENSE_NAME?api-version=2023-06-20-preview 
-
 {  
-
     "location": "ENTER-REGION",  
-
     "properties": {  
-
         "licenseDetails": {  
-
             "state": "Activated",  
-
             "target": "Windows Server 2012",  
-
             "Edition": "Datacenter",  
-
             "Type": "pCore",  
-
             "Processors": 12  
-
         }  
-
     }  
-
 }
 ```
 
@@ -114,8 +79,7 @@ https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOUR
 
 To delete a license, execute the following commands:
 
-```json
+```
 DELETE  
-
 https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.HybridCompute/licenses/LICENSE_NAME?api-version=2023-06-20-preview
 ```
