@@ -25,7 +25,7 @@ A container app has access to different types of storage. A single app can take 
 
 A container app can read and write temporary data to ephemeral storage. Ephermal storage can be scoped to a container or a replica. The total amount of container-scoped and replica-scoped storage available to each replica depends on the total amount of vCPUs allocated to the replica.
 
-| vCPUs | Ephemeral storage |
+| vCPUs | Total ephemeral storage |
 |--|--|
 | 0.25 or lower | 1 GiB |
 | 0.5 or lower | 2 GiB |
