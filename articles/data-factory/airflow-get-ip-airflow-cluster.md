@@ -1,6 +1,6 @@
 ---
 title: Retrieve the IP address of a Managed Airflow cluster
-description: This article provides step-by-step instructions for how to retrieve the IP address of a Managed Airflow cluste in Azure Data Factory.
+description: This article provides step-by-step instructions for how to retrieve the IP address of a Managed Airflow cluster in Azure Data Factory.
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
