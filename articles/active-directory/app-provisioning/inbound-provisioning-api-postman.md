@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/19/2023
+ms.date: 09/15/2023
 ms.author: jfields
 ms.reviewer: cmmdesai
 ---
@@ -31,7 +31,7 @@ In this step, you'll configure the Postman app and invoke the API using the conf
 1. From the **Workspaces** menu, select **Create Workspace** to create a new Workspace called **Microsoft Entra ID Provisioning API**. 
 1. Download the following Postman collections and save it in your local directory.
     - [Entra ID Inbound Provisioning.postman_collection.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Entra%20ID%20Inbound%20Provisioning.postman_collection.json) (Request collection)
-    - [Test-API2AAD.postman_environment.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Test-API2AAD.postman_environment.json) (Environment collection for API-driven provisioning to on-premises AD)- 
+    - [Test-API2AAD.postman_environment.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Test-API2AAD.postman_environment.json) (Environment collection for API-driven provisioning to Azure AD)- 
     - [Test-API2AD.postman_environment.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Test-API2AD.postman_environment.json) (Environment collection for API-driven provisioning to on-premises AD) 
 1. Use the **Import** option in Postman to import both of these files into your Workspace.  
      :::image type="content" source="media/inbound-provisioning-api-postman/postman-import-elements.png" alt-text="Screenshot of Postman Import elements." lightbox="media/inbound-provisioning-api-postman/postman-import-elements.png":::
@@ -65,7 +65,7 @@ If the API invocation is successful, you see the message `202 Accepted.` Under H
 You can verify the processing either from the Microsoft Entra admin center or using Postman.
 
 ### Verify processing from Microsoft Entra admin center 
-1. Log in to [Microsoft Entra admin center](https://entra.microsoft.com) with *global administrator* or *application administrator* login credentials.
+1. Log in to [Microsoft Entra admin center](https://entra.microsoft.com) with at least [Application Administrator](https://go.microsoft.com/fwlink/?linkid=2247823) level credentials.
 1. Browse to **Azure Active Directory -> Applications -> Enterprise applications**.
 1. Under all applications, use the search filter text box to find and open your API-driven provisioning application.
 1. Open the Provisioning blade. The landing page displays the status of the last run.

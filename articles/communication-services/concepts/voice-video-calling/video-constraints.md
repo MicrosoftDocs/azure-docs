@@ -23,7 +23,7 @@ Another benefit of the Video Constraints API is that it enables developers to op
 
 ACS Web Calling SDK supports setting the maximum video resolution, framerate, or bitrate that a client sends. The sender video constraints are supported on Desktop browsers (Chrome, Edge, Firefox) and when using iOS Safari mobile browser or Android Chrome mobile browser.
 
-The ACS native Calling SDK (Android, iOS, Windows) supports setting the maximum values of video resolution and framerate for outgoing video streams and setting the maximum resolution for incoming video streams. These constraints can be set at the start of the call and during the call.
+The native Calling SDK (Android, iOS, Windows) supports setting the maximum values of video resolution and framerate for outgoing video streams and setting the maximum resolution for incoming video streams. These constraints can be set at the start of the call and during the call.
 
 ## Supported constraints
 

@@ -14,8 +14,6 @@ ms.author: barclayn
 
 Our IDV partner network extends Microsoft Entra Verified ID's capabilities to help you build seamless end-user experiences. With Verified ID, you can integrate with IDV partners to enable remote onboarding using their identity verification and proofing services.
 
-To be considered into Entra Verified ID partner documentation, submit your application [request](https://aka.ms/isvconnectvc)
-
 ## Partner list
 
 | IDV partner | Description | Integration walkthroughs |

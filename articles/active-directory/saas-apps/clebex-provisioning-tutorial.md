@@ -50,7 +50,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 3. Toggle the **Is active** button.
 
-4. Copy the **URL** and **Token**. This values will be entered in the **Tenant URL** and the **Secret Token** field in the Provisioning tab of your Clebex application in the Azure portal.
+4. Copy the **URL** and **Token**. This values will be entered in the **Tenant URL** and the **Secret Token** field in the Provisioning tab of your Clebex application.
 
 	![Connector](media/clebex-provisioning-tutorial/url.png)
 
@@ -73,35 +73,36 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Clebex in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Clebex**.
+1. In the applications list, select **Clebex**.
 
 	![The Clebex link in the Applications list](common/all-applications.png)
 
-3. Select the **Provisioning** tab.
+1. Select the **Provisioning** tab.
 
 	![Provisioning tab](common/provisioning.png)
 
-4. Set the **Provisioning Mode** to **Automatic**.
+1. Set the **Provisioning Mode** to **Automatic**.
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input your Clebex Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Clebex. If the connection fails, ensure your Clebex account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your Clebex Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Clebex. If the connection fails, ensure your Clebex account has Admin permissions and try again.
 
  	![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
+1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
 	![Notification Email](common/provisioning-notification-email.png)
 
-7. Select **Save**.
+1. Select **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Clebex**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Clebex**.
 
-9. Review the user attributes that are synchronized from Azure AD to Clebex in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Clebex for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Clebex API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Clebex in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Clebex for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Clebex API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for filtering|
    |---|---|---|
@@ -115,17 +116,17 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.familyName|String|
    |name.formatted|String|
 
-10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable the Azure AD provisioning service for Clebex, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Azure AD provisioning service for Clebex, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-12. Define the users and/or groups that you would like to provision to Clebex by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users and/or groups that you would like to provision to Clebex by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-13. When you are ready to provision, click **Save**.
+1. When you are ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 

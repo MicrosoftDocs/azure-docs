@@ -52,7 +52,7 @@ If you have users who are in the "Delivered" state but don't have access to reso
 
 1. Underneath **Manage** on the left side, select **Assignments**.
 
-    ![Entitlement management in the Azure portal](./media/entitlement-management-reprocess-access-package-assignments/reprocess-access-package-assignment.png)
+    ![Entitlement management in the entra admin center](./media/entitlement-management-reprocess-access-package-assignments/reprocess-access-package-assignment.png)
 
 1. Select all users whose assignments you wish to reprocess.
 

@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.custom: devx-track-arm-template, has-azure-ad-ps-ref
 ms.topic: sample
-ms.date: 06/01/2023
+ms.date: 09/15/2023
 ms.author: justinha 
 ---
 # Create an Azure Active Directory Domain Services managed domain using an Azure Resource Manager template
@@ -315,15 +315,15 @@ The following complete Resource Manager sample template creates a managed domain
 }
 ```
 
-This template can be deployed using your preferred deployment method, such as the [Azure portal][portal-deploy], [Azure PowerShell][powershell-deploy], or a CI/CD pipeline. The following example uses the [New-AzResourceGroupDeployment][New-AzResourceGroupDeployment] cmdlet. Specify your own resource group name and template filename:
+This template can be deployed using your preferred deployment method, such as the [Microsoft Entra admin center][portal-deploy], [Azure PowerShell][powershell-deploy], or a CI/CD pipeline. The following example uses the [New-AzResourceGroupDeployment][New-AzResourceGroupDeployment] cmdlet. Specify your own resource group name and template filename:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "myResourceGroup" -TemplateFile <path-to-template>
 ```
 
-It takes a few minutes to create the resource and return control to the PowerShell prompt. The managed domain continues to be provisioned in the background, and can take up to an hour to complete the deployment. In the Azure portal, the **Overview** page for your managed domain shows the current status throughout this deployment stage.
+It takes a few minutes to create the resource and return control to the PowerShell prompt. The managed domain continues to be provisioned in the background, and can take up to an hour to complete the deployment. In the Microsoft Entra admin center, the **Overview** page for your managed domain shows the current status throughout this deployment stage.
 
-When the Azure portal shows that the managed domain has finished provisioning, the following tasks need to be completed:
+When the Microsoft Entra admin center shows that the managed domain has finished provisioning, the following tasks need to be completed:
 
 * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
     * To configure DNS, select your managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.

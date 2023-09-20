@@ -658,7 +658,11 @@
             - name: Async Java SDK v2
               href: performance-tips-async-java.md
             - name: Sync Java SDK v2
-              href: performance-tips-java.md
+              href: performance-tips-java.md        
+        - name: JavaScript
+          items:
+            - name: Best practices for JavaScript SDK
+              href: best-practices-javascript.md
         - name: Configure the integrated cache
           href: ../how-to-configure-integrated-cache.md
         - name: Benchmarking framework
