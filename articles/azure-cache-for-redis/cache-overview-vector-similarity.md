@@ -1,5 +1,5 @@
 ---
-title: What is Vector Similarity in Azure Cache for Redis?
+title: About Vector Embeddings and Vector Search in Azure Cache for Redis
 description: Learn about Azure Cache for Redis to store vector embeddings and provide similarity search.
 author: flang-msft
 ms.author: franlanglois
@@ -8,14 +8,19 @@ ms.topic: overview
 ms.date: 09/18/2023
 ---
 
-# What is Vector Similarity in Azure Cache for Redis?
+# About Vector Embeddings and Vector Search in Azure Cache for Redis
 
-You could rename this "about". Overview documents contain "nice-to-know" information,
-like background information, that is not strictly required to complete a task, but
-builds the readers confidence in the technology, when to use it, etc.
+Vector similarity search (VSS) has become a very popular use-case for AI-driven applications. Azure Cache for Redis can be used to store vector embeddings and compare them through vector similarity search. This article is a high-level introduction to the concept of vector embeddings, vector comparison, and how Redis can be used as a seamless part of a vector similarity workflow. 
 
-I stole this from your tutorial ... we can break this up and expand on it throughout
-this document:
+For a tutorial on how to use Azure Cache for Redis and Azure OpenAI to perform vector similarity search, see [Tutorial: Conduct  vector similarity search on Azure OpenAI embeddings using Azure Cache for Redis](cache-tutorial-vector-similarity.md)
+
+## Scope of Availability
+
+|Tier      | Basic, Standard  | Premium  |Enterprise | Enterprise Flash  |
+|--------- |:------------------:|:----------:|:---------:|:---------:|
+|Available | No          | No       |  Yes  | Yes (preview) |
+
+Vector search capabilities in Redis require [Redis Stack](https://redis.io/docs/about/about-stack/), specifically the [RediSearch](https://redis.io/docs/interact/search-and-query/) module. This capability is only available in the [Enterprise tiers of Azure Cache for Redis](cache-redis-modules.md).
 
 ```markdown
 Azure Cache for Redis can be used to store the embeddings vectors and to perform the vector similarity search. Redis is extremely fast because it runs in-memory. This can be very useful when processing large datasets!
@@ -26,6 +31,7 @@ Redis has access to a wide range of search capabilities through the [RediSearch 
 - `FLAT` and `Hierarchical Navigable Small World (HNSW)`  indexing methods
 - Hybrid filtering with [powerful query features](https://redis.io/docs/interact/search-and-query/)
 ```
+## What are embeddings?
 
 ## What is a vector database?
 
