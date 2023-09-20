@@ -31,6 +31,8 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 ### [v1.x](#tab/v1/in-process)
 
+[!INCLUDE [functions-runtime-1x-retirement-note](./functions-runtime-1x-retirement-note.md)]
+
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
 | .NET Framework 4.8 | GA | [See policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-framework) |
@@ -74,6 +76,7 @@ The following table shows the language versions supported for Node.js functions.
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| [Node.js 20](https://endoflife.date/nodejs) | Preview | April 30, 2026 |
 | [Node.js 18](https://endoflife.date/nodejs) | GA | April, 2025|
 | [Node.js 16](https://endoflife.date/nodejs) | GA | September 11, 2023<sup>\*</sup> |
 | [Node.js 14](https://endoflife.date/nodejs) | GA | April 30, 2023<sup>\*</sup> |

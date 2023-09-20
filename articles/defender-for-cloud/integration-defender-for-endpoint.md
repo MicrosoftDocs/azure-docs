@@ -256,7 +256,7 @@ Use the [Defender for Endpoint status workbook](https://aka.ms/MDEStatus) to ver
 
 ##### Enable for multiple subscriptions with a PowerShell script
 
-Use our [PowerShell script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/Enable%20MDE%20Integration%20for%20Linux) from the Defender for Cloud GitHub repository to enable endpoint protection on Linux machines that are in multiple subscriptions.
+Use our [PowerShell script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/MDE%20Integration/Enable%20MDE%20Integration%20for%20Linux) from the Defender for Cloud GitHub repository to enable endpoint protection on Linux machines that are in multiple subscriptions.
 
 ##### Manage automatic updates configuration for Linux
 

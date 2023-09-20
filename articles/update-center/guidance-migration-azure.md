@@ -4,11 +4,11 @@ description: Patching guidance overview for Microsoft Configuration Manager to A
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 08/23/2023
+ms.date: 09/18/2023
 ms.author: sudhirsneha
 ---
 
-# Guidance on migrating Azure VMs from Microsoft Configuration Manager to Azure 
+# Guidance on migrating Azure VMs from Microsoft Configuration Manager to Azure Update Manager 
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
@@ -46,11 +46,11 @@ Deploy software updates (install patches) | Provides three modes of deploying up
 
 ## Manage software updates using Azure Update Manager
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and search for Azure Update Manager (preview).
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for **Azure Update Manager**.
 
    :::image type="content" source="./media/guidance-migration-azure/update-manager-service-selection-inline.png" alt-text="Screenshot of selecting the Azure Update Manager from Azure portal." lightbox="./media/guidance-migration-azure/update-manager-service-selection-expanded.png":::
 
-1. In the **Azure Update Manager (Preview)** home page, under **Manage** > **Machines**, select your subscription to view all your machines.
+1. In the **Azure Update Manager** home page, under **Manage** > **Machines**, select your subscription to view all your machines.
 1. Filter as per the available options to know the status of your specific machines.
 
    :::image type="content" source="./media/guidance-migration-azure/filter-machine-status-inline.png" alt-text="Screenshot of selecting the filters in Azure Update Manager to view the machines." lightbox="./media/guidance-migration-azure/filter-machine-status-expanded.png":::

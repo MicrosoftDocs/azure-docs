@@ -50,7 +50,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ![Active Directory Name](media/frankli-io-provisioning-tutorial/ad-name.png)
 1. Click on **Create Directory**.
 ![Active Directory Details](media/frankli-io-provisioning-tutorial/ad-details.png)
-1. Take note of the **Base URL** and the **Bearer Token**.The **Base URL** will be entered into the **Tenant URL** field in the Azure portal. The **Bearer Token** will be entered into the **Secret Token** field in the Azure portal.
+1. Take note of the **Base URL** and the **Bearer Token**.The **Base URL** will be entered into the **Tenant URL** field. The **Bearer Token** will be entered into the **Secret Token** field.
 
 ## Step 3. Add frankli from the Azure AD application gallery
 
@@ -71,7 +71,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for frankli in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 

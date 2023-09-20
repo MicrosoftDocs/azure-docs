@@ -44,16 +44,8 @@ Uberflip supports the following features:
 
 To configure the integration of Uberflip into Azure AD, you need to add Uberflip from the Azure Marketplace to your list of managed SaaS apps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the left pane, select **Azure Active Directory**.
-
-   ![The Azure Active Directory option](common/select-azuread.png)
-
-1. Go to **Enterprise Applications**, and then select **All Applications**.
-
-   ![The Enterprise applications pane](common/enterprise-applications.png)
-
-1. To add a new application, select **+ New application** at the top of the pane.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 
    ![The New application option](common/add-new-app.png)
 
@@ -76,11 +68,12 @@ To configure and test Azure AD single sign-on with Uberflip, you need to complet
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+In this section, you enable Azure AD single sign-on.
 
 To configure Azure AD single sign-on with Uberflip, take the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Uberflip** application integration page, select **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Uberflip** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on option](common/select-sso.png)
 
@@ -101,7 +94,7 @@ To configure Azure AD single sign-on with Uberflip, take the following steps:
      ![Uberflip domain and URLs single sign-on information](common/both-replyurl.png)
 
      > [!NOTE]
-     > This value isn't real. Update this value with the actual reply URL. To get the actual value, contact the [Uberflip support team](mailto:support@uberflip.com). You can also refer to the patterns shown in the **Basic SAML Configuration** pane in the Azure portal.
+     > This value isn't real. Update this value with the actual reply URL. To get the actual value, contact the [Uberflip support team](mailto:support@uberflip.com). You can also refer to the patterns shown in the **Basic SAML Configuration** pane.
 
    * To configure the application in SP-initiated SSO mode, select **Set additional URLs**, and in the **Sign-on URL** box, enter this URL:
 
@@ -123,37 +116,27 @@ To configure Azure AD single sign-on with Uberflip, take the following steps:
 
 ### Configure Uberflip single sign-on
 
-To configure single sign-on on the Uberflip side, you need to send the downloaded Federation Metadata XML and the appropriate copied URLs from the Azure portal to the [Uberflip support team](mailto:support@uberflip.com). The Uberflip team will make sure the SAML SSO connection is set properly on both sides.
+To configure single sign-on on the Uberflip side, you need to send the downloaded Federation Metadata XML and the appropriate copied URLs to the [Uberflip support team](mailto:support@uberflip.com). The Uberflip team will make sure the SAML SSO connection is set properly on both sides.
 
 ### Create an Azure AD test user
 
-In this section, you create a test user named B. Simon in the Azure portal.
+In this section, you create a test user named B. Simon.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory** > **Users** > **All users**.
-
-    ![The Users and "All users" options](common/users.png)
-
-1. At the top of the screen, select **+ New user**.
-
-    ![New user option](common/new-user.png)
-
-1. In the **User** pane, do the following steps:
-
-    ![The User pane](common/user-properties.png)
-
-    1. In the **Name** box, enter **BSimon**.
-  
-    1. In the **User name** box, enter **BSimon\@\<yourcompanydomain>.\<extension>**. For example, **BSimon\@contoso.com**.
-
-    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-
-    1. Select **Create**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
 In this section, you enable B. Simon to use Azure single sign-on by granting their access to Uberflip.
 
-1. In the Azure portal, select **Enterprise Applications** > **All applications** > **Uberflip**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Uberflip**.
 
     ![Enterprise applications pane](common/enterprise-applications.png)
 

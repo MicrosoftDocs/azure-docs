@@ -217,10 +217,10 @@ conceptualContent:
             url: custom-domain.md
             itemType: how-to-guide  
           - text: Customize user experiences using custom policies
-            url: add-sign-up-and-sign-in-policy.md?pivots=b2c-custom-policy            
+            url: add-sign-up-and-sign-in-policy.md?pivots=b2c-custom-policy
             itemType: how-to-guide 
           - text: Custom policy how-to guide series
-            url: custom-policies-series-overview.md            
+            url: custom-policies-series-overview.md
             itemType: how-to-guide
           # - text: Use API connectors 
             # url: add-api-connector.md?pivots=b2c-user-flow
