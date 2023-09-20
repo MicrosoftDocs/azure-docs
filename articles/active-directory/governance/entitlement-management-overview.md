@@ -94,7 +94,7 @@ You can have policies for users to request access. In these kinds of policies, a
 - The approval process and the users that can approve or deny access
 - The duration of a user's access assignment, once approved, before the assignment expires
 
-You can also have policies for users to be assigned access, either by an administrator or [automatically](entitlement-management-access-package-auto-assignment-policy.md).
+You can also have policies for users to be assigned access, either [by an administrator](entitlement-management-access-package-assignments.md#directly-assign-a-user), [automatically based on rules](entitlement-management-access-package-auto-assignment-policy.md), or through lifecycle workflows.
 
 The following diagram shows an example of the different elements in entitlement management. It shows one catalog with two example access packages.
 
