@@ -23,7 +23,7 @@ This article shows the Azure Cosmos DB Emulator released versions and it details
 | | Link |
 | --- | --- |
 | **Download** | [Microsoft Download Center](https://aka.ms/cosmosdb-emulator) |
-| **Get started** | [Develop locally with Azure Cosmos DB Emulator](local-emulator.md) |
+| **Get started** | [Develop locally with Azure Cosmos DB Emulator](emulator.md) |
 
 ## Release notes
 
@@ -148,7 +148,7 @@ This article shows the Azure Cosmos DB Emulator released versions and it details
 
 ### `2.4.6`
 
-- This release provides parity with the features in the Azure Cosmos DB service as of July 2019, with the exceptions noted in [Develop locally with Azure Cosmos DB Emulator](local-emulator.md). It also fixes several bugs related to emulator shut down when invoked via command line and internal IP address overrides for SDK clients using direct mode connectivity.
+- This release provides parity with the features in the Azure Cosmos DB service as of July 2019, with the exceptions noted in [Develop locally with Azure Cosmos DB Emulator](emulator.md). It also fixes several bugs related to emulator shut down when invoked via command line and internal IP address overrides for SDK clients using direct mode connectivity.
 
 ### `2.4.3`
 
@@ -162,4 +162,4 @@ This article shows the Azure Cosmos DB Emulator released versions and it details
 
 ## Next steps
 
-- [Install and use the Azure Cosmos DB Emulator for local development and testing](local-emulator.md)
+- [Install and use the Azure Cosmos DB Emulator for local development and testing](emulator.md)

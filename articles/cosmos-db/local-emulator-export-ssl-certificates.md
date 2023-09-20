@@ -20,7 +20,7 @@ When you use the emulator to develop apps in different languages, such as Java, 
 
 The .NET language and runtime uses the Windows Certificate Store to securely connect to the Azure Cosmos DB local emulator when the application is run on a Windows OS host. Other languages have their own method of managing and using certificates. Java uses its own [certificate store](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), Python uses [socket wrappers](https://docs.python.org/2/library/ssl.html), and Node.js uses [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
-This article demonstrates how to export the TLS/SSL certificates for use in different languages and runtime environments that don't integrate with the Windows Certificate Store. For more information about the emulator, see [Install and use the Azure Cosmos DB Emulator](./local-emulator.md).
+This article demonstrates how to export the TLS/SSL certificates for use in different languages and runtime environments that don't integrate with the Windows Certificate Store. For more information about the emulator, see [Install and use the Azure Cosmos DB Emulator](emulator.md).
 
 ## <a id="export-emulator-certificate"></a>Export the Azure Cosmos DB TLS/SSL certificate
 

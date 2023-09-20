@@ -18,7 +18,7 @@ The Azure Cosmos DB Linux Emulator provides a local environment that emulates th
 > [!NOTE]
 > The Azure Cosmos DB Linux Emulator is currently in preview mode and supports only the APIs for NoSQL and MongoDB. Users may experience slight performance degradations in terms of the number of requests per second processed by the emulator when compared to the Windows version. The default number of physical partitions which directly impacts the number of containers that can be provisioned is 10.
 > 
-> We do not recommend use of the emulator (Preview) in production. For heavier workloads, use our [Windows emulator](local-emulator.md).
+> We do not recommend use of the emulator (Preview) in production. For heavier workloads, use our [Windows emulator](emulator.md).
 
 > [!IMPORTANT]
 > The Linux emulator currently has limited support for developer machines running on M1 and M2 chips. A temporary workaround is to install a Windows virtual machine and run the emulator on that platform.

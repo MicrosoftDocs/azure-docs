@@ -217,7 +217,7 @@ You can test the subpartitioning feature by using the latest version of the loca
 .\CosmosDB.Emulator.exe /EnablePreview
 ```
 
-For more information, see [Azure Cosmos DB emulator](./local-emulator.md).
+For more information, see [Azure Cosmos DB emulator](emulator.md).
 
 <a name="use-the-sdks-to-work-with-containers-with-hierarchical-partition-keys"></a>
 
