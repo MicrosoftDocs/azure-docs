@@ -77,10 +77,10 @@ A `NameIdPolicy` element looks like the following sample:
 
 If `NameIDPolicy` is provided, you can include its optional `Format` attribute. The `Format` attribute can have only one of the following values; any other value results in an error.
 
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Microsoft Entra ID issues the NameID claim as a pairwise identifier.
-* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Microsoft Entra ID issues the NameID claim in e-mail address format.
-* `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: This value permits Microsoft Entra ID to select the claim format. Microsoft Entra ID issues the NameID as a pairwise identifier.
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Microsoft Entra ID issues the NameID claim as a randomly generated value that is unique to the current SSO operation. This means that the value is temporary and cannot be used to identify the authenticating user.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Microsoft Entra ID issues the `NameID` claim as a pairwise identifier.
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Microsoft Entra ID issues the `NameID` claim in e-mail address format.
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: This value permits Microsoft Entra ID to select the claim format. Microsoft Entra ID issues the `NameID` claim as a pairwise identifier.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Microsoft Entra ID issues the `NameID` claim as a randomly generated value that is unique to the current SSO operation. This means that the value is temporary and cannot be used to identify the authenticating user.
 
 If `SPNameQualifier` is specified, Microsoft Entra ID will include the same `SPNameQualifier` in the response.
 
@@ -162,7 +162,7 @@ The `Response` element includes the result of the authorization request. Microso
 
 ### Issuer
 
-Microsoft Entra ID sets the `Issuer` element to `https://sts.windows.net/<TenantIDGUID>/` where \<TenantIDGUID> is the tenant ID of the Microsoft Entra tenant.
+Microsoft Entra ID sets the `Issuer` element to `https://sts.windows.net/<TenantIDGUID>/` where `<TenantIDGUID>` is the tenant ID of the Microsoft Entra tenant.
 
 For example, a response with Issuer element could look like the following sample:
 
@@ -198,7 +198,7 @@ In addition to the `ID`, `IssueInstant` and `Version`, Microsoft Entra ID sets t
 
 #### Issuer
 
-This is set to `https://sts.windows.net/<TenantIDGUID>/`where \<TenantIDGUID> is the Tenant ID of the Microsoft Entra tenant.
+This is set to `https://sts.windows.net/<TenantIDGUID>/`where `<TenantIDGUID>` is the Tenant ID of the Microsoft Entra tenant.
 
 ```xml
 <Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
