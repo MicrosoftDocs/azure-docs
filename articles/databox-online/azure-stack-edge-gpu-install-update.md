@@ -25,7 +25,7 @@ The current update is Update 2309. This update installs two updates, the device 
 The associated versions for this update are:
 
 - Device software version: Azure Stack Edge 2309 (3.2.2380.1632)
-- Device Kubernetes version: Azure Stack Kubernetes Edge 2304 (3.2.2380.1632)
+- Device Kubernetes version: Azure Stack Kubernetes Edge 2309 (3.2.2380.1632)
 - Kubernetes server version: v1.24.6
 - IoT Edge version: 0.1.0-beta15
 - Azure Arc version: 1.10.6
@@ -66,14 +66,14 @@ Use the following steps to update your Azure Stack Edge version and Kubernetes v
 1. Update your Kubernetes version to 2303.
 1. Update both device software and Kubernetes to 2309.
 
-If you are running 2210, you can update both your device version and Kubernetes version directly to 2303 and then to 2309.
+If you are running 2210 or 2301, you can update both your device version and Kubernetes version directly to 2303 and then to 2309.
 
 If you are running 2303, you can update both your device version and Kubernetes version directly to
 2309.
 
-In Azure portal, the process will require two clicks, the first update gets your device version to 2309 and your Kubernetes version to 2210, and the second update gets your Kubernetes version upgraded to 2309.
+In Azure portal, the process will require two clicks, the first update gets your device version to 2303 and your Kubernetes version to 2210, and the second update gets your Kubernetes version upgraded to 2309.
 
-From the local UI, you will have to run each update separately: update the device version to 2309, then update Kubernetes version to 2210, and then update Kubernetes version to 2309.
+From the local UI, you will have to run each update separately: update the device version to 2303, then update Kubernetes version to 2210, and then update Kubernetes version to 2303, and then the third update gets both the device and the Kubernetes version to 2309.
 
 ### Updates for a single-node vs two-node
 
