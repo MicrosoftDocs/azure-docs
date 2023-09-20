@@ -1186,6 +1186,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/concept-fundamentals-mfa-get-started.md",
+      "redirect_url": "/azure/active-directory/authentication/concept-mfa-licensing",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/conditional-access-azure-management.md",
       "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps",
       "redirect_document_id": false
@@ -5284,6 +5289,11 @@
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-filter-audit-log.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/howto-customize-filter-logs",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-stream-logs-to-event-hub",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-basic-info-sign-in-logs.md",

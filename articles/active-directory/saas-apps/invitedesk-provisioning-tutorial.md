@@ -52,7 +52,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
       ![InviteDesk token page](./media\invitedesk-provisioning-tutorial\invitedesk-token-page.png)
 
 
-1. On clicking the toggle button **access code** corresponding to the **Azure Tenant-Id** would be generated.This value will be entered in the **Secret Token** * field in the Provisioning tab of your LucidChart application in the Azure portal. 
+1. On clicking the toggle button **access code** corresponding to the **Azure Tenant-Id** would be generated.This value will be entered in the **Secret Token** * field in the Provisioning tab of your LucidChart application. 
 
       ![InviteDesk token generate](./media\invitedesk-provisioning-tutorial\invitedesk-token-generate.png)
 
@@ -76,7 +76,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for InviteDesk in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
