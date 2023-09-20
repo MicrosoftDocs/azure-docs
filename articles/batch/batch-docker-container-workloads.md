@@ -67,13 +67,25 @@ For Linux container workloads, Batch currently supports the following Linux imag
 
 ## Notes
   The docker data root of the above images lie in different places:
-  - for the batch image  `microsoft-azure-batch` (Offer: `centos-container-rdma`, etc), the docker data root is mapped to /mnt/batch/docker
-  - for the hpc image, or  `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc), the docter data root lie in the default OS image.
-    So when using the ubuntu-hpc image, OS disk will have potential risk of being fill up quickly in case of downloading a bunch of containers.
+  - for the batch image  `microsoft-azure-batch` (Offer: `centos-container-rdma`, etc), the docker data root is mapped to /mnt/batch/docker, which is usually located on the temporary disk.
+  - for the HPC image, or  `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc), the docker data root is unchanged from the Docker default which is "/var/lib/docker" on Linux and "C:\ProgramData\Docker" on windows. This folders are usually located on the OS disk.
+    When using non-Batch images, the OS disk has the potential risk of being filled up quickly as container images are downloaded.
     ## Potential Solutions for Customer
-    (a) Increase the size of the OS disk (forthcoming batch API, not supprted)
-    (b) Map the docker data root to somewhere else in a start task
-    (c) Make a custom image with the docker data root remapped somewhere else(thus avoiding start task)
+    (a) Change the docker data root in a start task when creating a pool in BatchExplorer
+        example of Start Task command like this:
+        ```Shell
+        sudo systemctl stop docker
+        sudo vi /lib/systemd/system/docker.service
+        +++
+        FROM:
+        ExecStart=/usr/bin/docker daemon -H fd://
+        TO:
+        ExecStart=/usr/bin/docker daemon -g /new/path/docker -H fd://
+        +++
+        sudo systemctl daemon-reload
+        sudo systemctl start docker
+        ```
+    (b) Make a custom image with the Docker data root remapped somewhere else, avoiding the need for a start task.
 
 These images are only supported for use in Azure Batch pools and are geared for Docker container execution. They feature:
 
