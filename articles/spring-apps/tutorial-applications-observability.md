@@ -80,7 +80,7 @@ Use the following step to see the error and exception number of an application:
 
 1. On the **Queries** page, select **Alerts**, and then select **Run** in the **Show the error and exception number of each application** section.
 
-A pie chart of the number of the logs containing the "error" or "exception" terms in the last 24 hours opens up. To view the results in a table format, select **Result**.
+1. A pie chart of the number of the logs containing the "error" or "exception" terms in the last 24 hours opens up. To view the results in a table format, select **Result**.
 
 1. To customize the query with any keyword you want, enter the following commands:
 
@@ -113,7 +113,7 @@ To investigate request failures in the application cluster and to view the faile
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. On the left navigation menu, select **Application Insights** to go to the Application Insights overview page, and select **Failures**.
+1. On the navigation menu, select **Application Insights** to go to the Application Insights overview page. Then, select **Failures**.
 
    :::image type="content" source="media/tutorial-applications-observability/application-insights-failures.png" alt-text="Screenshot of the Azure portal that shows the failures." lightbox="media/tutorial-applications-observability/application-insights-failures.png":::
 
@@ -129,7 +129,7 @@ To use Application Insights to investigate the performance issues, use the follo
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. On the left navigation menu, select **Application Insights** to go to the Application Insights overview page, and select **Performance**.
+1. On the navigation menu, select **Application Insights** to go to the Application Insights overview page. Then, select **Performance**.
 
    :::image type="content" source="media/tutorial-applications-observability/application-insights-performance.png" alt-text="Screenshot of the Azure portal that shows the performance page." lightbox="media/tutorial-applications-observability/application-insights-performance.png":::
 
