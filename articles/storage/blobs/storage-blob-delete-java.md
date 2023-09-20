@@ -28,16 +28,18 @@ This article shows how to delete blobs with the [Azure Storage client library fo
 
 To delete a blob, call one of these methods:
 
-- [delete](/java/api/com.azure.storage.blob.specialized.blobclientbase)
-- [deleteIfExists](/java/api/com.azure.storage.blob.specialized.blobclientbase)
+- [delete](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-summary)
+- [deleteIfExists](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-summary)
 
 The following example deletes a blob:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobDelete.java" id="Snippet_DeleteBlob":::
 
-The following example deletes a blob and its snapshots with a response:
+If the blob has any associated snapshots, you must delete all of its snapshots to delete the blob. The following example deletes a blob and its snapshots with a response:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobDelete.java" id="Snippet_DeleteBlobSnapshots":::
+
+To delete *only* the snapshots and not the blob itself, you can pass the parameter `DeleteSnapshotsOptionType.ONLY`.
 
 ## Restore a deleted blob
 
@@ -54,7 +56,7 @@ How you restore a soft-deleted blob depends on whether or not your storage accou
 
 To restore deleted blobs, call the following method:
 
-- [undelete](/java/api/com.azure.storage.blob.specialized.blobclientbase)
+- [undelete](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-summary)
 
 This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect.
 
@@ -64,7 +66,7 @@ This method restores the content and metadata of a soft-deleted blob and any ass
 
 To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob. You can use the following method:
 
-- [copyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase)
+- [copyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-summary)
 
 This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect.
 

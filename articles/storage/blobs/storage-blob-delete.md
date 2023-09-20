@@ -71,10 +71,12 @@ To restore a specific soft-deleted snapshot, first call the [Undelete](/dotnet/a
 
 #### Restore soft-deleted blobs when versioning is enabled
 
-To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob. You can use either of the following methods:
+If a storage account is configured to enable blob versioning, deleting a blob causes the current version of the blob to become the previous version. To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob. You can use either of the following methods:
 
 - [StartCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuri)
 - [StartCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuriasync)
+
+The following code example shows how to get the latest version of a deleted blob, and restore the latest version by copying it to the base blob:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/DeleteBlob.cs" id="RestoreBlobWithVersioning":::
 
