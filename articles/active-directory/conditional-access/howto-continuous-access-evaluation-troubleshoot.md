@@ -51,7 +51,7 @@ Log Analytics integration must be completed before workbooks are displayed. For 
 
 The **Continuous access evaluation insights** workbook contains the following table:
 
-<a name='potential-ip-address-mismatch-between-azure-ad-and-resource-provider--'></a>
+<a name='potential-ip-address-mismatch-between-azure-ad-and-resource-provider'></a>
 
 ### Potential IP address mismatch between Microsoft Entra ID and resource provider  
 
