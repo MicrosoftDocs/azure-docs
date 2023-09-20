@@ -85,9 +85,7 @@ URLs listed below are required for this integration to work properly.  This inte
 
 | Destination FQDN | Port | Use |
 | ----------- | ----------- | ------------- |
-| **`mirror.openshift.com`** | **HTTPS:443** | Required to access mirrored installation content and images. This site is also a source of release image signatures. |
 | **`*.apps.<cluster_name>.<base_domain>`** (OR EQUIVALENT ARO URL) | **HTTPS:443** | When allowlisting domains, this is used in your corporate network to reach applications deployed in OpenShift, or to access the OpenShift console. |
-| **`api.openshift.com`** | **HTTPS:443** | Used by the cluster for release graph parsing. https://access.redhat.com/labs/ocpupgradegraph/ can be used as an alternative. |
 
 
 ## ARO integrations
