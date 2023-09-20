@@ -51,6 +51,9 @@ The following FQDNs are proxied through the service, and won't need additional f
 | **`*.quay.io`** | **HTTPS:443** | May be used to download images from the Red Hat managed Quay registry. Also a possible fall-back target for ARO required system images. If your firewall can't use wildcards, you can find the [full list of subdomains in the Red Hat documentation.](https://docs.openshift.com/container-platform/latest/installing/install_config/configuring-firewall.html). |
 | **`registry.connect.redhat.com`** | **HTTPS:443** | Hosts container images from the Red Hat ecosystem catalog, located at registry.redhat.com. |
 
+> [!NOTE] 
+> Because container registries are implementation-specific, this does not include additional container registries that may be required (e.g. docker.io) and also require egress traffic to be allowed.  In the above list, be sure to include any additional container registry destinations from where you intend to pull images from.
+
 ---
 
 ## UPGRADES
