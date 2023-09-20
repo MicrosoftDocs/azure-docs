@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Appinux with Azure Active Direct
 
 - Control in Azure AD who has access to Appinux.
 - Enable your users to be automatically signed-in to Appinux with their Azure AD accounts.
-- Manage your accounts in one central location - the Azure portal.
+- Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ To configure and test Azure AD SSO with Appinux, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Appinux** > **Single sign-on**.
@@ -80,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    `https://<Appinux_SUBDOMAIN>.appinux.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
    > [!NOTE]
-   > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Appinux Client support team](https://support.appinux.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+   > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Appinux Client support team](https://support.appinux.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Appinux application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
@@ -114,7 +114,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -128,7 +128,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Appinux.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Appinux.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Appinux**.
@@ -140,7 +140,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Appinux SSO
 
-To configure single sign-on on **Appinux** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Appinux support team](https://support.appinux.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Appinux** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [Appinux support team](https://support.appinux.com/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Appinux test user
 
@@ -153,7 +153,7 @@ In this section, a user called Britta Simon is created in Appinux. Appinux suppo
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-- Click on **Test this application** in Azure portal. This will redirect to Appinux Sign-on URL where you can initiate the login flow.
+- Click on **Test this application**, this will redirect to Appinux Sign-on URL where you can initiate the login flow.
 
 - Go to Appinux Sign-on URL directly and initiate the login flow from there.
 

@@ -20,7 +20,7 @@ In this article, you'll learn how to integrate Descartes with Azure Active Direc
 
 * Control in Azure AD who has access to Descartes.
 * Enable your users to be automatically signed-in to Descartes with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You'll configure and test Azure AD single sign-on for Descartes in a test environment. Descartes supports both **SP** and **IDP** initiated single sign-on and also supports **Just In Time** user provisioning.
 
@@ -46,13 +46,13 @@ Add Descartes from the Azure AD application gallery to configure single sign-on 
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Descartes** > **Single sign-on**.
@@ -118,13 +118,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Descartes Sign-on URL where you can initiate the login flow. Alternatively you can use a 'deep link' URL into a specific module of the Descartes application, and you will be redirected to a page to provide your domain qualified username which will lead you to your Azure AD login dialog.
+* Click on **Test this application**, this will redirect to Descartes Sign-on URL where you can initiate the login flow. Alternatively you can use a 'deep link' URL into a specific module of the Descartes application, and you will be redirected to a page to provide your domain qualified username which will lead you to your Azure AD login dialog.
 
 * Go to Descartes application direct access URL provided and initiate the login flow by specifying your domain qualified username (B.Simon@contoso.com) in the application login window. This will redirect the user automatically to Azure AD.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Descartes application menu for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the Descartes application menu for which you set up the SSO. 
 
 * You can also use Microsoft My Apps to test the application in any mode. When you click the Descartes tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Descartes for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

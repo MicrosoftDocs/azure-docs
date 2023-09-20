@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate Workplace by Meta with Azure Act
 
 * Control in Azure AD who has access to Workplace by Meta.
 * Enable your users to be automatically signed-in to Workplace by Meta with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 
 ## Prerequisites
@@ -68,7 +68,7 @@ To configure and test Azure AD SSO with Workplace by Meta, perform the following
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Workplace by Meta** application integration page, find the **Manage** section and select **Single sign-on**.
@@ -101,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -115,7 +115,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Workplace by Meta.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Workplace by Meta.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Workplace by Meta**.
@@ -153,17 +153,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. In the **Name of the SSO Provider**, enter the SSO instance name like Azureadsso.
 
-    b. In **SAML URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+    b. In **SAML URL** textbox, paste the value of **Login URL**.
 
-    c. In **SAML Issuer URL** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
+    c. In **SAML Issuer URL** textbox, paste the value of **Azure AD Identifier**.
 
-    d. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad, copy the content of it into your clipboard, and then paste it to the **SAML Certificate** textbox.
+    d. Open the downloaded **Certificate (Base64)** into Notepad, copy the content of it into your clipboard, and then paste it to the **SAML Certificate** textbox.
 
-    e. Copy the **Audience URL** for your instance and paste it in **Identifier (Entity ID)** textbox in **Basic SAML Configuration** section on Azure portal.
+    e. Copy the **Audience URL** for your instance and paste it in **Identifier (Entity ID)** textbox in **Basic SAML Configuration** section.
 
-    f. Copy the **Recipient URL** for your instance and paste it in **Sign on URL** textbox in **Basic SAML Configuration** section on Azure portal.
+    f. Copy the **Recipient URL** for your instance and paste it in **Sign on URL** textbox in **Basic SAML Configuration** section.
 
-    g. Copy the **ACS (Assertion Consumer Service) URL** for your instance and paste it in **Reply URL** textbox in **Basic SAML Configuration** section on Azure portal.
+    g. Copy the **ACS (Assertion Consumer Service) URL** for your instance and paste it in **Reply URL** textbox in **Basic SAML Configuration** section.
 
     h. Scroll to the bottom of the section and click the **Test SSO** button. This results in a pop-up window appearing with Azure AD login page presented. Enter your credentials in as normal to authenticate.
 
@@ -199,7 +199,7 @@ There is no action for you in this section. If a user doesn't exist in Workplace
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Workplace by Meta Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Workplace by Meta Sign-on URL where you can initiate the login flow. 
 
 * Go to Workplace by Meta Sign-on URL directly and initiate the login flow from there.
 

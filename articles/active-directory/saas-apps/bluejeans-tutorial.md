@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to integrate BlueJeans for Azure AD with Azur
 
 * Control in Azure AD who has access to BlueJeans for Azure AD.
 * Enable your users to be automatically signed-in to BlueJeans for Azure AD with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ To configure and test Azure AD SSO with BlueJeans for Azure AD, perform the foll
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **BlueJeans for Azure AD** > **Single sign-on**.
@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://bluejeans.com/sso/saml2/`
 
 	> [!NOTE]
-	> The Sign-On URL value is not real. Update the value with the actual Sign-On URL. Contact [BlueJeans for Azure AD Client support team](https://support.bluejeans.com/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Sign-On URL value is not real. Update the value with the actual Sign-On URL. Contact [BlueJeans for Azure AD Client support team](https://support.bluejeans.com/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. BlueJeans application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -112,7 +112,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -126,7 +126,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to BlueJeans for Azure AD.
+In this section, you'll enable B.Simon to use single sign-on by granting access to BlueJeans for Azure AD.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **BlueJeans for Azure AD**.
@@ -156,13 +156,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Certificate Path](./media/bluejeans-tutorial/certificate.png "Certificate Path")
 
-	a. Click **Choose File**, to upload the base-64 encoded certificate that you have downloaded from the Azure portal.
+	a. Click **Choose File**, to upload the base-64 encoded certificate that you have downloaded.
 
-    b. In the **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
+    b. In the **Login URL** textbox, paste the value of **Login URL**..
 
-    c. In the **Password Change URL** textbox, paste the value of **Change Password URL** which you have copied from Azure portal.
+    c. In the **Password Change URL** textbox, paste the value of **Change Password URL**..
 
-    d. In the **Logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+    d. In the **Logout URL** textbox, paste the value of **Logout URL**..
 
 5. Move on with the following steps:
 
@@ -222,7 +222,7 @@ The objective of this section is to create a user called B.Simon in BlueJeans fo
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to BlueJeans for Azure AD Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to BlueJeans for Azure AD Sign-on URL where you can initiate the login flow. 
 
 * Go to BlueJeans for Azure AD Sign-on URL directly and initiate the login flow from there.
 

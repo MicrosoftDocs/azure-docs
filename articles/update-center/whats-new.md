@@ -28,9 +28,9 @@ SQL Server patching (preview) allows you to patch SQL Servers. You can now manag
 
 ## July 2023
 
-### Dynamic scope (preview)
+### Dynamic scope
 
-Dynamic scope (preview) is an advanced capability of schedule patching. You can now create a group of [machines based on a schedule and apply patches](dynamic-scope-overview.md) on those machines at scale. [Learn more](tutorial-dynamic-grouping-for-scheduled-patching.md).
+Dynamic scope is an advanced capability of schedule patching. You can now create a group of [machines based on a schedule and apply patches](dynamic-scope-overview.md) on those machines at scale. [Learn more](tutorial-dynamic-grouping-for-scheduled-patching.md).
  
 
 ## May 2023

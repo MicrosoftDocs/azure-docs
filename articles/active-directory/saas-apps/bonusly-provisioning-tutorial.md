@@ -103,7 +103,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Bonusly. If the connection fails, ensure your Bonusly account has Admin permissions and try again.
 
-	:::image type="content" source="./media/bonusly-provisioning-tutorial/TestConnection.png" alt-text="Screenshot of the Admin Credentials section of the Azure portal. The Text connection button is highlighted." border="false":::
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/TestConnection.png" alt-text="Screenshot of the Admin Credentials section. The Text connection button is highlighted." border="false":::
 
 9. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 

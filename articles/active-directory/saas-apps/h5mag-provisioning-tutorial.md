@@ -46,7 +46,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Log in to your [H5mag environment](https://account.h5mag.com/login) and navigate to **[Account](https://account.h5mag.com/account)** -> **[Provisioning & SSO](https://account.h5mag.com/account/provisioning)**.
 
-2. Click on the **Generate Token** button. The provisioning URL and API Token will be displayed. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your H5mag application in the Azure portal.
+2. Click on the **Generate Token** button. The provisioning URL and API Token will be displayed. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your H5mag application.
 
 3. Click on the **Save** button to store the generated token.
 

@@ -19,7 +19,7 @@ Integrating Mozy Enterprise with Azure AD provides you with the following benefi
 
 * You can control in Azure AD who has access to Mozy Enterprise.
 * You can enable your users to be automatically signed-in to Mozy Enterprise (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* You can manage your accounts in one central location.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -65,7 +65,7 @@ To configure and test Azure AD single sign-on with Mozy Enterprise, you need to 
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+In this section, you enable Azure AD single sign-on.
 
 To configure Azure AD single sign-on with Mozy Enterprise, perform the following steps:
 
@@ -90,7 +90,7 @@ To configure Azure AD single sign-on with Mozy Enterprise, perform the following
     `https://<tenantname>.Mozyenterprise.com`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Mozy Enterprise Client support team](https://www.safenames.net/about-us/contact-us) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [Mozy Enterprise Client support team](https://www.safenames.net/about-us/contact-us) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -124,9 +124,9 @@ To configure Azure AD single sign-on with Mozy Enterprise, perform the following
    
     c. Click the **SAML Authentication** tab.
    
-    d. Paste **Login URL**, which you have copied from the Azure portal into the **Authentication URL** textbox.
+    d. Paste **Login URL** into the **Authentication URL** textbox.
    
-    e. Paste **Azure AD Identifier**, which you have copied from the Azure portal into the **SAML Endpoint** textbox.
+    e. Paste **Azure AD Identifier** into the **SAML Endpoint** textbox.
    
     f. Open your downloaded base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **SAML Certificate** textbox.
    
@@ -136,28 +136,17 @@ To configure Azure AD single sign-on with Mozy Enterprise, perform the following
 
 ### Create an Azure AD test user 
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+The objective of this section is to create a test user called Britta Simon.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![The "Users and groups" and "All users" links](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user Button](common/new-user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 

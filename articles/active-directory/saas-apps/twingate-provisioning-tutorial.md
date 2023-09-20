@@ -52,7 +52,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
       ![Azure AD action menu](media/twingate-provisioning-tutorial/token.png)
 
-4. Copy the **SCIM Endpoint** and **SCIM token** from the modal. These values will be entered in the **Tenant URL** and **Secret Token** fields respectively in the Provisioning tab of your Twingate application in the Azure portal.
+4. Copy the **SCIM Endpoint** and **SCIM token** from the modal. These values will be entered in the **Tenant URL** and **Secret Token** fields respectively in the Provisioning tab of your Twingate application.
 
       ![SCIM info modal](media/twingate-provisioning-tutorial/tenant.png)
 

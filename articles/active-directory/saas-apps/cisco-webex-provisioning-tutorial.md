@@ -76,7 +76,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-    :::image type="content" source="common/provisioning.png" alt-text="Screenshot of a menu in the Azure portal. Under Manage, Provisioning is highlighted." border="false":::
+    :::image type="content" source="common/provisioning.png" alt-text="Screenshot of a menu. Under Manage, Provisioning is highlighted." border="false":::
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
@@ -108,7 +108,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Cisco Webex**.
 
-    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermapping.png" alt-text="Screenshot of the Mappings section in the Azure portal. Under Name, Synchronize Azure Active Directory Users to CiscoSpark is highlighted." border="false":::
+    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermapping.png" alt-text="Screenshot of the Mappings section. Under Name, Synchronize Azure Active Directory Users to CiscoSpark is highlighted." border="false":::
 
 11. Review the user attributes that are synchronized from Azure AD to Cisco Webex in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cisco Webex for update operations. Select the **Save** button to commit any changes.
 

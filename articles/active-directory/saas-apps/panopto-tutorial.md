@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate Panopto with Azure Active Direct
 
 * Control in Azure AD who has access to Panopto.
 * Enable your users to be automatically signed-in to Panopto with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ To configure and test Azure AD SSO with Panopto, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Panopto** > **Single sign-on**.
@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<TENANT_NAME>.panopto.com`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Panopto Client support team](mailto:support@panopto.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [Panopto Client support team](mailto:support@panopto.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user 
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -105,7 +105,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Panopto.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Panopto.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Panopto**.
@@ -137,9 +137,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	c. In the **Friendly Description** textbox, type a friendly description.
 	
-	d. In **Bounce Page Url** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+	d. In **Bounce Page Url** textbox, paste the value of **Login URL**.
 
-	e. In the **Issuer** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
+	e. In the **Issuer** textbox, paste the value of **Azure AD Identifier**.
 
 	f. Open your base-64 encoded certificate, which you have downloaded from Azure portal, copy the content of it in to your clipboard, and then paste it to the **Public Key**  textbox.
 
@@ -157,7 +157,7 @@ In this section, a user called Britta Simon is created in Panopto. Panopto suppo
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Panopto Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Panopto Sign-on URL where you can initiate the login flow. 
 
 * Go to Panopto Sign-on URL directly and initiate the login flow from there.
 

@@ -49,11 +49,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 2. On Exium workspace [profile settings](https://service.exium.net/sign-in) page, navigate to **SCIM Configuration** tab.
 
-3. Copy the **SCIM 2.0 Bearer Token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Exium application in the Azure portal.
+3. Copy the **SCIM 2.0 Bearer Token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Exium application.
 
    	![The Exium SCIM Configuration](media/exium-provisioning-tutorial/api.png)
 
-4. The Exium **Tenant URL** is `https://subapi.exium.net/scim`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Exium application in the Azure portal.
+4. The Exium **Tenant URL** is `https://subapi.exium.net/scim`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Exium application.
 
 ## Step 3. Add Exium from the Azure AD application gallery
 

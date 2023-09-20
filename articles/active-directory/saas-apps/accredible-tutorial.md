@@ -19,7 +19,7 @@ Integrating Accredible with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to Accredible.
 * You can enable your users to be automatically signed-in to Accredible (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* You can manage your accounts in one central location.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -65,7 +65,7 @@ To configure and test Azure AD single sign-on with Accredible, you need to compl
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+In this section, you enable Azure AD single sign-on.
 
 To configure Azure AD single sign-on with Accredible, perform the following steps:
 
@@ -115,11 +115,11 @@ To configure Azure AD single sign-on with Accredible, perform the following step
 
 ### Configure Accredible Single Sign-On
 
-To configure single sign-on on **Accredible** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Accredible support team](mailto:support@accredible.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Accredible** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [Accredible support team](mailto:support@accredible.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+The objective of this section is to create a test user called Britta Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.

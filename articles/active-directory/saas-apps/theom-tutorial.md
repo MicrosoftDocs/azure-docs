@@ -20,7 +20,7 @@ In this article, you learn how to integrate Theom with Azure Active Directory (A
 
 * Control in Azure AD who has access to Theom.
 * Enable your users to be automatically signed-in to Theom with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 You configure and test Azure AD single sign-on for Theom in a test environment. Theom supports **SP** initiated single sign-on.
 
@@ -43,13 +43,13 @@ Add Theom from the Azure AD application gallery to configure single sign-on with
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
 ## Configure Azure AD SSO
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+Complete the following steps to enable Azure AD single sign-on.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Theom** > **Single sign-on**.
@@ -70,7 +70,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     `https://<CUSTOMER_SUBDOMAIN>.theom.ai`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Theom Client support team](mailto:help@theom.ai) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Theom Client support team](mailto:help@theom.ai) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -82,7 +82,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Theom SSO
 
-To configure single sign-on on **Theom** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Theom support team](mailto:help@theom.ai). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Theom** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the application configuration to [Theom support team](mailto:help@theom.ai). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Theom test user
 
@@ -92,7 +92,7 @@ In this section, you create a user called Britta Simon at Theom. Work with [Theo
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Theom Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Theom Sign-on URL where you can initiate the login flow. 
 
 * Go to Theom Sign-on URL directly and initiate the login flow from there.
 

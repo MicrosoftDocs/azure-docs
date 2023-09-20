@@ -17,11 +17,8 @@ ms.custom:
 
 ## Process of adding an OpenID application from the gallery
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
-
-    ![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications** > **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
     ![The Enterprise applications blade](common/enterprise-applications.png)
 
@@ -125,7 +122,7 @@ The following steps show you how the consent experience works for the applicatio
 
 4. After the user has signed in, Azure AD determines if the user needs to be shown a consent page. This determination is based on whether the user (or their organization's administrator) has already granted the application consent.
 
-   If consent has not been granted, Azure AD prompts the user for consent and displays the required permissions that it needs to function. The permissions that are displayed in the consent dialog box match the ones selected in the delegated permissions in the Azure portal.
+   If consent has not been granted, Azure AD prompts the user for consent and displays the required permissions that it needs to function. The permissions that are displayed in the consent dialog box match the ones selected in the delegated permissions.
 
     ![Consent page](./media/openidoauth-tutorial/consentpage.png)
 
@@ -133,7 +130,7 @@ A regular user can consent to some permissions. Other permissions require a tena
 
 ## Difference between admin consent and user consent
 
-As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog box from appearing for every user in the tenant. Users who have the administrator role can provide consent in the Azure portal. From the **Settings** page for your application, select **Required Permissions** > **Grant admin consent**.
+As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog box from appearing for every user in the tenant. Users who have the administrator role can provide consent. From the **Settings** page for your application, select **Required Permissions** > **Grant admin consent**.
 
 ![Grant Permissions button](./media/openidoauth-tutorial/grantpermission.png)
 

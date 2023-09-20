@@ -59,11 +59,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 5. Click on **Enable SCIM**.
 
-6. Copy and save the **API Token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your askSpoke application in the Azure portal.
+6. Copy and save the **API Token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your askSpoke application.
 
    ![Api](media/askspoke-provisioning-tutorial/scim.png)
 
-7. The Tenant URL is your askSpoke URL followed by **/scim/v2**. For example: `https://example.askspoke.com/scim/v2`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your askSpoke application in the Azure portal.
+7. The Tenant URL is your askSpoke URL followed by **/scim/v2**. For example: `https://example.askspoke.com/scim/v2`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your askSpoke application.
 
 ## Step 3. Add askSpoke from the Azure AD application gallery
 
