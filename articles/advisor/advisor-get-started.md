@@ -3,7 +3,7 @@ title: Get started with Azure Advisor
 description: Get started with Azure Advisor.
 author: mabrahms
 ms.author: v-mabrahms
-ms.service: azure-advisor
+ms.service: azure
 ms.topic: article
 ms.date: 09/15/2023
 
