@@ -66,7 +66,8 @@ To get started, you need:
 
 * Access to users with an IDEMIA, US state issued Mobile ID credential (mID) 
   * Or during the test phase, the mID demo application from IDEMIA
-* An Azure AD subscription
+* An Azure subscription
+
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An [Azure AD B2C tenant](tutorial-create-tenant.md) linked to the Azure subscription
 * Your business web application registered in an Azure AD B2C tenant
@@ -174,7 +175,7 @@ Select one of the following values:
 
 |Parameter value| Effect on user authentication process |
 |---|---|
-|`loa-2`| Crypto-based Azure AD Multi-Factor Authentication (MFA) only|
+|`loa-2`| Crypto-based Microsoft Entra multifactor authentication only|
 |`loa-3`| Crypto-based MFA, plus another factor|
 |`loa-4`| Crypto-based MFA, plus the user performs PIN and biometric authentication |
 

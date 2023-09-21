@@ -289,7 +289,7 @@ Microsoft.Identity.Web simplifies your code by setting the correct OpenID Connec
 
 # [Node.js](#tab/nodejs)
 
-The *handleRedirect* method in **AuthProvider** class processes the authorization code received from Azure AD. This is shown below:
+The *handleRedirect* method in **AuthProvider** class processes the authorization code received from Microsoft Entra ID. This is shown below:
 
 :::code language="js" source="~/ms-identity-node/App/auth/AuthProvider.js" range="123-155":::
 

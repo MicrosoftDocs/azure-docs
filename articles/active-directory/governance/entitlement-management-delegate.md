@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Delegation and roles in entitlement management
 
-In Azure AD, you can use role models to manage access at scale through identity governance.
+In Microsoft Entra ID, you can use role models to manage access at scale through identity governance.
 
  * You can use access packages to represent [organizational roles](identity-governance-organizational-roles.md) in your organization, such as "sales representative". An access package representing that organizational role would include all the access rights that a sales representative might typically need, across multiple resources.
  * Applications [can define their own roles](../develop/howto-add-app-roles-in-apps.md). For example, if you had a sales application, and that application included the app role "salesperson", you could then [include that role in an access package](entitlement-management-access-package-resources.md).
@@ -49,7 +49,7 @@ With entitlement management, you can delegate access governance to these non-adm
 
 Here's one way that Hana could delegate access governance to the marketing, finance, and legal departments.
 
-1. Hana creates a new Azure AD security group, and adds Mamta, Mark, and Joe as members of the group.
+1. Hana creates a new Microsoft Entra security group, and adds Mamta, Mark, and Joe as members of the group.
 
 1. Hana adds that group to the catalog creators role.
 
@@ -69,7 +69,7 @@ The following diagram shows catalogs with resources for the marketing, finance, 
 
 After delegation, the marketing department might have roles similar to the following table.
 
-| User | Organizational role | Azure AD role | Entitlement management role |
+| User | Organizational role | Microsoft Entra role | Entitlement management role |
 | --- | --- | --- | --- |
 | Hana | IT administrator | Global administrator or Identity Governance administrator  |  |
 | Mamta | Marketing manager | User | Catalog creator and Catalog owner |
@@ -128,14 +128,14 @@ The following table lists the tasks that the entitlement management roles can do
 
 ## Required roles to add resources to a catalog
 
-A Global administrator can add or remove any group (cloud-created security groups or cloud-created Microsoft 365 Groups), application, or SharePoint Online site in a catalog. A User administrator can add or remove any group or application in a catalog, except for a group configured as assignable to a directory role.  For more information on role-assignable groups, reference [Create a role-assignable group in Azure Active Directory](../roles/groups-create-eligible.md).
+A Global administrator can add or remove any group (cloud-created security groups or cloud-created Microsoft 365 Groups), application, or SharePoint Online site in a catalog. A User administrator can add or remove any group or application in a catalog, except for a group configured as assignable to a directory role.  For more information on role-assignable groups, reference [Create a role-assignable group in Microsoft Entra ID](../roles/groups-create-eligible.md).
 
 > [!NOTE]
 > Users that have been assigned the User administrator role will no longer be able to create catalogs or manage access packages in a catalog they do not own. If users in your organization have been assigned the User administrator role to configure catalogs, access packages, or policies in entitlement management, you should instead assign these users the **Identity Governance administrator** role.
 
-For a user who isn't a global administrator, to add groups, applications, or SharePoint Online sites to a catalog, that user must have *both* an Azure AD directory role or ownership of the resource, and a catalog owner entitlement management role for the catalog. The following table lists the role combinations that are required to add resources to a catalog. To remove resources from a catalog, you must have the same roles.
+For a user who isn't a global administrator, to add groups, applications, or SharePoint Online sites to a catalog, that user must have *both* a Microsoft Entra directory role or ownership of the resource, and a catalog owner entitlement management role for the catalog. The following table lists the role combinations that are required to add resources to a catalog. To remove resources from a catalog, you must have the same roles.
 
-| Azure AD directory role | Entitlement management role | Can add security group | Can add Microsoft 365 Group | Can add app | Can add SharePoint Online site |
+| Microsoft Entra directory role | Entitlement management role | Can add security group | Can add Microsoft 365 Group | Can add app | Can add SharePoint Online site |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Global administrator](../roles/permissions-reference.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Identity Governance administrator](../roles/permissions-reference.md) | n/a | :heavy_check_mark:  | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -147,7 +147,7 @@ For a user who isn't a global administrator, to add groups, applications, or Sha
 | [Cloud application administrator](../roles/permissions-reference.md) | Catalog owner |  |  | :heavy_check_mark: |  |
 | User | Catalog owner | Only if group owner | Only if group owner | Only if app owner |  |
 
-To determine the least privileged role for a task, you can also reference [Administrator roles by admin task in Azure Active Directory](../roles/delegate-by-task.md#entitlement-management).
+To determine the least privileged role for a task, you can also reference [Administrator roles by admin task in Microsoft Entra ID](../roles/delegate-by-task.md#entitlement-management).
 
 ## Delegated management of guest user lifecycle
 

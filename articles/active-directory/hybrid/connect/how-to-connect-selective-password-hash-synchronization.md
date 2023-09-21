@@ -1,6 +1,6 @@
 ---
-title: 'Selective Password Hash Synchronization for Azure AD Connect'
-description: This article describes how to setup and configure selective password hash synchronization to use with Azure AD Connect.
+title: 'Selective Password Hash Synchronization for Microsoft Entra Connect'
+description: This article describes how to setup and configure selective password hash synchronization to use with Microsoft Entra Connect.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -14,14 +14,14 @@ ms.reviewer:
 ms.collection: M365-identity-device-management
 ---
 
-# Selective password hash synchronization configuration for Azure AD Connect
+# Selective password hash synchronization configuration for Microsoft Entra Connect
 
-[Password hash synchronization](whatis-phs.md) is one of the sign-in methods used to accomplish hybrid identity. Azure AD Connect synchronizes a hash, of the hash, of a user's password from an on-premises Active Directory instance to a cloud-based Azure AD instance.  By default, once it has been setup, password hash synchronization will occur on all of the users you are synchronizing.
+[Password hash synchronization](whatis-phs.md) is one of the sign-in methods used to accomplish hybrid identity. Microsoft Entra Connect synchronizes a hash, of the hash, of a user's password from an on-premises Active Directory instance to a cloud-based Microsoft Entra instance.  By default, once it has been setup, password hash synchronization will occur on all of the users you are synchronizing.
 
-If you'd like to have a subset of users excluded from synchronizing their password hash to Azure AD, you can configure selective password hash synchronization using the guided steps provided in this article.
+If you'd like to have a subset of users excluded from synchronizing their password hash to Microsoft Entra ID, you can configure selective password hash synchronization using the guided steps provided in this article.
 
 > [!IMPORTANT]
-> Microsoft doesn't support modifying or operating Azure AD Connect sync outside of the configurations or actions that are formally documented. Any of these configurations or actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft cannot guarantee that we will be able to provide efficient technical support for such deployments.
+> Microsoft doesn't support modifying or operating Microsoft Entra Connect Sync outside of the configurations or actions that are formally documented. Any of these configurations or actions might result in an inconsistent or unsupported state of Microsoft Entra Connect Sync. As a result, Microsoft cannot guarantee that we will be able to provide efficient technical support for such deployments.
 
 ## Consider your implementation
 
@@ -33,10 +33,10 @@ To reduce the configuration administrative effort, you should first consider the
 > With either configuration option chosen, a required initial sync (Full Sync) to apply the changes, will be performed automatically over the next sync cycle.
 
 > [!IMPORTANT]
-> Configuring selective password hash synchronization directly influences password writeback. Password changes or password resets that are initiated in Azure Active Directory write back to on-premises Active Directory only if the user is in scope for password hash synchronization.
+> Configuring selective password hash synchronization directly influences password writeback. Password changes or password resets that are initiated in Microsoft Entra ID write back to on-premises Active Directory only if the user is in scope for password hash synchronization.
 
 > [!IMPORTANT]
-> Selective password hash synchronization is supported in Azure AD Connect 1.6.2.4 or later. If you are using a version lower than that, upgrade to the latest version.
+> Selective password hash synchronization is supported in Microsoft Entra Connect 1.6.2.4 or later. If you are using a version lower than that, upgrade to the latest version.
 
 ### The adminDescription attribute
 
@@ -63,7 +63,7 @@ Before you start either scenario, you must disable the synchronization scheduler
 
     `Get-ADSyncScheduler`
 
-For more information on the scheduler see [Azure AD Connect sync scheduler](how-to-connect-sync-feature-scheduler.md).
+For more information on the scheduler see [Microsoft Entra Connect Sync scheduler](how-to-connect-sync-feature-scheduler.md).
 
 ## Excluded users is smaller than included users
 
@@ -127,7 +127,7 @@ Once you completed the steps to configure the necessary synchronization rules, r
 
      `get-adsyncscheduler`
 
-For more information on the scheduler see [Azure AD Connect sync scheduler](how-to-connect-sync-feature-scheduler.md).
+For more information on the scheduler see [Microsoft Entra Connect Sync scheduler](how-to-connect-sync-feature-scheduler.md).
 
 ### Edit users **adminDescription** attribute:
 
@@ -204,7 +204,7 @@ Once you completed the steps to configure the necessary synchronization rules, r
 
    `get-adsyncscheduler`
 
-For more information on the scheduler see [Azure AD Connect sync scheduler](how-to-connect-sync-feature-scheduler.md).
+For more information on the scheduler see [Microsoft Entra Connect Sync scheduler](how-to-connect-sync-feature-scheduler.md).
 
 ### Edit users **adminDescription** attribute:
 
