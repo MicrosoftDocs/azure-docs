@@ -169,7 +169,9 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
 
 - Create a Service Principal.
 
-   `az ad sp create-for-rbac --name <your-SP-name>` 
+   `az ad sp create-for-rbac --name <your-SP-name>`
+  
+- Give owner permission to SP for flink cluster.
 
 - Login with service principal.
 
@@ -184,7 +186,9 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
    Users can use this token in URL like below.
 
    `$data = Invoke-RestMethod -Uri $restUri -Method GET -Headers @{ Authorization = "Bearer $tok" }`
-
+  
+**Authentication using Managed Identity:** Users can utilize resources that support Managed Identity to make calls to the Job REST API. For more details, please refer to the [Managed Identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-arm) documentation.
+  
 #### LIST of APIs and Parameters
 
 - **New Job:** Rest API to submit new job to Flink.
@@ -502,7 +506,7 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
 
    |  Option  |  Value  |
    | -------- | ------- |
-   | Method   |  POST   |
+   | Method   |  GET   |
    | URL      | `https://management.azure.com/subscriptions/{{USER_SUBSCRIPTION}}/resourceGroups/{{USER_RESOURCE_GROUP}}/providers/Microsoft.HDInsight/clusterpools/{{CLUSER_POOL}}/clusters/{{FLINK_CLUSTER}}/jobs?api-version={{API_VERSION}}` |
    | Header   | Authorization = "Bearer $token" |
    
@@ -536,4 +540,4 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
    ```
 
 > [!NOTE]
-> When any action is in progress, actionResult will indicate it by “IN_PROGRESS” value. On successful completion, it will “SUCCESS” and on failure it will be “FAILED”.
+> When any action is in progress, actionResult will indicate it with the value 'IN_PROGRESS' On successful completion, it will show 'SUCCESS', and in case of failure, it will be 'FAILED'.
