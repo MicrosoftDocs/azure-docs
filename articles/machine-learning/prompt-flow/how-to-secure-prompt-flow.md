@@ -44,7 +44,32 @@ Workspace managed virtual network is the recommended way to support network isol
     az ml workspace provision-network --subscription <sub_id> -g <resource_group_name> -n <workspace_name>
     ```
 
-2. If you want to communicate with [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md), you need to add related user defined outbound rules to related resource. The Azure Machine Learning workspace creates private endpoint in the related resource with auto approve. If the status is stuck in pending, go to related resource to approve the private endpoint manually.
+2. Add workspace MSI as `Storage File Data Privileged Contributor` to storage account linked with workspace.
+
+    2.1 Go to azure portal, find the workspace.
+
+    ![From AzureML portal to Azure portal](./media/how-to-secure-prompt-flow/go_to_azure_portal.png)
+
+    2.2 Find the storage account linked with workspace.
+
+    ![Find workspace linked storage account in Azure portal](./media/how-to-secure-prompt-flow/linked_storage.png)
+
+    2.3 Jump to role assignment page of storage account.
+
+    ![Jump to role assignment of storage account](./media/how-to-secure-prompt-flow/add_role_storage.png)
+
+    2.4 Find storage file data privileged contributor role.
+
+    ![find storage file data privileged contributor role](./media/how-to-secure-prompt-flow/storage-file-data-privileged-contributor.png)
+    
+    2.5 Assign storage file data privileged contributor role to workspace managed identity.
+
+    ![Assign storage file data privileged contributor role to workspace managed identity](./media/how-to-secure-prompt-flow/managed-identity-workspace.png)
+
+    > [!NOTE]
+    > This operation may take several minutes to take effect.
+
+3. If you want to communicate with [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md), you need to add related user defined outbound rules to related resource. The Azure Machine Learning workspace creates private endpoint in the related resource with auto approve. If the status is stuck in pending, go to related resource to approve the private endpoint manually.
 
     :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-rule-cognitive-services.png" alt-text="Screenshot of user defined outbound rule for Azure Cognitive Services." lightbox = "./media/how-to-secure-prompt-flow/outbound-rule-cognitive-services.png":::
 
@@ -59,15 +84,16 @@ Workspace managed virtual network is the recommended way to support network isol
 ## Secure prompt flow use your own virtual network
 
 - To set up Azure Machine Learning related resources as private, see [Secure workspace resources](../how-to-secure-workspace-vnet.md).
+- Add workspace MSI as `Storage File Data Privileged Contributor` to storage account linked with workspace. Please follow step 2 in [Secure prompt flow with workspace managed virtual network](#secure-prompt-flow-with-workspace-managed-virtual-network).
 - Meanwhile, you can follow [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md) to make them as private.
 - If you want to deploy prompt flow in workspace which secured by your own virtual network, you can deploy it to AKS cluster which is in the same virtual network. You can follow [Secure your RAG workflows with network isolation](../how-to-secure-rag-workflows.md) to secure your AKS cluster.
 - You can either create private endpoint to the same virtual network or leverage virtual network peering to make them communicate with each other.
 
 ## Known limitations
 
-- Only public access enable storage account is supported. You can't use private storage account now. Find workaround here: [Why can't I create or upgrade my flow when I disable public network access of storage account?](./tools-reference/troubleshoot-guidance.md#why-cant-i-create-or-upgrade-my-flow-when-i-disable-public-network-access-of-storage-account)
 - Workspace hub / lean workspace and AI studio don't support bring your own virtual network.
-- Managed online endpoint only supports workspace managed virtual network. If you want to use your own virtual network, you may need one workspace for prompt flow authoring with your virtual network and another workspace for prompt flow deployment using managed online endpoint with workspace managed virtual network.
+- Org registry didn't suport managed virtual network.
+- Managed online endpoint only supports workspace with managed virtual network. If you want to use your own virtual network, you may need one workspace for prompt flow authoring with your virtual network and another workspace for prompt flow deployment using managed online endpoint with workspace managed virtual network.
 
 ## Next steps
 
