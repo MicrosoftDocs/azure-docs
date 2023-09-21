@@ -89,7 +89,7 @@ After a successful installation of Step, you should open a command prompt in you
 1. On the left menu, select **Clients** in the **MQTT** section.
 2. On the **Clients** page, select **+ Client** on the toolbar.
 
-    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/add-client-menu.png" alt-text="Screenshot of the Clients page with Add button selected.":::
+    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/add-client-menu.png" alt-text="Screenshot of the Clients page with Add button selected." lightbox="./media/mqtt-publish-and-subscribe-portal/add-client-menu.png":::
 1. On the **Create client** page, enter a **name** for the client. Client names must be unique in a namespace.
 1. Client authentication name is defaulted to the client name. You may change it if you want. You need to include this name as `Username` in the CONNECT packet.
 1. In this tutorial, you use thumbprint based authentication. Include the first client certificate’s thumbprint in the **Primary Thumbprint**. 
@@ -109,7 +109,7 @@ After a successful installation of Step, you should open a command prompt in you
 1. On the left menu, select **Topic spaces** in the **MQTT** section.
 2. On the **Topic spaces** page, select **+ Topic space** on the toolbar.
 
-    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-topic-space-menu.png" alt-text="Screenshot of Topic spaces page with create button selected.":::
+    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-topic-space-menu.png" alt-text="Screenshot of Topic spaces page with create button selected." lightbox="./media/mqtt-publish-and-subscribe-portal/create-topic-space-menu.png":::
 1. On the **Create topic space** page, enter a name for the topic space. 
 1. Select **+ Add topic template**.
 
@@ -123,7 +123,7 @@ After a successful installation of Step, you should open a command prompt in you
 1. On the left menu, select **Permission bindings** in the **MQTT** section.
 2. On the Permission bindings page, select **+ Permission binding** on the toolbar.
 
-    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-permission-binding-menu.png" alt-text="Screenshot that shows the Permission bindings page with the Create button selected.":::    
+    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-permission-binding-menu.png" alt-text="Screenshot that shows the Permission bindings page with the Create button selected." lightbox="./media/mqtt-publish-and-subscribe-portal/create-permission-binding-menu.png":::    
 1. Configure the permission binding as follows:
     1. Provide a **name** for the permission binding. For example, `contosopublisherbinding`.
     2. For **client group name**, select **$all**. 
@@ -144,12 +144,15 @@ After a successful installation of Step, you should open a command prompt in you
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-add-client.png" alt-text="Screenshot showing MQTTX app left rail to add new client.":::
 1. Configure client1 with  
-    - **Name** as `client-name-1` (this value can be anything)
-    - **Client ID** as `client1-session-ID` (Client ID in the CONNECT packet is used to identify the session ID for the client connection)
-    - **Username** as `client1-authn-ID` (Username must match the client authentication name in client metadata)
+    - **Name** as `client1` (this value can be anything)
+    - **Client ID** as `client1-session1` (Client ID in the CONNECT packet is used to identify the session ID for the client connection)
+    - **Username** as `client1-authn-ID` 
+    
+        > [!IMPORTANT]
+        > Username must match the client authentication name in client metadata.
 1. Update the host name to MQTT hostname from the Overview page of the namespace.
 
-    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/event-grid-namespace-overview.png" alt-text="Screenshot showing Event Grid namespace overview page, which has MQTT hostname.":::
+    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/event-grid-namespace-overview.png" alt-text="Screenshot showing Event Grid namespace overview page, which has MQTT hostname." lightbox="./media/mqtt-publish-and-subscribe-portal/event-grid-namespace-overview.png":::
 
 1. Update the **port** to **8883**.
 1. Toggle **SSL/TLS** to ON.
@@ -161,33 +164,30 @@ After a successful installation of Step, you should open a command prompt in you
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client1-configuration-1.png" alt-text="Screenshot showing client 1 configuration part 1 on MQTTX app." lightbox="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client1-configuration-1.png":::
 1. Select **Connect** to connect the client to the Event Grid MQTT service.
-1. Repeat the above steps to connect the second client "client2", with corresponding authentication information as shown.
+1. Repeat the above steps to connect the second client **client2**, with corresponding authentication information as shown.
 
-    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-1.png" alt-text="Screenshot showing client 2 configuration part 1 on MQTTX app.":::
+    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-1.png" alt-text="Screenshot showing client 2 configuration part 1 on MQTTX app." lightbox="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-1.png":::
 
-    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-2.png" alt-text="Screenshot showing client 2 configuration part 2 on MQTTX app.":::
+    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-2.png" alt-text="Screenshot showing client 2 configuration part 2 on MQTTX app." lightbox="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-2.png":::
 
 ## Publish/subscribe using MQTTX app
 
 1. After connecting the clients, for client2, select the **+ New Subscription** button.
-2. Add `contosotopics/topic1` as topic and select Confirm. You can leave the other fields with existing default values.
+2. Add `contosotopics/topic1` as topic and select **Confirm**. You can leave the other fields with existing default values.
 
-    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-add-subscription-topic.png" alt-text="Screenshot showing subscription topic configuration on MQTTX app.":::
-
-3. Select client1 in left rail.
-4. For client1, on top of the message compose box, add `contosotopics/topic1` as the topic to publish on.
-
-    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-publish-topic.png" alt-text="Screenshot showing message publishing on the topic in MQTTX app.":::
-
+    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-add-subscription-topic.png" alt-text="Screenshot showing subscription topic configuration on MQTTX app." lightbox="./media/mqtt-publish-and-subscribe-portal/mqttx-app-add-subscription-topic.png":::
+3. Select **client1** in left rail.
+4. For client1, on top of the message compose box, type `contosotopics/topic1` as the topic to publish on.
 5. Compose a message. You can use any format or a JSON as shown.
-6. Select the send button.
-7. The message should be seen as Published in client 1.
+6. Select the **Send** button.
 
-    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-publish-message.png" alt-text="Screenshot showing message published on the topic in MQTTX app.":::
+    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-publish-topic.png" alt-text="Screenshot showing message publishing on the topic in MQTTX app." lightbox="./media/mqtt-publish-and-subscribe-portal/mqttx-app-publish-topic.png":::
+7. The message should be seen as published in client 1.
 
-8. The message should be received by the client2
+    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-publish-message.png" alt-text="Screenshot showing message published on the topic in MQTTX app." lightbox="./media/mqtt-publish-and-subscribe-portal/mqttx-app-publish-message.png":::
+8. Switch to **client2**. Confirm that client2 received the message. 
 
-    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-subscribe-message.png" alt-text="Screenshot showing the message received by the subscribing client on MQTTX app.":::
+    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-subscribe-message.png" alt-text="Screenshot showing the message received by the subscribing client on MQTTX app." lightbox="./media/mqtt-publish-and-subscribe-portal/mqttx-app-subscribe-message.png":::
 
 ## Next steps
 - See [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
