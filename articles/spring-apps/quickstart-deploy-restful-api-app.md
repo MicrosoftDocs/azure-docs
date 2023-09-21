@@ -19,7 +19,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-
 
 **This article applies to:** ✔️ Standard consumption and dedicated (Preview)
 
-This article explains how to deploy a RESTful API application protected by [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) to Azure Spring Apps. The sample project is a simplified version based on the [Simple Todo](https://github.com/Azure-Samples/ASA-Samples-Web-Application) web application, which only provides the backend service and uses Microsoft Entra ID to protect the RESTful APIs.
+This article describes how to deploy a RESTful API application protected by [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) to Azure Spring Apps. The sample project is a simplified version based on the [Simple Todo](https://github.com/Azure-Samples/ASA-Samples-Web-Application) web application, which only provides the backend service and uses Microsoft Entra ID to protect the RESTful APIs.
 
 These RESTful APIs are protected by applying role-based access control (RBAC). Anonymous users can't access any data and aren't allowed to control access for different users. Anonymous users only have the following three permissions:
 
@@ -39,7 +39,7 @@ The following diagram shows the architecture of the system:
 
 ## 1. Prerequisites
 
-#### [Azure portal](#tab/Azure-portal)
+### [Azure portal](#tab/Azure-portal)
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
@@ -47,7 +47,7 @@ The following diagram shows the architecture of the system:
 - A Microsoft Entra ID tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Azure AD](../active-directory/fundamentals/create-new-tenant.md).
 - [curl](https://curl.se/download.html).
 
-#### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
@@ -80,7 +80,7 @@ Use the following steps to register an application in Microsoft Entra ID, which 
 
 1. Under **Manage**, select **App registrations** > **New registration**.
 
-1. Enter a name for your application in the **Name** field, for example `ToDoWeb`. Users of your app might see this name, and you can change it later.
+1. Enter a name for your application in the **Name** field, for example *ToDoWeb*. Users of your app might see this name, and you can change it later.
 
 1. For **Supported account types**, use the default **Accounts in this organizational directory only**.
 
@@ -88,7 +88,7 @@ Use the following steps to register an application in Microsoft Entra ID, which 
 
 1. On the app **Overview** page, look for the **Application (client) ID** value, and then record it for later use. You need it to acquire access token.
 
-1. Select **API permissions** > **Add a permission** > **My APIs**. Select the `ToDo` application that you registered earlier, and then select the permissions **ToDo.Read**, **ToDo.Write**, and **ToDo.Delete**. Select **Add permissions**.
+1. Select **API permissions** > **Add a permission** > **My APIs**. Select the **ToDo** application that you registered earlier, and then select the permissions **ToDo.Read**, **ToDo.Write**, and **ToDo.Delete**. Select **Add permissions**.
 
 1. Select **Grant admin consent for {your-tenant-name}** to grant admin consent for the permissions you added.
 
@@ -96,7 +96,7 @@ Use the following steps to register an application in Microsoft Entra ID, which 
 
 #### Add user to access the RESTful APIs
 
-Use the following steps to create a member user in your Microsoft Entra ID, then the user can manage the data of ToDo application through RESTful APIs.
+Use the following steps to create a member user in your Microsoft Entra ID, then the user can manage the data of the ToDo application through RESTful APIs.
 
 1. Under **Manage**, select **Users** > **New user** > **Create new user**.
 
@@ -109,7 +109,7 @@ Use the following steps to create a member user in your Microsoft Entra ID, then
    > [!NOTE]
    >
    > - New users must complete the first login authentication and update their passwords, otherwise, you receive an `AADSTS50055: The password is expired` error when you get the access token.
-   > - When a new user logs in, they will receive an **Action Required** prompt, you may choose to **Ask later** to skip the validation.
+   > - When a new user logs in, they will receive an **Action Required** prompt. You may choose to **Ask later** to skip the validation.
 
 1. Select **Review + create** to review your selections. Select **Create** to create the user.
 
@@ -119,7 +119,7 @@ Use the following steps to update the OAuth2 configuration for Swagger UI author
 
 1. Open the Azure Spring Apps instance in the Azure portal.
 
-1. Open your **Azure Active Directory** tenant in Azure portal, go to the registered app `ToDoWeb`.
+1. Open your **Azure Active Directory** tenant in the Azure portal, go to the registered app `ToDoWeb`.
 
 1. Under **Manage**, select **Authentication**, select **Add a platform**, and then select **Single-page application**.
 
@@ -133,7 +133,7 @@ Use the following steps to use [OAuth 2.0 authorization code flow](../active-dir
 
 1. Open the URL exposed by the app, then select **Authorize** to prepare the OAuth2 authentication.
 
-1. In the pop-up **Available authorizations** window, enter the client ID of the app `ToDoWeb` in the **client_id** field, and select all the scopes for **Scopes** field, ignore the **client_secret** field, then select **Authorize** to redirect to the Microsoft Entra ID login page.
+1. In the **Available authorizations** window, enter the client ID of the app `ToDoWeb` in the **client_id** field, and select all the scopes for **Scopes** field, ignore the **client_secret** field, then select **Authorize** to redirect to the Microsoft Entra ID login page.
 
 1. After completing the login with the previous user, you'll return to the following pop-up window:
 
