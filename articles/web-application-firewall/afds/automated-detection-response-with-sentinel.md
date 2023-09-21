@@ -93,9 +93,8 @@ There are detection query templates for SQLi and XSS attacks in Sentinel for Azu
 1. On the **Create new automation rule** page, type a name for the rule.
 1. Under **Trigger**, select **When alert is created**.
 1. Under **Actions**, select **Manage playbook permissions**.
-1. In **Settings**, scroll down to **Playbook permissions** and select **Configure permissions**.
-1. Select your resource group and select **Apply**.
-1. Back on the **Create new automation rule** page, under **Actions** the **Block-IPAzureWAF** playbook.
+1. On the **Manage permissions** page, select your resource group and select **Apply**.
+1. Back on the **Create new automation rule** page, under **Actions** select the **Block-IPAzureWAF** playbook from the drop down list.
 1. Select **Apply**.
 1. Select **Next: Review + create**.
 1. Select **Save**.
