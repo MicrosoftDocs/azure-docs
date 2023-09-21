@@ -120,7 +120,8 @@ Cloud sync will automatically discover your extensions in on-premises Active Dir
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator).
 2. Browse to **Identity** > **Hybrid management** > **Microsoft Entra Connect**.
-3. Select **Cloud sync** tab.
+3. Select **Manage Microsoft Entra cloud sync**.
+
 4. Select the configuration you wish to add the extension attribute and mapping.
 5. Under **Manage attributes** select **click to edit mappings**.
 6. Click **Add attribute mapping**.  The attributes will automatically be discovered.
