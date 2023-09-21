@@ -84,7 +84,7 @@ When you complete the wizard, Seamless SSO is enabled on your tenant.
 
 To verify that you have enabled Seamless SSO correctly:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
 2. Browse to **Identity** > **Hybrid management** > **Microsoft Entra Connect** > **Connect sync**.
 1. Verify that **Seamless single sign-on** is set to **Enabled**.
 

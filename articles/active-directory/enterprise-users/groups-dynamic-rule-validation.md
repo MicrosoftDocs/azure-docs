@@ -25,7 +25,6 @@ To evaluate the dynamic group rule membership feature, the administrator must ha
 
 > [!TIP]
 > Assigning one of required roles via indirect group membership is not yet supported.
->
 
 ## Step-by-step walk-through
 
