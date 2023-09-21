@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Syncplicity'
-description: Learn how to configure single sign-on between Azure Active Directory and Syncplicity.
+title: 'Tutorial: Microsoft Entra integration with Syncplicity'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Syncplicity.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,54 +13,58 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Integrate Syncplicity with Azure Active Directory
+# Tutorial: Integrate Syncplicity with Microsoft Entra ID
 
-In this tutorial, you'll learn how to integrate Syncplicity with Azure Active Directory (Azure AD). When you integrate Syncplicity with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Syncplicity with Microsoft Entra ID. When you integrate Syncplicity with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Syncplicity.
-* Enable your users to be automatically signed-in to Syncplicity with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Syncplicity.
+* Enable your users to be automatically signed-in to Syncplicity with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Syncplicity single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. 
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment. 
 * Syncplicity supports **SP** initiated SSO.
 
 ## Add Syncplicity from the gallery
 
-To configure the integration of Syncplicity into Azure AD, you need to add Syncplicity from the gallery to your list of managed SaaS apps.
+To configure the integration of Syncplicity into Microsoft Entra ID, you need to add Syncplicity from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
-1. In the **Browse Azure AD gallery** section, type **Syncplicity** in the search box.
+1. In the **Browse Microsoft Entra gallery** section, type **Syncplicity** in the search box.
 1. Select **Syncplicity** from results panel and then click **Create** to add the app. Wait a few seconds while the app is added to your tenant.
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Syncplicity
+<a name='configure-and-test-azure-ad-sso-for-syncplicity'></a>
 
-Configure and test Azure AD SSO with Syncplicity using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Syncplicity.
+## Configure and test Microsoft Entra SSO for Syncplicity
 
-To configure and test Azure AD SSO with Syncplicity, perform the following steps:
+Configure and test Microsoft Entra SSO with Syncplicity using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Syncplicity.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Syncplicity, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Syncplicity SSO](#configure-syncplicity-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Syncplicity test user](#create-syncplicity-test-user)** - to have a counterpart of B.Simon in Syncplicity that is linked to the Azure AD representation of user.
+    1. **[Create Syncplicity test user](#create-syncplicity-test-user)** - to have a counterpart of B.Simon in Syncplicity that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
-1. **[Update SSO](#update-sso)** - to make the necessary changes in Syncplicity if you have changed the SSO settings in Azure AD.
+1. **[Update SSO](#update-sso)** - to make the necessary changes in Syncplicity if you have changed the SSO settings in Microsoft Entra ID.
 
-### Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+### Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Syncplicity** > **Single sign-on**.
@@ -94,7 +98,9 @@ Follow these steps to enable Azure AD SSO.
 
    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -108,7 +114,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to Syncplicity.
 
@@ -148,7 +156,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 ### Create Syncplicity test user
 
-For Azure AD users to be able to sign in, they must be provisioned to Syncplicity application. This section describes how to create Azure AD user accounts in Syncplicity.
+For Microsoft Entra users to be able to sign in, they must be provisioned to Syncplicity application. This section describes how to create Microsoft Entra user accounts in Syncplicity.
 
 **To provision a user account to Syncplicity, perform the following steps:**
 
@@ -158,12 +166,12 @@ For Azure AD users to be able to sign in, they must be provisioned to Syncplicit
 
     ![Manage Users](./media/syncplicity-tutorial/users.png "Manage Users")
 
-1. Type the **Email addresses** of an Azure AD account you want to provision, select **User** as **Role**, and then click **Next**.
+1. Type the **Email addresses** of a Microsoft Entra account you want to provision, select **User** as **Role**, and then click **Next**.
 
     ![Account Information](./media/syncplicity-tutorial/roles.png "Account Information")
 
     > [!NOTE]
-    > The Azure AD account holder gets an email including a link to confirm and activate the account.
+    > The Microsoft Entra account holder gets an email including a link to confirm and activate the account.
 
 1. Select a group in your company that your new user should become a member of, and then click **Next**.
 
@@ -177,11 +185,11 @@ For Azure AD users to be able to sign in, they must be provisioned to Syncplicit
     ![Syncplicity Folders](./media/syncplicity-tutorial/folder.png "Syncplicity Folders")
 
 > [!NOTE]
-> You can use any other Syncplicity user account creation tools or APIs provided by Syncplicity to provision Azure AD user accounts.
+> You can use any other Syncplicity user account creation tools or APIs provided by Syncplicity to provision Microsoft Entra user accounts.
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 * Click on **Test this application**, this will redirect to Syncplicity Sign-on URL where you can initiate the login flow. 
 

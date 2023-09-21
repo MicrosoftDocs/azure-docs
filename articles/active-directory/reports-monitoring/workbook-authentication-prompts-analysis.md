@@ -1,6 +1,6 @@
 ---
 
-title: Authentication prompts analysis workbook in Azure AD
+title: Authentication prompts analysis workbook in Microsoft Entra ID
 description: Learn how to use the authentication prompts analysis workbook.
 services: active-directory
 author: shlipsey3
@@ -117,9 +117,8 @@ If the visuals are taking too much time to load, try reducing the Time filter to
 
 ## Next steps
 
-- To understand more about the different policies that affect MFA prompts, see [Optimize reauthentication prompts and understand session lifetime for Azure AD Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md). 
+- To understand more about the different policies that affect MFA prompts, see [Optimize reauthentication prompts and understand session lifetime for Microsoft Entra multifactor authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md). 
 
 - To learn more about the different vulnerabilities of different MFA methods, see [All your creds belong to us!](https://aka.ms/allyourcreds).
 
 - To learn how to move users from telecom-based methods to the Authenticator app, see [How to run a registration campaign to set up Microsoft Authenticator - Microsoft Authenticator app](../authentication/how-to-mfa-registration-campaign.md).
-
