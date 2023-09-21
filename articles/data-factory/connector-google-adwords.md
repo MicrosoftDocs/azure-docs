@@ -74,8 +74,6 @@ The following properties are supported for Google AdWords linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **GoogleAdWords** | Yes |
-| connectionProperties | A group of properties that defines how to connect to Google AdWords. | Yes |
-| ***Under `connectionProperties`:*** | | |
 | googleAdsApiVersion | The Google Ads API version that you use.| No |
 | clientCustomerID | The Client customer ID of the AdWords account that you want to fetch report data for.  | Yes |
 | loginCustomerID | The customer ID of the Google AdWords manager account through which you want to fetch report data of specific customer.| No |
@@ -212,7 +210,7 @@ To upgrade your Google AdWords linked service, you need update your linked servi
 
 ### Update the linked service configuration
 
-Create a new Google AdWords linked service and configure it by referring to [Linked service properties](#linked-service-properties). Note that you need to select **Recommended** in **Driver version**, and if you use **Service authentication**, the configuration for it has changed and you need to apply new configuration.
+Create a new Google AdWords linked service and configure it by referring to [Linked service properties](#linked-service-properties). Note that you need to select **Recommended** in **Driver version**, and apply the new configuration for **Service authentication** if you use it.
 
 ### Migrate from SQL to GAQL
 
