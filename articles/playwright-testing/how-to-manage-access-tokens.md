@@ -91,7 +91,7 @@ You can only delete access tokens that you created in a workspace. To create an 
 
 1. Select the settings icon on the home page to go to the workspace settings.
 
-1. On the **Access tokens** page, select **Delete** next to the access key that you want to delete.
+1. On the **Access tokens** page, select **Delete** next to the access token that you want to delete.
 
     :::image type="content" source="./media/how-to-manage-access-tokens/playwright-testing-delete-token.png" alt-text="Screenshot that shows how to delete an access tokenin the Playwright portal.":::
 
