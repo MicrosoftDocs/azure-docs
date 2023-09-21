@@ -90,9 +90,9 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 
 > [!NOTE]
 
-> For specalized images, [osprofile properties](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#generalized-and-specialized-images) are handled differently than generalized images.
+> For specalized images, [osprofile properties](/azure/virtual-machines/shared-image-galleries) are handled differently than generalized images.
 
-> Using a [load balancer](/azure/load-balancer/load-balancer-overview#why-use-azure-load-balancer) is optional but is encouraged for these reasons.
+> Using a [load balancer](/azure/load-balancer/load-balancer-overview) is optional but is encouraged for these reasons.
 
 6. Access the virtual machine scale set from the portal.
 
