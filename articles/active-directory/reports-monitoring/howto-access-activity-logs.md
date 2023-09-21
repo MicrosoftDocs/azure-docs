@@ -133,6 +133,8 @@ We recommend using the real-time security detection capabilities of Microsoft Se
 1. [Begin hunting for threats](../../sentinel/hunting.md).
 
 
+<a name='view-logs-through-the-portal'></a>
+
 ## View logs through the Microsoft Entra admin center
 
 For one-off investigations with a limited scope, the [Microsoft Entra admin center](https://entra.microsoft.com/) is often the easiest way to find the data you need. The user interface for each of these reports provides you with filter options enabling you to find the entries you need to solve your scenario. 
