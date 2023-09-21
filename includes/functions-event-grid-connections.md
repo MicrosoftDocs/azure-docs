@@ -6,17 +6,28 @@ ms.date: 08/10/2023
 ms.author: jolov
 ---
 
-There are two modes of authenticating using the Event Grid output binding:
+## Connections
 
-- Authenticating with an identity
-  - The `Connection` property must be set to the name of a shared prefix for multiple application settings, together defining an [identity-based connection](#identity-based-connections).
+There are two ways of authenticating to an Event Grid topic when using the Event Grid output binding:
 
-- Authenticating with the Event Grid topic key
-  - The `TopicEndpointUri` and `TopicKeySetting` properties must be set, as described in [Using the topic key](#using-the-topic-key).
+| Authentication method | Description |
+| ----- | ----- |
+| Using a topic key | Set the `TopicEndpointUri` and `TopicKeySetting` properties, as described in [Use a topic key](#use-a-topic-key). | 
+| Using an identity | Set the `Connection` property to the name of a shared prefix for multiple application settings, together defining an [identity-based connection](#identity-based-connections). This method is supported when using version 3.3.x or higher of the extension. | 
 
-### Identity-based connections
+### Use a topic key
 
-If you are using version 3.3.x or higher of the extension, instead of using a topic key, you can have the app use an [Azure Active Directory identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `Connection` property in the binding configuration.
+Use the following steps to configure a topic key:
+
+1. Follow the steps in [Get access keys](../articles/event-grid/get-access-keys.md) to obtain the topic key for your Event Grid topic.
+
+1. In your application settings, create a setting that defines the key value. Use the name of this setting for the `TopicKeySetting` property of the binding.
+ 
+1. In your application settings, create a setting that defines the topic endpoint. Use the name of this setting for the `TopicEndpointUri` property of the binding.
+
+### Identity-based connection
+
+When using version 3.3.x or higher of the extension, you can connect to Event Grid using [Azure Active Directory identity](../articles/active-directory/fundamentals/active-directory-whatis.md) instead of just a topic key. To do this, you would define settings under a common prefix which maps to the `Connection` property in the binding configuration.
 
 In this mode, the extension requires the following properties:
 
@@ -32,10 +43,4 @@ Additional properties may be set to customize the connection. See [Common proper
 
 [!INCLUDE [functions-identity-based-connections-configuration](./functions-identity-based-connections-configuration.md)]
 
-### Using the Topic Key
-
-To obtain a topic key, follow the steps shown at [Get access keys](../articles/event-grid/get-access-keys.md).
-
-This topic key should be stored in an application setting with a name matching the value specified by the `TopicKeySetting` property of the binding configuration.
- 
-The topic endpoint should be stored in an application setting with a name matching the value specified by the `TopicEndpointUri` property of the binding configuration.
+[!INCLUDE [functions-event-grid-permissions](./functions-event-grid-permissions.md)]
