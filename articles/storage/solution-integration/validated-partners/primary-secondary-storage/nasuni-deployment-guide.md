@@ -75,12 +75,16 @@ If you don't already have a storage account in Microsoft Azure, create a storage
 
 > [!NOTE]
 > Nasuni recommends enabling Soft Delete for all storage accounts being used for Nasuni volumes. If data is deleted, instead of the data being permanently lost, the data changes to a “soft deleted” state and remains available for a configurable number of days. 
-Enable “Enable soft delete for blobs." 
-Specify “Days to retain deleted blobs” by entering or selecting the number of days to retain data. (You can retain soft-deleted data for between 1 and 365 days.) Nasuni recommends specifying at least 30 days.
-Nasuni recommends enabling Soft Delete for containers. Containers marked for deletion remain available for a configurable number of days.
-After configuring your storage account, enable “Enable soft delete for containers.”
-Specify “Days to retain deleted containers” by entering or selecting the number of days to retain data. (You can retain soft-deleted data for between 1 and 365 days.) Nasuni recommends specifying at least 30 days.
-For details see [soft delete for containers](/azure/storage/blobs/soft-delete-container-overview)
+- Enable “Enable soft delete for blobs." 
+- Specify “Days to retain deleted blobs” by entering or selecting the number of days to retain data. (You can retain soft-deleted data for between 1 and 365 days.) 
+- Nasuni recommends specifying at least 30 days.
+
+> [!NOTE]
+> Nasuni recommends enabling Soft Delete for containers. Containers marked for deletion remain available for a configurable number of days.
+- After configuring your storage account, enable “Enable soft delete for containers.”
+- Specify “Days to retain deleted containers” by entering or selecting the number of days to retain data. (You can retain soft-deleted data for between 1 and 365 days.) 
+- Nasuni recommends specifying at least 30 days.
+- For details see [soft delete for containers](/azure/storage/blobs/soft-delete-container-overview)
 
 17. Configure other features according to your needs
 18. Select “Next: Tags >." The Tags pane appears.
