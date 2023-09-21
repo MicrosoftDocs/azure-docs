@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Approve or deny requests for Microsoft Entra roles in Privileged Identity Management
 
-With Privileged Identity Management (PIM) in Microsoft Entra ID, part of Microsoft Entra, you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers. Delegated approvers have 24 hours to approve requests. If a request is not approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window is not configurable.
+With Privileged Identity Management (PIM) in Microsoft Entra ID you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers. Delegated approvers have 24 hours to approve requests. If a request is not approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window is not configurable.
 
 
 
