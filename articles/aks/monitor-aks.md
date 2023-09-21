@@ -198,7 +198,7 @@ The following table lists the recommended metric alert rules for AKS clusters. T
 [Log alerts](../azure-monitor/alerts/alerts-unified-log.md) can measure two different things, which can be used to monitor in different scenarios:
 
 [Result count](../azure-monitor/alerts/alerts-unified-log#result-count): Counts the number of rows returned by the query and can be used to work with events such as Windows event logs, Syslog, and application exceptions.
-[Calculation of a value](../azure-monitor/alerts/alerts-unified-log#calculation-of-a-value): Makes a calculation based on a numeric column and can be used to include any number of resources. An example is CPU percentage.
+- [Calculation of a value](../azure-monitor/alerts/alerts-unified-log#calculation-of-a-value): Makes a calculation based on a numeric column and can be used to include any number of resources. An example is CPU percentage.
 
 Depending on the alerting scenario required, log queries need to be created comparing a DateTime to the present time by using the `now` operator and going back one hour. To learn how to build log-based alerts, see [Create log alerts from Container insights](../azure-monitor/containers/container-insights-log-alerts).
 
