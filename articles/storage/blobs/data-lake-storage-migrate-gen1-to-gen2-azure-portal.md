@@ -230,6 +230,37 @@ The following functionality isn't supported in the compatibility layer.
 
 ## Frequently asked questions
 
+#### How much time will migration take?
+
+This table shows how long things take:
+
+| Processing task                        | Data processed per hour     |
+|----------------------------------------|-----------------------------|
+| Data copy                              | 10 TB                       |
+| Data validation                        | 9 million files             |
+| Metadata copy                          | 4 million files and folders |
+| Metadata processing                    | 25 million nodes            |
+| Metadata processing (data copy option) | 50 million nodes            |
+
+Data processing and metadata processing occur in parallel. Therefore, total processing time is equal to whichever took the longest.
+
+##### Example 1
+
+300 TB of data and 200 million files and folders.
+
+| Task | Estimated hours |
+|--|--|
+| Copy data (300 / 10) | 37.5 |
+| Validate data (200 / 9) | 22.22  |
+| **Data processing time (37.5 + 22.2)** | **60** |   
+| Copy metadata (200 / 4) | 50 |
+| Metadata processing (200 / 25) | 8 |
+| Metadata processing - data copy option only (200 / 50)| 4 |
+| **Metadata processing time (50 + 8 + 4)** | **62** |
+| **Total time for data copy migration (higher of the two times)** | **62** |
+| **Total time for complete migration (62 - 4)** | **58** |
+
+
 #### How much does the data migration cost?
 
 There's no cost to use the portal-based migration tool, however you'll be billed for usage of Azure Data Lake Gen1 and Gen2 services. During the data migration, you'll be billed for the data storage and transactions of the Gen1 account.
