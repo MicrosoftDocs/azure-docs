@@ -138,12 +138,16 @@ To delegate role assignments with conditions, you assign roles as you currently 
     # [Template](#tab/template)
 
     Choose from a list of condition templates. Select **Configure** to specify the roles, principal types, or principals.
+
+    For more information, see [Delegate the Azure role assignment task to others with conditions (preview)](delegate-role-assignments-portal.md).
     
     :::image type="content" source="./media/shared/condition-templates.png" alt-text="Screenshot of Add role assignment condition with a list of condition templates." lightbox="./media/shared/condition-templates.png":::
 
     # [Condition editor](#tab/condition-editor)
 
-    If the condition templates don't work for your scenario or if you want more control, you can use the condition editor. For examples, see [Examples to delegate Azure role assignments with conditions (preview)](delegate-role-assignments-examples.md).
+    If the condition templates don't work for your scenario or if you want more control, you can use the condition editor.
+
+    For examples, see [Examples to delegate Azure role assignments with conditions (preview)](delegate-role-assignments-examples.md).
 
     :::image type="content" source="./media/shared/delegate-role-assignments-expression.png" alt-text="Screenshot of condition editor in Azure portal showing a role assignment condition to delegate role assignments with conditions." lightbox="./media/shared/delegate-role-assignments-expression.png":::
 
