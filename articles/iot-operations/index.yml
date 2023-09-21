@@ -43,6 +43,8 @@ landingContent:
             url: connect-to-cloud/overview-connect-to-cloud.md
           - text: Visualize and analyze telemetry
             url: analyze-telemetry/overview-analyze-telemetry.md
+          - text: Monitor service and asset health
+            url: monitor/overview-monitor-health.md
 
   - title: Guides
     linkLists:
