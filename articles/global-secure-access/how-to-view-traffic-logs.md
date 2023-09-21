@@ -79,9 +79,9 @@ The log details provide valuable information about your network traffic. Not all
 - **Device category**: Device type where the transaction initiated from. Either **client** or **remote network**.
 - **Action**: The action taken on the network session. Either **Allowed** or **Denied**.
 
-## Configure Diagnostic settings to export logs
+## Configure diagnostic settings to export logs
 
-You can export the Global Secure Access traffic logs to an endpoint for further analysis and alerting. This integration is configured in Microsoft Entra Diagnostic settings.
+You can export the Global Secure Access traffic logs to an endpoint for further analysis and alerting. This integration is configured in Microsoft Entra diagnostic settings.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator).
 1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
