@@ -32,9 +32,9 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 
 1. Follow the steps to harden a Linux image.
 
-    [Harden a Linux image to remove Azure guest agent](/articles/confidential-computing/harden-a-linux-image-to-remove-azure-guest-agent.md).
+    [Harden a Linux image to remove Azure guest agent](/harden-a-linux-image-to-remove-azure-guest-agent.md).
    
-    [Harden a Linux image to remove sudo users](/articles/confidential-computing/harden-the-linux-image-to-remove-sudo-users.md).
+    [Harden a Linux image to remove sudo users](/harden-the-linux-image-to-remove-sudo-users.md).
 
 2. Log in to the Azure CLI.
 
@@ -62,7 +62,11 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 
 5. Create a Virtual Machine Scale Set.
 
-    Now create a Virtual Machine Scale Set with az vmss create. The following example creates a scale set called myScaleSet with an instance count of 2
+    Now create a Virtual Machine Scale Set with az vmss create az cli. The following example creates a scale set called myScaleSet with an instance count of 2.
+   
+    If you are looking to set an admin username, ensure that it isn't part of the [reserved words](https://learn.microsoft.com/rest/api/compute/virtualmachines/createorupdate#osprofile) list for vmss.
+   In this case, the username is auto set to azureuser.
+   For the admin credentials, you will be able to use the credentials that you set from the hardened image while you create the vm.
 
     ```
     az vmss create \
@@ -85,9 +89,6 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
     ```
 
 > [!NOTE]
-> If you are looking to set an admin username, ensure that it isn't part of the [reserved words](https://learn.microsoft.com/rest/api/compute/virtualmachines/createorupdate#osprofile) list for vmss. In this case, the username is auto set to azureuser.
-
-> For the admin credentials, you will be able to use the credentials that you set from the hardened image while you create the vm.
 
 > For specalized images, [osprofile properties](https://learn.microsoft.com/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#generalized-and-specialized-images) are handled differently than generalized images.
 
