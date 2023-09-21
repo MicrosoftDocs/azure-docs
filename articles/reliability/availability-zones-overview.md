@@ -1,6 +1,6 @@
 ---
 title: What are Azure regions and availability zones?
-description: Learn about regions and availability zones and how they work to help you achieve reliability
+description: Learn about availability zones and how they work to help you achieve reliability
 ms.service: reliability
 ms.subservice: availability-zones
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.custom: references_regions
 ---
 
 
-# What are Azure regions and availability zones?
+# What are availability zones?
 
 An Azure *region* is a geographic perimeter that contains a set of datacenters. Many Azure regions provide *availability zones*, which are separated groups of datacenters within a region. Availability zones are close enough to have low-latency connections to other availability zones. They're connected by a high-performance network with a round-trip latency of less than 2ms. However, availability zones are far enough apart to reduce the likelihood that more than one will be affected by local outages or weather. Availability zones have independent power, cooling, and networking infrastructure. They're designed so that if one zone experiences an outage, then regional services, capacity, and high availability are supported by the remaining zones. They help your data stay synchronized and accessible when things go wrong.
 
@@ -24,16 +24,11 @@ The following diagram shows several example Azure regions. Regions 1 and 2 suppo
 
 To see which regions support availability zones, see [Azure regions with availability zone support](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
-
-## Paired and unpaired regions
-
-Many regions also have a [*paired region*](./cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). Paired regions support certain types of multi-region deployment approaches. Some newer regions have [multiple availability zones and don't have a paired region](./cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair). You can still deploy multi-region solutions into these regions, but the approaches you use might be different.
-
-## Zonal and zone-redundant availability zones
+## Zonal and zone-redundant services
 
 When you deploy into an Azure region that contains availability zones, you can use multiple availability zones together. By using multiple availability zones, you can keep separate copies of your application and data within separate physical datacenters in a large metropolitan area.
 
-There are two ways to use availability zones in a solution:
+There are two ways that Azure services use availability zones:
 
 - **Zonal** resources are pinned to a specific availability zone. You can combine multiple zonal deployments across different zones to meet high reliability requirements. You're responsible for managing data replication and distributing requests across zones. If an outage occurs in a single availability zone, you're responsible for failover to another availability zone.
 
@@ -58,17 +53,20 @@ az rest --method get --uri '/subscriptions/{subscriptionId}/locations?api-versio
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-
 $subscriptionId = (Get-AzContext).Subscription.ID
 $response = Invoke-AzRestMethod -Method GET -Path "/subscriptions/$subscriptionId/locations?api-version=2022-12-01"
 $locations = ($response.Content | ConvertFrom-Json).value
-
 ```
 ---
 
 ## Availability zones and Azure updates
 
 Microsoft aims to deploy updates to Azure services to a single availability zone at a time. This approach reduces the impact that updates might have on an active workload, because the workload can continue to run in other zones while the update is in process. For more information about how Azure deploys updates, see [Advancing safe deployment practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/).
+
+
+## Paired and unpaired regions
+
+Many regions also have a [*paired region*](./cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). Paired regions support certain types of multi-region deployment approaches. Some newer regions have [multiple availability zones and don't have a paired region](./cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair). You can still deploy multi-region solutions into these regions, but the approaches you use might be different.
 
 ## Shared responsibility model
 
