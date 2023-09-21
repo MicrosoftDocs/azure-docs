@@ -26,7 +26,7 @@ Changing the value of the $ssoMode variable enables a filtered output by SSO mod
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-This sample requires the [Microsoft Entra V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (Microsoft Entra ID).
+This sample requires the [Azure Active Directory PowerShell 2.0 for Graph module](/powershell/azure/active-directory/install-adv2).
 
 ## Sample script
 
