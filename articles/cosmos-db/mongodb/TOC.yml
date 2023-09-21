@@ -293,6 +293,8 @@
           href: ../emulator.md
     - name: How to
       items:
+        - name: Develop with the emulator
+          href: ../how-to-develop-emulator.md?pivots=api-mongodb
         - name: Use developer tools
           items:
             - name: MongoDB extension commands
@@ -310,28 +312,6 @@
                   href: connect-using-robomongo.md
                 - name: Connect using Mongoose
                   href: connect-using-mongoose.md
-            - name: Develop locally with emulator
-              items:
-                - name: Install and use the emulator
-                  href: ../local-emulator.md
-                - name: Run the emulator container in Docker
-                  items:
-                    - name: Run in Docker for Linux
-                      href: ../docker-emulator-linux.md
-                    - name: Run in Docker for Windows
-                      href: ../docker-emulator-windows.md
-                    - name: Access the REST API
-                      href: ../docker-emulator-rest-api.md
-                - name: Export emulator certificates
-                  href: ../local-emulator-export-ssl-certificates.md
-                - name: Emulator command-line parameters
-                  href: ../emulator-command-line-parameters.md
-                - name: Emulator troubleshooting
-                  href: ../troubleshoot-local-emulator.md
-                - name: Emulator release notes
-                  href: ../local-emulator-release-notes.md
-                - name: Visual Studio Code extension
-                  href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
             - name: Set up CI/CD with Azure Pipelines
               href: ../tutorial-setup-ci-cd.md
             - name: Use Azure Cosmos DB Explorer
@@ -388,7 +368,7 @@
             - name: Integrate with Azure services
               href: integrations-overview.md              
             - name: RAG with Azure OpenAI
-              href: ../rag-data-openai.md
+              href: ../vector-search.md#retrieval-augmented-generation
             - name: Vercel
               href: ../vercel-integration.md
         - name: Migrate data to Azure Cosmos DB

@@ -1,6 +1,6 @@
 ---
-title: Resolve secure LDAP alerts in Azure AD Domain Services | Microsoft Docs
-description: Learn how to troubleshoot and resolve common alerts with secure LDAP for Azure Active Directory Domain Services.
+title: Resolve secure LDAP alerts in Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to troubleshoot and resolve common alerts with secure LDAP for Microsoft Entra Domain Services.
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -14,11 +14,11 @@ ms.date: 09/15/2023
 ms.author: justinha
 
 ---
-# Known issues: Secure LDAP alerts in Azure Active Directory Domain Services
+# Known issues: Secure LDAP alerts in Microsoft Entra Domain Services
 
-Applications and services that use lightweight directory access protocol (LDAP) to communicate with Azure Active Directory Domain Services (Azure AD DS) can be [configured to use secure LDAP](tutorial-configure-ldaps.md). An appropriate certificate and required network ports must be open for secure LDAP to work correctly.
+Applications and services that use lightweight directory access protocol (LDAP) to communicate with Microsoft Entra Domain Services (Microsoft Entra DS) can be [configured to use secure LDAP](tutorial-configure-ldaps.md). An appropriate certificate and required network ports must be open for secure LDAP to work correctly.
 
-This article helps you understand and resolve common alerts with secure LDAP access in Azure AD DS.
+This article helps you understand and resolve common alerts with secure LDAP access in Microsoft Entra DS.
 
 ## AADDS101: Secure LDAP network configuration
 
@@ -42,7 +42,7 @@ When you enable secure LDAP, it's recommended to create additional rules that re
 The managed domain's health automatically updates itself within two hours and removes the alert.
 
 > [!TIP]
-> TCP port 636 isn't the only rule needed for Azure AD DS to run smoothly. To learn more, see the [Azure AD DS Network security groups and required ports](network-considerations.md#network-security-groups-and-required-ports).
+> TCP port 636 isn't the only rule needed for Microsoft Entra DS to run smoothly. To learn more, see the [Microsoft Entra DS Network security groups and required ports](network-considerations.md#network-security-groups-and-required-ports).
 
 ## AADDS502: Secure LDAP certificate expiring
 
@@ -52,7 +52,7 @@ The managed domain's health automatically updates itself within two hours and re
 
 ### Resolution
 
-Create a replacement secure LDAP certificate by following the steps to [create a certificate for secure LDAP](tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap). Apply the replacement certificate to Azure AD DS, and distribute the certificate to any clients that connect using secure LDAP.
+Create a replacement secure LDAP certificate by following the steps to [create a certificate for secure LDAP](tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap). Apply the replacement certificate to Microsoft Entra DS, and distribute the certificate to any clients that connect using secure LDAP.
 
 ## Next steps
 

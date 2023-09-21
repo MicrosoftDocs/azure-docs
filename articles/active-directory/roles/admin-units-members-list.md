@@ -1,6 +1,6 @@
 ---
 title: List users, groups, or devices in an administrative unit
-description: List users, groups, or devices in an administrative unit in Azure Active Directory.
+description: List users, groups, or devices in an administrative unit in Microsoft Entra ID.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -18,13 +18,13 @@ ms.collection: M365-identity-device-management
 
 # List users, groups, or devices in an administrative unit
 
-In Azure Active Directory (Azure AD), you can list the users, groups, or devices in administrative units.
+In Microsoft Entra ID, you can list the users, groups, or devices in administrative units.
 
 ## Prerequisites
 
-- Azure AD Premium P1 or P2 license for each administrative unit administrator
-- Azure AD Free licenses for administrative unit members
-- AzureAD module when using PowerShell
+- Microsoft Entra ID P1 or P2 license for each administrative unit administrator
+- Microsoft Entra ID Free licenses for administrative unit members
+- Azure AD PowerShell module when using PowerShell
 - AzureADPreview module when using PowerShell for devices
 - Admin consent when using Graph explorer for Microsoft Graph API
 
@@ -218,4 +218,4 @@ Response
 ## Next steps
 
 - [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
-- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
+- [Assign Microsoft Entra roles with administrative unit scope](admin-units-assign-roles.md)

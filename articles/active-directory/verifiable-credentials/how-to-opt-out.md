@@ -1,6 +1,6 @@
 ---
 title: Opt out of Microsoft Entra Verified ID
-description: Learn how to Opt Out of Entra Verified ID
+description: Learn how to Opt Out of Microsoft Entra Verified ID
 documentationCenter: ''
 author: barclayn
 manager: amycolannino
@@ -31,7 +31,7 @@ In this article:
 
 ## When do you need to opt out?
 
-Opting out is a one-way operation. After you opt-out, your Entra Verified ID environment is reset. Opting out may be required to:
+Opting out is a one-way operation. After you opt-out, your Microsoft Entra Verified ID environment is reset. Opting out may be required to:
 
 - Enable new service capabilities.
 - Reset your service configuration.
