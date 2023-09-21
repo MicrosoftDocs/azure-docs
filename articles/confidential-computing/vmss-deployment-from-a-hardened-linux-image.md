@@ -24,7 +24,7 @@ This "how to" document describes the steps to deploy a virtual machine scale set
 
 - Azure subscription - If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - If your free trial accounts don't have access to the VMs used in this tutorial, one option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
-- A hardened linux image - you can create one from this [article](/articles/confidential-computing/harden-a-linux-image-to-remove-azure-guest-agent.md).
+- A hardened linux image - you can create one from this [article](harden-a-linux-image-to-remove-azure-guest-agent.md).
   
 ### VMSS confidential VM deployment from a hardened Linux image
 
