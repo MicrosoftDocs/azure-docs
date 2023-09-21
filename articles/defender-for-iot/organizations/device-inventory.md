@@ -41,19 +41,20 @@ A *transient* device type indicates a device that was detected for only a short 
 
 ## Device management options
 
-The Defender for IoT device inventory is available in the Azure portal, OT network sensor consoles, and the on-premises management console.
-
-While you can view device details from any of these locations, each location also offers extra device inventory support. The following table describes the device inventory support for each location and the extra actions available from that location only:
+Defender for IoT device inventory is available in the following locations:
 
 |Location  |Description   | Extra inventory support |
 |---------|---------|---------|
-|**Azure portal**     | Devices detected from all cloud-connected OT sensors and Enterprise IoT sensors. <br><br>      |     - If you also use [Microsoft Sentinel](iot-solution.md), incidents in Microsoft Sentinel are linked to related devices in Defender for IoT. <br><br>- Use Defender for IoT [workbooks](workbooks.md) for visibility into all cloud-connected device inventory, including related alerts and vulnerabilities.    <br><br>- If you have a [legacy Enterprise IoT plan](whats-new.md#enterprise-iot-protection-now-included-in-microsoft-365-e5-and-e5-security-licenses) on your Azure subscription, the device inventory also includes devices detected by Microsoft Defender for Endpoint agents.   |
+|**Azure portal**     | OT devices detected from all cloud-connected OT sensors.      |     - If you also use [Microsoft Sentinel](iot-solution.md), incidents in Microsoft Sentinel are linked to related devices in Defender for IoT. <br><br>- Use Defender for IoT [workbooks](workbooks.md) for visibility into all cloud-connected device inventory, including related alerts and vulnerabilities.    <br><br>- If you have a [legacy Enterprise IoT plan](whats-new.md#enterprise-iot-protection-now-included-in-microsoft-365-e5-and-e5-security-licenses) on your Azure subscription, the Azure portal also includes devices detected by Microsoft Defender for Endpoint agents. If you have an [Enterprise IoT sensor](eiot-sensor.md), the Azure portal also includes devices detected by the Enterprise IoT sensor.   |
+| **Microsoft 365 Defender** | Enterprise IoT devices detected by Microsoft Defender for Endpoint agents | Correlate devices across Microsoft 365 Defender in purpose-built alerts, vulnerabilities, and recommendations. |
 |**OT network sensor consoles**     |   Devices detected by that OT sensor      |    - View all detected devices across a network device map<br><br>- View related events on the **Event timeline** |
 |**An on-premises management console**     |  Devices detected across all connected OT sensors          | Enhance device data by importing data manually or via script  |
+| 
 
 For more information, see:
 
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+- [Defender for Endpoint device discovery](/microsoft-365/security/defender-endpoint/device-discovery)
 - [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 - [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 

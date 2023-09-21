@@ -23,7 +23,7 @@ Microsoft Defender for IoT alerts enhance your network security and operations w
 
 ## Prerequisites
 
-- **To have alerts in Defender for IoT**, you must have an [OT](onboard-sensors.md) or [Enterprise IoT sensor](eiot-sensor.md) on-boarded, and network data streaming into Defender for IoT.
+- **To have alerts in Defender for IoT**, you must have an [OT](onboard-sensors.md) onboarded, and network data streaming into Defender for IoT.
 
 - **To view alerts on the Azure portal**, you must have access as a [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner)
 

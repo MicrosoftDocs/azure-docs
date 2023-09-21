@@ -15,13 +15,11 @@ While the number of IoT devices continues to grow, they often lack the security 
 
 [Microsoft Defender for IoT](./index.yml) seamlessly integrates with [Microsoft 365 Defender](/microsoft-365/security/defender) and [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) to provide both IoT device discovery and security value for IoT devices, including purpose-built alerts, recommendations, and vulnerability data.
 
-## IoT security across Microsoft 365 Defender and Azure
-
-Defender for IoT provides IoT security functionality across both the [Microsoft 365 Defender](https://security.microsoft.com/) and [Azure portals](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started).
+## Enterprise IoT security in Microsoft 365 Defender
 
 Enterprise IoT security in Microsoft 365 Defender provides IoT-specific security value, including alerts, risk and exposure levels, vulnerabilities, and recommendations in Microsoft 365 Defender.
 
-- If you're a Microsoft 365 E5 (ME5)/ E5 Security and Defender for Endpoint P2 customer, toggle on support for enterprise IoT (eIoT) devices in the Microsoft 365 Defender portal.
+- If you're a Microsoft 365 E5 (ME5)/ E5 Security and Defender for Endpoint P2 customer, [toggle on support](eiot-defender-for-endpoint.md) for **Enterprise IoT Security** in the Microsoft 365 Defender portal.
 
 - If you don't have ME5/E5 Security licenses, but you are a Microsoft Defender for Endpoint customer, start with a [free trial](billing.md#free-trial) or purchase standalone, per-device licenses to gain the same IoT-specific security value.
 
@@ -32,6 +30,7 @@ The following image shows the architecture and extra features added with **Enter
 
 For more information, see:
 
+- [Get started with enterprise IoT monitoring in Microsoft 365 Defender](eiot-defender-for-endpoint.md)
 - [Defender for IoT subscription billing](billing.md)
 - [Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery)
 - [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response)
@@ -39,7 +38,6 @@ For more information, see:
 - [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses)
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
 - [Proactively hunt with advanced hunting in Microsoft 365 Defender](/microsoft-365/security/defender/advanced-hunting-overview)
-
 
 ## Frequently asked questions
 
