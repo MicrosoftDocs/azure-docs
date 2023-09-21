@@ -43,7 +43,7 @@ monikerRange: '<=doc-intel-3.1.0'
 | [General document](#general-document) | Extract key-value pairs in addition to text and document structure information.|
 |**Prebuilt models**||
 | [Health insurance card](#health-insurance-card) | Automate healthcare processes by extracting insurer, member, prescription, group number and other key information from US health insurance cards.|
-| [US Tax document(( models](#us-tax-documents) | Process W2 forms to extract employee, employer, wage, and other information.  |
+| [US Tax document models](#us-tax-documents) | Process US tax forms to extract employee, employer, wage, and other information.  |
 | [Contract](#contract) | Extract agreement and party details.|
 | [Invoice](#invoice)  | Automate invoices. |
 | [Receipt](#receipt)  | Extract receipt data from receipts.|
@@ -141,7 +141,7 @@ The US tax document models analyze and extract key fields and line items from a 
 
  The contract model analyzes and extracts key fields and line items from contract agreements including parties, jurisdictions, contract ID, and title. The model currently supports English-language contract documents.
 
-***Sample contract processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)***:
+***Sample contract processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=contract)***:
 
 :::image type="content" source="media/studio/analyze-contract.png" alt-text="Screenshot of contract model extraction using Document Intelligence Studio.":::
 
