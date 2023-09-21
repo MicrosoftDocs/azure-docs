@@ -520,7 +520,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-When you use `WithClientClaims`, MSAL.NET produces a signed assertion that contains the claims expected by Azure AD, plus additional client claims that you want to send.
+When you use `WithClientClaims`, MSAL.NET produces a signed assertion that contains the claims expected by Microsoft Entra ID, plus additional client claims that you want to send.
 This code shows how to do that:
 
 ```csharp

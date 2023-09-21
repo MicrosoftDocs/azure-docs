@@ -50,7 +50,7 @@ These prerequisites cover the submission of a Spark job from Azure Machine Learn
 ---
 
 > [!NOTE]
-> To learn more about resource access while using Azure Machine Learning serverless Spark compute (preview), and attached Synapse Spark pool, see [Ensuring resource access for Spark jobs](apache-spark-environment-configuration.md#ensuring-resource-access-for-spark-jobs).
+> To learn more about resource access while using Azure Machine Learning serverless Spark compute, and attached Synapse Spark pool, see [Ensuring resource access for Spark jobs](apache-spark-environment-configuration.md#ensuring-resource-access-for-spark-jobs).
 
 ### Attach user assigned managed identity using CLI v2
 

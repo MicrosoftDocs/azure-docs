@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure frankli for automatic user provisioning with Azure Active Directory'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to frankli.
+title: 'Tutorial: Configure frankli for automatic user provisioning with Microsoft Entra ID'
+description: Learn how to automatically provision and de-provision user accounts from Microsoft Entra ID to frankli.
 services: active-directory
 documentationcenter: ''
 author: twimmers
@@ -18,60 +18,67 @@ ms.author: Thwimmer
 
 # Tutorial: Configure frankli for automatic user provisioning
 
-This tutorial describes the steps you need to do in both frankli and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [frankli](https://www.frankli.io/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS apps with Azure AD](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to do in both frankli and Microsoft Entra ID to configure automatic user provisioning. When configured, Microsoft Entra ID automatically provisions and de-provisions users and groups to [frankli](https://www.frankli.io/) using the Microsoft Entra provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS apps with Microsoft Entra ID](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in frankli.
 > * Remove users in frankli when they do not require access anymore.
-> * Keep user attributes synchronized between Azure AD and frankli.
+> * Keep user attributes synchronized between Microsoft Entra ID and frankli.
 > * [Single sign-on](../manage-apps/add-application-portal-setup-oidc-sso.md) to frankli.
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md). 
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning. For example Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator.
+* [A Microsoft Entra tenant](../develop/quickstart-create-new-tenant.md). 
+* A user account in Microsoft Entra ID with [permission](../roles/permissions-reference.md) to configure provisioning. For example Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator.
 
-## Step 1. Plan your provisioning deployment
+## Step 1: Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-1. Determine what data to [map between Azure AD and frankli](../app-provisioning/customize-application-attributes.md). 
+1. Determine what data to [map between Microsoft Entra ID and frankli](../app-provisioning/customize-application-attributes.md). 
 
-## Step 2. Configure frankli to support provisioning with Azure AD
+<a name='step-2-configure-frankli-to-support-provisioning-with-azure-ad'></a>
+
+## Step 2: Configure frankli to support provisioning with Microsoft Entra ID
 
 1. Log in to [Frankli](https://beta.frankli.io/login) using your admin account. 
-1. Navigate to **Admin -> Integrations -> Azure Active Directory**.
+1. Navigate to **Admin -> Integrations -> Microsoft Entra ID**.
 ![Active Directory Setup](media/frankli-io-provisioning-tutorial/ad-setup.png)
 1. Click on **Setup a Directory**.
 1. Define a name for your new external directory.
 ![Active Directory Name](media/frankli-io-provisioning-tutorial/ad-name.png)
 1. Click on **Create Directory**.
 ![Active Directory Details](media/frankli-io-provisioning-tutorial/ad-details.png)
-1. Take note of the **Base URL** and the **Bearer Token**.The **Base URL** will be entered into the **Tenant URL** field in the Azure portal. The **Bearer Token** will be entered into the **Secret Token** field in the Azure portal.
+1. Take note of the **Base URL** and the **Bearer Token**.The **Base URL** will be entered into the **Tenant URL** field. The **Bearer Token** will be entered into the **Secret Token** field.
 
-## Step 3. Add frankli from the Azure AD application gallery
+<a name='step-3-add-frankli-from-the-azure-ad-application-gallery'></a>
 
-Add frankli from the Azure AD application gallery to start managing provisioning to frankli. If you have previously setup frankli for SSO, you can use the same application. However it's recommended you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+## Step 3: Add frankli from the Microsoft Entra application gallery
 
-## Step 4. Define who will be in scope for provisioning 
+Add frankli from the Microsoft Entra application gallery to start managing provisioning to frankli. If you have previously setup frankli for SSO, you can use the same application. However it's recommended you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
-The Azure AD provisioning service allows you to scope who will be provisioned. It's based on assignment to the application and or based on attributes of the user and group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+## Step 4: Define who will be in scope for provisioning 
+
+The Microsoft Entra provisioning service allows you to scope who will be provisioned. It's based on assignment to the application and or based on attributes of the user and group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 * If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
-## Step 5. Configure automatic user provisioning to frankli 
+## Step 5: Configure automatic user provisioning to frankli 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and groups in frankli based on user and group assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users and groups in frankli based on user and group assignments in Microsoft Entra ID.
 
-### To configure automatic user provisioning for frankli in Azure AD:
+<a name='to-configure-automatic-user-provisioning-for-frankli-in-azure-ad'></a>
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+### To configure automatic user provisioning for frankli in Microsoft Entra ID:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
@@ -87,7 +94,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your frankli Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to frankli. If the connection fails, ensure your frankli account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your frankli Tenant URL and Secret Token. Click **Test Connection** to ensure Microsoft Entra ID can connect to frankli. If the connection fails, ensure your frankli account has Admin permissions and try again.
 
  	![Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -97,9 +104,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Select **Save**.
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to frankli**.
+1. Under the **Mappings** section, select **Synchronize Microsoft Entra users to frankli**.
 
-1. Review the user attributes that are synchronized from Azure AD to frankli in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in frankli for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the frankli API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Microsoft Entra ID to frankli in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in frankli for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the frankli API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for filtering|Required by frankliio
    |---|---|---|---|
@@ -119,7 +126,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. To enable the Azure AD provisioning service for frankli, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Microsoft Entra provisioning service for frankli, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
@@ -131,9 +138,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to complete than next cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to complete than next cycles, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. 
 
-## Step 6. Monitor your deployment
+## Step 6: Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
@@ -143,7 +150,7 @@ Once you've configured provisioning, use the following resources to monitor your
 ## More resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

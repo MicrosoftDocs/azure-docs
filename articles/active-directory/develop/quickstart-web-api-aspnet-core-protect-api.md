@@ -17,12 +17,12 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 
 # Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform
 
-The following quickstart uses a ASP.NET Core web API code sample to demonstrate how to restrict resource access to authorized accounts. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
+The following quickstart uses a ASP.NET Core web API code sample to demonstrate how to restrict resource access to authorized accounts. The sample supports authorization of personal Microsoft accounts and accounts in any Microsoft Entra organization.
 
 ## Prerequisites
 
 - Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Azure Active Directory tenant](quickstart-create-new-tenant.md)
+- [Microsoft Entra tenant](quickstart-create-new-tenant.md)
 - [.NET Core SDK 6.0+](https://dotnet.microsoft.com/)
 - [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -30,7 +30,7 @@ The following quickstart uses a ASP.NET Core web API code sample to demonstrate 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-First, register the web API in your Azure AD tenant and add a scope by following these steps:
+First, register the web API in your Microsoft Entra tenant and add a scope by following these steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.

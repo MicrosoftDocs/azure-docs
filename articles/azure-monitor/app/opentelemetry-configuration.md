@@ -25,14 +25,19 @@ Use one of the following three ways to configure the connection string:
 
 - Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET, it is in either your `startup.cs` or `program.cs` class.
     ```csharp
+    // Create a new ASP.NET Core web application builder.    
     var builder = WebApplication.CreateBuilder(args);
 
+    // Add the OpenTelemetry telemetry service to the application.
+    // This service will collect and send telemetry data to Azure Monitor.
     builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
         options.ConnectionString = "<Your Connection String>";
     });
 
+    // Build the ASP.NET Core web application.
     var app = builder.Build();
 
+    // Start the ASP.NET Core web application.    
     app.Run();
     ```
 - Set an environment variable:
@@ -60,18 +65,24 @@ Use one of the following two ways to configure the connection string:
 
 - Add the Azure Monitor Exporter to each OpenTelemetry signal in application startup.
     ```csharp
+    // Create a new OpenTelemetry tracer provider.
+    // It is important to keep the TracerProvider instance active throughout the process lifetime.
     var tracerProvider = Sdk.CreateTracerProviderBuilder()
     .AddAzureMonitorTraceExporter(options =>
     {
         options.ConnectionString = "<Your Connection String>";
     });
 
+    // Create a new OpenTelemetry meter provider.
+    // It is important to keep the MetricsProvider instance active throughout the process lifetime.
     var metricsProvider = Sdk.CreateMeterProviderBuilder()
         .AddAzureMonitorMetricExporter(options =>
         {
             options.ConnectionString = "<Your Connection String>";
         });
 
+    // Create a new logger factory.
+    // It is important to keep the LoggerFactory instance active throughout the process lifetime.
     var loggerFactory = LoggerFactory.Create(builder =>
     {
         builder.AddOpenTelemetry(options =>
@@ -112,7 +123,7 @@ Use one of the following two ways to configure the connection string:
     ```typescript
    const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
     const options: AzureMonitorOpenTelemetryOptions = {
-        azureMonitorExporterConfig: {
+        azureMonitorExporterOptions: {
             connectionString: "<your connection string>"
         }
     };
@@ -152,20 +163,29 @@ Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://githu
 
 ```csharp
 // Setting role name and role instance
+
+// Create a dictionary of resource attributes.
 var resourceAttributes = new Dictionary<string, object> {
     { "service.name", "my-service" },
     { "service.namespace", "my-namespace" },
     { "service.instance.id", "my-instance" }};
 
+// Create a new ASP.NET Core web application builder.
 var builder = WebApplication.CreateBuilder(args);
 
+// Add the OpenTelemetry telemetry service to the application.
+// This service will collect and send telemetry data to Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
+
+// Configure the OpenTelemetry tracer provider to add the resource attributes to all traces.
 builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => 
     builder.ConfigureResource(resourceBuilder => 
         resourceBuilder.AddAttributes(resourceAttributes)));
 
+// Build the ASP.NET Core web application.
 var app = builder.Build();
 
+// Start the ASP.NET Core web application.
 app.Run();
 ```
 
@@ -175,22 +195,32 @@ Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://githu
 
 ```csharp
 // Setting role name and role instance
+
+// Create a dictionary of resource attributes.
 var resourceAttributes = new Dictionary<string, object> {
     { "service.name", "my-service" },
     { "service.namespace", "my-namespace" },
     { "service.instance.id", "my-instance" }};
+
+// Create a resource builder.
 var resourceBuilder = ResourceBuilder.CreateDefault().AddAttributes(resourceAttributes);
 
+// Create a new OpenTelemetry tracer provider and set the resource builder.
+// It is important to keep the TracerProvider instance active throughout the process lifetime.
 var tracerProvider = Sdk.CreateTracerProviderBuilder()
     // Set ResourceBuilder on the TracerProvider.
     .SetResourceBuilder(resourceBuilder)
     .AddAzureMonitorTraceExporter();
 
+// Create a new OpenTelemetry meter provider and set the resource builder.
+// It is important to keep the MetricsProvider instance active throughout the process lifetime.
 var metricsProvider = Sdk.CreateMeterProviderBuilder()
     // Set ResourceBuilder on the MeterProvider.
     .SetResourceBuilder(resourceBuilder)
     .AddAzureMonitorMetricExporter();
 
+// Create a new logger factory and add the OpenTelemetry logger provider with the resource builder.
+// It is important to keep the LoggerFactory instance active throughout the process lifetime.
 var loggerFactory = LoggerFactory.Create(builder =>
 {
     builder.AddOpenTelemetry(options =>
@@ -261,15 +291,21 @@ You may want to enable sampling to reduce your data ingestion volume, which redu
 The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces are sent.
 
 ```csharp
+// Create a new ASP.NET Core web application builder.
 var builder = WebApplication.CreateBuilder(args);
 
+// Add the OpenTelemetry telemetry service to the application.
+// This service will collect and send telemetry data to Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor(o =>
 {
+    // Set the sampling ratio to 10%. This means that 10% of all traces will be sampled and sent to Azure Monitor.
     o.SamplingRatio = 0.1F;
 });
 
+// Build the ASP.NET Core web application.
 var app = builder.Build();
 
+// Start the ASP.NET Core web application.
 app.Run();
 ```
 
@@ -278,9 +314,12 @@ app.Run();
 The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces are sent.
 
 ```csharp
+// Create a new OpenTelemetry tracer provider.
+// It is important to keep the TracerProvider instance active throughout the process lifetime.
 var tracerProvider = Sdk.CreateTracerProviderBuilder()
     .AddAzureMonitorTraceExporter(options =>
-    {
+    {   
+        // Set the sampling ratio to 10%. This means that 10% of all traces will be sampled and sent to Azure Monitor.
         options.SamplingRatio = 0.1F;
     });
 ```
@@ -341,14 +380,23 @@ We support the credential classes provided by [Azure Identity](https://github.co
     
 1. Provide the desired credential class:
     ```csharp
+    // Create a new ASP.NET Core web application builder.    
     var builder = WebApplication.CreateBuilder(args);
 
+    // Add the OpenTelemetry telemetry service to the application.
+    // This service will collect and send telemetry data to Azure Monitor.
     builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
+        // Set the Azure Monitor credential to the DefaultAzureCredential.
+        // This credential will use the Azure identity of the current user or
+        // the service principal that the application is running as to authenticate
+        // to Azure Monitor.
         options.Credential = new DefaultAzureCredential();
     });
 
+    // Build the ASP.NET Core web application.
     var app = builder.Build();
 
+    // Start the ASP.NET Core web application.
     app.Run();
     ```
 
@@ -370,20 +418,27 @@ We support the credential classes provided by [Azure Identity](https://github.co
 
 1. Provide the desired credential class:    
     ```csharp
+    // Create a DefaultAzureCredential.
     var credential = new DefaultAzureCredential();
 
+    // Create a new OpenTelemetry tracer provider and set the credential.
+    // It is important to keep the TracerProvider instance active throughout the process lifetime.
     var tracerProvider = Sdk.CreateTracerProviderBuilder()
         .AddAzureMonitorTraceExporter(options =>
         {
             options.Credential = credential;
         });
 
+    // Create a new OpenTelemetry meter provider and set the credential.
+    // It is important to keep the MetricsProvider instance active throughout the process lifetime.
     var metricsProvider = Sdk.CreateMeterProviderBuilder()
         .AddAzureMonitorMetricExporter(options =>
         {
             options.Credential = credential;
         });
 
+    // Create a new logger factory and add the OpenTelemetry logger provider with the credential.
+    // It is important to keep the LoggerFactory instance active throughout the process lifetime.
     var loggerFactory = LoggerFactory.Create(builder =>
     {
         builder.AddOpenTelemetry(options =>
@@ -447,15 +502,22 @@ The Distro package includes the AzureMonitorExporter, which by default uses one 
 To override the default directory, you should set `AzureMonitorOptions.StorageDirectory`.
 
 ```csharp
+// Create a new ASP.NET Core web application builder.
 var builder = WebApplication.CreateBuilder(args);
 
+// Add the OpenTelemetry telemetry service to the application.
+// This service will collect and send telemetry data to Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor(options =>
 {
+    // Set the Azure Monitor storage directory to "C:\\SomeDirectory".
+    // This is the directory where the OpenTelemetry SDK will store any telemetry data that cannot be sent to Azure Monitor immediately.
     options.StorageDirectory = "C:\\SomeDirectory";
 });
 
+// Build the ASP.NET Core web application.
 var app = builder.Build();
 
+// Start the ASP.NET Core web application.
 app.Run();
 ```
 
@@ -476,24 +538,36 @@ By default, the AzureMonitorExporter uses one of the following locations for off
 To override the default directory, you should set `AzureMonitorExporterOptions.StorageDirectory`.
 
 ```csharp
+// Create a new OpenTelemetry tracer provider and set the storage directory.
+// It is important to keep the TracerProvider instance active throughout the process lifetime.
 var tracerProvider = Sdk.CreateTracerProviderBuilder()
     .AddAzureMonitorTraceExporter(options =>
     {
+        // Set the Azure Monitor storage directory to "C:\\SomeDirectory".
+        // This is the directory where the OpenTelemetry SDK will store any trace data that cannot be sent to Azure Monitor immediately.
         options.StorageDirectory = "C:\\SomeDirectory";
     });
 
+// Create a new OpenTelemetry meter provider and set the storage directory.
+// It is important to keep the MetricsProvider instance active throughout the process lifetime.
 var metricsProvider = Sdk.CreateMeterProviderBuilder()
     .AddAzureMonitorMetricExporter(options =>
     {
+        // Set the Azure Monitor storage directory to "C:\\SomeDirectory".
+        // This is the directory where the OpenTelemetry SDK will store any metric data that cannot be sent to Azure Monitor immediately.
         options.StorageDirectory = "C:\\SomeDirectory";
     });
 
+// Create a new logger factory and add the OpenTelemetry logger provider with the storage directory.
+// It is important to keep the LoggerFactory instance active throughout the process lifetime.
 var loggerFactory = LoggerFactory.Create(builder =>
 {
     builder.AddOpenTelemetry(options =>
     {
         options.AddAzureMonitorLogExporter(options =>
         {
+            // Set the Azure Monitor storage directory to "C:\\SomeDirectory".
+            // This is the directory where the OpenTelemetry SDK will store any log data that cannot be sent to Azure Monitor immediately.
             options.StorageDirectory = "C:\\SomeDirectory";
         });
     });
@@ -527,7 +601,7 @@ For example:
 const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
 
 const options: AzureMonitorOpenTelemetryOptions = {
-    azureMonitorExporterConfig = {
+    azureMonitorExporterOptions = {
         connectionString: "<Your Connection String>",
         storageDirectory: "C:\\SomeDirectory",
         disableOfflineStorage: false
@@ -590,14 +664,22 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside th
 1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/examples/Console/TestOtlpExporter.cs).
 
     ```csharp
+    // Create a new ASP.NET Core web application builder.
     var builder = WebApplication.CreateBuilder(args);
 
+    // Add the OpenTelemetry telemetry service to the application.
+    // This service will collect and send telemetry data to Azure Monitor.
     builder.Services.AddOpenTelemetry().UseAzureMonitor();
+    
+    // Add the OpenTelemetry OTLP exporter to the application.
+    // This exporter will send telemetry data to an OTLP receiver, such as Prometheus
     builder.Services.AddOpenTelemetry().WithTracing(builder => builder.AddOtlpExporter());
     builder.Services.AddOpenTelemetry().WithMetrics(builder => builder.AddOtlpExporter());
 
+    // Build the ASP.NET Core web application.
     var app = builder.Build();
 
+    // Start the ASP.NET Core web application.
     app.Run();
     ```
 
@@ -612,10 +694,14 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside th
 1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/examples/Console/TestOtlpExporter.cs).
     
     ```csharp
+    // Create a new OpenTelemetry tracer provider and add the Azure Monitor trace exporter and the OTLP trace exporter.
+    // It is important to keep the TracerProvider instance active throughout the process lifetime.
     var tracerProvider = Sdk.CreateTracerProviderBuilder()
         .AddAzureMonitorTraceExporter()
         .AddOtlpExporter();
 
+    // Create a new OpenTelemetry meter provider and add the Azure Monitor metric exporter and the OTLP metric exporter.
+    // It is important to keep the MetricsProvider instance active throughout the process lifetime.
     var metricsProvider = Sdk.CreateMeterProviderBuilder()
         .AddAzureMonitorMetricExporter()
         .AddOtlpExporter();

@@ -64,7 +64,7 @@ The following architecture diagram illustrates the sign-up, sign-in flow in the 
 
 To get started, you need:
 
-* An Azure AD subscription
+* An Azure subscription
   * If you don't have one, get an [Azfree account](https://azure.microsoft.com/free/)
 * An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Azure subscription
 * A BlokSec [demo](https://bloksec.com/)
