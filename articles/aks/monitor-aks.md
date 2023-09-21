@@ -147,7 +147,7 @@ ContainerLogV2 is the recommended approach and will be the default schema for cu
 
 ## Visualization
 
-Data visualization is an important tool to convey information to the user in a manner more effective than reading raw data. It helps people to understand the significance of the metrics in seconds and allows us to see crucial trends which have been masked by summary metrics. The metrics collected by Prometheus can be visualized using Grafana Dashboards or native Azure workbooks.
+Data visualization is an essential tool to convey information to system administrators and platform monitoring engineers more effectively than reading raw data. It helps people understand the metrics' significance in seconds and allows them to see crucial trends eventually masked by summary metrics. Cluster metrics in Prometheus format collected by Container Insights or Azure Monitor managed service for Prometheus can be visualized using Grafana Dashboards or native Azure workbooks.
 
 ### Azure Managed Grafana
 The most common way to analyze and present Prometheus data is with a Grafana Dashboard. There are various community-created dashboards to visualize multiple aspects of a Kubernetes cluster from the metrics collected by Prometheus. Additionally, Azure Managed Grafana has built-in support for Azure Monitor.
