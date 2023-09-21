@@ -44,7 +44,7 @@ To get started with this tutorial, you first need to set up a sample Node.js web
 
 Now that you have the application deployed and running, you can create a URL-based load test against it.
 
-## Configure the load test
+## Create a load test
 
 Before you set up the CI/CD workflow in Azure Pipelines, you create an Azure load testing resource and create load test by uploading a JMeter test script in the Azure portal. The JMeter script tests three endpoints in the sample application: `lasttimestamp`, `add`, and `get`.
 
