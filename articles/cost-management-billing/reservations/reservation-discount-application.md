@@ -27,6 +27,8 @@ A reservation discount only applies to resources associated with Enterprise, Mic
 
 The savings that are presented as part of [reservation recommendations](reserved-instance-purchase-recommendations.md) are the savings that are calculated in addition to your negotiated, or discounted (if applicable) prices.
 
+When you purchase a reservation, the benefit is applied at reservation prices. On very rare occasions, you may have some pay-as-you-go rates that are lower than the reservation rate. In these cases, Azure uses the reservation rate to apply benefit. When you purchase a reservation for an SKU where the reservation rate is lower than the pay-as-you-go rate, but because of instance size flexibility, the reservation is also applied to the SKU which had more Azure consumption discount (ACD) than the reservation. 
+
 ## When the reservation term expires
 
 At the end of the reservation term, the billing discount expires, and the resources are billed at the pay-as-you go price. By default, the reservations are not set to renew automatically. You can choose to enable automatic renewal of a reservation by selecting the option in the renewal settings. With automatic renewal, a replacement reservation will be purchased upon expiry of the existing reservation. By default, the replacement reservation has the same attributes as the expiring reservation, optionally you change the billing frequency, term, or quantity in the renewal settings. Any user with owner access on the reservation and the subscription used for billing can set up renewal.  
