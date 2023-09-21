@@ -200,6 +200,29 @@ $policy = $accesspackage.AssignmentPolicies[0]
 $req = New-MgBetaEntitlementManagementAccessPackageAssignmentRequest -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -TargetEmail "sample@example.com"
 ```
 
+## Assign access from a lifecycle workflow
+
+In the Microsoft Entra Lifecycle Workflows feature, you can add a [Request user access package assignment](lifecycle-workflow-tasks.md#request-user-access-package-assignment) task to an onboarding workflow.  When the workflow runs for a user, then an access package assignment request can be created automatically.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a global administrator.
+
+1. Browse to **Identity governance** > **Lifecycle workflows** > **Workflows**.
+
+1. Select a join (onboarding) or move workflow.
+
+1. Select **Tasks** and select **Add task**.
+
+1. Select **Request user access package assignment** and select **Add**.
+
+1. Select the newly added task.
+
+1. Select **Select Access package**, and choose the access package the user should be assigned to.
+
+1. Select **Select Policy**, and choose the access package assignment policy in that access package.
+
+1. Select **Save**.
+
+
 ## Remove an assignment
 
 You can remove an assignment that a user or an administrator had previously requested.
@@ -244,6 +267,27 @@ if ($assignment -ne $null) {
    New-MgEntitlementManagementAssignmentRequest -BodyParameter $params
 }
 ```
+
+## Remove an assignment from a lifecycle workflow
+
+In the Microsoft Entra Lifecycle Workflows feature, you can add a [Remove access package assignment for user](lifecycle-workflow-tasks.md#remove-access-package-assignment-for-user) task to an offboarding workflow.  When the workflow runs for a user, then an access package assignment can be removed automatically.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a global administrator.
+
+1. Browse to **Identity governance** > **Lifecycle workflows** > **Workflows**.
+
+1. Select a leave (offboarding) workflow.
+
+1. Select **Tasks** and select **Add task**.
+
+1. Select **Remove access package assignment for user** and select **Add**.
+
+1. Select the newly added task.
+
+1. Select **Select Access packages**, and choose one or more access packages the user should be removed from.
+
+1. Select **Save**.
+
 
 ## Next steps
 
