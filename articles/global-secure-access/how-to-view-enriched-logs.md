@@ -39,7 +39,7 @@ These logs are a subset of the logs available in the [Microsoft 365 audit logs](
 
 ## How to view the logs
 
-Viewing the enriched Microsoft 365 logs is a two-step process. First, you need to enable the log enrichment from Global Secure Access. Second, you need to configure Microsoft Entra Diagnostic settings to route the logs to an endpoint, such as a Log Analytics workspace.
+Viewing the enriched Microsoft 365 logs is a two-step process. First, you need to enable the log enrichment from Global Secure Access. Second, you need to configure Microsoft Entra diagnostic settings to route the logs to an endpoint, such as a Log Analytics workspace.
 
 > [!NOTE]
 > At this time, only SharePoint Online logs are available for log enrichment. 
