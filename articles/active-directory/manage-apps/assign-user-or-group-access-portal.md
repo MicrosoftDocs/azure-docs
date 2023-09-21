@@ -1,6 +1,6 @@
 ---
 title: Manage users and groups assignment to an application
-description: Learn how to assign and unassign users, and groups, for an app using Azure Active Directory for identity management.
+description: Learn how to assign and unassign users, and groups, for an app using Microsoft Entra ID for identity management.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.author: jomondi
 ms.reviewer: ergreenl
 ms.custom: contperf-fy22q2, contperf-fy22q3, enterprise-apps, has-azure-ad-ps-ref
 zone_pivot_groups: enterprise-apps-all
-#customer intent: As an admin, I want to manage user assignment for an app in Azure Active Directory using PowerShell
+#customer intent: As an admin, I want to manage user assignment for an app in Microsoft Entra ID using PowerShell
 ---
 
 # Manage users and groups assignment to an application
 
-This article shows you how to assign users and groups to an enterprise application in Azure Active Directory (Azure AD) using PowerShell. When you assign a user to an application, the application appears in the user's [My Apps](https://myapps.microsoft.com/) portal for easy access. If the application exposes app roles, you can also assign a specific app role to the user.
+This article shows you how to assign users and groups to an enterprise application in Microsoft Entra ID using PowerShell. When you assign a user to an application, the application appears in the user's [My Apps](https://myapps.microsoft.com/) portal for easy access. If the application exposes app roles, you can also assign a specific app role to the user.
 
 When you assign a group to an application, only users in the group will have access. The assignment doesn't cascade to nested groups.
 
-Group-based assignment requires Azure Active Directory Premium P1 or P2 edition. Group-based assignment is supported for Security groups and Microsoft 365 groups whose `SecurityEnabled` setting is set to `True` only. Nested group memberships aren't currently supported. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
+Group-based assignment requires Microsoft Entra ID P1 or P2 edition. Group-based assignment is supported for Security groups and Microsoft 365 groups whose `SecurityEnabled` setting is set to `True` only. Nested group memberships aren't currently supported. For more licensing requirements for the features discussed in this article, see the [Microsoft Entra pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
 
 For greater control, certain types of enterprise applications can be configured to require user assignment. For more information on requiring user assignment for an app, see [Manage access to an application](what-is-access-management.md#requiring-user-assignment-for-an-app).
 
@@ -32,9 +32,9 @@ For greater control, certain types of enterprise applications can be configured 
 
 To assign users to an enterprise application, you need:
 
-- An Azure AD account with an active subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra account with an active subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- Azure Active Directory Premium P1 or P2 for group-based assignment. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory).
+- Microsoft Entra ID P1 or P2 for group-based assignment. For more licensing requirements for the features discussed in this article, see the [Microsoft Entra pricing page](https://azure.microsoft.com/pricing/details/active-directory).
 
 ## Assign users, and groups, to an application
  
@@ -47,7 +47,7 @@ To assign a user or group account to an enterprise application:
 1. Enter the name of the existing application in the search box, and then select the application from the search results.
 1. Select **Users and groups**, and then select **Add user/group**.
 
-    :::image type="content" source="media/add-application-portal-assign-users/assign-user.png" alt-text="Assign user account to an application in your Azure AD tenant.":::
+    :::image type="content" source="media/add-application-portal-assign-users/assign-user.png" alt-text="Assign user account to an application in your Microsoft Entra tenant.":::
 
 1. On the **Add Assignment** pane, select **None Selected** under **Users and groups**.
 1. Search for and select the user or group that you want to assign to the application. For example, `contosouser1@contoso.com` or `contosoteam1@contoso.com`.

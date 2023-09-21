@@ -33,4 +33,4 @@ The following table provides guidance on using the new PowerShell cmdlts in the 
 
 ## Next steps
 
-- [Azure AD Privileged Identity Management API reference](/graph/api/resources/privilegedidentitymanagementv3-overview)
+- [Microsoft Entra Privileged Identity Management API reference](/graph/api/resources/privilegedidentitymanagementv3-overview)

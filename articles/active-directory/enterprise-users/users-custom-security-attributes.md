@@ -1,6 +1,6 @@
 ---
 title: Assign, update, list, or remove custom security attributes for a user (Preview)
-description: Assign, update, list, or remove custom security attributes for a user in Azure Active Directory. 
+description: Assign, update, list, or remove custom security attributes for a user in Microsoft Entra ID. 
 services: active-directory 
 author: rolyon
 manager: amycolannino
@@ -21,13 +21,13 @@ ms.collection: M365-identity-device-management
 > Custom security attributes are currently in PREVIEW.
 > For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
-[Custom security attributes](../fundamentals/custom-security-attributes-overview.md) in Azure Active Directory (Azure AD), part of Microsoft Entra, are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. For example, you can assign custom security attribute to filter your employees or to help determine who gets access to resources. This article describes how to assign, update, list, or remove custom security attributes for Azure AD.
+[Custom security attributes](../fundamentals/custom-security-attributes-overview.md) in Microsoft Entra ID, part of Microsoft Entra, are business-specific attributes (key-value pairs) that you can define and assign to Microsoft Entra objects. For example, you can assign custom security attribute to filter your employees or to help determine who gets access to resources. This article describes how to assign, update, list, or remove custom security attributes for Microsoft Entra ID.
 
 ## Prerequisites
 
-To assign or remove custom security attributes for a user in your Azure AD tenant, you need:
+To assign or remove custom security attributes for a user in your Microsoft Entra tenant, you need:
 
-- Azure AD Premium P1 or P2 license
+- Microsoft Entra ID P1 or P2 license
 - [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
 - Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation)
 - [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.138 or later when using Azure AD PowerShell
@@ -41,7 +41,7 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as an [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator).
 
-1. Make sure that you have defined custom security attributes. For more information, see [Add or deactivate custom security attribute definitions in Azure AD](../fundamentals/custom-security-attributes-add.md).
+1. Make sure that you have defined custom security attributes. For more information, see [Add or deactivate custom security attribute definitions in Microsoft Entra ID](../fundamentals/custom-security-attributes-add.md).
 
 1. Browse to **Identity**  > **Users** > **All users**.
 
@@ -121,7 +121,7 @@ You can filter the list of custom security attributes assigned to users on the A
 
 ## PowerShell or Microsoft Graph API
 
-To manage custom security attribute assignments for users in your Azure AD organization, you can use PowerShell or Microsoft Graph API. The following examples can be used to manage assignments.
+To manage custom security attribute assignments for users in your Microsoft Entra organization, you can use PowerShell or Microsoft Graph API. The following examples can be used to manage assignments.
 
 #### Assign a custom security attribute with a string value to a user
 
@@ -1105,7 +1105,7 @@ No, custom security attributes are not supported in B2C tenants and are not rela
 
 ## Next steps
 
-- [Add or deactivate custom security attribute definitions in Azure AD](../fundamentals/custom-security-attributes-add.md)
+- [Add or deactivate custom security attribute definitions in Microsoft Entra ID](../fundamentals/custom-security-attributes-add.md)
 - [Assign, update, list, or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md)
 - [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples)
-- [Troubleshoot custom security attributes in Azure AD](../fundamentals/custom-security-attributes-troubleshoot.md)
+- [Troubleshoot custom security attributes in Microsoft Entra ID](../fundamentals/custom-security-attributes-troubleshoot.md)

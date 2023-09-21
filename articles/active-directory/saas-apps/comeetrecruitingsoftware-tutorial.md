@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Comeet Recruiting Software'
-description: Learn how to configure single sign-on between Azure Active Directory and Comeet Recruiting Software.
+title: 'Tutorial: Microsoft Entra integration with Comeet Recruiting Software'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Comeet Recruiting Software.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,24 +12,24 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Comeet Recruiting Software
+# Tutorial: Microsoft Entra integration with Comeet Recruiting Software
 
-In this tutorial, you'll learn how to integrate Comeet Recruiting Software with Azure Active Directory (Azure AD). When you integrate Comeet Recruiting Software with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Comeet Recruiting Software with Microsoft Entra ID. When you integrate Comeet Recruiting Software with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Comeet Recruiting Software.
-* Enable your users to be automatically signed-in to Comeet Recruiting Software with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Comeet Recruiting Software.
+* Enable your users to be automatically signed-in to Comeet Recruiting Software with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Comeet Recruiting Software single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * Comeet Recruiting Software supports **SP and IDP** initiated SSO.
 * Comeet Recruiting Software supports [Automated user provisioning](comeet-recruiting-software-provisioning-tutorial.md).
@@ -37,7 +37,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Add Comeet Recruiting Software from the gallery
 
-To configure the integration of Comeet Recruiting Software into Azure AD, you need to add Comeet Recruiting Software from the gallery to your list of managed SaaS apps.
+To configure the integration of Comeet Recruiting Software into Microsoft Entra ID, you need to add Comeet Recruiting Software from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -47,22 +47,26 @@ To configure the integration of Comeet Recruiting Software into Azure AD, you ne
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 
-## Configure and test Azure AD SSO for Comeet Recruiting Software
+<a name='configure-and-test-azure-ad-sso-for-comeet-recruiting-software'></a>
 
-Configure and test Azure AD SSO with Comeet Recruiting Software using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Comeet Recruiting Software.
+## Configure and test Microsoft Entra SSO for Comeet Recruiting Software
 
-To configure and test Azure AD SSO with Comeet Recruiting Software, perform the following steps:
+Configure and test Microsoft Entra SSO with Comeet Recruiting Software using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Comeet Recruiting Software.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Comeet Recruiting Software, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with Britta Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Entra single sign-on.
 2. **[Configure Comeet Recruiting Software SSO](#configure-comeet-recruiting-software-sso)** - to configure the Single Sign-On settings on application side.
-    1. **[Create Comeet Recruiting Software test user](#create-comeet-recruiting-software-test-user)** - to have a counterpart of Britta Simon in Comeet Recruiting Software that is linked to the Azure AD representation of user.
+    1. **[Create Comeet Recruiting Software test user](#create-comeet-recruiting-software-test-user)** - to have a counterpart of Britta Simon in Comeet Recruiting Software that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Comeet Recruiting Software** > **Single sign-on**.
@@ -124,7 +128,9 @@ Follow these steps to enable Azure AD SSO.
 
     ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -138,7 +144,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to Comeet Recruiting Software.
 
@@ -162,7 +170,7 @@ Comeet Recruiting Software also supports automatic user provisioning, you can fi
 
 ### Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
 SP initiated:
 
@@ -174,7 +182,7 @@ IDP initiated:
 
 * Click on **Test this application**, and you should be automatically signed in to the Comeet Recruiting Software for which you set up the SSO
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Comeet Recruiting Software tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Comeet Recruiting Software for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Comeet Recruiting Software tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Comeet Recruiting Software for which you set up the SSO. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 
 ## Next steps
