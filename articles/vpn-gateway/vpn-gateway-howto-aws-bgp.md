@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 08/01/2023
+ms.date: 08/10/2023
 
 ---
 
@@ -271,7 +271,8 @@ Repeat these steps to create each of the required connections.
    * **IPsec / IKE policy**: Default
    * **Use policy based traffic selector**: Disable
    * **DPD timeout in seconds**: leave the default
-   * **Connection Mode**: You can select any of the available options (Default, Initiator Only, Responder Only) for **Connection Mode**, then select **Save**.
+   * **Connection Mode**: You can select any of the available options (Default, Initiator Only, Responder Only). For more information, see [VPN Gateway settings - connection modes](vpn-gateway-about-vpn-gateway-settings.md#connectionmode).
+1. Select **Save**.
 1. **Review + create** to create the connection.
 1. Repeat these steps to create additional connections.
 1. Before continuing to the next section, verify that you have a **local network gateway** and **connection** for **each of your four AWS tunnels**.

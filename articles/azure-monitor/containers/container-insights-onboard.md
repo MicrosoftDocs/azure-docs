@@ -121,9 +121,9 @@ The following table lists the extra firewall configuration required for managed 
 | `<cluster-region-name>.ingest.monitor.azure.com` | Azure monitor managed service for Prometheus - metrics ingestion endpoint (DCE) | 443 |
 | `<cluster-region-name>.handler.control.monitor.azure.com` | Fetch data collection rules for specific AKS cluster | 443 |
 
-**Azure China 21Vianet cloud**
+**Microsoft Azure operated by 21Vianet cloud**
 
-The following table lists the proxy and firewall configuration information for Azure China 21Vianet.
+The following table lists the proxy and firewall configuration information for Azure operated by 21Vianet.
 
 |Agent resource| Purpose | Port | 
 |--------------|------|-------------|

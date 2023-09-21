@@ -138,6 +138,8 @@
   items:
     - name: Keys and values
       href: concept-key-value.md
+    - name: Snapshots
+      href: concept-snapshots.md
     - name: Point-in-time key-values
       href: concept-point-time-snapshot.md
     - name: Feature management
@@ -176,6 +178,8 @@
   items:
     - name: Use labels for per-environment configuration
       href: howto-labels-aspnet-core.md
+    - name: Create and manage Snapshots
+      href: howto-create-snapshots.md
     - name: Import or export configuration data
       href: howto-import-export-data.md
     - name: Use JSON content-type for key-values

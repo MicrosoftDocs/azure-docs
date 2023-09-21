@@ -2,12 +2,12 @@
 title: Azure storage table design patterns
 description: Review design patterns that are appropriate for use with Table service solutions in Azure. Address issues and trade-offs that are discussed in other articles.
 services: storage
-author: tamram
+author: akashdubey-ms
 
 ms.service: azure-table-storage
 ms.topic: article
 ms.date: 06/24/2021
-ms.author: tamram
+ms.author: akashdubey
 ms.devlang: csharp
 ms.custom: devx-track-csharp, ignite-2022
 ---

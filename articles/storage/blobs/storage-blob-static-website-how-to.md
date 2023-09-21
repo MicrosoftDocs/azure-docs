@@ -2,7 +2,7 @@
 title: Host a static website in Azure Storage
 description: Learn how to serve static content (HTML, CSS, JavaScript, and image files) directly from a container in an Azure Storage GPv2 account.
 author: normesta
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 04/19/2022

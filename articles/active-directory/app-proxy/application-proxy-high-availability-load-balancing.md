@@ -1,5 +1,5 @@
 ---
-title: High availability and load balancing - Azure Active Directory Application Proxy
+title: High availability and load balancing - Microsoft Entra application proxy
 description: How traffic distribution works with your Application Proxy deployment. Includes tips for how to optimize connector performance and use load balancing for back-end servers.
 services: active-directory
 author: kenwith
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -54,16 +54,16 @@ An application often has many resources and opens multiple connections when it's
 
 ## Traffic flow between connectors and back-end application servers
 
-Another key area where high availability is a factor is the connection between connectors and the back-end servers. When an application is published through Azure AD Application Proxy, traffic from the users to the applications flows through three hops:
+Another key area where high availability is a factor is the connection between connectors and the back-end servers. When an application is published through Microsoft Entra application proxy, traffic from the users to the applications flows through three hops:
 
-1. The user connects to the Azure AD Application Proxy service public endpoint on Azure. The connection is established between the originating client IP address (public) of the client and the IP address of the Application Proxy endpoint.
+1. The user connects to the Microsoft Entra application proxy service public endpoint on Azure. The connection is established between the originating client IP address (public) of the client and the IP address of the Application Proxy endpoint.
 2. The Application Proxy connector pulls the HTTP request of the client from the Application Proxy Service.
 3. The Application Proxy connector connects to the target application. The connector uses its own IP address for establishing the connection.
 
 ![Diagram of user connecting to an application via Application Proxy](media/application-proxy-high-availability-load-balancing/application-proxy-three-hops.png)
 
 ### X-Forwarded-For header field considerations
-In some situations (like auditing, load balancing etc.), sharing the originating IP address of the external client with the on-premises environment is a requirement. To address the requirement, Azure AD Application Proxy connector adds the X-Forwarded-For header field with the originating client IP address (public) to the HTTP request. The appropriate network device (load balancer, firewall) or the web server or back-end application can then read and use the information.
+In some situations (like auditing, load balancing etc.), sharing the originating IP address of the external client with the on-premises environment is a requirement. To address the requirement, Microsoft Entra application proxy connector adds the X-Forwarded-For header field with the originating client IP address (public) to the HTTP request. The appropriate network device (load balancer, firewall) or the web server or back-end application can then read and use the information.
 
 ## Best practices for load balancing among multiple app servers
 When the connector group that's assigned to the Application Proxy application has two or more connectors, and you’re running the back-end web application on multiple servers (server farm), 
@@ -89,4 +89,4 @@ Refer to your software vendor's documentation to understand the load-balancing r
 - [Enable single-sign on](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Enable Conditional Access](./application-proxy-integrate-with-sharepoint-server.md)
 - [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)
-- [Learn how Azure AD architecture supports high availability](../fundamentals/active-directory-architecture.md)
+- [Learn how Microsoft Entra architecture supports high availability](../architecture/architecture.md)

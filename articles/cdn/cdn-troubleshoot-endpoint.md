@@ -38,7 +38,7 @@ There are several possible causes, including:
 > After creating a CDN endpoint, it will not immediately be available for use, as it takes time for the registration to propagate through the CDN:
 > - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in ten minutes. 
 > - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
-> - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes. 
+> - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes within 90 minutes. 
 > 
 > If you complete the steps in this document and you're still getting 404 responses, consider waiting a few hours to check again before opening a support ticket.
 > 
@@ -107,4 +107,3 @@ Lastly, we should verify our **Origin path**.  By default this path is blank.  Y
 In the example endpoint, we wanted all resources on the storage account to be available, so **Origin path** was left blank. Therefore, a request to https:\//cdndocdemo.azureedge.net/publicblob/lorem.txt results in a connection from the endpoint to cdndocdemo.core.windows.net that requests */publicblob/lorem.txt*.  Likewise, a request for https:\//cdndocdemo.azureedge.net/donotcache/status.png results in the endpoint requesting */donotcache/status.png* from the origin.
 
 But what if you don't want to use the CDN for every path on your origin?  Say you only wanted to expose the *public blob* path.  If we enter */publicblob* in the **Origin path** field, that is going to cause the endpoint to insert */publicblob* before every request being made to the origin. So the request for https:\//cdndocdemo.azureedge.net/publicblob/lorem.txt now takes the request portion of the URL, */publicblob/lorem.txt*, and append */publicblob* to the beginning. Resulting in a request for */publicblob/publicblob/lorem.txt* from the origin.  If that path doesn't resolve to an actual file, the origin returns a 404 status.  The correct URL to retrieve lorem.txt in this example would actually be https:\//cdndocdemo.azureedge.net/lorem.txt.  We don't include the */publicblob* path at all, because the request portion of the URL is */lorem.txt* and the endpoint adds */publicblob*, resulting in */publicblob/lorem.txt* being the request passed to the origin.
-

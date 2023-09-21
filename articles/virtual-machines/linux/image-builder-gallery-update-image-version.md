@@ -8,7 +8,7 @@ ms.date: 03/02/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-
+ms.custom: devx-track-azurecli
 ---
 # Create a new VM image from an existing image by using Azure VM Image Builder in Linux
 

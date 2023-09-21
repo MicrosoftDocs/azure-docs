@@ -8,42 +8,42 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/22/2022
+ms.date: 08/10/2023
 ---
 
 # Extract data from PDF
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes a solution template that you can use to extract data from a PDF source using Azure Data Factory and Form Recognizer. 
+This article describes a solution template that you can use to extract data from a PDF source using Azure Data Factory and Azure AI Document Intelligence. 
 
 ## About this solution template
 
-This template analyzes data from a PDF URL source using two Azure Form Recognizer calls. Then, it transforms the output to readable tables in a dataflow and outputs the data to a storage sink.  
+This template analyzes data from a PDF URL source using two Azure AI Document Intelligence calls. Then, it transforms the output to readable tables in a dataflow and outputs the data to a storage sink.  
 
 This template contains two activities:  
--	**Web Activity** to call Azure Form Recognizer's layout model API
+-	**Web Activity** to call Azure AI Document Intelligence's layout model API
 -	**Data flow** to transform extracted data from PDF
 
 This template defines 4 parameters: 
--  *FormRecognizerURL* is the Form recognizer URL ("https://{endpoint}/formrecognizer/v2.1/layout/analyze"). Replace {endpoint} with the endpoint that you obtained with your Form Recognizer subscription. You need to replace the default value with your own URL.
--  *FormRecognizerKey* is the Form Recognizer subscription key. You need to replace the default value with your own subscription key.
+-  *FormRecognizerURL* is the Azure AI Document Intelligence URL ("https://{endpoint}/formrecognizer/v2.1/layout/analyze"). Replace {endpoint} with the endpoint that you obtained with your Azure AI Document Intelligence subscription. You need to replace the default value with your own URL.
+-  *FormRecognizerKey* is the Azure AI Document Intelligence subscription key. You need to replace the default value with your own subscription key.
 -  *PDF_SourceURL* is the URL of your PDF source. You need to replace the default value with your own URL. 
 -  *outputFolder* is the name of the folder path where you want your files to be in your destination store. You need to replace the default value with your own folder path.
 
 ## Prerequisites
 
-* Azure Form Recognizer Resource Endpoint URL and Key (create a new resource [here](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer))
+* Azure AI Document Intelligence Resource Endpoint URL and Key (create a new resource [here](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer))
 
 ## How to use this solution template
 
-1. Go to template **Extract data from PDF**. Create a **New** connection to your Form Recognizer resource or choose an existing connection.
+1. Go to template **Extract data from PDF**. Create a **New** connection to your Azure AI Document Intelligence resource or choose an existing connection.
 
-	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-1.png" alt-text="Screenshot of how to create a new connection or select an existing connection from a drop down menu to Form Recognizer in template set up.":::
+	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-1.png" alt-text="Screenshot of how to create a new connection or select an existing connection from a drop down menu to Azure AI Document Intelligence in template set up.":::
 	
-    In your connection to Form Recognizer, make sure to add a **Linked service Parameter**. You will need to use this parameter as your dynamic **Base URL**.
+    In your connection to Azure AI Document Intelligence, make sure to add a **Linked service Parameter**. You will need to use this parameter as your dynamic **Base URL**.
    
-   :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-9.png" alt-text="Screenshot of where to add your Form Recognizer linked service parameter.":::
+   :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-9.png" alt-text="Screenshot of where to add your Azure AI Document Intelligence linked service parameter.":::
    
    :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-8.png" alt-text="Screenshot of the linked service base URL that references the linked service parameter.":::
 
@@ -72,4 +72,3 @@ This template defines 4 parameters:
 ## Next steps
 - [What's New in Azure Data Factory](whats-new.md)
 - [Introduction to Azure Data Factory](introduction.md)
-

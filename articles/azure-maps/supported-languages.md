@@ -32,8 +32,8 @@ Azure Maps have been localized in variety languages across its services. The fol
 | de-DE      | German                                   | ✓    |    ✓   |    ✓    |    ✓    |    ✓   |
 | el-GR      | Greek                                    | ✓    |    ✓   |    ✓    |    ✓    |    ✓   |
 | en-AU      | English (Australia)                      | ✓    |    ✓   |         |         |    ✓    |
-| en-GB      | English (Great Britain)                  | ✓    |    ✓   |    ✓    |    ✓    |    ✓   |
 | en-NZ      | English (New Zealand)                    | ✓    |    ✓   |         |    ✓    |    ✓    |
+| en-GB      | English (United Kingdom)                 | ✓    |    ✓   |    ✓    |    ✓    |    ✓   |
 | en-US      | English (USA)                            | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
 | es-419     | Spanish (Latin America)                  |      |    ✓   |         |          |    ✓    |
 | es-ES      | Spanish (Spain)                          | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |

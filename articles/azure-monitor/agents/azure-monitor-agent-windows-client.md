@@ -58,6 +58,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
     - `<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opinsights.azure.com)
     (If using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))
 6. A data collection rule you want to associate with the devices. If it doesn't exist already, [create a data collection rule](./data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule). **Do not associate the rule to any resources yet**.
+7. Before using any PowerShell cmdlet, ensure cmdlet related PowerShell module is installed and imported.
 
 ## Install the agent
 1. Download the Windows MSI installer for the agent using [this link](https://go.microsoft.com/fwlink/?linkid=2192409). You can also download it from **Monitor** > **Data Collection Rules** > **Create** experience on Azure portal (shown below):
@@ -68,6 +69,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
     msiexec /i AzureMonitorAgentClientSetup.msi /qn
     ```
 4. To install with custom file paths, [network proxy settings](./azure-monitor-agent-overview.md#proxy-configuration), or on a Non-Public Cloud use the command below with the values from the following table:
+
     ```cli
     msiexec /i AzureMonitorAgentClientSetup.msi /qn DATASTOREDIR="C:\example\folder"
     ```
@@ -82,6 +84,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
     | PROXYUSERNAME | Set to Proxy username. PROXYUSE and PROXYUSEAUTH must be set to "true" |
     | PROXYPASSWORD | Set to Proxy password. PROXYUSE and PROXYUSEAUTH must be set to "true" |
     | CLOUDENV | Set to Cloud. "Azure Commercial", "Azure China", "Azure US Gov", "Azure USNat", or "Azure USSec
+
 
 6. Verify successful installation:
     - Open **Control Panel** -> **Programs and Features** OR **Settings** -> **Apps** -> **Apps & Features** and ensure you see ‘Azure Monitor Agent’ listed
@@ -388,30 +391,46 @@ $requestURL = "https://management.azure.com$RespondId/providers/microsoft.insigh
 
 
 ```
-
-### Using PowerShell for offboarding
-```PowerShell
-#This will remove the monitor object
-$TenantID = "xxxxxxxxx-xxxx-xxx"  #Your Tenant ID
-$SubscriptionID = "xxxxxx-xxxx-xxxxx" #Your Subscription ID
-$ResourceGroup = "rg-yourResourseGroup" #Your resroucegroup
-
-Connect-AzAccount -Tenant $TenantID
-
-#Select the subscription
-Select-AzSubscription -SubscriptionId $SubscriptionID
-
-#Delete monitored object
-$requestURL = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
-#Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method Delete
-
-```
-
 ## Verify successful setup
 Check the ‘Heartbeat’ table (and other tables you configured in the rules) in the Log Analytics workspace that you specified as a destination in the data collection rule(s).
 The `SourceComputerId`, `Computer`, `ComputerIP` columns should all reflect the client device information respectively, and the `Category` column should say 'Azure Monitor Agent'. See example below:
 
 [![Diagram shows agent heartbeat logs on Azure portal.](media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png)](media/azure-monitor-agent-windows-client/azure-monitor-agent-heartbeat-logs.png)
+
+### Using PowerShell for offboarding
+```PowerShell
+#This will remove the monitor object
+$TenantID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  #Your Tenant ID
+
+Connect-AzAccount -Tenant $TenantID
+
+#Create Auth Token
+$auth = Get-AzAccessToken
+
+$AuthenticationHeader = @{
+    "Content-Type" = "application/json"
+    "Authorization" = "Bearer " + $auth.Token
+}
+
+#Get Monitored Object
+$requestURL = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
+$MonitoredObject =  Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method Get
+
+#Get Monitored Object Data Collection Rule Associations
+$requestURL = "https://management.azure.com$($MonitoredObject.id)/providers/microsoft.insights/datacollectionruleassociations?api-version=2021-09-01-preview"
+$MonitoredObjectAssociations = Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method Get
+
+#Disassociate from all Data Collection Rule
+foreach ($Association in $MonitoredObjectAssociations.value){
+    $requestURL = "https://management.azure.com$($Association.id)?api-version=2022-06-01"
+    Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method Delete
+}
+
+#Delete monitored object
+$requestURL = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
+Invoke-AzRestMethod -Uri $requestURL -Method Delete
+
+```
 
 
 ## Manage the agent

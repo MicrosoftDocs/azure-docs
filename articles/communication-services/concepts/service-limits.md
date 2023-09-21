@@ -23,7 +23,14 @@ When you hit service limitations, you will receive an HTTP status code 429 (Too 
 - Reduce the frequency of calls.
 - Avoid immediate retries because all requests accrue against your usage limits.
 
-You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture) documentation for [throttling patterns](/azure/architecture/patterns/throttling). Throttling limits can be increased through [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture) documentation for [throttling patterns](/azure/architecture/patterns/throttling). Throttling limits can be increased through a request to Azure Support.
+
+1.  Go to Azure portal
+1.  Select Help+Support
+1.  Click on Create new support request
+1.  In the Problem description, please choose **Issue type** as **Technical** and add in the details.
+  
+You can follow the documentation for [creating request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## Acquiring phone numbers
 Before acquiring a phone number, make sure your subscription meets the [geographic and subscription](./telephony/plan-solution.md) requirements. Otherwise, you can't purchase a phone number. The below limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
@@ -89,7 +96,7 @@ Sending a high volume of messages has a set of limitations on the number of emai
 |Total email request size (including attachments) |10 MB |
 
 ### Action to take
-This sandbox setup is to help developers start building the application. You can gradually request to increase the sending volume once the application is ready to go live. Submit a support request to raise your desired sending limit if you require sending a volume of messages exceeding the rate limits.
+This sandbox setup is designed to help developers begin building the application. Once the application is ready for production, you can gradually request to increase the sending volume. If you need to send more messages than the rate limits allow, submit a support request to raise your desired email sending limit. The reviewing team will consider your overall sender reputation, which includes factors such as your email delivery failure rates, your domain reputation, and reports of spam and abuse, when determining approval status.
 
 ## Chat
 
@@ -125,7 +132,12 @@ This sandbox setup is to help developers start building the application. You can
 |Send typing indicator|Chat thread|10|30|
 
 ### Chat storage
-Chat messages are stored for 90 days. Submit [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) if you require storage for longer time period. If the time period is less than 90 days for chat messages, use the delete chat thread APIs.
+Azure Communication Services stores chat messages indefinitely till they are deleted by the customer. 
+
+Beginning in CY24 Q1, customers must choose between indefinite message retention or automatic deletion after 90 days. Existing messages remain unaffected, but customers can opt for a 90-day retention period if desired.
+
+> [!NOTE] 
+> Accidentally deleted messages are not recoverable by the system.
 
 ## Voice and video calling
 
@@ -147,7 +159,7 @@ The Communication Services Calling SDK supports the following streaming configur
 | Limit                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
 | **Maximum # of outgoing local streams that you can send simultaneously**     | one video or one screen sharing | one video + one screen sharing |
-| **Maximum # of incoming remote streams that you can render simultaneously** | four videos + one screen sharing | six videos + one screen sharing |
+| **Maximum # of incoming remote streams that you can render simultaneously** | 9 videos + one screen sharing | 9 videos + one screen sharing |
 
 While the Calling SDK will not enforce these limits, your users may experience performance degradation if they're exceeded.
 

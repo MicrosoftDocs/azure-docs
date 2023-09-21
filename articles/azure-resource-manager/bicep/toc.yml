@@ -267,6 +267,9 @@
   - name: User-defined data types (type)
     displayName: custom
     href: user-defined-data-types.md
+  - name: User-defined functions (func)
+    displayName: custom
+    href: user-defined-functions.md
   - name: Parameters (param)
     href: parameters.md
     displayName: decorators,secure,objects,constraints

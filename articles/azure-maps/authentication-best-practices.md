@@ -55,23 +55,26 @@ For apps that run on servers (such as web services and service/daemon apps), if 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Authentication with Azure Maps](azure-maps-authentication.md)
+> [Authentication with Azure Maps]
 
 > [!div class="nextstepaction"]
-> [Manage authentication in Azure Maps](how-to-manage-authentication.md)
+> [Manage authentication in Azure Maps]
 
 > [!div class="nextstepaction"]
-> [Tutorial: Add app authentication to your web app running on Azure App Service](../app-service/scenario-secure-app-authentication-app-service.md)
+> [Tutorial: Add app authentication to your web app running on Azure App Service]
 
-[introduction to Azure security]: ../security/fundamentals/overview.md
-[rotate them regularly]: how-to-manage-authentication.md#manage-and-rotate-shared-keys
-[Shared Key authentication with Azure Key Vault]: how-to-secure-daemon-app.md#scenario-shared-key-authentication-with-azure-key-vault
+[Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Active Directory (Azure AD) authentication]: ../active-directory/fundamentals/active-directory-whatis.md
-[Shared Access Signature (SAS) Token authentication]: azure-maps-authentication.md#shared-access-signature-token-authentication
-[role-based access control (RBAC)]: azure-maps-authentication.md#authorization-with-role-based-access-control
 [Configurable token lifetimes in the Microsoft identity platform (preview)]: ../active-directory/develop/configurable-token-lifetimes.md
 [Create SAS tokens]: azure-maps-authentication.md#create-sas-tokens
-[Public client and confidential client applications]: ../active-directory/develop/msal-client-applications.md
 [Cross origin resource sharing (CORS)]: azure-maps-authentication.md#cross-origin-resource-sharing-cors
-[Managed Identities]: ../active-directory/managed-identities-azure-resources/overview.md
+[introduction to Azure security]: ../security/fundamentals/overview.md
 [Least privileged roles]: ../active-directory/roles/delegate-by-task.md
+[Manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Managed Identities]: ../active-directory/managed-identities-azure-resources/overview.md
+[Public client and confidential client applications]: ../active-directory/develop/msal-client-applications.md
+[role-based access control (RBAC)]: azure-maps-authentication.md#authorization-with-role-based-access-control
+[rotate them regularly]: how-to-manage-authentication.md#manage-and-rotate-shared-keys
+[Shared Access Signature (SAS) Token authentication]: azure-maps-authentication.md#shared-access-signature-token-authentication
+[Shared Key authentication with Azure Key Vault]: how-to-secure-daemon-app.md#scenario-shared-key-authentication-with-azure-key-vault
+[Tutorial: Add app authentication to your web app running on Azure App Service]: ../app-service/scenario-secure-app-authentication-app-service.md

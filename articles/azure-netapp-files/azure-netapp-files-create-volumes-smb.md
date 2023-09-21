@@ -25,7 +25,6 @@ This article shows you how to create an SMB3 volume. For NFS volumes, see [Creat
 
 * You must have already set up a capacity pool. See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).     
 * A subnet must be delegated to Azure NetApp Files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
-* The [SMB Continuous Availability](#continuous-availability) feature is currently in preview. You must submit a waitlist request before you can use this feature.
 * The [non-browsable shares](#non-browsable-share) and [access-based enumeration](#access-based-enumeration) features are currently in preview. You must register each feature before you can use it:
 
 1. Register the feature: 
@@ -140,10 +139,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
     > Both the access-based enumeration and non-browsable shares features are currently in preview. If this is your first time using either, refer to the steps in [Before you begin](#before-you-begin) to register either feature.
 
     * <a name="continuous-availability"></a>If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
-
-        > [!IMPORTANT]   
-        > The SMB Continuous Availability feature is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. Wait for an official confirmation email from the Azure NetApp Files team before using the Continuous Availability feature.   
-        
+      
         >[!IMPORTANT]
         >You should enable Continuous Availability for Citrix App Layering, SQL Server, and [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md). Using SMB Continuous Availability shares for workloads other than Citrix App Layering, SQL Server, and FSLogix user profile containers is *not* supported. This feature is currently supported on Windows SQL Server. Linux SQL Server is not currently supported. If you are using a non-administrator (domain) account to install SQL Server, ensure that the account has the required security privilege assigned. If the domain account does not have the required security privilege (`SeSecurityPrivilege`), and the privilege cannot be set at the domain level, you can grant the privilege to the account by using the **Security privilege users** field of Active Directory connections. See [Create an Active Directory connection](create-active-directory-connections.md#create-an-active-directory-connection).
 
@@ -187,7 +183,6 @@ You can modify SMB share permissions using Microsoft Management Console (MMC).
 * [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md)
 * [Mount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md) 
 * [Enable Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md)
 * [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption)
 * [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)

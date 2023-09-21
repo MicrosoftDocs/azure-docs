@@ -1,9 +1,9 @@
 ---
 title: Configure Azure resource role settings in PIM
-description: Learn how to configure Azure resource role settings in Azure AD Privileged Identity Management (PIM).
+description: Learn how to configure Azure resource role settings in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 6/7/2023
-ms.author: billmath
+ms.author: barclayn
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
 # Configure Azure resource role settings in Privileged Identity Management
 
-In Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), which is part of Microsoft Entra, role settings define role assignment properties. These properties include multifactor authentication and approval requirements for activation, assignment maximum duration, and notification settings. This article shows you how to configure role settings and set up the approval workflow to specify who can approve or deny requests to elevate privilege.
+In Privileged Identity Management (PIM) in Microsoft Entra ID, which is part of Microsoft Entra, role settings define role assignment properties. These properties include multifactor authentication and approval requirements for activation, assignment maximum duration, and notification settings. This article shows you how to configure role settings and set up the approval workflow to specify who can approve or deny requests to elevate privilege.
 
 You must have an Owner or User Access Administrator role to manage PIM role settings for the resource. Role settings are defined per role and per resource. All assignments for the same role follow the same role settings. Role settings of one role are independent from role settings of another role. Role settings of one resource are independent from role settings of another resource. Role settings configured on a higher level, such as **Subscription**, for example, aren't inherited on a lower level, such as **Resource Group**.
 
@@ -26,13 +26,11 @@ PIM role settings are also known as PIM policies.
 
 ## Open role settings
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 To open the settings for an Azure resource role:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure AD Privileged Identity Management** > **Azure Resources**. This page shows a list of Azure resources discovered in Privileged Identity Management. Use the **Resource type** filter to select all required resource types.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure Resources**. This page shows a list of Azure resources discovered in Privileged Identity Management. Use the **Resource type** filter to select all required resource types.
 
      :::image type="content" source="media/pim-resource-roles-configure-role-settings/resources-list.png" alt-text="Screenshot that shows the list of Azure resources discovered in Privileged Identity Management." lightbox="media/pim-resource-roles-configure-role-settings/resources-list.png":::
 
@@ -58,19 +56,21 @@ Use the **Activation maximum duration** slider to set the maximum time, in hours
 
 ### On activation, require multifactor authentication
 
-You can require users who are eligible for a role to prove who they are by using the multifactor authentication feature in Azure AD before they can activate. Multifactor authentication helps safeguard access to data and applications. It provides another layer of security by using a second form of authentication.
+You can require users who are eligible for a role to prove who they are by using the multifactor authentication feature in Microsoft Entra ID before they can activate. Multifactor authentication helps safeguard access to data and applications. It provides another layer of security by using a second form of authentication.
 
 Users might not be prompted for multifactor authentication if they authenticated with strong credentials or provided multifactor authentication earlier in this session.
 
-If your goal is to ensure that users must provide authentication during activation, you can use [On activation, require Azure AD Conditional Access authentication context](pim-how-to-change-default-settings.md#on-activation-require-azure-ad-conditional-access-authentication-context) together with [Authentication Strengths](../authentication/concept-authentication-strengths.md). These options require users to authenticate during activation by using methods different from the one they used to sign in to the machine.
+If your goal is to ensure that users must provide authentication during activation, you can use [On activation, require Microsoft Entra Conditional Access authentication context](pim-how-to-change-default-settings.md#on-activation-require-azure-ad-conditional-access-authentication-context) together with [Authentication Strengths](../authentication/concept-authentication-strengths.md). These options require users to authenticate during activation by using methods different from the one they used to sign in to the machine.
 
-For example, if users sign in to the machine by using Windows Hello for Business, you can use **On activation, require Azure AD Conditional Access authentication context** and **Authentication Strengths** to require users to do passwordless sign-in with Microsoft Authenticator when they activate the role.
+For example, if users sign in to the machine by using Windows Hello for Business, you can use **On activation, require Microsoft Entra Conditional Access authentication context** and **Authentication Strengths** to require users to do passwordless sign-in with Microsoft Authenticator when they activate the role.
 
 After the user provides passwordless sign-in with Microsoft Authenticator once in this example, they can do their next activation in this session without another authentication. Passwordless sign-in with Microsoft Authenticator is already part of their token.
 
-We recommend that you enable the multifactor authentication feature of Azure AD for all users. For more information, see [Plan an Azure AD multifactor authentication deployment](../authentication/howto-mfa-getstarted.md).
+We recommend that you enable the multifactor authentication feature of Microsoft Entra ID for all users. For more information, see [Plan a Microsoft Entra multifactor authentication deployment](../authentication/howto-mfa-getstarted.md).
 
-### On activation, require Azure AD Conditional Access authentication context
+<a name='on-activation-require-azure-ad-conditional-access-authentication-context'></a>
+
+### On activation, require Microsoft Entra Conditional Access authentication context
 
 You can require users who are eligible for a role to satisfy Conditional Access policy requirements. For example, you can require users to use a specific authentication method enforced through Authentication Strengths, elevate the role from an Intune-compliant device, and comply with terms of use.
 
@@ -81,15 +81,15 @@ To enforce this requirement, you create Conditional Access authentication contex
 
    :::image type="content" source="media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png" alt-text="Screenshot that shows the Edit role settings Attestation Reader page." lightbox="media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png":::
 
-If PIM settings have **On activation, require Azure AD Conditional Access authentication context** configured, the Conditional Access policies define conditions a user must meet to satisfy the access requirements.
+If PIM settings have **On activation, require Microsoft Entra Conditional Access authentication context** configured, the Conditional Access policies define conditions a user must meet to satisfy the access requirements.
 
 This means that security principals with permissions to manage Conditional Access policies, such as Conditional Access administrators or security administrators, can change requirements, remove them, or block eligible users from activating the role. Security principals that can manage the Conditional Access policies should be considered highly privileged and protected accordingly.
 
-We recommend that you create and enable a Conditional Access policy for the authentication context before the authentication context is configured in PIM settings. As a backup protection mechanism, if there are no Conditional Access policies in the tenant that target authentication context configured in PIM settings, during PIM role activation, the multifactor authentication feature in Azure AD is required as the [On activation, require multifactor authentication](pim-resource-roles-configure-role-settings.md#on-activation-require-multifactor-authentication) setting would be set.
+We recommend that you create and enable a Conditional Access policy for the authentication context before the authentication context is configured in PIM settings. As a backup protection mechanism, if there are no Conditional Access policies in the tenant that target authentication context configured in PIM settings, during PIM role activation, the multifactor authentication feature in Microsoft Entra ID is required as the [On activation, require multifactor authentication](pim-resource-roles-configure-role-settings.md#on-activation-require-multifactor-authentication) setting would be set.
 
 This backup protection mechanism is designed to solely protect from a scenario when PIM settings were updated before the Conditional Access policy was created because of a configuration mistake. This backup protection mechanism isn't triggered if the Conditional Access policy is turned off, is in report-only mode, or has an eligible user excluded from the policy.
 
-The **On activation, require Azure AD Conditional Access authentication context** setting defines the authentication context requirements that users must satisfy when they activate the role. After the role is activated, users aren't prevented from using another browsing session, device, or location to use permissions.
+The **On activation, require Microsoft Entra Conditional Access authentication context** setting defines the authentication context requirements that users must satisfy when they activate the role. After the role is activated, users aren't prevented from using another browsing session, device, or location to use permissions.
 
 For example, users might use an Intune-compliant device to activate the role. Then after the role is activated, they might sign in to the same user account from another device that isn't Intune compliant and use the previously activated role from there.
 
@@ -109,7 +109,7 @@ You can require users to enter a support ticket number when they activate the el
 
 You can require approval for activation of an eligible assignment. The approver doesn't have to have any roles. When you use this option, you must select at least one approver. We recommend that you select at least two approvers. There are no default approvers.
 
-To learn more about approvals, see [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md).
+To learn more about approvals, see [Approve or deny requests for Microsoft Entra roles in Privileged Identity Management](./pim-approval-workflow.md).
 
 ### Assignment duration
 
@@ -149,7 +149,7 @@ On the **Notifications** tab on the **Role settings** page, Privileged Identity 
 - **Critical emails only**: For each type of email, you can select the checkbox to receive critical emails only. Privileged Identity Management continues to send emails to the specified recipients only when the email requires immediate action. For example, emails that ask users to extend their role assignment aren't triggered. Emails that require admins to approve an extension request are triggered.
 
 >[!NOTE]
->One event in Privileged Identity Management can generate email notifications to multiple recipients – assignees, approvers, or administrators. The maximum number of notifications sent per one event is 1000. If the number of recipients exceeds 1000 – only the first 1000 recipients will receive an email notification. This does not prevent other assignees, administrators, or approvers from using their permissions in Microsoft Entra and Privileged Identity Management.
+>One event in Privileged Identity Management can generate email notifications to multiple recipients – assignees, approvers, or administrators. The maximum number of notifications sent per one event is 1000. If the number of recipients exceeds 1000 – only the first 1000 recipients will receive an email notification. This does not prevent other assignees, administrators, or approvers from using their permissions in Microsoft Entra ID and Privileged Identity Management.
 
 ## Next steps
 

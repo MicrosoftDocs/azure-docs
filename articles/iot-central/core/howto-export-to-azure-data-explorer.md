@@ -178,6 +178,8 @@ To create the Azure Data Explorer destination in IoT Central on the **Data expor
 
     :::image type="content" source="media/howto-export-data/export-destination-managed.png" alt-text="Screenshot of Azure Data Explorer export destination that uses a managed identity.":::
 
+If you don't see data arriving in your destination service, see [Troubleshoot issues with data exports from your Azure IoT Central application](troubleshoot-data-export.md).
+
 ---
 
 [!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]

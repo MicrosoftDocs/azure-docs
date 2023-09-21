@@ -2,8 +2,9 @@
 title:  Azure AI Video Indexer insights overview
 description: This article gives a brief overview of Azure AI Video Indexer insights.
 ms.topic: conceptual
-ms.date: 03/03/2023
-ms.author: juliako
+ms.date: 08/02/2023
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Azure AI Video Indexer insights
@@ -13,7 +14,7 @@ When a video is indexed, Azure AI Video Indexer analyzes the video and audio con
 Read details about the following insights here:
 
 - [Audio effects detection](audio-effects-detection-overview.md)
-- [Emotion detection](emotions-detection.md)
+- [Text-based emotion detection](emotions-detection.md)
 - [Faces detection](face-detection.md)
 - [OCR](ocr.md)
 - [Keywords extraction](keywords.md)

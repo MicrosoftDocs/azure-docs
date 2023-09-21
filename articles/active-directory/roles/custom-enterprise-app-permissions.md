@@ -1,6 +1,6 @@
 ---
-title: App permissions for custom roles in Azure Active Directory
-description: Preview enterprise app permissions for custom Azure AD roles in the Azure portal, PowerShell, or Graph API.
+title: App permissions for custom roles in Microsoft Entra ID
+description: Preview enterprise app permissions for custom Microsoft Entra roles in the Microsoft Entra admin center, PowerShell, or Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 01/31/2023
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ---
 
-# Enterprise application permissions for custom roles in Azure Active Directory
+# Enterprise application permissions for custom roles in Microsoft Entra ID
 
-This article contains the currently available enterprise application permissions for custom role definitions in Azure Active Directory (Azure AD). In this article, you'll find permission lists for some common scenarios and the full list of enterprise app permissions.
+This article contains the currently available enterprise application permissions for custom role definitions in Microsoft Entra ID. In this article, you'll find permission lists for some common scenarios and the full list of enterprise app permissions.
 
 ## License requirements
 
@@ -34,7 +34,7 @@ To delegate the assignment of user and groups that can access SAML based single 
 
 #### Creating gallery applications
 
-To delegate the creation of Azure AD Gallery applications such as ServiceNow, F5, Salesforce, among others. Permissions required:
+To delegate the creation of Microsoft Entra Gallery applications such as ServiceNow, F5, Salesforce, among others. Permissions required:
 
 - microsoft.directory/applicationTemplates/instantiate
 
@@ -225,5 +225,5 @@ To delegate create, read, update, and delete (CRUD) permissions for updating the
 
 ## Next steps
 
-- [Create custom roles using the Azure portal, Azure AD PowerShell, and Microsoft Graph API](custom-create.md)
+- [Create and assign a custom role in Microsoft Entra ID](custom-create.md)
 - [List role assignments](view-assignments.md)

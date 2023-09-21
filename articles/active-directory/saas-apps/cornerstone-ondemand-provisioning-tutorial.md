@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Cornerstone OnDemand for automatic user provisioning with Azure Active Directory'
-description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Cornerstone OnDemand.
+title: 'Tutorial: Configure Cornerstone OnDemand for automatic user provisioning with Microsoft Entra ID'
+description: Learn how to configure Microsoft Entra ID to automatically provision and deprovision user accounts to Cornerstone OnDemand.
 services: active-directory
 author: zhchia
 writer: zhchia
@@ -15,71 +15,62 @@ ms.author: jeedes
 
 # Tutorial: Configure Cornerstone OnDemand for automatic user provisioning
 
-This tutorial demonstrates the steps to perform in Cornerstone OnDemand and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and deprovision users or groups to Cornerstone OnDemand.
+This tutorial demonstrates the steps to perform in Cornerstone OnDemand and Microsoft Entra ID to configure Microsoft Entra ID to automatically provision and deprovision users or groups to Cornerstone OnDemand.
 
 > [!WARNING]
-> This provisioning integration is no longer supported. As a result of this, the provisioning functionality of the Cornerstone OnDemand application in the Azure Active Directory Enterprise App Gallery will be removed soon. The application's SSO functionality will remain intact. Microsoft is working with Cornerstone to build a new modernized provisioning integration, but there are no timelines on when this will be completed.
+> This provisioning integration is no longer supported. As a result of this, the provisioning functionality of the Cornerstone OnDemand application in the Microsoft Entra Enterprise App Gallery will be removed soon. The application's SSO functionality will remain intact. Microsoft is working with Cornerstone to build a new modernized provisioning integration, but there are no timelines on when this will be completed.
 
 
 > [!NOTE]
-> This tutorial describes a connector that's built on top of the Azure AD user provisioning service. For information on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to software-as-a-service (SaaS) applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+> This tutorial describes a connector that's built on top of the Microsoft Entra user provisioning service. For information on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to software-as-a-service (SaaS) applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you have:
 
-* An Azure AD tenant.
+* A Microsoft Entra tenant.
 * A Cornerstone OnDemand tenant.
 * A user account in Cornerstone OnDemand with admin permissions.
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [Cornerstone OnDemand web service](https://www.cornerstoneondemand.com/). This service is available to Cornerstone OnDemand teams.
+> The Microsoft Entra provisioning integration relies on the [Cornerstone OnDemand web service](https://www.cornerstoneondemand.com/). This service is available to Cornerstone OnDemand teams.
 
 ## Add Cornerstone OnDemand from the Azure Marketplace
 
-Before you configure Cornerstone OnDemand for automatic user provisioning with Azure AD, add Cornerstone OnDemand from the Marketplace to your list of managed SaaS applications.
+Before you configure Cornerstone OnDemand for automatic user provisioning with Microsoft Entra ID, add Cornerstone OnDemand from the Marketplace to your list of managed SaaS applications.
 
 To add Cornerstone OnDemand from the Marketplace, follow these steps.
 
-1. In the [Azure portal](https://portal.azure.com), in the navigation pane on the left, select **Azure Active Directory**.
-
-	![The Azure Active Directory icon](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select **New application** at the top of the dialog box.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Cornerstone OnDemand** and select **Cornerstone OnDemand** from the result panel. To add the application, select **Add**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type ****Cornerstone OnDemand** and select **Cornerstone OnDemand** from the result panel. To add the application, select **Add**.
 
 	![Cornerstone OnDemand in the results list](common/search-new-app.png)
 
 ## Assign users to Cornerstone OnDemand
 
-Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users or groups that were assigned to an application in Azure AD are synchronized.
+Microsoft Entra ID uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users or groups that were assigned to an application in Microsoft Entra ID are synchronized.
 
-Before you configure and enable automatic user provisioning, decide which users or groups in Azure AD need access to Cornerstone OnDemand. To assign these users or groups to Cornerstone OnDemand, follow the instructions in [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md).
+Before you configure and enable automatic user provisioning, decide which users or groups in Microsoft Entra ID need access to Cornerstone OnDemand. To assign these users or groups to Cornerstone OnDemand, follow the instructions in [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md).
 
 ### Important tips for assigning users to Cornerstone OnDemand
 
-* We recommend that you assign a single Azure AD user to Cornerstone OnDemand to test the automatic user provisioning configuration. You can assign additional users or groups later.
+* We recommend that you assign a single Microsoft Entra user to Cornerstone OnDemand to test the automatic user provisioning configuration. You can assign additional users or groups later.
 
 * When you assign a user to Cornerstone OnDemand, select any valid application-specific role, if available, in the assignment dialog box. Users with the **Default Access** role are excluded from provisioning.
 
 ## Configure automatic user provisioning to Cornerstone OnDemand
 
-This section guides you through the steps to configure the Azure AD provisioning service. Use it to create, update, and disable users or groups in Cornerstone OnDemand based on user or group assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service. Use it to create, update, and disable users or groups in Cornerstone OnDemand based on user or group assignments in Microsoft Entra ID.
 
-To configure automatic user provisioning for Cornerstone OnDemand in Azure AD, follow these steps.
+To configure automatic user provisioning for Cornerstone OnDemand in Microsoft Entra ID, follow these steps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise applications** > **All applications** > **Cornerstone OnDemand**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Cornerstone OnDemand**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Cornerstone OnDemand**.
+1. In the applications list, select **Cornerstone OnDemand**.
 
 	![The Cornerstone OnDemand link in the applications list](common/all-applications.png)
 
@@ -99,7 +90,7 @@ To configure automatic user provisioning for Cornerstone OnDemand in Azure AD, f
 
 	* In the **Domain** box, fill in the web service URL of the Cornerstone OnDemand tenant. For example, the service is located at `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, and for Contoso the domain is `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. For more information on how to retrieve the web service URL, see [this pdf](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
 
-6. After you fill in the boxes shown in Step 5, select **Test Connection** to make sure that Azure AD can connect to Cornerstone OnDemand. If the connection fails, make sure that your Cornerstone OnDemand account has admin permissions and try again.
+6. After you fill in the boxes shown in Step 5, select **Test Connection** to make sure that Microsoft Entra ID can connect to Cornerstone OnDemand. If the connection fails, make sure that your Cornerstone OnDemand account has admin permissions and try again.
 
 	![Cornerstone OnDemand Test Connection](./media/cornerstone-ondemand-provisioning-tutorial/TestConnection.png)
 
@@ -109,17 +100,17 @@ To configure automatic user provisioning for Cornerstone OnDemand in Azure AD, f
 
 8. Select **Save**.
 
-9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Cornerstone OnDemand**.
+9. Under the **Mappings** section, select **Synchronize Microsoft Entra users to Cornerstone OnDemand**.
 
 	![Cornerstone OnDemand synchronization](./media/cornerstone-ondemand-provisioning-tutorial/UserMapping.png)
 
-10. Review the user attributes that are synchronized from Azure AD to Cornerstone OnDemand in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Cornerstone OnDemand for update operations. To save any changes, select **Save**.
+10. Review the user attributes that are synchronized from Microsoft Entra ID to Cornerstone OnDemand in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Cornerstone OnDemand for update operations. To save any changes, select **Save**.
 
 	![Cornerstone OnDemand Attribute Mappings](./media/cornerstone-ondemand-provisioning-tutorial/UserMappingAttributes.png)
 
 11. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. To enable the Azure AD provisioning service for Cornerstone OnDemand, in the **Settings** section, change **Provisioning Status** to **On**.
+12. To enable the Microsoft Entra provisioning service for Cornerstone OnDemand, in the **Settings** section, change **Provisioning Status** to **On**.
 
 	![Cornerstone OnDemand Provisioning Status](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningStatus.png)
 
@@ -131,11 +122,11 @@ To configure automatic user provisioning for Cornerstone OnDemand in Azure AD, f
 
 	![Cornerstone OnDemand Save](./media/cornerstone-ondemand-provisioning-tutorial/Save.png)
 
-This operation starts the initial synchronization of all users or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than later syncs. They occur approximately every 40 minutes as long as the Azure AD provisioning service runs. 
+This operation starts the initial synchronization of all users or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than later syncs. They occur approximately every 40 minutes as long as the Microsoft Entra provisioning service runs. 
 
-You can use the **Synchronization Details** section to monitor progress and follow links to the provisioning activity report. The report describes all the actions performed by the Azure AD provisioning service on Cornerstone OnDemand.
+You can use the **Synchronization Details** section to monitor progress and follow links to the provisioning activity report. The report describes all the actions performed by the Microsoft Entra provisioning service on Cornerstone OnDemand.
 
-For information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+For information on how to read the Microsoft Entra provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Connector limitations
 
@@ -150,7 +141,7 @@ The Cornerstone OnDemand **Position** attribute expects a value that corresponds
 ## Additional resources
 
 * [Manage user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

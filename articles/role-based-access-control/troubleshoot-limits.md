@@ -279,7 +279,7 @@ When you try to create a new custom role, you get the following message:
 
 ### Cause
 
-Azure supports up to **5000** custom roles in a directory. (For Azure China 21Vianet, the limit is 2000 custom roles.)
+Azure supports up to **5000** custom roles in a directory. (For Microsoft Azure operated by 21Vianet, the limit is 2000 custom roles.)
 
 ### Solution
 

@@ -19,10 +19,10 @@ items:
     href: best-practices-plan.md
   - name: Configure data collection
     href: best-practices-data-collection.md
-  - name: Analysis and visualizations
+  - name: Understand analysis and visualization tools
     href: best-practices-analysis.md
-  - name: Configure alerts and automated actions
-    href: best-practices-alerts.md
+  - name: Plan alerts and automated actions
+    href: alerts/alerts-plan.md
   - name: Optimize costs
     href: best-practices-cost.md
 - name: Monitoring scenarios
@@ -141,8 +141,6 @@ items:
             href: app/javascript-sdk-upgrade.md
           - name: Troubleshooting
             href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
-          - name: FAQ
-            href: /azure/azure-monitor/faq#can-i-filter-out-or-modify-some-telemetry-
         - name: Advanced SDK topics
           items:
           - name: Application Insights API summary
@@ -210,6 +208,10 @@ items:
           items:
           - name: Node.js OpenTelemetry exporter
             href: app/opentelemetry-nodejs-exporter.md
+        - name: Python (supplemental)
+          items:
+          - name: Migrate from Opencensus
+            href: app/opentelemetry-python-opencensus-migrate.md
         - name: FAQ
           href: /azure/azure-monitor/faq#opentelemetry
       - name: Create a resource
@@ -396,8 +398,6 @@ items:
       items:
       - name: Create an Azure support ticket
         href: https://azure.microsoft.com/support/create-ticket
-      - name: Application Insights FAQ
-        href: /azure/azure-monitor/faq#application-insights
       - name: Q&A forum (general questions)
         href: /answers/topics/24223/azure-monitor
       - name: Stack Overflow (coding questions)
@@ -484,8 +484,72 @@ items:
         href: vm/tutorial-monitor-vm-guest.md
   - name: Monitor containers
     items:
-    - name: Monitor Azure Kubernetes Service (AKS)
+    - name: Monitor Kubernetes
+      displayName: containers
       href: containers/monitor-kubernetes.md
+    - name: Prometheus
+      items:
+      - name: Enable on AKS cluster
+        displayName: Prometheus
+        href: containers/prometheus-metrics-enable.md
+      - name: Disable on AKS cluster
+        displayName: Prometheus
+        href: containers/prometheus-metrics-disable.md
+      - name: Enable on Arc-enabled Kubernetes cluster
+        displayName: Prometheus
+        href: containers/prometheus-metrics-from-arc-enabled-cluster.md    
+      - name: Customize collection
+        items:
+        - name: Default configuration
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-default.md
+        - name: Custom configuration
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-configuration.md
+        - name: Create and validate custom scrape config
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-validate.md
+        - name: Minimal ingestion profile
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-configuration-minimal.md
+        - name: High scale
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-scale.md
+        - name: Send to multiple metric workspaces
+          displayName: Prometheus
+          href: containers/prometheus-metrics-multiple-workspaces.md
+      - name: Troubleshoot collection
+        displayName: Prometheus
+        href: containers/prometheus-metrics-troubleshoot.md
+      - name: Enable remote write
+        items:
+        - name: Overview
+          displayName: Prometheus,remote-write
+          href: containers/prometheus-remote-write.md
+        - name: Managed identity
+          displayName: Prometheus,remote-write
+          href: containers/prometheus-remote-write-managed-identity.md
+        - name: Azure Active Directory
+          displayName: Prometheus,remote-write
+          href: containers/prometheus-remote-write-active-directory.md
+        - name: Azure Active Directory pod identity
+          displayName: Prometheus,remote-write
+          href: containers/prometheus-remote-write-azure-ad-pod-identity.md  
+        - name: Azure Active Directory workload identity (preview)
+          displayName: Prometheus,remote-write
+          href: containers/prometheus-remote-write-azure-workload-identity.md
+      - name: KEDA integration
+        displayName: Prometheus
+        href: containers/integrate-keda.md    
+      - name: Prometheus Azure Active Directory authorization proxy
+        displayName: Prometheus
+        href: containers/prometheus-authorization-proxy.md
+      - name: Private link data ingestion
+        displayName: Private link data ingestion
+        href: essentials/private-link-data-ingestion.md
+      - name: Private link data query
+        displayName: Private link data query
+        href: ../managed-grafana/how-to-connect-to-data-source-privately.md
     - name: Container insights
       items:
       - name: Overview
@@ -505,15 +569,13 @@ items:
         - name: AKS hybrid cluster
           href: containers/container-insights-enable-provisioned-clusters.md
         - name: Hybrid cluster
-          href: containers/container-insights-hybrid-setup.md
+          href: containers/container-insights-hybrid-setup.md          
         - name: Enable with Azure Policy
           href: containers/container-insights-enable-aks-policy.md
         - name: Supported region mappings
           href: containers/container-insights-region-mapping.md
         - name: Transition from Container monitoring solution
           href: containers/container-insights-transition-solution.md
-      - name: Prometheus metrics
-        href: containers/container-insights-prometheus.md
       - name: Configure
         items:
         - name: Agent management
@@ -526,6 +588,8 @@ items:
           href: containers/container-insights-cost-config.md
         - name: Authentication
           href: containers/container-insights-authentication.md
+        - name: Send Prometheus metrics to Logs
+          href: containers/container-insights-prometheus-logs.md
       - name: Monitor
         items:
         - name: Monitor performance
@@ -564,14 +628,12 @@ items:
         href: containers/container-insights-cost.md
       - name: Disable monitoring
         items:
-          - name: Disable monitoring AKS
-            href: containers/container-insights-optout.md
-          - name: Disable monitoring Red Hat OpenShift v3
-            href: containers/container-insights-optout-openshift-v3.md
-          - name: Disable monitoring Red Hat OpenShift v4
-            href: containers/container-insights-optout-openshift-v4.md
-          - name: Disable monitoring hybrid cluster
-            href: containers/container-insights-optout-hybrid.md
+        - name: AKS cluster
+          displayName: Container insights, Disable
+          href: containers/container-insights-optout.md
+        - name: Hybrid cluster
+          displayName: Container insights, Disable
+          href: containers/container-insights-optout-hybrid.md
       - name: Troubleshooting
         href: containers/container-insights-troubleshoot.md
   - name: Monitor networks
@@ -725,7 +787,7 @@ items:
         - name: LA Agent Management
           href: agents/agent-manage.md
         - name: LA Agent Health
-          href: insights/solution-agenthealth.md
+          href: agents/solution-agenthealth.md
         - name: LA Agent data sources
           items:
           - name: Overview
@@ -813,7 +875,7 @@ items:
         items:  
           - name: Log Analytics VM Extension
             displayName: troubleshoot, troubleshooting
-            href: visualize/vmext-troubleshoot.md
+            href: agents/vmext-troubleshoot.md
           - name: Log Analytics Windows agent
             displayName: troubleshoot, troubleshooting
             href: agents/agent-windows-troubleshoot.md
@@ -842,12 +904,7 @@ items:
         displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-code.md    
     - name: Data collector API
-      items:
-      - name: Overview
-        displayName: data collector api
-        href: logs/data-collector-api.md
-      - name: Log Analytics Data Collector API Pipeline example
-        href: logs/create-pipeline-datacollector-api.md
+      href: logs/data-collector-api.md
   - name: Data collection endpoints
     href: essentials/data-collection-endpoint-overview.md
   - name: Private Link networking
@@ -860,6 +917,8 @@ items:
       href: logs/private-link-configure.md
   - name: Collect logs from Event Hubs
     href: logs/ingest-logs-event-hub.md
+  - name: Use Azure AD authentication
+    href: logs/azure-ad-authentication-logs.md
   - name: Troubleshoot data collection
     href: logs/data-collection-troubleshoot.md
 - name: Data platform
@@ -893,40 +952,6 @@ items:
           href: essentials/azure-monitor-workspace-private-endpoint.md 
         - name: Private link for Prometheus data ingestion
           href: essentials/private-link-data-ingestion.md
-      - name: Managed agent
-        items:
-        - name: Enable on AKS cluster
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-enable.md
-        - name: Disable on AKS cluster
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-disable.md
-        - name: Enable on Arc-enabled Kubernetes cluster
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-from-arc-enabled-cluster.md    
-        - name: Customize collection
-          items:
-          - name: Default configuration
-            displayName: Prometheus
-            href: essentials/prometheus-metrics-scrape-default.md
-          - name: Custom configuration
-            displayName: Prometheus
-            href: essentials/prometheus-metrics-scrape-configuration.md
-          - name: Create and validate custom scrape config
-            displayName: Prometheus
-            href: essentials/prometheus-metrics-scrape-validate.md
-          - name: Minimal ingestion profile
-            displayName: Prometheus
-            href: essentials/prometheus-metrics-scrape-configuration-minimal.md
-          - name: High scale
-            displayName: Prometheus
-            href: essentials/prometheus-metrics-scrape-scale.md
-          - name: Send to multiple metric workspaces
-            displayName: Prometheus
-            href: essentials/prometheus-metrics-multiple-workspaces.md
-        - name: Troubleshoot collection
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-troubleshoot.md
       - name: Alerting and rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
@@ -946,26 +971,6 @@ items:
         - name: Query using the API and PromQL
           displayName: Prometheus
           href: essentials/prometheus-api-promql.md
-      - name: Enable remote write
-        items:
-        - name: Overview
-          displayName: Prometheus,remote-write
-          href: essentials/prometheus-remote-write.md
-        - name: Managed identity
-          displayName: Prometheus,remote-write
-          href: essentials/prometheus-remote-write-managed-identity.md
-        - name: Azure Active Directory
-          displayName: Prometheus,remote-write
-          href: essentials/prometheus-remote-write-active-directory.md
-        - name: Azure Active Directory pod identity
-          displayName: Prometheus,remote-write
-          href: essentials/prometheus-remote-write-azure-ad-pod-identity.md  
-      - name: KEDA integration
-        displayName: Prometheus
-        href: essentials/integrate-keda.md    
-      - name: Prometheus Azure Active Directory authorization proxy
-        displayName: Prometheus
-        href: essentials/prometheus-authorization-proxy.md
   - name: Logs
     items:
     - name: Overview
@@ -986,6 +991,14 @@ items:
           items:
           - name: Create a Log Analytics workspace
             href: logs/quick-create-workspace.md
+          - name: Move, delete, or recover a Log Analytics workspace
+            items:
+              - name: Move a workspace
+                href: logs/move-workspace.md
+              - name: Move a workspace across regions
+                href: logs/move-workspace-region.md
+              - name: Delete and recover a workspace
+                href: logs/delete-workspace.md  
           - name: Manage access
             displayName: Manage access to a Log Analytics workspace
             href: logs/manage-access.md
@@ -993,8 +1006,6 @@ items:
             href: logs/change-pricing-tier.md
           - name: Set a daily cap
             href: logs/daily-cap.md
-          - name: Use Azure AD authentication
-            href: logs/azure-ad-authentication-logs.md
         - name: Manage tables
           displayName: Azure Monitor Logs tables
           items:            
@@ -1007,7 +1018,7 @@ items:
             href: logs/basic-logs-configure.md
         - name: Archive and restore
           items:
-          - name: Set retention and archive policy
+          - name: Data retention and archive
             href: logs/data-retention-archive.md
             displayName: Log retention, log archive, cost optimization
           - name: Run a search job
@@ -1037,14 +1048,6 @@ items:
             href: logs/data-ingestion-time.md
           - name: Analyze usage and cost
             href: logs/analyze-usage.md   
-        - name: Move and delete
-          items:
-          - name: Move a workspace
-            href: logs/move-workspace.md
-          - name: Move a workspace across regions
-            href: logs/move-workspace-region.md
-          - name: Delete and recover a workspace
-            href: logs/delete-workspace.md  
     - name: Data security
       items:
         - name: Roles permissions and security
@@ -1248,9 +1251,8 @@ items:
           href: logs/workspace-expression.md
         - name: resource expression
           href: logs/resource-expression.md
-        - name: Unify application data resources
-          href: logs/unify-app-resource-data.md
-        - name: Query Azure Data Explorer from Azure Monitor
+        - name: Query data in Azure Data Explorer or Resource Graph
+          displayName: arg(), adx()        
           href: logs/azure-monitor-data-explorer-proxy.md
       - name: API
         items:
@@ -1302,6 +1304,8 @@ items:
       href: alerts/alerts-overview.md
     - name: Alert types
       href: alerts/alerts-types.md
+    - name: Best practices
+      href: best-practices-alerts.md
     - name: Alert rules
       items:
         - name: Create or edit an alert rule
@@ -1447,8 +1451,6 @@ items:
         href: autoscale/autoscale-custom-metric.md
       - name: Autoscale Virtual Machine Scale Sets using PowerShell
         href: autoscale/autoscale-using-powershell.md
-      - name: Scale Virtual Machine Scale Sets using Resource Manager templates
-        href: ../virtual-machine-scale-sets/tutorial-autoscale-template.md?toc=/azure/azure-monitor/toc.json
       - name: Scale Virtual Machine Scale Sets using CLI
         href: ../virtual-machine-scale-sets/tutorial-autoscale-cli.md?toc=/azure/azure-monitor/toc.json
       - name: Use webhooks and email notifications
@@ -1526,7 +1528,7 @@ items:
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
   - name: Azure CLI metric alerts
-    href: azure-cli-metrics-alert-sample.md
+    href: alerts/azure-cli-metrics-alert-sample.md
 - name: Reference
   items:
   - name: Service limits
@@ -1540,8 +1542,6 @@ items:
       href: .//security-controls-policy.md
   - name: Partner integrations
     href: partners.md
-  - name: Terminology changes
-    href: terminology.md
   - name: Logs Tables reference
     href: /azure/azure-monitor/reference/
   - name: Self-monitoring data reference

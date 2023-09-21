@@ -87,7 +87,7 @@ The following Azure resources are defined in the template.
     |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
     |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
     |**Data Network Name**  | Enter the name of the data network. |
-    |**Core Network Technology**  | Enter *5GC* for 5G, *EPC* for 4G, or *EPC + 5GC*. |
+    |**Core Network Technology**  | Enter *5GC* for 5G, *EPC* for 4G, or *EPC + 5GC* for combined 4G and 5G. |
     |**Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network.|
     | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers. |
     |**Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.|

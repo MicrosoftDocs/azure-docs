@@ -15,11 +15,11 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Meet identity requirements of memorandum 22-09 with Azure Active Directory
+# Meet identity requirements of memorandum 22-09 with Microsoft Entra ID
 
 The [Executive Order on Improving the Nation’s Cybersecurity (14028)](https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity), directs federal agencies to advance security measures that significantly reduce the risk of successful cyberattacks against federal government digital infrastructure. On January 26, 2022, in support of Executive Order (EO) 14028, the [Office of Management and Budget (OMB)](https://www.whitehouse.gov/omb/) released the federal Zero Trust strategy in [M 22-09 Memorandum for Heads of Executive Departments and Agencies](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). 
 
-This article series has guidance to employ Azure Active Directory (Azure AD) as a centralized identity management system when implementing Zero Trust principles, as described in memorandum 22-09. 
+This article series has guidance to employ Microsoft Entra ID as a centralized identity management system when implementing Zero Trust principles, as described in memorandum 22-09. 
 
 Memorandum 22-09 supports Zero Trust initiatives in federal agencies. It has regulatory guidance for federal cybersecurity and data privacy laws. The memo cites the [US Department of Defense (DoD) Zero Trust Reference Architecture](https://cloudsecurityalliance.org/artifacts/dod-zero-trust-reference-architecture/): 
 
@@ -43,9 +43,9 @@ The pillars intersect with:
 
 ## Scope of guidance
 
-Use the article series to build a plan to meet memo requirements. It assumes use of Microsoft 365 products and an Azure AD tenant. 
+Use the article series to build a plan to meet memo requirements. It assumes use of Microsoft 365 products and a Microsoft Entra tenant. 
 
-Learn more: [Quickstart: Create a new tenant in Azure AD](../fundamentals/active-directory-access-create-new-tenant.md).
+Learn more: [Quickstart: Create a new tenant in Microsoft Entra ID](../fundamentals/create-new-tenant.md).
 
 The article series instructions encompass agency investments in Microsoft technologies that align with the memo's identity-related actions.
 

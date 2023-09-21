@@ -5,6 +5,7 @@ description: Learn how to configure routing preference (preview) in Azure Route 
 author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 07/31/2023
 ---
