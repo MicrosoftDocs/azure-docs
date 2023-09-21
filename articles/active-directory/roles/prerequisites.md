@@ -48,9 +48,9 @@ You must have the following module installed:
 
 <a name='check-azuread-version'></a>
 
-#### Check Microsoft Entra version
+#### Check Azure AD PowerShell version
 
-To check which version of Microsoft Entra ID you have installed, use [Get-InstalledModule](/powershell/module/powershellget/get-installedmodule).
+To check which version of Azure AD PowerShell you have installed, use [Get-InstalledModule](/powershell/module/powershellget/get-installedmodule).
 
 ```powershell
 Get-InstalledModule -Name AzureAD
@@ -66,9 +66,9 @@ Version    Name                                Repository           Description
 
 <a name='install-azuread'></a>
 
-#### Install Microsoft Entra ID
+#### Install Azure AD PowerShell
 
-If you don't have Microsoft Entra ID installed, use [Install-Module](/powershell/module/powershellget/install-module) to install Microsoft Entra ID.
+If you don't have Azure AD PowerShell installed, use [Install-Module](/powershell/module/powershellget/install-module) to install Azure AD PowerShell.
 
 ```powershell
 Install-Module -Name AzureAD
@@ -76,7 +76,7 @@ Install-Module -Name AzureAD
 
 <a name='update-azuread'></a>
 
-#### Update Microsoft Entra ID
+#### Update Azure AD PowerShell
 
 To update Microsoft Entra ID to the latest version, re-run [Install-Module](/powershell/module/powershellget/install-module).
 
@@ -86,9 +86,9 @@ Install-Module -Name AzureAD
 
 <a name='use-azuread'></a>
 
-#### Use Microsoft Entra ID
+#### Use Azure AD PowerShell
 
-To use Microsoft Entra ID, follow these steps to make sure it is imported into the current session.
+To use Azure AD PowerShell, follow these steps to make sure it is imported into the current session.
 
 1. Use [Get-Module](/powershell/module/microsoft.powershell.core/get-module) to check if Microsoft Entra ID is loaded into memory.
 
@@ -96,7 +96,7 @@ To use Microsoft Entra ID, follow these steps to make sure it is imported into t
     Get-Module -Name AzureAD
     ```
 
-1. If you don't see any output in the previous step, use [Import-Module](/powershell/module/microsoft.powershell.core/import-module) to import Microsoft Entra ID. The `-Force` parameter removes the loaded module and then imports it again.
+1. If you don't see any output in the previous step, use [Import-Module](/powershell/module/microsoft.powershell.core/import-module) to import Azure AD PowerShell. The `-Force` parameter removes the loaded module and then imports it again.
 
     ```powershell
     Import-Module -Name AzureAD -Force
