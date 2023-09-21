@@ -32,9 +32,9 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 
 1. Follow the steps to harden a Linux image.
 
-    [Harden a Linux image to remove Azure guest agent](/harden-a-linux-image-to-remove-azure-guest-agent.md).
+    [Harden a Linux image to remove Azure guest agent](harden-a-linux-image-to-remove-azure-guest-agent.md).
    
-    [Harden a Linux image to remove sudo users](/harden-the-linux-image-to-remove-sudo-users.md).
+    [Harden a Linux image to remove sudo users](harden-the-linux-image-to-remove-sudo-users.md).
 
 2. Log in to the Azure CLI.
 
@@ -104,4 +104,4 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 
 ## Next Steps
 
-In this article, you learned how to deploy a virtual machine scale set instance with a hardened linux image. For more information about CVM, see [DCasv5 and ECasv5 series confidential VMs](/confidential-vm-overview).
+In this article, you learned how to deploy a virtual machine scale set instance with a hardened linux image. For more information about CVM, see [DCasv5 and ECasv5 series confidential VMs](confidential-vm-overview.md).
