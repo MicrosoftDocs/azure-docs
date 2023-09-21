@@ -29,13 +29,13 @@ This section provides links to samples you can use to learn more about the Azure
 > [!WARNING]
 > Support for Active Directory Authentication Library (ADAL) will end in December, 2022. Apps using ADAL on existing OS versions will continue to work, but technical support and security updates will end. Without continued security updates, apps using ADAL will become increasingly vulnerable to the latest security attack patterns. For more information, see [Migrate apps to MSAL](../develop/msal-migration.md).
 
-To understand the basic scenario for each sample type, see [Authentication scenarios for Microsoft Entra ID](v1-authentication-scenarios.md).
+To understand the basic scenario for each sample type, see [Authentication scenarios for Azure AD](v1-authentication-scenarios.md).
 
-You can also contribute to our samples on GitHub. To learn how, see [Microsoft Entra ID samples and documentation](https://github.com/Azure-Samples?page=3&query=active-directory).
+You can also contribute to our samples on GitHub. To learn how, see [Azure Active Directory samples and documentation](https://github.com/Azure-Samples?page=3&query=active-directory).
 
 ## Single-page applications
 
-This sample shows how to write a single-page application secured with Microsoft Entra ID.
+This sample shows how to write a single-page application secured with Azure AD.
 
 | Platform | Calls its own API | Calls another Web API |
 |--|--|--|
@@ -58,11 +58,11 @@ The following samples illustrate Web applications signing users. Some of these a
 
 ### Web applications demonstrating role-based access control (authorization)
 
-The following samples show how to implement role-based access control (RBAC). RBAC is used to restrict the permissions of certain features in a web application to certain users. The users are authorized depending on whether they belong to an **Microsoft Entra group** or have a given application **role**.
+The following samples show how to implement role-based access control (RBAC). RBAC is used to restrict the permissions of certain features in a web application to certain users. The users are authorized depending on whether they belong to an **Azure AD group** or have a given application **role**.
 
 | Platform | Sample | Description |
 |--|--|--|
-| ![This image shows the ASP.NET Framework logo](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | A .NET 4.5 MVC web app that uses Microsoft Entra ID **roles** for authorization |
+| ![This image shows the ASP.NET Framework logo](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | A .NET 4.5 MVC web app that uses Azure AD **roles** for authorization |
 
 ## Desktop and mobile public client applications calling Microsoft Graph or a Web API
 
@@ -97,9 +97,9 @@ ASP.NET Web App  | ![This image shows the .NET Framework logo](media/sample-v2-c
 
 <a name='web-api-protected-by-azure-active-directory'></a>
 
-### Web API protected by Microsoft Entra ID
+### Web API protected by Azure Active Directory
 
-The following sample shows how to protect a Node.js web API with Microsoft Entra ID.
+The following sample shows how to protect a Node.js web API with Azure AD.
 
 In the previous sections of this article, you can also find other samples illustrating a client application **calling** an ASP.NET or ASP.NET Core **Web API**. These samples are not mentioned again in this section, but you will find them in the last column of the tables above or below
 
@@ -117,10 +117,10 @@ The following samples demonstrate a web API that calls another web API. The seco
 
 ## Other Microsoft Graph samples
 
-For samples and tutorials that demonstrate different usage patterns for the Microsoft Graph API, including authentication with Microsoft Entra ID, see [Microsoft Graph Community Samples & Tutorials](https://github.com/microsoftgraph/msgraph-community-samples).
+For samples and tutorials that demonstrate different usage patterns for the Microsoft Graph API, including authentication with Azure AD, see [Microsoft Graph Community Samples & Tutorials](https://github.com/microsoftgraph/msgraph-community-samples).
 
 ## See also
 
-- [Microsoft Entra Developer's Guide](v1-overview.md)
-- [Microsoft Entra authentication libraries](active-directory-authentication-libraries.md)
+- [Azure Active Directory Developer's Guide](v1-overview.md)
+- [Azure Active Directory Authentication libraries](active-directory-authentication-libraries.md)
 - [Microsoft Graph API conceptual and reference](/graph/use-the-api)
