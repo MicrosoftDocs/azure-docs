@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity platform token exchange scenario with SAML and OIDC/OAuth in Azure Active Directory
-description: Learn about common token exchange scenarios when working with SAML and OIDC/OAuth in Azure Active Directory.
+title: Microsoft identity platform token exchange scenario with SAML and OIDC/OAuth in Microsoft Entra ID
+description: Learn about common token exchange scenarios when working with SAML and OIDC/OAuth in Microsoft Entra ID.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
@@ -16,7 +16,7 @@ ms.custom: has-adal-ref
 
 # Microsoft identity platform token exchange scenarios with SAML and OIDC/OAuth
 
-SAML and OpenID Connect (OIDC) / OAuth are popular protocols used to implement single sign-on (SSO). Some apps might only implement SAML and others might only implement OIDC/OAuth. Both protocols use tokens to communicate secrets. To learn more about SAML, see [single sign-on SAML protocol](single-sign-on-saml-protocol.md). To learn more about OIDC/OAuth, see [OAuth 2.0 and OpenID Connect protocols on Microsoft identity platform](active-directory-v2-protocols.md).
+SAML and OpenID Connect (OIDC) / OAuth are popular protocols used to implement single sign-on (SSO). Some apps might only implement SAML and others might only implement OIDC/OAuth. Both protocols use tokens to communicate secrets. To learn more about SAML, see [single sign-on SAML protocol](single-sign-on-saml-protocol.md). To learn more about OIDC/OAuth, see [OAuth 2.0 and OpenID Connect protocols on Microsoft identity platform](./v2-protocols.md).
 
 This article outlines a common scenario where an app implements SAML but calls the Graph API, which uses OIDC/OAuth. Basic guidance is provided for people working with this scenario.
 

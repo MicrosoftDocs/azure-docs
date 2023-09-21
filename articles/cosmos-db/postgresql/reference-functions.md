@@ -68,10 +68,9 @@ If a new distributed table isn't related to other tables, it's best to
 specify `colocate_with => 'none'`.
 
 **shard\_count:** (Optional) the number of shards to create for the new
-distributed table. When specifying `shard_count` you can’t specify a value of
+distributed table. When specifying `shard_count` you can't specify a value of
 `colocate_with` other than none. To change the shard count of an existing table
-or colocation group, use the [alter_distributed_table](#alter_distributed_table
-function.
+or colocation group, use the [alter_distributed_table](#alter_distributed_table) function.
 
 Possible values for `shard_count` are between 1 and 64000. For guidance on
 choosing the optimal value, see [Shard Count](howto-shard-count.md).
@@ -519,8 +518,8 @@ timestamptz.
 **older_than:** (timestamptz) change partitions whose upper range is less than
 or equal to older_than.
 
-**new_access_method:** (name) either ‘heap’ for row-based storage, or
-‘columnar’ for columnar storage.
+**new_access_method:** (name) either 'heap' for row-based storage, or
+'columnar' for columnar storage.
 
 #### Return Value
 
@@ -1064,7 +1063,7 @@ SELECT * from citus_remote_connection_stats();
 ```
 
 ```
-	hostname    | port | database_name | connection_count_to_node
+    hostname    | port | database_name | connection_count_to_node
 ----------------+------+---------------+--------------------------
  citus_worker_1 | 5432 | postgres      |                        3
 (1 row)

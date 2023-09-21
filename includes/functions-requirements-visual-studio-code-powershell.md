@@ -3,13 +3,11 @@ author: ggailey777
 ms.service: azure-functions
 ms.custom:
 ms.topic: include
-ms.date: 07/26/2022
+ms.date: 07/26/2023
 ms.author: glenga
 ---
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-+ The [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools) version 4.x.
 
 + [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows)
 

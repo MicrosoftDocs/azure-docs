@@ -22,7 +22,7 @@ ms.custom: engagement-fy23
 # Create dynamic groups in Azure Active Directory B2B collaboration
 
 ## What are dynamic groups?
-A dynamic group is a dynamic configuration of security group membership for Azure Active Directory (Azure AD) available in the [Azure portal](https://portal.azure.com). Administrators can set rules to populate groups that are created in Azure AD based on user attributes (such as [userType](user-properties.md), department, or country/region). Members can be automatically added to or removed from a security group based on their attributes. These groups can provide access to applications or cloud resources (SharePoint sites, documents) and to assign licenses to members. Learn more about [dedicated groups in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
+A dynamic group is a dynamic configuration of security group membership for Azure Active Directory (Azure AD) available in the [Microsoft Entra admin center](https://entra.microsoft.com). Administrators can set rules to populate groups that are created in Azure AD based on user attributes (such as [userType](user-properties.md), department, or country/region). Members can be automatically added to or removed from a security group based on their attributes. These groups can provide access to applications or cloud resources (SharePoint sites, documents) and to assign licenses to members. Learn more about [dedicated groups in Azure Active Directory](../fundamentals/how-to-manage-groups.md).
 
 ## Prerequisites
 [Azure AD Premium P1 or P2 licensing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) is required to create and use dynamic groups. Learn more in [Create attribute-based rules for dynamic group membership in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
@@ -33,9 +33,8 @@ A dynamic group is a dynamic configuration of security group membership for Azur
 
 You can create a group containing all users within a tenant using a membership rule. When users are added or removed from the tenant in the future, the group's membership is adjusted automatically.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Global administrator or User administrator role in the tenant.
-1. Select **Azure Active Directory**.
-2. Under **Manage**, select **Groups**, and then select **New group**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Groups** > **All groups**, and then select **New group**.
 1. On the **New Group** page, under **Group type**, select **Security**. Enter a **Group name** and **Group description** for the new group. 
 2. Under **Membership type**, select **Dynamic User**, and then select **Add dynamic query**. 
 4. Above the **Rule syntax** text box, select **Edit**. On the **Edit rule syntax** page, type the following expression in the text box:

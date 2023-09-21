@@ -105,10 +105,10 @@ If your Windows 10 or newer domain joined devices are [Azure AD registered](conc
 
 To register devices as hybrid Azure AD join to respective tenants, organizations need to ensure that the  Service Connection Points (SCP) configuration is done on the devices and not in AD. More details on how to accomplish this task can be found in the article [Hybrid Azure AD join targeted deployment](hybrid-join-control.md). It's important for organizations to understand that certain Azure AD capabilities won't work in a single forest, multiple Azure AD tenants configurations.
 
-- [Device writeback](../hybrid/how-to-connect-device-writeback.md) won't work. This configuration affects [Device based Conditional Access for on-premises apps that are federated using ADFS](/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises). This configuration also affects [Windows Hello for Business deployment when using the Hybrid Cert Trust model](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust).
-- [Groups writeback](../hybrid/how-to-connect-group-writeback.md) won't work. This configuration affects writeback of Office 365 Groups to a forest with Exchange installed.
-- [Seamless SSO](../hybrid/how-to-connect-sso.md) won't work. This configuration affects SSO scenarios that organizations may be using on cross OS or browser platforms, for example iOS or Linux with Firefox, Safari, or Chrome without the Windows 10 extension.
-- [Hybrid Azure AD join for Windows down-level devices in managed environment](./hybrid-azuread-join-managed-domains.md#enable-windows-down-level-devices) won't work. For example, hybrid Azure AD join on Windows Server 2012 R2 in a managed environment requires Seamless SSO and since Seamless SSO won't work, hybrid Azure AD join for such a setup won't work.
+- [Device writeback](../hybrid/connect/how-to-connect-device-writeback.md) won't work. This configuration affects [Device based Conditional Access for on-premises apps that are federated using ADFS](/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises). This configuration also affects [Windows Hello for Business deployment when using the Hybrid Cert Trust model](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust).
+- [Groups writeback](../hybrid/connect/how-to-connect-group-writeback-v2.md) won't work. This configuration affects writeback of Office 365 Groups to a forest with Exchange installed.
+- [Seamless SSO](../hybrid/connect/how-to-connect-sso.md) won't work. This configuration affects SSO scenarios that organizations may be using on cross OS or browser platforms, for example iOS or Linux with Firefox, Safari, or Chrome without the Windows 10 extension.
+- [Hybrid Azure AD join for Windows down-level devices in managed environment](./how-to-hybrid-join-downlevel.md) won't work. For example, hybrid Azure AD join on Windows Server 2012 R2 in a managed environment requires Seamless SSO and since Seamless SSO won't work, hybrid Azure AD join for such a setup won't work.
 - [On-premises Azure AD Password Protection](../authentication/concept-password-ban-bad-on-premises.md) won't work. This configuration affects the ability to do password changes and password reset events against on-premises Active Directory Domain Services (AD DS) domain controllers using the same global and custom banned password lists that are stored in Azure AD.
 
 ### Other considerations
@@ -134,12 +134,12 @@ Hybrid Azure AD join works with both, managed and federated environments dependi
 
 ### Managed environment
 
-A managed environment can be deployed either through [Password Hash Sync (PHS)](../hybrid/whatis-phs.md) or [Pass Through Authentication (PTA)](../hybrid/how-to-connect-pta.md) with [Seamless Single Sign On](../hybrid/how-to-connect-sso.md).
+A managed environment can be deployed either through [Password Hash Sync (PHS)](../hybrid/connect/whatis-phs.md) or [Pass Through Authentication (PTA)](../hybrid/connect/how-to-connect-pta.md) with [Seamless Single Sign On](../hybrid/connect/how-to-connect-sso.md).
 
 These scenarios don't require you to configure a federation server for authentication.
 
 > [!NOTE]
-> [Cloud authentication using Staged rollout](../hybrid/how-to-connect-staged-rollout.md) is only supported starting at the Windows 10 1903 update.
+> [Cloud authentication using Staged rollout](../hybrid/connect/how-to-connect-staged-rollout.md) is only supported starting at the Windows 10 1903 update.
 
 
 ### Federated environment
@@ -159,11 +159,11 @@ When you're using AD FS, you need to enable the following WS-Trust endpoints:
 > [!WARNING]
 > Both **adfs/services/trust/2005/windowstransport** or **adfs/services/trust/13/windowstransport** should be enabled as intranet facing endpoints only and must NOT be exposed as extranet facing endpoints through the Web Application Proxy. To learn more on how to disable WS-Trust Windows endpoints, see [Disable WS-Trust Windows endpoints on the proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). You can see what endpoints are enabled through the AD FS management console under **Service** > **Endpoints**.
 
-Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. If installing the required version of Azure AD Connect isn't an option for you, see [how to manually configure device registration](hybrid-join-manual.md).
+Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. If installing the required version of Azure AD Connect isn't an option for you, see [how to manually configure device registration](hybrid-join-manual.md). If contoso.com is registered as a confirmed custom domain, users can get a PRT even if their syncronized on-premises AD DS UPN suffix is in a subdomain like test.contoso.com.
 
 ## Review on-premises AD users UPN support for hybrid Azure AD join
 
-Sometimes, on-premises AD users UPNs are different from your Azure AD UPNs. In these cases, Windows 10 or newer hybrid Azure AD join provides limited support for on-premises AD UPNs based on the [authentication method](../hybrid/choose-ad-authn.md), domain type, and Windows version. There are two types of on-premises AD UPNs that can exist in your environment:
+Sometimes, on-premises AD users UPNs are different from your Azure AD UPNs. In these cases, Windows 10 or newer hybrid Azure AD join provides limited support for on-premises AD UPNs based on the [authentication method](../hybrid/connect/choose-ad-authn.md), domain type, and Windows version. There are two types of on-premises AD UPNs that can exist in your environment:
 
 - Routable users UPN: A routable UPN has a valid verified domain that is registered with a domain registrar. For example, if contoso.com is the primary domain in Azure AD, contoso.org is the primary domain in on-premises AD owned by Contoso and [verified in Azure AD](../fundamentals/add-custom-domain.md).
 - Non-routable users UPN: A non-routable UPN doesn't have a verified domain and is applicable only within your organization's private network. For example, if contoso.com is the primary domain in Azure AD and contoso.local is the primary domain in on-premises AD but isn't a verifiable domain in the internet and only used within Contoso's network.

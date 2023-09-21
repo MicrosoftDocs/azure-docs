@@ -215,6 +215,8 @@
       href: configure-ldap-over-tls.md
     - name: Join a Linux VM to an Active Directory Domain
       href: join-active-directory-domain.md
+    - name: Access SMB volume from Azure Active Directory joined Windows VM
+      href: access-smb-volume-from-windows-client.md
   - name: Manage capacity pools
     items:
     - name: Set up a capacity pool
@@ -299,7 +301,7 @@
           href: application-volume-group-manage-volumes.md
         - name: Delete an application volume group
           href: application-volume-group-delete.md
-        - name: Configure application volume groups for REST API
+        - name: Configure application volume groups using REST API
           href: configure-application-volume-group-sap-hana-api.md
   - name: Manage data protection  
     items:
@@ -351,6 +353,10 @@
         href: cross-region-replication-manage-disaster-recovery.md
       - name: Delete volume replications or volumes
         href: cross-region-replication-delete.md
+      - name: Re-establish volume replication relationships
+        href: reestablish-deleted-volume-relationships.md
+    - name: Manage availability zones
+      items:
       - name: Test disaster recovery
         href: test-disaster-recovery.md
     - name: Manage availability zones and cross-zone replication
@@ -381,6 +387,8 @@
       href: troubleshoot-cross-region-replication.md
     - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+    - name: Troubleshoot user access on LDAP volumes
+      href: troubleshoot-user-access-ldap.md
     - name: Troubleshoot file locks
       href: troubleshoot-file-locks.md
 - name: Reference

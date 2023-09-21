@@ -1,6 +1,6 @@
 ---
-title: Add or deactivate custom security attribute definitions in Azure AD (Preview)
-description: Learn how to add new custom security attribute definitions or deactivate custom security attribute definitions in Azure Active Directory.
+title: Add or deactivate custom security attribute definitions in Microsoft Entra ID (Preview)
+description: Learn how to add new custom security attribute definitions or deactivate custom security attribute definitions in Microsoft Entra ID.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -8,24 +8,25 @@ ms.author: rolyon
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 06/29/2023
 ms.collection: M365-identity-device-management
 ---
 
-# Add or deactivate custom security attribute definitions in Azure AD (Preview)
+# Add or deactivate custom security attribute definitions in Microsoft Entra ID (Preview)
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
-[Custom security attributes](custom-security-attributes-overview.md) in Azure Active Directory (Azure AD) are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. This article describes how to add, edit, or deactivate custom security attribute definitions.
+[Custom security attributes](custom-security-attributes-overview.md) in Microsoft Entra ID are business-specific attributes (key-value pairs) that you can define and assign to Microsoft Entra objects. This article describes how to add, edit, or deactivate custom security attribute definitions.
 
 ## Prerequisites
 
 To add or deactivate custom security attributes definitions, you must have:
 
-- Azure AD Premium P1 or P2 license
+- Microsoft Entra ID P1 or P2 license
 - [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator)
 - Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation)
 - [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.138 or later when using Azure AD PowerShell
@@ -39,9 +40,9 @@ To add or deactivate custom security attributes definitions, you must have:
 
 An attribute set is a collection of related attributes. All custom security attributes must be part of an attribute set. Attribute sets cannot be renamed or deleted.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator).
 
-1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
+1. Browse to **Protection** > **Custom security attributes**.
 
 1. Click **Add attribute set** to add a new attribute set.
 
@@ -59,9 +60,9 @@ An attribute set is a collection of related attributes. All custom security attr
 
 ## Add a custom security attribute definition
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator).
 
-1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
+1. Browse to **Protection** > **Custom security attributes**.
 
 1. On the Custom security attributes page, find an existing attribute set or click **Add attribute set** to add a new attribute set.
 
@@ -103,7 +104,6 @@ An attribute set is a collection of related attributes. All custom security attr
 
     ![Screenshot of New attribute pane with Add predefined value pane in Azure portal.](./media/custom-security-attributes-add/attribute-new-value-add.png)
 
-
 1. When finished, click **Save**.
 
     The new custom security attribute appears in the list of custom security attributes.
@@ -114,9 +114,9 @@ An attribute set is a collection of related attributes. All custom security attr
 
 Once you add a new custom security attribute definition, you can later edit some of the properties. Some properties are immutable and cannot be changed.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator).
 
-1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
+1. Browse to **Protection** > **Custom security attributes**.
 
 1. Click the attribute set that includes the custom security attribute you want to edit.
 
@@ -132,9 +132,9 @@ Once you add a new custom security attribute definition, you can later edit some
 
 Once you add a custom security attribute definition, you can't delete it. However, you can deactivate a custom security attribute definition.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator).
 
-1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
+1. Browse to **Protection** > **Custom security attributes**.
 
 1. Click the attribute set that includes the custom security attribute you want to deactivate.
 
@@ -148,7 +148,7 @@ Once you add a custom security attribute definition, you can't delete it. Howeve
 
 ## PowerShell or Microsoft Graph API
 
-To manage custom security attribute definitions in your Azure AD organization, you can also use PowerShell or Microsoft Graph API. The following examples manage attribute sets and custom security attribute definitions.
+To manage custom security attribute definitions in your Microsoft Entra organization, you can also use PowerShell or Microsoft Graph API. The following examples manage attribute sets and custom security attribute definitions.
 
 #### Get all attribute sets
 
@@ -1134,10 +1134,10 @@ Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttrib
 
 **Can you delete custom security attribute definitions?**
 
-No, you can't delete custom security attribute definitions. You can only [deactivate custom security attribute definitions](#deactivate-a-custom-security-attribute-definition). Once you deactivate a custom security attribute, it can no longer be applied to the Azure AD objects. Custom security attribute assignments for the deactivated custom security attribute definition are not automatically removed. There is no limit to the number of deactivated custom security attributes. You can have 500 active custom security attribute definitions per tenant with 100 allowed predefined values per custom security attribute definition.
+No, you can't delete custom security attribute definitions. You can only [deactivate custom security attribute definitions](#deactivate-a-custom-security-attribute-definition). Once you deactivate a custom security attribute, it can no longer be applied to the Microsoft Entra objects. Custom security attribute assignments for the deactivated custom security attribute definition are not automatically removed. There is no limit to the number of deactivated custom security attributes. You can have 500 active custom security attribute definitions per tenant with 100 allowed predefined values per custom security attribute definition.
 
 ## Next steps
 
-- [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md)
+- [Manage access to custom security attributes in Microsoft Entra ID](custom-security-attributes-manage.md)
 - [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
 - [Assign, update, list, or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md)

@@ -6,9 +6,8 @@ ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
 ms.service: app-service
-ms.date: 07/26/2023 
+ms.date: 07/26/2023
 ---
-
 
 # Reliability in Azure App Service
 
@@ -41,7 +40,7 @@ To explore how Azure App Service can bolster the resiliency of your application 
 ### High availability
  
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **ASP-1 - Deploy zone-redundant App Service plans** 
-as zone-redundant. Follow the steps to [redeploy to availability zone support](#create-a-resource-with-availability-zone-enabled), configure your pipelines to redeploy your WebApp on the new App Services Plan, and then use a [Blue-Green deployment](/azure/spring-apps/concepts-blue-green-deployment-strategies) approach to failover to the new site.
+To enhance the resiliency and reliability of your business-critical workloads, it's recommended that you deploy your new App Service Plans with zone-redundancy. Follow the steps to [redeploy to availability zone support](#create-a-resource-with-availability-zone-enabled), configure your pipelines to redeploy your WebApp on the new App Services Plan, and then use a [Blue-Green deployment](/azure/spring-apps/concepts-blue-green-deployment-strategies) approach to failover to the new site.
 
 By distributing your applications across multiple availability zones, you can ensure their continued operation even in the event of a datacenter-level failure. For more information on availability zone support in Azure App Service, see [Availability zone support](#availability-zone-support).
 
@@ -174,6 +173,7 @@ az appservice plan create --resource-group MyResourceGroup --name MyPlan --sku P
 # [Azure portal](#tab/portal)
 
 
+
 To create an App Service with availability zones using the Azure portal, enable the zone redundancy option during the "Create Web App" or "Create App Service Plan" experiences.
 
 :::image type="content" source="../app-service/media/how-to-zone-redundancy/zone-redundancy-portal.png" alt-text="Screenshot of zone redundancy enablement using the portal.":::
@@ -183,7 +183,9 @@ The capacity/number of workers/instance count can be changed once the App Servic
 :::image type="content" source="../app-service/media/how-to-zone-redundancy/capacity-portal.png" alt-text="Screenshot of a capacity update using the portal.":::
 
 
+
 # [Azure Resource Manager (ARM)](#tab/arm)
+
 
 
 The only changes needed in an Azure Resource Manager template to specify an App Service with availability zones are the ***zoneRedundant*** property (required) and optionally the App Service plan instance count (***capacity***) on the [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?tabs=json) resource. The ***zoneRedundant*** property should be set to ***true*** and ***capacity*** should be set based on the same conditions described previously.
@@ -241,9 +243,12 @@ You cannot migrate existing App Service instances or environment resources from 
 There's no additional cost associated with enabling availability zones. Pricing for a zone redundant App Service is the same as a single zone App Service. You'll be charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform will enforce a minimum instance count of three and charge you for those three instances. For pricing information for App Service Environment v3, see [Pricing](../app-service/environment/overview.md#pricing).
 
 
+
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Reliability in Azure](/azure/availability-zones/overview)
+
+
 
 

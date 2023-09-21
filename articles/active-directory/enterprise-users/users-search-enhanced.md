@@ -1,6 +1,6 @@
 ---
 title: User management enhancements
-description: Describes how Azure Active Directory enables user search, filtering, and more information about your users.
+description: Describes how Microsoft Entra ID enables user search, filtering, and more information about your users.
 services: active-directory
 documentationcenter: ''
 author: barclayn
@@ -18,9 +18,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# User management enhancements in Azure Active Directory
+# User management enhancements in Microsoft Entra ID
 
-This article describes how to use the user management enhancements in the admin center for Azure Active Directory (Azure AD), part of Microsoft Entra. The **All users** page and user profile pages have been updated to provide more information and make it easier to find users.
+This article describes how to use the user management enhancements in the admin center for Microsoft Entra ID, part of Microsoft Entra. The **All users** page and user profile pages have been updated to provide more information and make it easier to find users.
 
 Enhancements include:
 
@@ -87,8 +87,8 @@ You can edit properties by selecting the pencil icon next to any category, which
 
 User operations
 
-- [Add or change profile information](../fundamentals/active-directory-users-profile-azure-portal.md)
-- [Add or delete users](../fundamentals/add-users-azure-active-directory.md)
+- [Add or change profile information](../fundamentals/how-to-manage-user-profile-info.md)
+- [Add or delete users](../fundamentals/add-users.md)
 
 Bulk operations
 

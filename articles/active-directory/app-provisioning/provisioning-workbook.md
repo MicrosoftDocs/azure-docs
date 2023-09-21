@@ -30,7 +30,7 @@ This workbook:
 
 ## Enabling provisioning logs
 
-You should already be familiar with Azure monitoring and Log Analytics. If not, jump over to learn about them and then come back to learn about application provisioning logs. To learn more about Azure monitoring, see [Azure Monitor overview](../../azure-monitor/overview.md). To learn more about Azure Monitor logs and Log Analytics, see [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md) and [Provisioning Logs for troubleshooting cloud sync](../cloud-sync/how-to-troubleshoot.md).
+You should already be familiar with Azure monitoring and Log Analytics. If not, jump over to learn about them and then come back to learn about application provisioning logs. To learn more about Azure monitoring, see [Azure Monitor overview](../../azure-monitor/overview.md). To learn more about Azure Monitor logs and Log Analytics, see [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md) and [Provisioning Logs for troubleshooting cloud sync](../hybrid/cloud-sync/how-to-troubleshoot.md).
 
 ## Source and Target
 At the top of the workbook, using the drop-down, specify the source and target identities.  
@@ -38,7 +38,7 @@ At the top of the workbook, using the drop-down, specify the source and target i
 Theses fields are the source and target of identities.  The rest of the filters that appear are based on the selection of source and target.
 You can scope your search so that it is more granular using the additional fields.  Use the table below as a reference for queries.
 
-For example, if you wanted to see data from your cloud sync workflow, your source would be Active Directory and your target would be Azure AD.
+For example, if you wanted to see data from your cloud sync workflow, your source would be Active Directory and your target would be Microsoft Entra ID.
 
 
 >[!NOTE]
@@ -135,9 +135,9 @@ You can create custom queries and show the data on Azure dashboards. To learn ho
 
 Azure Monitor lets you configure custom alerts so that you can get notified about key events related to Provisioning. For example, you might want to receive an alert on spikes in failures. Or perhaps spikes in disables or deletes. Another example of where you might want to be alerted is a lack of any provisioning, which indicates something is wrong.
 
-To learn more about alerts, see [Azure Monitor Log Alerts](../../azure-monitor/alerts/alerts-log.md).
+To learn more about alerts, see [Azure Monitor Log Alerts](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 
 ## Next steps 
 
-- [What is provisioning?](../cloud-sync/what-is-provisioning.md)
-- [Error codes](../cloud-sync/reference-error-codes.md)
+- [What is provisioning?](../hybrid/what-is-provisioning.md)
+- [Error codes](../hybrid/cloud-sync/reference-error-codes.md)

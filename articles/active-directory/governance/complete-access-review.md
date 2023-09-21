@@ -25,23 +25,22 @@ As an administrator, you [create an access review of groups or applications](cre
  
 ## Prerequisites
  
-- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
-- Global administrator, User administrator, or Identity Governance administrator to manage access of reviews on groups and applications. Global administrators and Privileged Role administrators can manage reviews of role-assignable groups See [Use Azure AD groups to manage role assignments](../roles/groups-concept.md)
+- Microsoft Entra ID P2 or Microsoft Entra ID Governance
+- Global administrator, User administrator, or Identity Governance administrator to manage access of reviews on groups and applications. Global administrators and Privileged Role administrators can manage reviews of role-assignable groups See [Use Microsoft Entra groups to manage role assignments](../roles/groups-concept.md)
 - Security readers have read access.
  
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
  
 ## View the status of an access review
-
+ 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
- 
 You can track the progress of access reviews as they're completed.
  
-1. Sign in to the [Azure portal](https://portal.azure.com) and open the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
- 
-1. In the left menu, select **Access reviews**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
+
+1. Browse to **Identity governance** > **Access Reviews**.
  
 1. In the list, select an access review.
  
@@ -101,7 +100,7 @@ If **Auto apply results to resource** wasn't enabled for the review, navigate to
  
 ![Apply access review changes](./media/complete-access-review/apply-changes.png)
  
-Select **Apply** to manually apply the changes. If a user's access was denied in the review, when you select **Apply**, Azure AD removes their membership or application assignment.
+Select **Apply** to manually apply the changes. If a user's access was denied in the review, when you select **Apply**, Microsoft Entra ID removes their membership or application assignment.
  
 ![Apply access review changes button](./media/complete-access-review/apply-changes-button.png)
  
@@ -111,7 +110,7 @@ Manually or automatically applying results doesn't have an effect on a group tha
 
 > [!NOTE]
 > Some denied users are unable to have results applied to them. Scenarios where this could happen include:
-> - Reviewing members of a synced on-premises Windows AD group: If the group is synced from on-premises  Windows AD, the group cannot be managed in Azure AD and therefore membership cannot be changed.
+> - Reviewing members of a synced on-premises Windows AD group: If the group is synced from on-premises  Windows AD, the group cannot be managed in Microsoft Entra ID and therefore membership cannot be changed.
 > - Reviewing a resource (role, group, application) with nested groups assigned: For users who have membership through a nested group, we will not remove their membership to the nested group and therefore they will retain access to the resource being reviewed.
 > - User not found / other errors can also result in an apply result not being supported.
  
@@ -119,7 +118,7 @@ Manually or automatically applying results doesn't have an effect on a group tha
  
 On review creation, the creator can choose between two options for denied guest users in an access review. 
  - Denied guest users can have their access to the resource removed. This is the default.
- - The denied guest user can be blocked from signing in for 30 days, then deleted from the tenant. During the 30-day period the guest user is able to be restored access to the tenant by an administrator. After the 30-day period is completed, if the guest user hasn't had access to the resource granted to them again, they'll be removed from the tenant permanently. In addition, using the Azure portal, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/active-directory-users-restore.md) before that time period is reached. Once a user has been permanently deleted, the data about that guest user will be removed from active access reviews. Audit information about deleted users remains in the audit log.
+ - The denied guest user can be blocked from signing in for 30 days, then deleted from the tenant. During the 30-day period the guest user is able to be restored access to the tenant by an administrator. After the 30-day period is completed, if the guest user hasn't had access to the resource granted to them again, they'll be removed from the tenant permanently. In addition, using the Microsoft Entra admin center, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/users-restore.md) before that time period is reached. Once a user has been permanently deleted, the data about that guest user will be removed from active access reviews. Audit information about deleted users remains in the audit log.
  
 ### Actions taken on denied B2B direct connect users
 
@@ -129,4 +128,4 @@ Denied B2B direct connect users and teams lose access to all shared channels in 
  
 - [Manage access reviews](manage-access-review.md) 
 - [Create an access review of groups or applications](create-access-review.md)
-- [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)
+- [Create an access review of users in a Microsoft Entra administrative role](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md)

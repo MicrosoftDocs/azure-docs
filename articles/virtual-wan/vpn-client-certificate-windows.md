@@ -5,7 +5,7 @@ description: Learn how to configure VPN clients on Windows computers for User VP
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/25/2022
+ms.date: 08/24/2023
 ms.author: cherylmc
 ---
 

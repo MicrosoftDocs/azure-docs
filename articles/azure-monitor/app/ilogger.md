@@ -2,7 +2,7 @@
 title: Application Insights logging with .NET
 description: Learn how to use Application Insights with the ILogger interface in .NET.
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 08/11/2023
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.reviewer: mmcc
@@ -304,7 +304,7 @@ public class MyController : ApiController
 ```
 
 > [!NOTE]
-> If you use the `Microsoft.ApplicationInsights.AspNetCore` package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor. For an example, see [this FAQ](../faq.yml).
+> If you use the `Microsoft.ApplicationInsights.AspNetCore` package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor.
 
 ### I don't have the SDK installed, and I use the Azure Web Apps extension to enable Application Insights for my ASP.NET Core applications. How do I use the new provider? 
 

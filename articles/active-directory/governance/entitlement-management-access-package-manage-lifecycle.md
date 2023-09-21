@@ -30,19 +30,23 @@ Entitlement management allows you to gain visibility into the state of a guest u
 - **Blank** - The lifecycle for the guest user isn't determined. This happens when the guest user had an access package assigned before managing user lifecycle was possible.
 
 > [!NOTE]
-> When a guest user is set as **Governed**, based on ELM tenant settings their account will be deleted or disabled in specified days after their last access package assignment expires.  Learn more about ELM settings here: [Manage external access with Azure Active Directory entitlement management](../fundamentals/6-secure-access-entitlement-managment.md).
+> When a guest user is set as **Governed**, based on ELM tenant settings their account will be deleted or disabled in specified days after their last access package assignment expires.  Learn more about ELM settings here: [Manage external access with Microsoft Entra entitlement management](../architecture/6-secure-access-entitlement-managment.md).
 
 You can directly convert ungoverned users to be governed by using the **Mark Guests as Governed (preview)** functionality in the top menu bar.
 
-## Manage guest user lifecycle in the Azure portal
+## Manage guest user lifecycle in the Microsoft Entra admin center
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To manage user lifecycle, you'd follow these steps:
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
+**Prerequisite role:** Global Administrator, Identity Governance Administrator, Catalog owner, Access package manager or Access package assignment manager
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
+
+1. On the **Access packages** page open the access package you want to manage guest user lifecycle of.
 
 1. In the left menu, select **Assignments**.
 
@@ -52,7 +56,7 @@ To manage user lifecycle, you'd follow these steps:
 
 ## Manage guest user lifecycle programmatically 
 
-To manage user lifecycle programatically using Microsoft Graph, see: [accessPackageSubject resource type](/graph/api/resources/accesspackagesubject).
+To manage user lifecycle programatically using Microsoft Graph, see: [accessPackageSubject resource type](/graph/api/resources/accesspackagesubject). For bulk conversion, see: [ConvertTo-EmGovernedGuest.ps1](https://github.com/JefTek/EntraIdentitySamples/blob/main/PowerShell/IdentityGovernance/GovernedGuests/ConvertTo-EmGovernedGuest.ps1).
 
 
 

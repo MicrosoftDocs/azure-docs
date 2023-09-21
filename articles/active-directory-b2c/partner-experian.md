@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with Experian CrossCore, a service that verifies user identification. It does risk analysis based on information provided by the user during sign-up. CrossCore permits users to sign in, or not.
 
-Learn more about [Experian](https://www.experian.com/decision-analytics/account-opening-fraud/microsoft-integration) solutions, services, etc. 
+Learn more about [Experian](https://www.experian.com/business/products/crosscore) solutions, services, etc. 
 
 In this tutorial, you can use the following attributes in CrossCore risk analysis:
 
@@ -37,7 +37,7 @@ In this tutorial, you can use the following attributes in CrossCore risk analysi
 
 To get started, you'll need:
 
-- An Azure AD subscription
+- A Microsoft Entra subscription
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 
@@ -62,7 +62,7 @@ The following architecture diagram shows the implementation.
 
 ## Onboard with Experian
 
-1. Create an Experian account. To get started, go to [Experian](https://www.experian.com/decision-analytics/account-opening-fraud/microsoft-integration) and scroll to the bottom for the contact form.
+1. Create an Experian account. To get started, go to [Experian](https://www.experian.com/business/products/crosscore) and scroll to the bottom for the contact form.
 2. When an account is created, you receive information for API configuration. The following sections continue the process.
 
 ## Configure Azure AD B2C with Experian
@@ -73,7 +73,7 @@ The following architecture diagram shows the implementation.
 2. Publish the code from Visual Studio. 
 
 >[!NOTE]
->Use the deployed service URL to configure Azure AD with the required settings.
+>Use the deployed service URL to configure Microsoft Entra ID with the required settings.
 
 ### Deploy the client certificate
 
