@@ -1,6 +1,6 @@
 ---
 title: Analyze activity logs using Log Analytics
-description: Learn how to analyze audit, sign-in, and provisioning logs Azure Active Directory using Log Analytics queries.
+description: Learn how to analyze audit, sign-in, and provisioning logs Microsoft Entra ID using Log Analytics queries.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -13,25 +13,25 @@ ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
 
-# Analyze Azure AD activity logs with Log Analytics
+# Analyze Microsoft Entra activity logs with Log Analytics
 
-After you [integrate Azure AD activity logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md), you can use the power of Log Analytics and Azure Monitor logs to gain insights into your environment.
+After you [integrate Microsoft Entra activity logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md), you can use the power of Log Analytics and Azure Monitor logs to gain insights into your environment.
 
- * Compare your Azure AD sign-in logs against security logs published by Microsoft Defender for Cloud.
+ * Compare your Microsoft Entra sign-in logs against security logs published by Microsoft Defender for Cloud.
   
  * Troubleshoot performance bottlenecks on your application’s sign-in page by correlating application performance data from Azure Application Insights.
 
  * Analyze the Identity Protection risky users and risk detections logs to detect threats in your environment.
 
-This article describes to analyze the Azure AD activity logs in your Log Analytics workspace. 
+This article describes to analyze the Microsoft Entra activity logs in your Log Analytics workspace. 
 
 ## Roles and licenses
 
 To analyze activity logs with Log Analytics, you need:
 
-- An Azure AD tenant with a [Premium P1 license](../fundamentals/get-started-premium.md)
+- A Microsoft Entra tenant with a [Premium P1 license](../fundamentals/get-started-premium.md)
 - A Log Analytics workspace *and* access to that workspace
-- The appropriate roles for Azure Monitor *and* Azure AD
+- The appropriate roles for Azure Monitor *and* Microsoft Entra ID
 
 ### Log Analytics workspace
 
@@ -55,9 +55,11 @@ For more information on the Azure Monitor built-in roles, see [Roles, permission
 
 For more information on the Log Analytics RBAC roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
 
-### Azure AD roles
+<a name='azure-ad-roles'></a>
 
-Read only access allows you to view Azure AD log data inside a workbook, query data from Log Analytics, or read logs in the Azure AD portal. Update access adds the ability to create and edit diagnostic settings to send Azure AD data to a Log Analytics workspace.
+### Microsoft Entra roles
+
+Read only access allows you to view Microsoft Entra ID log data inside a workbook, query data from Log Analytics, or read logs in the Microsoft Entra admin center. Update access adds the ability to create and edit diagnostic settings to send Microsoft Entra data to a Log Analytics workspace.
 
 - **Read**:
   - Reports Reader
@@ -67,11 +69,11 @@ Read only access allows you to view Azure AD log data inside a workbook, query d
 - **Update**:
   - Security Administrator
 
-For more information on Azure AD built-in roles, see [Azure AD built-in roles](../roles/permissions-reference.md).
+For more information on Microsoft Entra built-in roles, see [Microsoft Entra built-in roles](../roles/permissions-reference.md).
 
 ## Access Log Analytics
 
-To view the Azure AD Log Analytics, you must already be sending your activity logs from Azure AD to a Log Analytics workspace. This process is covered in the [How to integrate activity logs with Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md) article.
+To view the Microsoft Entra ID Log Analytics, you must already be sending your activity logs from Microsoft Entra ID to a Log Analytics workspace. This process is covered in the [How to integrate activity logs with Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md) article.
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -130,7 +132,7 @@ You can also set up alerts on a query. After running a query, the **+ New alert 
 
 ## Use workbooks to analyze logs
 
-Azure AD workbooks provide several reports related to common scenarios involving audit, sign-in, and provisioning events. *You can also alert on any of the data provided in the reports, using the steps described in the previous section.*
+Microsoft Entra workbooks provide several reports related to common scenarios involving audit, sign-in, and provisioning events. *You can also alert on any of the data provided in the reports, using the steps described in the previous section.*
 
 * **Provisioning analysis:** This workbook shows reports related to auditing provisioning activity. Activities can include the number of new users provisioned, provisioning failures, number of users updated, update failures, the number of users deprovisioned, and corresponding failures. For more information, see [Understand how provisioning integrates with Azure Monitor logs](../app-provisioning/application-provisioning-log-analytics.md).
 

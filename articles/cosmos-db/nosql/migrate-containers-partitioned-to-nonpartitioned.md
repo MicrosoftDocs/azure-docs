@@ -67,7 +67,7 @@ public class DeviceInformationItem
     public string DeviceId { get; set; }
 
     [JsonProperty(PropertyName = "_partitionKey", NullValueHandling = NullValueHandling.Ignore)]
-    public string PartitionKey {get {return this.DeviceId; set; }
+    public string PartitionKey { get {return this.DeviceId; set; }
 }
 
 CosmosContainer migratedContainer = database.Containers["testContainer"];
@@ -86,7 +86,7 @@ ItemResponse<DeviceInformationItem > response =
 // Read back the document providing the same partition key
 ItemResponse<DeviceInformationItem> readResponse =
   await migratedContainer.ReadItemAsync<DeviceInformationItem>(
-    partitionKey:deviceItem.PartitionKey,
+    partitionKey: deviceItem.PartitionKey,
     id: device.Id
   );
 

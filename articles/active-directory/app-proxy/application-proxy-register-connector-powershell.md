@@ -1,6 +1,6 @@
 ---
-title: Silent install Azure Active Directory Application Proxy connector
-description: Covers how to perform an unattended installation of Azure Active Directory Application Proxy Connector to provide secure remote access to your on-premises apps.
+title: Silent install Microsoft Entra application proxy connector
+description: Covers how to perform an unattended installation of Microsoft Entra application proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -13,9 +13,9 @@ ms.author: kenwith
 ms.reviewer: ashishj
 ---
 
-# Create an unattended installation script for the Azure Active Directory Application Proxy connector
+# Create an unattended installation script for the Microsoft Entra application proxy connector
 
-This topic helps you create a Windows PowerShell script that enables unattended installation and registration for your Azure AD Application Proxy connector.
+This topic helps you create a Windows PowerShell script that enables unattended installation and registration for your Microsoft Entra application proxy connector.
 
 This capability is useful when you want to:
 
@@ -24,9 +24,9 @@ This capability is useful when you want to:
 * Integrate the connector installation and registration as part of another procedure.
 * Create a standard server image that contains the connector bits but is not registered.
 
-For the [Application Proxy connector](application-proxy-connectors.md) to work, it has to be registered with your Azure AD directory using an application administrator and password. Ordinarily this information is entered during Connector installation in a pop-up dialog box, but you can use PowerShell to automate this process instead.
+For the [Application Proxy connector](application-proxy-connectors.md) to work, it has to be registered with your Microsoft Entra directory using an application administrator and password. Ordinarily this information is entered during Connector installation in a pop-up dialog box, but you can use PowerShell to automate this process instead.
 
-There are two steps for an unattended installation. First, install the connector. Second, register the connector with Azure AD.
+There are two steps for an unattended installation. First, install the connector. Second, register the connector with Microsoft Entra ID.
 
 > [!IMPORTANT]
 > If you are installing the connector for Azure Government cloud review the [pre-requisites](../hybrid/connect/reference-connect-government-cloud.md#allow-access-to-urls) and [installation steps](../hybrid/connect/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud). This requires enabling access to a different set of URLs and an additional parameter to run the installation.
@@ -41,7 +41,9 @@ Use the following steps to install the connector without registering it:
    AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
    ```
 
-## Register the connector with Azure AD
+<a name='register-the-connector-with-azure-ad'></a>
+
+## Register the connector with Microsoft Entra ID
 There are two methods you can use to register the connector:
 
 * Register the connector using a Windows PowerShell credential object
@@ -57,7 +59,7 @@ There are two methods you can use to register the connector:
    $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
    $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
    ```
-2. Go to **C:\Program Files\Microsoft AAD App Proxy Connector** and run the following script using the `$cred` object that you created:
+2. Go to **C:\Program Files\Microsoft Azure AD App Proxy Connector** and run the following script using the `$cred` object that you created:
 
    ```powershell
    .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature ApplicationProxy -TenantId $TenantId

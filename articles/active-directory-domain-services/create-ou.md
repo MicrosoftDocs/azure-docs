@@ -1,6 +1,6 @@
 ---
-title: Create an organizational unit (OU) in Azure AD Domain Services | Microsoft Docs'
-description: Learn how to create and manage a custom Organizational Unit (OU) in an Azure AD Domain Services managed domain.
+title: Create an organizational unit (OU) in Microsoft Entra Domain Services | Microsoft Docs'
+description: Learn how to create and manage a custom Organizational Unit (OU) in a Microsoft Entra Domain Services managed domain.
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -14,16 +14,16 @@ ms.date: 09/15/2023
 ms.author: justinha
 
 ---
-# Create an Organizational Unit (OU) in an Azure Active Directory Domain Services managed domain
+# Create an Organizational Unit (OU) in a Microsoft Entra Domain Services managed domain
 
 Organizational units (OUs) in an Active Directory Domain Services (AD DS) managed domain let you logically group objects such as user accounts, service accounts, or computer accounts. You can then assign administrators to specific OUs, and apply group policy to enforce targeted configuration settings.
 
-Azure AD DS managed domains include the following two built-in OUs:
+Microsoft Entra DS managed domains include the following two built-in OUs:
 
 * *AADDC Computers* - contains computer objects for all computers that are joined to the managed domain.
-* *AADDC Users* - includes users and groups synchronized in from the Azure AD tenant.
+* *AADDC Users* - includes users and groups synchronized in from the Microsoft Entra tenant.
 
-As you create and run workloads that use Azure AD DS, you may need to create service accounts for applications to authenticate themselves. To organize these service accounts, you often create a custom OU in the managed domain and then create service accounts within that OU.
+As you create and run workloads that use Microsoft Entra DS, you may need to create service accounts for applications to authenticate themselves. To organize these service accounts, you often create a custom OU in the managed domain and then create service accounts within that OU.
 
 In a hybrid environment, OUs created in an on-premises AD DS environment aren't synchronized to the managed domain. Managed domains use a flat OU structure. All user accounts and groups are stored in the *AADDC Users* container, despite being synchronized from different on-premises domains or forests, even if you've configured a hierarchical OU structure there.
 
@@ -35,13 +35,13 @@ To complete this article, you need the following resources and privileges:
 
 * An active Azure subscription.
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
-    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
-* A Windows Server management VM that is joined to the Azure AD DS managed domain.
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+    * If needed, complete the tutorial to [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
+* A Windows Server management VM that is joined to the Microsoft Entra DS managed domain.
     * If needed, complete the tutorial to [create a management VM][tutorial-create-management-vm].
-* A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+* A user account that's a member of the *Microsoft Entra DC administrators* group in your Microsoft Entra tenant.
 
 ## Custom OU considerations and limitations
 
@@ -50,10 +50,10 @@ When you create custom OUs in a managed domain, you gain additional management f
 * To create custom OUs, users must be a member of the *AAD DC Administrators* group.
 * A user that creates a custom OU is granted administrative privileges (full control) over that OU and is the resource owner.
     * By default, the *AAD DC Administrators* group also has full control of the custom OU.
-* A default OU for *AADDC Users* is created that contains all the synchronized user accounts from your Azure AD tenant.
+* A default OU for *AADDC Users* is created that contains all the synchronized user accounts from your Microsoft Entra tenant.
     * You can't move users or groups from the *AADDC Users* OU to custom OUs that you create. Only user accounts or resources created in the managed domain can be moved into custom OUs.
-* User accounts, groups, service accounts, and computer objects that you create under custom OUs aren't available in your Azure AD tenant.
-    * These objects don't show up using the Microsoft Graph API or in the Azure AD UI; they're only available in your managed domain.
+* User accounts, groups, service accounts, and computer objects that you create under custom OUs aren't available in your Microsoft Entra tenant.
+    * These objects don't show up using the Microsoft Graph API or in the Microsoft Entra UI; they're only available in your managed domain.
 
 ## Create a custom OU
 
