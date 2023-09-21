@@ -100,50 +100,49 @@ You can configure your IoT Edge device with symmetric key authentication using t
 # [Red Hat Enterprise Linux](#tab/rhel)
 <!-- Duplicate of Ubuntu+Debian to match tab id set -->
 
-You can configure your IoT Edge device with symmetric key authentication using the following command:
+1. You can configure your IoT Edge device with symmetric key authentication using the following command:
 
-   ```bash
-   sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
-   ```
+    ```bash
+    sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
+    ```
 
-   This `iotedge config mp` command creates a configuration file on the device and enters your connection string in the configuration file.
+    This `iotedge config mp` command creates a configuration file on the device and enters your connection string in the configuration file.
 
 1. Apply the configuration changes.
 
-   ```bash
-   sudo iotedge config apply
-   ```
+    ```bash
+    sudo iotedge config apply
+    ```
 
 1. To view the configuration file, you can open it:
 
-   ```bash
-   sudo nano /etc/aziot/config.toml
-   ```
+    ```bash
+    sudo nano /etc/aziot/config.toml
+    ```
 
 # [Ubuntu Core snaps](#tab/snaps)
 
-Create a **config.toml** file in your home directory and configure your IoT Edge device with a symmetric key authentication for the snap.
+1. Create a **config.toml** file in your home directory and configure your IoT Edge device with a symmetric key authentication for the snap.
 
-```bash
-sudo nano ~/config.toml
-```
+    ```bash
+    sudo nano ~/config.toml
+    ```
 
-You can manual provision with connection string using the following provisioning settings:
+1. You can manually provision with a connection string using the following provisioning settings:
 
-```toml
-[provisioning]
-source = "manual"
-connection_string = "PASTE_DEVICE_CONNECTION_STRING_HERE"
-```
+    ```toml
+    [provisioning]
+    source = "manual"
+    connection_string = "REPLACE_WITH_DEVICE_CONNECTION_STRING"
+    ```
 
-Set the configuration for IoT Edge and the Identity Service using the following command:
+1. Set the configuration for IoT Edge and the Identity Service using the following command:
 
-```bash
-sudo snap set azure-iot-edge raw-config="$(cat ~/config.toml)"
-```
+    ```bash
+    sudo snap set azure-iot-edge raw-config="$(cat ~/config.toml)"
+    ```
 
 ---
-
 
 ## Deploy modules
 
@@ -157,8 +156,8 @@ To deploy your IoT Edge modules, go to your IoT hub in the Azure portal, then:
 
 1. Since we want to deploy the IoT Edge default modules (edgeAgent and edgeHub), we don't need to add any modules to this pane, so select **Review + create** at the bottom.
 
-1. You see the JSON confirmation of your modules. Select **Create** to deploy the modules.<br>
-   
+1. You see the JSON confirmation of your modules. Select **Create** to deploy the modules.<
+
 For more information, see [Deploy a module](quickstart-linux.md#deploy-a-module).
 
 ## Verify successful configuration

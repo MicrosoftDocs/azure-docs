@@ -57,36 +57,37 @@ This article covers registering your IoT Edge device and installing IoT Edge on 
 
 ## Provision the device with its cloud identity
 
-Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step, which is to set up the device with its cloud identity and authentication information.
+Now that the container engine and the IoT Edge runtime are installed on your device, you're ready to set up the device with its cloud identity and authentication information.
 
+# [Ubuntu / Debian](#tab/ubuntu+debian)
 
-Create the configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
+1. Create the configuration file for your device based on a template file that's provided as part of the IoT Edge installation.
 
-   ```bash
-   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
-   ```
+    ```bash
+    sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+    ```
 
-On the IoT Edge device, open the configuration file.
+1. On the IoT Edge device, open the configuration file.
 
-   ```bash
-   sudo nano /etc/aziot/config.toml
-   ```
+    ```bash
+    sudo nano /etc/aziot/config.toml
+    ```
 
-Find the **Provisioning** section of the file and uncomment the lines for manual provisioning with X.509 identity certificate. Make sure that any other provisioning sections are commented out.
+1. Find the **Provisioning** section of the file and uncomment the lines for manual provisioning with X.509 identity certificate. Make sure that any other provisioning sections are commented out.
 
-   ```toml
-   # Manual provisioning with x.509 certificates
-   [provisioning]
-   source = "manual"
-   iothub_hostname = "REQUIRED_IOTHUB_HOSTNAME"
-   device_id = "REQUIRED_DEVICE_ID_PROVISIONED_IN_IOTHUB"
+    ```toml
+    # Manual provisioning with x.509 certificates
+    [provisioning]
+    source = "manual"
+    iothub_hostname = "REQUIRED_IOTHUB_HOSTNAME"
+    device_id = "REQUIRED_DEVICE_ID_PROVISIONED_IN_IOTHUB"
 
-   [provisioning.authentication]
-   method = "x509"
+    [provisioning.authentication]
+    method = "x509"
 
-   identity_cert = "REQUIRED_URI_OR_POINTER_TO_DEVICE_IDENTITY_CERTIFICATE"
+    identity_cert = "REQUIRED_URI_OR_POINTER_TO_DEVICE_IDENTITY_CERTIFICATE"
 
-   identity_pk = "REQUIRED_URI_TO_DEVICE_IDENTITY_PRIVATE_KEY"
+    identity_pk = "REQUIRED_URI_TO_DEVICE_IDENTITY_PRIVATE_KEY"
    ```
 
 Update the following fields:
@@ -105,6 +106,113 @@ After entering the provisioning information in the configuration file, apply you
    ```bash
    sudo iotedge config apply
    ```
+
+# [Red Hat Enterprise Linux](#tab/rhel)
+<!-- Duplicate of Ubuntu+Debian to match tab id set -->
+
+1. Create the configuration file for your device based on a template file that's provided as part of the IoT Edge installation.
+
+    ```bash
+    sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+    ```
+
+1. On the IoT Edge device, open the configuration file.
+
+    ```bash
+    sudo nano /etc/aziot/config.toml
+    ```
+
+1. Find the **Provisioning** section of the file and uncomment the lines for manual provisioning with X.509 identity certificate. Make sure that any other provisioning sections are commented out.
+
+    ```toml
+    # Manual provisioning with x.509 certificates
+    [provisioning]
+    source = "manual"
+    iothub_hostname = "REQUIRED_IOTHUB_HOSTNAME"
+    device_id = "REQUIRED_DEVICE_ID_PROVISIONED_IN_IOTHUB"
+
+    [provisioning.authentication]
+    method = "x509"
+
+    identity_cert = "REQUIRED_URI_OR_POINTER_TO_DEVICE_IDENTITY_CERTIFICATE"
+
+    identity_pk = "REQUIRED_URI_TO_DEVICE_IDENTITY_PRIVATE_KEY"
+    ```
+
+    Update the following fields:
+    
+    * **iothub_hostname**: Hostname of the IoT hub the device will connect to. For example, `{IoT hub name}.azure-devices.net`.
+    * **device_id**: The ID that you provided when you registered the device.
+    * **identity_cert**: URI to an identity certificate on the device, for example: `file:///path/identity_certificate.pem`. Or, dynamically issue the certificate using EST or a local certificate authority.
+    * **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///path/identity_key.pem`. Or, provide a PKCS#11 URI and then provide your configuration information in the **PKCS#11** section later in the config file.
+
+1. Save and close the file.
+
+    `CTRL + X`, `Y`, `Enter`
+
+1. After entering the provisioning information in the configuration file, apply your changes:
+
+    ```bash
+    sudo iotedge config apply
+    ```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+1. Copy your identity keyfile and certificate in the `/var/snap/azure-iot-identity/common/provisioning` directory. Create the directory if it doesn't exist.
+
+1. Create a **config.toml** file in your home directory and configure your IoT Edge device for manual provisioning using a X.509 identity certificate.
+
+    ```bash
+    sudo nano ~/config.toml
+    ```
+
+1. You can manually provision using a X.509 certificate by adding the following provisioning settings to the file:
+
+    ```toml
+    [provisioning]
+    source = "manual"
+    device_id = "REQUIRED_DEVICE_ID_PROVISIONED_IN_IOTHUB"
+
+    [provisioning.authentication]
+    
+    method = "x509"
+    identity_cert = "file:///var/snap/azure-iot-identity/common/provisioning/IDENTITY_CERT_FILENAME"
+    identity_pk = file:///var/snap/azure-iot-identity/common/provisioning/IDENTITY_PK_FILENAME
+    ```
+
+    Update the following fields:
+
+    * **device_id**: The ID that you provided when you registered the device.
+    * **identity_cert**: URI to an identity certificate on the device, for example: `file:///var/snap/azure-iot-identity/common/provisioning/identity_certificate.pem`.
+    * **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///var/snap/azure-iot-identity/common/provisioning/identity_key.pem`.
+
+1. Save and close the file.
+
+   `CTRL + X`, `Y`, `Enter`
+
+1. Set the configuration for IoT Edge and the Identity Service using the following command:
+
+    ```bash
+    sudo snap set azure-iot-edge raw-config="$(cat ~/config.toml)"
+    ```
+
+---
+
+## Deploy modules
+
+To deploy your IoT Edge modules, go to your IoT hub in the Azure portal, then:
+
+1. Select **Devices** from the IoT Hub menu.
+
+1. Select your device to open its page.
+
+1. Select the **Set Modules** tab.
+
+1. Since we want to deploy the IoT Edge default modules (edgeAgent and edgeHub), we don't need to add any modules to this pane, so select **Review + create** at the bottom.
+
+1. You see the JSON confirmation of your modules. Select **Create** to deploy the modules.<
+
+For more information, see [Deploy a module](quickstart-linux.md#deploy-a-module).
 
 ## Verify successful configuration
 
@@ -187,6 +295,9 @@ Using curl commands, you can target the component files directly from the IoT Ed
       ```bash
       curl -L <identity service link> -o aziot-identity-service.rpm && sudo yum localinstall ./aziot-identity-service.rpm
       ```
+
+      # [Ubuntu Core snaps](#tab/snaps)
+      To do
       ---
 
    3. Find the **aziot-edge** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
@@ -202,9 +313,11 @@ Using curl commands, you can target the component files directly from the IoT Ed
       ```bash
       curl -L <iotedge link> -o aziot-edge.rpm && sudo yum localinstall ./aziot-edge.rpm
       ```
-      ---
 
-Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step, which is to [Provision the device with its cloud identity](#provision-the-device-with-its-cloud-identity).
+      # [Ubuntu Core snaps](#tab/snaps)
+      To do
+
+      ---
 
 ## Uninstall IoT Edge
 
@@ -223,6 +336,21 @@ Leave out the `--purge` flag if you plan to reinstall IoT Edge and use the same 
 ```bash
 sudo yum remove aziot-edge
 ```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+Remove the IoT Edge runtime:
+
+```bash
+sudo snap remove azure-iot-edge
+```
+
+Remove Azure Identity Service:
+
+```bash
+sudo snap remove azure-iot-identity
+```
+
 ---
 
 When the IoT Edge runtime is removed, any containers that it created are stopped but still exist on your device. View all containers to see which ones remain.
@@ -239,8 +367,24 @@ sudo docker rm -f <container name>
 
 Finally, remove the container runtime from your device.
 
+# [Ubuntu / Debian](#tab/ubuntu+debian)
 ```bash
 sudo apt-get autoremove --purge moby-engine
+```
+
+# [Red Hat Enterprise Linux](#tab/rhel)
+
+```bash
+sudo yum remove moby-cli
+sudo yum remove moby-engine
+```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+Is this correct? 
+
+```bash
+sudo snap remove docker
 ```
 
 ## Next steps
