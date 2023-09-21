@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 07/17/2023
 ms.author: xiaofanzhou
 zone_pivot_group_filename: service-connector/zone-pivot-groups.json
-zone_pivot_groups: howto-postgresql-authtype
+zone_pivot_groups: howto-authtype
 ---
 
 
