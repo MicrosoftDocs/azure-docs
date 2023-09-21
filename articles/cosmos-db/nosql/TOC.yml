@@ -520,28 +520,6 @@
       href: ../how-to-develop-emulator.md?pivots=api-nosql
     - name: Tools, SDKs, and providers
       items:
-        - name: Develop locally with emulator
-          items:
-            - name: Install and use the emulator
-              href: ../local-emulator.md
-            - name: Run the emulator container in Docker
-              items:
-                - name: Run in Docker for Linux
-                  href: ../docker-emulator-linux.md
-                - name: Run in Docker for Windows
-                  href: ../docker-emulator-windows.md
-                - name: Access the REST API
-                  href: ../docker-emulator-rest-api.md
-            - name: Export emulator certificates
-              href: ../local-emulator-export-ssl-certificates.md
-            - name: Emulator command-line parameters
-              href: ../emulator-command-line-parameters.md
-            - name: Emulator troubleshooting
-              href: ../troubleshoot-local-emulator.md
-            - name: Emulator release notes
-              href: ../local-emulator-release-notes.md
-            - name: Visual Studio Code extension
-              href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
         - name: Kafka Connect
           items:
             - name: Kafka Connect overview
@@ -896,7 +874,7 @@
     - name: Integrate with other Azure services
       items:
         - name: RAG with Azure OpenAI
-          href: ../rag-data-openai.md
+          href: ../vector-search.md#retrieval-augmented-generation
         - name: Change feed Ecommerce solution
           href: changefeed-ecommerce-solution.md
         - name: Azure App Service

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with VIDA'
-description: Learn how to configure single sign-on between Azure Active Directory and VIDA.
+title: 'Tutorial: Microsoft Entra SSO integration with VIDA'
+description: Learn how to configure single sign-on between Microsoft Entra ID and VIDA.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,24 +14,24 @@ ms.author: jeedes
 
 ---
 
-# Tutorial: Azure AD SSO integration with VIDA
+# Tutorial: Microsoft Entra SSO integration with VIDA
 
-In this tutorial, you'll learn how to integrate VIDA with Azure Active Directory (Azure AD). When you integrate VIDA with Azure AD, you can:
+In this tutorial, you'll learn how to integrate VIDA with Microsoft Entra ID. When you integrate VIDA with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to VIDA.
-* Enable your users to be automatically signed-in to VIDA with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to VIDA.
+* Enable your users to be automatically signed-in to VIDA with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * VIDA single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * VIDA supports **SP** initiated SSO.
 
@@ -39,7 +39,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Adding VIDA from the gallery
 
-To configure the integration of VIDA into Azure AD, you need to add VIDA from the gallery to your list of managed SaaS apps.
+To configure the integration of VIDA into Microsoft Entra ID, you need to add VIDA from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -49,22 +49,26 @@ To configure the integration of VIDA into Azure AD, you need to add VIDA from th
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 
-## Configure and test Azure AD SSO for VIDA
+<a name='configure-and-test-azure-ad-sso-for-vida'></a>
 
-Configure and test Azure AD SSO with VIDA using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in VIDA.
+## Configure and test Microsoft Entra SSO for VIDA
 
-To configure and test Azure AD SSO with VIDA, perform the following steps:
+Configure and test Microsoft Entra SSO with VIDA using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in VIDA.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with VIDA, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure VIDA SSO](#configure-vida-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create VIDA test user](#create-vida-test-user)** - to have a counterpart of B.Simon in VIDA that is linked to the Azure AD representation of user.
+    1. **[Create VIDA test user](#create-vida-test-user)** - to have a counterpart of B.Simon in VIDA that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **VIDA** > **Single sign-on**.
@@ -106,7 +110,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -120,7 +126,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to VIDA.
 
@@ -134,7 +142,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 ## Configure Role-Based Single Sign-On in VIDA
 
-1. To associate a VIDA role with the Azure AD user, you must create a role in Azure AD by following these steps:
+1. To associate a VIDA role with the Microsoft Entra user, you must create a role in Microsoft Entra ID by following these steps:
 
     a. Sign on to the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
@@ -161,7 +169,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
     ![Response Preview.](./media/vida-tutorial/preview.png)
 
     >[!NOTE]
-    >You can locate the appRoles property by entering `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` in the field of the query. Note that the `objectID` is the object ID you have copied from the Azure AD **Properties** page.
+    >You can locate the appRoles property by entering `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` in the field of the query. Note that the `objectID` is the object ID you have copied from the Microsoft Entra ID **Properties** page.
 
     f. Go back to the Graph Explorer, change the method from **GET** to **PATCH**, paste the following content into the **Request Body** section, and click **Run Query**:
     
@@ -227,9 +235,9 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
    }
    ```
    > [!NOTE]
-   > Azure AD will send the value of these roles as the claim value in SAML response. However, you can only add new roles after the `msiam_access` part for the patch operation. To smooth the creation process, we recommend that you use an ID generator, such as GUID Generator, to generate IDs in real time.
+   > Microsoft Entra ID will send the value of these roles as the claim value in SAML response. However, you can only add new roles after the `msiam_access` part for the patch operation. To smooth the creation process, we recommend that you use an ID generator, such as GUID Generator, to generate IDs in real time.
 
-   g. After the 'Service Principal' is patched with the required role, attach the role with the Azure AD user (B.Simon) by following the steps of **Assign the Azure AD test user** section of the tutorial.
+   g. After the 'Service Principal' is patched with the required role, attach the role with the Microsoft Entra user (B.Simon) by following the steps of **Assign the Microsoft Entra test user** section of the tutorial.
 
 ## Configure VIDA SSO
 
@@ -241,13 +249,13 @@ In this section, a user called Britta Simon is created in VIDA. VIDA supports ju
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 * Click on **Test this application**, this will redirect to VIDA Sign-on URL where you can initiate the login flow. 
 
 * Go to VIDA Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the VIDA tile in the My Apps, this will redirect to VIDA Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
+* You can use Microsoft My Apps. When you click the VIDA tile in the My Apps, this will redirect to VIDA Sign-on URL. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

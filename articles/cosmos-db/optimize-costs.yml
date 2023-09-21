@@ -60,4 +60,4 @@ landingContent:
           - text: Free tier
             url: free-tier.md
           - text: Use the emulator
-            url: local-emulator.md
+            url: emulator.md

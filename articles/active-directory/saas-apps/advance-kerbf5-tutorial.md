@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on integration with F5'
-description: In this article, learn the steps you need to perform to integrate F5 with Azure Active Directory (Azure AD).
+title: 'Tutorial: Microsoft Entra single sign-on integration with F5'
+description: In this article, learn the steps you need to perform to integrate F5 with Microsoft Entra ID.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,26 +13,26 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory (AD) single sign-on (SSO) integration with F5
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with F5
 
-In this tutorial, you'll learn how to integrate F5 with Azure Active Directory (Azure AD). When you integrate F5 with Azure AD, you can:
+In this tutorial, you'll learn how to integrate F5 with Microsoft Entra ID. When you integrate F5 with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to F5.
-* Enable your users to be automatically signed-in to F5 with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to F5.
+* Enable your users to be automatically signed-in to F5 with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Microsoft Entra ID, see [What is application access and single sign-on with Microsoft Entra ID](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * F5 single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 F5 supports **SP and IDP** initiated SSO.
 
@@ -46,7 +46,7 @@ F5 SSO can be configured in three different ways:
 
 ## Adding F5 from the gallery
 
-To configure the integration of F5 into Azure AD, you need to add F5 from the gallery to your list of managed SaaS apps.
+To configure the integration of F5 into Microsoft Entra ID, you need to add F5 from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications**.
@@ -56,22 +56,26 @@ To configure the integration of F5 into Azure AD, you need to add F5 from the ga
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD single sign-on for F5
+<a name='configure-and-test-azure-ad-single-sign-on-for-f5'></a>
 
-Configure and test Azure AD SSO with F5 using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in F5.
+## Configure and test Microsoft Entra single sign-on for F5
 
-To configure and test Azure AD SSO with F5, complete the following building blocks:
+Configure and test Microsoft Entra SSO with F5 using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in F5.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with F5, complete the following building blocks:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure F5-SSO](#configure-f5-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create F5 test user](#create-f5-test-user)** - to have a counterpart of B.Simon in F5 that is linked to the Azure AD representation of user.
+    1. **[Create F5 test user](#create-f5-test-user)** - to have a counterpart of B.Simon in F5 that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **F5** > **Single sign-on**.
@@ -104,7 +108,9 @@ Follow these steps to enable Azure AD SSO.
 
     ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -118,7 +124,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to F5.
 
@@ -322,17 +330,17 @@ In this section, you create a user called B.Simon in F5. Work with [F5 Client s
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Microsoft Entra single sign-on configuration using the Access Panel.
 
 When you click the F5 tile in the Access Panel, you should be automatically signed in to the F5 for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Microsoft Entra ID](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is Conditional Access in Microsoft Entra ID?](../conditional-access/overview.md)
 
 
 
@@ -340,8 +348,8 @@ When you click the F5 tile in the Access Panel, you should be automatically sign
 
 - [Configure F5 single sign-on for Kerberos application](kerbf5-tutorial.md)
 
-- [F5 BIG-IP APM and Azure AD integration for secure hybrid access](../manage-apps/f5-integration.md)
+- [F5 BIG-IP APM and Microsoft Entra integration for secure hybrid access](../manage-apps/f5-integration.md)
 
 - [Tutorial to deploy F5 BIG-IP Virtual Edition VM in Azure IaaS for secure hybrid access](../manage-apps/f5-bigip-deployment-guide.md)
 
-- [Tutorial for Azure Active Directory single sign-on integration with F5 BIG-IP for Password-less VPN](../manage-apps/f5-passwordless-vpn.md)
+- [Tutorial for Microsoft Entra single sign-on integration with F5 BIG-IP for Password-less VPN](../manage-apps/f5-passwordless-vpn.md)

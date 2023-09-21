@@ -41,7 +41,7 @@ Implementing RBAC in an ASP.NET Core MVC web application is straightforward. It 
 1. Create an application registration with app roles and assignments as outlined in *Define app roles* above.
 1. Do one of the following steps:
 
-    - Create a new ASP.NET Core MVC web application project using the **dotnet cli**. Specify the `--auth` flag with either `SingleOrg` for single tenant authentication or `MultiOrg` for multi-tenant authentication, the `--client-id` flag with the client if from the application registration, and the `--tenant-id` flag with the tenant if from the Azure AD tenant:
+    - Create a new ASP.NET Core MVC web application project using the **dotnet cli**. Specify the `--auth` flag with either `SingleOrg` for single tenant authentication or `MultiOrg` for multi-tenant authentication, the `--client-id` flag with the client if from the application registration, and the `--tenant-id` flag with the tenant if from the Microsoft Entra tenant:
 
         ```bash
         dotnet new mvc --auth SingleOrg --client-id <YOUR-APPLICATION-CLIENT-ID> --tenant-id <TENANT-ID>  
@@ -65,7 +65,7 @@ Implementing RBAC in an ASP.NET Core web API mainly involves utilizing the *Auth
 1. Create an application registration with app roles and assignments as outlined in *Define app roles* above.
 1. Do one of the following steps:
   
-    - Create a new ASP.NET Core MVC web API project using the **dotnet cli**.  Specify the `--auth` flag with either `SingleOrg` for single tenant authentication or `MultiOrg` for multi-tenant authentication, the `--client-id` flag with the client if from the application registration, and the `--tenant-id` flag with the tenant if from the Azure AD tenant:
+    - Create a new ASP.NET Core MVC web API project using the **dotnet cli**.  Specify the `--auth` flag with either `SingleOrg` for single tenant authentication or `MultiOrg` for multi-tenant authentication, the `--client-id` flag with the client if from the application registration, and the `--tenant-id` flag with the tenant if from the Microsoft Entra tenant:
   
         ```bash
         dotnet new webapi --auth SingleOrg --client-id <YOUR-APPLICATION-CLIENT-ID> --tenant-id <TENANT-ID> 
@@ -86,7 +86,7 @@ Implementing RBAC in an ASP.NET Core web API mainly involves utilizing the *Auth
 
 ### Angular SPA using MsalGuard
 
-Implementing RBAC in an Angular SPA involves the use of [msal-angular](https://www.npmjs.com/package/@azure/msal-angular) to authorize access to the Angular routes contained within the application. An example is shown in the [Enable your Angular single-page application to sign-in users and call APIs with the Microsoft identity platform](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial#chapter-5-control-access-to-your-protected-api-using-app-roles-and-security-groups) sample.
+Implementing RBAC in an Angular SPA involves the use of the [Microsoft Authentication Library for Angular](https://www.npmjs.com/package/@azure/msal-angular) to authorize access to the Angular routes contained within the application. An example is shown in the [Enable your Angular single-page application to sign-in users and call APIs with the Microsoft identity platform](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial#chapter-5-control-access-to-your-protected-api-using-app-roles-and-security-groups) sample.
 
 > [!NOTE]
 > Client-side RBAC implementations should be paired with server-side RBAC to prevent unauthorized applications from accessing sensitive resources.

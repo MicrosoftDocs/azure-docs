@@ -88,7 +88,7 @@ dotnet add package --prerelease Azure.Monitor.OpenTelemetry.AspNetCore
 Install the latest [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) NuGet package:
 
 ```dotnetcli
-dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter 
+dotnet add package Azure.Monitor.OpenTelemetry.Exporter 
 ```
 
 #### [Java](#tab/java)
