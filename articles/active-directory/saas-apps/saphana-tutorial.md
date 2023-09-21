@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SAP HANA'
-description: Learn how to configure single sign-on between Azure Active Directory and SAP HANA.
+title: 'Tutorial: Microsoft Entra integration with SAP HANA'
+description: Learn how to configure single sign-on between Microsoft Entra ID and SAP HANA.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,19 +12,19 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with SAP HANA
+# Tutorial: Microsoft Entra integration with SAP HANA
 
-In this tutorial, you'll learn how to integrate SAP HANA with Azure Active Directory (Azure AD). When you integrate SAP HANA with Azure AD, you can:
+In this tutorial, you'll learn how to integrate SAP HANA with Microsoft Entra ID. When you integrate SAP HANA with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to SAP HANA.
-* Enable your users to be automatically signed-in to SAP HANA with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to SAP HANA.
+* Enable your users to be automatically signed-in to SAP HANA with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with SAP HANA, you need the following items:
+To configure Microsoft Entra integration with SAP HANA, you need the following items:
 
-- An Azure AD subscription
+- A Microsoft Entra subscription
 - A SAP HANA subscription that's single sign-on (SSO) enabled
 - A HANA instance that's running on any public IaaS, on-premises, Azure VM, or SAP large instances in Azure
 - The XSA Administration web interface, as well as HANA Studio installed on the HANA instance
@@ -34,12 +34,12 @@ To configure Azure AD integration with SAP HANA, you need the following items:
 
 To test the steps in this tutorial, follow these recommendations:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* A Microsoft Entra subscription. If you don't have a Microsoft Entra environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
 * SAP HANA single sign-on enabled subscription
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * SAP HANA supports **IDP** initiated SSO.
 * SAP HANA supports **just-in-time** user provisioning.
@@ -50,7 +50,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 ## Adding SAP HANA from the gallery
 
-To configure the integration of SAP HANA into Azure AD, you need to add SAP HANA from the gallery to your list of managed SaaS apps.
+To configure the integration of SAP HANA into Microsoft Entra ID, you need to add SAP HANA from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -59,22 +59,26 @@ To configure the integration of SAP HANA into Azure AD, you need to add SAP HANA
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for SAP HANA
+<a name='configure-and-test-azure-ad-sso-for-sap-hana'></a>
 
-Configure and test Azure AD SSO with SAP HANA using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in SAP HANA.
+## Configure and test Microsoft Entra SSO for SAP HANA
 
-To configure and test Azure AD SSO with SAP HANA, perform the following steps:
+Configure and test Microsoft Entra SSO with SAP HANA using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in SAP HANA.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with SAP HANA, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+	1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with Britta Simon.
+	1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Entra single sign-on.
 2. **[Configure SAP HANA SSO](#configure-sap-hana-sso)** - to configure the Single Sign-On settings on application side.
-	1. **[Create SAP HANA test user](#create-sap-hana-test-user)** - to have a counterpart of Britta Simon in SAP HANA that is linked to the Azure AD representation of user.
+	1. **[Create SAP HANA test user](#create-sap-hana-test-user)** - to have a counterpart of Britta Simon in SAP HANA that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+### Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SAP HANA** > **Single sign-on**.
@@ -113,7 +117,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![The Certificate download link](common/metadataxml.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -127,7 +133,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to SAP HANA.
 
@@ -174,7 +182,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 ### Create SAP HANA test user
 
-To enable Azure AD users to sign in to SAP HANA, you must provision them in SAP HANA.
+To enable Microsoft Entra users to sign in to SAP HANA, you must provision them in SAP HANA.
 SAP HANA supports **just-in-time provisioning**, which is by enabled by default.
 
 If you need to create a user manually, take the following steps:
@@ -193,7 +201,7 @@ If you need to create a user manually, take the following steps:
 4. Add the **External Identity** (in this case, BrittaSimon). Then select **OK**.
 
    > [!Note]
-   > You have to populate the **External Identity** field for the user and that has to match the **NameID** field in the SAML token from Azure AD. **Any** checkbox should not be checked as this option requires the IDP to send SPProvderID property in the NameID Field which is right now not supported by Azure AD. Plese refer [this](https://help.sap.com/viewer/b3ee5778bc2e4a089d3299b82ec762a7/2.0.05/en-US/db6db355bb571014b56eb25057daec5f.html) document for more details.
+   > You have to populate the **External Identity** field for the user and that has to match the **NameID** field in the SAML token from Microsoft Entra ID. **Any** checkbox should not be checked as this option requires the IDP to send SPProvderID property in the NameID Field which is right now not supported by Microsoft Entra ID. Plese refer [this](https://help.sap.com/viewer/b3ee5778bc2e4a089d3299b82ec762a7/2.0.05/en-US/db6db355bb571014b56eb25057daec5f.html) document for more details.
 
 5. For testing purposes, assign all **XS** roles to the user.
 
@@ -206,7 +214,7 @@ If you need to create a user manually, take the following steps:
 
 ### Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
 * Click on **Test this application**, and you should be automatically signed in to the SAP HANA for which you set up the SSO
 

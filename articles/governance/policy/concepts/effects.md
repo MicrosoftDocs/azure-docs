@@ -19,7 +19,7 @@ These effects are currently supported in a policy definition:
 - [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
-- [DenyAction (preview)](#denyaction-preview)
+- [DenyAction](#denyaction)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
 - [Manual](#manual)
@@ -481,9 +481,9 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 }
 ```
 
-## DenyAction (preview)
+## DenyAction
 
-`DenyAction` is used to block requests on intended action to resources. The only supported action today is `DELETE`. This effect helps prevent any accidental deletion of critical resources.
+`DenyAction` is used to block requests based on intended action to resources at scale. The only supported action today is `DELETE`. This effect and action name helps prevent any accidental deletion of critical resources.
 
 ### DenyAction evaluation
 
