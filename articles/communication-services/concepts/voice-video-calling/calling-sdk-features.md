@@ -27,6 +27,9 @@ Key features of the Calling SDK:
 - **PSTN** - The Calling SDK can initiate voice calls with the traditional publicly switched telephone network, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony/get-phone-number.md) or programmatically.
 - **Teams Meetings** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video dataplane.
 - **Notifications** - The Calling SDK provides APIs allowing clients to be notified of an incoming call. In situations where your app isn't running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end-users of an incoming call.
+- **User Facing Diagnostics (UFD)** - The Calling SDK provides [events](user-facing-diagnostics.md) that are designed to provide insights into underlying issues that could affect call quality. Developers can subscribe to triggers such as weak network signals or muted microphones, ensuring that they're always aware of any factors impacting the calls.
+- **Media Stats** - The Calling SDK provides comprehensive insights into [the metrics](media-quality-sdk.md) of your VoIP and video calls. With this information, developers have a clearer understanding of call quality and can make informed decisions to further enhance their communication experience.
+- **Video Constraints** - The Calling SDK provides APIs that gain the ability to regulate [video quality among other parameters](../../quickstarts/voice-video-calling/get-started-video-constraints.md) during video calls by adjusting parameters such as resolution and frame rate supporting different call situations for different levels of video quality
 
 ## Detailed capabilities
 
@@ -50,9 +53,9 @@ The following list presents the set of features that are currently available in 
 |                   | Show state of a call<br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Show if a participant is muted                                                                                      | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Show the reason why a participant left a call                                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
-| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️  | ✔️<sup>1</sup>  | ✔️<sup>1</sup>   | ✔️<sup>1</sup>               |
-|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ✔️<sup>1</sup>     | ❌              | ❌                 |
-|                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   |        |               |                |
+| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️   | ✔️<sup>1</sup>| ✔️<sup>1</sup> | ✔️<sup>1</sup> |
+|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ✔️<sup>1</sup>| ❌         | ❌                 |
+|                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   |          |                  |                     |
 |                   | Share system audio during screen sharing                                                                            | ❌   | ❌       | ❌              | ❌                 |
 |                   | Participant can view remote screen share                                                                            | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Roster            | List participants                                                                                                   | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -67,17 +70,20 @@ The following list presents the set of features that are currently available in 
 |                   | Get camera list                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Set camera                                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Get selected camera                                                                                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Get microphone list                                                                                                 | ✔️   | ✔️       | ❌ <sup>2</sup>             | ❌<sup>2</sup>                 |
-|                   | Set microphone                                                                                                      | ✔️   | ✔️       | ❌ <sup>2</sup>             | ❌    <sup>2</sup>             |
-|                   | Get selected microphone                                                                                             | ✔️   | ✔️       | ❌   <sup>2</sup>           | ❌          <sup>2</sup>       |
-|                   | Get speakers list                                                                                                   | ✔️   | ✔️       | ❌     <sup>2</sup>         | ❌     <sup>2</sup>            |
-|                   | Set speaker                                                                                                         | ✔️   | ✔️       | ❌ <sup>2</sup>             | ❌   <sup>2</sup>              |
-|                   | Get selected speaker                                                                                                | ✔️   | ✔️       | ❌  <sup>2</sup>            | ❌     <sup>2</sup>            |
+|                   | Get microphone list                                                                                                 | ✔️   | ✔️       | ❌ <sup>2</sup> | ❌ <sup>2</sup>    |
+|                   | Set microphone                                                                                                      | ✔️   | ✔️       | ❌ <sup>2</sup> | ❌ <sup>2</sup>    |
+|                   | Get selected microphone                                                                                             | ✔️   | ✔️       | ❌ <sup>2</sup> | ❌ <sup>2</sup>    |
+|                   | Get speakers list                                                                                                   | ✔️   | ✔️       | ❌ <sup>2</sup> | ❌ <sup>2</sup>    |
+|                   | Set speaker                                                                                                         | ✔️   | ✔️       | ❌ <sup>2</sup> | ❌ <sup>2</sup>    |
+|                   | Get selected speaker                                                                                                | ✔️   | ✔️       | ❌ <sup>2</sup> | ❌ <sup>2</sup>    |
 | Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
+| Video Effects     | [Background Blur](../../quickstarts/voice-video-calling/get-started-video-effects.md)          | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Custom background image                                                                                             | ✔️   | ❌       | ❌              | ❌                 |
 
-1. The Share Screen capability can be achieved using Raw Media, if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
+
+1. The Share screen capability can be achieved using Raw Media, if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
 2. The Calling SDK doesn't have an explicit API, you need to use the OS (android & iOS) API to achieve it.
 
 ## UI Library
@@ -127,9 +133,9 @@ The following table represents the set of supported browsers, which are currentl
 | Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      |
 | Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      |
 
-- Outgoing Screen Sharing isn't supported on iOS or Android.
+- Outgoing Screen Sharing isn't supported on iOS or Android mobile browsers.
 - Firefox support is in public preview.
-- ACS only supports Android System WebView on Android, iOS WebView(WKWebView) in public preview. Other types of embedded browsers or WebView on other OS platforms aren't officially supported, for example, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
+- Currently, the calling SDK only supports Android System WebView on Android, iOS WebView(WKWebView) in public preview. Other types of embedded browsers or WebView on other OS platforms aren't officially supported, for example, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
 Running JavaScript Calling SDK on these platforms isn't actively tested, it may or may not work.
 - [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this issue is a limitation of the OS, and there's always only one device, OS controls default device selection.
 

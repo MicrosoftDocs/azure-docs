@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 8/15/2023
+ms.date: 09/08/2023
 ---
 
 # Configure semantic ranking and return captions in search results
@@ -29,16 +29,16 @@ To use semantic ranking:
 
 + Semantic ranking [enabled on your search service](semantic-how-to-enable-disable.md).
 
-+ An existing search index with rich content in a [supported query language](/rest/api/searchservice/preview-api/search-documents#queryLanguage). Semantic ranking works best on content that is informational or descriptive.
++ An existing search index with rich text content in a [supported query language](/rest/api/searchservice/preview-api/search-documents#queryLanguage). Semantic ranking applies to text (non-vector) fields and works best on content that is informational or descriptive.
 
-+ Review the [Semantic search overview](semantic-search-overview.md) if you need an introduction to the feature.
++ Review [semantic ranking](semantic-search-overview.md) if you need an introduction to the feature.
 
 > [!NOTE]
 > Captions and answers are extracted verbatim from text in the search document. The semantic subsystem uses language understanding to determine what part of your content have the characteristics of a caption or answer, but it doesn't compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic ranking.
 
 ## 1 - Choose a client
 
-You'll need a search client that supports preview APIs on the query request. Here are some options:
+Choose a search client that supports preview APIs on the query request. Here are some options:
 
 + [Search explorer](search-explorer.md) in Azure portal, recommended for initial exploration.
 
@@ -55,11 +55,11 @@ You'll need a search client that supports preview APIs on the query request. Her
 
 A *semantic configuration* specifies how fields are used in semantic ranking. It gives the underlying models hints about which index fields are most important for semantic ranking, captions, highlights, and answers. 
 
-You'll add a semantic configuration to your [index definition](/rest/api/searchservice/preview-api/create-or-update-index). The tabbed sections below provide instructions for the REST APIs, Azure portal, and the .NET SDK Preview. 
+Add a semantic configuration to your [index definition](/rest/api/searchservice/preview-api/create-or-update-index). The following tabbed sections provide instructions for the REST APIs, Azure portal, and the .NET SDK Preview. 
 
-You can add or update a semantic configuration at any time without rebuilding your index. When you issue a query, you'll add the semantic configuration (one per query) that specifies which semantic configuration to use for the query.
+You can add or update a semantic configuration at any time without rebuilding your index. When you issue a query, add the semantic configuration (one per query) that specifies which semantic configuration to use for the query.
 
-1. Review the properties you'll need to specify. A semantic configuration has a name and at least one each of the following properties:
+1. Review the properties needed in the configuration. A semantic configuration has a name and at least one each of the following properties:
 
     + **Title field** - A title field should be a concise description of the document, ideally a string that is under 25 words. This field could be the title of the document, name of the product, or item in your search index. If you don't have a title in your search index, leave this field blank.
     + **Content fields** - Content fields should contain text in natural language form. Common examples of content are the body of a document, the description of a product, or other free-form text.
@@ -69,7 +69,9 @@ You can add or update a semantic configuration at any time without rebuilding yo
 
 1. For the above properties, determine which fields to assign.
 
-   A field must be a [supported data type](/rest/api/searchservice/supported-data-types) and it should contain strings. If you happen to include an invalid field, there's no error, but those fields won't be used in semantic ranking.
+   A field must be searchable and retrievable.
+
+   A field must be a [supported data type](/rest/api/searchservice/supported-data-types) and it should contain strings. If you happen to include an invalid field, there's no error, but those fields aren't used in semantic ranking.
 
     | Data type | Example from hotels-sample-index |
     |-----------|----------------------------------|
@@ -78,7 +80,7 @@ You can add or update a semantic configuration at any time without rebuilding yo
     | Collection(Edm.String) | Tags (a comma-delimited list of strings) |
 
     > [!NOTE]
-    > Subfields of Collection(Edm.ComplexType) fields aren't currently supported by semantic search and won't be used for semantic ranking, captions, or answers.
+    > Subfields of Collection(Edm.ComplexType) fields aren't currently supported by semantic search and aren't used for semantic ranking, captions, or answers.
 
 ### [**Azure portal**](#tab/portal)
 
@@ -90,9 +92,9 @@ You can add or update a semantic configuration at any time without rebuilding yo
 
    The **New Semantic Configuration** page opens with options for selecting a title field, content fields, and keyword fields. Make sure to list content fields and keyword fields in priority order.
 
-   Select **OK** to save the changes.
-
    :::image type="content" source="./media/semantic-search-overview/create-semantic-config.png" alt-text="Screenshot that shows how to create a semantic configuration in the Azure portal." border="true":::
+
+   Select **OK** to save the changes.
 
 ### [**REST API**](#tab/rest)
 
@@ -170,9 +172,9 @@ adminClient.CreateOrUpdateIndex(definition);
 
 ## 2b - Use searchFields for field prioritization
 
-This step is only for solutions using the 2020-06-30-Preview REST API or a beta SDK that doesn't support semantic configurations. Instead of setting field prioritization in the index through a semantic configuration, you'll set the priority at query time, using the "searchFields" parameter of a query.
+This step is only for solutions using the 2020-06-30-Preview REST API or a beta SDK that doesn't support semantic configurations. Instead of setting field prioritization in the index through a semantic configuration, set the priority at query time, using the searchFields parameter of a query.
 
-Using "searchFields" for field prioritization was an early implementation detail that won't be supported once semantic search exits public preview. We encourage you to use semantic configurations if your application requirements allow it.
+Using searchFields for field prioritization was an early implementation detail that won't be supported once semantic search exits public preview. We encourage you to use semantic configurations if your application requirements allow it.
 
 ```http
 POST https://[service name].search.windows.net/indexes/[index name]/docs/search?api-version=2020-06-30-Preview      
@@ -184,11 +186,11 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
 }
 ```
 
-Field order is critical because the semantic ranker limits the amount of content it can process while still delivering a reasonable response time. Content from fields at the start of the list are more likely to be included; content from the end could be truncated if the maximum limit is reached. For more information, see [Pre-processing during semantic ranking](semantic-search-overview.md#how-inputs-are-prepared).
+Field order is critical because the semantic ranker limits the amount of content it can process while still delivering a reasonable response time. Content from fields at the start of the list are more likely to be included; content from the end could be truncated if the maximum limit is reached. For more information, see [Preprocessing during semantic ranking](semantic-search-overview.md#how-inputs-are-prepared).
 
 + If you're specifying just one field, choose a descriptive field where the answer to semantic queries might be found, such as the main content of a document. 
 
-+ For two or more fields in searchFields:
++ For two or more fields in `searchFields`:
 
   + The first field should always be concise (such as a title or name), ideally a string that is under 25 words.
 
@@ -196,7 +198,7 @@ Field order is critical because the semantic ranker limits the amount of content
 
   + Follow the above fields with other descriptive fields, where the answer to semantic queries may be found, such as the main content of a document.
 
-When setting "searchFields", choose only fields of the following [supported data types](/rest/api/searchservice/supported-data-types): 
+When setting `searchFields`, choose only fields of the following [supported data types](/rest/api/searchservice/supported-data-types): 
 
 | Data type | Example from hotels-sample-index |
 |-----------|----------------------------------|
@@ -208,35 +210,37 @@ If you happen to include an invalid field, there's no error, but those fields wo
 
 ## 3 - Avoid features that bypass relevance scoring
 
-Several query capabilities in Cognitive Search bypass relevance scoring. If your query logic includes the following features, you won't get relevance scores or semantic ranking on your results:
+Several query capabilities in Cognitive Search bypass relevance scoring. If your query logic includes the following features, you won't get BM25 relevance scores or semantic ranking on your results:
 
 + Filters, fuzzy search queries, and regular expressions iterate over untokenized text, scanning for verbatim matches in the content. Search scores for all of the above query forms are a uniform 1.0, and won't provide meaningful input for semantic ranking because there's no way to select the top 50 matches.
 
-+ Sorting (orderBy clauses) on specific fields will also override search scores and semantic score. Given that semantic score is used to order results, including explicit sort logic will cause an HTTP 400 error to be returned if you run a semantic query over ordered results.
++ Sorting (orderBy clauses) on specific fields overrides search scores and a semantic score. Given that the semantic score is supposed to provide the ranking, adding an orderby clause results in an HTTP 400 error if you try to apply semantic ranking over ordered results.
 
 ## 4 - Set up the query
 
-Your next step is adding parameters to the query request. To be successful, your query should be full text search (using the "search" parameter to pass in a string), and the index should contain text fields with rich semantic content.
+Your next step is adding parameters to the query request. To be successful, your query should be full text search (using the `search` parameter to pass in a string), and the index should contain text fields with rich semantic content and a semantic configuration.
 
 ### [**Azure portal**](#tab/portal-query)
 
-[Search explorer](search-explorer.md) has been updated to include options for semantic queries. To configure semantic ranking in the portal, follow the steps below:
+[Search explorer](search-explorer.md) has been updated to include options for semantic queries. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to a search service that has semantic search [enabled](semantic-how-to-enable-disable.md).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **Search explorer** at the top of the overview page.
+1. Open your search index and select **Search explorer**.
 
-1. Choose an index that has content in a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
+1. There are two ways to specify the query, JSON or options. Using JSON, you can paste definitions into the query editor:
 
-1. In Search explorer, set query options that enable semantic queries, semantic configurations, and spell correction. You can also paste the required query parameters into the query string.
+   :::image type="content" source="./media/semantic-search-overview/semantic-portal-json-query.png" alt-text="Screenshot showing JSON query syntax in the Azure portal." border="true":::
 
-:::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options-v2.png" alt-text="Screenshot showing query options in Search explorer." border="true":::
+1. Using options, specify that you want to use semantic search and select a query language. If you don't see these options, make sure semantic search is enabled and also refresh your browser.
+
+    :::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options-v2.png" alt-text="Screenshot showing query options in Search explorer." border="true":::
 
 ### [**REST API**](#tab/rest-query)
 
 Use the [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents) to formulate the request.
 
-A response includes an "@search.rerankerScore"" automatically. If you want captions, spelling correction, or answers in the response, add "captions", "speller", or "answers" to the request.
+A response includes an `@search.rerankerScore` automatically. If you want captions, spelling correction, or answers in the response, add captions, speller, or answers to the request.
 
 The following example in this section uses the [hotels-sample-index](search-get-started-portal.md) to demonstrate semantic ranking with spell check, semantic answers, and captions.
 
@@ -290,7 +294,7 @@ The following example in this section uses the [hotels-sample-index](search-get-
 
    Currently, the only valid value for this parameter is "extractive". Captions can be configured to return results with or without highlights. The default is for highlights to be returned. This example returns captions without highlights: `extractive|highlight-false`.
 
-   For semantic captions, the fields referenced in the "semanticConfiguration" must have a word limit in the range of 2000-3000 words (or equivalent to 10000 tokens), otherwise, it will miss important caption results. If you anticipate that the fields used by the "semanticConfiguration" word count could be higher than the exposed limit and you need to use captions, consider [Text split cognitive skill]cognitive-search-skill-textsplit.md) as part of your [AI enrichment pipeline](cognitive-search-concept-intro.md) while indexing your data with [built-in pull indexers](search-indexer-overview.md).
+   For semantic captions, the fields referenced in the "semanticConfiguration" must have a word limit in the range of 2000-3000 words (or equivalent to 10,000 tokens), otherwise, it misses important caption results. If you anticipate that the fields used by the "semanticConfiguration" word count could be higher than the exposed limit and you need to use captions, consider [Text split cognitive skill]cognitive-search-skill-textsplit.md) as part of your [AI enrichment pipeline](cognitive-search-concept-intro.md) while indexing your data with [built-in pull indexers](search-indexer-overview.md).
 
 1. Set "highlightPreTag" and "highlightPostTag" if you want to override the default highlight formatting that's applied to captions.
 
@@ -302,7 +306,7 @@ The following example in this section uses the [hotels-sample-index](search-get-
 
 ### [**.NET SDK**](#tab/dotnet-query)
 
-Beta versions of the Azure SDKs include support for semantic search. Because the SDKs are beta versions, there's no documentation or samples, but you can refer to the REST API section above for insights on how the APIs should work.
+Beta versions of the Azure SDKs include support for semantic search. Because the SDKs are beta versions, there's no documentation or samples, but you can refer to the REST API content in the next tab for insights on how the APIs should work.
 
 The following beta versions support semantic configuration:
 
@@ -360,9 +364,9 @@ The response for the above example query returns the following match as the top 
 
 ## Next steps
 
-Recall that semantic ranking and responses are built over an initial result set. Any logic that improves the quality of the initial results will carry forward to semantic search. As a next step, review the features that contribute to initial results, including analyzers that affect how strings are tokenized, scoring profiles that can tune results, and the default relevance algorithm.
+Recall that semantic ranking and responses are built over an initial result set. Any logic that improves the quality of the initial results carry forward to semantic search. As a next step, review the features that contribute to initial results, including analyzers that affect how strings are tokenized, scoring profiles that can tune results, and the default relevance algorithm.
 
 + [Analyzers for text processing](search-analyzers.md)
-+ [Similarity ranking algorithm](index-similarity-and-scoring.md)
-+ [Scoring profiles](index-add-scoring-profiles.md)
++ [Configure BM25 relevance scoring](index-similarity-and-scoring.md)
++ [Add scoring profiles](index-add-scoring-profiles.md)
 + [Semantic search overview](semantic-search-overview.md)

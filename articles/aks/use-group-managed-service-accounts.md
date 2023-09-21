@@ -165,7 +165,7 @@ You can either [grant access to your key vault for the identity after cluster cr
 2. Create a new YAML named *gmsa-spec.yaml* and paste in the following YAML. Make sure you replace the placeholders with your own values.
 
     ```YAML
-    apiVersion: windows.k8s.io/v1alpha1
+    apiVersion: windows.k8s.io/v1
     kind: GMSACredentialSpec
     metadata:
       name: aks-gmsa-spec  # This name can be changed, but it will be used as a reference in the pod spec
@@ -190,6 +190,9 @@ You can either [grant access to your key vault for the identity after cluster cr
         NetBiosName: $NETBIOS_DOMAIN_NAME
         Sid: $GMSA_SID
     ```
+
+> [!NOTE]
+> AKS has upgraded the `apiVersion` of `GMSACredentialSpec` from `windows.k8s.io/v1alpha1` to `windows.k8s.io/v1` in release v20230903.
 
 3. Create a new YAML named *gmsa-role.yaml* and paste in the following YAML.
 

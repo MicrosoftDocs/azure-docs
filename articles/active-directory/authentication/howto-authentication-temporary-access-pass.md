@@ -1,12 +1,12 @@
 ---
-title: Configure a Temporary Access Pass in Azure AD to register passwordless authentication methods
+title: Configure a Temporary Access Pass in Microsoft Entra ID to register passwordless authentication methods
 description: Learn how to configure and enable users to register passwordless authentication methods by using a Temporary Access Pass 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/14/2023
+ms.date: 09/23/2023
 
 ms.author: justinha
 author: tilarso 
@@ -15,19 +15,19 @@ ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
-# Configure Temporary Access Pass in Azure AD to register passwordless authentication methods
+# Configure Temporary Access Pass in Microsoft Entra ID to register passwordless authentication methods
 
 Passwordless authentication methods, such as FIDO2 and passwordless phone sign-in through the Microsoft Authenticator app, enable users to sign in securely without a password. 
 Users can bootstrap Passwordless methods in one of two ways:
 
-- Using existing Azure AD Multi-Factor Authentication methods 
+- Using existing Microsoft Entra multifactor authentication methods 
 - Using a Temporary Access Pass (TAP) 
 
 A Temporary Access Pass is a time-limited passcode that can be configured for single use or multiple. Users can sign in with a Temporary Access Pass to onboard other authentication methods including passwordless methods such as Microsoft Authenticator, FIDO2 or Windows Hello for Business.
 
 A Temporary Access Pass also makes recovery easier when a user has lost or forgotten their strong authentication factor like a FIDO2 security key or Microsoft Authenticator app, but needs to sign in to register new strong authentication methods.
 
-This article shows you how to enable and use a Temporary Access Pass in Azure AD using the Azure portal. 
+This article shows you how to enable and use a Temporary Access Pass using the the [Microsoft Entra admin center](https://entra.microsoft.com). 
 You can also perform these actions using the REST APIs. 
 
 ## Enable the Temporary Access Pass policy
@@ -39,9 +39,8 @@ Although you can create a Temporary Access Pass for any user, only users include
 Global administrator and Authentication Policy administrator role holders can update the Temporary Access Pass authentication method policy.
 To configure the Temporary Access Pass authentication method policy:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* permissions.
-1. Search for and select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
-1. Under the **Manage** menu header, select **Authentication methods** >  **Policies**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods** >  **Policies**.
 1. From the list of available authentication methods, select **Temporary Access Pass**.
 
    :::image type="content" border="true" source="./media/how-to-authentication-temporary-access-pass/select-temporary-access-pass-policy.png" alt-text="Screenshot of how to manage Temporary Access Pass within the authentication method policy experience.":::
@@ -68,7 +67,7 @@ To configure the Temporary Access Pass authentication method policy:
 
 ## Create a Temporary Access Pass
 
-After you enable a policy, you can create a Temporary Access Pass for a user in Azure AD. 
+After you enable a policy, you can create a Temporary Access Pass for a user in Microsoft Entra ID. 
 These roles can perform the following actions related to a Temporary Access Pass.
 
 - Global Administrators can create, delete, and view a Temporary Access Pass on any user (except themselves)
@@ -76,11 +75,9 @@ These roles can perform the following actions related to a Temporary Access Pass
 - Authentication Administrators can create, delete, and view a Temporary Access Pass on members  (except themselves)
 - Global Reader can view the Temporary Access Pass details on the user (without reading the code itself).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) by using one of the preceding roles. 
-1. Select **Azure Active Directory**, browse to Users, select a user, such as *Chris Green*, then choose **Authentication methods**.
-1. If needed, select the option to **Try the new user authentication methods experience**.
-1. Select the option to **Add authentication methods**.
-1. Below **Choose method**, select **Temporary Access Pass**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods**.
+1. Select **Temporary Access Pass**.
 1. Define a custom activation time or duration and select **Add**.
 
    ![Screenshot of how to create a Temporary Access Pass.](./media/how-to-authentication-temporary-access-pass/create.png)
@@ -122,12 +119,12 @@ The most common use for a Temporary Access Pass is for a user to register authen
 1. Open a web browser to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo).
 1. Enter the UPN of the account you created the Temporary Access Pass for, such as *tapuser@contoso.com*.
 1. If the user is included in the Temporary Access Pass policy, they see a screen to enter their Temporary Access Pass.
-1. Enter the Temporary Access Pass that was displayed in the Azure portal.
+1. Enter the Temporary Access Pass that was displayed in the Microsoft Entra admin center.
 
    :::image type="content" border="true" source="./media/how-to-authentication-temporary-access-pass/enter.png" alt-text="Screenshot of how to enter a Temporary Access Pass.":::
 
 >[!NOTE]
->For federated domains, a Temporary Access Pass is preferred over federation. A user with a Temporary Access Pass completes the authentication in Azure AD and isn't redirected to the federated Identity Provider (IdP).
+>For federated domains, a Temporary Access Pass is preferred over federation. A user with a Temporary Access Pass completes the authentication in Microsoft Entra ID and isn't redirected to the federated Identity Provider (IdP).
 
 The user is now signed in and can update or register a method such as FIDO2 security key. 
 Users who update their authentication methods due to losing their credentials or device should make sure they remove the old authentication methods.
@@ -142,7 +139,7 @@ Users managing their security information at [https://aka.ms/mysecurityinfo](htt
 ### Windows device setup
 Users with a Temporary Access Pass can navigate the setup process on Windows 10 and 11 to perform device join operations and configure Windows Hello for Business. Temporary Access Pass usage for setting up Windows Hello for Business varies based on the devices joined state. 
 
-For joined devices to Azure AD: 
+For joined devices to Microsoft Entra ID: 
 - During the domain-join setup process, users can authenticate with a TAP (no password required) to join the device and register Windows Hello for Business.
 - On already-joined devices, users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to set up Windows Hello for Business. 
 - If the [Web sign-in](/windows/client-management/mdm/policy-csp-authentication#authentication-enablewebsignin) feature on Windows is also enabled, the user can use TAP to sign into the device. This is intended only for completing initial device setup, or recovery when the user doesn't know or have a password. 
@@ -174,7 +171,8 @@ The token lifetime (session token, refresh token, access token, and so on) obtai
 
 Under the **Authentication methods** for a user, the **Detail** column shows when the Temporary Access Pass expired. You can delete an expired Temporary Access Pass using the following steps:
 
-1. In the Azure portal, browse to **Users**, select a user, such as *Tap User*, then choose **Authentication methods**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Identity** > **Users**, select a user, such as *Tap User*, then choose **Authentication methods**.
 1. On the right-hand side of the **Temporary Access Pass** authentication method shown in the list, select **Delete**.
 
 You can also use PowerShell:
@@ -200,7 +198,7 @@ For more information about NIST standards for onboarding and recovery, see [NIST
 Keep these limitations in mind:
 
 - When using a one-time Temporary Access Pass to register a Passwordless method such as FIDO2 or Phone sign-in, the user must complete the registration within 10 minutes of sign-in with the one-time Temporary Access Pass. This limitation doesn't apply to a Temporary Access Pass that can be used more than once.
-- Users in scope for Self Service Password Reset (SSPR) registration policy *or* [Identity Protection Multi-factor authentication registration policy](../identity-protection/howto-identity-protection-configure-mfa-policy.md) are required to register authentication methods after they've signed in with a Temporary Access Pass using a browser. 
+- Users in scope for Self Service Password Reset (SSPR) registration policy *or* [Identity Protection multifactor authentication registration policy](../identity-protection/howto-identity-protection-configure-mfa-policy.md) are required to register authentication methods after they've signed in with a Temporary Access Pass using a browser. 
 Users in scope for these policies are redirected to the [Interrupt mode of the combined registration](concept-registration-mfa-sspr-combined.md#combined-registration-modes). This experience doesn't currently support FIDO2 and Phone Sign-in registration. 
 - A Temporary Access Pass can't be used with the Network Policy Server (NPS) extension and Active Directory Federation Services (AD FS) adapter.
 - It can take a few minutes for changes to replicate. Because of this, after a Temporary Access Pass is added to an account it can take a while for the prompt to appear. For the same reason, after a Temporary Access Pass expires, users may still see a prompt for Temporary Access Pass. 
@@ -217,4 +215,4 @@ Users in scope for these policies are redirected to the [Interrupt mode of the c
 
 ## Next steps
 
-- [Plan a passwordless authentication deployment in Azure Active Directory](howto-authentication-passwordless-deployment.md)
+- [Plan a passwordless authentication deployment in Microsoft Entra ID](howto-authentication-passwordless-deployment.md)

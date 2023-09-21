@@ -1,10 +1,10 @@
 ---
 title: Improve NFS Azure file share performance
-description: Learn how to improve the performance of NFS Azure file shares at scale using the nconnect mount option for Linux clients.
+description: Learn ways to improve the performance of NFS Azure file shares at scale, including the nconnect mount option for Linux clients.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 08/31/2023
+ms.date: 09/21/2023
 ms.author: kendownie
 ---
 
@@ -22,7 +22,7 @@ This article explains how you can improve performance for NFS Azure file shares.
 
 `Nconnect` is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the client and the Azure Premium Files service for NFSv4.1, while maintaining the resiliency of platform as a service (PaaS).
 
-## Benefits of `nconnect`
+### Benefits of `nconnect`
 
 With `nconnect`, you can increase performance at scale using fewer client machines to reduce total cost of ownership (TCO). `Nconnect` increases performance by using multiple TCP channels on one or more NICs, using single or multiple clients. Without `nconnect`, you'd need roughly 20 client machines in order to achieve the bandwidth scale limits (10 GiB/s) offered by the largest premium Azure file share provisioning size.  With `nconnect`, you can achieve those limits using only 6-7 clients. That’s almost a 70% reduction in computing cost, while providing significant improvements to IOPS and throughput at scale (see table).
 
@@ -33,12 +33,12 @@ With `nconnect`, you can increase performance at scale using fewer client machin
 | Throughput (write)     | 64K, 1024K    | 3x                          |
 | Throughput (read)      | All I/O sizes | 2-4x                        |
 
-## Prerequisites
+### Prerequisites
 
 - The latest Linux distributions fully support `nconnect`. For older Linux distributions, ensure that the Linux kernel version is 5.3 or higher.
 - Per-mount configuration is only supported when a single file share is used per storage account over a private endpoint.
 
-## Performance impact of `nconnect`
+### Performance impact of `nconnect`
 
 We achieved the following performance results when using the `nconnect` mount option with NFS Azure file shares on Linux clients at scale. For more information on how we achieved these results, see [performance test configuration](#performance-test-configuration).
 
@@ -46,17 +46,17 @@ We achieved the following performance results when using the `nconnect` mount op
 
 :::image type="content" source="media/nfs-performance/nconnect-throughput-improvement.png" alt-text="Screenshot showing average improvement in throughput when using nconnect with NFS Azure file shares." border="false":::
 
-## Recommendations
+### Recommendations for `nconnect`
 
 Follow these recommendations to get the best results from `nconnect`.
 
-### Set `nconnect=4`
+#### Set `nconnect=4`
 While Azure Files supports setting `nconnect` up to the maximum setting of 16, we recommend configuring the mount options with the optimal setting of `nconnect=4`. Currently, there are no gains beyond four channels for the Azure Files implementation of `nconnect`. In fact, exceeding four channels to a single Azure file share from a single client might adversely affect performance due to TCP network saturation.
 
-### Size virtual machines carefully
+#### Size virtual machines carefully
 Depending on your workload requirements, it’s important to correctly size the client machines to avoid being restricted by their [expected network bandwidth](../../virtual-network/virtual-machine-network-throughput.md#expected-network-throughput). You don't need multiple NICs in order to achieve the expected network throughput. While it's common to use [general purpose VMs](../../virtual-machines/sizes-general.md) with Azure Files, various VM types are available depending on your workload needs and region availability. For more information, see [Azure VM Selector](https://azure.microsoft.com/pricing/vm-selector/).
 
-### Keep queue depth less than or equal to 64 
+#### Keep queue depth less than or equal to 64 
 Queue depth is the number of pending I/O requests that a storage resource can service. We don't recommend exceeding the optimal queue depth of 64. If you do, you won't see any more performance gains. For more information, see [Queue depth](understand-performance.md#queue-depth).
 
 ### `Nconnect` per-mount configuration 
@@ -87,7 +87,7 @@ If a workload requires mounting multiple shares with one or more storage account
   - `Mount StorageAccount.file.core.windows.net:/StorageAccount/FileShare2`
   - `Mount StorageAccount.file.core.windows.net:/StorageAccount/FileShare3`
 
-## Performance test configuration
+### Performance test configuration
 
 We used the following resources and benchmarking tools to achieve and measure the results outlined in this article.
 
@@ -161,7 +161,7 @@ fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_b
 fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=1024k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300
 ```
 
-## Performance considerations
+### Performance considerations for `nconnect`
 
 When using the `nconnect` mount option, you should closely evaluate workloads that have the following characteristics:
 

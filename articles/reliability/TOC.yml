@@ -46,7 +46,7 @@
         href: migrate-storage.md
       - name: Azure SQL managed instance
         href: migrate-sql-managed-instance.md
-      - name: Azure Virtual Machines and virtual machine scale sets
+      - name: Azure Virtual Machines and Virtual Machine Scale Sets
         href: migrate-vm.md
       - name: Workload - Azure Kubernetes and MySQL
         href: migrate-workload-aks-mysql.md
@@ -173,7 +173,7 @@
       - name: Azure Active Directory Domain Services
         href: ../active-directory-domain-services/tutorial-create-replica-set.md
       - name: Azure App Configuration
-        href: ../azure-app-configuration/concept-disaster-recovery.md?toc=/azure/reliability/toc.json&tabs=core2x
+        href: ../azure-app-configuration/concept-disaster-recovery.md?tabs=core2x
       - name: Azure App Service
         href: reliability-app-service.md#disaster-recovery-and-business-continuity
       - name: Azure Application Gateway (V2)
@@ -387,7 +387,7 @@
       - name: Azure Virtual Machines Image Builder
         href: reliability-image-builder.md
       - name: Azure Virtual Machine Scale Sets
-        href: ../virtual-machines/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: reliability-virtual-machine-scale-sets.md
       - name: Azure Virtual Network
         href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure VPN Gateway
