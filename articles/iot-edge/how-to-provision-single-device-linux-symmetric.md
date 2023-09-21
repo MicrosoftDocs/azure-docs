@@ -1,12 +1,13 @@
 ---
-title: Create and provision an IoT Edge device on Linux using symmetric keys - Azure IoT Edge | Microsoft Docs
+title: Create IoT Edge device on Linux using symmetric keys
+titleSuffix: Azure IoT Edge
 description: Create and provision a single IoT Edge device in IoT Hub for manual provisioning with symmetric keys
 author: PatAltimore
 ms.service: iot-edge
 ms.custom: devx-track-linux
 services: iot-edge
-ms.topic: conceptual
-ms.date: 04/25/2023
+ms.topic: how-to
+ms.date: 09/21/2023
 ms.author: patricka
 ms.reviewer: mattmcinnes
 ---
@@ -15,7 +16,7 @@ ms.reviewer: mattmcinnes
 
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
-This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device, which includes installing IoT Edge.
+This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device that includes installing IoT Edge.
 
 Each device that connects to an [IoT hub](../iot-hub/index.yml) has a device ID that's used to track [cloud-to-device](../iot-hub/iot-hub-devguide-c2d-guidance.md) or [device-to-cloud](../iot-hub/iot-hub-devguide-d2c-guidance.md) communications. You configure a device with its connection information, which includes: 
 

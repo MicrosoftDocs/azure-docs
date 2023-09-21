@@ -1,11 +1,12 @@
 ---
-title: Create and provision an IoT Edge device on Linux using X.509 certificates - Azure IoT Edge | Microsoft Docs
+title: Create IoT Edge device on Linux using X.509 certificates
+titleSuffix: Azure IoT Edge
 description: Create and provision a single IoT Edge device in IoT Hub for manual provisioning with X.509 certificates
 author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
-ms.topic: conceptual
-ms.date: 11/21/2022
+ms.topic: how-to
+ms.date: 09/21/2023
 ms.author: patricka
 ---
 
@@ -15,7 +16,7 @@ ms.author: patricka
 
 This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device, including installing IoT Edge.
 
-Every device that connects to an IoT hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub.
+Every device that connects to an IoT hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information that includes the IoT hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub.
 
 The steps in this article walk through a process called manual provisioning, where you connect a single device to its IoT hub. For manual provisioning, you have two options for authenticating IoT Edge devices:
 
@@ -177,7 +178,7 @@ After entering the provisioning information in the configuration file, apply you
     
     method = "x509"
     identity_cert = "file:///var/snap/azure-iot-identity/common/provisioning/IDENTITY_CERT_FILENAME"
-    identity_pk = file:///var/snap/azure-iot-identity/common/provisioning/IDENTITY_PK_FILENAME
+    identity_pk = "file:///var/snap/azure-iot-identity/common/provisioning/IDENTITY_PK_FILENAME"
     ```
 
     Update the following fields:
