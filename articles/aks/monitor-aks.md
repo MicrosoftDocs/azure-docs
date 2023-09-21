@@ -120,7 +120,17 @@ To access a set of prebuilt queries in the Log Analytics workspace, see the [Log
 ### AKS data plane/Container Insights logs
 Azure Monitor Container Insights collects various types of logs and telemetry data from containers and Kubernetes clusters to help you monitor, troubleshoot, and gain insights into your containerized applications running in your AKS clusters. For a list of tables and their detailed descriptions used by Container insights, see the [Azure Monitor table reference](../azure-monitor/reference/tables/tables-resourcetype#kubernetes-services). All these tables are available for log queries.
 
-The data collected by Container Insights can be customized using the custom data collection.  "Logs and events" category captures the data plane logs and is the recommended option paired with the recommendation of enabling Azure managed service for Prometheus.
+Cost optimization settings allow users to customize and control the metrics data collected through the container insights agent. This feature supports the data collection settings for individual table selection, data collection intervals, and namespaces to exclude the data collection through [Azure Monitor Data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md). These settings control the volume of ingestion and reduce the monitoring costs of container insights. Container insights Collected Data can be customized through the Azure portal, using the following options. Selecting any options other than **All (Default)** leads to the container insights experience becoming unavailable.
+
+| Grouping | Tables | Notes |
+| --- | --- | --- |
+| All (Default) | All standard container insights tables | Required for enabling the default container insights visualizations |
+| Performance | Perf, InsightsMetrics | |
+| Logs and events | ContainerLog or ContainerLogV2, KubeEvents, KubePodInventory | Recommended if you have enabled managed Prometheus metrics |
+| Workloads, Deployments, and HPAs | InsightsMetrics, KubePodInventory, KubeEvents, ContainerInventory, ContainerNodeInventory, KubeNodeInventory, KubeServices | |
+| Persistent Volumes | InsightsMetrics, KubePVInventory | |
+
+The `"Logs and events` grouping captures the logs from the ContainerLog or ContainerLogV2, KubeEvents, KubePodInventory tables, but not the metrics. This is recommended if you enable [Azure Monitor managed service Prometheus for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) to collect metrics from your AKS cluster and [Azure Managed Grafana](https://learn.microsoft.com/en-us/azure/managed-grafana/overview) for data visualization. For more information, see [Manage an Azure Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage).
 
 >[!NOTE]
 >Container insights Collected Data can be customized through the Azure portal. Selecting any options other than [All (Default)](../azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#custom-data-collection) leads to the container insights experience becoming unavailable.
