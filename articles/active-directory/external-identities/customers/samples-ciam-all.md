@@ -14,9 +14,9 @@ ms.custom: it-pro
 
 ---
 
-# Samples for customer identity and access management (CIAM) in Azure Active Directory
+# Samples for customer identity and access management (CIAM) in Microsoft Entra External ID
 
-Microsoft maintains code samples that demonstrate how to integrate various application types with Azure AD for customers. We provide instructions for downloading and using samples or building your own app based on common authentication and authorization scenarios, development languages, and platforms. Included are instructions for building the project (if applicable) and running the sample application. Within the sample code, comments help you understand how these libraries are used in the application to perform authentication and authorization in a customer tenant.
+Microsoft maintains code samples that demonstrate how to integrate various application types with Microsoft Entra ID for customers. We provide instructions for downloading and using samples or building your own app based on common authentication and authorization scenarios, development languages, and platforms. Included are instructions for building the project (if applicable) and running the sample application. Within the sample code, comments help you understand how these libraries are used in the application to perform authentication and authorization in a customer tenant.
 
 ## Samples and guides
 
@@ -26,7 +26,7 @@ Use the tabs to sort samples either by app type or your preferred language/platf
 
 ### Single-page application (SPA)
 
-These samples and how-to guides demonstrate how to integrate a single-page application with Azure AD for customers.
+These samples and how-to guides demonstrate how to integrate a single-page application with Microsoft Entra ID for customers.
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
@@ -37,7 +37,7 @@ These samples and how-to guides demonstrate how to integrate a single-page appli
 
 ### Web app
 
-These samples and how-to guides demonstrate how to write a web application that integrates with Azure AD for customers.
+These samples and how-to guides demonstrate how to write a web application that integrates with Microsoft Entra ID for customers.
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
@@ -56,7 +56,7 @@ These samples and how-to guides demonstrate how to protect a web API with the Mi
 
 ###  Browserless
 
-These samples and how-to guides demonstrate how to write a browserless application that integrates with Azure AD for customers.
+These samples and how-to guides demonstrate how to write a browserless application that integrates with Microsoft Entra ID for customers.
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
@@ -67,7 +67,7 @@ These samples and how-to guides demonstrate how to write a browserless applicati
 
 ### Desktop
 
-These samples and how-to guides demonstrate how to write a desktop application that integrates with Azure AD for customers.
+These samples and how-to guides demonstrate how to write a desktop application that integrates with Microsoft Entra ID for customers.
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
@@ -77,7 +77,7 @@ These samples and how-to guides demonstrate how to write a desktop application t
 
 ### Mobile
 
-These samples and how-to guides demonstrate how to write a public client mobile application that integrates with Azure AD for customers.
+These samples and how-to guides demonstrate how to write a public client mobile application that integrates with Microsoft Entra ID for customers.
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide |
@@ -86,7 +86,7 @@ These samples and how-to guides demonstrate how to write a public client mobile 
 
 ### Daemon
 
-These samples and how-to guides demonstrate how to write a daemon application that integrates with Azure AD for customers.
+These samples and how-to guides demonstrate how to write a daemon application that integrates with Microsoft Entra ID for customers.
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide |

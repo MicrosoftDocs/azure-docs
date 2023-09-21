@@ -16,7 +16,7 @@ ms.custom: it-pro
 
 # Collect user attributes during sign-up  
 
-User attributes are values collected from the user during self-service sign-up. In the user flow settings, you can select from a set of *built-in user attributes* you want to collect from customers. The customer enters the information on the sign-up page, and it's stored with their profile in your directory. Azure AD provides the following built-in user attributes:
+User attributes are values collected from the user during self-service sign-up. In the user flow settings, you can select from a set of *built-in user attributes* you want to collect from customers. The customer enters the information on the sign-up page, and it's stored with their profile in your directory. Microsoft Entra ID provides the following built-in user attributes:
 
   - City
   - Country/Region

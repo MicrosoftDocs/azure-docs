@@ -1,6 +1,6 @@
 ---
 title: Multi-tenant organization templates (Preview)
-description: Learn about multi-tenant organization templates in Azure Active Directory.
+description: Learn about multi-tenant organization templates in Microsoft Entra ID.
 services: active-directory
 author: rolyon
 manager: amycolannino
