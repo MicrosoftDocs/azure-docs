@@ -1,7 +1,7 @@
 ---
 
 title: Download a list of users in the Azure portal
-description: Download user records in bulk in the Azure admin center in Azure Active Directory. 
+description: Download user records in bulk in the Azure admin center in Microsoft Entra ID. 
 services: active-directory 
 author: barclayn
 ms.author: barclayn
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Download a list of users in Azure portal
 
-Azure Active Directory (Azure AD), part of Microsoft Entra, supports bulk user list download operations.
+Microsoft Entra ID, part of Microsoft Entra, supports bulk user list download operations.
 
 ## Required permissions
 
@@ -29,7 +29,7 @@ Both admin and non-admin users can download user lists.
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
-1. Select Microsoft Entra ID (Azure AD).
+1. Select Microsoft Entra ID.
 1. Select **Users** > **All users** > **Download users**. By default, all user profiles are exported.
 1. On the **Download users** page, select **Start** to receive a CSV file listing user profile properties. If there are errors, you can download and view the results file on the **Bulk operation results** page. The file contains the reason for each error.
 

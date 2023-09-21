@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect sync:  Changing the AD DS account password'
-description: This topic document describes how to update Azure AD Connect after the password of the AD DS account is changed.
+title: 'Microsoft Entra Connect Sync:  Changing the AD DS account password'
+description: This topic document describes how to update Microsoft Entra Connect after the password of the AD DS account is changed.
 services: active-directory
 keywords: AD DS account, Active Directory account, password
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 # Changing the AD DS connector account password
-The AD DS connector account refers to the user account used by Azure AD Connect to communicate with on-premises Active Directory. If you change the password of the AD DS connector account in AD, you must update Azure AD Connect Synchronization Service with the new password. Otherwise, the Synchronization can no longer synchronize correctly with the on-premises Active Directory and you will encounter the following errors:
+The AD DS connector account refers to the user account used by Microsoft Entra Connect to communicate with on-premises Active Directory. If you change the password of the AD DS connector account in AD, you must update Microsoft Entra Connect Synchronization Service with the new password. Otherwise, the Synchronization can no longer synchronize correctly with the on-premises Active Directory and you will encounter the following errors:
 
 * In the Synchronization Service Manager, any import or export operation with on-premises AD fails with **no-start-credentials** error.
 
@@ -44,11 +44,11 @@ To update the Synchronization Service with the new password:
 
 7. Click **OK** to save the new password and close the pop-up dialog.
 
-8. Restart the **Microsoft Azure AD Sync** service under Windows Service Control Manager. This is to ensure that any reference to the old password is removed from the memory cache.
+8. Restart the **Microsoft Entra ID Sync** service under Windows Service Control Manager. This is to ensure that any reference to the old password is removed from the memory cache.
 
 ## Next steps
 **Overview topics**
 
-* [Azure AD Connect sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
+* [Microsoft Entra Connect Sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
 
-* [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md)
+* [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md)

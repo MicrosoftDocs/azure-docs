@@ -32,7 +32,7 @@ This article describes how to reprocess requests for an existing access package.
 
 To use entitlement management and assign users to access packages, you must have one of the following licenses:
 
-- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
+- Microsoft Entra ID P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5 license
 
 ## Open an existing access package and reprocess user requests

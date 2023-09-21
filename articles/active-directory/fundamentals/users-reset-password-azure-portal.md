@@ -1,7 +1,7 @@
 ---
 
 title: Reset a user's password
-description: Instructions about how to reset a user's password using Azure Active Directory.
+description: Instructions about how to reset a user's password using Microsoft Entra ID.
 services: active-directory
 author: barclayn
 manager: amycolannino
@@ -26,7 +26,7 @@ Administrators can reset a user's password if the password is forgotten, if the 
 >
 > If your user has a source of authority as Windows Server Active Directory, you'll only be able to reset the password if you've turned on password writeback and the user domain is managed. Changing the user password for federated domains is not supported. In this case, you should change the user password in the on-premises Active Directory.
 >
-> If your user has a source of authority as External Azure AD, you won't be able to reset the password. Only the user, or an administrator in that tenant, can reset the password.
+> If your user has a source of authority as External Microsoft Entra ID, you won't be able to reset the password. Only the user, or an administrator in that tenant, can reset the password.
 
 ## To reset a password
 
@@ -45,7 +45,7 @@ Administrators can reset a user's password if the password is forgotten, if the 
 1. In the **Reset password** page, select **Reset password**.
 
     > [!NOTE]
-    > When using Azure Active Directory, a temporary password is auto-generated for the user. When using Active Directory on-premises, you create the password for the user.
+    > When using Microsoft Entra ID, a temporary password is auto-generated for the user. When using Active Directory on-premises, you create the password for the user.
 
 1. Copy the password and give it to the user. The user will be required to change the password during the next sign-in process.
 
@@ -53,7 +53,7 @@ Administrators can reset a user's password if the password is forgotten, if the 
     > The temporary password never expires. The next time the user signs in, the password will still work, regardless how much time has passed since the temporary password was generated.
 
 > [!IMPORTANT]
-> If an administrator is unable to reset the user's password, and the Application Event Logs on the Azure AD Connect server has error code hr=80231367, review the user's attributes in Active Directory.  If the attribute **AdminCount** is set to 1, this will prevent an administrator from resetting the user's password.  The attribute **AdminCount** must be set to 0, in order for an administrators to reset the user's password.
+> If an administrator is unable to reset the user's password, and the Application Event Logs on the Microsoft Entra Connect server has error code hr=80231367, review the user's attributes in Active Directory.  If the attribute **AdminCount** is set to 1, this will prevent an administrator from resetting the user's password.  The attribute **AdminCount** must be set to 0, in order for an administrators to reset the user's password.
 
 ## Next steps
 
@@ -67,4 +67,4 @@ After you've reset your user's password, you can perform the following basic pro
 
 - [Create a basic group and add members](./how-to-manage-groups.md)
 
-Or you can perform more complex user scenarios, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../enterprise-users/index.yml).
+Or you can perform more complex user scenarios, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Microsoft Entra user management documentation](../enterprise-users/index.yml).
