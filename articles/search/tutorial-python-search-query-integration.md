@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/18/2023
+ms.date: 09/21/2023
 ms.custom: devx-track-python
 ms.devlang: python
 ---
@@ -17,7 +17,7 @@ ms.devlang: python
 In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you're looking for a cheat sheet on how to integrate search into your Python app, this article explains what you need to know.
 
 The application is available: 
-* [Sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/search-website-functions-v4)
+* [Sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/main/search-website-functions-v4)
 * [Demo website - aka.ms/azs-good-books](https://aka.ms/azs-good-books)
 
 ## Azure SDK azure-search-documents
@@ -37,9 +37,7 @@ The Azure Function app settings environment variables are pulled in from a file,
 
 ## Azure Function: Search the catalog
 
-The Search [API](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/search.py) takes a search term and searches across the documents in the Search Index, returning a list of matches. 
-
-Routing for the Search API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/Search/function.json) bindings.
+The Search [API](https://github.com/Azure-Samples/azure-search-python-samples/blob/main/search-website-functions-v4/api/search.py) takes a search term and searches across the documents in the Search Index, returning a list of matches. 
 
 The Azure Function pulls in the search configuration information, and fulfills the query.
 
@@ -53,11 +51,9 @@ Call the Azure Function in the React client with the following code.
 
 ## Azure Function: Suggestions from the catalog
 
-The `Suggest` [API](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/suggest.py) takes a search term while a user is typing and suggests search terms such as book titles and authors across the documents in the search index, returning a small list of matches. 
+The `Suggest` [API](https://github.com/Azure-Samples/azure-search-python-samples/blob/main/search-website-functions-v4/api/suggest.py) takes a search term while a user is typing and suggests search terms such as book titles and authors across the documents in the search index, returning a small list of matches. 
 
-The search suggester, `sg`, is defined in the [schema file](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/bulk-upload/good-books-index.json) used during bulk upload.
-
-Routing for the Suggest API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/Suggest/function.json) bindings.
+The search suggester, `sg`, is defined in the [schema file](https://github.com/Azure-Samples/azure-search-python-samples/blob/main/search-website-functions-v4/bulk-upload/good-books-index.json) used during bulk upload.
 
 :::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/api/suggest.py" :::
 
@@ -69,9 +65,7 @@ The Suggest function API is called in the React app at `client\src\components\Se
 
 ## Azure Function: Get specific document 
 
-The `Lookup` [API](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/lookup.py) takes an ID and returns the document object from the Search Index. 
-
-Routing for the Lookup API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/Lookup/function.json) bindings.
+The `Lookup` [API](https://github.com/Azure-Samples/azure-search-python-samples/blob/main/search-website-functions-v4/api/lookup.py) takes an ID and returns the document object from the Search Index. 
 
 :::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/api/lookup.py" :::
 

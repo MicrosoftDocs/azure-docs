@@ -98,6 +98,8 @@ landingContent:
           url: enable-dynamic-configuration-azure-functions-csharp.md
         - text: Use dynamic config in Spring Boot
           url: enable-dynamic-configuration-java-spring-app.md
+        - text: Use dynamic config in Python
+          url: enable-dynamic-configuration-python.md
         - text: Integrating dynamic config using the push model in .NET Core
           url: enable-dynamic-configuration-dotnet-core-push-refresh.md
         - text: Integrating dynamic config using the push model in Java Spring
