@@ -17,9 +17,9 @@ ms.custom: aaddev, identityplatformtop40, has-adal-ref
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Android application
 
-In this tutorial, you build an Android app that integrates with the Azure Active Directory (Azure AD) to sign in users and get an access token to call the Microsoft Graph API.
+In this tutorial, you build an Android app that integrates with the Microsoft Entra ID to sign in users and get an access token to call the Microsoft Graph API.
 
-When you've completed this tutorial, your application accepts sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Azure AD.
+When you've completed this tutorial, your application accepts sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Microsoft Entra ID.
 
 In this tutorial:
 
@@ -55,7 +55,9 @@ Follow these steps to create a new project if you don't already have an Android 
 5. Change the language from **Kotlin** to **Java**.
 6. Set the **Minimum SDK API level** to **API 19** or higher, and select **Finish**.
 
-### Register your application with Azure AD
+<a name='register-your-application-with-azure-ad'></a>
+
+### Register your application with Microsoft Entra ID
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -64,7 +66,7 @@ Follow these steps to create a new project if you don't already have an Android 
 1. Browse to **Identity** > **Applications** > **App registrations**.
 1. Select **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
-1. For **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**. For information on different account types, select the **Help me choose** option.
+1. For **Supported account types**, select **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**. For information on different account types, select the **Help me choose** option.
 1. Select **Register**.
 1. Under **Manage**, select **Authentication** > **Add a platform** > **Android**.
 1. Enter your project's Package Name. If you downloaded the code, this value is `com.azuresamples.msalandroidapp`.
@@ -111,7 +113,7 @@ Follow these steps to create a new project if you don't already have an Android 
 
    As this tutorial only demonstrates how to configure an app in Single Account mode, see [single vs. multiple account mode](./single-multi-account.md) and [configuring your app](./msal-configuration.md) for more information
 
-1. In **app** > **src** > **main** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity as a child of the `<application>` element. This entry allows Azure AD to call back to your application after it completes the authentication:
+1. In **app** > **src** > **main** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity as a child of the `<application>` element. This entry allows Microsoft Entra ID to call back to your application after it completes the authentication:
 
    ```xml
    <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -1302,13 +1304,13 @@ Declaring your UI in XML allows you to separate the presentation of your app fro
 
 ### Run locally
 
-Build and deploy the app to a test device or emulator. You should be able to sign in and get tokens for Azure AD or personal Microsoft accounts.
+Build and deploy the app to a test device or emulator. You should be able to sign in and get tokens for Microsoft Entra ID or personal Microsoft accounts.
 
 After you sign in, the app will display the data returned from the Microsoft Graph `/me` endpoint.
 
 ### Consent
 
-The first time any user signs into your app, they'll be prompted by Microsoft identity to consent to the permissions requested. Some Azure AD tenants have disabled user consent, which requires admins to consent on behalf of all users. To support this scenario, you'll either need to create your own tenant or receive admin consent.
+The first time any user signs into your app, they'll be prompted by Microsoft identity to consent to the permissions requested. Some Microsoft Entra tenants have disabled user consent, which requires admins to consent on behalf of all users. To support this scenario, you'll either need to create your own tenant or receive admin consent.
 
 ## Clean up resources
 
