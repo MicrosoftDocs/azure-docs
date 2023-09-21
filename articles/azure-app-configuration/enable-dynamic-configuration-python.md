@@ -51,12 +51,13 @@ A *sentinel key* is a key that you update after you complete the change of all o
     # Setting up a configuration setting with a known value
     client = AzureAppConfigurationClient.from_connection_string(connection_string)
 
-    # Adding a configuration setting to be refreshed
+    # Creating a configuration setting to be refreshed
     configuration_setting = ConfigurationSetting(key="message", value="Hello World!")
 
-    # Adding a Sentinel key to monitor
+    # Creating a Sentinel key to monitor
     sentinel_setting = ConfigurationSetting(key="Sentinel", value="1")
 
+    # Setting the configuration setting in Azure App Configuration
     client.set_configuration_setting(configuration_setting=configuration_setting)
     client.set_configuration_setting(configuration_setting=sentinel_setting)
 
@@ -67,16 +68,19 @@ A *sentinel key* is a key that you update after you complete the change of all o
         refresh_interval=1, # Default value is 30 seconds, shorted for this sample
     )
 
+    # Printing the initial value
     print(config["message"])
     print(config["Sentinel"])
 
-    # Updating the configuration setting
+    # Updating the configuration setting to a new value
     configuration_setting.value = "Hello World Updated!"
 
+    # Updating the sentinel key to a new value, only after this is changed can a refresh happen
     sentinel_setting.value = "2"
 
+    # Setting the updated configuration setting in Azure App Configuration
     client.set_configuration_setting(configuration_setting=configuration_setting)
-    client.set_configuration_setting(configuration_setting=sentinel_setting) # Unless this value is updated, the configuration will not be refreshed
+    client.set_configuration_setting(configuration_setting=sentinel_setting) # Should always be done last to make sure all other keys included in the refresh
 
     # Waiting for the refresh interval to pass
     time.sleep(2)
