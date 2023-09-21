@@ -197,7 +197,7 @@ Next, create a test user account. Create this account in your on-premises Active
 
 ## Create a Microsoft Entra tenant
 
-If you dont have one, follow the steps in the article [Create a new tenant in Microsoft Entra ID](./fundamentals/create-new-tenant.md) to create a new tenant.
+If you dont have one, follow the steps in the article [Create a new tenant in Microsoft Entra ID](../../fundamentals/create-new-tenant.md) to create a new tenant.
 
 <a name='create-a-hybrid-identity-administrator-in-azure-ad'></a>
 
