@@ -302,7 +302,8 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
             'USER': user,
             'PASSWORD': password,
             'HOST': host,
-            'PORT': ''  # Port is 5432 by default 
+            'PORT': '5432',  # Port is 5432 by default 
+            'OPTIONS': {'sslmode': 'require'},
         }
     }
     ```
@@ -476,7 +477,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
         password: accesstoken.token,
         database: process.env.AZURE_POSTGRESQL_DATABASE,
         port: Number(process.env.AZURE_POSTGRESQL_PORT) ,
-        // ssl: process.env.AZURE_POSTGRESQL_SSL
+        ssl: process.env.AZURE_POSTGRESQL_SSL
     });
     await client.connect();
     
@@ -506,7 +507,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
         password: accesstoken.token,
         database: process.env.AZURE_POSTGRESQL_DATABASE,
         port: Number(process.env.AZURE_POSTGRESQL_PORT) ,
-        // ssl: process.env.AZURE_POSTGRESQL_SSL
+        ssl: process.env.AZURE_POSTGRESQL_SSL
     });
     await client.connect();
     
@@ -540,7 +541,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
         password: accesstoken.token,
         database: process.env.AZURE_POSTGRESQL_DATABASE,
         port: Number(process.env.AZURE_POSTGRESQL_PORT) ,
-        // ssl: process.env.AZURE_POSTGRESQL_SSL
+        ssl: process.env.AZURE_POSTGRESQL_SSL
     });
     await client.connect();
     
@@ -549,24 +550,126 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     ```
 
     :::zone-end
+
 #### [PHP](#tab/php)
 
-For PHP, you can use the connection information that Service Connector sets to the environment variables, as shown in the table above, to connect to the database. 
+For PHP, there's not a plugin or library for passwordless connections. You can get an access token for the managed identity or service principal and use it as the password to connect to the database. The access token can be acquired using Azure REST API.
 
-For more code samples, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=postgresql#3-modify-your-code). -->
+1. In code, get the access token via REST API with your favorite library.
+
+    :::zone pivot="user-identity"
+    App service and container Apps provides an internally accessible REST endpoint to retrieve tokens for managed identities by defining two environment variables: `IDENTITY_ENDPOINT` and `IDENTITY_HEADER`. For more details, refer to [REST endpoint reference](/azure/container-apps/managed-identity?tabs=http#rest-endpoint-reference). 
+    Get the access token by making an HTTP GET request to the identity endpoint, and use `https://ossrdbms-aad.database.windows.net` as `resource` in the query. For user-assigned identity, please include the client ID from the environment variables added by Service Connector in the query as well.
+    :::zone-end
+    
+
+    ::: zone pivot="system-identity"
+    App service and container Apps provides an internally accessible REST endpoint to retrieve tokens for managed identities by defining two environment variables: `IDENTITY_ENDPOINT` and `IDENTITY_HEADER`. For more details, refer to [REST endpoint reference](/azure/container-apps/managed-identity?tabs=http#rest-endpoint-reference). 
+    Get the access token by making an HTTP GET request to the identity endpoint, and use `https://ossrdbms-aad.database.windows.net` as `resource` in the query.
+    ::: zone-end
+
+    ::: zone pivot="service-principal"
+    Refer to [the Azure AD service-to-service access token request](azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see the details of how to acquire access token. Make the POST request the scope of `https://ossrdbms-aad.database.windows.net/.default` and with the tenant ID, client ID and client secret of the service principal from the environment variables added by Service Connector.
+    ::: zone-end
+
+1. Combine the access token and the PostgreSQL connection sting from environment variables added by Service Connector service to establish the connection.
+    ```php
+    <?php
+    $conn_string = sprintf("%s password=", getenv('AZURE_POSTGRESQL_CONNECTIONSTRING'), $access_token);
+    $dbconn = pg_connect($conn_string);
+    ?>
+    ```
 
 #### [Ruby](#tab/ruby)
 
-For Ruby, you can use the connection information that Service Connector sets to the environment variables, as shown in the table above, to connect to the database. 
+For Ruby, there's not a plugin or library for passwordless connections. You can get an access token for the managed identity or service principal and use it as the password to connect to the database. The access token can be acquired using Azure REST API.
 
-For more code samples, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=postgresql#3-modify-your-code). -->
+1. Install dependencies.
+    ```bash
+    gem install pg
+    ```
+1. In code, get the access token via REST API and PostgreSQL connection information from environment variables added by Service Connector service. Combine them to establish the connection.
 
+    :::zone pivot="user-identity"
+    App service and container Apps provides an internally accessible REST endpoint to retrieve tokens for managed identities. For more details, refer to [REST endpoint reference](/azure/container-apps/managed-identity?tabs=http#rest-endpoint-reference).
+    ```ruby
+    require 'pg'
+    require 'dotenv/load'
+    require 'net/http'
+    require 'json'
+
+    # Request access token via REST API with the client ID of the user-assigned identity from the environment variables added by Service Connector.
+    uri = URI(ENV[IDENTITY_ENDPOINT] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01&client-id=' + ENV['AZURE_POSTGRESQL_CLIENTID'])
+    res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  
+    parsed = JSON.parse(res.body)
+    access_token = parsed["access_token"]
+    
+    # Use the token and the connection string from the environment variables added by Service Connector to establish the connection.
+    conn = PG::Connection.new(
+        connection_string: ENV['AZURE_POSTGRESQL_CONNECTIONSTRING'] + " password="  + access_token,
+    )
+    ```
+    
+    :::zone-end
+    
+
+    ::: zone pivot="system-identity"
+    App service and container Apps provides an internally accessible REST endpoint to retrieve tokens for managed identities. For more details, refer to [REST endpoint reference](/azure/container-apps/managed-identity?tabs=http#rest-endpoint-reference).    
+    ```ruby
+    require 'pg'
+    require 'dotenv/load'
+    require 'net/http'
+    require 'json'
+
+    # Request access token via REST API for the system-assigned identity.
+    uri = URI(ENV['IDENTITY_ENDPOINT'] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01')
+    res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  
+    parsed = JSON.parse(res.body)
+    access_token = parsed["access_token"]
+    
+    # Use the token and the connection string from the environment variables added by Service Connector to establish the connection.
+    conn = PG::Connection.new(
+        connection_string: ENV['AZURE_POSTGRESQL_CONNECTIONSTRING'] + " password=" + access_token,
+    )
+    ```
+    ::: zone-end
+
+    ::: zone pivot="service-principal"
+    ```ruby
+    require 'pg'
+    require 'dotenv/load'
+    require 'net/http'
+    require 'json'
+    
+    uri = URI('https://login.microsoftonline.com/' + ENV['AZURE_POSTGRESQL_TENANTID'] + '/oauth2/v2.0/token')
+    params = {
+        :grant_type => 'client_credentials',
+        :client_id: => ENV['AZURE_POSTGRESQL_CLIENTID'],
+        :client_secret => ENV['AZURE_POSTGRESQL_CLIENTSECRET'],
+        :scope => 'https://ossrdbms-aad.database.windows.net/.default'
+    }
+    req = Net::HTTP::POST.new(uri)
+    req.set_form_data(params)
+    req['Content-Type'] = 'application/x-www-form-urlencoded'
+    res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => true) do |http|
+      http.request(req)
+    end
+    
+    parsed = JSON.parse(res.body)
+    access_token = parsed["access_token"]
+    
+    # Use the token and the connection string from the environment variables added by Service Connector to establish the connection.
+    conn = PG::Connection.new(
+        connection_string: ENV['AZURE_POSTGRESQL_CONNECTIONSTRING'] + " password=" + access_token,
+    )
+    ```
+
+    Refer to [the Azure AD service-to-service access token request](azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see more details of how to acquire access token.
+    ::: zone-end
 
 ---
 
-### Grant Permission to Database User
-
-If you have created tables and sequences in PostgreSQL flexible server, you need to connect as database owner and grant permission to `aad username` created by Service Connector. The user name from connection string or configuration set by Service Connector should look like `aad_<connection name>`. If you use Portal, click the expand button next to `Service Type` column and get the value. If you use Azure CLI, check `configurations` in output of CLI command.
+Next, if you have created tables and sequences in PostgreSQL flexible server, you need to connect as database owner and grant permission to `aad username` created by Service Connector. The user name from connection string or configuration set by Service Connector should look like `aad_<connection name>`. If you use Portal, click the expand button next to `Service Type` column and get the value. If you use Azure CLI, check `configurations` in output of CLI command.
 
 Then, execute the query to grant permission
 

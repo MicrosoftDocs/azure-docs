@@ -91,7 +91,8 @@
            'USER': user,
            'PASSWORD': password,
            'HOST': host,
-           'PORT': ''  # Port is 5432 by default 
+           'PORT': '5432',  # Port is 5432 by default 
+           'OPTIONS': {'sslmode': 'require'},
        }
    }
    ```
@@ -138,7 +139,7 @@
         password: process.env.AZURE_POSTGRESQL_PASSWORD,
         database: process.env.AZURE_POSTGRESQL_DATABASE,
         port: Number(process.env.AZURE_POSTGRESQL_PORT) ,
-        // ssl: process.env.AZURE_POSTGRESQL_SSL
+        ssl: process.env.AZURE_POSTGRESQL_SSL
     });
     await client.connect();
 
@@ -151,8 +152,8 @@
 1. In code, get PostgreSQL connection information from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
     ```php
     <?php
-    $ conn_string = getenv('AZURE_POSTGRESQL_CONNECTIONSTRING');
-    $ dbconn = pg_connect($conn_string);
+    $conn_string = getenv('AZURE_POSTGRESQL_CONNECTIONSTRING');
+    $dbconn = pg_connect($conn_string);
     ?>
     ```
 
