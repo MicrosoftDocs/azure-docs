@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Akamai'
-description: Learn how to configure single sign-on between Azure Active Directory and Akamai.
+title: 'Tutorial: Microsoft Entra SSO integration with Akamai'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Akamai.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure AD SSO integration with Akamai
+# Tutorial: Microsoft Entra SSO integration with Akamai
 
-In this tutorial, you'll learn how to integrate Akamai with Azure Active Directory (Azure AD). When you integrate Akamai with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Akamai with Microsoft Entra ID. When you integrate Akamai with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Akamai.
-* Enable your users to be automatically signed-in to Akamai with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to Akamai.
+* Enable your users to be automatically signed-in to Akamai with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
-Azure Active Directory and Akamai Enterprise Application Access integration allows seamless access to legacy applications hosted in the cloud or on-premises. The integrated solution takes advantages of all the modern capabilities of Azure Active Directory like [Azure AD Conditional Access](../conditional-access/overview.md), [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) and [Azure AD Identity Governance](../governance/identity-governance-overview.md) for legacy applications access without app modifications or agents installation.
+Microsoft Entra ID and Akamai Enterprise Application Access integration allows seamless access to legacy applications hosted in the cloud or on-premises. The integrated solution takes advantages of all the modern capabilities of Microsoft Entra ID like [Microsoft Entra Conditional Access](../conditional-access/overview.md), [Microsoft Entra ID Protection](../identity-protection/overview-identity-protection.md) and [Microsoft Entra ID Governance](../governance/identity-governance-overview.md) for legacy applications access without app modifications or agents installation.
 
 The below image describes, where Akamai EAA fits into the broader Hybrid Secure Access scenario.
 
@@ -29,7 +29,7 @@ The below image describes, where Akamai EAA fits into the broader Hybrid Secure 
 
 ### Key Authentication Scenarios
 
-Apart from Azure Active Directory native integration support for modern authentication protocols like Open ID Connect, SAML and WS-Fed, Akamai EAA extends secure access for legacy-based authentication apps for both internal and external access with Azure AD, enabling modern scenarios (e.g. password-less access) to these applications. This includes:
+Apart from Microsoft Entra native integration support for modern authentication protocols like OpenID Connect, SAML and WS-Fed, Akamai EAA extends secure access for legacy-based authentication apps for both internal and external access with Microsoft Entra ID, enabling modern scenarios (e.g. password-less access) to these applications. This includes:
 
 * Header-based authentication apps
 * Remote Desktop
@@ -46,7 +46,7 @@ Microsoft and Akamai EAA partnership allows the flexibility to meet your busines
 
 #### Integration Scenario 1
 
-Akamai EAA is configured as a single application on the Azure AD. Admin can configure the Conditional Access policy on the Application and once the conditions are satisfied users can gain access to the Akamai EAA Portal.
+Akamai EAA is configured as a single application on the Microsoft Entra ID. Admin can configure the Conditional Access policy on the Application and once the conditions are satisfied users can gain access to the Akamai EAA Portal.
 
 **Pros**:
 
@@ -81,12 +81,12 @@ Akamai EAA Application is set up individually on the Azure portal. Admin can con
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Akamai single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 - Akamai supports IDP initiated SSO.
 
@@ -98,40 +98,43 @@ All the setup listed below are same for the **Integration Scenario 1** and **Sce
 
 ## Add Akamai from the gallery
 
-To configure the integration of Akamai into Azure AD, you need to add Akamai from the gallery to your list of managed SaaS apps.
+To configure the integration of Akamai into Microsoft Entra ID, you need to add Akamai from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **Akamai** in the search box.
 1. Select **Akamai** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Akamai
+<a name='configure-and-test-azure-ad-sso-for-akamai'></a>
 
-Configure and test Azure AD SSO with Akamai using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Akamai.
+## Configure and test Microsoft Entra SSO for Akamai
 
-To configure and test Azure AD SSO with Akamai, perform the following steps:
+Configure and test Microsoft Entra SSO with Akamai using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Akamai.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Akamai, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    * **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    * **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Akamai SSO](#configure-akamai-sso)** - to configure the single sign-on settings on application side.
     * **[Setting up IDP](#setting-up-idp)**
     * **[Header Based Authentication](#header-based-authentication)**
     * **[Remote Desktop](#remote-desktop)**
     * **[SSH](#ssh)**
     * **[Kerberos Authentication](#kerberos-authentication)**
-    * **[Create Akamai test user](#create-akamai-test-user)** - to have a counterpart of B.Simon in Akamai that is linked to the Azure AD representation of user.
+    * **[Create Akamai test user](#create-akamai-test-user)** - to have a counterpart of B.Simon in Akamai that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
 
-1. In the Azure portal, on the **Akamai** application integration page, find the **Manage** section and select **single sign-on**.
+Follow these steps to enable Microsoft Entra SSO.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Akamai** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -146,7 +149,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https:// <Yourapp>.login.go.akamai-access.com/saml/sp/response`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Akamai Client support team](https://www.akamai.com/us/en/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Akamai Client support team](https://www.akamai.com/us/en/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -156,29 +159,35 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+In this section, you'll create a test user called B.Simon.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Akamai.
+### Assign the Microsoft Entra test user
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Akamai**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Akamai.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Akamai**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Akamai SSO
 
@@ -201,7 +210,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### General Settings
 
-1. **Identity Intercept** - Specify the name of the (SP base URL–will be used for Azure AD Configuration).
+1. **Identity Intercept** - Specify the name of the (SP base URL–will be used for Microsoft Entra Configuration).
 
     > [!NOTE]
     > You can choose to have your own custom domain (will require a DNS entry and a Certificate). In this example we are going to use the Akamai Domain.
@@ -216,7 +225,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. URL – Specify the URL same as your identity intercept ( this is where users are redirect after authentication).
 2. Logout URL : Update the logout URL.
 3. Sign SAML Request: default unchecked.
-4. For the IDP Metadata File, add the Application in the Azure AD Console.
+4. For the IDP Metadata File, add the Application in the Microsoft Entra ID Console.
 
     ![Screenshot of the Akamai EAA console Authentication configuration showing settings for URL, Logout URL, Sign SAML Request, and IDP Metadata File.](./media/header-akamai-tutorial/configure-4.png)
 
@@ -276,7 +285,7 @@ Akamai Header Based Authentication
 
 2. Assign the **Identity provider**.
 
-    ![Screenshot of the Akamai EAA console Authentication tab for MYHEADERAPP showing the Identity provider set to Azure AD SSO.](./media/header-akamai-tutorial/configure-10.png)
+    ![Screenshot of the Akamai EAA console Authentication tab for MYHEADERAPP showing the Identity provider set to Microsoft Entra SSO.](./media/header-akamai-tutorial/configure-10.png)
 
 #### Services
 
@@ -448,7 +457,7 @@ In the below example we will publish an Internal web server <code>http://frp-app
 
 Assign the Identity Provider.
 
-![Screenshot of the Akamai EAA console Authentication tab for MYKERBOROSAPP showing Identity provider set to Azure AD SSO.](./media/header-akamai-tutorial/authentication-tab.png)
+![Screenshot of the Akamai EAA console Authentication tab for MYKERBOROSAPP showing Identity provider set to Microsoft Entra SSO.](./media/header-akamai-tutorial/authentication-tab.png)
 
 #### Services Tab
 
@@ -489,7 +498,7 @@ Assign the Identity Provider.
 
 1. Add the Directory to you Identity Provider by clicking **Identity** > **Identity Providers** and click on the **Directories** Tab and Click on **Assign directory**.
 
-    ![Screenshot of the Akamai EAA console Directories tab for Azure AD SSO, showing superdemo.live in the list of Currently assigned directories.](./media/header-akamai-tutorial/assign-directory.png)
+    ![Screenshot of the Akamai EAA console Directories tab for Microsoft Entra SSO, showing superdemo.live in the list of Currently assigned directories.](./media/header-akamai-tutorial/assign-directory.png)
 
 ### Configure KCD Delegation for EAA Walkthrough
 
@@ -497,7 +506,7 @@ Assign the Identity Provider.
 
 1. In the example we will use an account called **EAADelegation**. You can perform this using the **Active Directory users and computer** Snappin.
 
-    ![Screenshot of the Akamai EAA console Directories tab for Azure AD SSO. The directory superdemo.live is listed under Currently assigned directories.](./media/header-akamai-tutorial/assign-directory.png)
+    ![Screenshot of the Akamai EAA console Directories tab for Microsoft Entra SSO. The directory superdemo.live is listed under Currently assigned directories.](./media/header-akamai-tutorial/assign-directory.png)
 
     > [!NOTE]
     > The user name has to be in a specific format based on the **Identity Intercept Name**. From the figure 1 we see it is **corpapps.login.go.akamai-access.com**
@@ -578,9 +587,9 @@ In this section, you create a user called B.Simon in Akamai. Work with [Akamai C
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the Akamai for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the Akamai for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the Akamai tile in the My Apps, you should be automatically signed in to the Akamai for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

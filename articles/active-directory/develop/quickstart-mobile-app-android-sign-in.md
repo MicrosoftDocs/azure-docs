@@ -20,7 +20,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 
 See [How the sample works](#how-the-sample-works) for an illustration.
 
-Applications must be represented by an app object in Azure Active Directory (Azure AD) so that the Microsoft identity platform can provide tokens to your application.
+Applications must be represented by an app object in Microsoft Entra ID so that the Microsoft identity platform can provide tokens to your application.
 
 ## Prerequisites
 
