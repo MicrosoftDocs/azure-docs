@@ -7,7 +7,7 @@ ms.topic: quickstart-arm
 ms.custom: subject-armqs
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/13/2023
+ms.date: 09/20/2023
 #Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components with an ARM template so that I can provide dev box projects for my users.
 ---
 
