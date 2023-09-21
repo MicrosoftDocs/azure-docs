@@ -29,7 +29,7 @@ To see which regions support availability zones, see [Azure regions with availab
 
 Many regions also have a [*paired region*](./cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). Paired regions support certain types of multi-region deployment approaches. Some newer regions have [multiple availability zones and don't have a paired region](./cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair). You can still deploy multi-region solutions into these regions, but the approaches you use might be different.
 
-## Zonal and zone redundant availability zones
+## Zonal and zone-redundant availability zones
 
 When you deploy into an Azure region that contains availability zones, you can use multiple availability zones together. By using multiple availability zones, you can keep separate copies of your application and data within separate physical datacenters in a large metropolitan area.
 
@@ -57,10 +57,13 @@ az rest --method get --uri '/subscriptions/{subscriptionId}/locations?api-versio
 ```
 
 # [PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
+
 $subscriptionId = (Get-AzContext).Subscription.ID
 $response = Invoke-AzRestMethod -Method GET -Path "/subscriptions/$subscriptionId/locations?api-version=2022-12-01"
 $locations = ($response.Content | ConvertFrom-Json).value
+
 ```
 
 ## Availability zones and Azure updates
