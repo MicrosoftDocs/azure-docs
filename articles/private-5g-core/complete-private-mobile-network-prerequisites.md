@@ -169,7 +169,7 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 
 :::zone pivot="ase-pro-gpu"
 
-The following tables contains the ports you need to open for Azure Private 5G Core local access. This includes local management access and control plane signaling.
+The following tables contain the ports you need to open for Azure Private 5G Core local access. This includes local management access and control plane signaling.
 
 You must set these up in addition to the [ports required for Azure Stack Edge (ASE)](/azure/databox-online/azure-stack-edge-gpu-system-requirements#networking-port-requirements).
 
