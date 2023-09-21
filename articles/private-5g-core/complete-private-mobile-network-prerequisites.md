@@ -22,7 +22,7 @@ In this how-to guide, you'll carry out each of the tasks you need to complete be
 
 Contact your trials engineer and ask them to register your Azure subscription for access to Azure Private 5G Core. If you don't already have a trials engineer and are interested in trialing Azure Private 5G Core, contact your Microsoft account team, or express your interest through the [partner registration form](https://aka.ms/privateMECMSP).
 
-## Choose the core technology type (5G or 4G)
+## Choose the core technology type (5G, 4G or combined 4G and 5G)
 
 Choose whether each site in the private mobile network should provide coverage for 5G, 4G or combined 4G and 5G user equipment (UEs). If you're deploying multiple sites they can each support different core technology types.
 
