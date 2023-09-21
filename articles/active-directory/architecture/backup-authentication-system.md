@@ -122,7 +122,7 @@ The backup authentication system is supported in all cloud environments except M
 | Cornerstone Single Sign-on | No | SAML SP-initiated |
 | Docusign | No | SAML SP-initiated |
 | Druva | No | SAML SP-initiated |
-| F5 BIG-IP ARM Microsoft Entra integration | No | SAML SP-initiated |
+| F5 BIG-IP APM Azure AD integration | No | SAML SP-initiated |
 | FortiGate SSL VPN | No | SAML SP-initiated |
 | Freshworks | No | SAML SP-initiated |
 | Gmail | Yes | Protected |
