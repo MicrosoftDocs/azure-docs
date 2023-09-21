@@ -72,7 +72,7 @@ If you don't already have a storage account in Microsoft Azure, create a storage
 
     For details see [soft delete for containers](/azure/storage/blobs/soft-delete-container-overview)
 18. Configure other features according to your needs
-19. Select “Next: Tags >”. The Tags pane appears.
+19. Select “Next: Tags >." The Tags pane appears.
 20. Define any Tags based on your internal policies.
 21. Select “Next: Review + create >”
 22. Select Create.
