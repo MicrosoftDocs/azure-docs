@@ -34,7 +34,7 @@ The following table shows how this setting compares when enabled for these scena
 | Users must accept a [consent prompt](../external-identities/redemption-experience.md#consent-experience-for-the-guest) | No | No | No |
 | Users receive a [B2B collaboration notification email](../external-identities/redemption-experience.md#automatic-redemption-process-setting) | No | Yes | N/A |
 
-This setting doesn't impact application consent experiences. For more information, see [Consent experience for applications in Azure Active Directory](../develop/application-consent-experience.md). This setting isn't supported for organizations across different Microsoft cloud environments, such as Azure commercial and Azure Government.
+This setting doesn't impact application consent experiences. For more information, see [Consent experience for applications in Microsoft Entra ID](../develop/application-consent-experience.md). This setting isn't supported for organizations across different Microsoft cloud environments, such as Azure commercial and Azure Government.
 
 #### When is consent prompt suppressed?
 

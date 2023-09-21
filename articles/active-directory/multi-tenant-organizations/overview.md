@@ -1,6 +1,6 @@
 ---
-title: Multi-tenant organization scenario and Azure AD capabilities
-description: Learn about the multi-tenant organization scenario and capabilities in Azure Active Directory.
+title: Multi-tenant organization scenario and Microsoft Entra capabilities
+description: Learn about the multi-tenant organization scenario and capabilities in Microsoft Entra ID.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -15,21 +15,21 @@ ms.custom: it-pro
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
-# Multi-tenant organization scenario and Azure AD capabilities
+# Multi-tenant organization scenario and Microsoft Entra capabilities
 
-This article provides an overview of the multi-tenant organization scenario and the related capabilities in Azure Active Directory (Azure AD).
+This article provides an overview of the multi-tenant organization scenario and the related capabilities in Microsoft Entra ID.
 
 ## What is a tenant?
 
-A *tenant* is an instance of Azure AD in which information about a single organization resides including organizational objects such as users, groups, and devices and also application registrations, such as Microsoft 365 and third-party applications. A tenant also contains access and compliance policies for resources, such as applications registered in the directory. The primary functions served by a tenant include identity authentication as well as resource access management.
+A *tenant* is an instance of Microsoft Entra ID in which information about a single organization resides including organizational objects such as users, groups, and devices and also application registrations, such as Microsoft 365 and third-party applications. A tenant also contains access and compliance policies for resources, such as applications registered in the directory. The primary functions served by a tenant include identity authentication as well as resource access management.
 
-From an Azure AD perspective, a tenant forms an identity and access management scope. For example, a tenant administrator makes an application available to some or all the users in the tenant and enforces access policies on that application for users in that tenant. In addition, a tenant contains organizational branding data that drives end-user experiences, such as the organizations email domains and SharePoint URLs used by employees in that organization. From a Microsoft 365 perspective, a tenant forms the default collaboration and licensing boundary. For example, users in Microsoft Teams or Microsoft Outlook can easily find and collaborate with other users in their tenant, but don't have the ability to find or see users in other tenants.
+From a Microsoft Entra perspective, a tenant forms an identity and access management scope. For example, a tenant administrator makes an application available to some or all the users in the tenant and enforces access policies on that application for users in that tenant. In addition, a tenant contains organizational branding data that drives end-user experiences, such as the organizations email domains and SharePoint URLs used by employees in that organization. From a Microsoft 365 perspective, a tenant forms the default collaboration and licensing boundary. For example, users in Microsoft Teams or Microsoft Outlook can easily find and collaborate with other users in their tenant, but don't have the ability to find or see users in other tenants.
 
 Tenants contain privileged organizational data and are securely isolated from other tenants. In addition, tenants can be configured to have data persisted and processed in a specific region or cloud, which enables organizations to use tenants as a mechanism to meet data residency and handling compliance requirements.
 
 ## What is a multi-tenant organization?
 
-A *multi-tenant organization* is an organization that has more than one instance of Azure AD. Here are the primary reasons why an organization might have multiple tenants:
+A *multi-tenant organization* is an organization that has more than one instance of Microsoft Entra ID. Here are the primary reasons why an organization might have multiple tenants:
 
 - **Conglomerates:** Organizations with multiple subsidiaries or business units that operate independently.
 - **Mergers and acquisitions:** Organizations that merge or acquire companies.
@@ -51,7 +51,7 @@ As your organization evolves, your IT team must adapt to meet the changing needs
 
 ## B2B direct connect
 
-To enable users across tenants to collaborate in [Teams Connect shared channels](/microsoftteams/platform/concepts/build-and-test/shared-channels), you can use [Azure AD B2B direct connect](../external-identities/b2b-direct-connect-overview.md). B2B direct connect is a feature of External Identities that lets you set up a mutual trust relationship with another Azure AD organization for seamless collaboration in Teams. When the trust is established, the B2B direct connect user has single sign-on access using credentials from their home tenant.
+To enable users across tenants to collaborate in [Teams Connect shared channels](/microsoftteams/platform/concepts/build-and-test/shared-channels), you can use [Microsoft Entra B2B direct connect](../external-identities/b2b-direct-connect-overview.md). B2B direct connect is a feature of External Identities that lets you set up a mutual trust relationship with another Microsoft Entra organization for seamless collaboration in Teams. When the trust is established, the B2B direct connect user has single sign-on access using credentials from their home tenant.
 
 Here's the primary constraint with using B2B direct connect across multiple tenants:
 
@@ -63,7 +63,7 @@ For more information, see [B2B direct connect overview](../external-identities/b
 
 ## B2B collaboration
 
-To enable users across tenants to collaborate, you can use [Azure AD B2B collaboration](../external-identities/what-is-b2b.md). B2B collaboration is a feature within External Identities that lets you invite guest users to collaborate with your organization. Once the external user has redeemed their invitation or completed sign-up, they're represented in your tenant as a user object. With B2B collaboration, you can securely share your company's applications and services with external users, while maintaining control over your own corporate data.
+To enable users across tenants to collaborate, you can use [Microsoft Entra B2B collaboration](../external-identities/what-is-b2b.md). B2B collaboration is a feature within External Identities that lets you invite guest users to collaborate with your organization. Once the external user has redeemed their invitation or completed sign-up, they're represented in your tenant as a user object. With B2B collaboration, you can securely share your company's applications and services with external users, while maintaining control over your own corporate data.
 
 Here are the primary constraints with using B2B collaboration across multiple tenants:
 
@@ -78,7 +78,7 @@ For more information, see [B2B collaboration overview](../external-identities/wh
 
 ## Cross-tenant synchronization
 
-If you want users to have a more seamless collaboration experience across tenants, you can use [cross-tenant synchronization](./cross-tenant-synchronization-overview.md). Cross-tenant synchronization is a one-way synchronization service in Azure AD that automates creating, updating, and deleting B2B collaboration users across tenants in an organization. Cross-tenant synchronization builds on the B2B collaboration functionality and utilizes existing B2B cross-tenant access settings. Users are represented in the target tenant as a B2B collaboration user object.
+If you want users to have a more seamless collaboration experience across tenants, you can use [cross-tenant synchronization](./cross-tenant-synchronization-overview.md). Cross-tenant synchronization is a one-way synchronization service in Microsoft Entra ID that automates creating, updating, and deleting B2B collaboration users across tenants in an organization. Cross-tenant synchronization builds on the B2B collaboration functionality and utilizes existing B2B cross-tenant access settings. Users are represented in the target tenant as a B2B collaboration user object.
 
 Here are the primary benefits with using cross-tenant synchronization:
 
@@ -101,7 +101,7 @@ For more information, see [What is cross-tenant synchronization?](./cross-tenant
 > Multi-tenant organization is currently in PREVIEW.
 > See the [Product Terms](https://aka.ms/EntraPreviewsTermsOfUse) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-[Multi-tenant organization](./multi-tenant-organization-overview.md) is a feature in Azure AD and Microsoft 365 that enables you to form a tenant group within your organization. Each pair of tenants in the group is governed by cross-tenant access settings that you can use to configure B2B or cross-tenant synchronization.
+[Multi-tenant organization](./multi-tenant-organization-overview.md) is a feature in Microsoft Entra ID and Microsoft 365 that enables you to form a tenant group within your organization. Each pair of tenants in the group is governed by cross-tenant access settings that you can use to configure B2B or cross-tenant synchronization.
 
 Here are the primary benefits of a multi-tenant organization:
 
@@ -111,7 +111,7 @@ Here are the primary benefits of a multi-tenant organization:
 
 :::image type="content" source="./media/common/multi-tenant-organization-topology.png" alt-text="Diagram that shows a multi-tenant organization topology and cross-tenant access settings." lightbox="./media/common/multi-tenant-organization-topology.png":::
 
-For more information, see [What is a multi-tenant organization in Azure Active Directory?](./multi-tenant-organization-overview.md).
+For more information, see [What is a multi-tenant organization in Microsoft Entra ID?](./multi-tenant-organization-overview.md).
 
 ## Compare multi-tenant capabilities
 
@@ -134,13 +134,13 @@ The following diagram shows how B2B direct connect, B2B collaboration, and cross
 
 ## Terminology
 
-To better understand multi-tenant organization scenario related Azure AD capabilities, you can refer back to the following list of terms.
+To better understand multi-tenant organization scenario related Microsoft Entra capabilities, you can refer back to the following list of terms.
 
 | Term | Definition |
 | --- | --- |
-| tenant | An instance of Azure Active Directory (Azure AD). |
+| tenant | An instance of Microsoft Entra ID. |
 | organization | The top level of a business hierarchy. |
-| multi-tenant organization | An organization that has more than one instance of Azure AD, as well as a capability to group those instances in Azure AD. |
+| multi-tenant organization | An organization that has more than one instance of Microsoft Entra ID, as well as a capability to group those instances in Microsoft Entra ID. |
 | creator tenant | The tenant that created the multi-tenant organization. |
 | owner tenant | A tenant with the owner role. Initially, the creator tenant. |
 | added tenant | A tenant that was added by an owner tenant. |
@@ -150,15 +150,15 @@ To better understand multi-tenant organization scenario related Azure AD capabil
 | active tenant | A tenant that created or joined the multi-tenant organization. |
 | member tenant | A tenant with the member role. Most joiner tenants start as members. |
 | multi-tenant organization tenant | An active tenant of the multi-tenant organization, not pending. |
-| cross-tenant synchronization | A one-way synchronization service in Azure AD that automates creating, updating, and deleting B2B collaboration users across tenants in an organization. |
-| cross-tenant access settings | Settings to manage collaboration for specific Azure AD organizations. |
+| cross-tenant synchronization | A one-way synchronization service in Microsoft Entra ID that automates creating, updating, and deleting B2B collaboration users across tenants in an organization. |
+| cross-tenant access settings | Settings to manage collaboration for specific Microsoft Entra organizations. |
 | cross-tenant access settings template | An optional template to preconfigure cross-tenant access settings that are applied to any partner tenant newly joining the multi-tenant organization. |
-| organizational settings | Cross-tenant access settings for specific Azure AD organizations. |
-| configuration | An application and underlying service principal in Azure AD that includes the settings (such as target tenant, user scope, and attribute mappings) needed for cross-tenant synchronization. |
+| organizational settings | Cross-tenant access settings for specific Microsoft Entra organizations. |
+| configuration | An application and underlying service principal in Microsoft Entra ID that includes the settings (such as target tenant, user scope, and attribute mappings) needed for cross-tenant synchronization. |
 | provisioning | The process of automatically creating or synchronizing objects across a boundary. |
 | automatic redemption | A B2B setting to automatically redeem invitations so newly created users don't receive an invitation email or have to accept a consent prompt when added to a target tenant. |
 
 ## Next steps
 
-- [What is a multi-tenant organization in Azure Active Directory?](multi-tenant-organization-overview.md)
+- [What is a multi-tenant organization in Microsoft Entra ID?](multi-tenant-organization-overview.md)
 - [What is cross-tenant synchronization?](cross-tenant-synchronization-overview.md)
