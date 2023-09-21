@@ -70,8 +70,6 @@ If the `spec.keyValues.selectors` property isn't set, all key-values with no lab
 |keyFilter|The key filter for querying key-values|true|string|
 |labelFilter|The label filter for querying key-values|false|string|
 
-
-
 The `spec.keyValues.refresh` property has the following child properties.
 
 |Name|Description|Required|Type|
