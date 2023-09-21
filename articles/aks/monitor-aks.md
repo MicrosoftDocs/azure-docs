@@ -132,7 +132,6 @@ Cost optimization settings allow users to customize and control the metrics data
 
 The `"Logs and events` grouping captures the logs from the ContainerLog or ContainerLogV2, KubeEvents, KubePodInventory tables, but not the metrics. This is recommended if you enable [Azure Monitor managed service Prometheus for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) to collect metrics from your AKS cluster and [Azure Managed Grafana](https://learn.microsoft.com/en-us/azure/managed-grafana/overview) for data visualization. For more information, see [Manage an Azure Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage).
 
->[!NOTE]
 
 #### ContainerLogV2 scheme  
 Azure Monitor Container Insights now provides a scheme for container logs known as ContainerLogV2 which is the recommended option. Within this format, there are fields that facilitate common queries for viewing data related to AKS and Azure Arc-enabled Kubernetes clusters. The new fields are:
