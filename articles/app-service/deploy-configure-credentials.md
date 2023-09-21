@@ -85,6 +85,7 @@ For [local Git deployment](deploy-local-git.md), you can also use the [az webapp
 ```azurecli-interactive
 az webapp deployment list-publishing-credentials --resource-group <group-name> --name <app-name> --query scmUri
 ```
+Note that the Git remote URI returned will not contain `/<app-name>.git` at the end. Ensure that you append `/<app-name>.git` when adding the remote URI, to avoid an error 22 with git-http-push. Additionally, when using `git remote add ... ` via shells that use the dollar sign for variable interpolation (such as bash), it's important to escape any dollar signs (`\$`) in the username and/or password. Failure to do so can result in authentication errors.
 
 # [Azure PowerShell](#tab/powershell)
 
