@@ -1,6 +1,6 @@
 ---
-title: Pre-populate contact information for self-service password reset
-description: Learn how to pre-populate contact information for users of Microsoft Entra self-service password reset (SSPR) so they can use the feature without completing a registration process.
+title: Prepopulate contact information for self-service password reset
+description: Learn how to prepopulate contact information for users of Microsoft Entra self-service password reset (SSPR) so they can use the feature without completing a registration process.
 
 services: active-directory
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.reviewer: tilarso
 ms.collection: M365-identity-device-management 
 ms.custom: has-azure-ad-ps-ref
 ---
-# Pre-populate user authentication contact information for Microsoft Entra self-service password reset (SSPR)
+# Prepopulate user authentication contact information for Microsoft Entra self-service password reset (SSPR)
 
 To use Microsoft Entra self-service password reset (SSPR), authentication information for a user must be present. Most organizations have users register their authentication data themselves while collecting information for MFA. Some organizations prefer to bootstrap this process through synchronization of authentication data that already exists in Active Directory Domain Services (AD DS). This synchronized data is made available to Microsoft Entra ID and SSPR without requiring user interaction. When users need to change or reset their password, they can do so even if they haven't previously registered their contact information.
 
-You can pre-populate authentication contact information if you meet the following requirements:
+You can prepopulate authentication contact information if you meet the following requirements:
 
 * You have properly formatted the data in your on-premises directory.
 * You have configured [Microsoft Entra Connect](../hybrid/connect/how-to-connect-install-express.md) for your Microsoft Entra tenant.
@@ -122,7 +122,7 @@ Get-MgUser -UserId 'user@domain.com' | Select businessPhones, mobilePhone, other
 
 ## Next steps
 
-Once authentication contact information is pre-populated for users, complete the following tutorial to enable self-service password reset:
+Once authentication contact information is prepopulated for users, complete the following tutorial to enable self-service password reset:
 
 > [!div class="nextstepaction"]
 > [Enable Microsoft Entra self-service password reset](tutorial-enable-sspr.md)
