@@ -6,6 +6,6 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/index
     items:
-    - name: Microsoft Entra ID for developers
+    - name: Azure AD for developers
       tocHref: /azure/active-directory/develop/
       topicHref: /azure/active-directory/azuread-dev/index

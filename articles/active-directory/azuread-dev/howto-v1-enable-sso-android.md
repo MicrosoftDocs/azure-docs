@@ -32,8 +32,8 @@ In this how-to, you'll learn how to configure the SDK within your application to
 
 This how-to assumes that you know how to:
 
-- Provision your app using the legacy portal for Microsoft Entra ID. For more info, see [Register an app](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
-- Integrate your application with the [Microsoft Entra Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
+- Provision your app using the legacy portal for Azure Active Directory (Azure AD). For more info, see [Register an app](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
+- Integrate your application with the [Azure AD Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## Single sign-on concepts
 
@@ -120,7 +120,7 @@ Your redirect URI must be in the proper form of:
 
 ex: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-You can register this redirect URI in your app registration using the [Azure portal](https://portal.azure.com/). For more information on Microsoft Entra app registration, see [Integrating with Microsoft Entra ID](../develop/how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+You can register this redirect URI in your app registration using the [Azure portal](https://portal.azure.com/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](../develop/how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 #### Step 3: Set up the correct permissions in your application
 

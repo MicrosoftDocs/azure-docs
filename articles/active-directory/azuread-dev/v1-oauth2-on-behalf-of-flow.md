@@ -21,7 +21,7 @@ ROBOTS: NOINDEX
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-The OAuth 2.0 On-Behalf-Of (OBO) flow enables an application that invokes a service or web API to pass user authentication to another service or web API. The OBO flow propagates the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it must secure an access token from Microsoft Entra ID on behalf of the user.
+The OAuth 2.0 On-Behalf-Of (OBO) flow enables an application that invokes a service or web API to pass user authentication to another service or web API. The OBO flow propagates the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it must secure an access token from Azure Active Directory (Azure AD) on behalf of the user.
 
 > [!IMPORTANT]
 > As of May 2018, an `id_token` can't be used for the On-Behalf-Of flow.  Single-page apps (SPAs) must pass an access token to a middle-tier confidential client to perform OBO flows. For more detail about the clients that can perform On-Behalf-Of calls, see [limitations](#client-limitations).
@@ -34,25 +34,23 @@ These steps constitute the On-Behalf-Of flow:
 ![Shows the steps in the OAuth2.0 On-Behalf-Of flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. The client application makes a request to API A with the token A.
-1. API A authenticates to the Microsoft Entra token issuance endpoint and requests a token to access API B.
-1. The Microsoft Entra token issuance endpoint validates API A's credentials with token A and issues the access token for API B (token B).
+1. API A authenticates to the Azure AD token issuance endpoint and requests a token to access API B.
+1. The Azure AD token issuance endpoint validates API A's credentials with token A and issues the access token for API B (token B).
 1. The request to API B contains token B in the authorization header.
 1. API B returns data from the secured resource.
 
 >[!NOTE]
->The audience claim in an access token used to request a token for a downstream service must be the ID of the service making the OBO request. The token also must be signed with the Microsoft Entra global signing key (which is the default for applications registered via **App registrations** in the portal).
+>The audience claim in an access token used to request a token for a downstream service must be the ID of the service making the OBO request. The token also must be signed with the Azure Active Directory global signing key (which is the default for applications registered via **App registrations** in the portal).
 
-<a name='register-the-application-and-service-in-azure-ad'></a>
+## Register the application and service in Azure AD
 
-## Register the application and service in Microsoft Entra ID
-
-Register both the middle-tier service and the client application in Microsoft Entra ID.
+Register both the middle-tier service and the client application in Azure AD.
 
 ### Register the middle-tier service
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the top bar, select your account and look under the **Directory** list to select an Active Directory tenant for your application.
-1. Select **More Services** on the left pane and choose **Microsoft Entra ID**.
+1. Select **More Services** on the left pane and choose **Azure Active Directory**.
 1. Select **App registrations** and then **New registration**.
 1. Enter a friendly name for the application and select the application type.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
@@ -70,7 +68,7 @@ Register both the middle-tier service and the client application in Microsoft En
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the top bar, select your account and look under the **Directory** list to select an Active Directory tenant for your application.
-1. Select **More Services** on the left pane and choose **Microsoft Entra ID**.
+1. Select **More Services** on the left pane and choose **Azure Active Directory**.
 1. Select **App registrations** and then **New registration**.
 1. Enter a friendly name for the application and select the application type.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
@@ -84,7 +82,7 @@ Register both the middle-tier service and the client application in Microsoft En
 
 In this scenario, the middle-tier service needs to obtain the user's consent to access the downstream API without a user interaction. The option to grant access to the downstream API must be presented up front as part of the consent step during authentication.
 
-Follow the steps below to explicitly bind the client app's registration in Microsoft Entra ID with the middle-tier service's registration. This operation merges the consent required by both the client and middle-tier into a single dialog.
+Follow the steps below to explicitly bind the client app's registration in Azure AD with the middle-tier service's registration. This operation merges the consent required by both the client and middle-tier into a single dialog.
 
 1. Go to the middle-tier service registration and select **Manifest** to open the manifest editor.
 1. Locate the `knownClientApplications` array property and add the client ID of the client application as an element.
@@ -92,7 +90,7 @@ Follow the steps below to explicitly bind the client app's registration in Micro
 
 ## Service-to-service access token request
 
-To request an access token, make an HTTP POST to the tenant-specific Microsoft Entra endpoint with the following parameters:
+To request an access token, make an HTTP POST to the tenant-specific Azure AD endpoint with the following parameters:
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/token
@@ -108,8 +106,8 @@ When using a shared secret, a service-to-service access token request contains t
 | --- | --- | --- |
 | grant_type |required | The type of the token request. An OBO request uses a JSON Web Token (JWT) so the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |required | The value of the access token used in the request. |
-| client_id |required | The app ID assigned to the calling service during registration with Microsoft Entra ID. To find the app ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
-| client_secret |required | The key registered for the calling service in Microsoft Entra ID. This value should have been noted at the time of registration. |
+| client_id |required | The app ID assigned to the calling service during registration with Azure AD. To find the app ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
+| client_secret |required | The key registered for the calling service in Azure AD. This value should have been noted at the time of registration. |
 | resource |required | The app ID URI of the receiving service (secured resource). To find the app ID URI in the Azure portal, select **Active Directory** and choose the directory. Select the application name, choose **All settings**, and then select **Properties**. |
 | requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be **on_behalf_of**. |
 | scope |required | A space separated list of scopes for the token request. For OpenID Connect, the scope **openid** must be specified.|
@@ -142,7 +140,7 @@ A service-to-service access token request with a certificate contains the follow
 | --- | --- | --- |
 | grant_type |required | The type of the token request. An OBO request uses a JWT access token so the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |required | The value of the token used in the request. |
-| client_id |required | The app ID assigned to the calling service during registration with Microsoft Entra ID. To find the app ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
+| client_id |required | The app ID assigned to the calling service during registration with Azure AD. To find the app ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
 | client_assertion_type |required |The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |required | A JSON Web Token that you create and sign with the certificate you registered as credentials for your application. See  [certificate credentials](../develop/certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) to learn about assertion format and about how to register your certificate.|
 | resource |required | The app ID URI of the receiving service (secured resource). To find the app ID URI in the Azure portal, select **Active Directory** and choose the directory. Select the application name, choose **All settings**, and then select **Properties**. |
@@ -178,7 +176,7 @@ A success response is a JSON OAuth 2.0 response with the following parameters:
 
 | Parameter | Description |
 | --- | --- |
-| token_type |Indicates the token type value. The only type that Microsoft Entra ID supports is **Bearer**. For more information about bearer tokens, see the [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Indicates the token type value. The only type that Azure AD supports is **Bearer**. For more information about bearer tokens, see the [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |The scope of access granted in the token. |
 | expires_in |The length of time the access token is valid (in seconds). |
 | expires_on |The time when the access token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. This value is used to determine the lifetime of cached tokens. |
@@ -208,7 +206,7 @@ The following example shows a success response to a request for an access token 
 
 ### Error response example
 
-The Microsoft Entra token endpoint returns an error response when it tries to acquire an access token for a downstream API that is set with a Conditional Access policy (for example, multi-factor authentication). The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the Conditional Access policy.
+The Azure AD token endpoint returns an error response when it tries to acquire an access token for a downstream API that is set with a Conditional Access policy (for example, multi-factor authentication). The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the Conditional Access policy.
 
 ```json
 {
@@ -236,7 +234,7 @@ Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 
 ## SAML assertions obtained with an OAuth2.0 OBO flow
 
-Some OAuth-based web services need to access other web service APIs that accept SAML assertions in non-interactive flows. Microsoft Entra ID can provide a SAML assertion in response to an On-Behalf-Of flow that uses a SAML-based web service as a target resource.
+Some OAuth-based web services need to access other web service APIs that accept SAML assertions in non-interactive flows. Azure Active Directory can provide a SAML assertion in response to an On-Behalf-Of flow that uses a SAML-based web service as a target resource.
 
 >[!NOTE]
 >This is a non-standard extension to the OAuth 2.0 On-Behalf-Of flow that allows an OAuth2-based application to access web service API endpoints that consume SAML tokens.
@@ -252,8 +250,8 @@ A service-to-service request for a SAML assertion contains the following paramet
 | --- | --- | --- |
 | grant_type |required | The type of the token request. For a request that uses a JWT, the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |required | The value of the access token used in the request.|
-| client_id |required | The app ID assigned to the calling service during registration with Microsoft Entra ID. To find the app ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
-| client_secret |required | The key registered for the calling service in Microsoft Entra ID. This value should have been noted at the time of registration. |
+| client_id |required | The app ID assigned to the calling service during registration with Azure AD. To find the app ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
+| client_secret |required | The key registered for the calling service in Azure AD. This value should have been noted at the time of registration. |
 | resource |required | The app ID URI of the receiving service (secured resource). This is the resource that will be the Audience of the SAML token. To find the app ID URI in the Azure portal, select **Active Directory** and choose the directory. Select the application name, choose **All settings**, and then select **Properties**. |
 | requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be **on_behalf_of**. |
 | requested_token_type | required | Specifies the type of token requested. The value can be **urn:ietf:params:oauth:token-type:saml2** or **urn:ietf:params:oauth:token-type:saml1** depending on the requirements of the accessed resource. |
@@ -263,13 +261,13 @@ The response contains a SAML token encoded in UTF8 and Base64url.
 - **SubjectConfirmationData for a SAML assertion sourced from an OBO call**: If the target application requires a recipient value in **SubjectConfirmationData**, then the value must be a non-wildcard Reply URL in the resource application configuration.
 - **The SubjectConfirmationData node**: The node can't contain an **InResponseTo** attribute since it's not part of a SAML response. The application receiving the SAML token must be able to accept the SAML assertion without an **InResponseTo** attribute.
 
-- **Consent**: Consent must have been granted to receive a SAML token containing user data on an OAuth flow. For information on permissions and obtaining administrator consent, see [Permissions and consent in the Microsoft Entra v1.0 endpoint](./v1-permissions-consent.md).
+- **Consent**: Consent must have been granted to receive a SAML token containing user data on an OAuth flow. For information on permissions and obtaining administrator consent, see [Permissions and consent in the Azure Active Directory v1.0 endpoint](./v1-permissions-consent.md).
 
 ### Response with SAML assertion
 
 | Parameter | Description |
 | --- | --- |
-| token_type |Indicates the token type value. The only type that Microsoft Entra ID supports is **Bearer**. For more information about bearer tokens, see [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Indicates the token type value. The only type that Azure AD supports is **Bearer**. For more information about bearer tokens, see [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |The scope of access granted in the token. |
 | expires_in |The length of time the access token is valid (in seconds). |
 | expires_on |The time when the access token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. This value is used to determine the lifetime of cached tokens. |
@@ -294,5 +292,5 @@ Public clients with wildcard reply URLs can't use an `id_token` for OBO flows. H
 
 Learn more about the OAuth 2.0 protocol and another way to perform service-to-service authentication that uses client credentials:
 
-* [Service to service authentication using OAuth 2.0 client credentials grant in Microsoft Entra ID](v1-oauth2-client-creds-grant-flow.md)
-* [OAuth 2.0 in Microsoft Entra ID](v1-protocols-oauth-code.md)
+* [Service to service authentication using OAuth 2.0 client credentials grant in Azure AD](v1-oauth2-client-creds-grant-flow.md)
+* [OAuth 2.0 in Azure AD](v1-protocols-oauth-code.md)

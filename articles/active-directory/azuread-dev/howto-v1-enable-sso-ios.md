@@ -30,17 +30,17 @@ In this how-to, you'll learn how to configure the SDK within your application to
 
 This how-to applies to:
 
-* Microsoft Entra ID
+* Azure Active Directory (Azure Active Directory)
 * Azure Active Directory B2C
-* Microsoft Entra B2B
-* Microsoft Entra Conditional Access
+* Azure Active Directory B2B
+* Azure Active Directory Conditional Access
 
 ## Prerequisites
 
 This how-to assumes that you know how to:
 
-* Provision your app using the legacy portal for Microsoft Entra ID. For more info, see [Register an app](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
-* Integrate your application with the [Microsoft Entra iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
+* Provision your app using the legacy portal for Azure AD. For more info, see [Register an app](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
+* Integrate your application with the [Azure AD iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## Single sign-on concepts
 
@@ -293,7 +293,7 @@ Your redirect URI must be in the proper form of:
 
 ex: *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-This redirect URI needs to be specified in your app registration using the [Azure portal](https://portal.azure.com/). For more information on Microsoft Entra app registration, see [Integrating with Microsoft Entra ID](../develop/how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+This redirect URI needs to be specified in your app registration using the [Azure portal](https://portal.azure.com/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](../develop/how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ##### Step 3a: Add a redirect URI in your app and dev portal to support certificate-based authentication
 

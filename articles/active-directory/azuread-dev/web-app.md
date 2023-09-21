@@ -1,5 +1,5 @@
 ---
-title: Web apps in Microsoft Entra ID
+title: Web apps in Azure Active Directory
 description: Describes what web apps are and the basics on protocol flow, registration, and token expiration for this app type. 
 services: active-directory
 documentationcenter: ''
@@ -21,7 +21,7 @@ ROBOTS: NOINDEX
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-Web apps are applications that authenticate a user in a web browser to a web application. In this scenario, the web application directs the user's browser to sign them in to Microsoft Entra ID. Microsoft Entra ID returns a sign-in response through the user's browser, which contains claims about the user in a security token. This scenario supports sign-on using the OpenID Connect, SAML 2.0, and WS-Federation protocols.
+Web apps are applications that authenticate a user in a web browser to a web application. In this scenario, the web application directs the user's browser to sign them in to Azure AD. Azure AD returns a sign-in response through the user's browser, which contains claims about the user in a security token. This scenario supports sign-on using the OpenID Connect, SAML 2.0, and WS-Federation protocols.
 
 ## Diagram
 
@@ -29,10 +29,10 @@ Web apps are applications that authenticate a user in a web browser to a web app
 
 ## Protocol flow
 
-1. When a user visits the application and needs to sign in, they are redirected via a sign-in request to the authentication endpoint in Microsoft Entra ID.
+1. When a user visits the application and needs to sign in, they are redirected via a sign-in request to the authentication endpoint in Azure AD.
 1. The user signs in on the sign-in page.
-1. If authentication is successful, Microsoft Entra ID creates an authentication token and returns a sign-in response to the application's Reply URL that was configured in the Azure portal. For a production application, this Reply URL should be HTTPS. The returned token includes claims about the user and Microsoft Entra ID that are required by the application to validate the token.
-1. The application validates the token by using a public signing key and issuer information available at the federation metadata document for Microsoft Entra ID. After the application validates the token, it starts a new session with the user. This session allows the user to access the application until it expires.
+1. If authentication is successful, Azure AD creates an authentication token and returns a sign-in response to the application's Reply URL that was configured in the Azure portal. For a production application, this Reply URL should be HTTPS. The returned token includes claims about the user and Azure AD that are required by the application to validate the token.
+1. The application validates the token by using a public signing key and issuer information available at the federation metadata document for Azure AD. After the application validates the token, it starts a new session with the user. This session allows the user to access the application until it expires.
 
 ## Code samples
 
@@ -47,9 +47,9 @@ To register a web app, see [Register an app](../develop/quickstart-register-app.
 
 ## Token expiration
 
-The user's session expires when the lifetime of the token issued by Microsoft Entra ID expires. Your application can shorten this time period if desired, such as signing out users based on a period of inactivity. When the session expires, the user will be prompted to sign in again.
+The user's session expires when the lifetime of the token issued by Azure AD expires. Your application can shorten this time period if desired, such as signing out users based on a period of inactivity. When the session expires, the user will be prompted to sign in again.
 
 ## Next steps
 
 * Learn more about other [Application types and scenarios](app-types.md)
-* Learn about the Microsoft Entra [authentication basics](v1-authentication-scenarios.md)
+* Learn about the Azure AD [authentication basics](v1-authentication-scenarios.md)

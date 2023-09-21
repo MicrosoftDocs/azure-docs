@@ -1,6 +1,6 @@
 ---
-title: Understand the OAuth 2.0 authorization code flow in Microsoft Entra ID
-description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Microsoft Entra ID and OAuth 2.0.
+title: Understand the OAuth 2.0 authorization code flow in Azure AD
+description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OAuth 2.0.
 services: active-directory
 documentationcenter: .net
 author: rwike77
@@ -17,7 +17,7 @@ ms.custom: aaddev
 ROBOTS: NOINDEX
 ---
 
-# Authorize access to Microsoft Entra web applications using the OAuth 2.0 code grant flow
+# Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -25,30 +25,30 @@ ROBOTS: NOINDEX
 >  If you don't tell the server what resource you plan to call, then the server will not trigger the Conditional Access policies for that resource. So in order to have MFA trigger, you will need to include a resource in your URL. 
 >
 
-Microsoft Entra ID uses OAuth 2.0 to enable you to authorize access to web applications and web APIs in your Microsoft Entra tenant. This guide is language independent, and describes how to send and receive HTTP messages without using any of our [open-source libraries](active-directory-authentication-libraries.md).
+Azure Active Directory (Azure AD) uses OAuth 2.0 to enable you to authorize access to web applications and web APIs in your Azure AD tenant. This guide is language independent, and describes how to send and receive HTTP messages without using any of our [open-source libraries](active-directory-authentication-libraries.md).
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749#section-4.1). It is used to perform authentication and authorization in most application types, including web apps and natively installed apps.
 
 ## Register your application with your AD tenant
-First, register your application with your Microsoft Entra tenant. This will give you an Application ID for your application, as well as enable it to receive tokens.
+First, register your application with your Azure Active Directory (Azure AD) tenant. This will give you an Application ID for your application, as well as enable it to receive tokens.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
    
-1. Choose your Microsoft Entra tenant by selecting your account in the top right corner of the page, followed by selecting the **Switch Directory** navigation and then selecting the appropriate tenant. 
-   - Skip this step if you only have one Microsoft Entra tenant under your account, or if you've already selected the appropriate Microsoft Entra tenant.
+1. Choose your Azure AD tenant by selecting your account in the top right corner of the page, followed by selecting the **Switch Directory** navigation and then selecting the appropriate tenant. 
+   - Skip this step if you only have one Azure AD tenant under your account, or if you've already selected the appropriate Azure AD tenant.
    
-1. In the Azure portal, search for and select **Microsoft Entra ID**.
+1. In the Azure portal, search for and select **Azure Active Directory**.
    
-1. In the **Microsoft Entra ID** left menu, select **App Registrations**, and then select **New registration**.
+1. In the **Azure Active Directory** left menu, select **App Registrations**, and then select **New registration**.
    
 1. Follow the prompts and create a new application. It doesn't matter if it is a web application or a public client (mobile & desktop) application for this tutorial, but if you'd like specific examples for web applications or public client applications, check out our [quickstarts](v1-overview.md).
    
    - **Name** is the application name and describes your application to end users.
    - Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
-   - Provide the **Redirect URI**. For web applications, this is the base URL of your app where users can sign in.  For example, `http://localhost:12345`. For public client (mobile & desktop), Microsoft Entra ID uses it to return token responses. Enter a value specific to your application.  For example, `http://MyFirstAADApp`.
+   - Provide the **Redirect URI**. For web applications, this is the base URL of your app where users can sign in.  For example, `http://localhost:12345`. For public client (mobile & desktop), Azure AD uses it to return token responses. Enter a value specific to your application.  For example, `http://MyFirstAADApp`.
    <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->  
    
-1. Once you've completed registration, Microsoft Entra ID will assign your application a unique client identifier (the **Application ID**). You need this value in the next sections, so copy it from the application page.
+1. Once you've completed registration, Azure AD will assign your application a unique client identifier (the **Application ID**). You need this value in the next sections, so copy it from the application page.
    
 1. To find your application in the Azure portal, select **App registrations**, and then select **View all applications**.
 
@@ -77,17 +77,17 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | Type | Description |
 | --- | --- | --- |
 | tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are tenant identifiers, for example, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` or `common` for tenant-independent tokens |
-| client_id |required |The Application ID assigned to your app when you registered it with Microsoft Entra ID. You can find this in the Azure portal. Click **Microsoft Entra ID** in the services sidebar, click **App registrations**, and choose the application. |
+| client_id |required |The Application ID assigned to your app when you registered it with Azure AD. You can find this in the Azure portal. Click **Azure Active Directory** in the services sidebar, click **App registrations**, and choose the application. |
 | response_type |required |Must include `code` for the authorization code flow. |
 | redirect_uri |recommended |The redirect_uri of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect_uris you registered in the portal, except it must be URL-encoded. For native & mobile apps, you should use the default value of `https://login.microsoftonline.com/common/oauth2/nativeclient`. |
 | response_mode |optional |Specifies the method that should be used to send the resulting token back to your app. Can be `query`, `fragment`, or `form_post`. `query` provides the code as a query string parameter on your redirect URI. If you're requesting an ID token using the implicit flow, you cannot use `query` as specified in the [OpenID spec](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). If you're requesting just the code, you can use `query`, `fragment`, or `form_post`. `form_post` executes a POST containing the code to your redirect URI. The default is `query` for a code flow.  |
 | state |recommended |A value included in the request that is also returned in the token response. A randomly generated unique value is typically used for [preventing cross-site request forgery attacks](https://tools.ietf.org/html/rfc6749#section-10.12). The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-| resource | recommended |The App ID URI of the target web API (secured resource). To find the App ID URI, in the Azure portal, click **Microsoft Entra ID**, click **Application registrations**, open the application's **Settings** page, then click **Properties**. It may also be an external resource like `https://graph.microsoft.com`. This is required in one of either the authorization or token requests. To ensure fewer authentication prompts place it in the authorization request to ensure consent is received from the user. |
-| scope | **ignored** | For v1 Microsoft Entra apps, scopes must be statically configured in the Azure portal under the applications **Settings**, **Required Permissions**. |
+| resource | recommended |The App ID URI of the target web API (secured resource). To find the App ID URI, in the Azure portal, click **Azure Active Directory**, click **Application registrations**, open the application's **Settings** page, then click **Properties**. It may also be an external resource like `https://graph.microsoft.com`. This is required in one of either the authorization or token requests. To ensure fewer authentication prompts place it in the authorization request to ensure consent is received from the user. |
+| scope | **ignored** | For v1 Azure AD apps, scopes must be statically configured in the Azure portal under the applications **Settings**, **Required Permissions**. |
 | prompt |optional |Indicate the type of user interaction that is required.<p> Valid values are: <p> *login*: The user should be prompted to reauthenticate. <p> *select_account*: The user is prompted to select an account, interrupting single sign on. The user may select an existing signed-in account, enter their credentials for a remembered account, or choose to use a different account altogether. <p> *consent*: User consent has been granted, but needs to be updated. The user should be prompted to consent. <p> *admin_consent*: An administrator should be prompted to consent on behalf of all users in their organization |
 | login_hint |optional |Can be used to pre-fill the username/email address field of the sign-in page for the user, if you know their username ahead of time. Often apps use this parameter during reauthentication, having already extracted the username from a previous sign-in using the `preferred_username` claim. |
-| domain_hint |optional |Provides a hint about the tenant or domain that the user should use to sign in. The value of the domain_hint is a registered domain for the tenant. If the tenant is federated to an on-premises directory, Microsoft Entra ID redirects to the specified tenant federation server. |
-| code_challenge_method | recommended    | The method used to encode the `code_verifier` for the `code_challenge` parameter. Can be one of `plain` or `S256`. If excluded, `code_challenge` is assumed to be plaintext if `code_challenge` is included. Azure Microsoft Entra v1.0 supports both `plain` and `S256`. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| domain_hint |optional |Provides a hint about the tenant or domain that the user should use to sign in. The value of the domain_hint is a registered domain for the tenant. If the tenant is federated to an on-premises directory, AAD redirects to the specified tenant federation server. |
+| code_challenge_method | recommended    | The method used to encode the `code_verifier` for the `code_challenge` parameter. Can be one of `plain` or `S256`. If excluded, `code_challenge` is assumed to be plaintext if `code_challenge` is included. Azure AAD v1.0 supports both `plain` and `S256`. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 | code_challenge        | recommended    | Used to secure authorization code grants via Proof Key for Code Exchange (PKCE) from a native or public client. Required if `code_challenge_method` is included. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
@@ -95,7 +95,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 >
 >
 
-At this point, the user is asked to enter their credentials and consent to the permissions requested by the app in the Azure portal. Once the user authenticates and grants consent, Microsoft Entra ID sends a response to your app at the `redirect_uri` address in your request with the code.
+At this point, the user is asked to enter their credentials and consent to the permissions requested by the app in the Azure portal. Once the user authenticates and grants consent, Azure AD sends a response to your app at the `redirect_uri` address in your request with the code.
 
 ### Successful response
 A successful response could look like this:
@@ -123,7 +123,7 @@ error=access_denied
 
 | Parameter | Description |
 | --- | --- |
-| error |An error code value defined in Section 5.2 of the [OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). The next table describes the error codes that Microsoft Entra ID returns. |
+| error |An error code value defined in Section 5.2 of the [OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). The next table describes the error codes that Azure AD returns. |
 | error_description |A more detailed description of the error. This message is not intended to be end-user friendly. |
 | state |The state value is a randomly generated non-reused value that is sent in the request and returned in the response to prevent cross-site request forgery (CSRF) attacks. |
 
@@ -133,12 +133,12 @@ The following table describes the various error codes that can be returned in th
 | Error Code | Description | Client Action |
 | --- | --- | --- |
 | invalid_request |Protocol error, such as a missing required parameter. |Fix and resubmit the request. This is a development error, and is typically caught during initial testing. |
-| unauthorized_client |The client application is not permitted to request an authorization code. |This usually occurs when the client application is not registered in Microsoft Entra ID or is not added to the user's Microsoft Entra tenant. The application can prompt the user with instruction for installing the application and adding it to Microsoft Entra ID. |
+| unauthorized_client |The client application is not permitted to request an authorization code. |This usually occurs when the client application is not registered in Azure AD or is not added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 | access_denied |Resource owner denied consent |The client application can notify the user that it cannot proceed unless the user consents. |
 | unsupported_response_type |The authorization server does not support the response type in the request. |Fix and resubmit the request. This is a development error, and is typically caught during initial testing. |
 | server_error |The server encountered an unexpected error. |Retry the request. These errors can result from temporary conditions. The client application might explain to the user that its response is delayed due to a temporary error. |
 | temporarily_unavailable |The server is temporarily too busy to handle the request. |Retry the request. The client application might explain to the user that its response is delayed due to a temporary condition. |
-| invalid_resource |The target resource is invalid because it does not exist, Microsoft Entra ID cannot find it, or it is not correctly configured. |This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Microsoft Entra ID. |
+| invalid_resource |The target resource is invalid because it does not exist, Azure AD cannot find it, or it is not correctly configured. |This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 
 ## Use the authorization code to request an access token
 Now that you've acquired an authorization code and have been granted permission by the user, you can redeem the code for an access token to the desired resource, by sending a POST request to the `/token` endpoint:
@@ -162,18 +162,18 @@ grant_type=authorization_code
 | Parameter | Type | Description |
 | --- | --- | --- |
 | tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are tenant identifiers, for example, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` or `common` for tenant-independent tokens |
-| client_id |required |The Application Id assigned to your app when you registered it with Microsoft Entra ID. You can find this in the Azure portal. The Application Id is displayed in the settings of the app registration. |
+| client_id |required |The Application Id assigned to your app when you registered it with Azure AD. You can find this in the Azure portal. The Application Id is displayed in the settings of the app registration. |
 | grant_type |required |Must be `authorization_code` for the authorization code flow. |
 | code |required |The `authorization_code` that you acquired in the previous section |
 | redirect_uri |required | A `redirect_uri`registered on the client application. |
 | client_secret |required for web apps, not allowed for public clients |The application secret that you created in the Azure portal for your app under **Keys**. It cannot be used in a native app (public client), because client_secrets cannot be reliably stored on devices. It is required for web apps and web APIs (all confidential clients), which have the ability to store the `client_secret` securely on the server side. The client_secret should be URL-encoded before being sent. |
-| resource | recommended |The App ID URI of the target web API (secured resource). To find the App ID URI, in the Azure portal, click **Microsoft Entra ID**, click **Application registrations**, open the application's **Settings** page, then click **Properties**. It may also be an external resource like `https://graph.microsoft.com`. This is required in one of either the authorization or token requests. To ensure fewer authentication prompts place it in the authorization request to ensure consent is received from the user. If in both the authorization request and the token request, the     resource` parameters must match. | 
+| resource | recommended |The App ID URI of the target web API (secured resource). To find the App ID URI, in the Azure portal, click **Azure Active Directory**, click **Application registrations**, open the application's **Settings** page, then click **Properties**. It may also be an external resource like `https://graph.microsoft.com`. This is required in one of either the authorization or token requests. To ensure fewer authentication prompts place it in the authorization request to ensure consent is received from the user. If in both the authorization request and the token request, the     resource` parameters must match. | 
 | code_verifier | optional | The same code_verifier that was used to obtain the authorization_code. Required if PKCE was used in the authorization code grant request. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 
-To find the App ID URI, in the Azure portal, click **Microsoft Entra ID**, click **Application registrations**, open the application's **Settings** page, then click **Properties**.
+To find the App ID URI, in the Azure portal, click **Azure Active Directory**, click **Application registrations**, open the application's **Settings** page, then click **Properties**.
 
 ### Successful response
-Microsoft Entra ID returns an [access token](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) upon a successful response. To minimize network calls from the client application and their associated latency, the client application should cache access tokens for the token lifetime that is specified in the OAuth 2.0 response. To determine the token lifetime, use either the `expires_in` or `expires_on` parameter values.
+Azure AD returns an [access token](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) upon a successful response. To minimize network calls from the client application and their associated latency, the client application should cache access tokens for the token lifetime that is specified in the OAuth 2.0 response. To determine the token lifetime, use either the `expires_in` or `expires_on` parameter values.
 
 If a web API resource returns an `invalid_token` error code, this might indicate that the resource has determined that the token is expired. If the client and resource clock times are different (known as a "time skew"), the resource might consider the token to be expired before the token is cleared from the client cache. If this occurs, clear the token from the cache, even if it is still within its calculated lifetime.
 
@@ -196,18 +196,18 @@ A successful response could look like this:
 | Parameter | Description |
 | --- | --- |
 | access_token |The requested access token.  This is an opaque string - it depends on what the resource expects to receive, and is not intended for the client to look at. The app can use this token to authenticate to the secured resource, such as a web API. |
-| token_type |Indicates the token type value. The only type that Microsoft Entra ID supports is Bearer. For more information about Bearer tokens, see [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
+| token_type |Indicates the token type value. The only type that Azure AD supports is Bearer. For more information about Bearer tokens, see [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |How long the access token is valid (in seconds). |
 | expires_on |The time when the access token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. This value is used to determine the lifetime of cached tokens. |
 | resource |The App ID URI of the web API (secured resource). |
-| scope |Impersonation permissions granted to the client application. The default permission is `user_impersonation`. The owner of the secured resource can register additional values in Microsoft Entra ID. |
+| scope |Impersonation permissions granted to the client application. The default permission is `user_impersonation`. The owner of the secured resource can register additional values in Azure AD. |
 | refresh_token |An OAuth 2.0 refresh token. The app can use this token to acquire additional access tokens after the current access token expires. Refresh tokens are long-lived, and can be used to retain access to resources for extended periods of time. |
 | id_token |An unsigned JSON Web Token (JWT) representing an [ID token](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). The app can base64Url decode the segments of this token to request information about the user who signed in. The app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. |
 
 For more information about JSON web tokens, see the [JWT IETF draft specification](https://go.microsoft.com/fwlink/?LinkId=392344).   To learn more about `id_tokens`, see the [v1.0 OpenID Connect flow](v1-protocols-openid-connect-code.md).
 
 ### Error response
-The token issuance endpoint errors are HTTP error codes, because the client calls the token issuance endpoint directly. In addition to the HTTP status code, the Microsoft Entra token issuance endpoint also returns a JSON document with objects that describe the error.
+The token issuance endpoint errors are HTTP error codes, because the client calls the token issuance endpoint directly. In addition to the HTTP status code, the Azure AD token issuance endpoint also returns a JSON document with objects that describe the error.
 
 A sample error response could look like this:
 
@@ -248,10 +248,10 @@ The following table lists the HTTP status codes that the token issuance endpoint
 | --- | --- | --- |
 | invalid_request |Protocol error, such as a missing required parameter. |Fix and resubmit the request |
 | invalid_grant |The authorization code is invalid or has expired. |Try a new request to the `/authorize` endpoint |
-| unauthorized_client |The authenticated client is not authorized to use this authorization grant type. |This usually occurs when the client application is not registered in Microsoft Entra ID or is not added to the user's Microsoft Entra tenant. The application can prompt the user with instruction for installing the application and adding it to Microsoft Entra ID. |
+| unauthorized_client |The authenticated client is not authorized to use this authorization grant type. |This usually occurs when the client application is not registered in Azure AD or is not added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 | invalid_client |Client authentication failed. |The client credentials are not valid. To fix, the application administrator updates the credentials. |
 | unsupported_grant_type |The authorization server does not support the authorization grant type. |Change the grant type in the request. This type of error should occur only during development and be detected during initial testing. |
-| invalid_resource |The target resource is invalid because it does not exist, Microsoft Entra ID cannot find it, or it is not correctly configured. |This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Microsoft Entra ID. |
+| invalid_resource |The target resource is invalid because it does not exist, Azure AD cannot find it, or it is not correctly configured. |This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 | interaction_required |The request requires user interaction. For example, an additional authentication step is required. | Instead of a non-interactive request, retry with an interactive authorization request for the same resource. |
 | temporarily_unavailable |The server is temporarily too busy to handle the request. |Retry the request. The client application might explain to the user that its response is delayed due to a temporary condition. |
 
@@ -278,7 +278,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### Error parameters
 | Parameter | Description |
 | --- | --- |
-| authorization_uri |The URI (physical endpoint) of the authorization server. This value is also used as a lookup key to get more information about the server from a discovery endpoint. <p><p> The client must validate that the authorization server is trusted. When the resource is protected by Microsoft Entra ID, it is sufficient to verify that the URL begins with `https://login.microsoftonline.com` or another hostname that Microsoft Entra ID supports. A tenant-specific resource should always return a tenant-specific authorization URI. |
+| authorization_uri |The URI (physical endpoint) of the authorization server. This value is also used as a lookup key to get more information about the server from a discovery endpoint. <p><p> The client must validate that the authorization server is trusted. When the resource is protected by Azure AD, it is sufficient to verify that the URL begins with `https://login.microsoftonline.com` or another hostname that Azure AD supports. A tenant-specific resource should always return a tenant-specific authorization URI. |
 | error |An error code value defined in Section 5.2 of the [OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). |
 | error_description |A more detailed description of the error. This message is not intended to be end-user friendly. |
 | resource_id |Returns the unique identifier of the resource. The client application can use this identifier as the value of the `resource` parameter when it requests a token for the resource. <p><p> It is important for the client application to verify this value, otherwise a malicious service might be able to induce an **elevation-of-privileges** attack <p><p> The recommended strategy for preventing an attack is to verify that the `resource_id` matches the base of the web API URL that being accessed. For example, if `https://service.contoso.com/data` is being accessed, the `resource_id` can be `https://service.contoso.com/`. The client application must reject a `resource_id` that does not begin with the base URL unless there is a reliable alternate way to verify the id. |
@@ -336,7 +336,7 @@ A successful token response will look like:
 | expires_in |The remaining lifetime of the token in seconds. A typical value is 3600 (one hour). |
 | expires_on |The date and time on which the token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. |
 | resource |Identifies the secured resource that the access token can be used to access. |
-| scope |Impersonation permissions granted to the native client application. The default permission is **user_impersonation**. The owner of the target resource can register alternate values in Microsoft Entra ID. |
+| scope |Impersonation permissions granted to the native client application. The default permission is **user_impersonation**. The owner of the target resource can register alternate values in Azure AD. |
 | access_token |The new access token that was requested. |
 | refresh_token |A new OAuth 2.0 refresh_token that can be used to request new access tokens when the one in this response expires. |
 
@@ -368,4 +368,4 @@ A sample error response could look like this:
 For a description of the error codes and the recommended client action, see [Error codes for token endpoint errors](#error-codes-for-token-endpoint-errors).
 
 ## Next steps
-To learn more about the Microsoft Entra v1.0 endpoint and how to add authentication and authorization to your web applications and web APIs, see [sample applications](sample-v1-code.md).
+To learn more about the Azure AD v1.0 endpoint and how to add authentication and authorization to your web applications and web APIs, see [sample applications](sample-v1-code.md).
