@@ -60,10 +60,10 @@ Configure and test Microsoft Entra SSO with SAP NetWeaver using a test user call
 To configure and test Microsoft Entra SSO with SAP NetWeaver, perform the following steps:
 
 1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-	1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** to test Microsoft Entra single sign-on with B.Simon.
-	1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Microsoft Entra single sign-on.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure SAP NetWeaver using SAML](#configure-sap-netweaver-using-saml)** to configure the SSO settings on application side.
-	1. **[Create SAP NetWeaver test user](#create-sap-netweaver-test-user)** to have a counterpart of B.Simon in SAP NetWeaver that is linked to the Microsoft Entra representation of user.
+    1. **[Create SAP NetWeaver test user](#create-sap-netweaver-test-user)** to have a counterpart of B.Simon in SAP NetWeaver that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 1. **[Configure SAP NetWeaver for OAuth​](#configure-sap-netweaver-for-oauth)** to configure the OAuth settings on application side.
 
@@ -81,7 +81,7 @@ To configure Microsoft Entra single sign-on with SAP NetWeaver, perform the foll
 
 1. Sign on to business client of SAP System (T01), where SSO is required and activate HTTP Security session Management.
 
-   a. Go to Transaction code **SICF_SESSIONS**. It displays all relevant profile parameters with current values. They look like below:-
+   1. Go to Transaction code **SICF_SESSIONS**. It displays all relevant profile parameters with current values. They look like below:-
 
       ```
       login/create_sso2_ticket = 2
@@ -98,13 +98,13 @@ To configure Microsoft Entra single sign-on with SAP NetWeaver, perform the foll
       >[!NOTE]
       > Adjust above parameters as per your organization requirements, Above parameters are given here as indication only.
 
-   b. If necessary adjust parameters, in the instance/default profile of SAP system and restart SAP system.
+   1. If necessary adjust parameters, in the instance/default profile of SAP system and restart SAP system.
 
-   c. Double-click on relevant client to enable HTTP security session.
+   1. Double-click on relevant client to enable HTTP security session.
 
       ![The HTTP Security session](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
 
-   d. Activate below SICF services:
+   1. Activate below SICF services:
 
       ```
       /sap/public/bc/sec/saml2
@@ -132,11 +132,11 @@ To configure Microsoft Entra single sign-on with SAP NetWeaver, perform the foll
 
    ![Generating Service Provider Metadata](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_generatesp.png)
 
-   a. Go to **Local Provider tab**.
+   1. Go to **Local Provider tab**.
 
-   b. Click on **Metadata**.
+   1. Click on **Metadata**.
 
-   c. Save the generated **Metadata XML file** on your computer and upload it in **Basic SAML Configuration** section to autopopulate the **Identifier** and **Reply URL** values in Azure portal.
+   1. Save the generated **Metadata XML file** on your computer and upload it in **Basic SAML Configuration** section to autopopulate the **Identifier** and **Reply URL** values in Azure portal.
 
 Follow these steps to enable Microsoft Entra SSO.
 
@@ -149,13 +149,13 @@ Follow these steps to enable Microsoft Entra SSO.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
 
-   a. Click **Upload metadata file** to upload the **Service Provider metadata file**, which you have obtained earlier.
+   1. Click **Upload metadata file** to upload the **Service Provider metadata file**, which you have obtained earlier.
 
-   b. Click on **folder logo** to select the metadata file and click **Upload**.
+   1. Click on **folder logo** to select the metadata file and click **Upload**.
 
-   c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section textbox as shown below:
+   1. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section textbox as shown below:
 
-   d. In the **Sign-on URL** text box, type a URL using the following pattern:
+   1. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<your company instance of SAP NetWeaver>`
 
    > [!NOTE]
@@ -167,21 +167,21 @@ Follow these steps to enable Microsoft Entra SSO.
 
 1. SAP NetWeaver application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-	![edit attribute](common/edit-attribute.png)
+    ![edit attribute](common/edit-attribute.png)
 
 1. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
-	a. Click **Edit icon** to open the **Manage user claims** dialog.
+    1. Click **Edit icon** to open the **Manage user claims** dialog.
 
-	![edit icon](./media/sapnetweaver-tutorial/nameidattribute.png)
+        ![edit icon](./media/sapnetweaver-tutorial/nameidattribute.png)
 
-	![image](./media/sapnetweaver-tutorial/nameidattribute1.png)
+        ![image](./media/sapnetweaver-tutorial/nameidattribute1.png)
 
-	b. From the **Transformation** list, select **ExtractMailPrefix()**.
+    1. From the **Transformation** list, select **ExtractMailPrefix()**.
 
-	c. From the **Parameter 1** list, select **user.userprincipalname**.
+    1. From the **Parameter 1** list, select **user.userprincipalname**.
 
-	d. Click **Save**.
+    1. Click **Save**.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -227,112 +227,112 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 2. For configuring End points for trusted Identity provider (Microsoft Entra ID) go to **Trusted Providers** tab.
 
-	![Configure Single Sign-On Trusted Providers](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_samlconfig.png)
+    ![Configure Single Sign-On Trusted Providers](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_samlconfig.png)
 
 3. Press **Add** and select **Upload Metadata File** from the context menu.
 
-	![Configure Single Sign-On 2](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_uploadmetadata.png)
+    ![Configure Single Sign-On 2](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_uploadmetadata.png)
 
 4. Upload metadata file, which you have downloaded.
 
-	![Configure Single Sign-On 3](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
+    ![Configure Single Sign-On 3](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
 
 5. In the next screen type the Alias name. For example, aadsts and press **Next** to continue.
 
-	![Configure Single Sign-On 4](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
+    ![Configure Single Sign-On 4](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
 
 6. Make sure that your **Digest Algorithm** should be **SHA-256** and don’t require any changes and press **Next**.
 
-	![Configure Single Sign-On 5](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_identityprovider.png)
+    ![Configure Single Sign-On 5](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_identityprovider.png)
 
 7. On **Single Sign-On Endpoints**, use **HTTP POST** and click **Next** to continue.
 
-	![Configure Single Sign-On 6](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect.png)
+    ![Configure Single Sign-On 6](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect.png)
 
 8. On **Single Logout Endpoints** select **HTTPRedirect** and click **Next** to continue.
 
-	![Configure Single Sign-On 7](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect1.png)
+    ![Configure Single Sign-On 7](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect1.png)
 
 9. On **Artifact Endpoints**, press **Next** to continue.
 
-	![Configure Single Sign-On 8](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_artifactendpoint.png)
+    ![Configure Single Sign-On 8](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_artifactendpoint.png)
 
 10. On **Authentication Requirements**, click **Finish**.
 
-	![Configure Single Sign-On 9](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_authentication.png)
+    ![Configure Single Sign-On 9](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_authentication.png)
 
 11. Go to tab **Trusted Provider** > **Identity Federation** (from bottom of the screen). Click **Edit**.
 
-	![Configure Single Sign-On 10](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_trustedprovider.png)
+    ![Configure Single Sign-On 10](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_trustedprovider.png)
 
 12. Click **Add** under the **Identity Federation** tab (bottom window).
 
-	![Configure Single Sign-On 11](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
+    ![Configure Single Sign-On 11](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
 
 13. From the pop-up window, select **Unspecified** from the **Supported NameID formats** and click OK.
 
-	![Configure Single Sign-On 12](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
+    ![Configure Single Sign-On 12](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
 
 1. Give the **User ID Source** value as **Assertion Attribute**, **User ID mapping mode** value as **Email** and **Assertion Attribute Name** as `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-	![Configure Single Sign-On](./media/sapnetweaver-tutorial/nameid-format.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/nameid-format.png)
 
 14. Note that **User ID Source** and **User ID mapping mode** values determine the link between SAP user and Microsoft Entra claim.
 
-	#<a name='scenario-sap-user-to-azure-ad-user-mapping'></a>
+   <a name='scenario-sap-user-to-azure-ad-user-mapping'></a>
 
-### Scenario: SAP User to Microsoft Entra user mapping.
+   **Scenario: SAP User to Microsoft Entra user mapping.**
 
-	a. NameID details screenshot from SAP.
+   1. NameID details screenshot from SAP.
 
-	![Configure Single Sign-On 13](./media/sapnetweaver-tutorial/nameiddetails.png)
+      ![Configure Single Sign-On 13](./media/sapnetweaver-tutorial/nameiddetails.png)
 
-	b. Screenshot mentioning Required claims from Microsoft Entra ID.
+   1. Screenshot mentioning Required claims from Microsoft Entra ID.
 
-	![Configure Single Sign-On 14](./media/sapnetweaver-tutorial/claimsaad1.png)
+      ![Configure Single Sign-On 14](./media/sapnetweaver-tutorial/claimsaad1.png)
 
-	#### Scenario: Select SAP user ID based on configured email address in SU01. In this case email ID should be configured in su01 for each user who requires SSO.
+      **Scenario: Select SAP user ID based on configured email address in SU01. In this case email ID should be configured in su01 for each user who requires SSO.**
 
-	a.  NameID details screenshot from SAP.
+      1. NameID details screenshot from SAP.
 
-	![Configure Single Sign-On 15](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
+         ![Configure Single Sign-On 15](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
 
-	b. screenshot mentioning Required claims from Microsoft Entra ID.
+      2. screenshot mentioning Required claims from Microsoft Entra ID.
 
-	![Configure Single Sign-On 16](./media/sapnetweaver-tutorial/claimsaad2.png)
+        ![Configure Single Sign-On 16](./media/sapnetweaver-tutorial/claimsaad2.png)
 
 15. Click **Save** and then click **Enable** to enable identity provider.
 
-	![Configure Single Sign-On 17](./media/sapnetweaver-tutorial/configuration1.png)
+    ![Configure Single Sign-On 17](./media/sapnetweaver-tutorial/configuration1.png)
 
 16. Click **OK** once prompted.
 
-	![Configure Single Sign-On 18](./media/sapnetweaver-tutorial/configuration2.png)
+    ![Configure Single Sign-On 18](./media/sapnetweaver-tutorial/configuration2.png)
 
-	### Create SAP NetWeaver test user
+### Create SAP NetWeaver test user
 
-	In this section, you create a user called B.simon in SAP NetWeaver. Please work your in house SAP expert team or work with your organization SAP partner to add the users in the SAP NetWeaver platform.
+In this section, you create a user called B.simon in SAP NetWeaver. Please work your in house SAP expert team or work with your organization SAP partner to add the users in the SAP NetWeaver platform.
 
 ## Test SSO
 
 1. Once the identity provider Microsoft Entra ID was activated, try accessing below URL to check SSO (there will no prompt for username & password)
 
-	`https://<sapurl>/sap/bc/bsp/sap/it00/default.htm`
+    `https://<sapurl>/sap/bc/bsp/sap/it00/default.htm`
 
-	(or) use the URL below
+    (or) use the URL below
 
     `https://<sapurl>/sap/bc/bsp/sap/it00/default.htm`
 
-	> [!NOTE]
-	> Replace sapurl with actual SAP hostname.
+    > [!NOTE]
+    > Replace sapurl with actual SAP hostname.
 
 2. The above URL should take you to below mentioned screen. If you are able to reach up to the below page, Microsoft Entra SSO setup is successfully done.
 
-	![test Single Sign-On](./media/sapnetweaver-tutorial/testingsso.png)
+    ![test Single Sign-On](./media/sapnetweaver-tutorial/testingsso.png)
 
 3. If username & password prompt occurs, please diagnose the issue by enable the trace using below URL
 
-	`https://<sapurl>/sap/bc/webdynpro/sap/sec_diag_tool?sap-client=122&sap-language=EN#`
+    `https://<sapurl>/sap/bc/webdynpro/sap/sec_diag_tool?sap-client=122&sap-language=EN#`
 
 ## Configure SAP NetWeaver for OAuth
 
@@ -340,20 +340,20 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 2. Go to SPRO and find **Activate and Maintain services**.
 
-	![Activate and Maintain services](./media/sapnetweaver-tutorial/oauth01.png)
+    ![Activate and Maintain services](./media/sapnetweaver-tutorial/oauth01.png)
 
 3. In this example we want to connect the OData service: `DAAG_MNGGRP` with OAuth to Microsoft Entra SSO. Use the technical service name search for the service `DAAG_MNGGRP` and activate if not yet active, already (look for `green` status under ICF nodes tab). Ensure if system alias (the connected backend system, where the service actually running) is correct.
 
-	![OData service](./media/sapnetweaver-tutorial/oauth02.png)
+    ![OData service](./media/sapnetweaver-tutorial/oauth02.png)
 
-	* Then click pushbutton **OAuth** on the top button bar and assign `scope` (keep default name as offered).
+    * Then click pushbutton **OAuth** on the top button bar and assign `scope` (keep default name as offered).
 
 4. For our example the scope is `DAAG_MNGGRP_001`, it is generated from the service name by automatically adding a number. Report `/IWFND/R_OAUTH_SCOPES` can be used to change name of scope or create manually.
 
-	![Configure OAuth](./media/sapnetweaver-tutorial/oauth03.png)
+    ![Configure OAuth](./media/sapnetweaver-tutorial/oauth03.png)
 
-	> [!NOTE]
-	> Message `soft state status is not supported` – can be ignored, as no problem.
+    > [!NOTE]
+    > Message `soft state status is not supported` – can be ignored, as no problem.
 
 ### Create a service user for the OAuth 2.0 Client
 
@@ -361,8 +361,8 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 2. When registering an OAuth Client we use the `SAML Bearer Grant type`.
 
-	>[!NOTE]
-	>For more details, refer OAuth 2.0 Client Registration for the SAML Bearer Grant Type [here](https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+Client+Registration+for+the+SAML+Bearer+Grant+Type).
+    >[!NOTE]
+    >For more details, refer OAuth 2.0 Client Registration for the SAML Bearer Grant Type [here](https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+Client+Registration+for+the+SAML+Bearer+Grant+Type).
 
 3. tcod: SU01 / create user CLIENT1 as `System type` and assign password, save it as need to provide the credential to the API programmer, who should burn it with the username to the calling code. No profile or role should be assigned.
 
@@ -372,23 +372,23 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 2. Go to T-Code: **SOAUTH2** and Provide the description then click **next**.
 
-	![SOAUTH2](./media/sapnetweaver-tutorial/oauth04.png)
+    ![SOAUTH2](./media/sapnetweaver-tutorial/oauth04.png)
 
-	![OAuth 2.0 Client ID](./media/sapnetweaver-tutorial/oauth05.png)
+    ![OAuth 2.0 Client ID](./media/sapnetweaver-tutorial/oauth05.png)
 
 3. Select the already added **SAML2 IdP – Microsoft Entra ID** from the dropdown list and save.
 
-	![SAML2 IdP – Microsoft Entra ID 1](./media/sapnetweaver-tutorial/oauth06.png)
+    ![SAML2 IdP – Microsoft Entra ID 1](./media/sapnetweaver-tutorial/oauth06.png)
 
-	![SAML2 IdP – Microsoft Entra ID 2](./media/sapnetweaver-tutorial/oauth07.png)
+    ![SAML2 IdP – Microsoft Entra ID 2](./media/sapnetweaver-tutorial/oauth07.png)
 
-	![SAML2 IdP – Microsoft Entra ID 3](./media/sapnetweaver-tutorial/oauth08.png)
+    ![SAML2 IdP – Microsoft Entra ID 3](./media/sapnetweaver-tutorial/oauth08.png)
 
 4. Click on **Add** under scope assignment to add the previously created scope: `DAAG_MNGGRP_001`
 
-	![Scope](./media/sapnetweaver-tutorial/oauth09.png)
+    ![Scope](./media/sapnetweaver-tutorial/oauth09.png)
 
-	![scope assignment](./media/sapnetweaver-tutorial/oauth10.png)
+    ![scope assignment](./media/sapnetweaver-tutorial/oauth10.png)
 
 5. Click **finish**.
 
