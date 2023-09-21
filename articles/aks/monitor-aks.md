@@ -202,7 +202,7 @@ Depending on the alerting scenario required, log queries needs to be created com
 ## Network Observability
 [Network observability](./network-observability-overview) is an important part of maintaining a healthy and performant Kubernetes cluster. By collecting and analyzing data about network traffic, you can gain insights into how your cluster is operating and identify potential problems before they cause outages or performance degradation.
 
-When the Network Observability add-on is enabled, it allows for the collection and conversion of useful metrics into Prometheus format, which can then be visualized in Grafana. The collected metrics are automatically ingested into Azure managed service for Prometheus when enabled. A Grafana dashboard is available in the Grafana public dashboard repo to visualized the network observability metrics collected by Prometheus. see [Network Observability setup](./network-observability-managed-cli?tabs=non-cilium) for detailed instruction.
+When the [Network Observability](/azure/aks/network-observability-overview) add-on is enabled, it collects and converts useful metrics into Prometheus format, which can be visualized in Grafana. When enabled, the collected metrics are automatically ingested into Azure Monitor managed service for Prometheus. A Grafana dashboard is available in the Grafana public dashboard repo to visualize the network observability metrics collected by Prometheus. For more information, see [Network Observability setup](./network-observability-managed-cli?tabs=non-cilium) for detailed instructions.
 
 ## Next steps
 
