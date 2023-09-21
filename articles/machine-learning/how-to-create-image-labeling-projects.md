@@ -285,7 +285,7 @@ If your project was created from [Vision Studio](../ai-services/computer-vision/
 
 To export the labels, on the **Project details** page of your labeling project, select the **Export** button. You can export the label data for Machine Learning experimentation at any time.
 
-If your project type is Semantic segmentation (Preview), an Azure MLTable data asset is created.
+If your project type is Semantic segmentation (Preview), an [Azure MLTable data asset](./how-to-mltable.md) is created.
 
 For all other project types, you can export an image label as:
 

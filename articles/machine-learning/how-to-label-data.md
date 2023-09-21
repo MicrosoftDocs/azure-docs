@@ -181,7 +181,9 @@ To delete parts of the area, select **Eraser** tool.
 
 To change the tag for an area, select the new tag and re-paint the area.
 
-After you create the areas for an image, select **Submit** to save your work, or your work in progress won't be saved.
+You can also use the [Polygon tool](#tag-images-and-specify-polygons-for-image-segmentation) to specify a region.
+
+After you create the areas for an image, select **Submit** to save your work, or your work in progress won't be saved. If you used the Polygon tool, all polygons will be converted to a mask when you submit.
 
 ## Label text
 
