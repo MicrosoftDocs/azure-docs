@@ -36,7 +36,7 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | MQTT outbound publish requests per namespace | Up to 1,000 messages per second or 1 MB per second per TU (whichever comes first) |
 | MQTT outbound publish requests per client    | 100 messages per second                                                           |
 | Registered client resources                  | 10,000 clients per TU                                                             |
-| CA certificates                              | 2                                                                                 |
+| CA certificates                              | 10                                                                                 |
 | Client groups                                | 10                                                                                |
 | Topic spaces                                 | 10                                                                                |
 | Topic templates                              | 10 per topic space                                                                                |
