@@ -45,7 +45,7 @@
       href: cache-tutorial-write-behind.md
   - name: Connect from apps hosted on Azure Kubernetes Service
     items:
-    - name: Use Enterprise active geo-replication with your AKS hosted application
+    - name: Use active geo-replication with an AKS-hosted application
       href: cache-tutorial-active-replication.md
     - name: Connect an AKS application to a cache
       href: cache-tutorial-aks-get-started.md
