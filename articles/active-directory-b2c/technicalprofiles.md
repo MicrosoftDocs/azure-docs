@@ -233,7 +233,7 @@ The following technical profiles reference the **CreateOtherMailsFromEmail** cla
 
 ## Input claims
 
-The **InputClaims** element picks up claims from the claims bag that are used for the technical profile. For example, a [self-asserted technical profile](self-asserted-technical-profile.md) uses the input claims to prepopulate the output claims that the user provides. A REST API technical profile uses the input claims to send input parameters to the REST API endpoint. Microsoft Entra ID uses an input claim as a unique identifier to read, update, or delete an account.
+The **InputClaims** element picks up claims from the claims bag that are used for the technical profile. For example, a [self-asserted technical profile](self-asserted-technical-profile.md) uses the input claims to prepopulate the output claims that the user provides. A REST API technical profile uses the input claims to send input parameters to the REST API endpoint. Azure AD B2C uses an input claim as a unique identifier to read, update, or delete an account.
 
 The **InputClaims** element contains the following element:
 
