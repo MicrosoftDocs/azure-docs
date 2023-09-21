@@ -38,7 +38,7 @@ The following table shows the support status for different Packet Core releases.
 ### 10 DNs
 In this release, the number of supported data networks (DNs) increases from three to 10, including with layer 2 traffic separation. If more than 6 DNs are required, a shared switch for access and core traffic is needed.
 
-Full documentation of this feature can be found [here](**ROB to add link to MS Learn**)
+To add a data network to your packet core, see [Modify a packet core instance](modify-packet-core.md).
 
 ### Default MTU Values
 In this release, the default MTU values are changed as follows:
