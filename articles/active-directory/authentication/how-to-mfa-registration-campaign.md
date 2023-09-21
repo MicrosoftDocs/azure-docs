@@ -78,8 +78,8 @@ To enable a registration campaign in the Microsoft Entra admin center, complete 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator) or [Global Administrator](../roles/permissions-reference.md#global-administrator).
 1. Browse to **Protection** > **Authentication methods** > **Registration campaign** and click **Edit**.
 1. For **State**, click **Microsoft managed** or **Enabled**. In the following screenshot, the registration campaign is **Microsoft managed**. That setting allows Microsoft to set the default value to be either Enabled or Disabled. For the registration campaign, the Microsoft managed value is Enabled for voice call and text message users with free and trial subscriptions. For more information, see [Protecting authentication methods in Microsoft Entra ID](concept-authentication-default-enablement.md).
-   
-   ![Screenshot of enabling a registration campaign.](media/how-to-mfa-registration-campaign/admin-experience.png)
+
+   :::image type="content" border="true" source="media/how-to-mfa-registration-campaign/admin-experience.png" alt-text="Screenshot of enabling a registration campaign.":::
 
 1. Select any users or groups to exclude from the registration campaign, and then click **Save**. 
 
