@@ -72,7 +72,7 @@ For more information, see [Using Azure Monitor Application Insights with Spring 
 
 ## Java Application servers
 
-Tou can find how to enable Azure Monitor Application Insights for Java [here](./opentelemetry-enable.md). The following sections show the _specific configurations_ of the Application Insights _Java agent path_ for different application servers.
+You can find how to enable Azure Monitor Application Insights for Java [here](./opentelemetry-enable.md). The following sections show the _specific configurations_ of the Application Insights _Java agent path_ for different application servers.
 
 ### Tomcat 8 (Linux)
 
