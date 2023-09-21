@@ -3093,7 +3093,7 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-migration-mfa.md",
       "redirect_url": "/azure/active-directory/conditional-access/policy-migration-mfa",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-policy-connected-applications.md",

@@ -21,10 +21,9 @@ Conditional Access policies are at their most basic an if-then statement combini
 
 ![Conceptual Conditional signal plus decision to get enforcement](./media/location-condition/conditional-access-signal-decision-enforcement.png)
 
-> [!IMPORTANT]
-> [IPv6 is coming to Microsoft Entra ID](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/ipv6-coming-to-azure-ad/ba-p/2967451). We will begin introducing IPv6 support into Microsoft Entra services in a phased approach, starting April 3, 2023. Organizations that use named locations in Conditional Access or Identity Protection must [take action to avoid possible service impact](/troubleshoot/azure/active-directory/azure-ad-ipv6-support#what-does-my-organization-have-to-do).
+As mentione in the blog post [IPv6 is coming to Microsoft Entra ID](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/ipv6-coming-to-azure-ad/ba-p/2967451) we now support IPv6 in Microsoft Entra services.
 
-Organizations can use this location for common tasks like: 
+Organizations can use these locations for common tasks like: 
 
 - Requiring multifactor authentication for users accessing a service when they're off the corporate network.
 - Blocking access for users accessing a service from specific countries or regions your organization never operates from.
