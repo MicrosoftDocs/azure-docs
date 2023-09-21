@@ -3,7 +3,6 @@ title: Connect to the cloud
 description: Connect your Azure IoT Operations edge environment to Azure Cloud services such as Azure Event Hubs, Microsoft Fabric, and Azure Data Explorer.
 author: PatAltimore
 ms.author: patricka
-ms.service: iot-operations
 ms.topic: conceptual #Required.
 ms.date: 09/08/2023
 ---

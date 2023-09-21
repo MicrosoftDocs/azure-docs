@@ -3,7 +3,6 @@ title: Manage assets and tags
 description: Manage the assets and tags that enable you to connect your OPC-UA servers to Operations MQ. Assets and tags let you map specific OPC-UA values to fields in the messages Operations MQ routes.
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-operations
 ms.topic: conceptual #Required.
 ms.date: 09/08/2023
 ---

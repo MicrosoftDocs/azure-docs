@@ -3,7 +3,6 @@ title: Develop customizations
 description: Develop customizations to extend the capabilities of your Azure IoT Operations solution. Learn how to use Dapr to customize Operations MQ.
 author: PatAltimore
 ms.author: patricka
-ms.service: iot-operations
 ms.topic: conceptual #Required.
 ms.date: 09/08/2023
 ---

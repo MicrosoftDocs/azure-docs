@@ -3,7 +3,6 @@ title: Manage your edge solution
 description: Manage security, monitor your solution by using logs and traces, and scale your solution. Use the Azure portal to manage your Azure IoT Operations solution.
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-operations
 ms.topic: conceptual #Required.
 ms.date: 09/08/2023
 ---

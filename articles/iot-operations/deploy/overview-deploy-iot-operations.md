@@ -3,7 +3,6 @@ title: Deploy an edge solution
 description: Deploy Azure IoT Operations to your edge environment. Use Azure services to deploy Azure IoT Operations to your Kubernetes cluster.
 author: kgremban
 ms.author: kgremban
-ms.service: iot-operations
 ms.topic: conceptual #Required.
 ms.date: 09/08/2023
 ---

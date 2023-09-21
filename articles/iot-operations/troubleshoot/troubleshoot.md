@@ -4,7 +4,6 @@ description: Troubleshoot your Azure IoT Operations deployment
 author: kgremban
 ms.author: kgremban
 ms.topic: troubleshooting-general
-ms.service: iot-operations
 ms.date: 09/20/2023
 ---
 
