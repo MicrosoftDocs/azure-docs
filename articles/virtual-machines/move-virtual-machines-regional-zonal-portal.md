@@ -56,7 +56,7 @@ To select the target availability zones, follow these steps:
 
 1. If Azure recommends to optimize the VM size, you must select the appropriate VM size that can increase the chances of successful deployment in the selected zone. Alternatively, you can also change the zone while keeping the same source VM size. 
    
-    :::image type="content" source="./media/tutorial-move-regional-zonal/aure-recommendation.png" alt-text="Screenshot showing Azure recommendation to increase virtual machine sie.":::
+    :::image type="content" source="./media/tutorial-move-regional-zonal/aure-recommendation.png" alt-text="Screenshot showing Azure recommendation to increase virtual machine size.":::
 
 1.	Select the consent statement for **System Assigned Managed Identity** process then select **Next**.
 
