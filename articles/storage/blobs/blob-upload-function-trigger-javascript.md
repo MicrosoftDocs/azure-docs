@@ -423,7 +423,6 @@ Although the Azure Function code runs locally, it connects to the cloud-based se
   "IsEncrypted": false,
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "node",
-    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
     "AzureWebJobsStorage": "",
     "StorageConnection": "STORAGE-CONNECTION-STRING",
     "StorageAccountName": "STORAGE-ACCOUNT-NAME",

@@ -1,5 +1,5 @@
 ---
-title: Upgrade to v4 of the Node.js model for Azure Functions
+title: Migrate to v4 of the Node.js model for Azure Functions
 description: This article shows you how to upgrade your existing function apps running on v3 of the Node.js programming model to v4.
 ms.service: azure-functions
 ms.date: 03/15/2023
@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 ms.topic: how-to
 ---
 
-# Upgrade to version 4 of the Node.js programming model for Azure Functions
+# Migrate to version 4 of the Node.js programming model for Azure Functions
 
 This article discusses the differences between version 3 and version 4 of the Node.js programming model and how to upgrade an existing v3 app. If you want to create a new v4 app instead of upgrading an existing v3 app, see the tutorial for either [Visual Studio Code (VS Code)](./create-first-function-cli-node.md) or [Azure Functions Core Tools](./create-first-function-vs-code-node.md). This article uses "tip" alerts to highlight the most important concrete actions that you should take to upgrade your app.
 
@@ -24,41 +24,11 @@ Version 4 is designed to provide Node.js developers with the following benefits:
 
 Version 4 of the Node.js programming model requires the following minimum versions:
 
-- [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0-alpha.9+
+- [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0
 - [Node.js](https://nodejs.org/en/download/releases/) v18+
 - [TypeScript](https://www.typescriptlang.org/) v4+
-- [Azure Functions Runtime](./functions-versions.md) v4.16+
-- [Azure Functions Core Tools](./functions-run-local.md) v4.0.5095+ (if running locally)
-
-## Enable the v4 programming model
-
-To indicate that your function code is using the v4 model, you need to set the `EnableWorkerIndexing` flag on the `AzureWebJobsFeatureFlags` application setting. When you're running locally, add `AzureWebJobsFeatureFlags` with a value of `EnableWorkerIndexing` to your *local.settings.json* file. When you're running in Azure, you add this application setting by using the tool of your choice.
-
-# [Azure CLI](#tab/azure-cli-set-indexing-flag)
-
-Replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and resource group, respectively.
-
-```azurecli 
-az functionapp config appsettings set --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --settings AzureWebJobsFeatureFlags=EnableWorkerIndexing
-```
-
-# [Azure PowerShell](#tab/azure-powershell-set-indexing-flag)
-
-Replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and resource group, respectively.
-
-```azurepowershell
-Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobsFeatureFlags" = "EnableWorkerIndexing"}
-```
-
-# [VS Code](#tab/vs-code-set-indexing-flag)
-
-1. Make sure you have the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed.
-1. Select the <kbd>F1</kbd> key to open the command palette. In the command palette, search for and select **Azure Functions: Add New Setting**.
-1. Choose your subscription and function app when prompted.
-1. For the name, type **AzureWebJobsFeatureFlags** and select the <kbd>Enter</kbd> key.
-1. For the value, type **EnableWorkerIndexing** and select the <kbd>Enter</kbd> key.
-
----
+- [Azure Functions Runtime](./functions-versions.md) v4.25+
+- [Azure Functions Core Tools](./functions-run-local.md) v4.0.5382+ (if running locally)
 
 ## Include the npm package
 
@@ -67,7 +37,7 @@ In v4, the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) 
 > [!TIP]
 > Make sure the `@azure/functions` package is listed in the `dependencies` section (not `devDependencies`) of your *package.json* file. You can install v4 by using the following command: 
 > ```
-> npm install @azure/functions@preview
+> npm install @azure/functions
 > ```
 
 ## Set your app entry point
@@ -390,13 +360,4 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
 
 ## Troubleshoot
 
-If you get the following error, make sure that you [set the `EnableWorkerIndexing` flag](#enable-the-v4-programming-model) and that you're using the minimum version of all [requirements](#requirements):
-
-> No job functions found. Try making your job classes and methods public. If you're using binding extensions (e.g. Azure Storage, ServiceBus, Timers, etc.) make sure you've called the registration method for the extension(s) in your startup code (e.g. builder.AddAzureStorage(), builder.AddServiceBus(), builder.AddTimers(), etc.).
-
-If you get the following error, make sure that you're using Node.js version 18.x:
-
-> System.Private.CoreLib: Exception while executing function: Functions.httpTrigger1. System.Private.CoreLib: Result: Failure
-> Exception: undici_1.Request is not a constructor
-
-For any other problems or to give feedback, file an issue in the [Azure Functions Node.js repository](https://github.com/Azure/azure-functions-nodejs-library/issues).
+See the [Node.js Troubleshoot guide](./functions-node-troubleshoot.md).
