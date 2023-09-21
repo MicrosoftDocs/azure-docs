@@ -21,7 +21,12 @@ Smart lockout helps lock out bad actors that try to guess your users' passwords 
 
 ## How smart lockout works
 
-By default, smart lockout locks the account from sign-in attempts for one minute after a number of attempts. Ten failed attempts are allowed for Azure Public and Microsoft Azure operated by 21Vianet tenants and three for Azure US Government tenants. The account locks again after each subsequent failed sign-in attempt. The lockout period is one minute at first, and longer in subsequent attempts. To minimize the ways an attacker could work around this behavior, we don't disclose the rate at which the lockout period increases after unsuccessful sign-in attempts.
+By default, smart lockout locks an account from sign-in after: 
+
+- 10 failed attempts in Azure Public and Microsoft Azure operated by 21Vianet tenants 
+- 3 failed attempts for Azure US Government tenants
+
+The account locks again after each subsequent failed sign-in attempt. The lockout period is one minute at first, and longer in subsequent attempts. To minimize the ways an attacker could work around this behavior, we don't disclose the rate at which the lockout period increases after unsuccessful sign-in attempts.
 
 Smart lockout tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior does't cause the account to lock out.
 
@@ -34,7 +39,7 @@ Smart lockout is always on, for all Microsoft Entra customers, with these defaul
 
 Using smart lockout doesn't guarantee that a genuine user is never locked out. When smart lockout locks a user account, we try our best to not lock out the genuine user. The lockout service attempts to ensure that bad actors can't gain access to a genuine user account. The following considerations apply:
 
-* Lockout state across Microsoft Entra data centers is synchronized. However, the total number of failed sign-in attempts allowed before an account is locked out will have slight variance from the configured lockout threshold. Once an account is locked out, it will be locked out everywhere across all Microsoft Entra data centers.
+* Lockout state across Microsoft Entra data centers is synchronized. However, the total number of failed sign-in attempts allowed before an account is locked out will have slight variance from the configured lockout threshold. Once an account is locked out, it's locked out everywhere across all Microsoft Entra data centers.
 * Smart Lockout uses familiar location vs unfamiliar location to differentiate between a bad actor and the genuine user. Both unfamiliar and familiar locations have separate lockout counters.
 * After an account lockout, the user can initiate self-service password reset (SSPR) to sign in again. If the user chooses **I forgot my password** during SSPR, the duration of the lockout is reset to 0 seconds. If the user chooses **I know my password** during SSPR, the lockout timer continues, and the duration of the lockout isn't reset. To reset the duration and sign in again, the user needs to change their password.
 
@@ -92,7 +97,7 @@ When the smart lockout threshold is triggered, you'll get the following message 
 
 When you test smart lockout, your sign-in requests might be handled by different datacenters due to the geo-distributed and load-balanced nature of the Microsoft Entra authentication service. 
 
-Smart lockout tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior won't cause the account to lock out.
+Smart lockout tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior doesn't cause the account to lock out.
 
 
 ## Default protections
