@@ -5,7 +5,7 @@ description: Learn how to configure Virtual WAN routing policies
 author: wtnlee
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 09/21/2023
 ms.author: wellee
 
 ---
@@ -92,7 +92,7 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
 * Encrypted ExpressRoute (Site-to-site VPN tunnels running over ExpressRoute circuits) is supported in hubs where routing intent is configured if Azure Firewall is configured to allow traffic between VPN tunnel endpoints (Site-to-site VPN Gateway private IP and on-premises VPN device private IP). For more information on the required configurations, see [Encrypted ExpressRoute with routing intent](#encryptedER).
 * The following connectivity use cases are **not** supported with Routing Intent:
   * Static routes in the defaultRouteTable that point to a Virtual Network connection can't be used in conjunction with routing intent. However, you can use the [BGP peering feature](scenario-bgp-peering-hub.md).
-  * The ability to deploy both a SD-WAN connectivity NVA and a separate Firewall NVA or SaaS solution in the **same** Virtual WAN hub is currently in the road-map. Once routing intent is configured with next hop SaaS solution or Firewall NVA, connectivity between the SD-WAN NVA and Azure is impacted. Instead, deploy the SD-WAN NVA and Firewall NVA or SaaS solution in different Virtual Hubs. Alternatively, you can also deploy the SD-WAN NVA in a spoke Virtual Network connected to the hub and leverage the virtual hub [BGP peering](scenario-bgp-peering-hub.md) capability.
+  * The ability to deploy both an SD-WAN connectivity NVA and a separate Firewall NVA or SaaS solution in the **same** Virtual WAN hub is currently in the road-map. Once routing intent is configured with next hop SaaS solution or Firewall NVA, connectivity between the SD-WAN NVA and Azure is impacted. Instead, deploy the SD-WAN NVA and Firewall NVA or SaaS solution in different Virtual Hubs. Alternatively, you can also deploy the SD-WAN NVA in a spoke Virtual Network connected to the hub and leverage the virtual hub [BGP peering](scenario-bgp-peering-hub.md) capability.
   * Network Virtual Appliances (NVAs) can only be specified as the next hop resource for routing intent if they're Next-Generation Firewall or dual-role Next-Generation Firewall and SD-WAN NVAs. Currently, **checkpoint**, **fortinet-ngfw** and **fortinet-ngfw-and-sdwan** are the only NVAs eligible to be configured to be the next hop for routing intent. If you attempt to specify another NVA, Routing Intent creation fails. You can check the type of the NVA by navigating to your Virtual Hub -> Network Virtual Appliances and then looking at the **Vendor** field.
   * Routing Intent users who want to connect multiple ExpressRoute circuits to Virtual WAN and want to send traffic between them via a security solution deployed in the hub can enable open up a support case to enable this use case. Reference [enabling connectivity across ExpressRoute circuits](#expressroute) for more information.
 
@@ -354,7 +354,11 @@ The following steps describe how to configure routing intent and routing policie
 
 7. Repeat for all hubs you would like to configure routing policies for.
 
-8. At this point, you're ready to send test traffic. Ensure your Firewall Policies are configured appropriately to allow/deny traffic based on your desired security configurations. 
+8. At this point, you're ready to send test traffic. Ensure your Firewall Policies are configured appropriately to allow/deny traffic based on your desired security configurations.
+
+## Configure routing intent using a BICEP template
+
+See the [BICEP template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/virtual-wan-routing-intent) for information about the template and steps.
 
 ## Troubleshooting
 

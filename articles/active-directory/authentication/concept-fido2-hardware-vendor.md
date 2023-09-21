@@ -61,6 +61,7 @@ The following table lists partners who are Microsoft-compatible FIDO2 security k
 | [Precision Biometric](https://www.innait.com/product/fido/) | ![n] | ![y]| ![n]| ![n]| ![n] |
 | [RSA](https://www.rsa.com/products/securid/) | ![n] | ![y]| ![n]| ![n]| ![n] |
 | [Sentry](https://sentryenterprises.com/) | ![n] | ![n]| ![y]| ![n]| ![n] |
+| [SmartDisplayer](https://www.smartdisplayer.com/fido) | ![n] | ![n]| ![y]| ![y]| ![n] |
 | [Swissbit](https://www.swissbit.com/en/products/ishield-key/) | ![n] | ![y]| ![y]| ![n]| ![n] |
 | [Thales Group](https://cpl.thalesgroup.com/access-management/authenticators/fido-devices) | ![n] | ![y]| ![y]| ![n]| ![y] |
 | [Thetis](https://thetis.io/collections/fido2) | ![y] | ![y]| ![y]| ![y]| ![n] |

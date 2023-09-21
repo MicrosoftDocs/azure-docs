@@ -368,7 +368,7 @@
             - name: Integrate with Azure services
               href: integrations-overview.md              
             - name: RAG with Azure OpenAI
-              href: ../rag-data-openai.md
+              href: ../vector-search.md#retrieval-augmented-generation
             - name: Vercel
               href: ../vercel-integration.md
         - name: Migrate data to Azure Cosmos DB
