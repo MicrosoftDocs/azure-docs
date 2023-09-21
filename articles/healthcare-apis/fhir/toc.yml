@@ -13,7 +13,7 @@ items:
   - name: Versioning policy and history management
     href: fhir-versioning-policy-and-history-management.md
   - name: Migration from Azure API for FHIR
-    href: https://learn.microsoft.com/azure/healthcare-apis/fhir/migration-strategies
+    href: ../fhir/migration-strategies.md
 - name: Quickstarts
   expanded: false
   items:
