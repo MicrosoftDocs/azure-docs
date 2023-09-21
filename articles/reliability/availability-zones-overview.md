@@ -55,7 +55,6 @@ To understand the mapping between logical and physical zones for your subscripti
 ```azurecli
 az rest --method get --uri '/subscriptions/{subscriptionId}/locations?api-version=2022-12-01' --query 'value'
 ```
-
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -65,6 +64,7 @@ $response = Invoke-AzRestMethod -Method GET -Path "/subscriptions/$subscriptionI
 $locations = ($response.Content | ConvertFrom-Json).value
 
 ```
+---
 
 ## Availability zones and Azure updates
 
@@ -76,7 +76,7 @@ The [shared responsibility model](./overview.md#shared-responsibility) describes
 
 Microsoft provides availability zones and regions to give you flexibility in how you design your solution to meet your requirements. When you use managed services, Microsoft takes on more of the management responsibilities for your resources, which might even include data replication, failover, failback, and other tasks related to operating a distributed system.
 
-# Availability zone architectural guidance
+## Availability zone architectural guidance
 
 To achieve more reliable workloads:
 
