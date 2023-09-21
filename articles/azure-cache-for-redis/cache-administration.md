@@ -76,16 +76,35 @@ Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](cache-
 
 No. Reboot isn't available for the Enterprise tier yet. Reboot is available for Basic, Standard and Premium tiers.The settings that you see on the Resource menu under **Administration** depend on the tier of your cache. You don't see **Reboot** when using a cache from the Enterprise tier.
 
-## Schedule updates
+## Flush data (Preview)
 
-On the left, **Schedule updates** allows you to choose a maintenance window for your cache instance. A maintenance window allows you to control the day(s) and time(s) of a week during which the VM(s) hosting your cache can be updated. Azure Cache for Redis will make a best effort to start and finish updating Redis server software within the specified time window you define.
+On the left, **Flush** allows you to delete or flush all data in your cache and is supported by Basic, Standard and Premium tiers. This Flush capability can be used before scaling operations to potentially reduce the time required to complete scaling operation on your cache. You can also configure to run the Flush operation periodically on your dev/test caches to keep memory usage in check. 
+The Flush operation, when executed on a clustered cache, will clear data from all shards at the same time.
+
+> [!IMPORTANT]
+> Flush operation is available for only geo-replicated Enterprise tier caches
+>
+<!--> Need screenshot here <-->
+
+## Update channel and Schedule updates
+
+On the left, **Schedule updates** allows you to choose an update channel and a maintenance window for your cache instance. 
+
+Cache instance using "Stable" update channel will receive updates few weeks later than cache instances using "Preview" update channel. We recommend choosing "Preview" update channel for your non-production and less critical workloads and choose "Stable" update channel for your most critical, production workloads. All cache will default to "Stable" update channel by default. 
 
 > [!NOTE]
-> The maintenance window applies to Redis server updates and updates to the Operating System of the VMs hosting the cache. The maintenance window does not apply to Host OS updates to the Hosts hosting the cache VMs or other Azure Networking components. In rare cases, where caches are hosted on older models (you can tell if your cache is on an older model if the DNS name of the cache resolves to a suffix of "cloudapp.net", "chinacloudapp.cn", "usgovcloudapi.net" or "cloudapi.de"), the maintenance window won't apply to Guest OS updates either.
->
-> Currently, no option is available to configure a reboot or scheduled updates for an Enterprise tier cache.
+> Changing update channel on your cache instance will result your cache undergoing a patching event to apply the right updates. Consider changing   > update channel during your maintenance window.
 >
 
+A maintenance window allows you to control the day(s) and time(s) of a week during which the VM(s) hosting your cache can be updated. Azure Cache for Redis will make a best effort to start and finish updating Redis server software within the specified time window you define.
+
+> [!NOTE]
+> The update channel and maintenance window applies to Redis server updates and updates to the Operating System of the VMs hosting the cache. The update channel and maintenance window does not apply to Host OS updates to the Hosts hosting the cache VMs or other Azure Networking components. In rare cases, where caches are hosted on older models (you can tell if your cache is on an older model if the DNS name of the cache resolves to a suffix of "cloudapp.net", "chinacloudapp.cn", "usgovcloudapi.net" or "cloudapi.de"), the maintenance window won't apply to Guest OS updates either.
+>
+> Currently, no option is available to configure an update channel or scheduled updates for an Enterprise tier cache.
+>
+
+<!-->Need to update this screenshot.<-->
 :::image type="content" source="media/cache-administration/redis-schedule-updates-2.png" alt-text="Screenshot showing schedule updates":::
 
 To specify a maintenance window, check the days you want and specify the maintenance window start hour for each day. Then, select **OK**. The maintenance window time is in UTC and can only be configured on an hourly basis.

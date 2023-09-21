@@ -13,6 +13,20 @@ ms.date: 09/12/2023
 
 # What's New in Azure Cache for Redis
 
+## October 2023
+
+### Flush data operation for Basic, Standard and Premium Caches (Preview)
+
+Basic, Standard and Premium caches now support a built-in _flush_ operation that can be initiated at the control plane level. Use the _flush_ operation with your cache exeucting of the `FLUSH ALL` command through Portal Console or _redis-cli_.
+
+For more information, see [flush data operation.](cache-administration.md#flush-data-preview)
+
+### Update channel for Basic, Standard and Premium Caches (Preview)
+
+You can choose your Basic, Standard or Premium cache instance to receive early updates by configuring the "Preview" or the "Stable" update channel. 
+
+For more information, see [update channels.](cache-administration.md#update-channel-and-schedule-updates)
+
 ## September 2023
 
 ### Remove TLS 1.0 and 1.1 from use with Azure Cache for Redis
