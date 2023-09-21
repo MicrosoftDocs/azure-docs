@@ -22,7 +22,7 @@ In this sample tutorial, we provide guidance on how to integrate Azure AD B2C wi
 
 To get started, you'll need:
 
-* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 ## Scenario description

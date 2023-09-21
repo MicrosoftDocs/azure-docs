@@ -24,7 +24,8 @@ In this tutorial, you'll enable the Onfido service to verify identity in the sig
 
 To get started, you'll need:
 
-- A Microsoft Entra subscription
+* An Azure subscription
+
   - If you don't have on, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - An Onfido trial account

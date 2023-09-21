@@ -33,7 +33,8 @@ Use the following instructions to set up access control delegated administration
 
 To get started, you need:
 
-* A Microsoft Entra subscription
+* An Azure subscription
+
   * If you don't have on, get an [Azure free account](https://azure.microsoft.com/free/)
 * An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 * Go to saviynt.com [Contact Us](https://saviynt.com/contact-us/) to request a demo

@@ -66,7 +66,8 @@ To get started, you need:
 
 * Access to users with an IDEMIA, US state issued Mobile ID credential (mID) 
   * Or during the test phase, the mID demo application from IDEMIA
-* A Microsoft Entra subscription
+* An Azure subscription
+
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An [Azure AD B2C tenant](tutorial-create-tenant.md) linked to the Azure subscription
 * Your business web application registered in an Azure AD B2C tenant

@@ -30,7 +30,8 @@ The solution has the following benefits:
 
 To get started, you'll need:
 
-- A Microsoft Entra subscription
+* An Azure subscription
+
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - An instance of [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) to store secrets used by Maverics Identity Orchestrator. Connect to Azure AD B2C or other attribute providers such as a Lightweight Directory Access Protocol (LDAP) directory or database.

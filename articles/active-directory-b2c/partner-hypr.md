@@ -22,7 +22,8 @@ In this tutorial, learn to configure Azure Active Directory B2C (Azure AD B2C) w
 
 To get started, you'll need:
 
-- A Microsoft Entra subscription
+* An Azure subscription
+
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - A HYPR cloud tenant

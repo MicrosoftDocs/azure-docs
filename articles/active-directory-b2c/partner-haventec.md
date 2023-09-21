@@ -50,7 +50,8 @@ Use the following instructions to prepare for and integrate Azure AD B2C with Au
 
 To get started, you need:
 
-* A Microsoft Entra subscription
+* An Azure subscription
+
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An Azure AD B2C tenant linked to the Azure subscription
   * see, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
