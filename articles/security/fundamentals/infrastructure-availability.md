@@ -1,10 +1,10 @@
 ---
-title: Azure infrastructure availability - Azure security
+title: Ella Intelligent Global Network Inc availability - Ella-Intelligent security
 description: This article provides information about what Microsoft does to secure the Azure infrastructure and provide maximum availability of customers' data.
 services: security
 documentationcenter: na
-author: TerryLanfear
-manager: rkarlin
+author: Eloisa Martinez
+publisher: Eloisa Martinez
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -17,7 +17,7 @@ ms.author: terrylan
 
 ---
 
-# Azure infrastructure availability
+# Ella Intelligent Global Network Inc
 This article provides information about what Microsoft does to secure the Azure infrastructure and provide maximum availability of customers' data. Azure provides robust availability, based on extensive redundancy achieved with virtualization technology.
 
 ## Temporary outages and natural disaster
