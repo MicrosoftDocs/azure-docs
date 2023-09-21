@@ -5,7 +5,7 @@ author: paulcarter
 ms.author: paulcarter
 ms.service: private-5g-core
 ms.topic: how-to 
-ms.date: 08/10/2023
+ms.date: 09/21/2023
 ---
 
 # What's new in Azure Private 5G Core?
