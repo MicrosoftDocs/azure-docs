@@ -90,7 +90,7 @@ The `spec.keyValues.keyVaults` property has the following child properties.
 |---|---|---|---|
 |target|The destination of the retrieved secrets in Kubernetes|true|object|
 |auth|The authentication method to access Key Vaults|false|object|
-|refresh|The settings for refreshing data from Key Vaults. If the property is absent, data from Key Vaults will not be refreshed|false|object|
+|refresh|The settings for refreshing data from Key Vaults. If the property is absent, data from Key Vaults will not be refreshed unless the corresponding Key Vault references are reloaded|false|object|
 
 The `spec.keyValues.keyVaults.target` property has the following child property.
 
@@ -293,32 +293,6 @@ spec:
     trimKeyPrefixes: [prefix1, prefix2]
 ```
 
-### Key Vault references
-
-The following sample instructs using a service principal to authenticate with a specific vault and a user-assigned managed identity for all other vaults.
-
-``` yaml
-apiVersion: azconfig.io/v1beta1
-kind: AzureAppConfigurationProvider
-metadata:
-  name: appconfigurationprovider-sample
-spec:
-  endpoint: <your-app-configuration-store-endpoint>
-  target:
-    configMapName: configmap-created-by-appconfig-provider
-  keyValues:
-    selectors:
-      - keyFilter: app1*
-    keyVaults:
-      target:
-        secretName: secret-created-by-appconfig-provider
-      auth:
-        managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
-        vaults:
-          - uri: <your-key-vault-uri>
-            servicePrincipalReference: <name-of-secret-containing-service-principal-credentials>
-```
-
 ### Dynamic configuration refresh
 
 Setting the `spec.keyValues.refresh` property enables dynamic configuration data refresh in ConfigMap and Secret by monitoring designated key-values. The provider periodically polls the key-values, if there is any value change, provider triggers ConfigMap and Secret refresh in accordance with the present data in Azure App Configuration.
@@ -350,10 +324,37 @@ spec:
             label: development
 ```
 
-### Periodically reload KeyVault secrets
-Setting `spec.keyValues.keyVaults.refresh` property enables the provider periodically reload the latest version secrets from Azure Key Vault, and update the values for associated data items in generated Kubernetes secret accordingly. 
+### Key Vault references
 
-The following sample instructs secret refresh with 10 minutes reloading interval. 
+The following sample instructs using a service principal to authenticate with a specific vault and a user-assigned managed identity for all other vaults.
+
+``` yaml
+apiVersion: azconfig.io/v1beta1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  keyValues:
+    selectors:
+      - keyFilter: app1*
+    keyVaults:
+      target:
+        secretName: secret-created-by-appconfig-provider
+      auth:
+        managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
+        vaults:
+          - uri: <your-key-vault-uri>
+            servicePrincipalReference: <name-of-secret-containing-service-principal-credentials>
+```
+
+### Periodically reload KeyVault secrets
+
+Refreshing secrets from Key Vaults usually requires reloading the corresponding Key Vault references from Azure App Configuration. However, with the `spec.keyValues.keyVaults.refresh` property, you can refresh the secrets from Key Vault independently. This is especially useful for ensuring that your workload automatically picks up any updated secrets from Key Vault during secret rotation. Note that to load the latest version of a secret, the Key Vault reference must not be a versioned secret.
+
+The following sample refreshes all non-versioned secrets from Key Vault every hour.
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
@@ -374,7 +375,7 @@ spec:
       auth:
         managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
       refresh:
-        interval: 10m
+        interval: 1h
 ```
 
 ### Consume ConfigMap
