@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on integration with Citrix ADC (header-based authentication)'
-description: Learn how to configure single sign-on (SSO) between Azure Active Directory and Citrix ADC by using header-based authentication.
+title: 'Tutorial: Microsoft Entra single sign-on integration with Citrix ADC (header-based authentication)'
+description: Learn how to configure single sign-on (SSO) between Microsoft Entra ID and Citrix ADC by using header-based authentication.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,24 +13,24 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on integration with Citrix ADC (header-based authentication)
+# Tutorial: Microsoft Entra single sign-on integration with Citrix ADC (header-based authentication)
 
-In this tutorial, you'll learn how to integrate Citrix ADC with Azure Active Directory (Azure AD). When you integrate Citrix ADC with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Citrix ADC with Microsoft Entra ID. When you integrate Citrix ADC with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Citrix ADC.
-* Enable your users to be automatically signed-in to Citrix ADC with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Citrix ADC.
+* Enable your users to be automatically signed-in to Citrix ADC with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Citrix ADC single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. The tutorial includes these scenarios:
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment. The tutorial includes these scenarios:
 
 * **SP-initiated** SSO for Citrix ADC
 
@@ -42,7 +42,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment. The
 
 ## Add Citrix ADC from the gallery
 
-To integrate Citrix ADC with Azure AD, first add Citrix ADC to your list of managed SaaS apps from the gallery:
+To integrate Citrix ADC with Microsoft Entra ID, first add Citrix ADC to your list of managed SaaS apps from the gallery:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -53,27 +53,31 @@ To integrate Citrix ADC with Azure AD, first add Citrix ADC to your list of mana
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Citrix ADC
+<a name='configure-and-test-azure-ad-sso-for-citrix-adc'></a>
 
-Configure and test Azure AD SSO with Citrix ADC by using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Citrix ADC.
+## Configure and test Microsoft Entra SSO for Citrix ADC
 
-To configure and test Azure AD SSO with Citrix ADC, perform the following steps:
+Configure and test Microsoft Entra SSO with Citrix ADC by using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Citrix ADC.
 
-1. [Configure Azure AD SSO](#configure-azure-ad-sso) - to enable your users to use this feature.
+To configure and test Microsoft Entra SSO with Citrix ADC, perform the following steps:
 
-    1. [Create an Azure AD test user](#create-an-azure-ad-test-user) - to test Azure AD SSO with B.Simon.
+1. [Configure Microsoft Entra SSO](#configure-azure-ad-sso) - to enable your users to use this feature.
 
-    1. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) - to enable B.Simon to use Azure AD SSO.
+    1. [Create a Microsoft Entra test user](#create-an-azure-ad-test-user) - to test Microsoft Entra SSO with B.Simon.
+
+    1. [Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user) - to enable B.Simon to use Microsoft Entra SSO.
 
 1. [Configure Citrix ADC SSO](#configure-citrix-adc-sso) - to configure the SSO settings on the application side.
 
-    * [Create a Citrix ADC test user](#create-a-citrix-adc-test-user) - to have a counterpart of B.Simon in Citrix ADC that is linked to the Azure AD representation of the user.
+    * [Create a Citrix ADC test user](#create-a-citrix-adc-test-user) - to have a counterpart of B.Simon in Citrix ADC that is linked to the Microsoft Entra representation of the user.
 
 1. [Test SSO](#test-sso) - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-To enable Azure AD SSO by using the Azure portal, complete these steps:
+## Configure Microsoft Entra SSO
+
+To enable Microsoft Entra SSO by using the Azure portal, complete these steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Citrix ADC** application integration pane, under **Manage**, select **Single sign-on**.
@@ -99,7 +103,7 @@ To enable Azure AD SSO by using the Azure portal, complete these steps:
 
 	> [!NOTE]
 	> * The URLs that are used in this section aren't real values. Update these values with the actual values for Identifier, Reply URL, and Sign-on URL. Contact the [Citrix ADC client support team](https://www.citrix.com/contact/technical-support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
-    > * To set up SSO, the URLs must be accessible from public websites. You must enable the firewall or other security settings on the Citrix ADC side to enable Azure AD to post the token at the configured URL.
+    > * To set up SSO, the URLs must be accessible from public websites. You must enable the firewall or other security settings on the Citrix ADC side to enable Microsoft Entra ID to post the token at the configured URL.
 
 1. On the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, for **App Federation Metadata Url**, copy the URL and save it in Notepad.
 
@@ -133,7 +137,9 @@ To enable Azure AD SSO by using the Azure portal, complete these steps:
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -147,7 +153,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you enable the user B.Simon to use Azure SSO by granting the user access to Citrix ADC.
 
@@ -289,7 +297,9 @@ To create an authentication virtual server:
 
     ![Citrix ADC configuration - Authentication Virtual Server pane](./media/header-citrix-netscaler-tutorial/server02.png)
     
-### Configure the authentication virtual server to use Azure AD
+<a name='configure-the-authentication-virtual-server-to-use-azure-ad'></a>
+
+### Configure the authentication virtual server to use Microsoft Entra ID
 
 Modify two sections for the authentication virtual server:
 
@@ -307,7 +317,7 @@ Modify two sections for the authentication virtual server:
 
 1. For **Authentication FQDN**, enter a fully qualified domain name (FQDN) (required).
 
-1. Select the load balancing virtual server that you want to protect with Azure AD authentication.
+1. Select the load balancing virtual server that you want to protect with Microsoft Entra authentication.
 
 1. Select **Bind**.
 
@@ -340,7 +350,7 @@ To configure Citrix ADC for header-based authentication, complete the following 
 
     1. For **Header Name**, enter a header name (in this example, we use _SecretID_).
 
-    1. For **Expression**, enter **aaa.USER.ATTRIBUTE("mySecretID")**, where **mySecretID** is the Azure AD SAML claim that was sent to Citrix ADC.
+    1. For **Expression**, enter **aaa.USER.ATTRIBUTE("mySecretID")**, where **mySecretID** is the Microsoft Entra SAML claim that was sent to Citrix ADC.
 
     1. Select **Create**.
 
@@ -417,7 +427,7 @@ In this section, a user called B.Simon is created in Citrix ADC. Citrix ADC supp
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 * Click on **Test this application**, this will redirect to Citrix ADC Sign-on URL where you can initiate the login flow. 
 

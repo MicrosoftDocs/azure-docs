@@ -13,7 +13,7 @@ ROBOTS: NOINDEX
 ms.author: owenrichards
 ms.reviewer: jmprieur
 ms.custom: devx-track-csharp, aaddev, "scenarios:getting-started", "languages:aspnet-core", mode-other
-#Customer intent: As an application developer, I want to download and run a demo ASP.NET Core web app that can sign in users with personal Microsoft accounts (MSA) and work/school accounts from any Azure Active Directory instance, then access their data in Microsoft Graph on their behalf.
+#Customer intent: As an application developer, I want to download and run a demo ASP.NET Core web app that can sign in users with personal Microsoft accounts (MSA) and work/school accounts from any Microsoft Entra instance, then access their data in Microsoft Graph on their behalf.
 ---
 
 # Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph on their behalf
@@ -26,7 +26,7 @@ ms.custom: devx-track-csharp, aaddev, "scenarios:getting-started", "languages:as
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> In this quickstart, you download and run a code sample that demonstrates how an ASP.NET Core web app can sign in users from any Azure Active Directory (Azure AD) organization and calls Microsoft Graph.
+> In this quickstart, you download and run a code sample that demonstrates how an ASP.NET Core web app can sign in users from any Microsoft Entra organization and calls Microsoft Graph.
 > 
 > See [How the sample works](#how-the-sample-works) for an illustration.
 > 
