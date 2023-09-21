@@ -16,7 +16,7 @@ ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
 ---
 
-# Microsoft Entra reporting and monitoring deployment dependencies
+# Microsoft Entra Monitoring & health deployment dependencies
 
 Your Microsoft Entra reporting and monitoring solution depends on legal, security, operational requirements, and your environment's processes. Use the following sections to learn about design options and deployment strategy.
 
@@ -47,7 +47,7 @@ You'll need a Microsoft Entra ID P1 or P2 license to access the Microsoft Entra 
 
 For detailed feature and licensing information, see the [Microsoft Entra pricing guide](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
-To deploy Microsoft Entra ID monitoring and reporting you'll need a user who is a Global Administrator or Security Administrator for the Microsoft Entra tenant.
+To deploy Microsoft Entra Monitoring & health you'll need a user who is a Global Administrator or Security Administrator for the Microsoft Entra tenant.
 
 * [Azure Monitor data platform](../../azure-monitor/data-platform.md)
 * [Azure Monitor naming and terminology changes](../../azure-monitor/overview.md)
@@ -58,7 +58,7 @@ To deploy Microsoft Entra ID monitoring and reporting you'll need a user who is 
 
 <a name='plan-and-deploy-an-azure-ad-reporting-and-monitoring-deployment-project'></a>
 
-## Plan and deploy a Microsoft Entra reporting and monitoring deployment project
+## Plan and deploy a Microsoft Entra Monitoring & health deployment project
 
 Reporting and monitoring are used to meet your business requirements, gain insights into usage patterns, and increase your organization's security posture. In this project, you'll define the audiences that will consume and monitor reports, and define your Microsoft Entra monitoring architecture.
 

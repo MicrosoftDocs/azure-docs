@@ -1,6 +1,6 @@
 ---
 title: Sign-in logs in Microsoft Entra ID
-description: Learn about the four types of sign-in logs available in Microsoft Entra ID Monitoring and health.
+description: Learn about the four types of sign-in logs available in Microsoft Entra Monitoring and health.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
