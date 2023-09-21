@@ -38,8 +38,8 @@ In the Microsoft Azure public cloud, most types of apps can sign in users with a
 
 Some account types can't be used with certain authentication flows. For instance, in desktop, Universal Windows Platform (UWP), or daemon applications:
 
-- Daemon applications can be used only with Azure AD organizations. It doesn't make sense to try to use daemon applications to manipulate Microsoft personal accounts. The admin consent will never be granted.
-- You can use the integrated Windows authentication flow only with work or school accounts (in your organization or any organization). Integrated Windows authentication works with domain accounts, and it requires the machines to be domain-joined or Azure AD-joined. This flow doesn't make sense for personal Microsoft accounts.
+- Daemon applications can be used only with Microsoft Entra organizations. It doesn't make sense to try to use daemon applications to manipulate Microsoft personal accounts. The admin consent will never be granted.
+- You can use the integrated Windows authentication flow only with work or school accounts (in your organization or any organization). Integrated Windows authentication works with domain accounts, and it requires the machines to be domain-joined or Microsoft Entra joined. This flow doesn't make sense for personal Microsoft accounts.
 - The [Resource Owner Password Credentials grant](./v2-oauth-ropc.md) (username/password) can't be used with personal Microsoft accounts. Personal Microsoft accounts require that the user consents to accessing personal resources at each sign-in session. That's why this behavior isn't compatible with non-interactive flows.
 
 ## Account types in national clouds
@@ -48,5 +48,5 @@ Apps can also sign in users in [national clouds](authentication-national-cloud.m
 
 ## Next steps
 
-- Learn more about [tenancy in Azure Active Directory](./single-and-multi-tenant-apps.md).
+- Learn more about [tenancy in Microsoft Entra ID](./single-and-multi-tenant-apps.md).
 - Learn more about [national clouds](./authentication-national-cloud.md).

@@ -65,6 +65,11 @@ There are two ways that you can add a condition. You can use a condition templat
 
 1. On the **Conditions** tab under **Delegation type**, select the **Constrained (recommended)** option.
 
+    | Option | Select this option to |
+    | --- | --- |
+    | **Constrained (recommended)** | Pick the roles or principals the user can use in role assignments |
+    | **Not constrained** | Allow the user to assign any role to any principal |
+
     :::image type="content" source="./media/shared/condition-constrained.png" alt-text="Screenshot of Add role assignment with the Constrained option selected." lightbox="./media/shared/condition-constrained.png":::
 
 1. Select **Add condition**.
@@ -75,7 +80,7 @@ There are two ways that you can add a condition. You can use a condition templat
 
 1. Select a condition template and then select **Configure**.
 
-    | Condition template | Description |
+    | Condition template | Select this template to |
     | --- | --- |
     | Constrain roles | Constrain the roles a user can assign |
     | Constrain roles and principal types | Constrain the roles a user can assign and the types of principals the user can assign roles to |
@@ -95,6 +100,11 @@ If the condition templates don't work for your scenario or if you want more cont
 
 1. On the **Conditions** tab under **Delegation type**, select the **Constrained (recommended)** option.
 
+    | Option | Select this option to |
+    | --- | --- |
+    | **Constrained (recommended)** | Pick the roles or principals the user can use in role assignments |
+    | **Not constrained** | Allow the user to assign any role to any principal |
+
     :::image type="content" source="./media/shared/condition-constrained.png" alt-text="Screenshot of Add role assignment with the Constrained option selected." lightbox="./media/shared/condition-constrained.png":::
 
 1. Select **Add condition**.
@@ -103,7 +113,7 @@ If the condition templates don't work for your scenario or if you want more cont
 
     :::image type="content" source="./media/shared/condition-templates.png" alt-text="Screenshot of Add role assignment condition with a list of condition templates." lightbox="./media/shared/condition-templates.png":::
 
-1. Select **Go to advanced condition builder**.
+1. Select **Open advanced condition editor**.
 
     The Add role assignment condition page appears.
 

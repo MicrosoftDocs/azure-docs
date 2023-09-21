@@ -1,6 +1,6 @@
 ---
-title: Device management permissions for Azure AD custom roles
-description: Device management permissions for Azure AD custom roles in the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
+title: Device management permissions for Microsoft Entra custom roles
+description: Device management permissions for Microsoft Entra custom roles in the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -14,9 +14,9 @@ ms.reviewer:
 ms.custom: it-pro
 ---
 
-# Device management permissions for Azure AD custom roles
+# Device management permissions for Microsoft Entra custom roles
 
-Device management permissions can be used in custom role definitions in Azure Active Directory (Azure AD) to grant fine-grained access such as the following:
+Device management permissions can be used in custom role definitions in Microsoft Entra ID to grant fine-grained access such as the following:
 
 - Enable or disable devices
 - Delete devices
@@ -25,7 +25,7 @@ Device management permissions can be used in custom role definitions in Azure Ac
 - Read device registration policies
 - Update device registration policies
 
-This article lists the permissions you can use in your custom roles for different device management scenarios. For information about how to create custom roles, see [Create and assign a custom role in Azure Active Directory](custom-create.md).
+This article lists the permissions you can use in your custom roles for different device management scenarios. For information about how to create custom roles, see [Create and assign a custom role in Microsoft Entra ID](custom-create.md).
 
 ## Enable or disable devices
 
@@ -92,8 +92,8 @@ The following permission is available to update tenant-wide device registration 
 > | ---------- | ----------- |
 > | microsoft.directory/devices/registeredOwners/update | Update registered owners of devices |
 > | microsoft.directory/devices/registeredUsers/update | Update registered users of devices |
-> | microsoft.directory/devices/enable | Enable devices in Azure AD |
-> | microsoft.directory/devices/disable | Disable devices in Azure AD |
+> | microsoft.directory/devices/enable | Enable devices in Microsoft Entra ID |
+> | microsoft.directory/devices/disable | Disable devices in Microsoft Entra ID |
 > | microsoft.directory/deviceRegistrationPolicy/basic/update | Update basic properties on device registration policies |
 
 #### Delete
@@ -101,9 +101,9 @@ The following permission is available to update tenant-wide device registration 
 > [!div class="mx-tableFixed"]
 > | Permission | Description |
 > | ---------- | ----------- |
-> | microsoft.directory/devices/delete | Delete devices from Azure AD |
+> | microsoft.directory/devices/delete | Delete devices from Microsoft Entra ID |
 
 ## Next steps
 
-- [Create and assign a custom role in Azure Active Directory](custom-create.md)
-- [List Azure AD role assignments](view-assignments.md)
+- [Create and assign a custom role in Microsoft Entra ID](custom-create.md)
+- [List Microsoft Entra role assignments](view-assignments.md)

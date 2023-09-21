@@ -65,6 +65,8 @@ landingContent:
                url: concept-custom.md
              - text: Tax document models
                url: concept-tax-document.md
+             - text: Contract model
+               url: concept-contract.md
              - text: Invoice model
                url: concept-invoice.md
              - text: Receipt model
