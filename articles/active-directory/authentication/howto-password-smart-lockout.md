@@ -36,7 +36,7 @@ Using smart lockout doesn't guarantee that a genuine user is never locked out. W
 
 * Lockout state across Microsoft Entra data centers is synchronized. However, the total number of failed sign-in attempts allowed before an account is locked out will have slight variance from the configured lockout threshold. Once an account is locked out, it will be locked out everywhere across all Microsoft Entra data centers.
 * Smart Lockout uses familiar location vs unfamiliar location to differentiate between a bad actor and the genuine user. Both unfamiliar and familiar locations have separate lockout counters.
-* After an account lockout, the user can initiate self-service password reset (SSPR) to sign in again. If the user chooses **I forgot my password** during SSPR, the duration of the lockout is reset to 0 seconds. If the user chooses **I know my password** during SSPR, the lockout timer continues, and the duration of the lockout isn't reset. 
+* After an account lockout, the user can initiate self-service password reset (SSPR) to sign in again. If the user chooses **I forgot my password** during SSPR, the duration of the lockout is reset to 0 seconds. If the user chooses **I know my password** during SSPR, the lockout timer continues, and the duration of the lockout isn't reset. Selecting **I know my password** will not reset the lockout timer and the user will not be able to sign in.
 
 Smart lockout can be integrated with hybrid deployments that use password hash sync or pass-through authentication to protect on-premises Active Directory Domain Services (AD DS) accounts from being locked out by attackers. By setting smart lockout policies in Microsoft Entra ID appropriately, attacks can be filtered out before they reach on-premises AD DS.
 
