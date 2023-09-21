@@ -107,7 +107,7 @@ The configuration process takes you through five process:
 
 ### Configure the Azure AD joined VM to use Kerberos authentication
 
-1. Log into the Azure AD joined VM using hybrid credentials with administrative rights (for example: user@mydirectory.onmicrosoft.com).
+1. Log in to the Azure AD joined VM using hybrid credentials with administrative rights (for example: user@mydirectory.onmicrosoft.com).
 1. Configure the VM: 
     1. Navigate to **Edit group policy** > **Computer Configuration** > **Administrative Templates** > **System** > **Kerberos**.
     1. Enable **Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon**.
