@@ -137,16 +137,16 @@ The US tax document models analyze and extract key fields and line items from a 
 
 ### Contract
 
-:::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::
+:::image type="icon" source="media/overview/icon-contract.png":::
 
- The contract model analyzes and extracts key fields and line items from contract agreements including parties, jurisdictions, contract ID, and title. The model currently supports English document formats.
+ The contract model analyzes and extracts key fields and line items from contract agreements including parties, jurisdictions, contract ID, and title. The model currently supports English-language contract documents.
 
 ***Sample contract processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)***:
 
-:::image type="content" source="media/overview/analyze-contract.png" alt-text="Screenshot of contract model extraction using Document Intelligence Studio.":::
+:::image type="content" source="media/studio/analyze-contract.png" alt-text="Screenshot of contract model extraction using Document Intelligence Studio.":::
 
 > [!div class="nextstepaction"]
-> [Learn more: invoice model](concept-contract.md)
+> [Learn more: contract model](concept-contract.md)
 
 ### Invoice
 
