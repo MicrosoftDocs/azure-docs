@@ -12,9 +12,9 @@ metadata:
   ms.date: 09/08/2023
   ms.author: sarahlipsey
   ms.reviewer: besiler
-title: Frequently asked questions around Microsoft Entra ID reports
+title: Frequently asked questions around Microsoft Entra monitoring and health
 summary: |
-  This article includes answers to frequently asked questions about Microsoft Entra ID reporting. For more information, see [Microsoft Entra ID reporting](overview-reports.md). 
+  This article includes answers to frequently asked questions about Microsoft Entra monitoring and health. For more information, see [Microsoft Entra monitoring and health overview](overview-monitoring-health.md). 
   
 
 sections:
@@ -75,12 +75,12 @@ sections:
       - question: |
           How many records I can download from the Azure portal?
         answer: |
-          How many logs you can download from the Azure portal is determined by a few factors, including browser memory size, network speeds, and current load on Microsoft Entra ID Reporting APIs. In general, you can expect to download up to 250,000 records from the Azure portal. Depending on the number of fields you included, this number could vary. To download data sets larger than 250,000 records, use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) to download the data. The specific set of logs you download is determined by the filters active in the Azure portal when you begin the download (for example, filtering to a specific user in the Azure portal will mean your download pulls logs for that specific user). 
+          How many logs you can download from the Azure portal is determined by a few factors, including browser memory size, network speeds, and current load on Microsoft Entra reporting APIs. In general, you can expect to download up to 250,000 records from the Azure portal. Depending on the number of fields you included, this number could vary. To download data sets larger than 250,000 records, use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) to download the data. The specific set of logs you download is determined by the filters active in the Azure portal when you begin the download (for example, filtering to a specific user in the Azure portal will mean your download pulls logs for that specific user). 
 
       - question: |
           How long does Microsoft Entra ID store activity logs? What is the data retention?
         answer: |
-          Depending on your license, Microsoft Entra ID stores activity logs for between 7 and 30 days. For more information, see [Microsoft Entra ID report retention policies](reference-reports-data-retention.md).  
+          Depending on your license, Microsoft Entra ID stores activity logs for between 7 and 30 days. For more information, see [Microsoft Entra report retention policies](reference-reports-data-retention.md).  
 
       - question: |
           What happens if an Administrator changes the retention period of a diagnostic setting?
@@ -227,7 +227,7 @@ sections:
   - name: Microsoft Graph APIs
     questions:
       - question: |
-          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Microsoft Entra ID audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?
+          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Microsoft Entra audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?
         answer: |
           Look up the [API reference](https://developer.microsoft.com/graph/) to see how you can [use the APIs to access activity logs](./howto-configure-prerequisites-for-reporting-api.md). This endpoint has two reports (**Audit** and **Sign-ins**) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Microsoft Entra ID P1 or P2 license that you can use to get app usage, device usage, and user sign-in information.
           
