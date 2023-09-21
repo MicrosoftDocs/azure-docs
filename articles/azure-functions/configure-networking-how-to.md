@@ -31,6 +31,9 @@ Complete the following tutorial to create a new function app a secured storage a
 
 Use Bicep or Azure Resource Manager (ARM) [quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-storage-private-endpoints) to create secured function app and storage account resources.
 
+> [NOTE!]
+> You need to ensure that the storage account's file shares for function app exists prior function app creation (see [WEBSITE_CONTENTSHARE](functions-app-settings.md#website_contentshare)).
+
 ---
 
 ### Existing function app
