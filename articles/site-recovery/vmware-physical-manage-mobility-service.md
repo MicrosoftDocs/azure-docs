@@ -1,12 +1,13 @@
 ---
 title: Manage the Mobility agent for VMware/physical servers with Azure Site Recovery 
 description: Manage Mobility Service agent for disaster recovery of VMware VMs and physical servers to Azure using the  Azure Site Recovery service.
-author: Sharmistha-Rai
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
+ms.custom: devx-track-linux
 ms.topic: conceptual
-ms.author: sharrai
-ms.date: 05/27/2021
+ms.author: ankitadutta
+ms.date: 05/02/2023
 ---
 
 # Manage the Mobility agent 
@@ -21,7 +22,7 @@ You set up mobility agent on your server when you use Azure Site Recovery for di
 ## Update mobility service from Azure portal
 
 1. Before you start ensure that the configuration server, scale-out process servers, and any master target servers that are a part of your deployment are updated before you update the Mobility Service on protected machines.
-    1. From 9.36 version onwards, for SUSE Linux Enterprise Server 11 SP3, RHEL 5, CentOS 5, Debian 7 ensure the latest installer is [available on the configuration server and scale-out process server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server).
+    1. From 9.36 version onwards, for SUSE Linux Enterprise Server 11 SP3, RHEL 5, CentOS 5, Debian 7 ensure the latest installer is [available on the configuration server and scale-out process server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server).
 1. In the portal open the vault > **Replicated items**.
 1. If the configuration server is the latest version, you see a notification that reads "New Site recovery replication agent update is available. Click to install."
 
@@ -74,8 +75,8 @@ Uninstall from the UI or from a command prompt.
 1. On the Linux machine, sign in as a **root** user.
 2. In a terminal, go to /usr/local/ASR.
 3. Run the following command:
-    ```
-    ./uninstall.sh -Y
+   ```bash
+   ./uninstall.sh -Y
    ```
    
 ## Install Site Recovery VSS provider on source machine

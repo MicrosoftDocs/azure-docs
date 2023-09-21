@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 07/17/2023
 ---
 
 # Join transformation in mapping data flow
@@ -54,13 +54,28 @@ If you would like to explicitly produce a full cartesian product, use the Derive
 > [!NOTE]
 > Make sure to include at least one column from each side of your left and right relationship in a custom cross join. Executing cross joins with static values instead of columns from each side results in full scans of the entire dataset, causing your data flow to perform poorly.
 
+## Fuzzy join
+
+You can choose to join based on fuzzy join logic instead of exact column value matching by turning on the "Use fuzzy matching" checkbox option.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4ZeWr]
+
+* Combine text parts: Use this option to find matches by remove space between words. For example, Data Factory is matched with DataFactory if this option is enabled.
+* Similarity score column: You can optionally choose to store the matching score for each row in a column by entering a new column name here to store that value.
+* Similarity threshold: Choose a value between 60 and 100 as a percentage match between values in the columns you've selected.
+
+:::image type="content" source="media/data-flow/fuzzy-1.png" alt-text="Fuzzy join":::
+
+> [!NOTE]
+> Fuzzy matching currently works only with string column types and with inner, left outer, and full outer join types. You must turn off the broadcast optimization when using fuzzing matching joins.
+
 ## Configuration
 
 1. Choose which data stream you're joining with in the **Right stream** dropdown.
 1. Select your **Join type**
-1. Choose which key columns you want to match on for you join condition. By default, data flow looks for equality between one column in each stream. To compare via a computed value, hover over the column dropdown and select **Computed column**.
+1. Choose which key columns you want to match on for your join condition. By default, data flow looks for equality between one column in each stream. To compare via a computed value, hover over the column dropdown and select **Computed column**.
 
-:::image type="content" source="media/data-flow/join.png" alt-text="Join Transformation":::
+:::image type="content" source="media/data-flow/join.png" alt-text="Screenshot of join Transformation":::
 
 ### Non-equi joins
 

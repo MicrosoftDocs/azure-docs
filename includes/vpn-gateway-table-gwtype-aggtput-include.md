@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 05/24/2022
+ ms.date: 09/15/2023
  ms.author: cherylmc
 ---
 
@@ -29,13 +29,15 @@
 
 * The resizing of VpnGw SKUs is allowed within the same generation, except resizing of the Basic SKU. The Basic SKU is a legacy SKU and has feature limitations. In order to move from Basic to another SKU, you must delete the Basic SKU VPN gateway and create a new gateway with the desired Generation and SKU size combination. (see [Working with Legacy SKUs](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md)).
 
+* The Basic SKU can only be configured using PowerShell or Azure CLI.
+
 * These connection limits are separate. For example, you can have 128 SSTP connections and also 250 IKEv2 connections on a VpnGw1 SKU.
 
 * Pricing information can be found on the [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway) page.
 
 * SLA (Service Level Agreement) information can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/vpn-gateway/) page.
 
-* IPsec limits the throughput of a single VPN tunnel (both S2S and P2S connections) to 1.25Gbps. **If you have a lot of P2S connections, it can negatively impact your S2S connections.** The Aggregate Throughput Benchmarks were tested by maximizing a combination of S2S and P2S connections. A single P2S or S2S connection can have a much lower throughput than the 1.25Gbps limit.
+* If you have a lot of P2S connections, it can negatively impact your S2S connections. The Aggregate Throughput Benchmarks were tested by maximizing a combination of S2S and P2S connections. A single P2S or S2S connection can have a much lower throughput.
 * Note that all benchmarks aren't guaranteed due to Internet traffic conditions and your application behaviors
 
 To help our customers understand the relative performance of SKUs using different algorithms, we used publicly available iPerf and CTSTraffic tools to measure performances for site-to-site connections. The table below lists the results of performance tests for VpnGw SKUs. As you can see, the best performance is obtained when we used GCMAES256 algorithm for both IPsec Encryption and Integrity. We got average performance when using AES256 for IPsec Encryption and SHA256 for Integrity. When we used DES3 for IPsec Encryption and SHA256 for Integrity we got lowest performance.

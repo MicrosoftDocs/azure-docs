@@ -2,7 +2,8 @@
 title: Deploy multiple instances of resources
 description: Use copy operation and arrays in an Azure Resource Manager template (ARM template) to deploy resource type many times.
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.custom: devx-track-arm-template
+ms.date: 08/30/2023
 ---
 
 # Resource iteration in ARM templates
@@ -58,6 +59,10 @@ The following example creates the number of storage accounts specified in the `s
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
     "storageCount": {
       "type": "int",
       "defaultValue": 3
@@ -65,19 +70,19 @@ The following example creates the number of storage accounts specified in the `s
   },
   "resources": [
     {
+      "copy": {
+        "name": "storagecopy",
+        "count": "[length(range(0, parameters('storageCount')))]"
+      },
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
+      "apiVersion": "2022-09-01",
+      "name": "[format('{0}storage{1}', range(0, parameters('storageCount'))[copyIndex()], uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_LRS"
       },
       "kind": "Storage",
-      "properties": {},
-      "copy": {
-        "name": "storagecopy",
-        "count": "[parameters('storageCount')]"
-      }
+      "properties": {}
     }
   ]
 }
@@ -86,7 +91,7 @@ The following example creates the number of storage accounts specified in the `s
 Notice that the name of each resource includes the `copyIndex()` function, which returns the current iteration in the loop. `copyIndex()` is zero-based. So, the following example:
 
 ```json
-"name": "[concat('storage', copyIndex())]",
+"name": "[format('storage{0}', copyIndex())]",
 ```
 
 Creates these names:
@@ -98,7 +103,7 @@ Creates these names:
 To offset the index value, you can pass a value in the `copyIndex()` function. The number of iterations is still specified in the copy element, but the value of `copyIndex` is offset by the specified value. So, the following example:
 
 ```json
-"name": "[concat('storage', copyIndex(1))]",
+"name": "[format('storage{0}', copyIndex(1))]",
 ```
 
 Creates these names:
@@ -116,21 +121,66 @@ The following example creates one storage account for each name provided in the 
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "storageNames": {
-          "type": "array",
-          "defaultValue": [
-            "contoso",
-            "fabrikam",
-            "coho"
-          ]
-      }
+    "storageNames": {
+      "type": "array",
+      "defaultValue": [
+        "contoso",
+        "fabrikam",
+        "coho"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
   },
   "resources": [
     {
+      "copy": {
+        "name": "storagecopy",
+        "count": "[length(parameters('storageNames'))]"
+      },
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(parameters('storageNames')[copyIndex()], uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
+      "apiVersion": "2022-09-01",
+      "name": "[format('{0}{1}', parameters('storageNames')[copyIndex()], uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {}
+    }
+  ]
+}
+```
+
+If you want to return values from the deployed resources, you can use [copy in the outputs section](copy-outputs.md).
+
+### Use symbolic name
+
+[Symbolic name](./resource-declaration.md#use-symbolic-name) will be assigned to resource copy loops. The loop index is zero-based. In the following example, `myStorages[1]` references the second resource in the resource loop.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "storageCount": {
+      "type": "int",
+      "defaultValue": 2
+    }
+  },
+  "resources": {
+    "myStorages": {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2022-09-01",
+      "name": "[format('{0}storage{1}', copyIndex(), uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_LRS"
       },
@@ -138,15 +188,31 @@ The following example creates one storage account for each name provided in the 
       "properties": {},
       "copy": {
         "name": "storagecopy",
-        "count": "[length(parameters('storageNames'))]"
+        "count": "[parameters('storageCount')]"
       }
     }
-  ],
-  "outputs": {}
+  },
+  "outputs": {
+    "storageEndpoint":{
+      "type": "object",
+      "value": "[reference('myStorages[1]').primaryEndpoints]"
+    }
+  }
 }
 ```
 
-If you want to return values from the deployed resources, you can use [copy in the outputs section](copy-outputs.md).
+If the index is a runtime value, format the reference yourself.  For example
+
+```json
+"outputs": {
+  "storageEndpoint":{
+    "type": "object",
+    "value": "[reference(format('myStorages[{0}]', variables('runtimeIndex'))).primaryEndpoints]"
+  }
+}
+```
+
+Symbolic names can be used in [dependsOn arrays](./resource-dependency.md#depend-on-resources-in-a-loop). If a symbolic name is for a copy loop, all resources in the loop are added as dependencies. For more information, see [Depends on resources in a loop](./resource-dependency.md#depend-on-resources-in-a-loop).
 
 ## Serial or Parallel
 
@@ -162,26 +228,31 @@ The value for `batchSize` can't exceed the value for `count` in the copy element
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
   "resources": [
     {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
       "copy": {
         "name": "storagecopy",
         "count": 4,
         "mode": "serial",
         "batchSize": 2
       },
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2022-09-01",
+      "name": "[format('{0}storage{1}', range(0, 4)[copyIndex()], uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
       "properties": {}
     }
-  ],
-  "outputs": {}
+  ]
 }
 ```
 
@@ -194,21 +265,26 @@ You can't use a copy loop for a child resource. To create more than one instance
 For example, suppose you typically define a dataset as a child resource within a data factory.
 
 ```json
-"resources": [
 {
-  "type": "Microsoft.DataFactory/factories",
-  "name": "exampleDataFactory",
-  ...
   "resources": [
     {
-      "type": "datasets",
-      "name": "exampleDataSet",
-      "dependsOn": [
-        "exampleDataFactory"
-      ],
+      "type": "Microsoft.DataFactory/factories",
+      "name": "exampleDataFactory",
+      ...
+      "resources": [
+        {
+          "type": "datasets",
+          "name": "exampleDataSet",
+          "dependsOn": [
+            "exampleDataFactory"
+          ],
+          ...
+        }
+      ]
       ...
     }
   ]
+}
 ```
 
 To create more than one data set, move it outside of the data factory. The dataset must be at the same level as the data factory, but it's still a child resource of the data factory. You preserve the relationship between data set and data factory through the type and name properties. Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the format: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
@@ -226,7 +302,7 @@ The following example shows the implementation.
 },
 {
   "type": "Microsoft.DataFactory/factories/datasets",
-  "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
+  "name": "[format('exampleDataFactory/exampleDataSet{0}', copyIndex())]",
   "dependsOn": [
     "exampleDataFactory"
   ],
@@ -253,7 +329,7 @@ The following examples show common scenarios for creating more than one instance
 
 - To set dependencies on resources that are created in a copy loop, see [Define the order for deploying resources in ARM templates](./resource-dependency.md).
 - To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
-- For a Microsoft Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
+- For a Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).
 - For other uses of the copy loop, see:
   - [Property iteration in ARM templates](copy-properties.md)
   - [Variable iteration in ARM templates](copy-variables.md)

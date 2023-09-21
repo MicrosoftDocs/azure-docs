@@ -1,9 +1,9 @@
 ---
 title: Cross workspace queries
 description: The API supports the ability to query across multiple workspaces.
-author: bwren
-ms.author: bwren
-ms.date: 08/18/2021
+ms.date: 08/06/2022
+author: guywi-ms
+ms.author: guywild
 ms.topic: article
 ---
 # Cross workspace queries
@@ -28,7 +28,7 @@ For implicit syntax, specify the workspaces that you want to include in your que
 Example:
 
 ```
-    POST https://api.loganalytics.io/v1/workspaces/00000000-0000-0000-0000-000000000000/query
+    POST https://api.loganalytics.azure.com/v1/workspaces/00000000-0000-0000-0000-000000000000/query
     
     Authorization: Bearer <user token>
     Content-Type: application/json
@@ -42,7 +42,7 @@ Example:
 The same request as a GET (line breaks for readability of query parameters):
 
 ```
-    GET https://api.loganalytics.io/v1/workspaces/00000000-0000-0000-0000-000000000000/query?query=union+*+%7C+where+TimeGenerated+%3E+ago(1d)+%7C+summarize+count()+by+Type%2C+TenantId&workspaces=AIFabrikamDemo1%2CAIFabrikamDemo2
+    GET https://api.loganalytics.azure.com/v1/workspaces/00000000-0000-0000-0000-000000000000/query?query=union+*+%7C+where+TimeGenerated+%3E+ago(1d)+%7C+summarize+count()+by+Type%2C+TenantId&workspaces=AIFabrikamDemo1%2CAIFabrikamDemo2
     
     
     Authorization: Bearer <user token>
@@ -60,7 +60,7 @@ The syntax to reference another application is: workspace('identifier').table.
 Example:
 
 ```
-    POST https://api.loganalytics.io/v1/workspaces/00000000-0000-0000-0000-000000000000/query
+    POST https://api.loganalytics.azure.com/v1/workspaces/00000000-0000-0000-0000-000000000000/query
     Content-Type: application/json
     Authorization: Bearer <user token>
     

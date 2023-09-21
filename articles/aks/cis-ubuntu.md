@@ -1,14 +1,16 @@
 ---
 title: Azure Kubernetes Service (AKS) Ubuntu image alignment with Center for Internet Security (CIS) benchmark
 description: Learn how AKS applies the CIS benchmark
-services: container-service
 ms.topic: article
-ms.date: 04/20/2022
+ms.custom: devx-track-linux
+ms.date: 04/19/2023
+ms.author: magoedte
+ms.reviewer: mattmcinnes
 ---
 
 # Azure Kubernetes Service (AKS) Ubuntu image alignment with Center for Internet Security (CIS) benchmark
 
-As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security OS configuration applied to Ubuntu imaged used by AKS. This security configuration is based on the Azure Linux security baseline which aligns with CIS benchmark. For more information about AKS security, see Security concepts for applications and clusters in Azure Kubernetes Service (AKS). For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](./concepts-security.md). For more information on the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks][cis-benchmarks]. For more information on the Azure security baselines for Linux, see [Linux security baseline][linux-security-baseline].
+As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security OS configuration applied to Ubuntu imaged used by AKS. This security configuration is based on the Azure Linux security baseline, which aligns with CIS benchmark. For more information about AKS security, see Security concepts for applications and clusters in Azure Kubernetes Service (AKS). For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](./concepts-security.md). For more information on the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks][cis-benchmarks]. For more information on the Azure security baselines for Linux, see [Linux security baseline][linux-security-baseline].
 
 ## Ubuntu LTS 18.04
 
@@ -29,7 +31,7 @@ The following are the results from the [CIS Ubuntu 18.04 LTS Benchmark v2.1.0][c
 
 Recommendations can have one of the following reasons:
 
-* *Potential Operation Impact* - Recommendation was not applied because it would have a negative effect on the service.
+* *Potential Operation Impact* - Recommendation wasn't applied because it would have a negative effect on the service.
 * *Covered Elsewhere* - Recommendation is covered by another control in Azure cloud compute.
 
 The following are CIS rules implemented:
@@ -70,7 +72,7 @@ The following are CIS rules implemented:
 | 1.3.1 | Ensure AIDE is installed | Fail | Covered Elsewhere |
 | 1.3.2 | Ensure filesystem integrity is regularly checked | Fail | Covered Elsewhere |
 | 1.4 | Secure Boot Settings ||| 
-| 1.4.1 | Ensure permissions on bootloader config are not overridden | Fail |  |
+| 1.4.1 | Ensure permissions on bootloader config aren't overridden | Fail |  |
 | 1.4.2 | Ensure bootloader password is set | Fail | Not Applicable|
 | 1.4.3 | Ensure permissions on bootloader config are configured | Fail |  |
 | 1.4.4 | Ensure authentication required for single user mode | Fail | Not Applicable |
@@ -94,7 +96,7 @@ The following are CIS rules implemented:
 | 1.8 | GNOME Display Manager ||| 
 | 1.8.2 | Ensure GDM login banner is configured | Pass ||
 | 1.8.3 | Ensure disable-user-list is enabled | Pass ||
-| 1.8.4 | Ensure XDCMP is not enabled | Pass ||
+| 1.8.4 | Ensure XDCMP isn't enabled | Pass ||
 | 1.9 | Ensure updates, patches, and additional security software are installed | Pass ||
 | 2 | Services ||| 
 | 2.1 | Special Purpose Services ||| 
@@ -103,29 +105,29 @@ The following are CIS rules implemented:
 | 2.1.1.2 | Ensure systemd-timesyncd is configured | Not Applicable | AKS uses ntpd for timesync |
 | 2.1.1.3 | Ensure chrony is configured | Fail | Covered Elsewhere |
 | 2.1.1.4 | Ensure ntp is configured | Pass ||
-| 2.1.2 | Ensure X Window System is not installed | Pass ||
-| 2.1.3 | Ensure Avahi Server is not installed | Pass ||
-| 2.1.4 | Ensure CUPS is not installed | Pass ||
-| 2.1.5 | Ensure DHCP Server is not installed | Pass ||
-| 2.1.6 | Ensure LDAP server is not installed | Pass ||
-| 2.1.7 | Ensure NFS is not installed | Pass ||
-| 2.1.8 | Ensure DNS Server is not installed | Pass ||
-| 2.1.9 | Ensure FTP Server is not installed | Pass ||
-| 2.1.10 | Ensure HTTP server is not installed | Pass ||
-| 2.1.11 | Ensure IMAP and POP3 server are not installed | Pass ||
-| 2.1.12 | Ensure Samba is not installed | Pass ||
-| 2.1.13 | Ensure HTTP Proxy Server is not installed | Pass ||
-| 2.1.14 | Ensure SNMP Server is not installed | Pass ||
+| 2.1.2 | Ensure X Window System isn't installed | Pass ||
+| 2.1.3 | Ensure Avahi Server isn't installed | Pass ||
+| 2.1.4 | Ensure CUPS isn't installed | Pass ||
+| 2.1.5 | Ensure DHCP Server isn't installed | Pass ||
+| 2.1.6 | Ensure LDAP server isn't installed | Pass ||
+| 2.1.7 | Ensure NFS isn't installed | Pass ||
+| 2.1.8 | Ensure DNS Server isn't installed | Pass ||
+| 2.1.9 | Ensure FTP Server isn't installed | Pass ||
+| 2.1.10 | Ensure HTTP server isn't installed | Pass ||
+| 2.1.11 | Ensure IMAP and POP3 server aren't installed | Pass ||
+| 2.1.12 | Ensure Samba isn't installed | Pass ||
+| 2.1.13 | Ensure HTTP Proxy Server isn't installed | Pass ||
+| 2.1.14 | Ensure SNMP Server isn't installed | Pass ||
 | 2.1.15 | Ensure mail transfer agent is configured for local-only mode | Pass ||
-| 2.1.16 | Ensure rsync service is not installed | Fail |  |
-| 2.1.17 | Ensure NIS Server is not installed | Pass ||
+| 2.1.16 | Ensure rsync service isn't installed | Fail |  |
+| 2.1.17 | Ensure NIS Server isn't installed | Pass ||
 | 2.2 | Service Clients |||
-| 2.2.1 | Ensure NIS Client is not installed | Pass ||
-| 2.2.2 | Ensure rsh client is not installed | Pass ||
-| 2.2.3 | Ensure talk client is not installed | Pass ||
-| 2.2.4 | Ensure telnet client is not installed | Fail |  |
-| 2.2.5 | Ensure LDAP client is not installed | Pass ||
-| 2.2.6 | Ensure  RPC is not installed | Fail | Potential Operational Impact |
+| 2.2.1 | Ensure NIS Client isn't installed | Pass ||
+| 2.2.2 | Ensure rsh client isn't installed | Pass ||
+| 2.2.3 | Ensure talk client isn't installed | Pass ||
+| 2.2.4 | Ensure telnet client isn't installed | Fail |  |
+| 2.2.5 | Ensure LDAP client isn't installed | Pass ||
+| 2.2.6 | Ensure  RPC isn't installed | Fail | Potential Operational Impact |
 | 2.3 | Ensure nonessential services are removed or masked | Pass |  |
 | 3 | Network Configuration ||| 
 | 3.1 | Disable unused network protocols and devices |||
@@ -134,15 +136,15 @@ The following are CIS rules implemented:
 | 3.2.1 | Ensure packet redirect sending is disabled | Pass ||
 | 3.2.2 | Ensure IP forwarding is disabled | Fail | Not Applicable |
 | 3.3 | Network Parameters (Host and Router) |||
-| 3.3.1 | Ensure source routed packets are not accepted | Pass ||
-| 3.3.2 | Ensure ICMP redirects are not accepted | Pass ||
-| 3.3.3 | Ensure secure ICMP redirects are not accepted | Pass ||
+| 3.3.1 | Ensure source routed packets aren't accepted | Pass ||
+| 3.3.2 | Ensure ICMP redirects aren't accepted | Pass ||
+| 3.3.3 | Ensure secure ICMP redirects aren't accepted | Pass ||
 | 3.3.4 | Ensure suspicious packets are logged | Pass ||
 | 3.3.5 | Ensure broadcast ICMP requests are ignored | Pass ||
 | 3.3.6 | Ensure bogus ICMP responses are ignored | Pass ||
 | 3.3.7 | Ensure Reverse Path Filtering is enabled | Pass ||
 | 3.3.8 | Ensure TCP SYN Cookies is enabled | Pass ||
-| 3.3.9 | Ensure IPv6 router advertisements are not accepted | Pass ||
+| 3.3.9 | Ensure IPv6 router advertisements aren't accepted | Pass ||
 | 3.4 | Uncommon Network Protocols |||
 | 3.5 | Firewall Configuration |||
 | 3.5.1 | Configure UncomplicatedFirewall |||
@@ -269,12 +271,12 @@ The following are CIS rules implemented:
 | 6.1.14 | Audit SGID executables | Not Applicable |  |
 | 6.2 | User and Group Settings |||
 | 6.2.1 | Ensure accounts in /etc/passwd use shadowed passwords | Pass ||
-| 6.2.2 | Ensure password fields are not empty | Pass ||
+| 6.2.2 | Ensure password fields aren't empty | Pass ||
 | 6.2.3 | Ensure all groups in /etc/passwd exist in /etc/group | Pass ||
 | 6.2.4 | Ensure all users' home directories exist | Pass ||
 | 6.2.5 | Ensure users own their home directories | Pass ||
 | 6.2.6 | Ensure users' home directories permissions are 750 or more restrictive | Pass ||
-| 6.2.7 | Ensure users' dot files are not group or world writable | Pass ||
+| 6.2.7 | Ensure users' dot files aren't group or world writable | Pass ||
 | 6.2.8 | Ensure no users have .netrc files | Pass ||
 | 6.2.9 | Ensure no users have .forward files | Pass ||
 | 6.2.10 | Ensure no users have .rhosts files | Pass ||

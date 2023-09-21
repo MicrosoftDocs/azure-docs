@@ -1,0 +1,29 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/aks/stop-api-upgrade.md",
+            "redirect_url": "/azure/aks/upgrade-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/cilium-enterprise-marketplace.md",
+            "redirect_url": "/azure/aks/azure-cni-powered-by-cilium",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/web-app-routing.md",
+            "redirect_url": "/azure/aks/app-routing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/aks-planned-maintenance-weekly-releases.md",
+            "redirect_url": "/azure/aks/planned-maintenance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/create-k8s-cluster-with-aks-application-gateway-ingress.md",
+            "redirect_url": "/azure/application-gateway/for-containers/overview",
+            "redirect_document_id": false
+        }
+    ]
+}

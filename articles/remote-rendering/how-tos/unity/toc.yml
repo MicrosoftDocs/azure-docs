@@ -2,6 +2,8 @@
   href: install-remote-rendering-unity-package.md
 - name: Set up Remote Rendering for Unity
   href: unity-setup.md
+- name: Unity Render Pipelines
+  href: unity-render-pipelines.md
 - name: Interact with Unity game objects and components
   href: objects-components.md
 - name: Use Holographic Remoting and Remote Rendering in Unity

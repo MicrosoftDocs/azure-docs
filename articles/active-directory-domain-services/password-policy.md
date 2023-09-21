@@ -1,27 +1,27 @@
 ---
-title: Create and use password policies in Azure AD Domain Services | Microsoft Docs
-description: Learn how and why to use fine-grained password policies to secure and control account passwords in an Azure AD DS managed domain.
+title: Create and use password policies in Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how and why to use fine-grained password policies to secure and control account passwords in a Microsoft Entra DS managed domain.
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 05/09/2023
 ms.author: justinha
 
 ---
-# Password and account lockout policies on Azure Active Directory Domain Services managed domains
+# Password and account lockout policies on Microsoft Entra Domain Services managed domains
 
-To manage user security in Azure Active Directory Domain Services (Azure AD DS), you can define fine-grained password policies that control account lockout settings or minimum password length and complexity. A default fine grained password policy is created and applied to all users in an Azure AD DS managed domain. To provide granular control and meet specific business or compliance needs, additional policies can be created and applied to specific groups of users.
+To manage user security in Microsoft Entra Domain Services (Microsoft Entra DS), you can define fine-grained password policies that control account lockout settings or minimum password length and complexity. A default fine grained password policy is created and applied to all users in a Microsoft Entra DS managed domain. To provide granular control and meet specific business or compliance needs, additional policies can be created and applied to specific users or groups.
 
-This article shows you how to create and configure a fine-grained password policy in Azure AD DS using the Active Directory Administrative Center.
+This article shows you how to create and configure a fine-grained password policy in Microsoft Entra DS using the Active Directory Administrative Center.
 
 > [!NOTE]
-> Password policies are only available for managed domains created using the Resource Manager deployment model. For older managed domains created using Classic, [migrate from the Classic virtual network model to Resource Manager][migrate-from-classic].
+> Password policies are only available for managed domains created using the Resource Manager deployment model. 
 
 ## Before you begin
 
@@ -29,14 +29,14 @@ To complete this article, you need the following resources and privileges:
 
 * An active Azure subscription.
   * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
-  * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-  * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
-  * The managed domain must have been created using the Resource Manager deployment model. If needed, [Migrate from the Classic virtual network model to Resource Manager][migrate-from-classic].
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+  * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+  * If needed, complete the tutorial to [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
+  * The managed domain must have been created using the Resource Manager deployment model. 
 * A Windows Server management VM that is joined to the managed domain.
   * If needed, complete the tutorial to [create a management VM][tutorial-create-management-vm].
-* A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+* A user account that's a member of the *Microsoft Entra DC administrators* group in your Microsoft Entra tenant.
 
 ## Default password policy settings
 
@@ -49,13 +49,13 @@ For more information about password policies and using the Active Directory Admi
 
 Policies are distributed through group association in a managed domain, and any changes you make are applied at the next user sign-in. Changing the policy doesn't unlock a user account that's already locked out.
 
-Password policies behave a little differently depending on how the user account they're applied to was created. There are two ways a user account can be created in Azure AD DS:
+Password policies behave a little differently depending on how the user account they're applied to was created. There are two ways a user account can be created in Microsoft Entra DS:
 
-* The user account can be synchronized in from Azure AD. This includes cloud-only user accounts created directly in Azure, and hybrid user accounts synchronized from an on-premises AD DS environment using Azure AD Connect.
-    * The majority of user accounts in Azure AD DS are created through the synchronization process from Azure AD.
-* The user account can be manually created in a managed domain, and doesn't exist in Azure AD.
+* The user account can be synchronized in from Microsoft Entra ID. This includes cloud-only user accounts created directly in Azure, and hybrid user accounts synchronized from an on-premises AD DS environment using Microsoft Entra Connect.
+    * The majority of user accounts in Microsoft Entra DS are created through the synchronization process from Microsoft Entra ID.
+* The user account can be manually created in a managed domain, and doesn't exist in Microsoft Entra ID.
 
-All users, regardless of how they're created, have the following account lockout policies applied by the default password policy in Azure AD DS:
+All users, regardless of how they're created, have the following account lockout policies applied by the default password policy in Microsoft Entra DS:
 
 * **Account lockout duration:** 30
 * **Number of failed logon attempts allowed:** 5
@@ -64,11 +64,11 @@ All users, regardless of how they're created, have the following account lockout
 
 With these default settings, user accounts are locked out for 30 minutes if five invalid passwords are used within 2 minutes. Accounts are automatically unlocked after 30 minutes.
 
-Account lockouts only occur within the managed domain. User accounts are only locked out in Azure AD DS, and only due to failed sign-in attempts against the managed domain. User accounts that were synchronized in from Azure AD or on-premises aren't locked out in their source directories, only in Azure AD DS.
+Account lockouts only occur within the managed domain. User accounts are only locked out in Microsoft Entra DS, and only due to failed sign-in attempts against the managed domain. User accounts that were synchronized in from Microsoft Entra ID or on-premises aren't locked out in their source directories, only in Microsoft Entra DS.
 
-If you have an Azure AD password policy that specifies a maximum password age greater than 90 days, that password age is applied to the default policy in Azure AD DS. You can configure a custom password policy to define a different maximum password age in Azure AD DS. Take care if you have a shorter maximum password age configured in an Azure AD DS password policy than in Azure AD or an on-premises AD DS environment. In that scenario, a user's password may expire in Azure AD DS before they're prompted to change in Azure AD or an on-premises AD DS environment.
+If you have a Microsoft Entra password policy that specifies a maximum password age greater than 90 days, that password age is applied to the default policy in Microsoft Entra DS. You can configure a custom password policy to define a different maximum password age in Microsoft Entra DS. Take care if you have a shorter maximum password age configured in a Microsoft Entra DS password policy than in Microsoft Entra ID or an on-premises AD DS environment. In that scenario, a user's password may expire in Microsoft Entra DS before they're prompted to change in Microsoft Entra ID or an on-premises AD DS environment.
 
-For user accounts created manually in a managed domain, the following additional password settings are also applied from the default policy. These settings don't apply to user accounts synchronized in from Azure AD, as a user can't update their password directly in Azure AD DS.
+For user accounts created manually in a managed domain, the following additional password settings are also applied from the default policy. These settings don't apply to user accounts synchronized in from Microsoft Entra ID, as a user can't update their password directly in Microsoft Entra DS.
 
 * **Minimum password length (characters):** 7
 * **Passwords must meet complexity requirements**
@@ -101,7 +101,7 @@ To create a custom password policy, you use the Active Directory Administrative 
 
     Set the precedence for your custom password policy to override the default, such as *1*.
 
-1. Edit other password policy settings as desired. Account lockout settings apply to all users, but only take effect within the managed domain and not in Azure AD itself.
+1. Edit other password policy settings as desired. Account lockout settings apply to all users, but only take effect within the managed domain and not in Microsoft Entra itself.
 
     ![Create a custom fine-grained password policy](./media/password-policy/custom-fgpp.png)
 
@@ -110,15 +110,15 @@ To create a custom password policy, you use the Active Directory Administrative 
 
     ![Select the users and groups to apply the password policy to](./media/password-policy/fgpp-applies-to.png)
 
-1. Password policies can only be applied to groups. In the **Locations** dialog, expand the domain name, such as *aaddscontoso.com*, then select an OU, such as **AADDC Users**. If you have a custom OU that contains a group of users you wish to apply, select that OU.
+1. In the **Locations** dialog, expand the domain name, such as *aaddscontoso.com*, then select an OU, such as **AADDC Users**. If you have a custom OU that contains a group of users you wish to apply, select that OU.
 
     ![Select the OU that the group belongs to](./media/password-policy/fgpp-container.png)
 
-1. Type the name of the group you wish to apply the policy to, then select **Check Names** to validate that the group exists.
+1. Type the name of the user or group you wish to apply the policy to. Select **Check Names** to validate the account.
 
     ![Search for and select the group to apply FGPP](./media/password-policy/fgpp-apply-group.png)
 
-1. With the name of the group you selected now displayed in **Directly Applies To** section, select **OK** to save your custom password policy.
+1. Click **OK** to save your custom password policy.
 
 ## Next steps
 
@@ -132,4 +132,3 @@ For more information about password policies and using the Active Directory Admi
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
-[migrate-from-classic]: migrate-from-classic-vnet.md

@@ -5,7 +5,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 01/21/2022
+ms.date: 08/10/2023
 ms.author: abnarain
 ---
 
@@ -26,9 +26,9 @@ This feature relies on the data factory managed identity. Learn how it works fro
 To reference a credential stored in Azure Key Vault, you need to:
 
 1. **Retrieve data factory managed identity** by copying the value of "Managed Identity Object ID" generated along with your factory. If you use ADF authoring UI, the managed identity object ID will be shown on the Azure Key Vault linked service creation window; you can also retrieve it from Azure portal, refer to [Retrieve data factory managed identity](data-factory-service-identity.md#retrieve-managed-identity).
-2. **Grant the managed identity access to your Azure Key Vault.** In your key vault -> Access policies -> Add Access Policy, search this managed identity to grant **Get** permission in Secret permissions dropdown. It allows this designated factory to access secret in key vault.
+2. **Grant the managed identity access to your Azure Key Vault.** In your key vault -> Access policies -> Add Access Policy, search this managed identity to grant **Get** and **List** permissions in the Secret permissions dropdown. It allows this designated factory to access secret in key vault.
 3. **Create a linked service pointing to your Azure Key Vault.** Refer to [Azure Key Vault linked service](#azure-key-vault-linked-service).
-4. **Create data store linked service, inside which reference the corresponding secret stored in key vault.** Refer to [reference secret stored in key vault](#reference-secret-stored-in-key-vault).
+4. **Create the data store linked service. In its configuration, reference the corresponding secret stored in Azure Key Vault.** Refer to [Reference a secret stored in Azure Key Vault](#reference-secret-stored-in-key-vault).
 
 ## Azure Key Vault linked service
 
@@ -43,11 +43,11 @@ The following properties are supported for Azure Key Vault linked service:
 
 Select **Connections** -> **Linked Services** -> **New**. In New linked service, search for and select "Azure Key Vault":
 
-:::image type="content" source="media/store-credentials-in-key-vault/search-akv.png" alt-text="Search Azure Key Vault":::
+:::image type="content" source="media/store-credentials-in-key-vault/search-azure-key-vault.png" alt-text="Search Azure Key Vault":::
 
 Select the provisioned Azure Key Vault where your credentials are stored. You can do **Test Connection** to make sure your AKV connection is valid. 
 
-:::image type="content" source="media/store-credentials-in-key-vault/configure-akv.png" alt-text="Configure Azure Key Vault":::
+:::image type="content" source="media/store-credentials-in-key-vault/configure-azure-key-vault.png" alt-text="Configure Azure Key Vault":::
 
 **JSON example:**
 
@@ -81,7 +81,7 @@ Select **Azure Key Vault** for secret fields while creating the connection to yo
 >[!TIP]
 >For connectors using connection string in linked service like SQL Server, Blob storage, etc., you can choose either to store only the secret field e.g. password in AKV, or to store the entire connection string in AKV. You can find both options on the UI.
 
-:::image type="content" source="media/store-credentials-in-key-vault/configure-akv-secret.png" alt-text="Configure Azure Key Vault secret":::
+:::image type="content" source="media/store-credentials-in-key-vault/configure-azure-key-vault-secret.png" alt-text="Configure Azure Key Vault secret":::
 
 **JSON example: (see the "password" section)**
 

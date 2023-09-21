@@ -4,7 +4,7 @@ description: Learn how to manage resources for Spark clusters on Azure HDInsight
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 01/12/2021
+ms.date: 07/20/2023
 ---
 
 # Manage resources for Apache Spark cluster on Azure HDInsight

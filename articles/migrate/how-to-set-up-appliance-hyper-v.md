@@ -5,7 +5,9 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.service: azure-migrate
+ms.date: 12/12/2022
+ms.custom: engagement-fy23
 ---
 
 # Set up an appliance for servers on Hyper-V
@@ -173,7 +175,7 @@ Connect from the appliance to Hyper-V hosts or clusters, and start discovery.
 
 ### Provide server credentials
 
-In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis.**, you can provide multiple server credentials. If you don't want to use any of these appliance features, you can skip this step and proceed with discovery of servers running on Hyper-V hosts/clusters. You can change this option at any time.
+In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis and to discover SQL Server instances and databases**, you can provide multiple server credentials. If you don't want to use any of these appliance features, you can skip this step and proceed with discovery of servers running on Hyper-V hosts/clusters. You can change this option at any time.
 
 :::image type="content" source="./media/tutorial-discover-hyper-v/appliance-server-credentials-mapping.png" alt-text="Screenshot that shows providing credentials for software inventory and dependency analysis.":::
 

@@ -1,9 +1,10 @@
 ---
 title: Implement dynamic styling for Azure Maps Creator indoor maps
+titleSuffix:  Microsoft Azure Maps Creator
 description: Learn how to Implement dynamic styling for Creator indoor maps 
-author: stevemunk
-ms.author: v-munksteve
-ms.date: 10/28/2021
+author: brendansco
+ms.author: Brendanc
+ms.date: 03/03/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -11,32 +12,28 @@ services: azure-maps
 
 # Implement dynamic styling for Creator indoor maps
 
-You can use Azure Maps Creator [Feature State service](/rest/api/maps/v2/feature-state) to apply styles that are based on the dynamic properties of indoor map data features.  For example, you can render facility meeting rooms with a specific color to reflect occupancy status. This article describes how to dynamically render indoor map features with the [Feature State service](/rest/api/maps/v2/feature-state) and the [Indoor Web module](how-to-use-indoor-module.md).
+You can use the Azure Maps Creator [Feature State service] to apply styles that are based on the dynamic properties of indoor map data features.  For example, you can render facility meeting rooms with a specific color to reflect occupancy status. This article describes how to dynamically render indoor map features with the [Feature State service] and the [Indoor Web module].
 
 ## Prerequisites
 
-1. [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
-3. [Create a Creator resource](how-to-manage-creator.md)
-4. Download the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
-5. [Create an indoor map](tutorial-creator-indoor-maps.md) to obtain a `tilesetId` and `statesetId`.
-6. Build a web application by following the steps in [How to use the Indoor Map module](how-to-use-indoor-module.md).
+- A `statesetId`.  For more information, see [How to create a feature stateset].
+- A web application. For more information, see [How to use the Indoor Map module].
 
-This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
+This article uses the [Postman] application, but you may choose a different API development environment.
 
 ## Implement dynamic styling
 
-After you complete the prerequisites, you should have a simple web application configured with your subscription key, `tilesetId`, and `statesetId`.
+After you complete the prerequisites, you should have a simple web application configured with your subscription key, and `statesetId`.
 
 ### Select features
 
-To implement dynamic styling, a feature - such as a meeting or conference room - must be referenced by its feature `id`. You use the feature `id` to update the dynamic property or *state* of that feature. To view the features defined in a dataset, you can use one of the following methods:
+You reference a feature, such as a meeting or conference room, by its ID to implement dynamic styling. Use the feature ID to update the dynamic property or *state* of that feature. To view the features defined in a dataset, use one of the following methods:
 
-* WFS API (Web Feature service). You can use the [WFS API](/rest/api/maps/v2/wfs) to query datasets. WFS follows the [Open Geospatial Consortium API Features](http://docs.opengeospatial.org/DRAFTS/17-069r4.html). The WFS API is helpful for querying features within a dataset. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
+- WFS API (Web Feature service). Use the [WFS API] to query datasets. WFS follows the [Open Geospatial Consortium API Features]. The WFS API is helpful for querying features within a dataset. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
 
-* Implement customized code that a user can use to select features on a map using your web application. We use this option in this article.  
+- Implement customized code that a user can use to select features on a map using your web application, as demonstrated in this article.  
 
-The following script implements the mouse-click event. The code retrieves the feature `id` based on the clicked point. In your application, you can insert the code after your Indoor Manager code block. Run your application, and then check the console to obtain the feature `id` of the clicked point.
+The following script implements the mouse-click event. The code retrieves the feature ID based on the clicked point. In your application, you can insert the code after your Indoor Manager code block. Run your application, and then check the console to obtain the feature ID of the clicked point.
 
 ```javascript
 /* Upon a mouse click, log the feature properties to the browser's console. */
@@ -52,13 +49,13 @@ map.events.add("click", function(e){
 });
 ```
 
-The [Create an indoor map](tutorial-creator-indoor-maps.md) tutorial configured the feature stateset to accept state updates for `occupancy`.
+The [Create an indoor map] tutorial configured the feature stateset to accept state updates for `occupancy`.
 
-In the next section, we'll set the occupancy *state* of office `UNIT26` to `true` and  office `UNIT27` to `false`.
+In the next section, you'll set the occupancy *state* of office `UNIT26` to `true` and  office `UNIT27` to `false`.
 
 ### Set occupancy status
 
- We'll now update the state of the two offices, `UNIT26` and `UNIT27`:
+Update the state of the two offices, `UNIT26` and `UNIT27`:
 
 1. In the Postman app, select **New**.
 
@@ -66,10 +63,10 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 
 3. Enter a **Request name** for the request, such as *POST Data Upload*.
 
-4. Enter the following URL to the [Feature Update States API](/rest/api/maps/v2/feature-state/update-states) (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `statesetId` with the `statesetId`):
+4. Enter the following URL to the [Feature Update States API] (replace `{Azure-Maps-Subscription-key}` with your Azure Maps subscription key and `statesetId` with the `statesetId`):
 
     ```http
-    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 5. Select the **Headers** tab.
@@ -97,12 +94,12 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
     ```
 
     >[!IMPORTANT]
-    >The update will be saved only if the posted time stamp is after the time stamp used in previous feature state update requests for the same feature `ID`.
+    >The update will be saved only if the posted time stamp is after the time stamp used in previous feature state update requests for the same feature ID.
 
 10. Change the URL you used in step 7 by replacing `UNIT26` with `UNIT27`:
 
     ```http
-    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 11. Copy the following JSON style, and then paste it in the **Body** window:
@@ -123,36 +120,31 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 
 The web application that you previously opened in a browser should now reflect the updated state of the map features:
 
-* Office `UNIT27`(142) should appear green.
-* Office `UNIT26`(143) should appear red.
+- Office `UNIT27`(142) should appear green.
+- Office `UNIT26`(143) should appear red.
 
 ![Free room in green and Busy room in red](./media/indoor-map-dynamic-styling/room-state.png)
 
-[See live demo](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
+[See live demo]
 
 ## Next steps
 
 Learn more by reading:
 
 > [!div class="nextstepaction"]
-> [Creator for indoor mapping](creator-indoor-maps.md)
+> [Creator for indoor maps](creator-indoor-maps.md)
 
-See the references for the APIs mentioned in this article:
-
-> [!div class="nextstepaction"]
-> [Data Upload](creator-indoor-maps.md#upload-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Data Conversion](creator-indoor-maps.md#convert-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Dataset](creator-indoor-maps.md#datasets)
-
-> [!div class="nextstepaction"]
-> [Tileset](creator-indoor-maps.md#tilesets)
-
-> [!div class="nextstepaction"]
-> [Feature State set](creator-indoor-maps.md#feature-statesets)
-
-> [!div class="nextstepaction"]
-> [WFS service](creator-indoor-maps.md#web-feature-service-api)
+[Feature State service]: /rest/api/maps/v2/feature-state
+[Indoor Web module]: how-to-use-indoor-module.md
+<!--[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[A Creator resource]: how-to-manage-creator.md
+[Sample Drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%202.0-->
+[How to use the Indoor Map module]: how-to-use-indoor-module.md
+[Postman]: https://www.postman.com/
+[How to create a feature stateset]: how-to-creator-feature-stateset.md
+[See live demo]: https://samples.azuremaps.com/?sample=creator-indoor-maps
+[Feature Update States API]: /rest/api/maps/v2/feature-state/update-states
+[Create an indoor map]: tutorial-creator-indoor-maps.md
+[Open Geospatial Consortium API Features]: https://docs.opengeospatial.org/DRAFTS/17-069r4.html
+[WFS API]: /rest/api/maps/v2/wfs

@@ -1,17 +1,17 @@
 ---
-title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform app"
 description: In this quickstart, learn how a Universal Windows Platform (UWP) application can get an access token and call an API protected by Microsoft identity platform.
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/14/2022
 ROBOTS: NOINDEX
-ms.author: jmprieur
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:UWP", mode-api
 #Customer intent: As an application developer, I want to learn how my Universal Windows Platform (XAML) application can get an access token and call an API that's protected by the Microsoft identity platform.
 ---
@@ -22,7 +22,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart: Universal Windows Platform (UWP) desktop app with user sign-in](desktop-app-quickstart.md?pivots=devlang-uwp)
+> > [Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform app](quickstart-desktop-app-uwp-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -51,7 +51,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > > [!div  class="nextstepaction"]
 > > [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 > 
-> [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+> [!INCLUDE [active-directory-develop-path-length-tip](./includes/error-handling-and-tips/path-length-tip.md)]
 > 
 > 
 > #### Step 3: Your app is configured and ready to run
@@ -132,7 +132,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > * `scopes` contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs.
 > * `firstAccount` specifies the first user account in the cache (MSAL supports multiple users in a single app).
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 

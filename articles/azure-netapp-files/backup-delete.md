@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 10/27/2022
 ms.author: anfdocs
 ---
 # Delete backups of a volume 
@@ -30,7 +30,10 @@ If you need to delete backups to free up space, select an older backup from the 
 
 ## Steps
 
-1. Select **Volumes**.
+>[!IMPORTANT]
+>You will not be able to perform any operations on a backup until you have migrate to backup vaults. For more information about this procedure, see [Manage backup vaults](backup-vault-manage.md).
+
+1. Select **Volumes**. <!-- is this -->
 2. Navigate to **Backups**.
 3. From the backup list, select the backup to delete. Click the three dots (`…`) to the right of the backup, then click **Delete** from the Action menu.
 

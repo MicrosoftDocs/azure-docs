@@ -1,9 +1,9 @@
 ---
 title: Resize node pools in Azure Kubernetes Service (AKS)
 description: Learn how to resize node pools for a cluster in Azure Kubernetes Service (AKS) by cordoning and draining.
-services: container-service
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.custom: devx-track-linux
+ms.date: 02/08/2023
 #Customer intent: As a cluster operator, I want to resize my node pools so that I can run more or larger workloads.
 ---
 
@@ -20,9 +20,9 @@ This lack of persistence also applies to the resize operation, thus, resizing AK
 
 ## Example resources
 
-Suppose you want to resize an existing node pool, called `nodepool1`, from SKU size Standard_DS2_v2 to Standard_DS3_v2. To accomplish this task, you'll need to create a new node pool using Standard_DS3_v2, move workloads from `nodepool1` to the new node pool, and remove `nodepool1`. In this example, we'll call this new node pool `mynodepool`.
+Assume you want to resize an existing node pool, called `nodepool1`, from SKU size Standard_DS2_v2 to Standard_DS3_v2. To accomplish this task, you'll need to create a new node pool using Standard_DS3_v2, move workloads from `nodepool1` to the new node pool, and remove `nodepool1`. In this example, we'll call this new node pool `mynodepool`.
 
-:::image type="content" source="./media/resize-node-pool/node-pool-ds2.png" alt-text="The Azure portal page for the cluster, navigated to Settings > Node pools. One node pool, named node pool 1, is shown.":::
+:::image type="content" source="./media/resize-node-pool/node-pool-ds2.png" alt-text="Screenshot of the Azure portal page for the cluster, navigated to Settings > Node pools. One node pool, named node pool 1, is shown.":::
 
 ```bash
 kubectl get nodes
@@ -61,6 +61,8 @@ kube-system   metrics-server-774f99dbf4-h52hn       1/1     Running   1         
 
 ## Create a new node pool with the desired SKU
 
+### [Azure CLI](#tab/azure-cli)
+
 Use the [az aks nodepool add][az-aks-nodepool-add] command to create a new node pool called `mynodepool` with three nodes using the `Standard_DS3_v2` VM SKU:
 
 ```azurecli-interactive
@@ -75,13 +77,13 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> Every AKS cluster must contain at least one system node pool with at least one node. In the below example, we are using a `--mode` of `System`, as the cluster is assumed to have only one node pool, necessitating a `System` node pool to replace it. A node pool's mode can be [updated at any time][update-node-pool-mode].
+> Every AKS cluster must contain at least one system node pool with at least one node. In the example above, we are using a `--mode` of `System`, as the cluster is assumed to have only one node pool, necessitating a `System` node pool to replace it. A node pool's mode can be [updated at any time][update-node-pool-mode].
 
 When resizing, be sure to consider other requirements and configure your node pool accordingly. You may need to modify the above command. For a full list of the configuration options, see the [az aks nodepool add][az-aks-nodepool-add] reference page.
 
 After a few minutes, the new node pool has been created:
 
-:::image type="content" source="./media/resize-node-pool/node-pool-both.png" alt-text="The Azure portal page for the cluster, navigated to Settings > Node pools. Two node pools, named node pool 1 and my node pool, respectively, are shown.":::
+:::image type="content" source="./media/resize-node-pool/node-pool-both.png" alt-text="Screenshot of the Azure portal page for the cluster, navigated to Settings > Node pools. Two node pools, named node pool 1 and my node pool are shown.":::
 
 ```bash
 kubectl get nodes
@@ -94,6 +96,50 @@ aks-nodepool1-31721111-vmss000000    Ready    agent   10d   v1.21.9
 aks-nodepool1-31721111-vmss000001    Ready    agent   10d   v1.21.9
 aks-nodepool1-31721111-vmss000002    Ready    agent   10d   v1.21.9
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+Use the [New-AzAksNodePool][new-azaksnodepool] cmdlet to create a new node pool called `mynodepool` with three nodes using the `Standard_DS3_v2` VM SKU:
+
+```azurepowershell-interactive
+$params = @{
+    ResourceGroupName = 'myResourceGroup'
+    ClusterName       = 'myAKSCluster'
+    Name              = 'mynodepool'
+    Count             = 3
+    VMSize            = 'Standard_DS3_v2'
+}
+New-AzAksNodePool @params
+```
+
+After a few minutes, the new node pool has been created:
+
+:::image type="content" source="./media/resize-node-pool/node-pool-both.png" alt-text="Screenshot of the Azure portal page for the cluster, navigated to Settings > Node pools. Two node pools, named node pool 1 and my node pool are shown.":::
+
+```bash
+kubectl get nodes
+
+NAME                                 STATUS   ROLES   AGE   VERSION
+aks-mynodepool-20823458-vmss000000   Ready    agent   23m   v1.21.9
+aks-mynodepool-20823458-vmss000001   Ready    agent   23m   v1.21.9
+aks-mynodepool-20823458-vmss000002   Ready    agent   23m   v1.21.9
+aks-nodepool1-31721111-vmss000000    Ready    agent   10d   v1.21.9
+aks-nodepool1-31721111-vmss000001    Ready    agent   10d   v1.21.9
+aks-nodepool1-31721111-vmss000002    Ready    agent   10d   v1.21.9
+```
+
+> [!NOTE]
+> Every AKS cluster must contain at least one system node pool with at least one node. In the example below, we are updating a node pool's mode to `System`, as the cluster is assumed to have only one node pool, necessitating a `System` node pool to replace it. A node pool's mode can be [updated at any time][update-node-pool-mode].
+
+```azurepowershell-interactive
+$myAKSCluster = Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster
+($myAKSCluster.AgentPoolProfiles | Where-Object Name -eq 'mynodepool').Mode = 'System'
+$myAKSCluster | Set-AzAksCluster
+```
+
+When resizing, be sure to consider other requirements and configure your node pool accordingly. You may need to modify the above command. For a full list of the configuration options, see the [New-AzAksNodePool][new-azaksnodepool] reference page.
+
+---
 
 ## Cordon the existing nodes
 
@@ -114,7 +160,7 @@ Next, using `kubectl cordon <node-names>`, specify the desired nodes in a space-
 kubectl cordon aks-nodepool1-31721111-vmss000000 aks-nodepool1-31721111-vmss000001 aks-nodepool1-31721111-vmss000002
 ```
 
-```bash
+```output
 node/aks-nodepool1-31721111-vmss000000 cordoned
 node/aks-nodepool1-31721111-vmss000001 cordoned
 node/aks-nodepool1-31721111-vmss000002 cordoned
@@ -123,7 +169,7 @@ node/aks-nodepool1-31721111-vmss000002 cordoned
 ## Drain the existing nodes
 
 > [!IMPORTANT]
-> To successfully drain nodes and evict running pods, ensure that any PodDisruptionBudgets (PDBs) allow for at least 1 pod replica to be moved at a time, otherwise the drain/evict operation will fail. To check this, you can run `kubectl get pdb -A` and make sure `ALLOWED DISRUPTIONS` is at least 1 or higher.
+> To successfully drain nodes and evict running pods, ensure that any PodDisruptionBudgets (PDBs) allow for at least one pod replica to be moved at a time. Otherwise, the drain/evict operation will fail. To check this, you can run `kubectl get pdb -A` and verify `ALLOWED DISRUPTIONS` is at least one or higher.
 
 Draining nodes will cause pods running on them to be evicted and recreated on the other, schedulable nodes.
 
@@ -191,7 +237,9 @@ By default, your cluster has AKS_managed pod disruption budgets (such as `coredn
 
 ## Remove the existing node pool
 
-To delete the existing node pool, use the Azure portal or the [az aks delete][az-aks-delete] command:
+### [Azure CLI](#tab/azure-cli)
+
+To delete the existing node pool, use the Azure portal or the [az aks nodepool delete][az-aks-nodepool-delete] command:
 
 > [!IMPORTANT]
 > When you delete a node pool, AKS doesn't perform cordon and drain. To minimize the disruption of rescheduling pods currently running on the node pool you are going to delete, perform a cordon and drain on all nodes in the node pool before deleting.
@@ -203,9 +251,28 @@ az aks nodepool delete \
     --name nodepool1
 ```
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+To delete the existing node pool, use the Azure portal or the [Remove-AzAksNodePool][remove-azaksnodepool] cmdlet:
+
+> [!IMPORTANT]
+> When you delete a node pool, AKS doesn't perform cordon and drain. To minimize the disruption of rescheduling pods currently running on the node pool you are going to delete, perform a cordon and drain on all nodes in the node pool before deleting.
+
+```azurepowershell-interactive
+$params = @{
+    ResourceGroupName = 'myResourceGroup'
+    ClusterName       = 'myAKSCluster'
+    Name              = 'nodepool1'
+    Force             = $true
+}
+Remove-AzAksNodePool @params
+```
+
+---
+
 After completion, the final result is the AKS cluster having a single, new node pool with the new, desired SKU size and all the applications and pods properly running:
 
-:::image type="content" source="./media/resize-node-pool/node-pool-ds3.png" alt-text="The Azure portal page for the cluster, navigated to Settings > Node pools. One node pool, named my node pool, is shown.":::
+:::image type="content" source="./media/resize-node-pool/node-pool-ds3.png" alt-text="Screenshot of the Azure portal page for the cluster, navigated to Settings > Node pools. One node pool, named my node pool, is shown.":::
 
 ```bash
 kubectl get nodes
@@ -222,11 +289,13 @@ After resizing a node pool by cordoning and draining, learn more about [using mu
 
 <!-- LINKS -->
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
-[az-aks-delete]: /cli/azure/aks#az_aks_delete
+[new-azaksnodepool]: /powershell/module/az.aks/new-azaksnodepool
+[az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az_aks_nodepool_delete
+[remove-azaksnodepool]: /powershell/module/az.aks/remove-azaksnodepool
 [aks-support-policies]: support-policies.md#user-customization-of-agent-nodes
 [update-node-pool-mode]: use-system-pools.md#update-existing-cluster-system-and-user-node-pools
 [pod-disruption-budget]: operator-best-practices-scheduler.md#plan-for-availability-using-pod-disruption-budgets
 [empty-dir]: https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
 [specify-disruption-budget]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
 [disruptions]: https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
-[use-multiple-node-pools]: use-multiple-node-pools.md
+[use-multiple-node-pools]: create-node-pools.md

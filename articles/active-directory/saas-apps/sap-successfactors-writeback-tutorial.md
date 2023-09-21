@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure SAP SuccessFactors writeback in Azure Active Directory | Microsoft Docs'
-description: Learn how to configure attribute write-back to SAP SuccessFactors from Azure AD
+title: 'Tutorial: Configure SAP SuccessFactors writeback in Microsoft Entra ID'
+description: Learn how to configure attribute write-back to SAP SuccessFactors from Microsoft Entra ID
 services: active-directory
 author: cmmdesai
 manager: CelesteDG
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/11/2021
+ms.date: 11/21/2022
 ms.author: chmutali
 ---
-# Tutorial: Configure attribute write-back from Azure AD to SAP SuccessFactors
-The objective of this tutorial is to show the steps to write-back attributes from Azure AD to SAP SuccessFactors Employee Central. 
+# Tutorial: Configure attribute write-back from Microsoft Entra ID to SAP SuccessFactors
+The objective of this tutorial is to show the steps to write-back attributes from Microsoft Entra ID to SAP SuccessFactors Employee Central. 
 
 ## Overview
 
-You can configure the SAP SuccessFactors Writeback app to write specific attributes from Azure Active Directory to SAP SuccessFactors Employee Central. The SuccessFactors writeback provisioning app supports assigning values to the following Employee Central attributes:
+You can configure the SAP SuccessFactors Writeback app to write specific attributes from Microsoft Entra ID to SAP SuccessFactors Employee Central. The SuccessFactors writeback provisioning app supports assigning values to the following Employee Central attributes:
 
 * Work Email
 * Username
@@ -28,7 +28,7 @@ You can configure the SAP SuccessFactors Writeback app to write specific attribu
 * loginMethod attribute
 
 > [!NOTE]
-> This app does not have any dependency on the SuccessFactors inbound user provisioning integration apps. You can configure it independent of [SuccessFactors to on-premises AD](sap-successfactors-inbound-provisioning-tutorial.md) provisioning app or [SuccessFactors to Azure AD](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) provisioning app.
+> This app does not have any dependency on the SuccessFactors inbound user provisioning integration apps. You can configure it independent of [SuccessFactors to on-premises AD](sap-successfactors-inbound-provisioning-tutorial.md) provisioning app or [SuccessFactors to Microsoft Entra ID](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) provisioning app.
 
 ### Who is this user provisioning solution best suited for?
 
@@ -46,7 +46,7 @@ All SuccessFactors provisioning connectors require credentials of a SuccessFacto
 * [Grant Permission Role to the Permission Group](#grant-permission-role-to-the-permission-group)
 
 ### Create/identify API user account in SuccessFactors
-Work with your SuccessFactors admin team or implementation partner to create or identify a user account in SuccessFactors that will be used to invoke the OData APIs. The username and password credentials of this account will be required when configuring the provisioning apps in Azure AD. 
+Work with your SuccessFactors admin team or implementation partner to create or identify a user account in SuccessFactors that will be used to invoke the OData APIs. The username and password credentials of this account will be required when configuring the provisioning apps in Microsoft Entra ID. 
 
 ### Create an API permissions role
 
@@ -105,8 +105,8 @@ Work with your SuccessFactors admin team or implementation partner to create or 
 
 1. In SuccessFactors Admin Center, search for *Manage Permission Roles*, then select **Manage Permission Roles** from the search results.
 1. From the **Permission Role List**, select the role that you created for API usage permissions.
-1. Under **Grant this role to...**, click **Add...** button.
-1. Select **Permission Group...** from the drop-down menu, then click **Select...** to open the Groups window to search and select the group created above. 
+1. Under **Grant this role to...**, click **Add...** Button.
+1. Select **Permission Group...** from the drop-down menu, then click **Select...** to open the Groups window to search and select the group created above.
 
    > [!div class="mx-imgBorder"]
    > ![Add permission group](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
@@ -126,7 +126,7 @@ The SuccessFactors Writeback provisioning app uses certain *code* values for set
 
 ### Identify Email and Phone Number picklist names 
 
-In SAP SuccessFactors, a *picklist* is a configurable set of options from which a user can make a selection. The different types of email and phone number (e.g. business, personal, other) are represented using a picklist. In this step, we will identify the picklists configured in your SuccessFactors tenant to store email and phone number values. 
+In SAP SuccessFactors, a *picklist* is a configurable set of options from which a user can make a selection. The different types of email and phone number (such as business, personal, and other) are represented using a picklist. In this step, we will identify the picklists configured in your SuccessFactors tenant to store email and phone number values. 
  
 1. In SuccessFactors Admin Center, search for *Manage business configuration*. 
 
@@ -156,7 +156,7 @@ In SAP SuccessFactors, a *picklist* is a configurable set of options from which 
 ### Retrieve constant value for emailType
 
 1. In SuccessFactors Admin Center, search and open *Picklist Center*. 
-1. Use the name of the email picklist captured from the previous section (e.g. ecEmailType) to find the email picklist. 
+1. Use the name of the email picklist captured from the previous section (such as ecEmailType) to find the email picklist.
 
    > [!div class="mx-imgBorder"]
    > ![Find email type picklist](./media/sap-successfactors-inbound-provisioning/find-email-type-picklist.png)
@@ -177,7 +177,7 @@ In SAP SuccessFactors, a *picklist* is a configurable set of options from which 
    > ![Get email type code](./media/sap-successfactors-inbound-provisioning/get-email-type-code.png)
 
    > [!NOTE]
-   > Drop the comma character when you copy over the value. For e.g. if the **Option ID** value is *8,448*, then set the *emailType* in Azure AD to the constant number *8448* (without the comma character). 
+   > Drop the comma character when you copy over the value. For example, if the **Option ID** value is *8,448*, then set the *emailType* in Microsoft Entra ID to the constant number *8448* (without the comma character). 
 
 ### Retrieve constant value for phoneType
 
@@ -208,7 +208,7 @@ In SAP SuccessFactors, a *picklist* is a configurable set of options from which 
    > ![Get cell phone code](./media/sap-successfactors-inbound-provisioning/get-cell-phone-code.png)
 
    > [!NOTE]
-   > Drop the comma character when you copy over the value. For e.g. if the **Option ID** value is *10,606*, then set the *cellPhoneType* in Azure AD to the constant number *10606* (without the comma character). 
+   > Drop the comma character when you copy over the value. For example, if the **Option ID** value is *10,606*, then set the *cellPhoneType* in Microsoft Entra ID to the constant number *10606* (without the comma character).
 
 
 ## Configuring SuccessFactors Writeback App
@@ -223,13 +223,8 @@ This section provides steps for
 
 **To configure SuccessFactors Writeback:**
 
-1. Go to <https://portal.azure.com>
-
-2. In the left navigation bar, select **Azure Active Directory**
-
-3. Select **Enterprise Applications**, then **All Applications**.
-
-4. Select **Add an application**, and select the **All** category.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 
 5. Search for **SuccessFactors Writeback**, and add that app from the gallery.
 
@@ -247,7 +242,7 @@ This section provides steps for
 
    * **Notification Email –** Enter your email address, and check the "send email if failure occurs" checkbox.
     > [!NOTE]
-    > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](../app-provisioning/application-provisioning-quarantine-status.md) state.
+    > The Microsoft Entra provisioning service sends email notification if the provisioning job goes into a [quarantine](../app-provisioning/application-provisioning-quarantine-status.md) state.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at  the top. If it fails, double-check that the SuccessFactors credentials and URL are valid.
     >[!div class="mx-imgBorder"]
@@ -259,29 +254,29 @@ This section provides steps for
 
 In this section, you will configure how user data flows from SuccessFactors to Active Directory.
 
-1. On the Provisioning tab under **Mappings**, click **Provision Azure Active Directory Users**.
+1. On the Provisioning tab under **Mappings**, click **Provision Microsoft Entra users**.
 
-1. In the **Source Object Scope** field, you can select which sets of  users in Azure AD should be considered for write-back, by defining a set of attribute-based filters. The default scope is "all users in Azure AD". 
+1. In the **Source Object Scope** field, you can select which sets of  users in Microsoft Entra ID should be considered for write-back, by defining a set of attribute-based filters. The default scope is "all users in Microsoft Entra ID". 
    > [!TIP]
-   > When you are configuring the provisioning app for the first time, you will need to test and verify your attribute mappings and expressions to make sure that it is giving you the desired result. Microsoft recommends using the scoping filters under **Source Object Scope** to test your mappings with a few test users from Azure AD. Once you have verified that the mappings work, then you can either remove the filter or gradually expand it to include more users.
+   > When you are configuring the provisioning app for the first time, you will need to test and verify your attribute mappings and expressions to make sure that it is giving you the desired result. Microsoft recommends using the scoping filters under **Source Object Scope** to test your mappings with a few test users from Microsoft Entra ID. Once you have verified that the mappings work, then you can either remove the filter or gradually expand it to include more users.
 
 1. The **Target Object Actions** field only supports the **Update** operation.
 
-1. In the mapping table under **Attribute mappings** section, you can map the following Azure Active Directory attributes to SuccessFactors. The table below provides guidance on how to map the write-back attributes. 
+1. In the mapping table under **Attribute mappings** section, you can map the following Microsoft Entra attributes to SuccessFactors. The table below provides guidance on how to map the write-back attributes. 
 
-   | \# | Azure AD attribute | SuccessFactors Attribute | Remarks |
+   | \# | Microsoft Entra attribute | SuccessFactors Attribute | Remarks |
    |--|--|--|--|
-   | 1 | employeeId | personIdExternal | By default, this attribute is the matching identifier. Instead of employeeId you can use any other Azure AD attribute that may store the value equal to personIdExternal in SuccessFactors.    |
+   | 1 | employeeId | personIdExternal | By default, this attribute is the matching identifier. Instead of employeeId you can use any other Microsoft Entra attribute that may store the value equal to personIdExternal in SuccessFactors.    |
    | 2 | mail | email | Map email attribute source. For testing purposes, you can map userPrincipalName to email. |
    | 3 | 8448 | emailType | This constant value is the SuccessFactors ID value associated with business email. Update this value to match your SuccessFactors environment. See the section [Retrieve constant value for emailType](#retrieve-constant-value-for-emailtype) for steps to set this value. |
    | 4 | true | emailIsPrimary | Use this attribute to set business email as primary in SuccessFactors. If business email is not primary, set this flag to false. |
-   | 5 | userPrincipalName | [custom01 – custom15] | Using **Add New Mapping**, you can optionally write userPrincipalName or any Azure AD attribute to a custom attribute available in the SuccessFactors User object.  |
-   | 6 | On Prem SamAccountName | username | Using **Add New Mapping**, you can optionally map on-premises samAccountName to SuccessFactors username attribute. Use [Azure AD Connect sync: Directory extensions](../hybrid/how-to-connect-sync-feature-directory-extensions.md) to sync samAccountName to Azure AD. It will appear in the source drop down as *extension_yourTenantGUID_samAccountName* |
-   | 7 | SSO | loginMethod | If SuccessFactors tenant is setup for [partial SSO](https://apps.support.sap.com/sap/support/knowledge/en/2320766), then using Add New Mapping, you can optionally set loginMethod to a    constant value of "SSO" or "PWD". |
-   | 8 | telephoneNumber | businessPhoneNumber | Use this mapping to flow *telephoneNumber* from Azure AD to SuccessFactors business / work phone number. |
+   | 5 | userPrincipalName | [custom01 – custom15] | Using **Add New Mapping**, you can optionally write userPrincipalName or any Microsoft Entra attribute to a custom attribute available in the SuccessFactors User object.  |
+   | 6 | On Prem SamAccountName | username | Using **Add New Mapping**, you can optionally map on-premises samAccountName to SuccessFactors username attribute. Use [Microsoft Entra Connect Sync: Directory extensions](../hybrid/how-to-connect-sync-feature-directory-extensions.md) to sync samAccountName to Microsoft Entra ID. It will appear in the source drop down as *extension_yourTenantGUID_samAccountName* |
+   | 7 | SSO | loginMethod | If SuccessFactors tenant is setup for [partial SSO](https://userapps.support.sap.com/sap/support/knowledge/2320766), then using Add New Mapping, you can optionally set loginMethod to a    constant value of "SSO" or "PWD". |
+   | 8 | telephoneNumber | businessPhoneNumber | Use this mapping to flow *telephoneNumber* from Microsoft Entra ID to SuccessFactors business / work phone number. |
    | 9 | 10605 | businessPhoneType | This constant value is the SuccessFactors ID value associated with business phone. Update this value to match your SuccessFactors environment. See the section [Retrieve constant value for phoneType](#retrieve-constant-value-for-phonetype) for steps to set this value. |
    | 10 | true | businessPhoneIsPrimary | Use this attribute to set the primary flag for business phone number. Valid values are true or false. |
-   | 11 | mobile | cellPhoneNumber | Use this mapping to flow *telephoneNumber* from Azure AD to SuccessFactors business / work phone number. |
+   | 11 | mobile | cellPhoneNumber | Use this mapping to flow *telephoneNumber* from Microsoft Entra ID to SuccessFactors business / work phone number. |
    | 12 | 10606 | cellPhoneType | This constant value is the SuccessFactors ID value associated with cell phone. Update this value to match your SuccessFactors environment. See the section [Retrieve constant value for phoneType](#retrieve-constant-value-for-phonetype) for steps to set this value. |
    | 13 | false | cellPhoneIsPrimary | Use this attribute to set the primary flag for cell phone number. Valid values are true or false. |
    | 14 | [extensionAttribute1-15] | userId | Use this mapping to ensure that the active record in SuccessFactors is updated when there are multiple employment records for the same user. For more details refer to [Enabling writeback with UserID](../app-provisioning/sap-successfactors-integration-reference.md#enabling-writeback-with-userid) |
@@ -312,7 +307,7 @@ In this section, you will configure how user data flows from SuccessFactors to A
 
 ## Enable and launch user provisioning
 
-Once the SuccessFactors provisioning app configurations have been completed, you can turn on the provisioning service in the Azure portal.
+Once the SuccessFactors provisioning app configurations have been completed, you can turn on the provisioning service.
 
 > [!TIP]
 > By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.
@@ -320,18 +315,18 @@ Once the SuccessFactors provisioning app configurations have been completed, you
 1. In the **Provisioning** tab, set the **Provisioning Status** to **On**.
 
 1. Select **Scope**. You can select from one of the following options: 
-   * **Sync all users and groups**: Select this option if you plan to write back mapped attributes of all users from Azure AD to SuccessFactors, subject to the scoping rules defined under **Mappings** -> **Source Object Scope**. 
+   * **Sync all users and groups**: Select this option if you plan to write back mapped attributes of all users from Microsoft Entra ID to SuccessFactors, subject to the scoping rules defined under **Mappings** -> **Source Object Scope**. 
    * **Sync only assigned users and groups**: Select this option if you plan to write back mapped attributes of only users that you have assigned to this application in the **Application** -> **Manage** -> **Users and groups** menu option. These users are also subject to the scoping rules defined under **Mappings** -> **Source Object Scope**.
 
    > [!div class="mx-imgBorder"]
    > ![Select Writeback scope](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
 
    > [!NOTE]
-   > The SuccessFactors Writeback provisioning app does not support "group assignment". Only "user assignment" is supported. 
+   > SuccessFactors Writeback provisioning apps created after 12-Oct-2022 support the "group assignment" feature. If you created the app prior to 12-Oct-2022, it will only have "user assignment" support. To use the "group assignment" feature, create a new instance of the SuccessFactors Writeback application and move your existing mapping configurations to this app. 
 
 1. Click **Save**.
 
-1. This operation will start the initial sync, which can take a variable number of hours depending on how many users are in the Azure AD tenant and the scope defined for the operation. You can check the progress bar to the track the progress of the sync cycle. 
+1. This operation will start the initial sync, which can take a variable number of hours depending on how many users are in the Microsoft Entra tenant and the scope defined for the operation. You can check the progress bar to the track the progress of the sync cycle. 
 
 1. At any time, check the **Provisioning logs** tab in the Azure portal to see what actions the provisioning service has performed. The provisioning logs lists all individual sync events performed by the provisioning service. 
 
@@ -346,8 +341,8 @@ Refer to the [Writeback scenarios section](../app-provisioning/sap-successfactor
 
 ## Next steps
 
-* [Deep dive into Azure AD and SAP SuccessFactors integration reference](../app-provisioning/sap-successfactors-integration-reference.md)
+* [Deep dive into Microsoft Entra ID and SAP SuccessFactors integration reference](../app-provisioning/sap-successfactors-integration-reference.md)
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
-* [Learn how to configure single sign-on between SuccessFactors and Azure Active Directory](successfactors-tutorial.md)
-* [Learn how to integrate other SaaS applications with Azure Active Directory](tutorial-list.md)
+* [Learn how to configure single sign-on between SuccessFactors and Microsoft Entra ID](successfactors-tutorial.md)
+* [Learn how to integrate other SaaS applications with Microsoft Entra ID](tutorial-list.md)
 * [Learn how to export and import your provisioning configurations](../app-provisioning/export-import-provisioning-configuration.md)

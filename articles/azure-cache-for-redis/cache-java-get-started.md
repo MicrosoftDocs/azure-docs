@@ -3,12 +3,11 @@ title: 'Quickstart: Use Azure Cache for Redis in Java'
 description: In this quickstart, you'll create a new Java app that uses Azure Cache for Redis
 author: flang-msft
 ms.author: franlanglois
-ms.date: 03/21/2021
+ms.date: 01/04/2022
 ms.topic: quickstart
 ms.service: cache
 ms.devlang: java
-ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
-
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty-aks, mode-api, mvc, seo-java-august2019, seo-java-september2019, devx-track-extended-java
 ---
 
 # Quickstart: Use Azure Cache for Redis in Java
@@ -172,3 +171,5 @@ In this quickstart, you learned how to use Azure Cache for Redis from a Java app
 
 - [Development](cache-best-practices-development.md)
 - [Connection resilience](cache-best-practices-connection.md)
+- [Azure Cache for Redis with Jakarta EE](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache)
+- [Azure Cache for Redis with Spring](/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache)

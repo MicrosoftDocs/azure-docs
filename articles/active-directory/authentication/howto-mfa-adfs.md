@@ -1,30 +1,32 @@
 ---
-title: Secure resources with Azure AD MFA and ADFS - Azure Active Directory
-description: This is the Azure AD Multi-Factor Authentication page that describes how to get started with Azure AD MFA and AD FS in the cloud.
+title: Secure resources with Microsoft Entra multifactor authentication and ADFS
+description: This is the Microsoft Entra multifactor authentication page that describes how to get started with Microsoft Entra multifactor authentication and AD FS in the cloud.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/15/2022
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Securing cloud resources with Azure AD Multi-Factor Authentication and AD FS
+# Securing cloud resources with Microsoft Entra multifactor authentication and AD FS
 
-If your organization is federated with Azure Active Directory, use Azure AD Multi-Factor Authentication or Active Directory Federation Services (AD FS) to secure resources that are accessed by Azure AD. Use the following procedures to secure Azure Active Directory resources with either Azure AD Multi-Factor Authentication or Active Directory Federation Services.
+If your organization is federated with Microsoft Entra ID, use Microsoft Entra multifactor authentication or Active Directory Federation Services (AD FS) to secure resources that are accessed by Microsoft Entra ID. Use the following procedures to secure Microsoft Entra resources with either Microsoft Entra multifactor authentication or Active Directory Federation Services.
 
 >[!NOTE]
->Set the domain setting [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values) to `enforceMfaByFederatedIdp` (recommended) or **SupportsMFA** to `$True`. The **federatedIdpMfaBehavior** setting overrides **SupportsMFA** when both are set.
+>Set the domain setting [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values&preserve-view=true) to `enforceMfaByFederatedIdp` (recommended) or **SupportsMFA** to `$True`. The **federatedIdpMfaBehavior** setting overrides **SupportsMFA** when both are set.
 
-## Secure Azure AD resources using AD FS
+<a name='secure-azure-ad-resources-using-ad-fs'></a>
 
-To secure your cloud resource, set up a claims rule so that Active Directory Federation Services emits the multipleauthn claim when a user performs two-step verification successfully. This claim is passed on to Azure AD. Follow this procedure to walk through the steps:
+## Secure Microsoft Entra resources using AD FS
+
+To secure your cloud resource, set up a claims rule so that Active Directory Federation Services emits the multipleauthn claim when a user performs two-step verification successfully. This claim is passed on to Microsoft Entra ID. Follow this procedure to walk through the steps:
 
 1. Open AD FS Management.
 2. On the left, select **Relying Party Trusts**.
@@ -84,7 +86,7 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 12. In the Custom rule box, enter:
 
     ```ad-fs-claim-rule
-        c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
+        c:[Type == "https://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c); 
     ```
 
@@ -95,17 +97,21 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 15. Click **Ok**.
 16. Close AD FS Management.
 
-### Configure Azure AD Multi-Factor Authentication Trusted IPs with Federated Users
+<a name='configure-azure-ad-multi-factor-authentication-trusted-ips-with-federated-users'></a>
+
+### Configure Microsoft Entra multifactor authentication Trusted IPs with federated users
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Now that the claims are in place, we can configure trusted IPs.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Conditional Access** > **Named locations**.
 3. From the **Conditional Access - Named locations** blade, select **Configure MFA trusted IPs**
 
-   ![Azure AD Conditional Access named locations Configure MFA trusted IPs](./media/howto-mfa-adfs/trustedip6.png)
+   ![Microsoft Entra Conditional Access named locations Configure MFA trusted IPs](./media/howto-mfa-adfs/trustedip6.png)
 
-4. On the Service Settings page, under **trusted IPs**, select **Skip multi-factor-authentication for requests from federated users on my intranet**.  
+4. On the Service Settings page, under **trusted IPs**, select **Skip multifactor-authentication for requests from federated users on my intranet**.  
 5. Click **save**.
 
 That's it! At this point, federated Microsoft 365 users should only have to use MFA when a claim originates from outside the corporate intranet.

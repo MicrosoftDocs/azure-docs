@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/13/2021
+ms.date: 07/13/2023
 ---
 
 # Copy data from or to Azure Files by using Azure Data Factory
@@ -19,12 +19,16 @@ This article outlines how to copy data to and from Azure Files. To learn about A
 
 ## Supported capabilities
 
-This Azure Files connector is supported for the following activities:
+This Azure Files connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
-- [GetMetadata activity](control-flow-get-metadata-activity.md)
-- [Delete activity](delete-activity.md)
+| Supported capabilities|IR | Managed private endpoint|
+|---------| --------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
+|[Delete activity](delete-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 You can copy data from Azure Files to any supported sink data store, or copy data from any supported source data store to Azure Files. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 

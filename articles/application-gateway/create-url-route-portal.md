@@ -1,12 +1,13 @@
 ---
-title: 'Tutorial: URL path-based routing rules using portal - Azure Application Gateway'
+title: 'Tutorial: Create an application gateway with URL path-based routing rules using Azure portal'
 description: In this tutorial, you learn how to create URL path-based routing rules for an application gateway and virtual machine scale set using the Azure portal.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 02/23/2021
+ms.date: 07/08/2022
 ms.author: greglin
+ms.custom: template-tutorial
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can route my app traffic based on path-based routing rules.
 ---
 
@@ -23,20 +24,22 @@ In this article, you learn how to:
 > * Create a backend listener
 > * Create a path-based routing rule
 
-![URL routing example](./media/application-gateway-create-url-route-portal/scenario.png)
-
+:::image type="content" source="./media/application-gateway-create-url-route-portal/scenario.png" alt-text="Diagram of application gateway URL routing example.":::
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription
+
 
 ## Create virtual machines
 
 In this example, you create three virtual machines to be used as backend servers for the application gateway. You also install IIS on the virtual machines to verify that the application gateway works as expected.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the Azure portal, select **Create a resource**.
 2. Select **Windows Server 2016 Datacenter** in the Popular list.
 3. Enter these values for the virtual machine:
@@ -92,7 +95,7 @@ In this example, you create three virtual machines to be used as backend servers
 
 ## Create an application gateway
 
-1. Select **Create a resource** on the left menu of the Azure portal. The **New** window appears.
+1. Select **Create a resource** on the left menu of the Azure portal.
 
 2. Select **Networking** and then select **Application Gateway** in the **Featured** list.
 
@@ -103,13 +106,13 @@ In this example, you create three virtual machines to be used as backend servers
    - **Subscription**: Select your subscription.
    - **Resource group**: Select **myResourceGroupAG** for the resource group.
    - **Application gateway name**: Type *myAppGateway* for the name of the application gateway.
-   - **Region** - Select **(US) East US**.
-
-        ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+   - **Region** - Select **East US**.
 
 2.  Under **Configure virtual network**, select **myVNet** for the name of the virtual network.
 3. Select **myAGSubnet** for the subnet.
 3. Accept the default values for the other settings and then select **Next: Frontends**.
+
+    :::image type="content" source="./media/create-url-route-portal/application-gateway-create-basics.png" alt-text="Screenshot of Basics tab of Create application gateway page.":::
 
 ### Frontends tab
 
@@ -123,7 +126,7 @@ In this example, you create three virtual machines to be used as backend servers
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 
@@ -193,13 +196,13 @@ Review the settings on the **Review + create** tab, and then select **Create** t
 
    The listener on port 8080 routes this request to the default backend pool.
 
-3. Change the URL to *http://&lt;ip-address&gt;:8080/images/test.htm*, replacing &lt;ip-address&gt; with your IP address, and you should see something like the following example:
+3. Change the URL to *http://&lt;ip-address&gt;:8080/images/test.htm*, replacing &lt;ip-address&gt; with the public IP address of **myAppGateway**, and you should see something like the following example:
 
     ![Test images URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
    The listener on port 8080 routes this request to the *Images* backend pool.
 
-4. Change the URL to *http://&lt;ip-address&gt;:8080/video/test.htm*, replacing &lt;ip-address&gt; with your IP address, and you should see something like the following example:
+4. Change the URL to *http://&lt;ip-address&gt;:8080/video/test.htm*, replacing &lt;ip-address&gt; with the public IP address of **myAppGateway**, and you should see something like the following example:
 
     ![Test video URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
@@ -211,5 +214,11 @@ When no longer needed, delete the resource group and all related resources. To d
 
 ## Next steps
 
+In this tutorial, you created an application gateway with a path-based routing rule.
+
+To learn more about path-based routing in Application Gateways, see [URL path-based routing overview](url-route-overview.md)
+
+To learn how to create and configure an Application Gateway to redirect web traffic using the Azure CLI, advance to the next tutorial.
+
 > [!div class="nextstepaction"]
-> [Enable end to end TLS on Azure Application Gateway](./ssl-overview.md)
+> [Redirect web traffic](tutorial-url-redirect-cli.md)

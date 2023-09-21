@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 10/11/2021
+ms.date: 09/01/2022
 ---
 # Capacity management FAQs for Azure NetApp Files
 
@@ -41,6 +41,10 @@ No, the destination volume of a replication does not count towards hard volume q
 ## Can I manage Azure NetApp Files through Azure Storage Explorer?
 
 No. Azure NetApp Files is not supported by Azure Storage Explorer.
+
+## Why is volume space not freed up immediately after deleting large amount of data in a volume?
+
+When deleting a very large amount of data in a volume (which can include snapshots), the space reclamation process can take time. Wait a few minutes for Azure NetApp Files to reclaim the space in the volume.
 
 ## Next steps  
 

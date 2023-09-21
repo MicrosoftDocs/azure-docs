@@ -4,7 +4,7 @@ description: This article provides information on Web Application Firewall exclu
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 05/18/2022
+ms.date: 05/17/2023
 ms.author: victorh
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
@@ -39,7 +39,19 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Contains**: This operator matches all request fields that contain the specified selector value.
 - **Equals any**: This operator matches all request fields. * will be the selector value.
 
-In all cases matching is case insensitive. Regular expressions aren't allowed as selectors.
+When processing exclusions the WAF engine performs a case sensitive/insensitive match based on the below table. Additionally, regular expressions aren't allowed as selectors and XML request bodies aren't supported.
+
+| Request Body Part | CRS 3.1 and Earlier | CRS 3.2 and Later |
+|-|-|-|
+| Header* | Case Insensitive | Case Insensitive |
+| Cookie* | Case Insensitive | Case Sensitive |
+| Query String* | Case Insensitive | Case Sensitive |
+| URL-Encoded Body | Case Insensitive | Case Sensitive |
+| JSON Body | Case Insensitive | Case Sensitive |
+| XML Body | Not Supported | Not Supported |
+| Multipart Body | Case Insensitive | Case Sensitive |
+
+*Depending on your application, the names, and values, of your headers, cookies and query args can be case sensitive or insensitive.
 
 > [!NOTE]
 > For more information and troubleshooting help, see [WAF troubleshooting](web-application-firewall-troubleshoot.md).
@@ -54,14 +66,46 @@ For example, suppose your requests include this header:
 My-Header: 1=1
 ```
 
-The value of the header (`1=1`) might be detected as an attack by the WAF. But if you know this is a legitimate value for your scenario, you can configure an exclusion for the *value* of the header. To do so, you use the **RequestHeaderValues** request attribute, and select the header name (`My-Header`) with the value that should be ignored.
+The value of the header (`1=1`) might be detected as an attack by the WAF. But if you know this is a legitimate value for your scenario, you can configure an exclusion for the *value* of the header. To do so, you use the **RequestHeaderValues** match variable, the operator **contains**, and the selector (`My-Header`). This configuration stops evaluation of all values for the header `My-Header`.
 
 > [!NOTE]
-> Request attributes by key and values are only available in CRS 3.2 and newer.
+> Request attributes by key and values are only available in CRS 3.2 or newer and Bot Manager 1.0 or newer.
 >
 > Request attributes by names work the same way as request attributes by values, and are included for backward compatibility with CRS 3.1 and earlier versions. We recommend you use request attributes by values instead of attributes by names. For example, use **RequestHeaderValues** instead of **RequestHeaderNames**.
 
-In contrast, if your WAF detects the header's name (`My-Header`) as an attack, you could configure an exclusion for the header *key* by using the **RequestHeaderKeys** request attribute. The **RequestHeaderKeys** attribute is only available in CRS 3.2 and newer.
+In contrast, if your WAF detects the header's name (`My-Header`) as an attack, you could configure an exclusion for the header *key* by using the **RequestHeaderKeys** request attribute. The **RequestHeaderKeys** attribute is only available in CRS 3.2 or newer and Bot Manager 1.0 or newer.
+
+#### Request attribute examples
+
+The below table shows some examples of how you might structure your exclusion for a given match variable.
+
+| Attribute to Exclude | matchVariable | selectorMatchOperator | Example selector | Example request | What gets excluded |
+|-|-|-|-|-|-|
+| Query string | RequestArgKeys | Equals | `/etc/passwd` | Uri: `http://localhost:8080/?/etc/passwd=test` | `/etc/passwd` |
+| Query string | RequestArgKeys | EqualsAny | "" | Uri: `http://localhost:8080/?/etc/passwd=test&.htaccess=test2` | `/etc/passwd` and `.htaccess` |
+| Query string | RequestArgNames | Equals | `text` | Uri: `http://localhost:8080/?text=/etc/passwd` | `/etc/passwd` |
+| Query string | RequestArgNames | EqualsAny | "" | Uri: `http://localhost:8080/?text=/etc/passwd&text2=.cshrc` | `/etc/passwd` and `.cshrc` |
+| Query string | RequestArgValues | Equals | `text` | Uri: `http://localhost:8080/?text=/etc/passwd` | `/etc/passwd` |
+| Query string | RequestArgValues | EqualsAny | "" | Uri: `http://localhost:8080/?text=/etc/passwd&text2=.cshrc` | `/etc/passwd` and `.cshrc` |
+| Request body | RequestArgKeys | Contains | `sleep` | Request body: `{"sleep(5)": "test"}` | `sleep(5)` |
+| Request body | RequestArgKeys | EqualsAny | "" | Request body: `{".zshrc": "value", "sleep(5)":"value2"}` | `.zshrc` and `sleep(5)` |
+| Request body | RequestArgNames | Equals | `test` | Request body: `{"test": ".zshrc"}` | `.zshrc` |
+| Request body | RequestArgNames | EqualsAny | "" | Request body: `{"key1": ".zshrc", "key2":"sleep(5)"}` | `.zshrc` and `sleep(5)` |
+| Request body | RequestArgValues | Equals | `test` | Request body: `{"test": ".zshrc"}` | `.zshrc` |
+| Request body | RequestArgValues | EqualsAny | "" | Request body: `{"key1": ".zshrc", "key2":"sleep(5)"}` | `.zshrc` and `sleep(5)` |
+| Header | RequestHeaderKeys | Equals | `X-Scanner` | Header: `{"X-Scanner": "test"}` | `X-scanner` |
+| Header | RequestHeaderKeys | EqualsAny | "" | Header: `{"X-Scanner": "test", "x-ratproxy-loop": "value"}` | `X-Scanner` and `x-ratproxy-loop` |
+| Header | RequestHeaderNames | Equals | `head1` | Header: `{"head1": "X-Scanner"}` | `X-scanner` |
+| Header | RequestHeaderNames | EqualsAny | "" | Header: `{"head1": "myvar=1234", "User-Agent": "(hydra)"}` | `myvar=1234` and `(hydra)` |
+| Header | RequestHeaderValues | Equals | `head1` | Header: `{"head1": "X-Scanner"}` | `X-scanner` |
+| Header | RequestHeaderValues | EqualsAny | "" | Header: `{"head1": "myvar=1234", "User-Agent": "(hydra)"}` | `myvar=1234` and `(hydra)` |
+| Cookie | RequestCookieKeys | Contains | `/etc/passwd` | Header: `{"Cookie": "/etc/passwdtest=hello1"}` | `/etc/passwdtest` |
+| Cookie | RequestCookieKeys | EqualsAny | "" | Header: `{"Cookie": "/etc/passwdtest=hello1", "Cookie": ".htaccess=test1"}` | `/etc/passwdtest` and `.htaccess` |
+| Cookie | RequestCookieNames | Equals | `arg1` | Header: `{"Cookie": "arg1=/etc/passwd"}` | `/etc/passwd` |
+| Cookie | RequestCookieNames | EqualsAny | "" | Header: `{"Cookie": "arg1=/etc/passwd", "Cookie": "arg1=.cshrc"}` | `/etc/passwd` and `.cshrc` |
+| Cookie | RequestCookieValues | Equals | `arg1` | Header: `{"Cookie": "arg1=/etc/passwd"}` | `/etc/passwd` |
+| Cookie | RequestCookieValues | EqualsAny | "" | Header: `{"Cookie": "arg1=/etc/passwd", "Cookie": "arg1=.cshrc"}` | `/etc/passwd` and `.cshrc` |
+
 
 ## Exclusion scopes
 
@@ -72,9 +116,9 @@ Exclusions can be configured to apply to a specific set of WAF rules, to ruleset
 
 ### Per-rule exclusions
 
-You can configure an exclusion for a specific rule, group of rules, or rule set. You must specify the rule or rules that the exclusion applies to. You also need to specify the request attribute that should be excluded from the WAF evaluation.
+You can configure an exclusion for a specific rule, group of rules, or rule set. You must specify the rule or rules that the exclusion applies to. You also need to specify the request attribute that should be excluded from the WAF evaluation. To exclude a complete group of rules, only provide the `ruleGroupName` parameter, the `rules` parameter is only useful when you want to limit the exclusion to specific rules of a group.
 
-Per-rule exclusions are available when you use the OWASP (CRS) ruleset version 3.2 or later.
+Per-rule exclusions are available when you use the OWASP (CRS) ruleset version 3.2 or later or Bot Manager ruleset version 1.0 or later.
 
 #### Example
 
@@ -145,7 +189,7 @@ az network application-gateway waf-policy managed-rule exclusion rule-set add \
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies@2021-05-01' = {
+resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies@2021-08-01' = {
   name: wafPolicyName
   location: location
   properties: {
@@ -168,6 +212,14 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
               ruleGroups: [
                 {
                   ruleGroupName: 'REQUEST-942-APPLICATION-ATTACK-SQLI'
+                  rules: [
+                    {
+                      ruleId: '942150'
+                    }
+                    {
+                      ruleId: '942410'
+                    }
+                  ]
                 }
               ]
             }
@@ -184,7 +236,7 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
 ```json
 {
   "type": "Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies",
-  "apiVersion": "2021-05-01",
+  "apiVersion": "2021-08-01",
   "name": "[parameters('wafPolicyName')]",
   "location": "[parameters('location')]",
   "properties": {
@@ -206,7 +258,15 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
               "ruleSetVersion": "3.2",
               "ruleGroups": [
                 {
-                  "ruleGroupName": "REQUEST-942-APPLICATION-ATTACK-SQLI"
+                  "ruleGroupName": "REQUEST-942-APPLICATION-ATTACK-SQLI",
+                  "rules": [
+                    {
+                      "ruleId": "942150"
+                    },
+                    {
+                      "ruleId": "942410"
+                    }
+                  ]
                 }
               ]
             }
@@ -217,6 +277,145 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
   }
 }
 ```
+
+
+---
+
+You can also exclude the `User-Agent` header from evaluation just by rule 942270:
+
+# [Azure portal](#tab/portal)
+
+Follow the steps described in the preceding example, and select rule 942270 in step 4.
+
+# [Azure PowerShell](#tab/powershell)
+
+```azurepowershell
+$ruleEntry = New-AzApplicationGatewayFirewallPolicyExclusionManagedRule `
+  -Rule '942270'
+
+$ruleGroupEntry = New-AzApplicationGatewayFirewallPolicyExclusionManagedRuleGroup `
+  -RuleGroupName 'REQUEST-942-APPLICATION-ATTACK-SQLI' `
+  -Rule $ruleEntry
+
+$exclusionManagedRuleSet = New-AzApplicationGatewayFirewallPolicyExclusionManagedRuleSet `
+  -RuleSetType 'OWASP' `
+  -RuleSetVersion '3.2' `
+  -RuleGroup $ruleGroupEntry
+
+$exclusionEntry = New-AzApplicationGatewayFirewallPolicyExclusion `
+  -MatchVariable "RequestHeaderValues" `
+  -SelectorMatchOperator 'Equals' `
+  -Selector 'User-Agent' `
+  -ExclusionManagedRuleSet $exclusionManagedRuleSet
+
+$wafPolicy = Get-AzApplicationGatewayFirewallPolicy `
+  -Name $wafPolicyName `
+  -ResourceGroupName $resourceGroupName
+$wafPolicy.ManagedRules[0].Exclusions.Add($exclusionEntry)
+$wafPolicy | Set-AzApplicationGatewayFirewallPolicy
+```
+
+# [Azure CLI](#tab/cli)
+
+```azurecli
+az network application-gateway waf-policy managed-rule exclusion rule-set add \
+  --resource-group $resourceGroupName \
+  --policy-name $wafPolicyName \
+  --type OWASP \
+  --version 3.2 \
+  --group-name 'REQUEST-942-APPLICATION-ATTACK-SQLI' \
+  --rule-ids 942270 \
+  --match-variable 'RequestHeaderValues' \
+  --match-operator 'Equals' \
+  --selector 'User-Agent'
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies@2021-08-01' = {
+  name: wafPolicyName
+  location: location
+  properties: {
+    managedRules: {
+      managedRuleSets: [
+        {
+          ruleSetType: 'OWASP'
+          ruleSetVersion: '3.2'
+        }
+      ]
+      exclusions: [
+        {
+          matchVariable: 'RequestHeaderValues'
+          selectorMatchOperator: 'Equals'
+          selector: 'User-Agent'
+          exclusionManagedRuleSets: [
+            {
+              ruleSetType: 'OWASP'
+              ruleSetVersion: '3.2'
+              ruleGroups: [
+                {
+                  ruleGroupName: 'REQUEST-942-APPLICATION-ATTACK-SQLI'
+                  rules: [
+                    {
+                      ruleId: '942270'
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
+# [ARM template](#tab/armtemplate)
+
+```json
+{
+  "type": "Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies",
+  "apiVersion": "2021-08-01",
+  "name": "[parameters('wafPolicyName')]",
+  "location": "[parameters('location')]",
+  "properties": {
+    "managedRules": {
+      "managedRuleSets": [
+        {
+          "ruleSetType": "OWASP",
+          "ruleSetVersion": "3.2"
+        }
+      ],
+      "exclusions": [
+        {
+          "matchVariable": "RequestHeaderValues",
+          "selectorMatchOperator": "Equals",
+          "selector": "User-Agent",
+          "exclusionManagedRuleSets": [
+            {
+              "ruleSetType": "OWASP",
+              "ruleSetVersion": "3.2",
+              "ruleGroups": [
+                {
+                  "ruleGroupName": "REQUEST-942-APPLICATION-ATTACK-SQLI",
+                  "rules": [
+                    {
+                      "ruleId": "942270"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
 
 ---
 
@@ -232,7 +431,7 @@ The following example shows how you can exclude the `user` query string argument
 
 # [Azure portal](#tab/portal)
 
-To configure a g;lobal exclusion by using the Azure portal, follow these steps:
+To configure a global exclusion by using the Azure portal, follow these steps:
 
 1. Navigate to the WAF policy, and select **Managed rules**.
 
@@ -271,7 +470,7 @@ az network application-gateway waf-policy managed-rule exclusion add \
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies@2021-05-01' = {
+resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies@2021-08-01' = {
   name: wafPolicyName
   location: location
   properties: {
@@ -299,7 +498,7 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
 ```json
 {
   "type": "Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies",
-  "apiVersion": "2021-05-01",
+  "apiVersion": "2021-08-01",
   "name": "[parameters('wafPolicyName')]",
   "location": "[parameters('location')]",
   "properties": {
@@ -322,10 +521,12 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
 }
 ```
 
+
 ---
 
-So if the URL `http://www.contoso.com/?user%3c%3e=joe` is scanned by the WAF, it won't evaluate the string **joe**, but it will still evaluate the parameter name **user%3c%3e**. 
+So if the URL `http://www.contoso.com/?user%3c%3e=joe` is scanned by the WAF, it won't evaluate the string **joe**, but it still evaluates the parameter name **user%3c%3e**. 
 
 ## Next steps
 
-After you configure your WAF settings, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
+- After you configure your WAF settings, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
+- [Learn more about Azure network security](../../networking/security/index.yml)

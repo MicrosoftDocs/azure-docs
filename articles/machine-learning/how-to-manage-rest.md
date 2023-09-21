@@ -2,36 +2,37 @@
 title: Use REST to manage ML resources
 titleSuffix: Azure Machine Learning
 description: How to use REST APIs to create, run, and delete Azure Machine Learning resources, such as a workspace, or register models.
-author: blackmist
-ms.author: larryfr
+author: deeikele
+ms.author: deeikele
+ms.reviewer: larryfr
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.date: 08/10/2020
+ms.subservice: enterprise-readiness
+ms.date: 09/14/2022
 ms.topic: how-to
-ms.custom: devx-track-python
+ms.custom:
 ---
 
-# Create, run, and delete Azure ML resources using REST
+# Create, run, and delete Azure Machine Learning resources using REST
 
 
 
-There are several ways to manage your Azure ML resources. You can use the [portal](https://portal.azure.com/), [command-line interface](/cli/azure), or [Python SDK](/python/api/overview/azure/ml/intro). Or, you can choose the REST API. The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation. 
+There are several ways to manage your Azure Machine Learning resources. You can use the [portal](https://portal.azure.com/), [command-line interface](/cli/azure), or [Python SDK](https://aka.ms/sdk-v2-install). Or, you can choose the REST API. The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation. 
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Retrieve an authorization token
 > * Create a properly-formatted REST request using service principal authentication
-> * Use GET requests to retrieve information about Azure ML's hierarchical resources
+> * Use GET requests to retrieve information about Azure Machine Learning's hierarchical resources
 > * Use PUT and POST requests to create and modify resources
-> * Use PUT requests to create Azure ML workspaces
+> * Use PUT requests to create Azure Machine Learning workspaces
 > * Use DELETE requests to clean up resources 
 
 ## Prerequisites
 
 - An **Azure subscription** for which you have administrative rights. If you don't have such a subscription, try the [free or paid personal subscription](https://azure.microsoft.com/free/)
-- An [Azure Machine Learning Workspace](./how-to-manage-workspace.md)
+- An [Azure Machine Learning workspace](quickstart-create-resources.md).
 - Administrative REST requests use service principal authentication. Follow the steps in [Set up authentication for Azure Machine Learning resources and workflows](./how-to-setup-authentication.md#service-principal-authentication) to create a service principal in your workspace
 - The **curl** utility. The **curl** program is available in the [Windows Subsystem for Linux](/windows/wsl/install-win10) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
 
@@ -71,7 +72,7 @@ The response should provide an access token good for one hour:
 }
 ```
 
-Make note of the token, as you'll use it to authenticate all additional administrative requests. You'll do so by setting an Authorization header in all requests:
+Make note of the token, as you'll use it to authenticate all administrative requests. You'll do so by setting an Authorization header in all requests:
 
 ```bash
 curl -h "Authorization:Bearer <YOUR-ACCESS-TOKEN>" ...more args...
@@ -85,10 +86,15 @@ curl -h "Authorization:Bearer <YOUR-ACCESS-TOKEN>" ...more args...
 To retrieve the list of resource groups associated with your subscription, run:
 
 ```bash
-curl https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups?api-version=2021-03-01-preview -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
+curl https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups?api-version=2021-04-01 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
-Across Azure, many REST APIs are published. Each service provider updates their API on their own cadence, but does so without breaking existing programs. The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. For the Machine Learning Service, for instance, the current API version is `2021-03-01-preview`. For storage accounts, it's `2019-08-01`. For key vaults, it's `2019-09-01`. All REST calls should set the `api-version` argument to the expected value. You can rely on the syntax and semantics of the specified version even as the API continues to evolve. If you send a request to a provider without the `api-version` argument, the response will contain a human-readable list of supported values. 
+Across Azure, many REST APIs are published. Each service provider updates their API on their own cadence, but does so without breaking existing programs. The service provider uses the `api-version` argument to ensure compatibility. 
+
+> [!IMPORTANT]
+> The `api-version` argument varies from service to service. For the Machine Learning Service, for instance, the current API version is `2022-05-01`. To find the latest API version for other Azure services, see the [Azure REST API reference](/rest/api/azure/) for the specific service.
+
+All REST calls should set the `api-version` argument to the expected value. You can rely on the syntax and semantics of the specified version even as the API continues to evolve. If you send a request to a provider without the `api-version` argument, the response will contain a human-readable list of supported values. 
 
 The above call will result in a compacted JSON response of the form: 
 
@@ -123,7 +129,7 @@ The above call will result in a compacted JSON response of the form:
 To retrieve the set of workspaces in a resource group, run the following, replacing `<YOUR-SUBSCRIPTION-ID>`, `<YOUR-RESOURCE-GROUP>`, and `<YOUR-ACCESS-TOKEN>`: 
 
 ```
-curl https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/?api-version=2021-03-01-preview \
+curl https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/?api-version=2022-05-01 \
 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
@@ -184,7 +190,7 @@ The value of the `api` response is the URL of the server that you'll use for mor
 
 ```bash
 curl https://<REGIONAL-API-SERVER>/history/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
-providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/experiments?api-version=2021-03-01-preview \
+providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/experiments?api-version=2022-05-01 \
 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
@@ -192,7 +198,7 @@ Similarly, to retrieve registered models in your workspace, send:
 
 ```bash
 curl https://<REGIONAL-API-SERVER>/modelmanagement/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
-providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models?api-version=2021-03-01-preview \
+providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models?api-version=2022-05-01 \
 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
@@ -228,15 +234,15 @@ Training and running ML models require compute resources. You can list the compu
 
 ```bash
 curl https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
-providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/computes?api-version=2021-03-01-preview \
+providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/computes?api-version=2022-05-01 \
 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
-To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar replacements of `YOUR-SUBSCRIPTION-ID`, `YOUR-RESOURCE-GROUP`, `YOUR-WORKSPACE-NAME`, and `YOUR-ACCESS-TOKEN`, replace `YOUR-COMPUTE-NAME`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. As specified in the reference at [Machine Learning Compute - Create Or Update SDK Reference](/rest/api/azureml/workspaces/createorupdate), the following command creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
+To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar replacements of `YOUR-SUBSCRIPTION-ID`, `YOUR-RESOURCE-GROUP`, `YOUR-WORKSPACE-NAME`, and `YOUR-ACCESS-TOKEN`, replace `YOUR-COMPUTE-NAME`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. As specified in the reference at [Machine Learning Compute - Create Or Update SDK Reference](/rest/api/azureml/2023-04-01/workspaces/create-or-update), the following command creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
 
 ```bash
 curl -X PUT \
-  'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/computes/<YOUR-COMPUTE-NAME>?api-version=2021-03-01-preview' \
+  'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/computes/<YOUR-COMPUTE-NAME>?api-version=2022-05-01' \
   -H 'Authorization:Bearer <YOUR-ACCESS-TOKEN>' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -267,14 +273,14 @@ A successful request will get a `201 Created` response, but note that this respo
 
 ## Create a workspace using REST 
 
-Every Azure ML workspace has a dependency on four other Azure resources: an Azure Container Registry resource, Azure Key Vault, Azure Application Insights, and an Azure Storage account. You can't create a workspace until these resources exist. Consult the REST API reference for the details of creating each such resource.
+Every Azure Machine Learning workspace has a dependency on four other Azure resources: an Azure Container Registry resource, Azure Key Vault, Azure Application Insights, and an Azure Storage account. You can't create a workspace until these resources exist. Consult the REST API reference for the details of creating each such resource.
 
 To create a workspace, PUT a call similar to the following to `management.azure.com`. While this call requires you to set a large number of variables, it's structurally identical to other calls that this article has discussed. 
 
 ```bash
 curl -X PUT \
   'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
-/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2021-03-01-preview' \
+/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2022-05-01' \
   -H 'Authorization: Bearer <YOUR-ACCESS-TOKEN>' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -306,7 +312,7 @@ When creating workspace, you can specify a user-assigned managed identity that w
 ```bash
 curl -X PUT \
   'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
-/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2021-03-01-preview' \
+/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2022-05-01' \
   -H 'Authorization: Bearer <YOUR-ACCESS-TOKEN>' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -335,22 +341,22 @@ providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>"
 
 ## Create a workspace using customer-managed encryption keys
 
-By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. Instead of using the Microsoft-managed key, you can also provide your own key. Doing so creates an [additional set of resources](./concept-data-encryption.md#azure-cosmos-db) in your Azure subscription to store your data.
+By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. Instead of using the Microsoft-managed key, you can also provide your own key. Doing so creates an [another set of resources](./concept-data-encryption.md#azure-cosmos-db) in your Azure subscription to store your data.
 
-To create a workspaces that uses your keys for encryption, you need to meet the following prerequisites:
+To create a workspace that uses your keys for encryption, you need to meet the following prerequisites:
 
 * The Azure Machine Learning service principal must have contributor access to your Azure subscription.
 * You must have an existing Azure Key Vault that contains an encryption key.
-* The Azure Key Vault must exist in the same Azure region where you will create the Azure Machine Learning workspace.
-* The Azure Key Vault must have soft delete and purge protection enabled to protect against data loss in case of accidental deletion.
+* The Azure Key Vault must exist in the same Azure region where you'll create the Azure Machine Learning workspace.
+* The Azure Key Vault must have soft delete and purge protection enabled to protect against data loss if there was accidental deletion.
 * You must have an access policy in Azure Key Vault that grants get, wrap, and unwrap access to the Azure Cosmos DB application.
 
-To create a workspaces that uses a user-assigned managed identity and customer-managed keys for encryption, use the below request body. When using an user-assigned managed identity for the workspace, also set the `userAssignedIdentity` property to the resource ID of the managed identity.
+To create a workspace that uses a user-assigned managed identity and customer-managed keys for encryption, use the below request body. When using a user-assigned managed identity for the workspace, also set the `userAssignedIdentity` property to the resource ID of the managed identity.
 
 ```bash
 curl -X PUT \
   'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
-/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2021-03-01-preview' \
+/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2022-05-01' \
   -H 'Authorization: Bearer <YOUR-ACCESS-TOKEN>' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -393,7 +399,7 @@ Some, but not all, resources support the DELETE verb. Check the [API Reference](
 ```bash
 curl
   -X DELETE \
-'https://<REGIONAL-API-SERVER>/modelmanagement/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models/<YOUR-MODEL-ID>?api-version=2021-03-01-preview' \
+'https://<REGIONAL-API-SERVER>/modelmanagement/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models/<YOUR-MODEL-ID>?api-version=2022-05-01' \
   -H 'Authorization:Bearer <YOUR-ACCESS-TOKEN>' 
 ```
 
@@ -401,7 +407,7 @@ curl
 
 ### Resource provider errors
 
-[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+[!INCLUDE [machine-learning-resource-provider](includes/machine-learning-resource-provider.md)]
 
 ### Moving the workspace
 
@@ -412,10 +418,9 @@ curl
 
 The Azure Machine Learning workspace uses Azure Container Registry (ACR) for some operations. It will automatically create an ACR instance when it first needs one.
 
-[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
+[!INCLUDE [machine-learning-delete-acr](includes/machine-learning-delete-acr.md)]
 
 ## Next steps
 
-- Explore the complete [AzureML REST API reference](/rest/api/azureml/).
-- Learn how to use the designer to [Predict automobile price with the designer](./tutorial-designer-automobile-price-train-score.md).
-- Explore [Azure Machine Learning with Jupyter notebooks](..//machine-learning/samples-notebooks.md).
+- Explore the complete [Azure Machine Learning REST API reference](/rest/api/azureml/).
+- Explore [Azure Machine Learning with Jupyter notebooks](../machine-learning/samples-notebooks.md).

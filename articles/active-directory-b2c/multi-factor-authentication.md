@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/14/2022
+ms.date: 07/20/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -19,7 +19,7 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C (Azure AD B2C) integrates directly with [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) so that you can add a second layer of security to sign-up and sign-in experiences in your applications. You enable multifactor authentication without writing a single line of code. If you already created sign up and sign-in user flows, you can still enable multifactor authentication.
+Azure Active Directory B2C (Azure AD B2C) integrates directly with [Microsoft Entra multifactor authentication](../active-directory/authentication/concept-mfa-howitworks.md) so that you can add a second layer of security to sign-up and sign-in experiences in your applications. You enable multifactor authentication without writing a single line of code. If you already created sign up and sign-in user flows, you can still enable multifactor authentication.
 
 This feature helps applications handle scenarios such as:
 
@@ -38,16 +38,16 @@ With [Conditional Access](conditional-access-identity-protection-overview.md) us
 - **SMS or phone call** - During the first sign-up or sign-in, the user is asked to provide and verify a phone number. During subsequent sign-ins, the user is prompted to select either the **Send Code** or **Call Me** phone MFA option. Depending on the user's choice, a text message is sent or a phone call is made to the verified phone number to identify the user. The user either provides the OTP code sent via text message or approves the phone call.
 - **Phone call only** - Works in the same way as the SMS or phone call option, but only a phone call is made. 
 - **SMS only** - Works in the same way as the SMS or phone call option, but only a text message is sent. 
-- **Authenticator app - TOTP (preview)** - The user must install an authenticator app that supports time-based one-time password (TOTP) verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app), on a device that they own. During the first sign-up or sign-in, the user scans a QR code or enters a code manually using the authenticator app. During subsequent sign-ins, the user types the TOTP code that appears on the authenticator app. See [how to set up the Microsoft Authenticator app](#enroll-a-user-in-totp-with-an-authenticator-app-for-end-users). 
+- **Authenticator app - TOTP** - The user must install an authenticator app that supports time-based one-time password (TOTP) verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app), on a device that they own. During the first sign-up or sign-in, the user scans a QR code or enters a code manually using the authenticator app. During subsequent sign-ins, the user types the TOTP code that appears on the authenticator app. See [how to set up the Microsoft Authenticator app](#enroll-a-user-in-totp-with-an-authenticator-app-for-end-users). 
 
 > [!IMPORTANT]
-> Authenticator app - TOTP provides stronger security than SMS/Phone and email is the least secure. [SMS/Phone-based multi-factor authentication incurs separate charges from the normal Azure AD B2C MAU's pricing model](https://azure.microsoft.com/pricing/details/active-directory/external-identities/). 
+> Authenticator app - TOTP provides stronger security than SMS/Phone and email is the least secure. [SMS/Phone-based multifactor authentication incurs separate charges from the normal Azure AD B2C MAU's pricing model](https://azure.microsoft.com/pricing/details/active-directory/external-identities/). 
 
 ## Set multifactor authentication
 
 ::: zone pivot="b2c-user-flow"
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
@@ -67,7 +67,7 @@ With [Conditional Access](conditional-access-identity-protection-overview.md) us
    >
    > - With general availability of Conditional Access in Azure AD B2C, users are now prompted to enroll in an MFA method during sign-up. Any sign-up user flows you created prior to general availability won't automatically reflect this new behavior, but you can include the behavior by creating new user flows.
    > - If you select **Conditional**, you'll also need to [add Conditional Access to user flows](conditional-access-user-flow.md), and specify the apps you want the policy to apply to.
-   > - Multi-factor authentication (MFA) is disabled by default for sign-up user flows. You can enable MFA in user flows with phone sign-up, but because a phone number is used as the primary identifier, email one-time passcode is the only option available for the second authentication factor.
+   > - Multifactor authentication is disabled by default for sign-up user flows. You can enable MFA in user flows with phone sign-up, but because a phone number is used as the primary identifier, email one-time passcode is the only option available for the second authentication factor.
 
 1. Select **Save**. MFA is now enabled for this user flow.
 
@@ -83,7 +83,7 @@ To enable multifactor authentication, get the custom policy starter pack from Gi
 
 -  [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) or clone the repository from `https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack`, and then update the XML files in the **SocialAndLocalAccountsWithMFA** starter pack with your Azure AD B2C tenant name. The **SocialAndLocalAccountsWithMFA**  enables social and local sign in options, and multifactor authentication options, except for the Authenticator app - TOTP option.
 - To support the **Authenticator app - TOTP** MFA option, download the custom policy files from `https://github.com/azure-ad-b2c/samples/tree/master/policies/totp`, and then update the XML files with your Azure AD B2C tenant name. Make sure to include `TrustFrameworkExtensions.xml`, `TrustFrameworkLocalization.xml`, and `TrustFrameworkBase.xml` XML files from the **SocialAndLocalAccounts** starter pack.
-- Update your [page layout] to version `2.1.9`. For more information, see [Select a page layout](contentdefinitions.md#select-a-page-layout).
+- Update your [page layout] to version `2.1.14`. For more information, see [Select a page layout](contentdefinitions.md#select-a-page-layout).
 
 ::: zone-end
 
@@ -116,13 +116,13 @@ In Azure AD B2C, you can delete a user's TOTP authenticator app enrollment. Then
 
 ### Delete TOTP authenticator app enrollment using the Azure portal 
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Users**.
 1. Search for and select the user for which you want to delete TOTP authenticator app enrollment.
 1. In the left menu, select **Authentication methods**.
-1. Under **Usable authentication methods**, find **Software OATH token (Preview)**, and then select the ellipsis menu next to it. If you don't see this interface, select the option to **"Switch to the new user authentication methods experience! Click here to use it now"** to switch to the new authentication methods experience.
+1. Under **Usable authentication methods**, find **Software OATH token**, and then select the ellipsis menu next to it. If you don't see this interface, select the option to **"Switch to the new user authentication methods experience! Click here to use it now"** to switch to the new authentication methods experience.
 1. Select **Delete**, and then select **Yes** to confirm. 
 
 :::image type="content" source="media/multi-factor-authentication/authentication-methods.png" alt-text="User authentication methods":::
@@ -135,6 +135,6 @@ Learn how to [delete a user's Software OATH token authentication method](/graph/
 
 ## Next steps
 
-- Learn about the [TOTP display control](display-control-time-based-one-time-password.md) and [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md)
+- Learn about the [TOTP display control](display-control-time-based-one-time-password.md) and [Microsoft Entra multifactor authentication technical profile](multi-factor-auth-technical-profile.md)
 
 ::: zone-end

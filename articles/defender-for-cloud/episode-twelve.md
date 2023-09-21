@@ -2,7 +2,7 @@
 title: Enhanced workload protection features in Defender for Servers
 description: Learn about the enhanced capabilities available in Defender for Servers, for VMs that are located in GCP, AWS and on-premises.
 ms.topic: reference
-ms.date: 05/25/2022
+ms.date: 04/27/2023
 ---
 
 # Enhanced workload protection features in Defender for Servers
@@ -11,9 +11,7 @@ ms.date: 05/25/2022
 
 Netta explains how Defender for Servers applies Azure Arc as a bridge to onboard non-Azure VMs as she demonstrates what the experience looks like.
 
-<br>
-<br>
-<iframe src="https://aka.ms/docs/player?id=18fdbe74-4399-44fe-81e7-3e3ce92df451" width="1080" height="530" max-width: 100%; min-width: 100%;"></iframe>
+> [!VIDEO https://aka.ms/docs/player?id=18fdbe74-4399-44fe-81e7-3e3ce92df451]
 
 - [00:55](/shows/mdc-in-the-field/enhanced-workload-protection#time=00m55s) - Arc Auto-provisioning in GCP
 
@@ -44,4 +42,4 @@ Introduce yourself to [Microsoft Defender for Servers](defender-for-servers-intr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Defender for Storage](episode-thirteen.md)

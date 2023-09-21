@@ -44,7 +44,9 @@ Keep the query above handy as we will need it later when we configure our Logic 
 1. From the portal menu, select **Logic Apps**, or use the Azure search box at the top of all
    pages to search for and select **Logic Apps**.
 
-2. Click the **Create** button on upper left of your screen and continue with creating your Logic App.
+2. Click the **Add** button on upper left of your screen and continue with creating your Logic App.
+
+3. When creating the Logic App, ensure you choose **Consumption** under **Plan Type**.
 
 ## Setup a Managed Identity
 

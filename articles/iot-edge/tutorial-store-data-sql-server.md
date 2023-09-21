@@ -14,7 +14,7 @@ ms.custom: "mvc, devx-track-csharp"
 
 # Tutorial: Store data at the edge with SQL Server databases
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Deploy a SQL Server module to store data on a device running Azure IoT Edge with Linux containers.
 
@@ -35,19 +35,19 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place:
+Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop Azure IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place:
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * An AMD64 device running Azure IoT Edge with Linux containers. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
   * ARM devices, like Raspberry Pis, cannot run SQL Server. If you want to use SQL on an ARM device, you can use [Azure SQL Edge](../azure-sql-edge/overview.md).
 * A container registry, like [Azure Container Registry](../container-registry/index.yml).
-* [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.
+* [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) and [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions.
+* Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine. Configure it to run Linux containers.
 
 This tutorial uses an Azure Functions module to send data to the SQL Server. To develop an IoT Edge module with Azure Functions, install the following additional prerequisites on your development machine:
 
 * [C# for Visual Studio Code (powered by OmniSharp) extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
+* [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 ## Create a function project
 
@@ -55,23 +55,23 @@ To send data into a database, you need a module that can structure the data prop
 
 ### Create a new project
 
-The following steps show you how to create an IoT Edge function using Visual Studio Code and the Azure IoT Tools.
+The following steps show you how to create an IoT Edge function using Visual Studio Code and the Azure IoT Edge extension.
 
 1. Open Visual Studio Code.
 
-2. Open the VS Code command palette by selecting **View** > **Command palette**.
+2. Open the Visual Studio Code command palette by selecting **View** > **Command palette**.
 
 3. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution:
 
    | Field | Value |
    | ----- | ----- |
-   | Select folder | Choose the location on your development machine for VS Code to create the solution files. |
+   | Select folder | Choose the location on your development machine for Visual Studio Code to create the solution files. |
    | Provide a solution name | Enter a descriptive name for your solution, like **SqlSolution**, or accept the default. |
    | Select module template | Choose **Azure Functions - C#**. |
    | Provide a module name | Name your module **sqlFunction**. |
    | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the **Login server** value from your Azure container registry. You can retrieve the Login server from the Overview page of your container registry in the Azure portal. <br><br>The final string looks like \<registry name\>.azurecr.io/sqlfunction. |
 
-   The VS Code window loads your IoT Edge solution workspace.
+   The Visual Studio Code window loads your IoT Edge solution workspace.
 
 ### Add your registry credentials
 
@@ -79,7 +79,7 @@ The environment file stores the credentials for your container registry and shar
 
 The IoT Edge extension tries to pull your container registry credentials from Azure and populate them in the environment file. Check to see if your credentials are already included. If not, add them now:
 
-1. In the VS Code explorer, open the .env file.
+1. In the Visual Studio Code explorer, open the .env file.
 2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
 3. Save this file.
 
@@ -96,7 +96,7 @@ You need to select which architecture you're targeting with each solution, becau
 
 ### Update the module with custom code
 
-1. In the VS Code explorer, open **modules** > **sqlFunction** > **sqlFunction.csproj**.
+1. In the Visual Studio Code explorer, open **modules** > **sqlFunction** > **sqlFunction.csproj**.
 
 2. Find the group of package references, and add a new one to include SqlClient.
 
@@ -247,7 +247,7 @@ In the previous sections, you created a solution with one module, and then added
 
     You might see a security warning recommending the use of the --password-stdin parameter. While its use is outside the scope of this article, we recommend following this best practice. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) command reference.
 
-1. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**.
+1. In the Visual Studio Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**.
 
    The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, which is built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
 
@@ -257,7 +257,7 @@ In the previous sections, you created a solution with one module, and then added
 
 ## Deploy the solution to a device
 
-You can set modules on a device through the IoT Hub, but you can also access your IoT Hub and devices through Visual Studio Code. In this section, you set up access to your IoT Hub then use VS Code to deploy your solution to your IoT Edge device.
+You can set modules on a device through the IoT Hub, but you can also access your IoT Hub and devices through Visual Studio Code. In this section, you set up access to your IoT Hub then use Visual Studio Code to deploy your solution to your IoT Edge device.
 
 1. In the Visual Studio Code explorer, under the **Azure IoT Hub** section, expand **Devices** to see your list of IoT devices.
 
@@ -330,9 +330,9 @@ If you plan to continue to the next recommended article, you can keep the resour
 
 Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges.
 
-[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
+[!INCLUDE [iot-edge-clean-up-cloud-resources](includes/iot-edge-clean-up-cloud-resources.md)]
 
-In this tutorial, you created an Azure Functions module that contains code to filter raw data generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about how to [Develop Azure Functions with Azure IoT Edge for Visual Studio Code](./how-to-vs-code-develop-module.md).
+In this tutorial, you created an Azure Functions module that contains code to filter raw data generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about how to [Develop Azure IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md).
 
 ## Next steps
 

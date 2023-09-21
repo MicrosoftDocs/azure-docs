@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure Arc-enabled data services # < 60 chars
-summary: Run Azure data services on-premises, at the edge, and in multi-cloud environments using Kubernetes on the infrastructure of your choice. # < 160 chars
+summary: Run Azure data services on-premises, at the edge, and in multicloud environments using Kubernetes on the infrastructure of your choice. # < 160 chars
  
 metadata:
-  title: Azure Arc-enabled data services # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Run Azure data services on-premises, at the edge, and in multi-cloud environments using Kubernetes on the infrastructure of your choice. # Required; article description that is displayed in search results. < 160 chars.
-  ms.service: azure-arc #Required; service per approved list. service slug assigned to your service by ACOM.
+  title: Azure Arc-enabled data services
+  description: Run Azure data services on-premises, at the edge, and in multicloud environments using Kubernetes on the infrastructure of your choice.
+  ms.service: azure-arc
   ms.subservice: azure-arc-data # Optional; Remove if no subservice is used.
-  ms.topic: landing-page # Required
-  author: MikeRayMSFT #Required; your GitHub user alias, with correct capitalization.
-  ms.author: mikeray #Required; microsoft alias of author; optional team alias.
-  ms.date: 12/16/2020 #Required; mm/dd/yyyy format.
+  ms.topic: landing-page
+  author: MikeRayMSFT
+  ms.author: mikeray
+  ms.date: 07/19/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -67,16 +67,16 @@ landingContent:
           - text: Jumpstart
             url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/
  # Card
-  - title: Azure Arc-enabled PostgreSQL Hyperscale (preview)
+  - title: Azure Arc-enabled PostgreSQL (preview)
     linkLists:
       - linkListType: quickstart
         links:
           - text: Create
-            url: create-postgresql-hyperscale-server-group.md
+            url: create-postgresql-server.md
           - text: Connect
-            url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
+            url: get-connection-endpoints-and-connection-strings-postgresql-server.md
           - text: Migrate
-            url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
+            url: migrate-postgresql-data.md
           - text: Restore
-            url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
+            url: restore-adventureworks-sample-db-into-postgresql-server.md
 

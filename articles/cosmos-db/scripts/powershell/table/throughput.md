@@ -1,36 +1,37 @@
 ---
-title: PowerShell scripts for throughput (RU/s) operations for for Azure Cosmos DB Table API
-description: PowerShell scripts for throughput (RU/s) operations for for Azure Cosmos DB Table API
-author: markjbrown
+title: PowerShell scripts for throughput (RU/s) operations for for Azure Cosmos DB for Table
+description: PowerShell scripts for throughput (RU/s) operations for for Azure Cosmos DB for Table
+author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.topic: sample
 ms.date: 10/07/2020
-ms.author: mjbrown 
-ms.custom: devx-track-azurepowershell
+ms.author: sidandrews
+ms.reviewer: mjbrown 
+ms.custom: ignite-2022, devx-track-azurepowershell
 ---
 
-# Throughput (RU/s) operations with PowerShell for a table for Azure Cosmos DB - Table API
-[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
+# Throughput (RU/s) operations with PowerShell for a table for Azure Cosmos DB - API for Table
+[!INCLUDE[Table](../../../includes/appliesto-table.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
 This sample requires Azure PowerShell Az 5.4.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed.
-If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure.
 
 ## Get throughput
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-ru-get.ps1 "Get throughput on a table for Table API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-ru-get.ps1 "Get throughput on a table for API for Table")]
 
 ## Update throughput
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-ru-update.ps1 "Update throughput on a table for Table API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-ru-update.ps1 "Update throughput on a table for API for Table")]
 
 ## Migrate throughput
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-ru-migrate.ps1 "Migrate between standard and autoscale throughput on a table for Table API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-ru-migrate.ps1 "Migrate between standard and autoscale throughput on a table for API for Table")]
 
 ## Clean up deployment
 
@@ -47,9 +48,9 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBTableThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbtablethroughput) | Gets the throughput value of the specified Table API Table. |
-| [Update-AzCosmosDBMongoDBCollectionThroughput](/powershell/module/az.cosmosdb/update-azcosmosdbsqldatabasethroughput) | Updates the throughput value of the Table API Table. |
-| [Invoke-AzCosmosDBTableThroughputMigration](/powershell/module/az.cosmosdb/invoke-azcosmosdbtablethroughputmigration) | Migrate throughput of a Table API Table. |
+| [Get-AzCosmosDBTableThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbtablethroughput) | Gets the throughput value of the specified API for Table Table. |
+| [Update-AzCosmosDBMongoDBCollectionThroughput](/powershell/module/az.cosmosdb/update-azcosmosdbsqldatabasethroughput) | Updates the throughput value of the API for Table Table. |
+| [Invoke-AzCosmosDBTableThroughputMigration](/powershell/module/az.cosmosdb/invoke-azcosmosdbtablethroughputmigration) | Migrate throughput of a API for Table Table. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||

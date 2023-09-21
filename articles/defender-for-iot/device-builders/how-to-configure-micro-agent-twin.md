@@ -43,7 +43,7 @@ Learn how to configure a micro agent twin.
 
     :::image type="content" source="media/tutorial-micro-agent-configuration/module-identity-twin.png" alt-text="Screenshot of the Module Identity Details screen.":::
 
-1. Change the value of any field by adding the field to the `"desired"` section with the new value.
+1. Change the value of any field by adding the field to the `"desired"` section with the new value. 
 
     :::image type="content" source="media/tutorial-micro-agent-configuration/desired.png" alt-text="Screenshot of the sample output of the module identity twin.":::
 
@@ -78,8 +78,9 @@ Learn how to configure a micro agent twin.
         "CollectorsCore_PriorityIntervals": "30,120,1440"
     }
     ```
+    For the full list of supported properties, see [Micro agent configurations](concept-micro-agent-configuration.md).
 
-    The agent successfully set the new configuration if the value of `"latest_state"`, under the `"reported"` section will show `"success"`.
+    The agent successfully set the new configuration if the value of `"latest_state"`, under the `"reported"` section shows `"success"`.
 
     :::image type="content" source="media/tutorial-micro-agent-configuration/reported-success.png" alt-text="Screenshot of a successful configuration change.":::
 
@@ -87,4 +88,8 @@ Learn how to configure a micro agent twin.
 
 ## Next steps
 
-You learned how to configure a micro agent twin. Continue on to learn about other [Micro agent configurations (Preview)](concept-micro-agent-configuration.md).
+You learned how to configure a micro agent twin. For more information about micro agent configurations and event aggregation, see:
+
+- [Micro agent configurations](concept-micro-agent-configuration.md)
+
+- [Micro agent event collection](concept-event-aggregation.md)

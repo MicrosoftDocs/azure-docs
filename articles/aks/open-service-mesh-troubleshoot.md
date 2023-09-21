@@ -1,198 +1,211 @@
 ---
-title: Troubleshooting Open Service Mesh
-description: How to troubleshoot Open Service Mesh
-services: container-service
+title: Troubleshoot the Open Service Mesh (OSM) add-on for Azure Kubernetes Service (AKS)
+description: How to troubleshoot the Open Service Mesh (OSM) add-on for Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.date: 8/26/2021
+ms.date: 06/27/2023
 ms.author: pgibson
 ---
 
-# Open Service Mesh (OSM) AKS add-on Troubleshooting Guides
+# Troubleshoot the Open Service Mesh (OSM) add-on for Azure Kubernetes Service (AKS)
 
-When you deploy the OSM AKS add-on, you could possibly experience problems associated with configuration of the service mesh. The following guide will assist you on how to troubleshoot errors and resolve common problems.
+When you deploy the Open Service Mesh (OSM) add-on for Azure Kubernetes Service (AKS), you may experience problems associated with the service mesh configuration. The article explores common troubleshooting errors and how to resolve them.
 
-## Verifying and Troubleshooting OSM components
+## Verifying and troubleshooting OSM components
 
-### Check OSM Controller Deployment, Pod, and Service
+### Check OSM Controller deployment, pod, and service
 
-```azurecli-interactive
-kubectl get deployment,pod,service -n kube-system --selector app=osm-controller
-```
+* Check the OSM Controller deployment, pod, and service health using the `kubectl get deployment,pod,service` command.
 
-A healthy OSM Controller would look like this:
+    ```azurecli-interactive
+    kubectl get deployment,pod,service -n kube-system --selector app=osm-controller
+    ```
 
-```Output
-NAME                             READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/osm-controller   2/2     2            2           3m4s
+    A healthy OSM controller gives an output similar to the following example output:
 
-NAME                                  READY   STATUS    RESTARTS   AGE
-pod/osm-controller-65bd8c445c-zszp4   1/1     Running   0          2m
-pod/osm-controller-65bd8c445c-xqhmk   1/1     Running   0          16s
+    ```output
+    NAME                             READY   UP-TO-DATE   AVAILABLE   AGE
+    deployment.apps/osm-controller   2/2     2            2           3m4s
 
-NAME                     TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                       AGE
-service/osm-controller   ClusterIP   10.96.185.178   <none>        15128/TCP,9092/TCP,9091/TCP   3m4s
-service/osm-validator    ClusterIP   10.96.11.78     <none>        9093/TCP                      3m4s
-```
+    NAME                                  READY   STATUS    RESTARTS   AGE
+    pod/osm-controller-65bd8c445c-zszp4   1/1     Running   0          2m
+    pod/osm-controller-65bd8c445c-xqhmk   1/1     Running   0          16s
 
-> [!NOTE]
-> For the osm-controller services the CLUSTER-IP would be different. The service NAME and PORT(S) must be the same as the example above.
+    NAME                     TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                       AGE
+    service/osm-controller   ClusterIP   10.96.185.178   <none>        15128/TCP,9092/TCP,9091/TCP   3m4s
+    service/osm-validator    ClusterIP   10.96.11.78     <none>        9093/TCP                      3m4s
+    ```
 
-### Check OSM Injector Deployment, Pod, and Service
+    > [!NOTE]
+    > For the `osm-controller` services, the CLUSTER-IP is different. The service NAME and PORT(S) must be the same as the example output.
 
-```azurecli-interactive
-kubectl get deployment,pod,service -n kube-system --selector app=osm-injector
-```
+### Check OSM Injector deployment, pod, and service
 
-A healthy OSM Injector would look like this:
+* Check the OSM Injector deployment, pod, and service health using the `kubectl get deployment,pod,service` command.
 
-```Output
-NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/osm-injector   2/2     2            2           4m37s
+    ```azurecli-interactive
+    kubectl get deployment,pod,service -n kube-system --selector app=osm-injector
+    ```
 
-NAME                                READY   STATUS    RESTARTS   AGE
-pod/osm-injector-5c49bd8d7c-b6cx6   1/1     Running   0          4m21s
-pod/osm-injector-5c49bd8d7c-dx587   1/1     Running   0          4m37s
+    A healthy OSM Injector gives an output similar to the following example output:
 
-NAME                   TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
-service/osm-injector   ClusterIP   10.96.236.108   <none>        9090/TCP   4m37s
-```
+    ```output
+    NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
+    deployment.apps/osm-injector   2/2     2            2           4m37s
 
-### Check OSM Bootstrap Deployment, Pod, and Service
+    NAME                                READY   STATUS    RESTARTS   AGE
+    pod/osm-injector-5c49bd8d7c-b6cx6   1/1     Running   0          4m21s
+    pod/osm-injector-5c49bd8d7c-dx587   1/1     Running   0          4m37s
 
-```azurecli-interactive
-kubectl get deployment,pod,service -n kube-system --selector app=osm-bootstrap
-```
+    NAME                   TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+    service/osm-injector   ClusterIP   10.96.236.108   <none>        9090/TCP   4m37s
+    ```
 
-A healthy OSM Bootstrap would look like this:
+### Check OSM Bootstrap deployment, pod, and service
 
-```Output
-NAME                            READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/osm-bootstrap   1/1     1            1           5m25s
+* Check the OSM Bootstrap deployment, pod, and service health using the `kubectl get deployment,pod,service` command.
 
-NAME                                 READY   STATUS    RESTARTS   AGE
-pod/osm-bootstrap-594ffc6cb7-jc7bs   1/1     Running   0          5m25s
+    ```azurecli-interactive
+    kubectl get deployment,pod,service -n kube-system --selector app=osm-bootstrap
+    ```
 
-NAME                    TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE
-service/osm-bootstrap   ClusterIP   10.96.250.208   <none>        9443/TCP,9095/TCP   5m25s
-```
+    A healthy OSM Bootstrap gives an output similar to the following example output:
 
-### Check Validating and Mutating webhooks
+    ```output
+    NAME                            READY   UP-TO-DATE   AVAILABLE   AGE
+    deployment.apps/osm-bootstrap   1/1     1            1           5m25s
 
-```azurecli-interactive
-kubectl get ValidatingWebhookConfiguration --selector app=osm-controller
-```
+    NAME                                 READY   STATUS    RESTARTS   AGE
+    pod/osm-bootstrap-594ffc6cb7-jc7bs   1/1     Running   0          5m25s
 
-A healthy OSM Validating Webhook would look like this:
+    NAME                    TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE
+    service/osm-bootstrap   ClusterIP   10.96.250.208   <none>        9443/TCP,9095/TCP   5m25s
+    ```
 
-```Output
-NAME              WEBHOOKS   AGE
-aks-osm-validator-mesh-osm   1      81m
-```
+### Check validating and mutating webhooks
 
-```azurecli-interactive
-kubectl get MutatingWebhookConfiguration --selector app=osm-injector
-```
+1. Check the OSM Validating Webhook using the `kubectl get ValidatingWebhookConfiguration` command.
 
-A healthy OSM Mutating Webhook would look like this:
+    ```azurecli-interactive
+    kubectl get ValidatingWebhookConfiguration --selector app=osm-controller
+    ```
 
-```Output
-NAME              WEBHOOKS   AGE
-aks-osm-webhook-osm   1      102m
-```
+    A healthy OSM Validating Webhook gives an output similar to the following example output:
 
-### Check for the service and the CA bundle of the Validating webhook
+    ```output
+    NAME              WEBHOOKS   AGE
+    aks-osm-validator-mesh-osm   1      81m
+    ```
 
-```azurecli-interactive
-kubectl get ValidatingWebhookConfiguration aks-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
-```
+2. Check the OSM Mutating Webhook using the `kubectl get MutatingWebhookConfiguration` command.
 
-A well configured Validating Webhook Configuration would look exactly like this:
+    ```azurecli-interactive
+    kubectl get MutatingWebhookConfiguration --selector app=osm-injector
+    ```
 
-```json
-{
-  "name": "osm-config-validator",
-  "namespace": "kube-system",
-  "path": "/validate-webhook",
-  "port": 9093
-}
-```
+    A healthy OSM Mutating Webhook gives an output similar to the following example output:
 
-### Check for the service and the CA bundle of the Mutating webhook
+    ```output
+    NAME              WEBHOOKS   AGE
+    aks-osm-webhook-osm   1      102m
+    ```
 
-```azurecli-interactive
-kubectl get MutatingWebhookConfiguration aks-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
-```
+### Check for the service and CA bundle of the Validating Webhook
 
-A well configured Mutating Webhook Configuration would look exactly like this:
+* Check for the service and CA bundle of the OSM Validating Webhook using the `kubectl get ValidatingWebhookConfiguration` command with `aks-osm-validator-mesh-osm` and `jq '.webhooks[0].clientConfig.service'`.
 
-```json
-{
-  "name": "osm-injector",
-  "namespace": "kube-system",
-  "path": "/mutate-pod-creation",
-  "port": 9090
-}
-```
+    ```azurecli-interactive
+    kubectl get ValidatingWebhookConfiguration aks-osm-validator-mesh-osm -o json | jq '.webhooks[0].clientConfig.service'
+    ```
+
+    A well-configured Validating Webhook configuration looks like the following example JSON output:
+
+    ```json
+    {
+      "name": "osm-config-validator",
+      "namespace": "kube-system",
+      "path": "/validate-webhook",
+      "port": 9093
+    }
+    ```
+
+### Check for the service and CA bundle of the Mutating webhook
+
+* Check for the service and CA bundle of the OSM Mutating Webhook using the `kubectl get ValidatingWebhookConfiguration` command with `aks-osm-validator-mesh-osm` and `jq '.webhooks[0].clientConfig.service'`.
+
+    ```azurecli-interactive
+    kubectl get MutatingWebhookConfiguration aks-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
+    ```
+
+    A well-configured Mutating Webhook configuration looks like the following example JSON output:
+
+    ```json
+    {
+      "name": "osm-injector",
+      "namespace": "kube-system",
+      "path": "/mutate-pod-creation",
+      "port": 9090
+    }
+    ```
 
 ### Check the `osm-mesh-config` resource
 
-Check for the existence:
+1. Check the OSM MeshConfig resource exists using the `kubectl get meshconfig` command.
 
-```azurecli-interactive
-kubectl get meshconfig osm-mesh-config -n kube-system
-```
+    ```azurecli-interactive
+    kubectl get meshconfig osm-mesh-config -n kube-system
+    ```
 
-Check the content of the OSM MeshConfig
+2. Check the contents of the OSM MeshConfig resource using the `kubectl get meshconfig` command with `-o yaml`.
 
-```azurecli-interactive
-kubectl get meshconfig osm-mesh-config -n kube-system -o yaml
-```
+    ```azurecli-interactive
+    kubectl get meshconfig osm-mesh-config -n kube-system -o yaml
+    ```
 
-```
-apiVersion: config.openservicemesh.io/v1alpha1
-kind: MeshConfig
-metadata:
-  creationTimestamp: "0000-00-00A00:00:00A"
-  generation: 1
-  name: osm-mesh-config
-  namespace: kube-system
-  resourceVersion: "2494"
-  uid: 6c4d67f3-c241-4aeb-bf4f-b029b08faa31
-spec:
-  certificate:
-    serviceCertValidityDuration: 24h
-  featureFlags:
-    enableEgressPolicy: true
-    enableMulticlusterMode: false
-    enableWASMStats: true
-  observability:
-    enableDebugServer: true
-    osmLogLevel: info
-    tracing:
-      address: jaeger.kube-system.svc.cluster.local
-      enable: false
-      endpoint: /api/v2/spans
-      port: 9411
-  sidecar:
-    configResyncInterval: 0s
-    enablePrivilegedInitContainer: false
-    envoyImage: mcr.microsoft.com/oss/envoyproxy/envoy:v1.18.3
-    initContainerImage: mcr.microsoft.com/oss/openservicemesh/init:v0.9.1
-    logLevel: error
-    maxDataPlaneConnections: 0
-    resources: {}
-  traffic:
-    enableEgress: true
-    enablePermissiveTrafficPolicyMode: true
-    inboundExternalAuthorization:
-      enable: false
-      failureModeAllow: false
-      statPrefix: inboundExtAuthz
-      timeout: 1s
-    useHTTPSIngress: false
-```
+    ```output
+    apiVersion: config.openservicemesh.io/v1alpha1
+    kind: MeshConfig
+    metadata:
+      creationTimestamp: "0000-00-00A00:00:00A"
+      generation: 1
+      name: osm-mesh-config
+      namespace: kube-system
+      resourceVersion: "2494"
+      uid: 6c4d67f3-c241-4aeb-bf4f-b029b08faa31
+    spec:
+      certificate:
+        serviceCertValidityDuration: 24h
+      featureFlags:
+        enableEgressPolicy: true
+        enableMulticlusterMode: false
+        enableWASMStats: true
+      observability:
+        enableDebugServer: true
+        osmLogLevel: info
+        tracing:
+          address: jaeger.kube-system.svc.cluster.local
+          enable: false
+          endpoint: /api/v2/spans
+          port: 9411
+      sidecar:
+        configResyncInterval: 0s
+        enablePrivilegedInitContainer: false
+        envoyImage: mcr.microsoft.com/oss/envoyproxy/envoy:v1.18.3
+        initContainerImage: mcr.microsoft.com/oss/openservicemesh/init:v0.9.1
+        logLevel: error
+        maxDataPlaneConnections: 0
+        resources: {}
+      traffic:
+        enableEgress: true
+        enablePermissiveTrafficPolicyMode: true
+        inboundExternalAuthorization:
+          enable: false
+          failureModeAllow: false
+          statPrefix: inboundExtAuthz
+          timeout: 1s
+        useHTTPSIngress: false
+    ```
 
-`osm-mesh-config` resource values:
+#### `osm-mesh-config` resource values
 
 | Key | Type | Default Value | Kubectl Patch Command Examples |
 |-----|------|---------------|--------------------------------|
@@ -223,100 +236,97 @@ spec:
 | spec.featureFlags.enableIngressBackendPolicy | bool | `"true"` | `kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"featureFlags":{"enableIngressBackendPolicy":"true"}}}'  --type=merge` |
 | spec.featureFlags.enableEnvoyActiveHealthChecks | bool | `"false"` | `kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"featureFlags":{"enableEnvoyActiveHealthChecks":"false"}}}'  --type=merge` |
 
-
-### Check Namespaces
-
-> [!NOTE]
-> The kube-system namespace will never participate in a service mesh and will never be labeled and/or annotated with the key/values below.
-
-We use the `osm namespace add` command to join namespaces to a given service mesh.
-When a k8s namespace is part of the mesh (or for it to be part of the mesh) the following must be true:
-
-View the annotations with
-
-```azurecli-interactive
-kubectl get namespace bookbuyer -o json | jq '.metadata.annotations'
-```
-
-The following annotation must be present:
-
-```Output
-{
-  "openservicemesh.io/sidecar-injection": "enabled"
-}
-```
-
-View the labels with
-
-```azurecli-interactive
-kubectl get namespace bookbuyer -o json | jq '.metadata.labels'
-```
-
-The following label must be present:
-
-```Output
-{
-  "openservicemesh.io/monitored-by": "osm"
-}
-```
-
-If a namespace is not annotated with `"openservicemesh.io/sidecar-injection": "enabled"` or not labeled with `"openservicemesh.io/monitored-by": "osm"` the OSM Injector will not add Envoy sidecars.
+### Check namespaces
 
 > [!NOTE]
-> After `osm namespace add` is called only **new** pods will be injected with an Envoy sidecar. Existing pods must be restarted with `kubectl rollout restart deployment ...`
+> The `kube-system` namespace never participates in a service mesh and is never labeled and/or annotated with the following key/values.
 
-### Verify OSM CRDs:
+The `osm namespace add` command allows you to join namespaces to a given service mesh. When you want a K8s namespace to be part of the mesh, it must have the following annotation and label.
 
-Check whether the cluster has the required CRDs:
+1. View the annotations using the `kubectl get namespace` command with `jq '.metadata.annotations'`.
 
-```azurecli-interactive
-kubectl get crds
-```
+    ```azurecli-interactive
+    kubectl get namespace bookbuyer -o json | jq '.metadata.annotations'
+    ```
 
-We must have the following installed on the cluster:
+    You must see the following annotation in the output:
 
-- egresses.policy.openservicemesh.io
-- httproutegroups.specs.smi-spec.io 
-- ingressbackends.policy.openservicemesh.io
-- meshconfigs.config.openservicemesh.io
-- multiclusterservices.config.openservicemesh.io
-- tcproutes.specs.smi-spec.io
-- trafficsplits.split.smi-spec.io
-- traffictargets.access.smi-spec.io
+    ```output
+    {
+      "openservicemesh.io/sidecar-injection": "enabled"
+    }
+    ```
 
-Get the versions of the SMI CRDs installed with this command:
+2. View the labels using the `kubectl get namespaces` command with `jq '.metadata.labels'`.
 
-```azurecli-interactive
-osm mesh list
-```
+    ```azurecli-interactive
+    kubectl get namespace bookbuyer -o json | jq '.metadata.labels'
+    ```
 
-Expected output:
+    You must see the following label in the output:
 
-```
-MESH NAME   MESH NAMESPACE   VERSION   ADDED NAMESPACES
-osm         kube-system      v0.11.1
+    ```output
+    {
+      "openservicemesh.io/monitored-by": "osm"
+    }
+    ```
 
-MESH NAME   MESH NAMESPACE   SMI SUPPORTED
-osm         kube-system      HTTPRouteGroup:v1alpha4,TCPRoute:v1alpha4,TrafficSplit:v1alpha2,TrafficTarget:v1alpha3
+If a namespace doesn't have the `"openservicemesh.io/sidecar-injection": "enabled"` annotation or the `"openservicemesh.io/monitored-by": "osm"` label, the OSM Injector doesn't add Envoy sidecars.
 
-To list the OSM controller pods for a mesh, please run the following command passing in the mesh's namespace
-        kubectl get pods -n <osm-mesh-namespace> -l app=osm-controller
-```
+> [!NOTE]
+> After `osm namespace add` is called, only **new** pods are injected with an Envoy sidecar. Existing pods must be restarted with `kubectl rollout restart deployment ...`
 
-OSM Controller v0.11.1 requires the following versions:
+### Verify OSM CRDs
 
-- traffictargets.access.smi-spec.io - [v1alpha3](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-access/v1alpha3/traffic-access.md)
-- httproutegroups.specs.smi-spec.io - [v1alpha4](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-specs/v1alpha4/traffic-specs.md#httproutegroup)
-- tcproutes.specs.smi-spec.io - [v1alpha4](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-specs/v1alpha4/traffic-specs.md#tcproute)
-- udproutes.specs.smi-spec.io - Not supported
-- trafficsplits.split.smi-spec.io - [v1alpha2](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-split/v1alpha2/traffic-split.md)
-- \*.metrics.smi-spec.io - [v1alpha1](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-metrics/v1alpha1/traffic-metrics.md)
+1. Check the cluster has the required CRDs using the `kubectl get crds` command.
 
+    ```azurecli-interactive
+    kubectl get crds
+    ```
+
+    The following CRDs must be installed on the cluster:
+
+    * egresses.policy.openservicemesh.io
+    * httproutegroups.specs.smi-spec.io
+    * ingressbackends.policy.openservicemesh.io
+    * meshconfigs.config.openservicemesh.io
+    * multiclusterservices.config.openservicemesh.io
+    * tcproutes.specs.smi-spec.io
+    * trafficsplits.split.smi-spec.io
+    * traffictargets.access.smi-spec.io
+
+2. Get the versions of the SMI CRDs installed using the `osm mesh list` command.
+
+    ```azurecli-interactive
+    osm mesh list
+    ```
+
+    Your output should look similar to the following example output:
+
+    ```output
+    MESH NAME   MESH NAMESPACE   VERSION   ADDED NAMESPACES
+    osm         kube-system      v0.11.1
+
+    MESH NAME   MESH NAMESPACE   SMI SUPPORTED
+    osm         kube-system      HTTPRouteGroup:v1alpha4,TCPRoute:v1alpha4,TrafficSplit:v1alpha2,TrafficTarget:v1alpha3
+
+    To list the OSM controller pods for a mesh, please run the following command passing in the mesh's namespace
+            kubectl get pods -n <osm-mesh-namespace> -l app=osm-controller
+    ```
+
+    OSM Controller v0.11.1 requires the following versions:
+
+   * traffictargets.access.smi-spec.io - [v1alpha3](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-access/v1alpha3/traffic-access.md)
+   * httproutegroups.specs.smi-spec.io - [v1alpha4](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-specs/v1alpha4/traffic-specs.md#httproutegroup)
+   * tcproutes.specs.smi-spec.io - [v1alpha4](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-specs/v1alpha4/traffic-specs.md#tcproute)
+   * udproutes.specs.smi-spec.io - Not supported
+   * trafficsplits.split.smi-spec.io - [v1alpha2](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-split/v1alpha2/traffic-split.md)
+   * \*.metrics.smi-spec.io - [v1alpha1](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-metrics/v1alpha1/traffic-metrics.md)
 
 ### Certificate management
 
-Information on how OSM issues and manages certificates to Envoy proxies running on application pods can be found on the [OpenServiceMesh docs site](https://docs.openservicemesh.io/docs/guides/certificates/).
+For more information on how OSM issues and manages certificates to Envoy proxies running on application pods, see the [OSM certificates guide](https://docs.openservicemesh.io/docs/guides/certificates/).
 
 ### Upgrading Envoy
 
-When a new pod is created in a namespace monitored by the add-on, OSM will inject an [envoy proxy sidecar](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) in that pod. Information regarding how to update the envoy version can be found in the [Upgrade Guide](https://docs.openservicemesh.io/docs/getting_started/) on the OpenServiceMesh docs site.
+When you create a new pod in a namespace monitored by the add-on, OSM injects an [Envoy proxy sidecar](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) in that pod. For more information on how to update the Envoy version, see the [OSM upgrade guide](https://docs.openservicemesh.io/docs/getting_started/).

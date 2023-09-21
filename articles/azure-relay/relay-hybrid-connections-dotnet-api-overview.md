@@ -2,8 +2,8 @@
 title: Overview of Azure Relay .NET Standard APIs | Microsoft Docs
 description: This article summarizes some of the key an overview of Azure Relay Hybrid Connections .NET Standard API.
 ms.topic: article
-ms.custom: devx-track-csharp
-ms.date: 06/23/2021
+ms.custom: devx-track-csharp, devx-track-dotnet
+ms.date: 08/10/2023
 ---
 
 # Azure Relay Hybrid Connections .NET Standard API overview
@@ -48,7 +48,7 @@ catch (ArgumentException ae)
 
 ## Hybrid connection stream
 
-The [HybridConnectionStream][HCStream] class is the primary object used to send and receive data from an Azure Relay endpoint, whether you are working with a [HybridConnectionClient][HCClient], or a [HybridConnectionListener][HCListener].
+The [HybridConnectionStream][HCStream] class is the primary object used to send and receive data from an Azure Relay endpoint, whether you're working with a [HybridConnectionClient][HCClient], or a [HybridConnectionListener][HCListener].
 
 ### Getting a Hybrid connection stream
 
@@ -78,14 +78,14 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 
 ### Receiving data
 
-The [HybridConnectionStream][HCStream] class enables two-way communication. In most cases, you continuously receive from the stream. If you are reading text from the stream, you might also want to use a [StreamReader](/dotnet/api/system.io.streamreader) object, which enables easier parsing of the data. For example, you can read data as text, rather than as `byte[]`.
+The [HybridConnectionStream][HCStream] class enables two-way communication. In most cases, you continuously receive from the stream. If you're reading text from the stream, you might also want to use a [StreamReader](/dotnet/api/system.io.streamreader) object, which enables easier parsing of the data. For example, you can read data as text, rather than as `byte[]`.
 
 The following code reads individual lines of text from the stream until a cancellation is requested:
 
 ```csharp
 // Create a CancellationToken, so that we can cancel the while loop
 var cancellationToken = new CancellationToken();
-// Create a StreamReader from the 'hybridConnectionStream`
+// Create a StreamReader from the hybridConnectionStream
 var streamReader = new StreamReader(hybridConnectionStream);
 
 while (!cancellationToken.IsCancellationRequested)
@@ -105,7 +105,7 @@ while (!cancellationToken.IsCancellationRequested)
 
 ### Sending data
 
-Once you have a connection established, you can send a message to the Relay endpoint. Because the connection object inherits [Stream](/dotnet/api/system.io.stream), send your data as a `byte[]`. The following example shows how to do this:
+Once you have a connection established, you can send a message to the Relay endpoint. Because the connection object inherits [Stream](/dotnet/api/system.io.stream), send your data as a `byte[]`. The following example shows how to do it:
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("hello");

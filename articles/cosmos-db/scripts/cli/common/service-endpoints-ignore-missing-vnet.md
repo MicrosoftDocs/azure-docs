@@ -1,24 +1,26 @@
 ---
-title: Connect an existing Azure Cosmos account with virtual network service endpoints
-description: Connect an existing Azure Cosmos account with virtual network service endpoints
-author: markjbrown
-ms.author: mjbrown
+title: Connect an existing Azure Cosmos DB account with virtual network service endpoints
+description: Connect an existing Azure Cosmos DB account with virtual network service endpoints
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
+ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: sample
 ms.date: 02/21/2022
 ---
 
-# Connect an existing Azure Cosmos account with virtual network service endpoints using Azure CLI
+# Connect an existing Azure Cosmos DB account with virtual network service endpoints using Azure CLI
 
-[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](../../../includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-The script in this article demonstrates connecting an existing Azure Cosmos account to an existing new virtual network where the subnet is not yet configured for service endpoints by using the `ignore-missing-vnet-service-endpoint` parameter. This allows the configuration for the Cosmos account to complete without error before the configuration to the virtual network's subnet is completed. Once the subnet configuration is complete, the Cosmos account is accessible through the configured subnet.
+The script in this article demonstrates connecting an existing Azure Cosmos DB account to an existing new virtual network where the subnet is not yet configured for service endpoints by using the `ignore-missing-vnet-service-endpoint` parameter. This allows the configuration for the Azure Cosmos DB account to complete without error before the configuration to the virtual network's subnet is completed. Once the subnet configuration is complete, the Azure Cosmos DB account is accessible through the configured subnet.
 
-This script uses a SQL (Core) API account. To use this sample for other APIs, apply the `enable-virtual-network` and `virtual-network-rules` parameters in the script below to your API specific script.
+This script uses a API for NoSQL account. To use this sample for other APIs, apply the `enable-virtual-network` and `virtual-network-rules` parameters in the script below to your API specific script.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.9.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -60,6 +62,6 @@ For Azure CLI samples for specific APIs see:
 
 - [CLI Samples for Cassandra](../../../cassandra/cli-samples.md)
 - [CLI Samples for Gremlin](../../../graph/cli-samples.md)
-- [CLI Samples for MongoDB API](../../../mongodb/cli-samples.md)
+- [CLI Samples for API for MongoDB](../../../mongodb/cli-samples.md)
 - [CLI Samples for SQL](../../../sql/cli-samples.md)
 - [CLI Samples for Table](../../../table/cli-samples.md)

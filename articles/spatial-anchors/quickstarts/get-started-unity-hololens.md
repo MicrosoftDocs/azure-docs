@@ -8,7 +8,7 @@ ms.author: pamistel
 ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.custom: mode-other, devx-track-azurecli 
+ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
 # Run the sample app: HoloLens - Unity (C#)
@@ -29,7 +29,7 @@ You'll learn how to:
 
 To complete this quickstart:
 
-- You need a HoloLens device with [developer mode](/windows/mixed-reality/using-visual-studio) enabled. [Windows 10 May 2020 Update or later](/windows/mixed-reality/whats-new/release-notes-may-2020) must be installed on the device. To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, and then select **Check for updates**.
+- You need a HoloLens device with [developer mode](/windows/mixed-reality/using-visual-studio) enabled. For HoloLens 2 the [Windows 10 May 2020 Update or later](/windows/mixed-reality/whats-new/release-notes-may-2020) must be installed on the device. To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, and then select **Check for updates**.
 - You need a Windows computer with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> or later installed. Your Visual Studio installation must include the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component. You must also install <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a> and <a href="https://git-lfs.github.com/">Git LFS</a>.
 - You need to have Unity installed. For supported versions and required capabilities, visit the [Unity project setup page](../how-tos/setup-unity-project.md).
 

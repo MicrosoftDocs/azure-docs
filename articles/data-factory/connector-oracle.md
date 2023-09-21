@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 08/10/2023
 ms.author: jianleishen
 ---
 
@@ -23,12 +23,17 @@ This article outlines how to use the copy activity in Azure Data Factory to copy
 
 ## Supported capabilities
 
-This Oracle connector is supported for the following activities:
+This Oracle connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
+|[Script activity](transform-data-using-script.md)|&#9312; &#9313;|
 
-You can copy data from an Oracle database to any supported sink data store. You also can copy data from any supported source data store to an Oracle database. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Oracle connector supports:
 
@@ -237,6 +242,7 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to `OracleSource`. | Yes |
 | oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
+| convertDecimalToInteger | Oracle NUMBER type with zero or unspecified scale will be converted to corresponding integer. Allowed values are **true** and **false** (default).| No |
 | partitionOptions | Specifies the data partitioning options used to load data from Oracle. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Oracle database is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
 | partitionNames | The list of physical partitions that needs to be copied. <br>Apply when the partition option is `PhysicalPartitionsOfTable`. If you use a query to retrieve the source data, hook `?AdfTabularPartitionName` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
@@ -266,6 +272,7 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
         "typeProperties": {
             "source": {
                 "type": "OracleSource",
+                "convertDecimalToInteger": false,
                 "oracleReaderQuery": "SELECT * FROM MyTable"
             },
             "sink": {

@@ -2,8 +2,12 @@
 title: Tutorial - Prepare container image for deployment
 description: Azure Container Instances tutorial part 1 of 3 - Prepare an app in a container image for deployment to Azure Container Instances
 ms.topic: tutorial
-ms.date: 03/21/2018
-ms.custom: "seodec18, mvc, devx-track-js"
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
+ms.custom: seodec18, mvc, devx-track-linux
 ---
 
 # Tutorial: Create a container image for deployment to Azure Container Instances
@@ -31,7 +35,7 @@ The sample application in this tutorial is a simple web app built in [Node.js][n
 
 Use Git to clone the sample application's repository:
 
-```bash
+```git
 git clone https://github.com/Azure-Samples/aci-helloworld.git
 ```
 
@@ -58,8 +62,10 @@ docker build ./aci-helloworld -t aci-tutorial-app
 
 Output from the [docker build][docker-build] command is similar to the following (truncated for readability):
 
-```console
-$ docker build ./aci-helloworld -t aci-tutorial-app
+```bash
+docker build ./aci-helloworld -t aci-tutorial-app
+```
+```output
 Sending build context to Docker daemon  119.3kB
 Step 1/6 : FROM node:8.9.3-alpine
 8.9.3-alpine: Pulling from library/node
@@ -86,8 +92,10 @@ docker images
 
 Your newly built image should appear in the list:
 
-```console
-$ docker images
+```bash
+docker images
+```
+```output
 REPOSITORY          TAG       IMAGE ID        CREATED           SIZE
 aci-tutorial-app    latest    5c745774dfa9    39 seconds ago    68.1 MB
 ```
@@ -102,8 +110,9 @@ docker run -d -p 8080:80 aci-tutorial-app
 
 Output from the `docker run` command displays the running container's ID if the command was successful:
 
-```console
-$ docker run -d -p 8080:80 aci-tutorial-app
+```bash
+docker run -d -p 8080:80 aci-tutorial-app
+```output
 a2e3e4435db58ab0c664ce521854c2e1a1bda88c9cf2fcff46aedf48df86cccf
 ```
 
@@ -122,7 +131,8 @@ In this tutorial, you created a container image that can be deployed in Azure Co
 
 Advance to the next tutorial in the series to learn about storing your container image in Azure Container Registry:
 
-[Push image to Azure Container Registry](container-instances-tutorial-prepare-acr.md)
+> [!div class="nextstepaction"]
+> [Push image to Azure Container Registry](container-instances-tutorial-prepare-acr.md)
 
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png

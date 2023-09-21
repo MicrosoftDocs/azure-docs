@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 07/20/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -36,7 +36,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 ## Error code: FIPSModeIsNotSupport
 
-- **Message**: `Fail to read data form Azure Blob Storage for Azure Blob connector needs MD5 algorithm which can't co-work with FIPS mode. Please change diawp.exe.config in self-hosted integration runtime install directory to disable FIPS policy following https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/runtime/enforcefipspolicy-element.`
+- **Message**: `Fail to read data form Azure Blob Storage for Azure Blob connector needs MD5 algorithm which can't co-work with FIPS mode. Please change diawp.exe.config in self-hosted integration runtime install directory to disable FIPS policy following https://learn.microsoft.com/dotnet/framework/configure-apps/file-schema/runtime/enforcefipspolicy-element.`
 
 - **Cause**: Then FIPS policy is enabled on the VM where the self-hosted integration runtime was installed.
 
@@ -60,12 +60,20 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Cause**: Multiple concurrent writing requests occur, which causes conflicts on file content.
 
+## Error code: AzureBlobFailedToCreateContainer
+
+- **Message**: `Unable to create Azure Blob container. Endpoint: '%endpoint;', Container Name: '%containerName;'.`
+
+- **Cause**: This error happens when copying data with Azure Blob Storage account public access.
+
+- **Recommendation**: For more information about connection errors in the public endpoint, see [Connection error in public endpoint](security-and-access-control-troubleshoot-guide.md#connection-error-in-public-endpoint).
+
 ## Next steps
 
 For more troubleshooting help, try these resources:
 
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)

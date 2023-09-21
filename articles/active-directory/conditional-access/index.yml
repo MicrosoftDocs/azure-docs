@@ -1,18 +1,18 @@
 ### YamlMime:Landing
 
-title: Azure AD Conditional Access documentation
-summary: Learn how to configure and test Azure Active Directory Conditional Access
+title: Microsoft Entra Conditional Access documentation
+summary: Learn how to configure and test Microsoft Entra Conditional Access
 
 metadata:
-  title: Azure AD Conditional Access documentation
-  description: Learn how to configure and test Azure Active Directory Conditional Access
+  title: Microsoft Entra Conditional Access documentation
+  description: Learn how to configure and test Microsoft Entra Conditional Access
   services: active-directory
   ms.service: active-directory
   ms.subservice: conditional-access
   ms.topic: landing-page
   author: MicrosoftGuyJFlo
   ms.author: joflore
-  ms.date: 08/20/2019
+  ms.date: 08/22/2022
   ms.collection: M365-identity-device-management
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -67,7 +67,7 @@ landingContent:
             url: howto-conditional-access-policy-azure-management.md
           - text: Block legacy authentication
             url: howto-conditional-access-policy-block-legacy.md
-          - text: Risk-based Conditional Access (Requires Azure AD Premium P2)
+          - text: Risk-based Conditional Access (Requires Microsoft Entra ID P2)
             url: howto-conditional-access-policy-risk.md
           - text: Require trusted location for MFA registration
             url: howto-conditional-access-policy-registration.md

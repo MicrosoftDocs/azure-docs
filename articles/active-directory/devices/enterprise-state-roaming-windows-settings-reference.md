@@ -1,5 +1,5 @@
 ---
-title: Windows roaming settings reference - Azure Active Directory
+title: Windows roaming settings reference
 description: Settings that will be roamed or backed up in Windows with ESR
 
 services: active-directory
@@ -10,7 +10,7 @@ ms.date: 03/01/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: guovivian
 
 ms.collection: M365-identity-device-management
@@ -21,7 +21,7 @@ The following is a list of the settings that will be roamed or backed up in Wind
 
 ## Windows Settings details
 
-List of settings that can be configured to sync in recent Windows versions. These can be found in Windows 10 under **Settings** > **Accounts** > **Sync your settings** or **Settings** > **Accounts** > **Windows backup** > **Remember my preferences** on Windows 11.
+List of settings that can be configured to sync in recent Windows versions. 
 
 | Settings | Windows 10 (21H1 or newer) |
 | --- | --- |
@@ -35,6 +35,8 @@ List of settings that can be configured to sync in recent Windows versions. Thes
 | Pen: Pen Handedness | sync |
 | Touchpad: Scrolling Direction | sync |
 | Wi-Fi: Wi-Fi profiles (only WPA) | sync |
+
+Control over these settings can be found in Windows 10 under **Settings** > **Accounts** > **Sync your settings** or in Windows 11 under **Settings** > **Accounts** > **Windows backup** > **Remember my preferences**.
 
 ## Browser settings
 
@@ -50,4 +52,4 @@ For Windows 10 version 1803 or later, Internet Explorer setting group (favorites
 
 ## Next steps
 
-For an overview, see [enterprise state roaming overview](enterprise-state-roaming-overview.md).
+For an overview, see [enterprise state roaming overview](./enterprise-state-roaming-enable.md).

@@ -1,16 +1,16 @@
 ---
-title: RDG and Azure MFA Server using RADIUS - Azure Active Directory
+title: RDG and Azure MFA Server using RADIUS
 description: This is the Azure Multi-factor authentication page that will assist in deploying Remote Desktop (RD) Gateway and Azure Multi-Factor Authentication Server using RADIUS.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/11/2018
+ms.date: 10/30/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -24,13 +24,11 @@ Since Windows Authentication for terminal services is not supported for Server 2
 Install the Azure Multi-Factor Authentication Server on a separate server, which proxies the RADIUS request back to the NPS on the Remote Desktop Gateway Server. After NPS validates the username and password, it returns a response to the Multi-Factor Authentication Server. Then, the MFA Server performs the second factor of authentication and returns a result to the gateway.
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure AD Multi-Factor Authentication.
+> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
 >
-> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
 > If you use cloud-based MFA, see how to [integrate with RADIUS authentication for Azure Multi-Factor Authentication](howto-mfa-nps-extension.md).
->
-> Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual.
 
 ## Prerequisites
 

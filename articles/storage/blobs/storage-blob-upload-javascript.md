@@ -1,151 +1,127 @@
 ---
-title: Upload a blob using JavaScript - Azure Storage
+title: Upload a blob with JavaScript
+titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the JavaScript client library.
 services: storage
-author: normesta
-
-ms.author: normesta
-ms.date: 03/28/2022
-ms.service: storage
-ms.subservice: blobs
+author: pauljewellmsft
+ms.author: pauljewell
+ms.date: 06/20/2023
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
-ms.custom: "devx-track-js"
+ms.custom: devx-track-js, devguide-js
 ---
 
-# Upload a blob to Azure Storage by using the JavaScript client library
+# Upload a blob with JavaScript
 
-You can upload a blob, open a blob stream and write to that, or upload large blobs in blocks.
+[!INCLUDE [storage-dev-guide-selector-upload](../../../includes/storage-dev-guides/storage-dev-guide-selector-upload.md)]
 
-The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
+This article shows how to upload a blob using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). You can upload data to a block blob from a file path, a stream, a buffer, or a text string. You can also upload blobs with index tags.
 
-> [!NOTE]
-> The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
+## Prerequisites
 
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operations:
+    - [Put Blob](/rest/api/storageservices/put-blob#authorization)
+    - [Put Block](/rest/api/storageservices/put-block#authorization)
 
-## Upload by using a file path
+## Upload data to a block blob
 
-The following example uploads a local file to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. The [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) object allows you to pass in your own metadata and [tags](storage-manage-find-blobs.md#blob-index-tags-and-data-management), used for indexing, at upload time:
+You can use any of the following methods to upload data to a block blob:
 
-```javascript
-// uploadOptions: {
-//   metadata: { reviewer: 'john', reviewDate: '2022-04-01' }, 
-//   tags: {project: 'xyz', owner: 'accounts-payable'}
-// }
-async function createBlobFromLocalPath(containerClient, blobName, localFileWithPath, uploadOptions){
+- [upload](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-upload) (non-parallel uploading method)
+- [uploadData](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-uploaddata)
+- [uploadFile](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-uploadfile) (only available in Node.js runtime)
+- [uploadStream](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-uploadstream) (only available in Node.js runtime)
 
-  // create blob client from container client
-  const blockBlobClient = await containerClient.getBlockBlobClient(blobName);
+Each of these methods can be called using a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object.
 
-  // upload file to blob storage
-  await blockBlobClient.uploadFile(localFileWithPath, uploadOptions);
-  console.log(`${blobName} succeeded`);
-}
-```
+## Upload a block blob from a file path
 
-## Upload by using a Stream
+The following example uploads a block blob from a local file path:
 
-The following example uploads a readable stream to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobUploadStream [options](/javascript/api/@azure/storage-blob/blockblobuploadstreamoptions) to affect the upload:
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-local-file-path.js" id="Snippet_UploadBlob":::
 
-```javascript
-// uploadOptions: {
-//    metadata: { reviewer: 'john', reviewDate: '2022-04-01' },  
-//    tags: {project: 'xyz', owner: 'accounts-payable'}, 
-//  }
-async function createBlobFromReadStream(containerClient, blobName, readableStream, uploadOptions) {
+## Upload a block blob from a stream
 
-  // Create blob client from container client
-  const blockBlobClient = await containerClient.getBlockBlobClient(blobName);
+The following example uploads a block blob by creating a readable stream and uploading the stream:
 
-  // Size of every buffer allocated, also 
-  // the block size in the uploaded block blob. 
-  // Default value is 8MB
-  const bufferSize = 4 * 1024 * 1024;
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-stream.js" id="Snippet_UploadBlob":::
 
-  // Max concurrency indicates the max number of 
-  // buffers that can be allocated, positive correlation 
-  // with max uploading concurrency. Default value is 5
-  const maxConcurrency = 20;
+## Upload a block blob from a buffer
 
-  // use transform per chunk - only to see chunck
-  const transformedReadableStream = readableStream.pipe(myTransform);
+The following example uploads a block blob from a Node.js buffer:
 
-  // Upload stream
-  await blockBlobClient.uploadStream(transformedReadableStream, bufferSize, maxConcurrency, uploadOptions);
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-buffer.js" id="Snippet_UploadBlob":::
 
-  // do something with blob
-  const getTagsResponse = await blockBlobClient.getTags();
-  console.log(`tags for ${blobName} = ${JSON.stringify(getTagsResponse.tags)}`);
-}
+## Upload a block blob from a string
 
-// Transform stream
-// Reasons to transform:
-// 1. Sanitize the data - remove PII
-// 2. Compress or uncompress
-const myTransform = new Transform({
-  transform(chunk, encoding, callback) {
-    // see what is in the artificially
-    // small chunk
-    console.log(chunk);
-    callback(null, chunk);
-  },
-  decodeStrings: false
-});
+The following example uploads a block blob from a string:
 
-```
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-string.js" id="Snippet_UploadBlob":::
 
-## Upload by using a BinaryData object
+## Upload a block blob with configuration options
 
-The following example uploads a Node.js buffer to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobParallelUpload [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) to affect the upload:
+You can define client library configuration options when uploading a blob. These options can be tuned to improve performance, enhance reliability, and optimize costs. The code examples in this section show how to set configuration options using the [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) interface, and how to pass those options as a parameter to an upload method call. 
 
-```javascript
-// uploadOptions: {
-//    blockSize: destination block blob size in bytes,
-//    concurrency: concurrency of parallel uploading - must be greater than or equal to 0,
-//    maxSingleShotSize: blob size threshold in bytes to start concurrency uploading
-//    metadata: { reviewer: 'john', reviewDate: '2022-04-01' },  
-//    tags: {project: 'xyz', owner: 'accounts-payable'} 
-//  }
-async function createBlobFromBuffer(containerClient, blobName, buffer, uploadOptions) {
+### Specify data transfer options on upload
 
-  // Create blob client from container client
-  const blockBlobClient = await containerClient.getBlockBlobClient(blobName);
+You can configure properties in [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) to improve performance for data transfer operations. The following table lists the properties you can configure, along with a description:
 
-  // Upload buffer
-  await blockBlobClient.uploadData(buffer, uploadOptions);
+| Property | Description |
+| --- | --- |
+| [`blockSize`](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions#@azure-storage-blob-blockblobparalleluploadoptions-blocksize) | The maximum block size to transfer for each request as part of an upload operation. |
+| [`concurrency`](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions#@azure-storage-blob-blockblobparalleluploadoptions-concurrency) | The maximum number of parallel requests that are issued at any given time as a part of a single parallel transfer.
+| [`maxSingleShotSize`](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions#@azure-storage-blob-blockblobparalleluploadoptions-maxsingleshotsize) | If the size of the data is less than or equal to this value, it's uploaded in a single put rather than broken up into chunks. If the data is uploaded in a single shot, the block size is ignored. Default value is 256 MiB. |
 
-  // do something with blob
-  const getTagsResponse = await blockBlobClient.getTags();
-  console.log(`tags for ${blobName} = ${JSON.stringify(getTagsResponse.tags)}`);
-}
-```
+The following code example shows how to set values for [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) and include the options as part of an upload method call. The values provided in the samples aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
-## Upload a string
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-transfer-options.js" id="Snippet_UploadBlobTransferOptions":::
 
-The following example uploads a string to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobUploadOptions [options](/javascript/api/@azure/storage-blob/blockblobuploadoptions) to affect the upload:
+### Upload a block blob with index tags
 
-```javascript
-// uploadOptions: {
-//    metadata: { reviewer: 'john', reviewDate: '2022-04-01' }, 
-//    tags: {project: 'xyz', owner: 'accounts-payable'} 
-//  }
-async function createBlobFromString(containerClient, blobName, fileContentsAsString, uploadOptions){
+Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data.
 
-  // Create blob client from container client
-  const blockBlobClient = await containerClient.getBlockBlobClient(blobName);
+The following example uploads a block blob with index tags set using [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions):
 
-  // Upload string
-  await blockBlobClient.upload(fileContentsAsString, fileContentsAsString.length, uploadOptions);
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-index-tags.js" id="Snippet_UploadBlobIndexTags":::
 
-  // do something with blob
-  const getTagsResponse = await blockBlobClient.getTags();
-  console.log(`tags for ${blobName} = ${JSON.stringify(getTagsResponse.tags)}`);
-}
-```
+### Set a blob's access tier on upload
 
-## See also
+You can set a blob's access tier on upload by using the [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) interface. The following code example shows how to set the access tier when uploading a blob:
+
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-access-tier.js" id="Snippet_UploadAccessTier":::
+
+Setting the access tier is only allowed for block blobs. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`. To set the access tier to `Cold`, you must use a minimum [client library](/javascript/api/preview-docs/@azure/storage-blob/) version of 12.13.0.
+
+To learn more about access tiers, see [Access tiers overview](access-tiers-overview.md).
+
+## Resources
+
+To learn more about uploading blobs using the Azure Blob Storage client library for JavaScript, see the following resources.
+
+### REST API operations
+
+The Azure SDK for JavaScript contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar JavaScript paradigms. The client library methods for uploading blobs use the following REST API operations:
+
+- [Put Blob](/rest/api/storageservices/put-blob) (REST API)
+- [Put Block](/rest/api/storageservices/put-block) (REST API)
+
+### Code samples
+
+View code samples from this article (GitHub):
+
+- [Upload from local file path](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-local-file-path.js)
+- [Upload from buffer](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-buffer.js)
+- [Upload from stream](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-stream.js)
+- [Upload from string](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-string.js)
+- [Upload with transfer options](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-transfer-options.js)
+- [Upload with index tags](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-index-tags.js)
+- [Upload with access tier](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-access-tier.js)
+
+[!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
+
+### See also
 
 - [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
 - [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)
-- [Put Blob](/rest/api/storageservices/put-blob) (REST API)
-- [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) (REST API)

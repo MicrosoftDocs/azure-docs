@@ -1,25 +1,28 @@
 ---
-title: Quickstart - Create a Windows virtual machine scale set with an Azure template
+title: Quickstart - Create a Windows Virtual Machine Scale Set with an Azure template
 description: Learn how to quickly create a Windows virtual machine scale with an Azure Resource Manager template that deploys a sample app and configures autoscale rules
 author: ju-shim
 ms.author: jushiman
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
 ms.collection: linux
-ms.date: 03/27/2020
+ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: mimckitt, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
-# Quickstart: Create a Windows virtual machine scale set with an ARM template
+# Quickstart: Create a Windows Virtual Machine Scale Set with an ARM template
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
-A virtual machine scale set allows you to deploy and manage a set of auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set and deploy a sample application with an Azure Resource Manager template (ARM template).
+> [!NOTE]
+> The following article is for Uniform Virtual Machine Scale Sets. We recommend using Flexible Virtual Machine Scale Sets for new workloads. Learn more about this new orchestration mode in our [Flexible Virtual Machine Scale Sets overview](flexible-virtual-machine-scale-sets.md).
+
+A Virtual Machine Scale Set allows you to deploy and manage a set of auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a Virtual Machine Scale Set and deploy a sample application with an Azure Resource Manager template (ARM template).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-ARM templates let you deploy groups of related resources. In a single template, you can create the virtual machine scale set, install applications, and configure autoscale rules. With the use of variables and parameters, this template can be reused to update existing, or create additional, scale sets. You can deploy templates through the Azure portal, Azure CLI, Azure PowerShell, or from continuous integration / continuous delivery (CI/CD) pipelines.
+ARM templates let you deploy groups of related resources. In a single template, you can create the Virtual Machine Scale Set, install applications, and configure autoscale rules. With the use of variables and parameters, this template can be reused to update existing, or create additional, scale sets. You can deploy templates through the Azure portal, Azure CLI, Azure PowerShell, or from continuous integration / continuous delivery (CI/CD) pipelines.
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -45,7 +48,7 @@ These resources are defined in these templates:
 
 ### Define a scale set
 
-To create a scale with a template, you define the appropriate resources. The core parts of the virtual machine scale set resource type are:
+To create a scale with a template, you define the appropriate resources. The core parts of the Virtual Machine Scale Set resource type are:
 
 | Property                     | Description of property                                  | Example template value                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
@@ -124,7 +127,7 @@ Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 
 ## Next steps
 
-In this quickstart, you created a Windows scale set with an ARM template and used the PowerShell DSC extension to install a basic ASP.NET app on the VM instances. To learn more, continue to the tutorial for how to create and manage Azure virtual machine scale sets.
+In this quickstart, you created a Windows scale set with an ARM template and used the PowerShell DSC extension to install a basic ASP.NET app on the VM instances. To learn more, continue to the tutorial for how to create and manage Azure Virtual Machine Scale Sets.
 
 > [!div class="nextstepaction"]
-> [Create and manage Azure virtual machine scale sets](tutorial-create-and-manage-powershell.md)
+> [Create and manage Azure Virtual Machine Scale Sets](tutorial-create-and-manage-powershell.md)

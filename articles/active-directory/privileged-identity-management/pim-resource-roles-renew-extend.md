@@ -1,18 +1,18 @@
 ---
-title: Renew Azure resource role assignments in PIM - Azure AD | Microsoft Docs
-description: Learn how to extend or renew Azure resource role assignments in Azure AD Privileged Identity Management (PIM).
+title: Renew Azure resource role assignments in PIM
+description: Learn how to extend or renew Azure resource role assignments in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 10/19/2021
-ms.author: curtand
+ms.date: 09/13/2023
+ms.author: barclayn
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Extend or renew Azure resource role assignments in Privileged Identity Management
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) provides controls to manage the access and assignment lifecycle for Azure resources. Administrators can assign roles using start and end date-time properties. When the assignment end approaches, Privileged Identity Management sends email notifications to the affected users or groups. It also sends email notifications to administrators of the resource to ensure that appropriate access is maintained. Assignments might be renewed and remain visible in an expired state for up to 30 days, even if access is not extended.
+Microsoft Entra Privileged Identity Management (PIM), provides controls to manage the access and assignment lifecycle for Azure resources. Administrators can assign roles using start and end date-time properties. When the assignment end approaches, Privileged Identity Management sends email notifications to the affected users or groups. It also sends email notifications to administrators of the resource to ensure that appropriate access is maintained. Assignments might be renewed and remain visible in an expired state for up to 30 days, even if access is not extended.
 
 ## Who can extend and renew?
 
@@ -44,7 +44,7 @@ Users assigned to a role can extend expiring role assignments directly from the 
 
 ![Azure resources - My roles page listing eligible roles with an Action column](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-ui.png)
 
-When the assignment end date-time is within 14 days, the link to **Extend** becomes an active in the Azure portal. In the following example, assume the current date is March 27.
+When the assignment end date-time is within 14 days, the link to **Extend** becomes an active in the Microsoft Entra admin center. In the following example, assume the current date is March 27.
 
 >[!Note]
 >For a group assigned to a role, the **Extend** link never becomes available so that a user with an inherited assignment can't extend the group assignment.
@@ -86,7 +86,7 @@ When approving a request to extend role assignment, resource administrators can 
 
 ### Admin initiated extension
 
-If a user assigned to a role doesn't request an extension for the role assignment, an administrator can extend an assignment on behalf of the user. Administrative extensions of role assignment do not require approval, but notifications are sent to all other administrators after the role has been extended.
+If a user assigned to a role doesn't request an extension for the role assignment, an administrator can extend an assignment on behalf of the user. Administrative extensions of role assignment don't require approval, but notifications are sent to all other administrators after the role has been extended.
 
 To extend a role assignment, browse to the resource role or assignment view in Privileged Identity Management. Find the assignment that requires an extension. Then select **Extend** in the action column.
 

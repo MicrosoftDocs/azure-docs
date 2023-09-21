@@ -4,7 +4,7 @@ description: Learn how to export Application Insight logs to blob storage, and t
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/05/2022
+ms.date: 05/09/2023
 ---
 
 # Analyze Application Insights telemetry logs with Apache Spark on HDInsight
@@ -48,11 +48,11 @@ For information on adding storage to an existing cluster, see the [Add additiona
 
 ### Data schema
 
-Application Insights provides [export data model](../../azure-monitor/app/export-data-model.md) information for the telemetry data format exported to blobs. The steps in this document use Spark SQL to work with the data. Spark SQL can automatically generate a schema for the JSON data structure logged by Application Insights.
+Application Insights provides [export data model](/previous-versions/azure/azure-monitor/app/export-telemetry#application-insights-export-data-model) information for the telemetry data format exported to blobs. The steps in this document use Spark SQL to work with the data. Spark SQL can automatically generate a schema for the JSON data structure logged by Application Insights.
 
 ## Export telemetry data
 
-Follow the steps in [Configure Continuous Export](../../azure-monitor/app/export-telemetry.md) to configure your Application Insights to export telemetry information to an Azure Storage blob.
+Follow the steps in [Configure Continuous Export](/previous-versions/azure/azure-monitor/app/export-telemetry) to configure your Application Insights to export telemetry information to an Azure Storage blob.
 
 ## Configure HDInsight to access the data
 

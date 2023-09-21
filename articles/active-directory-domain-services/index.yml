@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure AD Domain Services documentation
-summary: Learn how to use Azure Active Directory Domain Services to provide Kerberos or NTLM authentication to applications or join Azure VMs to a managed domain.
+title: Microsoft Entra Domain Services documentation
+summary: Learn how to use Microsoft Entra Domain Services to provide Kerberos or NTLM authentication to applications or join Azure VMs to a managed domain.
 
 metadata:
-  title: Azure AD Domain Services documentation
-  description: Learn how to use Azure Active Directory Domain Services to provide Kerberos or NTLM authentication to applications or join Azure VMs to a managed domain.
+  title: Microsoft Entra Domain Services documentation
+  description: Learn how to use Microsoft Entra Domain Services to provide Kerberos or NTLM authentication to applications or join Azure VMs to a managed domain.
   services: service
   ms.service: active-directory
   ms.subservice: domain-services
@@ -13,15 +13,15 @@ metadata:
   ms.collection: collection
   author: justinha
   ms.author: justinha
-  manager: karenhoran
-  ms.date: 08/01/2019
+  manager: amycolannino
+  ms.date: 08/17/2022
 
 landingContent:
-  - title: About Azure AD Domain Services
+  - title: About Microsoft Entra Domain Services
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure AD Domain Services?
+          - text: What is Microsoft Entra Domain Services?
             url: overview.md
           - text: Compare identity solutions
             url: compare-identity-solutions.md

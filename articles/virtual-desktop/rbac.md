@@ -1,11 +1,9 @@
 ---
 title: Built-in Azure RBAC roles Azure Virtual Desktop
 description: An overview of built-in Azure RBAC roles for Azure Virtual Desktop available.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 07/21/2022
 ms.author: helohr
 manager: femila
 ---
@@ -139,3 +137,37 @@ The Desktop Virtualization Session Host Operator role allows users to view and r
 | notActions | None |
 | dataActions | None |
 | notDataActions | None |
+
+## Desktop Virtualization Power On Contributor
+
+The Desktop Virtualization Power On Contributor role allows the Azure Virtual Desktop Resource Provider to start virtual machines.
+
+| Action type | Permissions |
+|--|--|
+| actions | <ul><li>Microsoft.Compute/virtualMachines/start/action</li><li>Microsoft.Compute/virtualMachines/read</li><li>Microsoft.Compute/virtualMachines/instanceView/read</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li></ul> |
+| notActions | None |
+| dataActions | None |
+| notDataActions | None |
+
+## Desktop Virtualization Power On Off Contributor
+
+The Desktop Virtualization Power On Off Contributor role allows the Azure Virtual Desktop Resource Provider to start and stop virtual machines.
+
+| Action type | Permissions |
+|--|--|
+| actions | <ul><li>Microsoft.Compute/virtualMachines/start/action</li><li>Microsoft.Compute/virtualMachines/read</li><li>Microsoft.Compute/virtualMachines/instanceView/read</li><li>Microsoft.Compute/virtualMachines/deallocate/action</li><li>Microsoft.Compute/virtualMachines/restart/action</li><li>Microsoft.Compute/virtualMachines/powerOff/action</li><li>Microsoft.Insights/eventtypes/values/read</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.DesktopVirtualization/hostpools/read</li><li>Microsoft.DesktopVirtualization/hostpools/write</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/write</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action</li></ul> |
+| notActions | None |
+| dataActions | None |
+| notDataActions | None |
+
+## Desktop Virtualization Virtual Machine Contributor
+
+The Desktop Virtualization Virtual Machine Contributor role allows the Azure Virtual Desktop Resource Provider to create, delete, update, start, and stop virtual machines.
+
+| Action type | Permissions |
+|--|--|
+| actions | <ul><li>Microsoft.DesktopVirtualization/hostpools/read</li><li>Microsoft.DesktopVirtualization/hostpools/write</li><li>Microsoft.DesktopVirtualization/hostpools/retrieveRegistrationToken/action</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/write</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/delete</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/disconnect/action</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action</li><li>Microsoft.DesktopVirtualization/hostpools/sessionHostConfigurations/read</li><li>Microsoft.Compute/availabilitySets/read</li><li>Microsoft.Compute/availabilitySets/write</li><li>Microsoft.Compute/availabilitySets/vmSizes/read</li><li>Microsoft.Compute/disks/read</li><li>Microsoft.Compute/disks/write</li><li>Microsoft.Compute/disks/delete</li><li>Microsoft.Compute/galleries/read</li><li>Microsoft.Compute/galleries/images/read</li><li>Microsoft.Compute/galleries/images/versions/read</li><li>Microsoft.Compute/images/read</li><li>Microsoft.Compute/locations/usages/read</li><li>Microsoft.Compute/locations/vmSizes/read</li><li>Microsoft.Compute/operations/read</li><li>Microsoft.Compute/skus/read</li><li>Microsoft.Compute/virtualMachines/read</li><li>Microsoft.Compute/virtualMachines/write</li><li>Microsoft.Compute/virtualMachines/delete</li><li>Microsoft.Compute/virtualMachines/start/action</li><li>Microsoft.Compute/virtualMachines/powerOff/action</li><li>Microsoft.Compute/virtualMachines/restart/action</li><li>Microsoft.Compute/virtualMachines/deallocate/action</li><li>Microsoft.Compute/virtualMachines/runCommand/action</li><li>Microsoft.Compute/virtualMachines/extensions/read</li><li>Microsoft.Compute/virtualMachines/extensions/write</li><li>Microsoft.Compute/virtualMachines/extensions/delete</li><li>Microsoft.Compute/virtualMachines/runCommands/read</li><li>Microsoft.Compute/virtualMachines/runCommands/write</li><li>Microsoft.Compute/virtualMachines/vmSizes/read</li><li>Microsoft.Network/networkSecurityGroups/read</li><li>Microsoft.Network/networkInterfaces/write</li><li>Microsoft.Network/networkInterfaces/read</li><li>Microsoft.Network/networkInterfaces/join/action</li><li>Microsoft.Network/networkInterfaces/delete</li><li>Microsoft.Network/virtualNetworks/subnets/read</li><li>Microsoft.Network/virtualNetworks/subnets/join/action</li><li>Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read</li><li>Microsoft.KeyVault/vaults/deploy/action</li><li>Microsoft.Storage/storageAccounts/read</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li></ul> |
+| notActions | None |
+| dataActions | None |
+| notDataActions | None |
+

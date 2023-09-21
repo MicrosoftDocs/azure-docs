@@ -3,9 +3,8 @@ title: Detect threats quickly with near-real-time (NRT) analytics rules in Micro
 description: This article explains how the new near-real-time (NRT) analytics rules can help you detect threats quickly in Microsoft Sentinel.
 author: yelevin
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 11/02/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 # Detect threats quickly with near-real-time (NRT) analytics rules in Microsoft Sentinel
 
@@ -32,13 +31,13 @@ For the time being, these templates have limited application as outlined below, 
 ## Considerations
 The following limitations currently govern the use of NRT rules:
 
-1. No more than 20 rules can be defined per customer at this time.
+1. No more than 50 rules can be defined per customer at this time.
 
-1. As this type of rule is new, its syntax is currently limited but will gradually evolve. Therefore, at this time the following restrictions are in effect:
+1. By design, NRT rules will only work properly on log sources with an **ingestion delay of less than 12 hours**.
 
-    1. The query defined in an NRT rule can reference **only one table**. Queries can, however, refer to multiple watchlists and to threat intelligence feeds.
+    (Since the NRT rule type is supposed to approximate **real-time** data ingestion, it doesn't afford you any advantage to use NRT rules on log sources with significant ingestion delay, even if it's far less than 12 hours.)
 
-    1. You cannot use unions or joins.
+1. The syntax for this type of rule is gradually evolving. At this time the following limitations remain in effect:
 
     1. Because this rule type is in near real time, we have reduced the built-in delay to a minimum (two minutes).
 
@@ -46,7 +45,9 @@ The following limitations currently govern the use of NRT rules:
 
     1. Queries can run only within a single workspace. There is no cross-workspace capability.
 
-    1. Event grouping is not configurable. NRT rules produce a single alert that groups all the applicable events.
+    1. Event grouping is now configurable to a limited degree. NRT rules can produce up to 30 single-event alerts. A rule with a query that results in more than 30 events will produce alerts for the first 29, then a 30th alert that summarizes all the applicable events.
+
+    1. Queries defined in an NRT rule can now reference **more than one table**.
 
 ## Next steps
 

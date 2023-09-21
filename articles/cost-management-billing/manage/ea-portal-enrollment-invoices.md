@@ -3,7 +3,7 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/03/2021
+ms.date: 07/29/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -14,6 +14,13 @@ ms.custom: contperf-fy21q1
 # Azure Enterprise enrollment invoices
 
 This article explains how to manage and act on your Azure Enterprise Agreement (Azure EA) invoice. Your invoice is a representation of your bill. Review it for accuracy. You should also get familiar with other tasks that might be needed to manage your invoice.
+
+> [!NOTE]
+> We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
+>
+> As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> 
+> This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
 
 ## View usage summary and download reports
 
@@ -91,43 +98,9 @@ The Azure Enterprise portal filters inactive enrollments out of view. You'll nee
 
 ![Unchecking the active box allows user to see inactive enrollments](./media/ea-portal-enrollment-invoices/unchecked-active-box.png)
 
-## Change a PO number for an upcoming overage invoice
+## PO number management
 
-The Azure Enterprise portal automatically generates a default purchase order (PO) number unless the enterprise administrator sets one before the invoice date. An enterprise administrator can update the PO number up to seven days after receiving an automated invoice notification email. 
-
-To prevent automatic generation of PO numbers every month, you can lock the PO number. See [Lock PO number](#lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles).
-
-### Update the Azure services purchase order number
-
-1. From the Azure Enterprise portal, select **Report** > **Usage Summary**.
-1. Select **Edit PO Numbers** in the upper-right corner.
-1. Select the **Azure Services** radio button.
-1. Select an **Invoice Period** from the date ranges drop-down menu.
-   You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
-1. Enter a new PO number in the **PO Number** field.
-1. Select **Save** to submit your change.
-
-### Update the Azure Marketplace purchase order number
-
-1. From the Azure Enterprise portal, select **Report** > **Usage Summary**.
-1. Select **Edit PO Numbers** in the upper-right corner.
-1. Select the **Marketplace** radio button.
-1. Select an **Invoice Period** from the date ranges drop-down menu.  
-    You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
-1. Enter a new PO number in the **PO Number** field.
-1. Select **Save** to submit your change.
-
-### Lock PO number to prevent automatic update in upcoming billing cycles
-
-After you lock the PO number, it remains locked for all new invoices and you don't have to update the PO number.
-
-1.	In the Azure Enterprise portal, select **Report** > **Usage Summary**.
-2.	Select **Edit PO Numbers** in the upper-right corner.
-3.	Type a new PO number in the **PO Number** field.
-4.	Select the **Lock PO number** box.
-5.	Select **Save** to submit your change.  
-    :::image type="content" source="./media/ea-portal-enrollment-invoices/lock-po.png" alt-text="Screenshot showing the View/Edit PO Numbers box." lightbox="./media/ea-portal-enrollment-invoices/lock-po.png" :::
-
+PO number management functionality in the EA portal is getting deprecated. It is currently read-only in the EA portal. Instead, an EA administrator can use the Azure portal to manage PO numbers. For more information, see [Update a PO number](direct-ea-azure-usage-charges-invoices.md#update-a-po-number-for-an-upcoming-overage-invoice).
 
 ## Azure enterprise billing frequency
 
@@ -200,11 +173,9 @@ A customer's billing frequency is annual, quarterly, or monthly. The billing cyc
 
 The change becomes effective at the end of the current billing quarter.
 
-If an Amendment M503 is signed, you can move any agreement from any frequency to monthly billing. ​
-
 ### Request an invoice copy
 
-To request a copy of your invoice, contact your partner.
+If you're an indirect enterprise agreement customer, contact your partner to request a copy of your invoice.
 
 ## Credits and adjustments
 

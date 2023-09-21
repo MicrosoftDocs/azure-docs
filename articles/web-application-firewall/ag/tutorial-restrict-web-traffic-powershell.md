@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Enable Web Application Firewall using Azure PowerShell
 
-You can restrict traffic on an application gateway with a [Web Application Firewall](ag-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
+You can restrict traffic on an application gateway with a [Web Application Firewall](ag-overview.md) (WAF). The WAF uses [OWASP](https://owasp.org/www-project-modsecurity-core-rule-set/) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
 
 In this article, you learn how to:
 
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -135,6 +135,7 @@ $defaultlistener = New-AzApplicationGatewayHttpListener `
 $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
   -Name rule1 `
   -RuleType Basic `
+  -Priority 1000 `
   -HttpListener $defaultlistener `
   -BackendAddressPool $defaultPool `
   -BackendHttpSettings $poolSettings

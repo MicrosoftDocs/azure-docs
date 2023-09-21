@@ -5,6 +5,8 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.custom: mvc, devx-track-azurepowershell, mode-api
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up a virtual machine in Azure with PowerShell
@@ -15,7 +17,7 @@ The [Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) module is use
 
 This quickstart enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with Azure PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fpowershell%2fmodule%2ftoc.json).
 
-This quickstart requires the Azure PowerShell AZ module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+This quickstart requires the Azure PowerShell AZ module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

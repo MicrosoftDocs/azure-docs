@@ -5,7 +5,7 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.custom: 
+ms.custom: has-azure-ad-ps-ref
 ---
 
 # Ingest historical telemetry data
@@ -135,8 +135,6 @@ Follow these steps:
 | Name | Name to identify resource. For example, sensor name or product name and model number or product code. |
 | Description | Provide a meaningful description. |
 | Properties | Additional properties from the manufacturer. |
-
-For more information about objects, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
 ### API request to create metadata
 

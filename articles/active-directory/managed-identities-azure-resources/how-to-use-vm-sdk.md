@@ -1,10 +1,10 @@
 ---
-title: Use managed identities on an Azure VM with Azure SDKs - Azure AD
+title: Use managed identities on an Azure VM with Azure SDKs
 description: Code samples for using Azure SDKs with an Azure VM that has managed identities for Azure resources.
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 05/23/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -37,18 +37,10 @@ This article provides a list of SDK samples, which demonstrate use of their resp
 | .NET Core       | [Call Azure services from a Linux VM using managed identities for Azure resources](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |
 | Go              | [Azure identity client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#ManagedIdentityCredential)
 | Node.js         | [Manage resources using managed identities for Azure resources](https://github.com/Azure-Samples/resources-node-manage-resources-with-msi) |
-| Python          | [Use managed identities for Azure resources to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
+| Python          | Use managed identities for Azure resources to authenticate simply from inside a VM |
 | Ruby            | [Manage resources from a VM with managed identities for Azure resources enabled](https://github.com/Azure-Samples/resources-ruby-manage-resources-with-msi/) |
 
 ## Next steps
 
 - See [Azure SDKs](https://azure.microsoft.com/downloads/) for the full list of Azure SDK resources, including library downloads, documentation, and more.
 - To enable managed identities for Azure resources on an Azure VM, see [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md).
-
-
-
-
-
-
-
-

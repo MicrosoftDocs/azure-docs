@@ -1,9 +1,9 @@
 ---
-title: 'Tutorial: Host a static website on Blob storage - Azure Storage'
+title: 'Tutorial: Host a static website on Blob storage
+titleSuffix: Azure Storage'
 description: Learn how to configure a storage account for static website hosting, and deploy a static website to Azure Storage.
 author: normesta
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 11/04/2021
 ms.author: normesta
@@ -41,13 +41,13 @@ After you install Visual Studio Code, install the Azure Storage preview extensio
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com/) to get started.
+Sign in to the [Azure portal](https://portal.azure.com) to get started.
 
 ## Configure static website hosting
 
 The first step is to configure your storage account to host a static website in the Azure portal. When you configure your account for static website hosting, Azure Storage automatically creates a container named *$web*. The *$web* container will contain the files for your static website.
 
-1. Open the [Azure portal](https://portal.azure.com/) in your web browser.
+1. Sign in to the [Azure portal](https://portal.azure.com) in your web browser.
 1. Locate your storage account and display the account overview.
 1. Select **Static website** to display the configuration page for static websites.
 1. Select **Enabled** to enable static website hosting for the storage account.
@@ -103,14 +103,7 @@ You've successfully completed the tutorial and deployed a static website to Azur
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) |
-
-<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Next steps
 

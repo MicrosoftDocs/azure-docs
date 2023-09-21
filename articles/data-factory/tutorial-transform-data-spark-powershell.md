@@ -3,8 +3,9 @@ title: 'Transform data using Spark in Azure Data Factory '
 description: 'This tutorial provides step-by-step instructions for transforming data by using Spark Activity in Azure Data Factory.'
 ms.service: data-factory
 ms.subservice: tutorials
+ms.custom: devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 01/28/2022
+ms.date: 08/10/2023
 author: nabhishek
 ms.author: abnarain
 ---
@@ -28,7 +29,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * **Azure Storage account**. You create a Python script and an input file, and upload them to the Azure storage. The output from the spark program is stored in this storage account. The on-demand Spark cluster uses the same storage account as its primary storage.  
-* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 
 ### Upload Python script to your Blob Storage account
@@ -336,8 +337,3 @@ Advance to the next tutorial to learn how to transform data by running Hive scri
 
 > [!div class="nextstepaction"]
 > [Tutorial: transform data using Hive in Azure Virtual Network](tutorial-transform-data-hive-virtual-network.md).
-
-
-
-
-

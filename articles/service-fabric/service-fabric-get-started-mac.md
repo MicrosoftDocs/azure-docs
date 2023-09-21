@@ -1,26 +1,28 @@
 ---
 title: Set up your dev environment on macOS
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you'll be ready to build applications on macOS.
-
-ms.topic: conceptual
-ms.date: 10/16/2020
-ms.custom: devx-track-js
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-dotnet
+services: service-fabric
+ms.date: 07/14/2022
 
 # Maintainer notes: Keep these documents in sync:
-# service-fabric-get-started-linux.md
-# service-fabric-get-started-mac.md
 # service-fabric-local-linux-cluster-windows.md
 ---
-# Set up your development environment on Mac OS X
+
+# Set up your development environment on macOS X
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md)
 > * [Linux](service-fabric-get-started-linux.md)
-> * [Mac OS X](service-fabric-get-started-mac.md)
+> * [macOS X](service-fabric-get-started-mac.md)
 
-You can build Azure Service Fabric applications to run on Linux clusters by using Mac OS X. This document covers how to set up your Mac for development.
+You can build Azure Service Fabric applications to run on Linux clusters by using macOS X. This document covers how to set up your Mac for development.
 
 ## Prerequisites
-Azure Service Fabric doesn't run natively on Mac OS X. To run a local Service Fabric cluster, a pre-configured Docker container image is provided. Before you get started, you'll need:
+Azure Service Fabric doesn't run natively on macOS X. To run a local Service Fabric cluster, a pre-configured Docker container image is provided. Before you get started, you'll need:
 
 * The system requirements for installing [Docker Desktop on Mac](https://docs.docker.com/docker-for-mac/install/)
 
@@ -52,15 +54,18 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >[!TIP]
     >We recommend increasing the resources allocated to Docker when testing large applications. This can be done by selecting the **Docker Icon**, then selecting **Advanced** to adjust the number of cores and memory.
 
-2. Start the cluster.<br/>
-    <b>Ubuntu 18.04 LTS:</b>
+2. Start the cluster.
+
+   **Latest:**
+   
     ```bash
-    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:latest
     ```
 
-    <b>Ubuntu 16.04 LTS:</b>
+   **Ubuntu 18.04 LTS:**
+   
     ```bash
-    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
     ```
 
     >[!TIP]
@@ -86,7 +91,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >[!TIP]
     > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page.
 
-    To build your reusable image from the `Dockerfile`, open a terminal and `cd` to the directly holding your `Dockerfile` then run:
+    To build your reusable image from the `Dockerfile`, open a terminal and `cd` to the directory holding your `Dockerfile` then run:
 
     ```bash 
     docker build -t mysfcluster .
@@ -144,14 +149,14 @@ sfctl cluster select --endpoint http://localhost:19080
 
 Service Fabric provides scaffolding tools that help you to create a Service Fabric application from the terminal by using the Yeoman template generator. Use the following steps to ensure that the Service Fabric Yeoman template generator is working on your machine:
 
-1. Node.js and Node Package Manager (NPM) must be installed on your Mac. The software can be installed by using [HomeBrew](https://brew.sh/), as follows:
+1. Node.js and Node Package Manager must be installed on your Mac. The software can be installed by using [HomeBrew](https://brew.sh/), as follows:
 
     ```bash
     brew install node
     node -v
     npm -v
     ```
-2. Install the [Yeoman](https://yeoman.io/) template generator on your machine from NPM:
+2. Install the [Yeoman](https://yeoman.io/) template generator on your machine from Node Package Manager:
 
     ```bash
     npm install -g yo

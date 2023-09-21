@@ -1,24 +1,24 @@
 ---
-title: Review your access to resources in access reviews - Azure AD
-description: Learn how to review your own access to resources in Azure Active Directory access reviews.
+title: Review your access to resources in access reviews
+description: Learn how to review your own access to resources in access reviews.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: owinfreyATL
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/27/2021
-ms.author: ajburnle
+ms.date: 06/28/2023
+ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Self-review of access packages and resources in Azure AD entitlement management
+# Self-review of access packages and resources in Microsoft entitlement management
 
-Azure Active Directory (Azure AD) entitlement management simplifies how enterprises manage access to groups, applications, and SharePoint sites. This article describes how you can do a self-review of your assigned access packages.
+Microsoft entitlement management simplifies how enterprises manage access to groups, applications, and SharePoint sites. This article describes how you can do a self-review of your assigned access packages.
 
 ## Review your own access by using My Access
 
@@ -62,7 +62,7 @@ You can also view your pending access reviews by using your browser to open **My
 
 1. Review your access and decide if you still need access.
 
-    If the request is to review access for others, the page will look different. For more information, see [Review access to groups or applications](perform-access-review.md).
+    If the request is to review access for others, the page looks different. For more information, see [Review access to groups or applications](perform-access-review.md).
 
     ![Screenshot that shows an open access review that asks if you still need access to a group.](./media/self-access-review/review-access-preview.png)
 

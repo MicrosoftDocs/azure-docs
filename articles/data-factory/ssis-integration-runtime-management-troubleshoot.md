@@ -6,14 +6,14 @@ ms.subservice: integration-services
 ms.topic: conceptual
 author: chinadragon0515
 ms.author: dashe
-ms.reviewer: sawinark
+ms.reviewer: chugugrace
 ms.custom: seo-lt-2019
-ms.date: 02/15/2022
+ms.date: 08/10/2023
 ---
 
 # Troubleshoot SSIS Integration Runtime management
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides troubleshooting guidance for management issues in Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR), also known as SSIS IR.
 

@@ -2,14 +2,13 @@
 title: Enable resource logging in Azure Traffic Manager
 description: Learn how to enable resource logging for your Traffic Manager profile and access the log files that are created as a result.
 services: traffic-manager
-author: asudbring
-
+author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/25/2019
-ms.author: allensu
+ms.date: 05/17/2023
+ms.author: greglin
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Enable resource logging in Azure Traffic Manager
@@ -18,12 +17,18 @@ This article describes how to enable collection of diagnostic resource logs and 
 
 Azure Traffic Manager resource logs can provide insight into the behavior of the Traffic Manager profile resource. For example, you can use the profile's log data to determine why individual probes have timed out against an endpoint.
 
+## Prerequisites
+
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* This guide requires a Traffic Manager profile. To learn more, see [Create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md).
+
+* This guide requires an Azure Storage account. To learn more, see [Create a storage account](../storage/common/storage-account-create.md).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+
 ## Enable resource logging
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. 
-If you run PowerShell from your computer, you need the Azure PowerShell module, 1.0.0 or later. You can run `Get-Module -ListAvailable Az` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to sign in to Azure.
 
 1. **Retrieve the Traffic Manager profile:**
 
@@ -35,10 +40,16 @@ If you run PowerShell from your computer, you need the Azure PowerShell module, 
 
 2. **Enable resource logging for the Traffic Manager profile:**
 
-    Enable resource logging for the Traffic Manager profile using the ID obtained in the previous step with [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). The following command stores verbose logs for the Traffic Manager profile to a specified Azure Storage account. 
+    Enable resource logging for the Traffic Manager profile using the ID obtained in the previous step with [New-AzDiagnosticSetting](/powershell/module/az.monitor/new-azdiagnosticsetting). The following command stores verbose logs for the Traffic Manager profile to a specified Azure Storage account. 
 
       ```azurepowershell-interactive
-    Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
+    $subscriptionId = (Get-AzContext).Subscription.Id
+    $metric = @()
+    $log = @()
+    $categories = Get-AzDiagnosticSettingCategory -ResourceId  <TrafficManagerprofileResourceId>
+    $categories | ForEach-Object {if($_.CategoryType -eq "Metrics"){$metric+=New-AzDiagnosticSettingMetricSettingsObject -Enabled $true -Category $_.Name -RetentionPolicyDay 7 -RetentionPolicyEnabled $true} else{$log+=New-AzDiagnosticSettingLogSettingsObject -Enabled $true -Category $_.Name -RetentionPolicyDay 7 -RetentionPolicyEnabled $true}}
+    New-AzDiagnosticSetting -Name <DiagnosticSettingName> -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Log $log -Metric $metric
+ 
       ``` 
 3. **Verify diagnostic settings:**
 
@@ -50,10 +61,13 @@ If you run PowerShell from your computer, you need the Azure PowerShell module, 
       Ensure that all log categories associated with the Traffic Manager profile resource display as enabled. Also, verify that the storage account is correctly set.
 
 ## Access log files
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+To access log files follow the following steps.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your Azure Storage account in the portal.
-2. On the **Overview** page of your Azure storage account, under **Services** select **Blobs**.
-3. For **Containers**, select **insights-logs-probehealthstatusevents**, and navigate down to the PT1H.json file and click **Download** to download and save a copy of this log file.
+2. On the left pane of your Azure storage account, under **Data Storage** select **Containers**.
+3. For **Containers**, select **$logs**, and navigate down to the PT1H.json file and select **Download** to download and save a copy of this log file.
 
     ![Access log files of your Traffic Manager profile from a blob storage](./media/traffic-manager-logs/traffic-manager-logs.png)
 

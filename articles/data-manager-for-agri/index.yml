@@ -1,0 +1,111 @@
+### YamlMime:Landing
+
+title: Microsoft Azure Data Manager for Agriculture Preview. # < 60 chars
+summary: Microsoft Azure Data Manager for Agriculture enables the industry to accelerate agriculture and sustainability digital solutions. By bringing together and transforming data, Azure Data Manager empowers organizations to drive innovation through insight, reduce environmental impact, optimize operations across the agri-food value chain, and cultivate trust rooted in transparency.
+
+metadata:
+  title: Azure Data Manager for Agriculture Preview.
+  description: description
+  ms.topic: landing-page
+  author: gourdsay
+  ms.author: angour
+  ms.date: 02/20/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Data Manager for Agriculture preview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Data Manager for Agriculture preview?
+            url: Overview-azure-data-manager-for-agriculture.md
+      - linkListType: quickstart
+        links:
+          - text: Install Azure Data Manager for Agriculture preview instance
+            url: quickstart-install-data-manager-for-agriculture.md
+      - linkListType: concept
+        links:
+          - text: Hierarchy model
+            url: concepts-hierarchy-model.md
+          - text: Farm Machinery data ingestion
+            url: concepts-farm-operations-data.md
+          - text: Satellite data ingestion
+            url: concepts-ingest-satellite-imagery.md
+          - text: Weather forecast data ingestion
+            url: concepts-ingest-weather-data.md
+          - text: Sensor data ingestion
+            url: concepts-ingest-sensor-data.md
+          - text: Understanding ISV solutions
+            url: concepts-isv-solutions.md
+      - linkListType: whats-new
+        links:
+          - text: Release notes
+            url: release-notes.md
+  - title: Understanding ISV solutions
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Using ISV solutions 
+            url: concepts-isv-solutions.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use ISV APIs
+            url: how-to-set-up-isv-solution.md
+  - title: Working with Farm Operations data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Farm Machinery data ingestion 
+            url: concepts-farm-operations-data.md
+      - linkListType: how-to-guide
+        links:
+          - text: Integrate with Farm Machinery data provider
+            url: how-to-integrate-with-farm-ops-data-provider.md
+          - text: Ingest and egress Farm Machinery data
+            url: how-to-ingest-and-egress-farm-operations-data.md
+  - title: Using sensors
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Sensor data ingestion
+            url: concepts-ingest-sensor-data.md
+      - linkListType: how-to-guide
+        links:
+          - text: Push and consume sensor data
+            url: how-to-set-up-sensor-as-customer-and-partner.md
+          - text: Set up sensors as a partner
+            url: how-to-set-up-sensors-partner.md
+          - text: Set up sensors as a customer
+            url: how-to-set-up-sensors-customer.md
+  - title: Security
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Set up private links
+            url: how-to-set-up-private-links.md
+      - linkListType: concept
+        links:
+          - text: Using your license keys
+            url: concepts-byol-and-credentials.md 
+  - title: Administration
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Using events
+            url: how-to-use-events.md
+          - text: Create an Azure support request
+            url: how-to-create-azure-support-request.md  
+      - linkListType: concept
+        links:
+          - text: Understanding throttling
+            url: concepts-understanding-throttling.md  
+  - title: Monitoring
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Set up audit logs
+            url: how-to-set-up-audit-logs.md

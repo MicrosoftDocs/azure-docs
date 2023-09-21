@@ -1,40 +1,40 @@
 ---
-title: Password protection in Azure Active Directory
-description: Learn how to dynamically ban weak passwords from your environment with Azure Active Directory Password Protection
+title: Password protection in Microsoft Entra ID
+description: Learn how to dynamically ban weak passwords from your environment with Microsoft Entra Password Protection
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: rogoya
 
 ms.collection: M365-identity-device-management
 ---
-# Eliminate bad passwords using Azure Active Directory Password Protection
+# Eliminate bad passwords using Microsoft Entra Password Protection
 
-A lot of security guidance recommends that you don't use the same password in multiple places, to make it complex, and to avoid simple passwords like *Password123*. You can provide your users with [guidance on how to choose passwords](https://www.microsoft.com/research/publication/password-guidance), but weak or insecure passwords are often still used. Azure AD Password Protection detects and blocks known weak passwords and their variants, and can also block additional weak terms that are specific to your organization.
+A lot of security guidance recommends that you don't use the same password in multiple places, to make it complex, and to avoid simple passwords like *Password123*. You can provide your users with [guidance on how to choose passwords](https://www.microsoft.com/research/publication/password-guidance), but weak or insecure passwords are often still used. Microsoft Entra Password Protection detects and blocks known weak passwords and their variants, and can also block additional weak terms that are specific to your organization.
 
-With Azure AD Password Protection, default global banned password lists are automatically applied to all users in an Azure AD tenant. To support your own business and security needs, you can define entries in a custom banned password list. When users change or reset their passwords, these banned password lists are checked to enforce the use of strong passwords.
+With Microsoft Entra Password Protection, default global banned password lists are automatically applied to all users in a Microsoft Entra tenant. To support your own business and security needs, you can define entries in a custom banned password list. When users change or reset their passwords, these banned password lists are checked to enforce the use of strong passwords.
 
-You should use additional features like [Azure AD Multi-Factor Authentication](concept-mfa-howitworks.md), not just rely on strong passwords enforced by Azure AD Password Protection. For more information on using multiple layers of security for your sign-in events, see [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+You should use additional features like [Microsoft Entra multifactor authentication](concept-mfa-howitworks.md), not just rely on strong passwords enforced by Microsoft Entra Password Protection. For more information on using multiple layers of security for your sign-in events, see [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
 > [!IMPORTANT]
-> This conceptual article explains to an administrator how Azure AD Password Protection works. If you're an end user already registered for self-service password reset and need to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr).
+> This conceptual article explains to an administrator how Microsoft Entra Password Protection works. If you're an end user already registered for self-service password reset and need to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr).
 >
 > If your IT team hasn't enabled the ability to reset your own password, reach out to your helpdesk for additional assistance.
 
 ## Global banned password list
 
-The Azure AD Identity Protection team constantly analyzes Azure AD security telemetry data looking for commonly used weak or compromised passwords. Specifically, the analysis looks for base terms that often are used as the basis for weak passwords. When weak terms are found, they're added to the *global banned password list*. The contents of the global banned password list aren't based on any external data source, but on the results of Azure AD security telemetry and analysis.
+The Microsoft Entra ID Protection team constantly analyzes Microsoft Entra security telemetry data looking for commonly used weak or compromised passwords. Specifically, the analysis looks for base terms that often are used as the basis for weak passwords. When weak terms are found, they're added to the *global banned password list*. The contents of the global banned password list aren't based on any external data source, but on the results of Microsoft Entra security telemetry and analysis.
 
-When a password is changed or reset for any user in an Azure AD tenant, the current version of the global banned password list is used to validate the strength of the password. This validation check results in stronger passwords for all Azure AD customers.
+When a password is changed or reset for any user in a Microsoft Entra tenant, the current version of the global banned password list is used to validate the strength of the password. This validation check results in stronger passwords for all Microsoft Entra customers.
 
-The global banned password list is automatically applied to all users in an Azure AD tenant. There's nothing to enable or configure, and can't be disabled. This global banned password list is applied to users when they change or reset their own password through Azure AD.
+The global banned password list is automatically applied to all users in a Microsoft Entra tenant. There's nothing to enable or configure, and can't be disabled. This global banned password list is applied to users when they change or reset their own password through Microsoft Entra ID.
 
 > [!NOTE]
 > Cyber-criminals also use similar strategies in their attacks to identify common weak passwords and variations. To improve security, Microsoft doesn't publish the contents of the global banned password list.
@@ -81,24 +81,24 @@ To get started with using a custom banned password list, complete the following 
 
 ## Password spray attacks and third-party compromised password lists
 
-Azure AD Password Protection helps you defend against password spray attacks. Most password spray attacks don't attempt to attack any given individual account more than a few times. This behavior would increase the likelihood of detection, either via account lockout or other means.
+Microsoft Entra Password Protection helps you defend against password spray attacks. Most password spray attacks don't attempt to attack any given individual account more than a few times. This behavior would increase the likelihood of detection, either via account lockout or other means.
 
 Instead, the majority of password spray attacks submit only a small number of the known weakest passwords against each of the accounts in an enterprise. This technique allows the attacker to quickly search for an easily compromised account and avoid potential detection thresholds.
 
-Azure AD Password Protection efficiently blocks all known weak passwords likely to be used in password spray attacks. This protection is based on real-world security telemetry data from Azure AD to build the global banned password list.
+Microsoft Entra Password Protection efficiently blocks all known weak passwords likely to be used in password spray attacks. This protection is based on real-world security telemetry data from Microsoft Entra ID to build the global banned password list.
 
 There are some third-party websites that enumerate millions of passwords that have been compromised in previous publicly known security breaches. It's common for third-party password validation products to be based on brute-force comparison against those millions of passwords. However, those techniques aren't the best way to improve overall password strength given the typical strategies used by password spray attackers.
 
 > [!NOTE]
 > The global banned password list isn't based on any third-party data sources, including compromised password lists.
 
-Although the global banned list is small in comparison to some third-party bulk lists, it's sourced from real-world security telemetry on actual password spray attacks. This approach improves the overall security and effectiveness, and the password validation algorithm also uses smart fuzzy-matching techniques. As a result, Azure AD Password Protection efficiently detects and blocks millions of the most common weak passwords from being used in your enterprise.
+Although the global banned list is small in comparison to some third-party bulk lists, it's sourced from real-world security telemetry on actual password spray attacks. This approach improves the overall security and effectiveness, and the password validation algorithm also uses smart fuzzy-matching techniques. As a result, Microsoft Entra Password Protection efficiently detects and blocks millions of the most common weak passwords from being used in your enterprise.
 
 ## On-premises hybrid scenarios
 
-Many organizations have a hybrid identity model that includes on-premises Active Directory Domain Services (AD DS) environments. To extend the security benefits of Azure AD Password Protection into your AD DS environment, you can install components on your on-premises servers. These agents require password change events in the on-premises AD DS environment to comply with the same password policy as in Azure AD.
+Many organizations have a hybrid identity model that includes on-premises Active Directory Domain Services (AD DS) environments. To extend the security benefits of Microsoft Entra Password Protection into your AD DS environment, you can install components on your on-premises servers. These agents require password change events in the on-premises AD DS environment to comply with the same password policy as in Microsoft Entra ID.
 
-For more information, see [Enforce Azure AD Password Protection for AD DS](concept-password-ban-bad-on-premises.md).
+For more information, see [Enforce Microsoft Entra Password Protection for AD DS](concept-password-ban-bad-on-premises.md).
 
 ## How are passwords evaluated
 
@@ -174,7 +174,7 @@ The next step is to identify all instances of banned passwords in the user's nor
 1. Each remaining character that is not part of a banned password is given one point.
 1. A password must be at least five (5) points to be accepted.
 
-For the next two example scenarios, Contoso is using Azure AD Password Protection and has "contoso" on their custom banned password list. Let's also assume that "blank" is on the global list.
+For the next two example scenarios, Contoso is using Microsoft Entra Password Protection and has "contoso" on their custom banned password list. Let's also assume that "blank" is on the global list.
 
 In the following example scenario, a user changes their password to "C0ntos0Blank12":
 
@@ -213,15 +213,15 @@ When a user attempts to reset or change a password to something that would be ba
 
 ## License requirements
 
-| Users | Azure AD Password Protection with global banned password list | Azure AD Password Protection with custom banned password list|
+| Users | Microsoft Entra Password Protection with global banned password list | Microsoft Entra Password Protection with custom banned password list|
 |-------------------------------------------|---------------------------|---------------------------|
-| Cloud-only users                          | Azure AD Free             | Azure AD Premium P1 or P2 |
-| Users synchronized from on-premises AD DS | Azure AD Premium P1 or P2 | Azure AD Premium P1 or P2 |
+| Cloud-only users                          | Microsoft Entra ID Free             | Microsoft Entra ID P1 or P2 |
+| Users synchronized from on-premises AD DS | Microsoft Entra ID P1 or P2 | Microsoft Entra ID P1 or P2 |
 
 > [!NOTE]
-> On-premises AD DS users that aren't synchronized to Azure AD also benefit from Azure AD Password Protection based on existing licensing for synchronized users.
+> On-premises AD DS users that aren't synchronized to Microsoft Entra ID also benefit from Microsoft Entra Password Protection based on existing licensing for synchronized users.
 
-Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+Additional licensing information, including costs, can be found on the [Microsoft Entra pricing site](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Next steps
 
@@ -230,4 +230,4 @@ To get started with using a custom banned password list, complete the following 
 > [!div class="nextstepaction"]
 > [Tutorial: Configure custom banned passwords](tutorial-configure-custom-password-protection.md)
 
-You can also then [enable on-premises Azure AD Password Protection](howto-password-ban-bad-on-premises-deploy.md).
+You can also then [enable on-premises Microsoft Entra Password Protection](howto-password-ban-bad-on-premises-deploy.md).

@@ -12,16 +12,19 @@ ms.custom: include file
 ms.author: rifox
 ---
 
-## Sample Code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-chat).
-
 ## Prerequisites
 Before you get started, make sure to:
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions.
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
-- Create *three* Azure Communication Services Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint and connection string** for this quickstart.
+- Create *three* Azure Communication Services Users and issue them a [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+
+  ```azurecli-interactive
+  az communication identity token issue --scope chat --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity//access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -58,33 +61,11 @@ The `--save` option lists the library as a dependency in your **package.json** f
 
 ### Set up the app framework
 
-This quickstart uses webpack to bundle the application assets. Run the following command to install the webpack, webpack-cli and webpack-dev-server npm packages and list them as development dependencies in your **package.json**:
+This quickstart uses parcel to bundle the application assets. Run the following command to install it and list it as a development dependency in your **package.json**:
 
 ```console
-npm install webpack webpack-cli webpack-dev-server --save-dev
+npm install parcel --save-dev
 ```
-
-Create a `webpack.config.js` file in the root directory. Copy the following configuration into this file:
-
-```
-module.exports = {
-  entry: "./client.js",
-  output: {
-    filename: "bundle.js"
-  },
-  devtool: "inline-source-map",
-  mode: "development"
-}
-```
-
-Add a `start` script to your `package.json`, we will use this for running the app. Inside the `scripts` section of `package.json` add the following:
-
-```
-"scripts": {
-  "start": "webpack serve --config ./webpack.config.js"
-}
-```
-
 Create an **index.html** file in the root directory of your project. We'll use this file as a template to add chat capability using the Azure Communication Chat SDK for JavaScript.
 
 ```html
@@ -96,7 +77,7 @@ Create an **index.html** file in the root directory of your project. We'll use t
   <body>
     <h4>Azure Communication Services</h4>
     <h1>Chat Quickstart</h1>
-    <script src="./bundle.js"></script>
+    <script src="./client.js" type="module"></script>
   </body>
 </html>
 ```
@@ -107,7 +88,7 @@ Create a file in the root directory of your project called **client.js** to cont
 
 To create a chat client in your web app, you'll use the Communications Service **endpoint** and the **access token** that was generated as part of prerequisite steps.
 
-User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. This quickstart does not cover creating a service tier to manage tokens for your chat application. See [chat concepts](../../../concepts/chat/concepts.md) for more information about chat architecture, and [user access tokens](../../access-tokens.md) for more information about access tokens.
+User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. This quickstart doesn't cover creating a service tier to manage tokens for your chat application. See [chat concepts](../../../concepts/chat/concepts.md) for more information about chat architecture, and [user access tokens](../../identity/access-tokens.md) for more information about access tokens.
 
 Inside **client.js** use the endpoint and access token in the code below to add chat capability using the Azure Communication Chat SDK for JavaScript.
 
@@ -117,25 +98,25 @@ import { ChatClient } from '@azure/communication-chat';
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 // Your unique Azure Communication service endpoint
-let endpointUrl = 'https://<RESOURCE_NAME>.communication.azure.com';
+let endpointUrl = '<replace with your resource endpoint>';
 // The user access token generated as part of the pre-requisites
 let userAccessToken = '<USER_ACCESS_TOKEN>';
 
 let chatClient = new ChatClient(endpointUrl, new AzureCommunicationTokenCredential(userAccessToken));
 console.log('Azure Communication Chat client created!');
 ```
-- Replace **endpointUrl** with the Communication Services resource endpoint, see [Create an Azure Communication Services resource](../../create-communication-resource.md) if you have not already done so.
+- Replace **endpointUrl** with the Communication Services resource endpoint, see [Create an Azure Communication Services resource](../../create-communication-resource.md) if you haven't already done so.
 - Replace **userAccessToken** with the token that you issued.
 
 
 ### Run the code
 
-Run the following command to bundle application host in on a local webserver:
+Run the following command to run your application:
 ```console
-npm run start
+npx parcel index.html
 ```
-Open your browser and navigate to http://localhost:8080/.
-In the developer tools console within your browser you should see following:
+
+Open your browser and navigate to http://localhost:1234/. In the developer tools console within your browser you should see following:
 
 ```console
 Azure Communication Chat client created!
@@ -196,7 +177,7 @@ createChatThread().then(async threadId => {
   });
 ```
 
-When you refresh your browser tab you should see the following in the console:
+When you refresh your browser tab, you should see the following in the console:
 ```console
 Thread created: <thread_id>
 ```
@@ -229,7 +210,7 @@ for await (const thread of threads) {
 
 ## Send a message to a chat thread
 
-Use `sendMessage` method to sends a message to a thread identified by threadId.
+Use `sendMessage` method to send a message to a thread identified by threadId.
 
 `sendMessageRequest` is used to describe the message request:
 
@@ -238,8 +219,8 @@ Use `sendMessage` method to sends a message to a thread identified by threadId.
 `sendMessageOptions` is used to describe the operation optional params:
 
 - Use `senderDisplayName` to specify the display name of the sender;
-- Use `type` to specify the message type, such as 'text' or 'html' ;
-- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
+- Use `type` to specify the message type, such as 'text' or 'html';
+- Use `metadata` optionally to include any other data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment: true' in metadata so that recipient's application can parse that and display accordingly.
 
 `SendChatMessageResult` is the response returned from sending a message, it contains an ID, which is the unique ID of the message.
 
@@ -297,7 +278,7 @@ for await (const message of messages) {
 Add this code in place of the `<LIST MESSAGES IN A CHAT THREAD>` comment in **client.js**.
 Refresh your tab, in the console you should find the list of messages sent in this chat thread.
 
-`listMessages` returns different types of messages which can be identified by `chatMessage.type`. 
+`listMessages` returns different types of messages that can be identified by `chatMessage.type`. 
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
@@ -305,7 +286,7 @@ For more details, see [Message Types](../../../concepts/chat/concepts.md#message
 
 Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread, and add/remove other participants.
 
-Before calling the `addParticipants` method, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
+Before calling the `addParticipants` method, ensure that you've acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
 
 `addParticipantsRequest` describes the request object wherein `participants` lists the participants to be added to the chat thread;
 - `id`, required, is the communication identifier to be added to the chat thread.
@@ -327,7 +308,7 @@ const addParticipantsRequest =
 await chatThreadClient.addParticipants(addParticipantsRequest);
 
 ```
-Replace **NEW_PARTICIPANT_USER_ID** with a [new user ID](../../access-tokens.md)
+Replace **NEW_PARTICIPANT_USER_ID** with a [new user ID](../../identity/access-tokens.md)
 Add this code in place of the `<ADD NEW PARTICIPANT TO THREAD>` comment in **client.js**
 
 ## List users in a chat thread
@@ -341,7 +322,7 @@ Add this code in place of the `<LIST PARTICIPANTS IN A THREAD>` comment in **cli
 
 ## Remove user from a chat thread
 
-Similar to adding a participant, you can remove participants from a chat thread. In order to remove, you'll need to track the IDs of the participants you have added.
+Similar to adding a participant, you can remove participants from a chat thread. In order to remove, you'll need to track the IDs of the participants you've added.
 
 Use `removeParticipant` method where `participant` is the communication user to be removed from the thread.
 
@@ -368,3 +349,6 @@ chatClient.on('realTimeNotificationDisconnected', () => {
   // your code here
 });
 ```
+
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-chat).

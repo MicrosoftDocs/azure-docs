@@ -1,18 +1,18 @@
 ---
 title: Create and manage classic metric alerts using Azure Monitor
-description: Learn how to use Azure portal, CLI or PowerShell to create, view and manage classic metric alert rules.
-author: yanivlavi
-ms.author: yalavi
+description: Learn how to use Azure portal or PowerShell to create, view and manage classic metric alert rules.
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.custom: devx-track-azurepowershell
+ms.date: 06/20/2023
+ms.reviewer: harelbr
 ---
 # Create, view, and manage classic metric alerts using Azure Monitor
 
 > [!WARNING]
-> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Microsoft Azure operated by 21Vianet will retire on **29 February 2024**.
 >
 
-Classic metric alerts in Azure Monitor provide a way to get notified when one of your metrics cross a threshold. Classic metric alerts is an older functionality that allows for alerting only on non-dimensional metrics. There is an existing newer functionality called Metric alerts which has improved functionality over classic metric alerts. You can learn more about the new metric alerts functionality in [metric alerts overview](./alerts-metric-overview.md). In this article, we will describe how to create, view and manage classic metric alert rules through Azure portal, Azure CLI and PowerShell.
+Classic metric alerts in Azure Monitor provide a way to get notified when one of your metrics crosses a threshold. Classic metric alerts is an older functionality that allows for alerting only on non-dimensional metrics. There's an existing newer functionality called Metric alerts, which has improved functionality over classic metric alerts. You can learn more about the new metric alerts functionality in [metric alerts overview](./alerts-metric-overview.md). In this article, we'll describe how to create, view and manage classic metric alert rules through Azure portal and PowerShell.
 
 ## With Azure portal
 
@@ -48,43 +48,11 @@ After you create an alert, you can select it and do one of the following tasks:
 * Edit or delete it.
 * **Disable** or **Enable** it if you want to temporarily stop or resume receiving notifications for that alert.
 
-## With Azure CLI
-
-The previous sections described how to create, view and manage metric alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](/cli/azure/get-started-with-azure-cli). Quickest way to start using Azure CLI is through [Azure Cloud Shell](../../cloud-shell/overview.md).
-
-### Get all classic metric alert rules in a resource group
-
-```azurecli
-az monitor alert list --resource-group <group name>
-```
-
-### See details of a particular classic metric alert rule
-
-```azurecli
-az monitor alert show --resource-group <group name> --name <alert name>
-```
-
-### Create a classic metric alert rule
-
-```azurecli
-az monitor alert create --name <alert name> --resource-group <group name> \
-    --action email <email1 email2 ...> \
-    --action webhook <URI> \
-    --target <target object ID> \
-    --condition "<METRIC> {>,>=,<,<=} <THRESHOLD> {avg,min,max,total,last} ##h##m##s"
-```
-
-### Delete a classic metric alert rule
-
-```azurecli
-az monitor alert delete --name <alert name> --resource-group <group name>
-```
-
 ## With PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This sections shows how to use PowerShell commands create, view and manage classic metric alerts.The examples in the article illustrate how you can use Azure Monitor cmdlets for classic metric alerts.
+This section shows how to use PowerShell commands create, view and manage classic metric alerts.The examples in the article illustrate how you can use Azure Monitor cmdlets for classic metric alerts.
 
 1. If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](/powershell/azure/). You can also review the entire list of Azure Monitor PowerShell cmdlets at [Azure Monitor (Insights) Cmdlets](/powershell/module/az.applicationinsights).
 
@@ -124,7 +92,7 @@ This sections shows how to use PowerShell commands create, view and manage class
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Classic alert rules can no longer be created via PowerShell. To create an alert rule you need to use the new ['Add-AzMetricAlertRule'](/powershell/module/az.monitor/add-azmetricalertrule) command.
+8. Classic alert rules can no longer be created via PowerShell. Use the new ['Add-AzMetricAlertRuleV2'](/powershell/module/az.monitor/add-azmetricalertrulev2) command to create a metric alert rule instead.
 
 ## Next steps
 

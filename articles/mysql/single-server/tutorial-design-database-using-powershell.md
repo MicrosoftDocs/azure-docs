@@ -1,19 +1,21 @@
 ---
 title: 'Tutorial: Design a server - Azure PowerShell - Azure Database for MySQL'
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using PowerShell.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
-ms.devlang: azurepowershell
 ms.topic: tutorial
-ms.date: 04/29/2020
+author: SudheeshGH
+ms.author: sunaray
+ms.devlang: azurepowershell
 ms.custom: mvc, devx-track-azurepowershell
+ms.date: 06/20/2022
 ---
 
 # Tutorial: Design an Azure Database for MySQL using PowerShell
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Azure Database for MySQL is a relational database service in the Microsoft cloud based on MySQL
 Community Edition database engine. In this tutorial, you use PowerShell and other utilities to learn
@@ -37,7 +39,7 @@ If you choose to use PowerShell locally, this article requires that you install 
 module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information
 about installing the Az PowerShell module, see
-[Install Azure PowerShell](/powershell/azure/install-az-ps).
+[Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 > [!IMPORTANT]
 > While the Az.MySql PowerShell module is in preview, you must install it separately from the Az

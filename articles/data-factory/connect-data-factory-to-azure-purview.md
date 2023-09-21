@@ -6,14 +6,14 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 10/25/2021
+ms.date: 01/11/2023
 ---
 
-# Connect Data Factory to Microsoft Purview (Preview)
+# Connect Data Factory to Microsoft Purview
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-[Microsoft Purview](../purview/overview.md) is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. You can connect your data factory to Microsoft Purview. That connection allows you to use Microsoft Purview for capturing lineage data, and to discover and explore Microsoft Purview assets.
+[Microsoft Purview](../purview/overview.md) is a unified data governance service that helps you manage and govern your on-premises, multicloud, and software-as-a-service (SaaS) data. You can connect your data factory to Microsoft Purview. That connection allows you to use Microsoft Purview for capturing lineage data, and to discover and explore Microsoft Purview assets.
 
 ## Connect Data Factory to Microsoft Purview
 
@@ -24,7 +24,7 @@ You have two options to connect data factory to Microsoft Purview:
 
 ### Connect to Microsoft Purview account in Data Factory
 
-You need to have **Owner** or **Contributor** role on your data factory to connect to a Microsoft Purview account.
+You need to have **Owner** or **Contributor** role on your data factory to connect to a Microsoft Purview account. Your data factory needs to have system assigned managed identity enabled.
 
 To establish the connection on Data Factory authoring UI:
 

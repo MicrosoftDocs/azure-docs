@@ -1,18 +1,18 @@
 ---
-title: Approve or deny access requests - Azure AD entitlement management
-description: Learn how to use the My Access portal to approve or deny requests to an access package in Azure Active Directory entitlement management.
+title: Approve or deny access requests - entitlement management
+description: Learn how to use the My Access portal to approve or deny requests to an access package in Microsoft Entra entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyatl
+manager: amycolannino
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
-ms.author: ajburnle
+ms.date: 05/31/2023
+ms.author: owinfrey
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 
@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a approver, I want steps for how to approve requests for access packages so that I can unlock requestors who need to use the resources.
 
 ---
-# Approve or deny access requests in Azure AD entitlement management
+# Approve or deny access requests in entitlement management
 
-With Azure AD entitlement management, you can configure policies to require approval for access packages, and choose one or more approvers. This article describes how designated approvers can approve or deny requests for access packages.
+With  entitlement management, you can configure policies to require approval for access packages, and choose one or more approvers. This article describes how designated approvers can approve or deny requests for access packages.
 
 ## Open request
 

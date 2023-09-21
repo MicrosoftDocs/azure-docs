@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 10/11/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 
@@ -23,7 +23,7 @@ Every application that uses Azure AD B2C must be registered in your [Azure AD B2
 * An **Application ID** that uniquely identifies your application.
 * A **Reply URL** that can be used to direct responses back to your application.
 
-Each request that is sent to Azure AD B2C specifies a **user flow** (a built-in policy) or a **custom policy** that controls the behavior of Azure AD B2C. Both policy types enable you to create a highly customizable set of user experiences.
+Each request that is sent to Azure AD B2C specifies a **[user flow](user-flow-overview.md)** (a built-in policy) or a **[custom policy](user-flow-overview.md)** that controls the behavior of Azure AD B2C. Both policy types enable you to create a highly customizable set of user experiences.
 
 The interaction of every application follows a similar high-level pattern:
 
@@ -38,7 +38,7 @@ These steps can differ slightly based on the type of application you're building
 
 ## Web applications
 
-For web applications (including .NET, PHP, Java, Ruby, Python, and Node.js) that are hosted on a server and accessed through a browser, Azure AD B2C supports [OpenID Connect](protocols-overview.md) for all user experiences. In the Azure AD B2C implementation of OpenID Connect, your web application initiates user experiences by issuing authentication requests to Azure AD. The result of the request is an `id_token`. This security token represents the user's identity. It also provides information about the user in the form of claims:
+For web applications (including .NET, PHP, Java, Ruby, Python, and Node.js) that are hosted on a web server and accessed through a browser, Azure AD B2C supports [OpenID Connect](protocols-overview.md) for all user experiences. In the Azure AD B2C implementation of OpenID Connect, your web application initiates user experiences by issuing authentication requests to Microsoft Entra ID. The result of the request is an `id_token`. This security token represents the user's identity. It also provides information about the user in the form of claims:
 
 ```json
 // Partial raw id_token
@@ -65,14 +65,15 @@ In a web application, each execution of a [policy](user-flow-overview.md) takes 
 6. The `id_token` is validated and a session cookie is set.
 7. A secure page is returned to the user.
 
-Validation of the `id_token` by using a public signing key that is received from Azure AD is sufficient to verify the identity of the user. This process also sets a session cookie that can be used to identify the user on subsequent page requests.
+Validation of the `id_token` by using a public signing key that is received from Microsoft Entra ID is sufficient to verify the identity of the user. This process also sets a session cookie that can be used to identify the user on subsequent page requests.
 
-To see this scenario in action, try one of the web application sign in code samples in our [Getting started section](overview.md).
+To see this scenario in action, try one of the web application sign-in code samples in our [Getting started section](overview.md).
 
-In addition to facilitating simple sign in, a web server application might also need to access a back-end web service. In this case, the web application can perform a slightly different [OpenID Connect flow](openid-connect.md) and acquire tokens by using authorization codes and refresh tokens. This scenario is depicted in the following [Web APIs section](#web-apis).
+In addition to facilitating simple sign in, a web application might also need to access a back-end web service. In this case, the web application can perform a slightly different [OpenID Connect flow](openid-connect.md) and acquire tokens by using authorization codes and refresh tokens. This scenario is depicted in the following [Web APIs section](#web-apis).
 
 ## Single-page applications
-Many modern web applications are built as client-side single-page applications ("SPAs"). Developers write them by using JavaScript or a SPA framework such as Angular, Vue, and React. These applications run on a web browser and have different authentication characteristics than traditional server-side web applications.
+
+Many modern web applications are built as client-side single-page applications ("SPAs"). Developers write them by using JavaScript or a SPA framework such as Angular, Vue, or React. These applications run on a web browser and have different authentication characteristics than traditional server-side web applications.
 
 Azure AD B2C provides **two** options to enable single-page applications to sign in users and get tokens to access back-end services or web APIs:
 
@@ -80,7 +81,7 @@ Azure AD B2C provides **two** options to enable single-page applications to sign
 
 [OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md) allows the application to exchange an authorization code for **ID** tokens to represent the authenticated user and **Access** tokens needed to call protected APIs. In addition, it returns **Refresh** tokens that provide long-term access to resources on behalf of users without requiring interaction with those users. 
 
-This is the **recommended** approach. Having limited-lifetime refresh tokens helps your application adapt to [modern browser cookie privacy limitations](../active-directory/develop/reference-third-party-cookies-spas.md), like Safari ITP.
+We **recommended** this approach. Having limited-lifetime refresh tokens helps your application adapt to [modern browser cookie privacy limitations](../active-directory/develop/reference-third-party-cookies-spas.md), like Safari ITP.
 
 To take advantage of this flow, your application can use an authentication library that supports it, like [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser). 
 
@@ -89,7 +90,9 @@ To take advantage of this flow, your application can use an authentication libra
 
 ### Implicit grant flow
 
-Some libraries, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), only support the implicit grant flow or your application is implemented to use implicit flow. In these cases, Azure AD B2C supports the [OAuth 2.0 implicit flow](implicit-flow-single-page-application.md). The implicit grant flow allows the application to get **ID** and **Access** tokens. Unlike the authorization code flow, implicit grant flow doesn't return a **Refresh token**. 
+Some libraries, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib), only support the [implicit grant flow](implicit-flow-single-page-application.md) or your application is implemented to use implicit flow. In these cases, Azure AD B2C supports the [OAuth 2.0 implicit flow](implicit-flow-single-page-application.md). The implicit grant flow allows the application to get **ID** and **Access** tokens. Unlike the authorization code flow, implicit grant flow doesn't return a **Refresh token**.
+
+We **don't recommended** this approach.  
 
 This authentication flow doesn't include application scenarios that use cross-platform JavaScript frameworks such as Electron and React-Native. Those scenarios require further capabilities for interaction with the native platforms.
 
@@ -127,23 +130,17 @@ To learn how to secure a web API by using Azure AD B2C, check out the web API tu
 
 Applications that are installed on devices, such as mobile and desktop applications, often need to access back-end services or web APIs on behalf of users. You can add customized identity management experiences to your native applications and securely call back-end services by using Azure AD B2C and the [OAuth 2.0 authorization code flow](authorization-code-flow.md).
 
-In this flow, the application executes [policies](user-flow-overview.md) and receives an `authorization_code` from Azure AD after the user completes the policy. The `authorization_code` represents the application's permission to call back-end services on behalf of the user who is currently signed in. The application can then exchange the `authorization_code` in the background for an `access_token` and a `refresh_token`.  The application can use the `access_token` to authenticate to a back-end web API in HTTP requests. It can also use the `refresh_token` to get a new `access_token` when an older one expires.
+In this flow, the application executes [policies](user-flow-overview.md) and receives an `authorization_code` from Microsoft Entra ID after the user completes the policy. The `authorization_code` represents the application's permission to call back-end services on behalf of the user who is currently signed in. The application can then exchange the `authorization_code` in the background for an `access_token` and a `refresh_token`.  The application can use the `access_token` to authenticate to a back-end web API in HTTP requests. It can also use the `refresh_token` to get a new `access_token` when an older one expires.
 
-## Current limitations
-
-### Unsupported application types
-
-#### Daemons/server-side applications
+## Daemons/server-side applications
 
 Applications that contain long-running processes or that operate without the presence of a user also need a way to access secured resources such as web APIs. These applications can authenticate and get tokens by using their identities (rather than a user's delegated identity) and by using the OAuth 2.0 client credentials flow. Client credential flow isn't the same as on-behalf-flow and on-behalf-flow shouldn't be used for server-to-server authentication.
 
-Although the OAuth 2.0 client credentials grant flow isn't currently directly supported by the Azure AD B2C authentication service, you can set up client credential flow using Azure AD and the Microsoft identity platform /token (https://login.microsoftonline.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token) endpoint for an application in your Azure AD B2C tenant. An Azure AD B2C tenant shares some functionality with Azure AD enterprise tenants.
+For Azure AD B2C, the [OAuth 2.0 client credentials flow](./client-credentials-grant-flow.md) is currently in public preview. However, you can set up client credential flow using Microsoft Entra ID and the Microsoft identity platform `/token` endpoint (`https://login.microsoftonline.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token`) for a [Microsoft Graph application](microsoft-graph-get-started.md) or your own application. For more information, check out the [Microsoft Entra token reference](../active-directory/develop/id-tokens.md) article.
 
-To set up client credential flow, see [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). A successful authentication results in the receipt of a token formatted so that it can be used by Azure AD as described in [Azure AD token reference](../active-directory/develop/id-tokens.md).
+## Unsupported application types
 
-For instructions on registering a management application, see [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-get-started.md).
-
-#### Web API chains (on-behalf-of flow)
+### Web API chains (on-behalf-of flow)
 
 Many architectures include a web API that needs to call another downstream web API, where both are secured by Azure AD B2C. This scenario is common in native clients that have a Web API back-end and calls a Microsoft online service such as the Microsoft Graph API.
 

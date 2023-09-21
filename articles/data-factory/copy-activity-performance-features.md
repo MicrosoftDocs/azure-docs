@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/27/2022
+ms.date: 06/20/2023
 
 ---
 
@@ -77,7 +77,7 @@ Note in the following scenarios, single copy activity execution can leverage mul
 
 ## Parallel copy
 
-You can set parallel copy (`parallelCopies` property) on copy activity to indicate the parallelism that you want the copy activity to use. You can think of this property as the maximum number of threads within the copy activity that read from your source or write to your sink data stores in parallel.
+You can set parallel copy (`parallelCopies` property in the JSON definition of the Copy activity, or `Degree of parallelism` setting in the **Settings** tab of the Copy activity properties in the user interface) on copy activity to indicate the parallelism that you want the copy activity to use. You can think of this property as the maximum number of threads within the copy activity that read from your source or write to your sink data stores in parallel.
 
 The parallel copy is orthogonal to [Data Integration Units](#data-integration-units) or [Self-hosted IR nodes](#self-hosted-integration-runtime-scalability). It is counted across all the DIUs or Self-hosted IR nodes.
 
@@ -138,6 +138,8 @@ When you copy data from a source data store to a sink data store, you might choo
 When you activate the staging feature, first the data is copied from the source data store to the staging storage (bring your own Azure Blob or Azure Data Lake Storage Gen2). Next, the data is copied from the staging to the sink data store. The copy activity automatically manages the two-stage flow for you, and also cleans up temporary data from the staging storage after the data movement is complete.
 
 :::image type="content" source="media/copy-activity-performance/staged-copy.png" alt-text="Staged copy":::
+
+You need to grant delete permission to your Azure Data Factory in your staging storage, so that the temporary data can be cleaned after the copy activity runs.
 
 When you activate data movement by using a staging store, you can specify whether you want the data to be compressed before you move data from the source data store to the staging store and then decompressed before you move data from an interim or staging data store to the sink data store.
 

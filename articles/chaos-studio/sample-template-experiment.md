@@ -1,20 +1,21 @@
 ---
 title: Azure Resource Manager template samples for chaos experiments
-description: Sample Azure Resource Manager templates to create Azure Chaos Studio experiments
+description: Sample Azure Resource Manager templates to create Azure Chaos Studio Preview experiments.
 services: chaos-studio
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: sample
 ms.date: 11/10/2021
-ms.author: johnkem
+ms.author: prashabora
 ms.service: chaos-studio
+ms.custom: devx-track-arm-template
 ---
 
-# Resource Manager template samples for experiments in Azure Chaos Studio
-This article includes sample [Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md) to create a [chaos experiment](chaos-studio-chaos-experiments.md) in Azure Chaos Studio. Each sample includes a template file and a parameters file with sample values to provide to the template.
+# ARM template samples for experiments in Azure Chaos Studio Preview
+This article includes sample [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/syntax.md) to create a [chaos experiment](chaos-studio-chaos-experiments.md) in Azure Chaos Studio Preview. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
-## Create experiment (sample)
+## Create an experiment (sample)
 
-In this sample, we create a chaos experiment with a single target resource and a single CPU pressure fault. The experiment can be modified by referencing our [REST API](/rest/api/chaosstudio/experiments/create-or-update) and [fault library](chaos-studio-fault-library.md).
+In this sample, we create a chaos experiment with a single target resource and a single CPU pressure fault. You can modify the experiment by referencing our [REST API](/rest/api/chaosstudio/experiments/create-or-update) and [fault library](chaos-studio-fault-library.md).
 
 ### Template file
 
@@ -50,17 +51,12 @@ In this sample, we create a chaos experiment with a single target resource and a
     {
       "type": "Microsoft.Chaos/experiments",
       "apiVersion": "2021-09-15-preview",
-      "name": "parameters('experimentName')",
-      "location": "parameters('location')",
+      "name": "[parameters('experimentName')]",
+      "location": "[parameters('location')]",
       "identity": {
         "type": "SystemAssigned"
       },
       "properties": {
-        "identity": {
-          "properties": {
-            "type": "SystemAssigned"
-          }
-        },
         "selectors": [
           {
             "id": "Selector1",
@@ -68,7 +64,7 @@ In this sample, we create a chaos experiment with a single target resource and a
             "targets": [
               {
                 "type": "ChaosTarget",
-                "id": "parameters('chaosTargetResourceId')"
+                "id": "[parameters('chaosTargetResourceId')]"
               }
             ]
           }
@@ -119,7 +115,7 @@ In this sample, we create a chaos experiment with a single target resource and a
         "value": "eastus"
       },
       "chaosTargetResourceId": {
-        "value": "eastus"
+        "value": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.DocumentDB/databaseAccounts/<account-name>/providers/Microsoft.Chaos/targets/microsoft-cosmosdb"
       }
   }
 }
@@ -127,5 +123,5 @@ In this sample, we create a chaos experiment with a single target resource and a
 
 ## Next steps
 
-* [Learn more about Chaos Studio](chaos-studio-overview.md).
-* [Learn more about chaos experiments](chaos-studio-chaos-experiments.md).
+* [Learn more about Chaos Studio](chaos-studio-overview.md)
+* [Learn more about chaos experiments](chaos-studio-chaos-experiments.md)

@@ -1,9 +1,8 @@
 ---
-title: Configure desktop apps that call web APIs | Azure
-titleSuffix: Microsoft identity platform 
+title: Configure desktop apps that call web APIs
 description: Learn how to configure the code of a desktop app that calls web APIs
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,8 +10,9 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
-ms.author: jmprieur
-ms.custom: aaddev, devx-track-python
+ms.author: owenrichards
+ms.reviewer: jmprieur
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
@@ -24,7 +24,7 @@ Now that you've created your application, you'll learn how to configure the code
 
 The following Microsoft libraries support desktop apps:
 
-[!INCLUDE [active-directory-develop-libraries-desktop](../../../includes/active-directory-develop-libraries-desktop.md)]
+[!INCLUDE [active-directory-develop-libraries-desktop](./includes/libraries/libraries-desktop.md)]
 
 ## Public client application
 
@@ -177,7 +177,7 @@ Before the call to the `.Build()` method, you can override your configuration wi
 
 # [Java](#tab/java)
 
-Here's the class used in MSAL Java development samples to configure the samples: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/).
+Here's the class used in MSAL Java development samples to configure the samples: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/msal4j-sdk/src/samples/public-client/).
 
 ```Java
 PublicClientApplication pca = PublicClientApplication.builder(CLIENT_ID)
@@ -240,51 +240,21 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 # [Node.js](#tab/nodejs)
 
-Configuration parameters can be loaded from many sources, like a JSON file or from environment variables. Below, an *.env* file is used. 
+Configuration parameters can be loaded from many sources, like a JavaScript file or from environment variables. Below, an *authConfig.js* file is used. 
 
-```Text
-# Credentials
-CLIENT_ID=Enter_the_Application_Id_Here
-TENANT_ID=Enter_the_Tenant_Info_Here
+:::code language="js" source="~/ms-identity-JavaScript-nodejs-desktop/App/authConfig.js":::
 
-# Configuration
-REDIRECT_URI=msal://redirect
-
-# Endpoints
-AAD_ENDPOINT_HOST=Enter_the_Cloud_Instance_Id_Here
-GRAPH_ENDPOINT_HOST=Enter_the_Graph_Endpoint_Here
-
-# RESOURCES
-GRAPH_ME_ENDPOINT=v1.0/me
-GRAPH_MAIL_ENDPOINT=v1.0/me/messages
-
-# SCOPES
-GRAPH_SCOPES=User.Read Mail.Read
-```
-
-Load the *.env* file to environment variables. MSAL Node can be initialized minimally as below. See the available [configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md).  
+Import the configuration object from *authConfig.js* file. MSAL Node can be initialized minimally as below. See the available [configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md).  
 
 ```JavaScript
 const { PublicClientApplication } = require('@azure/msal-node');
+const { msalConfig } = require('./authConfig')
 
-const MSAL_CONFIG = {
-    auth: {
-        clientId: process.env.CLIENT_ID,
-        authority: `${process.env.AAD_ENDPOINT_HOST}${process.env.TENANT_ID}`,
-        redirectUri: process.env.REDIRECT_URI,
-    },
-    system: {
-        loggerOptions: {
-            loggerCallback(loglevel, message, containsPii) {
-                console.log(message);
-            },
-            piiLoggingEnabled: false,
-            logLevel: LogLevel.Verbose,
-        }
-    }
-};
-
-clientApplication = new PublicClientApplication(MSAL_CONFIG);
+/**
+* Initialize a public client application. For more information, visit:
+* https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-public-client-application.md
+*/
+clientApplication = new PublicClientApplication(msalConfig);
 ```
 
 # [Python](#tab/python)

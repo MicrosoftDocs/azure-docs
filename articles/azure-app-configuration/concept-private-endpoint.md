@@ -2,8 +2,8 @@
 title: Using private endpoints for Azure App Configuration
 description: Secure your App Configuration store using private endpoints
 services: azure-app-configuration
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 07/15/2020
@@ -33,7 +33,7 @@ Service account owners can manage consent requests and private endpoints through
 
 ### Private endpoints for App Configuration 
 
-When creating a private endpoint, you must specify the App Configuration store to which it connects. If you have multiple App Configuration stores, you need a separate private endpoint for each store.
+When creating a private endpoint, you must specify the App Configuration store to which it connects. If you enable the geo-replication for an App Configuration store, you can connect to all replicas of the store using the same private endpoint. If you have multiple App Configuration stores, you need a separate private endpoint for each store.
 
 ### Connecting to private endpoints
 
@@ -55,7 +55,7 @@ When you create a private endpoint, the DNS CNAME resource record for the config
 
 When you resolve the endpoint URL from within the VNet hosting the private endpoint, it resolves to the private endpoint of the store. When resolved from outside the VNet, the endpoint URL resolves to the public endpoint. When you create a private endpoint, the public endpoint is disabled.
 
-If you are using a custom DNS server on your network, clients must be able to resolve the fully qualified domain name (FQDN) for the service endpoint to the private endpoint IP address. Configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for `[Your-store-name].privatelink.azconfig.io` with the private endpoint IP address.
+If you are using a custom DNS server on your network, clients must be able to resolve the fully qualified domain name (FQDN) for the service endpoint to the private endpoint IP address. Configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for `[Your-store-name].privatelink.azconfig.io` (or `[Your-store-name]-[replica-name].privatelink.azconfig.io` for a replica if the geo-replication is enabled) with the private endpoint IP address.
 
 > [!TIP]
 > When using a custom or on-premises DNS server, you should configure your DNS server to resolve the store name in the `privatelink` subdomain to the private endpoint IP address. You can do this by delegating the `privatelink` subdomain to the private DNS zone of the VNet, or configuring the DNS zone on your DNS server and adding the DNS A records.

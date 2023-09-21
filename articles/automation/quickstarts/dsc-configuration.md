@@ -4,7 +4,7 @@ description: This article helps you get started configuring an Azure VM with Des
 services: automation
 ms.subservice: dsc
 keywords: dsc, configuration, automation
-ms.date: 09/01/2021
+ms.date: 04/12/2023
 ms.topic: quickstart
 ms.custom: mvc, mode-other
 ---
@@ -18,11 +18,10 @@ By enabling Azure Automation State Configuration, you can manage and monitor the
 To complete this quickstart, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](../manage-runas-account.md).
 * An Azure Resource Manager virtual machine running Red Hat Enterprise Linux, CentOS, or Oracle Linux. For instructions on creating a VM, see [Create your first Linux virtual machine in the Azure portal](../../virtual-machines/linux/quick-create-portal.md)
 
 ## Sign in to Azure
-Sign in to Azure at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable a virtual machine
 
@@ -33,7 +32,7 @@ There are many different methods to enable a machine for Automation State Config
 1. From the left pane of the Automation account, select **State configuration (DSC)**.
 2. Click **Add** to open the **VM select** page.
 3. Find the virtual machine for which to enable DSC. You can use the search field and filter options to find a specific virtual machine.
-4. Click on the virtual machine, and then click **Connect**
+4. Click on the virtual machine, and then click **Connect**.
 5. Select the DSC settings appropriate for the virtual machine. If you have already prepared a configuration, you can specify it as `Node Configuration Name`. You can set the [configuration mode](/powershell/dsc/managing-nodes/metaConfig) to control the configuration behavior for the machine.
 6. Click **OK**. While the DSC extension is deployed to the virtual machine, the status reported is `Connecting`.
 

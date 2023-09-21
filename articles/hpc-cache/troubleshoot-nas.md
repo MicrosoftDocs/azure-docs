@@ -4,8 +4,8 @@ description: Tips to avoid and fix configuration errors and other problems that 
 author: ekpgh    
 ms.service: hpc-cache
 ms.topic: troubleshooting
-ms.date: 05/26/2022
-ms.author: v-erinkelly
+ms.date: 08/29/2022
+ms.author: rohogue
 ---
 
 # Troubleshoot NAS configuration and NFS storage target issues
@@ -18,6 +18,12 @@ This article includes details about how to check ports and how to enable needed 
 > Before using this guide, read [prerequisites for NFS storage targets](hpc-cache-prerequisites.md#nfs-storage-requirements).
 
 If the solution to your problem is not included here, please [open a support ticket](hpc-cache-support-ticket.md) so that Microsoft Service and Support can work with you to investigate and solve the problem.
+
+## Provide sufficient connection threads
+
+Large HPC Cache systems make multiple connection requests to a storage target. For example, if your storage target uses the Ubuntu Linux `nfs-kernel-server` module, the default number of NFS daemon threads can be as low as eight. Increase the number of threads to 128 or 256, which are more reasonable numbers to support a medium or large HPC Cache.
+
+You can check or set the number of threads in Ubuntu by using the RPCNFSDCOUNT value in `/etc/init.d/nfs-kernel-server`.
 
 ## Check port settings
 
@@ -49,7 +55,7 @@ Check these settings both on the NAS itself and also on any firewalls between th
 
 ## Check root squash settings
 
-Root squash settings can disrupt file access if they are improperly configured. You should check that the settings on each storage export and on the matching HPC Cache client access policies are consistent.
+Root squash settings can disrupt file access if they are improperly configured. You should check that the settings on each storage export and on the matching HPC Cache client access policies are appropriate.
 
 Root squash prevents requests sent by a local superuser root on the client from being sent to a back-end storage system as root. It reassigns requests from root to a non-privileged user ID (UID) like 'nobody'.
 
@@ -65,14 +71,14 @@ Root squash can be configured in an HPC Cache system in these places:
 
 * At the storage export - You can configure your storage system to reassign incoming requests from root to a non-privileged user ID (UID).
 
-These two settings should match. That is, if a storage system export squashes root, you should change its HPC Cache client access rule to also squash root. If the settings don't match, you can have access problems when you try to read or write to the back-end storage system through the HPC Cache.
+If your storage system export squashes root, you should update the HPC Cache client access rule for that storage target to also squash root. If not, you can have access problems when you try to read or write to the back-end storage system through the HPC Cache.
 
-This table illustrates the behavior for different root squash scenarios when a client request is sent as UID 0 (root). The scenarios marked with * are ***not recommended*** because they can cause access problems.
+This table illustrates the behavior for different root squash scenarios when a client request is sent as UID 0 (root). The scenario marked with * is ***not recommended*** because it can cause access problems.
 
 | Setting | UID sent from client | UID sent from HPC Cache | Effective UID on back-end storage |
 |--|--|--|--|
 | no root squash | 0 (root) | 0 (root) | 0 (root) |
-| *root squash at HPC Cache only | 0 (root) | 65534 (nobody) | 65534 (nobody) |
+| root squash at HPC Cache only | 0 (root) | 65534 (nobody) | 65534 (nobody) |
 | *root squash at NAS storage only | 0 (root) | 0 (root) | 65534 (nobody) |
 | root squash at HPC Cache and NAS | 0 (root) | 65534 (nobody) | 65534 (nobody) |
 
@@ -80,6 +86,7 @@ This table illustrates the behavior for different root squash scenarios when a c
 
 ## Check access on directory paths
 <!-- previously linked in prereqs article as allow-root-access-on-directory-paths -->
+<!-- check if this is still accurate - 05-2022 -->
 
 For NAS systems that export hierarchical directories, check that Azure HPC Cache has appropriate access to each export level in the path to the files you are using.
 

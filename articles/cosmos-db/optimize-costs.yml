@@ -1,0 +1,63 @@
+### YamlMime:Landing
+
+title: Optimize your Azure Cosmos DB costs
+summary: |
+  Optimize your costs for applications in development or production using Azure Cosmos DB.
+metadata:
+  title: Optimize your Azure Cosmos DB costs
+  description: |
+    Optimize your costs for applications in development or production using Azure Cosmos DB.
+  services: service
+  ms.service: cosmos-db
+  ms.subservice: nosql
+  ms.topic: landing-page
+  ms.collection: collection
+  author: seesharprun
+  ms.author: sidandrews
+  ms.reviewer: markjbrown
+  ms.date: 10/17/2022
+landingContent:
+  - title: Understand our pricing model
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Pricing model
+            url: how-pricing-works.md
+          - text: Total Cost of Ownership (TCO)
+            url: total-cost-ownership.md
+          - text: Understand your bill
+            url: understand-your-bill.md
+  - title: Plan for optimization
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Plan and manage costs
+            url: plan-manage-costs.md
+          - text: Limit total account throughput
+            url: limit-total-account-throughput.md
+  - title: Optimize actual costs
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Optimize provisioned throughput cost
+            url: optimize-cost-throughput.md
+          - text: Optimize request cost
+            url: optimize-cost-reads-writes.md
+          - text: Optimize storage cost
+            url: optimize-cost-storage.md
+          - text: Optimize multi-region cost
+            url: optimize-cost-regions.md
+          - text: Optimize development/testing cost
+            url: optimize-dev-test.md
+          - text: Optimize cost with reserved capacity
+            url: reserved-capacity.md
+          - text: Optimize using rate limiting
+            url: rate-limiting-requests.md
+  - title: Develop for free
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Free tier
+            url: free-tier.md
+          - text: Use the emulator
+            url: emulator.md

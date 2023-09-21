@@ -4,7 +4,7 @@ description: This article provides an overview of Azure Web Application Firewall
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 05/11/2021
+ms.date: 08/23/2023
 ms.author: victorh
 ms.topic: overview
 ---
@@ -30,4 +30,6 @@ WAF can be deployed with Azure Application Gateway,  Azure Front Door, and Azure
 - For more information about Web Application Firewall on Application Gateway, see [Web Application Firewall on Azure Application Gateway](./ag/ag-overview.md).
 - For more information about Web Application Firewall on Azure Front Door Service, see [Web Application Firewall on Azure Front Door Service](./afds/afds-overview.md).
 - For more information about Web Application Firewall on Azure CDN Service, see [Web Application Firewall on Azure CDN Service](./cdn/cdn-overview.md)
-- To learn more about Web Application Firewall, see [Learn module: Introduction to Azure Web Application Firewall](/learn/modules/introduction-azure-web-application-firewall/).
+- To learn more about Web Application Firewall, see [Learn module: Introduction to Azure Web Application Firewall](/training/modules/introduction-azure-web-application-firewall/).
+- [Learn more about Azure network security](../networking/security/index.yml)
+

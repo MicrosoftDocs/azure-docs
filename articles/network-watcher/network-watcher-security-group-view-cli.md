@@ -3,22 +3,16 @@ title: Analyze network security with Security Group View - Azure CLI
 titleSuffix: Azure Network Watcher
 description: This article will describe how to use Azure CLI to analyze a virtual machines security with Security Group View.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: damendo
+ms.workload: infrastructure-services
+ms.date: 12/09/2021
+ms.author: halkazwini
+ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
 # Analyze your Virtual Machine security with Security Group View using Azure CLI
-
-> [!div class="op_single_selector"]
-> - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [Azure CLI](network-watcher-security-group-view-cli.md)
-> - [REST API](network-watcher-security-group-view-rest.md)
 
 > [!NOTE]
 > The Security Group View API is no longer being maintained and will be deprecated soon. Please use the [Effective Security Rules feature](./network-watcher-security-group-view-overview.md) which provides the same functionality.
@@ -44,7 +38,7 @@ A virtual machine is required to run the `vm list` cmdlet. The following command
 az vm list -resource-group resourceGroupName
 ```
 
-Once you know the virtual machine, you can use the `vm show` cmdlet to get its resource Id:
+Once you know the virtual machine, you can use the `vm show` cmdlet to get its resource ID:
 
 ```azurecli
 az vm show -resource-group resourceGroupName -name virtualMachineName

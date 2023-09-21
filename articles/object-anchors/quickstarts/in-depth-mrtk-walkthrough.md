@@ -140,4 +140,4 @@ The bottom and right submenus don't appear automatically, but are toggled with `
 > [FAQ](../faq.md)
 
 > [!div class="nextstepaction"]
-> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme)

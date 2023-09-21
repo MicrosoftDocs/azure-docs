@@ -1,20 +1,17 @@
 ---
 title: CheckBox UI element
 description: Describes the Microsoft.Common.CheckBox UI element for Azure portal. Enables users to select to check or uncheck an option.
-author: tfitzmac
-
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.author: tomfitz
-
 ---
+
 # Microsoft.Common.CheckBox UI element
 
 The CheckBox control lets users check or uncheck an option. The control returns **true** when the control is checked or **false** when not checked.
 
 ## UI sample
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-checkbox.png" alt-text="Microsoft.Common.CheckBox":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-checkbox.png" alt-text="Screenshot of Microsoft.Common.CheckBox UI element with an unchecked state.":::
 
 ## Schema
 

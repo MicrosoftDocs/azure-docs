@@ -12,15 +12,15 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2021
+ms.date: 12/05/2022
 ms.author: terrylan
 # Customer intent: As an IT Pro or decision maker, I am trying to learn about identity management capabilities in Azure
 ---
 # Azure identity management security overview
 
  Identity management is the process of authenticating and authorizing [security principals](/windows/security/identity-protection/access-control/security-principals). It also involves controlling information about those principals (identities). Security principals (identities) may include services, applications, users, groups, etc.
- Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud. Such protection enables additional levels of validation, such as Multi-Factor Authentication and Conditional Access policies. Monitoring suspicious activity through advanced security reporting, auditing, and alerting helps mitigate potential security issues. [Azure Active Directory Premium](../../active-directory/fundamentals/active-directory-whatis.md) provides single sign-on (SSO) to thousands of cloud software as a service (SaaS) apps and access to web apps that you run on-premises.
- 
+ Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud. Such protection enables additional levels of validation, such as Multi-Factor Authentication and Conditional Access policies. Monitoring suspicious activity through advanced security reporting, auditing, and alerting helps mitigate potential security issues. [Azure Active Directory Premium](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) provides single sign-on (SSO) to thousands of cloud software as a service (SaaS) apps and access to web apps that you run on-premises.
+
 By taking advantage of the security benefits of Azure Active Directory (Azure AD), you can:
 
 * Create and manage a single identity for each user across your hybrid enterprise, keeping users, groups, and devices in sync. 
@@ -75,20 +75,16 @@ Learn more:
 
 Azure AD Multi-Factor Authentication is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options: phone calls, text messages, or mobile app notifications or verification codes and third-party OAuth tokens.
 
-Learn more:
-
-* [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [What is Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [How Azure AD Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
+Learn more: [How Azure AD Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## Azure RBAC
 
 Azure RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management of resources in Azure. Azure RBAC allows you to granularly control the level of access that users have. For example, you can limit a user to only manage virtual networks and another user to manage all resources in a resource group. Azure includes several built-in roles that you can use. The following lists four fundamental built-in roles. The first three apply to all resource types.
 
-- [Owner](../../role-based-access-control/built-in-roles.md#owner) - Has full access to all resources including the right to delegate access to others. 
-- [Contributor](../../role-based-access-control/built-in-roles.md#contributor) - Can create and manage all types of Azure resources but can't grant access to others.
-- [Reader](../../role-based-access-control/built-in-roles.md#reader) - Can view existing Azure resources.
-- [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) - Lets you manage user access to Azure resources.
+* [Owner](../../role-based-access-control/built-in-roles.md#owner) - Has full access to all resources including the right to delegate access to others. 
+* [Contributor](../../role-based-access-control/built-in-roles.md#contributor) - Can create and manage all types of Azure resources but can't grant access to others.
+* [Reader](../../role-based-access-control/built-in-roles.md#reader) - Can view existing Azure resources.
+* [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) - Lets you manage user access to Azure resources.
 
 Learn more:
 
@@ -97,7 +93,7 @@ Learn more:
 
 ## Security monitoring, alerts, and machine learning-based reports
 
-Security monitoring, alerts, and machine learning-based reports that identify inconsistent access patterns can help you protect your business. You can use Azure AD access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory administrator can better determine where possible security risks might lie so that they can adequately plan to mitigate those risks.
+Security monitoring, alerts, and machine learning-based reports that identify inconsistent access patterns can help you protect your business. You can use Azure AD access and usage reports to gain visibility into the integrity and security of your organization's directory. With this information, a directory administrator can better determine where possible security risks might lie so that they can adequately plan to mitigate those risks.
 
 In the Azure portal, reports fall into the following categories:
 
@@ -107,11 +103,7 @@ In the Azure portal, reports fall into the following categories:
 * **User-specific reports**: Display device sign-in activity data for a specific user.
 * **Activity logs**: Contain a record of all audited events within the last 24 hours, last 7 days, or last 30 days, and group activity changes and password reset and registration activity.
 
-Learn more:
-
-* [View your access and usage reports](../../active-directory/reports-monitoring/overview-reports.md)
-* [Get started with Azure Active Directory reporting](../../active-directory/reports-monitoring/overview-reports.md)
-* [Azure Active Directory reporting guide](../../active-directory/reports-monitoring/overview-reports.md)
+Learn more: [Azure Active Directory reporting guide](../../active-directory/reports-monitoring/overview-reports.md)
 
 ## Consumer identity and access management
 
@@ -123,21 +115,19 @@ When you use Azure AD B2C, your consumers can sign up for your applications by u
 
 Learn more:
 
-* [What is Azure Active Directory B2C?](https://azure.microsoft.com/services/active-directory-b2c/)
-* [Azure Active Directory B2C preview: Sign up and sign in consumers in your applications](../../active-directory-b2c/overview.md)
-* [Azure Active Directory B2C Preview: Types of applications](../../active-directory-b2c/application-types.md)
+* [What is Azure Active Directory B2C?](../../active-directory-b2c/overview.md)
+* [Azure Active Directory B2C: Types of applications](../../active-directory-b2c/application-types.md)
 
 ## Device registration
 
-Azure AD device registration is the foundation for device-based [Conditional Access](../../active-directory/devices/device-management-azure-portal.md) scenarios. When a device is registered, Azure AD device registration provides the device with an identity that it uses to authenticate the device when a user signs in. The authenticated device  and the attributes of the device can then be used to enforce Conditional Access policies for applications that are hosted in the cloud and on-premises.
+Azure AD device registration is the foundation for device-based [Conditional Access](../../active-directory/devices/manage-device-identities.md) scenarios. When a device is registered, Azure AD device registration provides the device with an identity that it uses to authenticate the device when a user signs in. The authenticated device  and the attributes of the device can then be used to enforce Conditional Access policies for applications that are hosted in the cloud and on-premises.
 
 When combined with a mobile device management solution such as Intune, the device attributes in Azure AD are updated with additional information about the device. You can then create Conditional Access rules that enforce access from devices to meet your standards for security and compliance.
 
 Learn more:
 
-* [Get started with Azure AD device registration](../../active-directory/devices/device-management-azure-portal.md)
-* [Automatic device registration with Azure AD for Windows domain-joined devices](../../active-directory/devices/hybrid-azuread-join-plan.md)
-* [Set up automatic registration of Windows domain-joined devices with Azure AD](../../active-directory/devices/hybrid-azuread-join-plan.md)
+* [Get started with Azure AD device registration](../../active-directory/devices/manage-device-identities.md)
+* [Automatic device registration with Azure AD for Windows domain-joined devices](../../active-directory/devices/hybrid-join-plan.md#review-supported-devices)
 
 ## Privileged identity management
 
@@ -159,16 +149,13 @@ Learn more:
 
 ## Identity protection
 
-Azure AD Identity Protection is a security service that provides a consolidated view into risk detections and potential vulnerabilities that affect your organization’s identities. Identity Protection takes advantage of existing Azure AD anomaly-detection capabilities, which are available through Azure AD Anomalous Activity reports. Identity Protection also introduces new risk detection types that can detect anomalies in real time.
+Azure AD Identity Protection is a security service that provides a consolidated view into risk detections and potential vulnerabilities that affect your organization's identities. Identity Protection takes advantage of existing Azure AD anomaly-detection capabilities, which are available through Azure AD Anomalous Activity reports. Identity Protection also introduces new risk detection types that can detect anomalies in real time.
 
-Learn more:
-
-* [Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
-* Channel 9: Azure AD and Identity Show: Identity Protection Preview
+Learn more: [Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 
 ## Hybrid identity management/Azure AD connect
 
-Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity. Azure AD Connect is the Microsoft tool designed to meet and accomplish your hybrid identity goals. This allows you to provide a common identity for your users for Microsoft 365, Azure, and SaaS applications integrated with Azure AD. It provides the following features:
+Microsoft's identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity. Azure AD Connect is the Microsoft tool designed to meet and accomplish your hybrid identity goals. This allows you to provide a common identity for your users for Microsoft 365, Azure, and SaaS applications integrated with Azure AD. It provides the following features:
 
 * Synchronization
 * AD FS and federation integration
@@ -178,14 +165,10 @@ Microsoft’s identity solutions span on-premises and cloud-based capabilities, 
 Learn more:
 
 * [Hybrid identity white paper](https://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
-* [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
-* [Azure AD team blog](https://blogs.technet.microsoft.com/ad/)
+* [Azure Active Directory](../../active-directory/index.yml)
 
 ## Azure AD access reviews
 
 Azure Active Directory (Azure AD) access reviews enable organizations to efficiently manage group memberships, access to enterprise applications, and privileged role assignments.
 
-Learn more:
-
-* [Azure AD access reviews](../../active-directory/governance/access-reviews-overview.md)
-* [Manage user access with Azure AD access reviews](../../active-directory/governance/access-reviews-overview.md)
+Learn more: [Microsoft Entra access reviews](../../active-directory/governance/access-reviews-overview.md)

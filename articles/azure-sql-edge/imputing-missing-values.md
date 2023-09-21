@@ -1,25 +1,27 @@
 ---
 title: Filling time gaps and imputing missing values - Azure SQL Edge
 description: Learn about filling time gaps and imputing missing values in Azure SQL Edge
-keywords: SQL Edge, timeseries
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.date: 09/14/2023
 ms.service: sql-edge
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 09/22/2020
+keywords:
+  - SQL Edge
+  - timeseries
 ---
+# Fill time gaps and imputing missing values
 
-# Filling time gaps and imputing missing values
+> [!IMPORTANT]  
+> Azure SQL Edge no longer supports the ARM64 platform.
 
 When dealing with time series data, it's often possible that the time series data has missing values for the attributes. It's also possible that, because of the nature of the data, or because of interruptions in data collection, there are time *gaps* in the dataset.
 
-For example, when collecting energy usage statistics for a smart device, whenever the device isn't operational there will be gaps in the usage statistics. Similarly, in a machine telemetry data collection scenario, it's possible that the different sensors are configured to emit data at different frequencies, resulting in missing values for the sensors. For example, if there are two sensors, voltage and pressure, configured at 100 Hz and 10-Hz frequency respectively, the voltage sensor will emit data every one-hundredth of a second, while the pressure sensor will only emit data every one-tenth of a second.
+For example, when collecting energy usage statistics for a smart device, whenever the device isn't operational there are gaps in the usage statistics. Similarly, in a machine telemetry data collection scenario, it's possible that the different sensors are configured to emit data at different frequencies, resulting in missing values for the sensors. For example, if there are two sensors, voltage and pressure, configured at 100 Hz and 10-Hz frequency respectively, the voltage sensor emits data every one-hundredth of a second, while the pressure sensor only emits data every one-tenth of a second.
 
 The following table describes a machine telemetry dataset, which was collected at a one-second interval.
 
-```txt
+```output
 timestamp               VoltageReading  PressureReading
 ----------------------- --------------- ----------------
 2020-09-07 06:14:41.000 164.990400      97.223600
@@ -44,32 +46,39 @@ There are two important characteristics of the preceding dataset.
 
 Gap filling is a technique that helps create contiguous, ordered set of timestamps to ease the analysis of time series data. In Azure SQL Edge, the easiest way to fill gaps in the time series dataset is to define a temporary table with the desired time distribution and then do a `LEFT OUTER JOIN` or a `RIGHT OUTER JOIN` operation on the dataset table.
 
-Taking the `MachineTelemetry` data represented above as an example, the following query can be used to generate contiguous, ordered set of timestamps for analysis.
+Taking the `MachineTelemetry` data represented previously as an example, the following query can be used to generate contiguous, ordered set of timestamps for analysis.
 
-> [!NOTE]
-> The query below generates the missing rows, with the timestamp values and `null` values for the attributes.
+> [!NOTE]  
+> The following query generates the missing rows, with the timestamp values and `null` values for the attributes.
 
 ```sql
-Create Table #SeriesGenerate(dt datetime Primary key Clustered)
+CREATE TABLE #SeriesGenerate (dt DATETIME PRIMARY KEY CLUSTERED)
 GO
 
-Declare @startdate datetime = '2020-09-07 06:14:41.000', @endtime datetime = '2020-09-07 06:14:56.000'
-While (@startdate <= @endtime)
+DECLARE @startdate DATETIME = '2020-09-07 06:14:41.000',
+    @endtime DATETIME = '2020-09-07 06:14:56.000'
+
+WHILE (@startdate <= @endtime)
 BEGIN
-Insert into #SeriesGenerate values (@startdate)
-set @startdate = DATEADD(SECOND, 1, @startdate)
+    INSERT INTO #SeriesGenerate
+    VALUES (@startdate)
+
+    SET @startdate = DATEADD(SECOND, 1, @startdate)
 END
 
-Select a.dt as timestamp, b.VoltageReading, b.PressureReading
-From
-#SeriesGenerate a LEFT OUTER JOIN MachineTelemetry b
-    on a.dt = b.[timestamp]
+SELECT a.dt AS TIMESTAMP,
+    b.VoltageReading,
+    b.PressureReading
+FROM #SeriesGenerate a
+LEFT JOIN MachineTelemetry b
+    ON a.dt = b.[timestamp];
 ```
+
 The above query produces the following output containing all *one-second* timestamps in the specified range.
 
-Here is the Result Set
+Here's the result set:
 
-```txt
+```output
 timestamp               VoltageReading    PressureReading
 ----------------------- ----------------- ----------------
 2020-09-07 06:14:41.000 164.990400        97.223600
@@ -90,26 +99,29 @@ timestamp               VoltageReading    PressureReading
 2020-09-07 06:14:56.000 159.183500        100.748200
 ```
 
-## Imputing missing values
+## Impute missing values
 
-The preceding query generated the missing timestamps for data analysis, however it did not replace any of the missing values (represented as null) for `voltage` and `pressure` readings. In Azure SQL Edge, a new syntax was added to the T-SQL `LAST_VALUE()` and `FIRST_VALUE()` functions, which provide mechanisms to impute missing values, based on the preceding or following values in the dataset.
+The preceding query generated the missing timestamps for data analysis, however it didn't replace any of the missing values (represented as null) for `voltage` and `pressure` readings. In Azure SQL Edge, a new syntax was added to the T-SQL `LAST_VALUE()` and `FIRST_VALUE()` functions, which provide mechanisms to impute missing values, based on the preceding or following values in the dataset.
 
-The new syntax adds `IGNORE NULLS` and `RESPECT NULLS` clause to the `LAST_VALUE()` and `FIRST_VALUE()` functions. A following query on the `MachineTelemetry` dataset computes the missing values using the last_value function, where missing values are replaced with the last observed value in the dataset.
+The new syntax adds `IGNORE NULLS` and `RESPECT NULLS` clause to the `LAST_VALUE()` and `FIRST_VALUE()` functions. A following query on the `MachineTelemetry` dataset computes the missing values using the LAST_VALUE function, where missing values are replaced with the last observed value in the dataset.
 
 ```sql
-Select
-    timestamp,
-    VoltageReading As OriginalVoltageValues,
-    LAST_VALUE(VoltageReading) IGNORE NULLS OVER (ORDER BY timestamp) As ImputedUsingLastValue,
-    PressureReading As OriginalPressureValues,
-    LAST_VALUE(PressureReading) IGNORE NULLS OVER (ORDER BY timestamp) As ImputedUsingLastValue
-From
-MachineTelemetry
-order by timestamp
+SELECT timestamp,
+    VoltageReading AS OriginalVoltageValues,
+    LAST_VALUE(VoltageReading) IGNORE NULLS OVER (
+        ORDER BY timestamp
+        ) AS ImputedUsingLastValue,
+    PressureReading AS OriginalPressureValues,
+    LAST_VALUE(PressureReading) IGNORE NULLS OVER (
+        ORDER BY timestamp
+        ) AS ImputedUsingLastValue
+FROM MachineTelemetry
+ORDER BY timestamp;
 ```
-Here is the Result Set
 
-```txt
+Here's the result set:
+
+```output
 timestamp               OrigVoltageVals  ImputedVoltage OrigPressureVals  ImputedPressure
 ----------------------- ---------------- -------------- ----------------- ----------------
 2020-09-07 06:14:41.000 164.990400       164.990400     97.223600         97.223600
@@ -125,27 +137,33 @@ timestamp               OrigVoltageVals  ImputedVoltage OrigPressureVals  Impute
 2020-09-07 06:14:56.000 159.183500       159.183500     100.748200        100.748200
 ```
 
-The following query imputes the missing values using both the `LAST_VALUE()` and the `FIRST_VALUE` function. For, the output column `ImputedVoltage` the missing values are replaced by the last observed value, while for the output column `ImputedPressure` the missing values are replaced by the next observed value in the dataset.
+The following query imputes the missing values using both the `LAST_VALUE()` and the `FIRST_VALUE` function. For the output column `ImputedVoltage`, the last observed value replaces the missing values, while for the output column `ImputedPressure` the missing values are replaced by the next observed value in the dataset.
 
 ```sql
-Select
-    dt as timestamp,
-    VoltageReading As OrigVoltageVals,
-    LAST_VALUE(VoltageReading) IGNORE NULLS OVER (ORDER BY dt) As ImputedVoltage,
-    PressureReading As OrigPressureVals,
-    First_VALUE(PressureReading) IGNORE NULLS OVER (ORDER BY dt ROWS
-					BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING) As ImputedPressure
-From
-(Select a.dt, b.VoltageReading,b.PressureReading  from
-    #SeriesGenerate a
-        LEFT OUTER JOIN
-    MachineTelemetry b
-        on a.dt = b.[timestamp]) A
-order by timestamp
+SELECT dt AS [timestamp],
+    VoltageReading AS OrigVoltageVals,
+    LAST_VALUE(VoltageReading) IGNORE NULLS OVER (
+        ORDER BY dt
+        ) AS ImputedVoltage,
+    PressureReading AS OrigPressureVals,
+    FIRST_VALUE(PressureReading) IGNORE NULLS OVER (
+        ORDER BY dt ROWS BETWEEN CURRENT ROW
+                AND UNBOUNDED FOLLOWING
+        ) AS ImputedPressure
+FROM (
+    SELECT a.dt,
+        b.VoltageReading,
+        b.PressureReading
+    FROM #SeriesGenerate a
+    LEFT JOIN MachineTelemetry b
+        ON a.dt = b.[timestamp]
+    ) A
+ORDER BY timestamp;
 ```
-Here is the Result Set
 
-```txt
+Here's the result set:
+
+```output
 timestamp               OrigVoltageVals  ImputedVoltage  OrigPressureVals  ImputedPressure
 ----------------------- ---------------- --------------- ----------------- ---------------
 2020-09-07 06:14:41.000 164.990400       164.990400      97.223600         97.223600
@@ -166,7 +184,7 @@ timestamp               OrigVoltageVals  ImputedVoltage  OrigPressureVals  Imput
 2020-09-07 06:14:56.000 159.183500       159.183500      100.748200        100.748200
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > The above query uses the `FIRST_VALUE()` function to replace missing values with the next observed value. The same result can be achieved by using the `LAST_VALUE()` function with a `ORDER BY <ordering_column> DESC` clause.
 
 ## Next steps

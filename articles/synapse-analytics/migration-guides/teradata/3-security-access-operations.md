@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 05/24/2022
+ms.date: 08/11/2022
 ---
 
 # Security, access, and operations for Teradata migrations
 
-This article is part three of a seven part series that provides guidance on how to migrate from Teradata to Azure Synapse Analytics. This article provides best practices for security access operations.
+This article is part three of a seven-part series that provides guidance on how to migrate from Teradata to Azure Synapse Analytics. The focus of this article is best practices for security access operations.
 
 ## Security considerations
 
 This article discusses connection methods for existing legacy Teradata environments and how they can be migrated to Azure Synapse Analytics with minimal risk and user impact.
 
-We assume there's a requirement to migrate the existing methods of connection and user, role, and permission structure as is. If this isn't the case, then you can use Azure utilities from the Azure portal to create and manage a new security regime.
+This article assumes that there's a requirement to migrate the existing methods of connection and user/role/permission structure as-is. If not, use the Azure portal to create and manage a new security regime.
 
 For more information on the [Azure Synapse security](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization) options, see [Security whitepaper](../../guidance/security-white-paper-introduction.md).
 
@@ -41,7 +41,7 @@ Teradata supports several mechanisms for connection and authorization. Valid mec
 
 - **LDAP**, which selects Lightweight Directory Access Protocol (LDAP) as the authentication mechanism. The application provides the username and password.
 
-- **KRB5**, which selects Kerberos (KRB5) on Windows clients working with Windows servers. To log on using KRB5, the user needs to supply a domain, username, and password. The domain is specified by setting the username to `MyUserName@MyDomain`.
+- **KRB5**, which selects Kerberos (KRB5) on Windows clients working with Windows servers. To sign in using KRB5, the user needs to supply a domain, username, and password. The domain is specified by setting the username to `MyUserName@MyDomain`.
 
 - **NTLM**, which selects NTLM on Windows clients working with Windows servers. The application provides the username and password.
 
@@ -53,7 +53,7 @@ Azure Synapse supports two basic options for connection and authorization:
 
 - **SQL authentication**: SQL authentication is via a database connection that includes a database identifier, user ID, and password plus other optional parameters. This is functionally equivalent to Teradata TD1, TD2 and default connections.
 
-- **Azure Active Directory (Azure AD) authentication**: With Azure Active Directory authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage SQL Data Warehouse users and simplifies permission management. Azure AD can also support connections to LDAP and Kerberos services&mdash;for example, Azure AD can be used to connect to existing LDAP directories if these are to remain in place after migration of the database.
+- **Azure Active Directory (Azure AD) authentication**: with Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage SQL Data Warehouse users and simplifies permission management. Azure AD can also support connections to LDAP and Kerberos services&mdash;for example, Azure AD can be used to connect to existing LDAP directories if these are to remain in place after migration of the database.
 
 ### Users, roles, and permissions
 
@@ -62,7 +62,7 @@ Azure Synapse supports two basic options for connection and authorization:
 > [!TIP]
 > High-level planning is essential for a successful migration project.
 
-Both Teradata and Azure Synapse implement database access control via a combination of users, roles, and permissions. Both use standard `SQL CREATE USER` and `CREATE ROLE` statements to define users and roles, and `GRANT` and `REVOKE` statements to assign or remove permissions to those users and/or roles.
+Both Teradata and Azure Synapse implement database access control via a combination of users, roles, and permissions. Both use standard SQL `CREATE USER` and `CREATE ROLE` statements to define users and roles, and `GRANT` and `REVOKE` statements to assign or remove permissions to those users and/or roles.
 
 > [!TIP]
 > Automation of migration processes is recommended to reduce elapsed time and scope for errors.
@@ -137,7 +137,7 @@ WHERE RoleName='BI_DEVELOPER'
 Order By 2,3,4,5;
 ```
 
-Modify these example `SELECT` statements to produce a result set which is a series of `GRANT` statements by including the appropriate text as a literal within the `SELECT` statement.
+Modify these example `SELECT` statements to produce a result set that's a series of `GRANT` statements by including the appropriate text as a literal within the `SELECT` statement.
 
 Use the table `AccessRightsAbbv` to look up the full text of the access right, as the join key is an abbreviated 'type' field. See the following table for a list of Teradata access rights and their equivalent in Azure Synapse.
 
@@ -221,7 +221,7 @@ This section discusses how to implement typical Teradata operational tasks in Az
 
 As with all data warehouse products, once in production there are ongoing management tasks that are necessary to keep the system running efficiently and to provide data for monitoring and auditing. Resource utilization and capacity planning for future growth also falls into this category, as does backup/restore of data.
 
-While conceptually the management and operations tasks for different data warehouses are similar, the individual implementations may differ. In general, modern cloud-based products such as Azure Synapse tend to incorporate a more automated and "system managed" approach (as opposed to a more manual approach in legacy data warehouses such as Teradata).
+While conceptually the management and operations tasks for different data warehouses are similar, the individual implementations may differ. In general, modern cloud-based products such as Azure Synapse tend to incorporate a more automated and "system managed" approach (as opposed to a more "manual" approach in legacy data warehouses such as Teradata).
 
 The following sections compare Teradata and Azure Synapse options for various operational tasks.
 
@@ -230,17 +230,17 @@ The following sections compare Teradata and Azure Synapse options for various op
 > [!TIP]
 > Housekeeping tasks keep a production warehouse operating efficiently and optimize use of resources such as storage.
 
-In most legacy data warehouse environments, there's a requirement to perform regular 'housekeeping' tasks such as reclaiming disk storage space that can be freed up by removing old versions of updated or deleted rows, or reorganizing data log files or index blocks for efficiency. Collecting statistics is also a potentially time-consuming task. Collecting statistics is required after a bulk data ingest to provide the query optimizer with up-to-date data to base generation of query execution plans.
+In most legacy data warehouse environments, there's a requirement to perform regular "housekeeping" tasks such as reclaiming disk storage space that can be freed up by removing old versions of updated or deleted rows, or reorganizing data log files or index blocks for efficiency. Collecting statistics is also a potentially time-consuming task. Collecting statistics is required after a bulk data ingest to provide the query optimizer with up-to-date data to base generation of query execution plans.
 
 Teradata recommends collecting statistics as follows:
 
 - Collect statistics on unpopulated tables to set up the interval histogram used in internal processing. This initial collection makes subsequent statistics collections faster. Make sure to recollect statistics after data is added.
 
-- Prototype phase, newly populated tables.
+- Collect prototype phase statistics for newly populated tables.
 
-- Production phase, after a significant percentage of change to the table or partition (~10% rows). For high volumes of nonunique values, such as dates or timestamps, it may be advantageous to recollect at 7%.
+- Collect production phase statistics after a significant percentage of change to the table or partition (~10% of rows). For high volumes of nonunique values, such as dates or timestamps, it may be advantageous to recollect at 7%.
 
-- Recommendation: Collect production phase statistics after you've created users and applied real world query loads to the database (up to about three months of querying).
+- Collect production phase statistics after you've created users and applied real world query loads to the database (up to about three months of querying).
 
 - Collect statistics in the first few weeks after an upgrade or migration during periods of low CPU utilization.
 
@@ -300,7 +300,7 @@ Azure Synapse has an option to automatically create statistics so that they can 
 > [!TIP]
 > Over time, several different tools have been implemented to allow monitoring and logging of Teradata systems.
 
-Teradata provides several tools to monitor the operation including Teradata Viewpoint and Ecosystem Manager. For logging query history, the Database Query Log (DBQL) is a Teradata Database feature that provides a series of predefined tables that can store historical records of queries and their duration, performance, and target activity based on user-defined rules.
+Teradata provides several tools to monitor the operation including Teradata Viewpoint and Ecosystem Manager. For logging query history, the Database Query Log (DBQL) is a Teradata database feature that provides a series of predefined tables that can store historical records of queries and their duration, performance, and target activity based on user-defined rules.
 
 Database administrators can use Teradata Viewpoint to determine system status, trends, and individual query status. By observing trends in system usage, system administrators are better able to plan project implementations, batch jobs, and maintenance to avoid peak periods of use. Business users can use Teradata Viewpoint to quickly access the status of reports and queries and drill down into details.
 
@@ -322,7 +322,7 @@ For more information, see [Azure Synapse operations and management options](/azu
 
 ### High Availability (HA) and Disaster Recovery (DR)
 
-Teradata implements features such as Fallback, Archive Restore Copy utility (ARC), and Data Stream Architecture (DSA) to provide protection against data loss and high availability (HA) via replication and archive of data. Disaster Recovery (DR) options include Dual Active Solution, DR as a service, or a replacement system depending on the recovery time requirement.
+Teradata implements features such as `FALLBACK`, Archive Restore Copy utility (ARC), and Data Stream Architecture (DSA) to provide protection against data loss and high availability (HA) via replication and archive of data. Disaster Recovery (DR) options include Dual Active Solution, DR as a service, or a replacement system depending on the recovery time requirement.
 
 > [!TIP]
 > Azure Synapse creates snapshots automatically to ensure fast recovery times.
@@ -358,9 +358,26 @@ In a Teradata system, workload management is the act of managing workload perfor
 
 In Azure Synapse, resource classes are pre-determined resource limits that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and on the compute resources assigned to each query. There's a trade-off between memory and concurrency.
 
-See [Resource classes for workload management](/azure/sql-data-warehouse/resource-classes-for-workload-management) for detailed information.
+Azure Synapse automatically logs resource utilization statistics. Metrics include usage statistics for CPU, memory, cache, I/O, and temporary workspace for each query. Azure Synapse also logs connectivity information, such as failed connection attempts.
 
-This information can also be used for capacity planning, determining the resources required for additional users or application workload. This also applies to planning scale up/scale downs of compute resources for cost-effective support of 'peaky' workloads.
+>[!TIP]
+>Low-level and system-wide metrics are automatically logged within Azure.
+
+Azure Synapse supports these basic workload management concepts:
+
+- **Workload classification**: you can assign a request to a workload group to set importance levels.
+
+- **Workload importance**: you can influence the order in which a request gets access to resources. By default, queries are released from the queue on a first-in, first-out basis as resources become available. Workload importance allows higher priority queries to receive resources immediately regardless of the queue.
+
+- **Workload isolation**: you can reserve resources for a workload group, assign maximum and minimum usage for varying resources, limit the resources a group of requests can consume can, and set a timeout value to automatically kill runaway queries.
+
+Running mixed workloads can pose resource challenges on busy systems. A successful [workload management](../../sql-data-warehouse/sql-data-warehouse-workload-management.md) scheme effectively manages resources, ensures highly efficient resource utilization, and maximizes return on investment (ROI). The [workload classification](../../sql-data-warehouse/sql-data-warehouse-workload-classification.md), [workload importance](../../sql-data-warehouse/sql-data-warehouse-workload-importance.md), and [workload isolation](../../sql-data-warehouse/sql-data-warehouse-workload-isolation.md) gives more control over how workload utilizes system resources.
+
+The [workload management guide](../../sql-data-warehouse/analyze-your-workload.md) describes the techniques to analyze the workload, manage and monitor workload importance](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md), and the steps to [convert a resource class to a workload group](../../sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md). Use the [Azure portal](../../sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md) and [T-SQL queries on DMVs](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md) to monitor the workload to ensure that the applicable resources are efficiently utilized. Azure Synapse provides a set of Dynamic Management Views (DMVs) for monitoring all aspects of workload management. These views are useful when actively troubleshooting and identifying performance bottlenecks in your workload.
+
+This information can also be used for capacity planning, determining the resources required for additional users or application workload. This also applies to planning scale up/scale downs of compute resources for cost-effective support of "peaky" workloads.
+
+For more information on workload management in Azure Synapse, see [Workload management with resource classes](../../sql-data-warehouse/resource-classes-for-workload-management.md).
 
 ### Scale compute resources
 

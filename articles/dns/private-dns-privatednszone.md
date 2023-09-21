@@ -2,11 +2,11 @@
 title: What is an Azure DNS private zone
 description: Overview of a private DNS zone
 services: dns
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: article
-ms.date: 04/09/2021
-ms.author: rohink
+ms.date: 02/27/2023
+ms.author: greglin
 ---
 
 # What is a private Azure DNS zone
@@ -24,13 +24,23 @@ To understand how many private DNS zones you can create in a subscription and ho
 
 ## Restrictions
 
-* Single-labeled private DNS zones aren't supported. Your private DNS zone must have two or more labels. For example contoso.com has two labels separated by a dot. A private DNS zone can have a maximum of 34 labels.
+* Single-label private DNS zones aren't supported. Your private DNS zone must have two or more labels. For example, contoso.com has two labels separated by a dot. A private DNS zone can have a maximum of 34 labels.
 * You can't create zone delegations (NS records) in a private DNS zone. If you intend to use a child domain, you can directly create the domain as a private DNS zone. Then you can link it to the virtual network without setting up a nameserver delegation from the parent zone.
+* The following list of reserved zone names are blocked from creation to prevent disruption of services:
+
+    | Public | Azure Government | Microsoft Azure operated by 21Vianet |
+    | --- | --- | --- |
+    |azclient.ms	| azclient.us	| azclient.cn
+    |azure.com |	azure.us	| azure.cn
+    |cloudapp.net |	usgovcloudapp.net	| chinacloudapp.cn
+    |core.windows.net |	core.usgovcloudapi.net	| core.chinacloudapi.cn
+    |microsoft.com |	microsoft.us |	microsoft.cn
+    |msidentity.com	| msidentity.us	| msidentity.cn
+    |trafficmanager.net	| usgovtrafficmanager.net |	trafficmanager.cn
+    |windows.net| 	usgovcloudapi.net	| chinacloudapi.cn
 
 ## Next steps
 
 * Learn how to create a private zone in Azure DNS by using [Azure PowerShell](./private-dns-getstarted-powershell.md) or [Azure CLI](./private-dns-getstarted-cli.md).
-
 * Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
-
 * For common questions and answers about private zones in Azure DNS, see [Private DNS FAQ](./dns-faq-private.yml).

@@ -1,23 +1,17 @@
 ---
-title: Microsoft Sentinel SAP solution deployment troubleshooting | Microsoft Docs
-description: Learn how to troubleshoot specific issues that may occur in your Microsoft Sentinel SAP solution deployment.
-author: batamig
-ms.author: bagol
+title: Microsoft Sentinel solution for SAP® applications deployment troubleshooting
+description: Learn how to troubleshoot specific issues that may occur in your Microsoft Sentinel solution for SAP® applications deployment.
+author: limwainstein
+ms.author: lwainstein
 ms.topic: troubleshooting
-ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
+ms.date: 01/09/2023
 ---
 
-# Troubleshooting your Microsoft Sentinel SAP solution deployment
-
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
-
-> [!IMPORTANT]
-> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment
 
 ## Useful Docker commands
 
-When troubleshooting your SAP data connector, you may find the following commands useful:
+When troubleshooting your Microsoft Sentinel for SAP data connector, you may find the following commands useful:
 
 |Function  |Command  |
 |---------|---------|
@@ -31,7 +25,7 @@ For more information, see the [Docker CLI documentation](https://docs.docker.com
 
 ## Review system logs
 
-We highly recommend that you review the system logs after installing or [resetting the data connector](#reset-the-sap-data-connector).
+We highly recommend that you review the system logs after installing or [resetting the data connector](#reset-the-microsoft-sentinel-for-sap-data-connector).
 
 Run:
 
@@ -39,93 +33,59 @@ Run:
 docker logs -f sapcon-[SID]
 ```
 
-## Enable debug mode printing
+## Enable/disable debug mode printing
 
-**To enable debug mode printing**:
+**Enable debug mode printing**:
 
-1. Copy the following file to your **sapcon/[SID]** directory, and then rename it as `loggingconfig.yaml`: https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.yaml
+1. On your VM, edit the **/opt/sapcon/[SID]/systemconfig.ini** file.
 
-1. [Reset the SAP data connector](#reset-the-sap-data-connector).
+1. Define the **General** section if it wasn't previously defined. In this section, define `logging_debug = True`.
 
-For example, for SID `A4H`:
+    For example:
 
-```bash
-wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.yaml
-              cp loggingconfig.yaml ~/sapcon/A4H
-              docker restart sapcon-A4H
-```
-
-**To disable debug mode printing again, run**:
-
-```bash
-mv loggingconfig.yaml loggingconfig.old
-ls
-docker restart sapcon-[SID]
-```
-
-## View all Docker execution logs
-
-To view all Docker execution logs for your Microsoft Sentinel SAP data connector deployment, run one of the following commands:
-
-```bash
-docker exec -it sapcon-[SID] bash && cd /sapcon-app/sapcon/logs
-```
-
-or
-
-```bash
-docker exec –it sapcon-[SID] cat /sapcon-app/sapcon/logs/[FILE_LOGNAME]
-```
-
-Output similar to the following should be displayed:
-
-```bash
-Logs directory:
-root@644c46cd82a9:/sapcon-app# ls sapcon/logs/ -l
-total 508
--rwxr-xr-x 1 root root      0 Mar 12 09:22 ' __init__.py'
--rw-r--r-- 1 root root    282 Mar 12 16:01  ABAPAppLog.log
--rw-r--r-- 1 root root   1056 Mar 12 16:01  ABAPAuditLog.log
--rw-r--r-- 1 root root    465 Mar 12 16:01  ABAPCRLog.log
--rw-r--r-- 1 root root    515 Mar 12 16:01  ABAPChangeDocsLog.log
--rw-r--r-- 1 root root    282 Mar 12 16:01  ABAPJobLog.log
--rw-r--r-- 1 root root    480 Mar 12 16:01  ABAPSpoolLog.log
--rw-r--r-- 1 root root    525 Mar 12 16:01  ABAPSpoolOutputLog.log
--rw-r--r-- 1 root root      0 Mar 12 15:51  ABAPTableDataLog.log
--rw-r--r-- 1 root root    495 Mar 12 16:01  ABAPWorkflowLog.log
--rw-r--r-- 1 root root 465311 Mar 14 06:54  API.log # view this log to see submits of data into Microsoft Sentinel
--rw-r--r-- 1 root root      0 Mar 12 15:51  LogsDeltaManager.log
--rw-r--r-- 1 root root      0 Mar 12 15:51  PersistenceManager.log
--rw-r--r-- 1 root root   4830 Mar 12 16:01  RFC.log
--rw-r--r-- 1 root root   5595 Mar 12 16:03  SystemAdmin.log
-```
-
-To copy your logs to the host operating system, run:
-
-```bash
-docker cp sapcon-[SID]:/sapcon-app/sapcon/logs /directory
-```
-
-For example:
-
-```bash
-docker cp sapcon-A4H:/sapcon-app/sapcon/logs /tmp/sapcon-logs-extract
-```
-
-## Review and update the SAP data connector configuration
-
-If you want to check the SAP data connector configuration file and make manual updates, perform the following steps:
-
-1. On your VM, in the user's home directory, open the **~/sapcon/[SID]/systemconfig.ini** file.
-1. Update the configuration if needed, and then restart the container:
-
-    ```bash
-    docker restart sapcon-[SID]
+    ```Python
+    [General]
+    logging_debug = True
     ```
 
-## Reset the SAP data connector
+1. Save the file.
 
-The following steps reset the connector and reingest SAP logs from the last 24 hours.
+The change takes effect two minutes after you save the file. You don't need to restart the Docker container.
+
+**Disable debug mode printing**:
+
+1. On your VM, edit the **/opt/sapcon/[SID]/systemconfig.ini** file.
+
+1. In the **General** section, define `logging_debug = False`.
+
+    For example:
+
+    ```Python
+    [General]
+    logging_debug = False
+    ```
+
+1. Save the file.
+
+The change takes effect two minutes after you save the file. You don't need to restart the Docker container.
+
+## View all container execution logs
+
+Connector execution logs for your Microsoft Sentinel solution for SAP® applications data connector deployment are stored on your VM in **/opt/sapcon/[SID]/log/**. Log filename is **OmniLog.log**. A history of logfiles is kept, suffixed with *.[number]* such as **OmniLog.log.1**, **OmniLog.log.2** etc
+
+## Review and update the Microsoft Sentinel for SAP data connector configuration
+
+If you want to check the Microsoft Sentinel for SAP data connector configuration file and make manual updates, perform the following steps:
+
+1. On your VM, open the **sapcon/[SID]/systemconfig.ini** file.
+
+1. Update the configuration if needed, and save the file.
+
+The change takes effect two minutes after you save the file. You don't need to restart the Docker container.
+
+## Reset the Microsoft Sentinel for SAP data connector
+
+The following steps reset the connector and reingest SAP logs from the last 30 minutes.
 
 1.	Stop the connector. Run:
 
@@ -133,12 +93,11 @@ The following steps reset the connector and reingest SAP logs from the last 24 h
     docker stop sapcon-[SID]
     ```
 
-1.	Delete the **metadata.db** file from the **sapcon/[SID]** directory. Run:
+1.	Delete the **metadata.db** file from the **/opt/sapcon/[SID]** directory. Run:
 
     ```bash
-    cd ~/sapcon/<SID>
-    ls
-    mv metadata.db metadata.old
+    cd /opt/sapcon/<SID>
+    rm metadata.db
     ```
 
     > [!NOTE]
@@ -152,11 +111,21 @@ The following steps reset the connector and reingest SAP logs from the last 24 h
 
 Make sure to [Review system logs](#review-system-logs) when you're done.
 
+### Missing IP address or transaction code fields in the SAP audit log
 
+This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect additional fields in the `ABAPAuditLog_CL` and `SAPAuditLog` tables. 
+
+If you're using SAP BASIS versions higher than 7.5 SP12 and missing IP address or transaction code fields in the SAP audit log, verify that the SAP system from which you're extracting the data contains the relevant change requests (transports). To learn more, review the [Retrieve additional information from SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional) section in the prerequisites.
+
+### No data is showing in the SAP table data log
+
+This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect table data log changes in the `ABAPTableDataLog_CL` table. 
+
+If no data is showing in the `ABAPTableDataLog_CL` table, verify that the SAP system from which you're extracting the data contains the relevant change requests (transports). To learn more, review the [Retrieve additional information from SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional) section in the prerequisites.
 
 ## Common issues
 
-After having deployed both the SAP data connector and security content, you may experience the following errors or issues:
+After having deployed both the Microsoft Sentinel for SAP data connector and security content, you may experience the following errors or issues:
 
 ### Corrupt or missing SAP SDK file
 
@@ -177,8 +146,18 @@ Docker cp SDK by running docker cp nwrfc750P_8-70002752.zip /sapcon-app/inst/
 
 If ABAP runtime errors appear on large systems, try setting a smaller chunk size:
 
-1. Edit the **sapcon/SID/systemconfig.ini** file and define `timechunk = 5`.
-2. [Reset the SAP data connector](#reset-the-sap-data-connector).
+1. Edit the **/opt/sapcon/[SID]/systemconfig.ini** file and in the **Connector Configuration** section define `timechunk = 5`.
+
+    For example:
+
+    ```Python
+    [Connector Configuration]
+    timechunk = 5
+    ```
+
+1. save the file.
+
+The change takes effect two minutes after you save the file. You don't need to restart the Docker container.
 
 > [!NOTE]
 > The **timechunk** size is defined in minutes.
@@ -222,7 +201,7 @@ docker restart sapcon-[SID]
 
 ### Missing ABAP (SAP user) permissions
 
-If you get an error message similar to: **..Missing Backend RFC Authorization..**, your SAP authorizations and role were not applied properly.
+If you get an error message similar to: **..Missing Backend RFC Authorization..**, your SAP authorizations and role weren't applied properly.
 
 1. Ensure that the **MSFTSEN/SENTINEL_CONNECTOR** role was imported as part of a [change request](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) transport, and applied to the connector user.
 
@@ -255,7 +234,7 @@ Common issues include:
 
 If you have unexpected issues not listed in this article, try the following steps:
 
-- [Reset the connector and reload your logs](#reset-the-sap-data-connector)
+- [Reset the connector and reload your logs](#reset-the-microsoft-sentinel-for-sap-data-connector)
 - [Upgrade the connector](update-sap-data-connector.md) to the latest version.
 
 > [!TIP]
@@ -271,15 +250,20 @@ If you attempt to retrieve an audit log, without the [required change request](p
 
 While your system should automatically switch to compatibility mode if needed, you may need to switch it manually. To switch to compatibility mode manually:
 
-1. In the **sapcon/SID** directory, edit the **systemconfig.ini** file
+1. Edit the **/opt/sapcon/[SID]/systemconfig.ini** file
 
-1. Define: `auditlogforcexal = True`
+1. In the **Connector Configuration** section defineefine: `auditlogforcexal = True`
 
-1. Restart the Docker container:
+    For example:
 
-    ```bash
-    docker restart sapcon-[SID]
+    ```Python
+    [Connector Configuration]
+    auditlogforcexal = True
     ```
+
+1. save the file.
+
+The change takes effect two minutes after you save the file. You don't need to restart the Docker container.
 
 ### SAPCONTROL or JAVA subsystems unable to connect
 
@@ -302,9 +286,9 @@ If you're not able to import the [required SAP log change requests](prerequisite
 
 ### Audit log data not ingested past initial load
 
-If the SAP audit log data, visible in either the **RSAU_READ_LOAD** or **SM200** transactions, is not ingested into Microsoft Sentinel past the initial load, you may have a misconfiguration of the SAP system and the SAP host operating system.
+If the SAP audit log data, visible in either the **RSAU_READ_LOAD** or **SM200** transactions, isn't ingested into Microsoft Sentinel past the initial load, you may have a misconfiguration of the SAP system and the SAP host operating system.
 
-- Initial loads are ingested after a fresh installation of the SAP data connector, or after the **metadata.db** file is deleted.
+- Initial loads are ingested after a fresh installation of the Microsoft Sentinel for SAP data connector, or after the **metadata.db** file is deleted.
 - A sample misconfiguration might be when your SAP system timezone is set to **CET** in the **STZAC** transaction, but the SAP host operating system time zone is set to **UTC**.
 
 To check for misconfigurations, run the **RSDBTIME** report in transaction **SE38**. If you find a mismatch between the SAP system and the SAP host operating system:
@@ -315,10 +299,10 @@ To check for misconfigurations, run the **RSDBTIME** report in transaction **SE3
     docker stop sapcon-[SID]
     ```
 
-1.	Delete the **metadata.db** file from the **sapcon/[SID]** directory. Run:
+1.	Delete the **metadata.db** file from the **/opt/sapcon/[SID]** directory. Run:
 
     ```bash
-    rm ~/sapcon/[SID]/metadata.db
+    rm /opt/sapcon/[SID]/metadata.db
     ```
 
 1. Update the SAP system and the SAP host operating system to have matching settings, such as the same time zone. For more information, see the [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/Basis/Time+zone+settings%2C+SAP+vs.+OS+level).
@@ -331,25 +315,21 @@ To check for misconfigurations, run the **RSDBTIME** report in transaction **SE3
 
 ## Next steps
 
-Learn more about the Microsoft Sentinel SAP solutions:
+Learn more about the Microsoft Sentinel solution for SAP® applications:
 
-- [Deploy Continuous Threat Monitoring for SAP](deployment-overview.md)
-- [Prerequisites for deploying SAP continuous threat monitoring](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
-- [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md)
-- [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the Microsoft Sentinel SAP data connector with SNC](configure-snc.md)
+- [Deploy the solution content from the content hub](deploy-sap-security-content.md)
+- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
+- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
-Troubleshooting:
-
-- [Configure SAP Transport Management System](configure-transport.md)
-
 Reference files:
 
-- [Microsoft Sentinel SAP solution data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel SAP solution: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP® applications solution data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP® applications solution: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)

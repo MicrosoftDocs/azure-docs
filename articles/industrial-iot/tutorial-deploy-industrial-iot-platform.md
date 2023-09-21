@@ -1,9 +1,10 @@
 ---
 title: Deploy the Azure Industrial IoT Platform
 description: In this tutorial, you learn how to deploy the IIoT Platform.
-author: jehona-m
-ms.author: jemorina
+author: hansgschossmann
+ms.author: johanng
 ms.service: industrial-iot
+ms.custom: ignite-2022
 ms.topic: tutorial
 ms.date: 3/22/2021
 ---
@@ -32,7 +33,7 @@ The Azure Industrial IoT Platform is a Microsoft suite of modules (OPC Publisher
 The deployment script allows to select which set of components to deploy.
 - Minimum dependencies:
     - [IoT Hub](https://azure.microsoft.com/services/iot-hub/) to communicate with the edge and ingress raw OPC UA telemetry data
-    - [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) to persist state that is not persisted in IoT Hub
+    - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) to persist state that is not persisted in IoT Hub
     - [Service Bus](https://azure.microsoft.com/services/service-bus/) as integration event bus
     - [Event Hubs](https://azure.microsoft.com/services/event-hubs/) contains processed and contextualized OPC UA telemetry data
     - [Key Vault](https://azure.microsoft.com/services/key-vault/) to manage secrets and certificates
@@ -48,7 +49,7 @@ The deployment script allows to select which set of components to deploy.
     - App Service Plan (shared with microservices), [App Service](https://azure.microsoft.com/services/app-service/) for hosting the Industrial IoT Engineering Tool cloud application
 - Simulation:
     - [Virtual machine](https://azure.microsoft.com/services/virtual-machines/), Virtual network, IoT Edge used for a factory simulation to show the capabilities of the platform and to generate sample telemetry
-- [Azure Kubernetes Service](https://github.com/Azure/Industrial-IoT/blob/main/docs/deploy/howto-deploy-aks.md) should be used to host the cloud microservices
+- [Azure Kubernetes Service](/azure/aks/learn/quick-kubernetes-deploy-cli) should be used to host the cloud microservices
 
 ## Deploy Azure IIoT Platform using the deployment script
 
@@ -97,14 +98,13 @@ The deployment script allows to select which set of components to deploy.
 
 Other hosting and deployment methods:
 
-- For production deployments that require staging, rollback, scaling, and resilience, the platform can be deployed into [Azure Kubernetes Service (AKS)](https://github.com/Azure/Industrial-IoT/blob/main/docs/deploy/howto-deploy-aks.md)
-- Deploying Azure Industrial IoT Platform microservices into an existing Kubernetes cluster using [Helm](https://github.com/Azure/Industrial-IoT/blob/main/docs/deploy/howto-deploy-helm.md).
+- For production deployments that require staging, rollback, scaling, and resilience, the platform can be deployed into [Azure Kubernetes Service (AKS)](/azure/aks/learn/quick-kubernetes-deploy-cli)
+- Deploying Azure Industrial IoT Platform microservices into an existing Kubernetes cluster using [Helm](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/api-management/how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
 - Deploying [Azure Kubernetes Service (AKS) cluster on top of Azure Industrial IoT Platform created by deployment script and adding Azure Industrial IoT components into the cluster](https://github.com/Azure/Industrial-IoT/blob/main/docs/deploy/howto-add-aks-to-ps1.md).
 
 References:
-- [Deploying Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/tree/main/docs/deploy)
-- [How to deploy all-in-one](https://github.com/Azure/Industrial-IoT/blob/main/docs/deploy/howto-deploy-all-in-one.md)
-- [How to deploy platform into AKS](https://github.com/Azure/Industrial-IoT/blob/main/docs/deploy/howto-deploy-aks.md)
+- [Deploying Azure Industrial IoT Platform](/azure/industrial-iot/tutorial-deploy-industrial-iot-platform)
+- [How to deploy platform into AKS](/azure/aks/learn/quick-kubernetes-deploy-cli)
 
 
 ## Next steps

@@ -1,18 +1,22 @@
 ---
 title: Access slow query logs - Azure CLI - Azure Database for MySQL
 description: This article describes how to access the slow query logs in Azure Database for MySQL by using the Azure CLI.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
-ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 4/13/2020 
+author: SudheeshGH
+ms.author: sunaray
+ms.devlang: azurecli
 ms.custom: devx-track-azurecli
+ms.date: 06/20/2022
 ---
+
 # Configure and access slow query logs by using Azure CLI
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 You can download the Azure Database for MySQL slow query logs by using Azure CLI, the Azure command-line utility.
 
 ## Prerequisites

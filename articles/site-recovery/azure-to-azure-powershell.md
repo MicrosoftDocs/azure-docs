@@ -2,11 +2,11 @@
 title: Disaster recovery for Azure VMs using Azure PowerShell and Azure Site Recovery
 description: Learn how to set up disaster recovery for Azure virtual machines with Azure Site Recovery using Azure PowerShell.
 services: site-recovery
-author: sujayt
+author: ankitaduttaMSFT
 manager: rochakm
 ms.topic: article
-ms.date: 3/29/2019
-ms.author: sutalasi 
+ms.date: 07/14/2023
+ms.author: ankitadutta 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -37,7 +37,7 @@ You learn how to:
 Before you start:
 - Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
 - Review the [support requirements](azure-to-azure-support-matrix.md) for all components.
-- You have the Azure PowerShell `Az` module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
+- You have the Azure PowerShell `Az` module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Sign in to your Microsoft Azure subscription
 
@@ -322,7 +322,7 @@ $WusToEusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -Protec
 
 ## Create cache storage account and target storage account
 
-A cache storage account is a standard storage account in the same Azure region as the virtual machine being replicated. The cache storage account is used to hold replication changes temporarily, before the changes are moved to the recovery Azure region. You can choose to, but it's not necessary, to specify different cache storage accounts for the different disks of a virtual machine.
+A cache storage account is a standard storage account in the same Azure region as the virtual machine being replicated. The cache storage account is used to hold replication changes temporarily, before the changes are moved to the recovery Azure region. High churn support is also available in Azure Site Recovery to get higher churn limits. To use this feature, please create a Premium Block Blob type of storage accounts and then use it as the cache storage account.  You can choose to, but it's not necessary, to specify different cache storage accounts for the different disks of a virtual machine. If you use different cache storage accounts, ensure they are of the same type (Standard or Premium Block Blobs). For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
@@ -478,7 +478,7 @@ Once the start replication operation succeeds, virtual machine data is replicate
 
 The replication process starts by initially seeding a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the initial replication phase.
 
-AFter initial replication completes, replication moves to the differential synchronization phase. At this point, the virtual machine is protected and a test failover operation can be performed on it. The replication state of the replicated item representing the virtual machine goes to the **Protected** state after initial replication completes.
+After initial replication completes, replication moves to the differential synchronization phase. At this point, the virtual machine is protected and a test failover operation can be performed on it. The replication state of the replicated item representing the virtual machine goes to the **Protected** state after initial replication completes.
 
 Monitor the replication state and replication health for the virtual machine by getting details of the replication protected item corresponding to it.
 

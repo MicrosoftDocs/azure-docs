@@ -3,8 +3,7 @@ title: Converting certificate contents to base-64 - Azure HDInsight
 description: Converting service principal certificate contents to base-64 encoded string format in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 07/31/2019
-ms.custom: devx-track-csharp
+ms.date: 06/12/2023
 ---
 
 # Converting service principal certificate contents to base-64 encoded string format in HDInsight
@@ -13,11 +12,11 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 ## Issue
 
-You receive an error message stating the input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or a non-white space character among the padding characters.
+You receive an error message stating the input isn't a valid Base-64 string as it contains a nonbase 64 character, more than two padding characters, or a nonwhite space character among the padding characters.
 
 ## Cause
 
-When using PowerShell or Azure template deployment to create clusters with Data Lake as either primary or additional storage, the service principal certificate contents provided to access the Data Lake storage account is in the base-64 format. Improper conversion of pfx certificate contents to base-64 encoded string can lead to this error.
+When using PowerShell or Azure template deployment to create clusters with Data Lake as either primary or more storage, the service principal certificate contents provided to access the Data Lake storage account is in the base-64 format. Improper conversion of pfx certificate contents to base-64 encoded string can lead to this error.
 
 ## Resolution
 

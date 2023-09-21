@@ -1,0 +1,212 @@
+### YamlMime:Landing
+
+title: Azure Spring Apps documentation # < 60 chars
+summary: "Azure Spring Apps is a managed service for hosting Spring apps, with Basic, Standard, and Enterprise plans, each one adding features to the previous plan." #< 160 chars
+
+metadata:
+  title: Azure Spring Apps
+  description: Azure Spring Apps is a fully managed service for building and running Spring Boot and Steeltoe apps without needing to manage infrastructure.
+  services: spring-cloud
+  ms.service: spring-apps
+  ms.custom: event-tier1-build-2022, devx-track-java
+  ms.topic: landing-page
+  ms.collection: collection
+  author: KarlErickson
+  ms.author: karler
+  ms.date: 09/26/2019
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Spring Apps
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Spring Apps?
+            url: overview.md
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Quickstart - Deploy your first application in Azure Spring Apps
+            url: quickstart.md
+
+  # Card (optional)
+  - title: Use the Enterprise plan
+    linkLists:
+    - linkListType: quickstart
+      links:
+      - text: Launch your first app
+        url: quickstart.md?pivots=sc-enterprise
+      - text: Launch your first web app
+        url: quickstart-deploy-web-app.md?pivots=sc-enterprise
+      - text: Launch your first event-driven app
+        url: quickstart-deploy-event-driven-app.md?pivots=sc-enterprise
+    - linkListType: tutorial
+      links:
+      - text: Introduction to Fitness Store sample
+        url: quickstart-sample-app-acme-fitness-store-introduction.md
+      - text: Build and deploy apps
+        url: quickstart-deploy-apps-enterprise.md
+      - text: Configure single sign-on
+        url: quickstart-configure-single-sign-on-enterprise.md
+      - text: Integrate Azure Database for PostgreSQL and Azure Cache for Redis
+        url: quickstart-integrate-azure-database-and-redis-enterprise.md
+      - text: Load application secrets using Key Vault
+        url: quickstart-key-vault-enterprise.md
+      - text: Monitor applications end-to-end
+        url: quickstart-monitor-end-to-end-enterprise.md
+      - text: Set request rate limits
+        url: quickstart-set-request-rate-limits-enterprise.md
+      - text: Automate deployments
+        url: quickstart-automate-deployments-github-actions-enterprise.md
+    - linkListType: how-to-guide
+      links:
+      - text: Use Application Configuration Service
+        url: how-to-enterprise-application-configuration-service.md
+      - text: Use Build Service
+        url: how-to-enterprise-build-service.md
+      - text: Configure APM integration and CA certificates
+        url: how-to-enterprise-configure-apm-integration-and-ca-certificates.md
+      - text: Use Service Registry
+        url: how-to-enterprise-service-registry.md
+      - text: Use API portal
+        url: how-to-use-enterprise-api-portal.md
+      - text: Use Spring Cloud Gateway
+        url: how-to-use-enterprise-spring-cloud-gateway.md
+      - text: Deploy polyglot enterprise applications
+        url: how-to-enterprise-deploy-polyglot-apps.md
+      - text: View Enterprise plan offering
+        url: how-to-enterprise-marketplace-offer.md
+      - text: Application Insights using Java In-Process Agent
+        url: how-to-application-insights.md?pivots=sc-enterprise-tier
+      - text: Enable system-assigned managed identity
+        url: how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise-tier
+
+  # Card (optional)
+  - title: Develop and deploy apps
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Prepare Spring Boot app
+            url: how-to-prepare-app-deployment.md
+          - text: Set up Config Server
+            url: how-to-config-server.md
+          - text: Enable Service Registration
+            url: how-to-service-registration.md
+          - text: Deploy app using IntelliJ
+            url: how-to-intellij-deploy-apps.md
+          - text: Deploy app using VS Code
+            url: https://code.visualstudio.com/docs/java/java-spring-cloud
+
+  # Card (optional)
+  - title: Manage your app
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Start, stop, and delete an application in Azure Spring Apps
+            url: how-to-start-stop-delete.md
+          - text: Use custom persistent storage in Azure Spring Apps
+            url: how-to-custom-persistent-storage.md
+
+  # Card (optional)
+  - title: Scale your apps
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manually scale your application
+            url: how-to-scale-manual.md
+          - text: Set up autoscale for applications
+            url: how-to-setup-autoscale.md
+
+  # Card (optional)
+  - title: Secure Spring Boot apps
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Isolate and enable on-premises connectivity
+            url: how-to-deploy-in-azure-virtual-network.md
+      - linkListType: how-to-guide
+        links:
+          - text: Secure communications
+            url: how-to-enable-ingress-to-app-tls.md
+          - text: Use roles and permissions for access
+            url: how-to-permissions.md
+
+  # Card (optional)
+  - title: Automate your application
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Provision using ARM Template
+            url: quickstart-deploy-infrastructure-vnet.md
+          - text: Provision using Terraform
+            url: quickstart-deploy-infrastructure-vnet-terraform.md
+
+  # Card (optional)
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Architecture design
+            url: /azure/architecture/web-apps/spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+          - text: Landing zone accelerator
+            url: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+
+  # Card (optional)
+  - title: Monitor end-to-end
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Enable Diagnostic Services on your Java Spring application
+            url: diagnostic-services.md
+      - linkListType: concept
+        links:
+          - text: Metrics for Azure Spring Apps
+            url: concept-metrics.md
+      - linkListType: how-to-guide
+        links:
+          - text: Stream app logs in real-time
+            url: how-to-log-streaming.md
+          - text: Monitor using Application Insights
+            url: how-to-application-insights.md
+          - text: Monitor using New Relic Java agent (Preview)
+            url: how-to-new-relic-monitor.md
+          - text: Monitor app lifecycle events using Azure Activity log and Azure Service Health
+            url: monitor-app-lifecycle-events.md
+          - text: Monitor using Elastic APM Java Agent
+            url: how-to-elastic-apm-java-agent-monitor.md
+          - text: Analyze logs with Elastic (ELK) using diagnostics settings
+            url: how-to-elastic-diagnostic-settings.md
+          - text: Monitor app lifecycle events using Azure Activity log and Azure Service Health
+            url: monitor-app-lifecycle-events.md
+          - text: How to use Logback to write logs to custom persistent storage
+            url: how-to-write-log-to-custom-persistent-storage.md
+
+  # Card (optional)
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting guide
+            url: troubleshoot.md
+          - text: Capture heap and thread dumps
+            url: how-to-capture-dumps.md
+          - text: Capture heap and thread dumps on fatal exit
+            url: how-to-dump-jvm-options.md
+          - text: Diagnose and solve problems
+            url: how-to-self-diagnose-solve.md
+          - text: Diagnose and solve problems in VNET
+            url: how-to-self-diagnose-running-in-vnet.md
+
+  # Card (optional)
+  - title: API reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: REST API reference
+            url: /rest/api/azurespringcloud/?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json

@@ -1,12 +1,12 @@
 ---
 title: FHIR REST API capabilities for Azure Health Data Services FHIR service
 description: This article describes the RESTful interactions and capabilities for Azure Health Data Services FHIR service.
-author: stevewohl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/09/2022
-ms.author: mikaelw
+ms.date: 06/06/2022
+ms.author: kesheth
 ---
 
 # FHIR REST API capabilities for Azure Health Data Services FHIR service
@@ -64,6 +64,8 @@ After you've found the record you want to restore, use the `PUT` operation to re
  
 > [!NOTE]
 > There is no time-based expiration for history/soft delete data. The only way to remove history/soft deleted data is with a hard delete or the purge history operation.
+
+[!INCLUDE [Bundle details](~/includes/fhir-rest-api-bundle.md)]
 
 ## Patch and Conditional Patch
 

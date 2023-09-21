@@ -2,11 +2,12 @@
 title: How an Azure reservation discount is applied
 description: This article helps you understand how reserved instance discounts are generally applied.
 author: bandersmsft
-ms.reviewer: yashar
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 08/14/2023
 ms.author: banders
 ---
 
@@ -23,6 +24,10 @@ For example, you might later create a resource and have a matching reservation t
 If the virtual machines are running in different subscriptions within your enrollment/account, then select the scope as shared. Shared scope allows the reservation discount to be applied across subscriptions. You can change the scope after you buy a reservation. For more information, see [Manage Azure Reservations](manage-reserved-vm-instance.md). You can also use the management group scope. It applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
 
 A reservation discount only applies to resources associated with Enterprise, Microsoft Customer Agreement, CSP, or subscriptions with pay-as-you go rates. Resources that run in a subscription with other offer types don't receive the reservation discount.
+
+The savings that are presented as part of [reservation recommendations](reserved-instance-purchase-recommendations.md) are the savings that are calculated in addition to your negotiated, or discounted (if applicable) prices.
+
+When you purchase a reservation, the benefit is applied at reservation prices. On very rare occasions, you may have some pay-as-you-go rates that are lower than the reservation rate. In these cases, Azure uses the reservation rate to apply benefit. When you purchase a reservation for an SKU where the reservation rate is lower than the pay-as-you-go rate, but because of instance size flexibility, the reservation is also applied to the SKU which had more Azure consumption discount (ACD) than the reservation. 
 
 ## When the reservation term expires
 
@@ -45,10 +50,11 @@ Read the following articles that apply to you to learn how discounts apply to a 
 
 - [App Service](reservation-discount-app-service.md)
 - [Azure Cache for Redis](understand-azure-cache-for-redis-reservation-charges.md)
-- [Cosmos DB](understand-cosmosdb-reservation-charges.md)
+- [Azure Cosmos DB](understand-cosmosdb-reservation-charges.md)
+- [Azure SQL Edge](discount-sql-edge.md)
 - [Database for MariaDB](understand-reservation-charges-mariadb.md)
 - [Database for MySQL](understand-reservation-charges-mysql.md)
-- [Database for PostgreSQL](understand-reservation-charges-postgresql.md)
+- [Database for PostgreSQL](../../postgresql/single-server/concept-reserved-pricing.md)
 - [Databricks](reservation-discount-databricks.md)
 - [Data Explorer](understand-azure-data-explorer-reservation-charges.md)
 - [Dedicated Hosts](billing-understand-dedicated-hosts-reservation-charges.md)

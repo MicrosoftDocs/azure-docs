@@ -1,48 +1,48 @@
 ---
-title: Remove a virtual machine scale set association from a Capacity Reservation group
-description: Learn how to remove a virtual machine scale set from a Capacity Reservation group.
+title: Remove a Virtual Machine Scale Set association from a Capacity Reservation group
+description: Learn how to remove a Virtual Machine Scale Set from a Capacity Reservation group.
 author: bdeforeest
 ms.author: bidefore
-ms.service: virtual-machines #Required
+ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 11/22/2022
 ms.reviewer: cynthn, jushiman
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
-# Remove a virtual machine scale set association from a Capacity Reservation group 
+# Remove a Virtual Machine Scale Set association from a Capacity Reservation group 
 
-**Applies to:** :heavy_check_mark: Uniform scale set 
+**Applies to:** :heavy_check_mark: Uniform scale set :heavy_check_mark: Flexible scale sets
 
-This article walks you through removing a virtual machine scale set association from a Capacity Reservation group. To learn more about capacity reservations, see the [overview article](capacity-reservation-overview.md). 
+This article walks you through removing a Virtual Machine Scale Set association from a Capacity Reservation group. To learn more about capacity reservations, see the [overview article](capacity-reservation-overview.md). 
 
 Because both the VM and the underlying Capacity Reservation logically occupy capacity, Azure imposes some constraints on this process to avoid ambiguous allocation states and unexpected errors.  
 
 There are two ways to change an association: 
-- Option 1: Deallocate the Virtual machine scale set, change the Capacity Reservation group property at the scale set level, and then update the underlying VMs
+- Option 1: Deallocate the Virtual Machine Scale Set, change the Capacity Reservation group property at the scale set level, and then update the underlying VMs
 - Option 2: Update the reserved quantity to zero and then change the Capacity Reservation group property
 
 
-## Deallocate the Virtual machine scale set
+## Deallocate the Virtual Machine Scale Set
 
-The first option is to deallocate the virtual machine scale set, change the Capacity Reservation group property at the scale set level, and then update the underlying VMs. 
+The first option is to deallocate the Virtual Machine Scale Set, change the Capacity Reservation group property at the scale set level, and then update the underlying VMs. 
 
 Go to [upgrade policies](#upgrade-policies) for more information about automatic, rolling, and manual upgrades. 
 
 ### [API](#tab/api1)
 
-1. Deallocate the virtual machine scale set
+1. Deallocate the Virtual Machine Scale Set
 
     ```rest
     POST  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}/deallocate?api-version=2021-04-01
     ```
 
-1. Update the virtual machine scale set to remove association with the Capacity Reservation group
+1. Update the Virtual Machine Scale Set to remove association with the Capacity Reservation group
     
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}/update?api-version=2021-04-01
     ```
-    In the request body, set the `capacityReservationGroup` property to null to remove the virtual machine scale set association to the group:
+    In the request body, set the `capacityReservationGroup` property to null to remove the Virtual Machine Scale Set association to the group:
 
     ```json
     {
@@ -61,7 +61,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
 
 ### [CLI](#tab/cli1)
 
-1. Deallocate the virtual machine scale set. The following command will deallocate all virtual machines within the scale set: 
+1. Deallocate the Virtual Machine Scale Set. The following command will deallocate all virtual machines within the scale set: 
 
     ```azurecli-interactive
     az vmss deallocate
@@ -82,7 +82,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
 
 ### [PowerShell](#tab/powershell1)
 
-1. Deallocate the virtual machine scale set. The following command will deallocate all virtual machines within the scale set: 
+1. Deallocate the Virtual Machine Scale Set. The following command will deallocate all virtual machines within the scale set: 
 
     ```powershell-interactive
     Stop-AzVmss
@@ -140,7 +140,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     
     Note that `capacity` property is set to 0.
 
-1. Update the virtual machine scale set to remove the association with the Capacity Reservation group
+1. Update the Virtual Machine Scale Set to remove the association with the Capacity Reservation group
 
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}/update?api-version=2021-04-01
@@ -221,7 +221,7 @@ To learn more, go to Azure PowerShell commands [New-AzCapacityReservation](/powe
 
 - **Automatic Upgrade** – In this mode, the scale set VM instances are automatically dissociated from the Capacity Reservation group without any further action from you.
 - **Rolling Upgrade** – In this mode, the scale set VM instances are dissociated from the Capacity Reservation group without any further action from you. However, they are updated in batches with an optional pause time between them.
-- **Manual Upgrade** – In this mode, nothing happens to the scale set VM instances when the virtual machine scale set is updated. You will need to individually remove each scale set VM by [upgrading it with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+- **Manual Upgrade** – In this mode, nothing happens to the scale set VM instances when the Virtual Machine Scale Set is updated. You will need to individually remove each scale set VM by [upgrading it with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md).
 
 
 ## Next steps

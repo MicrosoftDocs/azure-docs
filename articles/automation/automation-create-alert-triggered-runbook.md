@@ -3,8 +3,8 @@ title: Use an alert to trigger an Azure Automation runbook
 description: This article tells how to trigger a runbook to run when an Azure alert is raised.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2021
-ms.topic: how-to 
+ms.date: 12/15/2022
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want to trigger a runbook so that VMs can be stopped under certain conditions.
 ---
@@ -19,7 +19,7 @@ You can use [Azure Monitor](../azure-monitor/overview.md) to monitor base-level 
 * An Azure Automation account with at least one user-assigned managed identity. For more information, see [Using a user-assigned managed identity for an Azure Automation account](./add-user-assigned-identity.md).
 * Az modules: `Az.Accounts` and `Az.Compute` imported into the Automation account. For more information, see [Import Az modules](./shared-resources/modules.md#import-az-modules).
 * An [Azure virtual machine](../virtual-machines/windows/quick-create-powershell.md).
-* The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+* The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 * A general familiarity with [Automation runbooks](./manage-runbooks.md).
 
 ## Alert types
@@ -56,7 +56,7 @@ Assign permissions to the appropriate [managed identity](./automation-security-o
     {
         Connect-AzAccount
     }
-    
+
     # If you have multiple subscriptions, set the one to use
     # Select-AzSubscription -SubscriptionId <SUBSCRIPTIONID>
     ```
@@ -105,6 +105,9 @@ This example uses an alert from an Azure virtual machine (VM). It retrieves the 
 
 The runbook uses the Automation account [system-assigned managed identity](./automation-security-overview.md#managed-identities) to authenticate with Azure to perform the management action against the VM. The runbook can be easily modified to use a user-assigned managed identity.
 
+>[!NOTE]
+> We recommend that you use public network access as it isn't possible to use an Azure alert (metric, log, and activity log) to trigger an Automation webhook when the Automation account is using private links and configured with **Public access** set to **Disable**.
+
 Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**. You can modify the PowerShell script, and use it with many different resources.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/), and navigate to your Automation account.
@@ -126,12 +129,12 @@ Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**.
         [object] $WebhookData
     )
     $ErrorActionPreference = "stop"
-    
+
     if ($WebhookData)
     {
         # Get the data object from WebhookData
         $WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
-    
+
         # Get the info needed to identify the VM (depends on the payload schema)
         $schemaId = $WebhookBody.schemaId
         Write-Verbose "schemaId: $schemaId" -Verbose
@@ -177,7 +180,7 @@ Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**.
             # Schema not supported
             Write-Error "The alert data schema - $schemaId - is not supported."
         }
-    
+
         Write-Verbose "status: $status" -Verbose
         if (($status -eq "Activated") -or ($status -eq "Fired"))
         {
@@ -185,22 +188,22 @@ Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**.
             Write-Verbose "resourceName: $ResourceName" -Verbose
             Write-Verbose "resourceGroupName: $ResourceGroupName" -Verbose
             Write-Verbose "subscriptionId: $SubId" -Verbose
-    
+
             # Determine code path depending on the resourceType
             if ($ResourceType -eq "Microsoft.Compute/virtualMachines")
             {
                 # This is an Resource Manager VM
                 Write-Verbose "This is an Resource Manager VM." -Verbose
-    
-    	        # Ensures you do not inherit an AzContext in your runbook
-    	        Disable-AzContextAutosave -Scope Process
-     
-    	        # Connect to Azure with system-assigned managed identity
-    	        $AzureContext = (Connect-AzAccount -Identity).context
-  
-    	        # set and store context
-    	        $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
-    
+
+                # Ensures you do not inherit an AzContext in your runbook
+                Disable-AzContextAutosave -Scope Process
+
+                # Connect to Azure with system-assigned managed identity
+                $AzureContext = (Connect-AzAccount -Identity).context
+
+                # set and store context
+                $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
+
                 # Stop the Resource Manager VM
                 Write-Verbose "Stopping the VM - $ResourceName - in resource group - $ResourceGroupName -" -Verbose
                 Stop-AzVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -DefaultProfile $AzureContext -Force
@@ -241,7 +244,7 @@ Alerts use action groups, which are collections of actions that are triggered by
 
    :::image type="content" source="./media/automation-create-alert-triggered-runbook/create-alert-rule-portal.png" alt-text="The create alert rule page and subsections.":::
 
-1. Under **Scope**, select **Edit resource**. 
+1. Under **Scope**, select **Edit resource**.
 
 1. On the **Select a resource** page, from the **Filter by resource type** drop-down list, select **Virtual machines**.
 
@@ -254,7 +257,7 @@ Alerts use action groups, which are collections of actions that are triggered by
 1. On the **Configure signal logic** page, under **Threshold value** enter an initial low value for testing purposes, such as `5`. You can go back and update this value once you've confirmed the alert works as expected. Then select **Done** to return to the **Create alert rule** page.
 
    :::image type="content" source="./media/automation-create-alert-triggered-runbook/configure-signal-logic-portal.png" alt-text="Entering CPU percentage threshold value.":::
- 
+
 1. Under **Actions**, select **Add action groups**, and then **+Create action group**.
 
    :::image type="content" source="./media/automation-create-alert-triggered-runbook/create-action-group-portal.png" alt-text="The create action group page with Basics tab open.":::
@@ -262,13 +265,13 @@ Alerts use action groups, which are collections of actions that are triggered by
 1. On the **Create action group** page:
     1. On the **Basics** tab, enter an **Action group name** and **Display name**.
     1. On the **Actions** tab, in the **Name** text box, enter a name. Then from the **Action type** drop-down list, select **Automation Runbook** to open the **Configure Runbook** page.
-        1. For the **Runbook source** item, select **User**.  
+        1. For the **Runbook source** item, select **User**.
         1. From the **Subscription** drop-down list, select your subscription.
         1. From the **Automation account** drop-down list, select your Automation account.
         1. From the **Runbook** drop-down list, select **Stop-AzureVmInResponsetoVMAlert**.
         1. For the **Enable the common alert schema** item, select **Yes**.
         1. Select **OK** to return to the **Create action group** page.
-        
+
             :::image type="content" source="./media/automation-create-alert-triggered-runbook/configure-runbook-portal.png" alt-text="Configure runbook page with values.":::
 
     1. Select **Review + create** and then **Create** to return to the **Create alert rule** page.
@@ -285,7 +288,7 @@ Ensure your VM is running. Navigate to the runbook **Stop-AzureVmInResponsetoVMA
 
 ## Common Azure VM management operations
 
-Azure Automation provides scripts for common Azure VM management operations like restart VM, stop VM, delete VM, scale up and down scenarios in Runbook gallery. The scripts can also be found in the Azure Automation [GitHub repository](https://github.com/azureautomation) You can also use these scripts as mentioned in the above steps. 
+Azure Automation provides scripts for common Azure VM management operations like restart VM, stop VM, delete VM, scale up and down scenarios in Runbook gallery. The scripts can also be found in the Azure Automation [GitHub repository](https://github.com/azureautomation) You can also use these scripts as mentioned in the above steps.
 
 |**Azure VM management operations** | **Details**|
 |--- | ---|

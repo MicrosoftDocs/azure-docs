@@ -3,53 +3,52 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 11/17/2022
 ---
 
-This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written in Java and is included in the Azure IoT device SDK for Java. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This tutorial shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written in Java and is included in the Azure IoT device SDK for Java. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
-[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/pnp-device-sample)
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples/pnp-device-sample)
 
 ## Prerequisites
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
-To complete this quickstart on Windows, install the following software on your local Windows environment:
+You can run this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
 
-* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/), under **Long-term support**, select **Java 8**.
+To complete this tutorial, install the following software in your local development environment:
+
+* [Java SE Development Kit 8 or later](/java/openjdk/install).
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ## Download the code
 
-In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT Hub Device Java SDK.
+In this tutorial, you prepare a development environment you can use to clone and build the Azure IoT Hub Device Java SDK.
 
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT Java SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-java) GitHub repository into this location:
 
-```cmd
+```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-java.git
 ```
 
 ## Build the code
 
-On Windows, navigate to the root folder of the cloned Java SDK repository.
-
-Run the following command to build the sample application:
+Navigate to the root folder of the thermostat sample in the cloned Java SDK repository and build it:
 
 ```cmd
-mvn install -T 2C -DskipTests
+cd azure-iot-sdk-java/device/iot-device-samples/pnp-device-sample/thermostat-device-sample
+mvn clean package
 ```
 
 ## Run the device sample
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/pnp-device-sample/readme.md).
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-java/blob/main/iothub/device/iot-device-samples/pnp-device-sample/readme.md).
 
-Navigate to the *\device\iot-device-samples\pnp-device-sample\thermostat-device-sample* folder.
+From the */device/iot-device-samples/pnp-device-sample/thermostat-device-sample* folder, run the application:
 
-To run the sample application, run the following command:
-
-```cmd
+```cmd/sh
 mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.Thermostat"
 ```
 

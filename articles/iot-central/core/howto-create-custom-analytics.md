@@ -1,15 +1,13 @@
 ---
-title: Extend Azure IoT Central with custom analytics | Microsoft Docs
+title: Extend Azure IoT Central with custom analytics
 description: As a solution developer, configure an IoT Central application to do custom analytics and visualizations. This solution uses Azure Databricks.
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 12/21/2021
+ms.date: 06/14/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
-
-
+ms.custom: mvc, devx-track-azurecli
 # Solution developer
 ---
 
@@ -26,81 +24,75 @@ In this how-to guide, you learn how to:
 
 ## Prerequisites
 
-To complete the steps in this how-to guide, you need an active Azure subscription.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Run the Script
 
-### IoT Central application
+The following script creates an IoT Central application, Event Hubs namespace, and Databricks workspace in a resource group called `eventhubsrg`.
 
-Create an IoT Central application on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website with the following settings:
+```azurecli
 
-| Setting | Value |
-| ------- | ----- |
-| Pricing plan | Standard |
-| Application template | In-store analytics – condition monitoring |
-| Application name | Accept the default or choose your own name |
-| URL | Accept the default or choose your own unique URL prefix |
-| Directory | Your Azure Active Directory tenant |
-| Azure subscription | Your Azure subscription |
-| Region | Your nearest region |
+# A unique name for the Event Hub Namespace.
+eventhubnamespace="your-event-hubs-name-data-bricks"
 
-The examples and screenshots in this article use the **United States** region. Choose a location close to you and make sure you create all your resources in the same region.
+# A unique name for the IoT Central application.
+iotcentralapplicationname="your-app-name-data-bricks"
 
-This application template includes two simulated thermostat devices that send telemetry.
+# A unique name for the Databricks workspace.
+databricksworkspace="your-databricks-name-data-bricks"
 
-### Resource group
+# Name for the Resource group.
+resourcegroup=eventhubsrg
 
-Use the [Azure portal to create a resource group](https://portal.azure.com/#create/Microsoft.ResourceGroup) called **IoTCentralAnalysis** to contain the other resources you create. Create your Azure resources in the same location as your IoT Central application.
+eventhub=centralexport
+location=eastus
+authrule=ListenSend
 
-### Event Hubs namespace
 
-Use the [Azure portal to create an Event Hubs namespace](https://portal.azure.com/#create/Microsoft.EventHub) with the following settings:
+#Create a resource group for the IoT Central application.
+RESOURCE_GROUP=$(az group create --name $resourcegroup --location $location)
 
-| Setting | Value |
-| ------- | ----- |
-| Name    | Choose your namespace name |
-| Pricing tier | Basic |
-| Subscription | Your subscription |
-| Resource group | IoTCentralAnalysis |
-| Location | East US |
-| Throughput Units | 1 |
+# Create an IoT Central application
+IOT_CENTRAL=$(az iot central app create -n $iotcentralapplicationname -g $resourcegroup -s $iotcentralapplicationname -l $location --mi-system-assigned)
 
-### Azure Databricks workspace
 
-Use the [Azure portal to create an Azure Databricks Service](https://portal.azure.com/#create/Microsoft.Databricks) with the following settings:
+# Create an Event Hubs namespace.
+az eventhubs namespace create --name $eventhubnamespace --resource-group $resourcegroup -l $location
 
-| Setting | Value |
-| ------- | ----- |
-| Workspace name    | Choose your workspace name |
-| Subscription | Your subscription |
-| Resource group | IoTCentralAnalysis |
-| Location | East US |
-| Pricing Tier | Standard |
+# Create an Azure Databricks workspace 
+DATABRICKS_JSON=$(az databricks workspace create --resource-group $resourcegroupname --name $databricksworkspace --location $location --sku standard)
 
-When you've created the required resources, your **IoTCentralAnalysis** resource group looks like the following screenshot:
 
-:::image type="content" source="media/howto-create-custom-analytics/resource-group.png" alt-text="image of IoT Central analysis resource group.":::
+# Create an Event Hub
+az eventhubs eventhub create --name $eventhub --resource-group $resourcegroupname --namespace-name $eventhubnamespace
 
-## Create an event hub
 
-You can configure an IoT Central application to continuously export telemetry to an event hub. In this section, you create an event hub to receive telemetry from your IoT Central application. The event hub delivers the telemetry to your Stream Analytics job for processing.
+# Configure the managed identity for your IoT Central application
+# with permissions to send data to an event hub in the resource group.
+MANAGED_IDENTITY=$(az iot central app identity show --name $iotcentralapplicationname \
+    --resource-group $resourcegroup)
+az role assignment create --assignee $(jq -r .principalId <<< $MANAGED_IDENTITY) --role 'Azure Event Hubs Data Sender' --scope $(jq -r .id <<< $RESOURCE_GROUP)
 
-1. In the Azure portal, navigate to your Event Hubs namespace and select **+ Event Hub**.
-1. Name your event hub **centralexport**.
-1. In the list of event hubs in your namespace, select **centralexport**. Then choose **Shared access policies**.
-1. Select **+ Add**. Create a policy named **SendListen** with the **Send** and **Listen** claims.
-1. When the policy is ready, select it in the list, and then copy the **Connection string-primary key** value.
-1. Make a note of this connection string, you use it later when you configure your Databricks notebook to read from the event hub.
 
-Your Event Hubs namespace looks like the following screenshot:
+# Create a connection string to use in Databricks notebook
+az eventhubs eventhub authorization-rule create --eventhub-name $eh  --namespace-name $ehns --resource-group $rg --name $authrule --rights Listen Send
+EHAUTH_JSON=$(az eventhubs eventhub authorization-rule keys list --resource-group $rg --namespace-name $ehns --eventhub-name $eh --name $authrule)
 
-:::image type="content" source="media/howto-create-custom-analytics/event-hubs-namespace.png" alt-text="image of Event Hubs namespace.":::
+# Details of your IoT Central application, databricks workspace, and event hub connection string
+
+echo "Your IoT Central app: https://$iotcentralapplicationname.azureiotcentral.com/"
+echo "Your Databricks workspace: https://$(jq -r .workspaceUrl <<< $DATABRICKS_JSON)"
+echo "Your event hub connection string is: $(jq -r .primaryConnectionString <<< EHAUTH_JSON)"
+
+```
+
+Make a note of the three values output by the script, you need them in the following steps.
 
 ## Configure export in IoT Central
 
 In this section, you configure the application to stream telemetry from its simulated devices to your event hub.
 
-On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application you created previously. To configure the export, first create a destination:
+Use the URL output by the script to navigate to the IoT Central application it created.
 
 1. Navigate to the **Data export** page, then select **Destinations**.
 1. Select **+ New destination**.
@@ -110,11 +102,11 @@ On the [Azure IoT Central application manager](https://aka.ms/iotcentral) websit
     | ----- | ----- |
     | Destination name | Telemetry event hub |
     | Destination type | Azure Event Hubs |
-    | Connection string | The event hub connection string you made a note of previously |
+    | Authorization | System-assigned managed identity |
+    | Host name | The event hub namespace host name, it's the value you assigned to `eventhubnamespace` in the earlier script  |
+    | Event Hub | The event hub name, it's the value you assigned to `eventhub` in the earlier script  |
 
-    The **Event Hub** shows as **centralexport**.
-
-    :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot showing data export destination.":::
+    :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot showing data export destination." lightbox="media/howto-create-custom-analytics/data-export-1.png":::
 
 1. Select **Save**.
 
@@ -133,17 +125,39 @@ To create the export definition:
 
 1. Select **Save**.
 
-    :::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="Screenshot showing data export definition.":::
+:::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="Screenshot showing data export definition." lightbox="media/howto-create-custom-analytics/data-export-2.png":::
 
 Wait until the export status is **Healthy** on the **Data export** page before you continue.
 
+## Create a device template
+
+To add a device template for the MXChip device:
+
+1. Select **+ New** on the **Device templates** page.
+1. On the **Select type** page, scroll down until you find the **MXCHIP AZ3166** tile in the **Featured device templates** section.
+1. Select the **MXCHIP AZ3166** tile, and then select **Next: Review**.
+1. On the **Review** page, select **Create**.
+
+## Add a device
+
+To add a simulated device to your Azure IoT Central application:
+
+1. Choose **Devices** on the left pane.
+1. Choose the **MXCHIP AZ3166** device template from which you created.
+1. Choose + **New**.
+1. Enter a device name and ID or accept the default. The maximum length of a device name is 148 characters. The maximum length of a device ID is 128 characters.
+1. Turn the **Simulated** toggle to **On**.
+1. Select **Create**.
+
+Repeat these steps to add two more simulated MXChip devices to your application.
+
 ## Configure Databricks workspace
 
-In the Azure portal, navigate to your Azure Databricks service and select **Launch Workspace**. A new tab opens in your browser and signs you in to your workspace.
+Use the URL output by the script to navigate to the Databricks workspace it created.
 
 ### Create a cluster
 
-On the **Azure Databricks** page, under the list of common tasks, select **New Cluster**.
+Navigate to **Create** page in your Databricks environment. Select the **+ Cluster**.
 
 Use the information in the following table to create your cluster:
 
@@ -151,8 +165,7 @@ Use the information in the following table to create your cluster:
 | ------- | ----- |
 | Cluster Name | centralanalysis |
 | Cluster Mode | Standard |
-| Databricks Runtime Version | 5.5 LTS (Scala 2.11, Spark 2.4.5) |
-| Python Version | 3 |
+| Databricks Runtime Version | Runtime: 10.4 LTS (Scala 2.12, Spark 3.2.1) |
 | Enable Autoscaling | No |
 | Terminate after minutes of inactivity | 30 |
 | Worker Type | Standard_DS3_v2 |
@@ -181,23 +194,25 @@ The following steps show you how to import the library your sample needs into th
 
 1. The library status is now **Installed**:
 
-:::image type="content" source="media/howto-create-custom-analytics/cluster-libraries.png" alt-text="Screenshot of Library installed.":::
+:::image type="content" source="media/howto-create-custom-analytics/cluster-libraries.png" alt-text="Screenshot of Libraries page in Databricks showing installed library.":::
 
 ### Import a Databricks notebook
 
 Use the following steps to import a Databricks notebook that contains the Python code to analyze and visualize your IoT Central telemetry:
 
-1. Navigate to the **Workspace** page in your Databricks environment. Select the dropdown next to your account name and then choose **Import**.
+1. Navigate to the **Workspace** page in your Databricks environment. Select the dropdown from the workspace and then choose **Import**.
 
-1. Choose to import from a URL and enter the following address: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
+    :::image type="content" source="media/howto-create-custom-analytics/databricks-import.png" alt-text="Screenshot of Databricks notebook import.":::
+
+1. Choose to import from a URL and enter the following address: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/main/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/main/databricks/IoT%20Central%20Analysis.dbc?raw=true)
 
 1. To import the notebook, choose **Import**.
 
 1. Select the **Workspace** to view the imported notebook:
 
-:::image type="content" source="media/howto-create-custom-analytics/import-notebook.png" alt-text="Screenshot of Imported notebook.":::
+    :::image type="content" source="media/howto-create-custom-analytics/import-notebook.png" alt-text="Screenshot of imported notebook in Databricks.":::
 
-5. Edit the code in the first Python cell to add the Event Hubs connection string you saved previously:
+1. Use the connection string output by the script to edit the code in the first Python cell to add the Event Hubs connection string:
 
     ```python
     from pyspark.sql.functions import *
@@ -221,25 +236,27 @@ You may see an error in the last cell. If so, check the previous cells are runni
 
 ### View smoothed data
 
-In the notebook, scroll down to cell 14 to see a plot of the rolling average humidity by device type. This plot continuously updates as streaming telemetry arrives:
+In the notebook, scroll down to see a plot of the rolling average humidity by device type. This plot continuously updates as streaming telemetry arrives:
 
-:::image type="content" source="media/howto-create-custom-analytics/telemetry-plot.png" alt-text="Screenshot of Smoothed telemetry plot.":::
+:::image type="content" source="media/howto-create-custom-analytics/telemetry-plot.png" alt-text="Screenshot of smoothed telemetry plot in the Databricks notebook.":::
 
 You can resize the chart in the notebook.
 
 ### View box plots
 
-In the notebook, scroll down to cell 20 to see the [box plots](https://en.wikipedia.org/wiki/Box_plot). The box plots are based on static data so to update them you must rerun the cell:
+In the notebook, scroll down to see the [box plots](https://en.wikipedia.org/wiki/Box_plot). The box plots are based on static data so to update them you must rerun the cell:
 
-:::image type="content" source="media/howto-create-custom-analytics/box-plots.png" alt-text="Screenshot of box plots.":::
+:::image type="content" source="media/howto-create-custom-analytics/box-plots.png" alt-text="Screenshot of box plots in the Databricks notebook.":::
 
 You can resize the plots in the notebook.
 
 ## Tidy up
 
-To tidy up after this how-to and avoid unnecessary costs, delete the **IoTCentralAnalysis** resource group in the Azure portal.
+To tidy up after this how-to and avoid unnecessary costs, you can run the following command to delete the resource group:
 
-You can delete the IoT Central application from the **Management** page within the application.
+```azurecli
+az group delete -n eventhubsrg
+```
 
 ## Next steps
 

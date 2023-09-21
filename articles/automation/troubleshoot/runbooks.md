@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-ms.date: 09/16/2021
+ms.date: 08/18/2023
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
@@ -10,6 +10,31 @@ ms.custom: has-adal-ref, devx-track-azurepowershell
 # Troubleshoot runbook issues
 
  This article describes runbook issues that might occur and how to resolve them. For general information, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
+
+
+## Start-AzAutomationRunbook fails with "runbookName does not match expected pattern" error message
+
+### Issue
+When you run `Start-AzAutomationRunbook` to start specific runbooks:
+
+```powershell
+start-azautomationRunbook -Name "Test_2" -AutomationAccountName "AutomationParent" -ResourceGroupName "AutomationAccount" 
+```
+It fails with the following error:
+ 
+`Start-AzAutomationRunbook: "runbookname" does not match expected pattern '^[a-zA-Z]*-*[a-zA-Z0-9]*$'`
+ 
+### Cause
+
+Code that was introduced in [1.9.0](https://www.powershellgallery.com/packages/Az.Automation/1.9.0) version of the Az.Automation module verifies the names of the runbooks to start and incorrectly flags runbooks with multiple "-" characters or with an "_" character in the name as invalid. 
+
+### Workaround
+
+We recommend that you revert to [1.8.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.8.0) of the module.
+
+### Resolution
+
+Currently, we are working to deploy a fix to address this issue.
 
 ## Diagnose runbook issues
 
@@ -42,6 +67,41 @@ When you receive errors during runbook execution in Azure Automation, you can us
 1. Do this step if the runbook job or the environment on Hybrid Runbook Worker doesn't respond.
 
     If you're running your runbooks on a Hybrid Runbook Worker instead of in Azure Automation, you might need to [troubleshoot the hybrid worker itself](hybrid-runbook-worker.md).
+
+
+## Scenario: Unable to create new Automation job in West Europe region
+
+### Issue
+When creating new Automation jobs, you might experience a delay or failure of job creation. Scheduled jobs will automatically be retired, and jobs executed through the portal can be retired if you see a failure. 
+
+### Cause
+This is because of the high load from customers' runbooks using the Automation service in the West Europe region.
+
+### Resolution
+Perform the following action if it is feasible as per your requirement and environment to reduce the chance of failure: 
+
+- If you’re using the top of the hour for the job creation (at 12:00, 1:00, 2:00, and so on.), typically on the hour, or half hour, we recommend that you move the job start time to five minutes before or after the hour/half hour. This is because a most of the customers use the beginning of the hour for job execution which drastically increases the load on the service, while the load is relatively low at the other time slots.
+
+## <a name="runbook-fails-no-permission"></a>Scenario: Runbook fails with "this.Client.SubscriptionId cannot be null." error message
+
+### Issue
+
+Your runbook using a managed identity Connect-AzAccount -Identity which attempts to manage Azure objects, fails to work successfully and logs the following error - `this.Client.SubscriptionId cannot be null.`
+
+```error
+get-azvm : 'this.Client.SubscriptionId' cannot be null. At line:5 char:1 + get-azvm + ~~~~~~~~ + CategoryInfo : CloseError: (:) [Get-AzVM], ValidationException + FullyQualifiedErrorId : Microsoft.Azure.Commands.Compute.GetAzureVMCommand
+```
+
+### Cause
+
+This can happen when the Managed Identity (or other account used in the runbook) has not been granted any permissions to access the subscription.
+
+### Resolution
+Grant the Managed Identity (or other account used in the runbook) an appropriate role membership in the subscription. [Learn more](../enable-managed-identity-for-automation.md#assign-role-to-a-system-assigned-managed-identity)
+
+:::image type="content" source="../media/troubleshoot-runbooks/managed-identity-role-assignments.png" alt-text=" Screenshot that shows the assigning of Azure Role assignments.":::
+
+:::image type="content" source="../media/troubleshoot-runbooks/azure-add-role-assignment-inline.png" alt-text="Screenshot that shows how to add role assignment." lightbox="../media/troubleshoot-runbooks/azure-add-role-assignment-expanded.png":::
 
 ## Scenario: Access blocked to Azure Storage, or Azure Key Vault, or Azure SQL
 
@@ -111,10 +171,6 @@ To determine what's wrong, follow these steps:
 1. If the error appears to be transient, try adding retry logic to your authentication routine to make authenticating more robust.
 
    ```powershell
-   # Get the connection "AzureRunAsConnection"
-   $connectionName = "AzureRunAsConnection"
-   $servicePrincipalConnection = Get-AutomationConnection -Name $connectionName
-
    $logonAttempt = 0
    $logonResult = $False
 
@@ -123,11 +179,6 @@ To determine what's wrong, follow these steps:
        $LogonAttempt++
        #Logging in to Azure...
        $connectionResult = Connect-AzAccount `
-                              -ServicePrincipal `
-                              -Tenant $servicePrincipalConnection.TenantId `
-                              -ApplicationId $servicePrincipalConnection.ApplicationId `
-                              -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
-
        Start-Sleep -Seconds 30
    }
    ```
@@ -224,7 +275,7 @@ The runbook isn't using the correct context when running. This may be because th
 You may see errors like this one:
 
 ```error
-Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
+Get-AzVM : The client '<client-id>' with object id '<object-id> does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
    ErrorCode: AuthorizationFailed
    StatusCode: 403
    ReasonPhrase: Forbidden Operation
@@ -270,7 +321,7 @@ To use a service principal with Azure Resource Manager cmdlets, see [Creating se
 Your runbook fails with an error similar to the following example:
 
 ```error
-Exception: A task was canceled.
+Exception: A task was cancelled.
 ```
 
 ### Cause
@@ -409,7 +460,7 @@ $Job = Start-AzAutomationRunbook @StartAzAutomationRunBookParameters
 $PollingSeconds = 5
 $MaxTimeout = New-TimeSpan -Hours 3 | Select-Object -ExpandProperty TotalSeconds
 $WaitTime = 0
-while((-NOT (IsJobTerminalState $Job.Status) -and $WaitTime -lt $MaxTimeout) {
+while(-NOT (IsJobTerminalState $Job.Status) -and $WaitTime -lt $MaxTimeout) {
    Start-Sleep -Seconds $PollingSeconds
    $WaitTime += $PollingSeconds
    $Job = $Job | Get-AzAutomationJob
@@ -670,6 +721,22 @@ Follow [Step 5 - Add authentication to manage Azure resources](../learn/powershe
 #### Insufficient permissions
 
 [Add permissions to Key Vault](../manage-runas-account.md#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault.
+
+## Scenario: Runbook fails with "Parameter length exceeded" error
+
+### Issue
+Your runbook uses parameters and fails with the following error:
+
+```error
+Total Length of Runbook Parameter names and values exceeds the limit of 30,000 characters. To avoid this issue, use Automation Variables to pass values to runbook.
+```
+
+### Cause
+There is a limit to the total length of characters of all Parameters that can be provided in Python 2.7, Python 3.8, and PowerShell 7.1 runbooks. The total length of all Parameter names, and Parameter values must not exceed 30,000 characters.
+
+### Resolution
+To overcome this issue, you can use Azure Automation [Variables](../shared-resources/variables.md) to pass values to runbook. You can alternatively reduce the number of characters in Parameter names and Parameter values to ensure that the total length does not exceed 30,000 characters. 
+
 
 ## Recommended documents
 

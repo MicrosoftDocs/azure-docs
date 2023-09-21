@@ -1,7 +1,7 @@
 ---
 title: Integrate Azure Relay with Azure Private Link Service
 description: Learn how to integrate Azure Relay with Azure Private Link Service
-ms.date: 11/10/2021
+ms.date: 02/15/2023
 ms.topic: article 
 ms.custom: devx-track-azurepowershell
 ---
@@ -17,7 +17,7 @@ A **private endpoint** is a network interface that allows your workloads running
 ## Add a private endpoint using Azure portal
 
 ### Prerequisites
-To integrate an Azure Relay namespace with Azure Private Link, you'll need the following entities or permissions:
+To integrate an Azure Relay namespace with Azure Private Link, you need the following entities or permissions:
 
 - An Azure Relay namespace.
 - An Azure virtual network.
@@ -28,60 +28,56 @@ Your private endpoint and virtual network must be in the same region. When you s
 
 Your private endpoint uses a private IP address in your virtual network.
 
-### Steps
-For step-by-step instructions on creating a new Azure Relay namespace and entities in it, see [Create an Azure Relay namespace using the Azure portal](relay-create-namespace-portal.md).
+### Configure private access for a Relay namespace
+The following procedure provides step-by-step instructions for disabling public access to a Relay namespace and then adding a private endpoint to the namespace. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the search bar, type in **Relays**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
-4. Select the **Networking** tab under **Settings**.
-5. Select the **Private endpoint connections** tab at the top of the page
-6. Select the **+ Private Endpoint** button at the top of the page.
+4. On the left menu, select the **Networking** tab under **Settings**.
+1. On the **Networking** page, for **Public network access**, select **Disabled** if you want the namespace to be accessed only via private endpoints. 
+1. For **Allow trusted Microsoft services to bypass this firewall**, select **Yes** if you want to allow [trusted Microsoft services](#trusted-microsoft-services) to bypass this firewall. 
 
-    ![Add private endpoint button](./media/private-link-service/add-private-endpoint-button.png)
+    :::image type="content" source="./media/private-link-service/public-access-disabled.png" alt-text="Screenshot of the Networking page with public network access as Disabled.":::
+1. Select the **Private endpoint connections** tab at the top of the page
+1. Select the **+ Private Endpoint** button at the top of the page.
+
+    :::image type="content" source="./media/private-link-service/add-private-endpoint-button.png" alt-text="Screenshot showing the selection of the Add private endpoint button on the Private endpoint connections tab of the Networking page.":::
 7. On the **Basics** page, follow these steps: 
     1. Select the **Azure subscription** in which you want to create the private endpoint. 
     2. Select the **resource group** for the private endpoint resource.
-    3. Enter a **name** for the private endpoint. 
-    5. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the Azure Relay namespace that you're connecting to. 
-    6. Select **Next: Resource >** button at the bottom of the page.
+    3. Enter a **name** for the **private endpoint**. 
+    1. Enter a **name** for the **network interface**.
+    1. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the Azure Relay namespace that you're connecting to. 
+    1. Select **Next: Resource >** button at the bottom of the page.
 
-        ![Create Private Endpoint - Basics page](./media/private-link-service/create-private-endpoint-basics-page.png)
-8. On the **Resource** page, follow these steps:
-    1. For connection method, if you select **Connect to an Azure resource in my directory**, you've owner or contributor access to the namespace and that namespace is in the same directory as the private endpoint, follow these steps: 
-        1. Select the **Azure subscription** in which your **Azure Relay namespace** exists. 
-        2. For **Resource type**, Select **Microsoft.Relay/namespaces** for the **Resource type**.
-        3. For **Resource**, select a Relay namespace from the drop-down list. 
-        4. Confirm that the **Target subresource** is set to **namespace**.
-        5. Select **Next: Configuration >** button at the bottom of the page. 
-        
-            ![Create Private Endpoint - Resource page](./media/private-link-service/create-private-endpoint-resource-page.png)    
-    2. If you select **Connect to an Azure resource by resource ID or alias** because the namespace isn't under the same directory as that of the private endpoint, follow these steps:
-        1. Enter the **resource ID** or **alias**. It can be the resource ID or alias that someone has shared with you. The easiest way to get the resource ID is to navigate to the Azure Relay namespace in the Azure portal and copy the portion of URI starting from `/subscriptions/`. Here's an example: `/subscriptions/000000000-0000-0000-0000-000000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Relay/namespaces/myrelaynamespace.` 
-        2. For **Target sub-resource**, enter **namespace**. It's the type of the sub-resource that your private endpoint can access.
-        3. (optional) Enter a **request message**. The resource owner sees this message while managing private endpoint connection.
-        4. Then, select **Next: Configuration >** button at the bottom of the page.
+        :::image type="content" source="./media/private-link-service/create-private-endpoint-basics-page.png" alt-text="Screenshot showing the Basics page of the Create a private endpoint wizard.":::
+8. Review settings on the **Resource** page, and select **Next: Virtual Network**. 
 
-            ![Create Private Endpoint - Connect using resource ID](./media/private-link-service/connect-resource-id.png)
-9. On the **Configuration** page, you select the subnet in a virtual network to where you want to deploy the private endpoint. 
-    1. Select a **virtual network**. Only virtual networks in the currently selected subscription and location are listed in the drop-down list. 
-    2. Select a **subnet** in the virtual network you selected. 
-    3. Enable **Integrate with private DNS zone** if you want to integrate your private endpoint with a private DNS zone. 
-    
-        To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a **private DNS zone**. You can also utilize your own DNS servers or create DNS records using the host files on your virtual machines. For more information, see [Azure Private Endpoint DNS Configuration](../private-link/private-endpoint-dns.md). In this example, the **Integrate with private DNS zone** option is selected and a private DNS zone will be created for you. 
-    3. Select **Next: Tags >** button at the bottom of the page. 
+    :::image type="content" source="./media/private-link-service/create-private-endpoint-resource-page.png" alt-text="Screenshot showing the Resource page of the Create a private endpoint wizard.":::
+9. On the **Virtual Network** page, select the **virtual network** and the **subnet** where you want to deploy the private endpoint. Only virtual networks in the currently selected subscription and location are listed in the drop-down list. 
 
-        ![Create Private Endpoint - Configuration page](./media/private-link-service/create-private-endpoint-configuration-page.png)
+    :::image type="content" source="./media/private-link-service/create-private-endpoint-virtual-network-page.png" alt-text="Screenshot showing the Virtual Network page of the Create a private endpoint wizard.":::
+
+    You can configure whether you want to **dynamically** allocate an IP address or **statically** allocate an **IP address** to the private endpoint
+
+    You can also associate a new or existing **application security group** to the private endpoint. 
+3. Select **Next: DNS** to navigate to the **DNS** page of the wizard. On the **DNS** page, **Integrate with private DNZ zone** setting is enabled by default (recommended). You have an option to disable it. 
+
+    :::image type="content" source="./media/private-link-service/create-private-endpoint-dns-page.png" alt-text="Screenshot showing the DNS page of the Create a private endpoint wizard.":::
+
+    To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a **private DNS zone**. You can also utilize your own DNS servers or create DNS records using the host files on your virtual machines. For more information, see [Azure Private Endpoint DNS Configuration](../private-link/private-endpoint-dns.md). 
+3. Select **Next: Tags >** button at the bottom of the page. 
 10. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint and the private DNS zone (if you had enabled the option). Then, select **Review + create** button at the bottom of the page. 
 11. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint.
-    
-    ![Create Private Endpoint - Review and Create page](./media/private-link-service/create-private-endpoint-review-create-page.png)
 12. On the **Private endpoint** page, you can see the status of the private endpoint connection. If you're the owner of the Relay namespace or have the manage access over it and had selected **Connect to an Azure resource in my directory** option for the **Connection method**, the endpoint connection should be **auto-approved**. If it's in the **pending** state, see the [Manage private endpoints using Azure portal](#manage-private-endpoints-using-azure-portal) section.
 
-    ![Private endpoint page](./media/private-link-service/private-endpoint-page.png)
+    :::image type="content" source="./media/private-link-service/private-endpoint-page.png" alt-text="Screenshot showing the Private endpoint page in the Azure portal.":::
 13. Navigate back to the **Networking** page of the **namespace**, and switch to the **Private endpoint connections** tab. You should see the private endpoint that you created. 
 
-    ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
+
+    :::image type="content" source="./media/private-link-service/private-endpoint-created.png" alt-text="Screenshot showing the Private endpoint connections tab of the Networking page with the private endpoint you just created.":::
 
 ## Add a private endpoint using PowerShell
 The following example shows you how to use Azure PowerShell to create a private endpoint connection to an Azure Relay namespace.
@@ -167,24 +163,24 @@ There are four provisioning states:
 
 ### Approve a private endpoint connection
 
-1. If there are any connections that are pending, you'll see a connection listed with **Pending** in the provisioning state. 
+1. If there are any connections that are pending, you see a connection listed with **Pending** in the provisioning state. 
 2. Select the **private endpoint** you wish to approve
 3. Select the **Approve** button.
 
-    ![Approve private endpoint](./media/private-link-service/private-endpoint-approve.png)
+    :::image type="content" source="./media/private-link-service/private-endpoint-approve.png" alt-text="Screenshot showing the Approve button on the command bar for the selected private endpoint.":::
 4. On the **Approve connection** page, enter an optional **comment**, and select **Yes**. If you select **No**, nothing happens. 
 
-    ![Approve connection page](./media/private-link-service/approve-connection-page.png)
+    :::image type="content" source="./media/private-link-service/approve-connection-page.png" alt-text="Screenshot showing the Approve connection page asking for your confirmation.":::
 5. You should see the status of the connection in the list changed to **Approved**.
 
 ### Reject a private endpoint connection
 
-1. If there are any private endpoint connections you want to reject, whether it's a pending request or existing connection that was approved earlier, select the endpoint connection and click the **Reject** button.
+1. If there are any private endpoint connections you want to reject, whether it's a pending request or existing connection that was approved earlier, select the endpoint connection and select the **Reject** button.
 
-    ![Reject button](./media/private-link-service/private-endpoint-reject.png)
+    :::image type="content" source="./media/private-link-service/private-endpoint-reject.png" alt-text="Screenshot showing the Reject button on the command bar for the selected private endpoint.":::
 2. On the **Reject connection** page, enter an optional comment, and select **Yes**. If you select **No**, nothing happens. 
 
-    ![Reject connection page](./media/private-link-service/reject-connection-page.png)
+    :::image type="content" source="./media/private-link-service/reject-connection-page.png" alt-text="Screenshot showing the Reject connection page asking for your confirmation.":::
 3. You should see the status of the connection in the list changed **Rejected**.
 
 
@@ -192,10 +188,10 @@ There are four provisioning states:
 
 1. To remove a private endpoint connection, select it in the list, and select **Remove** on the toolbar. 
 
-    ![Remove button](./media/private-link-service/remove-endpoint.png)
+    :::image type="content" source="./media/private-link-service/remove-endpoint.png" alt-text="Screenshot showing the Remove button on the command bar for the selected private endpoint.":::
 2. On the **Delete connection** page, select **Yes** to confirm the deletion of the private endpoint. If you select **No**, nothing happens. 
 
-    ![Delete connection page](./media/private-link-service/delete-connection-page.png)
+    :::image type="content" source="./media/private-link-service/delete-connection-page.png" alt-text="Screenshot showing the Delete connection page asking you for the confirmation.":::
 3. You should see the status changed to **Disconnected**. Then, you won't see the endpoint in the list. 
 
 ## Validate that the private link connection works
@@ -234,6 +230,8 @@ Aliases:  <namespace-name>.servicebus.windows.net
 - Maximum number of private endpoints per Azure Relay namespace: 64.
 - Maximum number of Azure Relay namespaces with private endpoints per subscription: 64.
 - Network Security Group (NSG) rules and User-Defined Routes don't apply to Private Endpoint. For more information, see [Azure Private Link service: Limitations](../private-link/private-link-service-overview.md#limitations)
+
+[!INCLUDE [trusted-services](./includes/trusted-services.md)]
 
 ## Next Steps
 

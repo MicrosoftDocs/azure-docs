@@ -1,6 +1,7 @@
 ---
 author: cephalin
 ms.service: app-service
+ms.custom: devx-track-azurecli
 ms.topic: "include"
 ms.date: 05/12/2021
 ms.author: cephalin

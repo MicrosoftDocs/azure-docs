@@ -2,12 +2,12 @@
 title: Azure confidential computing development tools
 description: Use tools and libraries to develop applications for confidential computing on Intel SGX
 services: virtual-machines
-author: stempesta
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 11/01/2021
-ms.author: stempesta
+ms.author: mamccrea
 ms.custom: ignite-fall-2021
 ---
 
@@ -22,14 +22,7 @@ With Azure confidential computing, you can create application enclaves for virtu
 
 Application enclaves are isolated environments that protect specific code and data. When creating enclaves, you must determine what part of the application runs within the enclave. When you create or manage enclaves, be sure to use compatible SDKs and frameworks for the chosen deployment stack. 
 
-Confidential computing currently offers application enclaves. Specifically, you can deploy and develop with application enclaves using [confidential VMs with Intel SGX enabled](virtual-machine-solutions-sgx.md). 
-
-## Intel SGX
-
-With Intel SGX technology, you can encrypt application enclaves, or Trusted Execution Environments, with an inaccessible key stored within the CPU. Decryption of the code and data inside the enclave happens inside the processor. Only the CPU has access. This level of isolation protects data-in-use and protects against both hardware and software attacks. For more information, see the [Intel SGX website](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html). 
-
-Azure offers Intel SGX in a virtualization environment through various VM sizes in the DC series. Multiple VM sizes allow for various Enclave Page Cache (EPC) sizes. EPC is the maximum amount of memory area for an enclave on that VM. Currently, Intel SGX VMs are available on [DCsv2-Series](../virtual-machines/dcv2-series.md) VMs and [DCsv3/DCdsv3-series](../virtual-machines/dcv3-series.md) VMs.
-
+You can develop and deploy application enclaves using [confidential VMs with Intel SGX enabled](virtual-machine-solutions-sgx.md). 
 
 ### Developing applications
 
@@ -52,5 +45,4 @@ As you design an application, identify and determine what part of needs to run i
 
 ## Next steps 
 
-- [Deploy a confidential computing Intel SGX VM](quick-create-portal.md)
 - [Start developing applications with open-source software](enclave-development-oss.md)

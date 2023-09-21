@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 08/10/2023
 ---
 
 # Schema drift in mapping data flow
@@ -36,9 +36,9 @@ This video provides an introduction to some of the complex solutions that you ca
 
 Columns coming into your data flow from your source definition are defined as "drifted" when they are not present in your source projection. You can view your source projection from the projection tab in the source transformation. When you select a dataset for your source, the service will automatically take the schema from the dataset and create a projection from that dataset schema definition.
 
-In a source transformation, schema drift is defined as reading columns that aren't defined your dataset schema. To enable schema drift, check **Allow schema drift** in your source transformation.
+In a source transformation, schema drift is defined as reading columns that aren't defined in your dataset schema. To enable schema drift, check **Allow schema drift** in your source transformation.
 
-:::image type="content" source="media/data-flow/schemadrift001.png" alt-text="Schema drift source":::
+:::image type="content" source="media/data-flow/schema-drift-1.png" alt-text="Schema drift source":::
 
 When schema drift is enabled, all incoming fields are read from your source during execution and passed through the entire flow to the Sink. By default, all newly detected columns, known as *drifted columns*, arrive as a string data type. If you wish for your data flow to automatically infer data types of drifted columns, check **Infer drifted column types** in your source settings.
 
@@ -46,7 +46,7 @@ When schema drift is enabled, all incoming fields are read from your source duri
 
 In a sink transformation, schema drift is when you write additional columns on top of what is defined in the sink data schema. To enable schema drift, check **Allow schema drift** in your sink transformation.
 
-:::image type="content" source="media/data-flow/schemadrift002.png" alt-text="Schema drift sink":::
+:::image type="content" source="media/data-flow/schema-drift-2.png" alt-text="Schema drift sink":::
 
 If schema drift is enabled, make sure the **Auto-mapping** slider in the Mapping tab is turned on. With this slider on, all incoming columns are written to your destination. Otherwise you must use rule-based mapping to write drifted columns.
 
@@ -70,7 +70,7 @@ To explicitly reference drifted columns, you can quickly generate mappings for t
 
 In the generated Derived Column transformation, each drifted column is mapped to its detected name and data type. In the above data preview, the column 'movieId' is detected as an integer. After **Map Drifted** is clicked, movieId is defined in the Derived Column as `toInteger(byName('movieId'))` and included in schema views in downstream transformations.
 
-:::image type="content" source="media/data-flow/mapdrifted2.png" alt-text="Screenshot shows the Derived Column's Settings tab.":::
+:::image type="content" source="media/data-flow/map-drifted-2.png" alt-text="Screenshot shows the Derived Column's Settings tab.":::
 
 ## Next steps
 In the [Data Flow Expression Language](data-transformation-functions.md), you'll find additional facilities for column patterns and schema drift including "byName" and "byPosition".

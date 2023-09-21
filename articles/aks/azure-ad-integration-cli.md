@@ -1,28 +1,25 @@
 ---
-title: Integrate Azure Active Directory with Azure Kubernetes Service (legacy)
+title: Integrate Azure Active Directory with Azure Kubernetes Service (AKS) (legacy)
 description: Learn how to use the Azure CLI to create and Azure Active Directory-enabled Azure Kubernetes Service (AKS) cluster (legacy)
-services: container-service
 author: TomGeske
 ms.topic: article
-ms.date: 07/29/2021
+ms.custom: devx-track-azurecli
+ms.date: 08/15/2023
 ms.author: miwithro
-
 ---
 
-# Integrate Azure Active Directory with Azure Kubernetes Service using the Azure CLI (legacy)
+# Integrate Azure Active Directory with Azure Kubernetes Service (AKS) using the Azure CLI (legacy)
 
 > [!WARNING]
-> **The feature described in this document, Azure AD Integration (legacy), will be deprecated on February 29th 2024.
+> The feature described in this document, Azure AD Integration (legacy) was **deprecated on June 1st, 2023**. At this time, no new clusters can be created with Azure AD Integration (legacy). All Azure AD Integration (legacy) AKS clusters will be migrated to AKS-managed Azure AD automatically starting from December 1st, 2023.
 >
-> AKS has a new improved [AKS-managed Azure AD][managed-aad] experience  that doesn't require you to manage server or client application. If you want to migrate follow the instructions [here][managed-aad-migrate].
+> AKS has a new improved [AKS-managed Azure AD][managed-aad] experience that doesn't require you to manage server or client applications. If you want to migrate follow the instructions [here][managed-aad-migrate].
 
 Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you can log into an AKS cluster using an Azure AD authentication token. Cluster operators can also configure Kubernetes role-based access control (Kubernetes RBAC) based on a user's identity or directory group membership.
 
 This article shows you how to create the required Azure AD components, then deploy an Azure AD-enabled cluster and create a basic Kubernetes role in the AKS cluster.
 
-For the complete sample script used in this article, see [Azure CLI samples - AKS integration with Azure AD][complete-script].
-
-## The following limitations apply:
+## Limitations
 
 - Azure AD can only be enabled on Kubernetes RBAC-enabled cluster.
 - Azure AD legacy integration can only be enabled during cluster creation.
@@ -246,6 +243,51 @@ error: You must be logged in to the server (Unauthorized)
 * Secret defined in the application registration for server matches the value configured using `--aad-server-app-secret`
 * Be sure that only one version of kubectl is installed on your machine at a time. Conflicting versions can cause issues during authorization. To install the latest version, use [az aks install-cli][az-aks-install-cli].
 
+## Frequently asked questions about migration from Azure Active Directory Integration to AKS-managed Azure Active Directory
+
+**1. What is the plan for migration?**
+
+Azure Active Directory Integration (legacy) will be deprecated on 1st June 2023. After this date, you won't be able to create new clusters with Azure Active Directory (legacy). We'll migrate all Azure Active Directory Integration (legacy) AKS clusters to AKS-managed Azure Active Directory automatically starting from 1st August 2023.
+We send notification emails to impacted subscription admins biweekly to remind them of migration.
+
+**2. What will happen if I don't take any action?**
+
+Your Azure Active Directory Integration (legacy) AKS clusters will continue working after 1st June 2023. We'll automatically migrate your clusters to AKS-managed Azure Active Directory starting from 1st August 2023. You may experience API server downtime during the migration.
+
+The kubeconfig content changes after the migration. You need to merge the new credentials into the kubeconfig file using the `az aks get-credentials --resource-group <AKS resource group name> --name <AKS cluster name>`.
+
+We recommend updating your AKS cluster to [AKS-managed Azure Active Directory][managed-aad-migrate] manually before 1st August. This way you can manage the downtime during non-business hours when it's more convenient.
+
+**3. Why do I still receive the notification email after manual migration?**
+
+It takes several days for the email to send. If your cluster wasn't migrated before we initiate the email-sending process, you may still receive a notification.
+
+**4. How can I check whether my cluster my cluster is migrated to AKS-managed Azure Active Directory?**
+
+Confirm your AKS cluster is migrated to the AKS-managed Azure Active Directory using the [`az aks show`][az-aks-show] command.
+
+```azurecli
+az aks show -g <RGName> -n <ClusterName>  --query "aadProfile"
+```
+
+If your cluster is using the AKS-managed Azure Active Directory, the output shows `managed` is `true`.  For example:
+
+```output
+    {
+      "adminGroupObjectIDs": [
+        "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+      ],
+      "adminUsers": null,
+      "clientAppId": null,
+      "enableAzureRbac": null,
+      "managed": true,
+      "serverAppId": null,
+      "serverAppSecret": null,
+      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    }
+ ```
+
+
 ## Next steps
 
 For the complete script that contains the commands shown in this article, see the [Azure AD integration script in the AKS samples repo][complete-script].
@@ -260,7 +302,6 @@ For best practices on identity and resource control, see [Best practices for aut
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[complete-script]: https://github.com/Azure-Samples/azure-cli-samples/tree/master/aks/azure-ad-integration/azure-ad-integration.sh
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks#az_aks_create
@@ -284,5 +325,6 @@ For best practices on identity and resource control, see [Best practices for aut
 [rbac-authorization]: concepts-identity.md#kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
-[managed-aad]: managed-aad.md
-[managed-aad-migrate]: managed-aad.md#upgrading-to-aks-managed-azure-ad-integration
+[managed-aad]: managed-azure-ad.md
+[managed-aad-migrate]: managed-azure-ad.md#upgrade-a-legacy-azure-ad-cluster-to-aks-managed-azure-ad-integration
+[az-aks-show]: /cli/azure/aks#az_aks_show

@@ -1,18 +1,20 @@
 ---
 title: 'Set up alerts on Azure VPN Gateway metrics'
-description: Learn how to use the Azure portal to set up Azure Monitor alerts based on metrics for virtual network VPN gateways.
-services: vpn-gateway
+description: Learn about alerts based on metrics for virtual network VPN gateways.
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
-ms.author: alzam
+ms.date: 07/25/2022
+ms.author: cherylmc
 
 ---
 # Set up alerts on VPN Gateway metrics
 
-This article helps you set up alerts on Azure VPN Gateway metrics. Azure Monitor provides the ability to set up alerts for Azure resources. You can set up alerts for virtual network gateways of the "VPN" type.
+Azure Monitor provides the ability to set up alerts for Azure resources. You can set up alerts for virtual network gateways of the "VPN" type.
+
+For steps, see [Tutorial: Create a metric alert for an Azure resource](../azure-monitor/alerts/tutorial-metric-alert.md) and [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
+
+## Metrics
 
 | **Metric**                                 | **Unit**     | **Granularity**     | **Description**                                                                         |
 | -------------------------------------------| ------------ | ------------------- | --------------------------------------------------------------------------------------- |
@@ -38,42 +40,8 @@ This article helps you set up alerts on Azure VPN Gateway metrics. Azure Monitor
 | **User Vpn Route Count**                   | Count        | 5 minutes           | Number of user VPN routes configured on the VPN Gateway.                                |
 | **VNet Address Prefix Count**              | Count        | 5 minutes           | Number of VNet address prefixes that are used/advertised by the gateway.                |
 
-## <a name="setup"></a>Set up Azure Monitor alerts based on metrics by using the Azure portal
-
-The following example steps will create an alert on a gateway for:
-
-- **Metric:** TunnelAverageBandwidth
-- **Condition:** Bandwidth > 10 bytes/second
-- **Window:** 5 minutes
-- **Alert action:** Email
-
-
-
-1. Go to the virtual network gateway resource and select **Alerts** from the **Monitoring** tab. Then create a new alert rule or edit an existing alert rule.
-
-   ![Selections for creating an alert rule](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert1.png "Create")
-
-2. Select your VPN gateway as the resource.
-
-   ![The Select button and the VPN gateway in the list of resources](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert2.png "Select")
-
-3. Select a metric to configure for the alert.
-
-   ![Selected metric in the list of metrics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert3.png "Select")
-4. Configure the signal logic. There are three components to it:
-
-    a. **Dimensions**: If the metric has dimensions, you can select specific dimension values so that the alert evaluates only data of that dimension. These are optional.
-
-    b. **Condition**: This is the operation to evaluate the metric value.
-
-    c. **Time**: Specify the granularity of metric data, and the period of time to evaluate the alert.
-
-   ![Details for configuring signal logic](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "Select")
-
-5. To view the configured rules, select **Manage alert rules**.
-
-   ![Button for managing alert rules](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "Select")
-
 ## Next steps
 
-To configure alerts on tunnel resource logs, see [Set up alerts on VPN Gateway resource logs](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
+* For more information about monitoring Azure VPN Gateway, see [Monitor VPN Gateway](monitor-vpn-gateway.md).
+* For more information about alerts, see [What are Azure Monitor Alerts](../azure-monitor/alerts/alerts-overview.md).
+* For more information about alert types, see [Alert types](../azure-monitor/alerts/alerts-types.md).

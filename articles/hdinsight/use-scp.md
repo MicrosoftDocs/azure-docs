@@ -4,7 +4,7 @@ description: This document provides information on connecting to HDInsight using
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/22/2020
+ms.date: 09/14/2023
 ---
 
 # Use SCP with Apache Hadoop in Azure HDInsight

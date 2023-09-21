@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 04/05/2023
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -118,9 +118,9 @@ The mentioned prices are for example purposes only. They are not intended to imp
 
 Review the [Optimize costs from recommendations](../costs/tutorial-acm-opt-recommendations.md) tutorial for a guided tutorial about cost-saving Advisor recommendations.
 
-## Integrate with billing and consumption APIs
+## Integrate with billing and Cost Management APIs
 
-Use the Azure [billing](/rest/api/billing/) and [consumption](/rest/api/consumption/) APIs to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](../manage/consumption-api-overview.md#usage-details-api).
+Use the Azure [billing](/rest/api/billing/) and [Cost Management automation APIs](../automate/automation-overview.md) to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage.
 
 ## <a name="other-offers"></a> Additional resources and special cases
 

@@ -6,9 +6,9 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 09/15/2023
 ms.author: duau
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, template-tutorial
 
 ---
 # Tutorial: Configure route filters for Microsoft peering: Azure CLI
@@ -29,6 +29,8 @@ Connectivity to all Azure and Microsoft 365 services causes a large number of pr
 
 * Define route filters and apply them to your ExpressRoute circuit. A route filter is a new resource that lets you select the list of services you plan to consume through Microsoft peering. ExpressRoute routers only send the list of prefixes that belong to the services identified in the route filter.
 
+:::image type="content" source="./media/how-to-routefilter-portal/route-filter-diagram.png" alt-text="Diagram of a route filter applied to the ExpressRoute circuit to allow only certain prefixes to be broadcast to the on-premises network.":::
+
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Get BGP community values.
@@ -44,7 +46,7 @@ A route filter lets you identify services you want to consume through your Expre
 To attach route filters with Microsoft 365 services, you must have authorization to consume Microsoft 365 services through ExpressRoute. If you aren't authorized to consume Microsoft 365 services through ExpressRoute, the operation to attach route filters fails. For more information about the authorization process, see [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute).
 
 > [!IMPORTANT]
-> Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit.
+> Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all Microsoft Office service prefixes advertised through Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit.
 > 
 
 ## Prerequisites
@@ -57,11 +59,11 @@ To successfully connect to services through Microsoft peering, you must complete
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-If you choose to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ### Sign in to your Azure account and select your subscription
 
-To begin your configuration, sign in to your Azure account. If you're using the "Try It", you're signed in automatically and can skip the login step. Use the following examples to help you connect:
+To begin your configuration, sign in to your Azure account. If you're using the "Try It", you're signed in automatically and can skip the sign in step. Use the following examples to help you connect:
 
 ```azurecli
 az login

@@ -4,10 +4,10 @@ description: Learn how to monitor different types of integration runtime in Azur
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 10/27/2021
-author: joshuha-msft
-ms.author: joowen 
-ms.custom: devx-track-azurepowershell
+ms.date: 07/20/2023
+author: nabhishek
+ms.author: abnarain
+ms.custom:
 ---
 
 # Monitor an integration runtime in Azure Data Factory
@@ -76,7 +76,7 @@ The following table provides descriptions of monitoring Properties for **each no
 | CPU utilization | CPU utilization of a self-hosted integration runtime node. This value is a near real-time snapshot. |
 | Networking (In/Out) | Network utilization of a self-hosted integration runtime node. This value is a near real-time snapshot. | 
 | Concurrent Jobs (Running/ Limit) | **Running**. Number of jobs or tasks running on each node. This value is a near real-time snapshot. <br/><br/>**Limit**. Limit signifies the maximum concurrent jobs for each node. This value is defined based on the machine size. You can increase the limit to scale up concurrent job execution in advanced scenarios, when activities are timing out even when CPU, memory, or network is under-utilized. This capability is also available with a single-node self-hosted integration runtime. |
-| Role | There are two types of roles in a multi-node self-hosted integration runtime – dispatcher and worker. All nodes are workers, which means they can all be used to execute jobs. There is only one dispatcher node, which is used to pull tasks/jobs from cloud services and dispatch them to different worker nodes. The dispatcher node is also a worker node. |
+| Role | There are two types of roles in a multi-node self-hosted integration runtime - dispatcher and worker. All nodes are workers, which means they can all be used to execute jobs. There is only one dispatcher node, which is used to pull tasks/jobs from cloud services and dispatch them to different worker nodes. The dispatcher node is also a worker node. |
 
 Some settings of the properties make more sense when there are two or more nodes in the self-hosted integration runtime (that is, in a scale out scenario).
 
@@ -229,7 +229,7 @@ The **NODE SIZE** informational tile shows the SKU (SSIS edition_VM tier_VM seri
 
 The **RUNNING / REQUESTED NODE(S)** informational tile compares the number of nodes currently running to the total number of nodes previously requested for your Azure-SSIS IR.
 
-The **DUAL STANDBY PAIR / ROLE** informational tile shows the name of your dual standby Azure-SSIS IR pair that works in sync with Azure SQL Database managed instance failover group for business continuity and disaster recovery (BCDR) and the current primary/secondary role of your Azure-SSIS IR. When SSISDB failover occurs, your primary and secondary Azure-SSIS IRs will swap roles (see [Configuring your Azure-SSIS IR for BCDR](./configure-bcdr-azure-ssis-integration-runtime.md)).
+The **DUAL STANDBY PAIR / ROLE** informational tile shows the name of your dual standby Azure-SSIS IR pair that works in sync with Azure SQL Managed Instance failover group for business continuity and disaster recovery (BCDR) and the current primary/secondary role of your Azure-SSIS IR. When SSISDB failover occurs, your primary and secondary Azure-SSIS IRs will swap roles (see [Configuring your Azure-SSIS IR for BCDR](./configure-bcdr-azure-ssis-integration-runtime.md)).
 
 The functional tiles are described in more details below.
 

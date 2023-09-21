@@ -1,73 +1,80 @@
 ---
 title: Billing model of Azure Web PubSub service
 description:  An overview of key concepts about billing model of Azure Web PubSub service.
-author: yjin81
-ms.author: yajin1
+author: vicancy
+ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 11/08/2021
+ms.date: 07/29/2022
 ---
 
-# Billing model of Azure Web PubSub service
+# Billing model for Azure Web PubSub service
 
-The billing model for Azure Web PubSub service is based on the number of units and the size of outbound traffic (message count). This article explains how units and outbound traffic (message count) are defined and counted for billing.
+The billing model for Azure Web PubSub service is based on the number of units allocated and the message count of outbound traffic. This article explains how units and outbound traffic (message count) are defined and counted for billing.
 
-## How units are counted with billing model
+## Terms used in billing
 
-### What is the connection
+### Connection
 
-The connection is between client and service. You could monitor the connection count in Azure portal. The view of "Connection (Max)" shows the maximum number of connections in a specific period. 
+A *connection*, also known as a client or a client connection, represents an individual WebSocket connection connected to the Web PubSub service. 
 
-### What is the unit
+### Unit
 
-The unit is an abstract concept of the capability of Azure Web PubSub service. Each unit supports 1,000 concurrent connections at most. Each Azure Web PubSub service instance could be 1, 2, 5, 10, 20, 50 or 100 units. So the unit count specifies how many connections your Web PubSub service instance can accept.
+A *unit* is an abstract concept of the capability of Web PubSub service. Each unit supports up to 1,000 concurrent connections. Each Web PubSub service instance can have 1, 2, 5, 10, 20, 50 or 100 units. The unit count * 1000 equals the maximum number of connections your Web PubSub service instance can accept. 
 
-###  How units are counted with billing model
+In production, it's recommended to plan for no more than 80% unit utilization before scaling up to more units to maintain acceptable system performance. For more information, see [Performance guide for Azure Web PubSub service](concept-performance.md).
 
-The units are counted based on the number of units and the usage time (seconds) of the units, and billed daily. 
+### Message count
 
-For example, imagine you have one Azure Web PubSub service instance with 5 units, scale up to 10 units from 10:00 AM to 16:00 PM and then scale back to 5 units after 16:00 PM. It turns out 5 units for 18 hours and 10 units for 6 hours in a specific day.
+The *message count* is an abstract concept for billing purposes. It's defined as the size of outbound traffic (bytes) in 2-KB increments, with each increment counting as one message for billing. For example, 100 KB of traffic is counted as 50 messages. 
 
-> Usage of the units for billing = (5 units * 18 hours + 10 units * 6 hours) / 24 hours = 6.25 Unit/Day
+### Outbound traffic
 
-## How outbound traffic is counted with billing model
-
-### What is inbound/outbound traffic 
-
-The outbound traffic is the messages sent out of Azure Web PubSub service. You could monitor the outbound traffic by Azure portal. The view of "Outbound Traffic (total)" shows the aggregated outbound messages size (bytes) in a specific period.
+The *outbound traffic* is the messages sent out of Web PubSub service. 
 
 - The messages broadcasted from service to receivers.
 - The messages sent from the service to the upstream webhooks.
-- The resource logs with [live trace tool](./howto-troubleshoot-resource-logs.md#capture-resource-logs-with-live-trace-tool). 
+- The resource logs with live trace tool. 
 
-The inbound traffic is the messages sent to the Azure Web PubSub service. 
+### Inbound traffic
+
+The *inbound traffic* is the messages sent to the Azure Web PubSub service. 
 
 - The messages sent from clients to service.
 - The messages sent from server or functions to service.
 
-### What is message count
+For more information, see [Metrics in Azure Web PubSub service](concept-metrics.md).
 
-The message count for billing purpose is an abstract concept and defined as the size of outbound traffic (bytes) divided in 2 KB. For example, 100-KB traffic is counted as 50 messages.  
+##  How units are counted for billing
 
-### How traffic is counted with billing model
+The units are counted based on the number of units and the usage time in seconds, and billed daily. 
 
-For billing, only the outbound traffic is counted. 
+For example, imagine you have one Web PubSub Enterprise tier instance with five units allocated. You've added a custom scale condition to scale up to 10 units from 10:00 AM to 16:00 PM and then scale back to five units after 16:00 PM. Total usage for the day is 5 units for 18 hours and 10 units for 6 hours.
 
-For example, imagine you have an application with Azure Web PubSub service and Azure Functions. One user broadcast 4 KB data to 10 connections in a group. It turns out 4 KB for upstream from service to function and 40 KB from service broadcast to 10 connections.
+> Total units are used for billing = (5 units * 18 hours + 10 units * 6 hours) / 24 hours = 6.25 Unit/Day
 
-> Outbound traffic for billing = 4 KB (upstream traffic) + 4 KB * 10 (service broadcasting to clients traffic) = 44 KB
+## How outbound traffic is counted for billing
+
+Only the outbound traffic is counted for billing.
+
+For example, imagine you have an application with Web PubSub service and Azure Functions. One user broadcast 4 KB of data to 10 connections in a group. Total data is 4 KB upstream from service to function, and 40 KB from the service broadcast to 10 connections * 4 KB each.
+
+> Outbound traffic for billing = 4 KB (upstream traffic to Azure Functions) + 4 KB * 10 (from service broadcasting to clients) = 44 KB
 
 > Equivalent message count = 44 KB / 2 KB = 22
 
-The Azure Web PubSub service also offers daily free quota of outbound traffic (message count) based on the usage of the units. The outbound traffic (message count) beyond the free quota is the additional outbound traffic (additional messages). Taking standard tier as example, the free quota is 2,000,000-KB outbound traffic (1,000,000 messages) per unit/day.
+The  Web PubSub service also offers a daily free quota of outbound traffic (message count) based on the usage of the units. The outbound traffic beyond the free quota is the outbound traffic not included in the base quota. Consider standard tier as example: the free quota is 2,000,000-KB outbound traffic (1,000,000 messages) per unit per day.
 
-Using the previous unit usage example, the application use 6.25 units per day that ensures the daily free quota as 12,500,000-KB outbound traffic (6.25 million messages). Imaging the daily outbound traffic is 30,000,000 KB (15 million messages), the additional messages will be 17,500,000-KB outbound traffic (8.75 million messages). As a result, you'll be billed with 6.25 standard units and 8.75 additional message units for the day.
+For example, an application that uses 6.25 units per day has a daily free quota of 12,500,000-KB outbound traffic or 6.25 million messages. Assuming that the actual daily outbound traffic is 30,000,000 KB (15 million messages), the extra messages above the free quota is 17,500,000-KB outbound traffic, which counts as 8.75 million messages for billing. 
+
+As a result, you'll be billed with 6.25 standard units and 8.75 additional message units for the day. 
+
+## How replica is billed
+
+Replica is a feature of Premium tier of Azure Web PubSub service. When you create a replica in desired regions, you incur Premium fees for each region.
+
+Each replica is billed separately according to its own units and outbound traffic. Free message quota is also calculated separately.
 
 ## Pricing 
 
-The Azure Web PubSub service offers multiple tiers with different pricing. Once you understand how the number of units and size of outbound traffic (message count) are counted with billing model, you could learn more pricing details from [Azure Web PubSub service pricing](https://azure.microsoft.com/pricing/details/web-pubsub).
-
-
-
-
-
+The Web PubSub service offers multiple tiers with different pricing. For more information about Web PubSub pricing, see [Azure Web PubSub service pricing](https://azure.microsoft.com/pricing/details/web-pubsub).

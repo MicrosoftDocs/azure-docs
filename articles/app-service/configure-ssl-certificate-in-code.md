@@ -2,9 +2,11 @@
 title: Use a TLS/SSL certificate in code
 description: Learn how to use client certificates in your code. Authenticate with remote resources with a client certificate, or run cryptographic tasks with them.
 ms.topic: article
-ms.date: 09/22/2020
+ms.date: 02/15/2023
 ms.reviewer: yutlin
 ms.custom: seodec18
+ms.author: msangapu
+author: msangapu-msft
 
 ---
 
@@ -12,7 +14,7 @@ ms.custom: seodec18
 
 In your application code, you can access the [public or private certificates you add to App Service](configure-ssl-certificate.md). Your app code may act as a client and access an external service that requires certificate authentication, or it may need to perform cryptographic tasks. This how-to guide shows how to use public or private certificates in your application code.
 
-This approach to using certificates in your code makes use of the TLS functionality in App Service, which requires your app to be in **Basic** tier or above. If your app is in **Free** or **Shared** tier, you can [include the certificate file in your app repository](#load-certificate-from-file).
+This approach to using certificates in your code makes use of the TLS functionality in App Service, which requires your app to be in **Basic** tier or higher. If your app is in **Free** or **Shared** tier, you can [include the certificate file in your app repository](#load-certificate-from-file).
 
 When you let App Service manage your TLS/SSL certificates, you can maintain the certificates and your application code separately and safeguard your sensitive data.
 
@@ -42,6 +44,9 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ```
 
 To make all your certificates accessible, set the value to `*`.
+
+> [!NOTE]
+> When `WEBSITE_LOAD_CERTIFICATES` is set `*`, all previously added certificates are accessible to application code. If you add a certificate to your app later, restart the app to make the new certificate accessible to your app. For more information, see [When updating (renewing) a certificate](#when-updating-renewing-a-certificate).
 
 ## Load certificate in Windows apps
 
@@ -75,7 +80,7 @@ using (X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUs
   // Use certificate
   Console.WriteLine(cert.FriendlyName);
   
-  // Consider to call Dispose() on the certificate after it's being used, avaliable in .NET 4.6 and later
+  // Consider to call Dispose() on the certificate after it's being used, available in .NET 4.6 and later
 }
 ```
 
@@ -111,7 +116,7 @@ If you need to load a certificate file that you upload manually, it's better to 
 > az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 > ```
 >
-> This approach to using certificates in your code makes use of the TLS functionality in App Service, which requires your app to be in **Basic** tier or above.
+> This approach to using certificates in your code makes use of the TLS functionality in App Service, which requires your app to be in **Basic** tier or higher.
 
 The following C# example loads a public certificate from a relative path in your app:
 
@@ -131,7 +136,7 @@ To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Ja
 
 ## Load certificate in Linux/Windows containers
 
-The `WEBSITE_LOAD_CERTIFICATES` app settings makes the specified certificates accessible to your Windows or Linux custom containers (including built-in Linux containers) as files. The files are found under the following directories:
+The `WEBSITE_LOAD_CERTIFICATES` app setting makes the specified certificates accessible to your Windows or Linux custom containers (including built-in Linux containers) as files. The files are found under the following directories:
 
 | Container platform | Public certificates | Private certificates |
 | - | - | - |
@@ -144,7 +149,7 @@ The certificate file names are the certificate thumbprints.
 > App Service inject the certificate paths into Windows containers as the following environment variables `WEBSITE_PRIVATE_CERTS_PATH`, `WEBSITE_INTERMEDIATE_CERTS_PATH`, `WEBSITE_PUBLIC_CERTS_PATH`, and `WEBSITE_ROOT_CERTS_PATH`. It's better to reference the certificate path with the environment variables instead of hardcoding the certificate path, in case the certificate paths change in the future.
 >
 
-In addition, [Windows Server Core containers](configure-custom-container.md#supported-parent-images) load the certificates into the certificate store automatically, in **LocalMachine\My**. To load the certificates, follow the same pattern as [Load certificate in Windows apps](#load-certificate-in-windows-apps). For Windows Nano based containers, use the file paths provided above to [Load the certificate directly from file](#load-certificate-from-file).
+In addition, [Windows Server Core containers](configure-custom-container.md#supported-parent-images) load the certificates into the certificate store automatically, in **LocalMachine\My**. To load the certificates, follow the same pattern as [Load certificate in Windows apps](#load-certificate-in-windows-apps). For Windows Nano based containers, use these file paths [Load the certificate directly from file](#load-certificate-from-file).
 
 The following C# code shows how to load a public certificate in a Linux app.
 
@@ -174,6 +179,20 @@ var cert = new X509Certificate2(bytes);
 ```
 
 To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
+
+## When updating (renewing) a certificate
+
+When you renew a certificate and add it to your app, it gets a new thumbprint, which also needs to be [made accessible](#make-the-certificate-accessible). How it works depends on your certificate type.
+
+If you manually upload the [public](configure-ssl-certificate.md#upload-a-public-certificate) or [private](configure-ssl-certificate.md#upload-a-private-certificate) certificate:
+
+- If you list thumbprints explicitly in `WEBSITE_LOAD_CERTIFICATES`, add the new thumbprint to the app setting.
+- If `WEBSITE_LOAD_CERTIFICATES` is set to `*`, restart the app to make the new certificate accessible.
+
+If you renew a certificate [in Key Vault](configure-ssl-certificate.md#renew-a-certificate-imported-from-key-vault), such as with an [App Service certificate](configure-ssl-app-service-certificate.md#renew-an-app-service-certificate), the daily sync from Key Vault makes the necessary update automatically when synchronizing your app with the renewed certificate.
+
+- If `WEBSITE_LOAD_CERTIFICATES` contains the old thumbprint of your renewed certificate, the daily sync updates the old thumbprint to the new thumbprint automatically.
+- If `WEBSITE_LOAD_CERTIFICATES` is set to `*`, the daily sync makes the new certificate accessible automatically.
 
 ## More resources
 

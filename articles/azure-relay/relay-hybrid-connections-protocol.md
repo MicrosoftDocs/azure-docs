@@ -2,7 +2,8 @@
 title: Azure Relay Hybrid Connections protocol guide | Microsoft Docs
 description: This article describes the client-side interactions with the Hybrid Connections relay for connecting clients in listener and sender roles. 
 ms.topic: article
-ms.date: 06/23/2021
+ms.custom: ignite-2022
+ms.date: 08/10/2023
 ---
 
 # Azure Relay Hybrid Connections protocol
@@ -155,8 +156,7 @@ in progress.
 #### Renew operation
 
 The security token that must be used to register the listener and maintain the
-control channel may expire while the listener is active. The token expiry does
-not affect ongoing connections, but it does cause the control channel to be
+control channel may expire while the listener is active. The token expiry doesn't affect ongoing connections, but it does cause the control channel to be
 dropped by the service at or soon after the moment of expiry. The "renew"
 operation is a JSON message that the listener can send to replace the token
 associated with the control channel, so that the control channel can be
@@ -175,7 +175,7 @@ reconnect.
 ### Sender interaction
 
 The sender has two interactions with the service: it connects a Web Socket or
-it sends requests via HTTPS. Requests cannot be sent over a Web Socket from the
+it sends requests via HTTPS. Requests can't be sent over a Web Socket from the
 sender role.
 
 #### Connect operation
@@ -215,8 +215,8 @@ information as follows:
    is present, the header will be evaluated and stripped. Otherwise, the
    `Authorization`is always passed on as-is.
 
-If there is no active listener, the service will return a 502 "Bad Gateway"
-error code. If the service does not appear to handle the request, the service
+If there's no active listener, the service will return a 502 "Bad Gateway"
+error code. If the service doesn't appear to handle the request, the service
 will return a 504 "Gateway Timeout" after 60 seconds.
 
 ### Interaction summary
@@ -250,7 +250,7 @@ previously.
 
 All WebSocket connections are made on port 443 as an upgrade from HTTPS 1.1,
 which is commonly abstracted by some WebSocket framework or API. The
-description here is kept implementation neutral, without suggesting a specific
+description here's kept implementation neutral, without suggesting a specific
 framework.
 
 ### Listener protocol
@@ -293,7 +293,7 @@ Azure support personnel:
 If the WebSocket connection is intentionally shut down by the service after it
 was initially set up, the reason for doing so is communicated using an
 appropriate WebSocket protocol error code along with a descriptive error
-message that also includes a tracking ID. The service will not shut down the
+message that also includes a tracking ID. The service won't shut down the
 control channel without encountering an error condition. Any clean shutdown is
 client controlled.
 
@@ -307,7 +307,7 @@ client controlled.
 
 The "accept" notification is sent by the service to the listener over the
 previously established control channel as a JSON message in a WebSocket text
-frame. There is no reply to this message.
+frame. There's no reply to this message.
 
 The message contains a JSON object named "accept", which defines the following
 properties at this time:
@@ -315,7 +315,7 @@ properties at this time:
 * **address** – the URL string to be used for establishing the WebSocket to the
   service to accept an incoming connection.
 * **id** – the unique identifier for this connection. If the ID was supplied by
-  the sender client, it is the sender supplied value, otherwise it is a system-generated value.
+  the sender client, it's the sender supplied value, otherwise it's a system-generated value.
 * **connectHeaders** – all HTTP headers that have been supplied to the Relay
   endpoint by the sender, which also includes the Sec-WebSocket-Protocol and the
   Sec-WebSocket-Extensions headers.
@@ -323,7 +323,7 @@ properties at this time:
 ```json
 {
     "accept" : {
-        "address" : "wss://dc-node.servicebus.windows.net:443/$hc/{path}?..."
+        "address" : "wss://dc-node.servicebus.windows.net:443/$hc/{path}?...",
         "id" : "4cb542c3-047a-4d40-a19f-bdc66441e736",
         "connectHeaders" : {
             "Host" : "...",
@@ -342,7 +342,7 @@ establish the WebSocket for accepting or rejecting the sender socket.
 To accept, the listener establishes a WebSocket connection to the provided
 address.
 
-If the "accept" message carries a `Sec-WebSocket-Protocol` header, it is
+If the "accept" message carries a `Sec-WebSocket-Protocol` header, it's
 expected that the listener only accepts the WebSocket if it supports that
 protocol. Additionally, it sets the header as the WebSocket is established.
 
@@ -374,7 +374,7 @@ deciding whether to accept the connection.
 
 For more information, see the following "Sender Protocol" section.
 
-If there is an error, the service can reply as follows:
+If there's an error, the service can reply as follows:
 
 | Code | Error          | Description
 | ---- | -------------- | -----------------------------------
@@ -397,9 +397,9 @@ If there is an error, the service can reply as follows:
  handshake so that the status code and status description communicating the
  reason for the rejection can flow back to the sender.
 
- The protocol design choice here is to use a WebSocket handshake (that is
+ The protocol design choice here's to use a WebSocket handshake (that is
  designed to end in a defined error state) so that listener client
- implementations can continue to rely on a WebSocket client and do not need to
+ implementations can continue to rely on a WebSocket client and don't need to
  employ an extra, bare HTTP client.
 
  To reject the socket, the client takes the address URI from the `accept`
@@ -428,7 +428,7 @@ the control channel. The same message is also sent over the rendezvous
 WebSocket once established.
 
 The `request` consists of two parts: a header and binary body frame(s).
-If there is no body, the body frames are omitted. The boolean `body` property indicates whether a body is present in the request
+If there's no body, the body frames are omitted. The boolean `body` property indicates whether a body is present in the request
 message.
 
 For a request with a request body, the structure may look like this:
@@ -501,7 +501,7 @@ The JSON content for `request` is as follows:
  be used.
 * **body** – boolean. Indicates whether one or more binary body frames follows.
 
-``` JSON
+```json
 {
     "request" : {
         "address" : "wss://dc-node.servicebus.windows.net:443/$hc/{path}?...",
@@ -526,8 +526,8 @@ maintaining the connection might result in the listener getting blocked.
 Responses may be sent in any order, but each request must be responded to
 within 60 seconds or the delivery will be reported as having failed. The
 60-second deadline is counted until the `response` frame has been received
-by the service. An ongoing response with multiple binary frames cannot
-become idle for more than 60 seconds or it is terminated.
+by the service. An ongoing response with multiple binary frames can't
+become idle for more than 60 seconds or it's terminated.
 
 If the request is received over the control channel, the response MUST
 either be sent on the control channel from where the request was received
@@ -581,7 +581,7 @@ the rendezvous socket, but contains the following parameters:
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Yes      | For accepting a socket, the parameter must be `sb-hc-action=request`
 
-If there is an error, the service can reply as follows:
+If there's an error, the service can reply as follows:
 
 | Code | Error           | Description
 | ---- | --------------- | -----------------------------------
@@ -620,7 +620,7 @@ property at this time:
 ```
 
 If the token validation fails, access is denied, and the cloud service closes
-the control channel WebSocket with an error. Otherwise there is no reply.
+the control channel WebSocket with an error. Otherwise there's no reply.
 
 | WS Status | Description                                                                     |
 | --------- | ------------------------------------------------------------------------------- |

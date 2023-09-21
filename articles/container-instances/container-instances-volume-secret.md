@@ -1,8 +1,13 @@
 ---
 title: Mount secret volume to container group
 description: Learn how to mount a secret volume to store sensitive information for access by your container instances
-ms.topic: article
-ms.date: 07/02/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+ms.custom: devx-track-azurecli
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Mount a secret volume in Azure Container Instances

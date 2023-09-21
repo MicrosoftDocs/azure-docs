@@ -1,28 +1,27 @@
 ---
-title: Configure identity providers (MSAL iOS/macOS) | Azure
-titleSuffix: Microsoft identity platform
+title: Configure identity providers (MSAL iOS/macOS)
 description: Learn how to use different authorities such as B2C, sovereign clouds, and guest users, with MSAL for iOS and macOS.
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/28/2019
-ms.author: marsma
+ms.date: 05/09/2023
+ms.author: cwerner
 ms.reviewer: oldalton
 ms.custom: aaddev
 ---
 
 # Configure MSAL for iOS and macOS to use different identity providers
 
-This article will show you how to configure your Microsoft authentication library app for iOS and macOS (MSAL) for different authorities such as Azure Active Directory (Azure AD), Business-to-Consumer (B2C), sovereign clouds, and guest users.  Throughout this article, you can generally think of an authority as an identity provider.
+This article will show you how to configure your Microsoft Authentication Library app for iOS and macOS (MSAL) for different authorities such as Microsoft Entra ID, Business-to-Consumer (B2C), sovereign clouds, and guest users.  Throughout this article, you can generally think of an authority as an identity provider.
 
 ## Default authority configuration
 
-`MSALPublicClientApplication` is configured with a default authority URL of `https://login.microsoftonline.com/common`, which is suitable for most Azure Active Directory (AAD) scenarios. Unless you're implementing advanced scenarios like national clouds, or working with B2C, you won't need to change it.
+`MSALPublicClientApplication` is configured with a default authority URL of `https://login.microsoftonline.com/common`, which is suitable for most Microsoft Entra scenarios. Unless you're implementing advanced scenarios like national clouds, or working with B2C, you won't need to change it.
 
 > [!NOTE]
 > Modern authentication with Active Directory Federation Services as identity provider (ADFS) is not supported (see [ADFS for Developers](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) for details). ADFS is supported through federation.
@@ -125,7 +124,7 @@ do{
 
 ### Sovereign clouds
 
-If your app runs in a sovereign cloud, you may need to change the authority URL in the `MSALPublicClientApplication`. The following example sets the authority URL to work with the German AAD cloud:
+If your app runs in a sovereign cloud, you may need to change the authority URL in the `MSALPublicClientApplication`. The following example sets the authority URL to work with the German Microsoft Entra cloud:
 
 Objective-C
 ```objc
@@ -178,13 +177,17 @@ When the authority URL is set to `"login.microsoftonline.com/common"`, the user 
 
 To sign the user into a specific tenant, configure `MSALPublicClientApplication` with a specific authority. For example:
 
-`https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
+`https://login.microsoftonline.com/dddd5555-eeee-6666-ffff-00001111aaaa`
 
-The following shows how to sign a user into a specific tenant:
+If you want to sign into the Contoso tenant, use;
+
+`https://login.microsoftonline.com/contoso.onmicrosoft.com`
+
+The following shows how to sign a user into the Contoso tenant:
 
 Objective-C
 ```objc
-    NSURL *authorityURL = [NSURL URLWithString:@"https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4"];
+    NSURL *authorityURL = [NSURL URLWithString:@"https://login.microsoftonline.com/contoso.onmicrosoft.com"];
     MSALAADAuthority *tenantedAuthority = [[MSALAADAuthority alloc] initWithURL:authorityURL error:&authorityError];
     
     if (!tenantedAuthority)
@@ -210,7 +213,7 @@ Objective-C
 Swift
 ```swift
 do{
-    guard let authorityURL = URL(string: "https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4") else {
+    guard let authorityURL = URL(string: "https://login.microsoftonline.com/contoso.onmicrosoft.com") else {
         //Handle error
         return
     }    
@@ -236,7 +239,7 @@ The following are subclasses of `MSALAuthority` that you can instantiate dependi
 
 ### MSALAADAuthority
 
-`MSALAADAuthority` represents an AAD authority. The authority URL should be in the following format, where `<port>` is optional: `https://<host>:<port>/<tenant>`
+`MSALAADAuthority` represents a Microsoft Entra authority. The authority URL should be in the following format, where `<port>` is optional: `https://<host>:<port>/<tenant>`
 
 ### MSALB2CAuthority
 

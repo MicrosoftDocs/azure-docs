@@ -12,12 +12,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 08/22/2022
 ms.author: anfdocs
 ---
 # Performance impact of Kerberos on Azure NetApp Files NFSv4.1 volumes
 
-Azure NetApp Files supports [NFS client encryption in Kerberos](configure-kerberos-encryption.md) modes (krb5, krb5i, and krb5p) with AES-256 encryption. This article describes the performance impact of Kerberos on NFSv4.1 volumes. 
+Azure NetApp Files supports [NFS client encryption in Kerberos](configure-kerberos-encryption.md) modes (krb5, krb5i, and krb5p) with AES-256 encryption. This article describes the performance impact of Kerberos on NFSv4.1 volumes. **Performance comparisons referenced in this article are made against the `sec=sys` security parameter, testing on a single volume with a single client.**
 
 ## Available security options 
 
@@ -40,40 +40,33 @@ This section describes the single client-side performance impact of the various 
 
 ## Expected performance impact 
 
-There are two areas of focus: light load and upper limit. The following lists describe the performance impact security setting by security setting and scenario by scenario. All comparisons are made against the `sec=sys` security parameter. The test was done on a single volume, using a single client. 
+There are two areas of focus: light load and upper limit. The following lists describe the performance impact security setting by security setting and scenario by scenario.
 
-Performance impact of krb5:
+**Testing Scope**
+* All comparisons are made against the `sec=sys` security parameter.
+* The test was done on a single volume, using a single client. 
 
-* Low concurrency (r/w):
-    * Sequential latency increased 0.3 ms.
-    * Random I/O latency increased 0.2 ms.
-    * Metadata I/O latency increased 0.2 ms.
-* High concurrency (r/w): 
-    * Maximum sequential throughput was unimpacted by krb5.
-    * Maximum random I/O decreased by 30% for pure read workloads with the overall impact dropping to zero as the workload shifts to pure write. 
-    * Maximum metadata workload decreased 30%.
+**Performance impact of krb5:**
 
-Performance impact of krb5i: 
+* Average IOPS decreased by 53%
+* Average throughput decreased by 53% 
+* Average latency increased by 0.2 ms
 
-* Low concurrency (r/w):
-    * Sequential latency increased 0.5 ms.
-    * Random I/O latency increased 0.2 ms.
-    * Metadata I/O latency increased 0.2 ms.
-* High concurrency (r/w): 
-    * Maximum sequential throughput decreased by 70% overall regardless of the workload mixture.
-    * Maximum random I/O decreased by 50% for pure read workloads with the overall impact decreasing to 25% as the workload shifts to pure write. 
-    * Maximum metadata workload decreased 30%.
+**Performance impact of krb5i:**
 
-Performance impact of krb5p:
+* Average IOPS decreased by 55%
+* Average throughput decreased by 55% 
+* Average latency increased by 0.6 ms
 
-* Low concurrency (r/w):
-    * Sequential latency increased 0.8 ms.
-    * Random I/O latency increased 0.2 ms.
-    * Metadata I/O latency increased 0.2 ms.
-* High concurrency (r/w): 
-    * Maximum sequential throughput decreased by 85% overall regardless of the workload mixture. 
-    * Maximum random I/O decreased by 65% for pure read workloads with the overall impact decreasing to 43% as the workload shifts to pure write. 
-    * Maximum metadata workload decreased 30%.
+**Performance impact of krb5p:**
+
+* Average IOPS decreased by 77%
+* Average throughput decreased by 77% 
+* Average latency increased by 1.6 ms
+
+## Performance considerations with `nconnect`
+
+[!INCLUDE [nconnect krb5 performance warning](includes/kerberos-nconnect-performance.md)]
 
 ## Next steps  
 

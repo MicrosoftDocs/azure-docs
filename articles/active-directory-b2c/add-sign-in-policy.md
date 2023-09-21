@@ -27,7 +27,7 @@ The sign-in policy lets users:
 * Sign in with an Azure AD B2C Local Account
 * Users can sign-in with a social account
 * Password reset
-* Users cannot sign up for an Azure AD B2C Local Account. To create an account, an administrator can use [Azure portal](manage-users-portal.md#create-a-consumer-user), or [MS Graph API](microsoft-graph-operations.md).
+* Users cannot sign up for an Azure AD B2C Local Account. To create an account, an administrator can use the [Azure portal](manage-users-portal.md#create-a-consumer-user), or [Microsoft Graph API](microsoft-graph-operations.md).
 
 ![Profile editing flow](./media/add-sign-in-policy/sign-in-user-flow.png)
 
@@ -114,8 +114,8 @@ The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asser
 ## Update and test your policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **Identity Experience Framework**.
 1. Select **Upload Custom Policy**, and then upload the policy file that you changed, *TrustFrameworkExtensions.xml*.

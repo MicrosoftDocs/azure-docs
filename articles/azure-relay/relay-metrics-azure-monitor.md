@@ -3,7 +3,7 @@ title: Azure Relay metrics in Azure Monitor  | Microsoft Docs
 description: This article provides information on how you can use Azure Monitor to monitor to state of Azure Relay. 
 services: service-bus-relay
 ms.topic: article
-ms.date: 06/23/2021
+ms.date: 08/10/2023
 ---
 
 # Azure Relay metrics in Azure Monitor 
@@ -18,7 +18,7 @@ Azure Monitor provides unified user interfaces for monitoring across various Azu
 
 Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Operation Management Suite and Event Hubs. For more information, see [Monitoring data collected by Azure Monitor](../azure-monitor/data-platform.md).
 
-Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md) in Azure Monitor.
+Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. It's configured in [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md) in Azure Monitor.
 
 ## Access metrics in the portal
 
@@ -26,13 +26,13 @@ You can monitor metrics over time in the [Azure portal](https://portal.azure.com
 
 ![A page titled "Monitor - Metrics (preview)" shows a line graph of memory usage for the last 30 days.][1]
 
-You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics**. 
+You can also access metrics directly via the namespace. To do so, select your namespace and then select **Metrics**. 
 
 For metrics supporting dimensions, you must filter with the desired dimension value.
 
 ## Billing
 
-Using metrics in Azure Monitor is currently free while in preview. However, if you use additional solutions that ingest metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. You are also billed by Azure Monitor logs if you stream metrics data to Azure Monitor logs for advanced analysis.
+Using metrics in Azure Monitor is currently free while in preview. However, if you use additional solutions that ingest metrics data, you may be billed by these solutions. For example, you're billed by Azure Storage if you archive metrics data to an Azure Storage account. You're also billed by Azure Monitor logs if you stream metrics data to Azure Monitor logs for advanced analysis.
 
 The following metrics give you an overview of the health of your service. 
 
@@ -66,7 +66,7 @@ All metrics values are sent to Azure Monitor every minute. The time granularity 
 
 ## Metrics dimensions
 
-Azure Relay supports the following dimensions for metrics in Azure Monitor. Adding dimensions to your metrics is optional. If you do not add dimensions, metrics are specified at the namespace level. 
+Azure Relay supports the following dimensions for metrics in Azure Monitor. Adding dimensions to your metrics is optional. If you don't add dimensions, metrics are specified at the namespace level. 
 
 |Dimension name|Description|
 | ------------------- | ----------------- |

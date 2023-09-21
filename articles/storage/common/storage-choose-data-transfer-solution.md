@@ -1,14 +1,14 @@
 ---
-title: Choose an Azure solution for data transfer| Microsoft Docs
+title: Choose an Azure solution for data transfer
 description: Learn how to choose an Azure solution for data transfer based on data sizes and available network bandwidth in your environment.
 services: storage
-author: alkohli
+author: stevenmatthew
 
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Choose an Azure solution for data transfer

@@ -20,7 +20,7 @@ Follow the steps in this article to plug Google Tag Manager into your managed or
 Follow these steps to plug Google Tag Manager into your managed or self-hosted developer portal.
 
 > [!IMPORTANT]
-> Steps 1 and 2 are not required for managed portals. If you have a managed portal, skip to step 4.
+> Steps 1 - 3 are not required for managed portals. If you have a managed portal, skip to step 4.
 
 1. Set up a [local environment](developer-portal-self-host.md#step-1-set-up-local-environment) for the latest release of the developer portal.
 

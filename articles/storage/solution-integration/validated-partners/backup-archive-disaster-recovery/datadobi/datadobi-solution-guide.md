@@ -7,8 +7,8 @@ author: karauten
 ms.author: karauten
 ms.date: 04/12/2021
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Backup to Azure with DobiProtect
@@ -47,7 +47,6 @@ Remember, you'll require enough network capacity to support daily data transfers
 To determine how much bandwidth you'll need, use the following resources:
 
 - Backup software-independent assessment and reporting tools like:
-  - [MiTrend](https://mitrend.com/)
   - [Aptare](https://www.veritas.com/insights/aptare-it-analytics)
   - [Datavoss](https://www.datavoss.com/)
 
@@ -180,7 +179,7 @@ This section provides a brief guide for how to add Azure Storage to an on-premis
 
 Azure provides a robust monitoring solution in the form of [Azure Monitor](../../../../../azure-monitor/essentials/monitor-azure-resource.md). You can [configure Azure Monitor](../../../../blobs/monitor-blob-storage.md) to track Azure Storage capacity, transactions, availability, authentication, and more. You can find the full reference of metrics that are collected [here](../../../../blobs/monitor-blob-storage-reference.md). A few useful metrics to track are BlobCapacity - to make sure you remain below the maximum [storage account capacity limit](../../../../common/scalability-targets-standard-account.md), Ingress and Egress - to track the amount of data being written to and read from your Azure Storage account, and SuccessE2ELatency - to track the roundtrip time for requests to and from Azure Storage and your MediaAgent.
 
-You can also [create log alerts](../../../../../service-health/alerts-activity-log-service-notifications-portal.md) to track Azure Storage service health and view the [Azure status dashboard](https://status.azure.com/status) at any time.
+You can also [create log alerts](../../../../../service-health/alerts-activity-log-service-notifications-portal.md) to track Azure Storage service health and view the [Azure status dashboard](https://azure.status.microsoft/status) at any time.
 
 #### DobiSync documentation
 
@@ -212,4 +211,4 @@ See the following Datadobi documentation for further detail:
 
 Datadobi has made it easy to deploy their solution in Azure to protect Azure Virtual Machines and many other Azure services. For more information, see the following reference:
 
-- [Protect File Data in Azure with DobiProtect](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadobi1602192408529.datadobi-dobiprotect?tab=overview)
+- [Protect File Data in Azure with DobiProtect](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadobi1602192408529.datadobi_license_purchase?tab=Overview)

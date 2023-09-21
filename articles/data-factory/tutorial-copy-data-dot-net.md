@@ -5,7 +5,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 02/18/2021
+ms.date: 08/10/2023
 ms.author: jianleishen
 ---
 

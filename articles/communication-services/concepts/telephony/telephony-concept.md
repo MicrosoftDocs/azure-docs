@@ -6,7 +6,7 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: bobazile
-ms.date: 06/30/2021
+ms.date: 06/22/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
@@ -15,7 +15,6 @@ ms.subservice: pstn
 # Telephony concepts
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
-[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
 
 Azure Communication Services Calling SDKs can be used to add telephony and Public Switched Telephone Network access to your applications. This page summarizes key telephony concepts and capabilities. See the [calling library](../../quickstarts/voice-video-calling/getting-started-with-calling.md) to learn more about specific SDK languages and capabilities.
 
@@ -40,11 +39,9 @@ With this option:
 
 This option requires an uninterrupted connection to Azure Communication Services.  
 
-For cloud calling, outbound calls are billed at per-minute rates depending on the target country. See the [current rate list for PSTN calls](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv).
+For cloud calling, outbound calls are billed at per-minute rates depending on the target country/region. See the [current rate list for PSTN calls](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv).
 
 ### Azure direct routing
-
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 With this option, you can connect legacy on-premises telephony and your carrier of choice to Azure Communication Services. It provides PSTN calling capabilities to your Communication Services application even if Voice Calling (PSTN) is not available in your country/region. 
 
@@ -78,8 +75,10 @@ This option requires:
 - [Plan for Azure direct routing](./direct-routing-infrastructure.md)
 - [Session Border Controllers certified for Azure Communication Services direct routing](./certified-session-border-controllers.md)
 - [Pricing](../pricing.md)
+- Learn about [call automation API](../call-automation/call-automation.md) that enables you to build server-based calling workflows to control and manage calls for phone numbers and direct routing
 
 ### Quickstarts
 
-- [Get a phone Number](../../quickstarts/telephony/get-phone-number.md)
-- [Call to Phone](../../quickstarts/telephony/pstn-call.md)
+- [Get a phone number](../../quickstarts/telephony/get-phone-number.md)
+- [Outbound call to a phone number](../../quickstarts/telephony/pstn-call.md)
+- [Use call automation to build calling workflow that can place calls to phone numbers, play voice prompts and more](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md)

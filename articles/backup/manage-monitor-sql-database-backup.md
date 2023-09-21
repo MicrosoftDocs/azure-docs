@@ -2,10 +2,10 @@
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: conceptual
-ms.date: 01/20/2022
-author: v-amallick
+ms.date: 09/14/2022
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Manage and monitor backed up SQL Server databases
@@ -13,6 +13,9 @@ ms.author: v-amallick
 This article describes common tasks for managing and monitoring SQL Server databases that are running on an Azure virtual machine (VM) and that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](backup-overview.md) service. You'll learn how to monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
 
 If you haven't yet configured backups for your SQL Server databases, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md)
+
+>[!Note]
+>See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## Monitor backup jobs in the portal
 
@@ -24,19 +27,29 @@ For details on Monitoring scenarios, go to [Monitoring in the Azure portal](back
 
 ## View backup alerts
 
-Because log backups occur every 15 minutes, monitoring backup jobs can be tedious. Azure Backup eases monitoring by sending email alerts. Email alerts are:
+Azure Backup raises built-in alerts via Azure Monitor for the following SQL database backups scenarios:
 
-- Triggered for all backup failures.
-- Consolidated at the database level by error code.
-- Sent only for a database's first backup failure.
+- Backup failures
+- Restore failures
+- Unsupported backup type is configured
+- Workload extension unhealthy
+- Deletion of backup data
 
-To monitor database backup alerts:
+For more information on the supported alert scenarios, see [Azure Monitor alerts for Azure Backup](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#azure-monitor-alerts-for-azure-backup).
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+To monitor database backup alerts, follow these steps:
 
-2. On the vault dashboard, select **Backup Alerts**.
+1. In the Azure portal, go to **Backup center** and filter for **SQL in Azure VM** data source type.
 
-   ![Select Backup Alerts](./media/backup-azure-sql-database/sql-backup-alerts-list.png)
+   :::image type="content" source="./media/backup-azure-sql-database/sql-alerts-inline.png" alt-text="Screenshot showing the Backup alerts menu item." lightbox="./media/backup-azure-sql-database/sql-alerts-expanded.png":::
+
+1. Select the **Alerts** menu item to view the list of all alerts that were fired for SQL database backups in the selected time period.
+
+   :::image type="content" source="./media/backup-azure-sql-database/sql-alerts-list-inline.png" alt-text="Screenshot showing the Backup alerts list." lightbox="./media/backup-azure-sql-database/sql-alerts-list-expanded.png":::
+
+1. To configure notifications for these alerts, you must create an alert processing rule.
+
+   Learn about [Configure notifications for alerts](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#configuring-notifications-for-alerts).
 
 ## Stop protection for a SQL Server database
 
@@ -84,11 +97,11 @@ To stop protection for a database:
 >
 >
 
-## Resume protection for a SQL database
+## Resume protection for an SQL database
 
 When you stop protection for the SQL database, if you select the **Retain Backup Data** option, you can later resume protection. If you don't retain the backup data, you can't resume protection.
 
-To resume protection for a SQL database:
+To resume protection for an SQL database, follow these steps:
 
 1. Open the backup item and select **Resume backup**.
 
@@ -105,7 +118,13 @@ You can run different types of on-demand backups:
 - Differential backup
 - Log backup
 
-While you need to specify the retention duration for Copy-only full backup, the retention range for on-demand full backup will automatically be set to 45 days from current time.
+>[!Note]
+>The retention period of this backup is determined by the type of on-demand backup you have run.
+>
+>- *On-demand full* retains backups for a minimum of *45 days* and a maximum of *99 years*.
+>- *On-demand copy only full* accepts any v0alue for retaintion.
+>- *On-demand differential* retains backup as per the retention of scheduled differentials set in policy.
+>- *On-demand log* retains backups as per the retention of scheduled logs set in policy.
 
 For more information, see [SQL Server backup types](backup-architecture.md#sql-server-backup-types).
 
@@ -174,10 +193,10 @@ The backed-up SQL VM is deleted or moved using Resource move. The experience dep
 
 New VM subscription | New VM Name | New VM Resource group | New VM Region | Experience
 ------------------- | ----------- | --------------------- | ------------- | ---------------------------------
-Same                | Same        | Same                  | Same          | **What will happen to backups of _old_ VM?** <br><br> You’ll receive an alert that backups will be stopped on the _old_ VM. The backup data will be retained as per the last active policy. You can choose to stop protection and delete data and unregister the old VM once all backup data is cleaned up as per policy.   <br><br> **How to get backup data from _old_ VM to _new_ VM?**    <br><br> No SQL backups will be triggered automatically on the _new_ virtual machine. You must re-register the VM to the same vault. Then it’ll appear as a valid target, and SQL data can be restored to the latest available point-in-time via the alternate location recovery capability. After restoring SQL data, SQL backups will continue on this machine. VM backup will continue as-is, if previously configured.
-Same                | Same        | Different             | Same          | **What will happen to backups of _old_ VM?**   <br><br> You’ll receive an alert that backups will be stopped on the _old_ VM. The backup data will be retained as per the last active policy. You can choose to stop protection and delete data and unregister the old VM once all backup data is cleaned up as per policy.     <br><br>**How to get backup data from _old_ VM to _new_ VM?** <br><br> As the new virtual machine is in a different resource group, it’ll be treated as a new machine and you have to explicitly configure SQL backups (and VM backup too, if  previously configured) to the same vault. Then proceed to restore the SQL backup item of the old VM to latest available point-in-time via the _alternate location recovery_ to the new VM. The SQL backups will now continue.
-Same                | Same        | Same or different     | Different     | **What will happen to backups of _old_ VM?**   <br><br> You’ll receive an alert that backups will be stopped on the _old_ VM. The backup data will be retained as per the last active policy. You can choose to stop protection and delete data and unregister the old VM once all backup data is cleaned up as per policy. <br><br> **How to get backup data from _old_ VM to _new_ VM? <br><br>  As the new virtual machine is in a different region, you’ve to configure SQL backups to a vault in the new region.  <br><br> If the new region is a paired region, you can choose to restore SQL data to latest available point-in-time via the ‘cross region restore’ capability from the SQL backup item of the _old_ VM. <br><br> If the new region is a non-paired region, direct restore from the previous SQL backup item is not supported. However, you can choose restore as files option, from the SQL backup item of the ‘old’ VM, to get the data to a mounted share in a VM of the old region, and then mount it to the new VM.
-Different           | Same or different        | Same or different     | Same or different     | **What will happen to backups of _old_ VM?** <br><br>  You’ll receive an alert that backups will be stopped on the _old_ VM. The backup data will be retained as per the last active policy. You can choose to stop protection + delete data and unregister the old VM once all backup data is cleaned up as per policy. <br><br> **How to get backup data from _old_ VM to _new_ VM?** <br><br> As the new virtual machine is in a different subscription, you’ve to configure SQL backups to a vault in the new subscription. If it is a new vault in different subscription, direct restore from the previous SQL backup item is not supported. However, you can choose restore as files option, from the SQL backup item of the _old_ VM, to get the data to a mounted share in a VM of the old subscription, and then mount it to the new VM.
+Same                | Same        | Same                  | Same          | **What will happen to backups of _old_ VM?** <br><br> You’ll receive an alert that backups will be stopped on the _old_ VM. The backup data will be retained as per the last active policy. You can choose to stop protection and delete data and unregister the old VM once all backup data is cleaned up as per policy.   <br><br> **How to get backup data from _old_ VM to _new_ VM?**    <br><br> No SQL backups will be triggered automatically on the _new_ virtual machine. You must re-register the VM to the same vault. Then it will appear as a valid target, and SQL data can be restored to the latest available point-in-time via the alternate location recovery capability. After you restore SQL data, SQL backups will continue on this machine. VM backup will continue as-is, if previously configured.
+Same                | Same        | Different             | Same          | **What will happen to backups of _old_ VM?**   <br><br> You’ll receive an alert that backups will be stopped on the _old_ VM. The backup data will be retained as per the last active policy. You can choose to stop protection and delete data and unregister the old VM once all backup data is cleaned up as per policy.     <br><br>**How to get backup data from _old_ VM to _new_ VM?** <br><br> As the new virtual machine is in a different resource group, it will be treated as a new machine and you've to explicitly configure SQL backups (and VM backup too, if  previously configured) to the same vault. Then proceed to restore the SQL backup item of the old VM to latest available point-in-time via the _alternate location recovery_ to the new VM. The SQL backups will now continue.
+Same                | Same        | Same or different     | Different     | **What will happen to backups of _old_ VM?**   <br><br> You’ll receive an alert that backups will be stopped on the _old_ VM. The backup data will be retained as per the last active policy. You can choose to stop protection and delete data and unregister the old VM once all backup data is cleaned up as per policy. <br><br> **How to get backup data from _old_ VM to _new_ VM? <br><br>  As the new virtual machine is in a different region, you’ve to configure SQL backups to a vault in the new region.  <br><br> If the new region is a paired region, you can choose to restore SQL data to latest available point-in-time via the ‘cross region restore’ capability from the SQL backup item of the _old_ VM. <br><br> If the new region is a non-paired region, direct restore from the previous SQL backup item isn't supported. However, you can choose the *restore as files* option, from the SQL backup item of the ‘old’ VM, to get the data to a mounted share in a VM of the old region, and then mount it to the new VM.
+Different           | Same or different        | Same or different     | Same or different     | **What will happen to backups of _old_ VM?** <br><br>  You’ll receive an alert that backups will be stopped on the _old_ VM. The backup data will be retained as per the last active policy. You can choose to stop protection + delete data and unregister the old VM once all backup data is cleaned up as per policy. <br><br> **How to get backup data from _old_ VM to _new_ VM?** <br><br> As the new virtual machine is in a different subscription, you’ve to configure SQL backups to a vault in the new subscription. If it's a new vault in different subscription, direct restore from the previous SQL backup item isn't supported. However, you can choose the *restore as files* option, from the SQL backup item of the _old_ VM, to get the data to a mounted share in a VM of the old subscription, and then mount it to the new VM.
 
 ## Next steps
 

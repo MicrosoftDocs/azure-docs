@@ -1,7 +1,7 @@
 ---
 title: Configure Azure Monitor alerts for Application Gateway
 description: Learn how to use ARM templates to configure Azure Monitor alerts for Application Gateway
-author: jaesoni
+author: greg-lindsay
 ms.author: greglin
 ms.service: application-gateway
 ms.topic: how-to
@@ -27,8 +27,8 @@ You can use ARM templates to quickly configure important alerts for Application 
 > 1. Select the action group to view its details.
 > 1. Use the Resource Group Name, Action Group Name and Subscription Info here to form the ResourceID for the action group as shown here: <br>
 > `/subscriptions/<subscription-id-from-your-account>/resourcegroups/<resource-group-name>/providers/microsoft.insights/actiongroups/<action-group-name>` 
-- The templates for alerts described here are defined generically for settings like Severity, Aggregation Granularity, Frequency of Evaluation, Condition Type, and so on. You can modify the settings after deployment to meet your needs. See [Understand how metric alerts work in Azure Monitor](../azure-monitor/alerts/alerts-metric-overview.md) for more information.
-- The templates for metric-based alerts use the  **Dynamic threshold** value with [High sensitivity](../azure-monitor/alerts/alerts-dynamic-thresholds.md#what-does-sensitivity-setting-in-dynamic-thresholds-mean). You can choose to adjust these settings based on your needs.
+- The templates for alerts described here are defined generically for settings like Severity, Aggregation Granularity, Frequency of Evaluation, Condition Type, and so on. You can modify the settings after deployment to meet your needs. See [detailed information about configuring a metric alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md) for more information.
+- The templates for metric-based alerts use the  **Dynamic threshold** value with [high sensitivity](../azure-monitor/alerts/alerts-dynamic-thresholds.md#known-issues-with-dynamic-threshold-sensitivity). You can choose to adjust these settings based on your needs.
 
 ## ARM templates
 

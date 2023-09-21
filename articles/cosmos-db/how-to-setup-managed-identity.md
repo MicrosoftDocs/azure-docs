@@ -1,15 +1,16 @@
 ---
 title: Configure managed identities with Azure AD for your Azure Cosmos DB account
 description: Learn how to configure managed identities with Azure Active Directory for your Azure Cosmos DB account
-author: ThomasWeiss
+author: seesharprun
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 10/15/2021
-ms.author: thweiss
+ms.author: sidandrews
 ---
 
 # Configure managed identities with Azure Active Directory for your Azure Cosmos DB account
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. This article shows how to create a managed identity for Azure Cosmos DB accounts.
 
@@ -252,6 +253,9 @@ az cosmosdb identity remove \
 ```
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Tutorial: Store and use Azure Cosmos DB credentials with Azure Key Vault](store-credentials-key-vault.md)
 
 - Learn more about [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 - Learn more about [customer-managed keys on Azure Cosmos DB](how-to-setup-cmk.md)

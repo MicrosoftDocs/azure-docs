@@ -2,16 +2,19 @@
 title: Use Azure Data Lake Tools for Visual Studio Code
 description: Learn how to use Azure Data Lake Tools for Visual Studio Code to create, test, and run U-SQL scripts.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.custom: devx-track-python
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 02/09/2018
+ms.date: 10/17/2022
 ---
 
 # Use Azure Data Lake Tools for Visual Studio Code
 
+[!INCLUDE [retirement-flag-creation](includes/retirement-flag-creation.md)]
+
 In this article, learn how you can use Azure Data Lake Tools for Visual Studio Code (VS Code) to create, test, and run U-SQL scripts. The information is also covered in the following video:
 
-![Video player: Azure Data Lake tools for VS Code](media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png)
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=azuredatalake&ep=azure-data-lake-tools-vscode]
 
 ## Prerequisites
 
@@ -131,7 +134,7 @@ You can set the default context to apply this setting to all script files if you
 2. Enter **ADL: Set Git Ignore**.
 
    - If you don’t have a **.gitIgnore** file in your VS Code working folder, a file named **.gitIgnore** is created in your folder. Four items (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) are added in the file by default. You can make more updates if needed.
-   - If you already have a **.gitIgnore** file in your VS Code working folder, the tool adds four items (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) in your **.gitIgnore** file if the four items were not included in the file.
+   - If you already have a **.gitIgnore** file in your VS Code working folder, the tool adds four items (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) in your **.gitIgnore** file if the four items weren't included in the file.
 
    ![Items in the .gitIgnore file](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
 
@@ -214,7 +217,7 @@ U-SQL local run tests your local data and validates your script locally before y
 - Step through the code.
 - Validate your script locally.
 
-The local run and local debug feature only works in Windows environments, and is not supported on macOS and Linux-based operating systems.
+The local run and local debug feature only works in Windows environments, and isn't supported on macOS and Linux-based operating systems.
 
 For instructions on local run and local debug, see [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
 
@@ -228,7 +231,7 @@ Before you can compile and run U-SQL scripts in Data Lake Analytics, you must co
 
 1. Select Ctrl+Shift+P to open the command palette.
 
-2. Enter **ADL: Login**. The login information appears on the lower right.
+2. Enter **ADL: Login**. The sign in information appears on the lower right.
 
    ![Entering the login command](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
 
@@ -251,7 +254,7 @@ To sign out, enter the command **ADL: Logout**.
 
 Expand **AZURE DATALAKE**, select **Sign in to Azure**, and then follow step 3 and step 4 of [To connect to Azure by using a command](#sign-in-by-command).
 
-!["Sign in to Azure" selection in the explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-sign-in-from-explorer.png )  
+!["Sign in to Azure" selection in the explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-sign-in-from-explorer.png)  
 
 You can't sign out from the explorer. To sign out, see [To connect to Azure by using a command](#sign-in-by-command).
 
@@ -268,7 +271,7 @@ You can create an extraction script for .csv, .tsv, and .txt files by using the 
 
 ![Process for creating an extraction script](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-process.png)
 
-The extraction script is generated based on your entries. For a script that cannot detect the columns, choose one from the two options. If not, only one script will be generated.
+The extraction script is generated based on your entries. For a script that can't detect the columns, choose one from the two options. If not, only one script will be generated.
 
 ![Result of creating an extraction script](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-result.png)
 

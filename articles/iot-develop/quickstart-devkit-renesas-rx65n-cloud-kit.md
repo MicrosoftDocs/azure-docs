@@ -6,8 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/04/2021
-ms.custom: mode-other
+ms.date: 10/14/2022
+ms.custom: mode-other, engagement-fy23
 ---
 
 # Quickstart: Connect a Renesas RX65N Cloud Kit to IoT Central
@@ -34,6 +34,7 @@ You'll complete the following tasks:
     * The [Renesas RX65N Cloud Kit](https://www.renesas.com/products/microcontrollers-microprocessors/rx-32-bit-performance-efficiency-mcus/rx65n-cloud-kit-renesas-rx65n-cloud-kit) (Renesas RX65N)
     * two USB 2.0 A male to Mini USB male cables
     * WiFi 2.4 GHz
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -96,7 +97,7 @@ To connect the Renesas RX65N to Azure, you'll modify a configuration file for Wi
 
     |Constant name|Value|
     |-------------|-----|
-    |`WIFI_SSID` |{*Your Wi-Fi ssid*}|
+    |`WIFI_SSID` |{*Your Wi-Fi SSID*}|
     |`WIFI_PASSWORD` |{*Your Wi-Fi password*}|
     |`WIFI_MODE` |{*One of the enumerated Wi-Fi mode values in the file*}|
 
@@ -126,11 +127,11 @@ To connect the Renesas RX65N to Azure, you'll modify a configuration file for Wi
 > For more information about setting up and getting started with the Renesas RX65N, see [Renesas RX65N Cloud Kit Quick Start](https://www.renesas.com/document/man/quick-start-guide-renesas-rx65n-cloud-kit).
 
 1. Complete the following steps using the following image as a reference.
-    
+
     :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/renesas-rx65n.jpg" alt-text="Locate reset, USB, and E1/E2Lite on the Renesas RX65N board":::
 
 1. Remove the **EJ2** link from the board to enable the E2 Lite debugger. The link is located underneath the **USER SW** button.
-    > [!WARNING] 
+    > [!WARNING]
     > Failure to remove this link will result in being unable to flash the device.
 
 1. Connect the **WiFi module** to the **Cloud Option Board**
@@ -161,9 +162,14 @@ To connect the Renesas RX65N to Azure, you'll modify a configuration file for Wi
 
     :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/rfp-auth.png" alt-text="Screenshot of Renesas Flash Programmer, Authentication":::
 
-6. Select the *Browse...* button and locate the *rx65n_azure_iot.hex* file created in the previous section.
+6. Select the *Connect Settings* tab, select the *Speed* dropdown, and set the speed to 1,000,000 bps.
+    > [!IMPORTANT]
+    > If there are errors when you try to flash the board, you might need to lower the speed in this setting to 750,000 bps or lower.
 
-7. Press *Start* to begin flashing. This process will take approximately 10 seconds.
+
+6. Select the *Operation* tab, then select the *Browse...* button and locate the *rx65n_azure_iot.hex* file created in the previous section.
+
+7. Press *Start* to begin flashing. This process takes less than a minute.
 
 ### Confirm device connection details
 
@@ -187,36 +193,52 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Starting Azure thread
 
     Initializing WiFi
-	    Connecting to SSID 'iot'
-    SUCCESS: WiFi connected to iot
+        MAC address:
+        Firmware version 0.14
+    SUCCESS: WiFi initialized
+
+    Connecting WiFi
+        Connecting to SSID
+        Attempt 1...
+    SUCCESS: WiFi connected
 
     Initializing DHCP
-	    IP address: 192.168.0.21
-	    Gateway: 192.168.0.1
+        IP address: 192.168.0.31
+        Mask: 255.255.255.0
+        Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
 
     Initializing DNS client
-	    DNS address: 75.75.76.76
+        DNS address: 192.168.0.1
     SUCCESS: DNS client initialized
 
-    Initializing SNTP client
-	    SNTP server 0.pool.ntp.org
-	    SNTP IP address: 45.79.214.107
-	    SNTP time update: May 21, 2021 20:24:10.76 UTC 
+    Initializing SNTP time sync
+        SNTP server 0.pool.ntp.org
+        SNTP server 1.pool.ntp.org
+        SNTP time update: Oct 14, 2022 15:23:15.578 UTC
     SUCCESS: SNTP initialized
 
     Initializing Azure IoT DPS client
-	    DPS endpoint: global.azure-devices-provisioning.net
-	    DPS ID scope: ***
-	    Registration ID: mydevice
+        DPS endpoint: global.azure-devices-provisioning.net
+        DPS ID scope:
+        Registration ID: mydevice
     SUCCESS: Azure IoT DPS client initialized
 
     Initializing Azure IoT Hub client
-	    Hub hostname: ***.azure-devices.net
-	    Device id: mydevice
-	    Model id: dtmi:azurertos:devkit:gsgrx65ncloud;1
-    Connected to IoT Hub
-    SUCCESS: Azure IoT Hub client initialized
+        Hub hostname:
+        Device id: mydevice
+        Model id: dtmi:azurertos:devkit:gsgrx65ncloud;1
+    SUCCESS: Connected to IoT Hub
+
+    Receive properties: {"desired":{"$version":1},"reported":{"$version":1}}
+    Sending property: $iothub/twin/PATCH/properties/reported/?$rid=3{"deviceInformation":{"__t":"c","manufacturer":"Renesas","model":"RX65N Cloud Kit","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"RX65N","processorManufacturer":"Renesas","totalStorage":2048,"totalMemory":640}}
+    Sending property: $iothub/twin/PATCH/properties/reported/?$rid=5{"ledState":false}
+    Sending property: $iothub/twin/PATCH/properties/reported/?$rid=7{"telemetryInterval":{"ac":200,"av":1,"value":10}}
+
+    Starting Main loop
+    Telemetry message sent: {"humidity":29.37,"temperature":25.83,"pressure":92818.25,"gasResistance":151671.25}.
+    Telemetry message sent: {"accelerometerX":-887,"accelerometerY":236,"accelerometerZ":8272}.
+    Telemetry message sent: {"gyroscopeX":9,"gyroscopeY":1,"gyroscopeZ":4}.
     ```
 
 Keep Termite open to monitor device output in the following steps.
@@ -256,7 +278,7 @@ To call a method in IoT Central portal:
 
     :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/iot-central-invoke-method.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
 
-1. In the **State** dropdown, select **False**, and then select **Run**.. The LED light should turn off.
+1. In the **State** dropdown, select **False**, and then select **Run**. The LED light should turn off.
 
 ## View device information
 
@@ -285,7 +307,7 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the Renesas RX65N device. You also used the IoT Central portal to create Azure resources, connect the Renesas RX65N securely to Azure, view telemetry, and send messages.
 
-As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
+As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT.
 
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)

@@ -8,27 +8,27 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 06/07/2021
+ms.date: 07/20/2023
 ---
 
 # Send an email with an Azure Data Factory or Azure Synapse pipeline
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE [appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 It's often necessary to send notifications during or after execution of a pipeline. Notification provides proactive alerting and reduces the need for reactive monitoring to discover issues.  This article shows how to configure email notifications from an Azure Data Factory or Azure Synapse pipeline. 
 
 ## Prerequisites
 
 - **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-- **Logic App**. To trigger sending an email from the pipeline, you use [Logic Apps](../logic-apps/logic-apps-overview.md) to define the workflow. For details on creating a Logic App workflow, see [How to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+- **Standard logic app workflow**. To trigger sending an email from the pipeline, you use [Azure Logic Apps](../logic-apps/logic-apps-overview.md) to define the workflow. For details on creating a Standard logic app workflow, see [Create an example Standard logic app workflow](../logic-apps/create-single-tenant-workflows-azure-portal.md).
 
-## Create the email workflow in your Logic App
+## Create the email workflow in your logic app
 
-Create a Logic App workflow named `SendEmailFromPipeline`. Define the workflow trigger as `When an HTTP request is received`, and add an action of `Office 365 Outlook – Send an email (V2)`.
+Create a Standard logic app workflow named `SendEmailFromPipeline`. Add the Request trigger named `When an HTTP request is received`, and add the Office 365 Outlook action named `Send an email (V2)`.
 
-:::image type="content" source="media/how-to-send-email/logic-app-workflow-designer.png" alt-text="Shows the Logic App workflow designer with a Send Email (V2); action from an HTTP request trigger.":::
+:::image type="content" source="media/how-to-send-email/logic-app-workflow-designer.png" alt-text="Shows the logic app workflow designer with the Request trigger and Send an email (V2) action.":::
 
-For the HTTP request trigger, provide this JSON for the `Request Body JSON Schema`:
+In Request trigger, provide this JSON for the `Request Body JSON Schema` property:
 
 ```json
 {
@@ -50,30 +50,30 @@ For the HTTP request trigger, provide this JSON for the `Request Body JSON Schem
 }
 ```
 
-The HTTP Request in the Logic App Designer should look like this:
+The Request trigger in the workflow designer should look like this:
 
-:::image type="content" source="media/how-to-send-email/logic-app-http-request-trigger.png" alt-text="Shows the Logic App workflow designer for the HTTP Request trigger with the Request Body JSON Schema field populated.":::
+:::image type="content" source="media/how-to-send-email/logic-app-http-request-trigger.png" alt-text="Shows the workflow designer for the Request trigger with the Request Body JSON Schema field populated.":::
 
-For the **Send Email (V2)** action, customize how you wish to format the email, using the properties from the request Body JSON schema:
+For the **Send an email (V2)** action, customize how you wish to format the email, using the properties from the request Body JSON schema:
 
-:::image type="content" source="media/how-to-send-email/logic-app-email-action.png" alt-text="Shows the Logic App workflow designer for the Send Email (V2) action.":::
+:::image type="content" source="media/how-to-send-email/logic-app-email-action.png" alt-text="Shows the workflow designer for the Send an email (V2) action.":::
 
-Save the workflow. Browse to the Overview page for the workflow.  Make a note of the Workflow URL for your new workflow then, highlighted in the image below:
+Save the workflow. Browse to the Overview page for the workflow. Make a note of the workflow URL, highlighted in the image below:
 
-:::image type="content" source="media/how-to-send-email/logic-app-workflow-url.png" alt-text="Shows the Logic App workflow Overview tab with the Workflow URL highlighted.":::
+:::image type="content" source="media/how-to-send-email/logic-app-workflow-url.png" alt-text="Shows the workflow Overview page with the Workflow URL highlighted.":::
 
 > [!NOTE]
-> To find the Workflow URL you must browse to the workflow itself, not just the logic app that contains it.  From the Workflows page of your logic app instance, choose the workflow and then navigate to its Overview page. 
+> To find the workflow URL, you must browse to the workflow itself, not just the logic app that contains it. From the Workflows page of your logic app instance, select the workflow and then navigate to its Overview page. 
 
-## Create a pipeline to trigger your Logic App email workflow
+## Create a pipeline to trigger your logic app workflow
 
-Once you create the Logic App workflow to send email, you can trigger it from a pipeline using a **Web** activity.  
+After you create the logic app workflow to send email, you can trigger it from a pipeline using a **Web** activity.  
 
 1. Create a new pipeline and find the **Web** activity under the **General** category, to drag it onto the editing canvas.
 
 1. Select the new **Web1** activity, and then select the **Settings** tab.
 
-   Provide the URL from the Logic App workflow you created previously in the **URL** field.
+   Provide the URL from the logic app workflow you created previously in the **URL** field.
 
    Provide the following JSON for the **Body**:
     ```json
@@ -85,9 +85,9 @@ Once you create the Logic App workflow to send email, you can trigger it from a 
        }
     ```
     
-    Use dynamic expressions to generate useful messages for events in your pipelines.  Notice that the JSON format here matches the JSON format you defined in the Logic App, and you can also customize these as required.
+    Use dynamic expressions to generate useful messages for events in your pipelines.  Notice that the JSON format here matches the JSON format you defined in the logic app, and you can also customize these as required.
     
-    :::image type="content" source="media/how-to-send-email/pipeline-with-web-activity-calling-logic-app.png" alt-text="Shows a pipeline with a Web activity configured with the Logic App workflow URL and JSON message body.":::
+    :::image type="content" source="media/how-to-send-email/pipeline-with-web-activity-calling-logic-app.png" alt-text="Shows a pipeline with a Web activity configured with the logic app workflow URL and JSON message body.":::
 
 1. Select the background area of the pipeline designer to select the pipeline properties page and add a new parameter called receiver, providing an email address as its Default value.
    

@@ -4,7 +4,7 @@ description: Learn how to run queries on Azure Monitor logs to monitor jobs runn
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/02/2019
+ms.date: 09/15/2023
 ---
 
 # Query Azure Monitor logs to monitor HDInsight clusters
@@ -122,4 +122,4 @@ For more information, see [Create, view, and manage metric alerts using Azure Mo
 ## See also
 
 * [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
-* [Create custom views by using View Designer in Azure Monitor](../azure-monitor/visualize/view-designer.md)
+* [Create custom views by using View Designer in Azure Monitor](/previous-versions/azure/azure-monitor/visualize/view-designer)

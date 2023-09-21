@@ -4,12 +4,12 @@ title: Microsoft Sentinel documentation # < 60 chars
 summary: This article presents use cases to get started using Microsoft Sentinel. See and stop threats before they cause harm, with SIEM reinvented for a modern world. Microsoft Sentinel is your birds-eye view across the enterprise. # < 160 chars
 
 metadata:
-  title: Microsoft Sentinel documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: This article presents use cases and scenarios to get started using Microsoft Sentinel. See and stop threats before they cause harm, with SIEM reinvented for a modern world. Microsoft Sentinel is your birds-eye view across the enterprise.# Required; article description that is displayed in search results. < 160 chars.
+  title: Microsoft Sentinel documentation
+  description: This article presents use cases and scenarios to get started using Microsoft Sentinel. See and stop threats before they cause harm, with SIEM reinvented for a modern world. Microsoft Sentinel is your birds-eye view across the enterprise.
   ms.service: microsoft-sentinel
-  ms.topic: landing-page # Required
-  author: yelevin #Required; your GitHub user alias, with correct capitalization.
-  ms.author: yelevin #Required; microsoft alias of author; optional team alias.
+  ms.topic: landing-page
+  author: yelevin
+  ms.author: yelevin
   ms.date: 11/09/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -64,7 +64,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Create KQL queries for Microsoft Sentinel
-            url: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
+            url: /training/paths/sc-200-utilize-kql-for-azure-sentinel/
 
   # Card
   - title: Collect data
@@ -96,7 +96,7 @@ landingContent:
           - text: CEF log field mapping
             url: cef-name-mapping.md
           - text: Network normalization schema
-            url: ./network-normalization-schema.md
+            url: ./normalization-schema-network.md
 
  # Card (optional)
   - title: Kusto Query Language in Microsoft Sentinel
@@ -112,7 +112,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Write your first query with Kusto Query Language
-            url: /learn/modules/write-first-query-kusto-query-language/
+            url: /training/modules/write-first-query-kusto-query-language/
           - text: More KQL learning and skilling resources
             url: kusto-resources.md
       - linkListType: reference
@@ -158,7 +158,7 @@ landingContent:
           - text: Entities reference
             url: entities-reference.md
           - text: UEBA enrichments
-            url: ueba-enrichments.md
+            url: ueba-reference.md
 
  # Card (optional)
   - title: Threat hunting

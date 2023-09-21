@@ -1,0 +1,62 @@
+### YamlMime:Landing
+
+title: Azure Native Dynatrace Service
+summary: Azure Native Dynatrace Service provides a native integrated experience for monitoring where you can create and manage Dynatrace environments from Azure.
+
+metadata:
+  title: Azure Native Dynatrace Service documentation
+  description: Azure Native Dynatrace Service offers a monitoring solution for your Azure workloads using a streamlined workflow.
+  ms.topic: landing-page
+  author: flang-msft
+  ms.author: franlanglois
+  ms.date: 08/24/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About Azure Native Dynatrace Service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Native Dynatrace Service?
+            url: dynatrace-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Complete the prerequisites for Dynatrace
+            url: dynatrace-how-to-configure-prereqs.md
+          - text: Manage the Dynatrace resource with the portal
+            url: dynatrace-how-to-manage.md
+
+  # Card
+  - title: Create Dynatrace resource
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a new Dynatrace resource
+            url: dynatrace-create.md
+          - text: Link to an existing Dynatrace environment
+            url: dynatrace-link-to-existing.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting Azure Native Dynatrace Service
+            url: dynatrace-troubleshoot.md
+
+  # Card
+  - title: Explore reference content
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Python
+            url: /python/api/overview/azure/dynatrace
+          - text: JavaScript
+            url: /javascript/api/overview/azure/dynatrace
+          - text: .NET
+            url: /dotnet/api/overview/azure/dynatrace
+          - text: Java
+            url: /java/api/overview/azure/dynatrace
+          - text: REST API
+            url: /rest/api/dynatrace
+#          - text: Azure PowerShell
+#            url: 
+          

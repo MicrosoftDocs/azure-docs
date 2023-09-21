@@ -1,15 +1,15 @@
 ---
-title: Protected web API app registration | Azure
-titleSuffix: Microsoft identity platform
+title: Protected web API app registration
 description: Learn how to build a protected web API and the information you need to register the app.
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.date: 01/27/2022
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev
 # Customer intent: As an application developer, I want to know how to write a protected web API using the Microsoft identity platform for developers.
 ---
@@ -33,7 +33,7 @@ After you create the application, you can determine or change the accepted token
 
 1. In the Azure portal, select your app and then select **Manifest**.
 1. Find the property **accessTokenAcceptedVersion** in the manifest.
-1. The value specifies to Azure Active Directory (Azure AD) which token version the web API accepts.
+1. The value specifies to Microsoft Entra ID which token version the web API accepts.
    - If the value is 2, the web API accepts v2.0 tokens.
    - If the value is **null**, the web API accepts v1.0 tokens.
 1. If you changed the token version, select **Save**.
@@ -84,6 +84,9 @@ If you're following along with the web API scenario described in this set of art
 - **User consent description**: _Accesses the TodoListService web API as a user_
 - **State**: _Enabled_
 
+> [!TIP] 
+> For the **Application ID URI**, you have the option to set it to the physical authority of the API, for example `https://graph.microsoft.com`. This can be useful if the URL of the API that needs to be called is known.
+
 ### If your web API is called by a service or daemon app
 
 Expose _application permissions_ instead of delegated permissions if your API should be accessed by daemons, services, or other non-interactive (by a human) applications. Because daemon- and service-type applications run unattended and authenticate with their own identity, there is no user to "delegate" their permission.
@@ -91,7 +94,7 @@ Expose _application permissions_ instead of delegated permissions if your API sh
 
 #### Expose application permissions (app roles)
 
-To expose application permissions, follow the steps in [Add app roles to your app](howto-add-app-roles-in-azure-ad-apps.md).
+To expose application permissions, follow the steps in [Add app roles to your app](./howto-add-app-roles-in-apps.md).
 
 In the **Create app role** pane under **Allowed member types**, select **Applications**. Or, add the role by using the **Application manifest editor** as described in the article.
 
@@ -99,20 +102,20 @@ In the **Create app role** pane under **Allowed member types**, select **Applica
 
 App roles are the mechanism an application developer uses to expose their app's permissions. Your web API's code should check for app roles in the access tokens it receives from callers.
 
-To add another layer of security, an Azure AD tenant administrator can configure their tenant so the Microsoft identity platform issues security tokens _only_ to the client apps they've approved for API access.
+To add another layer of security, a Microsoft Entra tenant administrator can configure their tenant so the Microsoft identity platform issues security tokens _only_ to the client apps they've approved for API access.
 
 To increase security by restricting token issuance only to client apps that have been assigned app roles:
 
-1. In the Azure portal, select your app in **Azure Active Directory** > **App registrations**.
+1. In the Azure portal, select your app in **Identity** > **App registrations**.
 1. On the application's overview page, select its **Managed application in local directory** link to navigate to its **Enterprise Application Overview** page.
 1. Under **Manage**, select **Properties**.
 1. Set **Assignment required?** to **Yes**.
 1. Select **Save**.
 
-Azure AD will now check for app role assignments of client applications that request access tokens for your web API. If a client app hasn't been assigned any app roles, Azure AD returns an error message to the client similar to _invalid_client: AADSTS501051: Application \<application name\> isn't assigned to a role for the \<web API\>_.
+Microsoft Entra ID will now check for app role assignments of client applications that request access tokens for your web API. If a client app hasn't been assigned any app roles, Microsoft Entra ID returns an error message to the client similar to _invalid_client: AADSTS501051: Application \<application name\> isn't assigned to a role for the \<web API\>_.
 
 > [!WARNING]
-> **DO NOT use AADSTS error codes** or their message strings as literals in your application's code. The "AADSTS" error codes and the error message strings returned by Azure AD are _not immutable_, and may be changed by Microsoft at any time and without your knowledge. If you make branching decisions in your code based on the values of either the AADSTS codes or their message strings, you put your application's functionality and stability at risk.
+> **DO NOT use AADSTS error codes** or their message strings as literals in your application's code. The "AADSTS" error codes and the error message strings returned by Microsoft Entra ID are _not immutable_, and may be changed by Microsoft at any time and without your knowledge. If you make branching decisions in your code based on the values of either the AADSTS codes or their message strings, you put your application's functionality and stability at risk.
 
 ## Next steps
 

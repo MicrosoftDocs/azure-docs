@@ -1,12 +1,11 @@
 ---
 title: Create custom Conda channel for package management
 description: Learn how to create a custom Conda channel for package management
-author: midesa
+author: shuaijunye
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 08/11/2021
-ms.author: midesa
-ms.reviewer: sngun 
+ms.date: 07/07/2022
+ms.author: shuaijunye
 ms.subservice: spark
 ---
 
@@ -46,7 +45,7 @@ conda env update --prune -f base_environment.yml
 ## Mount the storage account onto your machine
 Next, we will mount the Azure Data Lake Storage  Gen2 account onto your local machine. This process can also be done with a WASB account; however, we will go through an example for the  ADLSg2 account 
  
-For more information on how to mount the storage account on your local machine, you can visit [this page](https://github.com/Azure/azure-storage-fuse#blobfuse ). 
+For more information on how to mount the storage account on your local machine, you can visit [this page](https://github.com/Azure/azure-storage-fuse#blobfuse). 
 
 1. You can install blobfuse from the Linux Software Repository for Microsoft products.
 
@@ -76,7 +75,7 @@ In the next set of steps, we will create a custom Conda channel.
 ```
 
 cd ~/privatechannel/ 
-mkdir -P channel/linux64 
+mkdir -p channel/linux64 
 
 <Add all .tar.bz2 from https://repo.anaconda.com/pkgs/main/linux-64/> 
 // Note: Add all dependent .tar.bz2 as well 
@@ -125,9 +124,8 @@ conda env create --file sample.yml
 source activate env 
 conda list 
 ```
-Now that you've verified your custom channel, you can use the [Python pool management](./apache-spark-manage-python-packages.md) process to update the libraries on your Apache Spark pool.
+Now that you've verified your custom channel, you can use the [Python pool management](./apache-spark-manage-pool-packages.md#manage-packages-from-synapse-studio-or-azure-portal) process to update the libraries on your Apache Spark pool.
 
 ## Next steps
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)
-- Manage Python packages: [Python package management](./apache-spark-manage-python-packages.md)
-
+- Manage Session level Python packages: [Python package management on Notebook Session](./apache-spark-manage-session-packages.md#session-scoped-python-packages)

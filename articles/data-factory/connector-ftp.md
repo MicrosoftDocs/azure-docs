@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/29/2021
+ms.date: 01/11/2023
 ms.author: jianleishen
 ---
 
@@ -23,12 +23,16 @@ This article outlines how to copy data from FTP server. To learn about more, rea
 
 ## Supported capabilities
 
-This FTP connector is supported for the following activities:
+This FTP connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
-- [GetMetadata activity](control-flow-get-metadata-activity.md)
-- [Delete activity](delete-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
+|[Delete activity](delete-activity.md)|&#9312; &#9313;|
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 Specifically, this FTP connector supports:
 

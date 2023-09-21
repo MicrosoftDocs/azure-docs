@@ -1,23 +1,22 @@
 ---
-# Mandatory fields.
 title: 'Tutorial: Code a client app'
 titleSuffix: Azure Digital Twins
 description: Follow this tutorial to learn how to write the minimal code for an Azure Digital Twins client app, using the .NET (C#) SDK.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/24/2022
+ms.date: 06/29/2023
 ms.topic: tutorial
 ms.service: digital-twins
+ms.custom: devx-track-dotnet
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Tutorial: Coding with the Azure Digital Twins SDK
 
-Developers working with Azure Digital Twins commonly write client applications for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). It walks you through writing a C# console client app step by step, starting from scratch.
+Developers working with Azure Digital Twins commonly write client applications for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins.core-readme). It walks you through writing a C# console client app step by step, starting from scratch.
 
 > [!div class="checklist"]
 > * Set up project
@@ -44,7 +43,7 @@ What you need to begin:
 
 Once you're ready to go with your Azure Digital Twins instance, start setting up the client app project. 
 
-Open a command prompt or other console window on your machine, and create an empty project directory where you want to store your work during this tutorial. Name the directory whatever you want (for example, *DigitalTwinsCodeTutorial*).
+Open a console window on your machine, and create an empty project directory where you want to store your work during this tutorial. Name the directory whatever you want (for example, *DigitalTwinsCodeTutorial*).
 
 Navigate into the new directory.
 
@@ -58,7 +57,7 @@ This command will create several files inside your directory, including one call
 
 Keep the command window open, as you'll continue to use it throughout the tutorial.
 
-Next, add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), the second provides tools to help with authentication against Azure.
+Next, add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins.core-readme), the second provides tools to help with authentication against Azure.
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core
@@ -79,13 +78,7 @@ There's also a section showing the complete code at the end of the tutorial. You
 
 To begin, open the file *Program.cs* in any code editor. You'll see a minimal code template that looks something like this:
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/tutorial-code/starter-template.png" alt-text="Screenshot of a snippet of sample code in a code editor." lightbox="media/tutorial-code/starter-template.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/tutorial-code/starter-template.png" alt-text="Screenshot of a snippet of sample code in a code editor." lightbox="media/tutorial-code/starter-template-large.png":::
 
 First, add some `using` lines at the top of the code to pull in necessary dependencies.
 
@@ -99,7 +92,7 @@ The first thing your app will need to do is authenticate against the Azure Digit
 
 To authenticate, you need the host name of your Azure Digital Twins instance.
 
-In *Program.cs*, paste the following code below the "Hello, World!" printout line in the `Main` method. 
+In *Program.cs*, paste the following code below the "Hello, World!" print line in the `Main` method. 
 Set the value of `adtInstanceUrl` to your Azure Digital Twins instance host name.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Authentication_code":::
@@ -132,7 +125,7 @@ In the directory where you created your project, create a new .json file called 
 > If you're using Visual Studio for this tutorial, you may want to select the newly-created JSON file and set the **Copy to Output Directory** property in the Property inspector to **Copy if Newer** or **Copy Always**. This will enable Visual Studio to find the JSON file with the default path when you run the program with F5 during the rest of the tutorial.
 
 > [!TIP] 
-> There is a language-agnostic [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [Parse and validate models](how-to-parse-models.md).
+> You can check model documents to make sure the DTDL is valid using the [DTDLParser library](https://www.nuget.org/packages/DTDLParser). For more about using this library, see [Parse and validate models](how-to-parse-models.md).
 
 Next, add some more code to *Program.cs* to upload the model you've created into your Azure Digital Twins instance.
 

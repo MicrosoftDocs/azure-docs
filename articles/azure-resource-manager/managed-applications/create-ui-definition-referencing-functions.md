@@ -1,12 +1,10 @@
 ---
 title: Create UI definition referencing functions
 description: Describes the functions to use when constructing UI definitions for Azure portal that reference other objects.
-author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.author: tomfitz
-
 ---
+
 # CreateUiDefinition referencing functions
 
 The functions to use when referencing outputs from the properties or context of a CreateUiDefinition file.

@@ -1,17 +1,16 @@
 ---
-title: Support passwordless authentication with FIDO2 keys in apps you develop | Azure
-titleSuffix: Microsoft identity platform
+title: Support passwordless authentication with FIDO2 keys in apps you develop
 description: This deployment guide explains how to support passwordless authentication with FIDO2 security keys in the applications you develop
 services: active-directory
-author: knicholasa
+author: henrymbuguakiarie
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.date: 1/29/2021
-ms.author: nichola
-# ms.reviewer: 
+ms.author: henrymbugua
+ms.reviewer: knicholasa
 ms.custom: aaddev
 # Customer intent: As a developer, I want to know how to support FIDO2 authentication in my apps
 ---
@@ -54,7 +53,7 @@ As of February 2021, FIDO2 is not currently supported for native iOS or Android 
 
 To prepare applications for its availability, and as a general best practice, iOS and Android applications should use MSAL with its default configuration of using the system web browser.
 
-If you are not using MSAL, you should still use the system web browser for authentication. Features such as single sign-on and conditional access rely on a shared web surface provided by the system web browser. This means using [Chrome Custom Tabs](https://developer.chrome.com/docs/multidevice/android/customtabs/) (Android) or [Authenticating a User Through a Web Service | Apple Developer Documentation](https://developer.apple.com/documentation/authenticationservices/authenticating_a_user_through_a_web_service) (iOS).
+If you are not using MSAL, you should still use the system web browser for authentication. Features such as single sign-on and Conditional Access rely on a shared web surface provided by the system web browser. This means using [Chrome Custom Tabs](https://developer.chrome.com/docs/multidevice/android/customtabs/) (Android) or [Authenticating a User Through a Web Service | Apple Developer Documentation](https://developer.apple.com/documentation/authenticationservices/authenticating_a_user_through_a_web_service) (iOS).
 
 ### Web and single-page apps
 
@@ -62,4 +61,4 @@ The availability of FIDO2 passwordless authentication for applications that run 
 
 ## Next steps
 
-[Passwordless authentication options for Azure Active Directory](../../active-directory/authentication/concept-authentication-passwordless.md)
+[Passwordless authentication options for Microsoft Entra ID](../../active-directory/authentication/concept-authentication-passwordless.md)

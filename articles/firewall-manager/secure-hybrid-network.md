@@ -1,11 +1,12 @@
 ---
 title: 'Tutorial: Secure your hub virtual network using Azure Firewall Manager'
-description: In this tutorial, you learn how to secure your virtual network with Azure Firewall Manager using the Azure portal. 
+description: In this tutorial, you learn how to secure your virtual network with Azure Firewall Manager using the Azure portal.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
+ms.custom: ignite-2022
 ms.topic: tutorial
-ms.date: 03/03/2021
+ms.date: 06/15/2022
 ms.author: victorh
 ---
 
@@ -40,9 +41,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-A hybrid network uses the hub-and-spoke architecture model to route traffic between Azure VNets and on-premise networks. The hub-and-spoke architecture has the following requirements:
+A hybrid network uses the hub-and-spoke architecture model to route traffic between Azure VNets and on-premises networks. The hub-and-spoke architecture has the following requirements:
 
-- Set **AllowGatewayTransit** when peering VNet-Hub to VNet-Spoke. In a hub-and-spoke network architecture, a gateway transit allows the spoke virtual networks to share the VPN gateway in the hub, instead of deploying VPN gateways in every spoke virtual network. 
+- Set **AllowGatewayTransit** when peering VNet-Hub to VNet-Spoke. In a hub-and-spoke network architecture, a gateway transit allows the spoke virtual networks to share the VPN gateway in the hub, instead of deploying VPN gateways in every spoke virtual network.
 
    Additionally, routes to the gateway-connected virtual networks or on-premises networks will automatically propagate to the routing tables for the peered virtual networks using the gateway transit. For more information, see [Configure VPN gateway transit for virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
@@ -64,7 +65,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a Firewall Policy
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the Azure portal search bar, type **Firewall Manager** and press **Enter**.
 3. On the Azure Firewall Manager page, select **View Azure firewall policies**.
 
@@ -75,7 +76,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 2. For the policy name, type **Pol-Net01**.
 3. For Region, select **East US**.
 1. Select **Next : DNS Settings**.
-1. Select **Next : TLS inspection (preview)**
+1. Select **Next : TLS inspection**
 1. Select **Next:Rules**.
 1. Select **Add a rule collection**.
 1. For **Name**, type **RCNet01**.
@@ -89,7 +90,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. For **Destination Type**, select **IP Address**.
 1. For **Destination**, type **10.6.0.0/16**.
 1. On the next rule row, enter the following information:
- 
+
     Name: type **AllowRDP**<br>
     Source: type **192.168.1.0/24**.<br>
     Protocol, select **TCP**<br>
@@ -118,7 +119,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. For **IPv4 address space**, type **10.5.0.0/16**.
 1. Under **Subnet name**, select **default**.
 1.  Change the **Subnet name** to **AzureFirewallSubnet**. The firewall is in this subnet, and the subnet name **must** be AzureFirewallSubnet.
-1. For **Subnet address range**, type **10.5.0.0/26**. 
+1. For **Subnet address range**, type **10.5.0.0/26**.
 1. Accept the other default settings, and then select **Save**.
 1. Select **Review + create**.
 1. Select **Create**.
@@ -137,7 +138,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. For **IPv4 address space**, type **10.6.0.0/16**.
 1. Under **Subnet name**, select **default**.
 1. Change the **Subnet name** to **SN-Workload**.
-1. For **Subnet address range**, type **10.6.0.0/24**. 
+1. For **Subnet address range**, type **10.6.0.0/24**.
 1. Accept the other default settings, and then select **Save**.
 1. Select **Review + create**.
 1. Select **Create**.
@@ -157,7 +158,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. For **IPv4 address space**, type **192.168.0.0/16**.
 1. Under **Subnet name**, select **default**.
 1. Change the **Subnet name** to **SN-Corp**.
-1. For **Subnet address range**, type **192.168.1.0/24**. 
+1. For **Subnet address range**, type **192.168.1.0/24**.
 1. Accept the other default settings, and then select **Save**.
 2. Select **Add Subnet**.
 3. For **Subnet name**, type **GatewaySubnet**.
@@ -246,7 +247,7 @@ Create the on-premises to hub virtual network connection. This step is similar t
 1. Open the **FW-Hybrid-Test** resource group and select the **GW-Onprem** gateway.
 2. Select **Connections** in the left column.
 3. Select **Add**.
-4. The the connection name, type **Onprem-to-Hub**.
+4. For the connection name, type **Onprem-to-Hub**.
 5. Select **VNet-to-VNet** for **Connection type**.
 6. For the **Second virtual network gateway**, select **GW-hub**.
 7. For **Shared key (PSK)**, type **AzureA1b2C3**.
@@ -267,15 +268,15 @@ Now peer the hub and spoke virtual networks.
 2. In the left column, select **Peerings**.
 3. Select **Add**.
 4. Under **This virtual network**:
- 
-   
+
+
    |Setting name  |Value  |
    |---------|---------|
    |Peering link name| HubtoSpoke|
    |Traffic to remote virtual network|   Allow (default)      |
    |Traffic forwarded from remote virtual network    |   Allow (default)      |
    |Virtual network gateway or route server    |  Use this virtual network's gateway       |
-    
+
 5. Under **Remote virtual network**:
 
    |Setting name  |Value  |

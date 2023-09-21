@@ -7,7 +7,7 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: 
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 07/20/2023
 ---
 
 # Reference trigger metadata in pipeline runs
@@ -39,7 +39,7 @@ This section shows you how to pass meta data information from trigger to pipelin
 
 1. Create or attach a trigger to the pipeline, and select **OK**
 
-1. In the following page, fill in trigger meta data for each parameter. Use format defined in [System Variable](control-flow-system-variables.md) to retrieve trigger information. You don't need to fill in the information for all parameters, just the ones that will assume trigger metadata values. For instance, here we assign trigger run start time to *parameter_1*.
+1. After selecting **OK**, another **New trigger** page is presented with a list of the parameters specified for the pipeline, as shown in the following screenshot. On that page, fill in trigger meta data for each parameter. Use format defined in [System Variable](control-flow-system-variables.md) to retrieve trigger information. You don't need to fill in the information for all parameters, just the ones that will assume trigger metadata values. For instance, here we assign trigger run start time to *parameter_1*.
 
     :::image type="content" source="media/how-to-use-trigger-parameterization/02-pass-in-system-variable.png" alt-text="Screenshot of trigger definition page showing how to pass trigger information to pipeline parameters.":::
 

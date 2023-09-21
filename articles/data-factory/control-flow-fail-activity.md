@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/22/2021
+ms.date: 10/25/2022
 ---
 
 # Execute a Fail activity in Azure Data Factory and Synapse Analytics

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the basics of the Azure Digital Twins query language.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/28/2022
+ms.date: 01/10/2023
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
@@ -30,7 +30,7 @@ You can use the Azure Digital Twins query language to retrieve digital twins acc
 * Relationships
   - Properties of the relationships
 
-To submit a query to the service from a client app, you'll use the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query). One way to use the API is through one of the [SDKs for Azure Digital Twins](concepts-apis-sdks.md#overview-data-plane-apis).
+To submit a query to the service from a client app, you'll use the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query). One way to use the API is through one of the [SDKs for Azure Digital Twins](concepts-apis-sdks.md#data-plane-apis).
 
 [!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
 
@@ -48,7 +48,7 @@ When writing queries for Azure Digital Twins, keep the following considerations 
 
 The Azure Digital Twins query language is only for querying the **present** state of your digital twins and relationships.
 
-To run queries on historized digital twin data collected over time, use the [data history (preview)](concepts-data-history.md) feature to connect your Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster. This will automatically historize digital twin property updates to Azure Data Explorer, where they can be queried using the [Azure Digital Twins plugin for Azure Data Explorer](concepts-data-explorer-plugin.md).
+To run queries on historized twin graph data collected over time, use the [data history](concepts-data-history.md) feature to connect your Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster. This will automatically historize graph updates to Azure Data Explorer, where they can be queried using the [Azure Digital Twins plugin for Azure Data Explorer](concepts-data-explorer-plugin.md).
 
 ## Next steps
 

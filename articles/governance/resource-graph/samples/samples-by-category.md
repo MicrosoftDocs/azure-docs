@@ -1,10 +1,11 @@
 ---
 title: List of sample Azure Resource Graph queries by category
 description: List sample queries for Azure Resource-Graph. Categories include Tags, Azure Advisor, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 03/08/2022
+ms.date: 09/01/2023
 ms.topic: sample
 ms.custom: generated
 ---
+
 # Azure Resource Graph sample queries by category
 
 This page is a collection of Azure Resource Graph sample queries grouped by general and service
@@ -47,17 +48,29 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-policy](../../../../includes/resource-graph/samples/bycat/azure-policy.md)]
 
+[!INCLUDE [policy-resources-exemption-query](../../includes/policy/policy-resources-exemption-query.md)]
+
 ## Azure Policy guest configuration
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-policy-guest-configuration](../../../../includes/resource-graph/samples/bycat/azure-policy-guest-configuration.md)]
 
+## Azure RBAC
+
+[!INCLUDE [authorization-resources-troubleshoot-rbac-limits](../../includes/resource-graph/query/authorization-resources-troubleshoot-rbac-limits.md)]
+
+[!INCLUDE [authorization-resources-role-assignments-key-properties](../../includes/resource-graph/query/authorization-resources-role-assignments-key-properties.md)]
+
+[!INCLUDE [authorization-resources-role-definitions-key-properties](../../includes/resource-graph/query/authorization-resources-role-definitions-key-properties.md)]
+
+[!INCLUDE [authorization-resources-role-definitions-actions-list.md](../../includes/resource-graph/query/authorization-resources-role-definitions-actions-list.md)]
+
+[!INCLUDE [authorization-resources-role-definitions-permissions-list](../../includes/resource-graph/query/authorization-resources-role-definitions-permissions-list.md)]
+
+[!INCLUDE [authorization-resources-classic-administrators-key-properties](../../includes/resource-graph/query/authorization-resources-classic-administrators-key-properties.md)]
+
 ## Azure Service Health
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-service-health](../../../../includes/resource-graph/samples/bycat/azure-service-health.md)]
-
-## Azure Spot
-
-[!INCLUDE [azure-resource-graph-samples-cat-azure-spot](../../../../includes/resource-graph/samples/bycat/azure-spot.md)]
 
 ## Azure SQL
 
@@ -90,6 +103,8 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 ## Networking
 
 [!INCLUDE [azure-resource-graph-samples-cat-networking](../../../../includes/resource-graph/samples/bycat/networking.md)]
+
+[!INCLUDE [virtual-machine-basic-sku-public-ip](../../includes/resource-graph/query/virtual-machine-basic-sku-public-ip.md)]
 
 ## Resource health
 

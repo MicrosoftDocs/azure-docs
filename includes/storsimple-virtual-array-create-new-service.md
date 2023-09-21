@@ -3,7 +3,7 @@ title: "include file"
 description: "include file"
 services: storage
 author: alkohli
-ms.service: storage
+ms.service: azure-storage
 ms.topic: "include"
 ms.date: 09/15/2018
 ms.author: alkohli
@@ -12,7 +12,7 @@ ms.custom: "include file"
 
 #### To create a new service
 
-1.  Using your Microsoft account credentials, sign in to the Azure portal at this URL: <https://portal.azure.com/>. If deploying the device in Government portal, sign in at: <https://portal.azure.us/>
+1.  Sign in to the [Azure portal](https://portal.azure.com) using your Microsoft account. To deploy a device to Azure Government, sign in to the [Azure Government portal](https://portal.azure.us) instead.
 
 2.  In the Azure portal, click **+ Create a resource** &gt; **Storage** &gt; **StorSimple Virtual Series**.
 

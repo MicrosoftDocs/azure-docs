@@ -1,18 +1,21 @@
 ---
 title: 'Quickstart: Connect using PHP - Azure Database for MySQL'
 description: This quickstart provides several PHP code samples you can use to connect and query data from Azure Database for MySQL.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
-ms.custom: mvc, mode-other
 ms.topic: quickstart
-ms.date: 10/28/2020
+author: SudheeshGH
+ms.author: sunaray
+ms.custom: mvc, mode-other
+ms.date: 06/20/2022
 ---
 
 # Quickstart: Use PHP to connect and query data in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 This quickstart demonstrates how to connect to an Azure Database for MySQL using a [PHP](https://secure.php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database.
 
 ## Prerequisites
@@ -71,7 +74,7 @@ $conn = mysqli_init();
 mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootG2.crt.pem", NULL, NULL);
 
 // Establish the connection
-mysqli_real_connect($conn, 'mydemoserver.mysql.database.azure.com', 'myadmin@mydemoserver', 'yourpassword', 'quickstartdb', 3306, NULL, MYSQLI_CLIENT_SSL);
+mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL);
 
 //If connection failed, show the error
 if (mysqli_connect_errno())
@@ -79,7 +82,6 @@ if (mysqli_connect_errno())
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
-[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
 ## Step 2: Create a Table
 Use the following code to connect. This code calls:
@@ -174,4 +176,3 @@ az group delete \
 > [!div class="nextstepaction"]
 > [Manage Azure Database for MySQL server using CLI](./how-to-manage-single-server-cli.md)
 
-[Cannot find what you are looking for? Let us know.](https://aka.ms/mysql-doc-feedback)

@@ -3,12 +3,17 @@ title: Disable local authentication in Azure Automation
 description: This article describes disabling local authentication in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/28/2021
+ms.date: 06/12/2023
+ms.custom: engagement-fy23
 ms.topic: how-to
 #Customer intent: As an administrator, I want disable local authentication so that I can enhance security.
 ---
 
 # Disable local authentication in Automation
+
+> [!IMPORTANT]
+> - Update Management patching will not work when local authentication is disabled. 
+> - When you disable local authentication, it impacts the starting a runbook using a webhook, Automation Desired State Configuration and agent-based Hybrid Runbook Workers. For more information, see the [available alternatives](#compatibility).
 
 Azure Automation provides Microsoft Azure Active Directory (Azure AD) authentication support for all Automation service public endpoints. This critical security enhancement removes certificate dependencies and gives organizations control to disable local authentication methods. This feature provides you with seamless integration when centralized control and management of identities and resource credentials through Azure AD is required.
 
@@ -19,12 +24,11 @@ In the Azure portal, you may receive a warning message on the landing page for t
 Disabling local authentication doesn't take effect immediately. Allow a few minutes for the service to block future authentication requests.
 
 >[!NOTE]
-> Currently, PowerShell support for the new API version (2021-06-22) or the flag – `DisableLocalAuth` is not available. However, you can use the Rest-API with this API version to update the flag.
-To allow list and enroll your subscription for this feature in your respective regions, follow the steps in [how to create an Azure support request - Azure supportability | Microsoft Docs](../azure-portal/supportability/how-to-create-azure-support-request.md).
- 
+> - Currently, PowerShell support for the new API version (2021-06-22) or the flag – `DisableLocalAuth` is not available. However, you can use the Rest-API with this API version to update the flag.
+
 ## Re-enable local authentication
 
-To re-enable local authentication, execute the PowerShell cmdlet `Set-AzAutomationAccount` with the parameter `-DisableLocalAuth false`.  Allow a few minutes for the service to accept the change to allow local authentication requests. 
+To re-enable local authentication, execute the PowerShell cmdlet `Set-AzAutomationAccount` with the parameter `-DisableLocalAuth false`.  Allow a few minutes for the service to accept the change to allow local authentication requests.
 
 ## Compatibility
 
@@ -33,12 +37,9 @@ The following table describes the behaviors or features that are prevented from 
 |Scenario | Alternative |
 |---|---|
 |Starting a runbook using a webhook. | Start a runbook job using Azure Resource Manager template, which uses Azure AD authentication. |
-|Using Automation Desired State Configuration.| Use [Azure Policy Guest configuration](../governance/policy/concepts/guest-configuration.md).  |
+|Using Automation Desired State Configuration.| Use [Azure Policy Guest configuration](../governance/machine-configuration/overview.md).  |
 |Using agent-based Hybrid Runbook Workers.| Use [extension-based Hybrid Runbook Workers (Preview)](./extension-based-hybrid-runbook-worker-install.md).|
-
-## Limitations
-
-Update Management patching will not work when local authentication is disabled.
+|Using Automation Update management |Use [Update Manager (preview)](../update-center/overview.md)
 
 
 ## Next steps

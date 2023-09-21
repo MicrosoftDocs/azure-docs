@@ -2,13 +2,12 @@
 title: 'Quickstart: Create an any-to-any configuration using an ARM template'
 titleSuffix: Azure Virtual WAN
 description: Learn how to create an any-to-any configuration using an Azure Resource Manager template (ARM template).
-services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: quickstart
-ms.date: 01/11/2022
+ms.date: 08/24/2023
 ms.author: cherylmc
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create an any-to-any configuration using an ARM template
@@ -63,15 +62,15 @@ To find more templates, see [Azure Quickstart Templates](https://azure.microsoft
 
 To deploy this template properly, you must use **Deploy to Azure** button in the Azure portal, rather than other methods, for the following reasons:
 
-* In order to create the P2S configuration, you need to upload the root certificate data. The data field does not accept the certificate data when using PowerShell or CLI.
-* This template does not work properly using Cloud Shell due to the certificate data upload.
+* In order to create the P2S configuration, you need to upload the root certificate data. The data field doesn't accept the certificate data when using PowerShell or CLI.
+* This template doesn't work properly using Cloud Shell due to the certificate data upload.
 * Additionally, you can easily modify the template and parameters in the portal to accommodate IP address ranges and other values.
 
 1. Click **Deploy to Azure**.
 
    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-all-gateways%2fazuredeploy.json)
 1. To view the template, click **Edit template**. On this page, you can adjust some of the values such as address space or the name of certain resources. **Save** to save your changes, or **Discard**.
-1. On the template page, enter the values. For the **Hub_Public Certificate Data for P2S** fields, you need to input the public key certificate data from the root certificate that you want to use (as mentioned in the prerequisites). If you haven't generated a root certificate and you are using these steps as only an exercise to run the template and observe the results, you can use the following example certificate data for both hubs. If you choose to use this example data and later want P2S clients to connect, you must replace this information with the certificate data from your own environment.
+1. On the template page, enter the values. For the **Hub_Public Certificate Data for P2S** fields, you need to input the public key certificate data from the root certificate that you want to use (as mentioned in the prerequisites). If you haven't generated a root certificate and you're using these steps as only an exercise to run the template and observe the results, you can use the following example certificate data for both hubs. If you choose to use this example data and later want P2S clients to connect, you must replace this information with the certificate data from your own environment.
 
    > [!NOTE]
    > This certificate data is supplied for example purposes only. Replace this example data with the public key [certificate data](certificates-point-to-site.md#cer) from your own certificate if you want P2S clients to connect.
@@ -105,7 +104,7 @@ To deploy this template properly, you must use **Deploy to Azure** button in the
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Resource groups** from the left pane.
-1. Select the resource group that you created in the previous section. On the **Overview** page, you will see something similar to this example:
+1. Select the resource group that you created in the previous section. On the **Overview** page, you'll see something similar to this example:
    :::image type="content" source="./media/quickstart-any-to-any-template/resources.png" alt-text="Example of resources" lightbox="./media/quickstart-any-to-any-template/resources.png":::
 
 1. Click the virtual WAN to view the hubs. On the virtual WAN page, click each hub to view connections and other hub information.
@@ -113,7 +112,7 @@ To deploy this template properly, you must use **Deploy to Azure** button in the
 
 ## <a name="complete"></a>Complete the hybrid configuration
 
-The template does not configure all of the settings necessary for a hybrid network. Complete the following configurations and settings, depending on your requirements:
+The template doesn't configure all of the settings necessary for a hybrid network. Complete the following configurations and settings, depending on your requirements:
 
 * [Configure the VPN branches - local sites](virtual-wan-site-to-site-portal.md#site)
 * [Complete the P2S VPN configuration](virtual-wan-point-to-site-portal.md)

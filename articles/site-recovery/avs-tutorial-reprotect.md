@@ -1,12 +1,12 @@
 ---
 title: Reprotect Azure VMs to an Azure VMware Solution private cloud with Azure Site Recovery
 description: Learn how to reprotect Azure VMware Solution VMs after failover to Azure with Azure Site Recovery.
-author: Harsha-CS
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.author: harshacs
+ms.author: ankitadutta
 ms.custom: MVC
 ---
 
@@ -22,13 +22,13 @@ After [failover](avs-tutorial-failover.md) of Azure VMware Solution VMs to Azure
 4. If you're reprotecting VMs gathered into a replication group for multi-VM consistency, make sure they all have the same operating system (Windows or Linux) and make sure that the master target server you deploy has the same type of operating system. All VMs in a replication group must use the same master target server.
 5. Open [the required ports](vmware-azure-prepare-failback.md#ports-for-reprotectionfailback) for failback.
 6. Ensure that the vCenter Server is connected before failback. Otherwise, disconnecting disks and attaching them back to the virtual machine fails.
-7. If a vCenter server manages the VMs to which you'll fail back, make sure that you have the required permissions. If you perform a read-only user vCenter discovery and protect virtual machines, protection succeeds, and failover works. However, during reprotection, failover fails because the datastores can't be discovered, and aren't listed during reprotection. To resolve this problem, you can update the vCenter credentials with an [appropriate account/permissions](avs-tutorial-prepare-avs.md#prepare-an-account-for-automatic-discovery), and then retry the job. 
+7. If a vCenter Server manages the VMs to which you'll fail back, make sure that you have the required permissions. If you perform a read-only user vCenter Server discovery and protect virtual machines, protection succeeds, and failover works. However, during reprotection, failover is unsuccessful because the datastores can't be discovered, and aren't listed during reprotection. To resolve this problem, you can update the vCenter Server credentials with an [appropriate account/permissions](avs-tutorial-prepare-avs.md#prepare-an-account-for-automatic-discovery), and then retry the job. 
 8. If you used a template to create your virtual machines, ensure that each VM has its own UUID for the disks. If the Azure VMware Solution VM UUID clashes with the UUID of the master target server because both were created from the same template, reprotection fails. Deploy from a different template.
 9. If you're failing back to an alternate vCenter Server, make sure that the new vCenter Server and the master target server are discovered. Typically if they're not the datastores aren't accessible, or aren't visible in **Reprotect**.
 10. Verify the following scenarios in which you can't fail back:
     - If you're using either the ESXi 5.5 free edition or the vSphere 6 Hypervisor free edition. Upgrade to a different version.
     - If you have a Windows Server 2008 R2 SP1 physical server.
-    - VMware VMs can't fail back to Hyper-V.
+    - VMware vSphere VMs can't fail back to Hyper-V.
     - VMs that have been migrated.
     - A VM that's been moved to another resource group.
     - A replica Azure VM that's been deleted.

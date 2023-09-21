@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/24/2022
+ms.date: 07/13/2023
 ---
 
 # Copy data from Google AdWords using Azure Data Factory or Synapse Analytics
@@ -20,13 +20,16 @@ This article outlines how to use the Copy Activity in an Azure Data Factory or S
 
 ## Supported capabilities
 
-This Google AdWords connector is supported for the following activities:
+This Google AdWords connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
-You can copy data from Google AdWords to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
 The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
@@ -81,7 +84,7 @@ The following properties are supported for Google AdWords linked service:
 | clientId | The client ID of the Google application used to acquire the refresh token. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | clientSecret | The client secret of the google application used to acquire the refresh token. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | email | The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.  | No |
-| keyFilePath | The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.  | No |
+| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address and can only be used on self-hosted IR.  | No |
 | trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over TLS. This property can only be set when using TLS on self-hosted IR. The default value is the cacerts.pem file installed with the IR.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.  | No |
 

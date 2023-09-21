@@ -1,17 +1,19 @@
 ---
 title: Infrastructure double encryption - Azure Database for MySQL
 description: Learn about using Infrastructure double encryption to add a second layer of encryption with a service managed keys.
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
 ms.subservice: single-server
+author: mksuni
+ms.author: sumuth
 ms.topic: conceptual
-ms.date: 6/30/2020
+ms.date: 06/20/2022
 ---
 
 # Azure Database for MySQL Infrastructure double encryption
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Azure Database for MySQL uses storage [encryption of data at-rest](concepts-security.md#at-rest) for data using Microsoft's managed keys. Data, including backups, are encrypted on disk and this encryption is always on and can't be disabled. The encryption uses FIPS 140-2 validated cryptographic module and an AES 256-bit cipher for the Azure storage encryption.
 

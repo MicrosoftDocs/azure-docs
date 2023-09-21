@@ -4,8 +4,10 @@ description: Get answers to common questions about the Azure Migrate appliance.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.custom: ignite-2022, engagement-fy24
+ms.date: 08/24/2022
 ---
 
 # Azure Migrate appliance: Common questions
@@ -14,18 +16,18 @@ This article answers common questions about the Azure Migrate appliance. If you 
 
 - [General questions](resources-faq.md) about Azure Migrate
 - Questions about [discovery, assessment, and dependency visualization](common-questions-discovery-assessment.md)
-- Questions about [server migration](common-questions-server-migration.md)
+- Questions about [Migration and modernization](common-questions-server-migration.md)
 - Get questions answered in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
 
 ## What is the Azure Migrate appliance?
 
-The Azure Migrate appliance is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover and assess physical or virtual servers from on-premises or any cloud. The Azure Migrate: Server Migration tool also uses the appliance for agentless migration of on-premises servers running in VMware environment.
+The Azure Migrate appliance is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover and assess physical or virtual servers from on-premises or any cloud. The Migration and modernization tool also uses the appliance for agentless migration of on-premises servers running in VMware environment.
 
 Here's more information about the Azure Migrate appliance:
 
 - The appliance is deployed on-premises as a physical server or a virtualized server.
 - The appliance discovers on-premises servers and continually sends server metadata and performance data to Azure Migrate.
-- Appliance discovery is agentless. Nothing is installed on discovered servers.
+- Appliance discovery is agentless. Nothing is installed on the discovered servers.
 
 [Learn more](migrate-appliance.md) about the appliance.
 
@@ -36,15 +38,14 @@ The appliance can be deployed using a couple of methods:
 - The appliance can be deployed using a template for servers running in VMware or Hyper-V environment ([OVA template for VMware](how-to-set-up-appliance-vmware.md) or [VHD for Hyper-V](how-to-set-up-appliance-hyper-v.md)).
 - If you don't want to use a template, you can deploy the appliance for VMware or Hyper-V environment using a [PowerShell installer script](deploy-appliance-script.md).
 - In Azure Government, you should deploy the appliance using a PowerShell installer script. Refer to the steps of deployment [here](deploy-appliance-script-government.md).
-- For physical or virtualized servers on-premises or any other cloud, you always deploy the appliance using a PowerShell installer script.Refer to the steps of deployment [here](how-to-set-up-appliance-physical.md).
+- For physical or virtualized servers on-premises or any other cloud, you always deploy the appliance using a PowerShell installer script. Refer to the steps of deployment [here](how-to-set-up-appliance-physical.md).
 
 ## How does the appliance connect to Azure?
 
-The appliance can connect via the internet or by using Azure ExpressRoute. 
+The appliance can connect to Azure using public or private networks or using Azure ExpressRoute.
 
 - Make sure the appliance can connect to these [Azure URLs](./migrate-appliance.md#url-access). 
 - You can use ExpressRoute with Microsoft peering. Public peering is deprecated, and isn't available for new ExpressRoute circuits.
-- Private peering only isn't supported.
 
 ## Does appliance analysis affect performance?
 
@@ -52,7 +53,7 @@ The Azure Migrate appliance profiles on-premises servers continuously to measure
 
 ## Can I harden the appliance?
 
-When you use the downloaded template to create the appliance, you can add components (antivirus, for example) to the template. Ensure that you have allowed access to the correct [URLs](migrate-appliance.md#public-cloud-urls) through Azure Firewall and that the *%ProgramData%\MicrosoftAzure* folder is excluded from antivirus scanning.
+When you use the downloaded template to create the appliance, you can add components (antivirus, for example) to the template. Ensure that you have allowed access to the correct [URLs](migrate-appliance.md#public-cloud-urls) through Azure Firewall and that the *%ProgramData%\Microsoft Azure* folder is excluded from antivirus scanning.
 
 ## What network connectivity is required?
 
@@ -72,7 +73,7 @@ Data that's collected by the Azure Migrate appliance is stored in the Azure loca
 
 Here's more information about how data is stored:
 
-- The collected data is securely stored in CosmosDB in a Microsoft subscription. The data is deleted when you delete the project. Storage is handled by Azure Migrate. You can't specifically choose a storage account for collected data.
+- The collected data is securely stored in Azure Cosmos DB in a Microsoft subscription. The data is deleted when you delete the project. Storage is handled by Azure Migrate. You can't specifically choose a storage account for collected data.
 - If you use [dependency visualization](concepts-dependency-visualization.md), the data that's collected is stored in an Azure Log Analytics workspace created in your Azure subscription. The data is deleted when you delete the Log Analytics workspace in your subscription.
 
 ## How much data is uploaded during continuous profiling?
@@ -84,7 +85,7 @@ The volume of data that's sent to Azure Migrate depends on multiple parameters. 
 Yes, for both:
 
 - Metadata is securely sent to the Azure Migrate service over the internet via HTTPS.
-- Metadata is stored in an [Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at rest for storage.
+- Metadata is stored in an [Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at rest for storage.
 - The data for dependency analysis also is encrypted in transit (by secure HTTPS). It's stored in a Log Analytics workspace in your subscription. The data is encrypted at rest for dependency analysis.
 
 ## How does the appliance connect to vCenter Server?
@@ -128,7 +129,7 @@ However, deleting the resource group also deletes other registered appliances, t
 
 ## Can I use the appliance with a different subscription or project?
 
-To use the appliance with a different subscription or project, you would need to reconfigure the existing appliance by running the PowerShell installer script for the specific scenario (VMware/Hyper-V/Physical) on the appliance. The script will clean up the existing appliance components and settings to deploy a fresh appliance. Ensure to clear the browser cache before you start using the newly deployed appliance configuration manager.
+To use the appliance with a different subscription or project, you would need to reconfigure the existing appliance by running the [PowerShell installer script](deploy-appliance-script.md) for the specific scenario (VMware/Hyper-V/Physical) on the appliance. The script will clean up the existing appliance components and settings to deploy a fresh appliance. Ensure to clear the browser cache before you start using the newly deployed appliance configuration manager.
 
 Also, you cannot reuse an existing project key on a reconfigured appliance. Make sure you generate a new key from the desired subscription/project to complete the appliance registration.
 
@@ -148,13 +149,13 @@ Only the appliance and the appliance agents are updated by these automatic updat
 
 ## Can I check agent health?
 
-Yes. In the portal, go the **Agent health** page for the Azure Migrate: Discovery and assessment or Azure Migrate: Server Migration tool. There, you can check the connection status between Azure and the discovery and assessment agents on the appliance.
+Yes. In the portal, go the **Agent health** page of the Azure Migrate: Discovery and assessment tool or the Migration and modernization tool. There, you can check the connection status between Azure and the discovery and assessment agents on the appliance.
 
-## Can I add multiple server credentials on VMware appliance?
+## Can I add multiple server credentials on appliance?
 
-Yes, we now support multiple server credentials to perform software inventory (discovery of installed applications), agentless dependency analysis, and discovery of SQL Server instances and databases. [Learn more](tutorial-discover-vmware.md#provide-server-credentials) on how to provide credentials on the appliance configuration manager.
+Yes, we now support multiple server credentials to perform software inventory (discovery of installed applications), agentless dependency analysis, and discovery of SQL Server instances and databases. [Learn more](add-server-credentials.md) on how to provide credentials on the appliance configuration manager.
 
-## What type of server credentials can I add on the VMware appliance?
+## What type of server credentials can I add on the appliance?
 
 You can provide domain/ Windows(non-domain)/ Linux(non-domain)/ SQL Server authentication credentials on the appliance configuration manager. [Learn more](add-server-credentials.md) about how to provide credentials and how we handle them.
 

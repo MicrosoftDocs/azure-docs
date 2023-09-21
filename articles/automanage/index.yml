@@ -1,0 +1,73 @@
+### YamlMime:Landing
+
+title: Azure Automanage
+summary: Azure Automanage Machine Best Practices
+
+metadata:
+  title: Azure Automanage
+  description: Learn about Azure Automanage
+  ms.service: automanage
+  ms.topic: landing-page
+  ms.date: 09/07/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Automanage
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: What is Azure Automanage?
+            url: overview-about.md
+          - text: Automanage configuration profiles
+            url: overview-configuration-profiles.md
+  # Card
+  - title: Quickstarts
+    linkLists:
+      - linkListType: quickstart
+        links: 
+          - text: Enable Automanage using Azure portal
+            url: quick-create-virtual-machines-portal.md
+          - text: Enable Automanage using GO
+            url: quick-go-sdk.md
+          - text: Enable Automanage using Java
+            url: quick-java-sdk.md
+          - text: Enable Automanage using JavaScript
+            url: quick-javascript-sdk.md
+          - text: Enable Automanage using Python
+            url: quick-python-sdk.md          
+
+  # Card 
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Enable Automanage with Python
+            url: tutorial-create-assignment-python.md
+
+  # Card 
+  - title: How-to guides
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create custom profile in Azure
+            url: virtual-machines-custom-profile.md
+          - text: Onboard VM with ARM template
+            url: arm-deploy.md
+          - text: Enable Automanage for VM through Azure Policy
+            url: virtual-machines-policy-enable.md
+
+  # Card 
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Automanage for Linux
+            url: automanage-linux.md
+          - text: Automanage for Azure Arc-enabled servers
+            url: automanage-arc.md
+          - text: Automanage for Windows Server
+            url: automanage-windows-server.md

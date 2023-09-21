@@ -1,18 +1,22 @@
 ---
-title: Configure automatic shutdown of VMs for a lab in Azure Lab Services 
-description: Learn how to enable or disable automatic shutdown of VMs when a remote desktop connection is disconnected.  
+title: Configure automatic shutdown for a lab
+titleSuffix: Azure Lab Services
+description: Learn how to enable or disable automatic shutdown of lab VMs in Azure Lab Services by configuring the lab settings. Automatic shutdown happens when a user disconnects from the remote connection.
+services: lab-services
+ms.service: lab-services
+author: ntrogh
+ms.author: nicktrog
 ms.topic: how-to
-ms.date: 02/04/2022
+ms.date: 03/01/2023
 ---
 
 # Configure automatic shutdown of VMs for a lab
 
-This article shows you how you can configure [automatic shut-down](classroom-labs-concepts.md#automatic-shut-down) of VMs for a lab.  To learn more about the benefits of auto-shutdown policies, see [Maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control).
+This article shows you how you can configure automatic shutdown of VMs for a lab.  To learn more about the benefits of auto-shutdown policies, see [Maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control).
 
 A lab plan administrator can configure automatic shutdown policies for the lab plan that you use create labs. For more information, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-auto-shutdown-lab-plans.md). As a lab owner, you can override the settings when creating a lab or after the lab is created.
 
-> [!IMPORTANT]
-> Prior to the [April 2022 Update (preview)](lab-services-whats-new.md), Linux labs only support automatic shut down when users disconnect and when VMs are started but users don't connect.  Support also varies depending on [specific distributions and versions of Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions).  Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) image.
+Azure Lab Services supports automatic shutdown for both Windows-based and Linux-based virtual machines. For Linux-based VMs, [support depends on the specific Linux distribution and version](#supported-linux-distributions-for-automatic-shutdown).
 
 ## Configure for the lab level
 
@@ -24,8 +28,24 @@ You can configure the auto-shutdown settings when you create a lab or after it's
 > [!WARNING]
 > If you shutdown the Linux or Windows operating system (OS) on a VM before disconnecting an RDP session to the VM, the auto-shutdown feature will not work properly. For more information, see [Guide to controlling Windows shutdown behavior](how-to-windows-shutdown.md). 
 
+## Supported Linux distributions for automatic shutdown
+
+Azure Lab Services supports automatic shutdown for many Linux distributions and versions. Support varies depending on whether you're using a lab plan or lab account.
+
+### Lab plan-based labs
+
+[!INCLUDE [supported linux distributions for automatic shutdown](./includes/lab-services-auto-shutdown-linux-support.md)]
+
+### Lab account-based labs
+
+If you're using lab account-based labs, Linux labs only support automatic shut down when users disconnect and when VMs are started but users don't connect.
+
+Support varies depending on [specific distributions and versions of Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions). 
+
+Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) image.
+
 ## Next steps
 
-- As an educator, learn about the different [shut-down policies](classroom-labs-concepts.md#automatic-shut-down) available.
+- As an educator, learn how to [maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control).
 - As an educator, see the [dashboard for labs](use-dashboard.md).
 - As an admin, [maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control).

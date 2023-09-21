@@ -2,7 +2,7 @@
 title: Connect hybrid machines to Azure by using PowerShell
 description: In this article, you learn how to install the agent and connect a machine to Azure by using Azure Arc-enabled servers. You can do this with PowerShell.
 ms.date: 07/16/2021
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -20,7 +20,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - A machine with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](/powershell/azure/).
 
-You use PowerShell to manage VM extensions on your hybrid servers managed by Azure Arc-enabled servers. Before using PowerShell, install the `Az.ConnectedMachine` module. Run the following command on your server enabled with Azure Arc:
+You use PowerShell to manage VM extensions on your hybrid servers managed by Azure Arc-enabled servers. Before using PowerShell, install the `Az.ConnectedMachine` module on the server you want to Arc-enable. Run the following command on your server enabled with Azure Arc:
 
 ```powershell
 Install-Module -Name Az.ConnectedMachine
@@ -43,9 +43,9 @@ When the installation finishes, you see the following message:
         ```azurepowershell
         Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region>
         ```
-    
+
     * To install the Connected Machine agent on the target machine that communicates through a proxy server, run:
-        
+
         ```azurepowershell
         Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -Proxy http://<proxyURL>:<proxyport>
         ```
@@ -65,12 +65,12 @@ Here's how to configure one or more Windows servers with servers enabled with Az
 3. To install the Connected Machine agent, use `Connect-AzConnectedMachine` with the `-ResourceGroupName`, and `-Location` parameters. The Azure resource names will automatically use the hostname of each server. Use the `-SubscriptionId` parameter to override the default subscription as a result of the Azure context created after sign-in.
 
     * To install the Connected Machine agent on the target machine that can directly communicate to Azure, run the following command:
-    
+
         ```azurepowershell
         $sessions = New-PSSession -ComputerName myMachineName
         Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Location <region> -PSSession $sessions
         ```
-    
+
     * To install the Connected Machine agent on multiple remote machines at the same time, add a list of remote machine names, each separated by a comma.
 
         ```azurepowershell
@@ -79,13 +79,13 @@ Here's how to configure one or more Windows servers with servers enabled with Az
         ```
 
     The following example shows the results of the command targeting a single machine:
-    
+
     ```azurepowershell
     time="2020-08-07T13:13:25-07:00" level=info msg="Onboarding Machine. It usually takes a few minutes to complete. Sometimes it may take longer depending on network and server load status."
     time="2020-08-07T13:13:25-07:00" level=info msg="Check network connectivity to all endpoints..."
     time="2020-08-07T13:13:29-07:00" level=info msg="All endpoints are available... continue onboarding"
     time="2020-08-07T13:13:50-07:00" level=info msg="Successfully Onboarded Resource to Azure" VM Id=f65bffc7-4734-483e-b3ca-3164bfa42941
-    
+
     Name           Location OSName   Status     ProvisioningState
     ----           -------- ------   ------     -----------------
     myMachineName  eastus   windows  Connected  Succeeded
@@ -103,4 +103,4 @@ After you install and configure the agent to register with Azure Arc-enabled ser
 
 * Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
-* Learn how to manage your machine by using [Azure Policy](../../governance/policy/overview.md). You can use VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verify that the machine is reporting to the expected Log Analytics workspace, and enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md).
+* Learn how to manage your machine by using [Azure Policy](../../governance/policy/overview.md). You can use VM [guest configuration](../../governance/machine-configuration/overview.md), verify that the machine is reporting to the expected Log Analytics workspace, and enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md).

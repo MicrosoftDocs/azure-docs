@@ -4,7 +4,7 @@ description: Learn how to determine what resources users, groups, service princi
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
@@ -27,7 +27,7 @@ ms.custom: devx-track-azurepowershell
 
 ## Prerequisites
 
-- [PowerShell in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-az-ps)
+- [PowerShell in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## List role assignments for the current subscription
 

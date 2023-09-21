@@ -12,10 +12,10 @@ ms.assetid:
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
+ms.custom: devx-track-extended-java
 ms.topic: tutorial
-ms.date: 05/02/2022
+ms.date: 04/11/2023
 ms.author: mametcal
-
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration using push refresh in a Java Spring app
@@ -51,24 +51,45 @@ In this tutorial, you learn how to:
 
 1. Open *pom.xml* and update the file with the following dependencies.
 
-   ```xml
-           <dependency>
-               <groupId>com.azure.spring</groupId>
-               <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-               <version>2.6.0</version>
-           </dependency>
-   
-           <!-- Adds the Ability to Push Refresh -->
-           <dependency>
-               <groupId>org.springframework.boot</groupId>
-               <artifactId>spring-boot-starter-actuator</artifactId>
-           </dependency>
-   ```
+    ### [Spring Boot 3](#tab/spring-boot-3)
+
+    ```xml
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+        <version>5.4.0</version>
+    </dependency>
+
+    <!-- Adds the Ability to Push Refresh -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    ```
+
+    ### [Spring Boot 2](#tab/spring-boot-2)
+
+    ```xml
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+        <version>4.10.0</version>
+    </dependency>
+
+    <!-- Adds the Ability to Push Refresh -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    ```
+
+    ---
+
 
 1. Set up [Maven App Service Deployment](../app-service/quickstart-java.md?tabs=javase) so the application can be deployed to Azure App Service via Maven.
 
    ```console
-   mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
+   mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
    ```
 
 1. Open bootstrap.properties and configure Azure App Configuration Push Refresh and Azure Service Bus
@@ -77,12 +98,12 @@ In this tutorial, you learn how to:
    # Azure App Configuration Properties
    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${AppConfigurationConnectionString}
    spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled= true
-   spring.cloud.azure.appconfiguration.stores[0].monitoring.cacheExpiration= 30d
+   spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval= 30d
    spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key= sentinel
    spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.name= myToken
    spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.secret= myTokenSecret
    
-   management.endpoints.web.exposure.include= "appconfiguration-refresh"
+   management.endpoints.web.exposure.include= appconfiguration-refresh
    ```
 
 A random delay is added before the cached value is marked as dirty to reduce potential throttling. The default maximum delay before the cached value is marked as dirty is 30 seconds.
@@ -90,7 +111,7 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 > [!NOTE]
 > The Primary token name should be stored in App Configuration as a key, and then the Primary token secret should be stores as an App Configuration Key Vault Reference for added security.
 
-## Build and run the app locally
+## Build and run the app in app service
 
 Event Grid Web Hooks require validation on creation. You can validate by following this [guide](../event-grid/webhook-event-delivery.md) or by starting your application with Azure App Configuration Spring Web Library already configured, which will register your application for you. To use an event subscription, follow the steps in the next two sections.
 
@@ -114,6 +135,14 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
     export AppConfigurationConnectionString = <connection-string-of-your-app-configuration-store>
     ```
 
+1. Update your `pom.xml` under the `azure-webapp-maven-plugin`'s `configuration` add
+
+   ```xml
+   <appSettings>
+     <AppConfigurationConnectionString>${AppConfigurationConnectionString}</AppConfigurationConnectionString>
+   </appSettings>
+   ```
+
 1. Run the following command to build the console app:
 
    ```shell
@@ -123,7 +152,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 1. After the build successfully completes, run the following command to run the app locally:
 
     ```shell
-    mvn spring-boot:deploy
+    mvn azure-webapp:deploy
     ```
 
 ## Set up an event subscription
@@ -156,7 +185,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 1. After your application is running, use *curl* to test your application, for example:
 
    ```cmd
-   curl -X GET http://localhost:8080
+   curl -X GET https://my-azure-webapp.azurewebsites.net
    ```
 
 1. Open the **Azure Portal** and navigate to your App Configuration resource associated with your application. Select **Configuration Explorer** under **Operations** and update the values of the following keys:

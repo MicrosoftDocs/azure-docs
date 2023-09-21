@@ -3,10 +3,9 @@ title: 'Configure forced tunneling for Virtual WAN Point-to-site VPN'
 titleSuffix: Azure Virtual WAN
 description: Learn to configure forced tunneling for P2S VPN in Virtual WAN.
 author: wtnlee
-
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 3/25/2022
+ms.date: 08/24/2023
 ms.author: wellee
 
 ---
@@ -14,7 +13,7 @@ ms.author: wellee
 
 Forced tunneling allows you to send **all** traffic (including Internet-bound traffic) from remote users to Azure. In Virtual WAN, forced tunneling for Point-to-site VPN remote users signifies that the 0.0.0.0/0 default route is advertised to remote VPN users.
 
-## Creating a Virtual WAN hub
+## Create a Virtual WAN hub
 
 The steps in this article assume that you've already deployed a virtual WAN with one or more hubs.
 
@@ -23,13 +22,13 @@ To create a new virtual WAN and a new hub, use the steps in the following articl
 * [Create a virtual WAN](virtual-wan-site-to-site-portal.md#openvwan)
 * [Create a virtual hub](virtual-wan-site-to-site-portal.md#hub)
 
-## Setting up Point-to-site VPN
+## Set up Point-to-site VPN
 
 The steps in this article also assume that you already deployed a Point-to-site VPN gateway in the Virtual WAN hub. It also assumes you have created Point-to-site VPN profiles to assign to the gateway.
 
 To create the Point-to-site VPN gateway and related profiles, see [Create a Point-to-site VPN gateway](virtual-wan-point-to-site-portal.md).
 
-## Advertising default route to clients
+## Advertise default route to clients
 
 There are a couple ways to configure forced-tunneling and advertise the default route (0.0.0.0/0) to your remote user VPN clients connected to Virtual WAN.
 
@@ -46,15 +45,15 @@ To turn on the EnableInternetSecurity flag, use the following PowerShell command
 Update-AzP2sVpnGateway -ResourceGroupName "sampleRG" -Name "p2sgwsamplename" -EnableInternetSecurityFlag
 ```
 
-## Downloading the Point-to-site VPN profile
+## Download the Point-to-site VPN profile
 
 To download the Point-to-site VPN profile, see [global and hub profiles](global-hub-profile.md). The information in the zip-file downloaded from Azure portal is critical to properly configuring your clients.
 
-## Configuring forced-tunneling for Azure VPN clients (OpenVPN)
+## Configure forced-tunneling for Azure VPN clients (OpenVPN)
 
 The steps to configure forced-tunneling are different, depending on the operating system of the end user device.
 
-## Windows clients
+### Windows clients
 
 > [!NOTE]
 > For Windows clients, forced tunneling with the Azure VPN client is only available with software version 2:1900:39.0 or newer.
@@ -75,7 +74,7 @@ The steps to configure forced-tunneling are different, depending on the operatin
 
 1. Connect to the newly added connection. You are now force-tunneling all traffic to Azure Virtual WAN.
 
-## MacOS clients
+### MacOS clients
 
 Once a macOS client learns the default route from Azure, forced tunneling is automatically configured on the client device. There are no extra steps to take. For instructions on how to use the macOS Azure VPN client to connect to the Virtual WAN Point-to-site VPN gateway, see the [macOS Configuration Guide](openvpn-azure-ad-client-mac.md).
 
@@ -210,7 +209,7 @@ An example EAP XML file is the following.
 
 ### IKEv2 with RADIUS server authentication with user certificates (EAP-TLS)
 
-To use certificate-based RADIUS authentication (EAP-TLS) to authenticate remote users, use the sample PowerShell script below. Note that in order to import the contents of the VpnSettings and EAP XML files into PowerShell, you will have to navigate to the appropriate directory before running the **Get-Content** PowerShell command.
+To use certificate-based RADIUS authentication (EAP-TLS) to authenticate remote users, use the sample PowerShell script below. Note that in order to import the contents of the VpnSettings and EAP XML files into PowerShell, you'll have to navigate to the appropriate directory before running the **Get-Content** PowerShell command.
 
 ```azurepowershell-interactive
 # specify the name of the VPN Connection to be installed on the client

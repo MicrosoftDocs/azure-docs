@@ -1,163 +1,177 @@
 ---
-title: Learn about devices discovered by all enterprise sensors
-description: Use the device inventory in the on-premises management console to get a comprehensive view of device information from connected sensors. Use import, export, and filtering tools to manage this information. 
-ms.date: 11/09/2021
+title: Manage your OT device inventory from an on-premises management console
+description: Learn how to view and manage OT devices (assets) from the Device Inventory page on an on-premises management console.
 ms.topic: how-to
+ms.date: 05/17/2023
+
 ---
 
-# Investigate all enterprise sensor detections in the device inventory
+# Manage your OT device inventory from an on-premises management console
 
-You can view device information from connected sensors by using the *device inventory* in the on-premises management console. This feature gives you a comprehensive view of all network information. Use import, export, and filtering tools to manage this information. The status information about the connected sensor versions also appears.
+Use the **Device inventory** page from an on-premises management console to manage all OT and IT devices detected by sensors connected to that console. Identify new devices detected, devices that might need troubleshooting, and more.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png" alt-text="Screenshot of the device inventory data table.":::
+For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
-The following table describes the table columns in the device inventory.
+> [!TIP]
+> Alternately, view your device inventory from [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [OT sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
+>
 
-| Parameter | Description |
-|--|--|
-| **Unacknowledged Alerts** | The number of unhandled alerts associated with this device. |
-| **Business Unit** | The business unit that contains this device. |
-| **Region** | The region that contains this device. |
-| **Site** | The site that contains this device. |
-| **Zone** | The zone that contains this device. |
-| **Appliance** | The Microsoft Defender for IoT sensor that protects this device. |
-| **Name** | The name of this device as Defender for IoT discovered it. |
-| **Type** | The type of device, such as PLC or HMI. |
-| **Vendor** | The name of the device's vendor, as defined in the MAC address. |
-| **Operating System** | The OS of the device. |
-| **Firmware** | The device's firmware. |
-| **IP Address** | The IP address of the device. |
-| **VLAN** | The VLAN of the device. |
-| **MAC Address** | The MAC address of the device. |
-| **Protocols** | The protocols that the device uses. |
-| **Unacknowledged Alerts** | The number of unhandled alerts associated with this device. |
-| **Is Authorized** | The authorization status of the device:<br />- **True**: The device has been authorized.<br />- **False**: The device has not been authorized. |
-| **Is Known as Scanner** | Whether this device performs scanning-like activities in the network. |
-| **Is Programming Device** | Whether this is a programming device:<br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations.<br />- **False**: The device is not a programming device. |
-| **Groups** | Groups in which this device participates. |
-| **Last Activity** | The last activity that the device performed. |
-| **Discovered** | When this device was first seen in the network. |
-| **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only oe state is presented. |
+## Prerequisites
 
-## What is an Inventory device?
+Before performing the procedures in this article, make sure that you have:
 
-The Defender for IoT Device Inventory displays an extensive range of device attributes that are detected by sensors monitoring organizational networks and managed endpoints. Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
+- An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md), [activated, and configured](ot-deploy/activate-deploy-management.md). To view devices by zone, make sure that you've [configured sites and zones](ot-deploy/sites-and-zones-on-premises.md) on the on-premises management console.
 
-1. Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
-1. Devices composed of multiple backplane components (including all racks/slots/modules)
-1. Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
+- One or OT network sensors [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](ot-deploy/connect-sensors-to-management.md). To view devices per zone, make sure that each sensor is assigned to a specific zone.
 
-Public internet IP addresses, multicast groups, and broadcast groups are not considered inventory devices.
-Devices that have been inactive for more than 60 days are classified as inactive Inventory devices.
+- Access to the on-premises management console with one of the following [user roles](roles-on-premises.md):
 
-## Integrate data into the enterprise device inventory
+    - **To view devices the on-premises management console**, sign in as an *Admin*, *Security Analyst*, or *Viewer* user.
 
-Data integration capabilities let you enhance the data in the device inventory with information from other enterprise resources. These sources include CMDBs, DNS, firewalls, and Web APIs.
+    - **To export or import data**, sign in as an *Admin* or *Security Analyst* user.
 
-You can use this information to learn. For example:
+    - **To use the CLI**, access the CLI via SSH/Telnet as a [privileged user](references-work-with-defender-for-iot-cli-commands.md).
+
+## View the device inventory
+
+To view detected devices in the **Device Inventory** page in an on-premises management console, sign-in to your on-premises management console, and then select **Device Inventory**.
+
+For example:
+
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png" alt-text="Screenshot of the on-premises management console Device Inventory page." lightbox="media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png":::
+
+Use any of the following options to modify or filter the devices shown:
+
+|Option  |Steps  |
+|---------|---------|
+| **Sort devices** | To sort the grid by a specific column, select the **Sort** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-order-icon.png" border="false"::: button in the column you want to sort by. Use the arrow buttons that appear to sort ascending or descending. |
+|**Filter devices shown**    |  1. In the column that you want to filter, select the **Filter** button :::image type="icon" source="media/how-to-work-with-asset-inventory-information/filter-a-column-icon.png" border="false":::.<br>2. In the **Filter** box, define your filter value.  <br><br>Filters aren't saved when you refresh the **Device Inventory** page. |
+| **Save a filter** | To save the current set of filters, select the **Save As** button that appears in the filter row.|
+| **Load a saved filter** | Saved filters are listed on the left, in the **Groups** pane. <br><br>1. Select the **Options** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/options-menu.png"border="false"::: button in the toolbar to display the **Groups** pane. <br>2. In the **Device Inventory Filters** list, select the saved filter you want to load.  |
+
+For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
+
+### View device inventory by zone
+
+To view alerts from connected OT sensors for a specific zone, use the **Site Management** page on an on-premises management console.
+
+1. Sign into your on-premises management console and select **Site Management**.
+
+1. Locate the site and zone you want to view, using the filtering options at the top as needed:
+
+    - **Connectivity**: Select to view only all OT sensors, or only connected / disconnected sensors only.
+    - **Upgrade Status**: Select to view all OT sensors, or only those with a specific [software update status](update-ot-software.md#update-an-on-premises-management-console).
+    - **Business Unit**: Select to view all OT sensors, or only those from a [specific business unit](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
+    - **Region**: Select to view all OT sensors, or only those from a [specific region](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
+
+1. Select **View device inventory** for a specific OT sensor to jump to the device inventory for that OT sensor.
+
+## Export the device inventory to CSV
+
+Export your device inventory to a CSV file to manage or share data outside of the OT sensor.
+
+To export device inventory data, select the **Import/Export file** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: button, and then select one of the following:
+
+- **Export Device Inventory View**: Exports only the devices currently displayed, with the current filter applied
+- **Export All Device Inventory**: Exports the entire device inventory, with no filtering
+
+Save the exported file locally.
+
+> [!NOTE]
+> The date format on the on-premises management console is always set to DD/MM/YYYY.
+> We recommend that you use the same date format on any machine where you'll be opening exported inventory files to ensure that dates in the exported inventory files are shown correctly.
+>
+
+## Add to and enhance device inventory data
+
+Use information from other sources, such as CMDBs, DNS, firewalls, and Web APIs, to enhance the data shown in your device inventory. For example, use enhanced data to present information about the following items:
 
 - Device purchase dates and end-of-warranty dates
-
 - Users responsible for each device
-
 - Opened tickets for devices
-
-- The last date when firmware was upgraded
-
+- The last date when the firmware was upgraded
 - Devices allowed access to the internet
-
 - Devices running active antivirus applications
-
 - Users signed in to devices
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-items-highlighted-v2.png" alt-text="Data table on the device inventory screen.":::
+Added and enhancement data is shown as extra columns, in addition to the existing columns available in the on-premises management console **Device inventory** page.
 
-You can integrate data by either:
+Enhance data by adding it manually or by running a customized version of our [automation script sample](custom-columns-sample-script.md). You can also open a support ticket to set up your system to receive Web API queries.
 
-- Adding it manually
+For example, the following image shows an example of how you might use enhanced data in the device inventory:
 
-- Running customized scripts that Defender for IoT provides
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/enterprise-data-integrator-graph.png" alt-text="Diagram of the data integrator.":::
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/enterprise-data-integrator-graph.png" alt-text="Diagram of the enterprise data integrator.":::
+# [Add data manually](#tab/manually)
 
-You can work with Defender for IoT technical support to set up your system to receive Web API queries.
+To enhance your data manually:
 
-To add data manually:
+1. Sign in to your on-premises management console, and select **Device inventory**.
 
-1. On the side menu, select **Device Inventory** and then select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon.png" border="false":::.
+1. On the top-right, select the **Settings** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon.png" border="false"::: button to open the **Device Inventory Settings** dialog.
 
-   :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-settings-v2.png" alt-text="Edit your device's inventory settings.":::
+1. In the **Device Inventory Settings** dialog box, select **ADD CUSTOM COLUMN**.
 
-2. In the **Device Inventory Settings** dialog box, select **ADD CUSTOM COLUMN**.
+1. In the **Add Custom Column** dialog box, add the new column name using up to 250 UTF characters.
 
-   :::image type="content" source="media/how-to-work-with-asset-inventory-information/add-custom-column.png" alt-text="Add a custom column to your inventory.":::
+1. Select **Manual** > **SAVE**. The new item appears in the **Device Inventory Settings** dialog box.
 
-3. In the **Add Custom Column** dialog box, add the new column name (up to 250 characters UTF), select **Manual**, and select **SAVE**. The new item appears in the **Device Inventory Settings** dialog box.
+1. In the upper-right corner of the **Device Inventory** window, select the **Import/Export file** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: button > **Export All Device Inventory**.
 
-4. In the upper-right corner of the **Device Inventory** window, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: and select **Export All Device Inventory**. The CSV file is generated.
+    A CSV file is generated with the data displayed.
 
-   :::image type="content" source="media/how-to-work-with-asset-inventory-information/sample-exported-csv-file.png" alt-text="The exported CSV file.":::
+1. Download and open the CSV file for editing, and manually add your information to the new column.
 
-5. Manually add the information to the new column and save the file.
+1. Back in the **Device inventory** page, at the top-right, select the **Import/Export file** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: button again > **Import Manual Input Columns**. Browse to and select your edited CSV file.
 
-6. In the upper-right corner of the **Device Inventory** window, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false":::, select **Import Manual Input Columns**, and browse to the CSV file. The new data appears in the **Device Inventory** table.
+The new data appears in the **Device Inventory** grid.
 
-To integrate data from other enterprise entities:
+# [Add data using automation](#tab/automation)
 
-1. In the upper-right corner of the **Device Inventory** window, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: and select **Export All Device Inventory**.
+To enhance your data using automation scripts:
 
-2. In the **Device Inventory Settings** dialog box, select **ADD CUSTOM COLUMN**.
+1. Copy the [sample automation script](custom-columns-sample-script.md) to a local file and modify it as needed.
 
-   :::image type="content" source="media/how-to-work-with-asset-inventory-information/add-custom-column.png" alt-text="Add a custom column to your inventory.":::
+1. Sign in to your on-premises management console, and select **Device inventory**.
 
-3. In the **Add Custom Column** dialog box, add the new column name (up to 250 characters UTF), and then select **Automatic**. The **UPLOAD SCRIPT** and **TEST SCRIPT** options appear.
+1. On the side, select the **Settings** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon.png" border="false"::: button to open the **Device Inventory Settings** dialog.
 
-   :::image type="content" source="media/how-to-work-with-asset-inventory-information/add-custom-column-automatic.png" alt-text="Automatically add custom columns.":::
+1. In the **Device Inventory Settings** dialog box, select **ADD CUSTOM COLUMN**.
 
-4. Upload and test the script that you received from [Microsoft Support](https://support.serviceshub.microsoft.com/supportforbusiness/create?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+1. In the **Add Custom Column** dialog box, add the new column name using up to 250 UTF characters.
 
-## Retrieve information from the device inventory
+1. Select **Automatic**. When the **UPLOAD SCRIPT** and **TEST SCRIPT** buttons appear, upload and then test the script you'd customized earlier and saved locally.
 
-You can retrieve an extensive range of device information detected by managed sensors and integrate that information with partner systems. For example, you can retrieve sensor, zone, site ID, IP address, MAC address, firmware, protocol, and vendor information. Filter information that you retrieve based on:
+The new data appears in the **Device Inventory** grid.
 
-- Authorized and unauthorized devices.
+---
 
-- Devices associated with specific sites.
+## Retrieve device inventory data via API
 
-- Devices associated with specific zones.
+You can retrieve an extensive range of device information detected by managed sensors and integrate that information with partner systems.
 
-- Devices associated with specific sensors.
+For example:
 
-Work with Defender for IoT API commands to retrieve and integrate this information. For more information, see [Defender for IoT API sensor and management console APIs](references-work-with-defender-for-iot-apis.md).
+1. Retrieve sensor, zone, site ID, IP address, MAC address, firmware, protocol, and vendor information.
 
-## Filter the device inventory
+1. Filter that information based on any of the following values:
 
-You can filter the device inventory to show columns of interest. For example, you can view PLC device information.
+    - Authorized and unauthorized devices.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="Screenshot of the device inventory.":::
+    - Devices associated with specific sites.
 
-The filter is cleared when you leave the window.
+    - Devices associated with specific zones.
 
-To use the same filter multiple times, you can save a filter or a combination of filters that you need. You can open a left pane and view the filters that you've saved:
+    - Devices associated with specific sensors.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="Device inventories screen.":::
+For more information, see [Defender for IoT sensor and management console APIs](references-work-with-defender-for-iot-apis.md).
 
-To filter the device inventory:
-
-1. In the column that you want to filter, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/filter-a-column-icon.png" border="false":::.
-
-2. In the **Filter** dialog box, select the filter type:
-
-   - **Equals**: The exact value according to which you want to filter the column. For example, if you filter the protocol column according to **Equals** and `value=ICMP`, the column will present devices that use the ICMP protocol only.
-
-   - **Contains**: The value that's contained among other values in the column. For example, if you filter the protocol column according to **Contains** and `value=ICMP`, the column will present devices that use the ICMP protocol as a part of the list of protocols that the device uses.
-
-3. To organize the column information according to alphabetical order, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-order-icon.png" border="false":::. Arrange the order by selecting the :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-a-z-order-icon.png" border="false"::: and :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-z-a-order-icon.png" border="false"::: arrows.
-
-4. To save a new filter, define the filter and select **Save As**.
-
-5. To change the filter definitions, change the definitions and select **Save Changes**.
 
 ## Next steps
 
-[Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+For more information, see:
+
+- [Defender for IoT device inventory](device-inventory.md)
+- [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
+- [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
+- [Device data retention periods](references-data-retention.md#device-data-retention-periods).

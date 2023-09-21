@@ -162,19 +162,19 @@ The following example shows the content definition identifiers and the correspon
       <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.1</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.signuporsignin">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.5</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.7</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.selfasserted">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.14</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.selfasserted.profileupdate">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.14</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.localaccountsignup">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.14</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.localaccountpasswordreset">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.14</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.phonefactor">
       <RecoveryUri>~/common/default_page_error.html</RecoveryUri>

@@ -8,8 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/13/2021
-ms.custom: devx-track-csharp
+ms.date: 08/08/2023
+
 ---
 
 # Add faceted navigation to a search app
@@ -29,9 +29,9 @@ Code in the presentation layer does the heavy lifting in a faceted navigation ex
 
 Facets are dynamic and returned on a query. A search response brings with it all of the facet categories used to navigate the documents in the result. The query executes first, and then facets are pulled from the current results and assembled into a faceted navigation structure.
 
-In Cognitive Search, facets are one layer deep and cannot be hierarchical. If you aren't familiar with faceted navigation structured, the following example shows one on the left. Counts indicate the number of matches for each facet. The same document can be represented in multiple facets.
+In Cognitive Search, facets are one layer deep and can't be hierarchical. If you aren't familiar with faceted navigation structures, the following example shows one on the left. Counts indicate the number of matches for each facet. The same document can be represented in multiple facets.
 
-:::image source="media/tutorial-csharp-create-first-app/azure-search-facet-nav.png" alt-text="faceted search results":::
+:::image source="media/search-faceted-navigation/azure-search-facet-nav.png" alt-text="Screenshot of faceted search results.":::
 
 Facets can help you find what you're looking for, while ensuring that you don't get zero results. As a developer, facets let you expose the most useful search criteria for navigating your search index.
 
@@ -66,13 +66,13 @@ Facets can be calculated over single-value fields as well as collections. Fields
 
 * Short descriptive values (one or two words) that will render nicely in a navigation tree
 
-The contents of a field, and not the field itself, produces the facets in a faceted navigation structure. If the facet is a string field *Color*, facets will be blue, green, and any other value for that field.
+The values within a field, and not the field name itself, produces the facets in a faceted navigation structure. If the facet is a string field named *Color*, facets will be blue, green, and any other value for that field.
 
-As a best practice, check fields for null values, misspellings or case discrepancies, and single and plural versions of the same word. Filters and facets do not undergo lexical analysis or [spell check](speller-how-to-add.md), which means that all values of a "facetable" field are potential facets, even if the words differ by one character.
+As a best practice, check fields for null values, misspellings or case discrepancies, and single and plural versions of the same word. By default, filters and facets don't undergo lexical analysis or [spell check](speller-how-to-add.md), which means that all values of a "facetable" field are potential facets, even if the words differ by one character. Optionally, you can [assign a normalizer](search-normalizers.md) to a "filterable" and "facetable" field to smooth out variations in casing and characters.
 
 ### Defaults in REST and Azure SDKs
 
-If you are using one of the Azure SDKs, your code must specify all field attributes. In contrast, the REST API has defaults for field attributes based on the [data type](/rest/api/searchservice/supported-data-types). The following data types are "filterable" and "facetable" by default:
+If you are using one of the Azure SDKs, your code must explicitly set the field attributes. In contrast, the REST API has defaults for field attributes based on the [data type](/rest/api/searchservice/supported-data-types). The following data types are "filterable" and "facetable" by default:
 
 * `Edm.String`
 * `Edm.DateTimeOffset`
@@ -80,9 +80,9 @@ If you are using one of the Azure SDKs, your code must specify all field attribu
 * `Edm.Int32`, `Edm.Int64`, `Edm.Double`
 * Collections of any of the above types, for example `Collection(Edm.String)` or `Collection(Edm.Double)`
 
-You cannot use `Edm.GeographyPoint` or `Collection(Edm.GeographyPoint)` fields in faceted navigation. Facets work best on fields with low cardinality. Due to the resolution of geo-coordinates, it is rare that any two sets of coordinates will be equal in a given dataset. As such, facets are not supported for geo-coordinates. You would need a city or region field to facet by location.
+You can't use `Edm.GeographyPoint` or `Collection(Edm.GeographyPoint)` fields in faceted navigation. Facets work best on fields with low cardinality. Due to the resolution of geo-coordinates, it's rare that any two sets of coordinates will be equal in a given dataset. As such, facets aren't supported for geo-coordinates. You would need a city or region field to facet by location.
 
-> [!Tip]
+> [!TIP]
 > As a best practice for performance and storage optimization, turn faceting off for fields that should never be used as a facet. In particular, string fields for unique values, such as an ID or product name, should be set to `"facetable": false` to prevent their accidental (and ineffective) use in faceted navigation. This is especially true for the REST API that enables filters and facets by default.
 
 ## Facet request and response
@@ -154,7 +154,9 @@ The response for the example above includes the faceted navigation structure at 
                 "concierge"
             ],
             "ParkingIncluded": false,
-  . . .
+        }
+    ]
+}
 ```
 
 ## Facets syntax
@@ -170,19 +172,19 @@ POST https://{{service_name}}.search.windows.net/indexes/hotels/docs/search?api-
 }
 ```
 
-For each faceted navigation tree, there is a default limit of 10 facets. This default makes sense for navigation structures because it keeps the values list to a manageable size. You can override the default by assigning a value to "count". For example, `"Tags,count:5"` reduces the number of tags under the Tags section to the top five.
+For each faceted navigation tree, there's a default limit of the top ten facets. This default makes sense for navigation structures because it keeps the values list to a manageable size. You can override the default by assigning a value to "count". For example, `"Tags,count:5"` reduces the number of tags under the Tags section to the top five.
 
-For Numeric and DateTime values only, you can explicitly set values on the facet field (for example, `facet=Rating,values:1|2|3|4|5`) to separate results into contiguous ranges (either ranges based on numeric values or time periods). Alternatively, you can add "interval:, as in `facet=Rating,interval:1`. 
+For Numeric and DateTime values only, you can explicitly set values on the facet field (for example, `facet=Rating,values:1|2|3|4|5`) to separate results into contiguous ranges (either ranges based on numeric values or time periods). Alternatively, you can add "interval", as in `facet=Rating,interval:1`. 
 
 Each range is built using 0 as a starting point, a value from the list as an endpoint, and then trimmed of the previous range to create discrete intervals.
 
 ### Discrepancies in facet counts
 
-Under certain circumstances, you might find that facet counts do not match the result sets (see [Faceted navigation in Azure Cognitive Search (Microsoft Q&A question page)](/answers/topics/azure-cognitive-search.html)).
+Under certain circumstances, you might find that facet counts aren't fully accurate due to the [sharding architecture](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards). Every search index is spread across multiple shards, and each shard reports the top N facets by document count, which are then combined into a single result. Because it's just the top N facets for each shard, it's possible to miss or under-count matching documents in the facet response.
 
-Facet counts can be inaccurate due to the sharding architecture. Every search index has multiple shards, and each shard reports the top N facets by document count, which is then combined into a single result. If some shards have many matching values, while others have fewer, you may find that some facet values are missing or under-counted in the results.
+To guarantee accuracy, you can artificially inflate the count:\<number> to a large number to force full reporting from each shard. You can specify `"count": "0"` for unlimited facets. Or, you can set "count" to a value that's greater than or equal to the number of unique values of the faceted field. For example, if you're faceting by a "size" field that has five unique values, you could set `"count:5"` to ensure all matches are represented in the facet response. 
 
-Although this behavior could change at any time, if you encounter this behavior today, you can work around it by artificially inflating the count:\<number> to a large number to enforce full reporting from each shard. If the value of count: is greater than or equal to the number of unique values in the field, you are guaranteed accurate results. However, when document counts are high, there is a performance penalty, so use this option judiciously.
+The tradeoff with this workaround is increased query latency, so use it only when necessary.
 
 ## Presentation layer
 
@@ -197,7 +199,7 @@ if (businessTitleFacet != "")
   filter = "business_title eq '" + businessTitleFacet + "'";
 ```
 
-Here is another example from the hotels sample. The following code snippet adds categorFacet to the filter if a user selects a value from the category facet.
+Here's another example from the hotels sample. The following code snippet adds `categoyrFacet` to the filter if a user selects a value from the category facet.
 
 ```csharp
 if (!String.IsNullOrEmpty(categoryFacet))
@@ -264,7 +266,7 @@ When you design the search results page, remember to add a mechanism for clearin
 
 ### Trim facet results with more filters
 
-Facet results are documents found in the search results that match a facet term. In the following example, in search results for *cloud computing*, 254 items also have *internal specification* as a content type. Items are not necessarily mutually exclusive. If an item meets the criteria of both filters, it is counted in each one. This duplication is possible when faceting on `Collection(Edm.String)` fields, which are often used to implement document tagging.
+Facet results are documents found in the search results that match a facet term. In the following example, in search results for *cloud computing*, 254 items also have *internal specification* as a content type. Items aren't necessarily mutually exclusive. If an item meets the criteria of both filters, it's counted in each one. This duplication is possible when faceting on `Collection(Edm.String)` fields, which are often used to implement document tagging.
 
 ```output
 Search term: "cloud computing"
@@ -277,7 +279,7 @@ In general, if you find that facet results are consistently too large, we recomm
 
 ### A facet-only search experience
 
-If your application uses faceted navigation exclusively (that is, no search box), you can mark the field as `searchable=false`, `filterable=true`, `facetable=true` to produce a more compact index. Your index will not include inverted indexes and there will be no text analysis or tokenization. Filters are made on exact matches at the character level.
+If your application uses faceted navigation exclusively (that is, no search box), you can mark the field as `searchable=false`, `filterable=true`, `facetable=true` to produce a more compact index. Your index won't include inverted indexes and there will be no text analysis or tokenization. Filters are made on exact matches at the character level.
 
 ### Validate inputs at query-time
 
@@ -286,10 +288,6 @@ If you build the list of facets dynamically based on untrusted user input, valid
 ## Demos and samples
 
 Several samples include faceted navigation. This section has links to the samples and also notes which client library and language is used for each one.
-
-### Create your first app in C# (Razor)
-
-This tutorial and sample series in C# includes a [lesson focused on faceted navigation](tutorial-csharp-facets.md). The solution is an ASP.NET MVC app and the presentation layer uses the Razor client libraries.
 
 ### Add search to web apps (React)
 

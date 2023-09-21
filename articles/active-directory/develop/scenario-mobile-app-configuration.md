@@ -1,9 +1,8 @@
 ---
-title: Configure mobile apps that call web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Configure mobile apps that call web APIs
 description: Learn how to configure your mobile app's code to call a web API
 services: active-directory
-author: jmprieur
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,8 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 06/16/2020
-ms.author: jmprieur
+ms.author: henrymbugua
+ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs using the Microsoft identity platform.
 ---
@@ -24,7 +24,7 @@ After you create your application, you'll learn how to configure the code by usi
 
 The following Microsoft libraries support mobile apps:
 
-[!INCLUDE [active-directory-develop-libraries-mobile](../../../includes/active-directory-develop-libraries-mobile.md)]
+[!INCLUDE [develop-libraries-mobile](./includes/libraries/libraries-mobile.md)]
 
 ## Instantiate the application
 
@@ -141,8 +141,8 @@ For more information, see [UWP-specific considerations with MSAL.NET](msal-net-u
 
 On Android and iOS, brokers enable:
 
-- **Single sign-on (SSO)**: You can use SSO for devices that are registered with Azure Active Directory (Azure AD). When you use SSO, your users don't need to sign in to each application.
-- **Device identification**: This setting enables conditional-access policies that are related to Azure AD devices. The authentication process uses the device certificate that was created when the device was joined to the workplace.
+- **Single sign-on (SSO)**: You can use SSO for devices that are registered with Microsoft Entra ID. When you use SSO, your users don't need to sign in to each application.
+- **Device identification**: This setting enables conditional-access policies that are related to Microsoft Entra devices. The authentication process uses the device certificate that was created when the device was joined to the workplace.
 - **Application identification verification**: When an application calls the broker, it passes its redirect URL. Then the broker verifies it.
 
 ### Enable the broker on Xamarin
@@ -157,7 +157,7 @@ For information about enabling a broker on Android, see [Brokered authentication
 
 ### Enable the broker for MSAL for iOS and macOS
 
-Brokered authentication is enabled by default for Azure AD scenarios in MSAL for iOS and macOS.
+Brokered authentication is enabled by default for Microsoft Entra scenarios in MSAL for iOS and macOS.
 
 The following sections provide instructions to configure your application for brokered authentication support for either MSAL for Xamarin.iOS or MSAL for iOS and macOS. In the two sets of instructions, some of the steps differ.
 
@@ -275,7 +275,7 @@ Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the `Info.plist` 
 
 ### Brokered authentication for MSAL for iOS and macOS
 
-Brokered authentication is enabled by default for Azure AD scenarios.
+Brokered authentication is enabled by default for Microsoft Entra scenarios.
 
 #### Step 1: Update AppDelegate to handle the callback
 
@@ -320,7 +320,7 @@ To register a scheme for your app:
 
    Here, `BundleId` uniquely identifies your device. For example, if `BundleId` is `yourcompany.xforms`, your URL scheme is `msauth.com.yourcompany.xforms`.
 
-    This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response. Make sure that the redirect URI in the format `msauth.(BundleId)://auth` is registered for your application in the [Azure portal](https://portal.azure.com).
+    This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response. Make sure that the redirect URI in the format `msauth.(BundleId)://auth` is registered for your application.
 
    ```xml
    <key>CFBundleURLTypes</key>

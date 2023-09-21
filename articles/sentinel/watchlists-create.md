@@ -101,14 +101,14 @@ For more information about shared access signatures, see [Azure Storage shared a
 
 To upload a large watchlist file to your Azure Storage account, use AzCopy or the Azure portal.
 
-1. If you don’t already have an Azure Storage account, [create a storage account](../storage/common/storage-account-create.md). The storage account can be in a different resource group or region from your workspace in Microsoft Sentinel.
+1. If you don't already have an Azure Storage account, [create a storage account](../storage/common/storage-account-create.md). The storage account can be in a different resource group or region from your workspace in Microsoft Sentinel.
 1. Use either AzCopy or the Azure portal to upload your csv file with your watchlist data into the storage account.
 
 #### Upload your file with AzCopy
 
 Upload files and directories to Blob storage by using the AzCopy v10 command-line utility. To learn more, see [Upload files to Azure Blob storage by using AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md).
 
-1. If you don’t already have a storage container, create one by running the following command.
+1. If you don't already have a storage container, create one by running the following command.
 
    ```azcopy
    azcopy make 
@@ -125,14 +125,14 @@ Upload files and directories to Blob storage by using the AzCopy v10 command-lin
 
 If you don't use AzCopy, upload your file by using the Azure portal. Go to your storage account in Azure portal to upload the csv file with your watchlist data.
 
-1. If you don’t already have an existing storage container, [create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). For the level of public access to the container, we recommend the default which is that the level is set to Private (no anonymous access).
+1. If you don't already have an existing storage container, [create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). For the level of public access to the container, we recommend the default which is that the level is set to Private (no anonymous access).
 1. Upload your csv file to the storage account by [uploading a block blob](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob).
 
 ### Step 2: Create shared access signature URL
 
 Create a shared access signature URL for Microsoft Sentinel to retrieve the watchlist data.
 
-1. Follow the steps in [Create SAS tokens for blobs in the Azure portal](../cognitive-services/translator/document-translation/create-sas-tokens.md?tabs=blobs#create-sas-tokens-for-blobs-in-the-azure-portal).
+1. Follow the steps in [Create SAS tokens for blobs in the Azure portal](../ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=blobs#create-sas-tokens-in-the-azure-portal).
 1. Set the shared access signature token expiry time to be at minimum 6 hours.
 1. Copy the value for **Blob SAS URL**.
 

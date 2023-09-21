@@ -2,14 +2,15 @@
 title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates (ARM templates) using declarative JSON syntax.
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.custom: ignite-2022, devx-track-arm-template
+ms.date: 08/22/2023
 ---
 
 # Understand the structure and syntax of ARM templates
 
 This article describes the structure of an Azure Resource Manager template (ARM template). It presents the different sections of a template and the properties that are available in those sections.
 
-This article is intended for users who have some familiarity with ARM templates. It provides detailed information about the structure of the template. For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first ARM template](template-tutorial-create-first-template.md). To learn about ARM templates through a guided set of modules on Microsoft Learn, see [Deploy and manage resources in Azure by using ARM templates](/learn/paths/deploy-manage-resource-manager-templates/).
+This article is intended for users who have some familiarity with ARM templates. It provides detailed information about the structure of the template. For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first ARM template](template-tutorial-create-first-template.md). To learn about ARM templates through a guided set of Learn modules, see [Deploy and manage resources in Azure by using ARM templates](/training/paths/deploy-manage-resource-manager-templates/).
 
 > [!TIP]
 > Bicep is a new language that offers the same capabilities as ARM templates but with a syntax that's easier to use. If you're considering infrastructure as code options, we recommend looking at Bicep.
@@ -23,21 +24,25 @@ In its simplest structure, a template has the following elements:
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "",
   "contentVersion": "",
   "apiProfile": "",
-  "parameters": {  },
-  "variables": {  },
-  "functions": [  ],
-  "resources": [  ],
-  "outputs": {  }
+  "definitions": { },
+  "parameters": { },
+  "variables": { },
+  "functions": [ ],
+  "resources": [ ], /* or "resources": { } with languageVersion 2.0 */
+  "outputs": { }
 }
 ```
 
 | Element name | Required | Description |
 |:--- |:--- |:--- |
 | $schema |Yes |Location of the JavaScript Object Notation (JSON) schema file that describes the version of the template language. The version number you use depends on the scope of the deployment and your JSON editor.<br><br>If you're using [Visual Studio Code with the Azure Resource Manager tools extension](quickstart-create-templates-use-visual-studio-code.md), use the latest version for resource group deployments:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Other editors (including Visual Studio) may not be able to process this schema. For those editors, use:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>For subscription deployments, use:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>For management group deployments, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>For tenant deployments, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
+| languageVersion |No |Language version of the template. To view the enhancements of languageVersion 2.0, see [languageVersion 2.0](#languageversion-20). |
 | contentVersion |Yes |Version of the template (such as 1.0.0.0). You can provide any value for this element. Use this value to document significant changes in your template. When deploying resources using the template, this value can be used to make sure that the right template is being used. |
 | apiProfile |No | An API version that serves as a collection of API versions for resource types. Use this value to avoid having to specify API versions for each resource in the template. When you specify an API profile version and don't specify an API version for the resource type, Resource Manager uses the API version for that resource type that is defined in the profile.<br><br>The API profile property is especially helpful when deploying a template to different environments, such as Azure Stack and global Azure. Use the API profile version to make sure your template automatically uses versions that are supported in both environments. For a list of the current API profile versions and the resources API versions defined in the profile, see [API Profile](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>For more information, see [Track versions using API profiles](./template-cloud-consistency.md#track-versions-using-api-profiles). |
+| [definitions](#definitions) |No |Schemas that are used to validate array and object values. Definitions are only supported in [languageVersion 2.0](#languageversion-20).|
 | [parameters](#parameters) |No |Values that are provided when deployment is executed to customize resource deployment. |
 | [variables](#variables) |No |Values that are used as JSON fragments in the template to simplify template language expressions. |
 | [functions](#functions) |No |User-defined functions that are available within the template. |
@@ -46,9 +51,56 @@ In its simplest structure, a template has the following elements:
 
 Each element has properties you can set. This article describes the sections of the template in greater detail.
 
+## Definitions
+
+In the `definitions` section of the template, specify the schemas used for validating array and object values. `Definitions` can only be used with [languageVersion 2.0](#languageversion-20).
+
+```json
+"definitions": {
+  "<definition-name": {
+    "type": "<data-type-of-definition>",
+    "allowedValues": [ "<array-of-allowed-values>" ],
+    "minValue": <minimum-value-for-int>,
+    "maxValue": <maximum-value-for-int>,
+    "minLength": <minimum-length-for-string-or-array>,
+    "maxLength": <maximum-length-for-string-or-array>,
+    "prefixItems": <schema-for-validating-array>,
+    "items": <schema-for-validating-array-or-boolean>,
+    "properties": <schema-for-validating-object>,
+    "additionalProperties": <schema-for-validating-object-or-boolean>,
+    "discriminator": <schema-to-apply>,
+    "nullable": <boolean>,
+    "metadata": {
+      "description": "<description-of-the-type-definition>"
+    }
+  }
+}
+```
+
+| Element name | Required | Description |
+|:--- |:--- |:--- |
+| definition-name |Yes |Name of the type definition. Must be a valid JavaScript identifier. |
+| type |Yes |Type of the type definition. The allowed types and values are **string**, **securestring**, **int**, **bool**, **object**, **secureObject**, and **array**. See [Data types in ARM templates](data-types.md). |
+| allowedValues |No |Array of allowed values for the type definition to make sure that the right value is provided. |
+| minValue |No |The minimum value for int type definitions, this value is inclusive. |
+| maxValue |No |The maximum value for int type definitions, this value is inclusive. |
+| minLength |No |The minimum length for string, secure string, and array type definitions, this value is inclusive. |
+| maxLength |No |The maximum length for string, secure string, and array type definitions, this value is inclusive. |
+| prefixItems |No |The schema for validating the element of an array at the same index. |
+| items |No |The schema that is applied to all elements of the array whose index is greater than the largest index of the `prefixItems` constraint, or boolean for controlling the elements of the array whose index is greater than the largest index of the `prefixItems` constraint. |
+| properties |No |The schema for validating object. |
+| additionalProperties |No |The schema that is applied to all properties not mentioned in the `properties` constraint, or boolean for accepting any property not defined in the `properties` constraint. |
+| discriminator |No |The schema to apply based on a discriminator property.|
+| nullable|No |A boolean indicating that the value may be null or omitted. |
+| description |No |Description of the type definition that is displayed to users through the portal. For more information, see [Comments in templates](#comments). |
+
+For examples of how to use type definitions, see [Type definitions in ARM templates](./definitions.md).
+
+In Bicep, see [User-defined data types](../bicep/user-defined-data-types.md).
+
 ## Parameters
 
-In the `parameters` section of the template, you specify which values you can input when deploying the resources. You're limited to 256 parameters in a template. You can reduce the number of parameters by using objects that contain multiple properties.
+In the `parameters` section of the template, you specify which values you can input when deploying the resources. You're limited to [256 parameters](../management/azure-subscription-service-limits.md#general-limits) in a template. You can reduce the number of parameters by using objects that contain multiple properties.
 
 The available properties for a parameter are:
 
@@ -61,7 +113,13 @@ The available properties for a parameter are:
     "minValue": <minimum-value-for-int>,
     "maxValue": <maximum-value-for-int>,
     "minLength": <minimum-length-for-string-or-array>,
-    "maxLength": <maximum-length-for-string-or-array-parameters>,
+    "maxLength": <maximum-length-for-string-or-array>,
+    "prefixItems": <schema-for-validating-array>,
+    "items": <schema-for-validating-array-or-boolean>,
+    "properties": <schema-for-validating-object>,
+    "additionalProperties": <schema-for-validating-object-or-boolean>,
+    "discriminator": <schema-to-apply>,
+    "nullable": <boolean>,
     "metadata": {
       "description": "<description-of-the parameter>"
     }
@@ -79,6 +137,12 @@ The available properties for a parameter are:
 | maxValue |No |The maximum value for int type parameters, this value is inclusive. |
 | minLength |No |The minimum length for string, secure string, and array type parameters, this value is inclusive. |
 | maxLength |No |The maximum length for string, secure string, and array type parameters, this value is inclusive. |
+| prefixItems |No |The type definition for validating the element of an array at the same index. `prefixItems` is only supported in [languageVersion 2.0](#languageversion-20).|
+| items |No |The schema that is applied to all elements of the array whose index is greater than the largest index of the `prefixItems` constraint, or boolean for controlling the elements of the array whose index is greater than the largest index of the `prefixItems` constraint. `items` is only supported in [languageVersion 2.0](#languageversion-20).|
+| properties |No |The schema for validating object. `properties` is only supported in [languageVersion 2.0](#languageversion-20).|
+| additionalProperties |No |The schema that is applied to all properties not mentioned in the `properties` constraint, or boolean for accepting any property not defined in the `properties` constraint. `additionalProperties` is only supported in [languageVersion 2.0](#languageversion-20).|
+| discriminator |No |The schema to apply based on a discriminator property. `discriminator` is only supported in [languageVersion 2.0](#languageversion-20).|
+| nullable|No |A boolean indicating that the value may be null or omitted. `nullable` is only supported in [languageVersion 2.0](#languageversion-20).|
 | description |No |Description of the parameter that is displayed to users through the portal. For more information, see [Comments in templates](#comments). |
 
 For examples of how to use parameters, see [Parameters in ARM templates](./parameters.md).
@@ -87,7 +151,7 @@ In Bicep, see [parameters](../bicep/file.md#parameters).
 
 ## Variables
 
-In the `variables` section, you construct values that can be used throughout your template. You don't need to define variables, but they often simplify your template by reducing complex expressions. The format of each variable matches one of the [data types](data-types.md).
+In the `variables` section, you construct values that can be used throughout your template. You don't need to define variables, but they often simplify your template by reducing complex expressions. The format of each variable matches one of the [data types](data-types.md). You're limited to [256 variables](../management/azure-subscription-service-limits.md#general-limits) in a template.
 
 The following example shows the available options for defining a variable:
 
@@ -167,78 +231,78 @@ When defining a user function, there are some restrictions:
 
 For examples of how to use custom functions, see [User-defined functions in ARM template](./user-defined-functions.md).
 
-In Bicep, user-defined functions aren't supported. Bicep does support a variety of [functions](../bicep/bicep-functions.md) and [operators](../bicep/operators.md).
+In Bicep, user-defined functions aren't supported. Bicep does support various [functions](../bicep/bicep-functions.md) and [operators](../bicep/operators.md).
 
 ## Resources
 
-In the `resources` section, you define the resources that are deployed or updated.
+In the `resources` section, you define the resources that are deployed or updated. You're limited to [800 resources](../management/azure-subscription-service-limits.md#general-limits) in a template.
 
 You define resources with the following structure:
 
 ```json
 "resources": [
   {
-      "condition": "<true-to-deploy-this-resource>",
-      "type": "<resource-provider-namespace/resource-type-name>",
-      "apiVersion": "<api-version-of-resource>",
-      "name": "<name-of-the-resource>",
-      "comments": "<your-reference-notes>",
-      "location": "<location-of-resource>",
-      "dependsOn": [
-          "<array-of-related-resource-names>"
-      ],
-      "tags": {
-          "<tag-name1>": "<tag-value1>",
-          "<tag-name2>": "<tag-value2>"
-      },
-      "identity": {
-        "type": "<system-assigned-or-user-assigned-identity>",
-        "userAssignedIdentities": {
-          "<resource-id-of-identity>": {}
-        }
-      },
-      "sku": {
-          "name": "<sku-name>",
-          "tier": "<sku-tier>",
-          "size": "<sku-size>",
-          "family": "<sku-family>",
-          "capacity": <sku-capacity>
-      },
-      "kind": "<type-of-resource>",
-      "scope": "<target-scope-for-extension-resources>",
-      "copy": {
-          "name": "<name-of-copy-loop>",
-          "count": <number-of-iterations>,
-          "mode": "<serial-or-parallel>",
-          "batchSize": <number-to-deploy-serially>
-      },
-      "plan": {
-          "name": "<plan-name>",
-          "promotionCode": "<plan-promotion-code>",
-          "publisher": "<plan-publisher>",
-          "product": "<plan-product>",
-          "version": "<plan-version>"
-      },
-      "properties": {
-          "<settings-for-the-resource>",
-          "copy": [
-              {
-                  "name": ,
-                  "count": ,
-                  "input": {}
-              }
-          ]
-      },
-      "resources": [
-          "<array-of-child-resources>"
-      ]
+    "condition": "<true-to-deploy-this-resource>",
+    "type": "<resource-provider-namespace/resource-type-name>",
+    "apiVersion": "<api-version-of-resource>",
+    "name": "<name-of-the-resource>",
+    "comments": "<your-reference-notes>",
+    "location": "<location-of-resource>",
+    "dependsOn": [
+        "<array-of-related-resource-names>"
+    ],
+    "tags": {
+        "<tag-name1>": "<tag-value1>",
+        "<tag-name2>": "<tag-value2>"
+    },
+    "identity": {
+      "type": "<system-assigned-or-user-assigned-identity>",
+      "userAssignedIdentities": {
+        "<resource-id-of-identity>": {}
+      }
+    },
+    "sku": {
+        "name": "<sku-name>",
+        "tier": "<sku-tier>",
+        "size": "<sku-size>",
+        "family": "<sku-family>",
+        "capacity": <sku-capacity>
+    },
+    "kind": "<type-of-resource>",
+    "scope": "<target-scope-for-extension-resources>",
+    "copy": {
+        "name": "<name-of-copy-loop>",
+        "count": <number-of-iterations>,
+        "mode": "<serial-or-parallel>",
+        "batchSize": <number-to-deploy-serially>
+    },
+    "plan": {
+        "name": "<plan-name>",
+        "promotionCode": "<plan-promotion-code>",
+        "publisher": "<plan-publisher>",
+        "product": "<plan-product>",
+        "version": "<plan-version>"
+    },
+    "properties": {
+        "<settings-for-the-resource>",
+        "copy": [
+            {
+                "name": ,
+                "count": ,
+                "input": {}
+            }
+        ]
+    },
+    "resources": [
+        "<array-of-child-resources>"
+    ]
   }
 ]
 ```
 
 | Element name | Required | Description |
 |:--- |:--- |:--- |
-| condition | No | Boolean value that indicates whether the resource will be provisioned during this deployment. When `true`, the resource is created during deployment. When `false`, the resource is skipped for this deployment. See [condition](conditional-resource-deployment.md). |
+| condition | No | Boolean value that indicates whether the resource is provisioned during this deployment. When `true`, the resource is created during deployment. When `false`, the resource is skipped for this deployment. See [condition](conditional-resource-deployment.md). |
 | type |Yes |Type of the resource. This value is a combination of the namespace of the resource provider and the resource type (such as `Microsoft.Storage/storageAccounts`). To determine available values, see [template reference](/azure/templates/). For a child resource, the format of the type depends on whether it's nested within the parent resource or defined outside of the parent resource. See [Set name and type for child resources](child-resource-name-type.md). |
 | apiVersion |Yes |Version of the REST API to use for creating the resource. When creating a new template, set this value to the latest version of the resource you're deploying. As long as the template works as needed, keep using the same API version. By continuing to use the same API version, you minimize the risk of a new API version changing how your template works. Consider updating the API version only when you want to use a new feature that is introduced in a later version. To determine available values, see [template reference](/azure/templates/). |
 | name |Yes |Name of the resource. The name must follow URI component restrictions defined in RFC3986. Azure services that expose the resource name to outside parties validate the name to make sure it isn't an attempt to spoof another identity. For a child resource, the format of the name depends on whether it's nested within the parent resource or defined outside of the parent resource. See [Set name and type for child resources](child-resource-name-type.md). |
@@ -248,18 +312,35 @@ You define resources with the following structure:
 | tags |No |Tags that are associated with the resource. Apply tags to logically organize resources across your subscription. |
 | identity | No | Some resources support [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Those resources have an identity object at the root level of the resource declaration. You can set whether the identity is user-assigned or system-assigned. For user-assigned identities, provide a list of resource IDs for the identities. Set the key to the resource ID and the value to an empty object. For more information, see [Configure managed identities for Azure resources on an Azure VM using templates](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md). |
 | sku | No | Some resources allow values that define the SKU to deploy. For example, you can specify the type of redundancy for a storage account. |
-| kind | No | Some resources allow a value that defines the type of resource you deploy. For example, you can specify the type of Cosmos DB to create. |
+| kind | No | Some resources allow a value that defines the type of resource you deploy. For example, you can specify the type of Azure Cosmos DB instance to create. |
 | scope | No | The scope property is only available for [extension resource types](../management/extension-resource-types.md). Use it when specifying a scope that is different than the deployment scope. See [Setting scope for extension resources in ARM templates](scope-extension-resources.md). |
 | copy |No |If more than one instance is needed, the number of resources to create. The default mode is parallel. Specify serial mode when you don't want all or the resources to deploy at the same time. For more information, see [Create several instances of resources in Azure Resource Manager](copy-resources.md). |
 | plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. |
 | properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. You can also specify a copy array to create several instances of a property. To determine available values, see [template reference](/azure/templates/). |
 | resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. Dependency on the parent resource isn't implied. You must explicitly define that dependency. See [Set name and type for child resources](child-resource-name-type.md). |
 
+To support [Bicep](../bicep/overview.md) symbolic name in ARM JSON templates, add `languageVersion` with the version `2.0` or newer, and change the resource definition from an array to an object.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "resources": {
+    "<name-of-the-resource>": {
+      ...
+    }
+  }
+}
+```
+
+For more information, see [Resources](#resources).
+
 In Bicep, see [resources](../bicep/file.md#resources).
 
 ## Outputs
 
-In the `outputs` section, you specify values that are returned from deployment. Typically, you return values from resources that were deployed.
+In the `outputs` section, you specify values that are returned from deployment. Typically, you return values from resources that were deployed. You're limited to [64 outputs](../management/azure-subscription-service-limits.md#general-limits) in a template.
 
 The following example shows the structure of an output definition:
 
@@ -297,7 +378,7 @@ You have a few options for adding comments and metadata to your template.
 
 ### Comments
 
-For inline comments, you can use either `//` or `/* ... */`.
+For inline comments, you can use either `//` or `/* ... */`. In Visual Studio Code, save the parameter files with comments as the **JSON with comments (JSONC)** file type, otherwise you get an error message saying "Comments not permitted in JSON".
 
 > [!NOTE]
 >
@@ -306,7 +387,7 @@ For inline comments, you can use either `//` or `/* ... */`.
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2018-10-01",
+  "apiVersion": "2023-03-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[parameters('location')]", //defaults to resource group location
   "dependsOn": [ /* storage account and network interface must be deployed first */
@@ -317,7 +398,7 @@ For inline comments, you can use either `//` or `/* ... */`.
 
 In Visual Studio Code, the [Azure Resource Manager Tools extension](quickstart-create-templates-use-visual-studio-code.md) can automatically detect an ARM template and change the language mode. If you see **Azure Resource Manager Template** at the bottom-right corner of Visual Studio Code, you can use the inline comments. The inline comments are no longer marked as invalid.
 
-![Visual Studio Code Azure Resource Manager template mode](./media/template-syntax/resource-manager-template-editor-mode.png)
+:::image type="content" source="./media/template-syntax/resource-manager-template-editor-mode.png" alt-text="Screenshot of Visual Studio Code in Azure Resource Manager template mode.":::
 
 In Bicep, see [comments](../bicep/file.md#comments).
 
@@ -349,7 +430,7 @@ For `parameters`, add a `metadata` object with a `description` property.
 
 When deploying the template through the portal, the text you provide in the description is automatically used as a tip for that parameter.
 
-![Show parameter tip](./media/template-syntax/show-parameter-tip.png)
+:::image type="content" source="./media/template-syntax/show-parameter-tip.png" alt-text="Screenshot showing parameter tip in Azure portal.":::
 
 For `resources`, add a `comments` element or a `metadata` object. The following example shows both a `comments` element and a `metadata` object.
 
@@ -357,8 +438,8 @@ For `resources`, add a `comments` element or a `metadata` object. The following 
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2018-07-01",
-    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+    "apiVersion": "2022-09-01",
+    "name": "[format('{0}{1}', 'storage', uniqueString(resourceGroup().id))]",
     "comments": "Storage account used to store VM disks",
     "location": "[parameters('location')]",
     "metadata": {
@@ -406,7 +487,7 @@ You can break a string into multiple lines. For example, see the `location` prop
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2018-10-01",
+  "apiVersion": "2023-03-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[
     parameters('location')
@@ -422,6 +503,43 @@ You can break a string into multiple lines. For example, see the `location` prop
 ```
 
 In Bicep, see [multi-line strings](../bicep/file.md#multi-line-strings).
+
+## languageVersion 2.0
+
+> [!NOTE]
+> Using any `languageVersion` that ends in `-experimental` is not recommended in production environments because experimental functionality could be changed at any time.
+
+[!INCLUDE [VSCode ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
+
+To use languageVersion 2.0, add `"languageVersion": "2.0"` to your template:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "resources": {
+    "<name-of-the-resource>": {
+      ...
+    }
+  }
+}
+```
+
+The enhancements and changes that comes with languageVersion 2.0:
+
+- Use symbolic name in ARM JSON template. For more information, see [Use symbolic name](./resource-declaration.md#use-symbolic-name).
+- Use symbolic name in resource copy loops. See [Use symbolic name](./copy-resources.md#use-symbolic-name).
+- Use symbolic name in `dependsOn` arrays. See [DependsOn](./resource-dependency.md#dependson) and [Depend on resources in a loop](./resource-dependency.md#depend-on-resources-in-a-loop).
+- Use symbolic name instead of resource name in the `reference` function.  See [reference](./template-functions-resource.md#reference).
+- A references() function that returns an array of objects representing a resource collection's runtime states. See [references](./template-functions-resource.md#references).
+- Use the 'existing' resource property to declare existing resources for ARM to read rather than deploy a resource. See [Declare existing resources](./resource-declaration.md#declare-existing-resources).
+- Create user-defined types. See [Type definition](./definitions.md).
+- Additional aggregate type validation constraints to be used in [parameters](./parameters.md) and [outputs](./outputs.md).
+- The default value for the `expressionEvaluationOptions` property is `inner`. The value `outer` is blocked. See [Expression evaluation scope in nested templates](./linked-templates.md#expression-evaluation-scope-in-nested-templates).
+- The `deployment` function returns a limited subset of properties. See [deployment](./template-functions-deployment.md#deployment).
+- If Deployments resource is used in a symbolic-name deployment, use apiVersion `2020-09-01` or later.
+- In resource definition, double-escaping values within an expression is no longer needed.  See [Escape characters](./template-expressions.md#escape-characters).
 
 ## Next steps
 

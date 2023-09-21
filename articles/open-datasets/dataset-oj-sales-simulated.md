@@ -2,6 +2,7 @@
 title: OJ Sales Simulated 
 description: Learn how to use the OJ Sales Simulated  dataset in Azure Open Datasets.
 ms.service: open-datasets
+ms.custom: devx-track-python
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -14,7 +15,7 @@ This dataset is derived from the Dominick’s OJ dataset and includes extra simu
 
 The data contains weekly sales of orange juice over 121 weeks. There are 3,991 stores included and three brands of orange juice per store so that 11,973 models can be trained.
 
-[View the original dataset description](http://www.cs.unitn.it/~taufer/QMMA/L10-OJ-Data.html) or [download the dataset](http://www.cs.unitn.it/~taufer/Data/oj.csv).
+View the original dataset description or download the dataset.
 
 ## Columns
 
@@ -56,7 +57,7 @@ The data contains weekly sales of orange juice over 121 weeks. There are 3,991 s
 ```python
 from azureml.core.workspace import Workspace
 ws = Workspace.from_config()
-datastore = ws.get_default_config()
+datastore = ws.get_default_datastore()
 ```
 
 ```python
@@ -136,9 +137,9 @@ named_ds = registered_ds.as_named_input(ds_name)
 
 ```
 # This is a package in preview.
-# You need to pip install azureml-opendatasets in Databricks cluster. https://docs.microsoft.com/en-us/azure/data-explorer/connect-from-databricks#install-the-python-library-on-your-azure-databricks-cluster
+# You need to pip install azureml-opendatasets in Databricks cluster. https://learn.microsoft.com/azure/data-explorer/connect-from-databricks#install-the-python-library-on-your-azure-databricks-cluster
 # Download or mount OJ Sales raw files Azure Machine Learning file datasets.
-# This works only for Linux based compute. See https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-register-datasets to learn more about datasets.
+# This works only for Linux based compute. See https://learn.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets to learn more about datasets.
 
 from azureml.opendatasets import OjSalesSimulated
 

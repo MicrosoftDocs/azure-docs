@@ -7,8 +7,8 @@ ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
-ms.date: 09/09/2021
+ms.custom: synapse, ignite-2022
+ms.date: 07/24/2023
 ---
 
 # Copy data from or to MongoDB using Azure Data Factory or Synapse Analytics
@@ -23,7 +23,15 @@ This article outlines how to use the Copy Activity in Azure Data Factory Synapse
 
 ## Supported capabilities
 
-You can copy data from MongoDB database to any supported sink data store, or copy data from any supported source data store to MongoDB database. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+This MongoDB connector is supported for the following capabilities:
+
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
 Specifically, this MongoDB connector supports **versions up to 4.2**.
 
@@ -139,7 +147,7 @@ The following properties are supported in the copy activity **source** section:
 | cursorMethods.sort | Specifies the order in which the query returns matching documents. Refer to [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | No |
 | cursorMethods.limit |	Specifies the maximum number of documents the server returns. Refer to [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | No |
 | cursorMethods.skip | Specifies the number of documents to skip and from where MongoDB begins to return results. Refer to [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | No |
-| batchSize | Specifies the number of documents to return in each batch of the response from MongoDB instance. In most cases, modifying the batch size will not affect the user or the application. Cosmos DB limits each batch cannot exceed 40 MB in size, which is the sum of the batchSize number of documents' size, so decrease this value if your document size being large. | No<br/>(the default is **100**) |
+| batchSize | Specifies the number of documents to return in each batch of the response from MongoDB instance. In most cases, modifying the batch size will not affect the user or the application. Azure Cosmos DB limits each batch cannot exceed 40 MB in size, which is the sum of the batchSize number of documents' size, so decrease this value if your document size being large. | No<br/>(the default is **100**) |
 
 >[!TIP]
 >The service supports consuming BSON document in **Strict mode**. Make sure your filter query is in Strict mode instead of Shell mode. More description can be found at [MongoDB manual](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
@@ -242,6 +250,20 @@ To achieve such schema-agnostic copy, skip the "structure" (also called *schema*
 ## Schema mapping
 
 To copy data from MongoDB to tabular sink or reversed, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
+
+## Upgrade the MongoDB linked service
+
+Here are steps that help you upgrade your linked service and related queries:
+
+1. Create a new MongoDB linked service and configure it by referring to [Linked service properties](#linked-service-properties).
+1. If you use SQL queries in your pipelines that refer to the old MongoDB linked service, replace them with the equivalent MongoDB queries. See the following table for the replacement examples:
+
+    | SQL query | Equivalent MongoDB query | 
+    |:--- |:--- |
+    | `SELECT * FROM users` | `db.users.find({})` |
+    | `SELECT username, age FROM users` |`db.users.find({}, {username: 1, age: 1})` |
+    | `SELECT username AS User, age AS Age, statusNumber AS Status, CASE WHEN Status = 0 THEN "Pending" CASE WHEN Status = 1 THEN "Finished" ELSE "Unknown" END AS statusEnum LastUpdatedTime + interval '2' hour AS NewLastUpdatedTime FROM users` | `db.users.aggregate([{ $project: { _id: 0, User: "$username", Age: "$age", Status: "$statusNumber", statusEnum: { $switch: { branches: [ { case: { $eq: ["$Status", 0] }, then: "Pending" }, { case: { $eq: ["$Status", 1] }, then: "Finished" } ], default: "Unknown" } }, NewLastUpdatedTime: { $add: ["$LastUpdatedTime", 2 * 60 * 60 * 1000] } } }])`|
+    | `SELECT employees.name, departments.name AS department_name FROM employees LEFT JOIN departments ON employees.department_id = departments.id;`|`db.employees.aggregate([ { $lookup: { from: "departments", localField: "department_id", foreignField: "_id", as: "department" } }, { $unwind: "$department" }, { $project: { _id: 0, name: 1, department_name: "$department.name" } } ])` |
 
 
 ## Next steps

@@ -1,16 +1,18 @@
 ---
 title: 'Tutorial: Design a server - Azure PowerShell - Azure Database for MariaDB'
 description: This tutorial explains how to create and manage Azure Database for MariaDB server and database using PowerShell.
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: azurepowershell
 ms.topic: tutorial
-ms.date: 05/26/2020
+ms.date: 06/24/2022
 ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Tutorial: Design an Azure Database for MariaDB using PowerShell
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 Azure Database for MariaDB is a relational database service in the Microsoft cloud based on MariaDB
 Community Edition database engine. In this tutorial, you use PowerShell and other utilities to learn
@@ -34,7 +36,7 @@ If you choose to use PowerShell locally, this article requires that you install 
 module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)
 cmdlet. For more information about installing the Az PowerShell module, see
-[Install Azure PowerShell](/powershell/azure/install-az-ps).
+[Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 > [!IMPORTANT]
 > While the Az.MariaDb PowerShell module is in preview, you must install it separately from the Az

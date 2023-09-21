@@ -7,14 +7,16 @@ ms.subservice: single-server
 ms.topic: how-to
 author: mksuni
 ms.author: sumuth
-ms.date: 09/22/2020
+ms.date: 06/20/2022
 ---
 
 # Connect and query overview for Azure database for MySQL- Single Server
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-The following document includes links to examples showing how to connect and query with Azure Database for MySQL Single Server. This guide also includes TLS recommendations and libraries that you can use to connect to the server in supported languages below.
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
+The following document includes links to examples showing how to connect and query with Azure Database for MySQL single server. This guide also includes TLS recommendations and libraries that you can use to connect to the server in supported languages below.
 
 ## Quickstarts
 
@@ -30,7 +32,7 @@ The following document includes links to examples showing how to connect and que
 |[Go](connect-go.md)|This quickstart demonstrates how to use Go to connect to a database. Transact-SQL statements to query and modify data are also demonstrated.|
 |[Python](connect-python.md)|This quickstart demonstrates how to use Python to connect to a database and use MySQL statements to query data. |
 |[Ruby](connect-ruby.md)|This quickstart demonstrates how to use Ruby to create a program to connect to a database and use MySQL statements to query data.|
-|[C++](connect-cpp.md)|This quickstart demonstrates how to use C+++ to create a program to connect to a database and use  query data.|
+|[C++](connect-cpp.md)|This quickstart demonstrates how to use C++ to create a program to connect to a database and use  query data.|
 
 ## TLS considerations for database connectivity
 
@@ -40,7 +42,7 @@ Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or
 
 Azure Database for MySQL uses the world's most popular community edition of MySQL database. Hence, it is compatible with a wide variety of programming languages and drivers. The goal is to support the three most recent versions MySQL drivers, and efforts with authors from the open source community to constantly improve the functionality and usability of MySQL drivers continue.
 
-See what [drivers](concepts-compatibility.md) are compatible with Azure Database for MySQL Single server.
+See what [drivers](concepts-compatibility.md) are compatible with Azure Database for MySQL single server.
 
 ## Next steps
 

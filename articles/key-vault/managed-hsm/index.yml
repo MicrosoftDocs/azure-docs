@@ -8,11 +8,11 @@ metadata:
   description: Learn how to use u to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
   services: key-vault
   ms.service: key-vault
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
   manager: rkarlin
-  ms.date: 09/15/2020
+  ms.date: 01/04/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -36,6 +36,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
+          - text: Key sovereignty, availability, performance, and scalability
+            url: managed-hsm-technical-details.md
           - text: Managed HSM best practices
             url: best-practices.md
           - text: Managed HSM access control
@@ -96,4 +98,3 @@ landingContent:
             url: ../general/security-features.md
           - text: Soft-delete overview
             url: ../general/soft-delete-overview.md
-

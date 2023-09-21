@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use the Azure portal to create
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 06/14/2021
+ms.date: 06/08/2023
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
@@ -13,31 +13,26 @@ ms.custom: mvc, mode-ui
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure portal
 
-In this quickstart, you use the Azure portal to create an application gateway. Then you test it to make sure it works correctly. 
+In this quickstart, you use the Azure portal to create an [Azure Application Gateway](overview.md) and test it to make sure it works correctly. You will assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, a simple setup is used with a public frontend IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines (VMs) in the backend pool.
 
-The application gateway directs application web traffic to specific resources in a backend pool. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, this article uses a simple setup with a public front-end IP, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
+![Quickstart setup](./media/quick-create-portal/application-gateway-qs-resources.png)
 
-:::image type="content" source="media/quick-create-portal/application-gateway-qs-resources.png" alt-text="application gateway resources":::
+For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md).
 
 You can also complete this quickstart using [Azure PowerShell](quick-create-powershell.md) or [Azure CLI](quick-create-cli.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-## Sign in to the Azure portal
+An Azure account with an active subscription is required.  If you don't already have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create an application gateway
 
-You'll create the application gateway using the tabs on the **Create an application gateway** page.
+You'll create the application gateway using the tabs on the **Create application gateway** page.
 
-1. On the Azure portal menu or from the **Home** page, select **Create a resource**. The **New** window appears.
-
-2. Select **Networking** and then select **Application Gateway** in the **Featured** list.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
+2. Under **Categories**, select **Networking** and then select **Application Gateway** in the **Popular Azure services** list.
 
 ### Basics tab
 
@@ -48,7 +43,7 @@ You'll create the application gateway using the tabs on the **Create an applicat
 
      ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
-2. For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
+2. For Azure to communicate between the resources that you create, a virtual network is needed. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: One for the application gateway, and another for the backend servers.
 
     > [!NOTE]
     > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
@@ -57,11 +52,7 @@ You'll create the application gateway using the tabs on the **Create an applicat
 
     - **Name**: Enter *myVNet* for the name of the virtual network.
 
-    - **Subnet name** (Application Gateway subnet): The **Subnets** grid will show a subnet named *Default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed.
-
-    - **Subnet name** (backend server subnet): In the second row of the **Subnets** grid, enter *myBackendSubnet* in the **Subnet name** column.
-
-    - **Address range** (backend server subnet): In the second row of the **Subnets** Grid, enter an address range that doesn't overlap with the address range of *myAGSubnet*. For example, if the address range of *myAGSubnet* is 10.0.0.0/24, enter *10.0.1.0/24* for the address range of *myBackendSubnet*.
+    - **Subnet name** (Application Gateway subnet): The **Subnets** grid will show a subnet named *default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed. The default IP address range provided is 10.0.0.0/24.
 
     Select **OK** to close the **Create virtual network** window and save the virtual network settings.
 
@@ -83,7 +74,7 @@ You'll create the application gateway using the tabs on the **Create an applicat
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, Virtual Machine Scale Sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 
@@ -104,7 +95,10 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 1. Select **Add a routing rule** in the **Routing rules** column.
 
-2. In the **Add a routing rule** window that opens, enter *myRoutingRule* for the **Rule name**.
+2. In the **Add a routing rule** window that opens, enter the following values for Rule name and Priority:
+
+    - **Rule name**: Enter *myRoutingRule* for the name of the rule.
+    - **Priority**: The priority value should be between 1 and 20000 (where 1 represents highest priority and 20000 represents lowest) - for the purposes of this quickstart, enter *100* for the priority.
 
 3. A routing rule requires a listener. On the **Listener** tab within the **Add a routing rule** window, enter the following values for the listener:
 
@@ -117,9 +111,9 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 4. On the **Backend targets** tab, select **myBackendPool** for the **Backend target**.
 
-5. For the **HTTP setting**, select **Add new** to add a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. In the **Add an HTTP setting** window that opens, enter *myHTTPSetting* for the **HTTP setting name** and *80* for the **Backend port**. Accept the default values for the other settings in the **Add an HTTP setting** window, then select **Add** to return to the **Add a routing rule** window. 
+5. For the **Backend setting**, select **Add new** to add a new Backend setting. The Backend setting will determine the behavior of the routing rule. In the **Add Backend setting** window that opens, enter *myBackendSetting* for the **Backend settings name** and *80* for the **Backend port**. Accept the default values for the other settings in the **Add Backend setting** window, then select **Add** to return to the **Add a routing rule** window. 
 
-     ![Create new application gateway: HTTP setting](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
+     ![Create new application gateway: HTTP setting](./media/application-gateway-create-gateway-portal/application-gateway-create-backendsetting.png)
 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
 

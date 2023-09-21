@@ -1,232 +1,185 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
-title: Azure Cosmos DB documentation # < 60 chars
-summary: Azure Cosmos DB - Fast NoSQL database with SLA-backed speed and availability, automatic and instant scalability, and open-source APIs for MongoDB and Cassandra.  # < 160 chars
+title: Azure Cosmos DB documentation
+summary: Fully managed, distributed NoSQL & relational database for modern app development. High performance, high availability, and support for open-source PostgreSQL, MongoDB, and Apache Cassandra. Build cloud-native apps effortlessly.
+brand: azure
 
 metadata:
-  title: Azure Cosmos DB # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Cosmos DB - Fast NoSQL database with SLA-backed speed and availability, automatic and instant scalability, and open-source APIs for MongoDB and Cassandra. # Required; article description that is displayed in search results. < 160 chars.
-  services: service
-  ms.service: cosmos-db #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
+  title: Azure Cosmos DB
+  description: Fully managed, distributed NoSQL & relational database for modern apps. High performance, availability, and support for PostgreSQL, MongoDB, and Cassandra.
+  services: cosmos-db
+  author: seesharprun
+  ms.author: sidandrews
+  ms.reviewer: mjbrown
+  ms.service: cosmos-db
+  ms.topic: landing-page
   ms.collection: collection
-  author: SnehaGunda #Required; your GitHub user alias, with correct capitalization.
-  ms.author: sngun #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/10/2019 #Required; mm/dd/yyyy format.
+  ms.date: 02/28/2023
+  ms.custom: ignite-2022
+highlightedContent:
+  items:
+    - title: Introduction to Azure Cosmos DB
+      itemType: concept
+      url: introduction.md
+    - title: Try Azure Cosmos DB free
+      itemType: get-started
+      url: try-free.md
+    - title: Distributed NoSQL databases
+      itemType: concept
+      url: distributed-nosql.md
+    - title: Q&A
+      itemType: reference
+      url: /answers/tags/187/azure-cosmos-db
+    - title: Vector Search with Azure Cosmos DB
+      itemType: concept
+      url: vector-search.md
+    - title: Choose an API in Azure Cosmos DB
+      itemType: concept
+      url: choose-api.md
+    - title: Create an Azure Cosmos DB for NoSQL account
+      itemType: how-to-guide
+      url: nosql/quickstart-portal.md
+    - title: Create an Azure Cosmos DB for PostgreSQL account
+      itemType: how-to-guide
+      url: postgresql/quickstart-create-portal.md
 
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
-
-landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
-  # Card (optional)
-  - title: About Azure Cosmos DB
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Cosmos DB?
-            url: introduction.md
-      - linkListType: get-started
-        links:
-          - text: NoSQL Vs relational databases
-            url: relational-nosql.md
-          - text: Azure Cosmos DB resource model
-            url: account-databases-containers-items.md
-          - text: Distribute data globally
-            url: distribute-data-globally.md
-          - text: Partitioning
-            url: partitioning-overview.md 
-          - text: Throughput & request units
-            url: request-units.md 
-          - text: Data modeling and partitioning
-            url: how-to-model-partition-example.md 
-          - text: Service quotas
-            url: concepts-limits.md 
-          - text: Analytics with Azure Synapse Link
-            url: synapse-link.md
-      - linkListType: quickstart
-        links:
-          - text: Create an Azure Cosmos account
-            url: create-cosmosdb-resources-portal.md
-      - linkListType: video
-        links:
-          - text: Data modeling - improve your application's speed and performance
-            url: https://aka.ms/docs.modeling-data
-
-  # Card
-  - title: Use Azure Cosmos DB SQL API 
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Manage your data using a .NET Console app 
-            url: create-sql-api-dotnet-v4.md
-          - text: Manage your data using a Java app
-            url: create-sql-api-java.md     
-      - linkListType: concept
-        links:       
-          - text: Getting started with SQL queries
-            url: sql-query-getting-started.md  
-          - text: What is change feed? 
-            url: change-feed.md       
-      - linkListType: tutorial
-        links:
-          - text: Build a .NET web app to manage your data
-            url: sql-api-dotnet-application.md
-          - text: Java app with Async SDK
-            url: ./create-sql-api-java.md
-          - text: Query data with SQL queries
-            url: tutorial-query-sql-api.md
-      - linkListType: how-to-guide
-        links:
-          - text: Tune query performance 
-            url: sql-api-query-metrics.md
-          - text: Define stored procedures, triggers, UDFs
-            url: how-to-write-stored-procedures-triggers-udfs.md                                
-
-  # Card
-  - title: Use Azure Cosmos DB API for MongoDB
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Cosmos DB API for MongoDB?
-            url: mongodb/mongodb-introduction.md
-      - linkListType: quickstart
-        links:
-          - text: Manage your data using a .NET app
-            url: mongodb/create-mongodb-dotnet.md
-          - text: Manage your data using a GoLang app
-            url: mongodb/create-mongodb-go.md  
-      - linkListType: concept
-        links:  
-          - text: Wire protocol compatibility with MongoDB
-            url: mongodb/feature-support-40.md    
-          - text: MongoDB extension commands
-            url: mongodb/custom-commands.md
-          - text: Change streams
-            url: mongodb/change-streams.md                       
-      - linkListType: tutorial
-        links:
-          - text: Query data with MongoDB shell
-            url: mongodb/tutorial-query-mongodb.md
-      - linkListType: how-to-guide
-        links:
-          - text: Manage data indexing
-            url: mongodb/mongodb-indexing.md
-          - text: Connect with Robo 3T
-            url: mongodb/connect-using-robomongo.md
-
-  # Card
-  - title: Use Azure Cosmos DB Gremlin API 
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Cosmos Gremlin API?
-            url: graph/graph-introduction.md
-      - linkListType: quickstart
-        links:
-          - text: Manage your data using using Gremlin Console
-            url: graph/create-graph-console.md
-          - text: Manage your data using a .NET app
-            url: graph/create-graph-dotnet.md   
-      - linkListType: concept
-        links:  
-          - text: Wire protocol compatibility with Tinkerpop’s Gremlin
-            url: graph/gremlin-support.md      
-          - text: Gremlin API service limits
-            url: graph/gremlin-limits.md                                     
-      - linkListType: how-to-guide
-        links:
-          - text: Graph data modeling
-            url: graph/graph-modeling.md
-          - text: Graph data partitioning best practices 
-            url: graph/graph-partitioning.md
-          - text: Optimize Gremlin queries
-            url: graph/graph-execution-profile.md
-
-  # Card
-  - title: Use Azure Cosmos DB Cassandra API
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Cosmos DB Cassandra API?
-            url: cassandra/cassandra-introduction.md
-      - linkListType: quickstart
-        links:
-          - text: Manage your data using a .NET Core app
-            url: cassandra/manage-data-dotnet-core.md            
-          - text: Manage your data using a Java app
-            url: cassandra/manage-data-java-v4-sdk.md   
-      - linkListType: concept
-        links:  
-          - text: Wire protocol compatibility with Apache Cassandra
-            url: cassandra/cassandra-support.md 
-          - text: Elastic scaling
-            url: cassandra/scale-account-throughput.md 
-          - text: Secondary indexes
-            url: cassandra/secondary-indexing.md   
-          - text: Partitioning 
-            url: cassandra/cassandra-partitioning.md                  
-      - linkListType: how-to-guide
-        links:
-          - text: From Apache Cassandra to Cassandra API
-            url: cassandra/cassandra-adoption.md         
-          - text: Connect to Cassandra API from Spark
-            url: cassandra/connect-spark-configuration.md 
-          - text: Change feed support with query predicates
-            url: cassandra/cassandra-change-feed.md?tabs=java 
-
-  # Card
-  - title: Migrate your data to Cosmos DB
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Data migration tool – SQL API
-            url: import-data.md
-          - text: CQL shell, Spark – Cassandra API
-            url: cassandra/migrate-data.md
-          - text: Azure Database Migration Service – MongoDB API
-            url: ../dms/tutorial-mongodb-cosmos-db.md
-          - text: AzCopy, Data migration tool – Table API
-            url: table/table-import.md                         
-      - linkListType: how-to-guide
-        links:
-          - text: Oracle DB to Cosmos DB SQL API using Striim
-            url: cosmosdb-sql-api-migrate-data-striim.md
-          - text: Oracle DB to Cosmos DB Cassandra API using Striim
-            url: cassandra/migrate-data-striim.md                                        
-          - text: Oracle DB to Cosmos DB Cassandra API using Arcion
-            url: cassandra/oracle-migrate-cosmos-db-arcion.md 
-          - text: Apache Cassandra to Cosmos DB using Arcion
-            url: cassandra/migrate-data-arcion.md 
-          - text: Migrate 100’s TBs of data
-            url: migrate-cosmosdb-data.md 
-
-  # Card
-  - title: Analytics with Azure Synapse Link
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Synapse Link for Azure Cosmos DB
-            url: synapse-link.md
-          - text: Azure Cosmos DB Analytical Store 
-            url: analytical-store-introduction.md
-          - text: Synapse Link use cases 
-            url: synapse-link-use-cases.md
-      - linkListType: how-to-guide
-        links:
-          - text: Configure Azure Synapse Link
-            url: configure-synapse-link.md
-
-  # Card
-  - title: Use Azure Cosmos DB Table API
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Manage your data using a .NET app
-            url: table/create-table-dotnet.md            
-          - text: Manage your data using a Java app
-            url: table/create-table-java.md                     
-      - linkListType: concept
-        links:
-          - text: Differences between Table API and Azure Table storage
-            url: table/table-support.md
+additionalContent:
+  sections:
+    - title: APIs
+      items:
+        - title: NoSQL
+          links:
+            - text: SQL queries
+              url: nosql/query/getting-started.md
+            - text: Stored procedures, triggers, UDFs
+              url: nosql/how-to-write-stored-procedures-triggers-udfs.md
+            - text: Model document data
+              url: nosql/modeling-data.md
+            - text: See more >
+              url: nosql/index.yml
+        - title: MongoDB
+          links:
+            - text: Supported features and syntax
+              url: mongodb/feature-support-42.md
+            - text: Mapping consistency levels
+              url: mongodb/consistency-mapping.md
+            - text: Extension commands
+              url: mongodb/custom-commands.md
+            - text: See more >
+              url: mongodb/index.yml
+        - title: Apache Cassandra
+          links:
+            - text: Wire protocol support
+              url: cassandra/support.md
+            - text: Partitioning
+              url: cassandra/partitioning.md
+            - text: Secondary indexing
+              url: cassandra/secondary-indexing.md
+            - text: See more >
+              url: cassandra/index.yml
+        - title: Apache Gremlin
+          links:
+            - text: Wire protocol support
+              url: gremlin/support.md
+            - text: Graph data modeling
+              url: gremlin/modeling.md
+            - text: Import graph data
+              url: gremlin/bulk-executor-dotnet.md
+            - text: See more >
+              url: graph/index.yml
+        - title: Table
+          links:
+            - text: Build apps with API for Table
+              url: table/support.md
+            - text: Find request unit charge
+              url: table/find-request-unit-charge.md
+            - text: FAQ
+              url: table/table-api-faq.yml
+            - text: See more >
+              url: table/index.yml
+        - title: PostgreSQL
+          links:
+            - text: Distributed relational databases
+              url: distributed-relational.md
+            - text: Connect and run SQL commands using Python
+              url: postgresql/quickstart-app-stacks-python.md
+            - text: Distribute and modify tables
+              url: postgresql/howto-modify-distributed-tables.md
+            - text: See more >
+              url: postgresql/index.yml
+    - title: Concepts
+      items:
+        - title: Explore core concepts
+          links:
+            - text: Resource model
+              url: resource-model.md
+            - text: Distribute data globally
+              url: distribute-data-globally.md
+            - text: Partitioning
+              url: partitioning-overview.md
+            - text: Throughput & request units
+              url: request-units.md
+        - title: Model your data
+          links:
+            - text: Data modeling and partitioning
+              url: nosql/model-partition-example.md
+            - text: Azure Cosmos DB service quotas
+              url: concepts-limits.md
+        - title: Analytics with Azure Synapse Link
+          links:
+            - text: Synapse Link for Azure Cosmos DB
+              url: synapse-link.md
+            - text: Azure Cosmos DB Analytical Store
+              url: analytical-store-introduction.md
+            - text: Synapse Link use cases
+              url: synapse-link-use-cases.md
+            - text: Configure Azure Synapse Link
+              url: configure-synapse-link.md
+    - title: Training & certification
+      items:
+        - title: Create an API for NoSQL application
+          links:
+            - text: Build a .NET app
+              url: /training/modules/build-dotnet-app-cosmos-db-sql-api/
+            - text: Build a Node.js app
+              url: /training/modules/build-node-cosmos-app-vscode/
+            - text: Build a Java app
+              url: /training/modules/build-cosmos-db-java-app/
+            - text: See more >
+              url: /training/browse/?resource_type=module&products=azure-cosmos-db
+        - title: Work with API for PostgreSQL
+          links:
+            - text: Model data
+              url: /training/modules/model-data-azure-cosmos-db-postgresql/
+            - text: Ingest and query data
+              url: /training/modules/ingest-query-data-using-azure-cosmos-db-for-postgresql/
+            - text: Extend PostgreSQL functionality using extensions
+              url: /training/modules/extend-the-functionality-of-azure-cosmos-db-for-postgresql-using-extensions/
+            - text: See more >
+              url: /training/paths/azure-cosmos-db-for-postgresql/
+        - title: Certifications
+          links:
+            - text: Microsoft Certified - Azure Cosmos DB Developer Specialty
+              url: /certifications/azure-cosmos-db-developer-specialty/
+            - text: Microsoft Certified - Azure Developer Associate
+              url: /certifications/azure-developer/
+    - title: Data Migration
+      items:
+        - title: Migration options
+          links:
+            - text: CQL shell, Spark – API for Cassandra
+              url: cassandra/migrate-data.md
+            - text: Azure Database Migration Service – API for MongoDB
+              url: ../dms/tutorial-mongodb-cosmos-db.md
+        - title: Migration guides
+          links:
+            - text: Oracle DB to Azure Cosmos DB API for NoSQL using Striim
+              url: cosmosdb-sql-api-migrate-data-striim.md
+            - text: Oracle DB to Azure Cosmos DB API for Cassandra using Striim
+              url: cassandra/migrate-data-striim.md
+            - text: Oracle DB to Azure Cosmos DB API for Cassandra using Arcion
+              url: cassandra/oracle-migrate-cosmos-db-arcion.md
+            - text: Apache Cassandra to Azure Cosmos DB using Arcion
+              url: cassandra/migrate-data-arcion.md
+            - text: Migrate 100's TBs of data
+              url: migrate.md

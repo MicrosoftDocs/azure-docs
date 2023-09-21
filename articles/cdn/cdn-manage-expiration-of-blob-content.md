@@ -2,31 +2,26 @@
 title: Manage expiration of Azure Blob storage
 titleSuffix: Azure Content Delivery Network
 description: Learn about the options for controlling time-to-live for blobs in Azure CDN caching.
-services: cdn
-documentationcenter: ''
-author: zhangmanling
-manager: erikre
-editor: ''
-
+services: cdn 
+author: duongau
+manager: kumudd
 ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
 ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 02/1/2018
-ms.author: mazha 
-ms.custom: devx-track-azurepowershell
-
+ms.date: 02/27/2023
+ms.author: duau
+ms.custom: devx-track-azurepowershell, devx-track-dotnet
 ---
 # Manage expiration of Azure Blob storage in Azure CDN
 > [!div class="op_single_selector"]
 > * [Azure web content](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Azure Blob storage](cdn-manage-expiration-of-blob-content.md)
 > 
-> 
 
-The [Blob storage service](../storage/common/storage-introduction.md#blob-storage) in Azure Storage is one of several Azure-based origins integrated with Azure Content Delivery Network (CDN). Any publicly accessible blob content can be cached in Azure CDN until its time-to-live (TTL) elapses. The TTL is determined by the `Cache-Control` header in the HTTP response from the origin server. This article describes several ways that you can set the `Cache-Control` header on a blob in Azure Storage.
+The [Blob storage service](../storage/common/storage-introduction.md#blob-storage) in Azure Storage is one of several Azure-based origins integrated with Azure Content Delivery Network (CDN). Any publicly accessible blob content can be cached in Azure CDN until its time-to-live (TTL) elapses. The TTL gets determined by the `Cache-Control` header in the HTTP response from the origin server. This article describes several ways that you can set the `Cache-Control` header on a blob in Azure Storage.
 
 You can also control cache settings from the Azure portal by setting CDN caching rules. If you create a caching rule and set its caching behavior to **Override** or **Bypass cache**, the origin-provided caching settings discussed in this article are ignored. For information about general caching concepts, see [How caching works](cdn-how-caching-works.md).
 
@@ -42,7 +37,7 @@ You can also control cache settings from the Azure portal by setting CDN caching
 The preferred method for setting a blob's `Cache-Control` header is to use caching rules in the Azure portal. For more information about CDN caching rules, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Caching rules are available only for **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles. For **Azure CDN Premium from Verizon** profiles, you must use the [Azure CDN rules engine](./cdn-verizon-premium-rules-engine.md) in the **Manage** portal for similar functionality.
+> Caching rules are available only for **Azure CDN Standard from Edgio** and **Azure CDN Standard from Akamai** profiles. For **Azure CDN Premium from Edgio** profiles, you must use the [Azure CDN rules engine](./cdn-verizon-premium-rules-engine.md) in the **Manage** portal for similar functionality.
 
 **To navigate to the CDN caching rules page**:
 
@@ -65,7 +60,7 @@ The preferred method for setting a blob's `Cache-Control` header is to use cachi
 
    ![CDN global caching rules example](./media/cdn-manage-expiration-of-blob-content/cdn-global-caching-rules-example.png)
 
-   This global caching rule sets a cache duration of one hour and affects all requests to the endpoint. It overrides any `Cache-Control` or `Expires` HTTP headers that are sent by the origin server specified by the endpoint.   
+   This global caching rule sets a cache duration of one hour and affects all requests to the endpoint. It overrides any `Cache-Control` or `Expires` HTTP headers that get sent by the origin server specified by the endpoint.   
 
 3. Select **Save**.
  
@@ -112,7 +107,7 @@ $blob.ICloudBlob.SetProperties()
 >
 
 ## Setting Cache-Control headers by using .NET
-To specify a blob's `Cache-Control` header by using .NET code, use the [Azure Storage Client Library for .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) to set the [BlobHttpHeaders.CacheControl](/dotnet/api/azure.storage.blobs.models.blobhttpheaders.cachecontrol?view=azure-dotnet) property.
+To specify a blob's `Cache-Control` header by using .NET code, use the [Azure Storage Client Library for .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) to set the [BlobHttpHeaders.CacheControl](/dotnet/api/azure.storage.blobs.models.blobhttpheaders.cachecontrol?view=azure-dotnet&preserve-view=true) property.
 
 For example:
 

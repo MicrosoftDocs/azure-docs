@@ -4,7 +4,7 @@ description: This article provides steps for handling Service Bus events via Eve
 documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
-ms.date: 09/29/2021
+ms.date: 12/12/2022
 ms.author: spelluru
 ms.custom: devx-track-csharp
 ---
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 [!INCLUDE [service-bus-event-grid-prerequisites](./includes/service-bus-event-grid-prerequisites.md)]
 
 ## Additional prerequisites
-Install [Visual Studio 2019](https://www.visualstudio.com/vs) and include the **Azure development** workload. This workload includes **Azure Function Tools** that you need to create, build, and deploy Azure Functions projects in Visual Studio. 
+Install [Visual Studio 2022](https://www.visualstudio.com/vs) and include the **Azure development** workload. This workload includes **Azure Function Tools** that you need to create, build, and deploy Azure Functions projects in Visual Studio. 
 
 ## Deploy the function app 
 
@@ -33,7 +33,7 @@ Install [Visual Studio 2019](https://www.visualstudio.com/vs) and include the **
 > To learn more about creating and deploying an Azure Functions app, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md)
 
 1. Open **ReceiveMessagesOnEvent.cs** file from the **FunctionApp1** project of the **SBEventGridIntegration.sln** solution. 
-1. Replace `<SERCICE BUS NAMESPACE - CONNECTION STRING>` with the connection string to your Service Bus namespace. It should be the same as the one you used in the **Program.cs** file of the **MessageSender** project in the same solution. 
+1. Replace `<SERVICE BUS NAMESPACE - CONNECTION STRING>` with the connection string to your Service Bus namespace. It should be the same as the one you used in the **Program.cs** file of the **MessageSender** project in the same solution. 
 1. Right-click **FunctionApp1**, and select **Publish**. 
 1. On the **Publish** page, select **Start**. These steps may be different from what you see, but the process of publishing should be similar. 
 1. In the **Publish** wizard, on the **Target** page, select **Azure** for **Target**. 
@@ -54,13 +54,10 @@ Install [Visual Studio 2019](https://www.visualstudio.com/vs) and include the **
 
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/publish-function-app.png" alt-text="Publish Functions app":::    
 1. In the **Output** window, see the messages from build and publish, and confirm that they both succeeded. 
-1. Now, on the **Publish** page, select **Manage in Azure portal**. 
+1. Now, on the **Publish** page, in the **Hosting** section, select **... (ellipsis)**, and select **Manage in Azure portal**. 
 1. In the Azure portal, on the **Function App** page, select **Functions** in the left menu, and confirm that you see two functions: 
 
-    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/functions.png" alt-text="Two functions to handler Event Grid trigger and HTTP trigger":::
-
-    > [!NOTE]
-    > The `EventGridTriggerFunction` uses an [Event Grid trigger](../azure-functions/functions-bindings-event-grid-trigger.md) and the `HTTPTriggerFunction` uses a [HTTP trigger](../azure-functions/functions-bindings-http-webhook-trigger.md).
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/functions.png" alt-text="Screenshot showing the Functions page with the Event Grid Trigger function.":::
 1. Select **EventGridTriggerFunction** from the list. We recommend that you use the Event Grid trigger with Azure Functions as it has a few benefits over using the HTTP trigger. For details, see [Azure function as an event handler for Event Grid events](../event-grid/handler-functions.md).
 1. On the **Function** page for the **EventGridTriggerFunction**, select **Monitor** on the left menu. 
 1. Select **Configure** to configure Application Insights to capture invocation log. You use this page to monitor function executions upon receiving Service Bus events from Event Grid. 
@@ -72,12 +69,12 @@ Install [Visual Studio 2019](https://www.visualstudio.com/vs) and include the **
     
     Keep this page open in a tab your web browser. You'll refresh this page to see invocations for this function later.
 
-## Connect the function and namespace via Event Grid
+## Connect the function and the Service Bus namespace via Event Grid
 In this section, you tie together the function and the Service Bus namespace by using the Azure portal. 
 
 To create an Azure Event Grid subscription, follow these steps:
 
-1. In the Azure portal, go to your namespace and then, in the left pane, select **Events**. Your namespace window opens, with two Event Grid subscriptions displayed in the right pane. 
+1. In the Azure portal, go to your Service Bus namespace and then, in the left pane, select **Events**. Your namespace window opens, with two Event Grid subscriptions displayed in the right pane. 
     
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/service-bus-events-page.png" alt-text="Service Bus - events page":::
 2. Select **+ Event Subscription** on the toolbar. 

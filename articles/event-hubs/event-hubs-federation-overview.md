@@ -2,6 +2,7 @@
 title: Multi-site and multi-region federation - Azure Event Hubs | Microsoft Docs
 description: This article provides an overview of multi-site and multi-region federation with Azure Event Hubs. 
 ms.topic: article
+ms.custom: ignite-2022
 ms.date: 09/28/2021
 ms.author: spelluru
 ---
@@ -17,7 +18,7 @@ Practically, that means your solution will maintain multiple Event Hubs, often
 in different regions and Event Hubs namespaces, and then replicate events between
 them. You might also exchange events with sources and targets like [Azure
 Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), [Azure
-IoT Hub](../iot-fundamentals/iot-introduction.md), or [Apache
+IoT Hub](../iot/iot-introduction.md), or [Apache
 Kafka](https://kafka.apache.org). 
 
 Maintaining multiple active Event Hubs in different regions also allows clients
@@ -48,12 +49,12 @@ the respective pattern.
 ### Resiliency against regional availability events 
 
 ![Regional
-Availability](media/event-hubs-federation-overview/regional-availability.jpg)
+Availability](media/event-hubs-federation-overview/regional-availability.png)
 
 While maximum availability and reliability are the top operational priorities
 for Event Hubs, there are nevertheless many ways in which a producer or consumer
-might be prevented from talking to its assigned "primary" Event Hub because of
-networking or name resolution issues, or where an Event Hub might indeed be
+might be prevented from talking to its assigned "primary" Event Hubs because of
+networking or name resolution issues, or where an Event Hubs might indeed be
 temporarily unresponsive or returning errors. 
 
 Such conditions aren't "disastrous" such that you'll want to abandon the
@@ -65,16 +66,16 @@ than a few minutes or even seconds.
 There are two foundational patterns to address such scenarios:
 
 - The [replication][4] pattern is about replicating the contents of a primary
-  Event Hub to a secondary Event Hub, whereby the primary Event Hub is generally
+  Event Hubs to a secondary Event Hubs, whereby the primary Event Hubs is generally
   used by the application for both producing and consuming events and the
-  secondary serves as a fallback option in case the primary Event Hub is
+  secondary serves as a fallback option in case the primary Event Hubs is
   becoming unavailable. Since replication is unidirectional, from the primary to
   the secondary, a switchover of both producers and consumers from an
   unavailable primary to the secondary will cause the old primary to no
   longer receive new events and it will therefore be no longer current.
   Pure replication is therefore only suitable for one-way failover scenarios. Once
   the failover has been performed, the old primary is abandoned and a new
-  secondary Event Hub needs to be created in a different target region.
+  secondary Event Hubs needs to be created in a different target region.
 - The [merge][5] pattern extends the replication pattern by performing a
   continuous merge of the contents of two or more Event Hubs. Each event
   originally produced into one of the Event Hubs included in the scheme is
@@ -91,16 +92,16 @@ may differ. This is especially true for scenarios where the partition count of
 source and target Event Hubs differ, which is desirable for several of the
 extended patterns described here. A [splitter or
 router](#splitting-and-routing-of-event-streams) may obtain a slice of a much
-larger Event Hub with hundreds of partitions and funnel into a smaller Event Hub
+larger Event Hubs with hundreds of partitions and funnel into a smaller Event Hubs
 with just a handful of partitions, more suitable for handling the subset with
 limited processing resources. Conversely, a
 [consolidation](#consolidation-and-normalization-of-event-streams) may funnel
-data from several smaller Event Hubs into a single, larger Event Hub with more
+data from several smaller Event Hubs into a single, larger Event Hubs with more
 partitions to cope with the consolidated throughput and processing needs.
 
 The criterion for keeping events together is the partition key and not the
 original partition ID. Further considerations about relative order and how to
-perform a failover from one Event Hub to the next without relying on the same
+perform a failover from one Event Hubs to the next without relying on the same
 scope of stream offsets is discussed in [replication][4] pattern description.
 
 
@@ -111,7 +112,7 @@ Guidance:
 ### Latency optimization 
 
 ![Latency
-Optimization](media/event-hubs-federation-overview/latency-optimization.jpg)  
+Optimization](media/event-hubs-federation-overview/latency-optimization.png)  
 
 Event streams are written once by producers, but may be read any number of times
 by event consumers. For scenarios where an event stream in a region is shared by
@@ -133,9 +134,9 @@ Guidance:
 
 ### Validation, reduction, and enrichment
 
-![Validation, reduction, enrichment](media/event-hubs-federation-overview/validation-enrichment.jpg)  
+![Validation, reduction, enrichment](media/event-hubs-federation-overview/validation-enrichment.png)  
 
-Event streams may be submitted into an Event Hub by clients external to your own
+Event streams may be submitted into an Event Hubs by clients external to your own
 solution. Such event streams may require for externally submitted events to be
 checked for compliance with a given schema, and for non-compliant events to be
 dropped. 
@@ -157,7 +158,7 @@ Guidance:
 
 ### Integration with analytics services
 
-![Integration with analytics services](media/event-hubs-federation-overview/integration.jpg)
+![Integration with analytics services](media/event-hubs-federation-overview/integration.png)
 
 Several of Azure's cloud-native analytics services like Azure Stream Analytics
 or Azure Synapse work best with streamed or pre-batched data served up from
@@ -167,8 +168,8 @@ and Apache Storm.
 
 If your solution primarily uses Service Bus or Event Grid, you can make these
 events easily accessible to such analytics systems and also for archival with
-Event Hubs Capture if you funnel them into Event Hub. Event Grid can do so
-natively with its [Event Hub integration](../event-grid/handler-event-hubs.md),
+Event Hubs Capture if you funnel them into Event Hubs. Event Grid can do so
+natively with its [Event Hubs integration](../event-grid/handler-event-hubs.md),
 for Service Bus you follow the [Service Bus replication
 guidance](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub).
 
@@ -179,7 +180,7 @@ Guidance:
 
 ### Consolidation and normalization of event streams
 
-![Consolidation and normalization of event streams](media/event-hubs-federation-overview/consolidation.jpg)
+![Consolidation and normalization of event streams](media/event-hubs-federation-overview/consolidation.png)
 
 Global solutions are often composed of regional footprints that are largely
 independent including having their own analytics capabilities, but
@@ -202,7 +203,7 @@ Guidance:
 
 ### Splitting and routing of event streams
 
-![Splitting and routing of event streams](media/event-hubs-federation-overview/splitting.jpg)
+![Splitting and routing of event streams](media/event-hubs-federation-overview/splitting.png)
 
 Azure Event Hubs is occasionally used in "publish-subscribe" style scenarios
 where an incoming torrent of ingested events far exceeds the capacity of Azure
@@ -213,7 +214,7 @@ pattern.
 While a true "publish-subscribe" capability leaves it to subscribers to pick the
 events they want, the splitting pattern has the producer map events to
 partitions by a predetermined distribution model and designated consumers then
-exclusively pull from "their" partition. With the Event Hub buffering the
+exclusively pull from "their" partition. With the Event Hubs buffering the
 overall traffic, the content of a particular partition, representing a fraction
 of the original throughput volume, may then be replicated into a queue for
 reliable, transactional, competing consumer consumption.
@@ -222,7 +223,7 @@ Many scenarios where Event Hubs is primarily used for moving events within an
 application within a region have some cases where select events, maybe just from
 a single partition, also have to be made available elsewhere. This scenario is similar to
 the splitting scenario, but might use a scalable router that considers all the
-messages arriving in an Event Hub and cherry-picks just a few for onward routing
+messages arriving in an Event Hubs and cherry-picks just a few for onward routing
 and might differentiate routing targets by event metadata or content. 
 
 Guidance:
@@ -230,7 +231,7 @@ Guidance:
 
 ### Log projections 
 
-![Log projection](media/event-hubs-federation-overview/log-projection.jpg)
+![Log projection](media/event-hubs-federation-overview/log-projection.png)
 
 In some scenarios, you will want to have access to the latest value sent for any
 substream of an event, and commonly distinguished by the partition key. In
@@ -310,8 +311,7 @@ example, you can:
   Azure Synapse Analytics, etc.) to perform batch analytics or train machine
   learning models based on very large, indexed pools of historical data.
 - Store projections (also called "materialized views") in databases ([SQL
-  Database](../stream-analytics/sql-database-output.md), [Cosmos
-  DB](../stream-analytics/azure-cosmos-db-output.md) ).
+  Database](../stream-analytics/sql-database-output.md), [Azure Cosmos DB](../stream-analytics/azure-cosmos-db-output.md)).
 
 ### Stateless replication applications in Azure Functions
 
@@ -333,7 +333,7 @@ custom extensions for
 triggers will dynamically adapt to the throughput needs by scaling the number of concurrently executing instances up and down based on documented metrics. 
 
 For building log projections, Azure Functions supports output bindings for
-[Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-output.md)
+[Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-output.md)
 and [Azure Table Storage](../azure-functions/functions-bindings-storage-table-output.md).
 
 Azure Functions can run under a [Azure managed

@@ -3,11 +3,12 @@ title: Tutorial – Deploy Active Directory connector using Azure CLI
 description: Tutorial to deploy an Active Directory connector using Azure CLI
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+ms.subservice: azure-arc-data-sqlmi
+ms.custom: devx-track-azurecli
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
-ms.date: 05/05/2022
+ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
@@ -20,7 +21,7 @@ This article explains how to deploy an Active Directory (AD) connector using Azu
 
 ### Install tools
 
-Before you can proceed with the tasks in this article you need to install the following tools:
+Before you can proceed with the tasks in this article, install the following tools:
 
 - The [Azure CLI (az)](/cli/azure/install-azure-cli)
 - The [`arcdata` extension for Azure CLI](install-arcdata-extension.md)
@@ -35,7 +36,7 @@ To know further details about how to set up OU and AD account, go to [Deploy Azu
 #### Create an AD connector instance
 
 > [!NOTE]
-> Make sure the password of provided domain service AD account here doesn't contain `!` as special characters. 
+> Make sure to wrap your password for the domain service AD account with single quote `'` to avoid the expansion of special characters such as `!`.
 > 
 
 To view available options for create command for AD connector instance, use the following command:
@@ -55,7 +56,7 @@ az arcdata ad-connector create
 --k8s-namespace < Kubernetes namespace >
 --realm < AD Domain name >
 --nameserver-addresses < DNS server IP addresses >
---account-provisioning < account provisioning mode : manual or auto > 
+--account-provisioning < account provisioning mode : manual or automatic > 
 --prefer-k8s-dns < whether Kubernetes DNS or AD DNS Server for IP address lookup >
 --use-k8s
 ```
@@ -73,6 +74,22 @@ az arcdata ad-connector create
 --use-k8s
 ```
 
+```azurecli
+# Setting environment variables needed for automatic account provisioning
+DOMAIN_SERVICE_ACCOUNT_USERNAME='sqlmi'
+DOMAIN_SERVICE_ACCOUNT_PASSWORD='arc@123!!'
+
+# Deploying active directory connector with automatic account provisioning
+az arcdata ad-connector create 
+--name arcadc 
+--k8s-namespace arc 
+--realm CONTOSO.LOCAL 
+--nameserver-addresses 10.10.10.11
+--account-provisioning automatic
+--prefer-k8s-dns false
+--use-k8s
+```
+
 ##### Directly connected mode
 
 ```azurecli
@@ -81,7 +98,7 @@ az arcdata ad-connector create
 --dns-domain-name < The DNS name of AD domain > 
 --realm < AD Domain name >  
 --nameserver-addresses < DNS server IP addresses >
---account-provisioning < account provisioning mode : manual or auto >
+--account-provisioning < account provisioning mode : manual or automatic >
 --prefer-k8s-dns < whether Kubernetes DNS or AD DNS Server for IP address lookup >
 --data-controller-name < Arc Data Controller Name >
 --resource-group < resource-group >
@@ -96,6 +113,23 @@ az arcdata ad-connector create
 --dns-domain-name contoso.local 
 --nameserver-addresses 10.10.10.11
 --account-provisioning manual
+--prefer-k8s-dns false
+--data-controller-name arcdc
+--resource-group arc-rg
+```
+
+```azurecli
+# Setting environment variables needed for automatic account provisioning
+DOMAIN_SERVICE_ACCOUNT_USERNAME='sqlmi'
+DOMAIN_SERVICE_ACCOUNT_PASSWORD='arc@123!!'
+
+# Deploying active directory connector with automatic account provisioning
+az arcdata ad-connector create 
+--name arcadc 
+--realm CONTOSO.LOCAL 
+--dns-domain-name contoso.local 
+--nameserver-addresses 10.10.10.11
+--account-provisioning automatic
 --prefer-k8s-dns false
 --data-controller-name arcdc
 --resource-group arc-rg
@@ -274,7 +308,7 @@ az arcdata ad-connector update
 
 To delete an AD connector instance, use `az arcdata ad-connector delete`. See the following examples for both connectivity modes:
 
-### [Indirectly-Connected mode](#tab/indirectly-connected-mode)
+### [Indirectly connected mode](#tab/indirectly-connected-mode)
 
 ```azurecli
 az arcdata ad-connector delete --name < AD Connector name >  --k8s-namespace < namespace > --use-k8s
@@ -286,7 +320,7 @@ Example:
 az arcdata ad-connector delete --name arcadc --k8s-namespace arc --use-k8s
 ```
 
-### [Directly-Connected mode](#tab/directly-connected-mode)
+### [Directly connected mode](#tab/directly-connected-mode)
 ```azurecli
 az arcdata ad-connector delete --name < AD Connector name >  --data-controller-name < data controller name > --resource-group < resource group > 
 ```
@@ -303,4 +337,3 @@ az arcdata ad-connector delete --name arcadc --data-controller-name arcdc --reso
 * [Tutorial – Deploy AD connector in customer-managed keytab mode](deploy-customer-managed-keytab-active-directory-connector.md)
 * [Tutorial – Deploy AD connector in system-managed keytab mode](deploy-system-managed-keytab-active-directory-connector.md)
 * [Deploy Arc-enabled SQL Managed Instance with Active Directory Authentication](deploy-active-directory-sql-managed-instance.md).
-

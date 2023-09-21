@@ -1,19 +1,18 @@
 ---
 title: Automatically scale Apache Spark instances
 description: Use the Azure Synapse autoscale feature to automatically scale Apache Spark Instances
-author: juluczni
-ms.author: juluczni
-ms.reviewer: euang
+author: guyhay
+ms.author: guyhay
 services: synapse-analytics 
-ms.service:  synapse-analytics 
+ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 02/15/2022
+ms.date: 02/14/2023
 ---
 
 # Automatically scale Azure Synapse Analytics Apache Spark pools
 
-Apache Spark for Azure Synapse Analytics pool's Autoscale feature automatically scales the number of nodes in a cluster instance up and down. During the creation of a new Apache Spark for Azure Synapse Analytics pool, a minimum and maximum number of nodes can be set when Autoscale is selected. Autoscale then monitors the resource requirements of the load and scales the number of nodes up or down. There's no additional charge for this feature.
+Apache Spark for Azure Synapse Analytics pool's Autoscale feature automatically scales the number of nodes in a cluster instance up and down. During the creation of a new Apache Spark for Azure Synapse Analytics pool, a minimum and maximum number of nodes, up to 200 nodes, can be set when Autoscale is selected. Autoscale then monitors the resource requirements of the load and scales the number of nodes up or down. There's no additional charge for this feature.
 
 ## Metrics monitoring
 
@@ -42,6 +41,9 @@ For scale-up, the Azure Synapse Autoscale service calculates how many new nodes 
 
 For scale-down, based on the number of executors, application masters per node, the current CPU and memory requirements, Autoscale issues a request to remove a certain number of nodes. The service also detects which nodes are candidates for removal based on current job execution. The scale down operation first decommissions the nodes, and then removes them from the cluster.
 
+>[!NOTE]
+>A note about updating and force applying autoscale configuration to an existing Spark pool. If **Force new setting** in the Azure portal or `ForceApplySetting` in [PowerShell](/powershell/module/az.synapse/update-azsynapsesparkpool) is enabled, then all existing Spark sessions are terminated and configuration changes are applied immediately. If this option is not selected, then the configuration is applied to the new Spark sessions and existing sessions are not terminated.
+
 ## Get started
 
 ### Create a serverless Apache Spark pool with Autoscaling
@@ -49,7 +51,7 @@ For scale-down, based on the number of executors, application masters per node, 
 To enable the Autoscale feature, complete the following steps as part of the normal pool creation process:
 
 1. On the **Basics** tab, select the **Enable autoscale** checkbox.
-1. Enter the desired values for the following properties:  
+1. Enter the desired values for the following properties:
 
     * **Min** number of nodes.
     * **Max** number of nodes.
@@ -67,14 +69,19 @@ Apache Spark enables configuration of Dynamic Allocation of Executors through co
     {
         "conf" : {
             "spark.dynamicAllocation.maxExecutors" : "6",
-            "spark.dynamicAllocation.enable": "true",
+            "spark.dynamicAllocation.enabled": "true",
             "spark.dynamicAllocation.minExecutors": "2"
      }
     }
 ```
 The defaults specified through the code override the values set through the user interface.
 
-On enabling Dynamic allocation, Executors scale up or down based on the utilization of the Executors. This ensure that the Executors are provisioned in accordance with the needs of the job being run.
+In this example, if your job requires only 2 executors, it will use only 2 executors.  When the job requires more, it will scale up to 6 executors (1 driver, 6 executors).  When the job doesn't need the executors, then it will decommission the executors. If it doesn't need the node, it will free up the node.
+
+>[!NOTE]
+>The maxExecutors will reserve the number of executors configured. Considering the example, even if you use only 2, it will reserve 6. 
+
+Hence, on enabling Dynamic allocation, Executors scale up or down based on the utilization of the Executors. This ensures that the Executors are provisioned in accordance with the needs of the job being run.
 
 ## Best practices
 

@@ -1,19 +1,19 @@
 ---
 title: Understand feature management using Azure App Configuration
 description: Turn features on and off using Azure App Configuration 
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
-ms.custom: devx-track-dotnet
+ms.custom: devdivchpfy22
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 08/17/2022
 ---
 
 # Feature management overview
 
-Traditionally, shipping a new application feature requires a complete redeployment of the application itself. Testing a feature often requires multiple deployments of the application.  Each deployment may change the feature or expose the feature to different customers for testing.  
+Traditionally, shipping a new application feature requires a complete redeployment of the application itself. Testing a feature often requires multiple deployments of the application. Each deployment might change the feature or expose the feature to different customers for testing.  
 
-Feature management is a modern software-development practice that decouples feature release from code deployment and enables quick changes to feature availability on demand. It uses a technique called *feature flags* (also known as *feature toggles*, *feature switches*, and so on) to dynamically administer a feature's lifecycle.
+Feature management is a modern software-development practice that decouples feature release from code deployment and enables quick changes to feature availability on demand. It uses a technique called *feature flags* (also known as *feature toggles* and *feature switches*) to dynamically administer a feature's lifecycle.
 
 Feature management helps developers address the following problems:
 
@@ -21,7 +21,7 @@ Feature management helps developers address the following problems:
 * **Test in production**: Use feature flags to grant early access to new functionality in production. For example, you can limit access to team members or to internal beta testers. These users will experience the full-fidelity production experience instead of a simulated or partial experience in a test environment.
 * **Flighting**: Use feature flags to incrementally roll out new functionality to end users. You can target a small percentage of your user population first and increase that percentage gradually over time.
 * **Instant kill switch**: Feature flags provide an inherent safety net for releasing new functionality. You can turn application features on and off without redeploying any code. If necessary, you can quickly disable a feature without rebuilding and redeploying your application.
-* **Selective activation**: Use feature flags to segment your users and deliver a specific set of features to each group. You may have a feature that works only on a certain web browser. You can define a feature flag so that only users of that browser can see and use the feature. With this approach, you can easily expand the supported browser list later without having to make any code changes.
+* **Selective activation**: Use feature flags to segment your users and deliver a specific set of features to each group. You might have a feature that works only on a certain web browser. You can define a feature flag so that only users of that browser can see and use the feature. By using this approach, you can easily expand the supported browser list later without having to make any code changes.
 
 ## Basic concepts
 
@@ -46,7 +46,7 @@ if (featureFlag) {
 }
 ```
 
-You can set the value of `featureFlag` statically.
+You can set the value of `featureFlag` statically:
 
 ```csharp
 bool featureFlag = true;
@@ -70,11 +70,21 @@ if (featureFlag) {
 
 ## Feature flag repository
 
-To use feature flags effectively, you need to externalize all the feature flags used in an application. This allows you to change feature flag states without modifying and redeploying the application itself.
+To use feature flags effectively, you need to externalize all the feature flags used in an application. You can use this approach to change feature flag states without modifying and redeploying the application itself.
 
 Azure App Configuration provides a centralized repository for feature flags. You can use it to define different kinds of feature flags and manipulate their states quickly and confidently. You can then use the App Configuration libraries for various programming language frameworks to easily access these feature flags from your application.
 
-[Use feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md) shows how the .NET Core App Configuration provider and Feature Management libraries are used together to implement feature flags for your ASP.NET web application.
+[The feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md) shows how the .NET Core App Configuration provider and Feature Management libraries are used together to implement feature flags for your ASP.NET web application. For more information on feature flags in Azure App Configuration, see the following articles:
+
+* [Manage feature flags](./manage-feature-flags.md)
+* [Use conditional feature flags](./howto-feature-filters-aspnet-core.md)
+* [Enable a feature for specified users/groups](./howto-targetingfilter-aspnet-core.md)
+* [Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md)
+* [Add feature flags to a .NET Framework app](./quickstart-feature-flag-dotnet.md)
+* [Add feature flags to an Azure Functions app](./quickstart-feature-flag-azure-functions-csharp.md)
+* [Add feature flags to a Spring Boot app](./quickstart-feature-flag-spring-boot.md)
+* [Use feature flags in an ASP.NET Core](./use-feature-flags-dotnet-core.md)
+* [Use feature flags in a Spring Boot app](./use-feature-flags-spring-boot.md)
 
 ## Next steps
 

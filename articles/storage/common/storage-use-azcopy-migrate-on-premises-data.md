@@ -1,13 +1,13 @@
 ---
-title: 'Tutorial: Migrate on-premises data to Azure Storage with AzCopy| Microsoft Docs'
+title: 'Tutorial: Migrate on-premises data to Azure Storage with AzCopy'
 description: In this tutorial, you use AzCopy to migrate data or copy data to or from blob, table, and file content. Easily migrate data from your local storage to Azure Storage.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
-ms.subservice: common
+ms.subservice: storage-common-concepts
 #Customer intent: As a customer with data, I want to move my data from its existing location so that I can have access to that data in my storage account.
 ---
 
@@ -120,7 +120,7 @@ These examples assume that your folder is named `myFolder`, your storage account
 # [Linux](#tab/linux)
 
 ```bash
-azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-05-30T06:57:40Z&st=2019-05-29T22:57:40Z&spr=https&sig=BXHippZxxx54hQn%2F4tBY%2BE2JHGCTRv52445rtoyqgFBUo%3D" --recursive=true
+azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-05-30T06:57:40Z&st=2019-05-29T22:57:40Z&spr=https&sig=BXHippZxxx54hQn/4tBY%2BE2JHGCTRv52445rtoyqgFBUo%3D" --recursive=true
 ```
 
 # [Windows](#tab/windows)
@@ -173,7 +173,7 @@ To validate that the scheduled task/cron job runs correctly, create new files in
 
 To learn more about ways to move on-premises data to Azure Storage and vice versa, follow this link:
 
-- [Move data to and from Azure Storage](./storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+- [Move data to and from Azure Storage](./storage-choose-data-transfer-solution.md?toc=/azure/storage/files/toc.json).
 
 For more information about AzCopy, see any of these articles:
 
@@ -185,4 +185,10 @@ For more information about AzCopy, see any of these articles:
 
 - [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
 
-- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
+- [AzCopy configuration settings](storage-ref-azcopy-configuration-settings.md)
+
+- [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
+
+- [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md)
+
+- [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)

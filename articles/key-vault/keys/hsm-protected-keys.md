@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 02/24/2021
+ms.date: 01/24/2023
 ms.author: mbaldwin
 
 ---
@@ -18,7 +18,7 @@ ms.author: mbaldwin
 
 For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. Azure Key Vault uses nCipher nShield family of HSMs (FIPS 140-2 Level 2 validated) to protect your keys.
 
-This functionality is not available for Azure China 21Vianet.
+This functionality is not available for Microsoft Azure operated by 21Vianet.
 
 > [!NOTE]
 > For more information about Azure Key Vault, see [What is Azure Key Vault?](../general/overview.md)  
@@ -26,7 +26,7 @@ This functionality is not available for Azure China 21Vianet.
 
 ## Supported HSMs
 
-Transferring HSM-protected keys to Key Vault is supported via two different methods depending on the HSMs you use. Use the table below to determine which method should be used for your HSMs to  generate, and then transfer your own HSM-protected keys to use with Azure Key Vault. 
+Transferring HSM-protected keys to Key Vault is supported via two different methods depending on the HSMs you use. Use this table to determine which method should be used for your HSMs to  generate, and then transfer your own HSM-protected keys to use with Azure Key Vault. 
 
 |Vendor Name|Vendor Type|Supported HSM models|Supported HSM-key transfer method|
 |---|---|---|---|
@@ -35,7 +35,7 @@ Transferring HSM-protected keys to Key Vault is supported via two different meth
 |Fortanix|Manufacturer,<br/>HSM as a Service|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |IBM|Manufacturer|IBM 476x, CryptoExpress|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |Marvell|Manufacturer|All LiquidSecurity HSMs with<ul><li>Firmware version 2.0.4 or later</li><li>Firmware version 3.2 or newer</li></ul>|[Use new BYOK method](hsm-protected-keys-byok.md)|
-|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Manufacturer,<br/>HSM as a Service|<ul><li>nShield family of HSMs</li><li>nShield as a service</ul>|**Method 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (deprecated). This method will not be supported after <strong>June 30, 2021</strong><br/>**Method 2:** [Use new BYOK method](hsm-protected-keys-byok.md) (recommended)<br/>See Entrust row above|
+|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Manufacturer,<br/>HSM as a Service|<ul><li>nShield family of HSMs</li><li>nShield as a service</ul>|**Method 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (deprecated). This method will not be supported after <strong>June 30, 2021</strong><br/>**Method 2:** [Use new BYOK method](hsm-protected-keys-byok.md) (recommended)<br/>See the Entrust row. |
 |Securosys SA|Manufacturer,<br/>HSM as a service|Primus HSM family, Securosys Clouds HSM|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |StorMagic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>See [StorMagic site for details](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |Thales|Manufacturer|<ul><li>Luna HSM 7 family with firmware version 7.3 or newer</li></ul>| [Use new BYOK method](hsm-protected-keys-byok.md)|

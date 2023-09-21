@@ -1,9 +1,12 @@
 ---
 title: Azure Service Fabric - Using Service Fabric application KeyVault references 
 description: This article explains how to use service fabric KeyVaultReference support for application secrets.
-
-ms.topic: article
-ms.date: 09/20/2019
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # KeyVaultReference support for Azure-deployed Service Fabric Applications
@@ -118,7 +121,7 @@ string secret =  Environment.GetEnvironmentVariable("MySecret");
 
 ## Use Managed KeyVaultReferences in your application
 
-First, you must enable secret monitoring by upgrading your cluster definition:
+First, you must enable secret monitoring by upgrading your cluster definition to add the `EnableSecretMonitoring` setting, in addition to the [other required CSS configurations](service-fabric-application-secret-store.md):
 
 ```json
 "fabricSettings": [
@@ -128,6 +131,22 @@ First, you must enable secret monitoring by upgrading your cluster definition:
             {
                 "name": "EnableSecretMonitoring",
                 "value": "true"
+            },
+            {
+                "name":  "DeployedState",
+                "value":  "enabled"
+            },
+            {
+                "name" : "EncryptionCertificateThumbprint",
+                "value": "<thumbprint>"
+            },
+            {
+                "name":  "MinReplicaSetSize",
+                "value":  "<size>"
+            },
+            {
+                "name":  "TargetReplicaSetSize",
+                "value":  "<size>"
             }
         ]
     }

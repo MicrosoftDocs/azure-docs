@@ -2,9 +2,10 @@
 title: Telemetry processors (preview) - Azure Monitor Application Insights for Java
 description: Learn to configure telemetry processors in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 09/12/2023
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
+ms.reviewer: mmcc
 ---
 
 # Telemetry processors (preview) - Azure Monitor Application Insights for Java
@@ -14,7 +15,7 @@ ms.custom: devx-track-java
 
 Application Insights Java 3.x can process telemetry data before the data is exported.
 
-Here are some use cases for telemetry processors:
+Some use cases:
  * Mask sensitive data.
  * Conditionally add custom dimensions.
  * Update the span name, which is used to aggregate similar telemetry in the Azure portal.
@@ -51,7 +52,11 @@ The trace message or body is the primary display for logs in the Azure portal. L
 
 ## Telemetry processor types
 
-Currently, the four types of telemetry processors are attribute processors, span processors, log processors, and metric filters.
+Currently, the four types of telemetry processors are
+* Attribute processors
+* Span processors
+* Log processors
+* Metric filters
 
 An attribute processor can insert, update, delete, or hash attributes of a telemetry item (`span` or `log`).
 It can also use a regular expression to extract one or more new attributes from an existing attribute.
@@ -110,6 +115,7 @@ The attribute processor modifies attributes of a `span` or a `log`. It can suppo
 - `delete`
 - `hash`
 - `extract`
+- `mask`
 
 ### `insert`
 
@@ -225,6 +231,38 @@ The `extract` action requires the following settings:
 * `key`
 * `pattern`
 * `action`: `extract`
+
+### `mask`
+
+> [!NOTE]
+> The `mask` feature is available only in version 3.2.5 and later.
+
+The `mask` action masks attribute values by using a regular expression rule specified in the `pattern` and `replace`.
+
+```json
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
+      {
+        "key": "attributeName",
+        "pattern": "<regular expression pattern>",
+        "replace": "<replacement value>",
+        "action": "mask"
+      }
+    ]
+  }
+]
+```
+The `mask` action requires the following settings:
+* `key`
+* `pattern`
+* `replace`
+* `action`: `mask`
+
+`pattern` can contain a named group placed betwen `?<` and `>:`. Example: `(?<userGroupName>[a-zA-Z.:\/]+)\d+`? The group is `(?<userGroupName>[a-zA-Z.:\/]+)` and `userGroupName` is the name of the group. `pattern` can then contain the same named group placed between `${` and `}` followed by the mask. Example where the mask is **: `${userGroupName}**`.
+
+See  [Telemetry processor examples](./java-standalone-telemetry-processors-examples.md) for masking examples.
 
 ### Include criteria and exclude criteria
 
@@ -602,7 +640,7 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
 | `GC Total Time` | custom metrics | Sum of time across all GC MXBeans (diff since last reported). See [GarbageCollectorMXBean.getCollectionTime()](https://docs.oracle.com/javase/7/docs/api/java/lang/management/GarbageCollectorMXBean.html).| yes |
 | `Heap Memory Used (MB)` | custom metrics | See [MemoryMXBean.getHeapMemoryUsage().getUsed()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getHeapMemoryUsage--). | yes |
 | `% Of Max Heap Memory Used` | custom metrics | java.lang:type=Memory / maximum amount of memory in bytes. See [MemoryUsage](https://docs.oracle.com/javase/7/docs/api/java/lang/management/MemoryUsage.html)| yes |
-| `\Processor(_Total)\% Processor Time` | default metrics | Difference in [system wide CPU load tick counters](https://oshi.github.io/oshi/oshi-core/apidocs/oshi/hardware/CentralProcessor.html#getProcessorCpuLoadTicks())(Only User and System) divided by the number of [logical processors count](https://oshi.github.io/oshi/oshi-core/apidocs/oshi/hardware/CentralProcessor.html#getLogicalProcessors—) in a given interval of time | no |
+| `\Processor(_Total)\% Processor Time` | default metrics | Difference in [system wide CPU load tick counters](https://www.oshi.ooo/oshi-core/apidocs/oshi/hardware/CentralProcessor.html#getProcessorCpuLoadTicks()) (Only User and System) divided by the number of [logical processors count](https://www.oshi.ooo/oshi-core/apidocs/oshi/hardware/CentralProcessor.html#getLogicalProcessors()) in a given interval of time | no |
 | `\Process(??APP_WIN32_PROC??)\% Processor Time` | default metrics | See [OperatingSystemMXBean.getProcessCpuTime()](https://docs.oracle.com/javase/8/docs/jre/api/management/extension/com/sun/management/OperatingSystemMXBean.html#getProcessCpuTime--) (diff since last reported, normalized by time and number of CPUs). | no |
 | `\Process(??APP_WIN32_PROC??)\Private Bytes` | default metrics | Sum of [MemoryMXBean.getHeapMemoryUsage()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getHeapMemoryUsage--) and [MemoryMXBean.getNonHeapMemoryUsage()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getNonHeapMemoryUsage--). | no |
 | `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | default metrics | `/proc/[pid]/io` Sum of bytes read and written by the process (diff since last reported). See [proc(5)](https://man7.org/linux/man-pages/man5/proc.5.html). | no |

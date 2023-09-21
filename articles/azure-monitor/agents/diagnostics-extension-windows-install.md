@@ -1,79 +1,83 @@
 ---
-title: Install and configure Windows Azure diagnostics extension (WAD)
-description: Learn about installing and configuring the Windows diagnostics extension. Also, learn how a description of how the data is stored in and Azure Storage account.
+title: Install and configure the Azure Diagnostics extension for Windows (WAD)
+description: Learn about installing and configuring the Azure Diagnostics extension for Windows and how the data is stored in an Azure Storage account.
 services: azure-monitor
 author: bwren
-
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 07/19/2023
 ms.author: bwren 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
+ms.reviewer: luki
 ---
-# Install and configure Windows Azure diagnostics extension (WAD)
-[Azure diagnostics extension](diagnostics-extension-overview.md) is an agent in Azure Monitor that collects monitoring data from the guest operating system and workloads of Azure virtual machines and other compute resources. This article provides details on installing and configuring the Windows diagnostics extension and a description of how the data is stored in and Azure Storage account.
+# Install and configure the Azure Diagnostics extension for Windows (WAD)
 
-The diagnostics extension is implemented as a [virtual machine extension](../../virtual-machines/extensions/overview.md) in Azure, so it supports the same installation options using Resource Manager templates, PowerShell, and CLI. See [Virtual machine extensions and features for Windows](../../virtual-machines/extensions/features-windows.md) for details on installing and maintaining virtual machine extensions.
+The [Azure Diagnostics extension](diagnostics-extension-overview.md) is an agent in Azure Monitor that collects monitoring data from the guest operating system and workloads of Azure virtual machines and other compute resources. This article provides information on how to install and configure the Azure Diagnostics extension for Windows and describes how the data is stored in an Azure Storage account.
+
+The diagnostics extension is implemented as a [virtual machine extension](../../virtual-machines/extensions/overview.md) in Azure. It supports the same installation options by using Azure Resource Manager templates, PowerShell, and the Azure CLI. For information on how to install and maintain virtual machine extensions, see [Virtual machine extensions and features for Windows](../../virtual-machines/extensions/features-windows.md).
 
 ## Overview
-When you configure Windows Azure the diagnostics extension, you must specify a storage account where all specified data will be sent. You can optionally add one or more *data sinks* to send the data to different locations.
 
-- Azure Monitor sink - Send guest performance data to Azure Monitor Metrics.
-- Event hub sink - Send guest performance and log data to Azure event hubs to forward outside of Azure. This sink cannot be configured in the Azure portal.
+When you configure the Azure Diagnostics extension for Windows, you must specify a storage account where all specified data will be sent. You can optionally add one or more *data sinks* to send the data to different locations:
 
+- **Azure Monitor sink**: Send guest performance data to Azure Monitor Metrics.
+- **Azure Event Hub sink**: Send guest performance and log data to event hubs to forward outside of Azure. This sink can't be configured in the Azure portal.
 
 ## Install with Azure portal
-You can install and configure the diagnostics extension on an individual virtual machine in the Azure portal which provides you an interface as opposed to working directly with the configuration. When you enable the diagnostics extension, it will automatically use a default configuration with the most common performance counters and events. You can modify this default configuration according to your specific requirements.
+
+You can install and configure the diagnostics extension on an individual virtual machine in the Azure portal. You'll work with an interface as opposed to working directly with the configuration. When you enable the diagnostics extension, it will automatically use a default configuration with the most common performance counters and events. You can modify this default configuration according to your specific requirements.
 
 > [!NOTE]
-> The following describe the most common settings for the diagnostics extension. For details on all of the configuration options, see [Windows diagnostics extension schema](diagnostics-extension-schema-windows.md).
+> The following steps describe the most common settings for the diagnostics extension. For more information on all the configuration options, see [Windows diagnostics extension schema](diagnostics-extension-schema-windows.md).
 
 1. Open the menu for a virtual machine in the Azure portal.
 
-2. Click on **Diagnostic settings** in the **Monitoring** section of the VM menu.
+1. Select **Diagnostic settings** in the **Monitoring** section of the VM menu.
 
-3. Click **Enable guest-level monitoring** if the diagnostics extension hasn't already been enabled.
+1. Select **Enable guest-level monitoring** if the diagnostics extension hasn't already been enabled.
 
-   ![Enable monitoring](media/diagnostics-extension-windows-install/enable-monitoring.png)
+   ![Screenshot that shows enabling monitoring.](media/diagnostics-extension-windows-install/enable-monitoring.png)
 
-4. A new Azure Storage account will be created for the VM with the name will be based on the name of the resource group for the VM, and a default set of guest performance counters and logs will be selected.
+1. A new Azure Storage account will be created for the VM. The name will be based on the name of the resource group for the VM. A default set of guest performance counters and logs will be selected.
 
-   ![Diagnostic settings](media/diagnostics-extension-windows-install/diagnostic-settings.png)
+   ![Screenshot that shows Diagnostic settings.](media/diagnostics-extension-windows-install/diagnostic-settings.png)
 
-5. In the **Performance counters** tab, select the guest metrics you would like to collect from this virtual machine. Use the **Custom** setting for more advanced selection.
+1. On the **Performance counters** tab, select the guest metrics you want to collect from this virtual machine. Use the **Custom** setting for more advanced selection.
 
-   ![Performance counters](media/diagnostics-extension-windows-install/performance-counters.png)
+   ![Screenshot that shows Performance counters.](media/diagnostics-extension-windows-install/performance-counters.png)
 
-6. In the **Logs** tab, select the logs to collect from the virtual machine. Logs can be sent to storage or event hubs, but not to Azure Monitor. Use the [Log Analytics agent](../agents/log-analytics-agent.md) to collect guest logs to Azure Monitor.
+1. On the **Logs** tab, select the logs to collect from the virtual machine. Logs can be sent to storage or event hubs, but not to Azure Monitor. Use the [Log Analytics agent](../agents/log-analytics-agent.md) to collect guest logs to Azure Monitor.
 
-   ![Screenshot shows the Logs tab with different logs selected for a virtual machine.](media/diagnostics-extension-windows-install/logs.png)
+   ![Screenshot that shows the Logs tab with different logs selected for a virtual machine.](media/diagnostics-extension-windows-install/logs.png)
 
-7. In the **Crash dumps** tab, specify any processes to collect memory dumps after a crash. The data will be written to the storage account for the diagnostic setting, and you can optionally specify a blob container.
+1. On the **Crash dumps** tab, specify any processes to collect memory dumps after a crash. The data will be written to the storage account for the diagnostic setting. You can optionally specify a blob container.
 
-   ![Crash dumps](media/diagnostics-extension-windows-install/crash-dumps.png)
+   ![Screenshot that shows the Crash dumps tab.](media/diagnostics-extension-windows-install/crash-dumps.png)
 
-8. In the **Sinks** tab, specify whether to send the data to locations other than Azure storage. If you select **Azure Monitor**, guest performance data will be sent to Azure Monitor Metrics. You cannot configure the event hubs sink using the Azure portal.
+1. On the **Sinks** tab, specify whether to send the data to locations other than Azure storage. If you select **Azure Monitor**, guest performance data will be sent to Azure Monitor Metrics. You can't configure the event hubs sink by using the Azure portal.
 
-   ![Screenshot shows the Sinks tab with the Send diagnostic data to Azure Monitor option Enabled.](media/diagnostics-extension-windows-install/sinks.png)
+   ![Screenshot that shows the Sinks tab with the Send diagnostic data to Azure Monitor option enabled.](media/diagnostics-extension-windows-install/sinks.png)
    
-   If you have not enabled a System Assigned Identity configured for your virtual machine, you may see the below warning when you save a configuration with the Azure Monitor sink. Click on the banner to enable the system assigned identity.
+   If you haven't enabled a system-assigned identity configured for your virtual machine, you might see the following warning when you save a configuration with the Azure Monitor sink. Select the banner to enable the system-assigned identity.
    
-   ![Managed entity](media/diagnostics-extension-windows-install/managed-entity.png)
+   ![Screenshot that shows the managed identity warning.](media/diagnostics-extension-windows-install/managed-entity.png)
 
-9. In the **Agent**, you can change the storage account, set the disk quota, and specify whether to collect diagnostic infrastructure logs.  
+1. On the **Agent** tab, you can change the storage account, set the disk quota, and specify whether to collect diagnostic infrastructure logs.  
 
-   ![Screenshot shows the Agent tab with the option to set the storage account.](media/diagnostics-extension-windows-install/agent.png)
+   ![Screenshot that shows the Agent tab with the option to set the storage account.](media/diagnostics-extension-windows-install/agent.png)
 
-10. Click **Save** to save the configuration. 
+1. Select **Save** to save the configuration.
 
 > [!NOTE]
-> While the configuration for diagnostics extension can be formatted in either JSON or XML, any configuration done in the Azure portal will always be stored as JSON. If you use XML with another configuration method and then change your configuration with the Azure portal, the settings will be changed to JSON. Also, there is no option to set up the retention period for these logs.
+> The configuration for the diagnostics extension can be formatted in either JSON or XML, but any configuration done in the Azure portal will always be stored as JSON. If you use XML with another configuration method and then change your configuration with the Azure portal, the settings will be changed to JSON. Also, there's no option to set up the retention period for these logs.
 
 ## Resource Manager template
-See [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../../virtual-machines/extensions/diagnostics-template.md) on deploying the diagnostics extension with Azure Resource Manager templates. 
+
+For information on how to deploy the diagnostics extension with Azure Resource Manager templates, see [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../../virtual-machines/extensions/diagnostics-template.md).
 
 ## Azure CLI deployment
-The Azure CLI can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) as in the following example. 
+
+The Azure CLI can be used to deploy the Azure Diagnostics extension to an existing virtual machine by using [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) as in the following example:
 
 ```azurecli
 az vm extension set \
@@ -85,17 +89,17 @@ az vm extension set \
   --settings public-settings.json 
 ```
 
-The protected settings are defined in the [PrivateConfig element](diagnostics-extension-schema-windows.md#privateconfig-element) of the configuration schema. Following is a minimal example of a protected settings file that defines the storage account. See [Example configuration](diagnostics-extension-schema-windows.md#privateconfig-element) for complete details of the private settings.
+The protected settings are defined in the [PrivateConfig element](diagnostics-extension-schema-windows.md#privateconfig-element) of the configuration schema. The following minimal example of a protected settings file defines the storage account. For complete details of the private settings, see [Example configuration](diagnostics-extension-schema-windows.md#privateconfig-element).
 
 ```JSON
 {
     "storageAccountName": "mystorageaccount",
     "storageAccountKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "storageAccountEndPoint": "https://mystorageaccount.blob.core.windows.net"
+    "storageAccountEndPoint": "https://core.windows.net"
 }
 ```
 
-The public settings are defined in the [Public element](diagnostics-extension-schema-windows.md#publicconfig-element) of the configuration schema. Following is a minimal example of a public settings file that enables collection of diagnostic infrastructure logs,  a single performance counter, and a single event log. See [Example configuration](diagnostics-extension-schema-windows.md#publicconfig-element) for complete details of the public settings.
+The public settings are defined in the [Public element](diagnostics-extension-schema-windows.md#publicconfig-element) of the configuration schema. The following minimal example of a public settings file enables collection of diagnostic infrastructure logs, a single performance counter, and a single event log. For complete details of the public settings, see [Example configuration](diagnostics-extension-schema-windows.md#publicconfig-element).
 
 ```JSON
 {
@@ -126,10 +130,9 @@ The public settings are defined in the [Public element](diagnostics-extension-sc
 }
 ```
 
-
-
 ## PowerShell deployment
-PowerShell can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [Set-AzVMDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/set-azurevmdiagnosticsextension) as in the following example. 
+
+PowerShell can be used to deploy the Azure Diagnostics extension to an existing virtual machine by using [Set-AzVMDiagnosticsExtension](/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension), as in the following example:
 
 ```powershell
 Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `
@@ -137,9 +140,9 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `
   -DiagnosticsConfigurationPath "DiagnosticsConfiguration.json"
 ```
 
-The private settings are defined in the [PrivateConfig element](diagnostics-extension-schema-windows.md#privateconfig-element), while the public settings are defined in the [Public element](diagnostics-extension-schema-windows.md#publicconfig-element) of the configuration schema. You can also choose to specify the details of the storage account as parameters of the Set-AzVMDiagnosticsExtension cmdlet rather than including them in the private settings.
+The private settings are defined in the [PrivateConfig element](diagnostics-extension-schema-windows.md#privateconfig-element). The public settings are defined in the [Public element](diagnostics-extension-schema-windows.md#publicconfig-element) of the configuration schema. You can also choose to specify the details of the storage account as parameters of the `Set-AzVMDiagnosticsExtension` cmdlet rather than including them in the private settings.
 
-Following is a minimal example of a configuration file that enables collection of diagnostic infrastructure logs,  a single performance counter, and a single event log. See [Example configuration](diagnostics-extension-schema-windows.md#publicconfig-element) for complete details of the private and public settings. 
+The following minimal example of a configuration file enables collection of diagnostic infrastructure logs, a single performance counter, and a single event log. For complete details of the private and public settings, see [Example configuration](diagnostics-extension-schema-windows.md#publicconfig-element).
 
 ```JSON
 {
@@ -176,7 +179,7 @@ Following is a minimal example of a configuration file that enables collection o
     "PrivateConfig": {
         "storageAccountName": "mystorageaccount",
         "storageAccountKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-        "storageAccountEndPoint": "https://mystorageaccount.blob.core.windows.net"
+        "storageAccountEndPoint": "https://core.windows.net"
     }
 }
 ```
@@ -184,26 +187,28 @@ Following is a minimal example of a configuration file that enables collection o
 See also [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../../virtual-machines/extensions/diagnostics-windows.md).
 
 ## Data storage
-The following table lists the different types of data collected from the diagnostics extension and whether they're stored as a table or a blob. The data stored in tables can also be stored in blobs depending on the [StorageType setting](diagnostics-extension-schema-windows.md#publicconfig-element) in your public configuration.
 
+The following table lists the different types of data collected from the diagnostics extension and whether they're stored as a table or a blob. The data stored in tables can also be stored in blobs depending on the [StorageType setting](diagnostics-extension-schema-windows.md#publicconfig-element) in your public configuration.
 
 | Data | Storage type | Description |
 |:---|:---|:---|
 | WADDiagnosticInfrastructureLogsTable | Table | Diagnostic monitor and configuration changes. |
-| WADDirectoriesTable | Table | Directories that the diagnostic monitor is monitoring.  This includes IIS logs, IIS failed request logs, and custom directories.  The location of the blob log file is specified in the Container field and the name of the blob is in the RelativePath field.  The AbsolutePath field indicates the location and name of the file as it existed on the Azure virtual machine. |
-| WadLogsTable | Table | Logs written in code using the trace listener. |
+| WADDirectoriesTable | Table | Directories that the diagnostic monitor is monitoring. This group includes IIS logs, IIS failed request logs, and custom directories. The location of the blob log file is specified in the Container field and the name of the blob is in the RelativePath field. The AbsolutePath field indicates the location and name of the file as it existed on the Azure virtual machine. |
+| WadLogsTable | Table | Logs written in code by using the trace listener. |
 | WADPerformanceCountersTable | Table | Performance counters. |
 | WADWindowsEventLogsTable | Table | Windows Event logs. |
 | wad-iis-failedreqlogfiles | Blob | Contains information from IIS Failed Request logs. |
 | wad-iis-logfiles | Blob | Contains information about IIS logs. |
-| "custom" | Blob | A custom container based on configuring directories that are monitored by the diagnostic monitor.  The name of this blob container will be specified in WADDirectoriesTable. |
+| "custom" | Blob | A custom container based on configuring directories that are monitored by the diagnostic monitor. The name of this blob container will be specified in WADDirectoriesTable. |
 
 ## Tools to view diagnostic data
-Several tools are available to view the data after it is transferred to storage. For example:
 
-* Server Explorer in Visual Studio - If you have installed the Azure Tools for Microsoft Visual Studio, you can use the Azure Storage node in Server Explorer to view read-only blob and table data from your Azure storage accounts. You can display data from your local storage emulator account and also from storage accounts you have created for Azure. For more information, see [Browsing and Managing Storage Resources with Server Explorer](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
-* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, OSX, and Linux.
-* [Azure Management Studio](https://cerebrata.com/blog/introducing-azure-management-studio-and-azure-explorer) includes Azure Diagnostics Manager which allows you to view, download and manage the diagnostics data collected by the applications running on Azure.
+Several tools are available to view the data after it's transferred to storage. For example:
+
+* **Server Explorer in Visual Studio**: If you've installed the Azure Tools for Microsoft Visual Studio, you can use the Azure Storage node in Server Explorer to view read-only blob and table data from your Azure Storage accounts. You can display data from your local storage emulator account and from storage accounts you've created for Azure. For more information, see [Browsing and managing storage resources with Server Explorer](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
+* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md): This standalone app enables you to easily work with Azure Storage data on Windows, OSX, and Linux.
+* [Azure Management Studio](https://cerebrata.com/blog/introducing-azure-management-studio-and-azure-explorer): This tool includes Azure Diagnostics Manager. Use it to view, download, and manage the diagnostics data collected by the applications running on Azure.
 
 ## Next steps
-- See [Send data from Windows Azure diagnostics extension to Event Hubs](diagnostics-extension-stream-event-hubs.md) for details on forwarding monitoring data to Azure Event Hubs.
+
+For information on forwarding monitoring data to Azure Event Hubs, see [Send data from Azure Diagnostics extension to Event Hubs](diagnostics-extension-stream-event-hubs.md).

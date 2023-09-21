@@ -1,25 +1,25 @@
 ---
-title: Group naming policy quickstart - Azure Active Directory | Microsoft Docs
-description: Explains how to add new users or delete existing users in Azure Active Directory
+title: Group naming policy quickstart
+description: Explains how to add new users or delete existing users in Microsoft Entra ID
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 12/02/2020
-ms.author: curtand
+ms.date: 09/08/2023
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro, mode-other
 ms.collection: M365-identity-device-management
-#Customer intent: As an Azure AD identity administrator, I want to enforce naming policy on self-service groups, to help me sort and search in my Azure AD organization’s user-created groups.
+#Customer intent: As a Microsoft Entra identity administrator, I want to enforce naming policy on self-service groups, to help me sort and search in my Microsoft Entra organization’s user-created groups.
 ---
 
-# Quickstart: Naming policy for groups in Azure Active Directory
+# Quickstart: Naming policy for groups in Microsoft Entra ID
 
-In this quickstart, you will set up naming policy in your Azure Active Directory (Azure AD) organization for user-created Microsoft 365 groups, to help you sort and search your organization’s groups. For example, you could use the naming policy to:
+In this quickstart, in Microsoft Entra ID, part of Microsoft Entra, you will set up naming policy in your Microsoft Entra organization for user-created Microsoft 365 groups, to help you sort and search your groups. For example, you could use the naming policy to:
 
 * Communicate the function of a group, membership, geographic region, or who created the group.
 * Help categorize groups in the address book.
@@ -29,8 +29,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Configure the group naming policy in the Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a User administrator account.
-1. Select **Groups**, then select **Naming policy** to open the Naming policy page.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID.
+1. Select **Groups** > **All groups**  then select **Naming policy** to open the Naming policy page.
 
     ![open the Naming policy page in the admin center](./media/groups-quickstart-naming-policy/policy.png)
 
@@ -62,7 +63,7 @@ That's it. You've set your naming policy and added your custom blocked words.
 
 ## Next steps
 
-In this quickstart, you’ve learned how to set the naming policy for your Azure AD organization through the Azure portal.
+In this quickstart, you’ve learned how to set the naming policy for your Microsoft Entra organization through the Azure portal.
 
 Advance to the next article for more information including the PowerShell cmdlets for naming policy, technical constraints, adding a list of custom blocked words, and the end user experiences across Microsoft 365 apps.
 > [!div class="nextstepaction"]

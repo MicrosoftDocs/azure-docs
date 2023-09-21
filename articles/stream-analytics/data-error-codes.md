@@ -1,16 +1,17 @@
 ---
 title: Data error codes - Azure Stream Analytics
-description: Troubleshoot Azure Stream Analytics issues with data error codes. 
-ms.author: sidram
-author: sidramadoss
+description: Troubleshoot Azure Stream Analytics issues with data error codes, which occur when there's bad data in the stream.
+author: ahartoon
+ms.author: anboisve
 ms.topic: troubleshooting
-ms.date: 05/07/2020
+ms.date: 05/25/2022
 ms.service: stream-analytics
+ms.custom: kr2b-contr-experiment
 ---
 
 # Azure Stream Analytics data error codes
 
-You can use activity logs and resource logs to help debug unexpected behaviors from your Azure Stream Analytics job. This article lists the description for every data error error code. Data errors occur when there is bad data in the stream, such as an unexpected record schema.
+You can use activity logs and resource logs to help debug unexpected behaviors from your Azure Stream Analytics job. This article lists the description for every data error code. Data errors occur when there's bad data in the stream, such as an unexpected record schema.
 
 ## InputDeserializationError
 
@@ -18,11 +19,11 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## InputEventTimestampNotFound
 
-* **Cause**: Stream Analytics is unable to get a timestamp for resource. 
+* **Cause**: Stream Analytics is unable to get a time stamp for a resource. 
 
 ## InputEventTimestampByOverValueNotFound
 
-* **Cause**: Stream Analytics is unable to get value of `TIMESTAMP BY OVER COLUMN`.
+* **Cause**: Stream Analytics is unable to get the value of `TIMESTAMP BY OVER COLUMN`.
 
 ## InputEventLateBeyondThreshold
 
@@ -30,7 +31,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## InputEventEarlyBeyondThreshold
 
-* **Cause**: An input event arrival time is earlier than the input event application timestamp threshold.
+* **Cause**: An input event arrival time is earlier than the input event application time stamp threshold.
 
 ## AzureFunctionMessageSizeExceeded
 
@@ -38,7 +39,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## EventHubOutputRecordExceedsSizeLimit
 
-* **Cause**: An output record exceeds the maximum size limit when writing to Event Hub.
+* **Cause**: An output record exceeds the maximum size limit when writing to Azure Event Hubs.
 
 ## CosmosDBOutputInvalidId
 
@@ -51,24 +52,24 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## CosmosDBOutputMissingId
 
-* **Cause**: The output record doesn't contain the column \[id] to use as the primary key property.
+* **Cause**: The output record doesn't contain the column `[id]` to use as the primary key property.
 
 ## CosmosDBOutputMissingIdColumn
 
 * **Cause**: The output record doesn't contain the Document ID property. 
-* **Recommendation**: Ensure the query output contains the column with a unique non-empty string less than '255' characters.
+* **Recommendation**: Ensure the query output contains the column with a unique non-empty string of no more than 255 characters.
 
 ## CosmosDBOutputMissingPartitionKey
 
-* **Cause**: The output record is missing the a column to use as the partition key property.
+* **Cause**: The output record is missing a column to use as the partition key property.
 
 ## CosmosDBOutputSingleRecordTooLarge
 
-* **Cause**: A single record write to Cosmos DB is too large.
+* **Cause**: A single record write to Azure Cosmos DB is too large.
 
 ## SQLDatabaseOutputDataError
 
-* **Cause**: Stream Analytics can't write event(s) to SQL Database due to issues in the data.
+* **Cause**: Stream Analytics can't write event(s) to Azure SQL Database due to issues in the data.
 
 ## Next steps
 

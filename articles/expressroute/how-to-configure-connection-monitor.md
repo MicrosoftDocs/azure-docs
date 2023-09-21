@@ -5,11 +5,10 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 07/28/2021
+ms.date: 06/30/2023
 ms.author: duau
-
-
 ---
+
 # Configure Connection Monitor for ExpressRoute
 
 This article helps you configure a Connection Monitor extension to monitor ExpressRoute. Connection Monitor is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). Connection Monitor is part of Azure Monitor logs.  The extension also lets you monitor network connectivity for your private and Microsoft peering connections. When you configure Connection Monitor for ExpressRoute, you can detect network issues to identify and eliminate.
@@ -64,7 +63,7 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
     | Subscription | Select the subscription with the ExpressRoute circuit. |
     | Resource Group | Create a new or select an existing resource group. |
     | Name | Enter a name to identify this workspace. |
-    | Region | Select a region where this workspace will be created in. |
+    | Region | Select a region where this workspace is created in. |
 
     :::image type="content" source="./media/how-to-configure-connection-monitor/create-workspace-basic.png" alt-text="Screenshot of basic tab for create Log Analytics workspace.":::
 
@@ -76,7 +75,7 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
 
 ## <a name="npm"></a>Configure monitoring solution
 
-Complete the Azure PowerShell script below by replacing the values for *$SubscriptionId*, *$location*, *$resourceGroup*, and *$workspaceName*. Then run the script to configure the monitoring solution.
+Complete the Azure PowerShell script by replacing the values for *$SubscriptionId*, *$location*, *$resourceGroup*, and *$workspaceName*. Then run the script to configure the monitoring solution.
 
 ```azurepowershell-interactive
 $subscriptionId = "Subscription ID should come here"
@@ -117,11 +116,11 @@ Once you've configured the monitoring solution. Continue to the next step of ins
 
 1. Next, copy the **Workspace ID** and **Primary Key** to Notepad.
 
-    :::image type="content" source="./media/how-to-configure-connection-monitor/copy-id-key.png" alt-text="Screenshot of workspace id and primary key.":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/copy-id-key.png" alt-text="Screenshot of workspace ID and primary key.":::
 
-1. For Windows machines, download and run this PowerShell script [*EnableRules.ps1*](https://aka.ms/npmpowershellscript) in a PowerShell window with Administrator privileges. The PowerShell script will open the relevant firewall port for the TCP transactions. 
+1. For Windows machines, download and run this PowerShell script [*EnableRules.ps1*](https://aka.ms/npmpowershellscript) in a PowerShell window with Administrator privileges. The PowerShell script opens the relevant firewall port for the TCP transactions. 
  
-    For Linux machines, the port number needs to be changed manually with the follow steps:
+    For Linux machines, the port number needs to be changed manually with the following steps:
 
     * Navigate to path: /var/opt/microsoft/omsagent/npm_state.
     * Open file: npmdregistry
@@ -131,9 +130,9 @@ Once you've configured the monitoring solution. Continue to the next step of ins
 
 It's recommended that you install the Log Analytics agent on at least two servers on both sides of the ExpressRoute connection for redundancy. For example, your on-premises and Azure virtual network. Use the following steps to install agents:
 
-1. Select the appropriate operating system below for the steps to install the Log Analytics agent on your servers.
+1. Select the appropriate operating system for the steps to install the Log Analytics agent on your servers.
 
-    * [Windows](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard)
+    * [Windows](../azure-monitor/agents/agent-windows.md#install-the-agent)
     * [Linux](../azure-monitor/agents/agent-linux.md)
 
 1. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration, and [verify the agent connectivity](../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor) to Azure Monitor logs.
@@ -144,7 +143,7 @@ It's recommended that you install the Log Analytics agent on at least two server
 
 #### New Azure virtual machine
 
-If you're creating a new Azure VM for monitoring connectivity your VNet, you can install the Network Watcher agent when [creating the VM](../network-watcher/connection-monitor.md#create-the-first-vm).
+If you're creating a new Azure VM for monitoring connectivity your VNet, you can install the Network Watcher agent when creating the VM.
 
 #### Existing Azure virtual machine
 
@@ -156,7 +155,7 @@ Rules for a firewall can block communication between the source and destination 
 
 #### Windows
 
-For Windows machines, you can run a PowerShell script to create the registry keys that are required by the Connection Monitor. This script also creates the Windows Firewall rules to allow monitoring agents to create TCP connections with each other. The registry keys created by the script specify whether to log the debug logs, and the path for the logs file. It also defines the agent TCP port used for communication. The values for these keys are automatically set by the script. You shouldn't manually change these keys.
+For Windows machines, you can run a PowerShell script to create the registry keys required by the Connection Monitor. This script also creates the Windows Firewall rules to allow monitoring agents to create TCP connections with each other. The registry keys created by the script specify whether to log the debug logs, and the path for the logs file. It also defines the agent TCP port used for communication. The values for these keys get automatically set by the script. You shouldn't manually change these keys.
 
 Port 8084 is opened by default. You can use a custom port by providing the parameter 'portNumber' to the script. However, if you do so, you must specify the same port for all the servers on which you run the script.
 
@@ -202,7 +201,7 @@ For a high-level overview of how to create a connection monitor, tests, and test
 
     :::image type="content" source="./media/how-to-configure-connection-monitor/connection-monitor-basic.png" alt-text="Screenshot of basic tab for creating Connection Monitor.":::
 
-1. On the Add test group details page, you'll add the source and destination endpoints for your test group. You 'll also set up the test configurations between them. Enter a **Name** for this test group.
+1. On the *Add test group details* page, you add the source and destination endpoints for your test group. You also set up the test configurations between them. Enter a **Name** for this test group.
 
     :::image type="content" source="./media/how-to-configure-connection-monitor/add-test-group-details.png" alt-text="Screenshot of add test group details page.":::
 
@@ -244,7 +243,7 @@ For a high-level overview of how to create a connection monitor, tests, and test
 
     :::image type="content" source="./media/how-to-configure-connection-monitor/topology.png" alt-text="Screenshot of network topology in connection monitor." lightbox="./media/how-to-configure-connection-monitor/topology-expanded.png":::
 
-    Selecting any hop in the topology view will display additional information about the hop. Any issues detected by the connection monitor about the hop will also be displayed here.
+    Selecting any hop in the topology view displays additional information about the hop. Any issues detected by the connection monitor about the hop get displayed here.
 
     :::image type="content" source="./media/how-to-configure-connection-monitor/hop-details.png" alt-text="Screenshot of more information for a network hop.":::
 

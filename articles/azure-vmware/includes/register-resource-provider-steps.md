@@ -2,10 +2,11 @@
 title: Register the Azure VMware Solution resource provider
 description: Steps to register the Azure VMware Solution resource provider.
 ms.topic: include
+ms.service: azure-vmware
+ms.custom: devx-track-azurecli
 ms.date: 02/17/2021
 author: suzizuber
 ms.author: v-szuber
-ms.service: azure-vmware
 ---
 
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
@@ -16,6 +17,9 @@ To use Azure VMware Solution, you must first register the resource provider with
 ### [Portal](#tab/azure-portal)
  
 1. Sign in to the [Azure portal](https://portal.azure.com).
+ 
+   >[!NOTE]
+   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/
 
 1. On the Azure portal menu, select **All services**.
 
@@ -31,7 +35,7 @@ To use Azure VMware Solution, you must first register the resource provider with
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Sign in to the Azure subscription you use for the Azure VMware Solution deployment through the Azure CLI. Register the `Microsoft.AVS` resource provider with the [az provider register](/cli/azure/provider#az-provider-register) command:
 

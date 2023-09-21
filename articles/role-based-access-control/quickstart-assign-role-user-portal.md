@@ -4,7 +4,7 @@ description: In this tutorial, learn how to grant a user access to Azure resourc
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.service: role-based-access-control
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a resource group
 

@@ -1,17 +1,17 @@
 ---
-title: Quickstart - Add voice & video calling to custom Teams client
+title: Quickstart - Add voice & video calling as a Teams user to an app 
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to add voice & video-calling capabilities to your custom Teams app using Azure Communication Services.
+description: In this quickstart, you'll learn how to add voice & video-calling capabilities as a Teams user to your app using Azure Communication Services.
 author: xixian73
 ms.author: xixian
 ms.date: 12/1/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.subservice: calling
-ms.custom: mode-other
+ms.subservice: teams-interop
+ms.custom: mode-other, devx-track-js
 ---
 
-# QuickStart: Add 1:1 video calling to your customized Teams application
+# QuickStart: Add 1:1 video calling as a Teams user to your application
 
 [!INCLUDE [Video calling with JavaScript](./includes/custom-teams-endpoint/voice-video-calling-cte-javascript.md)]
 

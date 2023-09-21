@@ -2,10 +2,10 @@
 title: Enable backup when you create an Azure VM
 description: Describes how to enable backup when you create an Azure VM with Azure Backup.
 ms.topic: conceptual
-ms.date: 11/09/2021
-author: v-amallick
+ms.date: 07/19/2022
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Enable backup when you create an Azure VM
@@ -58,11 +58,11 @@ The Backup service creates a separate resource group (RG), different than the re
 
 Points to note:
 
-1. You can either use the default name of the RG, or edit it according to your company requirements.<br>If you haven't created an RG, to specify an RG for restorepointcollection, follow these steps:
-   1. Create an RG for restorepointcollection. For example, "rpcrg".
-   1. Mention the name of RG in the VM backup policy.
-   >[!NOTE]
-   >This will create an RG with the numeric appended and will use it for restorepointcollection.
+1. You can use default name of RG or customize the name according to organizational requirements.
+
+   >[!Note]
+   >When Azure Backup creates an RG, a numeric is appended to the name of RG and used for restore point collection.
+
 1. You provide the RG name pattern as input during VM backup policy creation. The RG name should be of the following format:
               `<alpha-numeric string>* n <alpha-numeric string>`. 'n' is replaced with an integer (starting from 1) and is used for scaling out if the first RG is full. One RG can have a maximum of 600 RPCs today.
               ![Choose name when creating policy](./media/backup-during-vm-creation/create-policy.png)

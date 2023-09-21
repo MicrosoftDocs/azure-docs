@@ -1,0 +1,420 @@
+- name: NoSQL query documentation
+  displayName: sql query, query basics
+  href: index.yml
+- name: Clauses
+  items:
+    - name: SELECT
+      displayName: select, select clause
+      href: select.md
+    - name: FROM
+      displayName: from, from clause
+      href: from.md
+    - name: WHERE
+      displayName: where, where clause
+      href: where.md
+    - name: ORDER BY
+      displayName: order by, order by clause
+      href: order-by.md
+    - name: GROUP BY
+      displayName: group by clause
+      href: group-by.md
+    - name: OFFSET LIMIT
+      displayName: offset limit
+      href: offset-limit.md
+- name: Working with JSON
+  displayName: alias, JSON, projection
+  href: working-with-json.md
+- name: Subquery
+  displayName: subquery, exists
+  href: subquery.md
+- name: Joins
+  displayName: join
+  href: join.md
+- name: Arrays and objects
+  displayName: object and array creation, object and array
+  href: object-array.md
+- name: Keywords
+  displayName: keywords, distinct, between, in, top
+  href: keywords.md
+- name: Constants
+  displayName: object, number,array
+  href: constants.md
+- name: Scalar expressions
+  displayName: scalar expressions, scalar
+  href: scalar-expressions.md
+- name: Computed properties
+  displayName: computed properties
+  href: computed-properties.md
+- name: Operators
+  items:
+    - name: Equality and comparison operators
+      displayName: equality, comparison, operators
+      href: equality-comparison-operators.md
+    - name: Logical operators
+      displayName: logical, and, or, operators
+      href: logical-operators.md
+    - name: Ternary and coalesce operators
+      displayName: ternary, coalesce, operators
+      href: ternary-coalesce-operators.md
+    - name: Bitwise operators
+      displayName: bitwise, binary, operators
+      href: bitwise-operators.md
+- name: Aggregate functions
+  items:
+    - name: AVG
+      displayName: functions, aggregate, avg, average
+      href: average.md
+    - name: COUNT
+      displayName: functions, aggregate, count
+      href: count.md
+    - name: MAX
+      displayName: functions, aggregate, max, maximum
+      href: max.md
+    - name: MIN
+      displayName: functions, aggregate, min, minimum
+      href: min.md
+    - name: SUM
+      displayName: functions, aggregate, sum
+      href: sum.md
+- name: System functions
+  items:
+    - name: System functions
+      displayName: functions, system functions, array functions, date time functions, mathematical functions, spatial functions, string functions, type checking functions, built-in functions
+      href: system-functions.yml
+    - name: Array functions
+      items:
+        - name: ARRAY_CONCAT
+          displayName: ARRAY_CONCAT, array concat, array functions
+          href: array-concat.md
+        - name: ARRAY_CONTAINS
+          displayName: ARRAY_CONTAINS, array contains, array functions
+          href: array-contains.md
+        - name: ARRAY_LENGTH
+          displayName: ARRAY_LENGTH, array length, array functions
+          href: array-length.md
+        - name: ARRAY_SLICE
+          displayName: ARRAY_SLICE, array slice, array functions
+          href: array-slice.md
+        - name: CHOOSE
+          displayName: CHOOSE, choose, choose index, select item, array functions
+          href: choose.md
+        - name: ObjectToArray
+          displayName: ObjectToArray, object, array, converstion, project items, array functions
+          href: objecttoarray.md
+        - name: SetIntersect
+          displayName: SetIntersect, array intersect, intersect, array functions
+          href: setintersect.md
+        - name: SetUnion
+          displayName: SetUnion, array union, union, array functions
+          href: setunion.md
+    - name: Conditional functions
+      items:
+        - name: IIF
+          displayName: IIF, ternary, ternary conditional operator
+          href: iif.md
+    - name: Date and time functions
+      items:
+        - name: DateTimeAdd
+          displayName: DateTimeAdd, date time add, timestamp, date and time functions, datetime
+          href: datetimeadd.md
+        - name: DateTimeBin
+          displayName: DateTimeBin, date time bin, date and time functions, datetime
+          href: datetimebin.md
+        - name: DateTimeDiff
+          displayName: DateTimeDiff, date time diff, date and time functions, datetime
+          href: datetimediff.md
+        - name: DateTimeFromParts
+          displayName: DateTimeFromParts, date time from parts, date and time functions, datetime
+          href: datetimefromparts.md
+        - name: DateTimePart
+          displayName: DateTimePart, date time part, date and time functions, datetime
+          href: datetimepart.md
+        - name: DateTimeToTicks
+          displayName: DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks
+          href: datetimetoticks.md
+        - name: DateTimeToTimestamp
+          displayName: DateTimeToTimestamp, date time to timestamp, date and time functions, datetime, timestamp
+          href: datetimetotimestamp.md
+        - name: GetCurrentDateTime
+          displayName: GetCurrentDateTime, get current date time, date and time functions, datetime
+          href: getcurrentdatetime.md
+        - name: GetCurrentDateTimeStatic
+          displayName: GetCurrentDateTimeStatic, get current date time static, static, date and time functions, datetime
+          href: getcurrentdatetimestatic.md
+        - name: GetCurrentTicks
+          displayName: GetCurrentTicks, get current ticks, date and time functions, datetime, ticks
+          href: getcurrentticks.md
+        - name: GetCurrentTicksStatic
+          displayName: GetCurrentTicksStatic, get current ticks static, static, date and time functions, datetime, ticks
+          href: getcurrentticksstatic.md
+        - name: GetCurrentTimestamp
+          displayName: GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime
+          href: getcurrenttimestamp.md
+        - name: GetCurrentTimestampStatic
+          displayName: GetCurrentTimestampStatic, get current timestamp static, static, timestamp, date and time functions, datetime
+          href: getcurrenttimestampstatic.md
+        - name: TicksToDateTime
+          displayName: TicksToDateTime, ticks to date time, date and time functions, datetime, ticks
+          href: tickstodatetime.md
+        - name: TimestampToDateTime
+          displayName: TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp
+          href: timestamptodatetime.md
+    - name: Item functions
+      items:
+        - name: DocumentId
+          displayName: DocumentId, document identifier, integer, item functions
+          href: documentid.md
+    - name: Mathematical functions
+      items:
+        - name: ABS
+          displayName: ABS, absolute value, built-in functions
+          href: abs.md
+        - name: ACOS
+          displayName: ACOS, arccosine, built-in functions
+          href: acos.md
+        - name: ASIN
+          displayName: ASIN, asine, built-in functions
+          href: asin.md
+        - name: ATAN
+          displayName: ATAN, arctangent, built-in functions
+          href: atan.md
+        - name: ATN2
+          displayName: ATN2, built-in functions
+          href: atn2.md
+        - name: CEILING
+          displayName: CEILING, built-in functions
+          href: ceiling.md
+        - name: COS
+          displayName: COS, cosine, built-in functions
+          href: cos.md
+        - name: COT
+          displayName: COT, cotangent, built-in functions
+          href: cot.md
+        - name: DEGREES
+          displayName: DEGREES, built-in functions
+          href: degrees.md
+        - name: EXP
+          displayName: EXP, exponential value, built-in functions
+          href: exp.md
+        - name: FLOOR
+          displayName: FLOOR, built-in functions
+          href: floor.md
+        - name: IntAdd
+          displayName: IntAdd, int-64, integer, add, addition, built-in functions
+          href: intadd.md
+        - name: IntBitAnd
+          displayName: IntBitAnd, int-64, integer, bitwise, AND, built-in functions
+          href: intbitand.md
+        - name: IntBitLeftShift
+          displayName: IntBitLeftShift, int-64, integer, bitwise, left shift, built-in functions
+          href: intbitleftshift.md
+        - name: IntBitNot
+          displayName: IntBitNot, int-64, integer, bitwise, NOT, built-in functions
+          href: intbitnot.md
+        - name: IntBitOr
+          displayName: IntBitOr, int-64, integer, bitwise, OR, built-in functions
+          href: intbitor.md
+        - name: IntBitRightShift
+          displayName: IntBitRightShift, int-64, integer, bitwise, right shift, built-in functions
+          href: intbitrightshift.md
+        - name: IntBitXor
+          displayName: IntBitXor, int-64, integer, bitwise, XOR, built-in functions
+          href: intbitxor.md
+        - name: IntDiv
+          displayName: IntDiv, int-64, integer, bitwise, division, built-in functions
+          href: intdiv.md
+        - name: IntMod
+          displayName: IntMod, int-64, integer, bitwise, modulus, built-in functions
+          href: intmod.md
+        - name: IntMul
+          displayName: IntMul, int-64, integer, bitwise, multiplication, built-in functions
+          href: intmul.md
+        - name: IntSub
+          displayName: IntSub, int-64, integer, bitwise, subtraction, built-in functions
+          href: intsub.md
+        - name: LOG
+          displayName: LOG, logarithm, built-in functions
+          href: log.md
+        - name: LOG10
+          displayName: LOG10, log base 10, built-in functions
+          href: log10.md
+        - name: NumberBin
+          displayName: NumberBin, bin, bin size, round, build-in functions
+          href: numberbin.md
+        - name: PI
+          displayName: PI, built-in functions
+          href: pi.md
+        - name: POWER
+          displayName: POWER, exponent, built-in functions
+          href: power.md
+        - name: RADIANS
+          displayName: RADIANS, built-in functions
+          href: radians.md
+        - name: RAND
+          displayName: RAND, random, built-in functions
+          href: rand.md
+        - name: ROUND
+          displayName: ROUND, built-in functions
+          href: round.md
+        - name: SIGN
+          displayName: SIGN, built-in functions
+          href: sign.md
+        - name: SIN
+          displayName: SIN, sine, built-in functions
+          href: sin.md
+        - name: SQRT
+          displayName: SQRT, square root, built-in functions
+          href: sqrt.md
+        - name: SQUARE
+          displayName: SQUARE, built-in functions
+          href: square.md
+        - name: TAN
+          displayName: TAN, built-in functions
+          href: tan.md
+        - name: TRUNC
+          displayName: TRUNC, truncate, built-in functions
+          href: trunc.md
+    - name: Spatial functions
+      items:
+        - name: ST_AREA
+          displayName: ST_AREA, st area, area, built-in functions
+          href: st-area.md
+        - name: ST_DISTANCE
+          displayName: ST_DISTANCE, st distance, distance, built-in functions
+          href: st-distance.md
+        - name: ST_WITHIN
+          displayName: ST_WITHIN, st within, within, built-in functions
+          href: st-within.md
+        - name: ST_INTERSECTS
+          displayName: ST_INTERSECTS, st intersects, intersects, built-in functions
+          href: st-intersects.md
+        - name: ST_ISVALID
+          displayName: ST_ISVALID, st isvalid, is valid, built-in functions
+          href: st-isvalid.md
+        - name: ST_ISVALIDDETAILED
+          displayName: ST_ISVALIDDETAILED, st isvaliddetailed, is valid detailed, built-in functions
+          href: st-isvaliddetailed.md
+    - name: String functions
+      items:
+        - name: CONCAT
+          displayName: CONCAT, concatenate, built-in functions
+          href: concat.md
+        - name: CONTAINS
+          displayName: CONTAINS, built-in functions
+          href: contains.md
+        - name: ENDSWITH
+          displayName: ENDSWITH, built-in functions
+          href: endswith.md
+        - name: INDEX_OF
+          displayName: INDEX_OF, index of, built-in functions
+          href: index-of.md
+        - name: LEFT
+          displayName: LEFT, built-in functions
+          href: left.md
+        - name: LENGTH
+          displayName: LENGTH, built-in functions
+          href: length.md
+        - name: LOWER
+          displayName: LOWER, built-in functions
+          href: lower.md
+        - name: LTRIM
+          displayName: LTRIM, left trim, built-in functions
+          href: ltrim.md
+        - name: REGEXMATCH
+          displayName: REGEXMATCH, built-in functions
+          href: regexmatch.md
+        - name: REPLACE
+          displayName: REPLACE, built-in functions
+          href: replace.md
+        - name: REPLICATE
+          displayName: REPLICATE, built-in functions
+          href: replicate.md
+        - name: REVERSE
+          displayName: REVERSE, built-in functions
+          href: reverse.md
+        - name: RIGHT
+          displayName: RIGHT, built-in functions
+          href: right.md
+        - name: RTRIM
+          displayName: RTRIM, right trim, built-in functions
+          href: rtrim.md
+        - name: STARTSWITH
+          displayName: STARTSWITH, starts with, built-in functions
+          href: startswith.md
+        - name: STRINGEQUALS
+          displayName: STRINGEQUALS, equals, case-insensitive
+          href: stringequals.md
+        - name: StringToArray
+          displayName: StringToArray, string to array, built-in functions
+          href: stringtoarray.md
+        - name: StringToBoolean
+          displayName: StringToBoolean, string to boolean, built-in functions
+          href: stringtoboolean.md
+        - name: StringToNull
+          displayName: StringToNull, string to null, built-in functions
+          href: stringtonull.md
+        - name: StringToNumber
+          displayName: StringToNumber, string to number, built-in functions
+          href: stringtonumber.md
+        - name: StringToObject
+          displayName: StringToObject, string to object, built-in functions
+          href: stringtoobject.md
+        - name: SUBSTRING
+          displayName: SUBSTRING, built-in functions
+          href: substring.md
+        - name: ToString
+          displayName: ToString, to sting, built-in functions
+          href: tostring.md
+        - name: TRIM
+          displayName: TRIM, built-in functions
+          href: trim.md
+        - name: UPPER
+          displayName: UPPER, built-in functions
+          href: upper.md
+    - name: Type checking functions
+      items:
+        - name: IS_ARRAY
+          displayName: IS_ARRAY, is array, built-in functions
+          href: is-array.md
+        - name: IS_BOOL
+          displayName: IS_BOOL, IsBool, is bool, built-in functions
+          href: is-bool.md
+        - name: IS_DEFINED
+          displayName: IS_DEFINED, IsDefined, is defined, built-in functions
+          href: is-defined.md
+        - name: IS_FINITE_NUMBER
+          displayName: IS_FINITE_NUMBER, IsFiniteNumber, is finite number, is countable, real number, built-in functions
+          href: is-finite-number.md
+        - name: IS_INTEGER
+          displayName: IS_INTEGER, IsInteger, is integer, number, built-in functions
+          href: is-integer.md
+        - name: IS_NULL
+          displayName: IS_NULL, IsNull, is null, built-in functions
+          href: is-null.md
+        - name: IS_NUMBER
+          displayName: IS_NUMBER, IsNumber, is number, built-in functions
+          href: is-number.md
+        - name: IS_OBJECT
+          displayName: IS_OBJECT, IsObject, is object, built-in functions
+          href: is-object.md
+        - name: IS_PRIMITIVE
+          displayName: IS_PRIMITIVE, IsPrimitive, is primitive, built-in functions
+          href: is-primitive.md
+        - name: IS_STRING
+          displayName: IS_STRING, IsString, is string, built-in functions
+          href: is-string.md
+- name: Geospatial data
+  displayName: geospatial, spatial
+  href: geospatial.md
+- name: DateTime
+  displayName: datetime, date, time
+  href: working-with-dates.md
+- name: Parameterized query
+  displayName: parameterized query, parameterized, parameter, parameters
+  href: parameterized-queries.md
+- name: Pagination
+  displayName: continuation tokens, paging, pagination
+  href: pagination.md
+- name: LINQ to NoSQL
+  displayName: linq, .NET
+  href: linq-to-sql.md

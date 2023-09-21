@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 12/22/2021
+ms.date: 07/13/2023
 ---
 
 # Assert transformation in mapping data flow
@@ -58,6 +58,10 @@ Enter an expression for evaluation for each of your assertions. You can have mul
 ### Ignore NULLs
 
 By default, the assert transformation will include NULLs in row assertion evaluation. You can choose to ignore NULLs with this property.
+
+## Direct assert row failures
+
+When an assertion fails, you can optionally direct those error rows to a file in Azure by using the "Errors" tab on the sink transformation. You will also have an option on the sink transformation to not output rows with assertion failures at all by ignoring error rows.
 
 ## Examples
 

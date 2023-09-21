@@ -1,0 +1,14 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Azure AI Video Indexer
+    tocHref: /azure/azure-video-indexer/
+    topicHref: /azure/azure-video-indexer/index
+- name: Azure
+  tocHref: /legal/
+  topicHref: /azure/index
+  items:
+  - name: Azure AI Video Indexer
+    tocHref: /legal/azure-video-indexer    # Destination doc set route
+    topicHref: /azure/azure-video-indexer/index    # Original doc set route

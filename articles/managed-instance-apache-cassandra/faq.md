@@ -6,7 +6,7 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021, mode-ui
+ms.custom: ignite-fall-2021, mode-ui, ignite-2022
 ---
 # Frequently asked questions about Azure Managed Instance for Apache Cassandra
 
@@ -20,19 +20,23 @@ The Apache Cassandra database is the right choice when you need scalability and 
 
 It can be used either entirely in the cloud or as a part of a hybrid cloud and on-premises cluster. This service is a great choice when you want fine-grained configuration and control you have in open-source Apache Cassandra, without any maintenance overhead.
 
-### Why should I use this service instead of Azure Cosmos DB Cassandra API?
+### Why should I use this service instead of Azure Cosmos DB for Apache Cassandra?
 
-Azure Managed Instance for Apache Cassandra is delivered by the Azure Cosmos DB team. It's a standalone managed service for deploying, maintaining, and scaling open-source Apache Cassandra data-centers and clusters. [Azure Cosmos DB Cassandra API](../cosmos-db/cassandra-introduction.md) on the other hand is a Platform-as-a-Service, providing an interoperability layer for the Apache Cassandra wire protocol. If your expectation is for the platform to behave in exactly the same way as any Apache Cassandra cluster, you should choose the managed instance service. To learn more, see the [Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API](compare-cosmosdb-managed-instance.md) article.
+Azure Managed Instance for Apache Cassandra is delivered by the Azure Cosmos DB team. It's a standalone managed service for deploying, maintaining, and scaling open-source Apache Cassandra data-centers and clusters. [Azure Cosmos DB for Apache Cassandra](../cosmos-db/cassandra-introduction.md) on the other hand is a Platform-as-a-Service, providing an interoperability layer for the Apache Cassandra wire protocol. If your expectation is for the platform to behave in exactly the same way as any Apache Cassandra cluster, you should choose the managed instance service. To learn more, see [Differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB for Apache Cassandra](../cosmos-db/cassandra/choose-service.md).
 
 ### Is Azure Managed Instance for Apache Cassandra dependent on Azure Cosmos DB?
 
-No, there's no architectural dependency between Azure Managed Instance for Apache Cassandra and the Azure Cosmos DB backend. 
+No, there's no architectural dependency between Azure Managed Instance for Apache Cassandra and the Azure Cosmos DB backend.
+
+### What versions of Apache Cassandra does the service support?
+
+The service currently supports Cassandra versions 3.11 and 4.0. Both versions are GA. See our [Azure CLI Quickstart](create-cluster-cli.md) (step 5) for specifying Cassandra version during cluster deployment.
 
 ### Does Azure Managed Instance for Apache Cassandra have an SLA?
 
-Yes, the SLA is published [here](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/). 
+Yes, the SLA is published [here](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/).
 
-#### Can I deploy Azure Managed Instance for Apache Cassandra in any region?
+### Can I deploy Azure Managed Instance for Apache Cassandra in any region?
 
 Currently the managed instance is available in a limited number of regions.
 
@@ -66,7 +70,7 @@ Azure Managed Instance for Apache Cassandra supports all of the features in Apac
 
 ### Can I pair an on-premises Apache Cassandra cluster with the Azure Managed Instance for Apache Cassandra?
 
-Yes, you can configure a hybrid cluster with Azure Virtual Network injected data-centers deployed by the service. Managed Instance data-centers can communicate with on-premise data-centers within the same cluster ring.
+Yes, you can configure a hybrid cluster with Azure Virtual Network injected data-centers deployed by the service. Managed Instance data-centers can communicate with on-premises data-centers within the same cluster ring.
 
 ### Where can I give feedback on Azure Managed Instance for Apache Cassandra features?
 

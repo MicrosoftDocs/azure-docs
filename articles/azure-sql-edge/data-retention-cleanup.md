@@ -1,82 +1,86 @@
 ---
 title: Manage historical data with retention policy - Azure SQL Edge
 description: Learn how to manage historical data with retention policy in Azure SQL Edge
-keywords: SQL Edge, data retention
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.date: 09/14/2023
 ms.service: sql-edge
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 09/04/2020
+keywords:
+  - SQL Edge
+  - data retention
 ---
-
 # Manage historical data with retention policy
 
-Data Retention can enabled on the database and any of the underlying tables individually, allowing users to create flexible aging policies for their tables and databases. Applying data retention is simple: it requires only one parameter to be set during table creation or as part of an alter table operation. 
+> [!IMPORTANT]  
+> Azure SQL Edge no longer supports the ARM64 platform.
 
-After data retention policy is defiend for a database and the underlying table, a background time timer task runs to remove any obsolete records from the table enabled for data retention. Identification of matching rows and their removal from the table occur transparently, in the background task that is scheduled and run by the system. Age condition for the table rows is checked based on the column used as the `filter_column` in the table definition. If retention period, for example, is set to one week, table rows eligible for cleanup satisfy either of the following condition: 
+After the data retention policy is defined for a database and the underlying table, a background time timer task runs to remove any obsolete records from the table enabled for data retention. Identification of matching rows and their removal from the table occur transparently, in the background task scheduled and run by the system. Age condition for the table rows is checked based on the `filter_column` column specified in the table definition. If retention period is set to one week, for instance, table rows eligible for cleanup satisfy either of the following condition:
 
-- If the filter column uses DATETIMEOFFSET data type then the condition is `filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())`
-- Else then the condition is `filter_column < DATEADD(WEEK, -1, SYSDATETIME())`
+- If the filter column uses DATETIMEOFFSET data type, then the condition is `filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())`
+- Otherwise, the condition is `filter_column < DATEADD(WEEK, -1, SYSDATETIME())`
 
 ## Data retention cleanup phases
 
-Data retention cleanup operation comprises of two phases. 
-- Discovery Phase - In this phase the cleanup operation identifies all the tables within the user databases to build a list for cleanup. Discovery runs once a day.
-- Cleanup Phase - In this phase, cleanup is run against all tables with finite data retention, identified in the discovery phase. If the cleanup operation cannot be performed on a table, then that table is skipped in the current run and will be retried in the next iteration. The following principles are used during cleanup
-    - If an obsolete row is locked by another transaction, that row is skipped. 
-    - Clean up runs with a default 5 seconds lock timeout setting. If the locks cannot be acquired on the tables within the timeout window, the table is skipped in the current run and will be retried in the next iteration.
-    - If there is an error during cleanup of a table, that table is skipped and will be picked up in the next iteration.
+The data retention cleanup operation consists of two phases:
+
+1. **Discovery**: In this phase, the cleanup operation identifies all the tables within the user databases to build a list for cleanup. Discovery runs once a day.
+1. **Cleanup**: In this phase, cleanup is run against all tables with finite data retention, identified in the discovery phase. If the cleanup operation can't be performed on a table, then that table is skipped in the current run and will be retried in the next iteration. The following principles are used during cleanup:
+   - If an obsolete row is locked by another transaction, that row is skipped.
+   - Cleanup runs with a default lock timeout of 5 seconds. If the locks can't be acquired on the tables within the timeout window, the table is skipped in the current run and will be retried in the next iteration.
+   - If there's an error during cleanup of a table, that table is skipped and will be picked up in the next iteration.
 
 ## Manual cleanup
 
-Depending on the data retention settings on a table and the nature of the workload on the database, it's possible that the automatic cleanup thread may not completely remove all obsolete rows during its run. To assist with this and allow users to manually remove obsolete rows, the `sys.sp_cleanup_data_retention` stored procedure has been introduced in Azure SQL Edge. 
+Depending on the data retention settings on a table and the nature of the workload on the database, it's possible that the automatic cleanup thread may not completely remove all obsolete rows during its run. To allow users to manually remove obsolete rows, the `sys.sp_cleanup_data_retention` stored procedure has been introduced in Azure SQL Edge.
 
-This stored procedure takes three parameters. 
-    - Schema Name - Name of the owning schema for the table. This is a required parameter. 
-    - Table Name - Name of the table for which manual cleanup is being run. This is a required parameter. 
-    - rowcount (Output) - output variable. Returns the number of rows cleaned up by the manual cleanup sp. This is an optional parameter. 
+This stored procedure takes three parameters:
+
+- `@schema_name`: Name of the owning schema for the table. Required.
+- `@table_name`: Name of the table for which manual cleanup is being run. Required.
+- `@rowcount`: Output variable. Returns the number of rows cleaned up by the manual cleanup sp. Optional.
+
+For more information, see [sys.sp_cleanup_data_retention (Transact-SQL)](sys-sp-cleanup-data-retention.md).
 
 The following example shows the execution of the manual cleanup sp for table `dbo.data_retention_table`.
 
 ```sql
-declare @rowcnt bigint 
-EXEC sys.sp_cleanup_data_retention 'dbo', 'data_retention_table', @rowcnt output 
-select @rowcnt 
+DECLARE @rowcnt BIGINT;
+EXEC sys.sp_cleanup_data_retention 'dbo', 'data_retention_table', @rowcnt OUTPUT;
+SELECT @rowcnt;
 ```
 
 ## How obsolete rows are deleted
 
-The cleanup process depends on the index layout of the table. A background task is created to perform obsolete data cleanup for all tables with finite retention period. Clean up logic for the rowstore (B-tree or Heap) index deletes aged row in smaller chunks (up to 10K) minimizing pressure on database log and IO subsystem. Although cleanup logic utilizes required B-tree index, order of deletions for the rows older than retention period cannot be firmly guaranteed. Hence, do not take any dependency on the cleanup order in your applications.
+The cleanup process depends on the index layout of the table. A background task is created to perform obsolete data cleanup for all tables with finite retention period. Clean up logic for the rowstore (heap or B-tree) index deletes aged row in smaller chunks (up to 10,000), minimizing pressure on database log and the I/O subsystem. Although cleanup logic utilizes the required B-tree index, the order of deletions for the rows older than retention period can't be firmly guaranteed. In other words, don't take a dependency on the cleanup order in your applications.
 
-The cleanup task for the clustered columnstore removes entire row groups at once (typically contain 1 million of rows each), which is very efficient, especially when data is generated and ages out at a high pace.
+> [!WARNING]  
+> In the case of heaps and B-tree indexes, data retention runs a delete query on the underlying tables, which can conflict with delete triggers on the tables. You should either remove delete triggers from the tables, or avoid using data retention on tables that have delete DML triggers.
 
-![Data Retention Cleanup](./media/data-retention-cleanup/data-retention-cleanup.png)
+The cleanup task for the clustered columnstore indexes removes entire row groups at once (typically contain 1 million of rows each), which is efficient, especially when data is generated and ages out at a high pace.
 
-Excellent data compression and efficient retention cleanup makes clustered columnstore index a perfect choice for scenarios when your workload rapidly generates high amount of data.
+:::image type="content" source="media/data-retention-cleanup/data-retention-cleanup.png" alt-text="Diagram of data retention cleanup.":::
 
-> [!Note]
-> In the case of B-Tree Indexes and heaps, data retention runs a delete query on the underlying tables, which can conflict with delete triggers on the tables. It is recommended to either remove delete triggers from the tables or to not enable data retention on tables that have delete DML trigger.
+Excellent data compression and efficient retention cleanup makes clustered columnstore indexes a perfect choice for scenarios when your workload rapidly generates a large amount of data.
 
-## Monitoring data retention cleanup
+## Monitor data retention cleanup
 
-Data retention policy cleanup operations can be monitored using extended events (XEvents) in Azure SQL Edge. For more information on extended events, refer [XEvents Overview](/sql/relational-databases/extended-events/extended-events). 
+Data retention policy cleanup operations can be monitored using Extended Events in Azure SQL Edge. For more information on extended events, see [Extended Events Overview](/sql/relational-databases/extended-events/extended-events).
 
-The following six extended events help track the state of the cleanup operations. 
+The following Extended Events help track the state of the cleanup operations.
 
 | Name | Description |
-|------| ------------|
-| data_retention_task_started  | Occurs when background task for cleanup of tables with retention policy starts. |
-| data_retention_task_completed	 | Occurs when background task for cleanup of tables with retention policy ends. |
-| data_retention_task_exception	 | Occurs when background task for cleanup of tables with retention policy fails outside of retention cleanup process specific to table. |
-| data_retention_cleanup_started  | Occurs when clean up process of table with data retention policy starts. |
-| data_retention_cleanup_exception	| Occurs cleanup process of table with retention policy fails. |
-| data_retention_cleanup_completed	| Occurs when clean up process of table with data retention policy ends. |  
+| --- | --- |
+| data_retention_task_started | Occurs when the background task for cleanup of tables with a retention policy starts. |
+| data_retention_task_completed | Occurs when the background task for cleanup of tables with a retention policy ends. |
+| data_retention_task_exception | Occurs when the background task for cleanup of tables with a retention policy fails, outside of retention cleanup process specific to those tables. |
+| data_retention_cleanup_started | Occurs when the cleanup process of a table with data retention policy starts. |
+| data_retention_cleanup_exception | Occurs when the cleanup process of a table with retention policy fails. |
+| data_retention_cleanup_completed | Occurs when the cleanup process of a table with data retention policy ends. |
 
-Additionally, a new ring buffer type named `RING_BUFFER_DATA_RETENTION_CLEANUP` has been added to sys.dm_os_ring_buffers dynamic management view. This view can be used to monitor the data retention cleanup operations. 
+Additionally, a new ring buffer type named `RING_BUFFER_DATA_RETENTION_CLEANUP` has been added to the `sys.dm_os_ring_buffers` dynamic management view. This view can be used to monitor the data retention cleanup operations.
 
+## Next steps
 
-## Next Steps
 - [Data Retention Policy](data-retention-overview.md)
 - [Enable and Disable Data Retention Policies](data-retention-enable-disable.md)

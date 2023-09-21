@@ -1,25 +1,26 @@
 ---
 title: Azure Cosmos DB compliance 
 description: This article describes compliance coverage for Azure Cosmos DB.
-author: ThomasWeiss
-ms.author: thweiss
+author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/11/2021
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Compliance in Azure Cosmos DB 
 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Azure Cosmos DB is available in all Azure regions. Microsoft makes the following Azure cloud environments available to customers:
 
 - **Azure** is available globally. It is sometimes referred to as Azure commercial, Azure public, or Azure global.
-- **Azure China** is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest Internet providers.
+- **Microsoft Azure operated by 21Vianet** is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest Internet providers.
 - **Azure Government** is available from five regions in the United States to US government agencies and their partners. Two regions (US DoD Central and US DoD East) are reserved for exclusive use by the US Department of Defense.
 - **Azure Government Secret** is available from three regions exclusively for the needs of US Government and designed to accommodate classified Secret workloads and native connectivity to classified networks.
-- **Azure Government Top Secret** serves the national security mission and empowers leaders across the Intelligence Community (IC), Department of Defense (DoD), and Federal Civilian agencies to process national security workloads classified at the US Top Secret level.
+- **Azure Government Top Secret** serves America's security mission and empowers leaders across the Intelligence Community (IC), Department of Defense (DoD), and Federal Civilian agencies to process security workloads classified at the US Top Secret level.
 
 To help you meet your own compliance obligations across regulated industries and markets worldwide, Azure maintains the largest compliance portfolio in the industry both in terms of breadth (total number of [compliance offerings](../compliance/index.yml)) and depth (number of [customer-facing services](https://azure.microsoft.com/services/) in assessment scope). For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 

@@ -9,14 +9,15 @@ ms.topic: reference
 
 This article describes the Neousys Nuvo-5006LP appliance for OT sensors.
 
-Legacy appliances are certified but aren't currently offered as pre-configured appliances.
+> [!NOTE]
+> Neousys Nuvo-5006LP is a legacy appliance, and is supported for Defender for IoT software up to the latest patch for versions [22.2.x](../release-notes.md#versions-222x). We recommend that you replace these appliances with newer certified models, such as the [YS-FIT2](ys-techsystems-ys-fit2.md) or [HPE DL20 (NHP 2LFF)](hpe-proliant-dl20-plus-smb.md).
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | Office |
-|**Performance** | 	Max bandwidth: 30 Mbp/s<br>Max devices: 400 |
+|**Hardware profile** | L100 |
+|**Performance** | Max bandwidth: 30 Mbps<br>Max devices: 400 |
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
-|**Status** | Supported, Not available pre-configured|
+|**Status** | Supported up to the latest Defender for IoT software patch for versions [22.2.x](../release-notes.md#versions-222x)|
 
 :::image type="content" source="../media/ot-system-requirements/cyberx.png" alt-text="Photo of a Neousys Nuvo-5006LP." border="false":::
 
@@ -51,28 +52,28 @@ In this image, numbers indicate the following components:
 
 |Component|Technical Specifications|
 |:----|:----|
-|Construction|Aluminum, fanless and dust-proof design|
-|Dimensions|240 mm (W) x 225 mm (D) x 77 mm (H)|
-|Weight|3.1 kg (including CPU, memory, and HDD)|
-|CPU|Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151|
-|Chipset|Intel® Q170 Platform Controller Hub|
-|Memory|8 GB DDR4 2133 MHz Wide Temperature SODIMM|
-|Storage|128 GB 3ME3 Wide Temperature mSATA SSD|
-|Network controller|Six-Gigabit Ethernet ports by Intel® I219|
-|Device access|Four USBs: Two in front, two in the rear, and 1 internal|
-|Power Adapter|120/240VAC-20VDC/6A|
-|Mounting|Mounting kit, Din Rail|
-|Operating Temperature|-25°C -  70°C|
-|Storage Temperature|-40°C ~ 85°C|
-|Humidity|10%~90%, non-condensing|
-|Vibration|Operating, 5 Grms, 5-500 Hz, three Axes <br>(w/ SSD, according to IEC60068-2-64)|
-|Shock|Operating, 50 Grms, Half-sine 11 ms Duration <br>(w/ SSD, according to IEC60068-2-27)|
-|EMC|CE/FCC Class A, according to EN 55022, EN 55024 & EN 55032|
+|**Construction**|Aluminum, fanless and dust-proof design|
+|**Dimensions**|240 mm (W) x 225 mm (D) x 77 mm (H)|
+|**Weight**|3.1 kg (including CPU, memory, and HDD)|
+|**CPU**|Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151|
+|**Chipset**|Intel® Q170 Platform Controller Hub|
+|**Memory**|8 GB DDR4 2133 MHz Wide Temperature SODIMM|
+|**Storage**|128 GB 3ME3 Wide Temperature mSATA SSD|
+|**Network controller**|Six-Gigabit Ethernet ports by Intel® I219|
+|**Device access**|Four USBs: Two in front, two in the rear, and 1 internal|
+|**Power Adapter**|120/240VAC-20VDC/6A|
+|**Mounting**|Mounting kit, Din Rail|
+|**Operating Temperature**|-25°C -  70°C|
+|**Storage Temperature**|-40°C ~ 85°C|
+|**Humidity**|10%~90%, non-condensing|
+|**Vibration**|Operating, 5 Grms, 5-500 Hz, three Axes <br>(w/ SSD, according to IEC60068-2-64)|
+|**Shock**|Operating, 50 Grms, Half-sine 11 ms Duration <br>(w/ SSD, according to IEC60068-2-27)|
+|**EMC**|CE/FCC Class A, according to EN 55022, EN 55024 & EN 55032|
 
 
 ## Nuvo 5006LP sensor installation
 
-This section describes how to install OT sensor software on the Nuvo 5006LP appliance. Before you install the OT sensor software, you must adjust the appliance's BIOS configuration.
+This section describes how to install OT sensor software on the Nuvo 5006LP appliance. Before installing the OT sensor software, you must adjust the appliance's BIOS configuration.
 
 > [!NOTE]
 > Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
@@ -80,7 +81,7 @@ This section describes how to install OT sensor software on the Nuvo 5006LP appl
 
 ### Prerequisites
 
-Before you start installing OT sensor software, or updating the BIOS configuration, make sure that the operating system is installed on the appliance.
+Before installing OT sensor software, or updating the BIOS configuration, make sure that the operating system is installed on the appliance.
 
 ### Configure the Nuvo 5006LP BIOS
 
@@ -134,7 +135,7 @@ This procedure describes how to install OT sensor software on the Nuvo 5006LP. T
 
 1. Accept the settings and continue by entering `Y`.
 
-After approximately 10 minutes, sign-in credentials are automatically generated. Save the username and passwords, you'll need these credentials to access the platform the first time you use it.
+After approximately 10 minutes, sign-in credentials are automatically generated. Save the username and passwords; you'll need these credentials to access the platform the first time you use it.
 
 ## Next steps
 
@@ -142,6 +143,5 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
-- [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](../how-to-install-software.md)
+- [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
+- [Download software files for an on-premises management console](../ot-deploy/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

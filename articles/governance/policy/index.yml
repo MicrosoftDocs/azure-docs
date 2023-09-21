@@ -9,8 +9,8 @@ metadata:
   ms.service: azure-policy
   ms.topic: landing-page
   ms.collection: collection
-  author: DCtheGeek
-  ms.author: dacoulte
+  author: davidsmatlak
+  ms.author: davidsmatlak
   ms.date: 06/02/2021
 
 landingContent:
@@ -69,8 +69,6 @@ landingContent:
             url: ./how-to/extension-for-vscode.md
           - text: Design Azure Policy as Code workflows
             url: ./concepts/policy-as-code.md
-          - text: Implement Azure Policy as Code with GitHub
-            url: ./tutorials/policy-as-code-github.md
       - linkListType: deploy
         links:
           - text: Index of policy samples
@@ -98,8 +96,8 @@ landingContent:
             url: ./concepts/regulatory-compliance.md
           - text: Azure Policy for Kubernetes
             url: ./concepts/policy-for-kubernetes.md
-          - text: Azure Policy for VMs
-            url: ./concepts/guest-configuration.md
+          - text: Azure Automanage Machine Configuration
+            url: ../machine-configuration/overview.md
 
   - title: Review & Remediate resources
     linkLists:

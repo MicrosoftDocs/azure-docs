@@ -1,11 +1,11 @@
 ---
 title: Use managed identities to access Azure SQL Database or Azure Synapse Analytics - Azure Stream Analytics
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure SQL Database or Azure Synapse Analytics output.
-author: enkrumah
-ms.author: ebnkruma
+author: an-emma
+ms.author: raan
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 01/31/2023
 ---
 
 # Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job
@@ -64,7 +64,9 @@ First, you create a managed identity for your Azure Stream Analytics job.
 
    A service principal for the Stream Analytics job's identity is created in Azure Active Directory. The life cycle of the newly created identity is managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.
 
-1. When you save the configuration, the Object ID (OID) of the service principal is listed as the Principal ID as shown below:
+1. You can also switch to [user-assigned managed identities](stream-analytics-user-assigned-managed-identity-overview.md). 
+ 
+3. When you save the configuration, the Object ID (OID) of the service principal is listed as the Principal ID as shown below:
 
    ![Object ID shown as Principal ID](./media/sql-db-output-managed-identity/principal-id.png)
 
@@ -208,6 +210,17 @@ Ensure you have created a table in your Azure Synapse database with the appropri
 1. After clicking **Save**, a connection test to your resource should automatically trigger. Once that successfully completes, you are now ready to proceed with using Managed Identity for your Azure Synapse Analytics resource with Stream Analytics.
 
 ---
+
+## Additional Steps with User-Assigned Managed Identity
+
+Repeat the steps if you selected user-assigned managed identity to connect ASA to Synapse:
+1. Create a contained database user. Replace ASA_Job_Name with User-Assigned Managed Identity. See the example below.
+   ```sql
+   CREATE USER [User-Assigned Managed Identit] FROM EXTERNAL PROVIDER;
+   ```
+2. Grant permissions to the User-Assigned Managed Identity. Replace ASA_Job_Name with User-Assigned Managed Identity.
+
+For more details, please refer to the sections above.
 
 ## Remove Managed Identity
 

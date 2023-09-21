@@ -3,15 +3,16 @@ title: Create and upload an OpenBSD image
 description: Learn how to create and upload a virtual hard disk (VHD) that contains the OpenBSD operating system to create an Azure virtual machine through Azure CLI
 author: gbowerman
 ms.service: virtual-machines
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.collection: linux
 ms.topic: how-to
 ms.date: 05/24/2017
 ms.author: guybo
-
+ms.reviewer: mattmcinnes
 ---
 # Create and Upload an OpenBSD disk image to Azure
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 This article shows you how to create and upload a virtual hard disk (VHD) that contains the OpenBSD operating system. After you upload it, you can use it as your own image to create a virtual machine (VM) in Azure through Azure CLI.
 
@@ -21,7 +22,7 @@ This article assumes that you have the following items:
 
 * **An Azure subscription** - If you don't have an account, you can create one in just a couple of minutes. If you have an MSDN subscription, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, learn how to [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).  
 * **Azure CLI** - Make sure you have the latest [Azure CLI](/cli/azure/install-azure-cli) installed and logged in to your Azure account with [az login](/cli/azure/reference-index).
-* **OpenBSD operating system installed in a .vhd file** - A supported OpenBSD operating system ([6.6 version AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.6/amd64/)) must be installed to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions about how to install and use Hyper-V, see [Install Hyper-V and create a virtual machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
+* **OpenBSD operating system installed in a .vhd file** - A supported OpenBSD operating system ([6.6 version AMD64](https://ftp.openbsd.org/pub/OpenBSD/7.2/amd64/)) must be installed to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions about how to install and use Hyper-V, see [Install Hyper-V and create a virtual machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 
 ## Prepare OpenBSD image for Azure
@@ -30,20 +31,20 @@ On the VM where you installed the OpenBSD operating system 6.1, which added Hype
 1. If DHCP is not enabled during installation, enable the service as follows:
 
     ```sh    
-    echo dhcp > /etc/hostname.hvn0
+    doas echo dhcp > /etc/hostname.hvn0
     ```
 
 2. Set up a serial console as follows:
 
     ```sh
-    echo "stty com0 115200" >> /etc/boot.conf
-    echo "set tty com0" >> /etc/boot.conf
+    doas echo "stty com0 115200" >> /etc/boot.conf
+    doas echo "set tty com0" >> /etc/boot.conf
     ```
 
 3. Configure Package installation as follows:
 
     ```sh
-    echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
+    doas echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
     ```
    
 4. By default, the `root` user is disabled on virtual machines in Azure. Users can run commands with elevated privileges by using the `doas` command on OpenBSD VM. Doas is enabled by default. For more information, see [doas.conf](https://man.openbsd.org/doas.conf.5). 
@@ -51,36 +52,38 @@ On the VM where you installed the OpenBSD operating system 6.1, which added Hype
 5. Install and configure prerequisites for the Azure Agent as follows:
 
     ```sh
-    pkg_add py-setuptools openssl git
-    ln -sf /usr/local/bin/python2.7 /usr/local/bin/python
-    ln -sf /usr/local/bin/python2.7-2to3 /usr/local/bin/2to3
-    ln -sf /usr/local/bin/python2.7-config /usr/local/bin/python-config
-    ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
+    doas pkg_add py-setuptools openssl git
+    doas ln -sf /usr/local/bin/python2.7 /usr/local/bin/python
+    doas ln -sf /usr/local/bin/python2.7-2to3 /usr/local/bin/2to3
+    doas ln -sf /usr/local/bin/python2.7-config /usr/local/bin/python-config
+    doas ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
     ```
 
 6. The latest release of the Azure agent can always be found on [GitHub](https://github.com/Azure/WALinuxAgent/releases). Install the agent as follows:
 
     ```sh
-    git clone https://github.com/Azure/WALinuxAgent 
-    cd WALinuxAgent
-    python setup.py install
-    waagent -register-service
+    doas git clone https://github.com/Azure/WALinuxAgent 
+    doas cd WALinuxAgent
+    doas python setup.py install
+    doas waagent -register-service
     ```
 
     > [!IMPORTANT]
     > After you install Azure Agent, it's a good idea to verify that it's running as follows:
     >
-    > ```bash
-    > ps auxw | grep waagent
+    > ```sh
+    > doas ps auxw | grep waagent
     > root     79309  0.0  1.5  9184 15356 p1  S      4:11PM    0:00.46 python /usr/local/sbin/waagent -daemon (python2.7)
-    > cat /var/log/waagent.log
+    > doas cat /var/log/waagent.log
     > ```
 
-7. Deprovision the system to clean it and make it suitable for reprovisioning. The following command also deletes the last provisioned user account and the associated data:
+7. Deprovision the system to clean it and make it suitable for deprovisioning. The following command also deletes the last provisioned user account and the associated data:
 
     ```sh
-    waagent -deprovision+user -force
+    doas waagent -deprovision+user -force
     ```
+> [!NOTE]
+> If you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step.
 
 Now you can shut down your VM.
 

@@ -1,18 +1,12 @@
 ---
 title: Azure Fluid Relay overview
 description: Overview of the Fluid Framework and Azure Fluid Relay.
-services: azure-fluid
-author: hickeys
-ms.author: hickeys
 ms.date: 08/19/2021
 ms.topic: overview
 ms.service: azure-fluid
 ---
 
 # Azure Fluid Relay overview
-
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
 The [Fluid Framework](https://fluidframework.com/) is an open source, platform independent framework. [Azure Fluid Relay](../overview/overview.md) is a managed offering for the Fluid Framework that helps developers build real-time collaborative experiences and replicate state across connected JavaScript clients in real-time.
 
@@ -55,9 +49,3 @@ The following steps are a typical flow.
 1. Fluid service sequences that operation and broadcasts it to all clients.
 1. Fluid runtime incorporates that operation into local data and raises a "valueChanged" event.
 1. Client code handles that event (updates view, runs business logic).
-
-## Getting to version 1.0
-
-The core technology powering Fluid Framework is mature and stable. However, the layers built on top of that foundation are still a work in progress. Over the coming months we will be evolving APIs, adding new features, and working to further simplify using the framework. These changes are driven by Microsoft's use of Fluid internally and by requirements we are gathering from developers currently building on Fluid.
-
-Fluid Framework is not ready to power production-quality solutions yet. But we are excited to open source it now to give developers an opportunity to explore, learn, and contribute both through feedback and through direct participation.

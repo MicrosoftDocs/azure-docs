@@ -1,183 +1,370 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
+## FRONT MATTER START
 title: Azure Active Directory B2C documentation # < 60 chars
-summary: Azure Active Directory B2C (Azure AD B2C) is an identity management service that enables custom control of how your customers sign up, sign in, and manage their profiles when using your iOS, Android, .NET, single-page (SPA), and other applications. Learn how to use Azure AD B2C with our quickstarts, tutorials, and samples. # < 160 chars
+summary: >
+  Azure Active Directory B2C (Azure AD B2C) is a customer identity access management (CIAM) solution that enables you to sign up and sign in your customers into your apps and APIs. Your customers use their preferred social, enterprise, or local account identities to get single sign-on access to your applications. Learn how to use Azure AD B2C with our guide, tutorials, and code samples.
+brand: azure
 
 metadata:
-  title: Azure Active Directory B2C documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to use Azure Active Directory B2C to customize and control how customers sign up, sign in, and manage their profiles when using your applications. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Active Directory B2C documentation
+  description: Learn how to use Azure Active Directory B2C to customize and control how customers sign up, sign in, and manage their profiles when using your applications.
   services: active-directory-b2c
   ms.service: active-directory
   ms.subservice: B2C
-  ms.topic: landing-page
+  ms.topic: hub-page
   ms.collection: collection
   author: kengaderdus
   ms.author: kengaderdus
-  ms.date: 01/28/2020
+  ms.date: 03/08/2023
 
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+## FRONT MATTER END
 
-landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
+##HIGHLIGHTED CONTENT #############################################################################################################################
+highlightedContent:
+  items:
+    - title: What is Azure AD B2C?
+      itemType: overview # controls the icon image and super-title text
+      url: overview.md
+    - title: Microsoft Entra features supported in Azure AD B2C
+      url: supported-azure-ad-features.md
+      itemType: overview
+    - title: Get started with Azure AD B2C
+      url: tutorial-create-tenant.md
+      itemType: tutorial
+    - title: Azure AD B2C technical and feature overview
+      url: technical-overview.md
+      itemType: overview
+    - title: Customer success scenarios
+      url: https://customers.microsoft.com/en-us/search?sq=b2c&ff=story_product_categories%26%3EAzure&p=2&so=story_publish_date%20desc
+      itemType: overview
+    - title: Pricing
+      url: https://azure.microsoft.com/pricing/details/active-directory-b2c/
+      itemType: reference
+##HIGHLIGHTED CONTENT END ##########################################################################################################################
 
-  # Card
-  - title: Azure AD B2C
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure AD B2C?
-            url: overview.md
-          - text: Compare solutions for External Identities
-            url: ../active-directory/external-identities/external-identities-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-          - text: Get started with Azure AD B2C
-            url: tutorial-create-tenant.md
-          - text: Technical and feature overview
-            url: technical-overview.md
-          - text: Pricing
-            url: https://azure.microsoft.com/pricing/details/active-directory-b2c/
 
-  # Card
-  - title: Basics
-    linkLists:
-      - linkListType: learn
-        links:
+## BAND 2 ####################################################################################################################################################
+productDirectory:
+  sections:
+    - title: Authenticate and authorize for any app type
+      summary: Select the app type that you want to build to access documentation focusing on it.
+      items:
+        ## ROW 1 ######################
+        - title: Single-page app (SPA)
+          url: index-spa.yml
+          imageSrc: ../active-directory/develop/media/hub/app-type-spa.svg
+          summary: A web application whose code is downloaded and run in the browser itself such as vanilla JavaScript, React and Angular.
+        - title: Web app
+          url: index-web-app.yml
+          #url: web-app-quickstart.md
+          imageSrc: ../active-directory/develop/media/hub/app-type-web.svg
+          summary: A web app whose code runs on a server, returning page data for the browser to render such as Node.js, ASP.NET or Java.
+        - title: Web API
+          url: index-web-api.yml
+          #url: web-api-quickstart.md
+          imageSrc: ../active-directory/develop/media/hub/app-type-api.svg
+          summary: A RESTful web service that is accessed by any app type or other web APIs, and is protected by Azure AD B2C.
+        ## ROW 2 ######################
+        - title: Desktop app
+          url: index-desktop.yml
+          #url: desktop-app-quickstart.md
+          imageSrc: ../active-directory/develop/media/hub/app-type-desktop.svg
+          summary: Applications with a user interface (UI) whose code runs on a user's desktop, laptop, or notebook computer such as Windows OS.
+        - title: Mobile app
+          url: index-mobile.yml
+          #url: mobile-app-quickstart.md
+          imageSrc: ../active-directory/develop/media/hub/app-type-mobile.svg
+          summary: Applications with a UI whose code runs on a user's phone, tablet, or other mobile device such as Android and iOS.
+        - title: Back-end service or daemon
+          url: index-service.yml
+          #url: mobile-app-quickstart.md
+          imageSrc: ../active-directory/develop/media/hub/app-type-daemon-console.svg
+          summary: An application or script without a UI that performs non-interactive tasks like server-to-server communication or scheduled jobs.
+## BAND 2 - PRODUCT DIRECTORY END ##########################################################################################################################
+
+
+
+## BAND 3 - CONCEPTUAL CONTENT #############################################################################################################################
+conceptualContent:
+  title: Quick access to Azure AD B2C documentation 
+  summary: Get quick access to our guides and tutorials for your most common scenarios. 
+  items:
+    ## CARD 1 ######################
+    ##- title: Overview of Azure AD B2C
+      ##links:
+        ##- text: What is Azure AD B2C?
+         ## url: overview.md
+          ##itemType: overview
+        ##- text: Compare Microsoft Entra ID and Azure AD B2C
+          ##url: supported-azure-ad-features.md
+         ## itemType: overview
+       ## - text: Get started with Azure AD B2C
+        ##  url: tutorial-create-tenant.md
+         ## itemType: overview
+        ##- text: Technical and feature overview
+          ##url: technical-overview.md
+          ##itemType: overview
+        ##- text: Pricing
+         ## url: https://azure.microsoft.com/pricing/details/active-directory-b2c/
+         ## itemType: overview
+        ##- text: Customer stories
+          ##url: https://customers.microsoft.com/
+         ## itemType: overview
+
+
+    ## CARD 2 ######################
+    - title: Learn the basics
+      links:
           - text: Authentication and authorization
-            url: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/develop/authentication-vs-authorization.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
+            itemType: concept
           - text: Tokens
-            url: ../active-directory/develop/security-tokens.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/develop/security-tokens.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
+            itemType: concept
           - text: Protocols
-            url: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/develop/v2-app-types.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
+            itemType: concept
           - text: Authentication library
-            url: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-          - text: 'Build a web site: HTML, CSS, JavaScript'
-            url: /learn/modules/build-simple-website/
+            url: ../active-directory/develop/msal-overview.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
+            itemType: concept
+       
 
-  # Card
-  - title: Common use cases
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Enable self-service sign-in
-            url: user-flow-overview.md
+    ## CARD 3 ######################
+    - title: 'Authenticate: Sign in users'
+      links:
+          - text: Register your applications
+            url: register-apps.md
+            itemType: tutorial
+          - text: Create user flows
+            url: add-sign-up-and-sign-in-policy.md?pivots=b2c-user-flow
+            itemType: how-to-guide
+          # - text: Sign-in options
+            # url: sign-in-options.md
+            # itemType: how-to-guide
+          # - text: Enable self-service sign-in
+            # url: add-password-reset-policy.md
+            # itemType: how-to-guide
           - text: 'Add social and work identities: OIDC/OAuth2/SAML'
             url: add-identity-provider.md
+            itemType: how-to-guide
           - text: Enable single sign-on (SSO)
             url: session-behavior.md
-          - text: Customize your UI/UX
-            url: customize-ui-with-html.md
-          - text: User and app migration
-            url: user-migration.md
+            itemType: how-to-guide
 
-  # Card
-  - title: Add sign-in to your applications
-    linkLists:
-      - linkListType: sample
-        links:
-          - text: 'Quickstart: Web app'
-            url: quickstart-web-app-dotnet.md
-          - text: Native/mobile app
-            url: integrate-with-app-code-samples.md#mobile-and-desktop-apps
-          - text: Single-page app
-            url: integrate-with-app-code-samples.md#single-page-apps
-          - text: Web app
-            url: integrate-with-app-code-samples.md#web-apps-and-apis
-
-  # Card
-  - title: 'Authorization: Call and secure your APIs'
-    linkLists: 
-      - linkListType: how-to-guide
-        links:
+          - text: Authenticate users in a Node.js web app(Quick course)
+            url: /training/modules/authenticate-users-node-web-app-use-azure-active-directory-b2c/
+            itemType: learn
+          # - text: 'Quickstart: Single-page app'
+            # url: configure-authentication-sample-spa-app.md
+            # itemType: quickstart
+      ## CARD 4 ######################
+    - title: 'Authorize: Call and secure your APIs'
+      links:
           - text: Request an access token
             url: access-tokens.md
+            itemType: concept 
           - text: Register and secure your API 
             url: enable-authentication-web-api.md
+            itemType: how-to-guide
           - text: 'Samples: Web apps and APIs'
             url: integrate-with-app-code-samples.md#web-apps-and-apis
+            itemType: how-to-guide
           - text: Integrate with API gateway
             url: secure-api-management.md?tabs=app-reg-ga
+            itemType: how-to-guide
+    ## CARD 5 ######################
+    - title: Manage users
+      links:
+          - text: User accounts
+            url: user-overview.md
+            itemType: concept
+          # - text: User profile attributes 
+            # url: user-profile-attributes.md
+            # itemType: concept
+          - text: Manage consumer users
+            url: manage-users-portal.md
+            itemType: how-to-guide
+          # - text: Manage admin users
+            # url: tenant-management.md#add-an-administrator-work-account
+            # itemType: how-to-guide
+          - text: User and app migration approaches
+            url: user-migration.md
+            itemType: how-to-guide
+          - text: Force password reset
+            url: force-password-reset.md
+            itemType: how-to-guide
+          # - text: Roles and access control
+            # url: roles-resource-access-control.md
+            # itemType: concept
+          # - text: Manage users using Microsoft Graph API
+            # url: microsoft-graph-operations.md#user-management
+            # itemType: reference
 
-  # Card
-  - title: Security, privacy, and compliance
-    linkLists:
-      - linkListType: concept
-        links:
+    ## CARD 6 ######################
+    - title: Customize
+      links:
+          # - text: Define custom user attributes
+            # url: user-flow-custom-attributes.md
+            # itemType: how-to-guide
+          - text: Customize the UI/UX 
+            url: customize-ui.md
+            itemType: how-to-guide
+          - text: Customize language
+            url: language-customization.md
+            itemType: how-to-guide
+          - text: Use custom domains 
+            url: custom-domain.md
+            itemType: how-to-guide  
+          - text: Customize user experiences using custom policies
+            url: add-sign-up-and-sign-in-policy.md?pivots=b2c-custom-policy
+            itemType: how-to-guide 
+          - text: Custom policy how-to guide series
+            url: custom-policies-series-overview.md
+            itemType: how-to-guide
+          # - text: Use API connectors 
+            # url: add-api-connector.md?pivots=b2c-user-flow
+            # itemType: how-to-guide                     
+          # - text: Customize email verification 
+            # url: custom-email-sendgrid.md
+            # itemType: how-to-guide  
+          # - text: Integrate with our technology partners
+            # url: partner-gallery.md
+            # itemType: how-to-guide   
+   ## CARD 7 ######################
+    - title: Security, privacy and compliance
+      links:
+          # - text: Enable multi-factor authentication (MFA)
+            # url: multi-factor-authentication.md
+            # itemType: how-to-guide
           - text: Manage credential attacks
             url: threat-management.md
-          - text: Learn where user data is stored
+            itemType: how-to-guide
+          - text: Learn where data is stored
             url: data-residency.md
+            itemType: how-to-guide
+          - text: Security analytics with Microsoft Sentinel 
+            url: configure-security-analytics-sentinel.md
+            itemType: how-to-guide             
           - text: Regulations
             url: ../compliance/index.yml
-          - text: User access and terms of use
-            url: manage-user-access.md
-
-  # Card
-  - title: Operations
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: CI/CD pipeline
-            url: deploy-custom-policies-devops.md
-          - text: Monitoring
-            url: azure-monitor.md
-          - text: Microsoft Sentinel with Azure AD B2C
-            url: azure-sentinel.md
-          - text: Role-based access control for admins
-            url: ../active-directory/roles/permissions-reference.md
-          - text: User management
+            itemType: concept 
+          #- text: 'Manage user access: Minors and parental consent'
+           #  url: manage-user-access.md
+            # itemType: how-to-guide 
+          # - text: 'Manage user data: delete or export'
+           # url: manage-user-data.md
+            # itemType: how-to-guide
+          - text: Security Information and Event Management (SIEM)
+            url: https://github.com/azure-ad-b2c/siem
+            itemType: reference            
+                                    
+                                                 
+    ## CARD 8 ######################
+    - title: Automate
+      links:
+          - text: Manage resources using Microsoft Graph API
             url: microsoft-graph-operations.md
-          - text: Troubleshooting
-            url: troubleshoot-custom-policies.md?tabs-app-reg-ga
-          - text: Best practices
-            url: best-practices.md
-
-  # Card
-  - title: Resources
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
-          - text: GitHub
-            url: https://github.com/azure-ad-b2c/samples
-          - text: YouTube
-            url: https://www.youtube.com/results?search_query=azure+ad+b2c
-          - text: Training
-            url: solution-articles.md
-          - text: Service updates
-            url: https://azure.microsoft.com/updates/?product=active-directory-b2c
-          - text: Frequently asked questions
-            url: faq.yml
-          - text: Microsoft support
-            url: support-options.md
-
-  # Card
-  - title: Common integrations
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: 'Azure Monitor: Retain and analyze your logs'
-            url: azure-monitor.md
+            itemType: how-to-guide          
           - text: 'Azure DevOps Services: Build your CI/CD pipeline'
             url: deploy-custom-policies-devops.md
+            itemType: how-to-guide 
+          - text: Deploy with GitHub actions
+            url: deploy-custom-policies-github-action.md
+            itemType: how-to-guide
+          - text: Manage resources using Microsoft Powershell
+            url: manage-custom-policies-powershell.md
+            itemType: how-to-guide
+
+    ## CARD 9 ######################
+    - title: Monitor and troubleshoot
+      links:
+          - text: 'Azure Monitor: Retain and analyze your logs'
+            url: azure-monitor.md
+            itemType: how-to-guide
           - text: 'Application Insights: Troubleshoot and get your user insights'
             url: troubleshoot-with-application-insights.md
-          - text: Integrate with our technology partners
-            url: partner-gallery.md
+            itemType: how-to-guide
+          - text: Access audit logs
+            url: view-audit-logs.md
+            itemType: how-to-guide
+          - text: Troubleshoot and error handling 
+            url: troubleshoot.md
+            itemType: how-to-guide  
+          # - text: Azure AD B2C error-codes
+           # url: error-codes.md
+            # itemType: reference
+
+    ## CARD 10 ######################
+    - title: More resources
+      links:
+          - text: Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
+            itemType: how-to-guide
+          - text: GitHub
+            url: https://github.com/azure-ad-b2c/samples
+            itemType: how-to-guide
+          - text: YouTube
+            url: https://www.youtube.com/results?search_query=azure+ad+b2c
+            itemType: how-to-guide
+          # - text: Training
+            # url: solution-articles.md
+            # itemType: how-to-guide
+          # - text: Service updates
+            # url: https://azure.microsoft.com/updates/?product=active-directory-b2c
+            # itemType: how-to-guide
+          # - text: Frequently asked questions
+            # url: faq.yml
+            # itemType: how-to-guide
+          - text: Microsoft support
+            url: find-help-open-support-ticket.md
+            itemType: how-to-guide
+          # - text: Videos
+            # url: external-identities-videos.md
+            #itemType: how-to-guide
+          # - text: Custom policy references
+            #url: trustframeworkpolicy.md
+            # itemType: how-to-guide
+         # - text: Azure AD B2C Custom policy starter packs
+          #  url: https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
+           #  itemType: how-to-guide
+## BAND 3 - CONCEPTUAL CONTENT END ##########################################################################################################################
 
 
-#  # Card
-#  - title: cardtitle2
-#    linkLists:
-#      - linkListType: linkListType
-#        links:
-#          - text: linktext1
-#            url: file1.md
-#          - text: linktext2
-#            url: file2.md
-#      - linkListType: linkListType
-#        links:
-#          - text: linktext1
-#            url: file1.md
-#          - text: linktext2
-#            url: file2.md
+## BAND 4 - TOOLS ###########################################################################################################################################
+tools:
+  title:  Use Microsoft Authentication Libraries (MSAL) for easy app integration
+  summary: >
+    GitHub hosts the open-source Microsoft Authentication Library (MSAL). Microsoft builds and supports MSAL. We recommend MSAL for any app type that uses Azure AD B2C for authentication and authorization. 
+  items:
+  ## ROW 1 ######################
+  - title: MSAL.NET
+    url: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
+  - title: MSAL Android
+    url: https://github.com/AzureAD/microsoft-authentication-library-for-android
+    imageSrc: ../active-directory/develop/media/hub/android.svg
+  - title: MSAL Angular
+    url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular
+    imageSrc: ../active-directory/develop/media/hub/angular.svg
+  ## ROW 2 ######################
+  - title: MSAL iOS
+    url: https://github.com/AzureAD/microsoft-authentication-library-for-objc
+    imageSrc: https://docs.microsoft.com/media/logos/logo_ios.svg
+  - title: MSAL Java
+    url: https://github.com/AzureAD/microsoft-authentication-library-for-java
+    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+  - title: MSAL.js
+    url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser
+    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
+  ## ROW 3 ######################
+  - title: MSAL Node
+    url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node
+    imageSrc: ../active-directory/develop/media/hub/node.svg
+  - title: MSAL Python
+    url: https://github.com/AzureAD/microsoft-authentication-library-for-python
+    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+  - title: MSAL React
+    url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react
+    imageSrc: ../active-directory/develop/media/hub/react.svg
+## BAND 4 - TOOLS END #######################################################################################################################################

@@ -1,0 +1,35 @@
+### YamlMime:Landing
+title: Azure Arc-enabled System Center Virtual Machine Manager
+summary: Learn how to manage  Hybrid environment with Azure Arc-enabled System Center Virtual Machine Manager
+
+metadata:
+  title: Azure Arc-enabled System Center Virtual Machine Manager
+  description: Learn about how to manage Hybrid environment with Azure Arc-enabled System Center Virtual Machine Manager
+  author: jyothisuri
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 04/28/2022
+  ms.author: jsuri
+
+landingContent:
+  - title: About Azure Arc-enabled System Center Virtual Machine Manager (preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Arc-enabled System Center Virtual Machine Manager?
+            url: overview.md
+      
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Connect a System Center Virtual Machine Manager management server to Azure Arc 
+            url: quickstart-connect-system-center-virtual-machine-manager-to-arc.md
+
+  - title: Enable SCVMM inventory in Azure
+    linkLists:
+      - linkListType: how-to-guide
+        links:  
+          - text: Enable SCVMM inventory in Azure
+            url: enable-scvmm-inventory-resources.md
+  

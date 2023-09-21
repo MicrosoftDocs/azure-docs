@@ -1,18 +1,16 @@
 ---
 title: Azure App Configuration REST API
 description: Reference pages for the Azure App Configuration REST API
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 11/28/2022
 ---
 
-# Azure App Configuration REST API
+# Azure App Configuration Data Plane REST API
 
-High-level documentation on the REST API for Azure App Configuration is available in the main [Azure REST documentation](/rest/api/appconfiguration/). This section contains more details for developers working with the App Configuration REST API.
-
-The following reference pages are available to describe the Azure App Configuration API surface in detail.
+The documentation on the [control plane](../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane) REST API for Azure App Configuration is available in the [Azure REST documentation](/rest/api/appconfiguration/). The following reference pages describe the [data plane](../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) REST API for Azure App Configuration. The data plane REST API is available at the endpoint of an App Configuration store, for example, `https://{store-name}.azconfig.io`.
 
 ## Resources
 
@@ -21,6 +19,7 @@ The following reference pages are available to describe the Azure App Configurat
 - [Labels](./rest-api-labels.md)
 - [Locks](./rest-api-locks.md)
 - [Revisions](./rest-api-revisions.md)
+- [Snapshots](./rest-api-snapshot.md)
 
 ## Protocol
 

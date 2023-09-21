@@ -3,9 +3,9 @@ title: Quickstart - Build and push container images of the Java Spring Boot App 
 description: Learn to build and push a containerized Java Spring Boot app to the Azure Container Registry using Maven and Jib plugin.
 author: KarlErickson
 ms.author: karler
-ms.date: 01/18/2022
+ms.date: 10/11/2022
 ms.topic: quickstart
-ms.custom: devx-track-java, devx-track-azurecli, mode-api
+ms.custom: devx-track-java, devx-track-azurecli, mode-api, devx-track-extended-java
 ---
 
 # Quickstart: Build and push container images of the Java Spring Boot app to Azure Container Registry
@@ -169,8 +169,8 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 For more information, see the following resources:
 
 * [Azure for Java Developers](/azure/java)
-* [Working with Azure DevOps and Java](/azure/devops/java)
-* [Spring Boot on Docker Getting Started](https://spring.io/guides/gs/spring-boot-docker)
+* [Working with Azure DevOps and Java](/azure/devops/pipelines/ecosystems/java)
+* [Spring Boot on Docker Getting Started](https://spring.io/guides/topicals/spring-boot-docker/)
 * [Spring Initializr](https://start.spring.io)
 * [Deploy a Spring Boot Application to the Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux#configure-maven-to-build-image-to-your-azure-container-registry)
 * [Using a custom Docker image for Azure Web App on Linux](../app-service/tutorial-custom-container.md)

@@ -5,17 +5,39 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: reference
-ms.date: 05/26/2022
+ms.date: 07/26/2023
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022
+ms.custom: ignite-fall-2021, event-tier1-build-2022, devx-track-arm-template, build-2023
 ---
 
 # Container Apps ARM template API specification
 
 Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. Some Container Apps CLI commands also support using a YAML template to specify a resource.
 
-> [!NOTE]
-> Azure Container Apps resources have migrated from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
+## API versions
+
+The latest management API versions for Azure Container Apps are:
+
+- [`2023-05-01`](/rest/api/containerapps/stable/container-apps) (stable)
+- [`2023-04-01-preview`](/rest/api/containerapps/preview/container-apps) (preview)
+
+To learn more about the differences between API versions, see [Microsoft.App change log](/azure/templates/microsoft.app/change-log/summary).
+
+### Updating API versions
+
+To use a specific API version in ARM or Bicep, update the version referenced in your templates. To use the latest API version in the Azure CLI, update the Azure Container Apps extension by running the following command:
+
+```bash
+az extension add -n containerapp --upgrade
+```
+
+To programmatically manage Azure Container Apps with the latest API version, use the latest versions of the management SDK:
+
+- [.NET](/dotnet/api/azure.resourcemanager.appcontainers)
+- [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appcontainers/armappcontainers)
+- [Java](/java/api/overview/azure/resourcemanager-appcontainers-readme)
+- [Node.js](/javascript/api/overview/azure/arm-appcontainers-readme)
+- [Python](/python/api/azure-mgmt-appcontainers/azure.mgmt.appcontainers)
 
 ## Container Apps environment
 
@@ -39,12 +61,14 @@ A resource's `properties` object has the following properties:
 |---|---|---|---|
 | `daprAIInstrumentationKey` | The Application Insights instrumentation key used by Dapr. | string | No |
 | `appLogsConfiguration` | The environment's logging configuration. | Object | No |
+| `peerAuthentication` | How to enable mTLS encryption. | Object | No |
 
 ### <a name="container-apps-environment-examples"></a>Examples
 
-# [ARM template](#tab/arm-template)
-
 The following example ARM template deploys a Container Apps environment.
+
+> [!NOTE]
+> The commands to create container app environments don't support YAML configuration input.
 
 ```json
 {
@@ -119,12 +143,6 @@ The following example ARM template deploys a Container Apps environment.
 }
 ```
 
-# [YAML](#tab/yaml)
-
-YAML input isn't currently used by Azure CLI commands to specify a Container Apps environment.
-
----
-
 ## Container app
 
 The following tables describe the properties available in the container app resource.
@@ -189,7 +207,7 @@ Changes made to the `template` section are [revision-scope changes](revisions.md
 
 ### <a name="container-app-examples"></a>Examples
 
-For details on health probes, refer to [Heath probes in Azure Container Apps](./health-probes.md).
+For details on health probes, refer to [Health probes in Azure Container Apps](./health-probes.md).
 
 # [ARM template](#tab/arm-template)
 
@@ -217,15 +235,12 @@ The following example ARM template deploys a container app.
     },
     "registry_password": {
       "type": "SecureString"
-    },
-    "storage_share_name": {
-      "type": "String"
     }
   },
   "variables": {},
   "resources": [
     {
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2022-11-01-preview",
       "type": "Microsoft.App/containerApps",
       "name": "[parameters('containerappName')]",
       "location": "[parameters('location')]",
@@ -286,6 +301,10 @@ The following example ARM template deploys a container app.
                   "secretRef": "mysecret"
                 }
               ],
+              "command": [
+                "npm",
+                "start"
+              ],
               "resources": {
                 "cpu": 0.5,
                 "memory": "1Gi"
@@ -338,6 +357,10 @@ The following example ARM template deploys a container app.
                 {
                   "mountPath": "/myfiles",
                   "volumeName": "azure-files-volume"
+                },
+                {
+                  "mountPath": "/mysecrets",
+                  "volumeName": "mysecrets"
                 }
               ]
             }
@@ -355,6 +378,16 @@ The following example ARM template deploys a container app.
               "name": "azure-files-volume",
               "storageType": "AzureFile",
               "storageName": "myazurefiles"
+            },
+            {
+              "name": "mysecrets",
+              "storageType": "Secret",
+              "secrets": [
+                {
+                  "secretRef": "mysecret",
+                  "path": "mysecret.txt"
+                }
+              ]
             }
           ]
         }
@@ -373,7 +406,6 @@ The following example YAML configuration deploys a container app when used with 
 - [`az containerapp revision copy`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-revision-copy)
 
 ```yaml
-kind: containerapp
 location: canadacentral
 name: mycontainerapp
 resourceGroup: myresourcegroup
@@ -400,7 +432,7 @@ properties:
     registries:
       - passwordSecretRef: myregistrypassword
         server: myregistry.azurecr.io
-        username: myregistrye
+        username: myregistry
     dapr:
       appId: mycontainerapp
       appPort: 80
@@ -416,6 +448,9 @@ properties:
             value: 80
           - name: secret_name
             secretRef: mysecret
+        command:
+          - npm
+          - start
         resources:
           cpu: 0.5
           memory: 1Gi
@@ -443,9 +478,27 @@ properties:
                   value: "startup probe"
             initialDelaySeconds: 3
             periodSeconds: 3
+        volumeMounts:
+          - mountPath: /myempty
+            volumeName: myempty
+          - mountPath: /myfiles
+            volumeName: azure-files-volume
+          - mountPath: /mysecrets
+            volumeName: mysecrets
     scale:
       minReplicas: 1
       maxReplicas: 3
+    volumes:
+      - name: myempty
+        storageType: EmptyDir
+      - name: azure-files-volume
+        storageType: AzureFile
+        storageName: myazurefiles
+      - name: mysecrets
+        storageType: Secret
+        secrets:
+          - secretRef: mysecret
+            path: mysecret.txt
 ```
 
 ---

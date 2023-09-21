@@ -1,16 +1,19 @@
 ---
 title: Azure Cache for Redis with Azure Private Link
-description: Azure Private Endpoint is a network interface that connects you privately and securely to Azure Cache for Redis powered by Azure Private Link. In this article, you'll learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal.  
+description: Learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal.  
 author: flang-msft
+
 ms.author: franlanglois
 ms.service: cache
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 02/28/2022
+ms.date: 08/28/2023
+
 ---
 
-# Azure Cache for Redis with Azure Private Link
+# What is Azure Cache for Redis with Azure Private Link?
 
-In this article, you'll learn how to create a virtual network and an Azure Cache for Redis instance with a private endpoint using the Azure portal. You'll also learn how to add a private endpoint to an existing Azure Cache for Redis instance.
+In this article, you learn how to create a virtual network and an Azure Cache for Redis instance with a private endpoint using the Azure portal. You also learn how to add a private endpoint to an existing Azure Cache for Redis instance.
 
 Azure Private Endpoint is a network interface that connects you privately and securely to Azure Cache for Redis powered by Azure Private Link.
 
@@ -18,9 +21,12 @@ You can restrict public access to the private endpoint of your cache by disablin
 
 >[!Important]
 > There is a `publicNetworkAccess` flag which is `Disabled` by default.
-> You can set the value to `Disabled` or `Enabled`. When set to enabled, this flag allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
+> You can set the value to `Disabled` or `Enabled`. When set to enabled, this flag allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. Neither the Enterprise nor Enterprise Flash tier supports the `publicNetworkAccess` flag. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
+
+>[!Important]
+> Private endpoint is supported on cache tiers Basic, Standard, Premium, and Enterprise. We recommend using private endpoint instead of VNets. Private endpoints are easy to set up or remove, are supported on all tiers, and can connect your cache to multiple different VNets at once.
 >
->
+> When using the Basic tier, you might experience data loss when you delete and recreate a private endpoint.
 
 ## Prerequisites
 
@@ -29,11 +35,10 @@ You can restrict public access to the private endpoint of your cache by disablin
 > [!IMPORTANT]
 > Currently, portal console support, and persistence to firewall storage accounts are not supported.
 >
->
 
 ## Create a private endpoint with a new Azure Cache for Redis instance
 
-In this section, you'll create a new Azure Cache for Redis instance with a private endpoint.
+In this section, you create a new Azure Cache for Redis instance with a private endpoint.
 
 ### Create a virtual network for your new cache
 
@@ -52,7 +57,7 @@ In this section, you'll create a new Azure Cache for Redis instance with a priva
    | **Subscription** | Drop down and select your subscription. | The subscription under which to create this virtual network. |
    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your virtual network and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
    | **Name** | Enter a virtual network name. | The name must: begin with a letter or number; end with a letter, number, or underscore; and contain only letters, numbers, underscores, periods, or hyphens. |
-   | **Region** | Drop down and select a region. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your virtual network. |
+   | **Region** | Drop down and select a region. | Select a [region](https://azure.microsoft.com/regions/) near other services that use your virtual network. |
 
 5. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -70,13 +75,13 @@ In this section, you'll create a new Azure Cache for Redis instance with a priva
 
 ### Create an Azure Cache for Redis instance with a private endpoint
 
-To create a cache instance, follow these steps.
+To create a cache instance, follow these steps:
 
 1. Go back to the Azure portal homepage or open the sidebar menu, then select **Create a resource**.
 
 1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Select Azure Cache for Redis.":::
+   :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Select Azure Cache for Redis.":::
 
 1. On the **New Redis Cache** page, configure the settings for your new cache.
 
@@ -94,7 +99,7 @@ To create a cache instance, follow these steps.
 
 1. Select the **Add** button to create your private endpoint.
 
-    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="In networking, add a private endpoint.":::
+   :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="In networking, add a private endpoint.":::
 
 1. On the **Create a private endpoint** page, configure the settings for your private endpoint with the virtual network and subnet you created in the last section and select **OK**.
 
@@ -126,7 +131,7 @@ In this section, you'll add a private endpoint to an existing Azure Cache for Re
 
 ### Create a virtual network for your existing cache
 
-To create a virtual network, follow these steps.
+To create a virtual network, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**.
 
@@ -159,7 +164,7 @@ To create a virtual network, follow these steps.
 
 ### Create a private endpoint
 
-To create a private endpoint, follow these steps.
+To create a private endpoint, follow these steps:
 
 1. In the Azure portal, search for **Azure Cache for Redis**. Then, press enter or select it from the search suggestions.
 
@@ -188,7 +193,11 @@ To create a private endpoint, follow these steps.
 
 1. Select the **Next: Configuration** button at the bottom of the page.
 
+1. Select the **Next: Virtual Network** button at the bottom of the page.
+
 1. In the **Configuration** tab, select the virtual network and subnet you created in the previous section.
+
+1. In the **Virtual Network** tab, select the virtual network and subnet you created in the previous section.
 
 1. Select the **Next: Tags** button at the bottom of the page.
 
@@ -344,38 +353,41 @@ For more information, see [Azure services DNS zone configuration](../private-lin
 
 ### What features aren't supported with private endpoints?
 
-Trying to connect from the Azure portal console is an unsupported scenario where you'll see a connection failure.
+- Trying to connect from the Azure portal console is an unsupported scenario where you'll see a connection failure.
+- Private links can't be added to caches that are already geo-replicated. To add a private link to a geo-replicated cache: 1. Unlink the geo-replication. 2. Add a Private Link. 3. Last, relink the geo-replication.
 
 ### How do I verify if my private endpoint is configured correctly?
 
- Go to **Overview** in the Resource menu on the portal. You see the **Host name** for your cache in the working pane. Run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache.
+Go to **Overview** in the Resource menu on the portal. You see the **Host name** for your cache in the working pane. Run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache.
 
-:::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="In the Azure portal, private endpoint D N S settings.":::
+   :::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="In the Azure portal, private endpoint D N S settings.":::
 
 ### How can I change my private endpoint to be disabled or enabled from public network access?
 
 There's a `publicNetworkAccess` flag that is `Disabled` by default.
 When set to `Enabled`, this flag is allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. You can set the value to `Disabled` or `Enabled` in the Azure portal or with a RESTful API PATCH request.
 
-To change the value in the Azure portal, follow these steps.
+To change the value in the Azure portal, follow these steps:
 
-1. In the Azure portal, search for **Azure Cache for Redis**.  Then, press enter or select it from the search suggestions.
+  1. In the Azure portal, search for **Azure Cache for Redis**.  Then, press enter or select it from the search suggestions.
 
-1. Select the cache instance you want to change the public network access value.
+  1. Select the cache instance you want to change the public network access value.
 
-1. On the left side of the screen, select **Private Endpoint**.
+  1. On the left side of the screen, select **Private Endpoint**.
 
-1. Select the **Enable public network access** button.
-
+  1. Select the **Enable public network access** button.
+    
 To change the value through a RESTful API PATCH request, see below and edit the value to reflect which flag you want for your cache.
-
-```http
-PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
-{    "properties": {
-       "publicNetworkAccess":"Disabled"
-   }
-}
-```
+  
+  ```http
+  PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
+  {    "properties": {
+         "publicNetworkAccess":"Disabled"
+     }
+  }
+  
+  ```
+  For more information, see [Redis - Update] (/rest/api/redis/Redis/Update?tabs=HTTP).
 
 ### How can I migrate my VNet injected cache to a Private Link cache?
 
@@ -399,7 +411,7 @@ Control the traffic by using NSG rules for outbound traffic on source clients. D
 
 It's only linked to your VNet. Because it's not in your VNet, NSG rules don't need to be modified for dependent endpoints.
 
-## Next steps
+## Related content
 
 - To learn more about Azure Private Link, see the [Azure Private Link documentation](../private-link/private-link-overview.md).
 - To compare various network isolation options for your cache, see [Azure Cache for Redis network isolation options documentation](cache-network-isolation.md).

@@ -1,25 +1,53 @@
 ---
-title: Aggregate operations on Azure Cosmos DB Cassandra API tables from Spark
-description: This article covers basic aggregation operations against Azure Cosmos DB Cassandra API tables from Spark
+title: Aggregate operations on Azure Cosmos DB for Apache Cassandra tables from Spark
+description: This article covers basic aggregation operations against Azure Cosmos DB for Apache Cassandra tables from Spark
 author: TheovanKraay
 ms.author: thvankra
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 09/24/2018
-
 ---
 
-# Aggregate operations on Azure Cosmos DB Cassandra API tables from Spark 
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+# Aggregate operations on Azure Cosmos DB for Apache Cassandra tables from Spark 
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
-This article describes basic aggregation operations against Azure Cosmos DB Cassandra API tables from Spark. 
+This article describes basic aggregation operations against Azure Cosmos DB for Apache Cassandra tables from Spark. 
 
 > [!NOTE]
-> Server-side filtering, and server-side aggregation is currently not supported in Azure Cosmos DB Cassandra API.
+> Server-side filtering, and server-side aggregation is currently not supported in Azure Cosmos DB for Apache Cassandra.
 
-## Cassandra API configuration
+## API for Cassandra configuration
+Set below spark configuration in your notebook cluster. It's one time activity.
+```scala
+//Connection-related
+ spark.cassandra.connection.host  YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com  
+ spark.cassandra.connection.port  10350  
+ spark.cassandra.connection.ssl.enabled  true  
+ spark.cassandra.auth.username  YOUR_ACCOUNT_NAME  
+ spark.cassandra.auth.password  YOUR_ACCOUNT_KEY  
+// if using Spark 2.x
+// spark.cassandra.connection.factory  com.microsoft.azure.cosmosdb.cassandra.CosmosDbConnectionFactory  
+
+//Throughput-related...adjust as needed
+ spark.cassandra.output.batch.size.rows  1  
+// spark.cassandra.connection.connections_per_executor_max  10   // Spark 2.x
+ spark.cassandra.connection.remoteConnectionsPerExecutor  10   // Spark 3.x
+ spark.cassandra.output.concurrent.writes  1000  
+ spark.cassandra.concurrent.reads  512  
+ spark.cassandra.output.batch.grouping.buffer.size  1000  
+ spark.cassandra.connection.keep_alive_ms  600000000  
+```
+
+> [!NOTE]
+> If you are using Spark 3.x, you do not need to install the Azure Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector (see above).
+
+> [!WARNING]
+> The Spark 3 samples shown in this article have been tested with Spark **version 3.2.1** and the corresponding Cassandra Spark Connector **com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.2.0**. Later versions of Spark and/or the Cassandra connector may not function as expected.
+
+## Sample data generator
 
 ```scala
 import org.apache.spark.sql.cassandra._
@@ -31,31 +59,6 @@ import org.apache.spark.sql.functions._
 //if using Spark 2.x, CosmosDB library for multiple retry
 //import com.microsoft.azure.cosmosdb.cassandra
 
-//Connection-related
-spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")
-spark.conf.set("spark.cassandra.connection.port","10350")
-spark.conf.set("spark.cassandra.connection.ssl.enabled","true")
-spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")
-spark.conf.set("spark.cassandra.auth.password","YOUR_ACCOUNT_KEY")
-// if using Spark 2.x
-// spark.conf.set("spark.cassandra.connection.factory", "com.microsoft.azure.cosmosdb.cassandra.CosmosDbConnectionFactory")
-
-//Throughput-related...adjust as needed
-spark.conf.set("spark.cassandra.output.batch.size.rows", "1")
-//spark.conf.set("spark.cassandra.connection.connections_per_executor_max", "10") // Spark 2.x
-spark.conf.set("spark.cassandra.connection.remoteConnectionsPerExecutor", "10") // Spark 3.x
-spark.conf.set("spark.cassandra.output.concurrent.writes", "1000")
-spark.conf.set("spark.cassandra.concurrent.reads", "512")
-spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
-spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
-```
-
-> [!NOTE]
-> If you are using Spark 3.0 or higher, you do not need to install the Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector(see above). You will see that connection related properties are defined within the notebook above. Using the syntax below, connection properties can be defined in this manner without needing to be defined at the cluster level (Spark context initialization). However, when using operations that require spark context (e.g. `CassandraConnector(sc)` for some of the operations shown below), connection properties need to be defined at the cluster level.
-
-## Sample data generator
-
-```scala
 // Generate a simple dataset containing five values
 val booksDF = Seq(
    ("b00001", "Arthur Conan Doyle", "A study in scarlet", 1887,11.33),
@@ -92,11 +95,11 @@ Count against dataframes is currently not supported.  The sample below shows how
 
 Choose a [storage option]( https://spark.apache.org/docs/2.2.0/rdd-programming-guide.html#which-storage-level-to-choose) from the following available options, to avoid running into "out of memory" issues:
 
-* MEMORY_ONLY: This is the default storage option. Stores RDD as deserialized Java objects in the JVM. If the RDD does not fit in memory, some partitions will not be cached and they are recomputed on the fly each time they're needed.
+* MEMORY_ONLY: It's the default storage option. Stores RDD as deserialized Java objects in the JVM. If the RDD doesn't fit in memory, some partitions won't be cached, and they're recomputed on the fly each time they're needed.
 
-* MEMORY_AND_DISK: Stores RDD as deserialized Java objects in the JVM. If the RDD does not fit in memory, store the partitions that don't fit on disk, and whenever required, read them from the location they are stored.
+* MEMORY_AND_DISK: Stores RDD as deserialized Java objects in the JVM. If the RDD doesn't fit in memory, store the partitions that don't fit on disk, and whenever required, read them from the location they're stored.
 
-* MEMORY_ONLY_SER (Java/Scala): Stores RDD as serialized Java objects- one-byte array per partition. This option is space-efficient when compared to deserialized objects, especially when using a fast serializer, but more CPU-intensive to read.
+* MEMORY_ONLY_SER (Java/Scala): Stores RDD as serialized Java objects- 1-byte array per partition. This option is space-efficient when compared to deserialized objects, especially when using a fast serializer, but more CPU-intensive to read.
 
 * MEMORY_AND_DISK_SER (Java/Scala): This storage option is like MEMORY_ONLY_SER, the only difference is that it spills partitions that don't fit in the disk memory instead of recomputing them when they're needed.
 

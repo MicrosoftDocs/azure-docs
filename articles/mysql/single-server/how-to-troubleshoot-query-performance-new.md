@@ -1,17 +1,19 @@
 ---
 title: Troubleshoot query performance in Azure Database for MySQL 
 description: Learn how to troubleshoot query performance in Azure Database for MySQL.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: troubleshooting
-ms.date: 4/22/2022
+ms.date: 06/20/2022
 ---
 
 # Troubleshoot query performance in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Query performance can be impacted by multiple factors, so it’s first important to look at the scope of the symptoms you’re experiencing in your Azure Database for MySQL server. For example, is query performance slow for:
 

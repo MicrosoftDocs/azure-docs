@@ -1,14 +1,14 @@
 ---
-title: Choose an Azure solution for periodic data transfer| Microsoft Docs
+title: Choose an Azure solution for periodic data transfer
 description: Learn how to choose an Azure solution for data transfer when you are transferring data periodically.
 services: storage
-author: alkohli
+author: stevenmatthew
 
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Solutions for periodic data transfer
@@ -63,7 +63,7 @@ The following table summarizes the differences in key capabilities.
 
 ## Next steps
 
-- [Transfer data with AzCopy](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+- [Transfer data with AzCopy](./storage-use-azcopy-v10.md?toc=/azure/storage/tables/toc.json).
 - [More information on data transfer with Storage REST APIs](/dotnet/api/overview/azure/storage).
 - Understand how to:
   - [Transfer data with Data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).

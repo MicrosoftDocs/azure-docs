@@ -6,14 +6,13 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-azurecli
-
+ms.custom: devx-track-java, devx-track-azurecli, ignite-2022, devx-track-extended-java
 #Customer intent: As a Java developer, I want to write Java functions that process data continually (for example, from IoT sensors), and store the processing results in Azure Cosmos DB.
 ---
 
 # Tutorial: Create a function in Java with an Event Hub trigger and an Azure Cosmos DB output binding
 
-This tutorial shows you how to use Azure Functions to create a Java function that analyzes a continuous stream of temperature and pressure data. Event hub events that represent sensor readings trigger the function. The function processes the event data, then adds status entries to an Azure Cosmos DB.
+This tutorial shows you how to use Azure Functions to create a Java function that analyzes a continuous stream of temperature and pressure data. Event hub events that represent sensor readings trigger the function. The function processes the event data, then adds status entries to an Azure Cosmos DB instance.
 
 In this tutorial, you'll:
 
@@ -31,7 +30,7 @@ To complete this tutorial, you must have the following installed:
 - [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or above
 - [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) version 2.6.666 or above
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 > [!IMPORTANT]
 > The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
@@ -44,7 +43,7 @@ In this tutorial, you'll need these resources:
 
 * A resource group to contain the other resources
 * An Event Hubs namespace, event hub, and authorization rule
-* A Cosmos DB account, database, and collection
+* An Azure Cosmos DB account, database, and collection
 * A function app and a storage account to host it
 
 The following sections show you how to create these resources using the Azure CLI.
@@ -195,7 +194,7 @@ az cosmosdb sql container create ^
 
 ---
 
-The `partition-key-path` value partitions your data based on the `temperatureStatus` value of each item. The partition key enables Cosmos DB to increase performance by dividing your data into distinct subsets that it can access independently.
+The `partition-key-path` value partitions your data based on the `temperatureStatus` value of each item. The partition key enables Azure Cosmos DB to increase performance by dividing your data into distinct subsets that it can access independently.
 
 ### Create a storage account and function app
 
@@ -214,7 +213,7 @@ az functionapp create \
     --storage-account $STORAGE_ACCOUNT \
     --consumption-plan-location $LOCATION \
     --runtime java \
-    --functions-version 2
+    --functions-version 3
 ```
 
 # [Cmd](#tab/cmd)
@@ -230,7 +229,7 @@ az functionapp create ^
     --storage-account %STORAGE_ACCOUNT% ^
     --consumption-plan-location %LOCATION% ^
     --runtime java ^
-    --functions-version 2
+    --functions-version 3
 ```
 
 ---
@@ -243,7 +242,7 @@ Your function app will need to access the other resources to work correctly. The
 
 ### Retrieve resource connection strings
 
-Use the following commands to retrieve the storage, event hub, and Cosmos DB connection strings and save them in environment variables:
+Use the following commands to retrieve the storage, event hub, and Azure Cosmos DB connection strings and save them in environment variables:
 
 # [Bash](#tab/bash)
 
@@ -392,7 +391,7 @@ This command generates several files inside a `telemetry-functions` folder:
 
 * A `pom.xml` file for use with Maven
 * A `local.settings.json` file to hold app settings for local testing
-* A `host.json` file that enables the Azure Functions Extension Bundle, required for Cosmos DB output binding in your data analysis function
+* A `host.json` file that enables the Azure Functions Extension Bundle, required for Azure Cosmos DB output binding in your data analysis function
 * A `Function.java` file that includes a default function implementation
 * A few test files that this tutorial doesn't need
 
@@ -607,7 +606,7 @@ After some build and startup messages, you'll see output similar to the followin
 
 You can then go to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account. Select **Data Explorer**, expand **TelemetryInfo**, then select **Items** to view your data when it arrives.
 
-![Cosmos DB Data Explorer](media/functions-event-hub-cosmos-db/data-explorer.png)
+![Azure Cosmos DB Data Explorer](media/functions-event-hub-cosmos-db/data-explorer.png)
 
 ## Deploy to Azure and view app telemetry
 
@@ -659,7 +658,7 @@ az group delete --name %RESOURCE_GROUP%
 
 ## Next steps
 
-In this tutorial, you learned how to create an Azure Function that handles Event Hub events and updates a Cosmos DB. For more information, see the [Azure Functions Java developer guide](./functions-reference-java.md). For information on the annotations used, see the [com.microsoft.azure.functions.annotation](/java/api/com.microsoft.azure.functions.annotation) reference.
+In this tutorial, you learned how to create an Azure Function that handles Event Hub events and updates an Azure Cosmos DB instance. For more information, see the [Azure Functions Java developer guide](./functions-reference-java.md). For information on the annotations used, see the [com.microsoft.azure.functions.annotation](/java/api/com.microsoft.azure.functions.annotation) reference.
 
 This tutorial used environment variables and application settings to store secrets such as connection strings. For information on storing these secrets in Azure Key Vault, see [Use Key Vault references for App Service and Azure Functions](../app-service/app-service-key-vault-references.md).
 

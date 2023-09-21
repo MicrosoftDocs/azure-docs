@@ -2,8 +2,9 @@
 title: Create a pool across availability zones
 description: Learn how to create a Batch pool with zonal policy to help protect against failures.
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 05/25/2023
 ms.devlang: csharp
+ms.custom: devx-track-linux
 ---
 
 # Create an Azure Batch pool across Availability Zones
@@ -20,7 +21,7 @@ In order for your Batch pool to be allocated across availability zones, the Azur
 
 For [user subscription mode Batch accounts](accounts.md#batch-accounts), make sure that the subscription in which you're creating your pool doesn't have a zone offer restriction on the requested VM SKU. To confirm this, call the [Resource Skus List API](/rest/api/compute/resourceskus/list) and check the [ResourceSkuRestrictions](/rest/api/compute/resourceskus/list#resourceskurestrictions). If a zone restriction exists, you can submit a [support ticket](/troubleshoot/azure/general/region-access-request-process) to remove the zone restriction.
 
-Also note that you can't create a pool with a zonal policy if it has inter-node communication enabled and uses a [VM SKU that supports InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md).
+Also note that you can't create a pool with a zonal policy if it has inter-node communication enabled and uses a [VM SKU that supports InfiniBand](../virtual-machines/extensions/enable-infiniband.md).
 
 ## Create a Batch pool across Availability Zones
 
@@ -58,12 +59,12 @@ Request body
         "imageReference": {
             "publisher": "Canonical",
             "offer": "UbuntuServer",
-            "sku": "16.040-LTS"
+            "sku": "20.04-lts"
         },
         "nodePlacementConfiguration": {
             "policy": "Zonal"
         }
-        "nodeAgentSKUId": "batch.node.ubuntu 16.04"
+        "nodeAgentSKUId": "batch.node.ubuntu 20.04"
     },
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,
@@ -78,4 +79,4 @@ Request body
 
 - Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 - Learn about [creating a pool in a subnet of an Azure virtual network](batch-virtual-network.md).
-- Learn about [creating an Azure Batch pool without public IP addresses](./batch-pool-no-public-ip-address.md).
+- Learn about [creating an Azure Batch pool without public IP addresses](./simplified-node-communication-pool-no-public-ip.md).

@@ -1,10 +1,8 @@
 ---
 title: ServicePrincipalSelector UI element
 description: Describes the Microsoft.Common.ServicePrincipalSelector UI element for Azure portal. Provides a control to choose an application and a textbox to input a password or certificate thumbprint.
-author: tfitzmac
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.author: tomfitz
 ---
 
 # Microsoft.Common.ServicePrincipalSelector UI element
@@ -21,17 +19,17 @@ The default view is determined by the values in the `defaultValue` property and 
 
 If you want to register a new application, select **Change selection** and the **Register an application** dialog box is displayed. Enter **Name**, **Supported account type**, and select the **Register** button.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-default.png" alt-text="Microsoft.Common.ServicePrincipalSelector initial view.":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-default.png" alt-text="Screenshot of Microsoft.Common.ServicePrincipalSelector initial view with default application or create new option.":::
 
 After you register a new application, use the **Authentication Type** to enter a password or certificate thumbprint.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-authenticate.png" alt-text="Microsoft.Common.ServicePrincipalSelector authentication.":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-authenticate.png" alt-text="Screenshot of Microsoft.Common.ServicePrincipalSelector authentication options after registering a new application.":::
 
 ### Use existing application
 
 To use an existing application, choose **Select Existing** and then select **Make selection**. Use the **Select an application** dialog box to search for the application's name. From the results, select the the application and then the **Select** button. After you select an application, the control displays the **Authentication Type** to enter a password or certificate thumbprint.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-existing.png" alt-text="Microsoft.Common.ServicePrincipalSelector select existing application.":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-existing.png" alt-text="Screenshot of Microsoft.Common.ServicePrincipalSelector with select existing application option and authentication type displayed.":::
 
 ## Schema
 

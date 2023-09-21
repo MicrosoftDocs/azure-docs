@@ -6,11 +6,15 @@ ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila
 author: sunilagarwal
-ms.date: 05/17/2022 
+ms.date: 06/24/2022
 ms.custom: kr2b-contr-experiment
 ---
 
 # Restart an Azure Database for PostgreSQL server using PowerShell
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 This topic describes how you can restart an Azure Database for PostgreSQL server. You may need to restart your server for maintenance reasons, which causes a short outage during the operation.
 
@@ -23,7 +27,7 @@ The server restart is blocked if the service is busy. For example, the service m
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](/powershell/azure/install-az-ps) installed locally or
+- The [Az PowerShell module](/powershell/azure/install-azure-powershell) installed locally or
   [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for PostgreSQL server](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 

@@ -1,21 +1,23 @@
 ---
-title: Pricing tiers - Azure Database for MySQL
-description: Learn about the various pricing tiers for Azure Database for MySQL including compute generations, storage types, storage size, vCores, memory, and backup retention periods.
-author: savjani
-ms.author: pariks
+title: Azure Database for MySQL - Single Server service tiers
+description: Learn about the various service tiers for Azure Database for MySQL including compute generations, storage types, storage size, vCores, memory, and backup retention periods.
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 02/07/2022
+author: SudheeshGH
+ms.author: sunaray
+ms.date: 06/20/2022
 ---
 
-# Azure Database for MySQL pricing tiers
+# Azure Database for MySQL - Single Server service tiers
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-You can create an Azure Database for MySQL server in one of three different pricing tiers: Basic, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the MySQL server level. A server can have one or many databases.
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-| Attribute   | **Basic** | **General Purpose** | **Memory Optimized** |
+You can create an Azure Database for MySQL server in one of three different service tiers: Basic, General Purpose, and Memory Optimized. The service tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the MySQL server level. A server can have one or many databases.
+
+| Attribute | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -25,14 +27,14 @@ You can create an Azure Database for MySQL server in one of three different pric
 
 To choose a pricing tier, use the following table as a starting point.
 
-| Pricing tier | Target workloads |
+| Service tier | Target workloads |
 |:-------------|:-----------------|
 | Basic | Workloads that require light compute and I/O performance. Examples include servers used for development or testing or small-scale infrequently used applications. |
 | General Purpose | Most business workloads that require balanced compute and memory with scalable I/O throughput. Examples include servers for hosting web and mobile apps and other enterprise applications.|
 | Memory Optimized | High-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency. Examples include servers for processing real-time data and high-performance transactional or analytical apps.|
 
 > [!NOTE]
-> Dynamic scaling to and from the Basic pricing tiers is currently not supported. Basic Tier SKUs servers can't be scaled up to General Purpose or Memory Optimized Tiers.
+> Dynamic scaling to and from the Basic service tiers is currently not supported. Basic Tier SKUs servers can't be scaled up to General Purpose or Memory Optimized Tiers.
 
 After you create a General Purpose or Memory Optimized server, the number of vCores, hardware generation, and pricing tier can be changed up or down within seconds. You also can independently adjust the amount of storage up and the backup retention period up or down with no application downtime. You can't change the backup storage type after a server is created. For more information, see the [Scale resources](#scale-resources) section.
 
@@ -56,7 +58,7 @@ Azure Database for MySQL – Single Server supports the following the backend st
 > Basic storage does not provide an IOPS guarantee. In General Purpose storage, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
 ### Basic storage 
-Basic storage is the backend storage supporting Basic pricing tier servers. Basic storage leverages Azure standard storage in the backend where iops provisioned are not guaranteed and latency is variable. Basic tier is best suited for workloads that require light compute, low cost and I/O performance for development or small-scale infrequently used applications.
+Basic storage is the backend storage supporting Basic pricing tier servers. Basic storage uses Azure standard storage in the backend where iops provisioned are not guaranteed and latency is variable. Basic tier is best suited for workloads that require light compute, low cost and I/O performance for development or small-scale infrequently used applications.
 
 ### General purpose storage 
 General purpose storage is the backend storage supporting General Purpose and Memory Optimized tier server. In General Purpose storage, the IOPS scale with the provisioned storage size in a 3:1 ratio. There are two generations of general purpose storage as described below:
@@ -102,21 +104,20 @@ General purpose storage v2 is supported in the following Azure regions:
 | West US | :heavy_check_mark: | 
 | West US 2 | :heavy_check_mark: | 
 | West Europe | :heavy_check_mark: | 
-| Central India* | :heavy_check_mark: | 
+| Central India | :heavy_check_mark: | 
 | France Central* | :heavy_check_mark: | 
 | UAE North* | :heavy_check_mark: | 
 | South Africa North* | :heavy_check_mark: |
 
-> [!Note] 
+> [!NOTE] 
 > *Regions where Azure Database for MySQL has General purpose storage v2 in Public Preview <br /> 
 > *For these Azure regions, you will have an option to create server in both General purpose storage v1 and v2. For the servers created with General purpose storage v2 in public preview, following are the limitations, <br /> 
 > * Geo-Redundant Backup will not be supported<br /> 
 > * The replica server should be in the regions which support General purpose storage v2. <br /> 
-	
 
 ### How can I determine which storage type my server is running on?
 
-You can find the storage type of your server by going in the Pricing tier blade in portal. 
+You can find the storage type of your server by going to **Settings** > **Compute + storage** page 
 * If the server is provisioned using Basic SKU, the storage type is Basic storage.
 * If the server is provisioned using General Purpose or Memory Optimized SKU, the storage type is General Purpose storage
    *  If the maximum storage that can be provisioned on your server is up to 4-TB, the storage type is General Purpose storage v1.
@@ -128,7 +129,7 @@ Yes, migration to general purpose storage v2 from v1 is supported if the underly
 ### Can I grow storage size after server is provisioned?
 You can add additional storage capacity during and after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload. 
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Storage can only be scaled up, not down.
 
 ### Monitoring IO consumption

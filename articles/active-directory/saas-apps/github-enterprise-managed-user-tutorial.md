@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with GitHub Enterprise Managed User | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and GitHub Enterprise Managed User.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with GitHub Enterprise Managed User'
+description: Learn how to configure single sign-on between Microsoft Entra ID and GitHub Enterprise Managed User.
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: CelesteDG
@@ -8,61 +8,66 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/15/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with GitHub Enterprise Managed User
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with GitHub Enterprise Managed User
 
-In this tutorial, you'll learn how to integrate GitHub Enterprise Managed User (EMU) with Azure Active Directory (Azure AD). When you integrate GitHub Enterprise Managed User with Azure AD, you can:
+In this tutorial, you'll learn how to integrate GitHub Enterprise Managed User (EMU) with Microsoft Entra ID. When you integrate GitHub Enterprise Managed User with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to GitHub Enterprise Managed User.
-* Enable your users to be automatically signed-in to GitHub Enterprise Managed User with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to GitHub Enterprise Managed User.
+* Enable your users to be automatically signed-in to GitHub Enterprise Managed User with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 > [!NOTE]
-> [GitHub Enterprise Managed Users](https://docs.github.com/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users) is a feature of GitHub Enterprise Cloud which is different from GitHub Enterprise's standard SAML SSO implementation. If you haven't specifically requested EMU instance, you have standard GitHub Enterprise Cloud plan. In that case, please refer to relevant documentation to configure your non-EMU [organisation](./github-tutorial.md) or [enterprise account](./github-enterprise-cloud-enterprise-account-tutorial.md) to authenticate with Azure Active Directory.
+> [GitHub Enterprise Managed Users](https://docs.github.com/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users) is a feature of GitHub Enterprise Cloud which is different from GitHub Enterprise's standard SAML SSO implementation. If you haven't specifically requested EMU instance, you have standard GitHub Enterprise Cloud plan. In that case, please refer to relevant documentation to configure your non-EMU [organisation](./github-tutorial.md) or [enterprise account](./github-enterprise-cloud-enterprise-account-tutorial.md) to authenticate with Microsoft Entra ID.
 
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * GitHub Enterprise Managed User single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * GitHub Enterprise Managed User supports **SP and IDP** initiated SSO.
 * GitHub Enterprise Managed User requires [**Automated** user provisioning](./github-enterprise-managed-user-provisioning-tutorial.md).
 
 ## Adding GitHub Enterprise Managed User from the gallery
 
-To configure the integration of GitHub Enterprise Managed User into Azure AD, you need to add GitHub Enterprise Managed User from the gallery to your list of managed SaaS apps.
+To configure the integration of GitHub Enterprise Managed User into Microsoft Entra ID, you need to add GitHub Enterprise Managed User from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. Type **GitHub Enterprise Managed User** in the search box.
 1. Select **GitHub Enterprise Managed User** from results panel and then click on the **Create** button. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for GitHub Enterprise Managed User
 
-To configure and test Azure AD SSO with GitHub Enterprise Managed User, perform the following steps:
+<a name='configure-and-test-azure-ad-sso-for-github-enterprise-managed-user'></a>
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable SAML Single Sign On in your AAD tenant.
+## Configure and test Microsoft Entra SSO for GitHub Enterprise Managed User
+
+To configure and test Microsoft Entra SSO with GitHub Enterprise Managed User, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable SAML Single Sign On in your Microsoft Entra tenant.
 1. **[Configure GitHub Enterprise Managed User SSO](#configure-github-enterprise-managed-user-sso)** - to configure the single sign-on settings in your GitHub Enterprise.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
 
-1. In the Azure portal, on the **GitHub Enterprise Managed User** application integration page, find the **Manage** section and select **single sign-on**.
+Follow these steps to enable Microsoft Entra SSO.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **GitHub Enterprise Managed User** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -93,12 +98,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll assign your account to GitHub Enterprise Managed User in order to complete SSO setup.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **GitHub Enterprise Managed User**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **GitHub Enterprise Managed User**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select your account from the Users list, then click the **Select** button at the bottom of the screen.
@@ -109,23 +116,23 @@ In this section, you'll assign your account to GitHub Enterprise Managed User in
 
 To configure single sign-on on **GitHub Enterprise Managed User** side, you will require the following items:
 
-1. The URLs from your AAD Enterprise Managed User Application above: Login URL; Azure AD Identifier; and Logout URL
+1. The URLs from your Microsoft Entra Enterprise Managed User Application above: Login URL; Microsoft Entra Identifier; and Logout URL
 1. The account name and password for the first administrator user of your GitHub Enterprise. The credentials are provided by a password reset email from your GitHub Solutions Engineering contact. 
 
 ### Enable GitHub Enterprise Managed User SAML SSO
 
-In this section, you'll take the information provided from AAD above and enter them into your Enterprise settings to enable SSO support.
+In this section, you'll take the information provided from Microsoft Entra ID above and enter them into your Enterprise settings to enable SSO support.
 
 1. Go to https://github.com
 1. Click on Sign In at the top-right corner
 1. Enter the credentials for the first administrator user account. The login handle should be in the format: `<your enterprise short code>_admin`
 1. Navigate to `https://github.com/enterprises/` `<your enterprise name>`. This information should be provided by your Solutions Engineering contact.
-1. On the navigation menu on the left, select **Settings**, then **Security**.
-1. Click on the checkbox **Enable SAML authentication**
-1. Enter the Sign on URL. This URL is the Login URL that you copied from AAD above.
-1. Enter the Issuer. This URL is the Azure AD Identifier that you copied from AAD above.
+1. On the navigation menu on the left, select **Settings**, then **Authentication security**.
+1. Click on the checkbox **Require SAML authentication**
+1. Enter the Sign-on URL. This URL is the Login URL that you copied from Microsoft Entra ID above.
+1. Enter the Issuer. This URL is the Microsoft Entra Identifier that you copied from Microsoft Entra ID above.
 1. Enter the Public Certificate. Please open the base64 certificate that you downloaded above and paste the text contents of that file into this dialog.
-1. Click on **Test SAML configuration**. This will open up a dialog for you to log in with your Azure AD credentials to validate that SAML SSO is configured correctly. Log in with your AAD credentials. you will receive a message **Passed: Successfully authenticated your SAML SSO identity** upon successful validation.
+1. Click on **Test SAML configuration**. This will open up a dialog for you to log in with your Microsoft Entra credentials to validate that SAML SSO is configured correctly. Log in with your Microsoft Entra credentials. you will receive a message **Passed: Successfully authenticated your SAML SSO identity** upon successful validation.
 1. Click **Save** to persist these settings.
 1. Please save (download, print, or copy) the recovery codes in a secure place.
 1. Click on **Enable SAML authentication**.

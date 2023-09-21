@@ -1,17 +1,17 @@
 ---
-title: "Quickstart: Call Microsoft Graph from a Python daemon | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Call Microsoft Graph from a Python daemon"
 description: In this quickstart, you learn how a Python process can get an access token and call an API protected by Microsoft identity platform, using the app's own identity
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/10/2022
 ROBOTS: NOINDEX
-ms.author: jmprieur
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, "scenarios:getting-started", "languages:Python", mode-api
 #Customer intent: As an application developer, I want to learn how my Python app can get an access token and call an API that's protected by the Microsoft identity platform using client credentials flow.
 ---
@@ -21,7 +21,7 @@ ms.custom: aaddev, identityplatformtop40, devx-track-python, "scenarios:getting-
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 > 
-> > [Quickstart: Python console app that calls an API](console-app-quickstart.md?pivots=devlang-python)
+> > [Quickstart: Acquire a token and call Microsoft Graph from a Python daemon app](quickstart-daemon-app-python-acquire-token.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -88,7 +88,7 @@ ms.custom: aaddev, identityplatformtop40, devx-track-python, "scenarios:getting-
 > python confidential_client_secret_sample.py parameters.json
 > ```
 > 
-> You should see on the console output some Json fragment representing a list of users in your Azure AD directory.
+> You should see on the console output some Json fragment representing a list of users in your Microsoft Entra directory.
 > 
 > > [!IMPORTANT]
 > > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/README.md) in the same GitHub repository for this sample, but in the second folder **2-Call-MsGraph-WithCertificate**.
@@ -138,7 +138,7 @@ ms.custom: aaddev, identityplatformtop40, devx-track-python, "scenarios:getting-
 > result = app.acquire_token_silent(config["scope"], account=None)
 > 
 > if not result:
->     logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
+>     logging.info("No suitable token exists in cache. Let's get a new one from Azure AD.")
 >     result = app.acquire_token_for_client(scopes=config["scope"])
 > ```
 > 
@@ -148,7 +148,7 @@ ms.custom: aaddev, identityplatformtop40, devx-track-python, "scenarios:getting-
 > 
 > For more information, please see the [reference documentation for `AcquireTokenForClient`](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client).
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 

@@ -3,7 +3,8 @@ title: Configure port mirroring for Azure VMware Solution
 description: Learn how to configure port mirroring to monitor network traffic that involves forwarding a copy of each packet from one network switch port to another. 
 ms.topic: how-to
 ms.custom: contperf-fy22q1
-ms.date: 04/11/2022
+ms.service: azure-vmware
+ms.date: 12/22/2022
 
 # Customer intent: As an Azure service administrator, I want to configure port mirroring to monitor network traffic that involves forwarding a copy of each packet from one network switch port to another.
 
@@ -14,6 +15,9 @@ ms.date: 04/11/2022
 After deploying Azure VMware Solution, you can configure port mirroring from the Azure portal. Port mirroring places a protocol analyzer on the port that receives the mirrored data. It analyzes traffic from a source, a virtual machine (VM), or a group of VMs, and then sent to a defined destination. 
 
 In this how-to, you'll configure port mirroring to monitor network traffic, which involves forwarding a copy of each packet from one network switch port to another. 
+
+   >[!IMPORTANT]
+   >Port Mirroring is intended to be used as a temporary investigative tool and not a permanent network data collection feature. This is because NSX-T Data Center does not have the resources to port mirror all traffic continuously. The IPFIX feature should be used if a continuous meta-data network flow logging solution is required.
 
 ## Prerequisites
 

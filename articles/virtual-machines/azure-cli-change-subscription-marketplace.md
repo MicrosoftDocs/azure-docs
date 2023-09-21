@@ -3,8 +3,8 @@ title: Azure CLI sample for moving a Marketplace Azure VM to another subscriptio
 description: Azure CLI sample for moving an Azure Marketplace Virtual Machine to a different subscription.
 author: cynthn
 ms.author: cynthn
-manager: 
-ms.date: 01/29/2021
+ms.reviewer: mattmcinnes
+ms.date: 04/20/2023
 ms.topic: sample
 ms.service: virtual-machines
 ms.devlang: azurecli 
@@ -25,7 +25,7 @@ This script demonstrates three operations:
 - Move the snapshot to a different subscription.
 - Create a virtual machine based on that snapshot.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
@@ -141,4 +141,4 @@ az group delete --name $destinationResourceGroup --subscription $destinationSubs
 ## Next steps
 
 - [Move VMs to another Azure region](../site-recovery/azure-to-azure-tutorial-migrate.md)
-- [Move a VM to another subscription or resource group](./linux/move-vm.md)
+- [Move a VM to another subscription or resource group](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-cli)

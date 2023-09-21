@@ -1,17 +1,19 @@
 ---
 title: Server parameters - Azure Database for MariaDB
 description: This topic provides guidelines for configuring server parameters in Azure Database for MariaDB.
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: conceptual
-ms.date: 6/25/2020
+ms.date: 06/24/2022
 ---
 # Server parameters in Azure Database for MariaDB
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 This article provides considerations and guidelines for configuring server parameters in Azure Database for MariaDB.
 
-## What are server parameters? 
+## What are server parameters?
 
 The MariaDB engine provides many different server variables/parameters that can be used to configure and tune engine behavior. Some parameters can be set dynamically during runtime while others are "static", requiring a server restart in order to apply.
 
@@ -149,7 +151,7 @@ Review the [MariaDB documentation](https://mariadb.com/kb/en/server-system-varia
 
 ### query_cache_size
 
-The query cache is enabled by default in MariaDB with the `have_query_cache` parameter. 
+The query cache is enabled by default in MariaDB with the `have_query_cache` parameter.
 
 Review the [MariaDB documentation](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) to learn more about this parameter.
 

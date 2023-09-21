@@ -1,9 +1,9 @@
 ---
 title: Caching
 description: To improve performance, responses can be served from a cache. By default, responses are stored for 2 minutes.
-author: bwren
-ms.author: bwren
-ms.date: 08/18/2021
+ms.date: 08/06/2022
+author: guywi-ms
+ms.author: guywild
 ms.topic: article
 ---
 # Caching
@@ -19,7 +19,7 @@ The API supports the standard `max-age`, `no-cache`, and `no-store` directives.
 For example, the following request allows a maximum cache age of 30 seconds
 
 ```
-    POST https://api.loganalytics.io/v1/workspaces/{workspace-id}/query
+    POST https://api.loganalytics.azure.com/v1/workspaces/{workspace-id}/query
     Authorization: Bearer <access token>
     Cache-Control: max-age=30
     

@@ -1,28 +1,29 @@
 ---
-title: PowerShell script to create Azure Cosmos MongoDB API database and collection
-description: Azure PowerShell script - create Azure Cosmos MongoDB API database and collection
-author: markjbrown
+title: PowerShell script to create Azure Cosmos DB MongoDB API database and collection
+description: Azure PowerShell script - create Azure Cosmos DB MongoDB API database and collection
+author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.topic: sample
 ms.date: 05/13/2020
-ms.author: mjbrown 
-ms.custom: devx-track-azurepowershell
+ms.author: sidandrews
+ms.reviewer: mjbrown 
+ms.custom: devx-track-azurepowershell, ignite-2022
 ---
 
-# Create a database and collection for Azure Cosmos DB - MongoDB API
-[!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
+# Create a database and collection for Azure Cosmos DB - API for MongoDB
+[!INCLUDE[MongoDB](../../../includes/appliesto-mongodb.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
 This sample requires Azure PowerShell Az 5.4.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed.
-If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure.
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/mongodb/ps-mongodb-create.ps1 "Create a database and collection for MongoDB API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/mongodb/ps-mongodb-create.ps1 "Create a database and collection for API for MongoDB")]
 
 ## Clean up deployment
 
@@ -39,10 +40,10 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 |**Azure Cosmos DB**| |
-| [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Creates a Cosmos DB Account. |
-| [New-AzCosmosDBMongoDBDatabase](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbdatabase) | Creates a MongoDB API Database. |
-| [New-AzCosmosDBMongoDBIndex](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbindex) | Creates a MongoDB API Index. |
-| [New-AzCosmosDBMongoDBCollection](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection) | Creates a MongoDB API Collection. |
+| [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Creates an Azure Cosmos DB Account. |
+| [New-AzCosmosDBMongoDBDatabase](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbdatabase) | Creates a API for MongoDB Database. |
+| [New-AzCosmosDBMongoDBIndex](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbindex) | Creates a API for MongoDB Index. |
+| [New-AzCosmosDBMongoDBCollection](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection) | Creates a API for MongoDB Collection. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||

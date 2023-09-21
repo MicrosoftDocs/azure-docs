@@ -1,16 +1,19 @@
 ---
 title: Performance recommendations - Azure Database for MySQL
 description: This article describes the Performance Recommendation feature in Azure Database for MySQL
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 6/3/2020
+author: SudheeshGH
+ms.author: sunaray
+ms.date: 06/20/2022
 ---
+
 # Performance Recommendations in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 **Applies to:** Azure Database for MySQL 5.7, 8.0
 

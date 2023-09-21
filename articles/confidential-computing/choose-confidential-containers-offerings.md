@@ -1,31 +1,32 @@
 ---
 title: Choose container offerings for confidential computing
 description: How to choose the right confidential container offerings to meet your security, isolation and developer needs.
-author: agowdamsft
-ms.service: container-service
+author: angarg05
+ms.service: virtual-machines 
+ms.subservice: confidential-computing
 ms.topic: conceptual
-ms.date: 11/01/2021
-ms.author: amgowda
+ms.date: 9/12/2023
+ms.author: ananyagarg
 ms.custom: ignite-fall-2021
 ---
 
-# Choosing confidential container offerings
+# Choosing container compute offerings for confidential computing
 
-Azure confidential computing offers multiple types of confidential containers. You can use these containers to support data integrity and confidentiality, and code integrity.
+Azure confidential computing offers multiple types of containers with varying tiers of confidentiality. You can use these containers to support data integrity and confidentiality, and code integrity.
 
 Confidential containers also help with code protection through encryption. You can create hardware-based assurances and hardware root of trust. You can also lower your attack surface area with confidential containers.
 
-## Enclaves confidential containers
+## Links to container compute offerings
 
-You can deploy confidential containers with enclaves. This method of container deployments has the strongest security and compute isolation, with a lower Trusted Computing Base (TCB). Confidential containers based on Intel Software Guard Extensions (SGX) that run in the hardware-based Trusted Execution Environment (TEE) are available. These containers support lifting and shifting your existing container apps. Another option is to allow building custom apps with enclave awareness.
+**Confidential VM worker nodes on AKS** supporting full AKS features with node level VM based Trusted Execution Environment (TEE). Also support remote guest attestation. [Get started with CVM worker nodes with a lift and shift workload to CVM node pool.](../aks/use-cvm.md)
 
-There are two programming and deployment models on Azure Kubernetes Service (AKS). 
+**Unmodified containers with serverless offering** [confidential containers on Azure Container Instance (ACI)](./confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci) supporting existing Linux containers with remote guest attestation flow.
 
-**Unmodified containers** support higher programming languages on Intel SGX through the Azure Partner ecosystem of OSS projects. For more information, see the [unmodified containers deployment flow and samples](./confidential-containers.md).
+**Unmodified containers with Intel SGX** support higher programming languages on Intel SGX through the Azure Partner ecosystem of OSS projects. For more information, see the [unmodified containers deployment flow and samples](./confidential-containers.md).
 
 **Enclave-aware containers** use a custom Intel SGX programming model. For more information, see the [the enclave-aware containers deployment flow and samples](./enclave-aware-containers.md). 
 
-![Diagram of enclave confidential containers with Intel SGX, showing isolation and security boundaries.](./media/confidential-containers/confidential-container-intel-sgx.png)
+<!-- ![Diagram of enclave confidential containers with Intel SGX, showing isolation and security boundaries.](./media/confidential-containers/confidential-container-intel-sgx.png) -->
 
 ## Learn more
 

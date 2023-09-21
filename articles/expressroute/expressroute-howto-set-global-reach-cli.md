@@ -16,9 +16,6 @@ ms.custom: devx-track-azurecli
 # Configure ExpressRoute Global Reach by using the Azure CLI
 
 This article helps you configure Azure ExpressRoute Global Reach by using the Azure CLI. For more information, see [ExpressRoute Global Reach](expressroute-global-reach.md).
-
-> [!NOTE]
-> IPv6 support for ExpressRoute Global Reach is now in Public Preview. See [Enable Global Reach](expressroute-howto-set-global-reach.md) for steps to configure this feature using PowerShell.
  
 Before you start configuration, complete the following requirements:
 
@@ -50,6 +47,9 @@ az account set --subscription <your subscription ID>
 ### Identify your ExpressRoute circuits for configuration
 
 You can enable ExpressRoute Global Reach between any two ExpressRoute circuits. The circuits are required to be in supported countries/regions and were created at different peering locations. If your subscription owns both circuits, you may select either circuit to run the configuration. However, if the two circuits are in different Azure subscriptions you must create an authorization key from one of the circuits. Using the authorization key generated from the first circuit you can enable Global Reach on the second circuit.
+
+> [!NOTE]
+> ExpressRoute Global Reach configurations can only be seen from the configured circuit.
 
 ## Enable connectivity between your on-premises networks
 

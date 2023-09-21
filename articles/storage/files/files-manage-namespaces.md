@@ -2,15 +2,14 @@
 title: How to use DFS-N with Azure Files
 description: Common DFS-N use cases with Azure Files
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 3/02/2021
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # How to use DFS Namespaces with Azure Files
-[Distributed File Systems Namespaces](/windows-server/storage/dfs-namespaces/dfs-overview), commonly referred to as DFS Namespaces or DFS-N, is a Windows Server server role that is widely used to simplify the deployment and maintenance of SMB file shares in production. DFS Namespaces is a storage namespace virtualization technology, which means that it enables you to provide a layer of indirection between the UNC path of your file shares and the actual file shares themselves. DFS Namespaces works with SMB file shares, agnostic of those file shares are hosted: it can be used with SMB shares hosted on an on-premises Windows File Server with or without Azure File Sync, Azure file shares directly, SMB file shares hosted in Azure NetApp Files or other third-party offerings, and even with file shares hosted in other clouds. 
+[Distributed File Systems Namespaces](/windows-server/storage/dfs-namespaces/dfs-overview), commonly referred to as DFS Namespaces or DFS-N, is a Windows Server server role that is widely used to simplify the deployment and maintenance of SMB file shares in production. DFS Namespaces is a storage namespace virtualization technology, which means that it enables you to provide a layer of indirection between the UNC path of your file shares and the actual file shares themselves. DFS Namespaces works with SMB file shares, agnostic of where those file shares are hosted: it can be used with SMB shares hosted on an on-premises Windows File Server with or without Azure File Sync, Azure file shares directly, SMB file shares hosted in Azure NetApp Files or other third-party offerings, and even with file shares hosted in other clouds. 
 
 At its core, DFS Namespaces provides a mapping between a user-friendly UNC path, like `\\contoso\shares\ProjectX` and the underlying UNC path of the SMB share like `\\Server01-Prod\ProjectX` or `\\storageaccount.file.core.windows.net\projectx`. When the end user wants to navigate to their file share, they type in the user-friendly UNC path, but their SMB client accesses the underlying SMB path of the mapping. You can also extend this basic concept to take over an existing file server name, such as `\\MyServer\ProjectX`. You can use this capability to achieve the following scenarios:
 
@@ -208,6 +207,24 @@ New-DfsnFolder -Path $sharePath -TargetPath $targetUNC
 ---
 
 Now that you have created a namespace, a folder, and a folder target, you should be able to mount your file share through DFS Namespaces. If you are using a domain-based namespace, the full path for your share should be `\\<domain-name>\<namespace>\<share>`. If you are using a standalone namespace, the full path for your share should be `\\<DFS-server>\<namespace>\<share>`. If you are using a standalone namespace with root consolidation, you can access directly through your old server name, such as `\\<old-server>\<share>`.
+
+## Access-Based Enumeration (ABE)
+
+Using ABE to control the visibility of the files and folders in SMB Azure file shares isn't currently a supported scenario. ABE is a feature of DFS-N, so it's possible to configure identity-based authentication and enable the ABE feature. However, this only applies to the DFS-N folder targets; it doesn't retroactively apply to the targeted file shares themselves. This is because DFS-N works by referral, rather than as a proxy in front of the folder target.
+
+For example, if the user types in the path `\\mydfsnserver\share`, the SMB client gets the referral of `\\mydfsnserver\share => \\server123\share` and makes the mount against the latter.
+
+Because of this, ABE will only work in cases where the DFS-N server is hosting the list of usernames before the redirection:
+
+  `\\DFSServer\users\contosouser1 => \\SA.file.core.windows.net\contosouser1`
+
+  `\\DFSServer\users\contosouser1 => \\SA.file.core.windows.net\users\contosouser1`
+
+(Where **contosouser1** is a subfolder of the **users** share)
+
+If each user is a subfolder *after* the redirection, ABE won't work:
+
+  `\\DFSServer\SomePath\users --> \\SA.file.core.windows.net\users`
 
 ## See also
 - Deploying an Azure file share: [Planning for an Azure Files deployment](storage-files-planning.md) and [How to create an file share](storage-how-to-create-file-share.md).

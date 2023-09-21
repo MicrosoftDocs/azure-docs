@@ -1,5 +1,5 @@
 ---
-title: Group Policy and MDM settings for ESR - Azure Active Directory
+title: Group Policy and MDM settings for ESR
 description: Management settings for Enterprise State Roaming
 
 services: active-directory
@@ -10,7 +10,7 @@ ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: guovivian
 
 ms.collection: M365-identity-device-management
@@ -27,7 +27,7 @@ The following tables describe the policy settings available.
 
 ## MDM settings
 
-The MDM policy settings apply to Windows 10 or newer. Refer to [Devices and endpoints](enterprise-state-roaming-windows-settings-reference.md) for details on what devices are supported for Azure AD-based syncing.
+The MDM policy settings apply to Windows 10 or newer. Refer to [Devices and endpoints](enterprise-state-roaming-windows-settings-reference.md) for details on what devices are supported for Microsoft Entra ID-based syncing.
 
 | Name | Description |
 | --- | --- |
@@ -56,4 +56,4 @@ These settings are located in Group Policy under: **Computer Configuration** > *
 
 ## Next steps
 
-For an overview, see [enterprise State Roaming overview](enterprise-state-roaming-overview.md).
+For an overview, see [enterprise State Roaming overview](./enterprise-state-roaming-enable.md).

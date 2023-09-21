@@ -3,14 +3,17 @@ title: 'Tutorial: Configure Apache Ambari email notifications in Azure HDInsight
 description: This article describes how to use SendGrid with Apache Ambari for email notifications.
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 04/11/2022
+ms.date: 05/25/2023
 
 #Customer intent: As a HDInsight user, I want to configure Apache Ambari to send email notifications.
 ---
 
 # Tutorial: Configure Apache Ambari email notifications in Azure HDInsight
 
-In this tutorial, you'll configure Apache Ambari email notifications using SendGrid. [Apache Ambari](./hdinsight-hadoop-manage-ambari.md) simplifies the management and monitoring of an HDInsight cluster by providing an easy to use web UI and REST API. Ambari is included on HDInsight clusters, and is used to monitor the cluster and make configuration changes. [SendGrid](https://sendgrid.com/solutions/) is a free cloud-based email service that provides reliable transactional email delivery, scalability, and real-time analytics along with flexible APIs that make custom integration easy. Azure customers can unlock 25,000 free emails each month.
+In this tutorial, you'll configure Apache Ambari email notifications using SendGrid as an example. [Apache Ambari](./hdinsight-hadoop-manage-ambari.md) simplifies the management and monitoring of an HDInsight cluster by providing an easy to use web UI and REST API. Ambari is included on HDInsight clusters, and is used to monitor the cluster and make configuration changes. [SendGrid](https://sendgrid.com/solutions/) is a free cloud-based email service that provides reliable transactional email delivery, scalability, and real-time analytics along with flexible APIs that make custom integration easy. Azure customers can unlock 25,000 free emails each month.
+
+> [!NOTE]
+> SendGrid is not mandatory to configure Apache Ambari email notifications. You can also use other third party email box. For example, outlook, gmail and so on.
 
 In this tutorial, you learn how to:
 
@@ -24,19 +27,22 @@ In this tutorial, you learn how to:
 
 * An HDInsight cluster. See [Create Apache Hadoop clusters using the Azure portal](./hdinsight-hadoop-create-linux-clusters-portal.md).
 
-## Obtain SendGrid Username
+> [!NOTE]
+> Users can no logner set passwords for their SendGrid account, so we need use apikey to send email.
+
+## Obtain SendGrid apikey
 
 1. From the [Azure portal](https://portal.azure.com), navigate to your SendGrid resource.
 
-1. From the Overview page, select **Manage**, to go the SendGrid webpage for your account.
+1. From the Overview page, click **Open SaaS Account on publisher’s site**, to go the SendGrid webpage for your account.
 
     :::image type="content" source="./media/apache-ambari-email/azure-portal-sendgrid-manage.png" alt-text="SendGrid overview in azure portal":::
 
-1. From the left menu, navigate to your account name and then **Account Details**.
+1. From the left menu, navigate to your **Settings** and then **API Keys**.
 
     :::image type="content" source="./media/apache-ambari-email/sendgrid-dashboard-navigation.png" alt-text="SendGrid dashboard navigation":::
 
-1. From the **Account Details** page, record the **Username**.
+1. Click **Create API Key** to create an apikey and copy the apikey as smtp password in later use.
 
     :::image type="content" source="./media/apache-ambari-email/sendgrid-account-details.png" alt-text="SendGrid account details":::
 
@@ -64,8 +70,8 @@ In this tutorial, you learn how to:
     |SMTP Port|25 or 587 (for unencrypted/TLS connections).|
     |Email From|Provide an email address. The address doesn't need to be authentic.|
     |Use authentication|Select this check box.|
-    |Username|Provide the SendGrid username.|
-    |Password|Provide the password you used when you created the SendGrid resource in Azure.|
+    |Username|Use "apikey" directly if using SendGrid|
+    |Password|Provide the password you copied when you created the SendGrid apikey in Azure.|
     |Password Confirmation|Reenter password.|
     |Start TLS|Select this check box|
 
@@ -74,6 +80,20 @@ In this tutorial, you learn how to:
     Select **Save**. You'll return to the **Manage Alert Notifications** window.
 
 1. From the **Manage Alert Notifications** window, select **Close**.
+
+## FAQ
+
+### No appropriate protocol error if the TLS checkbox is checked
+
+If you select **Start TLS** from the **Create Alert Notification** page, and you receive a *"No appropriate protocol"* exception in the Ambari server log:
+
+1. Go to the Apache Ambari UI.
+2. Go to **Alerts > ManageNotifications > Edit (Edit Notification)**.
+3. Select **Add Property**.
+4. Add the new property, `mail.smtp.ssl.protocols` with a value of `TLSv1.2`.
+
+
+
 
 ## Next steps
 

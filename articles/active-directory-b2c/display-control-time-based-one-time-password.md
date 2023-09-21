@@ -9,14 +9,14 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/09/2021
+ms.date: 07/20/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
 # TOTP display control
 
-Use time-based one-time password (TOTP) [display controls](display-controls.md) to enable multifactor authentication (MFA) using the TOTP method. End users need to use an authenticator app that generates TOTP codes, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app) or any other authenticator app that supports TOTP verification.
+Use time-based one-time password (TOTP) [display controls](display-controls.md) to enable multifactor authentication using the TOTP method. End users need to use an authenticator app that generates TOTP codes, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app) or any other authenticator app that supports TOTP verification.
 
 To enable TOTP within your custom policy, use the following display controls:
 
@@ -108,7 +108,7 @@ The following XML code shows the `EnableOTPAuthentication` self-asserted technic
 
 ## Verification flow
 
-The verification TOTP code is done by another self-asserted technical profile that uses display claims and a validation technical profile. For more information, see [Define an Azure AD MFA technical profile in an Azure AD B2C custom policy](multi-factor-auth-technical-profile.md).
+The verification TOTP code is done by another self-asserted technical profile that uses display claims and a validation technical profile. For more information, see [Define a Microsoft Entra multifactor authentication technical profile in an Azure AD B2C custom policy](multi-factor-auth-technical-profile.md).
 
 The following screenshot illustrates a TOTP verification page.
 
@@ -116,4 +116,8 @@ The following screenshot illustrates a TOTP verification page.
 
 ## Next steps
 
-- Learn how to validate a TOTP code in [Define an Azure AD MFA technical profile](multi-factor-auth-technical-profile.md).
+- Learn more about multifactor authentication in [Enable multifactor authentication in Azure Active Directory B2C](multi-factor-authentication.md?pivots=b2c-custom-policy)
+
+- Learn how to validate a TOTP code in [Define a Microsoft Entra multifactor authentication technical profile](multi-factor-auth-technical-profile.md).
+
+- Explore a sample [Azure AD B2C MFA with TOTP using any Authenticator app custom policy in GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/totp).  

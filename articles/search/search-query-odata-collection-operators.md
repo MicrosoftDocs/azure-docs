@@ -8,23 +8,13 @@ author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 09/16/2021
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.date: 02/07/2023
+
 ---
 
 # OData collection operators in Azure Cognitive Search - `any` and `all`
 
-When writing an [OData filter expression](query-odata-filter-orderby-syntax.md) to use with Azure Cognitive Search, it is often useful to filter on collection fields. You can achieve this using the `any` and `all` operators.
+When writing an [OData filter expression](query-odata-filter-orderby-syntax.md) to use with Azure Cognitive Search, it's often useful to filter on collection fields. You can achieve this using the `any` and `all` operators.
 
 ## Syntax
 
@@ -84,7 +74,7 @@ Match documents where the `rooms` field is empty:
 not rooms/any()
 ```
 
-Match documents where for all rooms, the `rooms/amenities` field contains "tv" and `rooms/baseRate` is less than 100:
+Match documents where (for all rooms) the `rooms/amenities` field contains "tv", and `rooms/baseRate` is less than 100:
 
 ```text
 rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)

@@ -2,11 +2,12 @@
 title: Tutorial - Back up SQL Server databases to Azure 
 description: In this tutorial, learn how to back up a SQL Server database running on an Azure VM to an Azure Backup Recovery Services vault.
 ms.topic: tutorial
-ms.date: 01/07/2022
-author: v-amallick
+ms.date: 08/09/2022
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
+
 # Back up a SQL Server database in an Azure VM
 
 This tutorial shows you how to back up a SQL Server database running on an Azure VM to an Azure Backup Recovery Services vault. In this article, you learn how to:
@@ -23,45 +24,10 @@ This tutorial shows you how to back up a SQL Server database running on an Azure
 Before you back up your SQL Server database, check the following conditions:
 
 1. Identify or [create](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) a Recovery Services vault in the same region or locale as the VM hosting the SQL Server instance.
-2. [Check the VM permissions](backup-azure-sql-database.md#set-vm-permissions) needed to back up the SQL databases.
-3. Verify that the  VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-4. Check that the SQL Server databases are named in accordance with [naming guidelines](#verify-database-naming-guidelines-for-azure-backup) for Azure Backup.
-5. Verify that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you set up this scenario. You can enable Azure Backup for an Azure VM along with Azure Backup for a SQL Server database running on the VM without any conflict.
-
-### Establish network connectivity
-
-For all operations, the SQL Server VM virtual machine needs connectivity to Azure public IP addresses. VM operations (database discovery, configure backups, schedule backups, restore recovery points, and so on) fail without connectivity to the public IP addresses. Establish connectivity with one of these options:
-
-* **Allow the Azure datacenter IP ranges**: Allow the [IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) in the download. To access network security group (NSG), use the **Set-AzureNetworkSecurityRule** cmdlet.
-* **Deploy an HTTP proxy server to route traffic**: When you back up a SQL Server database on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup, and data to Azure Storage. The backup extension also uses Azure Active Directory (Azure AD) for authentication. Route the backup extension traffic for these three services through the HTTP proxy. The extensions are the only component that's configured for access to the public internet.
-
-Each option has advantages and disadvantages
-
-**Option** | **Advantages** | **Disadvantages**
---- | --- | ---
-Allow IP ranges | No additional costs. | Complex to manage because the IP address ranges change over time. <br/><br/> Provides access to the whole of Azure, not just Azure Storage.
-Use an HTTP proxy   | Granular control in the proxy over the storage URLs is allowed. <br/><br/> Single point of internet access to VMs. <br/><br/> Not subject to Azure IP address changes. | Additional costs to run a VM with the proxy software.
-
-### Set VM permissions
-
-Azure Backup does a number of things when you configure backup for a SQL Server database:
-
-* Adds the **AzureBackupWindowsWorkload** extension.
-* To discover databases on the virtual machine, Azure Backup creates the account **NT SERVICE\AzureWLBackupPluginSvc**. This account is used for backup and restore, and requires SQL sysadmin permissions.
-* Azure Backup leverages the **NT AUTHORITY\SYSTEM** account for database discovery/inquiry, so this account need to be a public login on SQL.
-
-If you didn't create the SQL Server VM from Azure Marketplace, you might receive an error **UserErrorSQLNoSysadminMembership**. If this occurs [follow these instructions](backup-azure-sql-database.md#set-vm-permissions).
-
-### Verify database naming guidelines for Azure Backup
-
-Avoid the following for database names:
-
-* Trailing/Leading spaces
-* Trailing ‘!’
-* Close square bracket ‘]’
-* Databases names starting with ‘F:\’
-
-We do have aliasing for Azure table unsupported characters, but we recommend avoiding them. [Learn more](/rest/api/storageservices/understanding-the-table-service-data-model).
+1. [Check the VM permissions](backup-azure-sql-database.md#set-vm-permissions) needed to back up the SQL databases.
+1. Verify that the  VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+1. Check that the SQL Server databases are named in accordance with [naming guidelines](backup-sql-server-database-azure-vms.md#database-naming-guidelines-for-azure-backup) for Azure Backup.
+1. Verify that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you set up this scenario. You can enable Azure Backup for an Azure VM along with Azure Backup for a SQL Server database running on the VM without any conflict.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -208,11 +174,15 @@ To create a backup policy:
 ## Run an on-demand backup
 
 1. In your Recovery Services vault, choose Backup items.
-2. Select "SQL in Azure VM".
-3. Right-click on a database, and choose "Backup now".
-4. Choose the Backup Type (Full/Differential/Log/Copy Only Full) and Compression (Enable/Disable)
-5. Select OK to begin the backup.
-6. Monitor the backup job by going to your Recovery Services vault and choosing "Backup Jobs".
+1. Select "SQL in Azure VM".
+1. Right-click on a database, and choose "Backup now".
+1. Choose the Backup Type (Full/Differential/Log/Copy Only Full) and Compression (Enable/Disable).
+   - *On-demand full* retains backups for a minimum of *45 days* and a maximum of *99 years*.
+   - *On-demand copy only full* accepts any value for retention.
+   - *On-demand differential* retains backups as per the retention of scheduled differentials set in policy.
+   - *On-demand log* retains backups as per the retention of scheduled logs set in policy.
+1. Select OK to begin the backup.
+1. Monitor the backup job by going to your Recovery Services vault and choosing "Backup Jobs".
 
 ## Next steps
 

@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 06/30/2023
 ms.author: duau
 ---
 
@@ -35,7 +35,7 @@ This article explains how Network Insights can help you view  your ExpressRoute 
 
     :::image type="content" source="./media/expressroute-network-insights/topology-hovered.png" alt-text="Screenshot of hovering over topology view resources." lightbox="./media/expressroute-network-insights/topology-hovered-expanded.png":::
 
-## View a detailed and pre-loaded metrics dashboard
+## View a detailed and preloaded metrics dashboard
 
 Once you review the topology of your ExpressRoute setup using the functional dependency view, select **View detailed metrics** to navigated to the detailed metrics view to understand the performance of your circuit. This view offers an organized list of linked resources and a rich dashboard of important ExpressRoute metrics.
 
@@ -78,7 +78,7 @@ Lastly, the Gateway Metrics tab populates with key metrics charts for a selected
 
 Configure your ExpressRoute connection.
   
-* Learn more about [Azure ExpressRoute](expressroute-introduction.md), [Network Insights](../azure-monitor/insights/network-insights-overview.md), and [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md)
+* Learn more about [Azure ExpressRoute](expressroute-introduction.md), [Network Insights](../network-watcher/network-insights-overview.md), and [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md)
 * [Create and modify a circuit](expressroute-howto-circuit-arm.md)
 * [Create and modify peering configuration](expressroute-howto-routing-arm.md)
 * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)

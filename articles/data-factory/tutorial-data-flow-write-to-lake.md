@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2021
-ms.date: 06/04/2021
+ms.date: 08/10/2023
 ---
 
 # Best practices for writing to files to data lake with data flows
@@ -50,7 +50,7 @@ In this step, you'll create a pipeline that contains a data flow activity.
 
 1. On the home page of Azure Data Factory, select **Orchestrate**.
 
-   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that show the ADF home page.":::
+   :::image type="content" source="./media/tutorial-data-flow/orchestrate.png" alt-text="Screenshot that shows the data factory home page with the Orchestrate button highlighted.":::
 
 1. In the **General** tab for the pipeline, enter **DeltaLake** for **Name** of the pipeline.
 1. In the factory top bar, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).

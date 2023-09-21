@@ -105,7 +105,7 @@ You can also do other actions using the <a href="/windows/mixed-reality/mrtk-uni
 > [FAQ](../faq.md)
 
 > [!div class="nextstepaction"]
-> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme)
 
 > [!div class="nextstepaction"]
 > [Troubleshooting object detection](../troubleshoot/object-detection.md)

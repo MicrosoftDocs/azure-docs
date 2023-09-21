@@ -2,13 +2,13 @@
 title: Azure Data Box Disk limits | Microsoft Docs
 description: Describes system limits and recommended sizes for the Microsoft Azure Data Box Disk.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 11/09/2021
-ms.author: alkohli
+ms.date: 12/29/2022
+ms.author: shaas
 ---
 # Azure Data Box Disk limits
 
@@ -19,6 +19,7 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box Di
 
  - Data Box service is available in the Azure regions listed in [Region availability](data-box-disk-overview.md#region-availability).
  - A single storage account is supported with Data Box Disk.
+ - Data Box Disk supports a maximum of 512 containers or shares in the cloud. The top-level directories within the user share become containers or Azure file shares in the cloud.
 
 ## Data Box Disk performance
 
@@ -39,14 +40,14 @@ For the latest information on Azure storage service limits and best practices fo
 
 ## Data copy and upload caveats
 
-- Do not copy data directly into the disks. Copy data to pre-created *BlockBlob*,*PageBlob*, and *AzureFile* folders.
+- Do not copy data directly into the disks. Copy data to pre-created *BlockBlob*, *PageBlob*, and *AzureFile* folders.
 - A folder under the *BlockBlob* and *PageBlob* is a container. For instance, containers are created as *BlockBlob/container* and *PageBlob/container*.
 - If a folder has the same name as an existing container, the folder's contents are merged with the container's contents. Files or blobs that aren't already in the cloud are added to the container. If a file or blob has the same name as a file or blob that's already in the container, the existing file or blob is overwritten.
 - Every file written into *BlockBlob* and *PageBlob* shares is uploaded as a block blob and page blob respectively. 
 - The hierarchy of files is maintained while uploading to the cloud for both blobs and Azure Files. For example, you copied a file at this path: `<container folder>\A\B\C.txt`. This file is uploaded to the same path in cloud.
 - Any empty directory hierarchy (without any files) created under *BlockBlob* and *PageBlob* folders is not uploaded.
 - If you don't have long paths enabled on the client, and any path and file name in your data copy exceeds 256 characters, the Data Box Split Copy Tool (DataBoxDiskSplitCopy.exe) or the Data Box Disk Validation tool (DataBoxDiskValidation.cmd) will report failures. To avoid this kind of failure, [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later).
-- To improve performance during data uploads, we recommend that you [enable large file shares on the storage account and increase share capacity to 100 TiB](../../articles/storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account). Large file shares are only supported for storage accounts with locally redundant storage (LRS).
+- To improve performance during data uploads, we recommend that you [enable large file shares on the storage account and increase share capacity to 100 TiB](../../articles/storage/files/storage-how-to-create-file-share.md#enable-large-file-shares-on-an-existing-account). Large file shares are only supported for storage accounts with locally redundant storage (LRS).
 - If there are any errors when uploading data to Azure, an error log is created in the target storage account. The path to this error log is available in the portal when the upload is complete and you can review the log to take corrective action. Do not delete data from the source without verifying the uploaded data.
 - File metadata and NTFS permissions are not preserved when the data is uploaded to Azure Files. For example, the *Last modified* attribute of the files will not be kept when the data is copied.
 - If you specified managed disks in the order, review the following additional considerations:

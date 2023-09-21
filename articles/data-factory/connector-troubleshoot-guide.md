@@ -6,9 +6,9 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/13/2021
+ms.date: 01/05/2023
 ms.author: jianleishen
-ms.custom: synapse
+ms.custom: synapse, ignite-2022
 ---
 
 # Troubleshoot Azure Data Factory and Azure Synapse Analytics connectors
@@ -22,7 +22,7 @@ This article describes how to troubleshoot connectors in Azure Data Factory and 
 You can refer to the troubleshooting pages for each connector to see problems specific to it with explanations of their causes and recommendations to resolve them.
 
 - [Azure Blob Storage](connector-troubleshoot-azure-blob-storage.md)
-- [Azure Cosmos DB (including SQL API connector)](connector-troubleshoot-azure-cosmos-db.md)
+- [Azure Cosmos DB (including Azure Cosmos DB for NoSQL connector)](connector-troubleshoot-azure-cosmos-db.md)
 - [Azure Data Lake (Gen1 and Gen2)](connector-troubleshoot-azure-data-lake.md)
 - [Azure Database for PostgreSQL](connector-troubleshoot-postgresql.md)
 - [Azure Files storage](connector-troubleshoot-azure-files.md)
@@ -237,11 +237,29 @@ The errors below are general to the copy activity and could occur with any conne
 
 - **Recommendation**: Retry if the message shows that it's a transient issue. If the problem persists, contact the support team.
 
+## General connector errors
+
+### Error code: UserErrorOdbcInvalidQueryString
+
+- **Message**: `The following ODBC Query is not valid: '%'.`
+ 
+- **Cause**: You provide a wrong or invalid query to fetch the data/schemas.
+
+- **Recommendation**: Verify your query is valid and can return data/schemas. Use [Script activity](transform-data-using-script.md) if you want to execute non-query scripts and your data store is supported. Alternatively, consider to use stored procedure that returns a dummy result to execute your non-query scripts.
+
+### Error code: FailToResolveParametersInExploratoryController 
+
+- **Message**: `The parameters and expression cannot be resolved for schema operations. …The template function 'linkedService' is not defined or not valid.`
+ 
+- **Cause**: The service has limitation to support the linked service which references another linked service with parameters for test connection or preview data. For example, passing a parameter from a Key Vault to a linked service may occur the issue. 
+
+- **Recommendation**: Remove the parameters in the referred linked service to eliminate the error. Otherwise, run the pipeline without testing connection or previewing data. 
+
 ## Next steps
 
 For more troubleshooting help, try these resources:
 
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)

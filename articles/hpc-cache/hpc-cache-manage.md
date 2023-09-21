@@ -1,10 +1,11 @@
 ---
 title: Manage and update Azure HPC Cache
 description: How to manage and update Azure HPC Cache using the Azure portal or Azure CLI
-author: ronhogue
+author: ekpgh
 ms.service: hpc-cache
+ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 06/29/2022
 ms.author: rohogue
 ---
 
@@ -139,6 +140,9 @@ $
 
 ---
 
+> [!TIP]
+> If you need to write specific individual files back to a storage target without writing the entire cache contents, consider using the flush_file.py script contained in the PC Cache NFSv3 client library distribution. Learn more in [Customize file write-back in Azure HPC Cache](custom-flush-script.md).
+
 ## Upgrade cache software
 
 If a new software version is available, the **Upgrade** button becomes active. You also should see a message at the top of the page about updating software.
@@ -147,15 +151,36 @@ If a new software version is available, the **Upgrade** button becomes active. Y
 
 Client access is not interrupted during a software upgrade, but cache performance slows. Plan to upgrade software during non-peak usage hours or in a planned maintenance period.
 
-The software update can take several hours. Caches configured with higher throughput take longer to upgrade than caches with smaller peak throughput values.
+The software update can take several hours. Caches configured with higher throughput take longer to upgrade than caches with smaller peak throughput values. The cache status changes to **Upgrading** until the operation completes.
 
-When a software upgrade is available, you will have a week or so to apply it manually. The end date is listed in the upgrade message. If you don't upgrade during that time, Azure automatically applies the update to your cache. The timing of the automatic upgrade is not configurable. If you are concerned about the cache performance impact, you should upgrade the software yourself before the time period expires.
+When a software upgrade is available, you will have a week or so to apply it manually. The end date is listed in the upgrade message. If you don't upgrade during that time, Azure automatically applies the new software to your cache.
+
+You can use the Azure portal to schedule a more convenient time for the upgrade. Follow the instructions in the **Portal** tab below.
 
 If your cache is stopped when the end date passes, the cache will automatically upgrade software the next time it is started. (The update might not start immediately, but it will start in the first hour.)
 
 ### [Portal](#tab/azure-portal)
 
-Click the **Upgrade** button to begin the software update. The cache status changes to **Upgrading** until the operation completes.
+Click the **Upgrade** button to configure your software update. You have the option to upgrade the software immediately, or to schedule the upgrade for a specific date and time.
+
+![Screenshot of the Schedule software upgrade blade showing radio buttons with "Schedule later" selected and fields to select a new date and time.](media/upgrade-schedule.png)
+
+To upgrade immediately, select **Upgrade now** and click the **Save** button.
+
+To schedule a different upgrade time, select **Schedule later** and select a new date and time.
+
+* The date and time are shown in the browser's local time zone.
+* You can't choose a later time than the deadline in the original message.
+
+When you save the custom date, the banner message will change to show the date you chose.
+
+If you want to revise your scheduled upgrade date, click the **Upgrade** button again. Click the **Reset date** link. This immediately removes your scheduled date.
+
+![Screenshot of the Schedule software upgrade blade with a custom date selected. A text link appears at the left of the date labeled "Reset date".](media/upgrade-reset-date.png)
+
+After you reset the previously scheduled value, the date selector resets to the latest available date and time. You can choose a new date and save it, or click **Discard** to keep the latest date.
+
+You can't change the schedule if there are fewer than 15 minutes remaining before the upgrade.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -163,11 +188,11 @@ Click the **Upgrade** button to begin the software update. The cache status chan
 
 On the Azure CLI, new software information is included at the end of the cache status report. (Use [az hpc-cache show](/cli/azure/hpc-cache#az-hpc-cache-show) to check.) Look for the string "upgradeStatus" in the message.
 
-Use [az hpc-cache upgrade-firmware](/cli/azure/hpc-cache#az-hpc-cache-upgrade-firmware) to apply the update, if any exists.
+Use [az hpc-cache upgrade-firmware](/cli/azure/hpc-cache#az-hpc-cache-upgrade-firmware) to apply the software upgrade, if any exists.
 
 If no update is available, this operation has no effect.
 
-This example shows the cache status (no update is available) and the results of the upgrade-firmware command.
+This example shows the cache status (no upgrade is available) and the results of the upgrade-firmware command.
 
 ```azurecli
 $ az hpc-cache show --name doc-cache0629

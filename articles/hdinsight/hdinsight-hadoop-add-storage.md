@@ -4,7 +4,7 @@ description: Learn how to add additional Azure Storage accounts to an existing H
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/05/2022
+ms.date: 09/29/2022
 ---
 
 # Add additional storage accounts to HDInsight
@@ -111,7 +111,7 @@ After removing these keys and saving the configuration, you need to restart Oozi
 
 ### Storage firewall
 
-If you choose to secure your storage account with the **Firewalls and virtual networks** restrictions on **Selected networks**, be sure to enable the exception **Allow trusted Microsoft services...** so that HDInsight can access your storage account`.`
+If you choose to secure your storage account with the **Firewalls and virtual networks** restrictions on **Selected networks**, be sure to enable the exception **Allow trusted Microsoft services** so that HDInsight can access your storage account.
 
 ### Unable to access storage after changing key
 

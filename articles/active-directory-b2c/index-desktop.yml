@@ -1,0 +1,31 @@
+### YamlMime:Landing
+
+title: Desktop app authentication documentation
+summary: >
+  Learn how to sign in users and access web APIs in your desktop application using our how-to guides.
+
+metadata:
+  author: kengaderdus
+  manager: CelesteDG
+  ms.author: kengaderdus
+  ms.date: 08/31/2022
+  ms.service: active-directory
+  ms.subservice: B2C
+  ms.topic: landing-page
+
+landingContent:
+
+## ROW 1 ################################################### ROW 1 ##
+  - title: "Configure ready app quickly"
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Windows Presentation Foundation (WPF) desktop - .NET
+            url: configure-authentication-sample-wpf-desktop-app.md
+
+  - title: "Configuration options"
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Windows Presentation Foundation (WPF) desktop - .NET
+            url: enable-authentication-wpf-desktop-app-options.md

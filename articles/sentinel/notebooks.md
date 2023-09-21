@@ -4,8 +4,8 @@ description: Learn about Jupyter notebooks with the Microsoft Sentinel hunting c
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.custom: mvc, ignite-fall-2021
-ms.date: 04/04/2022
+ms.custom: devx-track-python
+ms.date: 01/05/2023
 ---
 
 # Use Jupyter notebooks to hunt for security threats

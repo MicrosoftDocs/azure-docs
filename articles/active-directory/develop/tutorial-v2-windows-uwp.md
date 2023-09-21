@@ -1,17 +1,17 @@
 ---
-title: "Tutorial: Create a Universal Windows Platform (UWP) app that uses the Microsoft identity platform for authentication | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Create a Universal Windows Platform (UWP) app that uses the Microsoft identity platform for authentication"
 description: In this tutorial, you build a UWP application that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
-author: jmprieur
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 12/13/2019
-ms.author: jmprieur
+ms.date: 03/03/2023
+ms.author: henrymbugua
+ms.reviewer: jmprieur
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40"
 ---
 
@@ -19,7 +19,7 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40"
 
 In this tutorial, you build a native Universal Windows Platform (UWP) app that signs in users and gets an access token to call the Microsoft Graph API. 
 
-At the end of this guide, your application calls a protected API by using personal accounts. Examples are outlook.com, live.com, and others. Your application also calls work and school accounts from any company or organization that has Azure Active Directory (Azure AD).
+At the end of this guide, your application calls a protected API by using personal accounts. Examples are outlook.com, live.com, and others. Your application also calls work and school accounts from any company or organization that has Microsoft Entra ID.
 
 In this tutorial:
 
@@ -108,6 +108,7 @@ This section shows how to use the Microsoft Authentication Library to get a toke
     ```csharp
     using Microsoft.Identity.Client;
     using Microsoft.Graph;
+    using Microsoft.Graph.Models;
     using System.Diagnostics;
     using System.Threading.Tasks;
     using System.Net.Http.Headers;
@@ -152,7 +153,7 @@ This section shows how to use the Microsoft Authentication Library to get a toke
                 GraphServiceClient graphClient = await SignInAndInitializeGraphServiceClient(scopes);
 
                 // Call the /me endpoint of Graph
-                User graphUser = await graphClient.Me.Request().GetAsync();
+                User graphUser = await graphClient.Me.GetAsync();
 
                 // Go back to the UI thread to make changes to the UI
                 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
@@ -236,6 +237,42 @@ Eventually, the `AcquireTokenSilent` method fails. Reasons for failure include a
 
 ### Instantiate the Microsoft Graph Service Client by obtaining the token from the SignInUserAndGetTokenUsingMSAL method
 
+In the project, create a new file named *TokenProvider.cs*: right-click on the project, select **Add** > **New Item** > **Blank Page**.
+
+Add to the newly created file the following code:
+
+```csharp
+using Microsoft.Kiota.Abstractions.Authentication;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace UWP_app_MSGraph {
+    public class TokenProvider : IAccessTokenProvider {
+        private Func<string[], Task<string>> getTokenDelegate;
+        private string[] scopes;
+
+        public TokenProvider(Func<string[], Task<string>> getTokenDelegate, string[] scopes) {
+            this.getTokenDelegate = getTokenDelegate;
+            this.scopes = scopes;
+        }
+
+        public Task<string> GetAuthorizationTokenAsync(Uri uri, Dictionary<string, object> additionalAuthenticationContext = default,
+            CancellationToken cancellationToken = default) {
+            return getTokenDelegate(scopes);
+        }
+
+        public AllowedHostsValidator AllowedHostsValidator { get; }
+    }
+}
+```
+
+> [!TIP]
+> After pasting the code, make sure that the namespace in the *TokenProvider.cs* file matches the namespace of your project. This will allow you to more easily reference the `TokenProvider` class in your project.
+
+The `TokenProvider` class defines a custom access token provider that executes the specified delegate method to get and return an access token.
+
 Add the following new method to *MainPage.xaml.cs*:
 
 ```csharp
@@ -245,14 +282,20 @@ Add the following new method to *MainPage.xaml.cs*:
      /// <returns>GraphServiceClient</returns>
      private async static Task<GraphServiceClient> SignInAndInitializeGraphServiceClient(string[] scopes)
      {
-         GraphServiceClient graphClient = new GraphServiceClient(MSGraphURL,
-             new DelegateAuthenticationProvider(async (requestMessage) =>
-             {
-                 requestMessage.Headers.Authorization = new AuthenticationHeaderValue("bearer", await SignInUserAndGetTokenUsingMSAL(scopes));
-             }));
+         var tokenProvider = new TokenProvider(SignInUserAndGetTokenUsingMSAL, scopes);
+         var authProvider = new BaseBearerTokenAuthenticationProvider(tokenProvider);
+         var graphClient = new GraphServiceClient(authProvider, MSGraphURL);
 
          return await Task.FromResult(graphClient);
      }
+```
+
+In this method, you're using the custom access token provider `TokenProvider` to connect the `SignInUserAndGetTokenUsingMSAL` method to the Microsoft Graph .NET SDK and create an authenticated client.
+
+To use the `BaseBearerTokenAuthenticationProvider`, in the *MainPage.xaml.cs* file, add the following reference:
+
+```cs
+using Microsoft.Kiota.Abstractions.Authentication;
 ```
 
 #### More information on making a REST call against a protected API
@@ -340,33 +383,35 @@ private async Task DisplayMessageAsync(string message)
 
 ## Register your application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Now, register your application:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
+1. Select **New registration**.
 1. Enter a **Name** for your application, for example `UWP-App-calling-MSGraph`. Users of your app might see this name, and you can change it later.
-1. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**. 
+1. Under **Supported account types**, select **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**. 
 1. Select **Register**.
 1. On the overview page, find the **Application (client) ID** value and copy it. Go back to Visual Studio, open *MainPage.xaml.cs*, and replace the value of `ClientId` with this value.
 
 Configure authentication for your application:
 
-1. Back in the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, under **Manage**, select **Authentication** > **Add a platform**, and then select **Mobile and desktop applications**.
+1. In to the Microsoft Entra admin center, select **Authentication** > **Add a platform**, and then select **Mobile and desktop applications**.
 1. In the **Redirect URIs** section, enter `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 1. Select **Configure**.
 
 Configure API permissions for your application:
 
-1. Under **Manage**, select **API permissions** > **Add a permission**.
+1. Select **API permissions** > **Add a permission**.
 1. Select **Microsoft Graph**.
 1. Select **Delegated permissions**, search for *User.Read*, and verify that **User.Read** is selected.
 1. If you made any changes, select **Add permissions** to save them.
 
 ## Enable integrated authentication on federated domains (optional)
 
-To enable integrated Windows authentication when it's used with a federated Azure AD domain, the application manifest must enable additional capabilities. Go back to your application in Visual Studio.
+To enable integrated Windows authentication when it's used with a federated Microsoft Entra domain, the application manifest must enable additional capabilities. Go back to your application in Visual Studio.
 
 1. Open *Package.appxmanifest*.
 1. Select **Capabilities**, and enable the following settings:
@@ -376,7 +421,7 @@ To enable integrated Windows authentication when it's used with a federated Azur
    * **Shared User Certificates**
 
 > [!IMPORTANT]
-> [Integrated Windows authentication](https://aka.ms/msal-net-iwa) isn't configured by default for this sample. Applications that request `Enterprise Authentication` or `Shared User Certificates` capabilities require a higher level of verification by the Windows Store. Also, not all developers want to perform the higher level of verification. Enable this setting only if you need integrated Windows authentication with a federated Azure AD domain.
+> [Integrated Windows authentication](https://aka.ms/msal-net-iwa) isn't configured by default for this sample. Applications that request `Enterprise Authentication` or `Shared User Certificates` capabilities require a higher level of verification by the Windows Store. Also, not all developers want to perform the higher level of verification. Enable this setting only if you need integrated Windows authentication with a federated Microsoft Entra domain.
 
 ## Alternate approach to using WithDefaultRedirectURI()
 
@@ -415,7 +460,7 @@ In the current sample, the `WithRedirectUri("https://login.microsoftonline.com/c
        .Build();
    ```
 
-2.	Find the callback URI for your app by adding the `redirectURI` field in *MainPage.xaml.cs* and setting a breakpoint on it:
+2. Find the callback URI for your app by adding the `redirectURI` field in *MainPage.xaml.cs* and setting a breakpoint on it:
 
     ```csharp
 
@@ -439,7 +484,7 @@ In the current sample, the `WithRedirectUri("https://login.microsoftonline.com/c
 
     You can then remove the line of code because it's required only once, to fetch the value.
 
-3. In the app registration portal, add the returned value in **RedirectUri** in the **Authentication** pane.
+3. In the Microsoft Entra admin center, add the returned value in **RedirectUri** in the **Authentication** pane.
 
 ## Test your code
 
@@ -447,7 +492,7 @@ To test your application, select the **F5** key to run your project in Visual St
 
 ![Application's user interface](./media/tutorial-v2-windows-uwp/testapp-ui-vs2019.png)
 
-When you're ready to test, select **Call Microsoft Graph API**. Then use an Azure AD organizational account or a Microsoft account, such as live.com or outlook.com, to sign in. The first time a user runs this test, the application displays a window asking the user to sign in.
+When you're ready to test, select **Call Microsoft Graph API**. Then use a Microsoft Entra organizational account or a Microsoft account, such as live.com or outlook.com, to sign in. The first time a user runs this test, the application displays a window asking the user to sign in.
 
 ### Consent
 
@@ -480,7 +525,7 @@ Users might be prompted for additional consents as you increase the number of sc
 
 ### Issue 1
 
-You receive one of the following error messages when you sign in on your application on a federated Azure AD domain:
+You receive one of the following error messages when you sign in on your application on a federated Microsoft Entra domain:
 
 * "No valid client certificate found in the request."
 * "No valid certificates found in the user's certificate store."
@@ -498,7 +543,7 @@ You enable [integrated authentication on federated domains](#enable-integrated-a
 
 **Workaround:** Select **Sign in with other options**. Then select **Sign in with a username and password**. Select **Provide your password**. Then go through the phone authentication process.
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

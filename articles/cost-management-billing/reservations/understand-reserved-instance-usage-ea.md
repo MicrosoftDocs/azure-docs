@@ -2,12 +2,12 @@
 title: Understand Azure reservations usage for Enterprise Agreement and Microsoft Customer Agreement
 description: Learn how to read your usage information to understand how an Azure reservation applies to Enterprise Agreement and Microsoft Customer Agreement usage.
 author: bandersmsft
-ms.reviewer: yashar
+ms.reviewer: nitinarora
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 05/05/2022
+ms.date: 12/06/2022
 ms.author: banders
 ---
 
@@ -50,11 +50,13 @@ Other information available in Azure usage data has changed:
 - Term - 12 months or 36 months.
 - RINormalizationRatio - Available under AdditionalInfo. This is the ratio where the reservation is applied to the usage record. If instance size flexibility is enabled on for your reservation, then it can apply to other sizes. The value shows the ratio that the reservation was applied to for the usage record.
 
-[See field definition](/rest/api/consumption/usagedetails/list#definitions)
+For more information, see the Usage details field [Definitions](/rest/api/consumption/usagedetails/list#definitions).
 
 ## Get Azure consumption and reservation usage data using API
 
 You can get the data using the API or download it from Azure portal.
+
+For information about permissions needed to view and manage reservations, see [Who can manage a reservation by default](view-reservations.md#who-can-manage-a-reservation-by-default).
 
 You call the [Usage Details API](/rest/api/consumption/usagedetails/list) to get the new data. For details about terminology, see [usage terms](../understand/understand-usage.md).
 

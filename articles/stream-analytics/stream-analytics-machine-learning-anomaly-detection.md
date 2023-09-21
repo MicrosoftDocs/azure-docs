@@ -2,31 +2,32 @@
 title: Anomaly detection in Azure Stream Analytics
 description: This article describes how to use Azure Stream Analytics and Azure Machine Learning together to detect anomalies.
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 06/21/2019
+ms.date: 10/05/2022
 ---
 
 # Anomaly detection in Azure Stream Analytics
 
 Available in both the cloud and Azure IoT Edge, Azure Stream Analytics offers built-in machine learning based anomaly detection capabilities that can be used to monitor the two most commonly occurring anomalies: temporary and persistent. With the **AnomalyDetection_SpikeAndDip** and **AnomalyDetection_ChangePoint** functions, you can perform anomaly detection directly in your Stream Analytics job.
 
-The machine learning models assume a uniformly sampled time series. If the time series is not uniform, you may insert an aggregation step with a tumbling window prior to calling anomaly detection.
+The machine learning models assume a uniformly sampled time series. If the time series isn't uniform, you may insert an aggregation step with a tumbling window prior to calling anomaly detection.
 
-The machine learning operations do not support seasonality trends or multi-variate correlations at this time.
+The machine learning operations don't support seasonality trends or multi-variate correlations at this time.
 
 ## Anomaly detection using machine learning in Azure Stream Analytics
 
 The following video demonstrates how to detect an anomaly in real time using machine learning functions in Azure Stream Analytics. 
 
-> [!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Real-Time-ML-Based-Anomaly-Detection-In-Azure-Stream-Analytics/player]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=internet-of-things-show&ep=real-time-ml-based-anomaly-detection-in-azure-stream-analytics]
 
 ## Model behavior
 
 Generally, the model's accuracy improves with more data in the sliding window. The data in the specified sliding window is treated as part of its normal range of values for that time frame. The model only considers event history over the sliding window to check if the current event is anomalous. As the sliding window moves, old values are evicted from the model's training.
 
-The functions operate by establishing a certain normal based on what they have seen so far. Outliers are identified by comparing against the established normal, within the confidence level. The window size should be based on the minimum events required to train the model for normal behavior so that when an anomaly occurs, it would be able to recognize it.
+The functions operate by establishing a certain normal based on what they've seen so far. Outliers are identified by comparing against the established normal, within the confidence level. The window size should be based on the minimum events required to train the model for normal behavior so that when an anomaly occurs, it would be able to recognize it.
 
-The model's response time increases with history size because it needs to compare against a higher number of past events. It is recommended to only include the necessary number of events for better performance.
+The model's response time increases with history size because it needs to compare against a higher number of past events. It's recommended to only include the necessary number of events for better performance.
 
 Gaps in the time series can be a result of the model not receiving events at certain points in time. This situation is handled by Stream Analytics using imputation logic. The history size, as well as a time duration, for the same sliding window is used to calculate the average rate at which events are expected to arrive.
 
@@ -34,8 +35,7 @@ An anomaly generator available [here](https://aka.ms/asaanomalygenerator) can be
 
 ## Spike and dip
 
-Temporary anomalies in a time series event stream are known as spikes and dips. Spikes and dips can be monitored using the Machine Learning based operator, [AnomalyDetection_SpikeAndDip](/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
-).
+Temporary anomalies in a time series event stream are known as spikes and dips. Spikes and dips can be monitored using the Machine Learning based operator, [AnomalyDetection_SpikeAndDip](/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics).
 
 ![Example of spike and dip anomaly](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
 
@@ -68,7 +68,7 @@ FROM AnomalyDetectionStep
 
 Persistent anomalies in a time series event stream are changes in the distribution of values in the event stream, like level changes and trends. In Stream Analytics, such anomalies are detected using the Machine Learning based [AnomalyDetection_ChangePoint](/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) operator.
 
-Persistent changes last much longer than spikes and dips and could indicate catastrophic event(s). Persistent changes are not usually visible to the naked eye, but can be detected with the **AnomalyDetection_ChangePoint** operator.
+Persistent changes last much longer than spikes and dips and could indicate catastrophic event(s). Persistent changes aren't usually visible to the naked eye, but can be detected with the **AnomalyDetection_ChangePoint** operator.
 
 The following image is an example of a level change:
 
@@ -114,14 +114,14 @@ The performance of these models depends on the history size, window duration, ev
 ### Relationship
 The history size, window duration, and total event load are related in the following way:
 
-windowDuration (in ms) = 1000 * historySize / (Total Input Events Per Sec / Input Partition Count)
+windowDuration (in ms) = 1000 * historySize / (total input events per second / Input Partition Count)
 
 When partitioning the function by deviceId, add "PARTITION BY deviceId" to the anomaly detection function call.
 
 ### Observations
 The following table includes the throughput observations for a single node (6 SU) for the non-partitioned case:
 
-| History size (events)    | Window duration (ms) | Total input events per sec |
+| History size (events)    | Window duration (ms) | Total input events per second |
 | --------------------- | -------------------- | -------------------------- |
 | 60 | 55 | 2,200 |
 | 600 | 728 | 1,650 |
@@ -129,7 +129,7 @@ The following table includes the throughput observations for a single node (6 SU
 
 The following table includes the throughput observations for a single node (6 SU) for the partitioned case:
 
-| History size (events) | Window duration (ms) | Total input events per sec | Device count |
+| History size (events) | Window duration (ms) | Total input events per second | Device count |
 | --------------------- | -------------------- | -------------------------- | ------------ |
 | 60 | 1,091 | 1,100 | 10 |
 | 600 | 10,910 | 1,100 | 10 |
@@ -138,13 +138,13 @@ The following table includes the throughput observations for a single node (6 SU
 | 600 | 218,182 | 550 | 100 |
 | 6,000 | 2,181,819 | <550 | 100 |
 
-Sample code to run the non-partitioned configurations above is located in the [Streaming At Scale repo](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/anomalydetection/create-solution.sh) of Azure Samples. The code creates a stream analytics job with no function level partitioning, which uses Event Hub as input and output. The input load is generated using test clients. Each input event is a 1KB json document. Events simulate an IoT device sending JSON data (for up to 1K devices). The history size, window duration, and total event load are varied over 2 input partitions.
+Sample code to run the non-partitioned configurations above is located in the [Streaming At Scale repo](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/anomalydetection/create-solution.sh) of Azure Samples. The code creates a stream analytics job with no function level partitioning, which uses Event Hubs as input and output. The input load is generated using test clients. Each input event is a 1KB json document. Events simulate an IoT device sending JSON data (for up to 1K devices). The history size, window duration, and total event load are varied over 2 input partitions.
 
 > [!Note]
 > For a more accurate estimate, customize the samples to fit your scenario.
 
 ### Identifying bottlenecks
-Use the Metrics pane in your Azure Stream Analytics job to identify bottlenecks in your pipeline. Review **Input/Output Events** for throughput and ["Watermark Delay"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) or **Backlogged Events** to see if the job is keeping up with the input rate. For Event Hub metrics, look for **Throttled Requests** and adjust the Threshold Units accordingly. For Cosmos DB metrics, review **Max consumed RU/s per partition key range** under Throughput to ensure your partition key ranges are uniformly consumed. For Azure SQL DB, monitor **Log IO** and **CPU**.
+Use the Metrics pane in your Azure Stream Analytics job to identify bottlenecks in your pipeline. Review **Input/Output Events** for throughput and ["Watermark Delay"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) or **Backlogged Events** to see if the job is keeping up with the input rate. For Event Hub metrics, look for **Throttled Requests** and adjust the Threshold Units accordingly. For Azure Cosmos DB metrics, review **Max consumed RU/s per partition key range** under Throughput to ensure your partition key ranges are uniformly consumed. For Azure SQL DB, monitor **Log IO** and **CPU**.
 
 ## Next steps
 

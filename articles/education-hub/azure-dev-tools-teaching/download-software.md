@@ -6,7 +6,6 @@ ms.author: rymend
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.service: azure-education
-ms.subservice: education-hub
 ---
 
 # Help students download software developer tools from the Azure Education Hub
@@ -31,5 +30,5 @@ Have your students follow this procedure to download the software developer tool
 - [Get help with login errors](troubleshoot-login.md)
 - [Azure for Students](azure-students-program.md)
 - [Azure for Students Starter](azure-students-starter-program.md)
-- [Microsoft Learn: a free online learning platform](/learn/)
+- [Microsoft Learn training](/training/)
 - [Frequently asked questions](./program-faq.yml)

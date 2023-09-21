@@ -1,12 +1,12 @@
 ---
 title: Purge history operation for Azure API for FHIR
 description: This article describes the $purge-history operation for Azure API for FHIR.
-author: stevewohl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 05/05/2022
-ms.author: mikaelw
+ms.date: 06/03/2022
+ms.author: kesheth
 ---
 
 # Purge history operation for Azure API for FHIR
@@ -42,3 +42,5 @@ In this article, you learned how to purge the history for resources in Azure API
 
 >[!div class="nextstepaction"]
 >[FHIR REST API capabilities for Azure API for FHIR](fhir-rest-api-capabilities.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

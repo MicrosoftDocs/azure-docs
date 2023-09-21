@@ -1,16 +1,18 @@
 ---
-title: Work with account keys and connection strings for an Azure Cosmos account
-description: Work with account keys and connection strings for an Azure Cosmos account
-author: markjbrown
-ms.author: mjbrown
+title: Work with account keys and connection strings for an Azure Cosmos DB account
+description: Work with account keys and connection strings for an Azure Cosmos DB account
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
+ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: sample
 ms.date: 02/21/2022
 ---
 
-# Work with account keys and connection strings for an Azure Cosmos account using Azure CLI
+# Work with account keys and connection strings for an Azure Cosmos DB account using Azure CLI
 
-[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](../../../includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 The script in this article demonstrates four operations.
 
@@ -19,11 +21,11 @@ The script in this article demonstrates four operations.
 - List connection strings
 - Regenerate account keys
 
- This script uses a SQL (Core) API account, but these operations are identical across all database APIs in Cosmos DB.
+ This script uses a API for NoSQL account, but these operations are identical across all database APIs in Azure Cosmos DB.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.9.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -65,6 +67,6 @@ For Azure CLI samples for specific APIs see:
 
 - [CLI Samples for Cassandra](../../../cassandra/cli-samples.md)
 - [CLI Samples for Gremlin](../../../graph/cli-samples.md)
-- [CLI Samples for MongoDB API](../../../mongodb/cli-samples.md)
+- [CLI Samples for API for MongoDB](../../../mongodb/cli-samples.md)
 - [CLI Samples for SQL](../../../sql/cli-samples.md)
 - [CLI Samples for Table](../../../table/cli-samples.md)

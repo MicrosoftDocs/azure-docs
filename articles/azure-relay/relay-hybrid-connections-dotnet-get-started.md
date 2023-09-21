@@ -1,16 +1,15 @@
 ---
 title: Azure Relay Hybrid Connections - WebSockets in .NET
 description: Write a C# console application for Azure Relay Hybrid Connections WebSockets.
-ms.topic: conceptual
+ms.topic: tutorial
 ms.custom: devx-track-dotnet, mode-ui, mode-api
-ms.date: 06/23/2021
+ms.date: 08/10/2023
 ---
 
 # Get started with Relay Hybrid Connections WebSockets in .NET
 [!INCLUDE [relay-selector-hybrid-connections](./includes/relay-selector-hybrid-connections.md)]
 
-In this quickstart, you create .NET sender and receiver applications that send and receive messages by using Hybrid Connections WebSockets in Azure Relay. 
-To learn about Azure Relay in general, see [Azure Relay](relay-what-is-it.md). 
+In this quickstart, you create .NET sender and receiver applications that send and receive messages by using Hybrid Connections WebSockets in Azure Relay. To learn about Azure Relay in general, see [Azure Relay](relay-what-is-it.md). 
 
 In this quickstart, you take the following steps:
 

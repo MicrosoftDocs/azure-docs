@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
-ms.date: 05/12/2022
+ms.date: 06/03/2023
 ms.author: ryanwi
 ms.reviewer: ludwignick
 ms.custom: has-adal-ref
@@ -26,7 +26,49 @@ Check this article regularly to learn about:
 - Deprecated functionality
 
 > [!TIP]
-> To be notified of updates to this page, add this URL to your RSS feed reader:<br/>`https://docs.microsoft.com/api/search/rss?search=%22Azure+Active+Directory+breaking+changes+reference%22&locale=en-us`
+> To be notified of updates to this page, add this URL to your RSS feed reader:<br/>`https://learn.microsoft.com/api/search/rss?search=%22Azure+Active+Directory+breaking+changes+reference%22&locale=en-us`
+
+## June 2023
+
+### Omission of email claims with an unverified domain owner
+
+**Effective date**: June 2023
+
+**Endpoints impacted**: v2.0 and v1.0
+
+**Change**
+
+For **multi-tenant applications**, emails that aren't domain-owner verified are omitted by default when the optional `email` claim is requested in a token payload.
+
+An email is considered to be domain-owner verified if:
+
+1. The domain belongs to the tenant where the user account resides, and the tenant admin has done verification of the domain.
+1. The email is from a Microsoft Account (MSA).
+1. The email is from a Google account.
+1. The email was used for authentication using the one-time passcode (OTP) flow.
+
+It should also be noted that Facebook and SAML/WS-Fed accounts do not have verified domains.
+
+## May 2023
+
+### The Power BI administrator role will be renamed to Fabric Administrator.
+
+**Effective date**: June 2023
+
+**Endpoints impacted**: 
+-	List roleDefinitions - Microsoft Graph v1.0
+-	List directoryRoles - Microsoft Graph v1.0
+
+**Change**
+
+The Power BI Administrator role will be renamed to Fabric Administrator.  
+ 
+On May 23, 2023, Microsoft unveiled Microsoft Fabric, which provides a Data Factory-powered data integration experience, Synapse-powered data engineering, data warehouse, data science, and real-time analytics experiences and business intelligence (BI) with Power BI — all hosted on a lake-centric SaaS solution. The tenant and capacity administration for these experiences are centralized in the Fabric Admin portal (previously known as the Power BI admin portal).  
+
+Starting June 2023, the Power BI Administrator role will be renamed to Fabric Administrator to align with the changing scope and responsibility of this role. All applications including Azure Active Directory, Microsoft Graph APIs, Microsoft 365, and GDAP will start to reflect the new role name over the course of several weeks. 
+ 
+As a reminder, your application code and scripts shouldn't make decisions based on role name or display name.
+
 
 ## December 2021
 
@@ -65,7 +107,7 @@ Error 50105 (the current designation) is emitted when an unassigned user attempt
 
 The error scenario has been updated, so that during non-interactive authentication (where `prompt=none` is used to hide UX), the app will be instructed to perform interactive authentication using an `interaction_required` error response. In the subsequent interactive authentication, Azure AD will now hold the user and show an error message directly, preventing a loop from occurring.
 
-As a reminder, your application code shouldn't make decisions based on error code strings like `AADSTS50105`. Instead, [follow our error-handling guidance](reference-aadsts-error-codes.md#handling-error-codes-in-your-application) and use the [standardized authentication responses](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) like `interaction_required` and `login_required` found in the standard `error` field in the response. The other response fields are intended for consumption only by humans troubleshooting their issues.
+As a reminder, your application code shouldn't make decisions based on error code strings like `AADSTS50105`. Instead, [follow our error-handling guidance](reference-error-codes.md#handling-error-codes-in-your-application) and use the [standardized authentication responses](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) like `interaction_required` and `login_required` found in the standard `error` field in the response. The other response fields are intended for consumption only by humans troubleshooting their issues.
 
 You can review the current text of the 50105 error and more on the error lookup service: https://login.microsoftonline.com/error?code=50105.
 
@@ -99,7 +141,7 @@ If a request fails the validation check, the application API for create/update w
 
 **Endpoints impacted**: v2.0
 
-**Protocol impacted**: All flows using [dynamic consent](v2-permissions-and-consent.md#requesting-individual-user-consent)
+**Protocol impacted**: All flows using [dynamic consent](./permissions-consent-overview.md#requesting-individual-user-consent)
 
 Applications using dynamic consent today are given all the permissions they have consent for, even if they weren't requested by name in the `scope` parameter. An app requesting only `user.read` but with consent to `files.read` can be forced to pass the Conditional Access requirement assigned for `files.read`, for example.
 
@@ -107,7 +149,7 @@ To reduce the number of unnecessary Conditional Access prompts, Azure AD is chan
 
 Apps will now receive access tokens with a mix of permissions: requested tokens and those they have consent for that don't require Conditional Access prompts. The scope of access for the token is reflected in the token response's `scope` parameter.
 
-This change will be made for all apps except those with an observed dependency on this behavior. Developers will receive outreach if they're exempted from this change, as them may have a dependency on the additional conditional access prompts.
+This change will be made for all apps except those with an observed dependency on this behavior. Developers will receive outreach if they're exempted from this change, as them may have a dependency on the additional Conditional Access prompts.
 
 **Examples**
 
@@ -132,7 +174,7 @@ To help prevent phishing attacks, the device code flow now includes a prompt tha
 
 The prompt that appears looks like this:
 
-:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="New prompt, reading 'Are you trying to sign into the Azure CLI?'":::
+:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="New prompt, reading 'Are you trying to sign in to the Azure CLI?'":::
 
 ## May 2020
 
@@ -220,9 +262,9 @@ Today, `?e=    "f"&g=h` is parsed identically as `?e=f&g=h` - so `e` == `f`. Wit
 
 **Effective date**: July 26, 2019
 
-**Endpoints impacted**: Both [v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) and [v2.0](./v2-oauth2-client-creds-grant-flow.md)
+**Endpoints impacted**: Both v1.0 and [v2.0](./v2-oauth2-client-creds-grant-flow.md)
 
-**Protocol impacted**: [Client Credentials (app-only tokens)](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)
+**Protocol impacted**: Client Credentials (app-only tokens)
 
 A security change took effect on July 26, 2019 changing the way app-only tokens (via the client credentials grant) are issued. Previously, applications were allowed to get tokens to call any other app, regardless of presence in the tenant or roles consented to for that application. This behavior has been updated so that for resources (sometimes called web APIs) set to be single-tenant (the default), the client application must exist within the resource tenant. Existing consent between the client and the API is still not required, and apps should still be doing their own authorization checks to ensure that a `roles` claim is present and contains the expected value for the API.
 

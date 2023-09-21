@@ -13,8 +13,6 @@ ms.author: yelevin
 
 # Microsoft Sentinel security alert schema reference
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Sentinel [analytics rules](detect-threats-built-in.md) create incidents as the result of **security alerts**. Security alerts can come from different sources, and accordingly use different kinds of analytics rules to create incidents:
 
 - **Scheduled** analytics rules generate alerts as the result of their regular queries of data in logs ingested from external sources, and those same rules create incidents from those alerts. (For the purposes of this document, "scheduled" rule alerts include **NRT rule alerts**.)

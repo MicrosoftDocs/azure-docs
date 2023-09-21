@@ -2,7 +2,11 @@
 title: Troubleshoot slow backup of files and folders
 description: Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues
 ms.topic: troubleshooting
-ms.date: 07/05/2019
+ms.date: 12/28/2022
+ms.service: backup
+ms.custom: engagement-fy23
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Troubleshoot slow backup of files and folders in Azure Backup
 
@@ -26,7 +30,7 @@ We also strongly recommend that you review the [Azure Backup service FAQ](backup
 * Unoptimized mode is slow because the agent has to scan each and every file on the volume and compare against the metadata to determine the changed files.
 * To verify this, open **Job Details** from the MARS agent console  and check the status to see if it says **Transferring data (unoptimized, may take more time)** as shown below:
 
-    ![Running in unoptimized mode](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
+    ![Screenshot shows backup jobs running in unoptimized mode.](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
 
 * The following conditions can cause the backup job to run in unoptimized mode:
   * First backup (also known as Initial Replication) will always run in unoptimized mode

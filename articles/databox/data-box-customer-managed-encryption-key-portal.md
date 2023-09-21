@@ -2,11 +2,11 @@
 title: Use the Azure portal to manage customer-managed keys for Azure Data Box
 description: Learn how to use Azure portal to create and manage customer-managed keys with Azure Key Vault for an Azure Data Box. Customer-managed keys let you create, rotate, disable, and revoke access controls.
 services: databox
-author: alkohli
+author: stevenmatthew
 ms.service: databox
 ms.topic: how-to
 ms.date: 01/13/2022
-ms.author: alkohli
+ms.author: shaas
 ms.subservice: pod
 ms.custom: contperf-fy22q3
 ---
@@ -201,7 +201,7 @@ If you receive any errors related to your customer-managed key, use the followin
 | SsemUserErrorKeyVaultBadRequestException | Applied a customer-managed key, but key access has not been granted or has been revoked, or the key vault couldn't be accessed because a firewall is enabled. | Add the identity selected to your key vault to enable access to the customer-managed key. If the key vault has a firewall enabled, switch to a system-assigned identity and then add a customer-managed key. For more information, see how to [Enable the key](#enable-key). |
 | SsemUserErrorEncryptionKeyTypeNotSupported | The encryption key type isn't supported for the operation. | Enable a supported encryption type on the key - for example, RSA or RSA-HSM. For more information, see [Key types, algorithms, and operations](../key-vault/keys/about-keys-details.md). |
 | SsemUserErrorSoftDeleteAndPurgeProtectionNotEnabled | Key vault does not have soft delete or purge protection enabled. | Ensure that both soft delete and purge protection are enabled on the key vault. |
-| SsemUserErrorInvalidKeyVaultUrl<br>(Command-line only) | An invalid key vault URI was used. | Get the correct key vault URI. To get the key vault URI, use [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-7.1.0) in PowerShell.  |
+| SsemUserErrorInvalidKeyVaultUrl<br>(Command-line only) | An invalid key vault URI was used. | Get the correct key vault URI. To get the key vault URI, use [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) in PowerShell.  |
 | SsemUserErrorKeyVaultUrlWithInvalidScheme | Only HTTPS is supported for passing the key vault URI. | Pass the key vault URI over HTTPS. |
 | SsemUserErrorKeyVaultUrlInvalidHost | The key vault URI host is not an allowed host in the geographical region. | In the public cloud, the key vault URI should end with `vault.azure.net`. In the Azure Government cloud, the key vault URI should end with `vault.usgovcloudapi.net`. |  
 | Generic error  | Could not fetch the passkey. | This error is a generic error. Contact Microsoft Support to troubleshoot the error and determine the next steps.|

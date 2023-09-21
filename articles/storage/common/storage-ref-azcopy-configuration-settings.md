@@ -1,12 +1,12 @@
 ---
-title: AzCopy v10 configuration setting (Azure Storage) | Microsoft Docs
+title: AzCopy v10 configuration setting (Azure Storage)
 description: This article provides reference information for AzCopy V10 configuration settings.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: reference
-ms.date: 04/02/2021
+ms.date: 02/28/2023
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
 ---
 
@@ -36,6 +36,8 @@ The following table describes each environment variable and provides links to co
 |
 | AZCOPY_DEFAULT_SERVICE_API_VERSION | Overrides the service API version so that AzCopy could accommodate custom environments such as Azure Stack. |
 | AZCOPY_DISABLE_HIERARCHICAL_SCAN | Applies only when Azure Blobs is the source. Concurrent scanning is faster but employs the hierarchical listing API, which can result in more IOs/cost. Specify 'true' to sacrifice performance but save on cost. |
+| AZCOPY_DISABLE_SYSLOG | Disables logging in Syslog or the Windows Event Logger. By default, AzCopy sends logs to these channels. You can set this variable to true if you want to reduce the noise in Syslog or the Windows Event Log. |
+| AZCOPY_DOWNLOAD_TO_TEMP_PATH | Configures AzCopy to download to a temp path before the actual download. Allowed values are true or false|
 | AZCOPY_JOB_PLAN_LOCATION | Overrides where the job plan files (used for progress tracking and resuming) are stored, to avoid filling up a disk. |
 | AZCOPY_LOG_LOCATION | Overrides where the log files are stored, to avoid filling up a disk. |
 | AZCOPY_MSI_CLIENT_ID | The client ID of a user-assigned managed identity. Use when `AZCOPY_AUTO_LOGIN_TYPE` is set to `MSI`. See [Authorize without a secret store](storage-use-azcopy-authorize-azure-active-directory.md#authorize-without-a-secret-store) |
@@ -43,6 +45,7 @@ The following table describes each environment variable and provides links to co
 | AZCOPY_MSI_RESOURCE_STRING | The resource ID of the user-assigned managed identity. See [Authorize without a secret store](storage-use-azcopy-authorize-azure-active-directory.md#authorize-without-a-secret-store) |
 | AZCOPY_PACE_PAGE_BLOBS | Should throughput for page blobs automatically be adjusted to match Service limits? Default is true. Set to 'false' to disable |
 | AZCOPY_PARALLEL_STAT_FILES | Causes AzCopy to look up file properties on parallel 'threads' when scanning the local file system.  The threads are drawn from the pool defined by AZCOPY_CONCURRENT_SCAN.  Setting this to true may improve scanning performance on Linux.  Not needed or recommended on Windows. |
+| AZCOPY_REQUEST_TRY_TIMEOUT | Set the number of minutes that AzCopy should try to upload files for each request before AzCopy times out. |
 | AZCOPY_SHOW_PERF_STATES | If set, to anything, on-screen output will include counts of chunks by state |
 | AZCOPY_SPA_APPLICATION_ID | The application ID of your service principal's app registration. Use when `AZCOPY_AUTO_LOGIN_TYPE` is set to `SPN`. See [Authorize without a secret store](storage-use-azcopy-authorize-azure-active-directory.md#authorize-without-a-secret-store) |
 | AZCOPY_SPA_CERT_PASSWORD | The password of a certificate. Use when `AZCOPY_AUTO_LOGIN_TYPE` is set to `SPN`. See [Authorize without a secret store](storage-use-azcopy-authorize-azure-active-directory.md#authorize-without-a-secret-store) |
@@ -51,7 +54,10 @@ The following table describes each environment variable and provides links to co
 | AZCOPY_TENANT_ID | The Azure Active Directory tenant ID to use for OAuth device interactive login. This variable is only used for auto login, please use the command line flag instead when invoking the login command. |
 | AZCOPY_TUNE_TO_CPU | Set to false to prevent AzCopy from taking CPU usage into account when autotuning its concurrency level (for example, in the benchmark command). |
 | AZCOPY_USER_AGENT_PREFIX | Add a prefix to the default AzCopy User Agent, which is used for telemetry purposes. A space is automatically inserted. |
+| CPK_ENCRYPTION_KEY | A Base64-encoded AES-256 encryption key value. This variable is required for both read and write requests when using Customer Provided Keys to encrypt and decrypt data on Blob storage operations. You can use Customer Provided Keys by setting the `--cpk-by-value=true` flag. |
+| CPK_ENCRYPTION_KEY_SHA256 | The Base64-encoded SHA256 of the encryption key. This variable is required for both read and write requests when using Customer Provided Keys to encrypt and decrypt data on Blob storage operations. You can use Customer Provided Keys by setting the `--cpk-by-value=true` flag.  |
 | GOOGLE_APPLICATION_CREDENTIALS | The absolute path to the service account key file Provides a key to authorize with Google Cloud Storage. [Copy data from Google Cloud Storage to Azure Storage by using AzCopy (preview)](storage-ref-azcopy-configuration-settings.md) |
+| GOOGLE_CLOUD_PROJECT | Project ID required for service level traversals in Google Cloud Storage. |
 | HTTPS_PROXY | Configures proxy settings for AzCopy. Set this variable to the proxy IP address and proxy port number. For example, `xx.xxx.xx.xxx:xx`. If you run AzCopy on Windows, AzCopy automatically detects proxy settings, so you don't have to use this setting in Windows. If you choose to use this setting in Windows, it will override automatic detection. See [Configure proxy settings](#configure-proxy-settings) |
 
 ## Configure proxy settings

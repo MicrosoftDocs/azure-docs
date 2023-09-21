@@ -2,8 +2,8 @@
 title: How to secure a daemon application in Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: This article describes how to host daemon applications, such as background processes, timers, and jobs in a trusted and secure environment in Microsoft Azure Maps.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -73,11 +73,11 @@ Some managed identity benefits are:
 
 ### Host a daemon on non-Azure resources
 
-When running on a non-Azure environment, managed identities aren't available. As such, you must configure a service principal through an Azure AD application registration for the daemon application.
+Managed identities are only available when running on an Azure environment. As such, you must configure a service principal through an Azure AD application registration for the daemon application.
 
 #### Create new application registration
 
-If you've already created your application registration, go to [Assign delegated API permissions](#assign-delegated-api-permissions).
+If you have already created your application registration, go to [Assign delegated API permissions](#assign-delegated-api-permissions).
 
 To create a new application registration:
 
@@ -169,7 +169,7 @@ To create a client secret:
 
    :::image type="content" border="true" source="./media/how-to-manage-authentication/new-client-secret-add.png" alt-text="Add new client secret.":::
 
-5. Copy the secret and store it securely in a service such as Azure Key Vault. Also, We'll use the secret in the [Request token with Managed Identity](#request-a-token-with-managed-identity) section of this article.
+5. Copy the secret and store it securely in a service such as Azure Key Vault. Also, use the secret in the [Request token with Managed Identity](#request-a-token-with-managed-identity) section of this article.
 
       :::image type="content" border="true" source="./media/how-to-manage-authentication/copy-client-secret.png" alt-text="Copy client secret.":::
 
@@ -200,7 +200,7 @@ To acquire the access token:
 
       :::image type="content" border="true" source="./media/how-to-manage-authentication/get-token-params.png" alt-text="Copy token parameters.":::
 
-We'll use the [Postman](https://www.postman.com/) application to create the token request, but you can use a different API development environment.
+This article uses the [Postman](https://www.postman.com/) application to create the token request, but you can use a different API development environment.
 
 1. In the Postman app, select **New**.
 
@@ -213,7 +213,7 @@ We'll use the [Postman](https://www.postman.com/) application to create the toke
 5. Enter the following URL to address bar (replace `{Tenant-ID}` with the Directory (Tenant) ID, the `{Client-ID}` with the Application (Client) ID, and `{Client-Secret}` with your client secret:
 
     ```http
-    https://login.microsoftonline.com/{Tenant-ID}/oauth2/v2.0/token?response_type=token&grant_type=client_credentials&client_id={Client-ID}&client_secret={Client-Secret}%3D&scope=api%3A%2F%2Fazmaps.fundamentals%2F.default
+    https://login.microsoftonline.com/{Tenant-ID}/oauth2/v2.0/token?response_type=token&grant_type=client_credentials&client_id={Client-ID}&client_secret={Client-Secret}%3D&scope=https://atlas.microsoft.com/.default
     ```
 
 6. Select **Send**

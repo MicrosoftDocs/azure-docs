@@ -2,16 +2,19 @@
 title: Iterative loops in Bicep
 description: Use loops to iterate over collections in Bicep
 ms.topic: conceptual
-ms.date: 12/02/2021
+ms.custom: devx-track-bicep
+ms.date: 08/07/2023
 ---
 
 # Iterative loops in Bicep
 
 This article shows you how to use the `for` syntax to iterate over items in a collection. This functionality is supported starting in v0.3.1 onward. You can use loops to define multiple copies of a resource, module, variable, property, or output. Use loops to avoid repeating syntax in your Bicep file and to dynamically set the number of copies to create during deployment. To go through a quickstart, see [Quickstart: Create multiple instances](./quickstart-loops.md).
 
-### Microsoft Learn
+To use loops to create multiple resources or modules, each instance must have a unique value for the name property. You can use the index value or unique values in arrays or collections to create the names.
 
-If you would rather learn about loops through step-by-step guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) on **Microsoft Learn**.
+### Training resources
+
+If you would rather learn about loops through step-by-step guidance, see [Build flexible Bicep templates by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/).
 
 ## Loop syntax
 
@@ -61,9 +64,10 @@ Loops can be declared by:
 
 Using loops in Bicep has these limitations:
 
+- Bicep loops only work with values that can be determined at the start of deployment.
 - Loop iterations can't be a negative number or exceed 800 iterations.
 - Can't loop a resource with nested child resources. Change the child resources to top-level resources.  See [Iteration for a child resource](#iteration-for-a-child-resource).
-- Can't loop on multiple levels of properties.
+- To loop on multiple levels of properties, use the [lambda map function](./bicep-functions-lambda.md#map).
 
 ## Integer index
 
@@ -95,7 +99,7 @@ The next example creates the number of storage accounts specified in the `storag
 param location string = resourceGroup().location
 param storageCount int = 2
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2021-06-01' = [for i in range(0, storageCount): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2022-09-01' = [for i in range(0, storageCount): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -128,11 +132,15 @@ module stgModule './storageAccount.bicep' = [for i in range(0, storageCount): {
     location: location
   }
 }]
+
+output storageAccountEndpoints array = [for i in range(0, storageCount): {
+  endpoint: stgModule[i].outputs.storageEndpoint
+}]
 ```
 
 ## Array elements
 
-The following example creates one storage account for each name provided in the `storageNames` parameter.
+The following example creates one storage account for each name provided in the `storageNames` parameter. Note the name property for each resource instance must be unique.
 
 ```bicep
 param location string = resourceGroup().location
@@ -142,7 +150,7 @@ param storageNames array = [
   'coho'
 ]
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2021-06-01' = [for name in storageNames: {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2022-09-01' = [for name in storageNames: {
   name: '${name}${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -152,7 +160,7 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-06-01' = [for name 
 }]
 ```
 
-The next example iterates over an array to define a property. It creates two subnets within a virtual network.
+The next example iterates over an array to define a property. It creates two subnets within a virtual network. Note the subnet names must be unique.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/loops/loopproperty.bicep" highlight="23-28" :::
 
@@ -174,7 +182,7 @@ var storageConfigurations = [
   }
 ]
 
-resource storageAccountResources 'Microsoft.Storage/storageAccounts@2021-06-01' = [for (config, i) in storageConfigurations: {
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2022-09-01' = [for (config, i) in storageConfigurations: {
   name: '${storageAccountNamePrefix}${config.suffix}${i}'
   location: resourceGroup().location
   sku: {
@@ -208,7 +216,7 @@ output deployedNSGs array = [for (name, i) in orgNames: {
 
 ## Dictionary object
 
-To iterate over elements in a dictionary object, use the [items function](bicep-functions-object.md#items), which converts the object to an array. Use the `value` property to get properties on the objects.
+To iterate over elements in a dictionary object, use the [items function](bicep-functions-object.md#items), which converts the object to an array. Use the `value` property to get properties on the objects. Note the nsg resource names must be unique.
 
 ```bicep
 param nsgValues object = {
@@ -276,7 +284,7 @@ To serially deploy instances of a resource, add the [batchSize decorator](./file
 param location string = resourceGroup().location
 
 @batchSize(2)
-resource storageAcct 'Microsoft.Storage/storageAccounts@2021-06-01' = [for i in range(0, 4): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2022-09-01' = [for i in range(0, 4): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -297,7 +305,7 @@ You can't use a loop for a nested child resource. To create more than one instan
 For example, suppose you typically define a file service and file share as nested resources for a storage account.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2021-06-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -318,7 +326,7 @@ To create more than one file share, move it outside of the storage account. You 
 The following example shows how to create a storage account, file service, and more than one file share:
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2021-06-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -337,6 +345,81 @@ resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2021-06-01
   parent: service
 }]
 ```
+
+## Reference resource/module collections
+
+The ARM template [`references`](../templates/template-functions-resource.md#references) function returns an array of objects representing a resource collection's runtime states. In Bicep, there is no explicit references function. Instead, symbolic collection usage is employed directly, and during code generation, Bicep translates it to an ARM template that utilizes the ARM template references function. For the translation feature that transforms symbolic collections into ARM templates using the references function, it is necessary to have Bicep CLI version 0.20.4 or a more recent version. Additionally, in the [`bicepconfig.json`](./bicep-config.md#enable-experimental-features) file, the `symbolicNameCodegen` setting should be presented and set to `true`.
+
+The outputs of the two samples in [Integer index](#integer-index) can be written as:
+
+```bicep
+param location string = resourceGroup().location
+param storageCount int = 2
+
+resource storageAcct 'Microsoft.Storage/storageAccounts@2022-09-01' = [for i in range(0, storageCount): {
+  name: '${i}storage${uniqueString(resourceGroup().id)}'
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'Storage'
+}]
+
+output storageInfo array = map(storageAcct, store => {
+  blobEndpoint: store.properties.primaryEndpoints
+  status: store.properties.statusOfPrimary
+})
+
+output storageAccountEndpoints array = map(storageAcct, store => store.properties.primaryEndpoints)
+```
+
+This Bicep file is transpiled into the following ARM JSON template that utilizes the `references` function:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "1.10-experimental",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "storageCount": {
+      "type": "int",
+      "defaultValue": 2
+    }
+  },
+  "resources": {
+    "storageAcct": {
+      "copy": {
+        "name": "storageAcct",
+        "count": "[length(range(0, parameters('storageCount')))]"
+      },
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2022-09-01",
+      "name": "[format('{0}storage{1}', range(0, parameters('storageCount'))[copyIndex()], uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage"
+    }
+  },
+  "outputs": {
+    "storageInfo": {
+      "type": "array",
+      "value": "[map(references('storageAcct', 'full'), lambda('store', createObject('blobEndpoint', lambdaVariables('store').properties.primaryEndpoints, 'status', lambdaVariables('store').properties.statusOfPrimary)))]"
+    },
+    "storageAccountEndpoints": {
+      "type": "array",
+      "value": "[map(references('storageAcct', 'full'), lambda('store', lambdaVariables('store').properties.primaryEndpoints))]"
+    }
+  }
+}
+```
+
+Note in the preceding ARM JSON template, `languageVersion` must be set to `1.10-experimental`, and the resource element is an object instead of an array.
 
 ## Next steps
 

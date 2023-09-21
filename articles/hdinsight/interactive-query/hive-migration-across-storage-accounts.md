@@ -1,12 +1,11 @@
 ---
 title: Hive workload migration to new account in Azure Storage
 description: Hive workload migration to new account in Azure Storage
-author: kevxmsft
-ms.author: kevx
-ms.reviewer: 
+author: reachnijel
+ms.author: nijelsf
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 09/19/2023
 ---
 
 # Hive workload migration to new account in Azure Storage

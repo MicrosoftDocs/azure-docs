@@ -1,8 +1,8 @@
 ---
 title: Configure the Microsoft OPC Publisher
 description: In this tutorial, you learn how to configure the OPC Publisher in standalone mode.
-author: jehona-m
-ms.author: jemorina
+author: hansgschossmann
+ms.author: johanng
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
@@ -42,7 +42,7 @@ To persist the security configuration of OPC Publisher, the certificate store mu
 
 ## Configuration via Configuration File
 
-The simplest way to configure OPC Publisher is via a configuration file. An example configuration file and format documentation are provided in the file [`publishednodes.json`](https://raw.githubusercontent.com/Azure/Industrial-IoT/main/components/opc-ua/src/Microsoft.Azure.IIoT.OpcUa.Edge.Publisher/tests/Engine/publishednodes.json) in this repository.
+The simplest way to configure OPC Publisher is via a configuration file. An example configuration file and format documentation are provided in the file [`publishednodes.json`](https://raw.githubusercontent.com/Azure/Industrial-IoT/main/src/Azure.IIoT.OpcUa.Publisher/tests/Publisher/publishednodes.json) in this repository.
 Configuration file syntax has changed over time. OPC Publisher still can read old formats, but converts them into the latest format when writing the file.
 
 A basic configuration file looks like this:
@@ -121,7 +121,7 @@ OPC Publisher implements the following [IoT Hub Direct Methods](../iot-hub/iot-h
 >[!NOTE]
 > This feature is only available in version 2.6 and above of OPC Publisher.
 
-A cloud-based, companion microservice with a REST interface is described and available [here](https://github.com/Azure/Industrial-IoT/blob/main/docs/services/publisher.md). It can be used to configure OPC Publisher via an OpenAPI-compatible interface, for example through Swagger.
+A cloud-based, companion microservice with a REST interface is described and available [here](https://github.com/Azure/Industrial-IoT/tree/main/docs/opc-publisher). It can be used to configure OPC Publisher via an OpenAPI-compatible interface, for example through Swagger.
 
 ## Configuration of the simple JSON telemetry format via Separate Configuration File
 

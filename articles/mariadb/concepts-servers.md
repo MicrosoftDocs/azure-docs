@@ -1,13 +1,16 @@
 ---
 title: Servers - Azure Database for MariaDB
 description: This topic provides considerations and guidelines for working with Azure Database for MariaDB servers.
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 06/24/2022
 ---
 # Server concepts in Azure Database for MariaDB
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 This article provides considerations and guidelines for working with Azure Database for MariaDB servers.
 
 ## What is an Azure Database for MariaDB server?
@@ -40,6 +43,7 @@ The following elements help ensure safe access to your database.
 | **SSL** | The service supports enforcing SSL connections between your applications and your database server. See [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md). |
 
 ## Stop/Start an Azure Database for MariaDB (Preview)
+
 Azure Database for MariaDB gives you the ability to **Stop** the server when not in use and **Start** the server when you resume activity. This is essentially done to save costs on the database servers and only pay for the resource when in use. This becomes even more important for dev-test workloads and when you are only using the server for part of the day. When you stop the server, all active connections will be dropped. Later, when you want to bring the server back online, you can either use the [Azure portal](../mysql/how-to-stop-start-server.md) or [CLI](../mysql/how-to-stop-start-server.md).
 
 When the server is in the **Stopped** state, the server's compute is not billed. However, storage continues to to be billed as the server's storage remains to ensure that data files are available when the server is started again.
@@ -50,12 +54,15 @@ When the server is in the **Stopped** state, the server's compute is not billed.
 During the time server is stopped, no management operations can be performed on the server. In order to change any configuration settings on the server, you will need to [start the server](../mysql/how-to-stop-start-server.md).
 
 ### Limitations of Stop/start operation
+
 - Not supported with read replica configurations (both source and replicas).
 
 ## How do I manage a server?
+
 You can manage Azure Database for MariaDB servers by using the Azure portal or the Azure CLI.
 
 ## Next steps
+
 - For an overview of the service, see [Azure Database for MariaDB Overview](./overview.md)
 - For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](./concepts-pricing-tiers.md)
 

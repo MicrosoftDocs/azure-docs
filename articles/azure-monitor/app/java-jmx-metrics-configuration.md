@@ -1,17 +1,18 @@
 ---
 title: How to configure JMX metrics - Azure Monitor application insights for Java
-description: Configure additional JMX metrics collection for Azure Monitor application insights Java agent
+description: Configure extra JMX metrics collection for Azure Monitor Application Insights Java agent
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 05/13/2023
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
+ms.reviewer: mmcc
 ---
 
 # Configuring JMX metrics
 
-Application Insights Java 3.x collects some of the JMX metrics by default, but in many cases this is not enough. This document describes the JMX configuration option in details.
+Application Insights Java 3.x collects some of the JMX metrics by default, but in many cases it isn't enough. This document describes the JMX configuration option in details.
 
-## How do I collect additional JMX metrics?
+## How do I collect extra JMX metrics?
 
 JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure portal in application insights resource. Object name and attribute are required for each of the metrics you want collected.
 
@@ -29,16 +30,16 @@ To view the available metrics, set the self-diagnostics level to `DEBUG` in your
 }
 ```
 
-The available JMX metrics, with the object names and attribute names will appear in the application insights log file.
+Available JMX metrics, with object names and attribute names, appear in your Application Insights log file.
 
-The output in the log file will look similar to the example below. In some cases the list can be quite extensive.
-> [!div class="mx-imgBorder"]
-> ![Screenshot of available JMX metrics in the log file.](media/java-ipa/jmx/available-mbeans.png)
+Log file output looks similar to these examples. In some cases, it can be extensive.
+
+> :::image type="content" source="media/java-ipa/jmx/available-mbeans.png" lightbox="media/java-ipa/jmx/available-mbeans.png" alt-text="Screenshot of available JMX metrics in the log file.":::
 
 
 ## Configuration example
 
-Knowing what metrics are available, you can configure the agent to collect those. The first one is an example of a nested metric - `LastGcInfo` that has several properties, and we want to capture the `GcThreadCount`.
+Knowing what metrics are available, you can configure the agent to collect them. The first one is an example of a nested metric - `LastGcInfo` that has several properties, and we want to capture the `GcThreadCount`.
 
 ```json
 "jmxMetrics": [
@@ -60,16 +61,8 @@ Knowing what metrics are available, you can configure the agent to collect those
 ],
 ```
 
-## Types of collected metrics and available configuration options?
-
-We support numeric and boolean JMX metrics, while other types aren't supported and will be ignored. 
-
-Currently, the wildcards and aggregated attributes aren't supported, that's why every attribute 'object name'/'attribute' pair must be configured separately. 
-
-
 ## Where do I find the JMX Metrics in application insights?
 
-As your application is running and the JMX metrics are collected, you can view them by going to Azure portal and navigate to your application insights resource. Under Metrics tab, select the dropdown as shown below to view the metrics.
+You can view the JMX metrics collected while your application is running by navigating to your application insights resource in the Azure portal. Under Metrics tab, select the dropdown as shown to view the metrics.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of metrics in portal](media/java-ipa/jmx/jmx-portal.png)
+> :::image type="content" source="media/java-ipa/jmx/jmx-portal.png" lightbox="media/java-ipa/jmx/jmx-portal.png" alt-text="Screenshot of metrics in portal":::

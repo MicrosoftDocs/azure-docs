@@ -1,10 +1,10 @@
 ---
-title: Configure template to use managed identities on virtual machine scale sets - Azure AD
+title: Configure template to use managed identities on virtual machine scale sets
 description: Step-by-step instructions for configuring managed identities for Azure resources on a virtual machine scale set, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-arm-template
 ---
 
 # Configure managed identities for Azure resources on an Azure virtual machine scale using a template
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, without having credentials in your code.
 
 In this article, you learn how to perform the following managed identities for Azure resources operations on an Azure virtual machine scale set, using Azure Resource Manager deployment template:
 
@@ -35,7 +35,7 @@ In this article, you learn how to perform the following managed identities for A
 - To perform the management operations in this article, your account needs the following Azure role-based access control assignments:
 
     > [!NOTE]
-    > No additional Azure AD directory role assignments required.
+    > No additional Microsoft Entra directory role assignments required.
 
     - [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system and/or user-assigned managed identity from a virtual machine scale set.
     - [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role to create a user-assigned managed identity.
@@ -151,7 +151,7 @@ In this section, you assign a user-assigned managed identity to a virtual machin
        }
 
    }
-   ```   
+   ```
 
    **Microsoft.Compute/virtualMachineScaleSets API version 2017-12-01**
 
@@ -168,12 +168,12 @@ In this section, you assign a user-assigned managed identity to a virtual machin
                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
            ]
        }
-
    }
+   ```
 
 3. When you are done, your template should look similar to the following:
 
-   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**   
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
 
    ```json
    "resources": [
@@ -224,6 +224,7 @@ In this section, you assign a user-assigned managed identity to a virtual machin
         }
     ]
    ```
+
 ### Remove user-assigned managed identity from an Azure virtual machine scale set
 
 If you have a virtual machine scale set that no longer needs a user-assigned managed identity:

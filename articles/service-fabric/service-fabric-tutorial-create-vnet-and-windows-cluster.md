@@ -1,11 +1,15 @@
 ---
 title: Create a Service Fabric cluster running Windows in Azure 
 description: In this tutorial, you learn how to deploy a Windows Service Fabric cluster into an Azure virtual network and network security group by using PowerShell.
-
 ms.topic: tutorial
-ms.date: 07/22/2019
-ms.custom: mvc, devx-track-azurepowershell
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-azurepowershell
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Deploy a Service Fabric cluster running Windows into an Azure virtual network
 
 This tutorial is part one of a series. You learn how to deploy an Azure Service Fabric cluster running Windows into an [Azure virtual network](../virtual-network/virtual-networks-overview.md) and [network security group](../virtual-network/virtual-network-vnet-plan-design-arm.md) by using PowerShell and a template. When you're finished, you have a cluster running in the cloud to which you can deploy applications. To create a Linux cluster that uses the Azure CLI, see [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -43,7 +47,7 @@ Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
-* Install [Azure PowerShell](/powershell/azure/install-az-ps).
+* Install [Azure PowerShell](/powershell/azure/install-azure-powershell).
 * Review the key concepts of [Azure clusters](service-fabric-azure-clusters-overview.md).
 * [Plan and prepare](service-fabric-cluster-azure-deployment-preparation.md) for a production cluster deployment.
 
@@ -106,7 +110,7 @@ The following inbound traffic rules are enabled in the **Microsoft.Network/netwo
 If other application ports are needed, you'll need to adjust the **Microsoft.Network/loadBalancers** resource and the **Microsoft.Network/networkSecurityGroups** resource to allow the traffic in.
 
 ### Windows Defender
-By default, the [Windows Defender antivirus program](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but isn't required. For each node type/VM scale set declared in the template, the [Azure VM Antimalware extension](../virtual-machines/extensions/iaas-antimalware-windows.md) is used to exclude the Service Fabric directories and processes:
+By default, the [Windows Defender antivirus program](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but isn't required. For each node type/VM scale set declared in the template, the [Azure VM Antimalware extension](../virtual-machines/extensions/iaas-antimalware-windows.md) is used to exclude the Service Fabric directories and processes:
 
 ```json
 {
@@ -176,7 +180,7 @@ $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysf
 ```
 
 > [!NOTE]
-> For national clouds (for example Azure Government, Azure China, Azure Germany), specify the `-Location` parameter.
+> For national clouds (for example Azure Government, Microsoft Azure operated by 21Vianet, Azure Germany), specify the `-Location` parameter.
 
 You can find your *TenantId*, or directory ID, in the [Azure portal](https://portal.azure.com). Select **Azure Active Directory** > **Properties** and copy the **Directory ID** value.
 

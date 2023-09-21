@@ -2,7 +2,8 @@
 title: Parameters in templates
 description: Describes how to define parameters in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 01/19/2022
+ms.custom: devx-track-arm-template
+ms.date: 08/22/2023
 ---
 
 # Parameters in ARM templates
@@ -13,8 +14,23 @@ Resource Manager resolves parameter values before starting the deployment operat
 
 Each parameter must be set to one of the [data types](data-types.md).
 
+In addition to minValue, maxValue, minLength, maxLength, and allowedValues, [languageVersion 2.0](./syntax.md#languageversion-20) introduces some aggregate type validation constraints to be used in [definitions](./syntax.md#definitions), [parameters](./syntax.md#parameters) and [outputs](./syntax.md#outputs) definitions. These constraints include:
+
+- [additionalProperties](#additionalproperties)
+- [discriminator](#discriminator)
+- [items](#items)
+- [nullable](#nullable-constraint)
+- [prefixItems](#prefixitems)
+- [properties](#properties)
+
+[!INCLUDE [VSCode ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
+
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [parameters](../bicep/parameters.md).
+
+You are limited to 256 parameters in a template. For more information, see [Template limits](./best-practices.md#template-limits).
+
+For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
 ## Minimal declaration
 
@@ -131,7 +147,7 @@ You can use another parameter value to build a default value. The following temp
 
 ## Length constraints
 
-You can specify minimum and maximum lengths for string and array parameters. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.
+You can specify minimum and maximum lengths for string  and array parameters. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.
 
 The following example declares two parameters. One parameter is for a storage account name that must have 3-24 characters. The other parameter is an array that must have from 1-5 items.
 
@@ -163,6 +179,250 @@ You can set minimum and maximum values for integer parameters. You can set one o
   }
 }
 ```
+
+## Object constraints
+
+The object constraints are only allowed on [objects](./data-types.md#objects), and can only be used with [languageVersion 2.0](./syntax.md#languageversion-20).
+
+### Properties
+
+The value of `properties` is a map of property name => [type definition](./definitions.md).
+
+The following example would accept `{"foo": "string", "bar": 1}`, but reject `{"foo": "string", "bar": -1}`, `{"foo": "", "bar": 1}`, or any object without a `foo` or `bar` property.
+
+```json
+"parameters": {
+  "objectParameter": {
+    "type": "object",
+    "properties": {
+      "foo": {
+        "type": "string",
+        "minLength": 3
+      },
+      "bar": {
+        "type": "int",
+        "minValue": 0
+      }
+    }
+  }
+}
+```
+
+All properties are required unless the property’s [type definition](./definitions.md) has the ["nullable": true](#nullable-constraint) constraint. To make both properties in the preceding example optional, it would look like:
+
+```json
+"parameters": {
+  "objectParameter": {
+    "type": "object",
+    "properties": {
+      "foo": {
+        "type": "string",
+        "minLength": 3,
+        "nullable": true
+      },
+      "bar": {
+        "type": "int",
+        "minValue": 0,
+        "nullable": true
+      }
+    }
+  }
+}
+```
+
+### additionalProperties
+
+The value of `additionalProperties` is a [type definition](./definitions.md) or a boolean value. If no `additionalProperties` constraint is defined, the default value is `true`.
+
+If value is a type definition, the value describes the schema that is applied to all properties not mentioned in the [`properties`](#properties) constraint. The following example would accept `{"fizz": "buzz", "foo": "bar"}` but reject `{"property": 1}`.
+
+```json
+"parameters": {
+  "dictionaryParameter": {
+    "type": "object",
+    "properties": {
+      "foo": {
+        "type": "string",
+        "minLength": 3,
+        "nullable": true
+      },
+      "bar": {
+        "type": "int",
+        "minValue": 0,
+        "nullable": true
+      }
+    },
+    "additionalProperties": {
+      "type": "string"
+    }
+  }
+}
+```
+
+If the value is `false`, no properties beyond those defined in the [`properties`](#properties) constraint may be supplied. The following example would accept `{"foo": "string", "bar": 1}`, but reject `{"foo": "string", "bar": 1, "fizz": "buzz"}`.
+
+```json
+"parameters": {
+  "dictionaryParameter": {
+    "type": "object",
+    "properties": {
+      "foo": {
+        "type": "string",
+        "minLength": 3
+      },
+      "bar": {
+        "type": "int",
+        "minValue": 0
+      }
+    },
+    "additionalProperties": false
+  }
+}
+```
+
+If the value is `true`, any property not defined in the [`properties`](#properties) constraint accepts any value. The following example would accept `{"foo": "string", "bar": 1, "fizz": "buzz"}`.
+
+```json
+"parameters": {
+  "dictionaryParameter": {
+    "type": "object",
+    "properties": {
+      "foo": {
+        "type": "string",
+        "minLength": 3
+      },
+      "bar": {
+        "type": "int",
+        "minValue": 0
+      }
+    },
+    "additionalProperties": true
+  }
+}
+```
+
+### discriminator
+
+The value `discriminator` defines what schema to apply based on a discriminator property. The following example would accept either `{"type": "ints", "foo": 1, "bar": 2}` or `{"type": "strings", "fizz": "buzz", "pop": "goes", "the": "weasel"}`, but reject `{"type": "ints", "fizz": "buzz"}`.
+
+```json
+"parameters": {
+  "taggedUnionParameter": {
+    "type": "object",
+    "discriminator": {
+      "propertyName": "type",
+      "mapping": {
+        "ints": {
+          "type": "object",
+          "additionalProperties": {"type": "int"}
+        },
+        "strings": {
+          "type": "object",
+          "additionalProperties": {"type": "string"}
+          }
+      }
+    }
+  }
+}
+```
+
+## Array constraints
+
+The array constraints are only allowed on [arrays](./data-types.md#arrays), and can only be used with [languageVersion 2.0](./syntax.md#languageversion-20).
+
+### prefixItems
+
+The value of `prefixItems` is an array of [type definitions](./definitions.md). Each type definition in the value is the schema to be used to validate the element of an array at the same index. The following example would accept `[1, true]` but reject `[1, "string"]` or `[1]`:
+
+```json
+"parameters": {
+  "tupleParameter": {
+    "type": "array",
+    "prefixItems": [
+      {"type": "int"},
+      {"type": "bool"}
+    ]
+  }
+}
+```
+
+### items
+
+The value of `items` is a [type definition](./definitions.md) or a boolean. If no `items` constraint is defined, the default value is `true`.
+
+If value is a type definition, the value describes the schema that is applied to all elements of the array whose index is greater than the largest index of the [`prefixItems`](#prefixitems) constraint. The following example would accept `[1, true, 1]` or `[1, true, 1, 1]` but reject `[1, true, "foo"]`:
+
+```json
+"parameters": {
+  "tupleParameter": {
+    "type": "array",
+    "prefixItems": [
+      { "type": "int" },
+      { "type": "bool" }
+    ],
+    "items": { "type": "int" },
+    "defaultValue": [1, true, "foo"]
+  }
+}
+```
+
+You can use `items` without using `prefixItems`. The following example would accept `[1, 2]` or `[1]` but reject `["foo"]`:
+
+```json
+"parameters": {
+  "intArrayParameter": {
+    "type": "array",
+    "items": {"type": "int"}
+  }
+}
+```
+
+If the value is `false`, the validated array must be the exact same length as the [`prefixItems`](#prefixitems) constraint. The following example would accept `[1, true]`,  but reject `[1, true, 1]`, and `[1, true, false, "foo", "bar"]`.
+
+```json
+"parameters": {
+  "tupleParameter": {
+    "type": "array",
+    "prefixItems": [
+      {"type": "int"},
+      {"type": "bool"}
+    ],
+    "items": false
+  }
+}
+```
+
+If the value is true, elements of the array whose index is greater than the largest index of the [`prefixItems`](#prefixitems) constraint accept any value. The following examples would accept `[1, true]`, `[1, true, 1]` and `[1, true, false, "foo", "bar"]`.
+
+```json
+"parameters": {
+  "tupleParameter": {
+    "type": "array",
+    "prefixItems": [
+      {"type": "int"},
+      {"type": "bool"}
+    ]
+  }
+}
+```
+
+```json
+"parameters": {
+  "tupleParameter": {
+    "type": "array",
+    "prefixItems": [
+      {"type": "int"},
+      {"type": "bool"}
+    ]
+  },
+  "items": true
+}
+```
+
+
+## nullable constraint
+
+The nullable constraint can only be used with [languageVersion 2.0](./syntax.md#languageversion-20). It indicates that the value may be `null` or omitted. See [Properties](#properties) for an example.
 
 ## Description
 

@@ -7,6 +7,8 @@ ms.author: rifox
 ms.custom: public_preview
 ---
 > [!IMPORTANT]
-> This feature of Azure Communication Services is currently in public preview.
-> Preview APIs and SDKs are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This feature of Azure Communication Services is currently in preview.
+>
+> Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities.
+>
+> For more information, review [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

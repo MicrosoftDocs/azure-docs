@@ -1,10 +1,14 @@
 ---
 title: Service remoting by using C# in Service Fabric
 description: Service Fabric remoting allows clients and services to communicate with C# services by using a remote procedure call.
-ms.topic: conceptual
-ms.date: 05/17/2022
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Service remoting in C# with Reliable Services
 
 > [!div class="op_single_selector"]
@@ -64,6 +68,9 @@ class MyService : StatelessService, IMyService
 
 ## Call remote service methods
 
+> [!NOTE]
+> If you are using more than one partition, the ServiceProxy.Create() must be provided the appropriate ServicePartitionKey. This is not needed for a one partition scenario.
+
 Calling methods on a service by using the remoting stack is done by using a local proxy to the service through the `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` class. The `ServiceProxy` method creates a local proxy by using the same interface that the service implements. With that proxy, you can call methods on the interface remotely.
 
 ```csharp
@@ -83,7 +90,7 @@ Service proxy creation is a lightweight operation, so you can create as many as 
 ### Service proxy factory lifetime
 
 [ServiceProxyFactory](/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is a factory that creates proxy instances for different remoting interfaces. If you use the API `ServiceProxyFactory.CreateServiceProxy` to create a proxy, the framework creates a singleton service proxy.
-It is useful to create one manually when you need to override [IServiceRemotingClientFactory](/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) properties.
+It is useful to create one manually when you need to override IServiceRemotingClientFactory properties.
 Factory creation is an expensive operation. A service proxy factory maintains an internal cache of the communication client.
 A best practice is to cache the service proxy factory for as long as possible.
 
@@ -306,9 +313,7 @@ Follow these steps:
 To upgrade from V1 to V2 (interface compatible, known as V2_1), two-step upgrades are required. Follow the steps in this sequence.
 
 > [!NOTE]
-> When upgrading from V1 to V2, ensure the `Remoting` namespace is updated to use V2. Example: 'Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client`
->
->
+> When upgrading from V1 to V2, ensure the `Remoting` namespace is updated to use V2. Example: `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client`
 
 1. Upgrade the V1 service to V2_1 service by using the following attribute.
 This change makes sure that the service is listening on the V1 and the V2_1 listener.

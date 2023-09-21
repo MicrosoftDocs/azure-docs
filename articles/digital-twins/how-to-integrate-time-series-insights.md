@@ -1,17 +1,16 @@
 ---
-# Mandatory fields.
 title: Integrate with Azure Time Series Insights
 titleSuffix: Azure Digital Twins
 description: Learn how to set up event routes from Azure Digital Twins to Azure Time Series Insights.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/23/2022
+ms.date: 01/10/2023
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
@@ -22,7 +21,7 @@ In this article, you'll learn how to integrate Azure Digital Twins with [Azure T
 The solution described in this article uses Time Series Insights to collect and analyze historical data about your IoT solution. Azure Digital Twins is a good fit for feeding data into Time Series Insights, as it allows you to correlate multiple data streams and standardize your information before sending it to Time Series Insights.
 
 >[!TIP]
->The simplest way to analyze historical twin data over time is to use the [data history (preview)](concepts-data-history.md) feature to connect an Azure Digital Twins instance to an Azure Data Explorer cluster, so that digital twin property updates are automatically historized to Azure Data Explorer. You can then query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md). If you don't need to use Time Series Insights specifically, you might consider this alternative for a simpler integration experience.
+>The simplest way to analyze historical twin data over time is to use the [data history](concepts-data-history.md) feature to connect an Azure Digital Twins instance to an Azure Data Explorer cluster, so that graph updates are automatically historized to Azure Data Explorer. You can then query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md). If you don't need to use Time Series Insights specifically, you might consider this alternative for a simpler integration experience.
 
 ## Prerequisites
 
@@ -40,13 +39,7 @@ Before you can set up a relationship with Time Series Insights, you'll need to s
 
 You'll be attaching Time Series Insights to Azure Digital Twins through the following path.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-integrate-time-series-insights/diagram-simple.png" alt-text="Diagram of Azure services in an end-to-end scenario, highlighting Time Series Insights." lightbox="media/how-to-integrate-time-series-insights/diagram-simple.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-integrate-time-series-insights/diagram-simple.png" alt-text="Diagram of Azure services in an end-to-end scenario, highlighting Time Series Insights." lightbox="media/how-to-integrate-time-series-insights/diagram-simple.png":::
 
 ## Create Event Hubs namespace
 
@@ -92,7 +85,7 @@ az eventhubs eventhub authorization-rule create --rights Listen Send --name <nam
 
 ### Create twins hub endpoint
 
-Create an Azure Digital Twins [endpoint](concepts-route-events.md#create-an-endpoint) that links your event hub to your Azure Digital Twins instance. Specify a name for your twins hub endpoint.
+Create an Azure Digital Twins [endpoint](concepts-route-events.md#creating-endpoints) that links your event hub to your Azure Digital Twins instance. Specify a name for your twins hub endpoint.
 
 ```azurecli-interactive
 az dt endpoint create eventhub --dt-name <your-Azure-Digital-Twins-instance-name> --eventhub-resource-group <your-resource-group> --eventhub-namespace <your-Event-Hubs-namespace-from-earlier> --eventhub <your-twins-hub-name-from-earlier> --eventhub-policy <your-twins-hub-auth-rule-from-earlier> --endpoint-name <name-for-your-twins-hub-endpoint>
@@ -102,7 +95,7 @@ az dt endpoint create eventhub --dt-name <your-Azure-Digital-Twins-instance-name
 
 Azure Digital Twins instances can emit [twin update events](./concepts-event-notifications.md) whenever a twin's state is updated. In this section, you'll create an Azure Digital Twins event route that will direct these update events to the twins hub for further processing.
 
-Create a [route](concepts-route-events.md#create-an-event-route) in Azure Digital Twins to send twin update events to your endpoint from above. The filter in this route will only allow twin update messages to be passed to your endpoint. Specify a name for the twins hub event route. For the Azure Digital Twins instance name placeholder in this command, you can use the friendly name or the host name for a boost in performance.
+Create a [route](concepts-route-events.md#creating-event-routes) in Azure Digital Twins to send twin update events to your endpoint from above. The filter in this route will only allow twin update messages to be passed to your endpoint. Specify a name for the twins hub event route. For the Azure Digital Twins instance name placeholder in this command, you can use the friendly name or the host name for a boost in performance.
 
 ```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance-hostname-or-name> --endpoint-name <your-twins-hub-endpoint-from-earlier> --route-name <name-for-your-twins-hub-event-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
@@ -159,13 +152,15 @@ Also, take note of the following values to use them later to create a Time Serie
 
 In this section, you'll create an Azure function that will convert twin update events from their original form as JSON Patch documents to JSON objects that only contain updated and added values from your twins.
 
-1. First, create a new function app project in Visual Studio. For instructions on how to do so, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project).
+1. First, create a new function app project.
+
+    You can do this using **Visual Studio** (for instructions, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project)), **Visual Studio Code** (for instructions, see [Create a C# function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process#create-an-azure-functions-project)), or the **Azure CLI** (for instructions, see [Create a C# function in Azure from the command line](../azure-functions/create-first-function-cli-csharp.md?tabs=azure-cli%2Cin-process#create-a-local-function-project)).
 
 2. Create a new Azure function called *ProcessDTUpdatetoTSI.cs* to update device telemetry events to the Time Series Insights. The function type will be **Event Hub trigger**.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/create-event-hub-trigger-function.png" alt-text="Screenshot of Visual Studio to create a new Azure function of type event hub trigger.":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/create-event-hub-trigger-function.png" alt-text="Screenshot of Visual Studio to create a new Azure function of type event hub trigger." lightbox="media/how-to-integrate-time-series-insights/create-event-hub-trigger-function.png":::
 
-3. Add the following packages to your project:
+3. Add the following packages to your project (you can use the Visual Studio NuGet package manager, or the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in a command-line tool).
     * [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/)
     * [Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/)
     * [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/)
@@ -176,7 +171,10 @@ In this section, you'll create an Azure function that will convert twin update e
 
     Save your function code.
 
-5. Publish the project with the *ProcessDTUpdatetoTSI.cs* function to a function app in Azure. For instructions on how to do so, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+5. Publish the project with the *ProcessDTUpdatetoTSI.cs* function to a function app in Azure.
+
+    For instructions on how to publish the function using **Visual Studio**, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure). For instructions on how to publish the function using **Visual Studio Code**, see [Create a C# function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process#publish-the-project-to-azure). For instructions on how to publish the function using the **Azure CLI**, see [Create a C# function in Azure from the command line](../azure-functions/create-first-function-cli-csharp.md?tabs=azure-cli%2Cin-process#deploy-the-function-project-to-azure). 
+
 
 Save the function app name to use later to configure app settings for the two event hubs.
 
@@ -275,11 +273,4 @@ If you allow a simulation to run for much longer, your visualization will look s
 
 ## Next steps
 
-The digital twins are stored by default as a flat hierarchy in Time Series Insights, but they can be enriched with model information and a multi-level hierarchy for organization. To learn more about this process, read: 
-
-* [Define and apply a model](../time-series-insights/tutorial-set-up-environment.md#define-and-apply-a-model) 
-
-You can write custom logic to automatically provide this information using the model and graph data already stored in Azure Digital Twins. To read more about managing, upgrading, and retrieving information from the twins graph, see the following references:
-
-* [Manage a digital twin](./how-to-manage-twin.md)
-* [Query the twin graph](./how-to-query-graph.md)
+After establishing a data pipeline to send time series data from Azure Digital Twins to Time Series Insights, you might want to think about how to translate asset models designed for Azure Digital Twins into asset models for Time Series Insights. For a tutorial on this next step in the integration process, see [Model synchronization between Azure Digital Twins and Time Series Insights Gen2](../time-series-insights/tutorials-model-sync.md).

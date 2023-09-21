@@ -1,15 +1,15 @@
 ---
-title: Recover Azure App Configuration stores (Preview)
+title: Recover Azure App Configuration stores
 description: Recover/Purge Azure App Configuration soft deleted Stores
 author: muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
-ms.custom: devx-track-dotnet
+ms.custom: engagement-fy23
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 01/25/2023
 ---
 
-# Recover Azure App Configuration stores (Preview)
+# Recover Azure App Configuration stores
 
 This article covers the soft delete feature of Azure App Configuration stores. You'll learn about how to set retention policy, enable purge protection, recover and purge a soft-deleted store.
 
@@ -19,7 +19,7 @@ To learn more about the concept of soft delete feature, see [Soft-Delete in Azur
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 
-* Refer to the [Soft-Delete in Azure App Configuration](./concept-soft-delete.md#permissions-to-recover-or-purge-store) for permissions requirements.
+* Refer to the [Soft-Delete in Azure App Configuration](./concept-soft-delete.md#permissions-to-recover-a-deleted-store) section for permissions requirements.
 
 ## Set retention policy and enable purge protection at store creation
 
@@ -81,6 +81,9 @@ To create a new App Configuration store in the  Azure portal, follow these steps
 ## Recover an App Configuration store with customer-managed key enabled
 
 When recovering stores that use customer-managed keys, there are extra steps that need to be performed to access the recovered data. This is because the recovered store, will no longer have a managed identity assigned that has access to the customer-managed key. A new managed identity should be assigned to the store and the customer managed key settings should be reconfigured to use the newly assigned identity. When updating the managed key settings to use the newly assigned identity, ensure to continue using the same key from the key vault. For more details on how to use customer-managed keys in App Configuration stores, refer to [Use customer-managed keys to encrypt your App Configuration data](./concept-customer-managed-keys.md).
+
+> [!NOTE]
+> The previous section showed you how to recover a deleted store with CMK enabled. If your deleted store had Event Grid subscriptions, private endpoints or Azure RBAC role assignments, you'll need to recreate these services after recovery.
 
 ## Next steps
 > [!div class="nextstepaction"]

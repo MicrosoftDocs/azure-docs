@@ -7,11 +7,16 @@ ms.topic: quickstart
 ms.author: sunila
 author: sunilagarwal
 ms.devlang: azurepowershell
-ms.custom: mvc, devx-track-azurepowershell, mode-api
-ms.date: 06/08/2020
+ms.tool: azure-powershell
+ms.custom: mvc, mode-api, devx-track-azurepowershell
+ms.date: 06/24/2022
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL - Single Server using PowerShell
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 This quickstart describes how to use PowerShell to create an Azure Database for PostgreSQL server in an
 Azure resource group. You can use PowerShell to create and manage Azure resources interactively or
@@ -26,7 +31,7 @@ If you choose to use PowerShell locally, this article requires that you install 
 module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)
 cmdlet. For more information about installing the Az PowerShell module, see
-[Install Azure PowerShell](/powershell/azure/install-az-ps).
+[Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 > [!IMPORTANT]
 > While the Az.PostgreSql PowerShell module is in preview, you must install it separately from the Az
@@ -228,7 +233,7 @@ what is used in this Quickstart. Read the pgAdmin documentation if you need addi
 1. Select **Save**.
 
 1. In the **Browser** pane on the left, expand the **Servers** node. Select your server, for
-   example, **mydemoserver**. Click to connect to it.
+   example, **mydemoserver**. Select to connect to it.
 
 1. Expand the server node, and then expand **Databases** under it. The list should include your
    existing *postgres* database and any other databases you've created. You can create multiple

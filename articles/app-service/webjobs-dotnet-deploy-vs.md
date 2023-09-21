@@ -5,7 +5,7 @@ author: ggailey777
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.topic: conceptual
 ms.devlang: csharp
-ms.custom: "devx-track-csharp, vs-azure"
+ms.custom: devx-track-csharp, vs-azure, devx-track-dotnet
 ms.date: 06/24/2021
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
@@ -51,7 +51,7 @@ Deploy a project as a WebJob by itself, or link it to a web project so that it a
 
 ### Prerequisites
 
-Install Visual Studio 2017 or Visual Studio 2019 with the [Azure development workload](/visualstudio/install/install-visual-studio#step-4---choose-workloads).
+Install Visual Studio 2022 with the [Azure development workload](/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
 ### <a id="convert"></a> Enable WebJobs deployment for an existing console app project
 
@@ -171,7 +171,7 @@ Some of the fields in this dialog box correspond to fields on the **Add WebJob**
 
 WebJob deployment information:
 
-* For information about command-line deployment, see [Enabling Command-line or Continuous Delivery of Azure WebJobs](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
+* For information about command-line deployment, see [Enabling Command-line or Continuous Delivery of Azure WebJobs](https://azure.microsoft.com/blog/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
 
 * If you deploy a WebJob, and then decide you want to change the type of WebJob and redeploy, delete the *webjobs-publish-settings.json* file. Doing so causes Visual Studio to redisplay the publishing options, so you can change the type of WebJob.
 
@@ -228,7 +228,7 @@ If you enable **Always on** in Azure, you can use Visual Studio to change the We
 
 1. In **Solution Explorer**, right-click the project and select **Publish**.
 
-1. In the **Publish** tab, choose **Edit**. 
+1. In the **Settings** section, choose **Show all settings**. 
 
 1. In the **Profile settings** dialog box, choose **Continuous** for **WebJob Type**, and then choose **Save**.
 

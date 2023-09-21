@@ -4,7 +4,7 @@ description: Configure diagnostics extension in Azure Monitor to send data to Az
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/18/2020
+ms.date: 07/19/2023
 
 ---
 
@@ -24,6 +24,7 @@ The data collected from the guest operating system that can be sent to Event Hub
 
 * Windows diagnostics extension 1.6 or higher. See [Azure Diagnostics extension configuration schema versions and history](diagnostics-extension-versions.md) for a version history and [Azure Diagnostics extension overview](diagnostics-extension-overview.md) for supported resources.
 * Event Hubs namespace must always be provisioned. See [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) for details.
+* Event hub must be at least Standard tier. Basic tier is not supported.
 
 
 ## Configuration schema

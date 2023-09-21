@@ -4,16 +4,15 @@ title: Azure Table storage documentation # < 60 chars
 summary: Azure Table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. # < 160 chars
 
 metadata:
-  title: Azure Table storage documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. # Required; article description that is displayed in search results. < 160 chars.
-  ms.service: storage #Required; service per approved list. Service slug assigned to your service by ACOM.
-  ms.subservice: tables # Optional; remove if no subservice is used.
-  ms.topic: landing-page # Required
+  title: Azure Table storage documentation
+  description: Azure Table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design.
+  ms.service: azure-table-storage
+  ms.custom: ignite-2022
+  ms.topic: landing-page
   ms.collection: collection # Optional; Remove if no collection is used.
-  author: tamram #Required; your GitHub user alias, with correct capitalization.
-  ms.author: tamram #Required; microsoft alias of author; optional team alias.
-  ms.date: 12/23/2019 #Required; mm/dd/yyyy format.
-
+  author: akashdubey-ms
+  ms.author: akashdubey
+  ms.date: 12/23/2019
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -26,8 +25,8 @@ landingContent:
         links:
           - text: What is Azure Table storage?
             url: table-storage-overview.md
-          - text: Choose Table storage or Table API
-            url: ../../cosmos-db/table-support.md?toc=%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json
+          - text: Choose Table storage or Azure Cosmos DB for Table
+            url: ../../cosmos-db/table-support.md?toc=/azure/storage/tables/TOC.json&bc=/azure/bread/toc.json
   # Card
   - title: Table design guidance
     linkLists:

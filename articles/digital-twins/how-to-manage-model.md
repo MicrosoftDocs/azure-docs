@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to manage DTDL models within Azure Digital Twins, including how to create, edit, and delete them.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/23/2022
+ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -31,7 +31,11 @@ This article describes how to manage the [models](concepts-models.md) in your Az
 
 ## Create models
 
-Models for Azure Digital Twins are written in DTDL, and saved as .json files. There's also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/), which provides syntax validation and other features to make it easier to write DTDL documents.
+You can create your own models from scratch, or use existing ontologies that are available for your industry.
+
+### Author models
+
+Models for Azure Digital Twins are written in DTDL, and saved as JSON files. There's also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/), which provides syntax validation and other features to make it easier to write DTDL documents.
 
 Consider an example in which a hospital wants to digitally represent their rooms. Each room contains a smart soap dispenser for monitoring hand-washing, and sensors to monitor traffic through the room.
 
@@ -40,14 +44,22 @@ The first step towards the solution is to create models to represent aspects of 
 :::code language="json" source="~/digital-twins-docs-samples/models/PatientRoom.json":::
 
 > [!NOTE]
-> This is a sample body for a .json file in which a model is defined and saved, to be uploaded as part of a client project. The REST API call, on the other hand, takes an array of model definitions like the one above (which is mapped to a `IEnumerable<string>` in the .NET SDK). So to use this model in the REST API directly, surround it with brackets.
+> This is a sample body for a JSON file in which a model is defined and saved, to be uploaded as part of a client project. The REST API call, on the other hand, takes an array of model definitions like the one above (which is mapped to a `IEnumerable<string>` in the .NET SDK). So to use this model in the REST API directly, surround it with brackets.
 
 This model defines a name and a unique ID for the patient room, and properties to represent visitor count and hand-wash status. These counters will be updated from motion sensors and smart soap dispensers, and will be used together to calculate a `handwash percentage` property. The model also defines a relationship `hasDevices`, which will be used to connect any [digital twins](concepts-twins-graph.md) based on this Room model to the actual devices.
 
-Following this method, you can go on to define models for the hospital's wards, zones, or the hospital itself.
-
 > [!NOTE]
-> There are some DTDL features that Azure Digital Twins doesn't currently support, including the `writable` attribute on properties and relationships, and `minMultiplicity` and `maxMultiplicity` for relationships. For more information, see [Azure Digital Twins DTDL implementation specifics](concepts-models.md#azure-digital-twins-dtdl-implementation-specifics).
+> There are some DTDL features that Azure Digital Twins doesn't currently support, including the `writable` attribute on properties and relationships, and `minMultiplicity` and `maxMultiplicity` for relationships. For more information, see [Service-specific DTDL notes](concepts-models.md#service-specific-dtdl-notes).
+
+Following this method, you can define models for the hospital's wards, zones, or the hospital itself. 
+
+If your goal is to build a comprehensive model set that describes your industry domain, consider whether there's an existing industry ontology that you can use to make model authoring easier. The next section describes industry ontologies in more detail.
+
+### Use existing industry-standard ontologies
+
+An *ontology* is a set of models that comprehensively describe a given domain, like manufacturing, building structures, IoT systems, smart cities, energy grids, web content, and more.
+
+If your solution is for a certain industry that uses any sort of modeling standard, consider starting with a pre-existing set of models designed for your industry instead of designing your models from scratch. Microsoft has partnered with domain experts to create DTDL model ontologies based on industry standards, to help minimize reinvention and encourage consistency and simplicity across industry solutions. You can read more about these ontologies, including how to use them and what ontologies are available now, in [What is an ontology?](concepts-ontologies.md).
 
 ### Validate syntax
 
@@ -57,21 +69,38 @@ Following this method, you can go on to define models for the hospital's wards, 
 
 Once models are created, you can upload them to the Azure Digital Twins instance.
 
-When you're ready to upload a model, you can use the following code snippet for the [.NET SDK](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true):
+When you're ready to upload a model, you can use the following code snippet for the [.NET SDK](/dotnet/api/overview/azure/digitaltwins.core-readme):
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModel":::
 
-You can also upload multiple models in a single transaction. 
+On upload, model files are validated by the service.
+
+You'll usually need to upload more than one model to the service. There are several ways that you can upload many models at once in a single transaction. To help you pick a strategy, consider the size of your model set as you continue through the rest of this section. 
+
+### Upload small model sets
+
+For smaller model sets, you can upload multiple models at once using individual API calls. You can check the current limit for how many models can be uploaded in a single API call in the [Azure Digital Twins limits](reference-service-limits.md).
 
 If you're using the SDK, you can upload multiple model files with the `CreateModels` method like this:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModels_multi":::
 
-If you're using the [REST APIs](/rest/api/azure-digitaltwins/) or [Azure CLI](/cli/azure/dt), you can also upload multiple models by placing multiple model definitions in a single JSON file to be uploaded together. In this case, the models should be placed in a JSON array within the file, like in the following example:
+If you're using the [REST APIs](/rest/api/azure-digitaltwins/) or [Azure CLI](/cli/azure/dt), you can upload multiple models by placing multiple model definitions in a single JSON file to be uploaded together. In this case, the models should be placed in a JSON array within the file, like in the following example:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Planet-Moon.json":::
 
-On upload, model files are validated by the service.
+### Upload large model sets with the Jobs API
+
+For large model sets, you can use the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api) to upload many models at once in a single API call. The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for models and bulk jobs.
+
+>[!TIP]
+>The Jobs API also allows twins and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk with the Jobs API](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk-with-the-jobs-api).
+
+To import models in bulk, you'll need to structure your models (and any other resources included in the bulk import job) as an *NDJSON* file. The `Models` section comes immediately after `Header` section, making it the first graph data section in the file. You can view an example import file and a sample project for creating these files in the [Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-jobs-api).
+
+[!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
+
+Then, the file can be used in an [Jobs API](/rest/api/digital-twins/dataplane/jobs) call. You'll provide the blob storage URL of the input file, as well as a new blob storage URL to indicate where you'd like the output log to be stored when it's created by the service.
 
 ## Retrieve models
 
@@ -178,7 +207,7 @@ The sections linked above contain example code and considerations for decommissi
 
 Instead of incrementing the version of a model, you can delete a model completely and reupload an edited model to the instance.
 
-Azure Digital Twins doesn't remember the old model was ever uploaded, so this action will be like uploading an entirely new model. Twins in the graph that use the model will automatically switch over to the new definition once it's available. Depending on how the new definition differs from the old one, these twins may have properties and relationships that match the deleted definition and aren't valid with the new one, so you may need to patch them to make sure they remain valid.
+Azure Digital Twins doesn't remember the old model was ever uploaded, so this action will be like uploading an entirely new model. Twins that use the model will automatically switch over to the new definition once it's available. Depending on how the new definition differs from the old one, these twins may have properties and relationships that match the deleted definition and aren't valid with the new one, so you may need to patch them to make sure they remain valid.
 
 To use this strategy, follow the steps below.
 
@@ -238,7 +267,7 @@ A model's decommissioning status is included in the `ModelData` records returned
 
 You can delete all models in your instance at once, or you can do it on an individual basis.
 
-For an example of how to delete all models at the same time, see the [End-to-end samples for Azure Digital Twins](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/CommandLoop.cs) repository in GitHub. The *CommandLoop.cs* file contains a `CommandDeleteAllModels` function with code to delete all of the models in the instance.
+For an example of how to delete all models at the same time, see the [End-to-end samples for Azure Digital Twins](https://github.com/Azure-Samples/digital-twins-samples/blob/main/AdtSampleApp/SampleClientApp/CommandLoop.cs) repository in GitHub. The *CommandLoop.cs* file contains a `CommandDeleteAllModels` function with code to delete all of the models in the instance.
 
 To delete an individual model, follow the instructions and considerations from the rest of this section.
 
@@ -292,6 +321,22 @@ After a model has been deleted, you may decide later to upload a new model with 
 * If there are any remaining twins in the graph referencing the deleted model, they're no longer orphaned; this model ID is valid again with the new definition. However, if the new definition for the model is different than the model definition that was deleted, these twins may have properties and relationships that match the deleted definition and aren't valid with the new one.
 
 Azure Digital Twins doesn't prevent this state, so be careful to patch twins appropriately to make sure they remain valid through the model definition switch.
+
+## Convert v2 models to v3
+
+Azure Digital Twins supports [DTDL versions 2 and 3](concepts-models.md#supported-dtdl-versions) (shortened in the documentation to v2 and v3, respectively).  V3 is the recommended choice based on its expanded capabilities. This section explains how to update an existing DTDL v2 model to DTDL v3.
+
+1. **Update the context.** The main feature that identifies a model as v2 or v3 is the `@context` field on the interface. To convert a model from v2 to v3, change the `dtmi:dtdl:context;2` context value to `dtmi:dtdl:context;3`. For many models, this will be the only required change.
+    1. Value in v2: `"@context": "dtmi:dtdl:context;2"`
+    1. Value in v3: `"@context": "dtmi:dtdl:context;3"`.
+1. **If needed, update semantic types.** In DTDL v2, [semantic types](concepts-models.md#dtdl-v2-semantic-type-example) are natively supported. In DTDL v3, they are included with the [QuantitativeTypes feature extension](concepts-models.md#quantitativetypes-extension). So, if your v2 model used semantic types, you'll need to add the feature extension when converting the model to v3. To do this, first change the `@context` field on the interface from a single value to an array of values, then add the value `dtmi:dtdl:extension:quantitativeTypes;1`.
+    1. Value in v2: `"@context": "dtmi:dtdl:context;2"` 
+    1. Value in v3: `"@context": ["dtmi:dtdl:context;3", "dtmi:dtdl:extension:quantitativeTypes;1"]`
+1. **If needed, consider size limits**. V2 and v3 have different size limits, so if your interface is very large, you may want to review the limits in the [differences between DTDL v2 and v3](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#changes-from-version-2). 
+
+After these changes, a former DTDL v2 model has been converted to a DTDL v3 model.
+
+You might also want to consider [new capabilities of DTDL v3](concepts-models.md#supported-dtdl-versions), such as array-type properties, version relaxation, and additional feature extensions, to see if any of them would be beneficial additions. For a complete list of differences between DTDL v2 and v3, see [Changes from Version 2 in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#changes-from-version-2).
 
 ## Next steps
 

@@ -1,24 +1,28 @@
 ---
 title: Access slow query logs - Azure CLI  - Azure Database for MariaDB
 description: This article describes how to access the slow logs in Azure Database for MariaDB by using the Azure CLI command-line utility.
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 4/13/2020 
 ms.custom: devx-track-azurecli
+ms.date: 06/24/2022
 ---
 # Configure and access Azure Database for MariaDB slow query logs by using Azure CLI
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 You can download the Azure Database for MariaDB slow query logs by using Azure CLI, the Azure command-line utility.
 
 ## Prerequisites
+
 To step through this how-to guide, you need:
 - [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-cli.md)
 - The [Azure CLI](/cli/azure/install-azure-cli) or Azure Cloud Shell in the browser
 
 ## Configure logging
+
 You can configure the server to access the MySQL slow query log by taking the following steps:
 1. Turn on slow query logging by setting the **slow\_query\_log** parameter to ON.
 2. Select where to output the logs to using **log\_output**. To send logs to both local storage and Azure Monitor Diagnostic Logs, select **File**. To send logs only to Azure Monitor Logs, select **None**
@@ -36,6 +40,7 @@ az mariadb server configuration list --resource-group myresourcegroup --server m
 ```
 
 ## List logs for Azure Database for MariaDB server
+
 If **log_output** is configured to "File", you can access logs directly from the server's local storage. To list the available slow query log files for your server, run the [az mariadb server-logs list](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) command.
 
 You can list the log files for server **mydemoserver.mariadb.database.azure.com** under the resource group **myresourcegroup**. Then direct the list of log files to a text file called **log\_files\_list.txt**.
@@ -43,6 +48,7 @@ You can list the log files for server **mydemoserver.mariadb.database.azure.com*
 az mariadb server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## Download logs from the server
+
 If **log_output** is configured to "File", you can download individual log files from your server with the [az mariadb server-logs download](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-download) command.
 
 Use the following example to download the specific log file for the server **mydemoserver.mariadb.database.azure.com** under the resource group **myresourcegroup** to your local environment.
@@ -51,4 +57,5 @@ az mariadb server-logs download --name mysql-slow-mydemoserver-2018110800.log --
 ```
 
 ## Next steps
+
 - Learn about [slow query logs in Azure Database for MariaDB](concepts-server-logs.md).

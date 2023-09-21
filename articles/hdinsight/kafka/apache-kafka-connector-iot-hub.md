@@ -5,7 +5,7 @@ description: Learn how to use Apache Kafka on HDInsight with Azure IoT Hub. The 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 11/26/2019
+ms.date: 11/17/2022
 ---
 
 # Use Apache Kafka on HDInsight with Azure IoT Hub
@@ -352,4 +352,3 @@ For more information on using the sink connector, see [https://github.com/Azure/
 In this document, you learned how to use the Apache Kafka Connect API to start the IoT Kafka Connector on HDInsight. Use the following links to discover other ways to work with Kafka:
 
 * [Use Apache Spark with Apache Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Use Apache Storm with Apache Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)

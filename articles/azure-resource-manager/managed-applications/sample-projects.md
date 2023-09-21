@@ -1,11 +1,10 @@
 ---
 title: Sample projects
 description: Provides a summary of sample projects that are available for Azure Managed Applications.
-author: tfitzmac
 ms.topic: sample
 ms.date: 09/04/2019
-ms.author: tomfitz
 ---
+
 # Sample projects for Azure managed applications
 
 The following table links to sample Azure managed applications in GitHub.

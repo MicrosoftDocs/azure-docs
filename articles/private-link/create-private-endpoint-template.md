@@ -1,13 +1,13 @@
 ---
-title: 'Quickstart: Create a private endpoint by using an ARM template'
-description: In this quickstart, you'll learn how to create a private endpoint by using an Azure Resource Manager template (ARM template).
+title: 'Quickstart: Create a private endpoint - ARM template'
+description: In this quickstart, you'll learn how to create a private endpoint using an Azure Resource Manager template (ARM template).
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 05/26/2020
+ms.date: 07/18/2022
 ms.author: allensu
+ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-arm-template
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using an ARM template.
 ---
 

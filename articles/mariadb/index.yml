@@ -3,8 +3,8 @@ title:  Azure Database for MariaDB documentation
 summary: "Azure Database for MariaDB is a relational database service based on the open-source MariaDB Server engine.  It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for MariaDB leveraging the open-source tools and platform of your choice. Learn how to use Azure Database for MariaDB with our quickstarts, tutorials, and samples."
 metadata: 
   description: "Azure Database for MariaDB is a relational database service in the Microsoft cloud built for developers based on the open-source MariaDB database engine."
-  author: savjani
-  ms.author: pariks
+  author: SudheeshGH
+  ms.author: sunaray
   ms.date: 09/05/2019
   ms.service: mariadb
   ms.topic: landing-page

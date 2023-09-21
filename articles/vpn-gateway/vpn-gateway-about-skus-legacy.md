@@ -1,16 +1,11 @@
 ---
 title: Legacy Azure virtual network VPN gateway SKUs
 description: How to work with the old virtual network gateway SKUs; Basic, Standard, and HighPerformance.
-services: vpn-gateway
 author: cherylmc
-
-
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 08/15/2019
+ms.date: 02/13/2023
 ms.author: cherylmc 
-ms.custom: devx-track-azurepowershell
-
 ---
 # Working with virtual network gateway SKUs (legacy SKUs)
 

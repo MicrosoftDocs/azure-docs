@@ -1,12 +1,11 @@
 ---
-title: Introduction to Azure File Sync | Microsoft Docs
+title: Introduction to Azure File Sync
 description: An overview of Azure File Sync, a service that enables you to create and use network file shares in the cloud using the industry standard SMB protocol.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 09/14/2022
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # What is Azure File Sync?
@@ -33,9 +32,24 @@ Azure File Sync is ideal for distributed access scenarios. For each of your offi
 
 Azure File Sync is backed by Azure Files, which offers several redundancy options for highly available storage. Because Azure contains resilient copies of your data, your local server becomes a disposable caching device, and recovering from a failed server can be done by adding a new server to your Azure File Sync deployment. Rather than restoring from a local backup, you provision another Windows Server, install the Azure File Sync agent on it, and then add it to your Azure File Sync deployment. Azure File Sync downloads your file namespace before downloading data, so that your server can be up and running as soon as possible. For even faster recovery, you can have a warm stand by server as part of your deployment, or you can use Azure File Sync with Windows Clustering.
 
-## Cloud-side backup
+### Cloud-side backup
 
-Reduce your on-premises backup spending by taking centralized backups in the cloud using Azure Backup. Azure Files SMB shares have native snapshot capabilities, and the process can be automated using Azure Backup to schedule your backups and manage their retention. Azure Backup also integrates with your on-premises servers, so when you restore to the cloud, these changes are automatically downloaded on your Windows Servers.
+Reduce your on-premises backup spending by taking centralized backups in the cloud using Azure Backup. SMB Azure file shares have native snapshot capabilities, and the process can be automated using Azure Backup to schedule your backups and manage their retention. Azure Backup also integrates with your on-premises servers, so when you restore to the cloud, these changes are automatically downloaded on your Windows Servers.
+
+## Training
+
+For self-paced training, see the following modules:
+
+- [Implement a hybrid file server infrastructure](/training/modules/implement-hybrid-file-server-infrastructure/)
+- [Extend your on-premises file share capacity using Azure File Sync](/training/modules/extend-share-capacity-with-azure-file-sync/)
+
+## Architecture
+
+For guidance on architecting solutions with Azure Files and Azure File Sync using established patterns and practices, see the following:
+
+- [Azure enterprise cloud file share](/azure/architecture/hybrid/azure-files-private)
+- [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services)
+- [Hybrid file share with disaster recovery for remote and local branch workers](/azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers)
 
 ## Next Steps
 

@@ -1,45 +1,46 @@
 ---
 title: Azure Cosmos DB Gremlin indexer
 titleSuffix: Azure Cognitive Search
-description: Set up an Azure Cosmos DB indexer to automate indexing of Gremlin API content for full text search in Azure Cognitive Search. This article explains how index data using the Gremlin API protocol.
+description: Set up an Azure Cosmos DB indexer to automate indexing of Azure Cosmos DB for Apache Gremlin content for full text search in Azure Cognitive Search. This article explains how index data using the Azure Cosmos DB for Apache Gremlin protocol.
 
 author: mgottein 
 ms.author: magottei
 manager: nitinme
 
 ms.service: cognitive-search
+ms.custom: 
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 01/18/2023
 ---
 
-# Index data from Azure Cosmos DB using the Gremlin API
+# Import data from Azure Cosmos DB for Apache Gremlin for queries in Azure Cognitive Search
 
 > [!IMPORTANT]
-> The Gremlin API indexer is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Currently, there is no SDK support.
+> The Azure Cosmos DB for Apache Gremlin indexer is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Currently, there is no SDK support.
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Cosmos DB and makes it searchable in Azure Cognitive Search. 
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from [Azure Cosmos DB for Apache Gremlin](../cosmos-db/gremlin/introduction.md) and makes it searchable in Azure Cognitive Search.
 
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Cosmos DB [Gremlin API](../cosmos-db/choose-api.md#gremlin-api). It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Cosmos DB. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
-Because terminology can be confusing, it's worth noting that [Cosmos DB indexing](../cosmos-db/index-overview.md) and [Cognitive Search indexing](search-what-is-an-index.md) are different operations. Indexing in Cognitive Search creates and loads a search index on your search service.
+Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Cognitive Search indexing](search-what-is-an-index.md) are different operations. Indexing in Cognitive Search creates and loads a search index on your search service.
 
 ## Prerequisites
 
 + [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide feedback and get help with any issues you encounter.
 
-+ An [Azure Cosmos DB account, database, container and items](../cosmos-db/sql/create-cosmosdb-resources-portal.md). Use the same region for both Cognitive Search and Cosmos DB for lower latency and to avoid bandwidth charges.
++ An [Azure Cosmos DB account, database, container, and items](../cosmos-db/sql/create-cosmosdb-resources-portal.md). Use the same region for both Cognitive Search and Azure Cosmos DB for lower latency and to avoid bandwidth charges.
 
-+ An [automatic indexing policy](../cosmos-db/index-policy.md) on the Cosmos DB collection, set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration. Lazy indexing isn't recommended and may result in missing data.
++ An [automatic indexing policy](../cosmos-db/index-policy.md) on the Azure Cosmos DB collection, set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration. Lazy indexing isn't recommended and may result in missing data.
 
 + Read permissions. A "full access" connection string includes a key that grants access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Cosmos DB Account Reader Role** permissions.
 
-+ A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer. 
++ A REST client, such as [Postman](search-get-started-rest.md), to send REST calls that create the data source, index, and indexer. 
 
 ## Define the data source
 
 The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
 
-For this call, specify a [preview REST API version](search-api-preview.md) (2020-06-30-Preview or 2021-04-30-Preview) to create a data source that connects using the Gremlin API.
+For this call, specify a [preview REST API version](search-api-preview.md) (2020-06-30-Preview or 2021-04-30-Preview) to create a data source that connects via an Azure Cosmos DB for Apache Gremlin.
 
 1. [Create or update a data source](/rest/api/searchservice/preview-api/create-or-update-data-source) to set its definition: 
 
@@ -74,7 +75,7 @@ For this call, specify a [preview REST API version](search-api-preview.md) (2020
 
 1. Set "container" to the collection. The "name" property is required and it specifies the ID of the graph. 
 
-   The "query" property is optional. By default the Azure Cognitive Search Cosmos DB Gremlin API indexer will make every vertex in your graph a document in the index. Edges will be ignored. The query default is `g.V()`. Alternatively, you could set the query to only index the edges. To index the edges, set the query to `g.E()`.
+   The "query" property is optional. By default the Azure Cognitive Search indexer for Azure Cosmos DB for Apache Gremlin makes every vertex in your graph a document in the index. Edges will be ignored. The query default is `g.V()`. Alternatively, you could set the query to only index the edges. To index the edges, set the query to `g.E()`.
 
 1. [Set "dataChangeDetectionPolicy"](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items on subsequent runs. Incremental progress will be enabled by default using `_ts` as the high water mark column.
 
@@ -82,23 +83,23 @@ For this call, specify a [preview REST API version](search-api-preview.md) (2020
 
 ### Supported credentials and connection strings
 
-Indexers can connect to a collection using the following connections. For connections that target the [Gremlin API](../cosmos-db/graph/graph-introduction.md), be sure to include "ApiKind" in the connection string.
+Indexers can connect to a collection using the following connections. For connections that target [Azure Cosmos DB for Apache Gremlin](../cosmos-db/graph/graph-introduction.md), be sure to include "ApiKind" in the connection string.
 
 Avoid port numbers in the endpoint URL. If you include the port number, the connection will fail.  
 
 | Full access connection string |
 |-----------------------------------------------|
 |`{ "connectionString" : "AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb" }` |
-| You can get the connection string from the Cosmos DB account page in Azure portal by selecting **Keys** in the left navigation pane. Make sure to select a full connection string and not just a key.  |
+| You can get the connection string from the Azure Cosmos DB account page in Azure portal by selecting **Keys** in the left navigation pane. Make sure to select a full connection string and not just a key.  |
 
 | Managed identity connection string |
 |------------------------------------|
 |`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;(ApiKind=[api-kind];)" }`|
-|This connection string doesn't require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-data-sources.md) and created a role assignment that grants **Cosmos DB Account Reader Role** permissions. See [Setting up an indexer connection to a Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md) for more information. |
+|This connection string doesn't require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-data-sources.md) and created a role assignment that grants **Cosmos DB Account Reader Role** permissions. See [Setting up an indexer connection to an Azure Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md) for more information. |
 
 ## Add search fields to an index
 
-In a [search index](search-what-is-an-index.md), add fields to accept the source JSON documents or the output of your custom query projection. Ensure that the search index schema is compatible with your graph. For content in Cosmos DB, your search index schema should correspond to the [Azure Cosmos DB items](../cosmos-db/account-databases-containers-items.md#azure-cosmos-items) in your data source.
+In a [search index](search-what-is-an-index.md), add fields to accept the source JSON documents or the output of your custom query projection. Ensure that the search index schema is compatible with your graph. For content in Azure Cosmos DB, your search index schema should correspond to the [Azure Cosmos DB items](../cosmos-db/resource-model.md#azure-cosmos-db-items) in your data source.
 
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store data:
 
@@ -141,7 +142,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
      }
    ```
 
-1. Create a document key field ("key": true). For partitioned collections, the default document key is Azure Cosmos DB's `_rid` property, which Azure Cognitive Search automatically renames to `rid` because field names can’t start with an underscore character. Also, Azure Cosmos DB `_rid` values contain characters that are invalid in Azure Cognitive Search keys. For this reason, the `_rid` values are Base64 encoded. 
+1. Create a document key field ("key": true). For partitioned collections, the default document key is the Azure Cosmos DB `_rid` property, which Azure Cognitive Search automatically renames to `rid` because field names can’t start with an underscore character. Also, Azure Cosmos DB `_rid` values contain characters that are invalid in Azure Cognitive Search keys. For this reason, the `_rid` values are Base64 encoded. 
 
 1. Create additional fields for more searchable content. See [Create an index](search-how-to-create-search-index.md) for details.
 
@@ -158,7 +159,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 | GeoJSON objects such as { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
 | Other JSON objects |N/A |
 
-## Configure and run the Cosmos DB indexer
+## Configure and run the Azure Cosmos DB indexer
 
 Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
@@ -246,7 +247,7 @@ Once an indexer has fully populated a search index, you might want subsequent in
 
 To enable incremental indexing, set the "dataChangeDetectionPolicy" property in your data source definition. This property tells the indexer which change tracking mechanism is used on your data.
 
-For Cosmos DB indexers, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB. 
+For Azure Cosmos DB indexers, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB. 
 
 The following example shows a [data source definition](#define-the-data-source) with a change detection policy:
 
@@ -297,17 +298,20 @@ api-key: [Search service admin key]
 }
 ```
 
+Even if you enable deletion detection policy, deleting complex (`Edm.ComplexType`) fields from the index is not supported. This policy requires that the 'active' column in the Gremlin database to be of type integer, string or boolean.
+
+
 <a name="MappingGraphData"></a>
 
 ## Mapping graph data to fields in a search index
 
-The Cosmos DB Gremlin API indexer will automatically map a couple pieces of graph data for you:
+The Azure Cosmos DB for Apache Gremlin indexer will automatically map a couple pieces of graph data:
 
 1. The indexer will map `_rid` to an `rid` field in the index if it exists, and Base64 encode it.
 
 1. The indexer will map `_id` to an `id` field in the index if it exists.
 
-1. When querying your Cosmos DB database using the Gremlin API you may notice that the JSON output for each property has an `id` and a `value`. Azure Cognitive Search Cosmos DB indexer will automatically map the properties `value` into a field in your search index that has the same name as the property if it exists. In the following example, 450 would be mapped to a `pages` field in the search index.
+1. When querying your Azure Cosmos DB database using the Azure Cosmos DB for Apache Gremlin you may notice that the JSON output for each property has an `id` and a `value`. Azure Cognitive Search Azure Cosmos DB indexer will automatically map the properties `value` into a field in your search index that has the same name as the property if it exists. In the following example, 450 would be mapped to a `pages` field in the search index.
 
 ```http
     {
@@ -370,7 +374,7 @@ Notice how the Output Field Mapping starts with `/document` and does not include
 
 ## Next steps
 
-+ To learn more about Azure Cosmos DB Gremlin API, see the [Introduction to Azure Cosmos DB: Gremlin API](../cosmos-db/graph-introduction.md).
++ To learn more about Azure Cosmos DB for Apache Gremlin, see the [Introduction to Azure Cosmos DB: Azure Cosmos DB for Apache Gremlin](../cosmos-db/graph-introduction.md).
 
 + For more information about Azure Cognitive Search scenarios and pricing, see the [Search service page on azure.microsoft.com](https://azure.microsoft.com/services/search/).
 

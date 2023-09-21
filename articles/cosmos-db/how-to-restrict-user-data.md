@@ -1,16 +1,17 @@
 ---
 title: Restrict user access to data operations only with Azure Cosmos DB
 description: Learn how to restrict access to data operations only with Azure Cosmos DB
-author: rothja
+author: seesharprun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/9/2019
-ms.author: jroth 
-ms.custom: devx-track-azurepowershell
+ms.author: sidandrews
+ms.reviewer: mjbrown 
+ms.custom: devx-track-azurepowershell, ignite-2022
 ---
 
 # Restrict user access to data operations in Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 In Azure Cosmos DB, there are two ways to authenticate your interactions with the database service:
 
@@ -33,9 +34,9 @@ The next sections of this article show how to perform these steps.
 > In order to execute the commands in the next sections, you need to install Azure PowerShell Module 3.0.0 or later, as well as the [Azure Owner Role](../role-based-access-control/built-in-roles.md#owner) on the subscription that you are trying to modify.
 
 In the PowerShell scripts in the next sections, substitute the following placeholders with values specific to your environment:
-- `$MySubscriptionId` - The subscription ID that contains the Azure Cosmos account where you want to limit the permissions. For example: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
-- `$MyResourceGroupName` - The resource group containing the Azure Cosmos account. For example: `myresourcegroup`.
-- `$MyAzureCosmosDBAccountName` - The name of your Azure Cosmos account. For example: `mycosmosdbsaccount`.
+- `$MySubscriptionId` - The subscription ID that contains the Azure Cosmos DB account where you want to limit the permissions. For example: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
+- `$MyResourceGroupName` - The resource group containing the Azure Cosmos DB account. For example: `myresourcegroup`.
+- `$MyAzureCosmosDBAccountName` - The name of your Azure Cosmos DB account. For example: `mycosmosdbsaccount`.
 - `$MyUserName` - The login (username@domain) of the user for whom you want to limit access. For example: `cosmosdbuser@contoso.com`.
 
 ## Select your Azure subscription
@@ -49,7 +50,7 @@ Select-AzSubscription $MySubscriptionId
 
 ## Create the custom Azure Active Directory role
 
-The following script creates an Azure Active Directory role assignment with "Key Only" access for Azure Cosmos accounts. The role is based on [Azure custom roles](../role-based-access-control/custom-roles.md) and [Granular actions for Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). These roles and actions are part of the `Microsoft.DocumentDB` Azure Active Directory namespace.
+The following script creates an Azure Active Directory role assignment with "Key Only" access for Azure Cosmos DB accounts. The role is based on [Azure custom roles](../role-based-access-control/custom-roles.md) and [Granular actions for Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). These roles and actions are part of the `Microsoft.DocumentDB` Azure Active Directory namespace.
 
 1. First, create a JSON document named `AzureCosmosKeyOnlyAccess.json` with the following content:
 
@@ -94,5 +95,5 @@ $cdba | Set-AzResource -Force
 
 ## Next steps
 
-- Learn more about [Cosmos DB's role-based access control](role-based-access-control.md)
-- Get an overview of [secure access to data in Cosmos DB](secure-access-to-data.md)
+- Learn more about [Azure Cosmos DB's role-based access control](role-based-access-control.md)
+- Get an overview of [secure access to data in Azure Cosmos DB](secure-access-to-data.md)

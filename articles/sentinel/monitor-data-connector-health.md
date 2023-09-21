@@ -1,32 +1,28 @@
 ---
-title: Monitor the health of your Microsoft Sentinel data connectors | Microsoft Docs
+title: Monitor the health of your Microsoft Sentinel data connectors
 description: Use the SentinelHealth data table and the Health Monitoring workbook to keep track of your data connectors' connectivity and performance.
-author: bagol
+author: limwainstein
+ms.author: lwainstein
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021
-ms.date: 12/30/2021
-ms.author: yelevin
+ms.date: 11/09/2022
+ms.service: microsoft-sentinel
 ---
 
----
 # Monitor the health of your data connectors
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+To ensure complete and uninterrupted data ingestion in your Microsoft Sentinel service, keep track of your data connectors' health, connectivity, and performance. 
 
-After you've configured and connected your Microsoft Sentinel workspace to your data connectors, you'll want to monitor your connector health, viewing any service or data source issues, such as authentication, throttling, and more.
+The following features allow you to perform this monitoring from within Microsoft Sentinel:
 
-You also might like to configure notifications for health drifts for relevant stakeholders who can take action. For example, configure email messages, Microsoft Teams messages, new tickets in your ticketing system, and so on.
+- **Data connectors health monitoring workbook**: This workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
 
-This article describes how to use the following features, which allow you to keep track of your data connectors' health, connectivity, and performance from within Microsoft Sentinel:
+- ***SentinelHealth* data table (Preview)**: Querying this table provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. The *SentinelHealth* data table is currently supported only for [selected data connectors](#supported-data-connectors).
 
-- **Data connectors health monitoring workbook**. This workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
-
-- ***SentinelHealth* data table**. (Public preview) Provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions.
-
-    > [!NOTE]
-    > The *SentinelHealth* data table is currently supported only for [selected data connectors](#supported-data-connectors).
+    > [!IMPORTANT]
     >
+    > The *SentinelHealth* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+- [**View the health and status of your connected SAP systems**](monitor-sap-system-health.md): Review health information for your SAP systems under the SAP data connector, and use an alert rule template to get information about the health of the SAP agent's data collection.
 
 ## Use the health monitoring workbook
 
@@ -69,18 +65,9 @@ There are three tabbed sections in this workbook:
 
 ## Use the SentinelHealth data table (Public preview)
 
-To get data connector health data from the *SentinelHealth* data table, you must first [turn on the Microsoft Sentinel health feature](#turn-on-microsoft-sentinel-health-for-your-workspace) for your workspace.
+To get data connector health data from the *SentinelHealth* data table, you must first turn on the Microsoft Sentinel health feature for your workspace. For more information, see [Turn on health monitoring for Microsoft Sentinel](enable-monitoring.md).
 
 Once the health feature is turned on, the *SentinelHealth* data table is created at the first success or failure event generated for your data connectors.
-
-> [!TIP]
-> To configure the retention time for your health events, see the [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
->
-
-> [!IMPORTANT]
->
-> The SentinelHealth data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ### Supported data connectors
 
@@ -89,35 +76,9 @@ The *SentinelHealth* data table is currently supported only for the following da
 - [Amazon Web Services (CloudTrail and S3)](connect-aws.md)
 - [Dynamics 365](connect-dynamics-365.md)
 - [Office 365](connect-office-365.md)
-- [Office ATP](connect-microsoft-defender-advanced-threat-protection.md)
+- [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
 - [Threat Intelligence - TAXII](connect-threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](connect-threat-intelligence-tip.md)
-
-### Turn on Microsoft Sentinel health for your workspace
-
-1. In Microsoft Sentinel, under the **Configuration** menu on the left, select **Settings** and expand the **Health** section.
-
-1. Select **Configure Diagnostic Settings** and create a new diagnostic setting.
-
-    - In the **Diagnostic setting name** field, enter a meaningful name for your setting.
-
-    - In the **Category details** column, select **DataConnectors**.
-
-    - Under **Destination details**, select **Send to Log Analytics workspace**, and select your subscription and workspace from the dropdown menus.
-
-1. Select **Save** to save your new setting.
-
-The *SentinelHealth* data table is created at the first success or failure event generated for your data connectors.
-
-
-### Access the *SentinelHealth* table
-
-In the Microsoft Sentinel **Logs** page, run a query on the  *SentinelHealth* table. For example:
-
-```kusto
-SentinelHealth
- | take 20
-```
 
 ### Understanding SentinelHealth table events
 
@@ -131,7 +92,7 @@ The following types of health events are logged in the *SentinelHealth* table:
 
 - **Failure summary**. Logged once an hour, per connector, per workspace, with an aggregated failure summary. Failure summary events are created only when the connector has experienced polling errors during the given hour. They contain any extra details provided in the *ExtendedProperties* column, such as the time period for which the connector's source platform was queried, and a distinct list of failures encountered during the time period.
 
-For more information, see [SentinelHealth table columns schema](#sentinelhealth-table-columns-schema).
+For more information, see [SentinelHealth table columns schema](health-table-reference.md#sentinelhealth-table-columns-schema).
 
 ### Run queries to detect health drifts
 
@@ -204,27 +165,10 @@ For example:
 
 For more information, see [Azure Monitor alerts overview](../azure-monitor/alerts/alerts-overview.md) and [Azure Monitor alerts log](../azure-monitor/alerts/alerts-log.md).
 
-### SentinelHealth table columns schema
-
-The following table describes the columns and data generated in the *SentinelHealth* data table:
-
-| ColumnName    | ColumnType     | Description|
-| ----------------------------------------------- | -------------- | --------------------------------------------------------------------------- |
-| **TenantId**      | String         | The tenant ID for your Microsoft Sentinel workspace.                    |
-| **TimeGenerated** | Datetime       | The time at which the health event occurred.         |
-| <a name="operationname"></a>**OperationName** | String         | The health operation. One of the following values: <br><br>-`Data fetch status change` for health or success indications <br>- `Failure summary` for aggregated health summaries. <br><br>For more information, see [Understanding SentinelHealth table events](#understanding-sentinelhealth-table-events). |
-| <a name="sentinelresourceid"></a>**SentinelResourceId**        | String         | The unique identifier of the Microsoft Sentinel workspace and the associated connector on which the health event occurred. |
-| **SentinelResourceName**      | String         | The data connector name.                           |
-| <a name="status"></a>**Status**        | String         | Indicates `Success` or `Failure` for the `Data fetch status change` [OperationName](#operationname), and `Informational` for the `Failure summary` [OperationName](#operationname).         |
-| **Description**   | String         | Describes the operation, including extended data as needed. For example, for failures, this column might indicate the failure reason. |
-| **WorkspaceId**   | String         | The workspace GUID on which the health issue occurred. The full Azure Resource Identifier is available in the [SentinelResourceID](#sentinelresourceid) column. |
-| **SentinelResourceType**      | String         |The Microsoft Sentinel resource type being monitored: `Data connector`|
-| **SentinelResourceKind**      | String         | The type of data connector being monitored, such as `Office365`.               |
-| **RecordId**      | String         | A unique identifier for the record that can be shared with the support team for better correlation as needed.                |
-| **ExtendedProperties**        | Dynamic (json) | A JSON bag that varies by the [OperationName](#operationname) value and the [Status](#status) of the event: <br><br>- For `Data fetch status change` events with a success indicator, the bag contains a ‘DestinationTable’ property to indicate where data from this connector is expected to land. For failures, the contents vary depending on the failure type.    |
-| **Type**          | String         | `SentinelHealth`                         |
-
-
 ## Next steps
 
-Learn how to [onboard your data to Microsoft Sentinel](quickstart-onboard.md), [connect data sources](connect-data-sources.md), and [get visibility into your data, and potential threats](get-visibility.md).
+- Learn about [auditing and health monitoring in Microsoft Sentinel](health-audit.md).
+- [Turn on auditing and health monitoring](enable-monitoring.md) in Microsoft Sentinel.
+- [Monitor the health of your automation rules and playbooks](monitor-automation-health.md).
+- [Monitor the health and integrity of your analytics rules](monitor-analytics-rule-integrity.md).
+- See more information about the [*SentinelHealth*](health-table-reference.md) and [*SentinelAudit*](audit-table-reference.md) table schemas.

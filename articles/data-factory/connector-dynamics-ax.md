@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 11/30/2022
 ---
 
 # Copy data from Dynamics AX using Azure Data Factory or Synapse Analytics
@@ -19,12 +19,16 @@ This article outlines how to use Copy Activity in Azure Data Factory and Synapse
 
 ## Supported capabilities
 
-This Dynamics AX connector is supported for the following activities:
+This Dynamics AX connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-You can copy data from Dynamics AX to any supported sink data store. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+For a list of data stores that supports as sources and sinks, see [Supported data stores](connector-overview.md#supported-data-stores).
 
 Specifically, this Dynamics AX connector supports copying data from Dynamics AX using **OData protocol** with **Service Principal authentication**.
 
@@ -65,7 +69,7 @@ The following sections provide details about properties you can use to define Da
 
 To use service principal authentication, follow these steps:
 
-1. Register an application entity in Azure Active Directory (Azure AD) by following [Register your application with an Azure AD tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Make note of the following values, which you use to define the linked service:
+1. Register an application with the Microsoft Identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
 
     - Application ID
     - Application key
@@ -159,7 +163,7 @@ To copy data from Dynamics AX, set the **source** type in Copy Activity to **Dyn
 |:--- |:--- |:--- |
 | type | The **type** property of the Copy Activity source must be set to **DynamicsAXSource**. | Yes |
 | query | OData query options for filtering data. Example: `"?$select=Name,Description&$top=5"`.<br/><br/>**Note**: The connector copies data from the combined URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. For more information, see [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
-| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. If not specified, the default value is **00:30:00** (30 minutes). | No |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. If not specified, the default value is **00:05:00** (5 minutes). | No |
 
 **Example**
 

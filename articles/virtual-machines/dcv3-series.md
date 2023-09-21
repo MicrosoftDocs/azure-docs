@@ -18,32 +18,32 @@ The DCsv3 and DCdsv3-series Azure Virtual Machines help protect the confidential
 
 These machines are powered by the latest 3rd Generation Intel&reg; Xeon Scalable processors, and use Intel&reg; Turbo Boost Max Technology 3.0 to reach 3.5 GHz. 
 
-With this generation, CPU Cores have increased 6x (up to a maximum of 48 physical cores). Encrypted Memory (EPC) has increased 1500x to 256 GB. Regular Memory has increased 12x to 384 GB. All these changes substantially improve the performance and unlock new entirely new scenarios. 
+With this generation, CPU Cores have increased 6x (up to a maximum of 48 physical cores). Encrypted Memory (EPC) has increased 1500x to 256 GB. Regular Memory has increased 12x to 384 GB. All these changes substantially improve the performance and unlock entirely new scenarios. 
 
 > [!NOTE]
 > Hyperthreading is disabled for added security posture. Pricing is the same as Dv5 and Dsv5-series per physical core.
 
 There are two variants for each series, depending on whether the workload benefits from a local disk or not. You can attach remote persistent disk storage to all VMs, whether or not the VM has a local disk. As always, remote disk options (such as for the VM boot disk) are billed separately from the VMs in any case.
 
-Dcsv3-series instances run on a 3rd Generation Intel&reg; Xeon Scalable Processor 8370C. The base All-Core frequency is 2.8 GHz. [Turbo Boost Max 3.0](https://www.intel.com/content/www/us/en/gaming/resources/turbo-boost.html) is enabled with a max frequency of 3.5 GHz. 
+DCsv3-series instances run on a 3rd Generation Intel&reg; Xeon Scalable Processor 8370C. The base All-Core frequency is 2.8 GHz. [Turbo Boost Max 3.0](https://www.intel.com/content/www/us/en/gaming/resources/turbo-boost.html) is enabled with a max frequency of 3.5 GHz. 
 
 - [Premium Storage](premium-storage-performance.md): Supported
 - [Live Migration](maintenance-and-updates.md): Not supported
 - [Memory Preserving Updates](maintenance-and-updates.md): Not supported
 - [VM Generation Support](generation-2.md): Generation 2
 - [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported
-- [Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+- [Ephemeral OS Disks](ephemeral-os-disks.md): Supported for DCdsv3-series
 - [Ultra-Disk Storage](disks-enable-ultra-ssd.md): Supported
 - [Azure Kubernetes Service](../aks/intro-kubernetes.md): Supported (CLI provisioning only)
 - [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported 
 - [Hyper-Threading](https://www.intel.com/content/www/us/en/gaming/resources/hyper-threading.html): Not supported
-- [Trusted Launch](trusted-launch.md): Not supported
+- [Trusted Launch](trusted-launch.md): Supported
 - [Dedicated Host](dedicated-hosts.md): Not supported
 
 
 ## DCsv3-series
 
-| Size             | Physical Cores | Memory GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory GB |
+| Size             | Physical Cores | Memory GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory GiB |
 |------------------|----------------|-------------|------------------------|----------------|---------|---------------------|
 | Standard_DC1s_v3 | 1              | 8           | Remote Storage Only    | 4              | 2     |  4                 |
 | Standard_DC2s_v3 | 2              | 16          | Remote Storage Only    | 8              | 2     |  8                 |
@@ -56,7 +56,7 @@ Dcsv3-series instances run on a 3rd Generation Intel&reg; Xeon Scalable Processo
 
 ## DCdsv3-series
 
-| Size             | Physical Cores | Memory GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory GB |
+| Size             | Physical Cores | Memory GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory GiB |
 |------------------|----------------|-------------|------------------------|----------------|---------|---------------------|
 | Standard_DC1ds_v3 | 1              | 8           | 75                    | 4              | 2     |  4                 |
 | Standard_DC2ds_v3 | 2              | 16          | 150                    | 8              | 2     |  8                 |

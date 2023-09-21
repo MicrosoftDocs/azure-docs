@@ -1,148 +1,94 @@
 ---
-title: User management enhancements - Azure Active Directory | Microsoft Docs
-description: Describes how Azure Active Directory enables user search, filtering, and more information about your users.
+title: User management enhancements
+description: Describes how Microsoft Entra ID enables user search, filtering, and more information about your users.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 editor: ''
-
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/03/2022
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
 ---
 
-# User management enhancements in Azure Active Directory
+# User management enhancements in Microsoft Entra ID
 
-This article describes how to use the user management enhancements in the Azure Active Directory (Azure AD) portal. The **All users** and **Deleted users** pages have been updated to provide more information and make it easier to find users.
+This article describes how to use the user management enhancements in the admin center for Microsoft Entra ID, part of Microsoft Entra. The **All users** page and user profile pages have been updated to provide more information and make it easier to find users.
 
 Enhancements include:
 
-- More visible user properties including object ID, directory sync status, creation type, and identity issuer
-- Search allows substring search and combined search of names, emails, and object IDs
-- Enhanced filtering by user type (member, guest, none), directory sync status, creation type, company name, and domain name
-- Sorting capabilities on properties like name and user principal name
-- Total users count that updates with searches or filters
+- Preloaded scrolling so that you no longer have to select ‘Load more’ to view more users 
+- More user properties can be added as columns including city, country/region, employee ID, employee type, and external user state
+- More user properties can be filtered on including custom security attributes, on-premises extension attributes, and manager 
+- More ways to customize your view, like using drag-and-drop to reorder columns 
+- Copy and share your customized All Users view with others 
+- An enhanced User Profile experience that gives you quick insights about a user and lets you view and edit more properties 
 
 > [!NOTE]
 > These enhancements are not currently available for Azure AD B2C tenants.
 
-## User properties enhanced
+## All users page
 
-We’ve made some changes to the columns available on the **All users** and **Deleted users** pages. In addition to the existing columns we provide for managing your list of users, we've added a few more columns.
+We’ve made some changes to the columns and filters available on the **All users** page. In addition to the existing columns for managing your list of users, we've added the option to add more user properties as columns and filters including employee ID, employee hire date, on-premises attributes, and more. 
 
-### All users page
+![new user properties displayed on All users page and user profile pages](./media/users-search-enhanced/user-properties.png)
 
-The following are the displayed user properties on the **All users** page:
+### Reorder columns
 
-- Name: The display name of the user.
-- User principal name: The user principal name (UPN) of the user.
-- User Type: Member, guest, none.
-- Creation time: The date and time the user was created.
-- Job title: The job title of the user.
-- Department: The department the user works in.
-- Directory synced: Indicates whether the user is synced from an on-premises directory.
-- Identity issuer: The issuers of the identity used to sign into a user account.
-- Object ID: The object ID of the user.
-- Creation type: Indicates how the user account was created.
-- Company name: The company name which the user is associated.
-- Invitation state: The status of the invitation for a guest user.
-- Mail: The email of the user.
+You can customize your list view by reordering the columns on the page in one of two ways. One way is to directly drag and drop the columns on the page. Another way is to select **Columns** to open the column picker and then drag and drop the three- dot "handle" next to any given column. 
 
-![new user properties displayed on All users and Deleted users pages](./media/users-search-enhanced/user-properties.png)
+### Share views
 
-### Deleted users page
+If you want to share your customized list view with another person, you can select **Copy link to current view** in the upper right corner to share a link to the view. 
 
-The **Deleted users** page includes all the columns that are available on the **All users** page, and a few additional columns, namely:
+## User Profile enhancements
 
-- Deletion date: The date the user was first deleted from the organization (the user is restorable).
-- Permanent deletion date: The date after which the process of permanently deleting the user from the organization automatically begins.
-- Original user principal name: The original UPN of the user before their object ID was added as a prefix to their deleted UPN.
+The user profile page is now organized into three tabs: **Overview**, **Monitoring**, and **Properties**.  
 
-> [!NOTE]
-> Deletion dates are displayed in Coordinated Universal Time ‎(UTC)‎.
+### Overview tab 
 
-Some columns are displayed by default. To add other columns, select **Columns** on the page, select the column names you’d like to add, and select **OK** to save your preferences.
+The overview tab contains key properties and insights about a user, such as: 
 
-### Identity issuers
+- Properties like user principal name, object ID, created date/time and user type 
+- Selectable aggregate values such as the number of groups that the user is a member of, the number of apps to which they have access, and the number of licenses that are are assigned to them 
+- Quick alerts and insights about a user such as their current account enabled status, the last time they signed in, whether they can use multifactor authentication, and B2B collaboration options
 
-Select an entry in the **Identity issuer** column for any user to view additional details about the issuer including the sign-in type and the issuer assigned ID. The entries in the **Identity issuer** column can be multi-valued. If there are multiple issuers of the user's identity, you'll see the word Multiple in the **Identity issuer** column on **All users** and **Deleted users** pages, and the details pane list all issuers.
+![new user profile displaying the Overview tab contents](./media/users-search-enhanced/user-profile-overview.png)
 
-> [!NOTE]
-> The **Source** column is replaced by multiple columns including **Creation type**, **Directory synced**, and **Identity issuer** for more granular filtering.
+> [!NOTE] 
+> Some insights about a user may not be visible to you unless you have sufficient role permissions.  
 
-## User list search
+### Monitoring tab 
 
-When you enter a search string, the search now uses "starts with" and substring search to match names, emails, or object IDs in a single search. You can enter any of these attributes into the search box, and the search automatically looks across all these properties to return any matching results. The substring search is performed only on whole words. You can perform the same search on both the **All users** and **Deleted users** pages.
+The monitoring tab is the new home for the chart showing user sign-ins over the past 30 days.  
 
-## User list filtering
+### Properties tab 
 
-Filtering capabilities have been enhanced to provide more filtering options for the **All users** and **Deleted users** pages. You can now filter by multiple properties simultaneously, and can filter by more properties.
+The properties tab now contains more user properties. Properties are broken up into categories including Identity, Job information, Contact information, Parental controls, Settings, and On-premises.  
 
-### Filtering All users list
+![new user profile displaying the Properties tab contents](./media/users-search-enhanced/user-profile-properties.png)
 
-The following are the filterable properties on the **All users** page:
+You can edit properties by selecting the pencil icon next to any category, which will then redirect you to a new editing experience. Here, you can search for specific properties or scroll through property categories. You can edit one or many properties, across categories, before selecting **Save**. 
 
-- User type: Member, guest, none
-- Directory synced status: Yes, no
-- Creation type: Invitation, Email verified, Local account
-- Creation time: Last 7, 14, 30, 90, 360 or >360 days ago
-- Job title: Enter a job title
-- Department: Enter a department name
-- Group: Search for a group
-- Invitation state – Pending acceptance, Accepted
-- Domain name: Enter a domain name
-- Company name: Enter a company name
-- Administrative unit: Select this option to restrict the scope of the users you view to a single administrative unit. For more information, see [Administrative units management preview](../roles/administrative-units.md).
+![user profile properties open for editing](./media/users-search-enhanced/user-properties-edit.png) 
 
-### Filtering Deleted users list
+> [!NOTE] 
+> Some properties will not be visible or editable if they are read-only or if you don’t have sufficient role permissions to edit them. 
 
-The **Deleted users** page has additional filters not in the **All users** page. The following are the filterable properties on the **Deleted users** page:
-
-- User type: Member, guest, none
-- Directory synced status: Yes, no
-- Creation type: Invitation, Email verified, Local account
-- Creation time: Last 7, 14, 30, 90, 360 or > 360 days ago
-- Job title: Enter a job title
-- Department: Enter a department name
-- Invitation state: Pending acceptance, Accepted
-- Deletion date: Last 7, 14, or 30 days
-- Domain name: Enter a domain name
-- Company name: Enter a company name
-- Permanent deletion date: Last 7, 14, or 30 days
-
-## User list sorting
-
-You can now sort by name and user principal name in the **All users** and **Deleted users** pages. You can also sort by deletion date in the **Deleted Users** list.
-
-## User list counts
-
-You can view the total number of users in the **All users** and **Deleted users** pages. As you search or filter the lists, the count is updated to reflect the total number of users found.
-
-![Illustration of user list counts on the All users page](./media/users-search-enhanced/user-list-sorting.png)
-
-## Frequently Asked Questions (FAQ)
-
-Question | Answer
--------- | ------
-Why is the deleted user still displayed when the permanent deletion date has passed? | The permanent deletion date is displayed in the UTC time zone, so this may not match your current time zone. Also, this date is the earliest date after which the user will be permanently deleted from the organization, so it may still be processing. Permanently deleted users will automatically be removed from the list.
-What happen to the bulk capabilities for users and guests? | The bulk operations are all still available for users and guests, including bulk create, bulk invite, bulk delete, and download users. We’ve just merged them into a menu called **Bulk operations**. You can find the **Bulk operations** options at the top of the **All users** page.
-What happened to the Source column? | The **Source** column has been replaced with other columns that provide similar information, while allowing you to filter on those values independently. Examples include **Creation type**, **Directory synced** and **Identity issuer**.
-What happened to the User Name column? | The **User Name** column is still there, but it’s been renamed to **User Principal Name**. This  better reflects the information contained in that column. You’ll also notice that the full User Principal Name is now displayed for B2B guests. This matches what you’d get in MS Graph.  
-
+ 
 ## Next steps
 
 User operations
 
-- [Add or change profile information](../fundamentals/active-directory-users-profile-azure-portal.md)
-- [Add or delete users](../fundamentals/add-users-azure-active-directory.md)
+- [Add or change profile information](../fundamentals/how-to-manage-user-profile-info.md)
+- [Add or delete users](../fundamentals/add-users.md)
 
 Bulk operations
 

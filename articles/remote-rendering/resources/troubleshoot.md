@@ -17,7 +17,7 @@ Make sure that your firewalls (on device, inside routers, etc.) don't block the 
 
 ## Failed to load model
 
-When loading a model (for example, via a Unity sample) fails although the blob configuration is correct, it's likely that the blob storage isn't properly linked. This is explained in the [linking of a storage account](../how-tos/create-an-account.md#link-storage-accounts) chapter. Note that after correct linking it can take up to 30 minutes until the changes take effect.
+When loading a model (for example, via a Unity sample) fails although the blob configuration is correct, it's likely that the blob storage isn't properly linked. Proper linking is explained in the [linking of a storage account](../how-tos/create-an-account.md#link-storage-accounts) chapter. After correct linking it can take up to 30 minutes until the changes take effect.
 
 ## Can't link storage account to ARR account
 
@@ -28,11 +28,11 @@ Sometimes during [linking of a storage account](../how-tos/create-an-account.md#
 
 Check that your GPU supports hardware video decoding. See [Development PC](../overview/system-requirements.md#development-pc).
 
-If you're working on a laptop with two GPUs, it's possible that the GPU you're running on by default, doesn't provide hardware video decoding functionality. If so, try to force your app to use the other GPU. This is often possible in the GPU driver settings.
+If you're working on a laptop with two GPUs, it's possible that the GPU you're running on by default, doesn't provide hardware video decoding functionality. If so, try to force your app to use the other GPU. Changing the used GPU is often possible in the GPU driver settings.
 
 ## Retrieve session/conversion status fails
 
-Sending REST API commands too frequently will cause the server to throttle and return failure eventually. The HTTP status code in the throttling case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
+Sending REST API commands too frequently cause the server to throttle and return failure eventually. The HTTP status code in the throttling case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
 
 Note this limit not only affects the REST API calls when called directly but also their C#/C++ counterparts, such as `Session.GetPropertiesAsync`, `Session.RenewAsync`, or `Frontend.GetAssetConversionStatusAsync`. Some functions also return information when it's save to retry. For example, `RenderingSessionPropertiesResult.MinimumRetryDelay` specifies how many seconds to wait before attempting another check. When available, using such a returned value is best, as it allows you to do checks as often as possible, without getting throttled.
 
@@ -46,7 +46,7 @@ There are two reasons why the server might refuse to connect with a `codec not a
 
 First make sure to install the **HEVC Video Extensions** as mentioned in the [Software](../overview/system-requirements.md#software) section of the system requirements.
 
-If you still encounter problems, make sure that your graphics card supports H265 and you have the latest graphics driver installed. See the [Development PC](../overview/system-requirements.md#development-pc) section of the system requirements for vendor-specific information.
+If you still encounter problems, make sure that your graphics card supports H265, and you have the latest graphics driver installed. See the [Development PC](../overview/system-requirements.md#development-pc) section of the system requirements for vendor-specific information.
 
 **The codec is installed, but can't be used:**
 
@@ -73,7 +73,7 @@ The reason for this issue is an incorrect security setting on the DLLs. This pro
 1. Repeat the steps above for the other folder
 1. Also repeat the steps above on each DLL file inside both folders. There should be four DLLs altogether.
 
-To verify that the settings are now correct, do this for each of the four DLLs:
+To verify that the settings are now correct, do the following steps for each of the four DLLs:
 
 1. Select **Properties > Security > Edit**
 1. Go through the list of all **Groups / Users** and make sure each one has the **Read & Execute** right set (the checkmark in the **allow** column must be ticked)
@@ -102,13 +102,20 @@ We recommend testing the following things before doing a more in-depth analysis:
 * Is the H265 codec installed? Although there should be a fallback to the H264 codec, we have seen cases where this fallback didn't work properly. See the [system requirements](../overview/system-requirements.md#development-pc) for installing the latest graphics driver.
 * When using a Unity project, close Unity, delete the temporary *library* and *obj* folders in the project directory and load/build the project again. In some cases cached data caused the sample to not function properly for no obvious reason.
 
-If these two steps didn't help, it's required to find out whether video frames are received by the client or not. This can be queried programmatically as explained in the [server-side performance queries](../overview/features/performance-queries.md) chapter. The `FrameStatistics struct` has a member that indicates how many video frames have been received. If this number is larger than 0 and increasing over time, the client receives actual video frames from the server. Consequently, it must be a problem on the client side.
+If these two steps didn't help, it's required to find out whether video frames are received by the client or not. This can be queried programmatically as explained in the [server-side performance queries](../overview/features/performance-queries.md) chapter. The `FrameStatistics struct` has a member that indicates how many video frames have been received. If this number is larger than 0 and increasing over time, the client receives actual video frames from the server. So, it must be a problem on the client side.
+
+## Scaling value in the conversion settings isn't applied to the model
+
+If a model shows up in Showcase or Quickstart with unchanged scaling albeit a scaling is applied as part of the [conversion settings' geometry parameters](../how-tos/conversion/configure-model-conversion.md#geometry-parameters), then this is probably because of the sample's built-in auto-scaling feature. That is, the sample scales the model for best fit into the view frustum, regardless of its input scaling.
+
+In case of Showcase, auto-scaling can be disabled by specifying a `MaxSize` of zero in the model's `Transform` section inside the models.xml file. This data-driven approach requires that the model is loaded through the XML in the first place, because in all other cases the `MaxSize` defaults to 1 meter. There is also a `MinSize` property which defaults to 0.5 meter, causing all smaller models to be scaled up.
+For more information about ways to load models in Showcase, see the [Adding 3D Model Assets to ARR Showcase](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase/.documents/adding-3d-model-assets-to-application.md) chapter of the Showcase documentation.
 
 ### Common client-side issues
 
-**The model exceeds the limits of the selected VM, specifically the maximum number of polygons:**
+**The model exceeds the limits of the selected VM, specifically the maximum number of primitives:**
 
-See specific [server size limits](../reference/limits.md#overall-number-of-polygons).
+See specific [server size limits](../reference/limits.md#overall-number-of-primitives).
 
 **The model is not inside the camera frustum:**
 
@@ -149,6 +156,11 @@ Azure Remote Rendering hooks into the Unity render pipeline to do the frame comp
 
 ![Unity render pipeline](./media/troubleshoot-unity-pipeline.png)
 
+To fix, make sure the provided _HybridRenderingPipeline_ asset is used:
+![Screenshot of the Unity asset browser and Project Settings dialog. The HybridRenderingPipeline asset is highlighted in the asset browser. An arrow points from the asset to the UniversalRenderPipelineAsset field in project settings.](./../how-tos/unity/media/hybrid-rendering-pipeline.png)
+
+..as described in more detail in the [Unity Render Pipelines](./../how-tos/unity/unity-render-pipelines.md#setup-universal-render-pipeline).
+
 ## Checkerboard pattern is rendered after model loading
 
 If the rendered image looks like this:
@@ -162,17 +174,17 @@ Make sure to follow the [Unity Tutorial: View remote models](../tutorials/unity/
 
 Reasons for this issue could be MSAA, HDR, or enabling post processing. Make sure that the low-quality profile is selected and set as default in the Unity. To do so go to *Edit > Project Settings... > Quality*.
 
-When using the OpenXR plugin in Unity 2020, there are versions of the URP (Universal Render Pipeline) that create this extra off-screen render target regardless of post processing being enabled. It's thus important to upgrade the URP version manually to at least 10.5.1 (or higher). This is described in the [system requirements](../overview/system-requirements.md#unity-2020).
+When using the OpenXR plugin in Unity 2020, there are versions of the URP (Universal Render Pipeline) that create this extra off-screen render target regardless of post processing being enabled. It's thus important to upgrade the URP version manually to at least 10.5.1 (or higher). This upgrade process is described in the [system requirements](../overview/system-requirements.md#unity-2020).
 
 ## Unity code using the Remote Rendering API doesn't compile
 
 ### Use Debug when compiling for Unity Editor
 
-Switch the *build type* of the Unity solution to **Debug**. When testing ARR in the Unity editor the define `UNITY_EDITOR` is only available in 'Debug' builds. Note that this is unrelated to the build type used for [deployed applications](../quickstarts/deploy-to-hololens.md), where you should prefer 'Release' builds.
+Switch the *build type* of the Unity solution to **Debug**. When testing ARR in the Unity editor the define `UNITY_EDITOR` is only available in 'Debug' builds. This setting is unrelated to the build type used for [deployed applications](../quickstarts/deploy-to-hololens.md), where you should prefer 'Release' builds.
 
 ### Compile failures when compiling Unity samples for HoloLens 2
 
-We have seen spurious failures when trying to compile Unity samples (quickstart, ShowCaseApp,.. ) for HoloLens 2. Visual Studio complains about not being able to copy some files albeit they're there. If you hit this problem:
+We have seen spurious failures when trying to compile Unity samples (quickstart, ShowCaseApp, ... ) for HoloLens 2. Visual Studio complains about not being able to copy some files albeit they're there. If you hit this problem:
 * Remove all temporary Unity files from the project and try again. That is, close Unity, delete the temporary *library* and *obj* folders in the project directory and load/build the project again.
 * Make sure the projects are located in a directory on disk with reasonably short path, since the copy step sometimes seems to run into problems with long filenames.
 * If that doesn't help, it could be that MS Sense interferes with the copy step. To set up an exception, run this registry command from command line (requires admin rights):
@@ -184,7 +196,7 @@ We have seen spurious failures when trying to compile Unity samples (quickstart,
 
 The `AudioPluginMsHRTF.dll` for Arm64 was added to the *Windows Mixed Reality* package *(com.unity.xr.windowsmr.metro)* in version 3.0.1. Ensure that you have version 3.0.1 or later installed via the Unity Package Manager. From the Unity menu bar, navigate to *Window > Package Manager* and look for the *Windows Mixed Reality* package.
 
-## The Unity `Cinemachine` plugin does not work in Remote pose mode
+## The Unity `Cinemachine` plugin doesn't work in Remote pose mode
 
 In [Remote pose mode](../overview/features/late-stage-reprojection.md#reprojection-pose-modes), the ARR Unity binding code implicitly creates a proxy camera that performs the actual rendering. In this case, the main camera's culling mask is set to 0 ("nothing") to effectively turn off the rendering for it. However, some third party plugins (like `Cinemachine`) that drive the camera, may rely on at least some layer bits being set.
 
@@ -199,7 +211,7 @@ For this purpose, The binding code allows you to programmatically change the lay
 ![Screenshot that shows Unity's inspector panel for camera settings in `Cinemachine`.](./media/cinemachine-camera-config.png)
 
 
-The local pose mode isn't affected by this, since in this case the ARR binding doesn't redirect rendering to an internal proxy camera.
+The local pose mode isn't affected by this problem, since in this case the ARR binding doesn't redirect rendering to an internal proxy camera.
 
 ## Native C++ based application doesn't compile
 
@@ -211,7 +223,7 @@ Inside the C++ NuGet package, there's file `microsoft.azure.remoterendering.Cpp.
 
 In case rendered objects seem to be moving along with head movements, you might be encountering issues with *Late Stage Reprojection* (LSR). Refer to the section on [Late Stage Reprojection](../overview/features/late-stage-reprojection.md) for guidance on how to approach such a situation.
 
-Another reason for unstable holograms (wobbling, warping, jittering, or jumping holograms) can be poor network connectivity, in particular insufficient network bandwidth, or too high latency. A good indicator for the quality of your network connection is the [performance statistics](../overview/features/performance-queries.md) value `ServiceStatistics.VideoFramesReused`. Reused frames indicate situations where an old video frame needed to be reused on the client side because no new video frame was available – for example because of packet loss or because of variations in network latency. If `ServiceStatistics.VideoFramesReused` is frequently larger than zero, this indicates a network problem.
+Another reason for unstable holograms (wobbling, warping, jittering, or jumping holograms) can be poor network connectivity, in particular insufficient network bandwidth, or too high latency. A good indicator for the quality of your network connection is the [performance statistics](../overview/features/performance-queries.md) value `ServiceStatistics.VideoFramesReused`. Reused frames indicate situations where an old video frame needed to be reused on the client side because no new video frame was available – for example because of packet loss or because of variations in network latency. If `ServiceStatistics.VideoFramesReused` is frequently larger than zero, it indicates a network problem.
 
 Another value to look at is `ServiceStatistics.LatencyPoseToReceiveAvg`. It should consistently be below 100 ms. Seeing higher values could indicate that you're connected to a data center that is too far away.
 
@@ -219,7 +231,7 @@ For a list of potential mitigations, see the [guidelines for network connectivit
 
 ## Local content (UIs, ...) on HoloLens 2 renders with significantly more distortion artifacts than without ARR
 
-This is a default setting that trades local content projection quality for runtime performance. Refer to the chapter about the [reprojection pose modes](../overview/features/late-stage-reprojection.md#reprojection-pose-modes) to see how the projection mode can be changed so that local content is rendered at the same reprojection quality level as without ARR.
+This artifact is due to a default setting that trades local content projection quality for runtime performance. Refer to the chapter about the [reprojection pose modes](../overview/features/late-stage-reprojection.md#reprojection-pose-modes) to see how the projection mode can be changed so that local content is rendered at the same reprojection quality level as without ARR.
 
 ## Z-fighting
 
@@ -245,7 +257,7 @@ ARR has a feature for determining if surfaces could z-fight: [Checkerboard highl
 
 ![Animation shows an example of depth-precision loss in the distance.](./media/depth-precision-z-fighting.gif)  ![Animation shows an example of nearly coplanar surfaces.](./media/coplanar-z-fighting.gif)
 
-Compare these examples with your z-fighting to determine the cause or optionally follow this step-by-step workflow:
+Compare these examples with your z-fighting to determine the root cause or optionally follow this step-by-step workflow:
 
 1. Position the camera above the z-fighting surfaces to look directly at the surface.
 1. Slowly move the camera backwards, away from the surfaces.
@@ -261,7 +273,7 @@ Coplanar surfaces can have many different causes:
 
 * Surfaces are duplicated and flipped to appear double-sided in renderers that use front-face or back-face culling.
 
-    Import via the [model conversion](../how-tos/conversion/model-conversion.md) determines the principal sided-ness of the model. Double-sided-ness is assumed as the default. The surface will be rendered as a thin wall with physically correct lighting from both sides. Single-sided-ness can be implied by flags in the source asset, or explicitly forced during the [model conversion](../how-tos/conversion/model-conversion.md). Additionally but optionally, the [single sided mode](../overview/features/single-sided-rendering.md) can be set to "normal".
+    Import via the [model conversion](../how-tos/conversion/model-conversion.md) determines the principal sided-ness of the model. Double-sided-ness is assumed as the default. The surface is rendered as a thin wall with physically correct lighting from both sides. Single-sided-ness can be implied by flags in the source asset, or explicitly forced during the [model conversion](../how-tos/conversion/model-conversion.md). Additionally but optionally, the [single sided mode](../overview/features/single-sided-rendering.md) can be set to "normal".
 
 * Objects intersect in the source assets.
 
@@ -278,14 +290,14 @@ In some cases, custom native C++ apps that use a multi-pass stereo rendering mod
 The Conversion service may encounter errors downloading files from blob storage because of file system limitations. Specific failure cases are listed below. Comprehensive information on Windows file system limitations can be found in the [Naming Files, Paths, and Namespaces](/windows/win32/fileio/naming-a-file) documentation.
 
 ### Colliding path and file name
-In blob storage, it's possible to create a file and a folder of the exact same name as sibling entries. In Windows file system this isn't possible. Accordingly, the service will emit a download error in that case.
+In blob storage, it's possible to create a file and a folder of the exact same name as sibling entries. The Windows file system doesn't allow this. Accordingly, the service emits a download error in that case.
 
 ### Path length
 There are path length limits imposed by Windows and the service. File paths and file names in your blob storage must not exceed 178 characters. For example given a `blobPrefix` of `models/Assets`, which is 13 characters:
 
 `models/Assets/<any file or folder path greater than 164 characters will fail the conversion>`
 
-The Conversion service will download all files specified under the `blobPrefix`, not just the files used in the conversion. The files/folder causing issues may be less obvious in these cases so it's important to check everything contained in the storage account under `blobPrefix`. See the example inputs below for what gets downloaded.
+The Conversion service downloads all files specified under the `blobPrefix`, not just the files used in the conversion. The files/folder causing issues may be less obvious in these cases so it's important to check everything contained in the storage account under `blobPrefix`. See the example inputs below for what gets downloaded.
 ``` json
 {
   "settings": {
@@ -312,6 +324,11 @@ models
 └───OtherFiles
         myReallyLongFileName.txt    <- Ignores files not under blobPrefix             
 ```
+
+## HoloLens2 'Take a Picture' (MRC) doesn't show any local or remote content
+
+This problem usually occurs if a project is updated from WMR to OpenXR and the project accessed the [HolographicViewConfiguration Class (Windows.Graphics.Holographic)](/uwp/api/windows.graphics.holographic.holographicviewconfiguration?view=winrt-22621&preserve-view=true) settings. This API isn't supported in OpenXR and must not be accessed.
+
 ## Next steps
 
 * [System requirements](../overview/system-requirements.md)

@@ -1,27 +1,29 @@
 ---
-title: Export data to Blob Storage IoT Central | Microsoft Docs
-description: How to use the new data export to export your IoT data to Blob Storage
+title: Export data to Blob Storage IoT Central
+description: Learn how to use the IoT Central data export capability to continuously export your IoT data to Blob Storage
 services: iot-central
-author: v-krishnag
-ms.author: v-krishnag
-ms.date: 04/28/2022
+author: dominicbetts
+ms.author: dobett
+ms.date: 05/22/2023
 ms.topic: how-to
 ms.service: iot-central
+ms.custom: devx-track-azurecli
 ---
 
 # Export IoT data to Blob Storage
 
-This article describes how to configure data export to send data to the  Blob Storage service.
+This article describes how to configure data export to send data to the Blob Storage service.
 
 [!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
 
-## Set up a Blob Storage export destination
+To learn how to manage data export by using the IoT Central REST API, see [How to use the IoT Central REST API to manage data exports.](../core/howto-manage-data-export-with-rest-api.md)
 
+## Set up a Blob Storage export destination
 
 IoT Central exports data once per minute, with each file containing the batch of changes since the previous export. Exported data is saved in JSON format. The default paths to the exported data in your storage account are:
 
-- Telemetry: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
-- Property changes: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
+- Telemetry: *{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}*
+- Property changes: *{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}*
 
 To browse the exported files in the Azure portal, navigate to the file and select **Edit blob**.
 
@@ -29,15 +31,15 @@ To browse the exported files in the Azure portal, navigate to the file and selec
 
 Blob Storage destinations let you configure the connection with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
 
+> [!TIP]
+> If the Blob Storage destination is protected by a firewall, you must use a managed identity to connect to it.
+
 [!INCLUDE [iot-central-managed-identities](../../../includes/iot-central-managed-identities.md)]
 
-This article shows how to create a managed identity in the Azure portal. You can also use the Azure CLI to create a manged identity. To learn more, see [Assign a managed identity access to a resource using Azure CLI](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
-
----
+### Create an Azure Blob Storage destination
 
 # [Connection string](#tab/connection-string)
 
-### Create an Azure Blob Storage destination
 
 If you don't have an existing Azure storage account to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Azure Storage account, and blob container. It then prints the connection string to use when you configure the data export in IoT Central:
 
@@ -80,7 +82,7 @@ To create the Blob Storage destination in IoT Central on the **Data export** pag
 
 # [Managed identity](#tab/managed-identity)
 
-### Create an Azure Blob Storage destination
+This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a manged identity.
 
 If you don't have an existing Azure storage account to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Azure Storage account, and blob container. The script then enables the managed identity for your IoT Central application and assigns the role it needs to access your storage account:
 
@@ -136,6 +138,8 @@ To create the Blob Storage destination in IoT Central on the **Data export** pag
 
 1. Select **Save**.
 
+If you don't see data arriving in your destination service, see [Troubleshoot issues with data exports from your Azure IoT Central application](troubleshoot-data-export.md).
+
 ---
 
 [!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]
@@ -181,23 +185,40 @@ The following example shows an exported telemetry message:
 
 For Blob Storage, messages are batched and exported once per minute.
 
-The following snippet shows this property in the message exported to Blob Storage:
+The following snippet shows a property change message exported to Blob Storage:
 
 ```json
 {
-  "applicationId":"5782ed70-b703-4f13-bda3-1f5f0f5c678e",
-  "messageSource":"telemetry",
-  "deviceId":"sample-device-01",
-  "schema":"default@v1",
-  "templateId":"urn:modelDefinition:mkuyqxzgea:e14m1ukpn",
-  "enqueuedTime":"2021-01-29T16:45:39.143Z",
-  "telemetry":{
-    "temperature":8.341033560421833
-  },
-  "messageProperties":{
-    "iothub-creation-time-utc":"2021-01-29T16:45:39.021Z"
-  },
-  "enrichments":{}
+    "applicationId": "fb74969c-8682-4708-af01-33499a7f7d98",
+    "messageSource": "properties",
+    "deviceId": "Pepjmh1Hcc",
+    "enqueuedTime": "2023-03-02T10:35:39.281Z",
+    "enrichments": {},
+    "messageType": "devicePropertyReportedChange",
+    "schema": "default@v1",
+    "templateId": "dtmi:azureiot:ddzig4ascxz",
+    "properties": [
+        {
+            "component": "device_info",
+            "name": "swVersion",
+            "value": "12"
+        },
+        {
+            "component": "device_info",
+            "name": "osName",
+            "value": "Android"
+        },
+        {
+            "component": "device_info",
+            "name": "processorArchitecture",
+            "value": "arm64-v8a"
+        },
+        {
+            "component": "device_info",
+            "name": "processorManufacturer",
+            "value": "unknown"
+        }
+    ]
 }
 ```
 
@@ -261,6 +282,30 @@ The following example shows an exported device lifecycle message received in Azu
   "enrichments": {
     "userSpecifiedKey": "sampleValue"
   }
+}
+```
+
+[!INCLUDE [iot-central-data-export-audit-logs](../../../includes/iot-central-data-export-audit-logs.md)]
+
+The following example shows an exported audit log message received in Azure Blob Storage:
+
+```json
+{
+  "actor": {
+    "id": "test-audit",
+    "type": "apiToken"
+    },
+  "applicationId": "570c2d7b-1111-2222-abcd-000000000000",
+  "enqueuedTime": "2022-07-25T21:54:40.000Z",
+  "enrichments": {},
+  "messageSource": "audit",
+  "messageType": "created",
+  "resource": {
+    "displayName": "Sensor 1",
+    "id": "sensor",
+    "type": "device"    
+  },
+  "schema": "default@v1"
 }
 ```
 

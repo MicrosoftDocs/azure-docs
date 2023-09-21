@@ -1,45 +1,74 @@
 ---
-title: Azure direct routing provisioning and configuration - Azure Communication Services
-description: Learn how to add a Session Border Controller and configure voice routing for Azure Communication Services direct routing
+title: Use direct routing to connect existing telephony service
+description: Learn how to add a Session Border Controller and configure voice routing for Azure Communication Services direct routing.
 author: boris-bazilevskiy
-manager: nmurav
+manager: rcole
 services: azure-communication-services
 
 ms.author: bobazile
-ms.date: 06/30/2021
+ms.date: 06/22/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
+ms.custom: kr2b-contr-experiment
 ---
 
-# Session Border Controllers and voice routing
+# Use direct routing to connect to existing telephony service
 Azure Communication Services direct routing enables you to connect your existing telephony infrastructure to Azure. The article lists the high-level steps required for connecting a supported Session Border Controller (SBC) to direct routing and how voice routing works for the enabled Communication resource. 
-
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
  
 For information about whether Azure Communication Services direct routing is the right solution for your organization, see [Azure telephony concepts](./telephony-concept.md). For information about prerequisites and planning your deployment, see [Communication Services direct routing infrastructure requirements](./direct-routing-infrastructure.md).
 
 ## Connect the SBC with Azure Communication Services
 
-### Configure using Azure portal 
-1. In the left navigation, select Direct routing under Voice Calling - PSTN and then select Configure from the Session Border Controller tab.
-1. Enter a fully qualified domain name and signaling port for the SBC.
- 
-- SBC certificate must match the name; wildcard certificates are supported.
-- The *.onmicrosoft.com domain can’t be used for the FQDN of the SBC.
-For the full list of requirements, refer to [Azure direct routing infrastructure requirements](./direct-routing-infrastructure.md).
+### Validate domain ownership
+Follow [these instructions](../../how-tos/telephony/domain-validation.md) to validate a domain ownership of your SBC
 
-   :::image type="content" source="../media/direct-routing-provisioning/add-session-border-controller.png" alt-text="Adding Session Border Controller.":::
-- When you're done, select Next.
-If everything set up correctly, you should see exchange of OPTIONS messages between Microsoft and your Session Border Controller, user your SBC monitoring/logs to validate the connection.
+## Configure outbound voice routing 
+Refer to [Voice routing quickstart](../../quickstarts/telephony/voice-routing-sdk-config.md) to add an SBC and configure outbound voice routing rules.
 
-## Voice routing considerations
+## Session Border Controller connection status
 
-Azure Communication Services direct routing has a routing mechanism that allows a call to be sent to a specific Session Border Controller (SBC) based on the called number pattern.
-When you add a direct routing configuration to a resource, all calls made from this resource’s instances (identities) will try a direct routing trunk first. The routing is based on a dialed number and a match in voice routes configured for the resource. If there's a match, the call goes through the direct routing trunk. If there's no match, the next step is to process the `alternateCallerId` parameter of the `callAgent.startCall` method. If the resource is enabled for Voice Calling (PSTN) and has at least one number purchased from Microsoft, the `alternateCallerId` is checked. If the `alternateCallerId` matches one of a purchased number for the resource, the call is routed through the Voice Calling (PSTN) using Microsoft infrastructure. If `alternateCallerId` parameter doesn't match any of the purchased numbers, the call will fail. The diagram below demonstrates the Azure Communication Services voice routing logic.
+The health of an SBC connection now exposed in Azure portal. It takes in account Transport Layer Security (TLS) status and SIP OPTIONS. 
 
-:::image type="content" source="../media/direct-routing-provisioning/voice-routing-diagram.png" alt-text="Communication Services outgoing voice routing.":::
+   [![Screenshot of SBC connection properties.](../../quickstarts/telephony/media/voice-routing/session-border-controller-connection-properties.png)](../../quickstarts/telephony//media/voice-routing/session-border-controller-connection-properties.png#lightbox)
+
+### Possible values of each health indicator
+
+TLS Status - Status of the TLS connections of a Trunk: 
+- Unknown - Indicates an unknown status. 
+- Active - Indicates that TLS connection is established. 
+- CertExpiring - Indicates that SBC certificate is expiring. 
+- CertExpired - Indicates that SBC certificate is expired. 
+
+SIP OPTIONS (Ping) - Status of SIP OPTIONS messages exchange: 
+- Unknown - Indicates an unknown status. 
+- Active - Indicates that OPTIONS are being sent and received. 
+- Expired - Indicates that status is expired. 
+- Error - Indicates an error in OPTIONS exchange.  
+
+Status - The overall health status of a Trunk: 
+- Unknown - Indicates an unknown health status. 
+- Online - Indicates that SBC connection is healthy. 
+- Warning - Indicates TLS or Ping is expired. 
+
+> [!IMPORTANT]
+> Before placing or receiving calls, make sure that SBC status is *Online*
+
+## Outbound voice routing considerations
+
+Azure Communication Services direct routing has a routing mechanism that allows a call to be sent to a specific SBC based on the called number pattern.
+
+When you add a direct routing configuration to a resource, all calls made from this resource’s instances (identities) try a direct routing trunk first. The routing is based on a dialed number and a match in voice routes configured for the resource. 
+
+- If there's a match, the call goes through the direct routing trunk. 
+- If there's no match, the next step is to process the `alternateCallerId` parameter of the `callAgent.startCall` method. 
+- If the resource is enabled for Voice Calling (PSTN) and has at least one number purchased from Microsoft, the `alternateCallerId` is checked. 
+- If the `alternateCallerId` matches a purchased number for the resource, the call is routed through the Voice Calling (PSTN) using Microsoft infrastructure. 
+- If `alternateCallerId` parameter doesn't match any of the purchased numbers, the call fails. 
+
+The diagram demonstrates the Azure Communication Services voice routing logic.
+
+:::image type="content" source="../media/direct-routing-provisioning/voice-routing-diagram.png" alt-text="Diagram of outgoing voice routing flowchart.":::
 
 ## Voice routing examples
 The following examples display voice routing in a call flow.
@@ -51,10 +80,10 @@ The following examples display voice routing in a call flow.
 If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added `sbc1.contoso.biz` and `sbc2.contoso.biz` to it, then when the user makes a call to `+1 425 XXX XX XX` or `+1 206 XXX XX XX`, the call is first routed to SBC `sbc1.contoso.biz` or `sbc2.contoso.biz`. If neither SBC is available, the call is dropped.
 
 ### Two routes example:
-If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added `sbc1.contoso.biz` and `sbc2.contoso.biz` to it, and then created a second route with the same pattern with `sbc3.contoso.biz` and `sbc4.contoso.biz`. In this case, when the user makes a call to `+1 425 XXX XX XX` or `+1 206 XXX XX XX`, the call is first routed to SBC `sbc1.contoso.biz` or `sbc2.contoso.biz`. If both sbc1 and sbc2 are unavailable, the route with lower priority will be tried (`sbc3.contoso.biz` and `sbc4.contoso.biz`). If none of the SBCs of the second route are available, the call is dropped.
+If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added `sbc1.contoso.biz` and `sbc2.contoso.biz` to it, and then created a second route with the same pattern with `sbc3.contoso.biz` and `sbc4.contoso.biz`. In this case, when the user makes a call to `+1 425 XXX XX XX` or `+1 206 XXX XX XX`, the call is first routed to SBC `sbc1.contoso.biz` or `sbc2.contoso.biz`. If both sbc1 and sbc2 are unavailable, the route with lower priority is tried (`sbc3.contoso.biz` and `sbc4.contoso.biz`). If none of the SBCs of the second route are available, the call is dropped.
 
 ### Three routes example:
-If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added `sbc1.contoso.biz` and `sbc2.contoso.biz` to it, and then created a second route with the same pattern with `sbc3.contoso.biz` and `sbc4.contoso.biz`, and created a third route with `^+1(\d[10])$` with `sbc5.contoso.biz`. In this case, when the user makes a call to `+1 425 XXX XX XX` or `+1 206 XXX XX XX`, the call is first routed to SBC `sbc1.contoso.biz` or `sbc2.contoso.biz`. If both sbc1 nor sbc2 are unavailable, the route with lower priority will be tried (`sbc3.contoso.biz` and `sbc4.contoso.biz`). If none of the SBCs of a second route are available, the third route will be tried. If sbc5 is also not available, the call is dropped. Also, if a user dials `+1 321 XXX XX XX`, the call goes to `sbc5.contoso.biz`, and it isn't available, the call is dropped.
+If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added `sbc1.contoso.biz` and `sbc2.contoso.biz` to it, and then created a second route with the same pattern with `sbc3.contoso.biz` and `sbc4.contoso.biz`, and created a third route with `^+1(\d[10])$` with `sbc5.contoso.biz`. In this case, when the user makes a call to `+1 425 XXX XX XX` or `+1 206 XXX XX XX`, the call is first routed to SBC `sbc1.contoso.biz` or `sbc2.contoso.biz`. If both sbc1 nor sbc2 are unavailable, the route with lower priority is tried (`sbc3.contoso.biz` and `sbc4.contoso.biz`). If none of the SBCs of a second route are available, the third route is tried. If sbc5 is also not available, the call is dropped. Also, if a user dials `+1 321 XXX XX XX`, the call goes to `sbc5.contoso.biz`, and it isn't available, the call is dropped.
 
 > [!NOTE]
 > Failover to the next SBC in voice routing works only for response codes 408, 503, and 504.
@@ -62,48 +91,19 @@ If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added 
 > [!NOTE]
 > In all the examples, if the dialed number does not match the pattern, the call will be dropped unless there is a purchased number exist for the communication resource, and this number was used as `alternateCallerId` in the application. 
 
-## Configure voice routing 
-
-### Configure using Azure portal
-
-:::image type="content" source="../media/direct-routing-provisioning/voice-routing-configuration.png" alt-text="Communication Services outgoing voice routing configuration.":::
-
-Give your Voice Route a name, specify the number pattern using regular expressions, and select SBC for that pattern. 
-Here are some examples of basic regular expressions:
-- `^\+\d+$` - matches a telephone number with one or more digits that start with a plus
-- `^+1(\d[10])$` - matches a telephone number with a ten digits after a `+1`
-- `^\+1(425|206)(\d{7})$` - matches a telephone number that starts with `+1425` or with `+1206` followed by seven digits
-- `^\+0?1234$` - matches both `+01234` and `+1234` telephone numbers.
-
-For more information about regular expressions, see [.NET regular expressions overview](/dotnet/standard/base-types/regular-expressions).
-
-You can select multiple SBCs for a single pattern. In such a case, the routing algorithm will choose them in random order. You may also specify the exact number pattern more than once. The higher row will have higher priority, and if all SBCs associated with that row aren't available next row will be selected. This way, you create complex routing scenarios.
-
-## Delete direct routing configuration
-
-### Delete using Azure portal
-
-#### To delete a Voice Route:
-1. In the left navigation, go to Direct routing under Voice Calling - PSTN and then select the Voice Routes tab.
-1. Select route or routes you want to delete using a checkbox.
-1. Select Remove.
-
-#### To delete an SBC:
-1. In the left navigation, go to Direct routing under Voice Calling - PSTN.
-1. On a Session Border Controllers tab, select Configure.
-1. Clear the FQDN and port fields for the SBC that you want to remove, select Next.
-1. On a Voice Routes tab, review voice routing configuration, make changes if needed. select Save.
-
-> [!NOTE]
-> When you remove SBC associated with a voice route, you can choose a different SBC for the route on the Voice Routes tab. The voice route without an SBC will be deleted.
+## Managing inbound calls
+For general inbound call management use [Call Automation SDKs](../call-automation/incoming-call-notification.md) to build an application that listens for and manage inbound calls placed to a phone number or received via ACS direct routing. 
+Omnichannel for Customer Service customers, refer to [these instructions](/dynamics365/customer-service/voice-channel-inbound-calling).
 
 ## Next steps
 
 ### Conceptual documentation
 
 - [Session Border Controllers certified for Azure Communication Services direct routing](./certified-session-border-controllers.md)
+- [Call Automation overview](../call-automation/call-automation.md)
 - [Pricing](../pricing.md)
 
 ### Quickstarts
 
-- [Call to Phone](../../quickstarts/telephony/pstn-call.md)
+- [Outbound call to a phone number](../../quickstarts/telephony/pstn-call.md)
+- [Redirect inbound telephony calls with Call Automation](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md)

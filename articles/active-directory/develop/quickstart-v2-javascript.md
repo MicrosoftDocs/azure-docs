@@ -1,16 +1,15 @@
 ---
-title: "Quickstart: Sign in users in JavaScript single-page apps | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Sign in users in JavaScript single-page apps"
 description: In this quickstart, you learn how a JavaScript app can call an API that requires access tokens issued by the Microsoft identity platform.
 services: active-directory
-author: mmacy
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/11/2019
-ms.author: marsma
+ms.author: owenrichards
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:JavaScript", devx-track-js, mode-api
 #Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---
@@ -23,6 +22,8 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) (to edit project files)
@@ -33,7 +34,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > ### Option 1 (Express): Register and auto configure your app and then download your code sample
 >
-> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
+> 1. Sign in to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**.
@@ -45,7 +46,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
-> 1. Search for and select **Azure Active Directory**.
+> 1. Search for and select **Identity**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
@@ -164,7 +165,7 @@ After the browser loads the application, select **Sign In**. The first time that
 
 ### How the sample works
 
-![How the sample JavaScript SPA works: 1. The SPA initiates sign in. 2. The SPA acquires an ID token from the Microsoft identity platform. 3. The SPA calls acquire token. 4. The Microsoft identity platform returns an Access token to the SPA. 5. The SPA makes and HTTP GET request with the Acess Token to the Microsoft Graph API. 6. The Graph API returns an HTTP response to the SPA.](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![How the sample JavaScript SPA works: 1. The SPA initiates sign in. 2. The SPA acquires an ID token from the Microsoft identity platform. 3. The SPA calls acquire token. 4. The Microsoft identity platform returns an Access token to the SPA. 5. The SPA makes and HTTP GET request with the Access Token to the Microsoft Graph API. 6. The Graph API returns an HTTP response to the SPA.](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
 ### msal.js
 

@@ -1,18 +1,17 @@
 ---
-title: 'Tutorial: Access Azure Storage using a SAS credential - Linux - Azure AD'
+title: 'Tutorial: Access Azure Storage using a SAS credential - Linux'
 description: Tutorial showing how to use a Linux VM system-assigned managed identity to access Azure Storage using a SAS credential instead of a storage account access key.
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
-editor: daveba
-ms.custom: subject-rbac-steps
+manager: amycolannino
+ms.custom: subject-rbac-steps, devx-track-arm-template
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/17/2022
+ms.date: 06/24/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -22,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](../../storage/common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](../../storage/common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json#types-of-shared-access-signatures). 
 
 > [!NOTE]
 > The SAS key generated in this tutorial will not be restricted/bound to the VM.  
@@ -66,12 +65,12 @@ Later we'll upload and download a file to the new storage account. Because files
 
 ## Grant your VM's system-assigned managed identity access to use a storage SAS
 
-Azure Storage natively supports Azure AD authentication, so you can use your VM's system-assigned managed identity to retrieve a storage SAS from Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS. Assign the [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role to the managed-identity at the scope of the resource group that contains your storage account.
+Azure Storage natively supports Microsoft Entra authentication, so you can use your VM's system-assigned managed identity to retrieve a storage SAS from Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS. Assign the [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role to the managed-identity at the scope of the resource group that contains your storage account.
  
 For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 >[!NOTE]
-> For more information on the various roles that you can use to grant permissions to storage review [Authorize access to blobs and queues using Azure Active Directory.](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights)
+> For more information on the various roles that you can use to grant permissions to storage review [Authorize access to blobs and queues using Microsoft Entra ID.](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights)
 
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager
@@ -97,18 +96,20 @@ Now that you have your SSH client continue to the steps below:
     ```
     
     > [!NOTE]
-    > In the previous request, the value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
+    > In the previous request, the value of the "resource" parameter must be an exact match for what is expected by Microsoft Entra ID. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
     > In the following response, the access_token element has been shortened for brevity.
     
-    ```bash
-    {"access_token":"eyJ0eXAiOiJ...",
-    "refresh_token":"",
-    "expires_in":"3599",
-    "expires_on":"1504130527",
-    "not_before":"1504126627",
-    "resource":"https://management.azure.com",
-    "token_type":"Bearer"} 
-     ```
+    ```json
+    {
+      "access_token":"eyJ0eXAiOiJ...",
+      "refresh_token":"",
+      "expires_in":"3599",
+      "expires_on":"1504130527",
+      "not_before":"1504126627",
+      "resource":"https://management.azure.com",
+      "token_type":"Bearer"
+    }
+    ```
 
 ## Get a SAS credential from Azure Resource Manager to make storage calls
 
@@ -225,7 +226,7 @@ Response:
 
 ## Next steps
 
-In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure Storage using a SAS credential.  To learn more about Azure Storage SAS see:
+In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure Storage using a SAS credential.  To learn more about Azure Storage SAS, see:
 
 > [!div class="nextstepaction"]
 >[Using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md)

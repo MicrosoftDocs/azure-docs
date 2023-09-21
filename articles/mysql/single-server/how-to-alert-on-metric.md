@@ -1,17 +1,19 @@
 ---
 title: Configure metric alerts - Azure portal - Azure Database for MySQL
 description: This article describes how to configure and access metric alerts for Azure Database for MySQL from the Azure portal.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
-ms.date: 3/18/2020
+ms.date: 06/20/2022
 ---
 
 # Use the Azure portal to set up alerts on metrics for Azure Database for MySQL 
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article shows you how to set up Azure Database for MySQL alerts using the Azure portal. You can receive an alert based on monitoring metrics for your Azure services.
 

@@ -43,13 +43,16 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` options
 
 ## General considerations
 
-+ The package file must be .zip formatted. Tar and gzip formats aren't currently supported. 
++ The package file must be .zip formatted. Tar and gzip formats aren't currently supported.
 + [Zip deployment](#integration-with-zip-deployment) is recommended.
 + When deploying your function app to Windows, you should set `WEBSITE_RUN_FROM_PACKAGE` to `1` and publish with zip deployment.
 + When you run from a package, the `wwwroot` folder becomes read-only and you'll receive an error when writing files to this directory. Files are also read-only in the Azure portal.
 + The maximum size for a deployment package file is currently 1 GB.
-+ You can't use local cache when running from a deployment package. 
++ You can't use local cache when running from a deployment package.
 + If your project needs to use remote build, don't use the `WEBSITE_RUN_FROM_PACKAGE` app setting. Instead add the `SCM_DO_BUILD_DURING_DEPLOYMENT=true` deployment customization app setting. For Linux, also add the `ENABLE_ORYX_BUILD=true` setting. To learn more, see [Remote build](functions-deployment-technologies.md#remote-build).
+
+> [!NOTE]
+> WEBSITE_RUN_FROM_PACKAGE does not work with MSDeploy as described [here](https://github.com/projectkudu/kudu/wiki/MSDeploy-VS.-ZipDeploy). You will receive an error during deployment like `ARM-MSDeploy Deploy Failed`.  Change /MSDeploy to /ZipDeploy and this error will be resolved.
 
 ### Adding the WEBSITE_RUN_FROM_PACKAGE setting
 
@@ -57,22 +60,22 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` options
 
 ## Using WEBSITE_RUN_FROM_PACKAGE = 1
 
-This section provides information about how to run your function app from a local package file. 
+This section provides information about how to run your function app from a local package file.
 
 ### Considerations for deploying from an on-site package
 
-+ Using an on-site package is the recommended option for running from the deployment package, except on Linux hosted in a Consumption plan. 
-+ [Zip deployment](#integration-with-zip-deployment) is the recommended way to upload a deployment package to your site. 
-+ When not using zip deployment, make sure the `d:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder has a file named `packagename.txt`. This file contains only the name, without any whitespace, of the package file in this folder that's currently running. 
++ Using an on-site package is the recommended option for running from the deployment package, except on Linux hosted in a Consumption plan.
++ [Zip deployment](#integration-with-zip-deployment) is the recommended way to upload a deployment package to your site.
++ When not using zip deployment, make sure the `d:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder has a file named `packagename.txt`. This file contains only the name, without any whitespace, of the package file in this folder that's currently running.
 
 ### Integration with zip deployment
 
-[Zip deployment][Zip deployment for Azure Functions] is a feature of Azure App Service that lets you deploy your function app project to the `wwwroot` directory. The project is packaged as a .zip deployment file. The same APIs can be used to deploy your package to the `d:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder. 
+[Zip deployment][Zip deployment for Azure Functions] is a feature of Azure App Service that lets you deploy your function app project to the `wwwroot` directory. The project is packaged as a .zip deployment file. The same APIs can be used to deploy your package to the `d:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder.
 
 With the `WEBSITE_RUN_FROM_PACKAGE` app setting value of `1`, the zip deployment APIs copy your package to the `d:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder instead of extracting the files to `d:\home\site\wwwroot` (Windows) or `/home/site/wwwroot` (Linux). It also creates the `packagename.txt` file. After a restart, the package is mounted to `wwwroot` as a read-only filesystem. For more information about zip deployment, see [Zip deployment for Azure Functions](deployment-zip-push.md).
 
 > [!NOTE]
-> When a deployment occurs, a restart of the function app is triggered. Before a restart, all existing function executions are allowed to complete or time out. To learn more, see [Deployment behaviors](functions-deployment-technologies.md#deployment-behaviors).
+> When a deployment occurs, a restart of the function app is triggered. Function executions currently running during the deploy are terminated. Please review [Improve the performance and reliability of Azure Functions](performance-reliability.md#write-functions-to-be-stateless) to learn how to write stateless and defensive functions.
 
 ## Using WEBSITE_RUN_FROM_PACKAGE = URL
 
@@ -83,21 +86,22 @@ This section provides information about how to run your function app from a pack
 <a name="troubleshooting"></a>
 
 + When running a function app on Windows, the app setting `WEBSITE_RUN_FROM_PACKAGE = <URL>` gives worse cold-start performance and isn't recommended.
-+ When you specify a URL, you must also [manually sync triggers](functions-deployment-technologies.md#trigger-syncing) after you publish an updated package. 
++ When you specify a URL, you must also [manually sync triggers](functions-deployment-technologies.md#trigger-syncing) after you publish an updated package.
 + The Functions runtime must have permissions to access the package URL.
-+ You shouldn't deploy your package to Azure Blob Storage as a public blob. Instead, use a private container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) or [use a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) to enable the Functions runtime to access the package. 
++ You shouldn't deploy your package to Azure Blob Storage as a public blob. Instead, use a private container with a [Shared Access Signature (SAS)](../storage/common/storage-sas-overview.md) or [use a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) to enable the Functions runtime to access the package.
++ You must maintain any SAS URLs used for deployment. When an SAS expires, the package can no longer be deployed. In this case, you must generate a new SAS and update the setting in your function app. You can eliminate this management burden by [using a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity).
 + When running on a Premium plan, make sure to [eliminate cold starts](functions-premium-plan.md#eliminate-cold-starts).
 + When running on a Dedicated plan, make sure you've enabled [Always On](dedicated-plan.md#always-on).
 + You can use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to blob containers in your storage account.
 
 ### Manually uploading a package to Blob Storage
 
-To deploy a zipped package when using the URL option, you must create a .zip compressed deployment package and upload it to the destination. This example deploys to a container in Blob Storage. 
+To deploy a zipped package when using the URL option, you must create a .zip compressed deployment package and upload it to the destination. This example deploys to a container in Blob Storage.
 
 1. Create a .zip package for your project using the utility of your choice.
 
 1. In the [Azure portal](https://portal.azure.com), search for your storage account name or browse for it in storage accounts.
- 
+
 1. In the storage account, select **Containers** under **Data storage**.
 
 1. Select **+ Container** to create a new Blob Storage container in your account.
@@ -108,7 +112,7 @@ To deploy a zipped package when using the URL option, you must create a .zip com
 
 1. After the upload completes, choose your uploaded blob file, and copy the URL. You may need to generate a SAS URL if you aren't [using an identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity)
 
-1. Search for your function app or browse for it in the **Function App** page. 
+1. Search for your function app or browse for it in the **Function App** page.
 
 1. In your function app, select **Configurations** under **Settings**.
 

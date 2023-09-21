@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 10/09/2017
 ms.author: danlep
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Azure PowerShell samples for API Management

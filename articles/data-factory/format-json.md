@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse, contperf-fy22q2
 ms.topic: conceptual
-ms.date: 03/25/2022
+ms.date: 07/17/2023
 ms.author: jianleishen
 ---
 
@@ -227,6 +227,12 @@ The below table lists the properties supported by a json source. You can edit th
 | Single quoted | Reads JSON columns that aren't surrounded by quotes | no | `true` or `false` | singleQuoted |
 | Backslash escaped | Select **Backslash escaped** if backslashes are used to escape characters in the JSON data | no | `true` or `false` | backslashEscape |
 | Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
+
+### Inline dataset
+
+Mapping data flows supports "inline datasets" as an option for defining your source and sink. An inline JSON dataset is defined directly inside your source and sink transformations and is not shared outside of the defined dataflow. It is useful for parameterizing dataset properties directly inside your data flow and can benefit from improved performance over shared ADF datasets.
+
+When you are reading large numbers of source folders and files, you can improve the performance of data flow file discovery by setting the option "User projected schema" inside the Projection | Schema options dialog. This option turns off ADF's default schema auto-discovery and will greatly improve the performance of file discovery. Before setting this option, make sure to import the JSON projection so that ADF has an existing schema for projection. This option does not work with schema drift.
 
 ### Source format options
 

@@ -10,7 +10,7 @@ manager: femila
 # Connect to Azure Virtual Desktop (classic) with the web client
 
 >[!IMPORTANT]
->This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../user-documentation/connect-web.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../users/connect-web.md).
 
 The web client lets you access your Azure Virtual Desktop resources from a web browser without the lengthy installation process.
 

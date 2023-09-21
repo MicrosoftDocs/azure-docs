@@ -1,119 +1,117 @@
 ---
-title: Troubleshooting Azure Monitor autoscale
-description: Tracking down problems with Azure Monitor autoscaling used in Service Fabric, Virtual Machines, Web Apps, and cloud services.
+title: Troubleshoot Azure Monitor autoscale
+description: Tracking down problems with Azure Monitor autoscaling used in Azure Service Fabric, Azure Virtual Machines, the Web Apps feature of Azure App Service, and Azure Cloud Services.
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
+ms.reviewer: akkumari
 ---
 
+# Troubleshoot Azure Monitor autoscale
 
-# Troubleshooting Azure Monitor autoscale
- 
-Azure Monitor autoscale helps you to have the right amount of resources running to handle the load on your application. It enables you to add resources to handle increases in load and also save money by removing resources that are sitting idle. You can scale based on a schedule,  fixed date-time, or resource metric you choose. For more information, see [Autoscale Overview](autoscale-overview.md).
+Azure Monitor autoscale helps you to have the right amount of resources running to handle the load on your application. It enables you to add resources to handle increases in load and also save money by removing resources that are sitting idle. You can scale based on a schedule, a fixed date-time, or a resource metric you choose. For more information, see [Autoscale overview](autoscale-overview.md).
 
-The autoscale service provides you metrics and logs to understand what scale actions have occurred and the evaluation of the conditions that led to those actions. You can find answers to questions such as:
+The autoscale service provides metrics and logs to help you understand what scale actions occurred and the evaluation of the conditions that led to those actions. You can find answers to questions like:
 
-- Why did my service scale-out or in?
+- Why did my service scale-out or scale-in?
 - Why did my service not scale?
 - Why did an autoscale action fail?
 - Why is an autoscale action taking time to scale?
   
 ## Autoscale metrics
 
-Autoscale provides you with [four metrics](../essentials/metrics-supported.md#microsoftinsightsautoscalesettings) to understand its operation. 
+Autoscale provides you with [four metrics](../essentials/metrics-supported.md#microsoftinsightsautoscalesettings) to understand its operation:
 
-- **Observed Metric Value** - The value of the metric you chose to take the scale action on, as seen or computed by the autoscale engine. Because a single autoscale setting can have multiple rules and therefore multiple metric sources, you can filter using "metric source" as a dimension.
-- **Metric Threshold** - The threshold you set to take the scale action. Because a single autoscale setting can have multiple rules and therefore multiple metric sources, you can filter using "metric rule" as a dimension.
-- **Observed Capacity** - The active number of instances of the target resource as seen by Autoscale engine.
-- **Scale Actions Initiated** - The number of scale-out and scale-in actions initiated by the autoscale engine. You can filter by scale-out vs. scale in actions.
+- **Observed Metric Value**: The value of the metric you chose to take the scale action on, as seen or computed by the autoscale engine. Because a single autoscale setting can have multiple rules and therefore multiple metric sources, you can filter by using "metric source" as a dimension.
+- **Metric Threshold**: The threshold you set to take the scale action. Because a single autoscale setting can have multiple rules and therefore multiple metric sources, you can filter by using "metric rule" as a dimension.
+- **Observed Capacity**: The active number of instances of the target resource as seen by the autoscale engine.
+- **Scale Actions Initiated**: The number of scale-out and scale-in actions initiated by the autoscale engine. You can filter by scale-out versus scale-in actions.
 
-You can use the [Metrics Explorer](../essentials/metrics-getting-started.md) to chart the above metrics all in one place. The chart should show:
+You can use the [metrics explorer](../essentials/metrics-getting-started.md) to chart the preceding metrics all in one place. The chart should show the:
 
-  - the actual metric
-  - the metric as seen/computed by autoscale engine
-  - the threshold for a scale action
-  - the change in capacity 
+  - Actual metric.
+  - Metric as seen/computed by autoscale engine.
+  - Threshold for a scale action.
+  - Change in capacity.
 
-## Example 1 - Analyzing a simple autoscale rule 
+## Example 1: Analyze an autoscale rule
 
-We have a simple autoscale setting for a virtual machine scale set that:
+An autoscale setting for a virtual machine scale set:
 
-- scales out when the average CPU percentage of a set is greater than 70% for 10 minutes 
-- scales in when the CPU percentage of the set is less than 5% for more than 10 minutes. 
+- Scales out when the average CPU percentage of a set is greater than 70% for 10 minutes.
+- Scales in when the CPU percentage of the set is less than 5% for more than 10 minutes.
 
-Let’s review the metrics from the autoscale service.
- 
-![Screenshot shows a virtual machine scale set percentage CPU example.](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
+Let's review the metrics from the autoscale service.
 
-![Virtual machine scale set percentage CPU example](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
+The following chart shows a **Percentage CPU** metric for a virtual machine scale set.
 
-***Figure 1a - Percentage CPU metric for virtual machine scale set and the Observed Metric Value metric for autoscale setting***
+![Screenshot that shows a virtual machine scale set percentage CPU example.](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
 
-![Metric Threshold and Observed Capacity](media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png)
+The next chart shows the **Observed Metric Value** metric for an autoscale setting.
 
-***Figure 1b - Metric Threshold and Observed Capacity***
+![Screenshot that shows another virtual machine scale set percentage CPU example.](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
-In figure 1b, the **Metric Threshold** (light blue line) for the scale-out rule is 70.  The **Observed Capacity** (dark blue line) shows the number of active instances, which is currently 3. 
+The final chart shows the **Metric Threshold** and **Observed Capacity** metrics. The **Metric Threshold** metric at the top for the scale-out rule is 70. The **Observed Capacity** metric at the bottom shows the number of active instances, which is currently 3.
+
+![Screenshot that shows Metric Threshold and Observed Capacity.](media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png)
 
 > [!NOTE]
-> You will need to filter the **Metric Threshold** by the metric trigger rule dimension scale out (increase) rule to see the scale-out threshold and by the scale in rule (decrease). 
+> You can filter **Metric Threshold** by the metric trigger rule dimension scale-out (increase) rule to see the scale-out threshold and by the scale-in rule (decrease).
 
-## Example 2 - Advanced autoscaling for a virtual machine scale set
+## Example 2: Advanced autoscaling for a virtual machine scale set
 
-We have an autoscale setting that allows a virtual machine scale set resource to scale out based on its own metric **Outbound Flows**. Notice that the **divide metric by instance count** option for the metric threshold is checked. 
+An autoscale setting allows a virtual machine scale set resource to scale out based on its own **Outbound Flows** metric. The **Divide metric by instance count** option for the metric threshold is selected.
 
-The scale action rule is: 
+The scale action rule is if the value of **Outbound Flow per instance** is greater than 10, the autoscale service should scale out by 1 instance.
 
-If the value of **Outbound Flow per instance** is greater than 10, then autoscale service should scale out by 1 instance. 
+In this case, the autoscale engine's observed metric value is calculated as the actual metric value divided by the number of instances. If the observed metric value is less than the threshold, no scale-out action is initiated.
 
-In this case, the autoscale engine’s observed metric value is calculated as the actual metric value divided by the number of instances. If the observed metric value is less than the threshold, no scale-out action is initiated. 
- 
-![Screenshot shows the Average Outbound Flows page with an example of a virtual machine scale set autoscale metrics charts.](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
+The following screenshots show two metric charts.
 
-![Virtual machine scale set autoscale metrics charts example](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
+The **Avg Outbound Flows** chart shows the value of the **Outbound Flows** metric. The actual value is 6.
 
-***Figure 2 - Virtual machine scale set autoscale metrics charts example***
+![Screenshot that shows the Average Outbound Flows page with an example of a virtual machine scale set autoscale metrics chart.](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
 
-In figure 2, you can see two metric charts. 
+The following chart shows a few values:
 
-The chart on top shows the actual value of the **Outbound Flows** metric. The actual value is 6. 
+ - The **Observed Metric Value** metric in the middle is 3 because there are 2 active instances, and 6 divided by 2 is 3.
+ - The **Observed Capacity** metric at the bottom shows the instance count seen by an autoscale engine.
+ - The **Metric Threshold** metric at the top is set to 10.
 
-The chart on the bottom shows a few values. 
- - The **Observed Metric value** (light blue) is 3 because there are 2 active instances and 6 divided by 2 is 3. 
- - The **Observed Capacity** (purple) shows the instance count seen by autoscale engine. 
- - The **Metric Threshold** (light green) is set to 10. 
+   ![Screenshot that shows a virtual machine scale set autoscale metrics charts example.](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 
-If there are multiple scale action rules, you can use splitting or the **add filter** option in the Metrics explorer chart to look at metric by a specific source or rule. For more information on splitting a metric chart, see [Advanced features of metric charts - splitting](../essentials/metrics-charts.md#apply-splitting)
+If there are multiple scale action rules, you can use splitting or the **add filter** option in the metrics explorer chart to look at a metric by a specific source or rule. For more information on splitting a metric chart, see [Advanced features of metric charts - splitting](../essentials/metrics-charts.md#apply-splitting).
 
-## Example 3 - Understanding autoscale events
+## Example 3: Understand autoscale events
 
-In the autoscale setting screen, go to the **Run history** tab to see the most recent scale actions. The tab also shows the change in **Observed Capacity** over time. To find more details about all autoscale actions including operations such as update/delete autoscale settings, view the activity log and filter by autoscale operations.
+In the autoscale setting screen, go to the **Run history** tab to see the most recent scale actions. The tab also shows the change in **Observed Capacity** over time. To find more information about all autoscale actions, including operations such as update/delete autoscale settings, view the activity log and filter by autoscale operations.
 
-![Autoscale settings run history](media/autoscale-troubleshoot/autoscale-setting-run-history-smaller.png)
+![Screenshot that shows autoscale settings run history.](media/autoscale-troubleshoot/autoscale-setting-run-history-smaller.png)
 
-## Autoscale Resource Logs
+## Autoscale resource logs
 
-Same as any other Azure resource, the autoscale service provides [resource logs](../essentials/platform-logs-overview.md). There are two categories of logs.
+The autoscale service provides [resource logs](../essentials/platform-logs-overview.md). There are two categories of logs:
 
-- **Autoscale Evaluations** - The autoscale engine records log entries for every single condition evaluation every time it does a check.  The entry includes details on the observed values of the metrics, the rules evaluated, and if the evaluation resulted in a scale action or not.
+- **Autoscale Evaluations**: The autoscale engine records log entries for every single condition evaluation every time it does a check. The entry includes details on the observed values of the metrics, the rules evaluated, and if the evaluation resulted in a scale action or not.
+- **Autoscale Scale Actions**: The engine records scale action events initiated by the autoscale service and the results of those scale actions (success, failure, and how much scaling occurred as seen by the autoscale service).
 
-- **Autoscale Scale Actions** - The engine records scale action events initiated by autoscale service and the results of those scales actions (success, failure, and how much scaling occurred as seen by the autoscale service).
+As with any Azure Monitor supported service, you can use [diagnostic settings](../essentials/diagnostic-settings.md) to route these logs to:
 
-As with any Azure Monitor supported service, you can use [Diagnostic Settings](../essentials/diagnostic-settings.md) to route these logs:
+- Your Log Analytics workspace for detailed analytics.
+- Azure Event Hubs and then to non-Azure tools.
+- Your Azure Storage account for archive.
 
-- to your Log Analytics workspace for detailed analytics
-- to Event Hubs and then to non-Azure tools
-- to your Azure storage account for archival  
+![Screenshot that shows autoscale diagnostic settings.](media/autoscale-troubleshoot/diagnostic-settings.png)
 
-![Autoscale Diagnostic Settings](media/autoscale-troubleshoot/diagnostic-settings.png)
+The preceding screenshot shows the Azure portal autoscale **Diagnostics settings** pane. There you can select the **Diagnostic/Resource Logs** tab and enable log collection and routing. You can also perform the same action by using the REST API, the Azure CLI, PowerShell, and Azure Resource Manager templates for diagnostic settings by choosing the resource type as **Microsoft.Insights/AutoscaleSettings**.
 
-The previous picture shows the Azure portal autoscale diagnostic settings. There you can select the Diagnostic/Resource Logs tab and enable log collection and routing. You can also perform the same action using REST API, CLI, PowerShell, Resource Manager templates for Diagnostic Settings by choosing the resource type as *Microsoft.Insights/AutoscaleSettings*. 
+## Troubleshoot by using autoscale logs
 
-## Troubleshooting using autoscale logs 
+For the best troubleshooting experience, we recommend routing your logs to Azure Monitor Logs (Log Analytics) through a workspace when you create the autoscale setting. This process is shown in the screenshot in the previous section. You can validate the evaluations and scale actions better by using Log Analytics.
 
-For best troubleshooting experience, we recommend routing your logs to Azure Monitor Logs (Log Analytics) through a workspace when you create the autoscale setting. This process is shown in the picture in the previous section. You can validate the evaluations and scale actions better using Log Analytics.
-
-Once you have configured your autoscale logs to be sent to the Log Analytics workspace, you can execute the following queries to check the logs. 
+After you've configured your autoscale logs to be sent to the Log Analytics workspace, you can execute the following queries to check the logs.
 
 To get started, try this query to view the most recent autoscale evaluation logs:
 
@@ -129,18 +127,18 @@ AutoscaleScaleActionsLog
 | limit 50
 ```
 
-Use the following sections to  these questions. 
+Use the following sections to answer these questions.
 
-## A scale action occurred that I didn’t expect
+## A scale action occurred that you didn't expect
 
-First execute the query for scale action to find the scale action you are interested in. If it is the latest scale action, use the following query:
+First, execute the query for a scale action to find the scale action you're interested in. If it's the latest scale action, use the following query:
 
 ```Kusto
 AutoscaleScaleActionsLog
 | take 1
 ```
 
-Select the CorrelationId field from the scale actions log. Use the CorrelationId to find the right Evaluation log. Executing the below query will display all the rules and conditions evaluated leading to that scale action.
+Select the `CorrelationId` field from the scale actions log. Use `CorrelationId` to find the right evaluation log. Executing the following query displays all the rules and conditions that were evaluated and led to that scale action.
 
 ```Kusto
 AutoscaleEvaluationsLog
@@ -149,9 +147,9 @@ AutoscaleEvaluationsLog
 
 ## What profile caused a scale action?
 
-A scaled action occurred, but you have overlapping rules and profiles and need to track down which caused the action. 
+A scaled action occurred, but you have overlapping rules and profiles and need to track down which one caused the action.
 
-Find the correlationId of the scale action (as explained in example 1) and then execute the query on evaluation logs to learn more about the profile.
+Find the `CorrelationId` of the scale action, as explained in example 1. Then execute the query on evaluation logs to learn more about the profile.
 
 ```Kusto
 AutoscaleEvaluationsLog
@@ -160,7 +158,7 @@ AutoscaleEvaluationsLog
 | project ProfileEvaluationTime, Profile, ProfileSelected, EvaluationResult
 ```
 
-The whole profile evaluation can also be understood better using the following query
+The whole profile evaluation can also be understood better by using the following query:
 
 ```Kusto
 AutoscaleEvaluationsLog
@@ -169,14 +167,13 @@ AutoscaleEvaluationsLog
 | project OperationName, Profile, ProfileEvaluationTime, ProfileSelected, EvaluationResult
 ```
 
-## A scale action did not occur
+## A scale action didn't occur
 
-I expected a scale action and it did not occur. There may be no scale action events or logs.
+You expected a scale action and it didn't occur. There might be no scale action events or logs.
 
-Review the autoscale metrics if you are using a metric-based scale rule. It's possible that the **Observed metric value** or **Observed Capacity** are not what you expected them to be and therefore the scale rule did not fire. You would still see evaluations, but not a scale-out rule. It's also possible that the cool-down time kept a scale action from occurring. 
+Review the autoscale metrics if you're using a metric-based scale rule. It's possible that the **Observed Metric** value or **Observed Capacity** value aren't what you expected them to be, so the scale rule didn't fire. You would still see evaluations, but not a scale-out rule. It's also possible that the cool-down time kept a scale action from occurring.
 
- Review the autoscale evaluation logs during the time period you expected the scale action to occur. Review all the evaluations it did and why it decided to not trigger a scale action.
-
+ Review the autoscale evaluation logs during the time period when you expected the scale action to occur. Review all the evaluations it did and why it decided to not trigger a scale action.
 
 ```Kusto
 AutoscaleEvaluationsLog
@@ -187,7 +184,7 @@ AutoscaleEvaluationsLog
 
 ## Scale action failed
 
-There may be a case where autoscale service took the scale action but the system decided not to scale or failed to complete the scale action. Use this query to find the failed scale actions.
+There might be a case where the autoscale service took the scale action but the system decided not to scale or failed to complete the scale action. Use this query to find the failed scale actions:
 
 ```Kusto
 AutoscaleScaleActionsLog
@@ -199,7 +196,8 @@ Create alert rules to get notified of autoscale actions or failures. You can als
 
 ## Schema of autoscale resource logs
 
-For more information, see [autoscale resource logs](autoscale-resource-log-schema.md)
+For more information, see [Autoscale resource logs](autoscale-resource-log-schema.md).
 
 ## Next steps
+
 Read information on [autoscale best practices](autoscale-best-practices.md).

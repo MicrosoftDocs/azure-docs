@@ -1,11 +1,11 @@
 ---
 title: AKS release tracker
 description: Learn how to determine which Azure regions have the weekly AKS release deployments rolled out in real time. 
-services: container-service
 ms.topic: overview
-ms.date: 05/24/2022
-
-ms.custom: mvc
+ms.date: 04/25/2023
+ms.author: nickoman
+author: nickomang
+ms.custom: mvc, build-2023
 ---
 
 # AKS release tracker
@@ -18,6 +18,8 @@ With AKS release tracker, customers can follow specific component updates presen
 
 ## How to use the release tracker
 
+To view the release tracker, visit the [AKS release status webpage][release-tracker-webpage].
+
 The top half of the tracker shows the latest and 3 previously available release versions for each region, and links to the corresponding release notes entry. This view is helpful when you want to track the available versions by region.
 
 :::image type="content" source="./media/release-tracker/regional-status.png" alt-text="Screenshot of the A K S release tracker's regional status table displayed in a web browser.":::
@@ -28,3 +30,4 @@ The bottom half of the tracker shows the SDP process. The table has two views: o
 
 <!-- LINKS - external -->
 [aks-release]: https://github.com/Azure/AKS/releases
+[release-tracker-webpage]: https://releases.aks.azure.com/webpage/index.html

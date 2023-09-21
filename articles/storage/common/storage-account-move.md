@@ -1,13 +1,13 @@
 ---
-title: Move an Azure Storage account to another region | Microsoft Docs
+title: Move an Azure Storage account to another region
 description: Shows you how to move an Azure Storage account to another region.
 services: storage
-author: normesta
-ms.service: storage
-ms.subservice: common
+author: akashdubey-ms
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 05/11/2020
-ms.author: normesta 
+ms.date: 06/15/2022
+ms.author: akashdubey
 ms.reviewer: dineshm 
 ms.custom: devx-track-azurepowershell
 ---
@@ -213,6 +213,9 @@ Deploy the template to create a new storage account in the target region.
 
 ---
 
+> [!TIP]
+> If you receive an error which states that the XML specified is not syntactically valid, compare the JSON in your template with the schemas described in the [Azure Resource Manager documentation](/azure/templates/microsoft.storage/allversions).
+
 ### Configure the new storage account
 
 Some features won't export to a template, so you'll have to add them to the new storage account.
@@ -232,7 +235,7 @@ The following table lists these features along with guidance for adding them to 
 
 ### Move data to the new storage account
 
-AzCopy is the preferred tool to move your data over. It's optimized for performance.  One way that it's faster, is that data is copied directly between storage servers, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script. See [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+AzCopy is the preferred tool to move your data over. It's optimized for performance.  One way that it's faster, is that data is copied directly between storage servers, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script. See [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=/azure/storage/blobs/toc.json).
 
 You can also use Azure Data Factory to move your data over. It provides an intuitive user interface. To use Azure Data Factory, see any of these links:.
 

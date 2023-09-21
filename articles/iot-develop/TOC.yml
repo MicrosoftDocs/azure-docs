@@ -1,4 +1,4 @@
-﻿- name: IoT device development
+- name: IoT device development
   href: index.yml
 - name: Overview
   items:
@@ -6,33 +6,37 @@
     href: about-iot-develop.md
   - name: Which SDK should I use?
     href: about-iot-sdks.md
+  - name: Get started with IoT device development
+    href: about-getting-started-device-development.md
 - name: Quickstarts
   expanded: true
   items:
-    - name: Device application development
+    - name: General device development
       items: 
-      - name: Send telemetry to IoT Central
-        href: quickstart-send-telemetry-central.md
       - name: Send telemetry to IoT Hub
         href: quickstart-send-telemetry-iot-hub.md
-    - name: Azure RTOS — Embedded device development
+      - name: Send telemetry to IoT Central
+        href: quickstart-send-telemetry-central.md
+    - name: Azure RTOS development
       items:
-      - name: MXCHIP AZ3166
-        href: quickstart-devkit-mxchip-az3166.md
       - name: Microchip ATSAME54-XPro
-        href: quickstart-devkit-microchip-atsame54-xpro.md
-      - name: NXP MIMXRT1060-EVK
-        href: quickstart-devkit-nxp-mimxrt1060-evk.md
+        href: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
       - name: Renesas RX65N Cloud Kit
-        href: quickstart-devkit-renesas-rx65n-cloud-kit.md
+        href: quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub.md
+      - name: STMicroelectronics L475E-IOT01A
+        href: quickstart-devkit-stm-b-l475e-iot-hub.md
       - name: STMicroelectronics L4S5I-IOT01A
-        href: quickstart-devkit-stm-b-l4s5i.md
-    - name: FreeRTOS — Embedded device development
+        href: quickstart-devkit-stm-b-l4s5i-iot-hub.md
+      - name: STMicroelectronics U585I-IOT02A
+        href: quickstart-devkit-stm-b-u585i-iot-hub.md
+      - name: NXP MIMXRT1060-EVK
+        href: quickstart-devkit-nxp-mimxrt1060-evk-iot-hub.md
+      - name: MXCHIP AZ3166
+        href: quickstart-devkit-mxchip-az3166-iot-hub.md
+    - name: FreeRTOS development
       items:
       - name: ESPRESSIF ESP32
-        href: quickstart-devkit-espressif-esp32-freertos.md
-      - name: STMicroelectronics L475E
-        href: quickstart-devkit-stm-b-l475e-freertos.md
+        href: quickstart-devkit-espressif-esp32-freertos-iot-hub.md
 - name: Tutorials
   items:
     - name: Build a device solution with IoT Hub
@@ -43,24 +47,24 @@
         href: tutorial-connect-device.md
       - name: Interact with a device from your solution
         href: tutorial-service.md
-    - name: Securely connect IoT devices to the cloud
-      href: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
     - name: Connect a multiple component device
       href: tutorial-multiple-components.md
     - name: Use MQTT to connect a device
       href: tutorial-use-mqtt.md
     - name: Connect a device module
       href: tutorial-migrate-device-to-module.md
-    - name: Preview — Connect and analyze data with Time Series Insights Gen2
-      href: tutorial-configure-tsi.md
 - name: Concepts
   items:
-  - name: Connection options for device developers
-    href: concepts-overview-connection-options.md
+  - name: C SDK and Embedded C SDK usage scenarios
+    href: concepts-using-c-sdk-and-embedded-c-sdk.md    
   - name: Overview of device types
     href: concepts-iot-device-types.md
+  - name: Manage device reconnections in IoT Hub and DPS
+    href: concepts-manage-device-reconnections.md
   - name: Device certification
     href: ../certification/program-requirements-pnp.md
+  - name: IoT device selection list
+    href: iot-device-selection.md
   - name: Device models
     items:
     - name: Modeling guide
@@ -79,6 +83,8 @@
       href: concepts-architecture.md
     - name: IoT Plug and Play conventions
       href: concepts-convention.md
+    - name: IoT Plug and Play message payloads
+      href: concepts-message-payloads.md
     - name: Device developer guide
       href: concepts-developer-guide-device.md
     - name: Service developer guide
@@ -94,35 +100,47 @@
 - name: How to
   items:
   - name: Install and use IoT explorer
-    href: ../iot-fundamentals/howto-use-iot-explorer.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
+    href: ../iot/howto-use-iot-explorer.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
   - name: Manage digital twins
     href: howto-manage-digital-twin.md
   - name: Convert a device to IoT Plug and Play
     href: howto-convert-to-pnp.md
-  - name: Azure RTOS Samples
+  - name: Azure RTOS samples
     items:
-    - name: MXCHIP AZ3166 — IoT Hub
-      href: quickstart-devkit-mxchip-az3166-iot-hub.md
-    - name: STMicroelectronics B-L475-IOT01A
-      href: quickstart-devkit-stm-b-l475e.md
-    - name: NXP MIMXRT1050-EVKB
-      href: quickstart-devkit-nxp-mimxrt1050-evkb.md
-    - name: Renesas RX65N-2 MB
-      href: quickstart-devkit-renesas-rx65n-2mb.md
+    - name: Connect using IoT Central
+      items: 
+      - name: Microchip ATSAME54-XPro
+        href: quickstart-devkit-microchip-atsame54-xpro.md
+      - name: Renesas RX65N Cloud Kit
+        href: quickstart-devkit-renesas-rx65n-cloud-kit.md
+      - name: NXP MIMXRT1060-EVK
+        href: quickstart-devkit-nxp-mimxrt1060-evk.md
+      - name: STMicroelectronics L4S5I-IOT01A
+        href: quickstart-devkit-stm-b-l4s5i.md
+      - name: STMicroelectronics B-L475-IOT01A
+        href: quickstart-devkit-stm-b-l475e.md
+      - name: MXCHIP AZ3166
+        href: quickstart-devkit-mxchip-az3166.md
+  - name: FreeRTOS samples
+    items:
+    - name: Connect using IoT Central
+      items:  
+      - name: ESPRESSIF ESP32
+        href: quickstart-devkit-espressif-esp32-freertos.md
+      - name: STMicroelectronics L475E
+        href: quickstart-devkit-stm-b-l475e-freertos.md
   - name: Troubleshoot
     items:
       - name: Troubleshoot embedded quickstarts
         href: troubleshoot-embedded-device-quickstarts.md
 - name: Reference
   items:
-    - name: Libraries and SDKs
-      href: libraries-sdks.md
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iothub
     - name: C (Device)
-      href: /azure/iot-hub/iot-c-sdk-ref/
+      href: https://github.com/Azure/azure-iot-sdk-c/
     - name: Embedded C (Device)
       href: https://azure.github.io/azure-sdk-for-c/
     - name: Azure RTOS Middleware (Device)
@@ -134,7 +152,7 @@
     - name: .NET (Service)
       href: /dotnet/api/microsoft.azure.devices
     - name: .NET (Management)
-      href: /dotnet/api/overview/azure/iot/management
+      href: /dotnet/api/overview/azure/resourcemanager.iothub-readme
     - name: Java (Device)
       href: /java/api/com.microsoft.azure.sdk.iot.device
     - name: Java (Service)
@@ -164,23 +182,25 @@
 - name: Resources
   items:
     - name: Support and help options
-      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
+      href: ../iot/iot-support-help.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
     - name: IoT glossary
-      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
+      href: ../iot/iot-glossary.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
     - name: Code samples
       href: /samples/browse/?expanded=azure&products=azure-iot-pnp
     - name: Azure IoT samples
       items:
       - name: C# (.NET)
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+        href: https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples
+      - name: C
+        href: https://github.com/Azure/azure-iot-sdk-c/tree/main/iothub_client/samples
       - name: Node.js
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+        href: https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples
       - name: Java
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+        href: https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples
       - name: Python
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+        href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
       - name: iOS Platform
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
+        href: https://github.com/azure-samples/azure-iot-samples-ios/tree/master/
     - name: Azure Certified for IoT device catalog
       href: https://devicecatalog.azure.com/
     - name: Azure IoT Developer Center
@@ -188,7 +208,7 @@
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=iot
     - name: Azure IoT Tools
-      href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+      href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
     - name: Azure IoT Explorer tool
       href: https://github.com/Azure/azure-iot-explorer
     - name: iothub-diagnostics tool

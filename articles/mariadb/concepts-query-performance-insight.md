@@ -1,18 +1,19 @@
 ---
 title: Query Performance Insight - Azure Database for MariaDB
 description: This article describes the Query Performance Insight feature in Azure Database for MariaDB
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 06/24/2022
 ---
 # Query Performance Insight in Azure Database for MariaDB
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 **Applies to:** Azure Database for MariaDB 10.2
 
 Query Performance Insight helps you to quickly identify what your longest running queries are, how they change over time, and what waits are affecting them.
-
 
 ## Common scenarios
 
@@ -20,7 +21,7 @@ Query Performance Insight helps you to quickly identify what your longest runnin
 
 - Identifying longest running queries in the past X hours
 - Identifying top N queries that are waiting on resources
- 
+
 ### Wait statistics
 
 - Understanding wait nature for a query
@@ -40,11 +41,11 @@ In the portal page of your Azure Database for MariaDB server, select **Query Per
 
 The **Long running queries** tab shows the top 5 queries by average duration per execution, aggregated in 15-minute intervals. You can view more queries by selecting from  the **Number of Queries** drop down. The chart colors may change for a specific Query ID when you do this.
 
-You can click and drag in the chart to narrow down to a specific time window. Alternatively, use the zoom in and out icons to view a smaller or larger time period respectively.
+You can select and drag in the chart to narrow down to a specific time window. Alternatively, use the zoom in and out icons to view a smaller or larger time period respectively.
 
 ![Query Performance Insight long running queries](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
-### Wait statistics 
+### Wait statistics
 
 > [!NOTE]
 > Wait statistics are meant for troubleshooting query performance issues. It is recommended to be turned on only for troubleshooting purposes. <br>If you receive the error message in the Azure portal "*The issue encountered for 'Microsoft.DBforMariaDB'; cannot fulfill the request. If this issue continues or is unexpected, please contact support with this information.*" while viewing wait statistics, use a smaller time period.
@@ -57,7 +58,7 @@ Queries displayed in the wait statistics view are grouped by the queries that ex
 
 ![Query Performance Insight waits statistics](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
-## Limitations 
+## Limitations
 
 * Query performance insight is not supported for version 10.3
 

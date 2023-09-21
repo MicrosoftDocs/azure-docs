@@ -1,9 +1,9 @@
 ---
 title: CLI script - Create server with vNet rule - Azure Database for MariaDB
 description: This sample CLI script creates an Azure Database for MariaDB server with a service endpoint on a virtual network and configures a vNet rule.
-author: savjani
-ms.author: pariks
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
@@ -12,11 +12,13 @@ ms.date: 01/26/2022
 
 # Create a MariaDB server and configure a vNet rule using the Azure CLI
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](../includes/azure-database-for-mariadb-deprecation.md)]
+
 This sample CLI script creates an Azure Database for MariaDB server and configures a vNet rule.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

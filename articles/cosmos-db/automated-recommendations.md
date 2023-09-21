@@ -1,17 +1,17 @@
 ---
 title: Automated performance, cost, security recommendations for Azure Cosmos DB
 description: Learn how to view customized performance, cost, security, and other recommendations for Azure Cosmos DB based on your workload patterns.
-author: ThomasWeiss
-ms.author: thweiss
+author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.reviewer: sngun
-
+ms.reviewer: mjbrown
 ---
 
 # Automated recommendations for Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 All the cloud services including Azure Cosmos DB get frequent updates with new features, capabilities, and improvements. It’s important for your application to keep up with the latest performance and security updates. The Azure portal offers customized recommendations that enable you to maximize the performance of your application. The Azure Cosmos DB's advisory engine continuously analyzes the usage history of your Azure Cosmos DB resources and provides recommendations based on your workload patterns. These recommendations correspond to areas like partitioning, indexing, network, security etc. These customized recommendations help you to improve the performance of your application.
 
@@ -19,7 +19,7 @@ All the cloud services including Azure Cosmos DB get frequent updates with new f
 
 You can view recommendations for Azure Cosmos DB in the following ways:
 
-- One way to view the recommendations is within the notifications tab. If there are new recommendations, you will see a message bar. Sign into your [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos account. Within your Azure Cosmos account, open the **Notifications** pane and then select the **Recommendations** tab. You can select the message and view recommendations.  
+- One way to view the recommendations is within the notifications tab. If there are new recommendations, you will see a message bar. Sign into your [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account. Within your Azure Cosmos DB account, open the **Notifications** pane and then select the **Recommendations** tab. You can select the message and view recommendations.  
 
    :::image type="content" source="./media/automated-recommendations/cosmos-db-pane-recommendations.png" alt-text="View recommendations from Azure Cosmos DB pane":::
 
@@ -48,9 +48,8 @@ In this category, the advisor detects the indexing mode, indexing policy, indexe
 |Name  |Description  |
 |---------|---------|
 | Lazy indexing | Detects usage of lazy indexing mode and recommends using consistent indexing mode instead. The purpose of Azure Cosmos DB’s lazy indexing mode is limited and can impact the freshness of query results in some situations so consistent indexing mode is recommended. |
-| Composite indexing| Detects the accounts where queries could benefit from composite indexes and recommend using them. Composite indexes can dramatically improve the performance and throughput consumption of some queries.|
 | Default indexing policy with many indexed paths | Detects containers running on default indexing with many indexed paths and recommends customizing the indexing policy.|
-| ORDER BY queries with high RU/s charge| Detects containers issuing ORDER BY queries with high RU/s charge and recommends exploring composite indexes.|
+| ORDER BY queries with high RU/s charge| Detects containers issuing ORDER BY queries with high RU/s charge and recommends exploring composite indexes for one container per account that issues the highest number of these queries in a 24 hour period.|
 | MongoDB 3.6 accounts with no index and high RU/s consumption| Detects Azure Cosmos DB’s API for MongoDB with 3.6 version of containers issuing queries with high RU/s charge and recommends adding indexes.|
 
 ## Cost optimization recommendations
@@ -83,7 +82,7 @@ In this category, the advisor detects the query execution and identifies that th
 
 ## Next steps
 
-* [Tuning query performance in Azure Cosmos DB](sql-api-query-metrics.md)
+* [Tuning query performance in Azure Cosmos DB](nosql/query-metrics.md)
 * [Troubleshoot query issues](troubleshoot-query-performance.md) when using Azure Cosmos DB
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 

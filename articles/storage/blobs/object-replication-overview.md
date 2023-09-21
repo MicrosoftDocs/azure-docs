@@ -2,15 +2,13 @@
 title: Object replication overview
 titleSuffix: Azure Storage
 description: Object replication asynchronously copies block blobs between a source storage account and a destination account. Use object replication to minimize latency on read requests, to increase efficiency for compute workloads, to optimize data distribution, and to minimize costs.
-services: storage
-author: tamram
+author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 05/24/2022
-ms.author: tamram
-ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
+ms.date: 05/04/2023
+ms.author: normesta
+ms.custom: engagement-fy23
 ---
 
 # Object replication for block blobs
@@ -39,11 +37,13 @@ Enabling change feed and blob versioning may incur additional costs. For more in
 
 Object replication is supported for general-purpose v2 storage accounts and premium block blob accounts. Both the source and destination accounts must be either general-purpose v2 or premium block blob accounts. Object replication supports block blobs only; append blobs and page blobs aren't supported.
 
-Object replication is supported for accounts that are encrypted with customer-managed keys. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md).
+Object replication is supported for accounts that are encrypted with either microsoft-managed keys or customer-managed keys. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md).
 
 Object replication isn't supported for blobs in the source account that are encrypted with a customer-provided key. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 
 Customer-managed failover isn't supported for either the source or the destination account in an object replication policy.
+
+Object replication is not supported for blobs that are uploaded by using [Data Lake Storage Gen2](/rest/api/storageservices/data-lake-storage-gen2) APIs.
 
 ## How object replication works
 
@@ -56,7 +56,11 @@ Object replication asynchronously copies block blobs in a container according to
 
 Object replication requires that blob versioning is enabled on both the source and destination accounts. When a replicated blob in the source account is modified, a new version of the blob is created in the source account that reflects the previous state of the blob, before modification. The current version in the source account reflects the most recent updates. Both the current version and any previous versions are replicated to the destination account. For more information about how write operations affect blob versions, see [Versioning on write operations](versioning-overview.md#versioning-on-write-operations).
 
-When a blob in the source account is deleted, the current version of the blob becomes a previous version, and there's no longer a current  version. All existing previous versions of the blob are preserved. This state is replicated to the destination account. For more information about how to delete operations affect blob versions, see [Versioning on delete operations](versioning-overview.md#versioning-on-delete-operations).
+If your storage account has object replication policies in effect, you cannot disable blob versioning for that account. You must delete any object replication policies on the account before disabling blob versioning.
+
+### Deleting a blob in the source account
+
+When a blob in the source account is deleted, the current version of the blob becomes a previous version, and there's no longer a current version. All existing previous versions of the blob are preserved. This state is replicated to the destination account. For more information about how to delete operations affect blob versions, see [Versioning on delete operations](versioning-overview.md#versioning-on-delete-operations).
 
 ### Snapshots
 
@@ -103,6 +107,9 @@ You can also specify one or more filters as part of a replication rule to filter
 The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, write operations to the destination container aren't permitted. Any attempts to write to the destination container fail with error code 409 (Conflict). To write to a destination container for which a replication rule is configured, you must either delete the rule that is configured for that container, or remove the replication policy. Read and delete operations to the destination container are permitted when the replication policy is active.
 
 You can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md#archive-access-tier).
+
+> [!NOTE]
+> Changing the access tier of a blob in the source account won't change the access tier of that blob in the destination account. 
 
 ## Policy definition file
 
@@ -183,26 +190,47 @@ You can use Azure Policy to audit a set of storage accounts to ensure that the *
 
 You can check the replication status for a blob in the source account. For more information, see [Check the replication status of a blob](object-replication-configure.md#check-the-replication-status-of-a-blob).
 
+> [!NOTE]
+>  While replication is in progress, there's no way to determine the percentage of data that has been replicated. 
+
 If the replication status for a blob in the source account indicates failure, then investigate the following possible causes:
 
 - Make sure that the object replication policy is configured on the destination account.
+- Verify that the destination account still exists.
 - Verify that the destination container still exists.
+- Verify that the destination container is not in the process of being deleted, or has not just been deleted. Deleting a container may take up to 30 seconds.
+- Verify that the destination container is still participating in the object replication policy.
 - If the source blob has been encrypted with a customer-provided key as part of a write operation, then object replication will fail. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
+- Check whether the source or destination blob has been moved to the Archive tier. Archived blobs cannot be replicated via object replication. For more information about the Archive tier, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+- Verify that destination container or blob is not protected by an immutability policy. Keep in mind that a container or blob can inherit an immutability policy from its parent. For more information about immutability policies, see [Overview of immutable storage for blob data](immutable-storage-overview.md).
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the effect on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Billing
 
-Object replication incurs additional costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed.
+There is no cost to configure object replication. This includes the task of enabling change feed, enabling versioning, as well as adding replication policies. However, object replication incurs costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed. 
+
+Here's a breakdown of the costs. To find the price of each cost component, see [Azure Blob Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+| Cost to update a blob in the source account | Cost to replicate data in the destination account |
+|---|---|
+|Transaction cost of a write operation|Transaction cost to read a change feed record|
+|Storage cost of the blob and each blob version<sup>1</sup>|Transaction cost to read the blob and blob versions<sup>2</sup>|
+|Cost to add a change feed record|Transaction cost to write the blob and blob versions<sup>2</sup>|
+||Storage cost of the blob and each blob version<sup>1</sup>|
+||Cost of network egress<sup>2</sup>|
+
+
+
+<sup>1</sup>    See [Blob versioning pricing and Billing](versioning-overview.md#pricing-and-billing).
+
+<sup>2</sup>    This includes only blob versions created since the last replication completed.
+
+<sup>3</sup>    See [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+
 
 ## Next steps
 
@@ -210,3 +238,5 @@ Object replication incurs additional costs on read and write transactions agains
 - [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md)
 - [Blob versioning](versioning-overview.md)
 - [Change feed support in Azure Blob Storage](storage-blob-change-feed.md)
+
+

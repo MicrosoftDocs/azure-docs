@@ -1,7 +1,7 @@
 ---
 title: Manage Azure portal settings and preferences
 description: Change Azure portal settings such as default subscription/directory, timeouts, menu mode, contrast, theme, notifications, language/region and more.
-ms.date: 03/23/2022
+ms.date: 04/11/2023
 ms.topic: how-to
 ---
 
@@ -27,13 +27,18 @@ To see a full list of directories to which you have access, select **All Directo
 
 To mark a directory as a favorite, select its star icon. Those directories will be listed in the  **Favorites** section.
 
-To switch to a different directory, select the directory that you want to work in, then select the **Switch** button in its row.
+To switch to a different directory, find the directory that you want to work in, then select the **Switch** button in its row.
 
 :::image type="content" source="media/set-preferences/settings-directories-subscriptions-default-filter.png" alt-text="Screenshot showing the Directories settings pane.":::
 
-### Subscription filters
+## Subscription filters
 
 You can choose the subscriptions that are filtered by default when you sign in to the Azure portal. This can be helpful if you have a primary list of subscriptions you work with but use others occasionally.
+
+> [!IMPORTANT]
+> After you apply a subscription filter in the Azure portal settings page, you will only see subscriptions that match the filter across all portal experiences. You won't be able to work with other subscriptions that are excluded from the selected filter. Any new subscriptions that are created after the filter was applied may not be shown if the filter criteria don't match. To see them, you must update the filter criteria to include other subscriptions in the portal, or select **Advanced filters** and use the **Default** filter to always show all subscriptions.
+>
+> Certain features, such as **Management groups** or **Security Center**, may show subscriptions that don't match your filter criteria. However, you won't be able to perform operations on those subscriptions (such as moving a subscription between management groups) unless you adjust your filters to include the subscriptions that you want to work with.
 
 To use customized filters, select **Advanced filters**. You'll be prompted to confirm before continuing.
 
@@ -43,9 +48,9 @@ This will enable the **Advanced filters** page, where you can create and manage 
 
 :::image type="content" source="media/set-preferences/settings-advanced-filters-disable.png" alt-text="Screenshot showing the confirmation dialog box for disabling Advanced filters.":::
 
-## Advanced filters
+### Advanced filters
 
-On the **Advanced filters** page, you can create, modify, or delete subscription filters.
+After enabling the **Advanced filters** page, you can create, modify, or delete subscription filters.
 
 :::image type="content" source="media/set-preferences/settings-advanced-filters.png" alt-text="Screenshot showing the Advanced filters screen.":::
 
@@ -61,7 +66,7 @@ To create a new filter, select **Create a filter**. You can create up to ten fil
 
 Each filter must have a unique name that is between 8 and 50 characters long and contains only letters, numbers, and hyphens.
 
-:::image type="content" source="media/set-preferences/azure-portal-settings-filtering-create.png" alt-text="Screenshot showing the Create a filter options.":::
+:::image type="content" source="media/set-preferences/azure-portal-settings-filtering-create.png" alt-text="Screenshot showing options for Create a filter.":::
 
 After you've named your filter, enter at least one condition. In the **Filter type** field, select either **Subscription name**, **Subscription ID**, or **Subscription state**. Then select an operator and enter a value to filter on.
 
@@ -109,7 +114,7 @@ Choose one of the following options for the page you'll see when you first sign 
 Choose one of the following options for the directory to work in when you first sign in to the Azure portal.
 
 - **Sign in to your last visited directory**: When you sign in to the Azure portal, you'll start in whichever directory you'd been working in last time.
-- **Select a directory**: Choose this option to select one of your directory. You'll start in that directory every time you sign in to the Azure portal, even if you had been working in a different directory last time.
+- **Select a directory**: Choose this option to select one of your directories. You'll start in that directory every time you sign in to the Azure portal, even if you had been working in a different directory last time.
 
 :::image type="content" source="media/set-preferences/azure-portal-settings-startup-views.png" alt-text="Screenshot showing the Startup section of Appearance + startup views.":::
 
@@ -150,15 +155,13 @@ Information about your custom settings is stored in Azure. You can export the fo
 - User settings like favorite subscriptions or directories
 - Themes and other custom portal settings
 
-It's a good idea to export and review your settings if you plan to delete them. Rebuilding dashboards or redoing settings can be time-consuming.
+To export your portal settings, select **Export settings** from the top of the **My information** pane. This creates a *.json* file that contains your user settings data.
 
-To export your portal settings, select **Export settings** from the top of the settings **Overview** pane. This creates a *.json* file that contains your user settings data.
-
-Due to the dynamic nature of user settings and risk of data corruption, you can't import settings from the *.json* file.
+Due to the dynamic nature of user settings and risk of data corruption, you can't import settings from the *.json* file. However, you can use this file to review the settings you selected. It can be useful to have a backup of your selections if you choose to delete your settings and private dashboards.
 
 ### Restore default settings
 
-If you've made changes to the Azure portal settings and want to discard them, select **Restore default settings** from the top of the settings **Overview** pane. You'll be prompted to confirm this action. When you do so, any changes you've made to your Azure portal settings will be lost. This option doesn't affect dashboard customizations.
+If you've made changes to the Azure portal settings and want to discard them, select **Restore default settings** from the top of the **My information** pane. You'll be prompted to confirm this action. When you do so, any changes you've made to your Azure portal settings will be lost. This option doesn't affect dashboard customizations.
 
 ### Delete user settings and dashboards
 
@@ -168,7 +171,7 @@ Information about your custom settings is stored in Azure. You can delete the fo
 - User settings like favorite subscriptions or directories
 - Themes and other custom portal settings
 
-It's a good idea to export and review your settings before you delete them. Rebuilding [dashboards](azure-portal-dashboards.md) or redoing custom settings can be time-consuming.
+It's a good idea to export and review your settings before you delete them, as described above. Rebuilding [dashboards](azure-portal-dashboards.md) or redoing custom settings can be time-consuming.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -210,7 +213,7 @@ To confirm that the inactivity timeout policy is set correctly, select **Notific
 
 ### Enable or disable pop-up notifications
 
-Notifications are system messages related to your current session. They provide information such as showing your current credit balance, confirming your last action, or letting you know when resources you created become . When pop-up notifications are turned on, the messages briefly display in the top corner of your screen.
+Notifications are system messages related to your current session. They provide information such as showing your current credit balance, confirming your last action, or letting you know when resources you created become available. When pop-up notifications are turned on, the messages briefly display in the top corner of your screen.
 
 To enable or disable pop-up notifications, select or clear **Enable pop-up notifications**.
 

@@ -7,17 +7,18 @@ author: careyjmac
 ms.author: chalton
 
 ms.service: cognitive-search
+ms.custom: 
 ms.topic: reference
-ms.date: 04/27/2022
+ms.date: 06/24/2022
 ---
 # OCR cognitive skill
 
 The **Optical character recognition (OCR)** skill recognizes printed and handwritten text in image files. This article is the reference documentation for the OCR skill. See [Extract text from images](cognitive-search-concept-image-scenarios.md) for usage instructions.
 
-An OCR skill uses the machine learning models provided by [Computer Vision](../cognitive-services/computer-vision/overview.md) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) in Cognitive Services. The **OCR** skill maps to the following functionality:
+An OCR skill uses the machine learning models provided by [Azure AI Vision](../ai-services/computer-vision/overview.md) API [v3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) in Azure AI services. The **OCR** skill maps to the following functionality:
 
-+ For English, Spanish, German, French, Italian, Portuguese, and Dutch, the new ["Read"](../cognitive-services/computer-vision/overview-ocr.md#read-api) API is used.
-+ For all other languages, the [legacy OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f20d) API is used.
++ For the languages listed under [Azure AI Vision language support](../ai-services/computer-vision/language-support.md#optical-character-recognition-ocr), the [Read API](../ai-services/computer-vision/overview-ocr.md) is used.
++ For Greek and Serbian Cyrillic, the [legacy OCR](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) API is used.
 
 The **OCR** skill extracts text from image files. Supported file formats include:
 
@@ -25,11 +26,10 @@ The **OCR** skill extracts text from image files. Supported file formats include
 + .JPG
 + .PNG
 + .BMP
-+ .GIF
 + .TIFF
 
 > [!NOTE]
-> This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
+> This skill is bound to Azure AI services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Azure AI services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
 > In addition, image extraction is [billable by Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/).
 >
@@ -40,8 +40,8 @@ Parameters are case-sensitive.
 
 | Parameter name     | Description |
 |--------------------|-------------|
-| `detectOrientation`    | Detects image orientation. Valid values are `true` or `false`.|
-| `defaultLanguageCode` | Language code of the input text. Supported languages include: <br/> `zh-Hans` (ChineseSimplified) <br/> `zh-Hant` (ChineseTraditional) <br/>`cs` (Czech) <br/>`da` (Danish) <br/>`nl` (Dutch) <br/>`en` (English) <br/>`fi` (Finnish)  <br/>`fr` (French) <br/>`de` (German) <br/>`el` (Greek) <br/>`hu` (Hungarian) <br/>`it` (Italian) <br/>`ja` (Japanese) <br/>`ko` (Korean) <br/>`nb` (Norwegian) <br/>`pl` (Polish) <br/>`pt` (Portuguese) <br/>`ru` (Russian) <br/>`es` (Spanish) <br/>`sv` (Swedish) <br/>`tr` (Turkish) <br/>`ar` (Arabic) <br/>`ro` (Romanian) <br/>`sr-Cyrl` (SerbianCyrillic) <br/>`sr-Latn` (SerbianLatin) <br/>`sk` (Slovak) <br/>`unk` (Unknown) <br/><br/> If the language code is unspecified or null, the language is set to English. If the language is explicitly set to `unk`, the language is auto-detected. </p> |
+| `detectOrientation`    | Detects image orientation. Valid values are `true` or `false`. </p>This parameter only applies if the [legacy OCR](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) API is used.  |
+| `defaultLanguageCode` | Language code of the input text. Supported languages include all of the [generally available languages](../ai-services/computer-vision/language-support.md#image-analysis) of Azure AI Vision. You can also specify `unk` (Unknown). </p>If the language code is unspecified or null, the language is set to English. If the language is explicitly set to `unk`, all languages found are auto-detected and returned.|
 | `lineEnding` | The value to use as a line separator. Possible values: "Space", "CarriageReturn", "LineFeed".  The default is "Space". |
 
 In previous versions, there was a parameter called "textExtractionAlgorithm" to specify extraction of "printed" or "handwritten" text. This parameter is deprecated because the current Read API algorithm extracts both types of text at once. If your skill includes this parameter, you don't need to remove it, but it won't be used during skill execution.
@@ -58,6 +58,8 @@ In previous versions, there was a parameter called "textExtractionAlgorithm" to 
 |---------------|-------------------------------|
 | `text`             | Plain text extracted from the image.   |
 | `layoutText`    | Complex type that describes the extracted text and the location where the text was found.|
+
+If you call OCR on images embedded in PDFs or other application files, the OCR output will be located at the bottom of the page, after any text that was extracted and processed.
 
 ## Sample definition
 
@@ -207,9 +209,11 @@ The above skillset example assumes that a normalized-images field exists. To gen
 }
 ```
 
+
+
 ## See also
 
-+ [What is optical character recognition](../cognitive-services/computer-vision/overview-ocr.md)
++ [What is optical character recognition](../ai-services/computer-vision/overview-ocr.md)
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [TextMerger skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)

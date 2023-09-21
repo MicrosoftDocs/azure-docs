@@ -4,15 +4,15 @@ description: List all built-in and preinstalled components, such as clients, dri
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-author: swinarko
-ms.author: sawinark
-ms.custom: seo-lt-2019
-ms.date: 02/15/2022
+author: chugugrace
+ms.author: chugu
+ms.custom: seo-lt-2019, devx-track-dotnet
+ms.date: 04/12/2023
 ---
 
 # Built-in and preinstalled components on Azure-SSIS Integration Runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article lists all built-in and preinstalled components, such as clients, drivers, providers, connection managers, data sources/destinations/transformations, and tasks on SSIS Integration Runtime (IR) in Azure Data Factory (ADF) or Synapse Pipelines.  To provision SSIS IR in ADF, follow the instructions in [Provision Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md).
 
@@ -27,7 +27,7 @@ This article lists all built-in and preinstalled components, such as clients, dr
 
 | Type | Name - Version - Platform |
 |------|---------------------------|
-| **Built-in clients/drivers/providers** | *Access Database Engine 2016 Redistributable* - RTM - X64<br/><br/>*Microsoft Analysis Management Objects* - 15.0.1000.81 - X64<br/><br/>*Microsoft Analysis Services OLEDB Provider* - 15.0.1000.81 - X64<br/><br/>*Microsoft SQL Server 2012 Native Client* - 11.4.7462.6 - X64<br/><br/>*Microsoft ODBC Driver 13 for SQL Server* - 14.0.900.902 - X64<br/><br/>*Microsoft OLEDB Driver 18 for SQL Server* - 18.1.0.0 - X64<br/><br/>*Microsoft OLEDB Provider for DB2* - 6.0 - X64<br/><br/>*SharePoint Online Client Components SDK* - 15.4711.1001 - X64 |
+| **Built-in clients/drivers/providers** | *Access Database Engine 2016 Redistributable* - RTM - X64<br/><br/>*Microsoft Analysis Management Objects* - 15.0.2000.443 - X64<br/><br/>*Microsoft Analysis Services OLEDB Provider* - 15.0.2000.443 - X64<br/><br/>*Microsoft SQL Server 2012 Native Client* - 11.4.7462.6 - X64<br/><br/>*Microsoft ODBC Driver 13 for SQL Server* - 14.0.900.902 - X64<br/><br/>*Microsoft OLEDB Driver 18 for SQL Server* - 18.6.5 - X64<br/><br/>*Microsoft OLEDB Provider for DB2* - 6.0 - X64<br/><br/>*SharePoint Online Client Components SDK* - 15.4711.1001 - X64 |
 
 ## Built-in and preinstalled connection managers on Azure-SSIS IR
 

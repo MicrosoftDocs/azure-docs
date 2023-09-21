@@ -4,7 +4,7 @@ description: Learn how to use Azure Monitor logs to monitor jobs running in an H
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurepowershell, references_regions, devx-track-azurecli
-ms.date: 09/21/2021
+ms.date: 04/14/2023
 ---
 
 # Use Azure Monitor logs to monitor HDInsight clusters
@@ -20,12 +20,12 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 #### [New Azure monitor experience](#tab/new)
 
 > [!Important]
-> New Azure Monitor experience is only available in East US and West Europe as a preview feature.  
+> New Azure Monitor experience is available in all the regions as a preview feature.  
 >
 
 ## Prerequisites
 
-* A Log Analytics workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../azure-monitor/vm/monitor-virtual-machine.md).
+* A Log Analytics workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
 
 * An Azure HDInsight cluster. Currently, you can use Azure Monitor logs with the following HDInsight cluster types:
 
@@ -34,7 +34,6 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
   * Interactive Query
   * Kafka
   * Spark
-  * Storm
 
   For the instructions on how to create an HDInsight cluster, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
@@ -43,7 +42,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 * If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 > [!NOTE]  
-> New Azure Monitor experience is only available in East US and West Europe as a preview feature. It is recommended to place both the HDInsight cluster and the Log Analytics workspace in the same region for better performance. Azure Monitor logs is not available in all Azure regions.
+> New Azure Monitor experience is only available in all the regions as a preview feature. It is recommended to place both the HDInsight cluster and the Log Analytics workspace in the same region for better performance.
 >
 
 ## Enable Azure Monitor using the portal
@@ -66,7 +65,7 @@ If you want to disable Azure Monitor, you can do the same in this portal.
 
 ## Enable Azure Monitor using Azure PowerShell
 
-You can enable Azure Monitor logs using the Azure PowerShell Az module [Enable-AzHDInsightAzureMonitor](/powershell/module/az.hdinsight/enable-azhdinsightazuremonitor?view=azps-6.2.1&preserve-view=true) cmdlet.
+You can enable Azure Monitor logs using the Azure PowerShell Az module [Enable-AzHDInsightAzureMonitor](/powershell/module/az.hdinsight/enable-azhdinsightazuremonitor) cmdlet.
 
 ```powershell
 # Enter user information
@@ -98,7 +97,7 @@ Get-AzHDInsightAzureMonitor `
     -ClusterName $cluster
 ```
 
-To disable, the use the [Disable-AzHDInsightAzureMonitor](/powershell/module/az.hdinsight/disable-azhdinsightazuremonitor?view=azps-6.2.1&preserve-view=true) cmdlet:
+To disable, the use the [Disable-AzHDInsightAzureMonitor](/powershell/module/az.hdinsight/disable-azhdinsightazuremonitor) cmdlet:
 
 ```powershell
 Disable-AzHDInsightAzureMonitor -ResourceGroupName $resourceGroup `
@@ -138,32 +137,10 @@ Available HDInsight workbooks:
 - HDInsight Kafka Workbook
 - HDInsight HBase Workbook
 - HDInsight Hive/LLAP Workbook
-- HDInsight Storm Workbook
 
 Screenshot of Spark Workbook
     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-spark-workbook.png" alt-text="Spark workbook screenshot":::
 
-## Use at-scale Insights to monitor multiple clusters
-
-You can log into Azure portal and select Monitoring. In the **Insights** section, you can select **Insights Hub**. Then you can find HDInsight clusters.
-
-In this view, you can monitor multiple HDInsight clusters in one place.
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-monitor-insights.png" alt-text="Cluster monitor insights screenshot":::
-
-You can select the subscription and the HDInsight clusters you want to monitor. 
- - The **Monitored Clusters** shows the number of clusters you have enabled Azure Monitor integration.
- - The **Unmonitored Cluster** shows the number of clusters you haven't enabled Azure Monitor integration.
-
-You can see the detail cluster list in each section. 
-
-In the **Overview** tab under **Monitored Clusters**, you can see cluster type, critical Alerts, and resource utilizations.
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-cluster-alerts.png" alt-text="Cluster monitor alerts screenshot":::
-
-Also you can see the clusters in each workload type, including Spark, HBase, Hive, Kafka, and Storm.
-
-The high-level metrics of each workload type will be presented, including how many active node managers, how many running applications, etc.
-
-:::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/spark-metrics.png" alt-text="Cluster monitor spark metrics":::
 
 ## Configuring performance counters
 
@@ -177,7 +154,6 @@ HDInsight support cluster auditing with Azure Monitor logs, by importing the fol
 * `log_auth_CL` - this table provides SSH logs with successful and failed sign-in attempts.
 * `log_ambari_audit_CL` - this table provides audit logs from Ambari.
 * `log_ranger_audti_CL` - this table provides audit logs from Apache Ranger on ESP clusters.
-
 
 #### [Classic Azure Monitor experience](#tab/previous)
 
@@ -194,7 +170,6 @@ HDInsight support cluster auditing with Azure Monitor logs, by importing the fol
   * Interactive Query
   * Kafka
   * Spark
-  * Storm
 
   For the instructions on how to create an HDInsight cluster, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
@@ -235,7 +210,7 @@ $LAW = "<your-Log-Analytics-workspace>"
 # obtain workspace id for defined Log Analytics workspace
 $WorkspaceId = (Get-AzOperationalInsightsWorkspace `
                     -ResourceGroupName $resourceGroup `
-                    -Name $LAW).CustomerId
+                    -Name $LAW).ResourceId
 
 # obtain primary key for defined Log Analytics workspace
 $PrimaryKey = (Get-AzOperationalInsightsWorkspace `
@@ -285,7 +260,7 @@ az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
 ```
 ## <a name="oms-with-firewall"></a>Prerequisites for clusters behind a firewall
 
-To be able to successfully setup Azure Monitor integration with HDInsight, behind a firewall, some customers may need to enable the following endpoints:
+To be able to successfully set up Azure Monitor integration with HDInsight, behind a firewall, some customers may need to enable the following endpoints:
 
 |Agent Resource | Ports | Direction | Bypass HTTPS inspection |
 |---|---|---|---|
@@ -305,7 +280,7 @@ Once the setup is successful, enabling necessary endpoints for data ingestion is
 
 ## Install HDInsight cluster management solutions
 
-HDInsight provides cluster-specific management solutions that you can add for Azure Monitor logs. [Management solutions](../azure-monitor/insights/solutions.md) add functionality to Azure Monitor logs, providing more data and analysis tools. These solutions collect important performance metrics from your HDInsight clusters. And provide the tools to search the metrics. These solutions also provide visualizations and dashboards for most cluster types supported in HDInsight. By using the metrics that you collect with the solution, you can create custom monitoring rules and alerts.
+HDInsight provides cluster-specific management solutions that you can add for Azure Monitor Logs. [Management solutions](/previous-versions/azure/azure-monitor/insights/solutions) add functionality to Azure Monitor Logs, providing more data and analysis tools. These solutions collect important performance metrics from your HDInsight clusters. And provide the tools to search the metrics. These solutions also provide visualizations and dashboards for most cluster types supported in HDInsight. By using the metrics that you collect with the solution, you can create custom monitoring rules and alerts.
 
 Available HDInsight solutions:
 
@@ -314,17 +289,12 @@ Available HDInsight solutions:
 * HDInsight Interactive Query Monitoring
 * HDInsight Kafka Monitoring
 * HDInsight Spark Monitoring
-* HDInsight Storm Monitoring
 
-For management solution instructions, see [Management solutions in Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). To experiment, install a HDInsight Hadoop Monitoring solution. When it's done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
+For management solution instructions, see [Management solutions in Azure](/previous-versions/azure/azure-monitor/insights/solutions#install-a-monitoring-solution). To experiment, install a HDInsight Hadoop Monitoring solution. When it's done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
 
 :::image type="content" source="media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png" alt-text="HDInsight monitoring solution view":::
 
 Because the cluster is a brand new cluster, the report doesn't show any activities.
-
-## Configuring performance counters
-
-Azure monitor supports collecting and analyzing performance metrics for the nodes in your cluster. For more information, see [Linux performance data sources in Azure Monitor](../azure-monitor/agents/data-sources-performance-counters.md#linux-performance-counters).
 
 ## Cluster auditing
 
@@ -354,6 +324,6 @@ If you have Azure Monitor Integration enabled on a cluster, updating the OMS age
 ```
 
 ## Next steps
-
+* [Selective logging analysis](selective-logging-analysis.md)
 * [Query Azure Monitor logs to monitor HDInsight clusters](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 * [How to monitor cluster availability with Apache Ambari and Azure Monitor logs](./hdinsight-cluster-availability.md)

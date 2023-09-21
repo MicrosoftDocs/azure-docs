@@ -2,13 +2,13 @@
 title: Develop Python worker extensions for Azure Functions
 description: Learn how to create and publish worker extensions that let you inject middleware behavior into Python functions running in Azure.
 ms.topic: how-to
-ms.date: 6/1/2021
-ms.custom: devx-track-python
+ms.date: 04/13/2023
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Develop Python worker extensions for Azure Functions
 
-Azure Functions lets you integrate custom behaviors as part of Python function execution. This feature enables you to create business logic that customers can easily use in their own function apps. To learn more, see the [Python developer reference](functions-reference-python.md#python-worker-extensions).
+Azure Functions lets you integrate custom behaviors as part of Python function execution. This feature enables you to create business logic that customers can easily use in their own function apps. To learn more, see the [Python developer reference](functions-reference-python.md#python-worker-extensions). Worker extensions are supported in both the v1 and v2 Python programming models.
 
 In this tutorial, you'll learn how to: 
 > [!div class="checklist"]
@@ -20,9 +20,9 @@ In this tutorial, you'll learn how to:
 
 Before you start, you must meet these requirements:
 
-* [Python 3.6.x or above](https://www.python.org/downloads/release/python-374/). To check the full list of supported Python versions in Azure Functions, see the [Python developer guide](functions-reference-python.md#python-version).
+* [Python 3.7 or above](https://www.python.org/downloads). To check the full list of supported Python versions in Azure Functions, see the [Python developer guide](functions-reference-python.md#python-version).
 
-* The [Azure Functions Core Tools](functions-run-local.md#v2), version 3.0.3568 or later.
+* The [Azure Functions Core Tools](functions-run-local.md#v2), version 4.0.5095 or later, which supports using the extension with the [v2 Python programming model](./functions-reference-python.md). Check your version with `func --version`.
 
 * [Visual Studio Code](https://code.visualstudio.com/) installed on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
@@ -48,7 +48,7 @@ The folder for your extension project should be like the following structure:
 | **.venv/** | (Optional) Contains a Python virtual environment used for local development. |
 | **python_worker_extension/** | Contains the source code of the Python worker extension. This folder contains the main Python module to be published into PyPI. |
 | **setup.py** | Contains the metadata of the Python worker extension package. |
-| **readme.md** | (Optional) Contains the instruction and usage of your extension. This content is displayed as the description in the home page in your PyPI project. |
+| **readme.md** | Contains the instruction and usage of your extension. This content is displayed as the description in the home page in your PyPI project. |
 
 ### Configure project metadata
 
@@ -75,6 +75,19 @@ The `configure` method is customer-facing. In your readme file, you can tell you
 The `pre_invocation_app_level` method is called by the Python worker before the function runs. It provides the information from the function, such as function context and arguments. In this example, the extension logs a message and records the start time of an invocation based on its invocation_id.
 
 Similarly, the `post_invocation_app_level` is called after function execution. This example calculates the elapsed time based on the start time and current time. It also overwrites the return value of the HTTP response.
+
+### Create a readme.md
+
+Create a readme.md file in the root of your extension project. This file contains the instructions and usage of your extension. The readme.md content is displayed as the description in the home page in your PyPI project.
+
+```markdown
+# Python Worker Extension Timer
+
+In this file, tell your customers when they need to call `Extension.configure()`.
+
+The readme should also document the extension capabilities, possible configuration,
+and usage of your extension.
+```
 
 ## Consume your extension locally
 
@@ -135,7 +148,8 @@ Now that you've created an extension, you can use it in an app project to verify
     pip install -e <PYTHON_WORKER_EXTENSION_ROOT>
     ```
 
-    In this example, replace `<PYTHON_WORKER_EXTENSION_ROOT>` with the file location of your extension project.   
+    In this example, replace `<PYTHON_WORKER_EXTENSION_ROOT>` with the root file location of your extension project.
+
     When a customer uses your extension, they'll instead add your extension package location to the requirements.txt file, as in the following examples:
 
     # [PyPI](#tab/pypi)
@@ -159,7 +173,7 @@ Now that you've created an extension, you can use it in an app project to verify
 
     When running in Azure, you instead add `PYTHON_ENABLE_WORKER_EXTENSIONS=1` to the [app settings in the function app](functions-how-to-use-azure-function-app-settings.md#settings).
 
-1. Add following two lines before the `main` function in \_\_init.py\_\_:
+1. Add following two lines before the `main` function in *\_\_init.py\_\_* file for the v1 programming model, or in the *function_app.py* file for the v2 programming model:
 
     ```python
     from python_worker_extension_timer import TimerExtension
@@ -174,9 +188,9 @@ Now that you've created an extension, you can use it in an app project to verify
 
 1. In the browser, send a GET request to `https://localhost:7071/api/HttpTrigger`. You should see a response like the following, with the **TimeElapsed** data for the request appended. 
 
-    <pre>
+    ```
     This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response. (TimeElapsed: 0.0009996891021728516 sec)
-    </pre>
+    ```
 
 ## Publish your extension
 
@@ -211,7 +225,7 @@ To publish your extension to PyPI:
     twine upload dist/*
     ```
 
-    You may need to provide your PyPI account credentials during upload.
+    You may need to provide your PyPI account credentials during upload. You can also test your package upload with `twine upload -r testpypi dist/*`. For more information, see the [Twine documentation](https://twine.readthedocs.io/en/stable/).
 
 After these steps, customers can use your extension by including your package name in their requirements.txt.
 

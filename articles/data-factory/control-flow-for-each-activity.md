@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/26/2022
 ---
 
 # ForEach activity in Azure Data Factory and Azure Synapse Analytics

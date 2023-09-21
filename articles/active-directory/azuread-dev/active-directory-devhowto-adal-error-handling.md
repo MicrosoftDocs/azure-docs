@@ -1,5 +1,5 @@
 ---
-title: ADAL client app error handling best practices | Azure
+title: ADAL client app error handling best practices
 description: Provides error handling guidance and best practices for ADAL client applications.
 services: active-directory
 author: rwike77
@@ -483,7 +483,7 @@ By default, ADAL logging does not capture or log any personal identifiable infor
 
 #### ADAL library errors
 
-To explore specific ADAL errors, the source code in the [azure-activedirectory-library-for-dotnet repository](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/8f6d560fbede2247ec0e217a21f6929d4375dcaa/src/ADAL.PCL/Utilities/Constants.cs#L58) is the best error reference.
+To explore specific ADAL errors, the source code in the [`azure-activedirectory-library-for-dotnet` repository](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/8f6d560fbede2247ec0e217a21f6929d4375dcaa/src/ADAL.PCL/Utilities/Constants.cs#L58) is the best error reference.
 
 #### Guidance for error logging code
 
@@ -493,7 +493,7 @@ ADAL .NET logging changes depending on the platform being worked on. Refer to th
 
 #### ADAL library errors
 
-To explore specific ADAL errors, the source code in the [azure-activedirectory-library-for-android repository](https://github.com/AzureAD/azure-activedirectory-library-for-android/blob/dev/adal/src/main/java/com/microsoft/aad/adal/ADALError.java#L33) is the best error reference.
+To explore specific ADAL errors, the source code in the [`azure-activedirectory-library-for-android` repository](https://github.com/AzureAD/azure-activedirectory-library-for-android/blob/dev/adal/src/main/java/com/microsoft/aad/adal/ADALError.java#L33) is the best error reference.
 
 #### Operating System errors
 
@@ -534,7 +534,7 @@ adb logcat > "C:\logmsg\logfile.txt";
 
 #### ADAL library errors
 
-To explore specific ADAL errors, the source code in the [azure-activedirectory-library-for-objc repository](https://github.com/AzureAD/azure-activedirectory-library-for-objc/blob/dev/ADAL/src/ADAuthenticationError.m#L295) is the best error reference.
+To explore specific ADAL errors, the source code in the [`azure-activedirectory-library-for-objc` repository](https://github.com/AzureAD/azure-activedirectory-library-for-objc/blob/dev/ADAL/src/ADAuthenticationError.m#L295) is the best error reference.
 
 #### Operating system errors
 
@@ -577,7 +577,7 @@ window.Logging = {
 
 * [Azure AD Authentication Libraries][AAD-Auth-Libraries]
 * [Azure AD Authentication Scenarios][AAD-Auth-Scenarios]
-* [Integrating Applications with Azure Active Directory][AAD-Integrating-Apps]
+* [Integrating Applications with Azure AD Authentication][AAD-Integrating-Apps]
 
 Use the comments section that follows, to provide feedback and help us refine and shape our content.
 
@@ -587,8 +587,6 @@ Use the comments section that follows, to provide feedback and help us refine an
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
 [AAD-Auth-Scenarios]:v1-authentication-scenarios.md
 [AAD-Integrating-Apps]:../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-[AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
 [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
-

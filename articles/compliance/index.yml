@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 03/22/2022
+  ms.date: 06/12/2022
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -374,6 +374,9 @@ conceptualContent:
         - url: /compliance/regulatory/offering-bir-2012-netherlands
           itemType: concept
           text: Netherlands BIR 2012
+        - url: /azure/compliance/offerings/offering-qatar-nia
+          itemType: concept
+          text: Qatar NIA
 
     # Card
     - title: Regional - EMEA
@@ -455,14 +458,10 @@ additionalContent:
               url: https://azure.microsoft.com/resources/microsoft-azure-compliance-in-the-context-of-singapore/
             - text: Japan security and privacy requirements
               url: https://azure.microsoft.com/resources/microsoft-azure-compliance-and-the-japan-security-and-privacy-requirements/
-            - text: Malaysian security and privacy requirements
-              url: https://www.microsoft.com/en-sg/apac/trustedcloud/malaysia.aspx
             - text: New Zealand security and privacy requirements
               url: https://azure.microsoft.com/resources/microsoft-azure-compliance-in-the-context-of-new-zealand/
             - text: Navigating your way to the cloud in Europe 
               url: https://www.microsoft.com/en-ie/lcc_cloud/default.aspx
-            - text: Navigating your way to the cloud in Asia
-              url: https://www.microsoft.com/en-sg/apac/trustedcloud/default.aspx
             - text: Navigating to the cloud in Middle East and Africa
               url: https://msmea-staging.azurewebsites.net/mea/trustedcloud/default.aspx
             - text: Cloud compliance guides for financial services
@@ -491,7 +490,7 @@ additionalContent:
             - text: ISO 27001 security controls
               url: https://azure.microsoft.com/resources/13-effective-security-controls-for-iso-27001-compliance-when-using-microsoft-azure/
             - text: IT-Grundschutz workbook (German)
-              url: https://azure.microsoft.com/resources/it-grundschutz-konformitt-mit-azure/
+              url: /azure/compliance/offerings/offering-germany-it-grundschutz-workbook
             - text: NERC CIP standards and cloud computing
               url: ../azure-government/documentation-government-overview-nerc.md
             - text: NZ GCIO cloud computing considerations

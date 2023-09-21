@@ -1,9 +1,9 @@
 ---
 title: 'Quickstart: Create a server - Azure portal - Azure Database for MariaDB'
 description: This article shows you how to use the Azure portal to quickly create a sample Azure Database for MariaDB server in about five minutes.
-author: savjani
-ms.author: pariks
-ms.date: 3/19/2020
+author: SudheeshGH
+ms.author: sunaray
+ms.date: 06/24/2022
 ms.topic: quickstart
 ms.service: mariadb
 ms.custom: mvc, mode-ui
@@ -11,13 +11,15 @@ ms.custom: mvc, mode-ui
 
 # Quickstart: Create an Azure Database for MariaDB server by using the Azure portal
 
-Azure Database for MariaDB is a managed service you can use to run, manage, and scale highly available MariaDB databases in the cloud. This quickstart shows you how to create an Azure Database for MariaDB server in about five minutes by using the Azure portal.  
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
+Azure Database for MariaDB is a managed service you can use to run, manage, and scale highly available MariaDB databases in the cloud. This quickstart shows you how to create an Azure Database for MariaDB server in about five minutes by using the Azure portal.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Sign in to the Azure portal
 
-In your web browser, go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+In your web browser, sign in to the [Azure portal](https://portal.azure.com). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ## Create an Azure Database for MariaDB server
 
@@ -47,7 +49,7 @@ To create an Azure Database for MariaDB server:
     Location | *the region closest to your users*| Choose the location that is closest to your users or to your other Azure applications.
     Version | *the latest version*| The latest version (unless you have specific requirements to use a different version).
     Pricing tier | See description. | The compute, storage, and backup configurations for your new server. Select **Pricing tier** > **General Purpose**. Keep the default values for the following settings:<br><ul><li>**Compute Generation** (Gen 5)</li><li>**vCore** (4 vCores)</li><li>**Storage** (100 GB)</li><li>**Backup Retention Period** (7 days)</li></ul><br>To enable your server backups in geo-redundant storage, for **Backup Redundancy Options**, select **Geographically Redundant**. <br><br>To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
-  
+
    > [!NOTE]
    > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/mariadb/) for more information.
 
@@ -61,7 +63,7 @@ By default, the following databases are created under your server: **information
 
 ## <a name="configure-firewall-rule"></a>Configure a server-level firewall rule
 
-The Azure Database for MariaDB service creates a firewall at the server level. The firewall prevents external applications and tools from connecting to the server or to any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. 
+The Azure Database for MariaDB service creates a firewall at the server level. The firewall prevents external applications and tools from connecting to the server or to any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses.
 
 To create a server-level firewall rule:
 
@@ -129,18 +131,18 @@ First, we'll use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)
     Welcome to the MySQL monitor.  Commands end with ; or \g.
     Your MySQL connection id is 65505
     Server version: 5.6.39.0 MariaDB Server
-    
+
     Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
-    
+
     Oracle is a registered trademark of Oracle Corporation and/or its
     affiliates. Other names may be trademarks of their respective
     owners.
 
     Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-    
+
     mysql>
     ```
-    
+
     > [!TIP]
     > If the firewall isn't configured to allow the IP address of Azure Cloud Shell, the following error occurs:
     >
@@ -162,9 +164,9 @@ First, we'll use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)
    ```sql
    CREATE DATABASE quickstartdb;
    ```
-   The command might take a few minutes to finish. 
+   The command might take a few minutes to finish.
 
-   You can create one or more databases on an Azure Database for MariaDB server. You can create a single database per server to utilize all resources, or you can create multiple databases to share the resources. There's no limit on the number of databases that you can create, but multiple databases share the same server resources. 
+   You can create one or more databases on an Azure Database for MariaDB server. You can create a single database per server to utilize all resources, or you can create multiple databases to share the resources. There's no limit on the number of databases that you can create, but multiple databases share the same server resources.
 
 6. To list the databases, at the `mysql>` prompt, enter the following command:
 
@@ -197,7 +199,7 @@ To connect to the server by using MySQL Workbench:
     Username |  *server admin login name* | The server admin sign-in information that you used to create the Azure Database for MariaDB server. Our example user name is **myadmin\@mydemoserver**. If you don't remember the user name, complete the steps earlier in this article to get the connection information. The format is *username\@servername*.
     Password | *your password* | To save the password, select **Store in Vault**. |
 
-4. To check that all parameters are configured correctly, select **Test Connection**. Then, select **OK** to save the connection. 
+4. To check that all parameters are configured correctly, select **Test Connection**. Then, select **OK** to save the connection.
 
     > [!NOTE]
     > SSL is enforced by default on your server. It requires additional configuration to connect successfully. For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md). To disable SSL for this quickstart, on the server overview page in the Azure portal, select **Connection security** in the menu. For **Enforce SSL connection**, select **Disabled**.

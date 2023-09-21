@@ -3,7 +3,7 @@
  description: Learn about using secure TLS connections for devices and services communicating with IoT Hub
  services: iot-hub
  author: kgremban
- ms.service: iot-fundamentals
+ ms.service: iot-hub
  ms.topic: conceptual
  ms.date: 06/29/2021
  ms.author: kgremban
@@ -104,7 +104,7 @@ For IoT Hubs not configured for TLS 1.2 enforcement, TLS 1.2 still works with th
 * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
 * `TLS_RSA_WITH_AES_256_CBC_SHA`
 * `TLS_RSA_WITH_AES_128_CBC_SHA`
-* `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
+* `TLS_RSA_WITH_3DES_EDE_CBC_SHA` **(This cipher will be deprecated on 10/01/2022 and will no longer be used for TLS handshakes)**
 
 A client can suggest a list of higher cipher suites to use during `ClientHello`. However, some of them might not be supported by IoT Hub (for example, `ECDHE-ECDSA-AES256-GCM-SHA384`). In this case, IoT Hub will try to follow the preference of the client, but eventually negotiate down the cipher suite with `ServerHello`.
 
@@ -125,6 +125,19 @@ IoT Edge devices can be configured to use TLS 1.2 when communicating with IoT Hu
 ## Device authentication
 
 After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or an X.509 certificate. For certificate-based authentication, this can be any X.509 certificate, including ECC. IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. To learn more, see [Supported X.509 certificates](iot-hub-dev-guide-sas.md#supported-x509-certificates).
+
+## Mutual TLS support
+
+Mutual TLS authentication ensures that the client _authenticates_ the server (IoT Hub) certificate and the server (IoT Hub) _authenticates_ the [X.509 client certificate or X.509 thumbprint](tutorial-x509-test-certs.md#create-a-client-certificate-for-a-device). _Authorization_ is performed by IoT Hub after _authentication_ is complete.
+
+For AMQP and MQTT protocols, IoT Hub requests a client certificate in the initial TLS handshake. If one is provided, IoT Hub _authenticates_ the client certificate and the client _authenticates_ the IoT Hub certificate. This process is called mutual TLS authentication. When IoT Hub receives an MQTT connect packet or an AMQP link opens, IoT Hub performs _authorization_ for the requesting client and determines if the client requires X.509 authentication. If mutual TLS authentication was completed and the client is authorized to connect as the device, it is allowed. However, if the client requires X.509 authentication and client authentication was not completed during the TLS handshake, then IoT Hub rejects the connection.
+
+For HTTP protocol, when the client makes its first request, IoT Hub checks if the client requires X.509 authentication and if client authentication was complete then IoT Hub performs authorization. If client authentication was not complete, then IoT Hub rejects the connection
+
+
+## Certificate pinning
+
+[Certificate pinning](https://www.digicert.com/blog/certificate-pinning-what-is-certificate-pinning) and filtering of the TLS server certificates (aka leaf certificates) and intermediate certificates associated with IoT Hub endpoints is strongly discouraged as Microsoft frequently rolls these certificates with little or no notice. If you must, only pin the root certificates as described in this [Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
 
 ## TLS maximum fragment length negotiation (preview)
 

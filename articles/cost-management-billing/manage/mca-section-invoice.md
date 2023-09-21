@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/03/2022
+ms.date: 06/30/2023
 ms.author: banders
 ---
 
@@ -152,7 +152,7 @@ Once you have customized your billing account based on your needs, you can link 
 
 ### Link existing subscriptions and products
 
-If you have existing Azure subscriptions or other products such as Azure Marketplace and App source resources, you can move them from their existing invoice section to another invoice section to reorganize your costs.
+If you have existing Azure subscriptions or other products such as Azure Marketplace and App source resources, you can move them from their existing invoice section to another invoice section to reorganize your costs. However, you can't change the invoice section for a reservation or savings plan.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -194,7 +194,7 @@ The total charges for using 100 TB of data in this scenario is **180.5**
 
 #### You have multiple billing profiles.
 
-Now, let's assume you created another billing profile and used 50 GB through subscriptions that are billed to the first billing profile and 50 GB through subscriptions that are billed to the second billing profile, here's how much you would be charged.
+Now, let's assume you created another billing profile and used 50 TB through subscriptions that are billed to the first billing profile and 50 TB through subscriptions that are billed to the second billing profile, here's how much you would be charged.
 
 `Charges for the first billing profile`
 

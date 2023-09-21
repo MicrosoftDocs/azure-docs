@@ -6,18 +6,19 @@ ms.service: virtual-machines
 ms.subservice: extensions
 author: bobbytreed
 ms.author: robreed
+ms.reviewer: erd
 ms.collection: windows
-ms.date: 03/26/2018
+ms.date: 11/28/2022
 
 ---
 # PowerShell DSC Extension
 
+> [!NOTE]
+> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Automange named [machine configuration](../../governance/machine-configuration/overview.md). The machine configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Machine configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
+
 ## Overview
 
 The PowerShell DSC Extension for Windows is published and supported by Microsoft. The extension uploads and applies a PowerShell DSC Configuration on an Azure VM. The DSC Extension calls into PowerShell DSC to enact the received DSC configuration on the VM. This document details the supported platforms, configurations, and deployment options for the DSC virtual machine extension for Windows.
-
-> [!NOTE]
-> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now available in preview, managed by a feature of Azure Policy named [guest configuration](../../governance/policy/concepts/guest-configuration.md). The guest configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
 
 ## Prerequisites
 
@@ -25,7 +26,7 @@ The PowerShell DSC Extension for Windows is published and supported by Microsoft
 
 The DSC Extension supports the following OS's
 
-Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
+Windows Server 2022, Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
 
 ### Internet connectivity
 

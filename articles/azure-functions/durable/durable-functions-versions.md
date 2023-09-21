@@ -3,7 +3,7 @@ title: Durable Functions versions overview - Azure Functions
 description: Learn about Durable Functions versions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 12/23/2020
+ms.date: 05/06/2022
 ms.author: azfuncdf
 ---
 
@@ -14,6 +14,9 @@ ms.author: azfuncdf
 ## New features in 2.x
 
 This section describes the features of Durable Functions that are added in version 2.x.
+
+> [!NOTE]
+> This section does not apply to Durable Functions in dotnet isolated worker. For that, see [durable functions isolated process overview](./durable-functions-dotnet-isolated-overview.md).
 
 ### Durable entities
 
@@ -43,24 +46,39 @@ Install the latest 2.x version of the Durable Functions bindings extension in yo
 
 #### JavaScript, Python, and PowerShell
 
-Durable Functions 2.x is available in version 2.x of the [Azure Functions extension bundle](../functions-bindings-register.md#extension-bundles).
+Durable Functions 2.x is available starting in version 2.x of the [Azure Functions extension bundle](../functions-bindings-register.md#extension-bundles).
 
-Python support in Durable Functions requires Durable Functions 2.x.
+Python support in Durable Functions requires Durable Functions 2.x or greater.
 
-To update the extension bundle version in your project, open host.json and update the `extensionBundle` section to use version 2.x (`[2.*, 3.0.0)`).
+To update the extension bundle version in your project, open host.json and update the `extensionBundle` section to use version 4.x (`[4.*, 5.0.0)`).
 
 ```json
 {
     "version": "2.0",
     "extensionBundle": {
         "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[2.*, 3.0.0)"
+        "version": "[4.*, 5.0.0)"
     }
 }
 ```
 
 > [!NOTE]
 > If Visual Studio Code is not displaying the correct templates after you change the extension bundle version, reload the window by running the *Developer: Reload Window* command (<kbd>Ctrl+R</kbd> on Windows and Linux, <kbd>Command+R</kbd> on macOS).
+
+#### Java 
+
+Durable Functions 2.x is available starting in version 4.x of the [Azure Functions extension bundle](../functions-bindings-register.md#extension-bundles). You must use the Azure Functions 4.0 runtime to execute Java functions.
+
+To update the extension bundle version in your project, open host.json and update the `extensionBundle` section to use version 4.x (`[4.*, 5.0.0)`). 
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[4.*, 5.0.0)"
+    }
+}
+```
 
 #### .NET
 
@@ -88,7 +106,7 @@ In version 1.x, if a task hub name wasn't specified in host.json, it was default
 
 #### Public interface changes (.NET only)
 
-In version 1.x, the various _context_ objects supported by Durable Functions have abstract base classes intended for use in unit testing. As part of Durable Functions 2.x, these abstract base classes are replaced with interfaces.
+In version 1.x, the various *context* objects supported by Durable Functions have abstract base classes intended for use in unit testing. As part of Durable Functions 2.x, these abstract base classes are replaced with interfaces.
 
 The following table represents the main changes:
 
@@ -101,7 +119,7 @@ The following table represents the main changes:
 
 In the case where an abstract base class contained virtual methods, these virtual methods have been replaced by extension methods defined in `DurableContextExtensions`.
 
-#### function.json changes (JavaScript and C# Script)
+#### function.json changes
 
 In Durable Functions 1.x, the orchestration client binding uses a `type` of `orchestrationClient`. Version 2.x uses `durableClient` instead.
 

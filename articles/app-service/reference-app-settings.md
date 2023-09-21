@@ -2,7 +2,9 @@
 title: Environment variables and app settings reference
 description: Describes the commonly used environment variables, and which ones can be modified with app settings.
 ms.topic: article
-ms.date: 02/15/2022
+ms.date: 09/14/2023
+author: cephalin
+ms.author: cephalin
 ---
 
 # Environment variables and app settings in Azure App Service
@@ -22,17 +24,17 @@ The following environment variables are related to the app environment in genera
 | `WEBSITE_PLATFORM_VERSION` | Read-only. App Service platform version. ||
 | `HOME` | Read-only. Path to the home directory (for example, `D:\home` for Windows). ||
 | `SERVER_PORT` | Read-only. The port the app should listen to. | |
-| `WEBSITE_WARMUP_PATH`  | A relative path to ping to warm up the app, beginning with a slash. The default is `/`, which pings the root path. The specific path can be pinged by an unauthenticated client, such as Azure Traffic Manager, even if [App Service authentication](overview-authentication-authorization.md) is set to reject unauthenticated clients. (NOTE: This app setting does not change the path used by AlwaysOn.) ||
+| `WEBSITE_WARMUP_PATH`  | A relative path to ping to warm up the app, beginning with a slash. The default is `/`, which pings the root path. The specific path can be pinged by an unauthenticated client, such as Azure Traffic Manager, even if [App Service authentication](overview-authentication-authorization.md) is set to reject unauthenticated clients. (NOTE: This app setting doesn't change the path used by AlwaysOn.) ||
 | `WEBSITE_COMPUTE_MODE` | Read-only. Specifies whether app runs on dedicated (`Dedicated`) or shared (`Shared`) VM/s. ||
 | `WEBSITE_SKU` | Read-only. SKU of the app. Possible values are `Free`, `Shared`, `Basic`, and `Standard`. ||
 | `SITE_BITNESS` | Read-only. Shows whether the app is 32-bit (`x86`) or 64-bit (`AMD64`). ||
-| `WEBSITE_HOSTNAME` | Read-only. Primary hostname for the app. Custom hostnames are not accounted for here. ||
+| `WEBSITE_HOSTNAME` | Read-only. Primary hostname for the app. Custom hostnames aren't accounted for here. ||
 | `WEBSITE_VOLUME_TYPE` | Read-only. Shows the storage volume type currently in use. ||
 | `WEBSITE_NPM_DEFAULT_VERSION` | Default npm version the app is using. ||
 | `WEBSOCKET_CONCURRENT_REQUEST_LIMIT` | Read-only. Limit for websocket's concurrent requests. For **Standard** tier and above, the value is `-1`, but there's still a per VM limit based on your VM size (see [Cross VM Numerical Limits](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)). ||
 | `WEBSITE_PRIVATE_EXTENSIONS` | Set to `0` to disable the use of private site extensions. ||
 | `WEBSITE_TIME_ZONE` | By default, the time zone for the app is always UTC. You can change it to any of the valid values that are listed in [TimeZone](/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10)). If the specified value isn't recognized, UTC is used. | `Atlantic Standard Time` |
-| `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG` | In the case of a storage volume failover or reconfiguration, your app is switched over to a standby storage volume. The default setting of `1` prevents your worker process from recycling when the storage infrastructure changes. If you are running a Windows Communication Foundation (WCF) app, disable it by setting it to `0`. The setting is slot-specific, so you should set it in all slots. ||
+| `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG` | After slot swaps, the app may experience unexpected restarts. This is because after a swap, the hostname binding configuration goes out of sync, which by itself doesn't cause restarts. However, certain underlying storage events (such as storage volume failovers) may detect these discrepancies and force all worker processes to restart. To minimize these types of restarts, set the app setting value to `1`on all slots (default is`0`). However, don't set this value if you're running a Windows Communication Foundation (WCF) application. For more information, see [Troubleshoot swaps](deploy-staging-slots.md#troubleshoot-swaps)||
 | `WEBSITE_PROACTIVE_AUTOHEAL_ENABLED` | By default, a VM instance is proactively "autohealed" when it's using more than 90% of allocated memory for more than 30 seconds, or when 80% of the total requests in the last two minutes take longer than 200 seconds. If a VM instance has triggered one of these rules, the recovery process is an overlapping restart of the instance. Set to `false` to disable this recovery behavior. The default is `true`. For more information, see [Proactive Auto Heal](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html). ||
 | `WEBSITE_PROACTIVE_CRASHMONITORING_ENABLED` | Whenever the w3wp.exe process on a VM instance of your app crashes due to an unhandled exception for more than three times in 24 hours, a debugger process is attached to the main worker process on that instance, and collects a memory dump when the worker process crashes again. This memory dump is then analyzed and the call stack of the thread that caused the crash is logged in your App Service’s logs. Set to `false` to disable this automatic monitoring behavior. The default is `true`. For more information, see [Proactive Crash Monitoring](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-in-Azure-App-Service.html). ||
 | `WEBSITE_DAAS_STORAGE_SASURI` | During crash monitoring (proactive or manual), the memory dumps are deleted by default. To save the memory dumps to a storage blob container, specify the SAS URI.  ||
@@ -43,7 +45,8 @@ The following environment variables are related to the app environment in genera
 | `WEBSITE_CONTENTSHARE` | When you use specify a custom storage account with `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, App Service creates a file share in that storage account for your app. To use a custom name, set this variable to the name you want. If a file share with the specified name doesn't exist, App Service creates it for you. | `myapp123` |
 | `WEBSITE_SCM_ALWAYS_ON_ENABLED` | Read-only. Shows whether Always On is enabled (`1`) or not (`0`). ||
 | `WEBSITE_SCM_SEPARATE_STATUS` | Read-only. Shows whether the Kudu app is running in a separate process (`1`) or not (`0`). ||
-
+| `WEBSITE_DNS_ATTEMPTS` | Number of times to try name resolve. ||
+| `WEBSITE_DNS_TIMEOUT` | Number of seconds to wait for name resolve ||
 <!-- 
 WEBSITE_PROACTIVE_STACKTRACING_ENABLED
 WEBSITE_CLOUD_NAME
@@ -57,7 +60,7 @@ WEBSITE_CLASSIC_MODE
 
 ## Variable prefixes
 
-The following table shows environment variables prefixes that App Service uses for various purposes.
+The following table shows environment variable prefixes that App Service uses for various purposes.
 
 | Setting name | Description |
 |-|-|
@@ -68,7 +71,7 @@ The following table shows environment variables prefixes that App Service uses f
 | `SQLAZURECONNSTR_` | Signifies an Azure SQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `POSTGRESQLCONNSTR_` | Signifies a PostgreSQL connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `CUSTOMCONNSTR_` | Signifies a custom connection string in the app configuration. It's injected into a .NET app as a connection string. |
-| `MYSQLCONNSTR_` | Signifies an Azure SQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
+| `MYSQLCONNSTR_` | Signifies a MySQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `AZUREFILESSTORAGE_` | A connection string to a custom share for a custom container in Azure Files. |
 | `AZUREBLOBSTORAGE_` | A connection string to a custom storage account for a custom container in Azure Blob Storage. |
 | `NOTIFICATIONHUBCONNSTR_` | Signifies a connection string to a notification hub in Azure Notification Hubs. |
@@ -84,12 +87,12 @@ The following environment variables are related to app deployment. For variables
 
 | Setting name| Description |
 |-|-|
-| `DEPLOYMENT_BRANCH`| For [local Git](deploy-local-git.md) or [cloud Git](deploy-continuous-deployment.md) deployment (such as GitHub), set to the branch in Azure you want to deploy to. By default, it is `master`. |
+| `DEPLOYMENT_BRANCH`| For [local Git](deploy-local-git.md) or [cloud Git](deploy-continuous-deployment.md) deployment (such as GitHub), set to the branch in Azure you want to deploy to. By default, it's `master`. |
 | `WEBSITE_RUN_FROM_PACKAGE`| Set to `1` to run the app from a local ZIP package, or set to the URL of an external URL to run the app from a remote ZIP package. For more information, see [Run your app in Azure App Service directly from a ZIP package](deploy-run-package.md). |
 | `WEBSITE_USE_ZIP` | Deprecated. Use `WEBSITE_RUN_FROM_PACKAGE`. |
 | `WEBSITE_RUN_FROM_ZIP` | Deprecated. Use `WEBSITE_RUN_FROM_PACKAGE`. | 
 | `WEBSITE_WEBDEPLOY_USE_SCM` | Set to `false` for WebDeploy to stop using the Kudu deployment engine. The default is `true`. To deploy to Linux apps using Visual Studio (WebDeploy/MSDeploy), set it to `false`. |
-| `MSDEPLOY_RENAME_LOCKED_FILES` | Set to `1` to attempt to rename DLLs if they can't be copied during a WebDeploy deployment. This setting is not applicable if `WEBSITE_WEBDEPLOY_USE_SCM` is set to `false`. |
+| `MSDEPLOY_RENAME_LOCKED_FILES` | Set to `1` to attempt to rename DLLs if they can't be copied during a WebDeploy deployment. This setting isn't applicable if `WEBSITE_WEBDEPLOY_USE_SCM` is set to `false`. |
 | `WEBSITE_DISABLE_SCM_SEPARATION` | By default, the main app and the Kudu app run in different sandboxes. When you stop the app, the Kudu app is still running, and you can continue to use Git deploy and MSDeploy. Each app has its own local files. Turning off this separation (setting to `true`) is a legacy mode that's no longer fully supported. |
 | `WEBSITE_ENABLE_SYNC_UPDATE_SITE` | Set to `1` ensure that REST API calls to update `site` and `siteconfig` are completely applied to all instances before returning. The default is `1` if deploying with an ARM template, to avoid race conditions with subsequent ARM calls. |
 | `WEBSITE_START_SCM_ON_SITE_CREATION` | In an ARM template deployment, set to `1` in the ARM template to pre-start the Kudu app as part of app creation. |
@@ -110,12 +113,12 @@ Kudu build configuration applies to native Windows apps and is used to control t
 | `SCM_BUILD_ARGS` | Add things at the end of the msbuild command line, such that it overrides any previous parts of the default command line. | To do a clean build: `-t:Clean;Compile`|
 | `SCM_SCRIPT_GENERATOR_ARGS` | Kudu uses the `azure site deploymentscript` command described [here](http://blog.amitapple.com/post/38418009331/azurewebsitecustomdeploymentpart2) to generate a deployment script. It automatically detects the language framework type and determines the parameters to pass to the command. This setting overrides the automatically generated parameters. | To treat your repository as plain content files: `--basic -p <folder-to-deploy>` |
 | `SCM_TRACE_LEVEL` | Build trace level. The default is `1`. Set to higher values, up to 4, for more tracing. | `4` |
-| `SCM_COMMAND_IDLE_TIMEOUT` | Time-out in seconds for each command that the build process launches to wait before without producing any output. After that, the command is considered idle and killed. The default is `60` (one minute). In Azure, there's also a general idle request timeout that disconnects clients after 230 seconds. However, the command will still continue running server-side after that. | |
+| `SCM_COMMAND_IDLE_TIMEOUT` | Time out in seconds for each command that the build process launches to wait before without producing any output. After that, the command is considered idle and killed. The default is `60` (one minute). In Azure, there's also a general idle request timeout that disconnects clients after 230 seconds. However, the command will still continue running server-side after that. | |
 | `SCM_LOGSTREAM_TIMEOUT` | Time-out of inactivity in seconds before stopping log streaming. The default is `1800` (30 minutes).| |
 | `SCM_SITEEXTENSIONS_FEED_URL` | URL of the site extensions gallery. The default is `https://www.nuget.org/api/v2/`. The URL of the old feed is `http://www.siteextensions.net/api/v2/`. | |
 | `SCM_USE_LIBGIT2SHARP_REPOSITORY` | Set to `0` to use git.exe instead of libgit2sharp for git operations. | |
 | `WEBSITE_LOAD_USER_PROFILE` | In case of the error `The specified user does not have a valid profile.` during ASP.NET build automation (such as during Git deployment), set this variable to `1` to load a full user profile in the build environment. This setting is only applicable when `WEBSITE_COMPUTE_MODE` is `Dedicated`. | |
-| `WEBSITE_SCM_IDLE_TIMEOUT_IN_MINUTES` | Time-out in minutes for the SCM (Kudu) site. The default is `20`. | |
+| `WEBSITE_SCM_IDLE_TIMEOUT_IN_MINUTES` | Time out in minutes for the SCM (Kudu) site. The default is `20`. | |
 | `SCM_DO_BUILD_DURING_DEPLOYMENT` | With [ZIP deploy](deploy-zip.md), the deployment engine assumes that a ZIP file is ready to run as-is and doesn't run any build automation. To enable the same build automation as in [Git deploy](deploy-local-git.md), set to `true`. |
 
 <!-- 
@@ -157,10 +160,10 @@ This section shows the configurable runtime settings for each supported language
 |-|-|-|
 | `JAVA_HOME` | Path of the Java installation directory ||
 | `JAVA_OPTS` | For Java SE apps, environment variables to pass into the `java` command. Can contain system variables. For Tomcat, use `CATALINA_OPTS`. | `-Dmysysproperty=%DRIVEPATH%` |
-| `AZURE_JAVA_APP_PATH` | Environment variable can be used by custom scripts So they have a location for app.jar after it's copied to local | |
+| `AZURE_JAVA_APP_PATH` | Environment variable can be used by custom scripts so they have a location for app.jar after it's copied to local. | |
 | `SKIP_JAVA_KEYSTORE_LOAD` | value of 1 to disable App Service from loading the certificates into the key store automatically ||
-| `WEBSITE_JAVA_JAR_FILE_NAME` | The .jar file to use. Appends .jar if the string does not end in .jar. Defaults to app.jar ||
-| `WEBSITE_JAVA_WAR_FILE_NAME` | The .war file to use. Appends .war if the string does not end in .war. Defaults to app.war ||
+| `WEBSITE_JAVA_JAR_FILE_NAME` | The .jar file to use. Appends .jar if the string doesn't end in .jar. Defaults to app.jar ||
+| `WEBSITE_JAVA_WAR_FILE_NAME` | The .war file to use. Appends .war if the string doesn't end in .war. Defaults to app.war ||
 | `JAVA_ARGS` | java opts required by different java webserver. Defaults to `-noverify -Djava.net.preferIPv4Stack=true` ||
 | `JAVA_WEBSERVER_PORT_ENVIRONMENT_VARIABLES` | environment variables used by popular Java web frameworks for server port. Some frameworks included are: Spring, Micronaut, Grails, MicroProfile Thorntail, Helidon, Ratpack, and Quarkus ||
 | `JAVA_TMP_DIR` | Added to Java args as `-Dsite.tempdir`. Defaults to `TEMP`. ||
@@ -191,7 +194,7 @@ This section shows the configurable runtime settings for each supported language
 | `AZURE_TOMCAT90_HOME` | Read-only. For native Windows apps, path to the Tomcat 9 installation. | |
 | `AZURE_SITE_HOME` | The value added to the Java args as `-Dsite.home`. The default is the value of `HOME`. | |
 | `HTTP_PLATFORM_PORT` | Added to Java args as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `THORNTAIL_HTTP_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. ||
-| `AZURE_LOGGING_DIR` | Native Windows apps only. Added to Java args as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. ||
+| `AZURE_LOGGING_DIR` | For Windows Apps, added to Java args as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. Default value in Linux is `AZURE_LOGGING_DIR=/home/LogFiles`. ||
 
 <!-- 
 WEBSITE_JAVA_COPY_ALL
@@ -227,14 +230,11 @@ APPSVC_REMOTE_DEBUGGING_BREAK | debugArgs+=" -debugWait" -->
 | Setting name | Description | Example|
 |-|-|-|
 | `PHP_Extensions` | Comma-separated list of PHP extensions. | `extension1.dll,extension2.dll,Name1=value1` |
-| `PHP_ZENDEXTENSIONS` | For Windows native apps, set to the path of the XDebug extension, such as `D:\devtools\xdebug\2.6.0\php_7.2\php_xdebug-2.6.0-7.2-vc15-nts.dll`. For Linux apps, set to `xdebug` to use the XDebug version of the PHP container. ||
+| `PHP_ZENDEXTENSIONS` | For Linux apps, set to `xdebug` to use the XDebug version of the PHP container. ||
 | `PHP_VERSION` | Read-only. The selected PHP version. ||
-| `PORT` | Read-only. Port that Apache server listens to in the container. ||
+| `WEBSITE_PORT` | Read-only. Port that Apache server listens to in the container. ||
 | `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. ||
 | `WEBSITE_PROFILER_ENABLE_TRIGGER` | Set to `TRUE` to add `xdebug.profiler_enable_trigger=1` and `xdebug.profiler_enable=0` to the default `php.ini`. ||
-| `WEBSITE_ENABLE_PHP_ACCESS_LOGS` | Set to `TRUE` to log requests to the server (`CustomLog \dev\stderr combined` is added to `/etc/apache2/apache2.conf`). ||
-| `APACHE_SERVER_LIMIT` | Apache specific variable. The default is `1000`. ||
-| `APACHE_MAX_REQ_WORKERS` | Apache specific variable. The default is `256`. ||
 
 <!-- 
 ZEND_BIN_PATH
@@ -279,7 +279,11 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 > |DATABASE_HOST|Database|-|-|Database host used to connect to WordPress.|
 > |DATABASE_NAME|Database|-|-|Database name used to connect to WordPress.|
 > |DATABASE_USERNAME|Database|-|-|Database username used to connect to WordPress.|
-> |DATABASE_PASSWORD|Database|-|-|Database password used to connect to WordPress.|
+> |DATABASE_PASSWORD|Database|-|-|Database password used to connect to the MySQL database. To change the MySQL database password, see [update admin password](../mysql/single-server/how-to-create-manage-server-portal.md#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated. |
+> |WORDPRESS_ADMIN_EMAIL|Deployment only|-|-|WordPress admin email.|
+> |WORDPRESS_ADMIN_PASSWORD|Deployment only|-|-|WordPress admin password. This is only for deployment purposes. Modifying this value has no effect on the WordPress installation. To change the WordPress admin password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password).|
+> |WORDPRESS_ADMIN_USER|Deployment only|-|-|WordPress admin username|
+> |WORDPRESS_ADMIN_LOCALE_CODE|Deployment only|-|-|Database username used to connect to WordPress.|
 
 ## Domain and DNS
 
@@ -287,6 +291,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 |-|-|-|
 | `WEBSITE_DNS_SERVER` | IP address of primary DNS server for outgoing connections (such as to a back-end service). The default DNS server for App Service is Azure DNS, whose IP address is `168.63.129.16`. If your app uses [VNet integration](./overview-vnet-integration.md) or is in an [App Service environment](environment/intro.md), it inherits the DNS server configuration from the VNet by default. | `10.0.0.1` |
 | `WEBSITE_DNS_ALT_SERVER` | IP address of fallback DNS server for outgoing connections. See `WEBSITE_DNS_SERVER`. | |
+| `WEBSITE_ENABLE_DNS_CACHE` | Allows successful DNS resolutions to be cached. By Default expired DNS cache entries will be flushed & in addition to the existing cache to be flushed every 4.5 mins. | |
 
 <!-- 
 DOMAIN_OWNERSHIP_VERIFICATION_IDENTIFIERS
@@ -310,14 +315,13 @@ For more information on deployment slots, see [Set up staging environments in Az
 
 | Setting name| Description | Example |
 |-|-|-|
-|`WEBSITE_SLOT_NAME`| Read-only. Name of the current deployment slot. The name of the production slot is `Production`. ||
 |`WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS`| By default, the versions for site extensions are specific to each slot. This prevents unanticipated application behavior due to changing extension versions after a swap. If you want the extension versions to swap as well, set to `0` on *all slots*. ||
 |`WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS`| Designates certain settings as [sticky or not swappable by default](deploy-staging-slots.md#which-settings-are-swapped). Default is `true`. Set this setting to `false` or `0` for *all deployment slots* to make them swappable instead. There's no fine-grain control for specific setting types. ||
 |`WEBSITE_SWAP_WARMUP_PING_PATH`| Path to ping to warm up the target slot in a swap, beginning with a slash. The default is `/`, which pings the root path over HTTP. | `/statuscheck` |
 |`WEBSITE_SWAP_WARMUP_PING_STATUSES`| Valid HTTP response codes for the warm-up operation during a swap. If the returned status code isn't in the list, the warmup and swap operations are stopped. By default, all response codes are valid. | `200,202` |
 | `WEBSITE_SLOT_NUMBER_OF_TIMEOUTS_BEFORE_RESTART` | During a slot swap, maximum number of timeouts after which we force restart the site on a specific VM instance. The default is `3`. ||
 | `WEBSITE_SLOT_MAX_NUMBER_OF_TIMEOUTS` | During a slot swap, maximum number of timeout requests for a single URL to make before giving up. The default is `5`. ||
-| `WEBSITE_SKIP_ALL_BINDINGS_IN_APPHOST_CONFIG` | Set to `true` or `1` to skip all bindings in `applicationHost.config`. The default is `false`. If your app triggers a restart because `applicationHost.config` is updated with the swapped hostnames of th slots, set this variable to `true` to avoid a restart of this kind. If you are running a Windows Communication Foundation (WCF) app, do not set this variable. ||
+| `WEBSITE_SKIP_ALL_BINDINGS_IN_APPHOST_CONFIG` | Set to `true` or `1` to skip all bindings in `applicationHost.config`. The default is `false`. If your app triggers a restart because `applicationHost.config` is updated with the swapped hostnames of th slots, set this variable to `true` to avoid a restart of this kind. If you're running a Windows Communication Foundation (WCF) app, don't set this variable. ||
 
 <!-- 
 |`WEBSITE_SWAP_SLOTNAME`||| 
@@ -329,18 +333,18 @@ For more information on custom containers, see [Run a custom container in Azure]
 
 | Setting name| Description | Example |
 |-|-|-|
-| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | Set to `true` to enable the `/home` directory to be shared across scaled instances. The default is `false` for custom containers. ||
+| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | Set to `true` to enable the `/home` directory to be shared across scaled instances. The default is `true` for custom containers. ||
 | `WEBSITES_CONTAINER_START_TIME_LIMIT` | Amount of time in seconds to wait for the container to complete start-up before restarting the container. Default is `230`. You can increase it up to the maximum of `1800`. ||
-| `DOCKER_REGISTRY_SERVER_URL` | URL of the registry server, when running a custom container in App Service. For security, this variable is not passed on to the container. | `https://<server-name>.azurecr.io` |
-| `DOCKER_REGISTRY_SERVER_USERNAME` | Username to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable is not passed on to the container. ||
-| `DOCKER_REGISTRY_SERVER_PASSWORD` | Password to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable is not passed on to the container. ||
+| `WEBSITES_CONTAINER_STOP_TIME_LIMIT` | Amount of time in seconds to wait for the container to terminate gracefully. Deafult is `5`. You can increase to a maximum of `120` ||
+| `DOCKER_REGISTRY_SERVER_URL` | URL of the registry server, when running a custom container in App Service. For security, this variable isn't passed on to the container. | `https://<server-name>.azurecr.io` |
+| `DOCKER_REGISTRY_SERVER_USERNAME` | Username to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable isn't passed on to the container. ||
+| `DOCKER_REGISTRY_SERVER_PASSWORD` | Password to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable isn't passed on to the container. ||
 | `DOCKER_ENABLE_CI` | Set to `true` to enable the continuous deployment for custom containers. The default is `false` for custom containers. ||
-| `WEBSITE_PULL_IMAGE_OVER_VNET` | Connect and pull from a registry inside a Virtual Network or on-premise. Your app will need to be connected to a Virtual Network using VNet integration feature. This setting is also needed for Azure Container Registry with Private Endpoint. ||
+| `WEBSITE_PULL_IMAGE_OVER_VNET` | Connect and pull from a registry inside a Virtual Network or on-premises. Your app will need to be connected to a Virtual Network using VNet integration feature. This setting is also needed for Azure Container Registry with Private Endpoint. ||
 | `WEBSITES_WEB_CONTAINER_NAME` | In a Docker Compose app, only one of the containers can be internet accessible. Set to the name of the container defined in the configuration file to override the default container selection. By default, the internet accessible container is the first container to define port 80 or 8080, or, when no such container is found, the first container defined in the configuration file. |  |
-| `WEBSITES_PORT` | For a custom container, the custom port number on the container for App Service to route requests to. By default, App Service attempts automatic port detection of ports 80 and 8080. This setting is *not* injected into the container as an environment variable. ||
+| `WEBSITES_PORT` | For a custom container, the custom port number on the container for App Service to route requests to. By default, App Service attempts automatic port detection of ports 80 and 8080. This setting isn't injected into the container as an environment variable. ||
 | `WEBSITE_CPU_CORES_LIMIT` | By default, a Windows container runs with all available cores for your chosen pricing tier. To reduce the number of cores, set to the number of desired cores limit. For more information, see [Customize the number of compute cores](configure-custom-container.md?pivots=container-windows#customize-the-number-of-compute-cores).||
-| `WEBSITE_MEMORY_LIMIT_MB` | By default all Windows Containers deployed in Azure App Service are limited to 1 GB RAM. Set to the desired memory limit in MB. The cumulative total of this setting across apps in the same plan must not exceed the amount allowed by the chosen pricing tier. For more information, see [Customize container memory](configure-custom-container.md?pivots=container-windows#customize-container-memory). ||
-| `CONTAINER_WINRM_ENABLED` | For a Windows containerized app, set to `1` to enable Windows Remote Management (WIN-RM). ||
+| `WEBSITE_MEMORY_LIMIT_MB` | By default all Windows Containers deployed in Azure App Service have a memory limit configured depending on the App Service Plan SKU. Set to the desired memory limit in MB. The cumulative total of this setting across apps in the same plan must not exceed the amount allowed by the chosen pricing tier. For more information, see [Customize container memory](configure-custom-container.md?pivots=container-windows#customize-container-memory). ||
 
 <!-- 
 CONTAINER_ENCRYPTION_KEY
@@ -361,7 +365,7 @@ WEBSITE_DISABLE_PRELOAD_HANG_MITIGATION
 | `WEBSITE_INSTANCE_ID` | Read-only. Unique ID of the current VM instance, when the app is scaled out to multiple instances. |
 | `WEBSITE_IIS_SITE_NAME` | Deprecated. Use `WEBSITE_INSTANCE_ID`. |
 | `WEBSITE_DISABLE_OVERLAPPED_RECYCLING` | Overlapped recycling makes it so that before the current VM instance of an app is shut down, a new VM instance starts. In some cases, it can cause file locking issues. You can try turning it off by setting to `1`. |
-| `WEBSITE_DISABLE_CROSS_STAMP_SCALE` | By default, apps are allowed to scale across stamps if they use Azure Files or a Docker container. Set to `1` or `true` to disable cross-stamp scaling within the app's region. The default is `0`. Custom Docker containers that set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `true` or `1` cannot scale cross-stamps because their content is not completely encapsulated in the Docker container. |
+| `WEBSITE_DISABLE_CROSS_STAMP_SCALE` | By default, apps are allowed to scale across stamps if they use Azure Files or a Docker container. Set to `1` or `true` to disable cross-stamp scaling within the app's region. The default is `0`. Custom Docker containers that set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `true` or `1` can't scale cross-stamps because their content isn't completely encapsulated in the Docker container. |
 
 ## Logging
 
@@ -379,7 +383,7 @@ WEBSITE_DISABLE_PRELOAD_HANG_MITIGATION
 | `DIAGNOSTICS_TEXTTRACEMAXLOGFILESIZEBYTES` | Maximum size of the log file in bytes. The default is `131072` (128 KB). ||
 | `DIAGNOSTICS_TEXTTRACEMAXLOGFOLDERSIZEBYTES` | Maximum size of the log folder in bytes. The default is `1048576` (1 MB). ||
 | `DIAGNOSTICS_TEXTTRACEMAXNUMLOGFILES` | Maximum number of log files to keep. The default is `20`. | |
-| `DIAGNOSTICS_TEXTTRACETURNOFFPERIOD` | Time-out in milliseconds to keep application logging enabled. The default is `43200000` (12 hours). ||
+| `DIAGNOSTICS_TEXTTRACETURNOFFPERIOD` | Time out in milliseconds to keep application logging enabled. The default is `43200000` (12 hours). ||
 | `WEBSITE_LOG_BUFFERING` | By default, log buffering is enabled. Set to `0` to disable it. ||
 | `WEBSITE_ENABLE_PERF_MODE` | For native Windows apps, set to `TRUE` to turn off IIS log entries for successful requests returned within 10 seconds. This is a quick way to do performance benchmarking by removing extended logging. ||
 
@@ -455,6 +459,7 @@ The following environment variables are related to [hybrid connections](app-serv
 | `WEBSITE_VNET_ROUTE_ALL` | By default, if you use [regional VNet Integration](./overview-vnet-integration.md#regional-virtual-network-integration), your app only routes RFC1918 traffic into your VNet. Set to `1` to route all outbound traffic into your VNet and be subject to the same NSGs and UDRs. The setting lets you access non-RFC1918 endpoints through your VNet, secure all outbound traffic leaving your app, and force tunnel all outbound traffic to a network appliance of your own choosing. |
 | `WEBSITE_PRIVATE_IP` | Read-only. IP address associated with the app when [integrated with a VNet](./overview-vnet-integration.md). For Regional VNet Integration, the value is an IP from the address range of the delegated subnet, and for Gateway-required VNet Integration, the value is an IP from the address range of the point-to-site address pool configured on the Virtual Network Gateway. This IP is used by the app to connect to the resources through the VNet. Also, it can change within the described address range. |
 | `WEBSITE_PRIVATE_PORTS` | Read-only. In VNet integration, shows which ports are useable by the app to communicate with other nodes. |
+| `WEBSITE_CONTENTOVERVNET` | If you are mounting an Azure File Share on the App Service and the Storage account is restricted to a VNET, ensure to enable this setting with a value of `1`. |
 
 <!-- | WEBSITE_SLOT_POLL_WORKER_FOR_CHANGE_NOTIFICATION | Poll worker before pinging the site to detect when change notification has been processed. |
 WEBSITE_SPECIAL_CACHE
@@ -477,8 +482,8 @@ The following environment variables are related to [key vault references](app-se
 | Setting name | Description |
 |-|-|
 | `WEBSITE_KEYVAULT_REFERENCES` | Read-only. Contains information (including statuses) for all Key Vault references that are currently configured in the app. |
-| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` | If you set the shared storage connection of your app (using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`) to a Key Vault reference, the app cannot resolve the key vault reference at app creation or update if one of the following conditions is true: <br/>- The app accesses the key vault with a system-assigned identity.<br/>- The app accesses the key vault with a user-assigned identity, and the key vault is [locked with a VNet](../key-vault/general/overview-vnet-service-endpoints.md).<br/>To avoid errors at create or update time, set this variable to `1`. |
-| `WEBSITE_DELAY_CERT_DELETION` | This env var can be set to 1 by users in order to ensure that a certificate that a worker process is dependent upon is not deleted until it exits. |
+| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` | If you set the shared storage connection of your app (using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`) to a Key Vault reference, the app can't resolve the key vault reference at app creation or update if one of the following conditions is true: <br/>- The app accesses the key vault with a system-assigned identity.<br/>- The app accesses the key vault with a user-assigned identity, and the key vault is [locked with a VNet](../key-vault/general/overview-vnet-service-endpoints.md).<br/>To avoid errors at create or update time, set this variable to `1`. |
+| `WEBSITE_DELAY_CERT_DELETION` | This env var can be set to 1 by users in order to ensure that a certificate that a worker process is dependent upon isn't deleted until it exits. |
 <!-- | `WEBSITE_ALLOW_DOUBLE_ESCAPING_URL` | TODO | -->
 
 ## CORS
@@ -496,21 +501,21 @@ The following environment variables are related to [App Service authentication](
 
 | Setting name| Description|
 |-|-|
-| `WEBSITE_AUTH_DISABLE_IDENTITY_FLOW`  | When set to `true`, disables assigning the thread principal identity in ASP.NET-based web applications (including v1 Function Apps). This is designed to allow developers to protect access to their site with auth, but still have it use a separate login mechanism within their app logic. The default is `false`. |
-| `WEBSITE_AUTH_HIDE_DEPRECATED_SID` | `true` or `false`. The default value is `false`. This is a setting for the legacy Azure Mobile Apps integration for Azure App Service. Setting this to `true` resolves an issue where the SID (security ID) generated for authenticated users might change if the user changes their profile information. Changing this value may result in existing Azure Mobile Apps user IDs changing. Most apps do not need to use this setting. |
-| `WEBSITE_AUTH_NONCE_DURATION`| A _timespan_ value in the form `_hours_:_minutes_:_seconds_`. The default value is `00:05:00`, or 5 minutes. This setting controls the lifetime of the [cryptographic nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) generated for all browser-driven logins. If a login fails to complete in the specified time, the login flow will be retried automatically. This application setting is intended for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.nonce.nonceExpirationInterval` configuration value. |
-| `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` | When set to `true` and users click on app links that contain URL fragments, the login process will ensure that the URL fragment part of your URL does not get lost in the login redirect process. For more information, see [Customize sign-in and sign-out in Azure App Service authentication](configure-authentication-customize-sign-in-out.md#preserve-url-fragments). |
+| `WEBSITE_AUTH_DISABLE_IDENTITY_FLOW`  | When set to `true`, disables assigning the thread principal identity in ASP.NET-based web applications (including v1 Function Apps). This is designed to allow developers to protect access to their site with auth, but still have it use a separate sign-in mechanism within their app logic. The default is `false`. |
+| `WEBSITE_AUTH_HIDE_DEPRECATED_SID` | `true` or `false`. The default value is `false`. This is a setting for the legacy Azure Mobile Apps integration for Azure App Service. Setting this to `true` resolves an issue where the SID (security ID) generated for authenticated users might change if the user changes their profile information. Changing this value may result in existing Azure Mobile Apps user IDs changing. Most apps don't need to use this setting. |
+| `WEBSITE_AUTH_NONCE_DURATION`| A _timespan_ value in the form `_hours_:_minutes_:_seconds_`. The default value is `00:05:00`, or 5 minutes. This setting controls the lifetime of the [cryptographic nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) generated for all browser-driven logins. If a sign-in fails to complete in the specified time, the sign-in flow will be retried automatically. This application setting is intended for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.nonce.nonceExpirationInterval` configuration value. |
+| `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` | When set to `true` and users select on app links that contain URL fragments, the sign-in process will ensure that the URL fragment part of your URL doesn't get lost in the sign-in redirect process. For more information, see [Customize sign-in and sign-out in Azure App Service authentication](configure-authentication-customize-sign-in-out.md#preserve-url-fragments). |
 | `WEBSITE_AUTH_USE_LEGACY_CLAIMS` | To maintain backward compatibility across upgrades, the authentication module uses the legacy claims mapping of short to long names in the `/.auth/me` API, so certain mappings are excluded (e.g. "roles"). To get the more modern version of the claims mappings, set this variable to `False`. In the "roles" example, it would be mapped to the long claim name "http://schemas.microsoft.com/ws/2008/06/identity/claims/role". |
 | `WEBSITE_AUTH_DISABLE_WWWAUTHENTICATE` | `true` or `false`. The default value is `false`. When set to `true`, removes the [`WWW-Authenticate`](https://developer.mozilla.org/docs/Web/HTTP/Headers/WWW-Authenticate) HTTP response header from module-generated HTTP 401 responses. This application setting is intended for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `identityProviders.azureActiveDirectory.login.disableWwwAuthenticate` configuration value. |
 | `WEBSITE_AUTH_STATE_DIRECTORY`  | A local file system directory path where tokens are stored when the file-based token store is enabled. The default value is `%HOME%\Data\.auth`. This application setting is intended for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.tokenStore.fileSystem.directory` configuration value. |
 | `WEBSITE_AUTH_TOKEN_CONTAINER_SASURL` | A fully qualified blob container URL. Instructs the auth module to store and load all encrypted tokens to the specified blob storage container instead of using the default local file system.  |
-| `WEBSITE_AUTH_TOKEN_REFRESH_HOURS` | Any positive decimal number. The default value is `72` (hours). This setting controls the amount of time after a session token expires that the `/.auth/refresh` API can be used to refresh it. It's intended primarily for use with Azure Mobile Apps, which rely on session tokens. Refresh attempts after this period will fail and end users will be required to sign-in again. This application setting is intended for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.tokenStore.tokenRefreshExtensionHours` configuration value. |
+| `WEBSITE_AUTH_TOKEN_REFRESH_HOURS` | Any positive decimal number. The default value is `72` (hours). This setting controls the amount of time after a session token expires that the `/.auth/refresh` API can be used to refresh it. Refresh attempts after this period will fail and end users will be required to sign-in again. This application setting is intended for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.tokenStore.tokenRefreshExtensionHours` configuration value. |
 | `WEBSITE_AUTH_TRACE_LEVEL`| Controls the verbosity of authentication traces written to [Application Logging](troubleshoot-diagnostic-logs.md#enable-application-logging-windows). Valid values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`. The default value is `Verbose`. |
 | `WEBSITE_AUTH_VALIDATE_NONCE`| `true` or `false`. The default value is `true`. This value should never be set to `false` except when temporarily debugging [cryptographic nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) validation failures that occur during interactive logins. This application setting is intended for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.nonce.validateNonce` configuration value. |
 | `WEBSITE_AUTH_V2_CONFIG_JSON` | This environment variable is populated automatically by the Azure App Service platform and is used to configure the integrated authentication module. The value of this environment variable corresponds to the V2 (non-classic) authentication configuration for the current app in Azure Resource Manager. It's not intended to be configured explicitly. |
 | `WEBSITE_AUTH_ENABLED` | Read-only. Injected into a Windows or Linux app to indicate whether App Service authentication is enabled. |
-| `WEBSITE_AUTH_ENCRYPTION_KEY` | By default, the automatically generated key is used as the encryption key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. If specified, it supercedes the `MACHINEKEY_DecryptionKey` setting. |
-| `WEBSITE_AUTH_SIGNING_KEY` | By default, the automatically generated key is used as the signing key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. If specified, it supercedes the `MACHINEKEY_ValidationKey` setting. |
+| `WEBSITE_AUTH_ENCRYPTION_KEY` | By default, the automatically generated key is used as the encryption key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. If specified, it supersedes the `MACHINEKEY_DecryptionKey` setting. |
+| `WEBSITE_AUTH_SIGNING_KEY` | By default, the automatically generated key is used as the signing key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. If specified, it supersedes the `MACHINEKEY_ValidationKey` setting. |
 
 <!-- System settings
 WEBSITE_AUTH_RUNTIME_VERSION
@@ -581,8 +586,8 @@ The following environment variables are related to [health checks](monitor-insta
 
 | Setting name | Description |
 |-|-|
-| `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | The maximum number of failed pings before removing the instance. Set to a value between `2` and `100`. When you are scaling up or out, App Service pings the Health check path to ensure new instances are ready. For more information, see [Health check](monitor-instances-health-check.md).|
-| `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | To avoid overwhelming healthy instances, no more than half of the instances will be excluded. For example, if an App Service Plan is scaled to four instances and three are unhealthy, at most two will be excluded. The other two instances (one healthy and one unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded. To override this behavior, set to a value between `0` and `100`. A higher value means more unhealthy instances will be removed. The default is `50` (50%). |
+| `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | The maximum number of failed pings before removing the instance. Set to a value between `2` and `100`. When you're scaling up or out, App Service pings the Health check path to ensure new instances are ready. For more information, see [Health check](monitor-instances-health-check.md).|
+| `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | To avoid overwhelming healthy instances, no more than half of the instances will be excluded. For example, if an App Service Plan is scaled to four instances and three are unhealthy, at most two will be excluded. The other two instances (one healthy and one unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded. To override this behavior, set to a value between `1` and `100`. A higher value means more unhealthy instances will be removed. The default is `50` (50%). |
 
 ## Push notifications
 
@@ -596,7 +601,7 @@ The following environment variables are related to the [push notifications](/pre
 | `WEBSITE_PUSH_TAGS_DYNAMIC` | Read-only. Contains a list of tags in the notification registration that were added automatically. | 
 
 >[!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 <!-- 
 ## WellKnownAppSettings
@@ -642,15 +647,15 @@ The following environment variables are related to [WebJobs](webjobs-create.md).
 |-|-|
 | `WEBSITE_FUNCTIONS_ARMCACHE_ENABLED` | Set to `0` to disable the functions cache. |
 | `WEBSITE_MAX_DYNAMIC_APPLICATION_SCALE_OUT` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
+|`AzureWebJobsSecretStorageType` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
 | `FUNCTIONS_EXTENSION_VERSION` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
-`AzureWebJobsSecretStorageType` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
 | `FUNCTIONS_WORKER_RUNTIME` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
 | `AzureWebJobsStorage` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
 | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
 | `WEBSITE_CONTENTSHARE` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
 | `WEBSITE_CONTENTOVERVNET` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
 | `WEBSITE_ENABLE_BROTLI_ENCODING` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
-| `WEBSITE_USE_PLACEHOLDER` | Set to `0` to disable the placeholder functions optimization on the consumption plan. The placeholder is an optimization that [improves the cold start](../azure-functions/functions-scale.md#cold-start-behavior). |
+| `WEBSITE_USE_PLACEHOLDER` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
 | `WEBSITE_PLACEHOLDER_MODE` | Read-only. Shows whether the function app is running on a placeholder host (`generalized`) or its own host (`specialized`). |
 | `WEBSITE_DISABLE_ZIP_CACHE` | When your app runs from a [ZIP package](deploy-run-package.md) ( `WEBSITE_RUN_FROM_PACKAGE=1`), the five most recently deployed ZIP packages are cached in the app's file system (D:\home\data\SitePackages). Set this variable to `1` to disable this cache. For Linux consumption apps, the ZIP package cache is disabled by default. |
 <!--
@@ -665,7 +670,7 @@ The following environment variables are related to [WebJobs](webjobs-create.md).
         // NOTE: This is set on all sites, irrespective of whether it is a Functions site, because the EnvSettings module depends 
         // upon it to decide when to inject the app-settings.|
 | `WEBSITE_PLACEHOLDER_PING_PATH` | This env var can be used to set a special warmup ping path on placeholder template sites. |
-| ` WEBSITE_PLACEHOLDER_DISABLE_AUTOSPECIALIZATION` | This env var can be used to disabe specialization from being enabled automatically for a given placeholder template site. |
+| ` WEBSITE_PLACEHOLDER_DISABLE_AUTOSPECIALIZATION` | This env var can be used to disable specialization from being enabled automatically for a given placeholder template site. |
 | `WEBSITE_FUNCTIONS_STARTUPCONTEXT_CACHE` | This env var is set only during specialization of a placeholder, to indicate to the Functions Runtime that
         // some function-app related data needed at startup, like secrets, are available in a file at the path specified
         // by this env var. |

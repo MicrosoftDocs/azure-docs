@@ -13,7 +13,7 @@ Azure Remote Rendering uses a Unity package to encapsulate the integration into 
 This package contains the entire C# API and all plugin binaries required to use Azure Remote Rendering with Unity.
 Following Unity's naming scheme for packages, the package is called **com.microsoft.azure.remote-rendering**.
 
-The package is not part of the [ARR samples repository](https://github.com/Azure/azure-remote-rendering), and it is not available from Unity's internal package registry.
+The package isn't part of the [ARR samples repository](https://github.com/Azure/azure-remote-rendering), and it isn't available from Unity's internal package registry.
 You can choose one of the following options to install the Unity package.
 
 ## Install Remote Rendering package using the Mixed Reality Feature Tool
@@ -35,8 +35,8 @@ To update your local package, just select a newer version from the Mixed Reality
 
 To install the Remote Rendering package manually, you need to:
 
-1. Download the package from the Mixed Reality Packages NPM feed at `https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Unity-packages/npm/registry`.
-    * You can either use [NPM](https://www.npmjs.com/get-npm) and run the following command to download the package to the current folder.
+1. Download the package from the Mixed Reality Packages npm feed at `https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Unity-packages/npm/registry`.
+    * You can either use [npm](https://www.npmjs.com/get-npm) and run the following command to download the package to the current folder.
 
       ```cmd
       npm pack com.microsoft.azure.remote-rendering --registry https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Unity-packages/npm/registry
@@ -94,11 +94,11 @@ To update a local package, just repeat the respective download steps you used an
 
 ## Unity render pipelines
 
-Remote Rendering works with both the **:::no-loc text="Universal render pipeline":::** and the **:::no-loc text="Standard render pipeline":::**. For performance reasons, the Universal render pipeline is recommended.
-
-To use the **:::no-loc text="Universal render pipeline":::**, its package has to be installed in Unity. The installation can either be done in Unity's **Package Manager** UI (package name **Universal RP**, version 7.3.1 or newer), or through the `Packages/manifest.json` file, as described in the [Unity project setup tutorial](../../tutorials/unity/view-remote-models/view-remote-models.md#include-the-azure-remote-rendering-and-openxr-packages).
+Supported Unity render pipelines are documented in this dedicated article: [Unity Render Pipelines](unity-render-pipelines.md)
 
 ## Next steps
 
+* [Set up Remote Rendering for Unity](unity-setup.md)
+* [Unity Render Pipelines](unity-render-pipelines.md)
 * [Unity game objects and components](objects-components.md)
 * [Tutorial: View Remote Models](../../tutorials/unity/view-remote-models/view-remote-models.md)

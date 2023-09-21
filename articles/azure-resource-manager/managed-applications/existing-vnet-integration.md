@@ -1,12 +1,8 @@
 ---
 title: Deploy to existing virtual network
 description: Describes how to enable users of your managed application to select an existing virtual network. The virtual network can be outside of the managed application.
-author: tfitzmac
-
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.author: tomfitz
-
 ---
 
 # Use existing virtual network with Azure Managed Applications

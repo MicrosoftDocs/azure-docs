@@ -1,18 +1,18 @@
 ### YamlMime:Landing
 
 title: Application management documentation
-summary: Azure Active Directory is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored.
+summary: Microsoft Entra ID is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Microsoft Entra ID as the place where user information is stored.
 
-metadata: 
-   title: Application management documentation
-   description: Azure AD is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored.
-   ms.service: active-directory
-   ms.subservice: app-mgmt
-   ms.workload: identity
-   ms.topic: landing-page
-   ms.date: 07/08/2021
-   author: CelesteDG
-   ms.author: CelesteDG
+metadata:
+  title: Application management documentation
+  description: Microsoft Entra ID is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Microsoft Entra ID as the place where user information is stored.
+  ms.service: active-directory
+  ms.subservice: app-mgmt
+  ms.workload: identity
+  ms.topic: landing-page
+  ms.date: 04/17/2023
+  author: CelesteDG
+  ms.author: CelesteDG
 
 landingContent:
   - title: Fundamentals
@@ -23,7 +23,7 @@ landingContent:
             url: what-is-application-management.md
       - linkListType: concept
         links:
-          - text: What type of apps does Azure AD support?
+          - text: What type of apps does Microsoft Entra ID support?
             url: ../develop/v2-app-types.md
           - text: What is single sign-on?
             url: what-is-single-sign-on.md
@@ -47,8 +47,8 @@ landingContent:
             url: add-application-portal.md
           - text: Register your app
             url: ../develop/quickstart-register-app.md
-          - text: Migrate AD FS apps to Azure AD
-            url: migrate-adfs-apps-to-azure.md
+          - text: Migrate AD FS apps to Microsoft Entra ID
+            url: ./migrate-adfs-apps-stages.md
   - title: Configure an app
     linkLists:
       - linkListType: how-to-guide
@@ -57,12 +57,14 @@ landingContent:
             url: add-application-portal-configure.md
           - text: Assign users and groups
             url: assign-user-or-group-access-portal.md
-          - text: Configure single sign-on
-            url: plan-sso-deployment.md
           - text: Provision an app
             url: ../governance/what-is-provisioning.md
           - text: Configure My Apps
-            url: my-apps-deployment-plan.md
+            url: ./myapps-overview.md
+      - linkListType: learn
+        links:
+          - text: Enable single sign-on
+            url: /training/modules/enable-single-sign-on/
   - title: Secure an app
     linkLists:
       - linkListType: how-to-guide
@@ -72,7 +74,7 @@ landingContent:
           - text: Set up Multi-Factor Authentication
             url: ../authentication/howto-mfa-getstarted.md
           - text: Manage certificates
-            url: manage-certificates-for-federated-single-sign-on.md
+            url: ./tutorial-manage-certificates-for-federated-single-sign-on.md
           - text: Set up tenant restrictions
             url: tenant-restrictions.md
           - text: Configure token encryption
@@ -87,10 +89,12 @@ landingContent:
         links:
           - text: Identity governance
             url: ../governance/identity-governance-overview.md
+          - text: User and admin consent
+            url: user-admin-consent-overview.md
       - linkListType: how-to-guide
         links:
           - text: Assign roles
-            url: ../develop/howto-add-app-roles-in-azure-ad-apps.md
+            url: ../develop/howto-add-app-roles-in-apps.md
           - text: Configure user consent
             url: configure-user-consent.md
           - text: Configure admin consent
@@ -99,6 +103,10 @@ landingContent:
             url: configure-permission-classifications.md
           - text: Manage entitlement
             url: ../governance/entitlement-management-scenarios.md
+      - linkListType: learn
+        links:
+          - text: Configure admin consent workflow
+            url: /training/modules/configure-admin-consent-workflow/
   - title: Maintain an app
     linkLists:
       - linkListType: how-to-guide
@@ -127,12 +135,14 @@ landingContent:
             url: ../reports-monitoring/concept-provisioning-logs.md
       - linkListType: how-to-guide
         links:
+          - text: Access activity logs
+            url: ../reports-monitoring/howto-access-activity-logs.md
           - text: Download logs
             url: ../reports-monitoring/howto-download-logs.md
-          - text: Find activity report
-            url: ../reports-monitoring/howto-find-activity-reports.md
           - text: Set up access reviews
             url: ../governance/deploy-access-reviews.md
+          - text: Assign owners
+            url: assign-app-owners.md
   - title: Remote access to on-premises apps
     linkLists:
       - linkListType: concept
@@ -141,7 +151,7 @@ landingContent:
             url: ../app-proxy/application-proxy.md
       - linkListType: how-to-guide
         links:
-          - text: Application Proxy deployment
+          - text: Plan application Proxy deployment
             url: ../app-proxy/application-proxy-deployment-plan.md
           - text: Set up connectors
             url: ../app-proxy/application-proxy-connectors.md

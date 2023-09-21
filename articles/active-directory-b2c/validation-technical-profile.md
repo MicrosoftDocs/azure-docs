@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-A validation technical profile is an ordinary technical profile from any protocol, such as [Azure Active Directory](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md). The validation technical profile returns output claims, or returns 4xx HTTP status code, with the following data. For more information, see [returning error message](restful-technical-profile.md#returning-validation-error-message)
+A validation technical profile is an ordinary technical profile from any protocol, such as [Microsoft Entra ID](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md). The validation technical profile returns output claims, or returns 4xx HTTP status code, with the following data. For more information, see [returning error message](restful-technical-profile.md#returning-validation-error-message)
 
 ```json
 {
@@ -86,7 +86,7 @@ Following example uses these validation technical profiles:
 ```xml
 <ValidationTechnicalProfiles>
   <ValidationTechnicalProfile ReferenceId="login-NonInteractive" ContinueOnError="false" />
-  <ValidationTechnicalProfile ReferenceId="REST-ReadProfileFromCustomertsDatabase" ContinueOnError="true" >
+  <ValidationTechnicalProfile ReferenceId="REST-ReadProfileFromCustomersDatabase" ContinueOnError="true" >
     <Preconditions>
       <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
         <Value>userType</Value>

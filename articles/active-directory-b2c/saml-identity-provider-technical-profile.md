@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/11/2022
+ms.date: 01/05/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -31,7 +31,7 @@ Each SAML identity provider has different steps to expose and set the service pr
 The following example shows a URL address to the SAML metadata of an Azure AD B2C technical profile:
 
 ```
-https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Replace the following values:
@@ -160,7 +160,7 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 | WantsEncryptedAssertions | No | Indicates whether the technical profile requires all incoming assertions to be encrypted. Possible values: `true` or `false`. The default value is `false`. If the value is set to `true`, assertions sent by the identity provider to Azure AD B2C must be signed and the **SamlAssertionDecryption** cryptographic key needs to be specified. If the value is set to `true`, the metadata of the Azure AD B2C technical profile includes the **encryption** section. The identity provider reads the metadata and encrypts the SAML response assertion with the public key that is provided in the metadata of the Azure AD B2C technical profile. If you enable the assertions encryption, you also may need to disable the response signature validation (for more information, see **ResponsesSigned**). |
 | NameIdPolicyFormat | No | Specifies constraints on the name identifier to be used to represent the requested subject. If omitted, any type of identifier supported by the identity provider for the requested subject can be used. For example,  `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. **NameIdPolicyFormat** can be used with **NameIdPolicyAllowCreate**. Look at your identity provider’s documentation for guidance about which name ID policies are supported. |
 | NameIdPolicyAllowCreate | No | When using **NameIdPolicyFormat**, you can also specify the `AllowCreate` property of **NameIDPolicy**. The value of this metadata is `true` or `false` to indicate whether the identity provider is allowed to create a new account during the sign-in flow. Look at your identity provider’s documentation for guidance on how to do so. |
-| AuthenticationRequestExtensions | No | Optional protocol message extension elements that are agreed on between Azure AD BC and the identity provider. The extension is presented in XML format. You add the XML data inside the CDATA element `<![CDATA[Your IDP metadata]]>`. Check your identity provider’s documentation to see if the extensions element is supported. |
+| AuthenticationRequestExtensions | No | Optional protocol message extension elements that are agreed on between Azure AD B2C and the identity provider. The extension is presented in XML format. You add the XML data inside the CDATA element `<![CDATA[Your IDP metadata]]>`. Check your identity provider’s documentation to see if the extensions element is supported. |
 | IncludeAuthnContextClassReferences | No | Specifies one or more URI references identifying authentication context classes. For example, to allow a user to sign in with username and password only, set the value to `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`. To allow sign-in through username and password over a protected session (SSL/TLS), specify `PasswordProtectedTransport`. Look at your identity provider’s documentation for guidance about the **AuthnContextClassRef** URIs that are supported. Specify multiple URIs as a comma-delimited list. |
 | IncludeKeyInfo | No | Indicates whether the SAML authentication request contains the public key of the certificate when the binding is set to `HTTP-POST`. Possible values: `true` or `false`. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
@@ -176,7 +176,7 @@ The **CryptographicKeys** element contains the following attributes:
 | Attribute |Required | Description |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Yes | The X509 certificate (RSA key set) to use to sign SAML messages. Azure AD B2C uses this key to sign the requests and send them to the identity provider. |
-| SamlAssertionDecryption |No | The X509 certificate (RSA key set). A SAML identity provider uses the public portion of the certificate to encrypt the assertion of the SAML response. Azure AD B2C uses the private portion of the certificate to decrypt the assertion. |
+| SamlAssertionDecryption |No* | The X509 certificate (RSA key set). A SAML identity provider uses the public portion of the certificate to encrypt the assertion of the SAML response. Azure AD B2C uses the private portion of the certificate to decrypt the assertion. <br/><br/> * Required if the external IDP encrypts SAML assertions.|
 | MetadataSigning |No | The X509 certificate (RSA key set) to use to sign SAML metadata. Azure AD B2C uses this key to sign the metadata.  |
 
 ## Next steps

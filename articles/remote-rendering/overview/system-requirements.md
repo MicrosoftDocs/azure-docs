@@ -35,21 +35,61 @@ The table below lists which GPUs support H265 hardware video decoding.
 
 Even though the correct H265 codec might be installed, security properties on the codec DLLs may cause codec initialization failures. The [troubleshooting guide](../resources/troubleshoot.md#h265-codec-not-available) describes steps how to solve this problem. The DLL issue can only occur when using the service in a desktop application, for instance in Unity.
 
-## Devices
+## Supported Platforms and Devices
 
-Azure Remote Rendering currently only supports **HoloLens 2** and Windows desktop as a target device. See the [platform limitations](../reference/limits.md#platform-limitations) section.
+* 64-Bit Windows 10
+* 64-Bit Windows 11
+* HoloLens 2
+* Meta Quest 2 (**Public Preview**)
+* Meta Quest Pro (**Public Preview**)
 
-On desktop, it is required to install the latest [Microsoft Visual C++ Redistributable package](https://aka.ms/vs/17/release/vc_redist.x64.exe) to be able to run any Azure Remote Rendering application.
+### Desktop Windows
+
+Requirements and limitations:
+
+* 32-Bit Windows versions are not supported.
+* You need to install the latest [Microsoft Visual C++ Redistributable package](https://aka.ms/vs/17/release/vc_redist.x64.exe) to be able to run any Azure Remote Rendering application.
+* No VR support. Only the [simulation](../concepts/graphics-bindings.md#simulation) graphics binding is supported.
+* Only the DX11 rendering API is supported.
 
 It's important to use the latest HEVC codec, as newer versions have significant improvements in latency. To check which version is installed on your device:
 
 1. Start the **Microsoft Store**.
-1. Click the **"Library"** button in the bottom left.
-1. Find **HEVC Video Extensions from Device Manufacturer** in the list. If it is not listed under updates, the most recent version is already installed. Otherwise click the **Get Updates** button and wait for it to install.
+1. Select the **"Library"** button in the bottom left.
+1. Find **HEVC Video Extensions from Device Manufacturer** in the list. If it isn't listed under updates, the most recent version is already installed. Otherwise select the **Get Updates** button and wait for it to install.
 1. Make sure the listed codec has at least version **1.0.21821.0**.
     1. Select the **HEVC Video Extensions from Device Manufacturer** entry from the list.
     1. Scroll down to the **Additional Information** section.
     1. Check the **Installed version** entry.
+
+### HoloLens 2
+
+Requirements and limitations:
+
+* Both Unity's [OpenXR](https://docs.unity3d.com/Manual/com.unity.xr.openxr.html) (Unity 2020 or newer) and [Windows XR Plugin](https://docs.unity3d.com/2020.3/Documentation/Manual/com.unity.xr.windowsmr.html) (up to Unity 2020 only) are supported.
+* The [render from PV camera](/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) feature isn't supported.
+* Only the DX11 rendering API is supported.
+
+### Quest 2 and Quest Pro
+
+> [!IMPORTANT]
+> **Support for Quest 2 and Quest Pro is currently in Public Preview**.
+>
+> This functionality is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have limited capabilities. 
+>
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Requirements and limitations:
+
+* The minimum supported Unity version is 2020.3.
+* Only Unity's [OpenXR](https://docs.unity3d.com/Manual/com.unity.xr.openxr.html) plugin is supported.
+* It is recommended to use Unity's Universal Render Pipeline (URP).
+* Only the Vulkan rendering API is supported. OpenGL support is not available.
+* The [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-android) doesn't work for Quest devices.
+* When a Quest device goes to sleep and is woken up again, the remote content may not resume at all, or take a long time to recover.
+* The [ArrInspector](../resources/tools/arr-inspector.md) tool is not supported.
+ 
+See the [Unity setup](../how-tos/unity/unity-setup.md) page for more details.
 
 ## Network
 
@@ -60,8 +100,6 @@ See dedicated chapter for [network requirements](../reference/network-requiremen
 For troubleshooting network issues, refer to the [Troubleshooting Guide](../resources/troubleshoot.md#unstable-holograms).
 
 ### Network firewall
-
-### SDK version >= 0.1.76
 
 Remote Rendering virtual machines use shared IP addresses from the following IP ranges:
 
@@ -84,16 +122,6 @@ Make sure that your firewalls (on device, inside routers, etc.) don't block thes
 |-------------------|---------- |----------|
 | 49152-65534       | TCP / UDP | Outgoing |
 
-#### SDK version < 0.1.76
-
-Make sure that your firewalls (on device, inside routers, etc.) don't block the following ports:
-
-| Port              | Protocol | Allow    | Description |
-|-------------------|----------|----------|-------------|
-| 50051             | TCP      | Outgoing | Initial connection (HTTP handshake) |
-| 8266              | UDP      | Outgoing | Data transfer |
-| 5000, 5433, 8443  | TCP      | Outgoing | Required for [ArrInspector tool](../resources/tools/arr-inspector.md)|
-
 ## Software
 
 The following software must be installed:
@@ -101,9 +129,11 @@ The following software must be installed:
 * The latest version of **Visual Studio 2019** [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
   * **Desktop development with C++**
-  * **Universal Windows Platform (UWP) development**
+  * **Universal Windows Platform (UWP) development** 
 * **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* **GIT** [(download)](https://git-scm.com/downloads)
+* To work with the samples repository:
+  * **Git** [(download)](https://git-scm.com/downloads)
+  * **Git LFS plugin** [(download)](https://git-lfs.github.com/)
 * Optional: To view the video stream from the server on a desktop PC, you need the **HEVC Video Extensions** [(Microsoft Store link)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7). Ensure that the latest version is installed by checking for updates in the store.
 
 ## Unity
@@ -111,7 +141,7 @@ The following software must be installed:
 For development with Unity, install a supported version of Unity [(download)](https://unity3d.com/get-unity/download). We recommend using Unity Hub for managing installations.
 
 > [!IMPORTANT]
-> In addition to the supported versions mentioned below, make sure to check out the [Unity known issues page](/mixed-reality/develop/unity/known-issues).
+> In addition to the supported versions mentioned below, make sure to check out the [Unity known issues page](/windows/mixed-reality/develop/unity/known-issues).
 
 Make sure to include the following modules in your Unity installation:
 * **UWP** - Universal Windows Platform Build Support
@@ -128,11 +158,16 @@ ARR for Unity 2019 supports both the legacy **built-in XR** integration for Wind
 For Unity 2020, use latest version of Unity 2020.3.
 
 > [!IMPORTANT]
-> When working with the OpenXR version of the plugin, it has to be verified that the *Universal Render Pipeline* (URP) has version 10.5.1 or higher. To check that, open the *Package Manager* from the Unity *Windows* menu and refer to the *Universal RP* section:
+> When working with the OpenXR version of the plugin and the *Universal Render Pipeline* (URP), it has to be verified that the *Universal Render Pipeline* has version 10.5.1 or higher. To check that, open the *Package Manager* from the Unity *Windows* menu and refer to the *Universal RP* section:
 > ![Version of the Universal RP](./media/unity-universal-rp-version-10-5-1.png)
 
-> [!IMPORTANT]
-> The **WMR (Windows Mixed Reality) plugin for Unity 2020.3** currently has a performance degradation with ARR. For a better experience, we suggest to either stay on Unity 2019.X or switch to the OpenXR version.
+### Unity 2021
+
+For Unity 2021, use latest version of Unity 2021.3.
+
+### WMR vs. OpenXR
+
+In Unity 2019 and Unity 2020, you can still choose between the WMR (Windows Mixed Reality) and OpenXR plugin. WMR has been deprecated for Unity 2021 and onwards. A known limitation of the WMR version is that it doesn't work in linear color space.
 
 ## Next steps
 

@@ -1,28 +1,29 @@
 ---
-title: PowerShell script to list and get Azure Cosmos DB Table API operations
-description: Azure PowerShell script - Azure Cosmos DB list and get operations for Table API
-author: markjbrown
+title: PowerShell script to list and get Azure Cosmos DB for Table operations
+description: Azure PowerShell script - Azure Cosmos DB list and get operations for API for Table
+author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.topic: sample
 ms.date: 07/31/2020
-ms.author: mjbrown 
-ms.custom: devx-track-azurepowershell
+ms.author: sidandrews
+ms.reviewer: mjbrown 
+ms.custom: devx-track-azurepowershell, ignite-2022
 ---
 
-# List and get tables for Azure Cosmos DB - Table API
-[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
+# List and get tables for Azure Cosmos DB - API for Table
+[!INCLUDE[Table](../../../includes/appliesto-table.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
 This sample requires Azure PowerShell Az 5.4.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed.
-If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure.
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-list-get.ps1 "List or get tables for Table API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-list-get.ps1 "List or get tables for API for Table")]
 
 ## Clean up deployment
 
@@ -39,8 +40,8 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lists Cosmos DB Accounts, or gets a specified Cosmos DB Account. |
-| [Get-AzCosmosDBTable](/powershell/module/az.cosmosdb/get-azcosmosdbtable) | Lists Table API Tables in an Account, or gets a specified Table API Table in an Account. |
+| [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lists Azure Cosmos DB Accounts, or gets a specified Azure Cosmos DB Account. |
+| [Get-AzCosmosDBTable](/powershell/module/az.cosmosdb/get-azcosmosdbtable) | Lists API for Table Tables in an Account, or gets a specified API for Table Table in an Account. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||

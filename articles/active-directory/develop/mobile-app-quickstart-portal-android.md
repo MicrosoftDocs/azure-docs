@@ -1,17 +1,16 @@
 ---
-title: "Quickstart: Add sign in with Microsoft to an Android app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Sign in users and call Microsoft Graph from an Android app"
 description: In this quickstart, learn how Android applications can call an API that requires access tokens issued by the Microsoft identity platform.
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/15/2022
 ROBOTS: NOINDEX
-ms.author: marsma
+ms.author: henrymbugua
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:Android", has-adal-ref, mode-api
 #Customer intent: As an application developer, I want to learn how Android native apps can call protected APIs that require login and access tokens using the Microsoft identity platform.
 ---
@@ -20,18 +19,18 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
 > 
-> > [Quickstart: Android app with user sign-in](mobile-app-quickstart.md?pivots=devlang-android)
+> > [Quickstart: Sign in users and call Microsoft Graph from an Android app](quickstart-mobile-app-android-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
-> [!div renderon="portal" class="sxs-lookup display-on-portal"]
+> [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 > # Quickstart: Sign in users and call the Microsoft Graph API from an Android app
 > 
 > In this quickstart, you download and run a code sample that demonstrates how an Android application can sign in users and get an access token to call the Microsoft Graph API. 
 > 
 > See [How the sample works](#how-the-sample-works) for an illustration.
 > 
-> Applications must be represented by an app object in Azure Active Directory so that the Microsoft identity platform can provide tokens to your application.
+> Applications must be represented by an app object in Microsoft Entra ID so that the Microsoft identity platform can provide tokens to your application.
 > 
 > ## Prerequisites
 > 
@@ -42,7 +41,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > ### Step 1: Configure your application in the Azure portal
 > For the code sample in this quickstart to work, add a **Redirect URI** compatible with the Auth broker.
 > 
-> <button id="makechanges" class="nextstepaction" class="configure-app-button"> Make this change for me </button>
+> <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button>
 > 
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-android/green-check.png) Your application is configured with these attributes
@@ -50,7 +49,9 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > ### Step 2: Download the project
 > 
 > Run the project using Android Studio.
-> <a href='https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip'><button id="downloadsample" class="download-sample-button">Download the code sample</button></a>
+> 
+> > [!div class="nextstepaction"]
+> > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
 > 
 > 
 > ### Step 3: Your app is configured and ready to run
@@ -295,7 +296,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > 
 > This is the configuration file for an MSAL app that uses a single account.
 > 
-> See [Understand  the Android MSAL configuration file ](msal-configuration.md) for an explanation of these fields.
+> See [Understand  the Android MSAL configuration file](msal-configuration.md) for an explanation of these fields.
 > 
 > Note the presence of `"account_mode" : "SINGLE"`, which configures this app to use a single account.
 > 
@@ -451,7 +452,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > 
 > This is the configuration file for a MSAL app that uses multiple accounts.
 > 
-> See [Understand  the Android MSAL configuration file ](msal-configuration.md) for an explanation of the various fields.
+> See [Understand  the Android MSAL configuration file](msal-configuration.md) for an explanation of the various fields.
 > 
 > Unlike the [auth_config_single_account.json](#auth_config_single_accountjson) configuration file, this config file has `"account_mode" : "MULTIPLE"` instead of `"account_mode" : "SINGLE"` because this is a multiple account app.
 > 
@@ -477,7 +478,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > }
 > ```
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 

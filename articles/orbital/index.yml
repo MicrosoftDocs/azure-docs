@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
-title: Azure Orbital documentation
-summary: Azure Orbital is a cloud-based Ground Station as a Service that allows you to streamline your operations by ingesting space data directly into Azure.
+title: Azure Orbital Documentation
+summary: Azure Orbital Ground Station is a cloud-based Ground Station as a Service that allows you to streamline your satellite operations by ingesting space data directly into Azure.
 
 metadata:
-  title: Azure Orbital documentation
-  description: Azure Orbital is a cloud-based Ground Station as a Service that allows you to streamline your operations by ingesting space data directly into Azure.
+  title: Azure Orbital Documentation
+  description: Azure Orbital Ground Station is a cloud-based Ground Station as a Service that allows you to streamline your satellite operations by ingesting space data directly into Azure.
   ms.service: orbital
   ms.topic: landing-page
   author: wamota
   ms.author: wamota
-  ms.date: 11/16/2021
-  ms.custom: public-preview
+  ms.date: 07/12/2022
+  ms.custom: ga
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -19,27 +19,25 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Orbital
+  - title: About Azure Orbital Ground Station
     linkLists:
       - linkListType: overview
         links:
-          - text: Why use Azure Orbital?
+          - text: Why use Azure Orbital Ground Station?
             url: overview.md
+          - text: Get started with Azure Orbital Ground Station
+            url: get-started.md
 
   # Card
   - title: Get started with Earth Observation
     linkLists:
-      - linkListType: get-started
-        links:
-          - text: Onboard to the Azure Orbital Preview
-            url: orbital-preview.md
       - linkListType: quickstart
         links:
-          - text: Register Spacecraft 
+          - text: Register a spacecraft 
             url: register-spacecraft.md
-          - text: Configure a Contact Profile
+          - text: Configure a contact profile
             url: contact-profile.md
-          - text: Schedule a Contact
+          - text: Schedule a contact
             url: schedule-contact.md
 
   # Card
@@ -47,31 +45,48 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Update the Spacecraft TLE
-            url: update-tle.md
-          - text: Cancel a Contact
-            url: delete-contact.md
+          - text: Prepare network to receive and send data
+            url: prepare-network.md
+          - text: Integrate partner network ground stations
+            url: partner-network-integration.md
+          - text: Receive real-time telemetry
+            url: receive-real-time-telemetry.md
+          - text: Update the spacecraft TLE
+            url: update-tle.md 
+          - text: Cancel a contact
+            url: delete-contact.md     
 
   # Card
-  - title: Azure Space Partner Program
+  - title: Tutorials & Architectures
     linkLists:
-      - linkListType: overview
+      - linkListType: tutorial
         links:
-          - text: What is the Space Partner Program?
-            url: space-partner-program-overview.md
-            
-  # Card
-  - title: Learn how to downlink from a public satellite
-    linkLists:
-      - linkListType: how-to-guide
+          - text: Downlink data from NASA's Aqua public satellite
+            url: downlink-aqua.md
+          - text: Process Aqua satellite data using NASA-provided tools
+            url: satellite-imagery-with-orbital-ground-station.md
+          - text: Understand virtual RF (vRF) through demodulation of Aqua using GNU Radio
+            url: virtual-rf-tutorial.md
+      - linkListType: architecture
         links:
-          - text: Schedule a contact with NASA's AQUA public satellite
-            url: howto-downlink-aqua.md
+          - text: Geospatial reference architecture
+            url: geospatial-reference-architecture.md
+          - text: Spaceborne data analysis with Azure Synapse Analytics
+            url: /azure/architecture/industries/aerospace/geospatial-processing-analytics 
+          - text: Organize spaceborne geospatial data with STAC
+            url: organize-stac-data.md
+          - text: Process Synthetic Aperture Radar (SAR) data
+            url: sar-reference-architecture.md   
+
 
   # Card
   - title: Concepts
     linkLists:
       - linkListType: concept
         links:
-          - text: Geospatial Reference Architecture
-            url: geospatial-reference-architecture.md
+          - text: Contact
+            url: concepts-contact.md
+          - text: Contact profile
+            url: concepts-contact-profile.md
+          - text: Spacecraft object
+            url: spacecraft-object.md

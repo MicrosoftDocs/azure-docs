@@ -6,10 +6,14 @@ ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila
 author: sunilagarwal
-ms.date: 03/14/2021
+ms.date: 06/24/2022
 ---
 
 # Infrastructure double encryption for Azure Database for PostgreSQL
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 Learn how to use the how set up and manage Infrastructure double encryption for your Azure Database for PostgreSQL.
 
@@ -48,13 +52,12 @@ This example creates a resource group named `myresourcegroup` in the `westus` lo
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
-The following example creates a PostgreSQL 11 server in West US named `mydemoserver` in your resource group `myresourcegroup` with server admin login `myadmin`. This is a **Gen 4** **General Purpose** server with **2 vCores**. This will also enabled infrastructure double encryption for the server created. Substitute the `<server_admin_password>` with your own value.
+The following example creates a PostgreSQL 11 server in West US named `mydemoserver` in your resource group `myresourcegroup` with server admin login `myadmin`. This is a **Gen 5** **General Purpose** server with **2 vCores**. This will also enabled infrastructure double encryption for the server created. Substitute the `<server_admin_password>` with your own value.
 
 ```azurecli-interactive
-az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 11 --infrastructure-encryption >Enabled/Disabled>
+az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 11 --infrastructure-encryption >Enabled/Disabled>
 ```
 
 ## Next steps
 
 To learn more about data encryption, see [Azure Database for PostgreSQL data Infrastructure double encryption](concepts-Infrastructure-double-encryption.md).
-

@@ -2,12 +2,13 @@
 title: Quickstart - Create geo-replicated registry - Azure Resource Manager template
 description: Learn how to create a geo-replicated Azure container registry by using an Azure Resource Manager template.
 services: azure-resource-manager
-author: dlepow
-ms.author: danlep
-ms.date: 10/06/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.topic: quickstart
 ms.service: container-registry
-ms.custom: subject-armqs, mode-arm
+tags: azure-resource-manager
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create a geo-replicated container registry by using an ARM template
@@ -15,6 +16,8 @@ ms.custom: subject-armqs, mode-arm
 This quickstart shows how to create an Azure Container Registry instance by using an Azure Resource Manager template (ARM template). The template sets up a [geo-replicated](container-registry-geo-replication.md) registry, which automatically synchronizes registry content across more than one Azure region. Geo-replication enables network-close access to images from regional deployments, while providing a single management experience. It's a feature of the [Premium](container-registry-skus.md) registry service tier.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+The registry with replications does not support the ARM/Bicep template Complete mode deployments.
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -50,7 +53,7 @@ More Azure Container Registry template samples can be found in the [quickstart t
     * **Region**: select a location for the resource group. Example: **Central US**.
     * **Acr Name**: accept the generated name for the registry, or enter a name. It must be globally unique.
     * **Acr Admin User Enabled**: accept the default value.
-    * **Location**: accept the generated location for the registry's home replica, or enter a location such as **Central US**. 
+    * **Location**: accept the generated location for the registry's home replica, or enter a location such as **Central US**.
     * **Acr Sku**: accept the default value.
     * **Acr Replica Location**: enter a location for the registry replica, using the region's short name. It must be different from the home registry location. Example: **westeurope**.
 

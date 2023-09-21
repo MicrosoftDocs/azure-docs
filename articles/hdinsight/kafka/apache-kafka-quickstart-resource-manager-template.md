@@ -3,8 +3,8 @@ title: 'Quickstart: Apache Kafka using Azure Resource Manager - HDInsight'
 description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using Azure Resource Manager template. You also learn about Kafka topics, subscribers, and consumers.
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
-ms.date: 03/13/2020
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.date: 09/15/2023
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 
@@ -49,9 +49,9 @@ Two Azure resources are defined in the template:
     |Resource group|From the drop-down list, select your existing resource group, or select **Create new**.|
     |Location|The value will autopopulate with the location used for the resource group.|
     |Cluster Name|Enter a globally unique name. For this template, use only lowercase letters, and numbers.|
-    |Cluster Login User Name|Provide the username, default is **admin**.|
-    |Cluster Login Password|Provide a password. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ' " ` ). |
-    |Ssh User Name|Provide the username, default is **sshuser**|
+    |Cluster Login User Name|Provide the username, default is `admin`.|
+    |Cluster Login Password|Provide a password. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ```' ` "```). |
+    |Ssh User Name|Provide the username, default is `sshuser`.|
     |Ssh Password|Provide the password.|
 
     :::image type="content" source="./media/apache-kafka-quickstart-resource-manager-template/resource-manager-template-kafka.png" alt-text="A screenshot of the template properties" border="false":::

@@ -3,14 +3,13 @@ title: Enable and manage blob versioning
 titleSuffix: Azure Storage
 description: Learn how to enable blob versioning in the Azure portal or by using an Azure Resource Manager template.
 services: storage
-author: tamram
+author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 06/07/2021
-ms.author: tamram
-ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
+ms.date: 06/06/2023
+ms.author: normesta
+ms.custom: engagement-fy23, devx-track-arm-template
 ---
 
 # Enable and manage blob versioning
@@ -21,15 +20,22 @@ This article shows how to enable or disable blob versioning for the storage acco
 
 ## Enable blob versioning
 
+You can enable blob versioning with the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template.
+
 # [Azure portal](#tab/portal)
 
 To enable blob versioning for a storage account in the Azure portal:
 
 1. Navigate to your storage account in the portal.
-1. Under **Blob service**, choose **Data protection**.
-1. In the **Versioning** section, select **Enabled**.
+2. Under **Data management**, choose **Data protection**.
+3. In the **Tracking** section, select **Enable versioning for blobs**, and then choose whether to keep all versions or delete them after a period of time.
 
-:::image type="content" source="media/versioning-enable/portal-enable-versioning.png" alt-text="Screenshot showing how to enable blob versioning in Azure portal":::
+    :::image type="content" source="media/versioning-enable/portal-enable-versioning.png" alt-text="Screenshot showing how to enable blob versioning in Azure portal":::
+
+> [!IMPORTANT]
+> If you set the **Delete versions after** option, a rule is automatically added to the lifecycle management policy of the storage account. Once that rule is added, the **Delete versions after** option no appears in the **Data protection** configuration page. 
+>
+> You can make that option reappear in the **Data protection** page by removing the rule. If your lifecycle management policy contains other rules that delete versions, then you'll have to remove those rules as well before the **Delete versions after** option can reappear.
 
 # [PowerShell](#tab/powershell)
 
@@ -91,21 +97,66 @@ For more information about deploying resources with templates in the Azure porta
 
 ---
 
-## Modify a blob to trigger a new version
-
-The following code example shows how to trigger the creation of a new version with the Azure Storage client library for .NET, version [12.5.1](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.1) or later. Before running this example, make sure you have enabled versioning for your storage account.
-
-The example creates a block blob, and then updates the blob's metadata. Updating the blob's metadata triggers the creation of a new version. The example retrieves the initial version and the current version, and shows that only the current version includes the metadata.
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_UpdateVersionedBlobMetadata":::
-
 ## List blob versions
 
-To list blob versions or snapshots with the .NET v12 client library, specify the [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) parameter with the **Version** field.
+To display a blob's versions, use the Azure portal, PowerShell, or Azure CLI. You can also list a blob's versions using one of the Blob Storage SDKs.
 
-The following code example shows how to list blobs version with the Azure Storage client library for .NET, version [12.5.1](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.1) or later. Before running this example, make sure you have enabled versioning for your storage account.
+# [Azure portal](#tab/portal)
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobVersions":::
+To list a blob's versions in the Azure portal:
+
+1. Navigate to your storage account in the portal, then navigate to the container that contains your blob.
+1. Select the blob for which you want to list versions.
+1. Select the **Versions** tab to display the blob's versions.
+
+    :::image type="content" source="media/versioning-enable/portal-list-blob-versions.png" alt-text="Screenshot showing how to list blob versions in the Azure portal":::
+
+1. Toggle the **Show deleted versions** button to display soft-deleted versions. If blob soft delete is enabled for the storage account, then any soft-deleted versions that are still within the soft-delete retention interval will appear in the list.
+
+    :::image type="content" source="media/versioning-enable/portal-list-deleted-versions.png" alt-text="Screenshot showing how to list soft-deleted versions in Azure portal.":::
+
+# [PowerShell](#tab/powershell)
+
+To list a blob's versions with PowerShell, call the [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) command with the `-IncludeVersion` parameter:
+
+```azurepowershell
+$account = Get-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account>
+$ctx = $account.Context
+$container = "<container-name>"
+
+$blobs = Get-AzStorageBlob -Container $container -Prefix "ab" -IncludeVersion -Context $ctx
+
+foreach($blob in $blobs)
+{
+    Write-Host $blob.Name
+    Write-Host $blob.VersionId
+    Write-Host $blob.IsLatestVersion
+}
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To list a blob's versions with Azure CLI, call the [az storage blob directory list](/cli/azure/storage/blob/directory#az-storage-blob-directory-list) command with the `--include v` parameter:
+
+```azurecli
+storageAccount="<storage-account>"
+containerName="<container-name>"
+
+az storage blob list \
+    --container-name $containerName \
+    --prefix "ab" \
+    --query "[[].name, [].versionId]" \
+    --account-name $storageAccount \
+    --include v \
+    --auth-mode login \
+    --output tsv 
+```
+
+# [Template](#tab/template)
+
+N/A
+
+---
 
 ## Next steps
 

@@ -1,13 +1,10 @@
 ---
 title: Create UI definition conversion functions
 description: Describes the functions to use when converting values between data types and encodings.
-author: tfitzmac
-
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.author: tomfitz
-
 ---
+
 # CreateUiDefinition conversion functions
 
 These functions can be used to convert values between JSON data types and encodings.

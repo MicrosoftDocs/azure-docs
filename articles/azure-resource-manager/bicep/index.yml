@@ -11,9 +11,7 @@ metadata:
   ms.subservice: Bicep
   ms.topic: landing-page
   ms.collection: na
-  author: mumian
-  ms.author: jgao
-  ms.date: 11/17/2021
+  ms.date: 06/23/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -37,16 +35,18 @@ landingContent:
         links:
           - text: Create Bicep files - VS Code
             url: quickstart-create-bicep-use-visual-studio-code.md
+          - text: Create Bicep files - Visual Studio
+            url: quickstart-create-bicep-use-visual-studio.md
           - text: Create and deploy template specs
             url: quickstart-create-template-specs.md
       - linkListType: learn
         links:
           - text: Introduction to Bicep
-            url: /learn/modules/introduction-to-infrastructure-as-code-using-bicep/
+            url: /training/modules/introduction-to-infrastructure-as-code-using-bicep/
           - text: Deploy with Bicep
-            url: /learn/modules/deploy-azure-resources-by-using-bicep-templates/
+            url: /training/modules/deploy-azure-resources-by-using-bicep-templates/
           - text: Deploy child and extension resources
-            url: /learn/modules/child-extension-bicep-templates/
+            url: /training/modules/child-extension-bicep-templates/
   # Card
   - title: Author Bicep files
     linkLists:

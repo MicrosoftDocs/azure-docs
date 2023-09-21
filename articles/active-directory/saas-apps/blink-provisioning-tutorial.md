@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Blink for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Blink.
+title: 'Tutorial: Configure Blink for automatic user provisioning with Microsoft Entra ID'
+description: Learn how to configure Microsoft Entra ID to automatically provision and de-provision user accounts to Blink.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -9,40 +9,39 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/19/2019
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
 # Tutorial: Configure Blink for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Blink and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users to Blink.
+The objective of this tutorial is to demonstrate the steps to be performed in Blink and Microsoft Entra ID to configure Microsoft Entra ID to automatically provision and de-provision users to Blink.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+> This tutorial describes a connector built on top of the Microsoft Entra user Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* An Azure AD tenant
+* A Microsoft Entra tenant
 * [A Blink tenant](https://joinblink.com/pricing)
 * A user account in Blink with Admin permissions.
 
 > [!NOTE]
-> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Assigning users to Blink
 
-Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or group members that have been assigned to an application in Azure AD are synchronized.
+Microsoft Entra ID uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or group members that have been assigned to an application in Microsoft Entra ID are synchronized.
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or group members in Azure AD need access to Blink. Once decided, you can assign these users and/or groups to Blink by following the instructions here:
+Before configuring and enabling automatic user provisioning, you should decide which users and/or group members in Microsoft Entra ID need access to Blink. Once decided, you can assign these users and/or groups to Blink by following the instructions here:
 * [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## Important tips for assigning users to Blink
 
-* It is recommended that a single Azure AD user is assigned to Blink to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Microsoft Entra user is assigned to Blink to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
 * When assigning a user to Blink, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
@@ -50,44 +49,37 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 1. Log a [Support Case](https://support.joinblink.com) or email **Blink support** at support@joinblink.com to request a SCIM token.
 
-2.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Blink application in the Azure portal.
+2.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Blink application.
 
 ## Add Blink from the gallery
 
-Before configuring Blink for automatic user provisioning with Azure AD, you need to add Blink from the Azure AD application gallery to your list of managed SaaS applications.
+Before configuring Blink for automatic user provisioning with Microsoft Entra ID, you need to add Blink from the Microsoft Entra application gallery to your list of managed SaaS applications.
 
-**To add Blink from the Azure AD application gallery, perform the following steps:**
+**To add Blink from the Microsoft Entra application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Blink**, select **Blink** in the results panel, and then click the **Add** button to add the application.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Blink**, select **Blink** in the search box.
+1. Select **Blink** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 	![Blink in the results list](common/search-new-app.png)
 
 ## Configuring automatic user provisioning to Blink 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in Blink based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users in Blink based on user and/or group assignments in Microsoft Entra ID.
 
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Blink, following the instructions provided in the [Blink Single sign-on tutorial](./blink-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
-### To configure automatic user provisioning for Blink in Azure AD:
+<a name='to-configure-automatic-user-provisioning-for-blink-in-azure-ad'></a>
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+### To configure automatic user provisioning for Blink in Microsoft Entra ID:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Blink**.
+1. In the applications list, select **Blink**.
 
 	![The Blink link in the Applications list](common/all-applications.png)
 
@@ -99,7 +91,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://api.joinblink.com/scim` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Blink. If the connection fails, ensure your Blink account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input `https://api.joinblink.com/scim` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Microsoft Entra ID can connect to Blink. If the connection fails, ensure your Blink account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -109,11 +101,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 7. Click **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Blink**.
+8. Under the **Mappings** section, select **Synchronize Microsoft Entra users to Blink**.
 
 	![Blink User Mappings](media/blink-provisioning-tutorial/User_mappings.png)
 
-9. Review the user attributes that are synchronized from Azure AD to Blink in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Blink for update operations. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Microsoft Entra ID to Blink in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Blink for update operations. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for filtering|
    |---|---|---|
@@ -135,7 +127,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable the Azure AD provisioning service for Blink, change the **Provisioning Status** to **On** in the **Settings** section.
+11. To enable the Microsoft Entra provisioning service for Blink, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
@@ -147,11 +139,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Blink.
+This operation starts the initial synchronization of all users defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Microsoft Entra provisioning service on Blink.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+For more information on how to read the Microsoft Entra provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
-## Step 6. Monitor your deployment
+## Step 6: Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
@@ -166,7 +158,7 @@ Once you've configured provisioning, use the following resources to monitor your
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

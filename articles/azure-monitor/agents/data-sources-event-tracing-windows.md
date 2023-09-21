@@ -3,13 +3,16 @@ title:  Collecting Event Tracing for Windows (ETW) Events for analysis Azure Mon
 description: Learn how to collect Event Tracing for Windows (ETW) for analysis in Azure Monitor Logs.
 services: azure-monitor
 ms.topic: conceptual
-ms.author: jamesfit
-author: jimmyfit
-ms.date: 02/07/2022
+author: guywi-ms
+ms.author: guywild
+ms.date: 05/31/2023
+ms. reviewer: shseth
 ---
 # Collecting Event Tracing for Windows (ETW) Events for analysis Azure Monitor Logs
 
 *Event Tracing for Windows (ETW)* provides a mechanism for instrumentation of user-mode applications and kernel-mode drivers. The Log Analytics agent is used to [collect Windows events](./data-sources-windows-events.md) written to the Administrative and Operational [ETW channels](/windows/win32/wes/eventmanifestschema-channeltype-complextype). However, it is occasionally necessary to capture and analyze other events, such as those written to the Analytic channel.  
+
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 ## Event flow
 
@@ -43,9 +46,9 @@ Ensure the *Windows diagnostics extension* is [installed](./diagnostics-extensio
 
 ### Step 3: Configure ETW log collection
 
-1. Navigate to the **Diagnostic Settings** blade of the virtual machine
+1. From the pane on the left, navigate to the **Diagnostic Settings** for the virtual machine
 
-2. Select the **Logs** tab
+2. Select the **Logs** tab.
 
 3. Scroll down and enable the **Event tracing for Windows (ETW) events** option
 ![Screenshot of diagnostics settings](./media/data-sources-event-tracing-windows/enable-event-tracing-windows-collection.png)

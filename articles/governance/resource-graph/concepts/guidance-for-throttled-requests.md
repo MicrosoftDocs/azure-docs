@@ -1,7 +1,9 @@
 ---
 title: Guidance for throttled requests
 description: Learn to group, stagger, paginate, and query in parallel to avoid requests being throttled by Azure Resource Graph.
-ms.date: 09/13/2021
+author: davidsmatlak
+ms.author: davidsmatlak
+ms.date: 08/18/2022
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
@@ -33,9 +35,9 @@ In every query response, Azure Resource Graph adds two throttling headers:
 - `x-ms-user-quota-resets-after` (hh:mm:ss): The time duration until a user's quota consumption is
   reset.
 
-When a security principal has access to more than 5,000 subscriptions within the tenant or
+When a security principal has access to more than 10,000 subscriptions within the tenant or
 management group [query scope](./query-language.md#query-scope), the response is limited to the
-first 5,000 subscriptions and the `x-ms-tenant-subscription-limit-hit` header is returned as `true`.
+first 10,000 subscriptions and the `x-ms-tenant-subscription-limit-hit` header is returned as `true`.
 
 To illustrate how the headers work, let's look at a query response that has the header and values of
 `x-ms-user-quota-remaining: 10` and `x-ms-user-quota-resets-after: 00:00:03`.
@@ -217,21 +219,21 @@ looking for. However, some Azure Resource Graph clients handle pagination differ
   ```csharp
   var results = new List<object>();
   var queryRequest = new QueryRequest(
-      subscriptions: new[] { mySubscriptionId },
-      query: "Resources | project id, name, type");
+    subscriptions: new[] { mySubscriptionId },
+    query: "Resources | project id, name, type");
   var azureOperationResponse = await this.resourceGraphClient
-      .ResourcesWithHttpMessagesAsync(queryRequest, header)
-      .ConfigureAwait(false);
-  while (!string.Empty(azureOperationResponse.Body.SkipToken))
+    .ResourcesWithHttpMessagesAsync(queryRequest, header)
+    .ConfigureAwait(false);
+  while (!string.IsNullOrEmpty(azureOperationResponse.Body.SkipToken))
   {
-      queryRequest.SkipToken = azureOperationResponse.Body.SkipToken;
-      // Each post call to ResourceGraph consumes one query quota
-      var azureOperationResponse = await this.resourceGraphClient
-          .ResourcesWithHttpMessagesAsync(queryRequest, header)
-          .ConfigureAwait(false);
-      results.Add(azureOperationResponse.Body.Data.Rows);
+    queryRequest.Options ??= new QueryRequestOptions();
+    queryRequest.Options.SkipToken = azureOperationResponse.Body.SkipToken;
+    var azureOperationResponse = await this.resourceGraphClient
+        .ResourcesWithHttpMessagesAsync(queryRequest, header)
+        .ConfigureAwait(false);
+    results.Add(azureOperationResponse.Body.Data.Rows);
 
-      // Inspect throttling headers in query response and delay the next call if needed.
+  // Inspect throttling headers in query response and delay the next call if needed.
   }
   ```
 

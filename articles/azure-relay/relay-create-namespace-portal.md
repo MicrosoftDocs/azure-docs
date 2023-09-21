@@ -1,8 +1,8 @@
 ---
 title: Create a Relay namespace using the Azure portal | Microsoft Docs
 description: This article provides a walkthrough that shows you how to create a Relay namespace using the Azure portal.
-ms.topic: conceptual
-ms.date: 06/23/2021
+ms.topic: how-to
+ms.date: 08/10/2023
 ---
 
 # Create a Relay namespace using the Azure portal

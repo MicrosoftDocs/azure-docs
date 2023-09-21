@@ -4,7 +4,7 @@ description: Learn how advanced analytics uses algorithms to process big data in
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 01/01/2020
+ms.date: 08/22/2023
 ---
 
 # Deep dive - advanced analytics

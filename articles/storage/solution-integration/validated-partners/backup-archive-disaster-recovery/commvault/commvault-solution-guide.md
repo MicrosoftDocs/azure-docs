@@ -7,8 +7,8 @@ author: karauten
 ms.author: karauten
 ms.date: 03/15/2021
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Backup to Azure with Commvault
@@ -60,7 +60,6 @@ To determine how much bandwidth you'll need, use the following resources:
 - Reports from your backup software.
 - Commvault provides standard reports to determine [change rate](https://documentation.commvault.com/commvault/v11_sp19/article?p=39699.htm) and [total backup set size](https://documentation.commvault.com/commvault/v11_sp19/article?p=39621.htm) for the initial baseline transfer to Azure.
 - Backup software-independent assessment and reporting tools like:
-  - [MiTrend](https://mitrend.com/)
   - [Aptare](https://www.veritas.com/insights/aptare-it-analytics)
   - [Datavoss](https://www.datavoss.com/)
 
@@ -185,7 +184,7 @@ It is advisable to monitor both your Azure resources and Commvault's ability to 
 
 Azure provides a robust monitoring solution in the form of [Azure Monitor](../../../../../azure-monitor/essentials/monitor-azure-resource.md). You can [configure Azure Monitor](../../../../blobs/monitor-blob-storage.md) to track Azure Storage capacity, transactions, availability, authentication, and more. You can find the full reference of metrics that are collected [here](../../../../blobs/monitor-blob-storage-reference.md). A few useful metrics to track are BlobCapacity - to make sure you remain below the maximum [storage account capacity limit](../../../../common/scalability-targets-standard-account.md), Ingress and Egress - to track the amount of data being written to and read from your Azure Storage account, and SuccessE2ELatency - to track the roundtrip time for requests to and from Azure Storage and your MediaAgent.
 
-You can also [create log alerts](../../../../../service-health/alerts-activity-log-service-notifications-portal.md) to track Azure Storage service health and view the [Azure status dashboard](https://status.azure.com/status) at any time.
+You can also [create log alerts](../../../../../service-health/alerts-activity-log-service-notifications-portal.md) to track Azure Storage service health and view the [Azure status dashboard](https://azure.status.microsoft/status) at any time.
 
 #### Commvault Command Center
 
@@ -235,6 +234,6 @@ Commvault has made it easy to deploy their solution in Azure to protect Azure Vi
 
 See these additional Commvault resources for information about specialized usage scenarios.
 
-- [Use Commvault to Migrate your servers and applications to Azure](https://www.commvault.com/resources/demonstration-vmware-to-azure-migrations-with-commvault)
+- [Use Commvault to Migrate your servers and applications to Azure](https://www.commvault.com/supported-technologies/microsoft/azure)
 - [Protect SAP in Azure with Commvault](https://www.youtube.com/watch?v=4ZGGE53mGVI)
 - [Protect Office365 with Commvault](https://www.youtube.com/watch?v=dl3nvAacxZU)

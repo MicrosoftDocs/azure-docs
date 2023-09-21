@@ -3,6 +3,8 @@ title: Manage Azure File share backup with REST API
 description: Learn how to use REST API to manage and monitor Azure file shares that are backed up by Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2020
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Manage Azure File share backup with REST API
@@ -122,7 +124,7 @@ For example: To change the protection policy of *testshare* from *schedule1* to 
 
 ## Stop protection but retain existing data
 
-You can remove protection on a protected file share but retain the data already backed up. To do so, remove the policy in the request body you used to[enable backup](backup-azure-file-share-rest-api.md#enable-backup-for-the-file-share) and submit the request. Once the association with the policy is removed, backups are no longer triggered, and no new recovery points are created.
+You can remove protection on a protected file share but retain the data already backed up. To do so, remove the policy in the request body you used to [enable backup](backup-azure-file-share-rest-api.md#enable-backup-for-the-file-share) and submit the request. Once the association with the policy is removed, backups are no longer triggered, and no new recovery points are created.
 
 ```json
 {

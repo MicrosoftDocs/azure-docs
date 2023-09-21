@@ -8,26 +8,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 03/15/2023
 ---
 
 # Estimate and manage capacity of a search service
 
 Before you [create a search service](search-create-service-portal.md) and lock in a specific [pricing tier](search-sku-tier.md), take a few minutes to understand how capacity works and how you might adjust replicas and partitions to accommodate workload fluctuation.
 
-In Azure Cognitive Search, capacity is based on *replicas* and *partitions*. Replicas are copies of the search engine.
-Partitions are units of storage. Each new search service starts with one each, but you can scale up each resource independently to accommodate fluctuating workloads. Adding either resource is [billable](search-sku-manage-costs.md#billable-events).
+In Azure Cognitive Search, capacity is based on *replicas* and *partitions* that can be scaled to your workload. Replicas are copies of the search engine.
+Partitions are units of storage. Each new search service starts with one each, but you can adjust each unit independently to accommodate fluctuating workloads. Adding either unit is [billable](search-sku-manage-costs.md#billable-events).
 
 The physical characteristics of replicas and partitions, such as processing speed and disk IO, vary by [service tier](search-sku-tier.md). If you provisioned on Standard, replicas and partitions will be faster and larger than those of Basic.
 
-Changing capacity is not instantaneous. It can take up to an hour to commission or decommission partitions, especially on services with large amounts of data.
+Changing capacity isn't instantaneous. It can take up to an hour to commission or decommission partitions, especially on services with large amounts of data.
 
 When scaling a search service, you can choose from the following tools and approaches:
 
 + [Azure portal](#adjust-capacity)
 + [Azure PowerShell](search-manage-powershell.md)
 + [Azure CLI](/cli/azure/search)
-+ [Management REST API](/rest/api/searchmanagement/2020-08-01/services)
++ [Management REST API](/rest/api/searchmanagement/2022-09-01/services)
 
 ## Concepts: search units, replicas, partitions, shards
 
@@ -35,7 +35,7 @@ Capacity is expressed in *search units* that can be allocated in combinations of
 
 | Concept  | Definition|
 |----------|-----------|
-|*Search unit* | A single increment of total available capacity (36 units). It is also the billing unit for an Azure Cognitive Search service. A minimum of one unit is required to run the service.|
+|*Search unit* | A single increment of total available capacity (36 units). It's also the billing unit for an Azure Cognitive Search service. A minimum of one unit is required to run the service.|
 |*Replica* | Instances of the search service, used primarily to load balance query operations. Each replica hosts one copy of an index. If you allocate three replicas, you'll have three copies of an index available for servicing query requests.|
 |*Partition* | Physical storage and I/O for read/write operations (for example, when rebuilding or refreshing an index). Each partition has a slice of the total index. If you allocate three partitions, your index is divided into thirds. |
 |*Shard* | A chunk of an index. Azure Cognitive Search divides each index into shards to make the process of adding partitions faster (by moving shards to new search units).|
@@ -46,9 +46,9 @@ The following diagram shows the relationship between replicas, partitions, shard
 
 The diagram above is only one example. Many combinations of partitions and replicas are possible, up to a maximum of 36 total search units.
 
-In Cognitive Search, shard management is an implementation detail and non-configurable, but knowing that an index is sharded helps to understand the occasional anomalies in ranking and autocomplete behaviors:
+In Cognitive Search, shard management is an implementation detail and nonconfigurable, but knowing that an index is sharded helps to understand the occasional anomalies in ranking and autocomplete behaviors:
 
-+ Ranking anomalies: Search scores are computed at the shard level first, and then aggregated up into a single result set. Depending on the characteristics of shard content, matches from one shard might be ranked higher than matches in another one. If you notice counter intuitive rankings in search results, it is most likely due to the effects of sharding, especially if indexes are small. You can avoid these ranking anomalies by choosing to [compute scores globally across the entire index](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), but doing so will incur a performance penalty.
++ Ranking anomalies: Search scores are computed at the shard level first, and then aggregated up into a single result set. Depending on the characteristics of shard content, matches from one shard might be ranked higher than matches in another one. If you notice counter intuitive rankings in search results, it's most likely due to the effects of sharding, especially if indexes are small. You can avoid these ranking anomalies by choosing to [compute scores globally across the entire index](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), but doing so will incur a performance penalty.
 
 + Autocomplete anomalies: Autocomplete queries, where matches are made on the first several characters of a partially entered term, accept a fuzzy parameter that forgives small deviations in spelling. For autocomplete, fuzzy matching is constrained to terms within the current shard. For example, if a shard contains "Microsoft" and a partial term of "micor" is entered, the search engine will match on "Microsoft" in that shard, but not in other shards that hold the remaining parts of the index.
 
@@ -74,7 +74,7 @@ One approach for estimating capacity is to start with the Free tier. Remember th
 
 + [Create a free service](search-create-service-portal.md).
 + Prepare a small, representative dataset.
-+ Create an index and load your data. If the dataset can be hosted in an Azure data source supported by indexers, you can use the [Import data wizard in the portal](search-get-started-portal.md) to both create and load the index. Otherwise, you should use REST and [Postman](search-get-started-rest.md) or [Visual Studio Code](search-get-started-vs-code.md) to create the index and push the data. The push model requires data to be in the form of JSON documents, where fields in the document correspond to fields in the index.
++ Create an index and load your data. If the dataset can be hosted in an Azure data source supported by indexers, you can use the [Import data wizard in the portal](search-get-started-portal.md) to both create and load the index. Otherwise, you could use [REST and Postman](search-get-started-rest.md) to create the index and push the data. The push model requires data to be in the form of JSON documents, where fields in the document correspond to fields in the index.
 + Collect information about the index, such as size. Features and attributes have an impact on storage. For example, adding suggesters (search-as-you-type queries) will increase storage requirements. 
 
   Using the same data set, you might try creating multiple versions of an index, with different attributes on each field, to see how storage requirements vary. For more information, see ["Storage implications" in Create a basic index](search-what-is-an-index.md#index-size).
@@ -99,7 +99,7 @@ Dedicated resources can accommodate larger sampling and processing times for mor
 
 1. Add replicas if you need high availability or if you experience slow query performance.
 
-   There are no guidelines on how many replicas are needed to accommodate query loads. Query performance depends on the complexity of the query and competing workloads. Although adding replicas clearly results in better performance, the result is not strictly linear: adding three replicas does not guarantee triple throughput. For guidance in estimating QPS for your solution, see [Scale for performance](search-performance-optimization.md)and [Monitor queries](search-monitor-queries.md).
+   There are no guidelines on how many replicas are needed to accommodate query loads. Query performance depends on the complexity of the query and competing workloads. Although adding replicas clearly results in better performance, the result isn't strictly linear: adding three replicas doesn't guarantee triple throughput. For guidance in estimating QPS for your solution, see [Analyze performance](search-performance-analysis.md)and [Monitor queries](search-monitor-queries.md).
 
 > [!NOTE]
 > Storage requirements can be inflated if you include data that will never be searched. Ideally, documents contain only the data that you need for the search experience. Binary data isn't searchable and should be stored separately (maybe in an Azure table or blob storage). A field should then be added in the index to hold a URL reference to the external data. The maximum size of an individual search document is 16 MB (or less if you're bulk uploading multiple documents in one request). For more information, see [Service limits in Azure Cognitive Search](search-limits-quotas-capacity.md).
@@ -111,13 +111,13 @@ Queries per second (QPS) is an important metric during performance tuning, but i
 
 The Standard tiers can provide a balance of replicas and partitions. You can increase query turnaround by adding replicas for load balancing or add partitions for parallel processing. You can then tune for performance after the service is provisioned.
 
-If you expect high sustained query volumes from the outset, you should consider higher Standard tiers, backed by more powerful hardware. You can then take partitions and replicas offline, or even switch to a lower-tier service, if those query volumes don't occur. For more information on how to calculate query throughput, see [Azure Cognitive Search performance and optimization](search-performance-optimization.md).
+If you expect high sustained query volumes from the outset, you should consider higher Standard tiers, backed by more powerful hardware. You can then take partitions and replicas offline, or even switch to a lower-tier service, if those query volumes don't occur. For more information on how to calculate query throughput, see [Monitor queries](search-monitor-queries.md).
 
 The Storage Optimized tiers are useful for large data workloads, supporting more overall available index storage for when query latency requirements are less important. You should still use additional replicas for load balancing and additional partitions for parallel processing. You can then tune for performance after the service is provisioned.
 
 **Service-level agreements**
 
-The Free tier and preview features are not covered by [service-level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). For all billable tiers, SLAs take effect when you provision sufficient redundancy for your service. You need to have two or more replicas for query (read) SLAs. You need to have three or more replicas for query and indexing (read-write) SLAs. The number of partitions doesn't affect SLAs.
+The Free tier and preview features aren't covered by [service-level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). For all billable tiers, SLAs take effect when you provision sufficient redundancy for your service. You need to have two or more replicas for query (read) SLAs. You need to have three or more replicas for query and indexing (read-write) SLAs. The number of partitions doesn't affect SLAs.
 
 ## Tips for capacity planning
 
@@ -129,7 +129,7 @@ The Free tier and preview features are not covered by [service-level agreements 
 
 Initially, a service is allocated a minimal level of resources consisting of one partition and one replica. The [tier you choose](search-sku-tier.md) determines partition size and speed, and each tier is optimized around a set of characteristics that fit various scenarios. If you choose a higher-end tier, you might [need fewer partitions](search-performance-tips.md#service-capacity) than if you go with S1. One of the questions you'll need to answer through self-directed testing is whether a larger and more expensive partition yields better performance than two cheaper partitions on a service provisioned at a lower tier.
 
-A single service must have sufficient resources to handle all workloads (indexing and queries). Neither workload runs in the background. You can schedule indexing for times when query requests are naturally less frequent, but the service will not otherwise prioritize one task over another. Additionally, a certain amount of redundancy smooths out query performance when services or nodes are updated internally.
+A single service must have sufficient resources to handle all workloads (indexing and queries). Neither workload runs in the background. You can schedule indexing for times when query requests are naturally less frequent, but the service won't otherwise prioritize one task over another. Additionally, a certain amount of redundancy smooths out query performance when services or nodes are updated internally.
 
 Some guidelines for determining whether to add capacity include:
 
@@ -160,7 +160,7 @@ Finally, larger indexes take longer to query. As such, you might find that every
 
 1. Use the slider to increase or decrease the number of partitions. Select **Save**.
 
-   This example adds a second replica and partition. Notice the search unit count; it is now four because the billing formula is replicas multiplied by partitions (2 x 2). Doubling capacity more than doubles the cost of running the service. If the search unit cost was $100, the new monthly bill would now be $400.
+   This example adds a second replica and partition. Notice the search unit count; it's now four because the billing formula is replicas multiplied by partitions (2 x 2). Doubling capacity more than doubles the cost of running the service. If the search unit cost was $100, the new monthly bill would now be $400.
 
    For the current per unit costs of each tier, visit the [Pricing page](https://azure.microsoft.com/pricing/details/search/).
 
@@ -170,7 +170,7 @@ Finally, larger indexes take longer to query. As such, you might find that every
 
    :::image type="content" source="media/search-capacity-planning/3-save-confirm.png" alt-text="Save changes" border="true":::
 
-   Changes in capacity can take anywhere from 15 minutes up to several hours to complete. You cannot cancel once the process has started and there is no real-time monitoring for replica and partition adjustments. However, the following message remains visible while changes are underway.
+   Changes in capacity can take anywhere from 15 minutes up to several hours to complete. You can't cancel once the process has started and there's no real-time monitoring for replica and partition adjustments. However, the following message remains visible while changes are underway.
 
    :::image type="content" source="media/search-capacity-planning/4-updating.png" alt-text="Status message in the portal" border="true":::
 
@@ -188,19 +188,21 @@ Upon receipt of a scale request, the search service:
 
 Scaling a service can take as little as 15 minutes or well over an hour, depending on the size of the service and the scope of the request. Backup can take several minutes, depending on the amount of data and number of partitions and replicas.
 
-The above steps are not entirely consecutive. For example, the system starts provisioning when it can safely do so, which could be while backup is winding down.
+The above steps aren't entirely consecutive. For example, the system starts provisioning when it can safely do so, which could be while backup is winding down.
 
 ## Errors during scaling
 
-The error message "Service update operations are not allowed at this time because we are processing a previous request" is caused by repeating a request to scale down or up when the service is already processing a previous request.
+The error message "Service update operations aren't allowed at this time because we're processing a previous request" is caused by repeating a request to scale down or up when the service is already processing a previous request.
 
 Resolve this error by checking service status to verify provisioning status:
 
-1. Use the [Management REST API](/rest/api/searchmanagement/2020-08-01/services), [Azure PowerShell](search-manage-powershell.md), or [Azure CLI](/cli/azure/search) to get service status.
-1. Call [Get Service](/rest/api/searchmanagement/2020-08-01/services/get)
-1. Check the response for ["provisioningState": "provisioning"](/rest/api/searchmanagement/2020-08-01/services/get#provisioningstate)
+1. Use the [Management REST API](/rest/api/searchmanagement/2022-09-01/services), [Azure PowerShell](search-manage-powershell.md), or [Azure CLI](/cli/azure/search) to get service status.
+1. Call [Get Service (REST)](/rest/api/searchmanagement/2022-09-01/services/get) or equivalent for PowerShell or the CLI.
+1. Check the response for ["provisioningState": "provisioning"](/rest/api/searchmanagement/2022-09-01/services/get#provisioningstate)
 
-If status is "Provisioning", then wait for the request to complete. Status should be either "Succeeded" or "Failed" before another request is attempted. There is no status for backup. Backup is an internal operation and it's unlikely to be a factor in any disruption of a scale exercise.
+If status is "Provisioning", wait for the request to complete. Status should be either "Succeeded" or "Failed" before another request is attempted. There's no status for backup. Backup is an internal operation and it's unlikely to be a factor in any disruption of a scale exercise.
+
+If your search service appears to be stalled in a provisioning state, check for orphaned indexes that are unusable, with zero query volumes and no index updates. An unusable index can block changes to service capacity. In particular, look for indexes that are [CMK-encrypted](search-security-manage-encryption-keys.md), whose keys are no longer valid. You should either delete the index or restore the keys to bring the index back online and unblock your scale operation.
 
 <a id="chart"></a>
 

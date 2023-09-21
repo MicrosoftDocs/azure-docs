@@ -1,13 +1,14 @@
 ---
 title: Job size exceeded error
-description: Describes how to troubleshoot errors when job size or template are too large for deployments using a Bicep file or Azure Resource Manager template (ARM template).
+description: Describes how to troubleshoot errors for job size exceeded or if the template is too large for deployments using a Bicep file or Azure Resource Manager template (ARM template).
 ms.topic: troubleshooting
-ms.date: 12/20/2021
+ms.custom: devx-track-bicep, devx-track-arm-template
+ms.date: 04/05/2023
 ---
 
 # Resolve errors for job size exceeded
 
-This article describes how to resolve the `JobSizeExceededException` and `DeploymentJobSizeExceededException` errors. The errors can occur when you deploy a Bicep file or Azure Resource Manager template (ARM template).
+This article describes how to resolve the `JobSizeExceededException` and `DeploymentJobSizeExceededException` errors. The job size exceeded errors can occur when you deploy a Bicep file or Azure Resource Manager template (ARM template).
 
 ## Symptom
 
@@ -29,7 +30,7 @@ Other template limits are:
 - 64 output values
 - 24,576 characters in a template expression
 
-## Solution 1 - use dependencies carefully
+## Solution 1: Use dependencies carefully
 
 # [Bicep](#tab/bicep)
 
@@ -53,7 +54,7 @@ dependsOn: [
 
 ---
 
-## Solution 2 - simplify template
+## Solution 2: Simplify template
 
 # [Bicep](#tab/bicep)
 
@@ -70,7 +71,7 @@ You can set other resources as dependent on the linked template, and [get values
 
 ---
 
-## Solution 3 - reduce name size
+## Solution 3: Reduce name size
 
 # [Bicep](#tab/bicep)
 

@@ -1,5 +1,5 @@
 ---
-title: Application types in v1.0 | Azure
+title: Application types in v1.0
 description: Describes the types of apps and scenarios supported by the Azure Active Directory v2.0 endpoint.
 services: active-directory
 author: rwike77
@@ -37,7 +37,7 @@ These are the five primary application scenarios supported by Azure AD:
 Follow the links to learn more about each type of app and understand the high-level scenarios before you start working with the code. You can also learn about the differences you need to know when writing a particular app that works with the v1.0 endpoint or v2.0 endpoint.
 
 > [!NOTE]
-> The v2.0 endpoint doesn't support all Azure AD scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](./azure-ad-endpoint-comparison.md?bc=%2fazure%2factive-directory%2fazuread-dev%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fazuread-dev%2ftoc.json).
+> The v2.0 endpoint doesn't support all Azure AD scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](./azure-ad-endpoint-comparison.md?bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json&toc=/azure/active-directory/azuread-dev/toc.json).
 
 You can develop any of the apps and scenarios described here using various languages and platforms. They are all backed by complete code samples available in the code samples guide: [v1.0 code samples by scenario](sample-v1-code.md) and [v2.0 code samples by scenario](../develop/sample-v2-code.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). You can also download the code samples directly from the corresponding [GitHub sample repositories](https://github.com/Azure-Samples?q=active-directory).
 
@@ -64,7 +64,7 @@ For details, learn how to [register an app](../develop/quickstart-register-app.m
 Provisioning becomes clearer when you understand that there are two categories of applications that can be developed and integrated with Azure AD:
 
 * **Single tenant application** - A single tenant application is intended for use in one organization. These are typically line-of-business (LoB) applications written by an enterprise developer. A single tenant application only needs to be accessed by users in one directory, and as a result, it only needs to be provisioned in one directory. These applications are typically registered by a developer in the organization.
-* **Multi-tenant application** - A multi-tenant application is intended for use in many organizations, not just one organization. These are typically software-as-a-service (SaaS) applications written by an independent software vendor (ISV). Multi-tenant applications need to be provisioned in each directory where they will be used, which requires user or administrator consent to register them. This consent process starts when an application has been registered in the directory and is given access to the Graph API or perhaps another web API. When a user or administrator from a different organization signs up to use the application, they are presented with a dialog that displays the permissions the application requires. The user or administrator can then consent to the application, which gives the application access to the stated data, and finally registers the application in their directory. For more information, see [Overview of the Consent Framework](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+* **Multi-tenant application** - A multi-tenant application is intended for use in many organizations, not just one organization. These are typically software-as-a-service (SaaS) applications written by an independent software vendor (ISV). Multi-tenant applications need to be provisioned in each directory where they will be used, which requires user or administrator consent to register them. This consent process starts when an application has been registered in the directory and is given access to the Graph API or perhaps another web API. When a user or administrator from a different organization signs up to use the application, they are presented with a dialog that displays the permissions the application requires. The user or administrator can then consent to the application, which gives the application access to the stated data, and finally registers the application in their directory. For more information, see [Overview of the Consent Framework](../develop/application-consent-experience.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ### Additional considerations when developing single tenant or multi-tenant apps
 

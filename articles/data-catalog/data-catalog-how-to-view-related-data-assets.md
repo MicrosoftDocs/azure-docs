@@ -3,11 +3,11 @@ title: How to view related data assets in Azure Data Catalog
 description: This article explains how to view related data assets of a selected data asset in Azure Data Catalog.
 ms.service: data-catalog
 ms.topic: how-to
-ms.date: 02/11/2022
+ms.date: 12/15/2022
 ---
 # How to view related data assets in Azure Data Catalog
 
-[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 Azure Data Catalog allows you to view data assets that are related to a selected data asset, and see the relationships between them. 
 

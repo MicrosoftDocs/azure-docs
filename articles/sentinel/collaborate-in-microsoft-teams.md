@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Collaborate in Microsoft Teams (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Sentinel supports a direct integration with [Microsoft Teams](/microsoftteams/), enabling you to jump directly into teamwork on specific incidents.
 
 

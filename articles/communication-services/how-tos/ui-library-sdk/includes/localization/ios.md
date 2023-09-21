@@ -8,9 +8,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
-
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-library-quick-start)
+Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling)
 
 ### Language Detection
 
@@ -18,9 +16,9 @@ If your application supports localization, the UI Library will be displayed base
 
 ### Available Languages
 
-The following table of `locale` with out of the box translations. If you want to localize the composite, pass the `locale` into `LocalizationConfiguration` as options into `CallComposite`.
+The following table of `locale` with out of the box translations. If you want to localize the composite, pass the `locale` into `LocalizationOptions` as options into `CallComposite`.
 
-|         Language         | CommunicationUISupportedLocale       |    identifier  |
+|         Language         | SupportedLocale       |    identifier  |
 |:------------------------:|:------------------:|:------------:|
 | Chinese, Simplified | zh | zh |
 | Chinese, Simplified | zhHans | zh-Hans |
@@ -49,31 +47,31 @@ The following table of `locale` with out of the box translations. If you want to
 | Spanish | es | es |
 | Spanish (Spain) | esES | es-ES |
 | Turkish | tr | tr |
-| Turkish (Turkey) | trTR | tr-TR |
+| Turkish (Türkiye) | trTR | tr-TR |
 
-You can also obtain list of `locale` by the static function `LocalizationConfiguration.supportedLanguages` will return list of Locale structs.
+You can also obtain list of `locale` by the static function `SupportedLocale.values` will return list of Locale structs.
 
 ```swift
-let locales: [String] = LocalizationConfiguration.supportedLanguages.map{ $0.identifier }
+let locales: [Locale] = SupportedLocale.values.map{ $0.identifier }
 print(locales)
 
 // ["de", "de-DE", "en", "en-GB", "en-US", "es", "es-ES", "fr", "fr-FR", "it", "it-IT", "ja", "ja-JP", "ko", "ko-KR", "nl", "nl-NL", "pt", "pt-BR", "ru", "ru-RU", "tr", "tr-TR", "zh", "zh-Hans", "zh-Hans-CN", "zh-Hant", "zh-Hant-TW"]
 ```
 
-### LocalizationConfiguration
+### LocalizationOptions
 
-`LocalizationConfiguration` is an options wrapper that sets all the strings for UI Library components using a `locale`. By default, all text labels use our English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `locale`. Out of the box, the UI library includes a set of `locale` usable with the UI components and composites.
+`LocalizationOptions` is an options wrapper that sets all the strings for UI Library components using a `locale`. By default, all text labels use our English (`en`) strings. If desired, `LocalizationOptions` can be used to set a different `locale`. Out of the box, the UI library includes a set of `locale` usable with the UI components and composites.
 
-To use the `LocalizationConfiguration`, specify a `locale` Swift Locale struct (with or without a region code), and pass it to the `CallCompositeOptions`. For the example below, we'll localize the composite to French for France (`fr-FR`).
+To use the `LocalizationOptions`, specify a `locale` Swift Locale struct (with or without a region code), and pass it to the `CallCompositeOptions`. For the example below, we'll localize the composite to French for France (`fr-FR`).
 
 ```swift
 // Creating swift Locale struct
-var localizationConfig = LocalizationConfiguration(locale: Locale(identifier: "fr-FR"))
+var localizationOptions = LocalizationOptions(locale: Locale(identifier: "fr-FR"))
 
-// Use intellisense CommunicationUISupportedLocale to get supported Locale struct
-localizationConfig = LocalizationConfiguration(locale: CommunicationUISupportedLocale.frFR)
+// Use intellisense SupportedLocale to get supported Locale struct
+localizationOptions = LocalizationOptions(locale: SupportedLocale.frFR)
 
-let callCompositeOptions = CallCompositeOptions(localization: localizationConfig)
+let callCompositeOptions = CallCompositeOptions(localization: localizationOptions)
 let callComposite = CallComposite(withOptions: callCompositeOptions)
 ```
 
@@ -81,22 +79,22 @@ let callComposite = CallComposite(withOptions: callCompositeOptions)
 
 ### Layout Direction
 
-Certain cultures (Arabic, Hebrew, etc.) may need  for localization to have right-to-left layout. You can specify the `layoutDirection` as part of the `LocalizationConfiguration`. The layout of the composite will be mirrored but the text will remain in the direction of the string.
+Certain cultures (Arabic, Hebrew, etc.) may need  for localization to have right-to-left layout. You can specify the `layoutDirection` as part of the `LocalizationOptions`. The layout of the composite will be mirrored but the text will remain in the direction of the string.
 
 ```swift
-var localizationConfig: LocalizationConfiguration
+var localizationOptions: LocalizationOptions
 
 // Initializer with locale and layoutDirection
-localizationConfig = LocalizationConfiguration(locale: Locale(identifier: "en"),
-                                               layoutDirection: .rightToLeft)
+localizationOptions = LocalizationOptions(locale: Locale(identifier: "en"),
+                                          layoutDirection: .rightToLeft)
 
 // Initializer with locale, localizableFilename, and layoutDirection
-localizationConfig = LocalizationConfiguration(locale: Locale(identifier: "en"),
-                                               localizableFilename: "Localizable",
-                                               layoutDirection: .rightToLeft)
+localizationOptions = LocalizationOptions(locale: Locale(identifier: "en"),
+                                          localizableFilename: "Localizable",
+                                          layoutDirection: .rightToLeft)
 
-// Add localization configuration as option
-let callCompositeOptions = CallCompositeOptions(localization: localizationConfig)
+// Add localizationOptions as option
+let callCompositeOptions = CallCompositeOptions(localization: localizationOptions)
 let callComposite = CallComposite(withOptions: callCompositeOptions)
 ```
 
@@ -108,7 +106,7 @@ You can see below the right-to-left layout mirroring, by default without specify
 
 ### Customizing Translations
 
-There are two options to customize the language translations that we provide. To override a particular string, you can find the list of localization keys here for the key-value pair. You can specify the `locale` to be one of the supported languages, and when a key isn't provided, will fall back to our supported translation string. If you specified an unsupported language, you should provide translations for all the keys for that language (using Localizable.strings file), and will fall back to English strings when a key isn't provided.
+There are two options to customize the language translations that we provide. To override a particular string, you can find the list of localization keys [here](https://github.com/Azure/communication-ui-library-ios/blob/main/AzureCommunicationUI/AzureCommunicationUIDemoApp/Sources/Views/en.lproj/Localizable.strings) for the key-value pair. You can specify the `locale` to be one of the supported languages, and when a key isn't provided, will fall back to our supported translation string. If you specified an unsupported language, you should provide translations for all the keys for that language (using `Localizable.strings` file), and will fall back to English strings when a key isn't provided.
 
 Let's say you wish to have the `ControlBar` with strings from our English (US) locale but you want to change the label of `JoinCall` button to "Start Meeting" (instead of "Join call") in Setup View.
 
@@ -118,19 +116,19 @@ Enable Localization in the Project, below for the `locale` you want to override.
 
 :::image type="content" source="media/ios-setup-project.png" alt-text="iOS setup project":::
 
-To specify you're overriding with Localization.strings, create a `LocalizationConfiguration` object to specify the `locale` and `localizationFilename`. Or when using the `locale` initializer, will look keys in Localizable.strings for `locale.collatorIdentifier` as the language in your project.
+:::image type="content" source="media/ios-custom-string.png" alt-text="iOS custom string":::
+
+To specify you're overriding with Localization.strings, create a `LocalizationOptions` object to specify the `locale` and `localizationFilename`. Or when using the `locale` initializer, will look keys in Localizable.strings for `locale.collatorIdentifier` as the language in your project.
 
 ```swift
-let localizationConfig = LocalizationConfiguration(locale: Locale(identifier: "fr"),
-                                                   localizableFilename: "Localizable")
-let callCompositeOptions = CallCompositeOptions(localization: localizationConfig)
+let localizationOptions = LocalizationOptions(locale: Locale(identifier: "fr"),
+                                              localizableFilename: "Localizable")
+let callCompositeOptions = CallCompositeOptions(localization: localizationOptions)
 let callComposite = CallComposite(withOptions: callCompositeOptions)
 ```
 
-:::image type="content" source="media/ios-custom-string.png" alt-text="iOS custom string":::
-
 ### Accessibility VoiceOver for Localization
 
-For VoiceOver to work properly for a localization, make sure the language is added into your app's Localizations. So the VoiceOver will detect the app supports the language specified in LocalizationConfiguration locale, and select the Speech voice for the language using the voice found in device's Settings -> Accessibility -> Speech. You can verify if the language is added to your project as shown below.
+For VoiceOver to work properly for a localization, make sure the language is added into your app's Localizations. So the VoiceOver will detect the app supports the language specified in LocalizationOptions locale, and select the Speech voice for the language using the voice found in device's Settings -> Accessibility -> Speech. You can verify if the language is added to your project as shown below.
 
 :::image type="content" source="media/ios-xcode-project-localizations.png" alt-text="iOS XCode Project Localizations":::

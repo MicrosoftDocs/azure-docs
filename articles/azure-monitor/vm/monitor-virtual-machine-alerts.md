@@ -5,103 +5,136 @@ ms.service: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/21/2021
+ms.date: 01/11/2023
+ms.reviewer: Xema Pathak
 
 ---
 
 # Monitor virtual machines with Azure Monitor: Alerts
 
-This article is part of the scenario [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It provides guidance on creating alert rules for your virtual machines and their guest operating systems. [Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on data collected by VM insights. 
+This article is part of the guide [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). [Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on data you collect from Azure Monitor Agent. This article presents alerting concepts specific to virtual machines and common alert rules used by other Azure Monitor customers.
 
-> [!NOTE]
-> This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md), [Tutorial: Create a metric alert for an Azure resource](../alerts/tutorial-metric-alert.md), or [Tutorial: Create alert when Azure virtual machine is unavailable](tutorial-monitor-vm-alert.md). 
+This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment:
+
+- To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md). 
+
+- To quickly enable a recommended set of alerts, see [Enable recommended alert rules for an Azure virtual machine](tutorial-monitor-vm-alert-recommended.md).
 
 > [!IMPORTANT]
-> Most alert rules have a cost that's dependent on the type of rule, how many dimensions it includes, and how frequently it's run. Before you create any alert rules, refer to **Alert rules** in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+> Most alert rules have a cost that's dependent on the type of rule, how many dimensions it includes, and how frequently it's run. Before you create any alert rules, see the **Alert rules** section in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-## Choose the alert type
-The most common types of alert rules in Azure Monitor are [metric alerts](../alerts/alerts-metric.md) and [log query alerts](../alerts/alerts-log-query.md). 
-The type of alert rule that you create for a particular scenario depends on where the data is located that you're alerting on. You might have cases where data for a particular alerting scenario is available in both Metrics and Logs, and you'll need to determine which rule type to use. You might also have flexibility in how you collect certain data and let your decision of alert rule type drive your decision for data collection method.
+## Data collection
+Alert rules inspect data that's already been collected in Azure Monitor. You need to ensure that data is being collected for a particular scenario before you can create an alert rule. See [Monitor virtual machines with Azure Monitor: Collect data](monitor-virtual-machine-data-collection.md) for guidance on configuring data collection for various scenarios, including all the alert rules in this article.
 
-Typically, the best strategy is to use metric alerts instead of log alerts when possible because they're more responsive and stateful. To use metric alerts, the data you're alerting on must be available in Metrics. VM insights currently sends all of its data to Logs, so you must install the Azure Monitor agent to use metric alerts with data from the guest operating system. Use Log query alerts with metric data when it's unavailable in Metrics or if you require logic beyond the relatively simple logic for a metric alert rule.
+## Recommended alert rules
+Azure Monitor provides a set of [recommended alert rules](tutorial-monitor-vm-alert-availability.md) that you can quickly enable for any Azure virtual machine. These rules are a great starting point for basic monitoring. But alone, they won't provide sufficient alerting for most enterprise implementations for the following reasons:
+
+- Recommended alerts only apply to Azure virtual machines and not hybrid machines.
+- Recommended alerts only include host metrics and not guest metrics or logs. These metrics are useful to monitor the health of the machine itself. But they give you minimal visibility into the workloads and applications running on the machine.
+- Recommended alerts are associated with individual machines that create an excessive number of alert rules. Instead of relying on this method for each machine, see [Scaling alert rules](#scaling-alert-rules) for strategies on using a minimal number of alert rules for multiple machines.
+
+## Alert types
+
+The most common types of alert rules in Azure Monitor are [metric alerts](../alerts/alerts-metric.md) and [log query alerts](../alerts/alerts-log-query.md). The type of alert rule that you create for a particular scenario depends on where the data that you're alerting on is located.
+
+You might have cases where data for a particular alerting scenario is available in both Metrics and Logs. If so, you need to determine which rule type to use. You might also have flexibility in how you collect certain data and let your decision of alert rule type drive your decision for data collection method.
 
 ### Metric alerts
-[Metric alert rules](../alerts/alerts-metric.md) are useful for alerting when a particular metric exceeds a threshold. An example is when the CPU of a machine is running high. The target of a metric alert rule can be a specific machine, a resource group, or a subscription. In this instance, you can create a single rule that applies to a group of machines.
+Common uses for metric alerts:
+- Alert when a particular metric exceeds a threshold. An example is when the CPU of a machine is running high.
 
-Metric rules for virtual machines can use the following data:
-
-- Host metrics for Azure virtual machines, which are collected automatically. 
-- Metrics that are collected by the Azure Monitor agent from the guest operating system. 
-
-> [!NOTE]
-> When VM insights supports the Azure Monitor agent, which is currently in public preview, it sends performance data from the guest operating system to Metrics so that you can use metric alerts.
+Data sources for metric alerts:
+- Host metrics for Azure virtual machines, which are collected automatically
+- Metrics collected by Azure Monitor Agent from the guest operating system
 
 ### Log alerts
-[Log alerts](../alerts/alerts-unified-log.md) can measure two different things which can be used to monitor virtual machines in different scenarios:
+Common uses for log alerts:
+- Alert when a particular event or pattern of events from Windows event log or Syslog are found. These alert rules typically measure table rows returned from the query.
+- Alert based on a calculation of numeric data across multiple machines. These alert rules typically measure the calculation of a numeric column in the query results.
 
-- [Result count](../alerts/alerts-unified-log.md#result-count): Counts the number of rows returned by the query, and can be used to work with events such as Windows event logs, syslog, application exceptions.
-- [Calculation of a value](../alerts/alerts-unified-log.md#calculation-of-a-value): Makes a calculation based on a numeric column, and can be used to include any number of resources. For example, CPU percentage.
+Data sources for log alerts:
+- All data collected in a Log Analytics workspace
 
-### Targeting resources and dimensions
+## Scaling alert rules
+Because you might have many virtual machines that require the same monitoring, you don't want to have to create individual alert rules for each one. You also want to ensure there are different strategies to limit the number of alert rules you need to manage, depending on the type of rule. Each of these strategies depends on understanding the target resource of the alert rule.
 
-You can monitor multiple instances’ values with one rule using dimensions. You would use dimensions if, for example, you want to monitor CPU usage on multiple instances running your web site or app for CPU usage over 80%. 
+### Metric alert rules
+Virtual machines support multiple resource metric alert rules as described in [Monitor multiple resources](../alerts/alerts-types.md#metric-alerts). This capability allows you to create a single metric alert rule that applies to all virtual machines in a resource group or subscription within the same region.
 
-To create resource-centric alerts at scale for a subscription or resource group, you can **Split by dimensions**.  When you want to monitor the same condition on multiple Azure resources, splitting by dimensions splits the alerts into separate alerts by grouping unique combinations using numerical or string columns. Splitting on Azure resource ID column makes the specified resource into the alert target.
+Start with the [recommended alerts](#recommended-alert-rules) and create a corresponding rule for each by using your subscription or a resource group as the target resource. You need to create duplicate rules for each region if you have machines in multiple regions.
 
-You may also decide not to split when you want a condition on multiple resources in the scope, for example, if you want to alert if at least five machines in the resource group scope have CPU usage over 80%.
+As you identify requirements for more metric alert rules, follow this same strategy by using a subscription or resource group as the target resource to:
+- Minimize the number of alert rules you need to manage.
+- Ensure that they're automatically applied to any new machines.
 
-:::image type="content" source="media/monitor-virtual-machines/log-alert-rule.png" alt-text="Screenshot of new log alert rule with split by dimensions.":::
+### Log alert rules
 
-You might want to see a list of the alerts with the affected computers. You can use a custom workbook that uses a custom [Resource Graph](../../governance/resource-graph/overview.md) to provide this view. Use the following query to display alerts, and use the data source **Azure Resource Graph** in the workbook.
+If you set the target resource of a log alert rule to a specific machine, queries are limited to data associated with that machine, which gives you individual alerts for it. This arrangement requires a separate alert rule for each machine.
 
-```kusto
-alertsmanagementresources
-| extend dimension = properties.context.context.condition.allOf
-| mv-expand dimension
-| extend dimension = dimension.dimensions
-| mv-expand dimension
-| extend Computer = dimension.value
-| extend AlertStatus = properties.essentials.alertState
-| summarize count() by Alert=name, tostring(AlertStatus), tostring(Computer)
-| project Alert, AlertStatus, Computer
-```
+If you set the target resource of a log alert rule to a Log Analytics workspace, you have access to all data in that workspace. For this reason, you can alert on data from all machines in the workgroup with a single rule. This arrangement gives you the option of creating a single alert for all machines. You can then use dimensions to create a separate alert for each machine.
+
+For example, you might want to alert when an error event is created in the Windows event log by any machine. You first need to create a data collection rule as described in [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md) to send these events to the `Event` table in the Log Analytics workspace. Then you create an alert rule that queries this table by using the workspace as the target resource and the condition shown in the following image.
+
+The query returns a record for any error messages on any machine. Use the **Split by dimensions** option and specify **_ResourceId** to instruct the rule to create an alert for each machine if multiple machines are returned in the results.
+
+:::image type="content" source="media/monitor-virtual-machines/log-alert-rule.png" alt-text="Screenshot that shows a new log alert rule with split by dimensions.":::
+
+#### Dimensions
+
+Depending on the information you want to include in the alert, you might need to split by using different dimensions. In this case, make sure the necessary dimensions are projected in the query by using the [project](/azure/data-explorer/kusto/query/projectoperator) or [extend](/azure/data-explorer/kusto/query/extendoperator) operator. Set the **Resource ID column** field to **Don't split** and include all the meaningful dimensions in the list. Make sure **Include all future values** is selected so that any value returned from the query is included.
+
+:::image type="content" source="media/monitor-virtual-machines/log-alert-rule-multiple-dimensions.png" alt-text="Screenshot that shows a new log alert rule with split by multiple dimensions.":::
+
+#### Dynamic thresholds
+Another benefit of using log alert rules is the ability to include complex logic in the query for determining the threshold value. You can hardcode the threshold, apply it to all resources, or calculate it dynamically based on some field or calculated value. The threshold is applied to resources only according to specific conditions. For example, you might create an alert based on available memory but only for machines with a particular amount of total memory.
+
 ## Common alert rules
-The following section lists common alert rules for virtual machines in Azure Monitor. Details for metric alerts and log metric measurement alerts are provided for each. For guidance on which type of alert to use, see [Choose the alert type](#choose-the-alert-type).
 
-If you're unfamiliar with the process for creating alert rules in Azure Monitor, see the following articles for guidance:
+The following section lists common alert rules for virtual machines in Azure Monitor. Details for metric alerts and log alerts are provided for each. For guidance on which type of alert to use, see [Alert types](#alert-types). If you're unfamiliar with the process for creating alert rules in Azure Monitor, see the [instructions to create a new alert rule](../alerts/alerts-create-new-alert-rule.md).
 
-- [Create, view, and manage metric alerts using Azure Monitor](../alerts/alerts-metric.md)
-- [Create, view, and manage log alerts using Azure Monitor](../alerts/alerts-log.md)
+> [!NOTE]
+> The details for log alerts provided here are using data collected by using [VM Insights](vminsights-overview.md), which provides a set of common performance counters for the client operating system. This name is independent of the operating system type.
 
 ### Machine unavailable
-The most basic requirement is to send an alert when a machine is unavailable. It could be stopped, the guest operating system could be unresponsive, or the agent could be unresponsive. There are various ways to configure this alerting, but the most common is to use the heartbeat sent from the Log Analytics agent. 
+One of the most common monitoring requirements for a virtual machine is to create an alert if it stops running. The best method is to create a metric alert rule in Azure Monitor by using the VM availability metric, which is currently in public preview. For a walk-through on this metric, see [Create availability alert rule for Azure virtual machine](tutorial-monitor-vm-alert-availability.md).
 
-#### Log query alert rules
-Log query alerts use the [Heartbeat table](/azure/azure-monitor/reference/tables/heartbeat), which should have a heartbeat record every minute from each machine. 
+As described in [Scaling alert rules](#scaling-alert-rules), create an availability alert rule by using a subscription or resource group as the target resource. The rule applies to multiple virtual machines, including new machines that you create after the alert rule.
 
-Use a rule with the following query.
+### Agent heartbeat
+The agent heartbeat is slightly different than the machine unavailable alert because it relies on Azure Monitor Agent to send a heartbeat. The agent heartbeat can alert you if the machine is running but the agent is unresponsive.
+
+#### Metric alert rules
+
+A metric called **Heartbeat** is included in each Log Analytics workspace. Each virtual machine connected to that workspace sends a heartbeat metric value each minute. Because the computer is a dimension on the metric, you can fire an alert when any computer fails to send a heartbeat. Set the **Aggregation type** to **Count** and the **Threshold** value to match the **Evaluation granularity**.
+
+#### Log alert rules
+
+Log query alerts use the [Heartbeat table](/azure/azure-monitor/reference/tables/heartbeat), which should have a heartbeat record every minute from each machine.
+
+Use a rule with the following query:
 
 ```kusto
 Heartbeat
-| summarize TimeGenerated=max(TimeGenerated) by Computer
+| summarize TimeGenerated=max(TimeGenerated) by Computer, _ResourceId
 | extend Duration = datetime_diff('minute',now(),TimeGenerated)
 | summarize AggregatedValue = min(Duration) by Computer, bin(TimeGenerated,5m), _ResourceId
 ```
-#### Metric alert rules
-A metric called *Heartbeat* is included in each Log Analytics workspace. Each virtual machine connected to that workspace sends a heartbeat metric value each minute. Because the computer is a dimension on the metric, you can fire an alert when any computer fails to send a heartbeat. Set the **Aggregation type** to **Count** and the **Threshold** value to match the **Evaluation granularity**.
 
 ### CPU alerts
+
+This section describes CPU alerts.
+
 #### Metric alert rules
 
 | Target | Metric |
 |:---|:---|
-| Host | Percentage CPU |
+| Host | Percentage CPU (included in recommended alerts) |
 | Windows guest | \Processor Information(_Total)\% Processor Time |
 | Linux guest | cpu/usage_active |
 
 #### Log alert rules
 
-**CPU utilization** 
+**CPU utilization**
 
 ```kusto
 InsightsMetrics
@@ -109,18 +142,22 @@ InsightsMetrics
 | where Namespace == "Processor" and Name == "UtilizationPercentage"
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
 ```
+
 ### Memory alerts
+
+This section describes memory alerts.
 
 #### Metric alert rules
 
 | Target | Metric |
 |:---|:---|
+| Host | Available Memory Bytes (preview) (included in recommended alerts) |
 | Windows guest | \Memory\% Committed Bytes in Use<br>\Memory\Available Bytes |
 | Linux guest | mem/available<br>mem/available_percent |
 
 #### Log alert rules
 
-**Available memory in MB** 
+**Available memory in MB**
 
 ```kusto
 InsightsMetrics
@@ -129,7 +166,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
 ```
 
-**Available memory in percentage** 
+**Available memory in percentage**
 
 ```kusto
 InsightsMetrics
@@ -141,6 +178,8 @@ InsightsMetrics
 
 ### Disk alerts
 
+This section describes disk alerts.
+
 #### Metric alert rules
 
 | Target | Metric |
@@ -150,7 +189,7 @@ InsightsMetrics
 
 #### Log query alert rules
 
-**Logical disk used - all disks on each computer** 
+**Logical disk used - all disks on each computer**
 
 ```kusto
 InsightsMetrics
@@ -176,8 +215,9 @@ InsightsMetrics
 | where Origin == "vm.azm.ms" 
 | where Namespace == "LogicalDisk" and Name == "TransfersPerSecond"
 | extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) ), Computer, _ResourceId, Disk 
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk 
 ```
+
 **Logical disk data rate**
 
 ```kusto
@@ -185,19 +225,20 @@ InsightsMetrics
 | where Origin == "vm.azm.ms" 
 | where Namespace == "LogicalDisk" and Name == "BytesPerSecond"
 | extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) , Computer, _ResourceId, Disk 
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk 
 ```
 
-## Network alerts
+### Network alerts
 
 #### Metric alert rules
 
 | Target | Metric |
 |:---|:---|
+| Host | Network In Total, Network Out Total (included in recommended alerts) |
 | Windows guest | \Network Interface\Bytes Sent/sec<br>\Logical Disk\(_Total)\Free Megabytes |
 | Linux guest | disk/free<br>disk/free_percent |
 
-### Log query alert rules
+#### Log query alert rules
 
 **Network interfaces bytes received - all interfaces**
 
@@ -237,72 +278,49 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface 
 ```
 
-## Example log query alert
-Here's a walk-through of creating a log alert for when the CPU of a virtual machine exceeds 80 percent. The data you need is in the [InsightsMetrics table](/azure/azure-monitor/reference/tables/insightsmetrics). The following query returns the records that need to be evaluated for the alert. Each type of alert rule uses a variant of this query.
-### Create the log alert rule
- 1. In the portal, select the relevant resource. We recommend scaling resources by using subscriptions or resource groups. 
- 1. In the Resource menu, select **Logs**.
- 1. Use this query to monitor for virtual machines CPU usage:
- 
+### Windows and Linux events
+The following sample creates an alert when a specific Windows event is created. It uses a metric measurement alert rule to create a separate alert for each computer.
+
+- **Create an alert rule on a specific Windows event.**
+
+   This example shows an event in the Application log. Specify a threshold of 0 and consecutive breaches greater than 0.
+
     ```kusto
-    InsightsMetrics
-    | where Origin == "vm.azm.ms"
-    | where Namespace == "Processor" and Name == "UtilizationPercentage"
-    | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
+    Event 
+    | where EventLog == "Application"
+    | where EventID == 123 
+    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
     ```
- 1. Run the query to make sure you get the results you were expecting.
- 1. From the top command bar, Select **+ New alert rule** to create a rule using the current query.
- 1. The **Create an alert rule** page opens with your query. We try to detect summarized data from the query results automatically. If detected, the appropriate values are automatically selected. 
-     :::image type="content" source="media/monitor-virtual-machines/log-alert-rule-query.png" alt-text="Screenshot of new log alert rule query.":::
- 1. In the **Measurement** section, select the values for these fields if they are not already automatically selected.
- 
-    |Field  |Description  |Value for this scenario |
-    |---------|---------|---------|
-    |Measure| The number of table rows or a numeric column to aggregate |AggregatedValue|
-    |Aggregation type|The type of aggregation to apply to the data points in aggregation granularity|Average|
-    |Aggregation granularity|The interval over which data points are grouped by the aggregation type|15 minutes|
+
+- **Create an alert rule on Syslog events with a particular severity.**
+
+   The following example shows error authorization events. Specify a threshold of 0 and consecutive breaches greater than 0.
+
+    ```kusto
+    Syslog
+    | where Facility == "auth"
+    | where SeverityLevel == "err"
+    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
+    ```
+
+### Custom performance counters
+
+- **Create an alert on the maximum value of a counter.**
     
-    :::image type="content" source="media/monitor-virtual-machines/log-alert-rule-measurement.png" alt-text="Screenshot of new log alert rule measurement. ":::
- 1. In the **Split by dimensions** section, select the values for these fields if they are not already automatically selected.
-     
-    |Field|Description  |Value for this scenario |
-    |---------|---------|---------|
-    |Resource ID column|An Azure Resource ID column that will split the alerts and set the fired alert target scope.|_Resourceid|
-    |Dimension name|Dimensions monitor specific time series and provide context to the fired alert. Dimensions can be either number or string columns. If you select more than one dimension value, each time series that results from the combination will trigger its own alert and will be charged separately. The displayed dimension values are based on data from the last 48 hours. Custom dimension values can be added by clicking 'Add custom value'.|Computer|
-    |Operator|The operator to compare the dimension value|=|
-    |Dimension value| The list of dimension column values |All current and future values| 
-    
-    :::image type="content" source="media/monitor-virtual-machines/log-alert-rule-dimensions.png" alt-text="Screenshot of new log alert rule with dimensions. ":::
- 1. In the **Alert Logic** section, select the values for these fields if they are not already automatically selected.
-      
-    |Field  |Description  |Value for this scenario |
-    |---------|---------|---------|
-    |Operator |The operator to compare the metric value against the threshold|Greater than|
-    |Threshold value| The value that the result is measured against.|80|
-    |Frequency of evaluation|How often the alert rule should run. A frequency smaller than the aggregation granularity results in a sliding window evaluation.|15 minutes|
-  1. (Optional) In the **Advanced options** section, set the [Number of violations to trigger alert](../alerts/alerts-unified-log.md#number-of-violations-to-trigger-alert).
-     :::image type="content" source="../alerts/media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of alerts rule preview advanced options.":::
+    ```kusto
+    Perf 
+    | where CounterName == "My Counter" 
+    | summarize AggregatedValue = max(CounterValue) by Computer
+    ```
 
-  1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
-     :::image type="content" source="../alerts/media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of alerts rule preview.":::
+- **Create an alert on the average value of a counter.**
 
-  1. From this point on, you can select the **Review + create** button at any time. 
-  1. In the **Actions** tab, select or create the required [action groups](../alerts/action-groups.md).
-     :::image type="content" source="../alerts/media/alerts-log/alerts-rule-actions-tab.png" alt-text="Screenshot of alerts rule preview actions tab.":::
+    ```kusto
+    Perf 
+    | where CounterName == "My Counter" 
+    | summarize AggregatedValue = avg(CounterValue) by Computer
+    ```
 
-  1. In the **Details** tab, define the **Project details** and the **Alert rule details**.
-  1. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to [**mute actions**](../alerts/alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
-     :::image type="content" source="../alerts/media/alerts-log/alerts-rule-details-tab.png" alt-text="Screenshot of alerts rule preview details tab.":::
-    > [!NOTE]
-    > If you or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
-
-1. In the **Tags** tab, set any required tags on the alert rule resource.
-   :::image type="content" source="../alerts/media/alerts-log/alerts-rule-tags-tab.png" alt-text="Screenshot of alerts rule preview tags tab.":::
-
-1. In the **Review + create** tab, a validation will run and inform you of any issues.
-1. When validation passes and you have reviewed the settings, click the **Create** button.    
-   :::image type="content" source="../alerts/media/alerts-log/alerts-rule-review-create.png" alt-text="Screenshot of alerts rule preview review and create tab.":::
 ## Next steps
 
-* [Monitor workloads running on virtual machines.](monitor-virtual-machine-workloads.md)
-* [Analyze monitoring data collected for virtual machines.](monitor-virtual-machine-analyze.md)
+[Analyze monitoring data collected for virtual machines](monitor-virtual-machine-analyze.md)

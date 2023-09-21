@@ -1,13 +1,12 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Storage via access key - Linux - Azure AD
+title: Tutorial`:` Use a managed identity to access Azure Storage via access key - Linux
 description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Storage via an access key.
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: daveba
-
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, devx-track-arm-template
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: tutorial
@@ -59,12 +58,12 @@ Later we will upload and download a file to the new storage account. Because fil
 
 ## Grant your VM's system-assigned managed identity access to use storage account access keys
 
-Azure Storage does not natively support Azure AD authentication.  However, you can use your VM's system-assigned managed identity to retrieve a storage SAS from Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS. Grant access by assigning the [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role to the managed-identity at the scope of the resource group that contains your storage account.
+Azure Storage does not natively support Microsoft Entra authentication.  However, you can use your VM's system-assigned managed identity to retrieve a storage SAS from Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS. Grant access by assigning the [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role to the managed-identity at the scope of the resource group that contains your storage account.
  
 For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 >[!NOTE]
-> For more information on the various roles that you can use to grant permissions to storage review [Authorize access to blobs and queues using Azure Active Directory.](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights)
+> For more information on the various roles that you can use to grant permissions to storage review [Authorize access to blobs and queues using Microsoft Entra ID.](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights)
 
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager
@@ -85,19 +84,21 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     ```
     
     > [!NOTE]
-    > In the previous request, the value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
+    > In the previous request, the value of the "resource" parameter must be an exact match for what is expected by Microsoft Entra ID. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
     > In the following response, the access_token element as been shortened for brevity.
     
-    ```bash
-    {"access_token":"eyJ0eXAiOiJ...",
-    "refresh_token":"",
-    "expires_in":"3599",
-    "expires_on":"1504130527",
-    "not_before":"1504126627",
-    "resource":"https://management.azure.com",
-    "token_type":"Bearer"} 
-     ```
-    
+    ```json
+    {
+      "access_token": "eyJ0eXAiOiJ...",
+      "refresh_token": "",
+      "expires_in": "3599",
+      "expires_on": "1504130527",
+      "not_before": "1504126627",
+      "resource": "https://management.azure.com",
+      "token_type": "Bearer"
+    }
+    ```
+
 ## Get storage account access keys from Azure Resource Manager to make storage calls  
 
 Now use CURL to call Resource Manager using the access token we retrieved in the previous section, to retrieve the storage access key. Once we have the storage access key, we can call storage upload/download operations. Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<STORAGE ACCOUNT NAME>` parameter values with your own values. Replace the `<ACCESS TOKEN>` value with the access token you retrieved earlier:
@@ -114,6 +115,7 @@ The CURL response gives you the list of Keys:
 ```bash 
 {"keys":[{"keyName":"key1","permissions":"Full","value":"iqDPNt..."},{"keyName":"key2","permissions":"Full","value":"U+uI0B..."}]} 
 ```
+
 Create a sample blob file to upload to your blob storage container. On a Linux VM, you can do this with the following command. 
 
 ```bash

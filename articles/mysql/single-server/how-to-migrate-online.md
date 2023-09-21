@@ -1,18 +1,20 @@
 ---
 title: Minimal-downtime migration - Azure Database for MySQL
 description: This article describes how to perform a minimal-downtime migration of a MySQL database to Azure Database for MySQL.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.custom:
-ms.date: 6/19/2021
+ms.date: 06/20/2022
 ---
 
 # Minimal-downtime migration to Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 You can perform MySQL migrations to Azure Database for MySQL with minimal downtime by using Data-in replication, which limits the amount of downtime that is incurred by the application.
 

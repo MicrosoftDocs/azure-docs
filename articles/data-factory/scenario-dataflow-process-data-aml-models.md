@@ -4,13 +4,11 @@ description: Learn how to use Azure Data Factory data flows to process data from
 services: data-factory
 author: amberz
 co-author: ATLArcht
-
 ms.service: data-factory
 ms.subservice: tutorials
 ms.workload: data-services
-
 ms.topic: conceptual
-ms.date: 1/31/2021
+ms.date: 07/20/2023
 ms.author: amberz
 ms.co-author: Donnana
 ---

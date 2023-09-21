@@ -4,7 +4,7 @@ metadata:
   description: This article provides a list of frequently asked questions (FAQ) for Azure Event Hubs and their answers. 
   ms.topic: faq
   ms.service: event-hubs
-  ms.date: 02/16/2022
+  ms.date: 08/26/2022
 title: Event Hubs frequently asked questions
 summary: |
 
@@ -17,15 +17,20 @@ sections:
           A namespace is a scoping container for Event Hub/Kafka Topics. It gives you a unique [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). A namespace serves as an application container that can house multiple Event Hub/Kafka Topics. 
           
       - question: |
+          Is it possible to change pricing tier after deployment?
+        answer: |
+          No. Once deployed, it is not possible to change (for example) from Standard Tier to Premium Tier without deploying a new resource.
+          
+      - question: |
           When do I create a new namespace vs. use an existing namespace?
         answer: |
           Capacity allocations throughput units (TUs) or [processing units (PUs)](./event-hubs-scalability.md#processing-units)) are billed at the namespace level. A namespace is also associated with a region.
           
           You may want to create a new namespace instead of using an existing one in one of the following scenarios: 
           
-          - You need an Event Hub associated with a new region.
-          - You need an Event Hub associated with a different subscription.
-          - You need an Event Hub with a distinct capacity allocation (that is, the capacity need for the namespace with the added event hub would exceed the 40 TU threshold and you don't want to go for the dedicated cluster)  
+          - You need an Event Hubs associated with a new region.
+          - You need an Event Hubs associated with a different subscription.
+          - You need an Event Hubs with a distinct capacity allocation (that is, the capacity need for the namespace with the added event hub would exceed the 40 TU threshold and you don't want to go for the dedicated cluster)  
           
       - question: |
           What is the difference between Event Hubs Basic and Standard tiers?
@@ -36,7 +41,7 @@ sections:
           * Additional brokered connections, with an overage charge for more than the number included
           * More than a single [consumer group](event-hubs-features.md#consumer-groups)
           * [Capture](event-hubs-capture-overview.md)
-          * [Kafka integration](event-hubs-for-kafka-ecosystem-overview.md)
+          * [Kafka integration](azure-event-hubs-kafka-overview.md)
           
           For more information about pricing tiers, including Event Hubs Dedicated, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
           
@@ -53,7 +58,7 @@ sections:
       - question: |
           What is the maximum retention period for events?
         answer: |
-          Event Hubs Standard tier currently supports a maximum retention period of seven days. Event hubs aren't intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it's convenient to replay an event stream into the same systems. For example, to train or verify a new machine learning model on existing data. If you need message retention beyond seven days, enabling [Event Hubs Capture](event-hubs-capture-overview.md) on your event hub pulls the data from your event hub into the Storage account or Azure Data Lake Service account of your choosing. Enabling Capture incurs a charge based on your purchased throughput units.
+          Event Hubs Standard tier currently supports a maximum retention period of seven days while for Premium and dedicated tier this limit is 90 days. Event hubs aren't intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it's convenient to replay an event stream into the same systems. For example, to train or verify a new machine learning model on existing data. If you need message retention beyond seven days, enabling [Event Hubs Capture](event-hubs-capture-overview.md) on your event hub pulls the data from your event hub into the Storage account or Azure Data Lake Service account of your choosing. Enabling Capture incurs a charge based on your purchased throughput units.
           
           You can configure the retention period for the captured data on your storage account. The **lifecycle management** feature of Azure Storage offers a rich, rule-based policy for general purpose v2 and blob storage accounts. Use the policy to transition your data to the appropriate access tiers or expire at the end of the data's lifecycle. For more information, see [Manage the Azure Blob storage lifecycle](../storage/blobs/lifecycle-management-overview.md). 
           
@@ -122,7 +127,7 @@ sections:
           
           - Up to 1 MB per second of ingress events (events sent into an event hub), but no more than 1000 ingress events, management operations, or control API calls per second.
           - Up to 2 MB per second of egress events (events consumed from an event hub), but no more than 4096 egress events.
-          - Up to 84 GB of event storage (enough for the default 24-hour retention period).
+          - Up to 84 GB of event storage (enough for the default 1 hour retention period).
           
       - question: |
           How are throughput units billed?
@@ -145,6 +150,11 @@ sections:
           Is there a cost associated when I turn on the auto-inflate feature?
         answer: |
           There's **no cost** associated with this feature. 
+          
+      - question: |
+          Can Zone Redundancy be enabled for an existing Event Hub Namespace?
+        answer: |
+          Currently, this isn't possible because old Event Hub Namespaces are in different clusters, and there's no way to migrate them to the new clusters that automatically enable zone redundancy when new Event Hub namespaces are created.
 
       - question: |
           How are throughput limits enforced?
@@ -184,23 +194,6 @@ sections:
         answer: |
           [!INCLUDE [event-hubs-partition-count](./includes/event-hubs-partition-count.md)]
           
-      - question: |
-          Increase partitions
-        answer: |
-          You can request for the partition count to be increased to 40 (exact) by submitting a support request. 
-          
-          1. On the **Event Bus Namespace** page, select **New support request** on the left menu. 
-          1. On the **New support request** page, follow these steps:
-              1. For **Summary**, describe the issue in a few words. 
-              1. For **Problem type**, select **Quota**. 
-              1. For **Problem subtype**, select **Request for partition change**. 
-              
-                  :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Increase partition count":::
-          
-          The partition count can be increased to exactly 40. In this case, number of TUs also have to be increased to 40. If you decide later to lower the TU limit back to <= 20, the maximum partition limit is also decreased to 32. 
-          
-          The decrease in partitions doesn't affect existing event hubs because partitions are applied at the event hub level and they're immutable after creation of the hub. 
-          
   - name: Pricing
     questions:
       - question: |
@@ -211,7 +204,7 @@ sections:
       - question: |
           Is there a charge for retaining Event Hubs events for more than 24 hours?
         answer: |
-          The Event Hubs Standard tier does allow message retention periods longer than 24 hours, for a maximum of seven days. If the size of the total number of stored events exceeds the storage allowance for the number of selected throughput units (84 GB per throughput unit), the size that exceeds the allowance is charged at the published Azure Blob storage rate. The storage allowance in each throughput unit covers all storage costs for retention periods of 24 hours (the default) even if the throughput unit is used up to the maximum ingress allowance.
+          The Event Hubs Standard tier does allow message retention periods longer than 24 hours, for a maximum of seven days. If the size of the total number of stored events exceeds the storage allowance for the number of selected throughput units (84 GB per throughput unit), the size that exceeds the allowance is charged at the published Azure Blob storage rate. The storage allowance in each throughput unit covers all storage costs for retention periods of 24 hours even if the throughput unit is used up to the maximum ingress allowance.
 
       - question: |
           How is the Event Hubs storage size calculated and charged?
@@ -233,7 +226,7 @@ sections:
       - question: |
           How is Event Hubs Capture billed?
         answer: |
-          Capture is enabled when any event hub in the namespace has the Capture option enabled. Event Hubs Capture is billed hourly per purchased throughput unit. As the throughput unit count is increased or decreased, Event Hubs Capture billing reflects these changes in whole hour increments. For more information about Event Hubs Capture billing, see [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/).
+          Capture is enabled when any event hub in the namespace has the Capture option enabled. Event Hubs Capture is billed monthly per purchased throughput unit. As the throughput unit count is increased or decreased, Event Hubs Capture billing reflects these changes in whole hour increments. For more information about Event Hubs Capture billing, see [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/).
           
       - question: |
           Do I get billed for the storage account I select for Event Hubs Capture?

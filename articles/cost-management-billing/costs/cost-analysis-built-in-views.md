@@ -1,10 +1,10 @@
 ---
 title: Use built-in views in Cost analysis
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description:  This article helps you understand when to use which view, how each one provides unique insights about your costs and recommended next steps to investigate further.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/17/2022
+ms.date: 08/10/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -15,34 +15,33 @@ ms.reviewer: micflan
 
 Cost Management includes several tools to help you view and monitor your cloud costs. As you get started, cost analysis is the first one you should familiarize yourself with. And within cost analysis, you'll start with built-in views. This article helps you understand when to use which view, how each one provides unique insights about your costs and recommended next steps to investigate further.
 
-## Access built-in views
-
-When you're in classic Cost analysis, you can access the preview views at the top of the page with the **Cost by resource** list.
-
-:::image type="content" source="./media/cost-analysis-built-in-views/access-preview-classic.png" alt-text="Screenshot showing the Cost by resource list." lightbox="./media/cost-analysis-built-in-views/access-preview-classic.png" :::
+<a name="Resources"></a>
+<a name="CostByResource"></a>
 
 ## Analyze resource costs
 
 Cost Management offers two views to analyze your resource costs:
 
-- **Cost by resource**
-- **Resources (preview)**
+- **Cost by resource** (customizable view)
+- **Resources** (smart view)
 
 Both views are only available when you have a subscription or resource group scope selected.
 
-The classic **Cost by resource** view shows a list of all resources. Information is shown in tabular format.
+The **Cost by resource** customizable view shows a list of all resources. Information is shown in tabular format.
 
 :::image type="content" source="./media/cost-analysis-built-in-views/cost-by-resource.png" alt-text="Screenshot showing an example of the Cost by resource view." lightbox="./media/cost-analysis-built-in-views/cost-by-resource.png" :::
 
-The preview **Resources** view shows a list of all resources, including deleted resources. The view is like the Cost by resource view in classic cost analysis. Compared to the classic Cost by resource view, the new view:
+The **Resources** smart view shows a list of all resources, including deleted resources. The view is like the Cost by resource view with the following improvements:
 
-- Has optimized performance and loads resources faster. It better groups together related costs. Azure and Marketplace costs are grouped together.
-- Provides improved troubleshooting details.
-- Shows grouped Azure and Marketplace costs together per resource.
-- Shows resource types with icons.
+- Optimized performance that loads resources faster.
+- Provides smart insights to help you better understand your data, like subscription cost anomalies.
 - Includes a simpler custom date range selection with support for relative date ranges.
 - Allows you to customize the download to exclude nested details. For example, resources without meters in the Resources view.
-- Provides smart insights to help you better understand your data, like subscription cost anomalies.
+- Groups Azure and Marketplace costs for a single resource together on a single row.
+- Groups related resources together based on the resource hierarchy in Azure Resource Manager.
+- Groups related resources under their logical parent using the `cm-resource-parent` tag (set the value to the parent resource ID). 
+- Shows resource types with icons.
+- Provides improved troubleshooting details to streamline support.
 
 Use either view to:
 
@@ -54,6 +53,8 @@ Use either view to:
 - Identify and tag untagged resources.
 
 :::image type="content" source="./media/cost-analysis-built-in-views/resources.png" alt-text="Screenshot showing an example of the Resources view." lightbox="./media/cost-analysis-built-in-views/resources.png" :::
+
+<a name="ResourceGroups"></a>
 
 ## Analyze resource group costs
 
@@ -69,6 +70,8 @@ Use this view to:
 
 :::image type="content" source="./media/cost-analysis-built-in-views/resource-groups.png" alt-text="Screenshot showing an example of the Resource groups view." lightbox="./media/cost-analysis-built-in-views/resource-groups.png" :::
 
+<a name="Subscriptions"></a>
+
 ## Analyze your subscription costs
 
 The **Subscriptions** view is only available when you have a billing account or management group scope selected. The view separates costs by subscription and resource group.
@@ -82,6 +85,19 @@ Use this view to:
 - Identify and tag untagged resources using resource subscription tags.
 
 :::image type="content" source="./media/cost-analysis-built-in-views/subscriptions.png" alt-text="Screenshot showing an example of the Subscriptions view." lightbox="./media/cost-analysis-built-in-views/subscriptions.png" :::
+
+<a name="Customers"></a>
+
+## Review cost across CSP end customers
+
+The **Customers** view is available for CSP partners when you have a billing account or billing profile scope selected. The view separates costs by customer and subscription.
+
+Use this view to:
+
+- Identify the customers that are incurring the most cost.
+- Identify the subscriptions that are incurring the most cost for a specific customer.
+
+<a name="Reservations"></a>
 
 ## Review reservation resource utilization
 
@@ -103,9 +119,11 @@ Because of the change in how costs are represented, it's important to note that 
 
 :::image type="content" source="./media/cost-analysis-built-in-views/reservations.png" alt-text="Screenshot showing an example of the Reservations view." lightbox="./media/cost-analysis-built-in-views/reservations.png" :::
 
+<a name="Services"></a>
+
 ## Break down product and service costs
 
-The **Services view** shows a list of your services and products. This view is like the Invoice details view in classic cost analysis. The main difference is that rows are grouped by service, making it simpler to see your total cost at a service level. It also separates individual products you're using in each service.
+The **Services view** shows a list of your services and products. This view is like the Invoice details customizable view. The main difference is that rows are grouped by service, making it simpler to see your total cost at a service level. It also separates individual products you're using in each service.
 
 Use this view to:
 
@@ -113,6 +131,8 @@ Use this view to:
 - Find the biggest opportunities to save money.
 
 :::image type="content" source="./media/cost-analysis-built-in-views/services.png" alt-text="Screenshot showing an example of the Services view." lightbox="./media/cost-analysis-built-in-views/services.png" :::
+
+<a name="AccumulatedCosts"></a>
 
 ## Review current cost trends
 
@@ -122,6 +142,8 @@ Use the **Accumulated costs** view to:
 
 :::image type="content" source="./media/cost-analysis-built-in-views/accumulated-costs.png" alt-text="Screenshot showing an example of the Accumulated Costs view." lightbox="./media/cost-analysis-built-in-views/accumulated-costs.png" :::
 
+<a name="CostByService"></a>
+
 ## Compare monthly service run rate costs
 
 Use the **Cost by service** view to:
@@ -129,6 +151,8 @@ Use the **Cost by service** view to:
 - Review month-over-month changes in cost.
 
 :::image type="content" source="./media/cost-analysis-built-in-views/cost-by-service.png" alt-text="Screenshot showing an example of the Cost by service view." lightbox="./media/cost-analysis-built-in-views/cost-by-service.png" :::
+
+<a name="InvoiceDetails"></a>
 
 ## Reconcile invoiced usage charges
 
@@ -141,3 +165,4 @@ Use the **Invoice details** view to:
 ## Next steps
 
 - Now that you're familiar with using built-in views, read about [Saving and sharing customized views](save-share-views.md).
+- Learn about how to [Customize views in cost analysis](customize-cost-analysis-views.md)

@@ -1,8 +1,11 @@
 ---
 title: Connect BareMetal Infrastructure instances in Azure
+author: jjaygbay1
+ms.author: jacobjaygbay
 description: Learn how to identify and interact with BareMetal instances in the Azure portal or Azure CLI.
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.custom: devx-track-azurecli
+ms.date: 04/01/2023
 ---
 
 # Connect BareMetal Infrastructure instances in Azure
@@ -37,7 +40,7 @@ You'll need to list your subscription in the Azure portal and then double-click 
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Sign in to the Azure subscription you use for the BareMetal instance deployment through the Azure CLI. Register the `BareMetalInfrastructure` resource provider with the [az provider register](/cli/azure/provider#az-provider-register) command:
 
@@ -121,7 +124,7 @@ Also on the right side, you'll find the [Azure proximity placement group's](../v
 
 ### [Azure CLI](#tab/azure-cli)
 
-To see details of a BareMetal instance, run the [az baremetalinstance show](/cli/azure/baremetalinstance#az-baremetalinstance-show) command:
+To see these details of a BareMetal instance, run the [az baremetalinstance show](/cli/azure/baremetalinstance#az-baremetalinstance-show) command:
 
 ```azurecli
 az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01

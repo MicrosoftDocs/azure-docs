@@ -1,35 +1,31 @@
 ---
-title: Configure SSO on macOS and iOS 
-titleSuffix: Microsoft identity platform
+title: Configure SSO on macOS and iOS
 description: Learn how to configure single sign on (SSO) on macOS and iOS.
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/03/2020
-ms.author: marsma
-ms.reviewer: 
-ms.custom: aaddev
+ms.date: 05/03/2023
+ms.author: henrymbugua
+ms.reviewer:
+ms.custom: aaddev, engagement-fy23
 ---
 
 # Configure SSO on macOS and iOS
 
-The Microsoft Authentication Library (MSAL) for macOS and iOS supports Single Sign-on (SSO) between macOS/iOS apps and browsers. This article covers the following SSO scenarios:
+The Microsoft Authentication Library (MSAL) for macOS and iOS supports single sign-on (SSO) between macOS/iOS apps and browsers. This article covers the following SSO scenarios:
 
 - [Silent SSO between multiple apps](#silent-sso-between-apps)
 
-This type of SSO works between multiple apps distributed by the same Apple Developer. It provides silent SSO (that is, the user isn't prompted for credentials) by reading refresh tokens written by other apps from the keychain, and exchanging them for access tokens silently.  
+This type of SSO works between multiple apps distributed by the same Apple Developer. It provides silent SSO (that is, the user isn't prompted for credentials) by reading refresh tokens written by other apps from the keychain, and exchanging them for access tokens silently.
 
 - [SSO through Authentication broker](#sso-through-authentication-broker-on-ios)
 
-> [!IMPORTANT]
-> This flow is not available on macOS.
-
-Microsoft provides apps, called brokers, that enable SSO between applications from different vendors as long as the mobile device is registered with Azure Active Directory (AAD). This type of SSO requires a broker application be installed on the user's device.
+Microsoft provides apps called brokers that enable SSO between applications from different vendors as long as the mobile device is registered with Microsoft Entra ID. This type of SSO requires a broker application be installed on the user's device.
 
 - **SSO between MSAL and Safari**
 
@@ -37,12 +33,14 @@ SSO is achieved through the [ASWebAuthenticationSession](https://developer.apple
 
 If you use the default web view in your app to sign in users, you'll get automatic SSO between MSAL-based applications and Safari. To learn more about the web views that MSAL supports, visit [Customize browsers and WebViews](customize-webviews.md).
 
-> [!IMPORTANT]
-> This type of SSO is currently not available on macOS. MSAL on macOS only supports WKWebView which doesn't have SSO support with Safari. 
+This type of SSO is currently not available on macOS. MSAL on macOS only supports WKWebView which doesn't have SSO support with Safari.
+
+> [!NOTE]
+> iOS clears session cookies right away after login due to the use of temporary browser to perform login. This browser does not share any of the session cookies. To make SSO work on iOS, KMSI must be enabled to utilize persistent cookies. 
 
 - **Silent SSO between ADAL and MSAL macOS/iOS apps**
 
-MSAL Objective-C supports migration and SSO with ADAL Objective-C-based apps. The apps must be distributed by the same Apple Developer.
+MSAL Objective-C support migration and SSO with ADAL Objective-C-based apps. The apps must be distributed by the same Apple Developer.
 
 See [SSO between ADAL and MSAL apps on macOS and iOS](sso-between-adal-msal-apps-macos-ios.md) for instructions for cross-app SSO between ADAL and MSAL-based apps.
 
@@ -65,10 +63,9 @@ The way the Microsoft identity platform tells apps that use the same Application
 
 App1 Redirect URI: `msauth.com.contoso.mytestapp1://auth`  
 App2 Redirect URI: `msauth.com.contoso.mytestapp2://auth`  
-App3 Redirect URI: `msauth.com.contoso.mytestapp3://auth`  
+App3 Redirect URI: `msauth.com.contoso.mytestapp3://auth`
 
-> [!IMPORTANT]
-> The format of redirect URIs must be compatible with the format MSAL supports, which is documented in [MSAL Redirect URI format requirements](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
+The format of redirect URIs must be compatible with the format MSAL supports, which is documented in [MSAL Redirect URI format requirements](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
 
 ### Setup keychain sharing between applications
 
@@ -93,8 +90,9 @@ When you have the entitlements set up correctly, you'll see a `entitlements.plis
 #### Add a new keychain group
 
 Add a new keychain group to your project **Capabilities**. The keychain group should be:
-* `com.microsoft.adalcache` on iOS 
-* `com.microsoft.identity.universalstorage` on macOS.
+
+- `com.microsoft.adalcache` on iOS
+- `com.microsoft.identity.universalstorage` on macOS.
 
 ![keychain example](media/single-sign-on-macos-ios/keychain-example.png)
 
@@ -110,7 +108,7 @@ Objective-C:
 NSError *error = nil;
 MSALPublicClientApplicationConfig *configuration = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<my-client-id>"];
 configuration.cacheConfig.keychainSharingGroup = @"my.keychain.group";
-    
+
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:configuration error:&error];
 ```
 
@@ -137,48 +135,48 @@ That's it! The Microsoft identity SDK will now share credentials across all your
 
 ## SSO through Authentication broker on iOS
 
-MSAL provides support for brokered authentication with Microsoft Authenticator. Microsoft Authenticator provides SSO for AAD registered devices, and also helps your application follow Conditional Access policies.
+MSAL provides support for brokered authentication with Microsoft Authenticator. Microsoft Authenticator provides SSO for Microsoft Entra registered devices, and also helps your application follow Conditional Access policies.
 
 The following steps are how you enable SSO using an authentication broker for your app:
 
 1. Register a broker compatible Redirect URI format for the application in your app's Info.plist. The broker compatible Redirect URI format is `msauth.<app.bundle.id>://auth`. Replace `<app.bundle.id>`` with your application's bundle ID. For example:
 
-    ```xml
-    <key>CFBundleURLSchemes</key>
-    <array>
-        <string>msauth.<app.bundle.id></string>
-    </array>
-    ```
+   ```xml
+   <key>CFBundleURLSchemes</key>
+   <array>
+       <string>msauth.<app.bundle.id></string>
+   </array>
+   ```
 
 1. Add following schemes to your app's Info.plist under `LSApplicationQueriesSchemes`:
 
-    ```xml
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-         <string>msauthv2</string>
-         <string>msauthv3</string>
-    </array>
-    ```
+   ```xml
+   <key>LSApplicationQueriesSchemes</key>
+   <array>
+        <string>msauthv2</string>
+        <string>msauthv3</string>
+   </array>
+   ```
 
 1. Add the following to your `AppDelegate.m` file to handle callbacks:
 
-    Objective-C:
-    
-    ```objc
-    - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
-    {
-        return [MSALPublicClientApplication handleMSALResponse:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
-    }
-    ```
-    
-    Swift:
-    
-    ```swift
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
-    }
-    ```
-    
+   Objective-C:
+
+   ```objc
+   - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
+   {
+       return [MSALPublicClientApplication handleMSALResponse:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
+   }
+   ```
+
+   Swift:
+
+   ```swift
+   func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+       return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+   }
+   ```
+
 **If you are using Xcode 11**, you should place MSAL callback into the `SceneDelegate` file instead.
 If you support both UISceneDelegate and UIApplicationDelegate for compatibility with older iOS, MSAL callback would need to be placed into both files.
 
@@ -190,7 +188,7 @@ Objective-C:
      UIOpenURLContext *context = URLContexts.anyObject;
      NSURL *url = context.URL;
      NSString *sourceApplication = context.options.sourceApplication;
-     
+
      [MSALPublicClientApplication handleMSALResponse:url sourceApplication:sourceApplication];
  }
 ```
@@ -199,14 +197,14 @@ Swift:
 
 ```swift
 func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        
+
         guard let urlContext = URLContexts.first else {
             return
         }
-        
+
         let url = urlContext.url
         let sourceApp = urlContext.options.sourceApplication
-        
+
         MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
     }
 ```

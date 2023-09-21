@@ -4,7 +4,7 @@ description: Learn best practices for managing HDInsight clusters.
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/11/2020
+ms.date: 06/12/2023
 ---
 # HDInsight cluster management best practices
 

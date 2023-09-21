@@ -29,11 +29,11 @@ The quickstart uses two pre-written .NET applications:
     dotnet --version
     ```
 
-* Clone or download the [Azure IoT C# samples](https://github.com/Azure-Samples/azure-iot-samples-csharp) from GitHub.
+* Clone or download the [Azure IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) from GitHub.
 
-* Make sure that port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../articles/iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../articles/iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](iot-hub-cli-version-info.md)]
 
@@ -59,7 +59,7 @@ You use this value later in the quickstart.
 
 The simulated device application connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgment back to your hub after it executes the direct method.
 
-1. In a local terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iot-hub\Quickstarts\SimulatedDeviceWithCommand** folder.
+1. In a local terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iothub\device\samples\getting started\SimulatedDeviceWithCommand** folder.
 
 2. Run the following command to install the required packages for simulated device application:
 
@@ -72,7 +72,7 @@ The simulated device application connects to a device-specific endpoint on your 
     `{DeviceConnectionString}`: Replace this placeholder with the device connection string you noted previously.
 
     ```cmd/sh
-    dotnet run -- "{DeviceConnectionString}"
+    dotnet run -- -c "{DeviceConnectionString}"
     ```
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
@@ -83,7 +83,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 The service application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgments. An IoT Hub service application typically runs in the cloud.
 
-1. In another local terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iot-hub\Quickstarts\InvokeDeviceMethod** folder.
+1. In another local terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iothub\service\samples\getting started\InvokeDeviceMethod** folder.
 
 2. In the local terminal window, run the following commands to install the required libraries for the service application:
 

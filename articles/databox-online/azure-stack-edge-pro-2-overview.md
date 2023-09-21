@@ -7,10 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/04/2022
+ms.date: 05/22/2023
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro 2 is and how it works so I can use it to process and transform data before sending to Azure.
 ---
+
 # What is Azure Stack Edge Pro 2?
 
 Azure Stack Edge Pro 2 is a new generation of an AI-enabled edge computing device offered as a service from Microsoft. This article provides you an overview of the Azure Stack Edge Pro 2 solution. The overview also details the benefits, key capabilities, and the scenarios where you can deploy this device.
@@ -19,8 +20,7 @@ The Azure Stack Edge Pro 2 offers the following benefits over its precursor, the
 
 - This series offers multiple models that closely align with your compute, storage, and memory needs. Depending on the model you choose, the compute acceleration could be via one or two Graphical Processing Units (GPU) on the device. 
 - This series has flexible form factors with multiple mounting options. These devices can be rack mounted, mounted on a wall, or even placed on a shelf in your office. 
-- These devices have low acoustic emissions and meet the requirements for noise levels in an office environment. 
-
+- These devices have low acoustic emissions and meet the requirements for noise levels in an office environment.
 
 ## Use cases
 
@@ -34,7 +34,7 @@ Azure Stack Edge Pro 2 has the following capabilities:
 
 |Capability |Description  |
 |---------|---------|
-|Accelerated AI inferencing| Enabled by the compute acceleration card. Depending on your compute needs, you may choose a model that comes with or without Graphical Processing Units (GPUs). <br> For more information, see [GPU sharing on your Azure Stack Edge device](azure-stack-edge-gpu-sharing.md).|
+|Accelerated AI inferencing| Enabled by the compute acceleration card. Depending on your compute needs, you may choose a model that comes with one, two or no Graphical Processing Units (GPUs). <br> For more information, see [Technical specifications for Azure Stack Edge Pro 2](azure-stack-edge-pro-2-technical-specifications-compliance.md).|
 |Edge computing      |Supports VM and containerized workloads to allow analysis, processing, and filtering of data. <br>For information on VM workloads, see [VM overview on Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-overview.md).<br>For containerized workloads, see [Kubernetes overview on Azure Stack Edge](azure-stack-edge-gpu-kubernetes-overview.md)</li></ul> |
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
 |Cloud-managed     |Device and service are managed via the Azure portal.|
@@ -86,6 +86,8 @@ The Azure Stack Edge Pro 2 physical device, Azure resource, and target storage a
 Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). Azure Stack Edge service doesn’t have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
 
 To understand how to choose a region for the Azure Stack Edge service, device, and data storage, see [Choosing a region for Azure Stack Edge](azure-stack-edge-gpu-regions.md).
+
+[!INCLUDE [azure-stack-edge-use-case-parameters](../../includes/azure-stack-edge-use-case-parameters.md)]
 
 ## Billing and pricing 
 

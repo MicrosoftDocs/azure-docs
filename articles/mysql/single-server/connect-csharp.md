@@ -1,19 +1,21 @@
 ---
 title: 'Quickstart: Connect using C# - Azure Database for MySQL'
 description: "This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for MySQL."
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
-ms.custom: mvc, devx-track-csharp, mode-other
-ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 10/18/2020
+ms.devlang: csharp
+author: SudheeshGH
+ms.author: sunaray
+ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
+ms.date: 06/20/2022
 ---
 
 # Quickstart: Use .NET (C#) to connect and query data in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This quickstart demonstrates how to connect to an Azure Database for MySQL by using a C# application. It shows how to use SQL statements to query, insert, update, and delete data in the database. 
 
@@ -33,7 +35,6 @@ For this quickstart you need:
 
 - [Create a database and non-admin user](./how-to-create-users.md)
 
-[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
 ## Create a C# project
 At a command prompt, run:
@@ -121,9 +122,6 @@ namespace AzureMySqlExample
 }
 ```
 
-[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
-
-
 ## Step 2: Read data
 
 Use the following code to connect and read the data by using a `SELECT` SQL statement. The code uses the `MySqlConnection` class with methods:
@@ -187,8 +185,6 @@ namespace AzureMySqlExample
 }
 ```
 
-[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
-
 ## Step 3: Update data
 Use the following code to connect and read the data by using an `UPDATE` SQL statement. The code uses the `MySqlConnection` class with method:
 - [OpenAsync()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) to establish a connection to MySQL. 
@@ -242,7 +238,6 @@ namespace AzureMySqlExample
     }
 }
 ```
-[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
 ## Step 4: Delete data
 Use the following code to connect and delete the data by using a `DELETE` SQL statement. 

@@ -1,57 +1,56 @@
 ---
-title: Activate privileged access group roles in PIM - Azure AD | Microsoft Docs
-description: Learn how to activate your privileged access group roles in Azure AD Privileged Identity Management (PIM).
+title: Activate your group membership or ownership in Privileged Identity Management
+description: Learn how to activate your group membership or ownership in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/02/2022
-ms.author: curtand
-ms.reviewer: shaunliu
+ms.date: 09/12/2023
+ms.author: barclayn
+ms.reviewer: ilyal
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# Activate my privileged access group roles in Privileged Identity Management
+# Activate your group membership or ownership in Privileged Identity Management
 
-Use Privileged Identity Management (PIM) to allow eligible role members for privileged access groups to schedule role activation for a specified date and time. They can also select a activation duration up to the maximum duration configured by administrators.
+You can use Privileged Identity Management (PIM) In Microsoft Entra ID to have just-in-time membership in the group or just-in-time ownership of the group.
 
-This article is for eligible members who want to activate their privileged access group role in Privileged Identity Management.
+This article is for eligible members or owners who want to activate their group membership or ownership in PIM.
+
+>[!IMPORTANT]
+>When a group membership or ownership is activated, Microsoft Entra PIM temporarily adds an active assignment. Microsoft Entra PIM creates an active assignment (adds user as member or owner of the group) within seconds. When deactivation (manual or through activation time expiration) happens, Microsoft Entra PIM removes user’s group membership or ownership within seconds as well.
+>
+>Application may provide access to users based on their group membership. In some situations, application access may not immediately reflect the fact that user was added to the group or removed from it. If application previously cached the fact that user is not member of the group – when user tries to access application again, access may not be provided. Similarly, if application previously cached the fact that user is member of the group – when group membership is deactivated, user may still get access. Specific situation depends on the application’s architecture. For some applications, signing out and signing back in may help to get access added or removed.
 
 ## Activate a role
 
-When you need to take on a privileged access group role, you can request activation by using the **My roles** navigation option in Privileged Identity Management.
+When you need to take on a group membership or ownership, you can request activation by using the **My roles** navigation option in PIM.
 
-1. [Sign in to Azure AD portal](https://aad.portal.azure.com) with Global Administrator or group Owner permissions.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Open [Privileged Identity Management](https://portal.azure.com/#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart).
+1. Browse to **Identity governance** > **Privileged Identity Management** > **My roles** > **Groups**. 
+    >[!NOTE]
+    > You may also use this [short link](https://aka.ms/pim) to open the **My roles** page directly.
 
-1. Select **Privileged access groups (Preview)** and then select **Activate role** to open the **My roles** page for privileged access groups.
+1. Using **Eligible assignments** blade, review the list of groups that you have eligible membership or ownership for.
 
-    ![Privileged access roles page in PIM](./media/groups-activate-roles/groups-select-group.png)
+    :::image type="content" source="media/pim-for-groups/pim-group-6.png" alt-text="Screenshot of the list of groups that you have eligible membership or ownership for." lightbox="media/pim-for-groups/pim-group-6.png":::
 
-1. On the **My roles** page, select **Activate** on the row of the eligible assignment you want to activate.
+1. Select **Activate** for the eligible assignment you want to activate.
 
-    ![Activate link on the eligible role assignment row](./media/groups-activate-roles/groups-activate-link.png)
+1. Depending on the group’s setting, you may be asked to provide multi-factor authentication or another form of credential.
 
-1. If your role requires multi-factor authentication, select **Verify your identity before proceeding**. You only have to authenticate once per session.
+1. If necessary, specify a custom activation start time. The membership or ownership is to be activated only after the selected time.
 
-    ![Verify my identity with MFA before role activation](./media/groups-activate-roles/groups-my-roles-mfa.png)
+1. Depending on the group’s setting, justification for activation may be required. If needed, provide the justification in the **Reason** box.
 
-1. Select **Verify my identity** and follow the instructions to provide additional security verification.
-
-    ![Screen to provide security verification such as a PIN code](./media/groups-activate-roles/groups-mfa-enter-code.png)
-
-1. If necessary, specify a custom activation start time. The member or owner is to be activated only after the selected time.
-
-1. In the **Reason** box, enter the reason for the activation request.
-
-    ![Activate page with duration and justification](./media/groups-activate-roles/groups-activate-page.png)
+    :::image type="content" source="media/pim-for-groups/pim-group-7.png" alt-text="Screenshot of where to provide a justification in the Reason box." lightbox="media/pim-for-groups/pim-group-7.png":::
 
 1. Select **Activate**.
 
@@ -59,40 +58,29 @@ If the [role requires approval](pim-resource-roles-approval-workflow.md) to acti
 
 ## View the status of your requests
 
-You can view the status of your pending requests to activate.
+You can view the status of your pending requests to activate. It is important when your requests undergo approval of another person.
 
-1. Open Azure AD Privileged Identity Management.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **My requests** to see a list of your Azure AD role and privileged access group role requests.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **My requests** **Groups**. 
 
-1. Scroll to the right, if needed, to view the **Request Status** column.
+1. Review list of requests.
+
+    :::image type="content" source="media/pim-for-groups/pim-group-8.png" alt-text="Screenshot of where to review the list of requests." lightbox="media/pim-for-groups/pim-group-8.png":::
+
 
 ## Cancel a pending request
 
-If you do not require activation of a role that requires approval, you can cancel a pending request at any time.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Open Azure AD Privileged Identity Management.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **My requests** **Groups**. 
 
-1. Select **My requests**.
+    :::image type="content" source="media/pim-for-groups/pim-group-8.png" alt-text="Screenshot of where to select the request you want to cancel." lightbox="media/pim-for-groups/pim-group-8.png":::
 
-1. For the role that you want to cancel, select the **Cancel** link.
+1. For the request that you want to cancel, select **Cancel**.
 
-    When you select **Cancel**, the request will be canceled. To activate the role again, you will have to submit a new request for activation.
-
-## Deactivate a role assignment
-
-When a role assignment is activated, you'll see a **Deactivate** option in the PIM portal for the role assignment. When you select **Deactivate**, there's a short time lag before the role is deactivated. Also, you can't deactivate a role assignment within five minutes after activation.
-
-## Troubleshoot
-
-### Permissions are not granted after activating a role
-
-When you activate a role in Privileged Identity Management, the activation may not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may result in the change not taking effect immediately. If your activation is delayed, here is what you should do.
-
-1. Sign out of the Azure portal and then sign back in.
-1. In Privileged Identity Management, verify that you are listed as the member of the role.
+When you select **Cancel**, the request is canceled. To activate the role again, you have to submit a new request for activation.
 
 ## Next steps
 
-- [Extend or renew privileged access group roles in Privileged Identity Management](groups-renew-extend.md)
-- [Assign my privileged access group roles in Privileged Identity Management](groups-assign-member-owner.md)
+- [Approve activation requests for group members and owners](groups-approval-workflow.md)

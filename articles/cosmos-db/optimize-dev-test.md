@@ -1,21 +1,23 @@
 ---
 title: Optimizing for development and testing in Azure Cosmos DB
 description: This article explains how Azure Cosmos DB offers multiple options for development and testing of the service for free.
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/26/2021
 ---
 
 # Optimize development and testing cost in Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 This article describes the different options to use Azure Cosmos DB for development and testing for free of cost, as well as techniques to optimize cost in development or test accounts.
 
 ## Azure Cosmos DB emulator (locally downloadable version)
 
-[Azure Cosmos DB emulator](local-emulator.md) is a local downloadable version that mimics the Azure Cosmos DB cloud service. You can write and test code that uses the Azure Cosmos DB APIs even if you have no network connection and without incurring any costs. Azure Cosmos DB emulator provides a local environment for development purposes with high fidelity to the cloud service. You can develop and test your application locally, without creating an Azure subscription. When you're ready to deploy your application to the cloud, update the connection string to connect to the Azure Cosmos DB endpoint in the cloud, no other modifications are needed. You can also [set up a CI/CD pipeline with the Azure Cosmos DB emulator](tutorial-setup-ci-cd.md) build task in Azure DevOps to run tests. You can get started by visiting the [Azure Cosmos DB emulator](local-emulator.md) article.
+[Azure Cosmos DB emulator](emulator.md) is a local downloadable version that mimics the Azure Cosmos DB cloud service. You can write and test code that uses the Azure Cosmos DB APIs even if you have no network connection and without incurring any costs. Azure Cosmos DB emulator provides a local environment for development purposes with high fidelity to the cloud service. You can develop and test your application locally, without creating an Azure subscription. When you're ready to deploy your application to the cloud, update the connection string to connect to the Azure Cosmos DB endpoint in the cloud, no other modifications are needed. You can also [set up a CI/CD pipeline with the Azure Cosmos DB emulator](tutorial-setup-ci-cd.md) build task in Azure DevOps to run tests. You can get started by visiting the [Azure Cosmos DB emulator](emulator.md) article.
 
 ## Try Azure Cosmos DB for free
 
@@ -33,7 +35,7 @@ Azure Cosmos DB is included in the [Azure free account](https://azure.microsoft.
 
 ## Azure Cosmos DB serverless
 
-[Azure Cosmos DB serverless](serverless.md) lets you use your Azure Cosmos account in a consumption-based fashion where you are only charged for the Request Units consumed by your database operations and the storage consumed by your data. There is no minimum charge involved when using Azure Cosmos DB in serverless mode. Because it eliminates the concept of provisioned capacity, it is best suited for development or testing activities specifically when your database is idle most of the time.
+[Azure Cosmos DB serverless](serverless.md) lets you use your Azure Cosmos DB account in a consumption-based fashion where you are only charged for the Request Units consumed by your database operations and the storage consumed by your data. There is no minimum charge involved when using Azure Cosmos DB in serverless mode. Because it eliminates the concept of provisioned capacity, it is best suited for development or testing activities specifically when your database is idle most of the time.
 
 ## Use shared throughput databases
 
@@ -51,7 +53,7 @@ You can get started with using the emulator or the free Azure Cosmos DB accounts
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of queries](./optimize-cost-reads-writes.md)
-* Learn more about [Optimizing the cost of multi-region Azure Cosmos accounts](optimize-cost-regions.md)
+* Learn more about [Optimizing the cost of multi-region Azure Cosmos DB accounts](optimize-cost-regions.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

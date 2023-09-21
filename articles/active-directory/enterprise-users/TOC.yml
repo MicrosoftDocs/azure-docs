@@ -2,16 +2,16 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Azure AD users, groups, and licensing
+  - name: Microsoft Entra users, groups, and licensing
     href: directory-overview-user-model.md
   - name: What is delegated administration?
     href: directory-delegated-administration-primer.md
 - name: Quickstarts
   items:
-  - name: Add users to Azure AD
-    href: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+  - name: Add users to Microsoft Entra ID
+    href: ../fundamentals/add-users.md?context=/azure/active-directory/enterprise-users/context/ugr-context
   - name: Assign licenses to users    
-    href: ../fundamentals/license-users-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    href: ../fundamentals/license-users-groups.md?context=/azure/active-directory/enterprise-users/context/ugr-context
   - name: Set groups expiration    
     href: groups-quickstart-expiration.md
   - name: Set groups naming policy    
@@ -24,36 +24,38 @@
   expanded: true
   items:
   - name: Compare default user permissions    
-    href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    href: ../fundamentals/users-default-permissions.md?context=/azure/active-directory/enterprise-users/context/ugr-context
   - name: Group-based licensing basics    
-    href: ../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    href: ../fundamentals/licensing-whatis-azure-portal.md?context=/azure/active-directory/enterprise-users/context/ugr-context
   - name: Manage access with groups    
-    href: ../fundamentals/active-directory-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    href: ../fundamentals/concept-learn-about-groups.md?context=/azure/active-directory/enterprise-users/context/ugr-context
 - name: How-to guides
   expanded: true
   items:
   - name: Users
     items: 
     - name: Create a user 
-      href: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/add-users.md?context=/azure/active-directory/enterprise-users/context/ugr-context
     - name: Create users in bulk
       href: users-bulk-add.md    
     - name: Manage user profiles
-      href: ../fundamentals/active-directory-users-profile-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/how-to-manage-user-profile-info.md?context=/azure/active-directory/enterprise-users/context/ugr-context
+    - name: Add custom data using extensions - Microsoft Graph
+      href: /graph/extensibility-overview?toc=/azure/active-directory/enterprise-users/toc.json&bc=/azure/active-directory/enterprise-users/breadcrumb/toc.json
     - name: Assign custom security attributes
-      href: users-custom-security-attributes.md    
+      href: users-custom-security-attributes.md
     - name: Download user info
       href: users-bulk-download.md
     - name: Share user accounts
       href: users-sharing-accounts.md
     - name: Assign users to admin roles    
-      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/how-subscriptions-associated-directory.md?context=/azure/active-directory/enterprise-users/context/ugr-context
     - name: User management enhancements
       href: users-search-enhanced.md
     - name: Delete users in bulk
       href: users-bulk-delete.md
     - name: Restore a deleted user    
-      href: ../fundamentals/active-directory-users-restore.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/users-restore.md?context=/azure/active-directory/enterprise-users/context/ugr-context
     - name: Restore users in bulk
       href: users-bulk-restore.md
     - name: Revoke a user's access
@@ -61,15 +63,19 @@
     - name: Close an account in an unmanaged directory
       href: users-close-account.md
     - name: Add guest users  
-      href: ../external-identities/what-is-b2b.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../external-identities/what-is-b2b.md?context=/azure/active-directory/enterprise-users/context/ugr-context
     - name: Restrict guest user access
       href: users-restrict-guest-permissions.md
+    - name: Clean up unmanaged accounts
+      href: clean-up-unmanaged-accounts.md 
+    - name: Clean up stale guest accounts
+      href: clean-up-stale-guest-accounts.md
     - name: Dynamic groups and guests   
-      href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../external-identities/use-dynamic-groups.md?context=/azure/active-directory/enterprise-users/context/ugr-context
   - name: Organization (tenant)
     items:
-    - name: Azure AD tenant organizations    
-      href: ../fundamentals/active-directory-whatis.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - name: Microsoft Entra tenant organizations    
+      href: ../fundamentals/whatis.md?context=/azure/active-directory/enterprise-users/context/ugr-context
     - name: Delete a tenant    
       href: directory-delete-howto.md
     - name: Multiple tenants    
@@ -82,22 +88,20 @@
       href: domains-verify-custom-subdomain.md
     - name: Self-service sign-up    
       href: directory-self-service-signup.md
-    - name: Azure AD Connect    
-      href: ../hybrid/whatis-hybrid-identity.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - name: Microsoft Entra Connect    
+      href: ../hybrid/whatis-hybrid-identity.md?context=/azure/active-directory/enterprise-users/context/ugr-context
   - name: Groups
     items: 
+    - name: Learn about groups and access rights  
+      href: ../fundamentals/concept-learn-about-groups.md?context=/azure/active-directory/enterprise-users/context/ugr-context
     - name: Manage access with groups
-      href: ../fundamentals/active-directory-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context  
-    - name: Create a group (Azure portal)    
-      href: ../fundamentals/active-directory-groups-create-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/how-to-manage-groups.md?context=/azure/active-directory/enterprise-users/context/ugr-context  
     - name: Manage groups PowerShell for Graph (v2)   
       href: groups-settings-v2-cmdlets.md
     - name: Manage groups with PowerShell MSOnline    
       href: groups-settings-cmdlets.md
     - name: Search group and member lists   
       href: groups-members-owners-search.md
-    - name: Add or remove group members    
-      href: ../fundamentals/active-directory-groups-members-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Dynamic groups    
       items: 
       - name: Create a dynamic group    
@@ -110,6 +114,8 @@
         href: groups-dynamic-rule-more-efficient.md
       - name: Change group membership type  
         href: groups-change-type.md
+    - name: Group as memberOf a dynamic group
+      href: groups-dynamic-rule-member-of.md
     - name: Add members in bulk
       href: groups-bulk-import-members.md
     - name: Remove members in bulk
@@ -120,12 +126,8 @@
       href: groups-bulk-download.md
     - name: Restore deleted groups   
       href: groups-restore-deleted.md
-    - name: Manage group settings
-      href: ../fundamentals/active-directory-groups-settings-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: Manage group owners
-      href: ../fundamentals/active-directory-accessmanagement-managing-group-owners.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: Manage groups in groups
-      href: ../fundamentals/active-directory-groups-membership-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - name: Manage group writeback
+      href: groups-write-back-portal.md
     - name: Add group access to SaaS apps
       href: groups-saasapps.md
     - name: Set group naming policy
@@ -139,8 +141,10 @@
   - name: Licenses
     items:
     - name: Assign licenses to users    
-      href: ../fundamentals/license-users-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: Assign licenses to a group    
+      href: ../fundamentals/license-users-groups.md?context=/azure/active-directory/enterprise-users/context/ugr-context
+    - name: Use Admin center to assign licenses to groups
+      href: licensing-admin-center.md
+    - name: Assign licenses to a group
       href: licensing-groups-assign.md
     - name: Resolve group license problems   
       href: licensing-groups-resolve-problems.md
@@ -152,37 +156,39 @@
       href: licensing-group-advanced.md
     - name: Group licensing with PowerShell and Graph
       href: licensing-ps-examples.md
+    - name: Group licensing examples Microsoft Graph PowerShell
+      href: licensing-powershell-graph-examples.md
     - name: Service plan IDs for licensing
       href: licensing-service-plan-reference.md
   - name: Sign-in
     items:    
     - name: Customize company branding    
-      href: ../fundamentals/customize-branding.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/how-to-customize-branding.md?context=/azure/active-directory/enterprise-users/context/ugr-context
     - name: Sign-in options
       href: signin-account-support.md
     - name: Home Realm Discovery
       href: signin-realm-discovery.md
-  - name: Integrate services with Azure AD
+  - name: Integrate services with Microsoft Entra ID
     items: 
-    - name: Integrate LinkedIn with Azure AD    
+    - name: Integrate LinkedIn with Microsoft Entra ID    
       href: linkedin-integration.md
     - name: LinkedIn data sharing   
       href: linkedin-user-consent.md
   - name: Troubleshoot
     items:
-    - name: Get support for Azure AD    
-      href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - name: Get support for Microsoft Entra ID    
+      href: ../fundamentals/how-to-get-support.md?context=/azure/active-directory/enterprise-users/context/ugr-context
     - name: Troubleshoot groups   
       href: groups-troubleshooting.md
     - name: Troubleshoot group licensing    
       href: licensing-groups-resolve-problems.md
 - name: Reference
   items:
-  - name: Graph API  
+  - name: Microsoft Graph API  
     href: /graph/api/resources/azure-ad-overview
-  - name: Azure AD CLI    
+  - name: Microsoft Entra CLI    
     href: /cli/azure/ad
   - name:  Azure AD PowerShell for Graph
     href: /powershell/azure/active-directory/install-adv2
-  - name: Azure AD service limits
+  - name: Microsoft Entra service limits
     href: directory-service-limits-restrictions.md

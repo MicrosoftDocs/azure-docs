@@ -1,299 +1,130 @@
 ---
-title: Work with alerts on the on-premises management console
-description: Use the on-premises management console to get an enterprise view of recent threats in your network and better understand how sensor users are handling them.
-ms.date: 11/09/2021
+title: View and manage OT alerts on the on-premises management console - Microsoft Defender for IoT
+description: Learn how to view and manage OT alerts collected from all connected OT network sensors on a Microsoft Defender for IoT on-premises management console.
+ms.date: 01/01/2023
 ms.topic: how-to
 ---
 
-# Work with alerts on the on-premises management console
+# View and manage alerts on the on-premises management console
 
-You can do the following from the **Alerts** page in the management console:
+Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
-- Work with alert filters
+This article describes how to view Defender for IoT alerts on an on-premises management console, which aggregates alerts from all connected OT sensors. You can also view OT alerts on the [Azure portal](how-to-manage-cloud-alerts.md) or an [OT network sensor](how-to-view-alerts.md).
 
-- Work with alert counters
+## Prerequisites
 
-- View alert information
+Before performing the procedures in this article, make sure that you have:
 
-- Manage alert events
+- An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md), [activated, and configured](ot-deploy/activate-deploy-management.md). To view alerts by location or zone, make sure that you've [configured sites and zones](ot-deploy/sites-and-zones-on-premises.md) on the on-premises management console.
 
-- Create alert exclusion rules
+- One or more OT sensors [installed](ot-deploy/install-software-ot-sensor.md), [configured, activated](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](ot-deploy/connect-sensors-to-management.md). To view alerts per zone, make sure that each sensor is assigned to a specific zone.
 
-- Trigger alert exclusion rules from external systems
+- Access to the on-premises management console with one of the following [user roles](roles-on-premises.md):
 
-- Accelerate incident workflow with alert groups
+    - **To view alerts the on-premises management console**, sign in as an *Admin*, *Security Analyst*, or *Viewer* user.
 
-## Interaction with Cloud Alerts page
+    - **To manage alerts on the on-premises management console**, sign in as an *Admin* or *Security Analyst* user. Management activities include acknowledging or muting an alert, depending on the alert type.
 
-If your deployment was set up to work with cloud-connected sensors, Alert detections shown on all enterprise sensors will also be seen in the Defender for IoT Alerts page, on the Azure portal.
+## View alerts on the on-premises management console
 
-:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/alerts-page-in-cloud.png" alt-text="Screenshot of the Alerts page in the Azure portal." lightbox="media/how-to-work-with-alerts-on-premises-management-console/alerts-page-in-cloud.png":::
+1. Sign into the on-premises management console and select **Alerts** on the left-hand menu.
 
-Viewing and managing alerts in the portal provides significant advantages. For example, it lets you:
+    Alerts are shown in a simple table, showing the sensor that triggered the alert and alert details in two columns.
 
-- Display an aggregated  view of alert activity in all enterprise sensors.
-- Learn about related MITRE ATT&CK techniques, tactics and stages
-- View alerts based on the sensor site
-- Integrate alerts details with Microsoft Sentinel
-- Change the severity of an alert
+1. Select an alert row to expand its full details. For example:
 
-    :::image type="content" source="media/how-to-view-alerts/alert-cloud-mitre.png" alt-text="Screenshot of a sample of alert as shown in the Azure portal.":::
+    :::image type="content" source="media/alerts/alerts-cm-expand.png" alt-text="Screenshot of the Alerts page on the on-premises management console with one alert expanded for details.":::
 
-## View alerts in the on-premises management console
+1. In an expanded alert row, do any of the following to view more context about the alert:
 
-The on-premises management console aggregates alerts from all connected sensors. This provides an enterprise view of recent threats in your network and helps you better understand how sensor users are handling them.
+    - Select **OPEN SENSOR** to open the sensor that generated the alert and continue your investigation. For more information, see [View and manage alerts on your OT sensor](how-to-view-alerts.md).
 
-
-### Work with alert filters
-
-The **Alerts** window displays the alerts generated by sensors connected to your on-premises management console. You can view all the alerts for connected sensors or present the alerts sent from a specific:
-
-- Site
-
-- Zone
-
-- Device
-
-- Sensor
-
-Select **Clear Filters** to view all alerts.
-
-:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/clear-filters.png" alt-text="Screenshot of the Clear Filters button.":::
-
-### Work with alert counters
-
-Alert counters provide a breakdown of alerts by severity and the acknowledged state.
-
-:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/number-of-alerts.png" alt-text="Screenshot of the alert counter showing how many alerts you have.":::
-
-The following severity levels appear in the alert counter:
-
-- **Critical**: Indicates a malicious attack that should be handled immediately.
-
-- **Major**: Indicates a security threat that's important to address.
-
-- **Minor**: Indicates some deviation from the baseline behavior that might contain a security threat.
-
-- **Warning**: Indicates some deviation from the baseline behavior with no security threats.
-
-Severity levels are predefined.
-
-You can adjust the counter to provide numbers based on acknowledged and unacknowledged alerts. Unacknowledged alerts were triggered at Defender for IoT sensors but haven't yet been reviewed by operators at the sensor.
-
-When the **Show Acknowledged Alerts** option is selected, all the acknowledged alerts appear in the **Alerts** window.
-
-:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/show-acknowledged-alerts.png" alt-text="Screenshot of viewing acknowledged alerts.":::
-
-### View alert information
-
-The alert presents the following information:
-
-- A summary of the alert event.
-
-- Alert severity.
-
-- A link to the alert in the sensor that detected it.
-
-- An alert UUID. The UUID consists of the alert ID that's associated with the alert event detected on the sensor, separated by a hyphen, and followed by a unique system ID number.
-
-**On-premises management console Alert UUID**
-
-
-**Sensor alert ID**
-
-:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/internet-connectivity-alert.png" alt-text="Screenshot of a sensor alert I D.":::
-
-Working with UUIDs ensures that each alert displayed in the on-premises management console is searchable and identifiable by a unique number. This is required because alerts generated from multiple sensors might produce the same alert ID.
+    - Select **SHOW DEVICES** to show the affected devices on a zone map. For more information, see [Create OT sites and zones on an on-premises management console](ot-deploy/sites-and-zones-on-premises.md).
 
 > [!NOTE]
-> By default, UUIDs are displayed in the following partner systems when forwarding rules are defined: ArcSight, syslog servers, QRadar, Sentinel, and NetWitness. No setup is required.
+> On the on-premises management console, *New* alerts are called *Unacknowledged*, and *Closed* alerts are called *Acknowledged*. For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).
 
-**To view alert information**:
+### Filter the alerts displayed
 
-- From the alert list, select an alert.
+At the top of the **Alerts** page, use the **Free Search**, **Sites**, **Zones**, **Devices**, and **Sensors** options to filter the alerts displayed by specific parameters, or to help locate a specific alert.
 
-**To view the alert in the sensor**:
+- [Acknowledged alerts](alerts.md#alert-statuses-and-triaging-options) aren't listed by default. Select **Show Acknowledged Alerts** to include them in the list.
 
-- Select **OPEN SENSOR** from the alert.
+- Select **Clear** to remove all filters.
 
-**To view the devices in a zone map**:
+### View alerts by location
 
-- To view the device map with a focus on the alerted device and all the devices connected to it, select **SHOW DEVICES**.
+To view alerts from connected OT sensors across your entire global network, use the **Enterprise View** map on an on-premises management console.
 
-## Manage alert events
+1. Sign into your on-premises management console and select **Enterprise View**. The default map view shows your sites at their locations around the world.
 
-Several options are available for managing alert events from the on-premises management console.
+    (Optional) Use the **All Sites** and **All Regions** menus at the top of the page to filter your map and display only specific sites, or only specific regions.
 
-- Learn or acknowledge alert events. Select **Learn & Acknowledge** to learn all alert events that can be authorized and to acknowledge all alert events that are currently not acknowledged.
+1. From the **Default View** menu at the top of the page, select any of the following to drill down to specific types of alerts:
 
-  :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/learn-and-acknowledge.png" alt-text="Screenshot of the Learn & Acknowledge button.":::
+    - **Risk Management**. Highlights site risk alerts, helping you prioritize mitigation activities and plan security improvements.
+    - **Incident Response** Highlights any active (unacknowledged) alerts on each site.
+    - **Malicious Activity**. Highlights malware alerts, which require immediate action.
+    - **Operational Alerts**. Highlights operational alerts, such as PLC stops and firmware or program uploads.
 
-- Mute and unmute alert events.
+    In any view but the **Default View**, your sites appear in red, yellow, or green. Red sites have alerts that require immediate action, yellow sites have alerts that justify investigation, and green sites require no action.
 
-To learn more about learning, acknowledging, and muting alert events, see the sensor [Manage alert events](how-to-manage-the-alert-event.md) article.
+1. Select any site that's red or yellow, and then select the :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false"::: alerts button for a specific OT sensor to jump to that sensor's current alerts. For example:
 
-## Export alert information
+    :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/select-alerts-button.png" alt-text="Screenshot showing the Alerts button.":::
 
-Export alert information to a .csv file. You can export information of all alerts detected or export information based on the filtered view. The following information is exported:
+    The **Alerts** page opens, automatically filtered to the selected alerts.
 
-- Source Address
-- Destination Address
-- Alert title
-- Alert severity
-- Alert message
-- Additional information
-- Acknowledged status
-- PCAP availability
+### View alerts by zone
 
-**To export alerts**:
+To view alerts from connected OT sensors for a specific zone, use the **Site Management** page on an on-premises management console.
 
-1. Select **Alerts** from the side menu.
+1. Sign into your on-premises management console and select **Site Management**. 
+
+1. Locate the site and zone you want to view, using the filtering options at the top as needed:
+
+    - **Connectivity**: Select to view only all OT sensors, or only connected / disconnected sensors only.
+    - **Upgrade Status**: Select to view all OT sensors, or only those with a specific [software update status](update-ot-software.md#update-an-on-premises-management-console).
+    - **Business Unit**: Select to view all OT sensors, or only those from a [specific business unit](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
+    - **Region**: Select to view all OT sensors, or only those from a [specific region](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
+
+1. Select the :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false":::  alerts button for a specific OT sensor to jump to that sensor's current alerts.
+
+## Manage alert status and triage alerts
+
+Use the following options to manage alert status on your on-premises management console, depending on the alert type:
+
+- **To acknowledge or unacknowledge an alert**: In an expanded alert row, select **ACKNOWLEDGE** or **UNACKNOWLEDGE** as needed.
+
+- **To mute or unmute an alert**: In an expanded alert row, hover over the top of the row and select the :::image type="icon" source="media/alerts/mute-on-prem.png" border="false"::: **Mute** button or :::image type="icon" source="media/alerts/unmute-on-prem.png" border="false"::: **Unmute** button as needed.
+
+For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).
+
+## Export alerts to a CSV file
+
+You may want to export a selection of alerts to a CSV file for offline sharing and reporting.
+
+1. Sign into your on-premises management console and select the **Alerts** page.
+
+1. Use the [search and filter](#filter-the-alerts-displayed) options to show only the alerts you want to export.
 
 1. Select **Export**.
 
-1. Select **Export Extended Alerts** to export alert information in separate rows for each alert that covers multiple devices. When Export Extended Alerts is selected, the .csv file will create a duplicate row of the alert with the unique items in each row. Using this option makes it easier to investigate exported alert events.  
-
-## Create forwarding rules
-
-**To create a forwarding rule on the management console**:
-
-1. Sign in to the sensor.
-
-1. Select **Forwarding** on the side menu.
-
-1. Select the :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/plus-add-icon.png" border="false"::: icon.
-
-1. In the Create Forwarding Rule window, enter a name for the rule
-
-    :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/management-console-create-forwarding-rule.png" alt-text="Screenshot of the Create Forwarding Rule window..":::
-
-   Define criteria by which to trigger a forwarding rule. Working with forwarding rule criteria helps pinpoint and manage the volume of information sent from the sensor to external systems.
-
-1. Select the severity level from the drop-down menu.
-
-    This is the minimum incident to forward, in terms of severity level. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded. Levels are predefined.
-
-1. Select any protocols to apply.
-
-    Only trigger the forwarding rule if the traffic detected was running over specific protocols. Select the required protocols from the drop-down list or choose them all.
-
-1. Select which engines the rule should apply to.
-
-    
-   Select the required engines, or choose them all. Alerts from selected engines will be sent. 
-
-1. Select the checkbox if you want the forwarding to rule to report system notifications.
-  
-1. Select the checkbox if you want the forwarding to rule to report alert notifications.
-
-1. Select **Add** to add an action to apply. Fill in any parameters needed for the selected action.
-
-    Forwarding rule actions instruct the sensor to forward alert information to partner vendors or servers. You can create multiple actions for each forwarding rule.
-
-1. Add another action if desired.
-
-1. Select **Save**.
-
-You can learn more [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information). You can also [Test forwarding rules](how-to-forward-alert-information-to-partners.md#test-forwarding-rules), or [Edit and delete forwarding rules](how-to-forward-alert-information-to-partners.md#edit-and-delete-forwarding-rules). You can also learn more about[Forwarding rules and alert exclusion rules](how-to-forward-alert-information-to-partners.md#forwarding-rules-and-alert-exclusion-rules).
-
-## Create alert exclusion rules
-
-Instruct Defender for IoT to ignore alert triggers based on:
-
-- Time zones and time periods
-
-- Device address (IP, MAC, subnet)
-
-- Alert names
-
-- A specific sensor
-
-Create alert exclusion rules when you want Defender for IoT to ignore activity that will trigger an alert.
-
-For example, if you know that all the OT devices monitored by a specific sensor will be going through maintenance procedures for two days, you can define an exclusion rule that instructs Defender for IoT to suppress alerts detected by this sensor during the predefined period.
-
-### Alert exclusion logic
-
-Alert rule logic is `AND` based. This means an alert will be triggered only when all the rule conditions are met.
-
-If a rule condition is not defined, the condition will include all options. For example, if you don't include the name of a sensor in the rule, it will be applied to all sensors.
-
-:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/create-alert-exclusion-v2.png" alt-text="Screenshot of the Create Exclusion Rule view.":::
-
-Rule summaries appear in the **Exclusion Rule** window.
-
-:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/exclusion-summary-v2.png" alt-text="Screenshot of the Exclusion Rule Summary view.":::
-
-In addition to working with exclusion rules, you can suppress alerts by muting them.
-
-### Create exclusion rules
-
-**To create exclusion rules**:
-
-1. From the left pane of the on-premises management console, select **Alert Exclusion**. Define a new exclusion rule by selecting the **Add** icon :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/add-icon.png" border="false"::: in the upper-right corner of the window that opens. The **Create Exclusion Rule** dialog box opens.
-
-   :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/create-alert-exclusion-view.png" alt-text="Screenshot of the Create Alert Exclusion pane.":::
-
-1. Enter a rule name in the **Name** field. The name can't contain quotes (`"`).
-
-1. In the **By Time Zone/Period** section, enter a time period within a specific time zone. Use this feature when an exclusion rule is created for a specific time period in one time zone, but should be implemented at the same time in other time zones. For example, you might need to apply an exclusion rule between 8:00 AM and 10:00 AM in three different time zones. In this case, create three separate exclusion rules that use the same time period and the relevant time zone.
-
-1. Select **ADD**. During the exclusion period, no alerts are created on the connected sensors.
-
-   :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/by-the-time-period.png" alt-text="Screenshot of the By Time Period view.":::
-
-1. In the **By Device Address** section, define the:
-
-    - Device IP address, MAC address, or subnet address that you want to exclude.
-    
-    - Traffic direction for the excluded devices, source, and destination.
-
-1. Select **ADD**.
-
-1. In the **By Alert Title** section, start typing the alert title. From the drop-down list, select the alert title or titles to be excluded.
-
-   :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/alert-title.png" alt-text="Screenshot of the By Alert Title view.":::
-
-1. Select **ADD**.
-
-1. In the **By Sensor Name** section, start typing the sensor name. From the drop-down list, select the sensor or sensors that you want to exclude.
-
-1. Select **ADD**.
-
-1. Select **SAVE**. The new rule appears in the list of rules.
-
-You can suppress alerts by either muting them or creating alert exclusion rules. This section describes potential use cases for both features.
-
-- **Exclusion rule**. Write an exclusion rule when:
-
-  - You know ahead of time that you want to exclude the event from the database. For example, you know that the scenario detected at a certain sensor will trigger irrelevant alerts. For example, you'll be carrying out maintenance work on organizational PLCs on a specific site and want to suppress alerts related to PLCs for this site.
-
-  - You want Defender for IoT to ignore events for a specific range of time (for system maintenance tasks).
-
-  - You want to ignore events in a specific subnet.
-
-  - You want to control alert events generated from several sensors with one rule.
-
-  - You don't want to track the alert exclusion as an event in the event log.
-
-- **Mute**. Mute an alert when:
-
-  - Items that need to be muted are not planned. You don't know ahead of time which events will be irrelevant.
-
-  - You want to suppress the alert from the **Alerts** window, but you still want to track it in the event log.
-
-  - You want to ignore events on a specific channel.
-
-### Trigger alert exclusion rules from external systems
-
-Trigger alert exclusion rules from external systems. For example, manage exclusion rules from enterprise ticketing systems or systems that manage network maintenance processes.
-
-Define the sensors, engines, start time, and end time to apply the rule. For more information, see [Defender for IoT API sensor and management console APIs](references-work-with-defender-for-iot-apis.md).
-
-Rules that you create by using the API appear in the **Exclusion Rule** window as RO.
-
-:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="Screenshot of the Edit Exclusion Rule view.":::
+The CSV file is generated, and you're prompted to save it locally.
 
 ## Next steps
 
-Review the [Defender for IoT Engine alerts](alert-engine-messages.md).
+> [!div class="nextstepaction"]
+> [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+
+> [!div class="nextstepaction"]
+> [View and manage alerts on your OT sensor](how-to-view-alerts.md)
+
+> [!div class="nextstepaction"]
+> [Accelerate on-premises OT alert workflows](how-to-accelerate-alert-incident-response.md)
+
+> [!div class="nextstepaction"]
+> [Forward alert information](how-to-forward-alert-information-to-partners.md)
+
+> [!div class="nextstepaction"]
+> [Microsoft Defender for IoT alerts](alerts.md)

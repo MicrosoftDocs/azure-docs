@@ -1,12 +1,12 @@
 ---
 title: Integrate Azure Table Storage with Service Connector
 description: Integrate Azure Table Storage into your application with Service Connector
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 08/11/2022
+ms.custom: event-tier1-build-2022
 ---
 
 # Integrate Azure Table Storage with Service Connector
@@ -16,27 +16,50 @@ This page shows the supported authentication types and client types of Azure Tab
 ## Supported compute service
 
 - Azure App Service
-- Azure Spring Cloud
+- Azure Container Apps
+- Azure Spring Apps
 
-## Supported Authentication types and client types
+Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
 
-| Client Type | System-assigned Managed Identity | User-assigned Managed Identity | Secret/ConnectionString | Service Principal |
-| --- | --- | --- | --- | --- |
-| .NET | | | ![yes icon](./media/green-check.png) | |
-| Java | | | ![yes icon](./media/green-check.png) | |
-| Node.js | | | ![yes icon](./media/green-check.png) | |
-| Python | | | ![yes icon](./media/green-check.png) | |
-
+| Client type | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
+|-------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
+| .NET        |![yes icon](./media/green-check.png)|![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) |![yes icon](./media/green-check.png)|
+| Java        |![yes icon](./media/green-check.png)|![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) |![yes icon](./media/green-check.png)|
+| Node.js     |![yes icon](./media/green-check.png)|![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) |![yes icon](./media/green-check.png)|
+| Python      |![yes icon](./media/green-check.png)|![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) |![yes icon](./media/green-check.png)|
 
 ## Default environment variable names or application properties
 
-### .NET, Java, Node.JS and Python
+Use the connection details below to connect compute services to Azure Table Storage. For each example below, replace the placeholder texts `<account-name>` and `<account-key>` with your own account name and account key.
 
-**Secret/ConnectionString**
+### Secret / connection string
 
-| Default environment variable name | Description | Example value |
-| --- | --- | --- |
-| AZURE_STORAGETABLE_CONNECTIONSTRING | Table storage connection string | `DefaultEndpointsProtocol=https;AccountName={accountName};AccountKey={****};EndpointSuffix=core.windows.net` |
+| Default environment variable name   | Description                     | Example value                                                                                                        |
+|-------------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| AZURE_STORAGETABLE_CONNECTIONSTRING | Table storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
+
+### System-assigned managed identity
+
+| Default environment variable name   | Description            | Example value                                            |
+|-------------------------------------|------------------------|----------------------------------------------------------|
+| AZURE_STORAGETABLE_RESOURCEENDPOINT | Table storage endpoint | `https://<storage-account-name>.table.core.windows.net/` |
+
+
+### User-assigned managed identity
+
+| Default environment variable name   | Description            | Example value                                            |
+|-------------------------------------|------------------------|----------------------------------------------------------|
+| AZURE_STORAGETABLE_RESOURCEENDPOINT | Table storage endpoint | `https://<storage-account-name>.table.core.windows.net/` |
+| AZURE_STORAGETABLE_CLIENTID         | Your client ID         | `<client-ID>`                                            |
+
+### Service principal
+
+| Default environment variable name   | Description            | Example value                                            |
+|-------------------------------------|------------------------|----------------------------------------------------------|
+| AZURE_STORAGETABLE_RESOURCEENDPOINT | Table storage endpoint | `https://<storage-account-name>.table.core.windows.net/` |
+| AZURE_STORAGETABLE_CLIENTID         | Your client ID         | `<client-ID>`                                            |
+| AZURE_STORAGETABLE_CLIENTSECRET     | Your client secret     | `<client-secret>`                                        |
+| AZURE_STORAGETABLE_TENANTID         | Your tenant ID         | `<tenant-ID>`                                            |
 
 
 ## Next steps

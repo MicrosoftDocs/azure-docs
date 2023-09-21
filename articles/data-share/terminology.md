@@ -2,10 +2,10 @@
 title: Azure Data Share terminology 
 description: Learn about common terms used to describe resources used in Azure Data Share (data provider, data consumer, data share, share subscription, snapshot, invitation, recipient.)
 ms.service: data-share
-author: joannapea
-ms.author: joanpo
+author:  sidontha
+ms.author: sidontha
 ms.topic: conceptual
-ms.date: 01/03/2022
+ms.date: 11/30/2022
 ---
 # Azure Data Share Concepts 
 
@@ -21,7 +21,7 @@ A Data consumer is the organization that is receiving data from a data provider.
 
 ## Data Share
 
-A data share is a group of datasets that are shared as a single entity. Datasets can be from a number of Azure data sources that are supported by Azure Data Share. Currently, Azure Data Share [supported data stores](supported-data-stores.md#supported-data-stores). 
+A data share is a group of datasets that are shared as a single entity. Datasets can be from many Azure data sources that are supported by Azure Data Share. Currently, Azure Data Share [supported data stores](supported-data-stores.md#supported-data-stores). 
 
 ## Share Subscription 
 
@@ -41,13 +41,13 @@ A data provider can enable a snapshot setting for a data share. This setting ena
 
 If a data provider enables this setting, a recurrence interval can be selected. The recurrence interval can be hourly or daily. 
 
-A data consumer has the option to opt-in to this snapshot schedule to receive incremental updates, which includes any data that has changed since they first generated a new snapshot. 
+A data consumer has the option to opt in to this snapshot schedule to receive incremental updates, which includes any data that has changed since they first generated a new snapshot. 
 
 ## Invitation
 
 A data provider can invite multiple recipients to their data share. They can do so by adding recipients to the data share. Invitations can also be added after a data share has been created. 
 
-A data provider can delete an invitation after it has been sent if it has not been accepted. If the data provider deletes an invitation and it has not yet been accepted, the data consumer will not be able to accept it. 
+A data provider can delete an invitation after it has been sent if it hasn't been accepted. If the data provider deletes an invitation and it hasn't yet been accepted, the data consumer won't be able to accept it. 
 
 Invitations can be resent up to five times a day. 
 

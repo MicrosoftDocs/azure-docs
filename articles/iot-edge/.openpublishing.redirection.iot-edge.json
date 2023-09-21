@@ -167,12 +167,12 @@
         },
         {
             "source_path_from_root": "/articles/iot-edge/iot-edge-what-is-azure-iot.md",
-            "redirect_url": "/azure/iot-fundamentals/iot-introduction",
+            "redirect_url": "/azure/iot/iot-introduction",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-edge/iot-edge-glossary.md",
-            "redirect_url": "/azure/iot-fundamentals/iot-glossary/",
+            "redirect_url": "/azure/iot/iot-glossary/",
             "redirect_document_id": false
         },
         {
@@ -228,6 +228,121 @@
         {
             "source_path_from_root": "/articles/iot-edge/how-to-devops-starter.md",
             "redirect_url": "/azure/iot-edge/how-to-continuous-integration-continuous-deployment-classic/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/how-to-publish-subscribe.md",
+            "redirect_url": "/azure/iot-edge/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/tutorial-machine-learning-edge-01-intro.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/tutorial-machine-learning-edge-01-intro",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/tutorial-machine-learning-edge-02-prepare-environment.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/tutorial-machine-learning-edge-02-prepare-environment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/tutorial-machine-learning-edge-03-generate-data.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/tutorial-machine-learning-edge-03-generate-data",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/tutorial-machine-learning-edge-04-train-model.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/tutorial-machine-learning-edge-04-train-model",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/tutorial-machine-learning-edge-05-configure-edge-device.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/tutorial-machine-learning-edge-05-configure-edge-device",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/tutorial-machine-learning-edge-06-custom-modules.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/tutorial-machine-learning-edge-06-custom-modules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/tutorial-machine-learning-edge-07-send-data-to-hub.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/tutorial-machine-learning-edge-07-send-data-to-hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/tutorial-develop-for-windows.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/tutorial-develop-for-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/tutorial-c-module-windows.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/tutorial-c-module-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/tutorial-csharp-module-windows.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/tutorial-csharp-module-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/how-to-provision-single-device-windows-x509.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/how-to-provision-single-device-windows-x509",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/how-to-provision-single-device-windows-symmetric.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/how-to-provision-single-device-windows-symmetric",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/how-to-provision-devices-at-scale-windows-x509.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/how-to-provision-devices-at-scale-windows-x509",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/how-to-provision-devices-at-scale-windows-tpm.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/how-to-provision-devices-at-scale-windows-tpm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/how-to-provision-devices-at-scale-windows-symmetric.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/how-to-provision-devices-at-scale-windows-symmetric",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/reference-windows-scripts.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/reference-windows-scripts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/tutorial-c-module.md",
+            "redirect_url": "/azure/iot-edge/tutorial-develop-for-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/tutorial-csharp-module.md",
+            "redirect_url": "/azure/iot-edge/tutorial-develop-for-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/tutorial-java-module.md",
+            "redirect_url": "/azure/iot-edge/tutorial-develop-for-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/tutorial-node-module.md",
+            "redirect_url": "/azure/iot-edge/tutorial-develop-for-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/tutorial-python-module.md",
+            "redirect_url": "/azure/iot-edge/tutorial-develop-for-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/how-to-vs-code-develop-module.md",
+            "redirect_url": "/azure/iot-edge/tutorial-develop-for-linux",
             "redirect_document_id": false
         }
     ]

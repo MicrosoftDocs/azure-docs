@@ -2,12 +2,11 @@
 title: Migrate your Windows VMs to Azure Premium Storage with Azure Site Recovery 
 description: Learn how to migrate your VM disks from a standard storage account to a premium storage account by using Azure Site Recovery.
 author: roygara
-ms.service: virtual-machines
+ms.service: azure-disk-storage
 ms.collection: windows
 ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: rogarana
-ms.subservice: disks
 ---
 # Migrate to Premium Storage by using Azure Site Recovery
 
@@ -73,7 +72,7 @@ You can use Site Recovery to migrate Azure IaaS VMs between regions or within sa
 1. Open the [Azure portal](https://portal.azure.com).
 2. Select **Create a resource** > **Management** > **Backup and Site Recovery (OMS)**. Alternatively, you can select **Browse** > **Recovery Services Vault** > **Add**.
    >[!NOTE]
-   >Backup and Site Recovery was formerly part of the [OMS suite](../../azure-monitor/terminology.md#april-2018---retirement-of-operations-management-suite-brand).
+   >Backup and Site Recovery was formerly part of the [OMS suite](../../azure-monitor/terminology.md#april-2018-retirement-of-operations-management-suite-brand).
 1. Specify a region that VMs will be replicated to. For the purpose of migration in the same region, select the region where your source VMs and source storage accounts are. 
 
 ### Step 2: Choose your protection goals 
@@ -208,14 +207,14 @@ Site Recovery will create a VM instance whose type is the same as or similar to 
 
 For specific scenarios for migrating virtual machines, see the following resources:
 
-* [Migrate Azure Virtual Machines between Storage Accounts](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
+* [Migrate Azure Virtual Machines between Storage Accounts](https://azure.microsoft.com/blog/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Create and upload a Windows Server VHD to Azure](upload-generalized-managed.md)
-* Migrating Virtual Machines from Amazon AWS to Microsoft Azure
+* [Migrating Virtual Machines from Amazon AWS to Microsoft Azure](/shows/it-ops-talk/migrate-your-aws-vms-to-azure-with-azure-migrate)
 
 Also, see the following resources to learn more about Azure Storage and Azure Virtual Machines:
 
-* [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-* [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Azure Storage](../../storage/index.yml)
+* [Azure Virtual Machines](../index.yml)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

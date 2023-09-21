@@ -1,9 +1,9 @@
 ---
 title: Best practices for monitoring Azure Blob Storage
 description: Learn best practice guidelines and how to them when using metrics and logs to monitor your Azure Blob Storage.
+recommendations: false
 author: normesta
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 07/30/2021
@@ -16,11 +16,11 @@ This article features a collection of common storage monitoring scenarios, and p
 
 ## Identify storage accounts with no or low use
 
-Storage Insights is a dashboard on top of Azure Storage metrics and logs. You can use Storage Insights to examine the transaction volume and used capacity of all your accounts. That information can help you decide which accounts you might want to retire. To configure Storage Insights, see [Monitoring your storage service with Azure Monitor Storage insights](../common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
+Storage Insights is a dashboard on top of Azure Storage metrics and logs. You can use Storage Insights to examine the transaction volume and used capacity of all your accounts. That information can help you decide which accounts you might want to retire. To configure Storage Insights, see [Monitoring your storage service with Azure Monitor Storage insights](../common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json).
 
 ### Analyze transaction volume
 
-From the [Storage Insights view in Azure monitor](../common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json#view-from-azure-monitor), sort your accounts in ascending order by using the **Transactions** column. The following image shows an account with low transaction volume over the specified period.
+From the [Storage Insights view in Azure monitor](../common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json#view-from-azure-monitor), sort your accounts in ascending order by using the **Transactions** column. The following image shows an account with low transaction volume over the specified period.
 
 > [!div class="mx-imgBorder"]
 > ![transaction volume in Storage Insights](./media/blob-storage-monitoring-scenarios/storage-insights-transaction-volume.png)
@@ -109,7 +109,7 @@ You can find the friendly name of that security principal by taking the value of
 
 ### Auditing data plane operations
 
-Data plane operations are captured in [Azure resource logs for Storage](monitor-blob-storage.md#analyzing-logs). You can [configure Diagnostic setting](monitor-blob-storage.md#send-logs-to-azure-log-analytics) to export logs to Log Analytics workspace for a native query experience.
+Data plane operations are captured in [Azure resource logs for Storage](monitor-blob-storage.md#analyzing-logs). You can [configure Diagnostic setting](../../azure-monitor/platform/diagnostic-settings.md) to export logs to Log Analytics workspace for a native query experience.
 
 Here's a Log Analytics query that retrieves the "when", "who", "what", and "how" information in a list of log entries.
 
@@ -124,8 +124,11 @@ For the "when" portion of your audit, the `TimeGenerated` field shows when the l
 For the "what" portion of your audit, the `Uri` field shows the item was modified or read.
 
 For the "how" portion of your audit, the `OperationName` field shows which operation was executed.
-
+> [!TIP] 
+> For example, if you suspect that a blob or container has been deleted by mistake, then add a `where` clause that returns only log entries where the `OperationName` is set to either [Delete blob](/rest/api/storageservices/delete-blob) or [Delete Container](/rest/api/storageservices/delete-container).
 For the "who" portion of your audit, `AuthenticationType` shows which type of authentication was used to make a request. This field can show any of the types of authentication that Azure Storage supports including the use of an account key, a SAS token, or Azure Active Directory (Azure AD) authentication.
+
+If the request is authorized by using Azure AD, you can use the `RequestObjectId` field to identify the "who". Shared Key and SAS authentication provide no means of auditing individual identities. In those cases, the `callerIPAddress` and `userAgentHeader` fields might help you to identify the source of the operation. If a SAS token was used to authorize an operation, you can identify that token, and if you've mapped tokens to token recipients at your end, you can identify which user, organization, or application has performed the operation. See [Identifying the SAS token used to authorize a request](#identifying-the-sas-token-used-to-authorize-a-request).
 
 #### Identifying the security principal used to authorize a request
 
@@ -146,7 +149,7 @@ StorageBlobLogs
 | project TimeGenerated, AuthenticationType, RequesterObjectId, OperationName, Uri
 ```
 
-Shared Key and SAS authentication provide no means of auditing individual identities. Therefore, if you want to improve your ability to audit based on identity, we recommended that you transition to Azure AD, and prevent shared key and SAS authentication. To learn how to prevent Shared Key and SAS authentication, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=portal). To get started with Azure AD, see [Authorize access to blobs using Azure Active Directory](authorize-access-azure-active-directory.md).
+Shared Key and SAS authentication provide no means of auditing individual identities. Therefore, if you want to improve your ability to audit based on identity, we recommended that you transition to Azure AD, and prevent shared key and SAS authentication. To learn how to prevent Shared Key and SAS authentication, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md?toc=/azure/storage/blobs/toc.json&tabs=portal). To get started with Azure AD, see [Authorize access to blobs using Azure Active Directory](authorize-access-azure-active-directory.md).
 
 #### Identifying the SAS token used to authorize a request
 
@@ -162,7 +165,7 @@ StorageBlobLogs
 
 For security reasons, SAS tokens don't appear in logs. However, the SHA-256 hash of the SAS token will appear in the `AuthenticationHash` field that is returned by this query. 
 
-If you've distributed several SAS tokens, and you want to know which SAS tokens are being used, you'll have to convert each of your SAS tokens to a SHA-256 hash, and then compare that hash to the hash value that appears in logs.
+If you've distributed several SAS tokens, and you want to know which SAS tokens are being used, you'll have to convert each of your SAS tokens to an SHA-256 hash, and then compare that hash to the hash value that appears in logs.
 
 First decode each SAS token string. The following example decodes a SAS token string by using PowerShell.
 
@@ -182,7 +185,7 @@ You can export logs to Log Analytics for rich native query capabilities. When yo
 
 With Azure Synapse, you can create server-less SQL pool to query log data when you need. This could save costs significantly.
 
-1. Export logs to storage account. For more information, see [Creating a diagnostic setting](monitor-blob-storage.md#creating-a-diagnostic-setting).
+1. Export logs to storage account. For more information, see [Creating a diagnostic setting](../../azure-monitor/platform/diagnostic-settings.md).
 
 2. Create and configure a Synapse workspace. For more information, see [Quickstart: Create a Synapse workspace](../../synapse-analytics/quickstart-create-workspace.md).
 

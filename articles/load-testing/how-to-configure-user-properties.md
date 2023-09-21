@@ -6,25 +6,24 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 04/27/2022
+ms.date: 04/05/2023
 ms.topic: how-to
-zone_pivot_groups: load-testing-config
 ---
 
-# Use JMeter user properties with Azure Load Testing Preview
+# Use JMeter user properties with Azure Load Testing
 
-In this article, learn how to configure and use Apache JMeter user properties with Azure Load Testing Preview. With user properties, you can make your test configurable by keeping test settings outside of the JMeter test script. Use cases for user properties include:
+In this article, learn how to configure and use Apache JMeter user properties with Azure Load Testing. With user properties, you can make your test configurable by keeping test settings outside of the JMeter test script. Use cases for user properties include:
 
 - You want to use the JMX test script in multiple deployment environments with different application endpoints.
 - Your test script needs to accommodate multiple load patterns, such as smoke tests, peak load, or soak tests.
-- You want to override default JMeter behavior by configuring JMeter settings, such as the results file format.
+- You want to override default JMeter behavior by configuring [JMeter settings](https://jmeter.apache.org/usermanual/properties_reference.html), such as the results file format.
 
 Azure Load Testing supports the standard [Apache JMeter properties](https://jmeter.apache.org/usermanual/test_plan.html#properties) and enables you to upload a user properties file. You can configure one user properties file per load test.
 
 Alternately, you can also [use environment variables and secrets in Azure Load Testing](./how-to-parameterize-load-tests.md) to make your tests configurable.
 
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [!NOTE]
+> Azure Load Testing overrides specific JMeter properties and ignores any values you specify for these properties. Learn more about the list of [JMeter properties that Azure Load Testing overrides](./resource-jmeter-property-overrides.md).
 
 ## Prerequisites
 
@@ -33,7 +32,9 @@ Alternately, you can also [use environment variables and secrets in Azure Load T
 
 ## Add a JMeter user properties file to your load test
 
-You can define user properties for your JMeter test script by uploading a *.properties* file to the load test. The following code snippet shows an example user properties file:
+You can define user properties for your JMeter test script by uploading a *.properties* file to the load test. Azure Load Testing supports a single JMeter properties file per load test. Additional property files are ignored.
+
+The following code snippet shows an example user properties file that defines three user properties and configures the `jmeter.save.saveservice.thread_name` configuration setting:
 
 ```properties
 # peak-load.properties
@@ -46,11 +47,7 @@ durationSeconds=600
 jmeter.save.saveservice.thread_name=false
 ```
 
-Azure Load Testing supports using a single properties file per load test. Additional property files are ignored.
-
-You can also specify [JMeter configuration settings](https://jmeter.apache.org/usermanual/properties_reference.html) in user properties file to override default behavior. For example, you can modify any of the `jmeter.save.saveservice.*` settings to configure the JMeter results file.
-
-::: zone pivot="experience-azp"
+# [Azure portal](#tab/portal)
 
 To add a user properties file to your load test by using the Azure portal, follow these steps:
 
@@ -69,13 +66,12 @@ To add a user properties file to your load test by using the Azure portal, follo
     You can select only one file as a user properties file for a load test.
 
 1. Select **Apply** to modify the test, or **Review + create**, and then **Create** to create the new test.
-::: zone-end
 
-::: zone pivot="experience-pipelines,experience-ghactions"
+# [Azure Pipelines / GitHub Actions](#tab/pipelines+github)
 
 If you run a load test within your CI/CD workflow, you add the user properties file to the source control repository. You then specify this properties file in the [load test configuration YAML file](./reference-test-config-yaml.md).
 
-For more information about running a load test in a CI/CD workflow, see the [Automated regression testing tutorial](./tutorial-cicd-azure-pipelines.md).
+For more information about running a load test in a CI/CD workflow, see the [Automated regression testing tutorial](./tutorial-identify-performance-regression-with-cicd.md).
 
 To add a user properties file to your load test, follow these steps:
 
@@ -100,7 +96,7 @@ To add a user properties file to your load test, follow these steps:
 
     The next time the CI/CD workflow runs, it will use the updated configuration.
 
-::: zone-end
+---
 
 ## Reference properties in JMeter
 
@@ -128,9 +124,10 @@ Alternately, you also specify properties in the JMeter user interface. The follo
 
   :::image type="content" source="media/how-to-configure-user-properties/jmeter-user-properties.png" alt-text="Screenshot that shows how to reference user properties in the JMeter user interface.":::
 
-You can [download the JMeter errors logs](./how-to-find-download-logs.md) to troubleshoot errors during the load test.
+You can [download the JMeter errors logs](./how-to-troubleshoot-failing-test.md) to troubleshoot errors during the load test.
 
 ## Next steps
 
+- Learn more about [JMeter properties that Azure Load Testing overrides](./resource-jmeter-property-overrides.md).
 - Learn more about [parameterizing a load test by using environment variables and secrets](./how-to-parameterize-load-tests.md).
-- Learn more about [troubleshooting load test execution errors](./how-to-find-download-logs.md).
+- Learn more about [troubleshooting load test execution errors](./how-to-troubleshoot-failing-test.md).

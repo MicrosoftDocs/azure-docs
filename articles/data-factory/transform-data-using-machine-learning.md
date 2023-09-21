@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 08/10/2023
 ---
 
 # Create a predictive pipeline using Machine Learning Studio (classic) with Azure Data Factory or Synapse Analytics
@@ -24,14 +24,14 @@ ms.date: 09/09/2021
 > [!NOTE] 
 > Since Machine Learning Studio (classic) resources can no longer be created after 1 Dec, 2021, users are encouraged to use [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) with the [Machine Learning Execute Pipeline activity](transform-data-machine-learning-service.md) rather than using the Batch Execution activity to execute Machine Learning Studio (classic) batches.
 
-[ML Studio (classic)](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
+[ML Studio (classic)](../machine-learning/index.yml) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
 
 1. **Create a training experiment**. You do this step by using the ML Studio (classic). ML Studio (classic) is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.
 2. **Convert it to a predictive experiment**. Once your model has been trained with existing data and you are ready to use it to score new data, you prepare and streamline your experiment for scoring.
 3. **Deploy it as a web service**. You can publish your scoring experiment as an Azure web service. You can send data to your model via this web service end point and receive result predictions from the model.
 
 ### Using Machine Learning Studio (classic) with Azure Data Factory or Synapse Analytics
-Azure Data Factory and Synapse Analytics enable you to easily create pipelines that use a published [Machine Learning Studio (classic)](https://azure.microsoft.com/documentation/services/machine-learning) web service for predictive analytics. Using the **Batch Execution Activity** in a pipeline, you can invoke Machine Learning Studio (classic) web service to make predictions on the data in batch.
+Azure Data Factory and Synapse Analytics enable you to easily create pipelines that use a published [Machine Learning Studio (classic)](../machine-learning/index.yml) web service for predictive analytics. Using the **Batch Execution Activity** in a pipeline, you can invoke Machine Learning Studio (classic) web service to make predictions on the data in batch.
 
 Over time, the predictive models in the Machine Learning Studio (classic) scoring experiments need to be retrained using new input datasets. You can retrain a model from a pipeline by doing the following steps:
 

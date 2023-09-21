@@ -2,9 +2,9 @@
 title: 'Tutorial: Using Service Connector to build a Django app with Postgres on Azure App Service'
 description: Create a Python web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Django framework, the app is hosted on Azure App Service on Linux, and the App Service and Database is connected with Service Connector.
 ms.devlang: python
-ms.custom: event-tier1-build-2022
-author: shizn
-ms.author: xshi
+ms.custom: event-tier1-build-2022, devx-track-azurecli, devx-track-python
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 05/03/2022
@@ -17,7 +17,7 @@ zone_pivot_groups: postgres-server-options
 
 ::: zone pivot="postgres-single-server"
 
-This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an Azure Database for a Postgres database. You can also try the PostgresSQL Flexible Server by selecting the option above. Flexible Server provides a simpler deployment mechanism and lower ongoing costs.
+This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an Azure Database for a Postgres database. You can also try the PostgreSQL Flexible Server by selecting the option above. Flexible Server provides a simpler deployment mechanism and lower ongoing costs.
 
 In this tutorial, you use the Azure CLI to complete the following tasks:
 
@@ -334,7 +334,7 @@ The resource group, app name, db name are drawn from the cached values. You need
 
 ::: zone pivot="postgres-flexible-server"
 ```azurecli
-az webapp connection create postgres --client-type django
+az webapp connection create postgres-flexible --client-type django
 ```
 
 The resource group, app name, db name are drawn from the cached values. You need to provide admin password of your postgres database during the execution of this command.
@@ -355,7 +355,7 @@ Having issues? Refer first to the [Troubleshooting guide](../app-service/configu
 
 Django database migrations ensure that the schema in the PostgreSQL on Azure database matches with your code.
 
-1. Run `az webpp ssh` to open an SSH session for the web app in the browser:
+1. Run `az webapp ssh` to open an SSH session for the web app in the browser:
 
     ```azurecli
     az webapp ssh

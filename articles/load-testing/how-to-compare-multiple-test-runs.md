@@ -6,22 +6,21 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 02/16/2022
+ms.date: 01/18/2023
 ms.topic: how-to
 ms.custom: contperf-fy22q3
 ---
 
-# Identify performance regressions by comparing test runs in Azure Load Testing Preview
+# Identify performance regressions by comparing test runs in Azure Load Testing
 
-In this article, you'll learn how you can identify performance regressions by comparing test runs in the Azure Load Testing Preview dashboard. The dashboard overlays the client-side and server-side metric graphs for each run, which allows you to quickly analyze performance issues.
+In this article, you'll learn how you can identify performance regressions by comparing test runs in the Azure Load Testing dashboard. The dashboard overlays the client-side and server-side metric graphs for each run, which allows you to quickly analyze performance issues. You will also learn how to view and analyze the trends in client-side performance metrics. 
+
+To identify performance regressions, you can quickly glance over the client-side metrics from your recent test runs to understand if your performance is trending favorably or unfavorably. Optionally, you can compare the recent metrics with a baseline to understand if the performance is meeting your expectations. To dive deeper into a performance regression, you can compare upto five test runs.
 
 You can compare load test runs for the following scenarios:
 
-- [Identify performance regressions](#identify-performance-regressions) between application builds or configurations. You could run a load test at each development sprint to ensure that the previous sprint didn't introduce performance issues.
-- [Identify which application component is responsible](#identify-the-root-cause) for a performance problem (root cause analysis). For example, an application redesign might result in slower application response times. Comparing load test runs might reveal that the root cause was a lack of database resources.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+- Identify performance regressions between application builds or configurations. You could run a load test at each development sprint to ensure that the previous sprint didn't introduce performance issues.
+- Identify which application component is responsible for a performance problem (root cause analysis). For example, an application redesign might result in slower application response times. Comparing load test runs might reveal that the root cause was a lack of database resources.
 
 ## Prerequisites
 
@@ -70,40 +69,56 @@ After you've selected the test runs you want to compare, you can visually compar
     > [!TIP]
     > The time filter is based on the duration of the tests. A value of zero indicates the start of the test, and the maximum value marks the duration of the longest test run. 
 
-## Identify performance regressions
+## View metrics trends across test runs
 
-You can compare multiple test runs to identify performance regressions. For example, before deploying a new application version in production, you can verify that the performance hasn't degraded.
+To view metrics trends across test runs in Azure Load Testing, you'll need to have at least two test runs in the *Done*, or *Stopped* state. You can only view trends from runs that belong to the same load test.
 
-Use the client-side metrics, such as requests per second or response time, on the load test dashboard to quickly spot performance changes between different load test runs:
+Use the following steps to view metrics trends across test runs:
 
-1. Hover over the client-side metrics graphs to compare the values across the different test runs.
+1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
 
-    In the following screenshot, you notice that the metric values for **Requests per second** and **Response Time** are significantly different. This difference indicates that the application performance dropped significantly between the two test runs.
+1. Go to your Azure Load Testing resource and then, on the left pane, select **Tests**.
 
-    :::image type="content" source="media/how-to-compare-multiple-test-runs/compare-client-side-metrics.png" alt-text="Screenshot of the client-side metrics, highlighting the difference in requests per second and response time.":::
+    :::image type="content" source="media/how-to-compare-multiple-test-runs/choose-test-from-list.png" alt-text="Screenshot that shows the list of tests for a Load Testing resource." lightbox="media/how-to-compare-multiple-test-runs/choose-test-from-list.png":::
 
-1. Optionally, use the **Requests** filter to compare a specific application request in the JMeter script.
+    You can also use the filters to find your load test.
+1. Select the test for which you want to view metrics trends by selecting its name.
 
-    :::image type="content" source="media/how-to-compare-multiple-test-runs/compare-client-side-requests-filter.png" alt-text="Screenshot of the client-side 'requests' filter, which allows you to filter specific application requests.":::
+1. On the **Test details** pane, select **Trends**
 
-## Identify the root cause
+    The graphs show the trends for total requests, response time, error percentage, and throughput for the ten most recent test runs.
 
-When there's a performance issue, you can use the server-side metrics to analyze what the root cause of the problem is. Azure Load Testing can [capture server-side resource metrics](./how-to-monitor-server-side-metrics.md) for Azure-hosted applications.
+    :::image type="content" source="media/how-to-compare-multiple-test-runs/choose-trends-from-test-details.png" alt-text="Screenshot that shows the details of a Test in a Load Testing resource." lightbox="media/how-to-compare-multiple-test-runs/choose-trends-from-test-details.png":::
+   
+1. Optionally, you can select **Table view** to view the metrics trends in a tabular view.
 
-1. Hover over the server-side metrics graphs to compare the values across the different test runs.
+    :::image type="content" source="media/how-to-compare-multiple-test-runs/metrics-trends-in-table-view.png" alt-text="Screenshot that shows metrics trends in a tabular view." lightbox="media/how-to-compare-multiple-test-runs/metrics-trends-in-table-view.png":::
 
-    In the following screenshot, you notice from the **Response time** and **Requests** that the application performance has degraded. You can also see that for one test run, the database **RU Consumption** peeks at 100%. This indicates that the root cause is likely the database **Provisioned Throughput**.
+    You can select a test run that you want to analyze and open the results dashboard for that test run.
 
-    :::image type="content" source="media/how-to-compare-multiple-test-runs/compare-server-side-metrics.png" alt-text="Screenshot of the server-side metrics, highlighting the difference in database resource consumption and provisioning throughput.":::
+## Use a baseline test run
 
-1. Optionally, select **Configure metrics** to add or remove server-side metrics.
+You can mark a test run as baseline to compare the client-side metrics of the recent test runs with those of the baseline. 
 
-    You can add more server-side metrics for the selected Azure app components to further investigate performance problems. The dashboard immediately shows the additional metrics data, and you don't have to rerun the load test.
+Use the following steps to mark a test run as baseline:
 
-1. Optionally, use the **Resource** filter to hide or show all metric graphs for an Azure component.
+1. On the **Trends** pane, select **Mark baseline**
+
+    :::image type="content" source="media/how-to-compare-multiple-test-runs/select-mark-baseline.png" alt-text="Screenshot that shows Mark baseline button in the Trends pane." lightbox="media/how-to-compare-multiple-test-runs/select-mark-baseline.png":::
+
+1. In the right context pane, select the checkbox for the test run that you want to mark as baseline, and then select **Mark baseline**
+
+    :::image type="content" source="media/how-to-compare-multiple-test-runs/mark-test-run-as-baseline.png" alt-text="Screenshot that shows the context pane to mark a test run as baseline." lightbox="media/how-to-compare-multiple-test-runs/mark-test-run-as-baseline.png":::
+   
+    You can also use the filters to find your load test run.
+
+    The baseline value is shown as a horizontal line in the charts. In the table view, an additional row with the baseline test run details is shown. For the recent test runs, an arrow mark next to the metrics 
+    value indicates whether the metric is trending favorably or unfavorably as compared to the baseline metric value. 
+
+    :::image type="content" source="media/how-to-compare-multiple-test-runs/trends-view-with-baseline.png" alt-text="Screenshot that shows trends in metrics when a baseline is selected." lightbox="media/how-to-compare-multiple-test-runs/trends-view-with-baseline.png":::
 
 ## Next steps
 
 - Learn more about [exporting the load test results for reporting](./how-to-export-test-results.md).
-- Learn more about [troubleshooting load test execution errors](./how-to-find-download-logs.md).
-- Learn more about [configuring automated performance testing with Azure Pipelines](./tutorial-cicd-azure-pipelines.md).
+- Learn more about [troubleshooting load test execution errors](./how-to-troubleshoot-failing-test.md).
+- Learn more about [configuring automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).

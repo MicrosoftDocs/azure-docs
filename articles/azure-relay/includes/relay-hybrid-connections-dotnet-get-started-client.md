@@ -1,9 +1,9 @@
 ---
-author: clemensv
+author: spelluru
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: clemensv
+ms.date: 08/10/2023
+ms.author: spelluru
 ---
 ### Create a console application
 
@@ -26,20 +26,20 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Add constants to the `Program` class for the hybrid connection details. Replace the placeholders in brackets with the values that you obtained when you created the hybrid connection. Be sure to use the fully qualified namespace name.
+2. Add constants to the `Program` class for the hybrid connection details. Replace the placeholders with the values that you obtained when you created the hybrid connection. Be sure to use the fully qualified namespace name.
    
     ```csharp
     // replace {RelayNamespace} with the name of your namespace
-    private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
+    private const string RelayNamespace = "YOUR-RELAY-NAMESPACE-NAME.servicebus.windows.net";
     
     // replace {HybridConnectionName} with the name of your hybrid connection
-    private const string ConnectionName = "{HybridConnectionName}";
+    private const string ConnectionName = "HYBRID-CONNECTION-NAME";
     
     // replace {SAKKeyName} with the name of your Shared Access Policies key, which is RootManageSharedAccessKey by default
-    private const string KeyName = "{SASKeyName}";
+    private const string KeyName = "SAS-KEY-NAME";
     
     // replace {SASKey} with the primary key of the namespace you saved earlier
-    private const string Key = "{SASKey}";
+    private const string Key = "SAS-KEY-VALUE";
     ```
 3. Add the following method to the `Program` class:
    

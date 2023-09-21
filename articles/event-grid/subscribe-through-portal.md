@@ -2,16 +2,17 @@
 title: Azure Event Grid subscriptions through portal
 description: This article describes how to create Event Grid subscriptions for the supported sources, such as Azure Blob Storage, by using the Azure portal.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.custom: build-2023
+ms.date: 09/12/2022
 ---
 
 # Subscribe to events through portal
 
-This article describes how to create Event Grid subscriptions through the portal.
+This article describes how to create Event Grid subscriptions through the portal. 
 
 ## Create event subscriptions
 
-To create an Event Grid subscription for any of the supported [event sources](overview.md#event-sources), use the following steps. This article shows how to create an Event Grid subscription for an Azure subscription.
+To create an Event Grid subscription for any of the supported [event sources](concepts.md#event-sources), use the following steps. This article shows how to create an Event Grid subscription for an Azure subscription.
 
 1. Select **All services**.
 
@@ -33,12 +34,13 @@ To create an Event Grid subscription for any of the supported [event sources](ov
 
    ![Select event types](./media/subscribe-through-portal/select-event-types.png)
 
-1. Provide additional details about the event subscription, such as the endpoint for handling events and a subscription name.
+1. Provide more details about the event subscription, such as the endpoint for handling events and a subscription name.
 
    ![Screenshot that shows the "Endpoint Details" and "Event Subscription Details" sections with a subscription name value entered.](./media/subscribe-through-portal/provide-subscription-details.png)
     
     > [!NOTE]
-    > For a list of supported event handlers, see [Event handlers](event-handlers.md).
+    > - For a list of supported event handlers, see [Event handlers](event-handlers.md).
+    > - If you enable managed identity for a topic or domain, you'll need to add the managed identity to the appropriate role-based access control (RBAC) role on the destination for the messages to be delivered successfully. For more information, see [Supported destinations and Azure roles](add-identity-roles.md#supported-destinations-and-azure-roles).
 1. To enable dead lettering and customize retry policies, select **Additional Features**.
 
    ![Select additional features](./media/subscribe-through-portal/select-additional-features.png)

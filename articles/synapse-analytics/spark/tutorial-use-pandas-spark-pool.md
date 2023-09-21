@@ -6,8 +6,8 @@ ms.subservice: spark
 ms.topic: tutorial
 ms.reviewer: sngun, garye
 ms.date: 11/02/2021
-author: AjAgr
-ms.author: ajagarw
+author: juluczni
+ms.author: juluczni
 ms.custom: ignite-fall-2021
 ---
 
@@ -37,6 +37,12 @@ If you don't have an Azure subscription, [create a free account before you begin
 
    :::image type="content" source="media/tutorial-use-pandas-spark-pool/create-adls-linked-service.png" alt-text="Screenshot of creating a linked service using an ADLS Gen2 storage access key.":::
 
+> [!IMPORTANT]
+>
+> - If the above created Linked Service to Azure Data Lake Storage Gen2 uses a [managed private endpoint](../security/synapse-workspace-managed-private-endpoints.md) (with a *dfs* URI) , then we need to create another secondary managed private endpoint using the Azure Blob Storage option (with a **blob** URI) to ensure that the internal [fsspec/adlfs](https://github.com/fsspec/adlfs/blob/main/adlfs/spec.py#L400) code can connect using the *BlobServiceClient* interface.
+> - In case the secondary managed private endpoint is not configured correctly, then we would see an error message like *ServiceRequestError: Cannot connect to host [storageaccountname].blob.core.windows.net:443 ssl:True [Name or service not known]*
+> 
+> ![Screenshot of creating a managed private end-point to an ADLS Gen2 storage using blob endpoint.](./media/tutorial-use-pandas-spark-pool/create-mpe-blob-endpoint.png)
 
 > [!NOTE]
 > - Pandas feature is supported on **Python 3.8** and **Spark3** serverless Apache Spark pool in Azure Synapse Analytics. 

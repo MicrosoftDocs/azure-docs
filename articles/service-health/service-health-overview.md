@@ -1,18 +1,20 @@
 ---
-title: Service Health overview | Microsoft Docs
-description: Learn how Service Health provides you with a customizable dashboard which tracks the health of your Azure services in the regions where you use them. 
+title: Service Health portal classic experience overview | Microsoft Docs
+description: Learn how the Service Health portal provides you with a customizable dashboard which tracks the health of your Azure services in the regions where you use them. 
 ms.topic: conceptual
 ms.date: 05/10/2019
 
 
 ---
-# Service Health overview
+# Service Health portal classic experience overview
 
-Service Health provides you with a customizable dashboard which tracks the health of your Azure services in the regions where you use them. In this dashboard, you can track active events like ongoing service issues, upcoming planned maintenance, or relevant health advisories. When events become inactive, they get placed in your health history for up to 90 days. Finally, you can use the Service Health dashboard to create and manage service health alerts which proactively notify you when service issues are affecting you.
+The [Service Health portal](https://portal.azure.com/#view/Microsoft_Azure_Health/AzureHealthBrowseBlade/~/serviceIssues) is part of the [Service Health service](overview.md). The portal provides you with a customizable dashboard which tracks the health of your Azure services in the regions where you use them. In this dashboard, you can track active events like ongoing service issues, upcoming planned maintenance, or relevant health advisories. When events become inactive, they get placed in your health history for up to 90 days. Finally, you can use the Service Health dashboard to create and manage service health alerts which proactively notify you when service issues are affecting you.
+
+This article goes through the classic portal experience. The portal is in process of updating to a new user interface. Some users will see the experience below. Others will see the [updated service Health portal experience](service-health-portal-update.md). 
 
 ## Service Health Events
 
-Service Health tracks four types of health events that may impact your resources:
+The [Service Health portal](https://portal.azure.com/#view/Microsoft_Azure_Health/AzureHealthBrowseBlade/~/serviceIssues) tracks four types of health events that may impact your resources:
 
 1. **Service issues** - Problems in the Azure services that affect you right now. 
 2. **Planned maintenance** - Upcoming maintenance that can affect the availability of your services in the future.  
@@ -22,7 +24,7 @@ Service Health tracks four types of health events that may impact your resources
 > [!NOTE]
 > To view Service Health events, users must be [granted the Reader role](../role-based-access-control/role-assignments-portal.md) on a subscription.
 
-## Get started with Service Health
+## Get started with Service Health portal
 
 To launch your Service Health dashboard, select the Service Health tile on your portal dashboard. If you have previously removed the tile or you're using custom dashboard, search for Service Health service in "More services" (bottom left on your dashboard).
 
@@ -40,7 +42,7 @@ Choose the **Potential impact** tab to see the specific list of resources you ow
 
 ## See emerging issues which may impact your services
 
-There are situations when widespread service issues may be posted to the [Azure Status page](https://status.azure.com) before targeted communications can be sent to impacted customers. To ensure that Azure Service Health provides a comprehensive view of issues that may affect you, active Azure Status page issues are surfaced in Service Health as *emerging issues*. When an event is active on the Azure Status page, an emerging issues banner will be present in Service Health. Click the banner to see the full details of the issue.
+There are situations when widespread service issues may be posted to the [Azure Status page](https://azure.status.microsoft) before targeted communications can be sent to impacted customers. To ensure that Azure Service Health provides a comprehensive view of issues that may affect you, active Azure Status page issues are surfaced in Service Health as *emerging issues*. When an event is active on the Azure Status page, an emerging issues banner will be present in Service Health. Click the banner to see the full details of the issue.
 
 ![Emerging service issue](./media/service-health-overview/azure-service-health-emerging-issue.png)
 

@@ -1,9 +1,8 @@
 ---
 title: Handle errors and exceptions in MSAL for iOS/macOS
-titleSuffix: Microsoft identity platform
 description: Learn how to handle errors and exceptions, Conditional Access claims challenges, and retries in MSAL for iOS/macOS applications.
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,13 +10,13 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/26/2020
-ms.author: marsma
+ms.author: henrymbugua
 ms.reviewer: saeeda, oldalton
 ms.custom: aaddev
 ---
 # Handle errors and exceptions in MSAL for iOS/macOS
 
-[!INCLUDE [Active directory error handling introduction](../../../includes/active-directory-develop-error-handling-introduction.md)]
+[!INCLUDE [Active directory error handling introduction](./includes/error-handling-and-tips/error-handling-introduction.md)]
 
 ## Error handling in MSAL for iOS/macOS
 
@@ -225,7 +224,7 @@ The following Objective-C sample code demonstrates best practices for handling s
 
 ---
 
-[!INCLUDE [Active directory error handling claims challenges](../../../includes/active-directory-develop-error-handling-claims-challenges.md)]
+[!INCLUDE [Active directory error handling claims challenges](./includes/error-handling-and-tips/error-handling-claims-challenges.md)]
 
 MSAL for iOS and macOS allows you to request specific claims in both interactive and silent token acquisition scenarios.
 
@@ -233,7 +232,7 @@ To request custom claims, specify `claimsRequest` in `MSALSilentTokenParameters`
 
 See [Request custom claims using MSAL for iOS and macOS](request-custom-claims.md) for more info.
 
-[!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
+[!INCLUDE [Active directory error handling retries](./includes/error-handling-and-tips/error-handling-retries.md)]
 
 ## Next steps
 

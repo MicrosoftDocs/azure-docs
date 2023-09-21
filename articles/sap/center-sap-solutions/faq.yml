@@ -1,0 +1,172 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Center for SAP solutions FAQ
+  description: "Get answers to common questions about Azure Center for SAP solutions and Virtual Instance for SAP solutions (VIS) resources."
+  ms.topic: faq 
+  ms.service: sap-on-azure
+  ms.subservice: center-sap-solutions
+  ms.custom: references_regions
+  ms.date: 10/19/2022
+  ms.author: sagarkeswani
+  author: sagarkeswani
+
+title: Common questions about  Azure Center for SAP solutions
+summary: |
+  This article answers commonly asked questions about Azure Center for SAP solutions.
+
+sections: 
+  - name: General 
+    questions: 
+      - question:  What capabilities do you gain with Azure Center for SAP solutions?
+        answer: | 
+                Before the availability of Azure Center for SAP solutions, customers relied on documentation and frameworks to help them set up system architecture. 
+                Then they had to figure out how to access the VMs to install SAP. With Azure Center for SAP solutions, customers can deploy SAP by using a 
+                guided experience that streamlines their ability to select and configure resources. When a customer deploys or 
+                registers an existing SAP system, Azure Center for SAP solutions creates a logical representation of the system, or a Virtual Instance for SAP solutions (VIS). 
+                The VIS unlocks management capabilities, such as the ability to run quality checks and to manage and monitor the 
+                system at the SAP layer as well as the virtual machine (VM) layer.
+
+      - question:  Will Azure Center for SAP solutions replace other services such as Azure Monitor for SAP solutions?
+        answer: | 
+                No. Azure Center for SAP solutions brings Azure services together into a unified experience for deploying 
+                and managing SAP workloads on Azure. Customers can choose to use other Azure services, such as Azure 
+                Monitor for SAP solutions, independently or in an integrated manner with Azure Center for SAP solutions.
+                Azure Monitor for SAP solutions is an Azure-native monitoring product for customers running SAP 
+                landscapes on Azure. This product helps you collect data from Azure infrastructure and databases in one 
+                central location and visually correlate the data for faster troubleshooting.
+
+      - question:  What are the pricing and licensing implications?
+        answer: | 
+                There's no extra licensing cost for deploying or registering an SAP system and generating a virtual 
+                instance. You pay only for 
+                the compute, storage, networking, Virtual machine OS image license (Redhat/SUSE) and other Azure resources you deploy or enable. 
+
+      - question:  Which scenarios does Azure Center for SAP solutions support?
+        answer: | 
+                Azure Center for SAP solutions supports the following capabilities at this time.
+
+                - Deployment of infrastructure for SAP S4/HANA systems
+                - Automated Software installation of SAP S/4/HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 
+                - Installation of S/4/HANA manually or through other tools on an infrastructure deployed by ACSS 
+                - Registration of an existing Windows and Linux based ABAP/NetWeaver SAP system on Azure
+                - Monitoring the health and status of an SAP system
+                - Creating a new Azure Monitor for SAP solutions provider or integrating an existing one
+                - Start and Stop of an SAP system, individual SAP instances, and HANA database
+                - Quality checks and recommendations for an SAP system with Azure Advisor
+                - Analyze the cost of running the SAP System in Azure [non-shared resources only]
+
+                Azure Center for SAP solutions also offers the ability to customize the names of the Azure resources deployed through it via API, CLI and PowerShell. Consider referring to sample API payload templates to deploy a system with custom resource naming conventions.  
+
+      - question:  What is Azure Virtual Instance for SAP solutions?
+        answer: | 
+                The Virtual Instance for SAP solutions (VIS) resource is an essential component of Azure Center for SAP solutions that 
+                forms the foundation for the new experience. The VIS is a logical representation of your SAP system in Azure
+                that provides SAP awareness in Azure and unlocks new management capabilities. When you deploy a new 
+                SAP system or register an existing SAP system, Azure Center for SAP solutions automatically creates a 
+                VIS for you.
+
+      - question:  Is Azure Center for SAP solutions a fully managed offering? 
+        answer: | 
+                No. Azure Center for SAP solutions makes it easier for you to deploy and manage SAP systems on Azure while still retaining full control of and responsibility for the underlying Azure resources, such as virtual machines. 
+
+      - question:  With Azure Center for SAP solutions in General Availability, are there any features in preview?
+        answer: | 
+                The following feature is still in preview: 
+
+                - *Architecture Visualization* - The feature helps customers visualize the architecture of the SAP S/4/HANA system being deployed and can be downloaded for documentation purposes.  
+
+      - question:  Which regions support Azure Virtual Instance for SAP solutions as part of Azure Center for SAP solutions?
+        answer: | 
+                Azure Virtual Instance for SAP solutions is available in the following regions:  
+
+                - West Europe, North Europe, East US, East US 2, West US 2, West US 3, Central US, South Central US, India Central, East Asia, Southeast Asia, Australia East, and Australia Central.  
+                - You can also see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=all#:~:text=Azure%20Center%20for%20SAP%20solutions) page for information about availability of Azure Center for SAP solutions in different Azure regions. 
+
+  - name: Registering Existing SAP System Questions 
+    questions: 
+      - question:  What existing SAP systems can be registered as a VIS?
+        answer: | 
+                You can register any of the following existing systems on Azure to create a VIS in Azure Center 
+                for SAP solutions:
+
+                - SAP systems running on SAP NetWeaver or ABAP stack
+                - SAP systems running on Windows, SUSE and RHEL Linux Operating Systems
+                - SAP systems running on HANA, DB2, SQL Server, Oracle, Max DB, SAP ASE databases
+                
+                Refer to the [product documentation](/azure/sap/center-sap-solutions/register-existing-system#prerequisites) to review the complete list of supported and unsupported scenarios.   
+
+                > [!NOTE]
+                > If you are registering a system based on Oracle Linux OS and/or Oracle Database, there will be limited support for quality checks, health and status and start-stop offerings. 
+
+      - question:  What are the prerequisites to register an existing SAP system as an Azure Virtual Instance for SAP solutions? 
+        answer: |
+                Here are the pre-requisites for registering existing SAP systems as a Virtual Instance for SAP (VIS) resource. More details can be found in the [product documentation](/azure/sap/center-sap-solutions/register-existing-system#prerequisites).
+
+                - Appropriate role access on the Azure subscription or resource groups where you have the SAP system resources.  
+                    - *Azure Center for SAP solutions administrator* and *Managed Identity Operator* or equivalent role access. 
+                    - A *User-assigned managed identity* that has *Azure Center for SAP solutions service role* access on the Compute and Storage resource groups and *Reader role* access on the Virtual Network resource group of the SAP system. Azure Center for SAP solutions service uses this identity to discover your SAP system resources and register the system as a VIS resource. 
+                - Make sure ASCS, Application Server, and Database virtual machines of the SAP system are in Running state. 
+                - sapcontrol and saphostctrl exe files on ASCS, App server and Database.  
+                - Confirm the sapstartsrv process is running on all SAP instances and for SAP hostctrl agent on all the VMs in the SAP system.
+
+      - question:  What resources are created in a customer’s subscription when you register an existing SAP system with Azure Center for SAP solutions?  
+        answer: |
+                When you register an existing SAP system with ACSS, ACSS creates the following logical Azure resources: 
+
+                - Virtual Instance for SAP solutions                
+                - Central service instance for SAP solutions
+                - App server instance for SAP solutions
+                - Database for SAP solutions
+                
+                Along with these logical resources, ACSS also creates a Managed resource group with a storage account. ACSS uses this resource group to enable the SAP management capabilities. 
+
+
+  - name: Deploying New SAP System Questions
+    questions: 
+
+      - question:  What are the prerequisites to deploy a new SAP system with Azure Center for SAP solutions?
+        answer: |
+                Here are prerequisites to deploy a new SAP system with Azure Center for SAP solutions and create a VIS. For more information, see the [deployment guide](deploy-s4hana.md).
+
+                - Appropriate role access.  
+                    - You need an Azure account with *Azure Center for SAP solutions administrator* and *Managed Identity Operator* or equivalent role access to the subscription in which you'll deploy the new system. 
+                - A *User-assigned managed identity* which has *Azure Center for SAP solutions service role* access on the Subscription or all resource groups (Compute, Network, Storage). If you wish to install SAP Software through Azure Center for SAP solutions, provide *Reader and Data Access role* to the identity on SAP software storage account where you would store the SAP Media. 
+                - An existing virtual network that allows outbound internet connectivity from the Virtual Machines even when they are behind a standard Azure load balancer, where you will deploy your new SAP system.  
+                - Register Appropriate resource providers that you have registered. (Compute, Network, Storage, Workloads, Capacity). 
+                - Sufficient virtual machine quota in the region(s) used for the deployment. Additionally, minimum 4 cores of Standard_D4ds_v4 or Standard_E4s_v3 SKU are required for the deployment to succeed. 
+                
+      - question:  What resources are created in customer’s subscription when you deploy an SAP S/4/HANA system through Azure Center for SAP solutions?
+        answer: | 
+                When you deploy and install an SAP S/4/HANA system with ACSS, ACSS creates the following logical Azure resources: 
+                - Virtual Instance for SAP solutions                
+                - Central service instance for SAP solutions
+                - App server instance for SAP solutions
+                - Database for SAP solutions
+                
+                ACSS also creates Azure resources that are required to run the SAP S/4HANA system in the application resource group. These include virtual machines and storage. Customers can create a separate transport resource group if required. 
+                
+                Along with these resources, ACSS creates a Managed resource group containing a storage account and key vault. ACSS uses the Managed resource group to enable the SAP management capabilities. 
+
+      - question:  How do I log on to an SAP system after deploying it from ACSS? 
+        answer: | 
+                Once you have deployed and installed an SAP S/4/HANA system through ACSS, you can use the [SAP master password](/azure/sap/center-sap-solutions/manage-virtual-instance#find-sap-and-hana-passwords) and HANA database [username](/azure/sap/center-sap-solutions/manage-virtual-instance#connect-to-hana-database) and password available in the Managed resource group key vault to log on to the SAP GUI or and connect to the SAP HANA database.  
+
+      - question:  How do I find the instance number(s) for SAP instances deployed through ACSS? 
+        answer: | 
+                Please refer to [the documentation here](/azure/sap/center-sap-solutions/manage-virtual-instance#default-instance-numbers) to understand the instance numbers configured through ACSS. Please note instance numbers are currently not configurable. 
+
+  - name: Management and Miscellaneous Questions 
+    questions: 
+
+      - question:  Do Start and Stop operations on Virtual Instance for SAP solutions resource also start or stop the underlying virtual machines?
+        answer: | 
+                No. Start and Stop operations on the Virtual Instance for SAP solutions resource do not impact the virtual machine running state. The same is true for Start and Stop on the underlying child resources, such as the Central service instance and Application server instance. To start SAP, the underlying VMs for that SAP system must be running. 
+
+      - question:  What resources are available to learn more? 
+        answer: | 
+                Customers and partners can find more information at Microsoft Learn: https://learn.microsoft.com and [SAP on Azure Resources page](/users/lannateh-3810/collections/7rysj5w2007dn?wt.mc_id=saponazurecta_collections_webpage_azuremktg_csainfra)
+
+
+      - question:  What is the SLA for this service?
+        answer: | 
+                Because ACSS is available at no additional cost, it is not eligible for an SLA. Standard SLAs apply to any other services that are deployed or enabled through Azure Center for SAP solutions.  

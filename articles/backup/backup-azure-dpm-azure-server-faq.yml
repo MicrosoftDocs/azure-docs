@@ -6,6 +6,8 @@ metadata:
   ms.topic: faq
   ms.service: backup
   ms.date: 10/13/2021
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
 
 title: Azure Backup Server and DPM - FAQ
 summary: |
@@ -74,14 +76,14 @@ sections:
   - name: SharePoint
     questions:
       - question: |
-          Can I recover a SharePoint item to the original location if SharePoint is configured by using SQL AlwaysOn (with protection on disk)?
+          Can I recover a SharePoint item to the original location if SharePoint is configured by using SQL Always On (with protection on disk)?
         answer: |
           Yes, the item can be recovered to the original SharePoint site.
 
       - question: |
-          Can I recover a SharePoint database to the original location if SharePoint is configured by using SQL AlwaysOn?
+          Can I recover a SharePoint database to the original location if SharePoint is configured by using SQL Always On?
         answer: |
-          Because SharePoint databases are configured in SQL AlwaysOn, they can't be modified unless the availability group is removed. As a result, DPM can't restore a database to the original location. You can recover a SQL Server database to another SQL Server instance.
+          Because SharePoint databases are configured in SQL Always On, they can't be modified unless the availability group is removed. As a result, DPM can't restore a database to the original location. You can recover a SQL Server database to another SQL Server instance.
 
 additionalContent: |
 

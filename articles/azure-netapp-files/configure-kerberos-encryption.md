@@ -31,7 +31,6 @@ The following requirements apply to NFSv4.1 client encryption:
 * Ensure that User Principal Names for user accounts do *not* end with a `$` symbol (for example, user$@REALM.COM). <!-- Not using 'contoso.com' in this example; per Mark, A customers REALM namespace may be different from their AD domain name space. -->   
     For [Group managed service accounts](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts) (gMSA), you need to remove the trailing `$` from the User Principal Name before the account can be used with the Azure NetApp Files Kerberos feature.
 
-
 ## Create an NFS Kerberos Volume
 
 1.	Follow steps in [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) to create the NFSv4.1 volume.   
@@ -55,11 +54,11 @@ The following requirements apply to NFSv4.1 client encryption:
 
 1.	Follow the instructions in [Create an Active Directory connection](create-active-directory-connections.md).  
 
-    Kerberos requires that you create at least one machine account in Active Directory. The account information you provide is used for creating the accounts for both SMB *and* NFSv4.1 Kerberos volumes. This machine is account is created automatically during volume creation.
+    Kerberos requires that you create at least one computer account in Active Directory. The account information you provide is used for creating the accounts for both SMB *and* NFSv4.1 Kerberos volumes. This machine is account is created automatically during volume creation.
 
 2.	Under **Kerberos Realm**, enter the **AD Server Name** and the **KDC IP** address.
 
-    AD Server and KDC IP can be the same server. This information is used to create the SPN machine account used by Azure NetApp Files. After the machine account is created, Azure NetApp Files will use DNS Server records to locate additional KDC servers as needed. 
+    AD Server and KDC IP can be the same server. This information is used to create the SPN computer account used by Azure NetApp Files. After the computer account is created, Azure NetApp Files will use DNS Server records to locate additional KDC servers as needed. 
 
     ![Kerberos Realm](../media/azure-netapp-files/kerberos-realm.png)
  

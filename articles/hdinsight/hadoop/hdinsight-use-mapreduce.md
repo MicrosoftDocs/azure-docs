@@ -4,7 +4,7 @@ description: Learn how to run Apache MapReduce jobs on Apache Hadoop in HDInsigh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/06/2019
+ms.date: 12/21/2022
 ---
 
 # Use MapReduce in Apache Hadoop on HDInsight

@@ -1,396 +1,201 @@
 ---
-title: "Tutorial: Use App Configuration dynamic configuration in ASP.NET Core"
+title: "Tutorial: Use dynamic configuration in an ASP.NET Core app"
 titleSuffix: Azure App Configuration
-description: In this tutorial, you learn how to dynamically update the configuration data for ASP.NET Core apps
+description: In this tutorial, you learn how to dynamically update the configuration data for ASP.NET Core apps.
 services: azure-app-configuration
-documentationcenter: ''
-author: AlexandraKemperMS
-editor: ''
-
-ms.assetid: 
+documentationcenter: ""
+author: zhenlan
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/1/2020
-ms.author: alkemper
-ms.custom: "devx-track-csharp, mvc"
-
-#Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
+ms.date: 09/30/2022
+ms.author: zhenlwa
+ms.custom: devx-track-csharp
 ---
+
 # Tutorial: Use dynamic configuration in an ASP.NET Core app
 
-ASP.NET Core has a pluggable configuration system that can read configuration data from a variety of sources. It can handle changes dynamically without causing an application to restart. ASP.NET Core supports the binding of configuration settings to strongly typed .NET classes. It injects them into your code by using `IOptionsSnapshot<T>`, which automatically reloads the application's configuration when the underlying data changes.
-
-This tutorial shows how you can implement dynamic configuration updates in your code. It builds on the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
-
-You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option that's available on the Windows, macOS, and Linux platforms.
+This tutorial shows how you can enable dynamic configuration updates in an ASP.NET Core app. It builds on the web app introduced in the quickstarts. Your app will leverage the App Configuration provider library for its built-in configuration caching and refreshing capabilities. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up your application to update its configuration in response to changes in an App Configuration store.
-> * Inject the latest configuration in your application's controllers.
+> * Set up your app to update its configuration in response to changes in an App Configuration store.
+> * Inject the latest configuration into your app.
 
 ## Prerequisites
 
-To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
+Finish the quickstart: [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md).
 
 ## Add a sentinel key
 
-A *sentinel key* is a special key that you update after you complete the change of all other keys. Your application monitors the sentinel key. When a change is detected, your application refreshes all configuration values. This approach helps to ensure the consistency of configuration in your application and reduces the overall number of requests made to App Configuration, compared to monitoring all keys for changes.
+A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your App Configuration store, compared to monitoring all keys for changes.
 
-1. In the Azure portal, select **Configuration Explorer > Create > Key-value**.
+1. In the Azure portal, open your App Configuration store and select **Configuration Explorer > Create > Key-value**.
 1. For **Key**, enter *TestApp:Settings:Sentinel*. For **Value**, enter 1. Leave **Label** and **Content type** blank.
 1. Select **Apply**.
 
-> [!NOTE]
-> If you aren't using a sentinel key, you need to manually register every key you want to monitor.
-
 ## Reload data from App Configuration
 
-1. Add a reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
+1. Open *Program.cs*, and update the `AddAzureAppConfiguration` method you added previously during the quickstart.
 
-    ```dotnetcli
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
-    ```
-
-1. Open *Program.cs*, and update the `CreateWebHostBuilder` method to add the `config.AddAzureAppConfiguration()` method.
-
-   #### [.NET 5.x](#tab/core5x)
-
+    #### [.NET 6.0+](#tab/core6x)
     ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-                {
-                    var settings = config.Build();
-                    config.AddAzureAppConfiguration(options =>
-                    {
-                        options.Connect(settings["ConnectionStrings:AppConfig"])
-                               .ConfigureRefresh(refresh =>
-                                    {
-                                        refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
-                                               .SetCacheExpiration(new TimeSpan(0, 5, 0));
-                                    });
-                    });
-                })
-            .UseStartup<Startup>());
+    // Load configuration from Azure App Configuration
+    builder.Configuration.AddAzureAppConfiguration(options =>
+    {
+        options.Connect(connectionString)
+               // Load all keys that start with `TestApp:` and have no label
+               .Select("TestApp:*", LabelFilter.Null)
+               // Configure to reload configuration if the registered sentinel key is modified
+               .ConfigureRefresh(refreshOptions =>
+                    refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
+    });
     ```
 
     #### [.NET Core 3.x](#tab/core3x)
-
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
-                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                webBuilder.ConfigureAppConfiguration(config =>
                 {
-                    var settings = config.Build();
+                    //Retrieve the Connection String from the secrets manager
+                    IConfiguration settings = config.Build();
+                    string connectionString = settings.GetConnectionString("AppConfig");
+
+                    // Load configuration from Azure App Configuration
                     config.AddAzureAppConfiguration(options =>
                     {
-                        options.Connect(settings["ConnectionStrings:AppConfig"])
-                               .ConfigureRefresh(refresh =>
-                                    {
-                                        refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
-                                               .SetCacheExpiration(new TimeSpan(0, 5, 0));
-                                    });
+                        options.Connect(connectionString)
+                               // Load all keys that start with `TestApp:` and have no label
+                               .Select("TestApp:*", LabelFilter.Null)
+                               // Configure to reload configuration if the registered sentinel key is modified
+                               .ConfigureRefresh(refreshOptions =>
+                                    refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
                     });
-                })
-            .UseStartup<Startup>());
-    ```
-    #### [.NET Core 2.x](#tab/core2x)
-
-    ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                var settings = config.Build();
-
-                config.AddAzureAppConfiguration(options =>
-                {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .ConfigureRefresh(refresh =>
-                                {
-                                    refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
-                                           .SetCacheExpiration(new TimeSpan(0, 5, 0));
-                                });
                 });
-            })
-            .UseStartup<Startup>();
+
+                webBuilder.UseStartup<Startup>();
+            });
     ```
     ---
 
-    In the `ConfigureRefresh` method, you register keys within your App Configuration store that you want to monitor for changes. The `refreshAll` parameter to the `Register` method indicates that all configuration values should be refreshed if the registered key changes. The `SetCacheExpiration` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds specifying a time of 5 minutes instead. This reduces the potential number of requests made to your App Configuration store.
+    The `Select` method is used to load all key-values whose key name starts with *TestApp:* and that have *no label*. You can call the `Select` method more than once to load configurations with different prefixes or labels. If you share one App Configuration store with multiple apps, this approach helps load configuration only relevant to your current app instead of loading everything from your store.
 
-    > [!NOTE]
-    > For testing purposes, you may want to lower the cache refresh expiration time.
+    In the `ConfigureRefresh` method, you register keys you want to monitor for changes in your App Configuration store. The `refreshAll` parameter to the `Register` method indicates that all configurations you specified by the `Select` method will be reloaded if the registered key changes.
 
-    To actually trigger a configuration refresh, you'll use the App Configuration middleware. You'll see how to do this in a later step.
+    > [!TIP]
+    > You can add a call to the `refreshOptions.SetCacheExpiration` method to specify the minimum time between configuration refreshes. In this example, you use the default value of 30 seconds. Adjust to a higher value if you need to reduce the number of requests made to your App Configuration store.
 
-1. Add a *Settings.cs* file in the Controllers directory that defines and implements a new `Settings` class. Replace the namespace with the name of your project. 
+1. Add Azure App Configuration middleware to the service collection of your app.
+
+    #### [.NET 6.0+](#tab/core6x)
+    Update *Program.cs* with the following code. 
 
     ```csharp
-    namespace TestAppConfig
+    // Existing code in Program.cs
+    // ... ...
+
+    builder.Services.AddRazorPages();
+
+    // Add Azure App Configuration middleware to the container of services.
+    builder.Services.AddAzureAppConfiguration();
+
+    // Bind configuration "TestApp:Settings" section to the Settings object
+    builder.Services.Configure<Settings>(builder.Configuration.GetSection("TestApp:Settings"));
+
+    var app = builder.Build();
+
+    // The rest of existing code in program.cs
+    // ... ...
+    ```
+
+    #### [.NET Core 3.x](#tab/core3x)
+    Open *Startup.cs*, and update the `ConfigureServices` method.
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
     {
-        public class Settings
+        services.AddRazorPages();
+
+        // Add Azure App Configuration middleware to the container of services.
+        services.AddAzureAppConfiguration();
+
+        // Bind configuration "TestApp:Settings" section to the Settings object
+        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
+    }   
+    ```
+    ---
+
+1. Call the `UseAzureAppConfiguration` method. It enables your app to use the App Configuration middleware to update the configuration for you automatically.
+
+    #### [.NET 6.0+](#tab/core6x)
+    Update *Program.cs* withe the following code. 
+
+    ```csharp
+    // Existing code in Program.cs
+    // ... ...
+
+    var app = builder.Build();
+
+    if (!app.Environment.IsDevelopment())
+    {
+        app.UseExceptionHandler("/Error");
+        app.UseHsts();
+    }
+
+    // Use Azure App Configuration middleware for dynamic configuration refresh.
+    app.UseAzureAppConfiguration();
+
+    // The rest of existing code in program.cs
+    // ... ...
+    ```
+
+    #### [.NET Core 3.x](#tab/core3x)
+    Update the `Configure` method in *Startup.cs*.
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
         {
-            public string BackgroundColor { get; set; }
-            public long FontSize { get; set; }
-            public string FontColor { get; set; }
-            public string Message { get; set; }
+            app.UseDeveloperExceptionPage();
         }
-    }
-    ```
+        else
+        {
+            app.UseExceptionHandler("/Error");
+            app.UseHsts();
+        }
 
-1. Open *Startup.cs*, and update the `ConfigureServices` method. Call `Configure<Settings>` to bind configuration data to the `Settings` class. Call `AddAzureAppConfiguration` to add App Configuration components to the service collection of your application.
-
-    #### [.NET 5.x](#tab/core5x)
-
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
-        services.AddControllersWithViews();
-        services.AddAzureAppConfiguration();
-    }
-    ```
-    #### [.NET Core 3.x](#tab/core3x)
-
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
-        services.AddControllersWithViews();
-        services.AddAzureAppConfiguration();
-    }
-    ```
-    #### [.NET Core 2.x](#tab/core2x)
-
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
-        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-        services.AddAzureAppConfiguration();
-    }
-    ```
-    ---
-
-1. Update the `Configure` method, and add a call to `UseAzureAppConfiguration`. It enables your application to use the App Configuration middleware to handle the configuration updates for you automatically.
-
-    #### [.NET 5.x](#tab/core5x)
-
-    ```csharp
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-
-            // Add the following line:
-            app.UseAzureAppConfiguration();
-
-            app.UseHttpsRedirection();
-            
-            app.UseStaticFiles();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
-    }
-    ```
-    #### [.NET Core 3.x](#tab/core3x)
-
-    ```csharp
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-
-            // Add the following line:
-            app.UseAzureAppConfiguration();
-
-            app.UseHttpsRedirection();
-            
-            app.UseStaticFiles();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
-    }
-    ```
-    #### [.NET Core 2.x](#tab/core2x)
-
-    ```csharp
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
+        // Use Azure App Configuration middleware for dynamic configuration refresh.
         app.UseAzureAppConfiguration();
 
-        services.Configure<CookiePolicyOptions>(options =>
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
+
+        app.UseRouting();
+
+        app.UseAuthorization();
+
+        app.UseEndpoints(endpoints =>
         {
-            options.CheckConsentNeeded = context => true;
-            options.MinimumSameSitePolicy = SameSiteMode.None;
+            endpoints.MapRazorPages();
         });
-
-        app.UseMvc();
     }
     ```
     ---
+
+You've set up your app to use the [options pattern in ASP.NET Core](/aspnet/core/fundamentals/configuration/options) during the quickstart. When the underlying configuration of your app is updated from App Configuration, your strongly typed `Settings` object obtained via `IOptionsSnapshot<T>` is updated automatically. Note that you shouldn't use the `IOptions<T>` if dynamic configuration update is desired because it doesn't read configuration data after the app has started.
     
-    > [!NOTE]
-    > The App Configuration middleware monitors the sentinel key or any other keys you registered for refreshing in the `ConfigureRefresh` call in the previous step. The middleware is triggered upon every incoming request to your application. However, the middleware will only send requests to check the value in App Configuration when the cache expiration time you set has passed. When a change is detected, it will either update all the configuration if the sentinel key is used or update the registered keys' values only.
-    > - If a request to App Configuration for change detection fails, your application will continue to use the cached configuration. Another check will be made when the configured cache expiration time has passed again, and there are new incoming requests to your application.
-    > - The configuration refresh happens asynchronously to the processing of your application incoming requests. It will not block or slow down the incoming request that triggered the refresh. The request that triggered the refresh may not get the updated configuration values, but subsequent requests will do.
-    > - To ensure the middleware is triggered, call `app.UseAzureAppConfiguration()` as early as appropriate in your request pipeline so another middleware will not short-circuit it in your application.
+## Request-driven configuration refresh
 
-## Use the latest configuration data
+The configuration refresh is triggered by the incoming requests to your web app. No refresh will occur if your app is idle. When your app is active, the App Configuration middleware monitors the sentinel key, or any other keys you registered for refreshing in the `ConfigureRefresh` call. The middleware is triggered upon every incoming request to your app. However, the middleware will only send requests to check the value in App Configuration when the cache expiration time you set has passed.
 
-1. Open *HomeController.cs* in the Controllers directory, and add a reference to the `Microsoft.Extensions.Options` package.
-
-    ```csharp
-    using Microsoft.Extensions.Options;
-    ```
-
-2. Update the `HomeController` class to receive `Settings` through dependency injection, and make use of its values.
-
-    #### [.NET 5.x](#tab/core5x)
-
-    ```csharp
-    public class HomeController : Controller
-    {
-        private readonly Settings _settings;
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger, IOptionsSnapshot<Settings> settings)
-        {
-            _logger = logger;
-            _settings = settings.Value;
-        }
-
-        public IActionResult Index()
-        {
-            ViewData["BackgroundColor"] = _settings.BackgroundColor;
-            ViewData["FontSize"] = _settings.FontSize;
-            ViewData["FontColor"] = _settings.FontColor;
-            ViewData["Message"] = _settings.Message;
-
-            return View();
-        }
-
-        // ...
-    }
-    ```
-    #### [.NET Core 3.x](#tab/core3x)
-
-    ```csharp
-    public class HomeController : Controller
-    {
-        private readonly Settings _settings;
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger, IOptionsSnapshot<Settings> settings)
-        {
-            _logger = logger;
-            _settings = settings.Value;
-        }
-
-        public IActionResult Index()
-        {
-            ViewData["BackgroundColor"] = _settings.BackgroundColor;
-            ViewData["FontSize"] = _settings.FontSize;
-            ViewData["FontColor"] = _settings.FontColor;
-            ViewData["Message"] = _settings.Message;
-
-            return View();
-        }
-
-        // ...
-    }
-    ```
-    #### [.NET Core 2.x](#tab/core2x)
-
-    ```csharp
-    public class HomeController : Controller
-    {
-        private readonly Settings _settings;
-        public HomeController(IOptionsSnapshot<Settings> settings)
-        {
-            _settings = settings.Value;
-        }
-
-        public IActionResult Index()
-        {
-            ViewData["BackgroundColor"] = _settings.BackgroundColor;
-            ViewData["FontSize"] = _settings.FontSize;
-            ViewData["FontColor"] = _settings.FontColor;
-            ViewData["Message"] = _settings.Message;
-
-            return View();
-        }
-    }
-    ```
-    ---
-    > [!Tip]
-    > To learn more about the options pattern when reading configuration values, see [Options Patterns in ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
-
-3. Open *Index.cshtml* in the Views > Home directory, and replace its content with the following script:
-
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-    <style>
-        body {
-            background-color: @ViewData["BackgroundColor"]
-        }
-        h1 {
-            color: @ViewData["FontColor"];
-            font-size: @ViewData["FontSize"]px;
-        }
-    </style>
-    <head>
-        <title>Index View</title>
-    </head>
-    <body>
-        <h1>@ViewData["Message"]</h1>
-    </body>
-    </html>
-    ```
+- If a request to App Configuration for change detection fails, your app will continue to use the cached configuration. New attempts to check for changes will be made periodically while there are new incoming requests to your app.
+- The configuration refresh happens asynchronously to the processing of your app's incoming requests. It will not block or slow down the incoming request that triggered the refresh. The request that triggered the refresh may not get the updated configuration values, but later requests will get new configuration values.
+- To ensure the middleware is triggered, call the `app.UseAzureAppConfiguration()` method as early as appropriate in your request pipeline so another middleware won't skip it in your app.
 
 ## Build and run the app locally
 
@@ -410,9 +215,9 @@ A *sentinel key* is a special key that you update after you complete the change 
 
     ![Launching quickstart app locally](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store that you created in the quickstart.
 
-1. Select **Configuration Explorer**, and update the values of the following keys. Remember to update the sentinel key at last.
+1. Select **Configuration explorer**, and update the values of the following keys. Remember to update the sentinel key at last.
 
     | Key | Value |
     |---|---|
@@ -421,9 +226,51 @@ A *sentinel key* is a special key that you update after you complete the change 
     | TestApp:Settings:Message | Data from Azure App Configuration - now with live updates! |
     | TestApp:Settings:Sentinel | 2 |
 
-1. Refresh the browser page to see the new configuration settings. You may need to refresh more than once for the changes to be reflected, or change your cache expiration time to less than 5 minutes. 
+1. Refresh the browser a few times. When the cache expires after 30 seconds, the page shows with updated content.
 
     ![Launching updated quickstart app locally](./media/quickstarts/aspnet-core-app-launch-local-after.png)
+
+## Logging and monitoring
+
+Logs are output upon configuration refresh and contain detailed information on key-values retrieved from your App Configuration store and configuration changes made to your application.
+
+- A default `ILoggerFactory` is added automatically when `services.AddAzureAppConfiguration()` is invoked. The App Configuration provider uses this `ILoggerFactory` to create an instance of `ILogger`, which outputs these logs. ASP.NET Core uses `ILogger` for logging by default, so you don't need to make additional code changes to enable logging for the App Configuration provider.
+- Logs are output at different log levels. The default level is `Information`.
+
+    | Log Level | Description |
+    |---|---|
+    | Debug | Logs include the key and label of key-values your application monitors for changes from your App Configuration store. The information also includes whether the key-value has changed compared with what your application has already loaded. Enable logs at this level to troubleshoot your application if a configuration change didn't happen as expected. |
+    | Information | Logs include the keys of configuration settings updated during a configuration refresh. Values of configuration settings are omitted from the log to avoid leaking sensitive data. You can monitor logs at this level to ensure your application picks up expected configuration changes. |
+    | Warning | Logs include failures and exceptions that occurred during configuration refresh. Occasional occurrences can be ignored because the configuration provider will continue using the cached data and attempt to refresh the configuration next time. You can monitor logs at this level for repetitive warnings that may indicate potential issues. For example, you rotated the connection string but forgot to update your application. |
+
+    You can enable logging at the `Debug` log level by adding the following example to your `appsettings.json` file. This example applies to all other log levels as well.
+    ```json
+    "Logging": {
+        "LogLevel": {
+            "Microsoft.Extensions.Configuration.AzureAppConfiguration": "Debug"
+        }
+    }
+    ```
+- The logging category is `Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh`, which appears before each log. Here are some example logs at each log level:
+    ```console
+    dbug: Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh[0]
+        Key-value read from App Configuration. Change:'Modified' Key:'ExampleKey' Label:'ExampleLabel' Endpoint:'https://examplestore.azconfig.io'
+
+    info: Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh[0]
+        Setting updated. Key:'ExampleKey'
+
+    warn: Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh[0]
+        A refresh operation failed while resolving a Key Vault reference.
+    Key vault error. ErrorCode:'SecretNotFound' Key:'ExampleKey' Label:'ExampleLabel' Etag:'6LaqgBQM9C_Do2XyZa2gAIfj_ArpT52-xWwDSLb2hDo' SecretIdentifier:'https://examplevault.vault.azure.net/secrets/ExampleSecret'
+    ```
+
+Using `ILogger` is the preferred method in ASP.NET applications and is prioritized as the logging source if an instance of `ILoggerFactory` is present. However, if `ILoggerFactory` is not available, logs can alternatively be enabled and configured through the [instructions for .NET Core apps](./enable-dynamic-configuration-dotnet-core.md#logging-and-monitoring). For more information, see [logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging).
+
+> [!NOTE]
+> Logging is available if you use version **6.0.0** or later of any of the following packages.
+> - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
+> - `Microsoft.Azure.AppConfiguration.AspNetCore`
+> - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
 ## Clean up resources
 
@@ -434,4 +281,4 @@ A *sentinel key* is a special key that you update after you complete the change 
 In this tutorial, you enabled your ASP.NET Core web app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure-managed identity to streamline the access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
+> [Access App Configuration using managed identity](./howto-integrate-azure-managed-service-identity.md)

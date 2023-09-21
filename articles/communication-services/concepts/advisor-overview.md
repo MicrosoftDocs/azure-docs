@@ -1,14 +1,12 @@
 ---
-title: Leverage Azure Advisor for Azure Communication Services
+title: Use Azure Advisor for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Azure Advisor offerings for Azure Communication Services.
-author: probableprime
-
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
-
-ms.author: rifox
-ms.date: 09/30/2021
+ms.author: chpalm
+ms.date: 10/10/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
@@ -20,11 +18,11 @@ ms.subservice: data
 
 ## Install the latest SDKs
 
-To ensure all the recent fixes and updates, it's recommended you always stay up to date with the latest SDKs available. If there is a newer version of the SDK(s) you are using available, you will see a recommendation show up in the **Performance** category to update to the latest SDK.
+To ensure all the recent fixes and updates, it's recommended you always stay up to date with the latest SDKs available. If there's a newer version of the SDK(s) you're using available, you'll see a recommendation shows up in the **Performance** category to update to the latest SDK.
 
 ![Azure Advisor example showing recommendation to update chat SDK.](./media/advisor-chat-sdk-update-example.png)
 
-The following SDKs are supported for this feature, along with all their supported languages. Note that this feature will only send recommendations for the newest generally available major release versions of the SDKs. Beta or preview versions will not trigger any recommendations or alerts. You can learn more about the [SDK options](./sdk-options.md) available.
+The following SDKs are supported for this feature, along with all their supported languages. This feature will only send recommendations for the newest generally available major release versions of the SDKs. Beta or preview versions won't trigger any recommendations or alerts. You can learn more about the [SDK options](./sdk-options.md) available.
 
 * Calling (client)
 * Chat
@@ -39,5 +37,6 @@ The following SDKs are supported for this feature, along with all their supporte
 
 The following documents may be interesting to you:
 
-- [Logging and diagnostics](./logging-and-diagnostics.md)
+- [Logging and diagnostics](./analytics/enable-logging.md)
+- Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [network traversal](./analytics/logs/network-traversal-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md) and [call automation](./analytics/logs/call-automation-logs.md).
 - [Metrics](./metrics.md)

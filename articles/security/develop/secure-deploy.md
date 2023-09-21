@@ -2,9 +2,9 @@
 title: Deploy secure applications on Microsoft Azure
 description: This article discusses best practices to consider during the release and response phases of your web application project.
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 ms.author: terrylan
-ms.date: 06/12/2019
+ms.date: 08/29/2023
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -28,14 +28,14 @@ The focus of the release phase is readying a project for public release. This in
 
 ### Check your application’s performance before you launch
 
-Check your application's performance before you launch it or deploy updates to production. Run cloud-based [load tests](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) by using Visual Studio to find performance problems in your application, improve deployment quality, make sure that your application is always up or available, and that your application can handle traffic for your launch.
+Check your application's performance before you launch it or deploy updates to production. Use Azure Load Testing to run cloud-based [load tests](../../load-testing/index.yml) to find performance problems in your application, improve deployment quality, make sure that your application is always up or available, and that your application can handle traffic for your launch.
 
 ### Install a web application firewall
 
 Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks and cross-site scripting attacks. Preventing these attacks in application code can be challenging. It might require rigorous maintenance, patching, and monitoring at many layers of the application topology. A centralized WAF helps make security management simpler. A WAF solution can also react to a security threat by patching a known vulnerability at a central location versus securing each individual web application.
 
 The [Azure Application Gateway WAF](../../web-application-firewall/ag/ag-overview.md)
-provides centralized protection of your web applications from common exploits and vulnerabilities. The WAF is based on rules from the [OWASP core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 or 2.2.9.
+provides centralized protection of your web applications from common exploits and vulnerabilities. The WAF is based on rules from the [OWASP core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.0 or 2.2.9.
 
 ### Create an incident response plan
 

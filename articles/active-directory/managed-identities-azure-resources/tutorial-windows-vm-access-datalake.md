@@ -1,10 +1,10 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Data Lake Store - Windows - Azure AD
+title: Tutorial`:` Use a managed identity to access Azure Data Lake Store - Windows
 description: A tutorial that shows you how to use a Windows VM system-assigned managed identity to access Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 
 ms.service: active-directory
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to use a system-assigned managed identity for a Windows virtual machine (VM) to access an Azure Data Lake Store. Managed identities are automatically managed by Azure. They enable your application to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code.
+This tutorial shows you how to use a system-assigned managed identity for a Windows virtual machine (VM) to access an Azure Data Lake Store. Managed identities are automatically managed by Azure. They enable your application to authenticate to services that support Microsoft Entra authentication, without needing to insert credentials into your code.
 
 In this article you learn how to:
 
@@ -68,7 +68,7 @@ Your VM's system-assigned managed identity can now perform all operations on fil
 
 ## Access data
 
-Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained using managed identities for Azure resources.  To authenticate to the Data Lake Store filesystem, you send an access token issued by Azure AD to your Data Lake Store filesystem endpoint in an Authorization header. The header has the format "Bearer <ACCESS_TOKEN_VALUE>".  To learn more about Data Lake Store support for Azure AD authentication, read [Authentication with Data Lake Store using Azure Active Directory](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)
+Azure Data Lake Store natively supports Microsoft Entra authentication, so it can directly accept access tokens obtained using managed identities for Azure resources.  To authenticate to the Data Lake Store filesystem, you send an access token issued by Microsoft Entra ID to your Data Lake Store filesystem endpoint in an Authorization header. The header has the format "Bearer <ACCESS_TOKEN_VALUE>".  To learn more about Data Lake Store support for Microsoft Entra authentication, read [Authentication with Data Lake Store using Microsoft Entra ID](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)
 
 > [!NOTE]
 > The Data Lake Store filesystem client SDKs do not yet support managed identities for Azure resources.  This tutorial will be updated when support is added to the SDK.
