@@ -55,7 +55,7 @@ The reports provide details on a per-user basis showing the following informatio
 | --- | --- |
 | AccessReviewId |	Review object ID |
 | AccessReviewSeriesId |	Object ID of the review series, if the review is an instance of a recurring review. If the review is one time, the value is an empty GUID. |
-| ReviewType | Review types include group, application, Azure AD role, Azure role, and access package|
+| ReviewType | Review types include group, application, Microsoft Entra role, Azure role, and access package|
 |ResourceDisplayName | Display Name of the resource being reviewed |
 | ResourceId | ID of the resource being reviewed |
 | ReviewName |	Name of the review |

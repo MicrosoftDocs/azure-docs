@@ -120,7 +120,7 @@ The sample policy definition file below sets the retention for all blobs in the 
   ]
 }
 
-``````
+```
 
 ## [Templates](#tab/templates)
 
@@ -130,7 +130,7 @@ Apply the following template to create a lifecycle management policy. You must s
 
 az deployment group create  --resource-group <resource group name> --template-file <template file>
 
-``````
+```
 
 The following template sets the retention for storage account *azmonstorageaccount001* for all blobs in the container *insights-activity-logs* for all resources for the subscription ID *ABCD1234-5849-ABCD-1234-9876543210AB*.
 
@@ -180,7 +180,7 @@ The following template sets the retention for storage account *azmonstorageaccou
         }
     ]
 }
-``````
+```
 
 ---
 
