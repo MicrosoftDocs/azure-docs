@@ -61,7 +61,7 @@ An applicable resource has a compliance state of exempt for a policy assignment 
 
  ### Protected
 
- Protected state signifies that the resource is covered under an assignment with a [denyAction](./effects.md#denyaction-preview) effect.
+ Protected state signifies that the resource is covered under an assignment with a [denyAction](./effects.md#denyaction) effect.
 
 ### Not registered
 
