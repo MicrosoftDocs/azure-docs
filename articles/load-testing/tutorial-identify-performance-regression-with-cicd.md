@@ -91,7 +91,7 @@ To create a load test by uploading a JMeter script in the Azure portal:
     | **Name** | *webapp* |
     | **Value** | Hostname of the deployed sample application, without `https://` prefix.
 
-    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-new-test-parameters.png" alt-text="Screenshot that shows the Test plan tab." :::
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-new-test-parameters.png" alt-text="Screenshot that shows the Parameters plan tab, highlighting the environment variable for the sample app hostname." :::
 
 1. Select **Review + Create**, review the values, and then select **Create** to create and run the load test.
 
