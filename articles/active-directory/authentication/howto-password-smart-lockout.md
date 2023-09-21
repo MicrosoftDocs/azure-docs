@@ -28,7 +28,7 @@ By default, smart lockout locks an account from sign-in after:
 
 The account locks again after each subsequent failed sign-in attempt. The lockout period is one minute at first, and longer in subsequent attempts. To minimize the ways an attacker could work around this behavior, we don't disclose the rate at which the lockout period increases after unsuccessful sign-in attempts.
 
-Smart lockout tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior does't cause the account to lock out.
+Smart lockout tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior doesn't cause the account to lock out.
 
 > [!NOTE]
 > Hash tracking functionality isn't available for customers with pass-through authentication enabled as authentication happens on-premises not in the cloud.
