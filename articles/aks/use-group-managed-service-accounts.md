@@ -357,13 +357,16 @@ You can either [grant access to your key vault for the identity after cluster cr
 
 ### Disable GMSA on an existing cluster
 
-* Disable GMSA on an existing cluster with Windows Server nodes using the [`az aks update`][az-aks-update] command. To re-enable GMSA, follow guidance above using the [`az aks update`][az-aks-update] command to enable GMSA on an existing cluster.
+* Disable GMSA on an existing cluster with Windows Server nodes using the [`az aks update`][az-aks-update] command.
 
     ```azurecli-interactive
     az aks update \
         --resource-group myResourceGroup \
         --name myAKSCluster \
-        --disable-windows-gmsa \
+        --disable-windows-gmsa 
+    ```
+> [!NOTE]
+> You can re-enable GMSA on an existing cluster by using the [ az aks update ][az-aks-update] command.
 
 ## Troubleshooting
 
