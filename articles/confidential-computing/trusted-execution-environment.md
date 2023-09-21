@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 ## What is a TEE?
 
-A Trusted Execution Environment (TEE) is a segregated area of memory and CPU that is protected from the rest of the CPU using encryption, any data in the TEE can't be read or tampered with by any code outside that environment. Data can be manipulated inside the TEE by suitable authorized code.
+A Trusted Execution Environment (TEE) is a segregated area of memory and CPU that is protected from the rest of the CPU using encryption, any data in the TEE can't be read or tampered with by any code outside that environment. Data can be manipulated inside the TEE by suitably authorized code.
 
 Code executing inside the TEE is processed in the clear but is only visible in encrypted form when anything outside tries to access it. This protection is managed by the platform security processor embedded inside the CPU die.
 
