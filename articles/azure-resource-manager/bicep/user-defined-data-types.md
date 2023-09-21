@@ -3,7 +3,7 @@ title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/14/2023
+ms.date: 09/20/2023
 ---
 
 # User-defined data types in Bicep
@@ -217,9 +217,9 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 }
 ```
 
-## Decorator
+## Import types between Bicep files (Preview)
 
-[Bicep version 0.21.1 or newer](./install.md) is required to use this feature. The experimental flag `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features).
+[Bicep version 0.21.1 or newer](./install.md) is required to use this compile-time import feature. The experimental flag `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features).
 
 Only user-defined data types that bear the `@export()` decorator can be imported to other templates. Currently, this decorator can only be used on `type` statements.
 
