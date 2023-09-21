@@ -628,7 +628,7 @@ The parameter type supported by the Event Grid output binding depends on the Fun
 In-process C# class library functions supports the following types:
 
 + [Azure.Messaging.CloudEvent][CloudEvent]
-+ [Azure.Messaging.EventGrid][EventGridEvent2]
++ [Azure.Messaging.EventGrid.EventGridEvent][EventGridEvent2]
 + [Newtonsoft.Json.Linq.JObject][JObject]
 + [System.String][String]
 
@@ -744,5 +744,8 @@ More properties may be set to customize the connection. See [Common properties f
 
 * [Dispatch an Event Grid event](./functions-bindings-event-grid-trigger.md)
 
-[EventGridEvent]: /dotnet/api/azure.messaging.eventgrid.eventgridevent
+[EventGridEvent2]: /dotnet/api/azure.messaging.eventgrid.eventgridevent
+[EventGridEvent]: /dotnet/api/microsoft.azure.eventgrid.models.eventgridevent
 [CloudEvent]: /dotnet/api/azure.messaging.cloudevent
+[String]: /dotnet/api/system.string
+[JObject]: https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm
