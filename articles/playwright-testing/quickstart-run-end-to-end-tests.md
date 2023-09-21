@@ -158,6 +158,18 @@ Once your tests are running smoothly with the service, experiment with varying t
 
 Learn more about how to [determine the optimal configuration for optimizing test suite completion](./concept-determine-optimal-configuration.md).
 
+## Troubleshooting
+
+[!INCLUDE [include-troubleshooting-slow-tests](includes/include-troubleshooting-slow-tests.md)]
+
+[!INCLUDE [include-troubleshooting-test-timeout](includes/include-troubleshooting-test-timeout.md)]
+
+[!INCLUDE [include-troubleshooting-test-hang](includes/include-troubleshooting-test-hang.md)]
+
+[!INCLUDE [include-troubleshooting-time-different](includes/include-troubleshooting-time-different.md)]
+
+[!INCLUDE [include-troubleshooting-firewall](includes/include-troubleshooting-firewall.md)]
+
 ## Next step
 
 You've successfully created a Microsoft Playwright Testing workspace in the Playwright portal and run your Playwright tests on cloud browsers.
