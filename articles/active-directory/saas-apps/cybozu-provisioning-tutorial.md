@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Cybozu for automatic user provisioning with Microsoft Entra ID'
-description: Learn how to automatically provision and de-provision user accounts from Microsoft Entra ID to Cybozu.
+description: Learn how to automatically provision and deprovision user accounts from Microsoft Entra ID to Cybozu.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -16,7 +16,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure Cybozu for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Cybozu and Microsoft Entra ID to configure automatic user provisioning. When configured, Microsoft Entra ID automatically provisions and de-provisions users to [Cybozu](https://www.cybozu.com/jp/) using the Microsoft Entra provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Cybozu and Microsoft Entra ID to configure automatic user provisioning. When configured, Microsoft Entra ID automatically provisions and deprovisions users to [Cybozu](https://www.cybozu.com/jp/) using the Microsoft Entra provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md). 
 
 
 ## Supported capabilities
@@ -44,7 +44,7 @@ Contact Cybozu support to configure Cybozu to support provisioning with Microsof
 
 ## Step 3: Add Cybozu from the Microsoft Entra application gallery
 
-Add Cybozu from the Microsoft Entra application gallery to start managing provisioning to Cybozu. If you have previously setup Cybozu for SSO you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Cybozu from the Microsoft Entra application gallery to start managing provisioning to Cybozu. If you have previously setup Cybozu for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4: Define who will be in scope for provisioning 
 
@@ -92,7 +92,7 @@ This section guides you through the steps to configure the Microsoft Entra provi
 
 1. Under the **Mappings** section, select **Synchronize Microsoft Entra users to Cybozu**.
 
-1. Review the user attributes that are synchronized from Microsoft Entra ID to Cybozu in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cybozu for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Cybozu API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Microsoft Entra ID to Cybozu in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cybozu for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you need to ensure that the Cybozu API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for filtering|Required by Cybozu|
    |---|---|---|---|
