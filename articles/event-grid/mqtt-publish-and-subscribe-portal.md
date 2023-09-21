@@ -21,7 +21,7 @@ In this article, you use the Azure portal to do the following tasks:
 
 ## Prerequisites
 
-- Create an [Azure free account](https://azure.microsoft.com/en-us/free/) If you don't have an Azure subscription. 
+- Create an [Azure free account](https://azure.microsoft.com/free/) If you don't have an Azure subscription. 
 - Read through [Event Grid overview](overview.md) before starting this tutorial, if you're new to Azure Event Grid.
 - Ensure that port 8883 is open in your firewall. The sample in this tutorial uses the MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments.
 - You need an X.509 client certificate to generate the thumbprint and authenticate the client connection.
@@ -37,24 +37,32 @@ After a successful installation of Step, you should open a command prompt in you
     ```powershell
     step ca init --deployment-type standalone --name MqttAppSamplesCA --dns localhost --address 127.0.0.1:443 --provisioner MqttAppSamplesCAProvisioner
     ```    
-2. Using the CA files generated to create certificate for the client. Ensure to use the correct path for the cert and secrets files in the command.
+2. Use the CA files generated to create a certificate for the first client. Ensure to use the correct path for the cert and secrets files in the command.
 
     ```powershell
-    step certificate create client1-authnID client1-authnID.pem client1-authnID.key --ca .step/certs/intermediate_ca.crt --ca-key .step/secrets/intermediate_ca_key --no-password --insecure --not-after 2400h
+    step certificate create client1-authn-ID client1-authn-ID.pem client1-authn-ID.key --ca .step/certs/intermediate_ca.crt --ca-key .step/secrets/intermediate_ca_key --no-password --insecure --not-after 2400h
     ```    
 3. To view the thumbprint, run the Step command.
 
     ```powershell
-    step certificate fingerprint client1-authnID.pem
+    step certificate fingerprint client1-authn-ID.pem
     ```
+4. Now, create a certificate for the second client. 
+    
+    ```powershell
+    step certificate create client2-authn-ID client2-authn-ID.pem client2-authn-ID.key --ca .step/certs/intermediate_ca.crt --ca-key .step/secrets/intermediate_ca_key --no-password --insecure --not-after 2400h
+    ```    
+5. 3. To view the thumbprint to use with the second client, run the Step command.
 
+    ```powershell
+    step certificate fingerprint client2-authn-ID.pem
+    ```
 ## Create a namespace
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 2. In the search bar, type Event Grid Namespaces, and then select **Event Grid Namespaces** from the drop-down list.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/search-event-grid-namespace.png" alt-text="Screenshot of searching for Event Grid namespace on Azure portal.":::
-
 3. On the Event Grid Namespaces page, select **+ Create** on the toolbar.
 4. On the Create namespace page, follow these steps:
 
@@ -64,17 +72,16 @@ After a successful installation of Step, you should open a command prompt in you
     4. Select a location for the Event Grid namespace. Currently, Event Grid namespace is available only in select regions.
     
         :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-event-grid-namespace-basics.png" alt-text="Screenshot showing Event Grid namespace create flow basics tab.":::
-
 1. Select **Review + create** at the bottom of the page.
-1. On the Review + create tab of the Create namespace page, select **Create**.
+1. On the **Review + create** tab of the **Create namespace** page, select **Create**.
 
     > [!NOTE]
     > To keep the QuickStart simple, you'll be using only the Basics page to create a namespace. For detailed steps about configuring network, security, and other settings on other pages of the wizard, see [Create a Namespace](create-view-manage-namespaces.md).
 1. After the deployment succeeds, select **Go to resource** to navigate to the Event Grid Namespace Overview page for your namespace. 
 1. In the Overview page, you see that the **MQTT** is in **Disabled** state. To enable MQTT, select the **Disabled** link, it will redirect you to Configuration page.
-1. On Configuration page, select the Enable MQTT option, and Apply the settings.
+1. On **Configuration** page, select the **Enable MQTT** option, and then select **Apply** to apply the settings.
 
-    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-enable-mqtt-on-configuration.png" alt-text="Screenshot showing Event Grid namespace configuration page to enable MQTT.":::
+    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-enable-mqtt-on-configuration.png" alt-text="Screenshot showing Event Grid namespace configuration page to enable MQTT." lightbox="./media/mqtt-publish-and-subscribe-portal/mqtt-enable-mqtt-on-configuration.png":::
 
 
 ## Create clients
@@ -85,11 +92,11 @@ After a successful installation of Step, you should open a command prompt in you
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/add-client-menu.png" alt-text="Screenshot of the Clients page with Add button selected.":::
 1. On the **Create client** page, enter a **name** for the client. Client names must be unique in a namespace.
 1. Client authentication name is defaulted to the client name. You may change it if you want. You need to include this name as `Username` in the CONNECT packet.
-1. In this tutorial, you use thumbprint based authentication. Include the client certificate’s thumbprint in the Primary Thumbprint.
+1. In this tutorial, you use thumbprint based authentication. Include the first client certificate’s thumbprint in the **Primary Thumbprint**. 
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-client1-metadata.png" alt-text="Screenshot of client 1 configuration.":::
 6. Select **Create** on the toolbar to create another client.
-7. Repeat the above steps to create a second client named `client2`. 
+7. Repeat the above steps to create a second client named `client2`. Include the **second** client certificate’s thumbprint in the **Primary Thumbprint**. 
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-client2-metadata.png" alt-text="Screenshot of client 2 configuration.":::
 
@@ -163,7 +170,7 @@ After a successful installation of Step, you should open a command prompt in you
 ## Publish/subscribe using MQTTX app
 
 1. After connecting the clients, for client2, select the **+ New Subscription** button.
-2. Add `contosotopics/topic1`` as topic and select Confirm. You can leave the other fields with existing default values.
+2. Add `contosotopics/topic1` as topic and select Confirm. You can leave the other fields with existing default values.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-add-subscription-topic.png" alt-text="Screenshot showing subscription topic configuration on MQTTX app.":::
 
