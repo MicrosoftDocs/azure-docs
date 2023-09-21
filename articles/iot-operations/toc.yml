@@ -32,6 +32,10 @@ items:
       items:
       - name: Overview
         href: analyze-telemetry/overview-analyze-telemetry.md
+    - name: Monitor service and asset health
+      items:
+      - name: Overview
+        href: monitor/overview-monitor-health.md
     - name: Developer guide
       items:
       - name: Overview
