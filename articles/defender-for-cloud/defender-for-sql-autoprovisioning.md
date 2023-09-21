@@ -27,6 +27,9 @@ During the preview, customers who are using the current autoprovisioning process
 
     :::image type="content" source="media/defender-sql-autoprovisioning/action-required.png" alt-text="Screenshot that shows where the option to select action required is on the Defender plans page." lightbox="media/defender-sql-autoprovisioning/action-required.png":::
 
+    > [!NOTE]
+    > If you do not see the action required button, under the Databases plan select **Settings** and then toggle the Azure Monitoring Agent for SQL server on machines (Preview) option to **On**. Then select **Continue** > **Save**.
+
 1. In the pop-up window, select **Enable**.
 
     :::image type="content" source="media/defender-sql-autoprovisioning/update-sql.png" alt-text="Screenshot that shows you where to select the Azure Monitor Agent on the screen." lightbox="media/defender-sql-autoprovisioning/update-sql.png":::
@@ -35,10 +38,10 @@ During the preview, customers who are using the current autoprovisioning process
 
 Once the SQL server-targeted AMA autoprovisioning process has been enabled, you should disable the Log Analytics agent/Azure Monitor agent autoprovisioning process.
 
-> [Note!]
+> [!NOTE]
 > If you have the Defender for Server plan enabled, you will need to [review the Defender for Servers Log Analytics deprecation plan](upcoming-changes.md#defender-for-servers) for Log Analytics agent/Azure Monitor agent dependency before disabling the process. 
 
-## Disable the Log Analytics agent and the Azure Monitor agent
+## Disable the Log Analytics agent/Azure Monitor agent
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
