@@ -17,7 +17,7 @@ ms.custom: it-pro
 
 # Enable self-service password reset
 
-Self-service password reset (SSPR) in Microsoft Entra External ID for customers gives customers the ability to change or reset their password, with no administrator or help desk involvement. If a customer's account is locked or they forget their password, they can follow prompts to unblock themselves and get back to work.
+Self-service password reset (SSPR) in Microsoft Entra ID for customers gives customers the ability to change or reset their password, with no administrator or help desk involvement. If a customer's account is locked or they forget their password, they can follow prompts to unblock themselves and get back to work.
 
 ## How does the password reset process work?
 
@@ -29,7 +29,7 @@ The following screenshots show the self-service password rest flow. From the app
 
 ## Prerequisites
 
-- If you haven't already created your own Microsoft Entra External ID for customers tenant, create one now.
+- If you haven't already created your own Microsoft Entra ID for customers tenant, create one now.
 - If you haven't already created a User flow, [create one](how-to-user-flow-sign-up-sign-in-customers.md) now.
 
 ## Enable self-service password reset for customers
