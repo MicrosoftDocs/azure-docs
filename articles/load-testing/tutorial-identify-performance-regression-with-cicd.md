@@ -23,8 +23,8 @@ You'll learn how to:
 
 > [!div class="checklist"]
 > * Deploy the sample application on Azure.
+> * Create a load test by using a JMeter script.
 > * Set up a CI/CD workflow from the Azure portal.
-> * Update the load test configuration in the CI/CD workflow.
 > * View the load test results in the CI/CD dashboard.
 > * Define load test fail criteria to identify performance regressions.
 
@@ -44,11 +44,59 @@ To get started with this tutorial, you first need to set up a sample Node.js web
 
 Now that you have the application deployed and running, you can create a URL-based load test against it.
 
-## Create a URL-based load test
+## Configure the load test
 
-To create a load test for the sample application, you first create an Azure load testing resource, and then create a quick test by using the URL of the sample.
+Before you set up the CI/CD workflow in Azure Pipelines, you create an Azure load testing resource and create load test by uploading a JMeter test script in the Azure portal. The JMeter script tests three endpoints in the sample application: `lasttimestamp`, `add`, and `get`.
 
-Follow the steps in the [Quickstart: create & run a load test](./quickstart-create-and-run-load-test.md) to create a load test for the sample application by using the Azure portal.
+After you create the load test, you can then set up the CI/CD workflow from the Azure portal.
+
+### Create the Azure load testing resource
+
+The Azure load testing resource is a top-level resource for your load-testing activities. This resource provides a centralized place to view and manage load tests, test results, and related artifacts.
+
+If you already have a load testing resource, skip this section and continue to [Create a load test by uploading a JMeter script](#create-a-load-test-by-uploading-a-jmeter-script).
+
+If you don't yet have an Azure load testing resource, create one now:
+
+[!INCLUDE [azure-load-testing-create-portal](./includes/azure-load-testing-create-in-portal/azure-load-testing-create-in-portal.md)]
+
+### Create a load test by uploading a JMeter script
+
+You can create a load test by uploading an Apache JMeter test script. The test script defines the test plan, and describes the application requests to invoke and any custom logic for the load test. Azure Load Testing abstracts the infrastructure for running the test script at scale.
+
+To create a load test by uploading a JMeter script in the Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
+
+1. Go to your Azure Load Testing resource, select **Tests** from the left pane, select **+ Create**, and then select **Upload a JMeter script**.
+
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-new-test.png" alt-text="Screenshot that shows the Azure Load Testing page and the button for creating a new test." :::
+    
+1. On the **Basics** tab, enter the **Test name** and **Test description** information.
+
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-new-test-basics.png" alt-text="Screenshot that shows the Basics tab for creating a test." :::
+
+1. On the **Test plan** tab, select the sample application JMeter script, and then select **Upload** to upload the file to Azure.
+
+    You can find the JMeter script `SampleApp.jmx` in the repository you cloned earlier.
+
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab." :::
+
+1. On the **Parameters** tab, add an environment variable for the sample application endpoint:
+
+    The test script uses an environment variable to retrieve the endpoint of the sample application.
+
+    | Field | Value |
+    |-|-|
+    | **Name** | *webapp* |
+    | **Value** | Hostname of the deployed sample application, without `https://` prefix.
+
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-new-test-parameters.png" alt-text="Screenshot that shows the Test plan tab." :::
+
+1. Select **Review + Create**, review the values, and then select **Create** to create and run the load test.
+
+    > [!NOTE]
+    > It might take a few minutes for the load test finish running.
 
 ## Set up the CI/CD workflow from the Azure portal
 
@@ -135,47 +183,6 @@ You can also download the load test results file, which is available as a pipeli
 
 :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-download-results.png" alt-text="Screenshot that shows how to download the load test results." lightbox="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-download-results.png":::
 
-## Update the load test configuration
-
-Until now, you've only load tested the home page of the sample application. Next, you upload a more complex JMeter script, load test configuration file, and then update the pipeline to use the new configuration file.
-
-1. First, upload the `SampleApp.jmx` and `SampleApp.yaml` from the cloned sample repository to your Azure DevOps project:
-
-    1. In your Azure DevOps project, select **Repos** > **Files**.
-    1. Select **ellipsis(...)** > **Upload file(s)**, and then select the `SampleApp.jmx` and `SampleApp.yaml` files.
-    1. Select **Commit** to upload the files.
-
-    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/azure-pipelines-upload-files.png" alt-text="Screenshot that shows how to upload files to the source code repository in Azure DevOps." lightbox="./media/tutorial-identify-performance-regression-with-cicd/azure-pipelines-upload-files.png":::
-    
-1. Update the pipeline definition to use the uploaded load test configuration.
-
-    1. Select the *alt-pipeline-{unique ID}.yaml* pipeline definition file.
-    1. Select **Edit** and make the following modifications:
-
-        Change the value of the `loadTestConfigFile` property to `SampleApp.yaml` and add an environment variable `webapp` with the hostname of your sample app endpoint (don't include `https` in the value).
-
-        ```yml
-            - task: AzureLoadTest@1
-              inputs:
-                azureSubscription: ALT_SC_my_unique_id
-                loadTestConfigFile: SampleApp.yaml 
-                resourceGroup: docs-malt-rg
-                loadTestResource: docs-loadtest
-                env: |
-                  [
-                    {
-                      "name": "webapp",
-                      "value": "<yourappname>.azurewebsites.net"
-                    }
-                  ]  
-            ```
-
-    1. Select **Commit** > **Commit** to commit the changes and trigger the pipeline.
-
-After you modify the pipeline definition, the pipeline will run and use the updated load test configuration. Notice in the pipeline run log that the load test now displays test metrics for three application requests: `lasttimestamp`, `add`, and `get`.
-
-:::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/azure-pipelines-jmeter-load-test-log.png" alt-text="Screenshot that shows the pipeline run log, highlighting the application requests in client metrics." lightbox="./media/tutorial-identify-performance-regression-with-cicd/azure-pipelines-jmeter-load-test-log.png":::
-
 ## Add test fail criteria
 
 To identify performance regressions, you can analyze the test metrics for each pipeline run logs. Ideally, you want the pipeline run to fail whenever your performance or stability requirements aren't met. 
@@ -186,17 +193,19 @@ To define test fail criteria for the average response time and the error rate:
 
 1. In your Azure DevOps project, select **Repos** > **Files**.
 
-1. Select the `SampleApp.yml` file, and then select **Edit**.
+1. Select the `alt-config-<unique_id>.yml` file, and then select **Edit**.
 
-    The `SampleApp.yml` file is the load test configuration. This file contains configuration settings, such as the reference to the JMeter test script, the list of fail criteria, references to input data files, and more.
+    This YAML file specifies the load test configuration settings, such as the reference to the JMeter test script, the list of fail criteria, references to input data files, and more.
 
-1. Add the following snippet at the end of the file to define two fail criteria:
+1. Replace the `failureCriteria:` with the following snippet to define two test fail criteria:
 
     ```yaml
     failureCriteria: 
         - avg(response_time_ms) > 100
         - percentage(error) > 20
     ```
+
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/azure-pipelines-update-load-test-config.png" alt-text="Screenshot that shows how to update the load test configuration file with test criteria in Azure Pipelines." lightbox="./media/tutorial-identify-performance-regression-with-cicd/azure-pipelines-update-load-test-config.png":::
 
     You've now specified fail criteria for your load test based on the average response time and the error rate. The test fails if at least one of these conditions is met:
     
@@ -215,7 +224,7 @@ To define test fail criteria for the average response time and the error rate:
 
     The Azure Load Testing service evaluates the criteria during the test run. If any of these conditions fails, Azure Load Testing service returns a nonzero exit code. This code informs the CI/CD workflow that the test has failed.
 
-1. Edit the *SampleApp.yml* file and change the test's fail criteria to increase the criterion for average response time:
+1. Edit the `alt-config-<unique_id>.yml` file and change the test's fail criteria to increase the criterion for average response time:
 
     ```yaml
     failureCriteria: 
