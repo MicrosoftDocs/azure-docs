@@ -35,49 +35,60 @@ This procedure uses the Azure portal.
 If you don't already have a storage account in Microsoft Azure, create a storage account in Microsoft Azure by following these steps:
 1. Sign in to the [Azure portal](https://portal.azure.com). The Microsoft Azure dashboard page appears.
 2. On the top left of the page, select “Create a resource." The “Create a resource” dialog appears.
+
 :::image type="content" source="./media/nasuni-deployment-guide/win-azure-create-resource-93.png" alt-text="Screenshot of Azure Create Resource panel" lightbox="./media/nasuni-deployment-guide/win-azure-create-resource-93.png":::
+
 3. In the Search box, enter “storage account" then select Storage account from the list of results. The Storage account pane appears.
+
 :::image type="content" source="./media/nasuni-deployment-guide/win-storage-account-90.png" alt-text="Screenshot of Azure Create Storage Account panel" lightbox="./media/nasuni-deployment-guide/win-storage-account-90.png":::
+
 4. Select Create. The “Create a storage account” pane appears.
+
 :::image type="content" source="./media/nasuni-deployment-guide/win-create-storage-account-90.png" alt-text="Screenshot of Azure Create Storage Account details" lightbox="./media/nasuni-deployment-guide/win-create-storage-account-90":::
+
 5. If there is more than one subscription, from the Subscription drop-down list, select the subscription to use for this storage account.
 6. To select an existing Resource Group, select an existing Resource Group from the Resource Group drop-down list.
     Alternatively, create a new Resource Group by clicking “Create new” and then entering a name for the new Resource Group and clicking OK.
 7. Select Next: Advanced. The Advanced pane appears.
+
 :::image type="content" source="./media/nasuni-deployment-guide/win-azure-create-storage-account-security-93.png" alt-text="Screenshot of Azure Create Storage Account Advanced pane" lightbox="./media/nasuni-deployment-guide/win-azure-create-storage-account-security-93":::
+
 8. If your security policy requires it, enable “Require secure transfer for REST API operations."
 9. For “Access tier,” select Cool for production data.
 > [!NOTE]
 > Nasuni also supports [Azure Cold Storage](/azure/storage/blobs/access-tiers-overview). To use Azure Cold Storage, configure Lifecycle Management rules that are based on access tracking. When enabled, access tracking checks when a blob was last accessed. A rule can be defined to move objects that have not been accessed for 90 days or longer. Enabling this feature may incur additional cost.
+
 10. Set “Azure Files” to disabled.
 11. Configure other features according to your needs.
 12. Select “Next: Networking >.” The Networking pane appears.
+
 :::image type="content" source="./media/nasuni-deployment-guide/win-networking-90.png" alt-text="Screenshot of Azure Create Storage Account Networking pane" lightbox="./media/nasuni-deployment-guide/win-networking-90":::
+
 13. Select the “Connectivity method” to match your security requirements.
 > [!NOTE]
 > Consider where Edge Appliances will be deployed and how they will access the storage account, for example, via the Internet, Azure ExpressRoute, or a VPN connection to Azure. Most customers select the default “Public endpoint (all networks)”.
+
 14. Configure other features according to your needs
 15. Select “Next: Data protection.” The Data protection pane appears.
+
 :::image type="content" source="./media/nasuni-deployment-guide/win-data-protection-90.png" alt-text="Screenshot of Azure Create Storage Account Data Protection pane" lightbox="./media/nasuni-deployment-guide/win-data-protection-90":::
-16. Nasuni recommends enabling Soft Delete for all storage accounts being used for Nasuni volumes. If data is deleted, instead of the data being permanently lost, the data changes to a “soft deleted” state and remains available for a configurable number of days. 
-    
-    Enable “Enable soft delete for blobs." 
 
-    Specify “Days to retain deleted blobs” by entering or selecting the number of days to retain data. (You can retain soft-deleted data for between 1 and 365 days.) Nasuni recommends specifying at least 30 days.
-17. Nasuni recommends enabling Soft Delete for containers. Containers marked for deletion remain available for a configurable number of days.
+> [!NOTE]
+> Nasuni recommends enabling Soft Delete for all storage accounts being used for Nasuni volumes. If data is deleted, instead of the data being permanently lost, the data changes to a “soft deleted” state and remains available for a configurable number of days. 
+Enable “Enable soft delete for blobs." 
+Specify “Days to retain deleted blobs” by entering or selecting the number of days to retain data. (You can retain soft-deleted data for between 1 and 365 days.) Nasuni recommends specifying at least 30 days.
+Nasuni recommends enabling Soft Delete for containers. Containers marked for deletion remain available for a configurable number of days.
+After configuring your storage account, enable “Enable soft delete for containers.”
+Specify “Days to retain deleted containers” by entering or selecting the number of days to retain data. (You can retain soft-deleted data for between 1 and 365 days.) Nasuni recommends specifying at least 30 days.
+For details see [soft delete for containers](/azure/storage/blobs/soft-delete-container-overview)
 
-    After configuring your storage account, enable “Enable soft delete for containers.”
-
-    Specify “Days to retain deleted containers” by entering or selecting the number of days to retain data. (You can retain soft-deleted data for between 1 and 365 days.) Nasuni recommends specifying at least 30 days.
-
-    For details see [soft delete for containers](/azure/storage/blobs/soft-delete-container-overview)
-18. Configure other features according to your needs
-19. Select “Next: Tags >." The Tags pane appears.
-20. Define any Tags based on your internal policies.
-21. Select “Next: Review + create >”
-22. Select Create.
+17. Configure other features according to your needs
+18. Select “Next: Tags >." The Tags pane appears.
+19. Define any Tags based on your internal policies.
+20. Select “Next: Review + create >”
+21. Select Create.
     The storage account starts being created. When the storage account is created, select Storage Accounts in the left-hand list. The new storage account appears in the list of storage accounts.
-23. Select the name of your storage account. The pane for your storage account settings appears.
+22. Select the name of your storage account. The pane for your storage account settings appears.
 
 > [!TIP]
 > It is possible to recover a deleted storage account. For details, see [Recovering a deleted storage account](/azure/storage/blobs/soft-delete-container-overview).
@@ -89,10 +100,14 @@ Storage account firewalls must be configured to allow connections from the inter
 To configure storage account firewalls, follow these steps:
 1. Select the storage account.
 2. In the left-hand column, select Networking, then select the “Firewalls and virtual networks” tab. The “Firewalls and virtual networks” pane appears.
+
 :::image type="content" source="./media/nasuni-deployment-guide/win-azure-firewalls-virtual-networks-93.png" alt-text="Screenshot of Azure Firewalls and Virtual Networks pane" lightbox="./media/nasuni-deployment-guide/win-azure-firewalls-virtual-networks-93":::
+
 3. Select “Selected networks.”
     Alternatively, if allowing access from all networks, select “All networks” and skip to step 7.
+
 :::image type="content" source="./media/nasuni-deployment-guide/win-azure-firewalls-selected-networks-93.png" alt-text="Screenshot of Azure Firewalls and Selected Networks pane" lightbox="./media/nasuni-deployment-guide/win-azure-firewalls-selected-networks-93":::
+
 4. To add an existing virtual network, in the Virtual Networks area, select “Add existing virtual network.” Select Virtual networks and Subnets options, and then select Add.
 5. To create a new virtual network and grant it access, in the Virtual Networks area, select “Add new virtual network.” Provide the information necessary to create the new virtual network, and then select Create.
 6. To grant access to an IP range, in the Firewall area, enter the IP address or address range (in CIDR format) in Address Range. Include the internal customer network and other networks that Edge Appliances exist on or are using. Take network routing into account. For example, if connecting to the storage account over a private connection, use internal subnets; if connecting to the storage account over the public Internet, use public IPs.
@@ -190,10 +205,10 @@ You can use the following options to configure your DNS settings for private end
 -  Use a private DNS zone. You can use private DNS zones to override the DNS resolution for a private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains.
 -  Use your DNS forwarder (optional). You can use your DNS forwarder to override the DNS resolution for a private link resource. Create a DNS forwarding rule to use a private DNS zone on your DNS server hosted in a virtual network.
 
-> [NOTE!]
+> [!NOTE]
 > Using the Host file on the Nasuni Edge Appliance is not supported.
 
-> [NOTE!]
+> [!NOTE]
 > Nasuni’s default Host URL endpoint for Nasuni’s Azure Cloud Credentials should not be changed.
 
 ### Azure services DNS zone configuration
