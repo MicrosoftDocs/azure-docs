@@ -224,9 +224,11 @@ Here's a modified example so that you can see the basic structure of a response 
 
 ## Filter and vector queries
 
-A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, you can set up a filterable text or numeric field. 
+A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, you can attribute a text or numeric field in the same index as "filterable".
 
-In contrast with full text search, a filter in a pure vector query is effectively processed as a post-query operation. The set of k-NN is retrieved, and then combined with the set of filtered results. As such, the value of `"k"` predetermines the surface over which the filter is applied. For `"k": 10`, the filter is applied to 10 most similar documents. For `"k": 100`, the filter iterates over 100 documents (assuming the index contains 100 documents that are sufficiently similar to the query).
+In contrast with full text search, a filter in a pure vector query is effectively processed as a post-query operation. The set of `"k"` nearest neighbors is retrieved, and then combined with the set of filtered results. As such, the value of `"k"` predetermines the surface over which the filter is applied. For `"k": 10`, the filter is applied to 10 most similar documents. For `"k": 100`, the filter iterates over 100 documents (assuming the index contains 100 documents that are sufficiently similar to the query).
+
+Here's an example of filter expressions combined with a vector query:
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
@@ -252,7 +254,7 @@ api-key: {{admin-api-key}}
 ```
 
 > [!TIP]
-> If you don't have source fields with text or numeric values, check for document metadata, such as LastModified or CreatedBy properties that might be useful in a filter.
+> If you don't have source fields with text or numeric values, check for document metadata, such as LastModified or CreatedBy properties, that might be useful in a filter.
 
 ## Query syntax for hybrid search
 
