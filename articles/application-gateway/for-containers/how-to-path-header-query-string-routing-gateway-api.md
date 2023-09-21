@@ -21,7 +21,7 @@ This document helps you set up an example application that uses the resources fr
 
 Application Gateway for Containers enables traffic routing based on URL path, query string, and header. See the following example scenario:
 
-![A figure showing path, header, and query string routing with Application Gateway for Containers](./media/how-to-path-header-query-string-routing-gateway-api/routing.png)
+![A figure showing path, header, and query string routing with Application Gateway for Containers.](./media/how-to-path-header-query-string-routing-gateway-api/routing.png)
 
 ## Prerequisites
 

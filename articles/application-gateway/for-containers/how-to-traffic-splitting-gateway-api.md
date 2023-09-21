@@ -21,7 +21,7 @@ This document helps set up an example application that uses the following resour
 
 Application Gateway for Containers enables you to set weights and shift traffic between different backend targets. See the following example scenario:
 
-![A figure showing traffic splitting with Application Gateway for Containers](./media/how-to-traffic-splitting-gateway-api/traffic-splitting.png)
+![A figure showing traffic splitting with Application Gateway for Containers.](./media/how-to-traffic-splitting-gateway-api/traffic-splitting.png)
 
 ## Prerequisites
 

@@ -21,7 +21,7 @@ This document helps set up an example application that uses the following resour
 
 Application Gateway for Containers enables SSL [offloading](/azure/architecture/patterns/gateway-offloading) for better backend performance. See the following example scenario:
 
-![A figure showing SSL offloading with Application Gateway for Containers](./media/how-to-ssl-offloading-gateway-api/ssl-offloading.png)
+![A figure showing SSL offloading with Application Gateway for Containers.](./media/how-to-ssl-offloading-gateway-api/ssl-offloading.png)
 
 ## Prerequisites
 
