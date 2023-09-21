@@ -7,7 +7,7 @@ ms.topic: conceptual
 # Design Azure Policy as Code workflows
 
 As you progress on your journey with Cloud Governance, you'll want to shift from manually managing
-each policy definition in the Azure portal or through the various SDKs to something more manageable
+each policy assignment in the Azure portal or through the various SDKs to something more manageable
 and repeatable at enterprise scale. Two of the predominant approaches to managing systems at scale
 in the cloud are:
 
@@ -32,7 +32,7 @@ Before getting into the details of Azure Policy as Code workflow, it's important
 - [Policy definition](./definition-structure.md)
 - [Initiative definition](./initiative-definition-structure.md)
 
-The file names correspond with certain portions of policy or initiative definitions:
+The file names correspond with certain portions of policy or initiative definitions and other policy resources:
 
 | File format                   | File contents                       |
 | :--                           | :--                                 |
@@ -42,12 +42,16 @@ The file names correspond with certain portions of policy or initiative definiti
 | `policyset.parameters.json`   | The `properties.parameters` portion of the initiative definition           |
 | `policy.rules.json`           | The `properties.policyRule` portion of the policy definition               |
 | `policyset.definitions.json`  | The `properties.policyDefinitions` portion of the initiative definition    |
+| `exemptionName.json`          | The exemption that targets a particular resource or scope | 
+| `trigger-remediation.json`    | The template or script that triggers a remediation task |
 
 Examples of these file formats are available in the
 [Azure Policy GitHub Repo](https://github.com/Azure/azure-policy/):
 
 - Policy definition: [Add a tag to resources](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Initiative definition: [Billing Tags](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
+
+Other Policy resources such as exemptions and remediation task should also be stored as code to ensure continuity and centrally managability.  
 
 ## Workflow overview
 
