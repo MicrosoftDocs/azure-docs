@@ -97,7 +97,7 @@ A *sentinel key* is a key that you update after you complete the change of all o
 
 1. Verify Output:
 
-   :::image type="content" source="./media/enable-dynamic-configuration-python.png" alt-text="Screenshot of the CLI, with the results; Hello World!, 1, Hello World Updated!, 2.":::
+:::image type="content" source="./media/enable-dynamic-configuration-python.png" alt-text="Screenshot of the CLI, with the results; Hello World!, 1, Hello World Updated!, 2.":::
 
 
 ## Next steps
