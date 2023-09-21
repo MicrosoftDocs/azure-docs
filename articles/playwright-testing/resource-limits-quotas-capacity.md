@@ -37,6 +37,11 @@ While the service is in preview, the following limits apply on a per-subscriptio
 - The service supports running hosted browsers on Linux and Windows.
 - Supports all [browsers that Playwright supports](https://playwright.dev/docs/browsers).
 
+## Other limitations
+
+- Moving a workspace to another resource group is not yet supported.
+- The Playwright portal is only available in English. Localization in other languages is currently in progress.
+
 ## Request quota increases
 
 To raise the resource quota above the default limit for your subscription, [create an issue in the Playwright Testing GitHub repository](https://github.com/microsoft/playwright-testing-service/issues/new/choose).
