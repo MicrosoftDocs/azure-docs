@@ -555,10 +555,6 @@ This problem might be related to:
 
 - **Lack of traffic on your network security groups**: Sometimes you don't see logs because your virtual machines aren't active, or because upstream filters at Application Gateway or other devices are blocking traffic to your network security groups.
 
-### I want to automate NSG flow logs
-
-Support for automation via Azure Resource Manager templates (ARM templates) is now available for NSG flow logs. For more information, see [Configure network security group flow logs using an Azure Resource Manager (ARM) template](quickstart-configure-network-security-group-flow-logs-from-arm-template.md).
-
 ## Pricing
 
 NSG flow logs are charged per gigabyte of logs collected and come with a free tier of 5 GB/month per subscription. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).

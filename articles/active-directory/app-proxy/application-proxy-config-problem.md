@@ -1,5 +1,5 @@
 ---
-title: Problem creating an Azure Active Directory Application Proxy application
+title: Problem creating a Microsoft Entra application proxy application
 description: How to troubleshoot issues creating Application Proxy applications in the Microsoft Entra admin center
 services: active-directory
 author: kenwith
@@ -19,7 +19,7 @@ Below are some of the common issues people face when creating a new application 
 
 ## Recommended documents 
 
-To learn more about creating an Application Proxy application through the Admin Portal, see [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
+To learn more about creating an Application Proxy application through the Admin Portal, see [Publish applications using Microsoft Entra application proxy](application-proxy-add-on-premises-application.md).
 
 If you are following the steps in that document and are getting an error creating the application, see the error details for information and suggestions for how to fix the application. Most error messages include a suggested fix. 
 

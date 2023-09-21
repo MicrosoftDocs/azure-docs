@@ -1330,6 +1330,8 @@ items:
       href: kubernetes-secret-pull-image-from-private-container-registry.md
     - name: Rest APIs for the Airflow integrated runtime
       href: rest-apis-for-airflow-integrated-runtime.md
+    - name: Retrieve the IP address of an Airflow cluster
+      href: airflow-get-ip-airflow-cluster.md
     - name: Sync a GitHub repository with Airflow
       href: airflow-sync-github-repository.md
   - name: Pricing
