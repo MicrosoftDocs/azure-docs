@@ -76,7 +76,7 @@ This table summarizes the resulting redundancy configuration at every stage of a
 
 ### Failover transition details
 
-The following diagrams show what happens during customer-managed failover and failback of a storage account that is configured for geo-redundancy.
+The following diagrams show what happens during customer-managed failover and failback of a storage account that is configured for geo-redundancy. The transition details for GZRS and RA-GZRS are slightly different from GRS and RA-GRS.
 
 ## [GRS/RA-GRS](#tab/grs-ra-grs)
 
