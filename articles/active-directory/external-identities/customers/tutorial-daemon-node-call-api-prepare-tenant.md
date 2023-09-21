@@ -16,7 +16,7 @@ ms.custom: developer, devx-track-js
 
 # Tutorial: Prepare your customer tenant to authorize a Node.js daemon application
 
-In this tutorial, you learn how to acquire an access token, then call a web API in a Node.js daemon application. You enable the client daemon app to acquire an access token using its own identity. To do so, you first register your application in your Microsoft Entra External ID for customers tenant.
+In this tutorial, you learn how to acquire an access token, then call a web API in a Node.js daemon application. You enable the client daemon app to acquire an access token using its own identity. To do so, you first register your application in your Microsoft Entra ID for customers tenant.
 
 In this tutorial, you'll:
 
@@ -29,7 +29,7 @@ If you've already registered a client daemon application and a web API in the Mi
 
 ## Prerequisites
 
-- A Microsoft Entra External ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>. 
+- A Microsoft Entra ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>. 
 
 ## Register a web API application
 

@@ -15,10 +15,9 @@ Arc resource bridge is used with other partner products, such as [Azure Stack HC
 
 [Azure CLI](/cli/azure/install-azure-cli) is required to deploy the Azure Arc resource bridge on supported private cloud environments.
 
-If you're deploying on VMware, a x64 Python environment is required. The [pip](https://pypi.org/project/pip/) package installer for Python is also required.
+If deploying Arc resource bridge on VMware, Azure CLI 64-bit is required to be installed on the management machine to run the deployment commands.
 
-If you're deploying on Azure Stack HCI, the x32 Azure CLI installer can be used to install Azure CLI.
-
+If deploying on Azure Stack HCI, then Azure CLI 32-bit should be installed on the management machine.
 
 Arc Appliance CLI extension, 'arcappliance', needs to be installed on the CLI. This can be done by running: `az extension add --name arcappliance`
 
@@ -199,6 +198,7 @@ For instructions to deploy Arc resource bridge on AKS Hybrid, see [How to instal
 - Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about features and benefits.
 
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+
 
 
 
