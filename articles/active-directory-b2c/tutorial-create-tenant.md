@@ -61,7 +61,7 @@ Before you create your Azure AD B2C tenant, you need to take the following consi
 
     1. On the Azure portal, search for and select **Subscriptions**.
     1. Select your subscription, and then in the left menu, select **Resource providers**. If you don't see the left menu, select the **Show the menu for < name of your subscription >** icon at the top left part of the page to expand it.
-    1. Make sure the **Microsoft.Microsoft Entra ID** row shows a status of **Registered**. If it doesn't, select the row, and then select **Register**.
+    1. Make sure the **Microsoft.AzureActiveDirectory** row shows a status of **Registered**. If it doesn't, select the row, and then select **Register**.
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 
