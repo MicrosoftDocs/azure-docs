@@ -1,6 +1,6 @@
 ---
-title: Understand how Provisioning integrates with Azure Monitor logs in Azure Active Directory.
-description: Understand how Provisioning integrates with Azure Monitor logs in Azure Active Directory.
+title: Understand how Provisioning integrates with Azure Monitor logs in Microsoft Entra ID.
+description: Understand how Provisioning integrates with Azure Monitor logs in Microsoft Entra ID.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -115,5 +115,5 @@ We're taking an open source and community-based approach to application provisio
 - [Log analytics](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)
 - [Get started with queries in Azure Monitor logs](../../azure-monitor/logs/get-started-queries.md)
 - [Create and manage alert groups in the Azure portal](../../azure-monitor/alerts/action-groups.md)
-- [Install and use the log analytics views for Azure Active Directory](../../azure-monitor/visualize/workbooks-view-designer-conversion-overview.md)
+- [Install and use the log analytics views for Microsoft Entra ID](../../azure-monitor/visualize/workbooks-view-designer-conversion-overview.md)
 - [Provisioning logs API](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta)

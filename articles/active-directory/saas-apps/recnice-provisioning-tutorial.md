@@ -47,7 +47,7 @@ Before configuring Recnice for automatic user provisioning with Azure AD, you wi
 
 	![Screenshot of the Recnice Account Page.](media/recnice-provisioning-tutorial/recnice-account-settings.png)
 
-2. Copy the **SCIM Key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Recnice application in the Azure portal.
+2. Copy the **SCIM Key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Recnice application.
 
 	![Screenshot of the S C I M A P I key.](media/recnice-provisioning-tutorial/recnice-token.png)
 

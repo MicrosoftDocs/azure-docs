@@ -267,7 +267,7 @@ If you don't assign the User Access Administrator role to the service principal,
 
 ## Deploy the control plane
 
-Use the [deploy_controlplane.sh](bash/prepare-region.md) script to deploy the deployer and library. These deployment pieces make up the control plane for a chosen automation area.
+Use the [deploy_controlplane.sh](bash/deploy-controlplane.md) script to deploy the deployer and library. These deployment pieces make up the control plane for a chosen automation area.
 
 The deployment goes through cycles of deploying the infrastructure, refreshing the state, and uploading the Terraform state files to the library storage account. All of these steps are packaged into a single deployment script. The script needs the location of the configuration file for the deployer and library, and some other parameters.
 

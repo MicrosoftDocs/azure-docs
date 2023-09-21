@@ -57,9 +57,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
       ![Scim Token](media/printer-logic-saas-provisioning-tutorial/token.png)
 
-6. Copy and save the **Bearer token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your PrinterLogic SaaS application in the Azure portal.
+6. Copy and save the **Bearer token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your PrinterLogic SaaS application.
 
-7. Enter https://gw.app.printercloud.com/{instance_name}/scim/v2 in the **Tenant URL** field in the Provisioning tab of your PrinterLogic SaaS application in the Azure portal.
+7. Enter https://gw.app.printercloud.com/{instance_name}/scim/v2 in the **Tenant URL** field in the Provisioning tab of your PrinterLogic SaaS application.
 
 ## Step 3. Add PrinterLogic SaaS from the Azure AD application gallery
 

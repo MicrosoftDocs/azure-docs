@@ -63,7 +63,7 @@ To configure and test Azure AD single sign-on with MiCloud Connect:
 
 In this section, you'll enable Azure AD single sign-on for MiCloud Connect in the Azure portal and configure your MiCloud Connect account to allow SSO using Azure AD.
 
-To configure MiCloud Connect with SSO for Azure AD, it is easiest to open the Azure portal and the Mitel Account portal side by side. You'll need to copy some information from the Azure portal to the Mitel Account portal and some from the Mitel Account portal to the Azure portal.
+To configure MiCloud Connect with SSO for Azure AD, it is easiest to open the Azure portal and the Mitel Account portal side by side. You'll need to copy some information to the Mitel Account portal and some from the Mitel Account portal to the Azure portal.
 
 
 1. To open the configuration page in the Azure portal:
@@ -90,9 +90,9 @@ To configure MiCloud Connect with SSO for Azure AD, it is easiest to open the Az
 
     The Basic SAML Configuration dialog box appears.
 
-5.  Copy the URL from the **Mitel Identifier (Entity ID)** field in the Mitel Account portal and paste it into the **Identifier (Entity ID)** field in the Azure portal.
+5.  Copy the URL from the **Mitel Identifier (Entity ID)** field in the Mitel Account portal and paste it into the **Identifier (Entity ID)** field.
 
-6. Copy the URL from the **Reply URL (Assertion Consumer Service URL)** field in the Mitel Account portal and paste it into the **Reply URL (Assertion Consumer Service URL)** field in the Azure portal.
+6. Copy the URL from the **Reply URL (Assertion Consumer Service URL)** field in the Mitel Account portal and paste it into the **Reply URL (Assertion Consumer Service URL)** field.
 
    ![Screenshot shows Basic SAML Configuration in the Azure portal and the Set Up Identity Provider section in the Mitel Account portal with lines indicating the relationship between them.](./media/mitel-connect-tutorial/mitel-azure-basic-configuration.png)
 
@@ -104,7 +104,7 @@ To configure MiCloud Connect with SSO for Azure AD, it is easiest to open the Az
     > [!NOTE]
     > The default Mitel application is the application that is accessed when a user selects the Mitel Connect tile in the Access Panel. This is also the application accessed when doing a test setup from Azure AD.
 
-8. Select **Save** in the **Basic SAML Configuration** dialog box in the Azure portal.
+8. Select **Save** in the **Basic SAML Configuration** dialog box.
 
 9. In the **SAML Signing Certificate** section on the **SAML-based sign-on** page in the Azure portal, select **Download** next to **Certificate (Base64)** to download the **Signing Certificate** and save it to your computer.
 
@@ -126,7 +126,7 @@ To configure MiCloud Connect with SSO for Azure AD, it is easiest to open the Az
 
 ### Create an Azure AD test user 
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -140,7 +140,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Mitel Connect.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Mitel Connect.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Mitel Connect**.
@@ -171,7 +171,7 @@ Create a user on your MiCloud Connect account with the following details:
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Mitel Connect Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Mitel Connect Sign-on URL where you can initiate the login flow. 
 
 * Go to Mitel Connect Sign-on URL directly and initiate the login flow from there.
 
@@ -182,7 +182,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 This section describes how to enable Azure AD SSO for CloudLink platform in the Azure portal and how to configure your CloudLink platform account to allow single sign-on using Azure AD.
 
-To configure CloudLink platform with single sign-on for Azure AD, it is recommended that you  open the Azure portal and the CloudLink Accounts portal side by side as you will need to copy some information from the Azure portal to the CloudLink Accounts portal and vice versa.
+To configure CloudLink platform with single sign-on for Azure AD, it is recommended that you  open the Azure portal and the CloudLink Accounts portal side by side as you will need to copy some information to the CloudLink Accounts portal and vice versa.
 
 1. To open the configuration page in the Azure portal:
 
@@ -217,9 +217,9 @@ To configure CloudLink platform with single sign-on for Azure AD, it is recommen
 
     ![Screenshot shows the Basic SAML Configuration pane with the Edit icon selected.](./media/mitel-connect-tutorial/mitel-azure-saml-basic.png)
  
- 4. Copy the URL from the **Mitel Identifier (Entity ID)** field in the CloudLink Accounts portal and paste it into the **Identifier (Entity ID)** field in the Azure portal.
+ 4. Copy the URL from the **Mitel Identifier (Entity ID)** field in the CloudLink Accounts portal and paste it into the **Identifier (Entity ID)** field.
 
- 5. Copy the URL from the **Reply URL (Assertion Consumer Service URL)** field in the CloudLink Accounts portal and paste it into the **Reply URL (Assertion Consumer Service URL)** field in the Azure portal.  
+ 5. Copy the URL from the **Reply URL (Assertion Consumer Service URL)** field in the CloudLink Accounts portal and paste it into the **Reply URL (Assertion Consumer Service URL)** field.  
     
     ![Screenshot shows the relation between pages in the CloudLink Accounts portal and the Azure portal.](./media/mitel-connect-tutorial/mitel-cloudlink-saml-mapping.png) 
 
@@ -255,7 +255,7 @@ To configure CloudLink platform with single sign-on for Azure AD, it is recommen
 
 ### Create an Azure AD test user 
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -269,7 +269,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Mitel Connect.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Mitel Connect.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Mitel Connect**.
@@ -293,13 +293,13 @@ Create a user on your CloudLink Accounts portal with the following details:
 * Email: BrittaSimon@contoso.com
 
 > [!NOTE]
-> The user's CloudLink email address must be identical to the **User Principal Name** in the Azure portal.
+> The user's CloudLink email address must be identical to the **User Principal Name**.
 
 ### Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to CloudLink Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to CloudLink Sign-on URL where you can initiate the login flow. 
 
 * Go to CloudLink Sign-on URL directly and initiate the login flow from there.
 

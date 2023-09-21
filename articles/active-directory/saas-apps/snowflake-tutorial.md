@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to integrate Snowflake with Azure Active Dire
 
 * Control in Azure AD who has access to Snowflake.
 * Enable your users to be automatically signed-in to Snowflake with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ To configure and test Azure AD SSO with Snowflake, perform the following steps:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Snowflake** > **Single sign-on**.
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/logout`
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, Sign-on URL and Logout URL. Contact [Snowflake Client support team](https://support.snowflake.net/s/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, Sign-on URL and Logout URL. Contact [Snowflake Client support team](https://support.snowflake.net/s/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -103,7 +103,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -117,7 +117,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Snowflake.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Snowflake.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Snowflake**.
@@ -140,9 +140,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open the **downloaded Base 64 certificate** in notepad. Copy the value between “-----BEGIN CERTIFICATE-----” and “-----END CERTIFICATE-----" and paste this content into the **SAML2_X509_CERT**.
 
-1. In the **SAML2_ISSUER**, paste **Identifier** value, which you have copied from the Azure portal.
+1. In the **SAML2_ISSUER**, paste **Identifier** value, which you copied previously.
 
-1. In the **SAML2_SSO_URL**, paste **Login URL** value, which you have copied from the Azure portal.
+1. In the **SAML2_SSO_URL**, paste **Login URL** value, which you copied previously.
 
 1. In the **SAML2_PROVIDER**, give the value like `CUSTOM`.
 
@@ -154,8 +154,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     CREATE [ OR REPLACE ] SECURITY INTEGRATION [ IF NOT EXISTS ]
     TYPE = SAML2
     ENABLED = TRUE | FALSE
-    SAML2_ISSUER = '<EntityID/Issuer value which you have copied from the Azure portal>'
-    SAML2_SSO_URL = '<Login URL value which you have copied from the Azure portal>'
+    SAML2_ISSUER = '<EntityID/Issuer value which you have copied>'
+    SAML2_SSO_URL = '<Login URL value which you have copied>'
     SAML2_PROVIDER = 'CUSTOM'
     SAML2_X509_CERT = '<Paste the content of downloaded certificate from Azure portal>'
     [ SAML2_SP_INITIATED_LOGIN_PAGE_LABEL = '<string_literal>' ]
@@ -216,13 +216,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Snowflake Sign-on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Snowflake Sign-on URL where you can initiate the login flow.  
 
 * Go to Snowflake Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Snowflake for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the Snowflake for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Snowflake tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Snowflake for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

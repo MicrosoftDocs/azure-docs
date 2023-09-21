@@ -60,7 +60,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Netskope User Authentication CLient Name](media/netskope-administrator-console-provisioning-tutorial/clientname.png)
 
-3.	Copy the **SCIM Server URL** and the **TOKEN**. These values will be entered in the Tenant URL and Secret Token fields respectively in the Provisioning tab of your Netskope User Authentication application in the Azure portal.
+3.	Copy the **SCIM Server URL** and the **TOKEN**. These values will be entered in the Tenant URL and Secret Token fields respectively in the Provisioning tab of your Netskope User Authentication application.
 
 	![Netskope User Authentication Create Token](media/netskope-administrator-console-provisioning-tutorial/token.png)
 

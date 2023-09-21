@@ -52,7 +52,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![robin powered Add SCIM](media/robin-provisioning-tutorial/robin-token.png)
 
-3.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Robin application in the Azure portal.
+3.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Robin application.
 
 
 

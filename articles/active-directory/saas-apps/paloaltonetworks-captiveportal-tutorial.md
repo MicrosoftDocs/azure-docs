@@ -19,7 +19,7 @@ Integrating Palo Alto Networks Captive Portal with Azure AD provides you with th
 
 * You can control in Azure AD who has access to Palo Alto Networks Captive Portal.
 * You can enable your users to be automatically signed-in to Palo Alto Networks Captive Portal (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* You can manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ To configure and test Azure AD single sign-on with Palo Alto Networks Captive Po
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Palo Alto Networks Captive Portal** > **Single sign-on**.
@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -102,7 +102,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Palo Alto Networks Captive Portal.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Palo Alto Networks Captive Portal.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Palo Alto Networks Captive Portal**.
@@ -132,7 +132,7 @@ Next, set up single-sign on in Palo Alto Networks Captive Portal:
 
 	1. For **Profile Name**, enter a name, like **AzureAD-CaptivePortal**.
 	
-	2. Next to **Identity Provider Metadata**, select **Browse**. Select the metadata.xml file that you downloaded in the Azure portal.
+	2. Next to **Identity Provider Metadata**, select **Browse**. Select the metadata.xml file that you downloaded.
 	
 	3. Select **OK**.
 
@@ -147,7 +147,7 @@ Next, create a user named *Britta Simon* in Palo Alto Networks Captive Portal. P
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the Palo Alto Networks Captive Portal for which you set up the SSO
+* Click on **Test this application**, and you should be automatically signed in to the Palo Alto Networks Captive Portal for which you set up the SSO
 
 * You can use Microsoft My Apps. When you click the Palo Alto Networks Captive Portal tile in the My Apps, you should be automatically signed in to the Palo Alto Networks Captive Portal for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
