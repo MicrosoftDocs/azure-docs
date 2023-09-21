@@ -38,7 +38,7 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 
 2. Log in to the Azure CLI.
 
-    Make sure that you've installed the latest [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-az-cli2) and are logged in to an Azure account with [az login](https://learn.microsoft.com/en-us/cli/azure/reference-index).
+    Make sure that you've installed the latest [Azure CLI](https://learn.microsoft.com/cli/azure/install-az-cli2) and are logged in to an Azure account with [az login](https://learn.microsoft.com/cli/azure/reference-index).
 
 3. Launch Azure Cloud Shell.
 
@@ -50,7 +50,7 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
     
 4.  Create a resource group.
 
-    Create a resource group with the [az group create](https://learn.microsoft.com/en-us/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named myResourceGroup in the eastus location:
+    Create a resource group with the [az group create](https://learn.microsoft.com/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named myResourceGroup in the eastus location:
     
    
     ```Azure CLI
@@ -85,13 +85,13 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
     ```
 
 > [!NOTE]
-> If you are looking to set an admin username, ensure that it isn't part of the [reserved words](https://learn.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#osprofile) list for vmss. In this case, the username is auto set to azureuser.
+> If you are looking to set an admin username, ensure that it isn't part of the [reserved words](https://learn.microsoft.com/rest/api/compute/virtualmachines/createorupdate#osprofile) list for vmss. In this case, the username is auto set to azureuser.
 
 > For the admin credentials, you will be able to use the credentials that you set from the hardened image while you create the vm.
 
-> For specalized images, [osprofile properties](https://learn.microsoft.com/en-us/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#generalized-and-specialized-images) are handled differently than generalized images.
+> For specalized images, [osprofile properties](https://learn.microsoft.com/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#generalized-and-specialized-images) are handled differently than generalized images.
 
-> Using a [load balancer](https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview#why-use-azure-load-balancer) is optional but is encouraged for these reasons.
+> Using a [load balancer](https://learn.microsoft.com/azure/load-balancer/load-balancer-overview#why-use-azure-load-balancer) is optional but is encouraged for these reasons.
 
 6. Access the virtual machine scale set from the portal.
 
@@ -103,4 +103,4 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 
 ## Next Steps
 
-In this article, you learned how to deploy a virtual machine scale set instance with a hardened linux image. For more information about CVM, see [DCasv5 and ECasv5 series confidential VMs](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-vm-overview).
+In this article, you learned how to deploy a virtual machine scale set instance with a hardened linux image. For more information about CVM, see [DCasv5 and ECasv5 series confidential VMs](https://learn.microsoft.com/azure/confidential-computing/confidential-vm-overview).
