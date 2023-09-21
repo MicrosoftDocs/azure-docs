@@ -121,7 +121,6 @@ In this tutorial, you created a self-signed certificate with the private key, so
 
 <a name='export-a-certificate-for-azure-ad-ds'></a>
 
-<a name='export-a-certificate-for-microsoft-entra-ds'></a>
 
 ### Export a certificate for Microsoft Entra Domain Services
 
