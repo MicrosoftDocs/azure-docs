@@ -45,9 +45,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 2: Configure Insite LMS to support provisioning with Microsoft Entra ID
 To generate the Secret Token
 
-1. Login to [Insite LMS Console](https://portal.insitelms.net) with your Admin account. 
+1. Log in to [Insite LMS Console](https://portal.insitelms.net) with your Admin account. 
 1. Navigate to **Applications** module on the left hand side menu.
-1. In the section **Self hosted Jobs**, you will find a job named “SCIM”.If you can't find the job, contact the Insite LMS support team.
+1. In the section **Self hosted Jobs**, you'll find a job named “SCIM”. If you can't find the job, contact the Insite LMS support team.
 
 	![Screenshot of generate API Key.](media/insite-lms-provisioning-tutorial/generate-api-key.png)
 
