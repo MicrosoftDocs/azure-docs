@@ -40,10 +40,8 @@ Change Process Management supports IDP-initiated SSO.
 
 To configure the integration of Change Process Management into Azure AD, you need to add Change Process Management from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal with a work or school account or with a personal Microsoft account.
-1. In the left pane, select **Azure Active Directory**.
-1. Go to **Enterprise applications** and then select **All Applications**.
-1. To add an application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, enter **Change Process Management** in the search box.
 1. Select **Change Process Management** in the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -64,9 +62,10 @@ To configure and test Azure AD SSO with Change Process Management, you'll take t
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
-1. In the Azure portal, on the **Change Process Management** application integration page, in the **Manage** section, select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Change Process Management** application integration page, in the **Manage** section, select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, select the pencil button for **Basic SAML Configuration** to edit the settings:
 
@@ -81,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<hostname>:8443/changepilot/saml/sso`
 
 	> [!NOTE]
-	> The preceding **Identifier** and **Reply URL** values aren't the actual values that you should use. Contact the [Change Process Management support team](mailto:support@realtech-us.com) to get the actual values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The preceding **Identifier** and **Reply URL** values aren't the actual values that you should use. Contact the [Change Process Management support team](mailto:support@realtech-us.com) to get the actual values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link for **Certificate (Base64)** to download the certificate and save it on your computer:
 
@@ -93,21 +92,23 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user named B.Simon in the Azure portal.
+In this section, you'll create a test user named B.Simon.
 
-1. In the left pane of the Azure portal, select **Azure Active Directory**. Select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, complete these steps:
-   1. In the **Name** box, enter **B.Simon**.  
-   1. In the **User name** box, enter \<username>@\<companydomain>.\<extension>. For example, `B.Simon@contoso.com`.
-   1. Select **Show password**, and then write down the value that's displayed in the **Password** box.
-   1. Select **Create**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Grant access to the test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting that user access to Change Process Management.
+In this section, you'll enable B.Simon to use single sign-on by granting that user access to Change Process Management.
 
-1. In the Azure portal, select **Enterprise applications**, and then select **All applications**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. In the applications list, select **Change Process Management**.
 1. In the app's overview page, in the **Manage** section, select **Users and groups**:
 1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
@@ -117,7 +118,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
 ## Configure Change Process Management SSO
 
-To configure single sign-on on the Change Process Management side, you need to send the downloaded Base64 certificate and the appropriate URLs that you copied from the Azure portal to the [Change Process Management support team](mailto:support@realtech-us.com). They configure the SAML SSO connection to be correct on both sides.
+To configure single sign-on on the Change Process Management side, you need to send the downloaded Base64 certificate and the appropriate URLs that you copied to the [Change Process Management support team](mailto:support@realtech-us.com). They configure the SAML SSO connection to be correct on both sides.
 
 ### Create a Change Process Management test user
 
@@ -127,9 +128,9 @@ Work with the [Change Process Management support team](mailto:support@realtech-
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the Change Process Management for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the Change Process Management for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the Change Process Management tile in the My Apps, you should be automatically signed in to the Change Process Management for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Change Process Management tile in the My Apps, you should be automatically signed in to the Change Process Management for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

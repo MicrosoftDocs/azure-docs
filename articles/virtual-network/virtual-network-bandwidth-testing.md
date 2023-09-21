@@ -29,7 +29,7 @@ You can test throughput from Windows VMs by using [NTTTCP](https://github.com/mi
 
 # [Windows](#tab/windows)
 
-### Set up NTTTPS and test configuration
+### Set up NTTTCP and test configuration
 
 1. On both the sender and receiver VMs, [download the latest version of NTTTCP](https://github.com/microsoft/ntttcp/releases/latest) into a separate folder like *c:\\tools*.
 
@@ -80,7 +80,7 @@ Run *ntttcp.exe* from the Windows command line, not from PowerShell. Run the tes
 
 # [Linux](#tab/linux)
 
-### Prepare VMs and install NTTTPS-for-Linux
+### Prepare VMs and install NTTTCP-for-Linux
 
 To measure throughput from Linux machines, use [NTTTCP-for-Linux](https://github.com/Microsoft/ntttcp-for-linux).
 

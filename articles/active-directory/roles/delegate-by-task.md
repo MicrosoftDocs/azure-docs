@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 In this article, you can find the information needed to restrict a user's administrator permissions by assigning least privileged roles in Azure Active Directory (Azure AD). You will find tasks organized by feature area and the least privileged role required to perform each task, along with additional non-Global Administrator roles that can perform the task.
 
-You can further restrict permissions by assigning roles at smaller scopes or by creating your own custom roles. For more information, see [Assign Azure AD roles at different scopes](assign-roles-different-scopes.md) or [Create and assign a custom role](custom-create.md).
+You can further restrict permissions by assigning roles at smaller scopes or by creating your own custom roles. For more information, see [Assign Azure AD roles at different scopes](assign-roles-different-scopes.md) or [Create and assign a custom role in Azure Active Directory](custom-create.md).
 
 ## Application proxy
 

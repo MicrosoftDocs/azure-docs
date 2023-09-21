@@ -67,7 +67,7 @@ If you want to use different display settings to those specified by your admin, 
 
 1. Open the **Remote Desktop** application on your device.
 
-1. Right-click the name of a desktop or app, for example **SessionDesktop**, then select **Settings**.
+1. Right-click the name of a desktop connection, for example **SessionDesktop**, then select **Settings**.
 
 1. Toggle **Use default settings** to off.
 

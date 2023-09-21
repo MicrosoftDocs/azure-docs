@@ -20,7 +20,15 @@ You're responsible for designing and deploying your applications to meet [US exp
 
 ## Guidance for developers
 
-Azure Government services operate the same way as the corresponding services in global Azure, which is why most of the existing online Azure documentation applies equally well to Azure Government. However, there are some key differences that developers working on applications hosted in Azure Government must be aware of. For more information, see [Guidance for developers](./documentation-government-developer-guide.md). As a developer, you must know how to connect to Azure Government and once you connect you'll mostly have the same experience as in global Azure.
+Most of the currently available technical content assumes that applications are being developed on global Azure rather than on Azure Government. For this reason, it’s important to be aware of two key differences in applications that you develop for hosting in Azure Government.
+
+- Certain services and features that are in specific regions of global Azure might not be available in Azure Government.
+
+- Feature configurations in Azure Government might differ from those in global Azure.
+
+Therefore, it's important to review your sample code and configurations to ensure that you are building within the Azure Government cloud services environment.
+
+For more information, see [Azure Government developer guide](./documentation-government-developer-guide.md). 
 
 > [!NOTE]
 > This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [**Introducing the new Azure PowerShell Az module**](/powershell/azure/new-azureps-module-az). For Az module installation instructions, see [**Install the Azure Az PowerShell module**](/powershell/azure/install-azure-powershell).
@@ -450,3 +458,4 @@ Start using Azure Government:
 
 - [Guidance for developers](./documentation-government-developer-guide.md)
 - [Connect with the Azure Government portal](./documentation-government-get-started-connect-with-portal.md)
+

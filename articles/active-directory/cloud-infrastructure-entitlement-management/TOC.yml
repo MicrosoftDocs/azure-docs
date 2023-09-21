@@ -10,7 +10,7 @@
     items:
     - name: Quickstart guide - Microsoft Entra Permissions Management
       href: permissions-management-quickstart-guide.md  
-    - name: Onboard Permissions Management on the Azure AD tenant
+    - name: Onboard Permissions Management on the Microsoft Entra tenant
       expanded: true
       items:
       - name: Enable Permissions Management in your organization 
@@ -118,9 +118,9 @@
         href: ui-triggers.md
       - name: Create and view activity alerts and alert triggers
         href: how-to-create-alert-trigger.md
-      - name: Create and view rule-based anomalies and anomaly triggers
+      - name: Create and view rule-based anomaly alerts and alert triggers
         href: product-rule-based-anomalies.md
-      - name: Create and view statistical anomalies and anomaly triggers
+      - name: Create and view statistical anomaly alerts and alert triggers
         href: product-statistical-anomalies.md
       - name: Create and view permission analytics triggers
         href: product-permission-analytics.md
@@ -155,6 +155,8 @@
     items:
     - name: Troubleshoot issues
       href: troubleshoot.md
+    - name: Error codes
+      href: error-codes-onboarding.md
   - name: Reference
     expanded: false
     items:
@@ -164,4 +166,3 @@
       href: multi-cloud-glossary.md
     - name: Microsoft Entra Permissions Management partners
       href: partner-list.md
-

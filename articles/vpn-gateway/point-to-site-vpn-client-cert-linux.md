@@ -116,7 +116,8 @@ This section walks you through the configuration using the strongSwan CLI.
 1. Copy or move the p12 file you generated to **/etc/ipsec.d/private/**. This file is the client certificate for the VPN gateway. Use the following command:
 
    ```
-   sudo cp "${USERNAME}.p12"  /etc/ipsec.d/private/
+   cat ${USERNAME}Cert.pem ${USERNAME}Key.pem | sudo tee  /etc/ipsec.d/private/myclientcert.pem
+   sudo chmod go-rwx /etc/ipsec.d/private/myclientcert.pem
    ```
 
 1. Run the following command to take note of your hostname. You’ll use this value in the next step.
@@ -135,13 +136,15 @@ This section walks you through the configuration using the strongSwan CLI.
          type=tunnel
          leftfirewall=yes
          left=%any
-         leftauth=eap-tls
+         leftcert=myclientcert.pem
+         leftauth=pubkey
          leftid=%client # use the hostname of your machine with % character prepended. Example: %client
          right= #Azure VPN gateway address. Example: azuregateway-xxx-xxx.vpn.azure.com
          rightid=% #Azure VPN gateway FQDN with % character prepended. Example: %azuregateway-xxx-xxx.vpn.azure.com
          rightsubnet=0.0.0.0/0
          leftsourceip=%config
          auto=add
+         esp=aes256gcm16
    ```
    
    

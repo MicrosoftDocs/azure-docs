@@ -25,7 +25,7 @@ Delta updates allow you to generate a small update that represents only the chan
 
 ## Configure a device with Device Update agent and delta processor component
 
-In order for your device to download and install delta updates from the Device Update service, you will need several components present and configured.
+In order for your device to download and install delta updates from the Device Update service, you need several components present and configured.
 
 ### Device Update agent
 
@@ -48,15 +48,15 @@ sudo ldconfig
 
 ## Add a source SWU image file to your device
 
-After a delta update has been downloaded to a device, it must be compared against a valid _source SWU file_ that has been previously cached on the device in order to be re-created into a full image. The simplest way to populate this cached image is to deploy a full image update to the device via the Device Update service (using the existing [import](import-update.md) and [deployment](deploy-update.md) processes). As long as the device has been configured with the Device Update agent (version 1.0 or later) and delta processor, the installed SWU file will be cached automatically by the Device Update agent for later delta update use.
+After a delta update has been downloaded to a device, it must be compared against a valid _source SWU file_ that has been previously cached on the device in order to be re-created into a full image. The simplest way to populate this cached image is to deploy a full image update to the device via the Device Update service (using the existing [import](import-update.md) and [deployment](deploy-update.md) processes). As long as the device has been configured with the Device Update agent (version 1.0 or later) and delta processor, the installed SWU file is cached automatically by the Device Update agent for later delta update use.
 
 If you instead want to directly pre-populate the source image on your device, the path where the image is expected is:
 
 `[BASE_SOURCE_DOWNLOAD_CACHE_PATH]/sha256-[ENCODED HASH]`
 
-By default, `BASE_SOURCE_DOWNLOAD_CACHE_PATH` is the path listed below. The `[provider]` value is the Provider part of the [updateId](import-concepts.md#update-identity) for the source SWU file.
+By default, `BASE_SOURCE_DOWNLOAD_CACHE_PATH` is the path `/var/lib/adu/sdc/[provider]`. The `[provider]` value is the Provider part of the [updateId](import-concepts.md#update-identity) for the source SWU file.
 
-`/var/lib/adu/sdc/[provider]`
+
 
 `ENCODED_HASH` is the base64 hex string of the SHA256 of the binary, but after encoding to base64 hex string, it encodes the characters as follows:
 
@@ -74,7 +74,7 @@ The following table provides a list of the content needed, where to retrieve the
 
 | Binary Name | Where to acquire | How to install |
 |--|--|--|
-| DiffGen | [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo | From the root folder, select the _Microsoft.Azure.DeviceUpdate.Diffs.[version].nupkg_ file. [Learn more about NuGet packages](https://learn.microsoft.com/nuget/).|
+| DiffGen | [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo | From the root folder, select the _Microsoft.Azure.DeviceUpdate.Diffs.[version].nupkg_ file. [Learn more about NuGet packages](/nuget/).|
 | .NET (Runtime) | Via Terminal / Package Managers | [Instructions for Linux](/dotnet/core/install/linux). Only the Runtime is required. |
 
 ### Dependencies
@@ -95,25 +95,25 @@ The DiffGen tool is run with several arguments. All arguments are required, and 
 
 `DiffGenTool [source_archive] [target_archive] [output_path] [log_folder] [working_folder] [recompressed_target_archive]`  
 
-- The script recompress_tool.py will be run to create the file [recompressed_target_archive], which will then be used instead of [target_archive] as the target file for creating the diff.
-- The image files within [recompressed_target_archive] will be compressed with zstd.
+- The script recompress_tool.py runs to create the file [recompressed_target_archive], which then is used instead of [target_archive] as the target file for creating the diff.
+- The image files within [recompressed_target_archive] are compressed with zstd.
 
 If your SWU files are signed (likely), you'll need another argument as well:
 
 `DiffGenTool [source_archive] [target_archive] [output_path] [log_folder] [working_folder] [recompressed_target_archive] "[signing_command]"`
 
-- In addition to using [recompressed_target_archive] as the target file, providing a signing command string parameter will run recompress_and_sign_tool.py to create the file [recompressed_target_archive] and have the sw-description file within the archive signed (meaning a sw-description.sig file will be present). You can use the sample `sign_file.sh` script from the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta/tree/main/src/scripts/signing_samples/openssl_wrapper) GitHub repo. Open the script, edit it to add the path to your private key file, then save it. See the examples section below for sample usage.
+- In addition to using [recompressed_target_archive] as the target file, providing a signing command string parameter runs recompress_and_sign_tool.py to create the file [recompressed_target_archive] and have the sw-description file within the archive signed (meaning a sw-description.sig file is present). You can use the sample `sign_file.sh` script from the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta/tree/main/src/scripts/signing_samples/openssl_wrapper) GitHub repo. Open the script, edit it to add the path to your private key file, then save it. See the examples section below for sample usage.
 
 The following table describes the arguments in more detail:
 
 | Argument | Description |
 |--|--|
-| [source_archive] | This is the image that the delta will be based against when creating the delta. _Important_: this image must be identical to the image that is already present on the device (for example, cached from a previous update). |
-| [target_archive] | This is the image that the delta will update the device to. |
-| [output_path] | The path (including the desired name of the delta file being generated) on the host machine where the delta file will be placed after creation.  If the path doesn't exist, the directory will be created by the tool. |
-| [log_folder] | The path on the host machine where logs will be created. We recommend defining this location as a sub folder of the output path. If the path doesn't exist, it will be created by the tool. |
-| [working_folder] | The path on the machine where collateral and other working files are placed during the delta generation. We recommend defining this location as a subfolder of the output path. If the path doesn't exist, it will be created by the tool. |
-| [recompressed_target_archive] | The path on the host machine where the recompressed target file will be created. This file will be used instead of <target_archive> as the target file for diff generation. If this path exists before calling DiffGenTool, the path will be overwritten. We recommend defining this path as a file in the subfolder of the output path. |
+| [source_archive] | This is the image that the delta is based against when creating the delta. _Important_: this image must be identical to the image that is already present on the device (for example, cached from a previous update). |
+| [target_archive] | This is the image that the delta updates the device to. |
+| [output_path] | The path (including the desired name of the delta file being generated) on the host machine where the delta file is placed after creation.  If the path doesn't exist, the directory is created by the tool. |
+| [log_folder] | The path on the host machine where logs creates. We recommend defining this location as a sub folder of the output path. If the path doesn't exist, it is created by the tool. |
+| [working_folder] | The path on the machine where collateral and other working files are placed during the delta generation. We recommend defining this location as a subfolder of the output path. If the path doesn't exist, it is created by the tool. |
+| [recompressed_target_archive] | The path on the host machine where the recompressed target file is created. This file is used instead of <target_archive> as the target file for diff generation. If this path exists before calling DiffGenTool, the path is overwritten. We recommend defining this path as a file in the subfolder of the output path. |
 | "[signing_command]" _(optional)_ | A customizable command used for signing the sw-description file within the recompressed archive file. The sw-description file in the recompressed archive is used as an input parameter for the signing command; DiffGenTool expects the signing command to create a new signature file, using the name of the input with `.sig` appended. Surrounding the parameter in double quotes is needed so that the whole command is passed in as a single parameter. Also, avoid putting the '~' character in a key path used for signing, and use the full home path instead (for example, use /home/USER/keys/priv.pem instead of ~/keys/priv.pem). |
 
 ### DiffGen examples
@@ -153,7 +153,7 @@ The basic process of importing an update to the Device Update service is unchang
 
 ### Generate import manifest
 
-The first step to import an update into the Device Update service is always to create an import manifest if you don't already have one. For more information about import manifests, see [Importing updates into Device Update](import-concepts.md#import-manifest). For delta updates, your import manifest will need to reference two files:
+The first step to import an update into the Device Update service is always to create an import manifest if you don't already have one. For more information about import manifests, see [Importing updates into Device Update](import-concepts.md#import-manifest). For delta updates, your import manifest needs to reference two files:
 
 - The _recompressed_ target SWU image created when you ran the DiffGen tool.
 - The delta file created when you ran the DiffGen tool.
@@ -171,9 +171,9 @@ Use the `relatedFiles` object to specify information about the delta update file
 }
 ```
 
-Both of the properties above are specific to your _source SWU image file_ that you used as an input to the DiffGen tool when creating your delta update. The information about the source SWU image is needed in your import manifest even though you will not actually be importing the source image. The delta components on the device use this metadata about the source image to locate the image on the device once the delta has been downloaded.
+Both of the properties above are specific to your _source SWU image file_ that you used as an input to the DiffGen tool when creating your delta update. The information about the source SWU image is needed in your import manifest even though you don't actually import the source image. The delta components on the device use this metadata about the source image to locate the image on the device once the delta has been downloaded.
 
-Use the `downloadHandler` object to specify how the Device Update agent will orchestrate the delta update, using the related files feature. Unless you are customizing your own version of the Device Update agent for delta functionality, you should only use this downloadHandler:
+Use the `downloadHandler` object to specify how the Device Update agent orchestrates the delta update, using the related files feature. Unless you are customizing your own version of the Device Update agent for delta functionality, you should only use this downloadHandler:
 
 ```json
 "downloadHandler": {
@@ -212,14 +212,14 @@ There are three possible outcomes for a delta update deployment:
 
 To determine which of the above outcomes occurred, you can view the install results with error code and extended error code by selecting any device that is in a failed state. You can also [collect logs](device-update-log-collection.md) from multiple failed devices if needed.
 
-If the delta update succeeded, the device will show a "Succeeded" status.
+If the delta update succeeded, the device shows a "Succeeded" status.
 
-If the delta update failed but did a successful fallback to the full image, it will show the following error status:
+If the delta update failed but did a successful fallback to the full image, it shows the following error status:
 
 - resultCode: _[value greater than 0]_
 - extendedResultCode: _[non-zero]_
 
-If the update was unsuccessful, it will show an error status that can be interpreted using the instructions below:
+If the update was unsuccessful, it shows an error status that can be interpreted using the instructions below:
 
 - Start with the Device Update Agent errors in [result.h](https://github.com/Azure/iot-hub-device-update/blob/main/src/inc/aduc/result.h).
 
