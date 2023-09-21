@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/21/2023
+ms.date: 09/21/2023
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
@@ -32,9 +32,7 @@ This article discusses known issues to be aware of when you work with app provis
 
 ### Microsoft Teams
 
-* Microsoft Teams does not support converting the [userType](../external-identities/user-properties.md) property on a B2B user from `member` to `guest` or `guest` to `member`.
-* External / B2B users of type `member` cannot be added to a shared channel in Microsoft Teams. If your organization uses shared channels, please ensure that you update your synchronization configuration to create users as type `guest`. At that point, you will be able to add the native identity (the original account in the source tenant) to the shared channel. If a user is already created as type `member`, you can convert the user to type `guest` in this scenario and add the native identity to the shared channel.
-* External / B2B users will need to switch tenants in Teams to receive messages. This experience does not change for users created by cross-tenant synchronization.
+External / B2B users of type `member` created by cross-tenant synchronization can be added to a shared channel in Microsoft Teams. However, external member users created outside of cross-tenant sync cannot be added to a Teams shared channel.  
 
  ### Provisioning users
 
