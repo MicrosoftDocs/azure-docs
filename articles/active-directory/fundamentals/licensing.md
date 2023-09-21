@@ -70,13 +70,13 @@ This article discusses Entra services' licensing. It is intended for IT decision
 
 [!INCLUDE [Roles based access control](../includes/licensing-role-based-access-control.md)]
 
+### Roles
+
+[!INCLUDE [licensing-roles](../includes/licensing-roles.md)]
+
 ## Microsoft Entra reporting and monitoring
 
 [!INCLUDE [Microsoft Entra reporting and monitoring](../includes/licensing-reports-monitoring.md)]
-
-## Roles
-
-[!INCLUDE [licensing-roles](../includes/licensing-roles.md)]
 
 ## Microsoft Entra Verified ID
 
