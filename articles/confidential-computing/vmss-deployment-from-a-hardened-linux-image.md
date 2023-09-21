@@ -90,9 +90,9 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 
 > [!NOTE]
 
-> For specalized images, [osprofile properties](https://learn.microsoft.com/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#generalized-and-specialized-images) are handled differently than generalized images.
+> For specalized images, [osprofile properties](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#generalized-and-specialized-images) are handled differently than generalized images.
 
-> Using a [load balancer](https://learn.microsoft.com/azure/load-balancer/load-balancer-overview#why-use-azure-load-balancer) is optional but is encouraged for these reasons.
+> Using a [load balancer](/azure/load-balancer/load-balancer-overview#why-use-azure-load-balancer) is optional but is encouraged for these reasons.
 
 6. Access the virtual machine scale set from the portal.
 
@@ -104,4 +104,4 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 
 ## Next Steps
 
-In this article, you learned how to deploy a virtual machine scale set instance with a hardened linux image. For more information about CVM, see [DCasv5 and ECasv5 series confidential VMs](https://learn.microsoft.com/azure/confidential-computing/confidential-vm-overview).
+In this article, you learned how to deploy a virtual machine scale set instance with a hardened linux image. For more information about CVM, see [DCasv5 and ECasv5 series confidential VMs](/confidential-vm-overview).
