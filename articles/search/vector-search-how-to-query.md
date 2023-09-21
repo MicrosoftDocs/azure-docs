@@ -19,6 +19,7 @@ In Azure Cognitive Search, if you added vector fields to a search index, this ar
 
 > [!div class="checklist"]
 > + [Query vector fields](#query-syntax-for-vector-search).
+> + [Filter and query vector fields](#filter-and-vector-queries)
 > + [Combine vector, full text search, and semantic search in a hybrid query](#query-syntax-for-hybrid-search).
 > + [Query multiple vector fields at once](#query-syntax-for-vector-query-over-multiple-fields).
 > + [Run multiple vector queries in parallel](#query-syntax-for-multiple-vector-queries).
@@ -127,7 +128,7 @@ In this vector query, which is shortened for brevity, the "value" contains the v
 In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query request targets the "contentVector" field. The actual vector has 1536 embeddings. It's trimmed in this example for readability.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -221,16 +222,48 @@ Here's a modified example so that you can see the basic structure of a response 
 
 ---
 
+## Filter and vector queries
+
+A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, you can set up a filterable text or numeric field. 
+
+In contrast with full text search, a filter in a pure vector query is effectively processed as a post-query operation. The set of k-NN is retrieved, and then combined with the set of filtered results. As such, the value of `"k"` determines the surface over which the filter is applied. For `"k": 10`, the filter is applied to 10 most similar documents. For `"k": 100`, the filter iterates over a larger body of documents.
+
+```http
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
+Content-Type: application/json
+api-key: {{admin-api-key}}
+{
+    "vectors": [
+        {
+            "value": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "contentVector",
+            "k": 10
+        },
+    ],
+    "select": "title, content, category",
+    "filter": "category eq 'Databases'"
+}
+```
+
+> [!TIP]
+> If you don't have source fields with text or numeric values, check for document metadata, such as LastModified or CreatedBy properties that might be useful in a filter.
+
 ## Query syntax for hybrid search
 
 A hybrid query combines full text search and vector search, where the `"search"` parameter takes a query string and `"vectors.value"` takes the vector query. The search engine runs full text and vector queries in parallel. All matches are evaluated for relevance using Reciprocal Rank Fusion (RRF) and a single result set is returned in the response.
 
-Hybrid queries are useful because they add support for filters, orderby, and [semantic search](semantic-how-to-query-request.md) For example, in addition to the vector query, you could filter by location or search over product names or titles, scenarios for which similarity search isn't a good fit.
+Hybrid queries are useful because they add support for filters, orderby, and [semantic search](semantic-how-to-query-request.md) For example, in addition to the vector query, you could search over people or product names or titles, scenarios for which similarity search isn't a good fit.
 
 The following example is from the [Postman collection of REST APIs](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) that demonstrate query configurations. It shows a complete request that includes vector search, full text search with filters, and semantic search with captions and answers. Semantic search is an optional premium feature. It's not required for vector search or hybrid search. For content that includes rich descriptive text *and* vectors, it's possible to benefit from all of the search modalities in one request.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -262,7 +295,7 @@ api-key: {{admin-api-key}}
 You can set the "vectors.fields" property to multiple vector fields. For example, the Postman collection has vector fields named "titleVector" and "contentVector". A single vector query executes over both the "titleVector" and "contentVector" fields, which must have the same embedding space since they share the same query vector.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
