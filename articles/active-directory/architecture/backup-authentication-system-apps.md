@@ -45,7 +45,7 @@ All applications using the OAuth 2.0 and/or OIDC protocols should adhere to the 
 
 ##### Native applications 
 
-Native applications are public client applications that run directly on desktop or mobile devices and not in a web browser. They're registered as public clients in their application registration on the Microsoft Entra ID or Azure portal. 
+Native applications are public client applications that run directly on desktop or mobile devices and not in a web browser. They're registered as public clients in their application registration on the Microsoft Entra admin center or Azure portal. 
 
 Native applications are protected by the backup authentication system when all the following are true: 
 

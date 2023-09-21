@@ -36,7 +36,7 @@ The location found using the public IP address a client provides to Microsoft En
 
 ## Named locations
 
-Locations exist under **Microsoft Entra ID** > **Security** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations are defined by IPv4 and IPv6 address ranges or by countries/regions. 
+Locations exist under **Protection** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations are defined by IPv4 and IPv6 address ranges or by countries/regions. 
 
 > [!VIDEO https://www.youtube.com/embed/P80SffTIThY]
 
@@ -108,7 +108,7 @@ Some IP addresses don't map to a specific country or region. To capture these IP
 
 ## Define locations
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Protection** > **Conditional Access** > **Named locations**.
 1. Choose **New location**.
 1. Give your location a name.
