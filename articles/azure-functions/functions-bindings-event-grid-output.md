@@ -114,7 +114,7 @@ public static EventGridEvent Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTim
 }
 ```
 
-It is also possible to use an `out` parameter to accomplish the same thing:
+It's also possible to use an `out` parameter to accomplish the same thing:
 ```csharp
 [FunctionName("EventGridOutput")]
 [return: EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]
@@ -144,7 +144,7 @@ public static async Task Run(
 }
 ```
 
-Starting in version 3.3.0, it is possible to use Azure Active Directory when authenticating the output binding:
+Starting in version 3.3.0, it's possible to use Azure Active Directory when authenticating the output binding:
 
 ```csharp
 [FunctionName("EventGridAsyncOutput")]
@@ -161,7 +161,8 @@ public static async Task Run(
 }
 ```
 
-When using the Connection property, the `topicEndpointUri` must be specified as a child of the connection setting, and the `TopicEndpointUri` and `TopicKeySetting` properties should not be used. For local development, use the local.settings.json file to store the connection information:
+When you use the `Connection` property, the `topicEndpointUri` must be specified as a child of the connection setting, and you shouldn't use the `TopicEndpointUri` and `TopicKeySetting` properties. For local development, use the local.settings.json file to store the connection information:
+
 ```json
 {
   "Values": {
@@ -169,7 +170,7 @@ When using the Connection property, the `topicEndpointUri` must be specified as 
   }
 }
 ```
-When deployed, use the application settings to store this information.
+When deployed, you must add this same information to application settings for the function app.
 
 # [Isolated process](#tab/isolated-process)
 
@@ -292,7 +293,7 @@ To output multiple events, return an array instead of a single object. For examp
 
 # [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
@@ -719,7 +720,7 @@ Use the following steps to configure a topic key:
 
 ### Identity-based connection
 
-When using version 3.3.x or higher of the extension, you can connect to an Event Grid topic using [Azure Active Directory identity](../active-directory/fundamentals/active-directory-whatis.md) instead of just a topic key. To do this, create a setting under a common prefix which you set as the `Connection` property in the binding.
+When using version 3.3.x or higher of the extension, you can connect to an Event Grid topic using [Azure Active Directory identity](../active-directory/fundamentals/active-directory-whatis.md) instead of just a topic key. To do this, create a setting under a common prefix that you set as the `Connection` property in the binding.
 
 In this mode, the extension requires the following properties:
 
@@ -727,7 +728,7 @@ In this mode, the extension requires the following properties:
 |--------------------|----------------------------------------------|---------------------|---------------|
 | Topic Endpoint URI | `<CONNECTION_NAME_PREFIX>__topicEndpointUri` | The topic endpoint. | `https://<topic-name>.centralus-1.eventgrid.azure.net/api/events`  |
 
-Additional properties may be set to customize the connection. See [Common properties for identity-based connections](functions-reference.md#common-properties-for-identity-based-connections).
+More properties may be set to customize the connection. See [Common properties for identity-based connections](functions-reference.md#common-properties-for-identity-based-connections).
 
 > [!NOTE]
 > When using [Azure App Configuration](../azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../key-vault/general/overview.md) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
