@@ -85,8 +85,18 @@ Once connected, the appliance gathers configuration and performance data of SQL 
 - User can add both domain and non-domain credentials on appliance. Make sure that the account used has local admin privileges on source servers. Azure Migrate automatically maps credentials to the respective servers, so one doesn’t have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in source environment.
 - After the appliance is connected, it gathers configuration data for IIS web server and ASP.NET web apps. Web apps configuration data is updated once every 24 hours.
 
+## Discover Spring Boot apps
+
+- Software inventory identifies Spring Boot role existing on discovered servers. If a server has Spring Boot role enabled, Azure Migrate performs Spring Boot apps discovery on the server.
+- Users can add both domain and non-domain credentials on the appliance. Ensure that the account used has local admin privileges on source servers. Azure Migrate automatically maps credentials to the respective servers, so one doesn’t have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in source environment.
+- After the appliance is connected, it gathers configuration data for Spring Boot apps. Spring Boot apps configuration data is updated once every 24 hours.
+- Discovery of Spring Boot apps requires SSH and SFTP access from the appliance to the respective servers. The Spring Boot apps that can be discovered depend on the SSH user identity and its corresponding file permissions. Ensure the credentials you provide have the necessary privileges for the apps you target to discover.
+- Currently, Windows servers are not yet supported for Spring Boot app discovery. Only Linux servers are supported.
+- Learn more about appliance requirements on [Azure Migrate appliance requirements](migrate-appliance.md) and [discovery support](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
+
 
 ## Next steps
 
 - [Create an assessment](how-to-create-assessment.md) for discovered servers.
 - [Assess web apps](how-to-create-azure-app-service-assessment.md) for migration to Azure App Service.
+- [Assess Spring Boot apps](how-to-create-azure-spring-apps-assessment.md) for migration to Azure Spring Apps.

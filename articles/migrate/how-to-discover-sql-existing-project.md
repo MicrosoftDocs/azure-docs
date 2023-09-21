@@ -64,3 +64,4 @@ This discovery process is agentless that is, nothing is installed on the target 
 - Learn more about [Azure SQL assessments](./concepts-azure-sql-assessment-calculation.md).
 - Learn how to create an [Azure App Service assessment](./how-to-create-azure-app-service-assessment.md).
 - Learn more about [Azure App Service assessments](./concepts-azure-webapps-assessment-calculation.md).
+- Learn how to create an [Azure Spring Apps assessment](./how-to-create-azure-spring-apps-assessment.md).
