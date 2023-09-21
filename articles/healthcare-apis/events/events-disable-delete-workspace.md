@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 09/13/2023
+ms.date: 09/21/2023
 ms.author: jasteppe
 ---
 
@@ -53,7 +53,7 @@ If you didn't follow the [Delete events enabled workspaces](#delete-events-enabl
 3. Delete the workspace.
 
 > [!NOTE]
-> When selecting an endpoint for the **Event Subscription**, you may select any pre-exiting endpoint (for example: an event hub) so that you can complete the creation of the **Event Subscription**. If you don't have an endpoint, you can create one for the purposes of this procedure.
+> When selecting an endpoint for the **Event Subscription**, you may select any pre-exiting endpoint (for example: an event hub) so that you can complete the creation of the **Event Subscription**. If you don't have an endpoint, you can create one for the purposes of this procedure and delete it once your workspace is successfully deleted.
 
 ## Next steps
 
