@@ -1,6 +1,9 @@
 ---
 title: Get started with Azure Advisor
 description: Get started with Azure Advisor.
+author: mabrahms
+ms.author: v-mabrahms
+ms.service: azure-advisor
 ms.topic: article
 ms.date: 09/15/2023
 
@@ -17,12 +20,12 @@ Learn how to access Advisor through the Azure portal, configure Advisor settings
 
 To access Azure Advisor, sign in to the [Azure portal](https://portal.azure.com) and open [Advisor](https://aka.ms/azureadvisordashboard). The Advisor **Score** page opens by default. 
 
-   ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-score-page3.png) 
+   ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-score-page-border.png) 
 
 ## Read your score
 See how your system configuration measures against Azure best practices.
 
-   ![Optimize Azure workloads by using Advisor score](./media/advisor-get-started/advisor-score-detail.png) 
+   ![Optimize Azure workloads by using Advisor score](./media/advisor-get-started/advisor-score-detail-border.png) 
 
 * The far-left graphic is your overall system Advisor score against Azure best practices. The **Learn more** link opens the [Optimize Azure workloads by using Advisor score](azure-advisor-score.md) page. 
 
@@ -34,7 +37,7 @@ See how your system configuration measures against Azure best practices.
 
 To display a specific list of recommendations, click a category tile. The following screenshot shows the **Reliability** tile selected.
 
-   ![Azure view recommendation page](./media/advisor-get-started/advisor-score-page3-detail.png) 
+   ![Azure view recommendation page](./media/advisor-get-started/advisor-score-page-detail-border.png) 
 
 The tiles on the Advisor **Score** page show the different categories of recommendations per subscription:  
 
@@ -58,13 +61,13 @@ View recommendation details – such as the recommended actions and impacted res
 
    Alternatively, go directly to the configuration page for an affected resource by clicking the **Impacted resources** link for the recommendation.
 
-   ![Advisor view recommendation details](./media/advisor-get-started/advisor-score-reliability-recommendation-page2.png)
+   ![Advisor view recommendation details](./media/advisor-get-started/advisor-score-reliability-recommendation-page-border.png)
 
 1. To see action details, click a **Recommended actions** link. The Azure page where you can act opens. Alternatively, open a page to the affected resources to take the recommended action (the two pages may be the same). The recommendation may necessitate you learning more about the affected configuration; to do so, open the **Learn more** link on the recommended action page, or at the top of the recommendations details page.
 
 1.   You can postpone the recommendation.
-
-   ![Advisor postpone recommendation](./media/advisor-get-started/advisor-recommendation-postpone2.png)
+   
+      ![Advisor postpone recommendation](./media/advisor-get-started/advisor-recommendation-postpone-border.png)
 
    You can't dismiss the recommendation without certain privileges. For information on permissions, see [Permissions in Azure Advisor](permissions.md).
 
@@ -81,7 +84,7 @@ You can exclude subscriptions or resources, such as 'test' resources, from Advis
 
 From any Azure Advisor page, click **Configuration** in the left navigation pane. The Advisor **Configuration** page opens with the default **Resources** tab selected. 
 
-  ![Advisor configure resources example](./media/advisor-get-started/advisor-configure-resources-no-wsp.png)
+  ![Advisor configure resources example](./media/advisor-get-started/advisor-configure-resources-no-wsp-border.png)
 
 * **Resources**: Uncheck any subscriptions you don't want to receive Advisor recommendations for, click **Apply**. The page refreshes.
 
@@ -91,7 +94,7 @@ From any Azure Advisor page, click **Configuration** in the left navigation pane
 
 1. Select the desired average CPU utilization value and click **Apply**. It can take up to 24 hours for the new settings to be reflected in recommendations.
 
-  ![Advisor configure recommendation rules example](./media/advisor-get-started/advisor-configure-rules.png) 
+   ![Advisor configure recommendation rules example](./media/advisor-get-started/advisor-configure-rules-border.png) 
 
 ## Next steps
 
