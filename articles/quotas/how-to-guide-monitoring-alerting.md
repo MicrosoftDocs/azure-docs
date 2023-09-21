@@ -217,10 +217,10 @@ User can find Feedback Button on every page. they can leverage this to share  th
 
 ## Troubleshoot
 
-
+Do we need this?
 
 ## Next steps
 
-- Learn more in [Quota overview](quotas-overview.md).
-- about [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
+- Learn about [Monitoring and Alerting](monitoring-alerting.md).
+- Learn more [Quota overview](quotas-overview.md) and [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Learn how to request increases for [VM-family vCPU quotas](per-vm-quota-requests.md), [vCPU quotas by region](regional-quota-requests.md), [spot vCPU quotas](spot-quota.md), and [storage accounts](storage-account-quota-requests.md).

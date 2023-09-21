@@ -28,7 +28,7 @@ To view the features on **Quotas** page, sign in to the [Azure portal](https://p
 
 ## Next steps
 
-- Learn how to [Create Quota alert](how-to-monitoring-alerting.md).
+- Learn [how to Create Quota alert](how-to-guide-monitoring-alerting.md).
 - Learn more about [Alerts](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview)
 - Learn about [Azure Resource Graph](https://learn.microsoft.com/en-us/azure/governance/resource-graph/overview)
 
