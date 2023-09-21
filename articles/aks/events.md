@@ -32,7 +32,7 @@ Below is a set of the important fields in a Kubernetes Event. For a comprehensiv
 
 # [Azure CLI](#tab/azure-cli)
 
-You can find events for your cluster and its components by using `kubectl`. Keep in mind the Kubernetes API server only retains events for 1 hour after the last occurrence.
+You can find events for your cluster and its components by using `kubectl`. 
 
 ```azurecli-interactive
 kubectl get events
