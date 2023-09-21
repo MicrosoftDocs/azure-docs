@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/22/2022
+ms.date: 08/10/2023
 ---
 
 # Copy new and changed files by LastModifiedDate with Azure Data Factory

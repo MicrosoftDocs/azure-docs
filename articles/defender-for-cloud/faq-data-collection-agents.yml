@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Microsoft Defender for Cloud common questions - data collection and agents
+  title: Common questions - data collection and agents
   description: Frequently asked questions about data collection, agents, and workspaces for Microsoft Defender for Cloud. Data collection agents are a product that helps you prevent, detect, and respond to threats
   services: defender-for-cloud
   author: elkrieger
@@ -290,13 +290,17 @@ sections:
           
               :::image type="content" source="./media/enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="Screenshot of the configuration of the Log Analytics agent to use when using auto deploy." lightbox="./media/enable-data-collection/edit-configuration-auto-deploy-agent.png":::
           
-          1. Select **Connect Azure VMs to a different workspace** and choose your existing workspace.
+          1. Select **Custom workspace** and select your existing workspace.
           
               :::image type="content" source="./media/enable-data-collection/choose-workspace.png" alt-text="Screenshot of selecting a non-default workspace for your Log Analytics agent to report to." lightbox="./media/enable-data-collection/choose-workspace.png":::
           
               > [!TIP]
               > The list only includes workspaces to which you have access and which are in your Azure subscription.
           
+          1. Select **Apply**.
+
+          1. Select **Continue**.
+
           1. Select **Save** and confirm that you want to reconfigure monitored VMs.
 
               > [!IMPORTANT]

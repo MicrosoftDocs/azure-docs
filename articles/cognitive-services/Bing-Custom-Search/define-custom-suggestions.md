@@ -1,6 +1,6 @@
 ---
 title: Define Custom Autosuggest suggestions - Bing Custom Search
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Custom Autosuggest returns a list of suggested search query strings that are relevant to your search experience.
 services: cognitive-services
 author: aahill

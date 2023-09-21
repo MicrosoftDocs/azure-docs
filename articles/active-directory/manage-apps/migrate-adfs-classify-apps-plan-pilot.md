@@ -1,6 +1,6 @@
 ---
 title: 'Phase 2: Classify apps and plan pilot'
-description: This article describes phase 2 of planning migration of applications from AD FS to Azure Active Directory
+description: This article describes phase 2 of planning migration of applications from AD FS to Microsoft Entra ID
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -46,9 +46,9 @@ Once you've determined values for business criticality and usage, you can then d
 
 You can choose to begin the app migration with either the lowest priority apps or the highest priority apps based on your organization’s needs.
 
-In a scenario where you may not have experience using Azure AD and Identity services, consider moving your **lowest priority apps** to Azure AD first. This minimizes your business impact, and you can build momentum. Once you've successfully moved these apps and have gained the stakeholder’s confidence, you can continue to migrate the other apps.
+In a scenario where you may not have experience using Microsoft Entra ID and Identity services, consider moving your **lowest priority apps** to Microsoft Entra first. This minimizes your business impact, and you can build momentum. Once you've successfully moved these apps and have gained the stakeholder’s confidence, you can continue to migrate the other apps.
 
-If there's  no clear priority, you should consider moving the apps that are in the [Azure AD Gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) first and support multiple identity providers because they're easier to integrate. It's likely that these apps are the **highest-priority apps** in your organization. To help integrate your SaaS applications with Azure AD, we have developed a collection of [tutorials](../saas-apps/tutorial-list.md) that walk you through configuration.
+If there's  no clear priority, you should consider moving the apps that are in the [Microsoft Entra Gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) first and support multiple identity providers because they're easier to integrate. It's likely that these apps are the **highest-priority apps** in your organization. To help integrate your SaaS applications with Microsoft Entra ID, we have developed a collection of [tutorials](../saas-apps/tutorial-list.md) that walk you through configuration.
 
 When you have a deadline to migrate the apps, these highest priority apps bucket takes the major workload. You can eventually select the lower priority apps as they won't change the cost even though you've moved the deadline.
 
@@ -72,12 +72,12 @@ Information that is important to making your migration decision includes:
 - **Whether you plan to update the app code** – is the app under planned or active development?
 - **Whether you plan to keep the app on-premises** – do you want to keep the app in your datacenter long term?
 - **Whether the app depends on other apps or APIs** – does the app currently call into other apps or APIs?
-- **Whether the app is in the Azure AD gallery** – is the app currently already integrated with the [Azure AD Gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)?
+- **Whether the app is in the Microsoft Entra gallery** – is the app currently already integrated with the [Microsoft Entra Gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)?
 
 Other data that helps you later, but that you don't need to make an immediate migration decision includes:
 
 - **App URL** – where do users go to access the app?
-- **Application Logo**: If migrating an application to Azure AD that isn’t in the Azure AD app gallery, it's recommended you provide a descriptive logo
+- **Application Logo**: If migrating an application to Microsoft Entra ID that isn’t in the Microsoft Entra app gallery, it's recommended you provide a descriptive logo
 - **App description** – what is a brief description of what the app does?
 - **App owner** – who in the business is the main POC for the app?
 - **General comments or notes** – any other general information about the app or business ownership
@@ -86,11 +86,11 @@ Once you've classified your application and documented the details, then be sure
 
 ## Application users
 
-There are two main categories of users of your apps and resources that Azure AD supports:
+There are two main categories of users of your apps and resources that Microsoft Entra ID supports:
 
 - **Internal:** Employees, contractors, and vendors that have accounts within your identity provider. This might need further pivots with different rules for managers or leadership versus other employees.
 
-- **External:** Vendors, suppliers, distributors, or other business partners that interact with your organization in the regular course of business with [Azure AD B2B collaboration.](../external-identities/what-is-b2b.md)
+- **External:** Vendors, suppliers, distributors, or other business partners that interact with your organization in the regular course of business with [Microsoft Entra B2B collaboration.](../external-identities/what-is-b2b.md)
 
 You can define groups for these users and populate these groups in diverse ways. You may choose that an administrator must manually add members into a group, or you can enable self-service group membership. Rules can be established that automatically add members into groups based on the specified criteria using [dynamic groups](../enterprise-users/groups-dynamic-membership.md).
 
@@ -110,7 +110,7 @@ Many SaaS app vendors may not provide a self-service means to reconfigure the ap
 
 ## App owner sign-off
 
-Business critical and universally used applications may need a group of pilot users to test the app in the pilot stage. Once you've tested an app in the preproduction or pilot environment, ensure that app business owners sign off on performance prior to the migration of the app and all users to production use of Azure AD for authentication.
+Business critical and universally used applications may need a group of pilot users to test the app in the pilot stage. Once you've tested an app in the preproduction or pilot environment, ensure that app business owners sign off on performance prior to the migration of the app and all users to production use of Microsoft Entra ID for authentication.
 
 ## Plan the security posture
 
@@ -118,9 +118,9 @@ Before you initiate the migration process, take time to fully consider the secur
 
 ### Identities and data
 
-Most organizations have specific requirements about identities and data protection that vary by industry segment and by job functions within organizations. Refer to [identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations) for our recommendations including a prescribed set of [conditional access policies](../conditional-access/overview.md) and related capabilities.
+Most organizations have specific requirements about identities and data protection that vary by industry segment and by job functions within organizations. Refer to [identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations) for our recommendations including a prescribed set of [Conditional Access policies](../conditional-access/overview.md) and related capabilities.
 
-You can use this information to protect access to all services integrated with Azure AD. These recommendations are aligned with Microsoft Secure Score and the [identity score in Azure AD](../fundamentals/identity-secure-score.md). The score helps you to:
+You can use this information to protect access to all services integrated with Microsoft Entra ID. These recommendations are aligned with Microsoft Secure Score and the [identity score in Microsoft Entra ID](../fundamentals/identity-secure-score.md). The score helps you to:
 
 - Objectively measure your identity security posture
 - Plan identity security improvements
@@ -134,7 +134,7 @@ The device and location that a user uses to access an app are also important. De
 
 :::image type="content" source="media/migrate-adfs-classify-apps-plan-pilot/user-location-data-access.png" alt-text="Diagram showing the relationship between User Location and Data Access.":::
 
-With these aspects of resource, user, and device in mind, you may choose to use [Azure AD Conditional Access](../conditional-access/overview.md) capabilities. Conditional access goes beyond user permissions: it's based on a combination of factors, such as the identity of a user or group, the network that the user is connected to, the device and application they're using, and the type of data they're trying to access. The access granted to the user adapts to this broader set of conditions.
+With these aspects of resource, user, and device in mind, you may choose to use [Microsoft Entra Conditional Access](../conditional-access/overview.md) capabilities. Conditional Access goes beyond user permissions: it's based on a combination of factors, such as the identity of a user or group, the network that the user is connected to, the device and application they're using, and the type of data they're trying to access. The access granted to the user adapts to this broader set of conditions.
 
 ## Exit criteria
 

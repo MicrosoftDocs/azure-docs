@@ -108,7 +108,7 @@ This section provides specific instructions for migrating the hub.
 
 ### Export the original hub to a resource template
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to the IoT hub that you want to move.
 
@@ -289,7 +289,7 @@ If you moved the routing resources as well, update the name, ID, and resource gr
 
 Create the new hub using the edited template. If you have routing resources that are going to move, the resources should be set up in the new location and the references in the template updated to match. If you aren't moving the routing resources, they should be in the template with the updated keys.
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Create a resource**.
 

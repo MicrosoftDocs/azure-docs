@@ -67,9 +67,11 @@ The limits in this table apply per Speech resource when you create a Custom Spee
 
 ### Text to speech quotas and limits per resource
 
-This section describes text to speech quotas and limits per Speech resource. Unless otherwise specified, the limits aren't adjustable.
+This section describes text to speech quotas and limits per Speech resource. 
 
-#### Common text to speech quotas and limits
+#### Real-time text to speech
+
+You can use real-time text to speech with the [Speech SDK](speech-sdk.md) or the [Text to speech REST API](rest-text-to-speech.md). Unless otherwise specified, the limits aren't adjustable.
 
 | Quota | Free (F0) | Standard (S0) |
 |--|--|--|
@@ -77,6 +79,18 @@ This section describes text to speech quotas and limits per Speech resource. Unl
 | Max audio length produced per request | 10 min | 10 min |
 | Max total number of distinct `<voice>` and `<audio>` tags in SSML | 50 | 50 |
 | Max SSML message size per turn for websocket | 64 KB | 64 KB |
+
+#### Batch synthesis
+
+These limits aren't adjustable. For more information on batch synthesis latency, refer to [the batch synthesis latency and best practices](batch-synthesis.md#batch-synthesis-latency-and-best-practices).
+
+| Quota | Free (F0) | Standard (S0) |
+|--|--|--|
+|REST API limit | Not available for F0 | 50 requests per 5 seconds |
+| Max JSON payload size to create a synthesis job  | N/A | 500 kilobytes |
+| Concurrent active synthesis jobs | N/A | 200 |
+| Max number of text inputs per synthesis job | N/A | 1000 |
+|Max time to live for a synthesis job since it being in the final state  | N/A | Up to 31 days (specified using properties) |
 
 #### Custom Neural Voice
 
@@ -87,7 +101,7 @@ This section describes text to speech quotas and limits per Speech resource. Unl
 | Max number of simultaneous dataset uploads | N/A | 5 |
 | Max data file size for data import per dataset | N/A | 2 GB |
 | Upload of long audios or audios without script | N/A | Yes |
-| Max number of simultaneous model trainings | N/A | 3 |
+| Max number of simultaneous model trainings | N/A | 4 |
 | Max number of custom endpoints | N/A | 50 |
 
 #### Audio Content Creation tool

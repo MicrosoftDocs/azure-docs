@@ -42,7 +42,7 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
 
     The configuration of NRT rules is in most ways the same as that of scheduled analytics rules. 
 
-    - You can refer to [**watchlists**](watchlists.md) in your query logic.
+    - You can refer to multiple tables and [**watchlists**](watchlists.md) in your query logic.
 
     - You can use all of the alert enrichment methods: [**entity mapping**](map-data-fields-to-entities.md), [**custom details**](surface-custom-details-in-alerts.md), and [**alert details**](customize-alert-details.md).
 
@@ -57,8 +57,6 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
     - **Event grouping** configuration is now available to a limited degree. You can choose to have an NRT rule generate an alert for each event for up to 30 events. If you choose this option and the rule results in more than 30 events, single-event alerts will be generated for the first 29 events, and a 30th alert will summarize all the events in the result set.
 
     In addition, the query itself has the following requirements:
-
-    - The query itself can refer to only one table, and cannot contain unions or joins.
 
     - You can't run the query across workspaces.
 

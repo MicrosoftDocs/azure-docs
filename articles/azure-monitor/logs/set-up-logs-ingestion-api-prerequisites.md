@@ -5,8 +5,8 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: ivankh
 ms.topic: tutorial
+ms.custom: devx-track-azurepowershell
 ms.date: 06/12/2023
-
 ---
 
 # Set up resources required to send data to Azure Monitor Logs using the Logs Ingestion API
@@ -36,6 +36,7 @@ The script also grants the app `Contributor` permissions to:
 - The resource group for data collection endpoints
 
 ## PowerShell script
+
 
 
 ```powershell
@@ -120,7 +121,7 @@ $VerbosePreference                     = "SilentlyContinue"  # "Continue"
                     "Directory.AccessAsUser.All",
                     "RoleManagement.ReadWrite.Directory"
                 )
-    Connect-MgGraph -TenantId $TenantId -ForceRefresh -Scopes $MgScope
+    Connect-MgGraph -TenantId $TenantId -Scopes $MgScope
 
 #-------------------------------------------------------------------------------------------
 # (3) Prerequisites - deployment of environment (if missing)
@@ -528,7 +529,7 @@ $VerbosePreference                     = "SilentlyContinue"  # "Continue"
         Write-Output ""
         Write-Output "-------------------------------------------------"
 ```
-  
+
 ## Next steps
 
 - [Learn more about data collection rules](../essentials/data-collection-rule-overview.md)

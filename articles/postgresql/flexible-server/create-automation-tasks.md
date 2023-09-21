@@ -40,7 +40,7 @@ Creating an automation task doesn't immediately incur charges. Underneath, an au
 * An Azure account and subscription.
 * Azure Database for PostgreSQL Flexible Server that you want to manage.
 
-## Create an automation task
+## Create an automation task to stop server
 
 1. In the [Azure portal](https://portal.azure.com), find the PostgreSQL Flexible Server resource that you want to manage.
 1. On the resource navigation menu, in the **Automation** section, select **Tasks (preview)**.
@@ -76,6 +76,14 @@ Creating an automation task doesn't immediately incur charges. Underneath, an au
 The task you've created, which is automatically live and running, will appear on the **Tasks** list.
 
 ![Screenshot that shows the automation tasks list.](media/create-automation-tasks/automation-tasks-list.png)
+
+## Create an automation task to start server
+
+You can apply the same steps outlined above to create a seperate automation tasks for starting of the PostgreSQL Flexible Server at a specific time. Here's how:
+
+1. Follow the same steps as outlined in the "Create an automation task" section until you reach the "Select a template" stage.
+1. Here, instead of selecting the task for "Stop PostgreSQL Flexible Server," you will select the template for "Start PostgreSQL Flexible Server."
+1. Proceed to fill in the rest of the required details as described in the subsequent steps, defining the specific schedule at which you want the server to start in the 'Configure' section.
 
 ## Review task history
 

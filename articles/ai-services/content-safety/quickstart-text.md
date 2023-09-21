@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-safety
-ms.custom: build-2023, devx-track-python
+ms.custom: build-2023, devx-track-python, devx-track-dotnet
 ms.topic: quickstart
 ms.date: 07/18/2023
 ms.author: pafarley

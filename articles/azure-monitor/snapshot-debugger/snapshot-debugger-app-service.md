@@ -54,7 +54,7 @@ If you're running a different type of Azure service, here are instructions for e
   
 ## Enable Snapshot Debugger for other clouds
 
-Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide) through the Application Insights Connection String.
+Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Microsoft Azure operated by 21Vianet](/azure/china/resources-developer-guide) through the Application Insights Connection String.
 
 |Connection String Property    | US Government Cloud | China Cloud |  
 |---------------|---------------------|-------------|

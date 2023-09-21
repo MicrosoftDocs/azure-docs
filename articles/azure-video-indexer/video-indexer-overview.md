@@ -2,8 +2,9 @@
 title: What is Azure AI Video Indexer?
 description: This article gives an overview of the Azure AI Video Indexer service.
 ms.topic: overview
-ms.date: 12/19/2022
-ms.author: juliako
+ms.date: 08/02/2023
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # What is Azure AI Video Indexer?
@@ -19,12 +20,12 @@ ms.author: juliako
 
 Azure AI Video Indexer is a cloud application, part of Azure AI services, built on Azure Media Services and Azure AI services (such as the Face, Translator, Azure AI Vision, and Speech). It enables you to extract the insights from your videos using Azure AI Video Indexer video and audio models.
 
-Azure AI Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. Below is an illustration of the audio and video analysis performed by Azure AI Video Indexer in the background.
+Azure AI Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. Here is an illustration of the audio and video analysis performed by Azure AI Video Indexer in the background:
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/video-indexer-overview/model-chart.png" alt-text="Diagram of Azure AI Video Indexer flow." lightbox="./media/video-indexer-overview/model-chart.png":::
 
-To start extracting insights with Azure AI Video Indexer, see the [how can I get started](#how-can-i-get-started-with-azure-ai-video-indexer) section below.
+To start extracting insights with Azure AI Video Indexer, see the [how can I get started](#how-can-i-get-started-with-azure-ai-video-indexer) section.
 
 ## What can I do with Azure AI Video Indexer?
 
@@ -35,7 +36,7 @@ Azure AI Video Indexer's insights can be applied to many scenarios, among them a
 * Accessibility: Whether you want to make your content available for people with disabilities or if you want your content to be distributed to different regions using different languages, you can use the transcription and  translation provided by Azure AI Video Indexer in multiple languages. 
 * Monetization: Azure AI Video Indexer can help increase the value of videos. For example, industries that rely on ad revenue (news media, social media, and so on) can deliver relevant ads by using the extracted insights as additional signals to the ad server.
 * Content moderation: Use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content you publish matches your organization's values. You can automatically block certain videos or alert your users about the content.
-* Recommendations: Video insights can be used to improve user engagement by highlighting the relevant video moments to users. By tagging each video with additional metadata, you can recommend to users the most relevant videos and highlight the parts of the video that will match their needs.
+* Recommendations: Video insights can be used to improve user engagement by highlighting the relevant video moments to users. By tagging each video with additional metadata, you can recommend to users the most relevant videos and highlight the parts of the video that matches their needs.
 
 ## Video/audio AI features
 
@@ -83,7 +84,7 @@ Unless specified otherwise, a model is generally available.
 * **Speaker enumeration**: Maps and understands which speaker spoke which words and when. Sixteen speakers can be detected in a single audio-file.
 * **Speaker statistics**: Provides statistics for speakers' speech ratios.
 * **Textual content moderation**: Detects explicit text in the audio transcript.
-* **Emotion detection**: Identifies emotions based on speech (what's being said) and voice tonality (how it's being said). The emotion could be joy, sadness, anger, or fear.
+* **Text-based emotion detection**: Emotions such as joy, sadness, anger, and fear that were detected via transcript analysis.
 * **Translation**: Creates translations of the audio transcript to many different languages. For more information, see [Azure AI Video Indexer language support](language-support.md).
 * **Audio effects detection** (preview): Detects the following audio effects in the non-speech segments of the content: alarm or siren, dog barking, crowd reactions (cheering, clapping, and booing), gunshot or explosion, laughter, breaking glass, and silence.
 
@@ -94,11 +95,11 @@ Unless specified otherwise, a model is generally available.
 
 ### Audio and video models (multi-channels)
 
-When indexing by one channel, partial result for those models will be available.
+When indexing by one channel, partial results for those models are available.
 
 * **Keywords extraction**: Extracts keywords from speech and visual text.
 * **Named entities extraction**: Extracts brands, locations, and people from speech and visual text via natural language processing (NLP).
-* **Topic inference**: Extracts topics based on various keywords (that is, keywords 'Stock Exchange', 'Wall Street' will produce the topic 'Economics'). The model uses three different ontologies ([IPTC](https://iptc.org/standards/media-topics/), [Wikipedia](https://www.wikipedia.org/) and the Video Indexer hierarchical topic ontology). The model uses transcription (spoken words), OCR content (visual text), and celebrities recognized in the video using the Video Indexer facial recognition model. 
+* **Topic inference**: Extracts topics based on various keywords (that is, keywords 'Stock Exchange', 'Wall Street' produces the topic 'Economics'). The model uses three different ontologies ([IPTC](https://iptc.org/standards/media-topics/), [Wikipedia](https://www.wikipedia.org/) and the Video Indexer hierarchical topic ontology). The model uses transcription (spoken words), OCR content (visual text), and celebrities recognized in the video using the Video Indexer facial recognition model. 
 * **Artifacts**: Extracts rich set of "next level of details" artifacts for each of the models.
 * **Sentiment analysis**: Identifies positive, negative, and neutral sentiments from speech and visual text.
 

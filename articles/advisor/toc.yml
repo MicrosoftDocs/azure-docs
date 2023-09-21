@@ -33,7 +33,7 @@
     - name: Reliability
       href: advisor-reference-reliability-recommendations.md    
     - name: Security
-      href: /azure/defender-for-cloud/recommendations-reference
+      href: ../defender-for-cloud/recommendations-reference.md
     - name: Sovereign clouds
       href: advisor-sovereign-clouds.md
 - name: Samples 
@@ -44,6 +44,8 @@
   items:
   - name: Optimize virtual machine spend by resizing or shutting down underutilized instances
     href: advisor-cost-recommendations.md
+  - name: Optimize your Azure costs using the cost optimization workbook 
+    href: advisor-cost-optimization-workbook.md
   - name: Improve security
     href: advisor-security-recommendations.md
   - name: Improve reliability  

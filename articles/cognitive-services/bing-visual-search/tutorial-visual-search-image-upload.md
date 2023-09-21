@@ -1,6 +1,6 @@
 ---
 title:  "Tutorial: How to upload image using the Bing Visual Search API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to upload an image to Bing, get insights about it, display the response.
 services: cognitive-services
 

@@ -17,9 +17,9 @@ ms.collection: M365-identity-device-management
 
 # Monitor and clean up stale guest accounts using access reviews 
 
-As users collaborate with external partners, it’s possible that many guest accounts get created in Azure Active Directory (Azure AD) tenants over time. When collaboration ends and the users no longer access your tenant, the guest accounts may become stale. Administrators can monitor guest accounts at scale using inactive guest insights. Administrators can also use Access Reviews to automatically review inactive guest users, block them from signing in, and, delete them from the directory.
+As users collaborate with external partners, it’s possible that many guest accounts get created in Microsoft Entra tenants over time. When collaboration ends and the users no longer access your tenant, the guest accounts may become stale. Administrators can monitor guest accounts at scale using inactive guest insights. Administrators can also use Access Reviews to automatically review inactive guest users, block them from signing in, and, delete them from the directory.
 
-Learn more about [how to manage inactive user accounts in Azure AD](../reports-monitoring/howto-manage-inactive-user-accounts.md).
+Learn more about [how to manage inactive user accounts in Microsoft Entra ID](../reports-monitoring/howto-manage-inactive-user-accounts.md).
 
 There are a few recommended patterns that are effective at monitoring and cleaning up stale guest accounts:
 
@@ -32,7 +32,10 @@ There are a few recommended patterns that are effective at monitoring and cleani
 Use the following instructions to learn how to enhance monitoring of inactive guest accounts at scale and create Access Reviews that follow these patterns. Consider the configuration recommendations and then make the needed changes that suit your environment.
 
 ## Monitor guest accounts at scale with inactive guest insights (Preview)
-1. Sign in to the Azure portal and open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
 
 2. Access the inactive guest account report by navigating to "Guest access governance" card and click on "View inactive guests"
 
@@ -62,7 +65,7 @@ Use the following instructions to learn how to enhance monitoring of inactive gu
    `(user.userType -eq "Guest") and (user.mail -contains "@contoso.com") and (user.accountEnabled -eq true)`
 
 2. To [create an Access Review](../governance/create-access-review.md)
-    for the dynamic group, navigate to **Azure Active Directory > Identity Governance > Access Reviews**.
+    for the dynamic group, navigate to **Microsoft Entra ID > Identity Governance > Access Reviews**.
 
 3. Select **New access review**.
 
@@ -129,7 +132,7 @@ Use the following instructions to learn how to enhance monitoring of inactive gu
 
    `(user.userType -eq "Guest") and (user.mail -contains "@contoso.com") and (user.accountEnabled -eq true)`
 
-2. To [create an access review](../governance/create-access-review.md) for the dynamic group, navigate to **Azure Active Directory > Identity Governance > Access Reviews**.
+2. To [create an access review](../governance/create-access-review.md) for the dynamic group, navigate to **Microsoft Entra ID > Identity Governance > Access Reviews**.
 
 3. Select **New access review**.
 

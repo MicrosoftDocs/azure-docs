@@ -4,7 +4,7 @@ description: Learn how to run and scale apps from container images on Azure Batc
 ms.topic: how-to
 ms.date: 07/14/2023
 ms.devlang: csharp, python
-ms.custom: "seodec18, devx-track-csharp"
+ms.custom: seodec18, devx-track-csharp, devx-track-linux
 ---
 
 # Use Azure Batch to run container workloads
@@ -38,7 +38,8 @@ You should be familiar with container concepts and how to create a Batch pool an
 > - Batch Python SDK version 14.0.0
 > - Batch Java SDK version 11.0.0
 > - Batch Node.js SDK version 11.0.0
-> the `containerConfiguration` requires `Type` property to be passed and the supported values are: `ContainerType.DockerCompatible` and `ContainerType.CriCompatible`.
+
+Currently, the `containerConfiguration` requires `Type` property to be passed and the supported values are: `ContainerType.DockerCompatible` and `ContainerType.CriCompatible`.
 
 Keep in mind the following limitations:
 

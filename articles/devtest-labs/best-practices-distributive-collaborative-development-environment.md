@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Best practices for distributed and collaborative development of Azure DevTest Labs resources

@@ -1,15 +1,15 @@
 ### YamlMime:FAQ
 metadata:
-  title: Microsoft Defender for Cloud common questions -  General questions
+  title: Common questions -  General questions
   description: Frequently asked general questions about Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats
   services: defender-for-cloud
-  author: elkrieger
-  ms.author: elkrieger
+  author: dcurwin
+  ms.author: dacurwin
   manager: raynew
   ms.topic: faq
   ms.custom: ignite-2022
   ms.date: 06/18/2023
-title: Microsoft Defender for Cloud common questions - General questions
+title: Common questions - General questions
 summary: |
 
 sections:
@@ -94,7 +94,7 @@ sections:
         answer: |
           The Microsoft Security Response Center (MSRC) performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties. When MSRC becomes aware that customer data has been accessed by an unlawful or unauthorized party or that the customer’s use of Azure does not comply with the terms for Acceptable Use, a security incident manager notifies the customer. Notification typically occurs by sending an email to the security contacts specified in Microsoft Defender for Cloud or the Azure subscription owner if a security contact is not specified.
           
-          Defender for Cloud is an Azure service that continuously monitors the customer’s Azure, multicloud, and on-premises environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the workload protection dashboard.
+          Defender for Cloud is an Azure service that continuously monitors the customer's Azure, multicloud, and on-premises environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the workload protection dashboard.
 
 
       - question: |
@@ -145,7 +145,6 @@ sections:
           - IoT Devices - Permissive firewall rule in the output chain was found
           - IP Filter rule large IP range
           - Least privileged Linux capabilities should be enforced for containers
-          - Machines should be configured securely
           - Overriding or disabling of containers AppArmor profile should be restricted
           - Privileged containers should be avoided
           - Running containers as root user should be avoided
@@ -163,6 +162,7 @@ sections:
           - You've included the accounts in the **Users** section of your MFA CA policy (or one of the groups in the **Groups** section)
           - The Azure Management app ID (797f4846-ba00-4fd7-ba43-dac1f8f63013), or all apps, are included in the **Apps** section of your MFA CA policy
           - The Azure Management app ID isn't excluded in the **Apps** section of your MFA CA policy
+          - OR condition is used with only MFA, or AND condition is used with MFA 
  
       - question: |
           We're using a third-party MFA tool to enforce MFA. Why do we still get the Defender for Cloud recommendations?
@@ -187,7 +187,7 @@ sections:
       - question: |
           Can I exempt or dismiss some of the accounts?
         answer: |
-          The capability to exempt some accounts that don’t use MFA is available on the new recommendations in preview:
+          The capability to exempt some accounts that don't use MFA is available on the new recommendations in preview:
 
           - Accounts with owner permissions on Azure resources should be MFA enabled
           - Accounts with write permissions on Azure resources should be MFA enabled
@@ -213,7 +213,7 @@ sections:
 
           - Identity recommendations aren't available for subscriptions with more than 6,000 accounts. In these cases, these types of subscriptions will be listed under Not applicable tab.
           - Identity recommendations aren't available for Cloud Solution Provider (CSP) partner's admin agents.
-          - Identity recommendations don’t identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you might see inaccurate results in the **Manage access and permissions** control.
+          - Identity recommendations don't identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you might see inaccurate results in the **Manage access and permissions** control.
           - Identity recommendations don't support Azure AD conditional access policies with included Directory Roles instead of users and groups.
  
   
@@ -327,6 +327,12 @@ sections:
         answer: |
           Different recommendations have different compliance evaluation intervals, which can range from every few minutes to every few days. So, the amount of time that it takes for recommendations to appear in your exports varies.
 
+      - question: |
+          How can I get an example query for a recommendation?
+        answer: |
+          To get an example query for a recommendation, open the recommendation in Defender for Cloud, select **Open query**, and then select **Query returning security findings**.
+
+          :::image type="content" source="media/faq-general/recommendation-example-query.png" alt-text="Screenshot of how to create example query for recommendation.":::
 
       - question: |
           Does continuous export support any business continuity or disaster recovery (BCDR) scenarios?

@@ -17,6 +17,10 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## July 2023
+
+* [Custom sentiment analysis](./sentiment-opinion-mining/overview.md) is now available in preview.
+
 ## May 2023
 
 * [Custom Named Entity Recognition (NER) Docker containers](./custom-named-entity-recognition/how-to/use-containers.md) are now available for on-premises deployment. 

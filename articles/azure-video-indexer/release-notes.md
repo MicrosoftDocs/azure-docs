@@ -4,7 +4,8 @@ description: To stay up-to-date with the most recent developments, this article 
 ms.topic: article
 ms.custom: references_regions
 ms.date: 07/03/2023
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Azure AI Video Indexer release notes
@@ -33,22 +34,6 @@ Video Indexer has increased the API request limit from 60 requests per minute to
 ### FAQ - following the Azure Media Services retirement announcement 
 
 For more information, see [AMS deprecation FAQ](ams-deprecation-faq.yml).
-
-### Retirement of adaptive bitrate support for new indexing jobs 
-
-Starting December 2023, Azure Video Indexer will no longer support adaptive bitrate for new video processing jobs. Moving forward, only single bitrate videos will be supported, with the option to choose no bitrate adaptation. 
-
-Existing videos that were indexed already with adaptive bitrate work with no change. 
-
-Any API call with Adaptive Bitrate after that date, will be converted to single bitrate avoiding failures. 
-
-Guidelines to customers: Make the necessary adjustments to your video encoding and ingestion processes to accommodate this update. 
-
-### New ARM experience without AMS
-
-The deprecation of the AMS dependency requires a change in the account creation form and the create API for new ARM-based accounts, starting December 2023. As part of the updated workflow, the option to associate an AMS account during account creation will be removed, and will be replaced by adding storage entity. 
-
-Guidelines to customers: We're working on a new implementation without AMS and will provide more details in our documentation. Once available, review the updated documentation and modify your account creation process accordingly to avoid any disruptions. 
 
 ## May 2023
 

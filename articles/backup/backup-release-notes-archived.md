@@ -4,8 +4,8 @@ description: Learn about past features releases in Azure Backup.
 ms.topic: conceptual
 ms.date: 01/27/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Archived release notes in Azure Backup

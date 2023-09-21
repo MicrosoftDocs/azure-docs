@@ -4,6 +4,7 @@ ms.contributor: jahelmic
 ms.date: 04/25/2023
 ms.topic: article
 tags: azure-resource-manager
+ms.custom: devx-track-linux
 title: Persist files in Azure Cloud Shell
 ms.reviewer: mattmcinnes
 ---

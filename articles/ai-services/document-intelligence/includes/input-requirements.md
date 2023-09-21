@@ -12,9 +12,9 @@ ms.author: lajanuar
 
 * Supported file formats: 
 
-    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, and TIFF | Microsoft Office: </br> Word (DOCX), Excel (XLS), PowerPoint (PPT), and HTML|
+    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, and TIFF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML|
     |--------|:----:|:-----:|:---------------:
-    |Read            | ✔    | ✔    | &#x2731; **REST API version**</br> **`2022/06/30-preview`**
+    |Read            | ✔    | ✔    | ✔  |
     |Layout          | ✔  | ✔ |   |
     |General&nbsp;Document| ✔  | ✔ |   |
     |Prebuilt        |  ✔  | ✔ |   |
@@ -27,8 +27,6 @@ ms.author: lajanuar
 * The file size for analyzing documents must be _less than_ 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
 
 * Image dimensions must be between 50 x 50 pixels and 10,000 px x 10,000 pixels.
-
-* PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
 
 * If your PDFs are password-locked, you must remove the lock before submission.
 

@@ -4,7 +4,8 @@
         "source_path_from_root": "/articles/communication-services/concepts/client-and-server-architecture.md",
         "redirect_url": "https://learn.microsoft.com/azure/architecture/guide/mobile/azure-communication-services-architecture",
         "redirect_document_id": false
-      },{
+      },
+      {
         "source_path_from_root": "/articles/communication-services/concepts/ui-library/teams-embed.md",
         "redirect_url": "/azure/communication-services/concepts/ui-library/mobile-ui-library",
         "redirect_document_id": false
@@ -214,7 +215,7 @@
         "redirect_url": "/azure/communication-services/concepts/analytics/enable-logging",
         "redirect_document_id": true
       },
-      {  
+      {
         "source_path_from_root": "/articles/communication-services/samples/call-automation-appointment-reminder.md",
         "redirect_url": "/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call",
         "redirect_document_id": false

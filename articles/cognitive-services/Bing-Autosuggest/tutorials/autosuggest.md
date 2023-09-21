@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Getting Automatic suggestions Results using Bing Autosuggest API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: In this tutorial, you will build a web page that allows users to query the Bing Autosuggest API and displays the query results.
 services: cognitive-services
 author: aahill

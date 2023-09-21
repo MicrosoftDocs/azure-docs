@@ -39,9 +39,9 @@ The Microsoft Authenticator app is available for Android and iOS. Microsoft Auth
 
 ## Action plan
 
-1.	Ensure that notification through mobile app and/or verification code from mobile app are available to users as authentication methods. How to Configure Verification Options
+1. Ensure that notification through mobile app and/or verification code from mobile app are available to users as authentication methods. How to Configure Verification Options
 
-2.	Educate users on how to add a work or school account. 
+2. Educate users on how to add a work or school account. 
 
 ## Next steps
 

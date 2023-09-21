@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 08/29/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-sdk-cli
 keywords: on-premises, Docker, container
@@ -18,9 +18,6 @@ keywords: on-premises, Docker, container
 # Custom speech to text containers with Docker
 
 The Custom speech to text container transcribes real-time speech or batch audio recordings with intermediate results. You can use a custom model that you created in the [Custom Speech portal](https://speech.microsoft.com/customspeech). In this article, you'll learn how to download, install, and run a Custom speech to text container.
-
-> [!NOTE]
-> You must [request and get approval](speech-container-overview.md#request-approval-to-run-the-container) to use a Speech container. 
 
 For more information about prerequisites, validating that a container is running, running multiple containers on the same host, and running disconnected containers, see [Install and run Speech containers with Docker](speech-container-howto.md).
 
@@ -194,17 +191,17 @@ If you have been approved to run the container disconnected from the internet, t
 
 In order to prepare and configure a disconnected custom speech to text container you will need two separate speech resources:
 
-- A regular Azure AI services Speech resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan. This is used to train, download, and configure your custom speech models for use in your container.
-- An Azure AI services Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan. This is used to download your disconnected container license file required to run the container in disconnected mode.
+- A regular Azure AI Speech resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan. This is used to train, download, and configure your custom speech models for use in your container.
+- An Azure AI Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan. This is used to download your disconnected container license file required to run the container in disconnected mode.
 
 Follow these steps to download and run the container in disconnected environments. 
-1. [Download a model for the disconnected container](#download-a-model-for-the-disconnected-container). For this step, use a regular Azure AI services Speech resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan.
-1. [Download the disconnected container license](#download-the-disconnected-container-license). For this step, use an Azure AI services Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
-1. [Run the disconnected container for service](#run-the-disconnected-container). For this step, use an Azure AI services Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
+1. [Download a model for the disconnected container](#download-a-model-for-the-disconnected-container). For this step, use a regular Azure AI Speech resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan.
+1. [Download the disconnected container license](#download-the-disconnected-container-license). For this step, use an Azure AI Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
+1. [Run the disconnected container for service](#run-the-disconnected-container). For this step, use an Azure AI Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
 
 ### Download a model for the disconnected container
 
-For this step, use a regular Azure AI services Speech resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan.
+For this step, use a regular Azure AI Speech resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan.
 
 [!INCLUDE [Custom speech container run](includes/containers-cstt-common-run.md)]
 
@@ -223,7 +220,7 @@ You can only use a license file with the appropriate container and model that yo
 | `{API_KEY}` | The key for your Speech resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.<br/><br/>For example: `/path/to/license/directory` |
 
-For this step, use an Azure AI services Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
+For this step, use an Azure AI Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
 
 ```bash
 docker run --rm -it -p 5000:5000 \ 
@@ -256,7 +253,7 @@ Wherever the container is run, the license file must be mounted to the container
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.<br/><br/>For example: `/path/to/license/directory` |
 | `{CONTAINER_OUTPUT_DIRECTORY}` | Location of the output folder on the container's local filesystem.<br/><br/>For example: `/path/to/output/directory` |
 
-For this step, use an Azure AI services Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
+For this step, use an Azure AI Speech resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
@@ -292,4 +289,4 @@ sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PA
 
 * See the [Speech containers overview](speech-container-overview.md)
 * Review [configure containers](speech-container-configuration.md) for configuration settings
-* Use more [Azure AI services containers](../cognitive-services-container-support.md)
+* Use more [Azure AI containers](../cognitive-services-container-support.md)

@@ -1,6 +1,6 @@
 ---
 title: Get videos from your custom view - Bing Custom Search
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: High-level overview about using Bing Custom Search to get videos from your custom view of the Web.
 services: cognitive-services
 

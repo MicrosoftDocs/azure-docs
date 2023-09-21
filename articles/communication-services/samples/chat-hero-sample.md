@@ -2,11 +2,11 @@
 title: Chat Hero Sample
 titleSuffix: An Azure Communication Services sample overview
 description: Overview of chat hero sample using Azure Communication Services to enable developers to learn more about the inner workings of the sample and learn how to modify it.
-author: ddematheu2
+author: RinaRish
 manager: chpalm
 services: azure-communication-services
 
-ms.author: dademath
+ms.author: ektrishi
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
@@ -80,7 +80,7 @@ You can test the sample locally by opening multiple browser sessions with the UR
 
 ## Publish the sample to Azure
 
-1. Under the root director, run these commands:
+1. Under the root directory, run these commands:
 ```
 npm run setup
 npm run build

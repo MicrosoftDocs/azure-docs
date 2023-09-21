@@ -31,7 +31,7 @@ To install the Azure Table storage bindings:
 1. In the **Table name** box, enter *myCustomResources*.
 1. Select **Save** to save the updated input parameter.
 
-:::image type="content" source="./media/tutorial-custom-providers-function-setup/azure-functions-table-bindings.png" alt-text="Screenshot of the custom resource provider overview showing table bindings.":::
+:::image type="content" source="./media/tutorial-custom-providers-function-setup/azure-functions-table-bindings.png" alt-text="Screenshot of the Azure Functions Integrate tab displaying Azure Table Storage bindings configuration.":::
 
 ## Update RESTful HTTP methods
 
@@ -40,7 +40,7 @@ To set up the Azure function to include the custom resource provider RESTful req
 1. Go to the **Integrate** tab for the `HttpTrigger`.
 1. Under **Selected HTTP methods**, select **GET**, **POST**, **DELETE**, and **PUT**.
 
-:::image type="content" source="./media/tutorial-custom-providers-function-setup/azure-functions-http-methods.png" alt-text="Screenshot of the custom resource provider overview showing HTTP methods.":::
+:::image type="content" source="./media/tutorial-custom-providers-function-setup/azure-functions-http-methods.png" alt-text="Screenshot of the Azure Functions Integrate tab displaying the selection of RESTful HTTP methods.":::
 
 ## Add Azure Resource Manager NuGet packages
 

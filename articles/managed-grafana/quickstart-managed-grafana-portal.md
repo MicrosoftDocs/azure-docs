@@ -3,8 +3,8 @@ title: 'Quickstart: create an Azure Managed Grafana instance using the Azure por
 description: Learn how to create a Managed Grafana workspace to generate a new Managed Grafana instance in the Azure portal 
 ms.service: managed-grafana
 ms.topic: quickstart
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.date: 03/23/2022
 ms.custom: engagement-fy23
 

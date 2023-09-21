@@ -330,8 +330,6 @@
       items:
         - name: About triggers and bindings
           href: functions-triggers-bindings.md
-        - name: Binding example
-          href: functions-bindings-example.md
         - name: Register binding extensions
           href: functions-bindings-register.md
           displayName: bundles, extension bundles
@@ -394,8 +392,6 @@
           href: functions-reference-csharp.md
         - name: Execution mode comparison
           href: dotnet-isolated-in-process-differences.md
-    - name: F#
-      href: functions-reference-fsharp.md
     - name: Node.js
       items:
         - name: JavaScript
@@ -462,7 +458,7 @@
         - name: Connect to services
           items:
             - name: How to connect to services
-              displayName: bindings,integrate
+              displayName: bindings,integrate,add bindings
               href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -543,6 +539,8 @@
           href: legacy-proxies.md  
     - name: Migrate
       items:
+        - name: Migrate .NET apps to the isolated model
+          href: migrate-dotnet-to-isolated-model.md
         - name: Migrate v3.x to v4.x
           href: migrate-version-3-version-4.md
         - name: Migrate v1.x to v4.x
@@ -610,6 +608,12 @@
           items:
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
+            - name: Azure Cache for Redis
+              items:
+                - name: Get started with VS Code 
+                  href: ../azure-cache-for-redis/cache-tutorial-functions-getting-started.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                - name: Create a write-behind cache 
+                  href: ../azure-cache-for-redis/cache-tutorial-write-behind.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Storage
               items:
                 - name: Azure portal
@@ -714,6 +718,22 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
+        - name: Azure Cache for Redis
+          items: 
+            - name: Overview
+              href: functions-bindings-cache.md
+              displayName: Azure Cache for Redis
+            - name: Trigger
+              items: 
+              - name: Pub Sub Trigger
+                href: functions-bindings-cache-trigger-redispubsub.md
+                displayName: Azure Cache for Redis
+              - name: List Trigger
+                href: functions-bindings-cache-trigger-redislist.md
+                displayName: Azure Cache for Redis
+              - name: Stream Trigger
+                href: functions-bindings-cache-trigger-redisstream.md
+                displayName: Azure Cache for Redis
         - name: Azure Cosmos DB
           items:
             - name: Functions 1.x
@@ -734,6 +754,9 @@
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
+            - name: Migrate version 3.x to 4.x
+              href: migrate-cosmos-db-version-3-version-4.md
+              displayName: Azure Cosmos DB
         - name: Azure Data Explorer
           items:
             - name: Overview
@@ -906,7 +929,9 @@
           - name: AZFD0004
             href: errors-diagnostics/diagnostic-events/azfd0004.md
           - name: AZFD0005
-            href: errors-diagnostics/diagnostic-events/azfd0005.md            
+            href: errors-diagnostics/diagnostic-events/azfd0005.md
+          - name: AZFD0006
+            href: errors-diagnostics/diagnostic-events/azfd0006.md            
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference

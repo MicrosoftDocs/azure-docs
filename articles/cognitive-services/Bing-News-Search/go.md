@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Get news using Bing News Search REST API and Go"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This quickstart uses the Go language to call the Bing News Search API. The results include names and URLs of news sources identified by the query string.
 services: cognitive-services
 author: aahill

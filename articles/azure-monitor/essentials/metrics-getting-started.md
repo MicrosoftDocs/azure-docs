@@ -67,12 +67,13 @@ By default, the chart shows the most recent 24 hours of metrics data. Use the **
 > [!TIP]
 > Use the **time brush** to investigate an interesting area of the chart like a spike or a dip. Select an area on the chart and the chart zooms in to show more detail for the selected area.
 
+
 ## Apply dimension filters and splitting
 
 [Filtering](../essentials/metrics-charts.md#filters) and [splitting](../essentials/metrics-charts.md#apply-splitting) are powerful diagnostic tools for the metrics that have dimensions. These features show how various metric segments or dimensions affect the overall value of the metric. You can use them to identify possible outliers. For example 
 
 - **Filtering** lets you choose which dimension values are included in the chart. For example, you might want to show successful requests when you chart the *server response time* metric. You apply the filter on the *success of request* dimension.
-- **Splitting** controls whether the chart displays separate lines for each value of a dimension or aggregates the values into a single line. For example, you can see one line for an average CPU usage across all server instances, or you can see separate lines for each server. The image blow shows splitting a Virtual Machine Scale Set to see each virtual machine separately.
+- **Splitting** controls whether the chart displays separate lines for each value of a dimension or aggregates the values into a single line. For example, you can see one line for an average CPU usage across all server instances, or you can see separate lines for each server. The following image shows splitting a Virtual Machine Scale Set to see each virtual machine separately.
 
 :::image type="content" source="./media/metrics-getting-started/split-metrics.png" alt-text="{alt-text}":::
 

@@ -7,7 +7,7 @@ ms.custom: references_regions, build-2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 05/10/2023
+ms.date: 9/20/2023
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -16,10 +16,13 @@ ms.date: 05/10/2023
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Flexible Server - PostgreSQL
 
+## Release: August 2023
+* Support for [minor versions](./concepts-supported-versions.md) 15.3, 14.8, 13.11, 12.15, 11.20 <sup>$</sup>
+* General availability of [Enhanced Metrics](./concepts-monitoring.md#enhanced-metrics), [Autovacuum Metrics](./concepts-monitoring.md#autovacuum-metrics), [PgBouncer Metrics](./concepts-monitoring.md#pgbouncer-metrics) and [Database availability metric](./concepts-monitoring.md#database-availability-metric) for Azure Database for PostgreSQL – Flexible Server.
 
 ## Release: July 2023
-* Support for [minor versions](./concepts-supported-versions.md) 15.3 (preview), 14.8, 13.11, 12.15, 11.20 <sup>$</sup>
 * General Availability of PostgreSQL 15 for Azure Database for PostgreSQL – Flexible Server.
+* Public preview of [Automation Tasks](./create-automation-tasks.md) for Azure Database for PostgreSQL – Flexible Server.
 
 ## Release: June 2023
 * Support for [minor versions](./concepts-supported-versions.md) 15.2 (preview), 14.7, 13.10, 12.14, 11.19 <sup>$</sup>
@@ -44,7 +47,7 @@ This page provides latest news and updates regarding feature additions, engine v
 ## Release: March 2023
 * General availability of [Read Replica](concepts-read-replicas.md) for Azure Database for PostgreSQL – Flexible Server.
 * Public preview of [PgBouncer Metrics](./concepts-monitoring.md#pgbouncer-metrics) for Azure Database for PostgreSQL – Flexible Server.
-* General availability of [Azure Monitor workbooks](./concepts-workbooks.md) for Azure Database for PostgreSQL – Flexible Server.
+* General availability of [Azure Monitor workbooks](./concepts-workbooks.md) for Azure Database for PostgreSQL – Flexible Server
 
 ## Release: February 2023
 * Public preview of [Autovacuum Metrics](./concepts-monitoring.md#autovacuum-metrics) for Azure Database for PostgreSQL – Flexible Server.

@@ -1,5 +1,5 @@
 ---
-title: Document layout analysis - Document Intelligence
+title: Document layout analysis - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Extract text, tables, selections, titles, section headings, page headers, page footers, and more with layout analysis model from Document Intelligence.
 author: laujan
@@ -9,14 +9,15 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
+<!-- markdownlint-disable DOCSMD006 -->
 
 # Document Intelligence layout model
 
-::: moniker range="doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+::: moniker range=">=doc-intel-3.0.0"
+[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
@@ -34,21 +35,25 @@ Document structure layout analysis is the process of analyzing a document to ext
 
 The following illustration shows the typical components in an image of a sample page.
 
-:::image type="content" source="media/document-layout-example.png" alt-text="Illustration of document layout example.":::
+  :::image type="content" source="media/document-layout-example.png" alt-text="Illustration of document layout example.":::
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
-***Sample form processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
+  ***Sample document processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Document Intelligence Studio.":::
+  :::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Document Intelligence Studio.":::
+
+::: moniker-end
 
 ## Development options
 
-Document Intelligence v3.0 supports the following tools:
+::: moniker range=">=doc-intel-3.0.0"
+
+Document Intelligence v3.1 and later versions support the following tools:
 
 | Feature | Resources | Model ID |
 |----------|------------|------------|
-|**Layout model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li></ul>|**prebuilt-layout**|
+|**Layout model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</li></ul>|**prebuilt-layout**|
 
 ::: moniker-end
 
@@ -62,13 +67,13 @@ Document Intelligence v3.0 supports the following tools:
 
 ## Input requirements
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ::: moniker-end
 
-::: moniker range="doc-intel-2.1.0"
+::: moniker range=">=doc-intel-2.1.0"
 
 * Supported file formats: JPEG, PNG, PDF, and TIFF
 * For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
@@ -76,34 +81,34 @@ Document Intelligence v3.0 supports the following tools:
 
 ::: moniker-end
 
-### Try layout extraction
+### Layout model data extraction
 
 See how data, including text, tables, table headers, selection marks, and structure information is extracted from documents using  Document Intelligence. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 ## Document Intelligence Studio
 
 > [!NOTE]
-> Document Intelligence Studio is available with the v3.0 API.
+> Document Intelligence Studio is available with v3.1 and v3.0 APIs and later versions.
 
-***Sample form processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
+***Sample document processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot: Layout processing a newspaper page in Document Intelligence Studio.":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of Layout processing a newspaper page in Document Intelligence Studio.":::
 
 1. On the Document Intelligence Studio home page, select **Layout**
 
-1. You can analyze the sample document or select the **+ Add** button to upload your own sample.
+1. You can analyze the sample document or upload your own files.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
 
-    :::image type="content" source="media/studio/layout-analyze.png" alt-text="Screenshot: analyze layout menu.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
    > [!div class="nextstepaction"]
    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
@@ -132,7 +137,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 1. Select **Run Layout**. The Document Intelligence Sample Labeling tool calls the Analyze Layout API and analyze the document.
 
-    :::image type="content" source="media/fott-layout.png" alt-text="Screenshot: Layout dropdown window.":::
+    :::image type="content" source="media/fott-layout.png" alt-text="Screenshot of Layout dropdown window.":::
 
 1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
 
@@ -140,61 +145,461 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 ::: moniker-end
 
-## Supported document types
-
-| **Model**   | **Images**   | **PDF**  | **TIFF** |
-| --- | --- | --- | --- |
-| Layout  | ✓  | ✓  | ✓  |
-
 ## Supported languages and locales
 
-*See* [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
+::: moniker range=">=doc-intel-3.0.0"
 
-::: moniker range="doc-intel-3.0.0"
+The following lists include the currently GA languages in the most recent v3.0 version for Read, Layout, and Custom template (form) models.
 
-### Data extraction
+> [!NOTE]
+> **Language code optional**
+>
+> Document Intelligence's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
 
-**Starting with v3.0 GA**, it extracts paragraphs and more structure information like titles, section headings, page header, page footer, page number, and footnote from the document page. These structural elements are examples of logical roles described in the previous section. This capability is supported for PDF documents and images (JPG, PNG, BMP, TIFF).
+### Handwritten text
 
-| **Model**   | **Text**   | **Selection Marks**   | **Tables**  | **Paragraphs** | **Logical roles** |
-| --- | --- | --- | --- | --- | --- |
-| Layout  | ✓  | ✓  | ✓  | ✓  | ✓  |
+The following table lists the supported languages for extracting handwritten texts.
 
-**Supported logical roles for paragraphs**:
-The paragraph roles are best used with unstructured documents.  Paragraph roles help analyze the structure of the extracted content for better semantic search and analysis.
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`|
 
-* title
-* sectionHeading
-* footnote
-* pageHeader
-* pageFooter
-* pageNumber
+### Print text
+
+The following table lists the supported languages for print text by the most recent GA version.
+
+:::row:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Abaza|abq|
+  |Abkhazian|ab|
+  |Achinese|ace|
+  |Acoli|ach|
+  |Adangme|ada|
+  |Adyghe|ady|
+  |Afar|aa|
+  |Afrikaans|af|
+  |Akan|ak|
+  |Albanian|sq|
+  |Algonquin|alq|
+  |Angika (Devanagari)|anp|
+  |Arabic|ar|
+  |Asturian|ast|
+  |Asu (Tanzania)|asa|
+  |Avaric|av|
+  |Awadhi-Hindi (Devanagari)|awa|
+  |Aymara|ay|
+  |Azerbaijani (Latin)|az|
+  |Bafia|ksf|
+  |Bagheli|bfy|
+  |Bambara|bm|
+  |Bashkir|ba|
+  |Basque|eu|
+  |Belarusian (Cyrillic)|be, be-cyrl|
+  |Belarusian (Latin)|be, be-latn|
+  |Bemba (Zambia)|bem|
+  |Bena (Tanzania)|bez|
+  |Bhojpuri-Hindi (Devanagari)|bho|
+  |Bikol|bik|
+  |Bini|bin|
+  |Bislama|bi|
+  |Bodo (Devanagari)|brx|
+  |Bosnian (Latin)|bs|
+  |Brajbha|bra|
+  |Breton|br|
+  |Bulgarian|bg|
+  |Bundeli|bns|
+  |Buryat (Cyrillic)|bua|
+  |Catalan|ca|
+  |Cebuano|ceb|
+  |Chamling|rab|
+  |Chamorro|ch|
+  |Chechen|ce|
+  |Chhattisgarhi (Devanagari)|hne|
+  |Chiga|cgg|
+  |Chinese Simplified|zh-Hans|
+  |Chinese Traditional|zh-Hant|
+  |Choctaw|cho|
+  |Chukot|ckt|
+  |Chuvash|cv|
+  |Cornish|kw|
+  |Corsican|co|
+  |Cree|cr|
+  |Creek|mus|
+  |Crimean Tatar (Latin)|crh|
+  |Croatian|hr|
+  |Crow|cro|
+  |Czech|cs|
+  |Danish|da|
+  |Dargwa|dar|
+  |Dari|prs|
+  |Dhimal (Devanagari)|dhi|
+  |Dogri (Devanagari)|doi|
+  |Duala|dua|
+  |Dungan|dng|
+  |Dutch|nl|
+  |Efik|efi|
+  |English|en|
+  |Erzya (Cyrillic)|myv|
+  |Estonian|et|
+  |Faroese|fo|
+  |Fijian|fj|
+  |Filipino|fil|
+  |Finnish|fi|
+   :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Fon|fon|
+  |French|fr|
+  |Friulian|fur|
+  |Ga|gaa|
+  |Gagauz (Latin)|gag|
+  |Galician|gl|
+  |Ganda|lg|
+  |Gayo|gay|
+  |German|de|
+  |Gilbertese|gil|
+  |Gondi (Devanagari)|gon|
+  |Greek|el|
+  |Greenlandic|kl|
+  |Guarani|gn|
+  |Gurung (Devanagari)|gvr|
+  |Gusii|guz|
+  |Haitian Creole|ht|
+  |Halbi (Devanagari)|hlb|
+  |Hani|hni|
+  |Haryanvi|bgc|
+  |Hawaiian|haw|
+  |Hebrew|he|
+  |Herero|hz|
+  |Hiligaynon|hil|
+  |Hindi|hi|
+  |Hmong Daw (Latin)|mww|
+  |Ho(Devanagiri)|hoc|
+  |Hungarian|hu|
+  |Iban|iba|
+  |Icelandic|is|
+  |Igbo|ig|
+  |Iloko|ilo|
+  |Inari Sami|smn|
+  |Indonesian|id|
+  |Ingush|inh|
+  |Interlingua|ia|
+  |Inuktitut (Latin)|iu|
+  |Irish|ga|
+  |Italian|it|
+  |Japanese|ja|
+  |Jaunsari (Devanagari)|Jns|
+  |Javanese|jv|
+  |Jola-Fonyi|dyo|
+  |Kabardian|kbd|
+  |Kabuverdianu|kea|
+  |Kachin (Latin)|kac|
+  |Kalenjin|kln|
+  |Kalmyk|xal|
+  |Kangri (Devanagari)|xnr|
+  |Kanuri|kr|
+  |Karachay-Balkar|krc|
+  |Kara-Kalpak (Cyrillic)|kaa-cyrl|
+  |Kara-Kalpak (Latin)|kaa|
+  |Kashubian|csb|
+  |Kazakh (Cyrillic)|kk-cyrl|
+  |Kazakh (Latin)|kk-latn|
+  |Khakas|kjh|
+  |Khaling|klr|
+  |Khasi|kha|
+  |K'iche'|quc|
+  |Kikuyu|ki|
+  |Kildin Sami|sjd|
+  |Kinyarwanda|rw|
+  |Komi|kv|
+  |Kongo|kg|
+  |Korean|ko|
+  |Korku|kfq|
+  |Koryak|kpy|
+  |Kosraean|kos|
+  |Kpelle|kpe|
+  |Kuanyama|kj|
+  |Kumyk (Cyrillic)|kum|
+  |Kurdish (Arabic)|ku-arab|
+  |Kurdish (Latin)|ku-latn|
+   :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Kurukh (Devanagari)|kru|
+  |Kyrgyz (Cyrillic)|ky|
+  |Lak|lbe|
+  |Lakota|lkt|
+  |Latin|la|
+  |Latvian|lv|
+  |Lezghian|lex|
+  |Lingala|ln|
+  |Lithuanian|lt|
+  |Lower Sorbian|dsb|
+  |Lozi|loz|
+  |Lule Sami|smj|
+  |Luo (Kenya and Tanzania)|luo|
+  |Luxembourgish|lb|
+  |Luyia|luy|
+  |Macedonian|mk|
+  |Machame|jmc|
+  |Madurese|mad|
+  |Mahasu Pahari (Devanagari)|bfz|
+  |Makhuwa-Meetto|mgh|
+  |Makonde|kde|
+  |Malagasy|mg|
+  |Malay (Latin)|ms|
+  |Maltese|mt|
+  |Malto (Devanagari)|kmj|
+  |Mandinka|mnk|
+  |Manx|gv|
+  |Maori|mi|
+  |Mapudungun|arn|
+  |Marathi|mr|
+  |Mari (Russia)|chm|
+  |Masai|mas|
+  |Mende (Sierra Leone)|men|
+  |Meru|mer|
+  |Meta'|mgo|
+  |Minangkabau|min|
+  |Mohawk|moh|
+  |Mongolian (Cyrillic)|mn|
+  |Mongondow|mog|
+  |Montenegrin (Cyrillic)|cnr-cyrl|
+  |Montenegrin (Latin)|cnr-latn|
+  |Morisyen|mfe|
+  |Mundang|mua|
+  |Nahuatl|nah|
+  |Navajo|nv|
+  |Ndonga|ng|
+  |Neapolitan|nap|
+  |Nepali|ne|
+  |Ngomba|jgo|
+  |Niuean|niu|
+  |Nogay|nog|
+  |North Ndebele|nd|
+  |Northern Sami (Latin)|sme|
+  |Norwegian|no|
+  |Nyanja|ny|
+  |Nyankole|nyn|
+  |Nzima|nzi|
+  |Occitan|oc|
+  |Ojibwa|oj|
+  |Oromo|om|
+  |Ossetic|os|
+  |Pampanga|pam|
+  |Pangasinan|pag|
+  |Papiamento|pap|
+  |Pashto|ps|
+  |Pedi|nso|
+  |Persian|fa|
+  |Polish|pl|
+  |Portuguese|pt|
+  |Punjabi (Arabic)|pa|
+  |Quechua|qu|
+  |Ripuarian|ksh|
+  |Romanian|ro|
+  |Romansh|rm|
+  |Rundi|rn|
+  |Russian|ru|
+   :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Rwa|rwk|
+  |Sadri (Devanagari)|sck|
+  |Sakha|sah|
+  |Samburu|saq|
+  |Samoan (Latin)|sm|
+  |Sango|sg|
+  |Sangu (Gabon)|snq|
+  |Sanskrit (Devanagari)|sa|
+  |Santali(Devanagiri)|sat|
+  |Scots|sco|
+  |Scottish Gaelic|gd|
+  |Sena|seh|
+  |Serbian (Cyrillic)|sr-cyrl|
+  |Serbian (Latin)|sr, sr-latn|
+  |Shambala|ksb|
+  |Sherpa (Devanagari)|xsr|
+  |Shona|sn|
+  |Siksika|bla|
+  |Sirmauri (Devanagari)|srx|
+  |Skolt Sami|sms|
+  |Slovak|sk|
+  |Slovenian|sl|
+  |Soga|xog|
+  |Somali (Arabic)|so|
+  |Somali (Latin)|so-latn|
+  |Songhai|son|
+  |South Ndebele|nr|
+  |Southern Altai|alt|
+  |Southern Sami|sma|
+  |Southern Sotho|st|
+  |Spanish|es|
+  |Sundanese|su|
+  |Swahili (Latin)|sw|
+  |Swati|ss|
+  |Swedish|sv|
+  |Tabassaran|tab|
+  |Tachelhit|shi|
+  |Tahitian|ty|
+  |Taita|dav|
+  |Tajik (Cyrillic)|tg|
+  |Tamil|ta|
+  |Tatar (Cyrillic)|tt-cyrl|
+  |Tatar (Latin)|tt|
+  |Teso|teo|
+  |Tetum|tet|
+  |Thai|th|
+  |Thangmi|thf|
+  |Tok Pisin|tpi|
+  |Tongan|to|
+  |Tsonga|ts|
+  |Tswana|tn|
+  |Turkish|tr|
+  |Turkmen (Latin)|tk|
+  |Tuvan|tyv|
+  |Udmurt|udm|
+  |Uighur (Cyrillic)|ug-cyrl|
+  |Ukrainian|uk|
+  |Upper Sorbian|hsb|
+  |Urdu|ur|
+  |Uyghur (Arabic)|ug|
+  |Uzbek (Arabic)|uz-arab|
+  |Uzbek (Cyrillic)|uz-cyrl|
+  |Uzbek (Latin)|uz|
+  |Vietnamese|vi|
+  |Volapük|vo|
+  |Vunjo|vun|
+  |Walser|wae|
+  |Welsh|cy|
+  |Western Frisian|fy|
+  |Wolof|wo|
+  |Xhosa|xh|
+  |Yucatec Maya|yua|
+  |Zapotec|zap|
+  |Zarma|dje|
+  |Zhuang|za|
+  |Zulu|zu|
+   :::column-end:::
+:::row-end:::
 
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
 
-### Data extraction support
+:::row:::
+:::column:::
 
-| **Model**   | **Text** | **Tables**  | Selection marks|
-| --- | --- | --- | --- |
-| Layout  | ✓  | ✓| ✓ |
+|Language| Language code |
+|:-----|:----:|
+|Afrikaans|`af`|
+|Albanian |`sq`|
+|Asturian |`ast`|
+|Basque  |`eu`|
+|Bislama   |`bi`|
+|Breton    |`br`|
+|Catalan    |`ca`|
+|Cebuano    |`ceb`|
+|Chamorro  |`ch`|
+|Chinese (Simplified) | `zh-Hans`|
+|Chinese (Traditional) | `zh-Hant`|
+|Cornish     |`kw`|
+|Corsican      |`co`|
+|Crimean Tatar (Latin)  |`crh`|
+|Czech | `cs` |
+|Danish | `da` |
+|Dutch | `nl` |
+|English (printed and handwritten) | `en` |
+|Estonian  |`et`|
+|Fijian |`fj`|
+|Filipino  |`fil`|
+|Finnish | `fi` |
+|French | `fr` |
+|Friulian  | `fur` |
+|Galician   | `gl` |
+|German | `de` |
+|Gilbertese    | `gil` |
+|Greenlandic   | `kl` |
+|Haitian Creole  | `ht` |
+|Hani  | `hni` |
+|Hmong Daw (Latin) | `mww` |
+|Hungarian | `hu` |
+|Indonesian   | `id` |
+|Interlingua  | `ia` |
+|Inuktitut (Latin)  | `iu`  |
+|Irish    | `ga` |
+:::column-end:::
+:::column:::
+|Language| Language code |
+|:-----|:----:|
+|Italian | `it` |
+|Japanese | `ja` |
+|Javanese | `jv` |
+|K'iche'  | `quc` |
+|Kabuverdianu | `kea` |
+|Kachin (Latin) | `kac` |
+|Kara-Kalpak | `kaa` |
+|Kashubian | `csb` |
+|Khasi  | `kha` |
+|Korean | `ko` |
+|Kurdish (latin) | `kur` |
+|Luxembourgish  | `lb` |
+|Malay (Latin)  | `ms` |
+|Manx  | `gv` |
+|Neapolitan   | `nap` |
+|Norwegian | `no` |
+|Occitan | `oc` |
+|Polish | `pl` |
+|Portuguese | `pt` |
+|Romansh  | `rm` |
+|Scots  | `sco` |
+|Scottish Gaelic  | `gd` |
+|Slovenian  | `slv` |
+|Spanish | `es` |
+|Swahili (Latin)  | `sw` |
+|Swedish | `sv` |
+|Tatar (Latin)  | `tat` |
+|Tetum    | `tet` |
+|Turkish | `tr` |
+|Upper Sorbian  | `hsb` |
+|Uzbek (Latin)     | `uz` |
+|Volapük   | `vo` |
+|Walser    | `wae` |
+|Western Frisian | `fy` |
+|Yucatec Maya | `yua` |
+|Zhuang | `za` |
+|Zulu  | `zu` |
+:::column-end:::
+:::row-end:::
+
+::: moniker-end
+
+::: moniker range="doc-intel-2.1.0"
 
 Document Intelligence v2.1 supports the following tools:
 
 | Feature | Resources |
 |----------|-------------------------|
-|**Layout API**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**REST API**](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=doc-intel-2.1.0#analyze-layout)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|**Layout API**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=windows&view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
 ::: moniker-end
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
-## Model extraction
+## Data extraction
 
 The layout model extracts text, selection marks, tables, paragraphs, and paragraph types (`roles`) from your documents.
 
-### Paragraph extraction
+### Paragraphs
 
 The Layout model extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top level `content` property that contains the full text from the document.
 
@@ -241,7 +646,7 @@ The new machine-learning based page object detection extracts logical roles like
 
 ```
 
-### Pages extraction
+### Pages
 
 The pages collection is the first object you see in the service response.
 
@@ -261,7 +666,7 @@ The pages collection is the first object you see in the service response.
 ]
 ```
 
-### Text lines and words extraction
+### Text lines and words
 
 The document layout model in Document Intelligence extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
 
@@ -283,7 +688,7 @@ The document layout model in Document Intelligence extracts print and handwritte
 ]
 ```
 
-### Selection marks extraction
+### Selection marks
 
 The Layout model also extracts selection marks from documents. Extracted selection marks appear within the `pages` collection for each page. They include the bounding `polygon`, `confidence`, and selection `state` (`selected/unselected`). Any associated text if extracted is also included as the starting index (`offset`) and `length` that references the top level `content` property that contains the full text from the document.
 
@@ -303,7 +708,7 @@ The Layout model also extracts selection marks from documents. Extracted selecti
 }
 ```
 
-### Extract tables from documents and images
+### Tables
 
 Extracting tables is a key requirement for processing documents containing large volumes of data typically formatted as tables. The Layout model extracts tables in the `pageResults` section of the JSON output. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding polygon is output along with information whether it's recognized as a `columnHeader` or not. The model supports extracting tables that are rotated. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`). The model also outputs the `length` within the top-level content that contains the full text from the document.
 
@@ -330,9 +735,9 @@ Extracting tables is a key requirement for processing documents containing large
 
 ```
 
-### Handwritten style for text lines (Latin languages only)
+### Handwritten style for text lines
 
-The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows an example JSON snippet.
+The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information. *see*, [Handwritten language support](#handwritten-text). The following example shows an example JSON snippet.
 
 ```json
 "styles": [
@@ -348,7 +753,7 @@ The response includes classifying whether each text line is of handwriting style
 }
 ```
 
-### Annotations extraction
+### Annotations (available only in ``2023-07-31`` (v3.1 GA) API.)
 
 The Layout model extracts annotations in documents, such as checks and crosses. The response includes the kind of annotation, along with a confidence score and bounding polygon.
 
@@ -368,42 +773,7 @@ The Layout model extracts annotations in documents, such as checks and crosses. 
 }
 ```
 
-### Barcode extraction
-
-The Layout model extracts all identified barcodes in the `barcodes` collection as a top level object under `content`. Inside the `content`, detected barcodes are represented as `:barcode:`. Each entry in this collection represents a barcode and includes the barcode type as `kind` and the embedded barcode content as `value` along with its `polygon` coordinates. Initially, barcodes appear at the end of each page.
-
-#### Supported barcode types
-
-| **Barcode Type**   | **Example**   |
-| --- | --- |
-| QR Code |:::image type="content" source="media/barcodes/qr-code.png" alt-text="Screenshot of the QR Code.":::|
-| Code 39 |:::image type="content" source="media/barcodes/code-39.png" alt-text="Screenshot of the Code 39.":::|
-| Code 128 |:::image type="content" source="media/barcodes/code-128.png" alt-text="Screenshot of the Code 128.":::|
-| UPC (UPC-A & UPC-E) |:::image type="content" source="media/barcodes/upc.png" alt-text="Screenshot of the UPC.":::|
-| PDF417 |:::image type="content" source="media/barcodes/pdf-417.png" alt-text="Screenshot of the PDF417.":::|
-
-   > [!NOTE]
-   > The `confidence` score is hard-coded for the `2023-02-28` public preview.
-
-   ```json
-   "content": ":barcode:",
-     "pages": [
-       {
-         "pageNumber": 1,
-         "barcodes": [
-           {
-             "kind": "QRCode",
-             "value": "http://test.com/",
-             "span": { ... },
-             "polygon": [...],
-             "confidence": 1
-           }
-         ]
-       }
-     ]
-   ```
-
-### Extract selected pages from documents
+### Extract selected page(s) from documents
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
 
@@ -469,16 +839,16 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ### Migration guide
 
-* Follow our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+* Follow our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md) to learn how to use the v3.1 version in your applications and workflows.
 ::: moniker-end
 
 ## Next steps
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 * [Learn how to process your own forms and documents](quickstarts/try-document-intelligence-studio.md) with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end
 

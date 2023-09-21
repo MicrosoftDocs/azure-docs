@@ -1,21 +1,21 @@
 ---
 title: Sentiment Analysis and Opinion Mining language support
 titleSuffix: Azure AI services
-description: This article explains which languages are supported by the Sentiment Analysis and Opinion Mining features of Azure AI Language.
+description: This article explains which languages are supported by the Sentiment Analysis and Opinion Mining features of the Language service.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 10/31/2022
+ms.date: 09/18/2023
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021, ignite-2022
 ---
 
 # Sentiment Analysis and Opinion Mining language support 
 
-Use this article to learn which languages are supported by Sentiment Analysis and Opinion Mining.
+Use this article to learn which languages are supported by Sentiment Analysis and Opinion Mining. Both the cloud-based API and [Docker containers](./how-to/use-containers.md) support the same languages.
 
 > [!NOTE]
 > Languages are added as new [model versions](../concepts/model-lifecycle.md) are released.
@@ -186,10 +186,10 @@ Total supported language codes: 94
 | Mongolian (new)	 | `mn` | 2022-11-01 | |
 | Nepali (new)	 | `ne` | 2022-11-01 | |
 | Norwegian	 | `no` | 2022-11-01 | |
-| Oriya	(new) | `or` | 2022-11-01 | |
+| Odia	(new) | `or` | 2022-11-01 | |
 | Oromo	(new) | `om` | 2022-11-01 | |
 | Pashto (new)	 | `ps` | 2022-11-01 | |
-| Persian (Farsi) (new) | `fa` | 2022-11-01 | |
+| Persian (new) | `fa` | 2022-11-01 | |
 | Polish	 | `pl` | 2022-11-01 | |
 | Portuguese (Portugal) | `pt-PT` | 2021-10-01 | `pt` also accepted |
 | Portuguese (Brazil) | `pt-BR` | 2021-10-01 | |
@@ -222,6 +222,18 @@ Total supported language codes: 94
 | Xhosa	(new) | `xh` | 2022-11-01 | |
 | Yiddish (new)	 | `yi` | 2022-11-01 | |
 
+## Multi-lingual option (Custom sentiment analysis only)
+
+With [Custom sentiment analysis](./overview.md?tabs=custom), you can train a model in one language and use to classify documents in another language. This feature is useful because it helps save time and effort. Instead of building separate projects for every language, you can handle multi-lingual dataset in one project. Your dataset doesn't have to be entirely in the same language but you should enable the multi-lingual option for your project while creating or later in project settings. If you notice your model performing poorly in certain languages during the evaluation process, consider adding more data in these languages to your training set.
+
+You can train your project entirely with English documents, and query it in: French, German, Mandarin, Japanese, Korean, and others. Custom sentiment analysis
+makes it easy for you to scale your projects to multiple languages by using multilingual technology to train your models.
+
+Whenever you identify that a particular language is not performing as well as other languages, you can add more documents for that language in your project. <!--In the [data labeling](./custom/how-to/label-data.md) page in Language Studio, you can select the language of the document you're adding. When you introduce more documents for that language to the model, it is introduced to more of the syntax of that language, and learns to predict it better.-->
+
+You aren't expected to add the same number of documents for every language. You should build the majority of your project in one language, and only add a few documents in languages you observe aren't performing well. If you create a project that is primarily in English, and start testing it in French, German, and Spanish, you might observe that German doesn't perform as well as the other two languages. In that case, consider adding 5% of your original English documents in German, train a new model and test in German again. You should see better results for German queries. The more labeled documents you add, the more likely the results are going to get better. 
+
+When you add data in another language, you shouldn't expect it to negatively affect other languages. 
 
 ## Next steps
 

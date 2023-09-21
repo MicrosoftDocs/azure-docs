@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: reference
-ms.date: 05/26/2022
+ms.date: 07/26/2023
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022, devx-track-arm-template, build-2023
 ---
@@ -14,8 +14,30 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022, devx-track-arm-template, bu
 
 Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. Some Container Apps CLI commands also support using a YAML template to specify a resource.
 
-> [!NOTE]
-> Azure Container Apps resources have migrated from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
+## API versions
+
+The latest management API versions for Azure Container Apps are:
+
+- [`2023-05-01`](/rest/api/containerapps/stable/container-apps) (stable)
+- [`2023-04-01-preview`](/rest/api/containerapps/preview/container-apps) (preview)
+
+To learn more about the differences between API versions, see [Microsoft.App change log](/azure/templates/microsoft.app/change-log/summary).
+
+### Updating API versions
+
+To use a specific API version in ARM or Bicep, update the version referenced in your templates. To use the latest API version in the Azure CLI, update the Azure Container Apps extension by running the following command:
+
+```bash
+az extension add -n containerapp --upgrade
+```
+
+To programmatically manage Azure Container Apps with the latest API version, use the latest versions of the management SDK:
+
+- [.NET](/dotnet/api/azure.resourcemanager.appcontainers)
+- [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appcontainers/armappcontainers)
+- [Java](/java/api/overview/azure/resourcemanager-appcontainers-readme)
+- [Node.js](/javascript/api/overview/azure/arm-appcontainers-readme)
+- [Python](/python/api/azure-mgmt-appcontainers/azure.mgmt.appcontainers)
 
 ## Container Apps environment
 
@@ -39,6 +61,7 @@ A resource's `properties` object has the following properties:
 |---|---|---|---|
 | `daprAIInstrumentationKey` | The Application Insights instrumentation key used by Dapr. | string | No |
 | `appLogsConfiguration` | The environment's logging configuration. | Object | No |
+| `peerAuthentication` | How to enable mTLS encryption. | Object | No |
 
 ### <a name="container-apps-environment-examples"></a>Examples
 

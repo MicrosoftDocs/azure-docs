@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 06/28/2023
+ms.date: 07/28/2023
 ms.author: aahi
 ---
 
@@ -52,7 +52,7 @@ Access is limited to customers that meet the following requirements:
 
 ### Create a new resource
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and select **Create a new resource** for one of the applicable Azure AI services or Azure AI services listed above.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a new resource** for one of the applicable Azure AI services or Azure AI services listed above.
 
 2. Enter the applicable information to create your resource. Be sure to select **Commitment tier disconnected containers** as your pricing tier.
 
@@ -83,7 +83,20 @@ See the following documentation for steps on downloading and configuring the con
 * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
 * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
 * [Language Detection](../language-service/language-detection/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
-    
+
+## Environment variable names in Kubernetes deployments
+Some Azure AI Containers, for example Translator, require users to pass environmental variable names that include colons (`:`) when running the container. This will work fine when using Docker, but Kubernetes does not accept colons in environmental variable names.
+To resolve this, you can replace colons with double underscore characters (`__`) when deploying to Kubernetes. See the following example of an acceptable format for environment variable names:
+
+```Kubernetes
+        env:  
+        - name: Mounts__License
+          value: "/license"
+        - name: Mounts__Output
+          value: "/output"
+```
+
+This example replaces the default format for the `Mounts:License` and `Mounts:Output` environment variable names in the docker run command.
 
 ## Container image and license updates
 
@@ -170,13 +183,4 @@ If you run the container with an output mount and logging enabled, the container
 
 ## Next steps
 
-[Azure AI services containers overview](../cognitive-services-container-support.md)
-
-
-
-
-
-
-
-
-
+[Azure AI containers overview](../cognitive-services-container-support.md)

@@ -2,7 +2,7 @@
 title: Migrate an Application Insights classic resource to a workspace-based resource - Azure Monitor | Microsoft Docs
 description: Learn how to upgrade your Application Insights classic resource to the new workspace-based model. 
 ms.topic: conceptual
-ms.date: 05/14/2023
+ms.date: 08/11/2023
 ms.reviewer: cawa
 ---
 
@@ -47,7 +47,7 @@ Workspace-based Application Insights resources allow you to take advantage of th
 
 When you migrate to a workspace-based resource, no data is transferred from your classic resource's storage to the new workspace-based storage. Choosing to migrate changes the location where new data is written to a Log Analytics workspace while preserving access to your classic resource data.
 
-Your classic resource data persists and is subject to the retention settings on your classic Application Insights resource. All new data ingested post migration is subject to the [retention settings](../logs/data-retention-archive.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table).
+Your classic resource data persists and is subject to the retention settings on your classic Application Insights resource. All new data ingested post migration is subject to the [retention settings](../logs/data-retention-archive.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-archive.md#configure-retention-and-archive-at-the-table-level).
 
 *The migration process is permanent and can't be reversed.* After you migrate a resource to workspace-based Application Insights, it will always be a workspace-based resource. After you migrate, you can change the target workspace as often as needed.
 
@@ -69,7 +69,7 @@ If you don't need to migrate an existing resource, and instead want to create a 
 - Check your current retention settings under **Settings** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting affects how long any new ingested data is stored after you migrate your Application Insights resource.
 
     > [!NOTE]
-    > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this longer retention period after migration, adjust your [workspace retention settings](../logs/data-retention-archive.md?tabs=portal-1%2cportal-2#set-retention-and-archive-policy-by-table).
+    > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this longer retention period after migration, adjust your [workspace retention settings](../logs/data-retention-archive.md?tabs=portal-1%2cportal-2#configure-retention-and-archive-at-the-table-level).
     > - If you've selected data retention longer than 90 days on data ingested into the classic Application Insights resource prior to migration, data retention continues to be billed through that Application Insights resource until the data exceeds the retention period.
     > - If the retention setting for your Application Insights instance under **Configure** > **Usage and estimated costs** > **Data Retention** is enabled, use that setting to control the retention days for the telemetry data still saved in your classic resource's storage.
 
@@ -121,6 +121,19 @@ When you query directly from the Log Analytics workspace, you only see data that
 > [!NOTE]
 > If you rename your Application Insights resource after you migrate to the workspace-based model, the Application Insights **Logs** tab no longer shows the telemetry collected before renaming. You can see all old and new data on the **Logs** tab of the associated Log Analytics resource.
 
+
+## Identifying the Application Insights resources by ingestion type
+
+Use the following script to identify your Application Insights resources by ingestion type.
+
+#### Example
+
+```azurecli
+
+Get-AzApplicationInsights -SubscriptionId '7faeaa41-541f-48da-82b4-3dc10c594b85' | Format-Table -Property Name, IngestionMode, WorkspaceResourceId, @{label='Type';expression={if ($_.ingestionMode -eq 'LogAnalytics') {'Workspace-based'} elseif ($_.IngestionMode -eq 'ApplicatonInsights') {'Classic'}}}
+
+```
+
 ## Programmatic resource migration
 
 This section helps you migrate your resources.
@@ -157,7 +170,19 @@ For the full Azure CLI documentation for this command, see the [Azure CLI docume
 
 ### Azure PowerShell
 
-The `Update-AzApplicationInsights` PowerShell command doesn't currently support migrating a classic Application Insights resource to workspace based. To create a workspace-based resource with PowerShell, use the following Azure Resource Manager templates and deploy them with PowerShell.
+Starting with version 8.0 or higher of [Azure PowerShell](/powershell/azure/what-is-azure-powershell), you can use the  `Update-AzApplicationInsights` PowerShell command to migrate a classic Application Insights resource to workspace based.
+
+To use this cmdlet, you need to specify the name and resource group of the Application Insights resource that you want to update. Use the `IngestionMode` and `WorkspaceResoruceId` parameters to migrate your classic instance to workspace-based. For more information on the parameters and syntax of this cmdlet, see [Update-AzApplicationInsights](/powershell/module/az.applicationinsights/update-azapplicationinsights).
+
+#### Example
+
+```powershell
+# Get the resource ID of the Log Analytics workspace
+$workspaceResourceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName "rgName" -Name "laName").ResourceId
+
+# Update the Application Insights resource with the workspace parameter
+Update-AzApplicationInsights -Name "aiName" -ResourceGroupName "rgName" -IngestionMode LogAnalytics -WorkspaceResourceId $workspaceResourceId
+```
 
 ### Azure Resource Manager templates
 
@@ -281,7 +306,7 @@ Yes, they continue to work.
 
 No. Migration doesn't affect existing API access to data. After migration, you can access data directly from a workspace by using a [slightly different schema](#workspace-based-resource-changes).
 
-### Is there be any impact on Live Metrics or other monitoring experiences?
+### Is there any impact on Live Metrics or other monitoring experiences?
 
 No. There's no impact to [Live Metrics](live-stream.md#live-metrics-monitor-and-diagnose-with-1-second-latency) or other monitoring experiences.
 

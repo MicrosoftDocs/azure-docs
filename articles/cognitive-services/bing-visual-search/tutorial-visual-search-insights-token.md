@@ -1,6 +1,6 @@
 ---
 title: "Find similar images from previous searches using image insights tokens and the Bing Visual Search API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use the Bing Visual Search client library to get URLs of images from previous searches. 
 services: cognitive-services
 author: aahill

@@ -18,7 +18,7 @@ This article explains how to manage your existing remote networks for Global Sec
 ## Prerequisites
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID
-- The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+- The preview requires a Microsoft Entra ID P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 - To use the Microsoft 365 traffic forwarding profile, a Microsoft 365 E3 license is recommended.
 
 ### Known limitations
@@ -29,8 +29,8 @@ This article explains how to manage your existing remote networks for Global Sec
 
 To update the details of your remote networks:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md).
-1. Go to **Global Secure Access (preview)** > **Devices** > **Remote networks**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference#global-secure-access-administrator).
+1. Browse to **Global Secure Access (preview)** > **Devices** > **Remote networks**.
 1. Select the remote network you need to update.
     - **Basics**: Select the pencil icon to edit the name of the remote network.
     - **Links**: Select the trash can icon to delete a remote network device link.
@@ -56,7 +56,7 @@ To edit the details of a remote network:
 ## Delete a remote network
 
 1. Sign in to the Microsoft Entra admin center at [https://entra.microsoft.com](https://entra.microsoft.com).
-1. Go to **Global Secure Access (preview)** > **Devices** > **Remote networks**.
+1. Browse to **Global Secure Access (preview)** > **Devices** > **Remote networks**.
 1. Select the remote network you need to delete.
 1. Select the **Delete** button. 
 1. Select **Delete** from the confirmation message.
@@ -79,4 +79,3 @@ To edit the details of a remote network:
 ## Next steps
 
 - [List remote networks](how-to-list-remote-networks.md)
-

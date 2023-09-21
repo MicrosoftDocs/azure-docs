@@ -32,44 +32,70 @@ In the abstractive document summarization scenario, each document (whether it ha
 
 ## Custom summarization conversation sample format
 
-In the abstractive conversation summarization scenario, each conversation (whether it has a provided label or not) is expected to be provided in a plain .txt file. Each conversation turn must be provided in a single line that is formatted as Speaker + “: “ + text (I.e., Speaker and text are separated by a colon followed by a space). The following is an example conversation of three turns between two speakers (Agent and Customer).
+ In the abstractive conversation summarization scenario, each conversation (whether it has a provided label or not) is expected to be provided in a .json file, which is similar to the input format for our [pre-built conversation summarization service](/rest/api/language/2023-04-01/analyze-conversation/submit-job?tabs=HTTP#textconversation).  The following is an example conversation of three turns between two speakers (Agent and Customer).
 
-Agent: Hello, how can I help you?
+```json
+{
+  "conversationItems": [
+    {
+      "text": "Hello, how can I help you?",
+      "modality": "text",
+      "id": "1",
+      "participantId": "Agent",
+      "role": "Agent"
+    },
+    {
+      "text": "How do I upgrade office? I have been getting error messages all day.",
+      "modality": "text",
+      "id": "2",
+      "participantId": "Customer",
+      "role": "Customer"
+    },
+    {
+      "text": "Please press the upgrade button, then sign in and follow the instructions.",
+      "modality": "text",
+      "id": "3",
+      "participantId": "Agent",
+      "role": "Agent"
+    }
+  ],
+  "modality": "text",
+  "id": "conversation1",
+  "language": "en"
+}
+```
 
-Customer: How do I upgrade office? I have been getting error messages all day.
-
-Agent: Please press the upgrade button, then sign in and follow the instructions.
-
-
-## Custom summarization document and sample mapping JSON format
+## Sample mapping JSON format
 
 In both document and conversation summarization scenarios, a set of documents and corresponding labels can be provided in a single JSON file that references individual document/conversation and summary files. 
 
-<!--- The JSON file is expected to contain the following fields:
+The JSON file is expected to contain the following fields:
 
 ```json
-projectFileVersion": TODO,
-"stringIndexType": TODO,
-"metadata": {
-    "projectKind": TODO,
-    "storageInputContainerName": TODO,
-    "projectName": a string project name,
-    "multilingual": TODO,
-    "description": a string project description,
-    "language": TODO:
-},
-"assets": {
-    "projectKind": TODO,
-    "documents": a list of document-label pairs, each is defined with three fields:
-        [
-        {
-        "summaryLocation": a string path to the summary txt file,
-        "location": a string path to the document txt file,
-        "language": TODO
-        }
-        ]
+{
+    projectFileVersion": The version of the exported project,
+    "stringIndexType": Specifies the method used to interpret string offsets. For additional information see https://aka.ms/text-analytics-offsets,
+    "metadata": {
+        "projectKind": The project kind you need to import. Values for summarization are CustomAbstractiveSummarization and CustomConversationSummarization. Both projectKind fields must be identical.,
+        "storageInputContainerName": The name of the storage container that contains the documents/conversations and the summaries,
+        "projectName": a string project name,
+        "multilingual": A flag denoting whether this project should allow multilingual documents or not. For Summarization this option is turned off,
+        "description": a string project description,
+        "language": The default language of the project. Possible values are “en” and “en-us”
+    },
+    "assets": {
+        "projectKind": The project kind you need to import. Values for summarization are CustomAbstractiveSummarization and CustomConversationSummarization. Both projectKind fields must be identical.,
+        "documents": a list of document-label pairs, each is defined with three fields:[
+            {
+            "summaryLocation": a string path to the summary txt (for documents) or json (for conversations) file,
+            "location": a string path to the document txt (for documents) or json (for conversations) file,
+            "language": The language of the documents. Possible values are “en” and “en-us”
+            }
+            ]
+    }
 }
-``` --->
+```
+## Custom document summarization mapping sample
 
 The following is an example mapping file for the abstractive document summarization scenario with three documents and corresponding labels.
 
@@ -101,6 +127,45 @@ The following is an example mapping file for the abstractive document summarizat
             {
                 "summaryLocation": "doc3_summary.txt",
                 "location": "doc3.txt",
+                "language": "en-us"
+            }
+            ]
+    }
+}
+```
+
+## Custom conversation summarization mapping sample
+
+The following is an example mapping file for the abstractive conversation summarization scenario with three documents and corresponding labels.
+
+```json
+{
+    "projectFileVersion": "2022-10-01-preview",
+    "stringIndexType": "Utf16CodeUnit",
+    "metadata": {
+        "projectKind": "CustomAbstractiveSummarization",
+        "storageInputContainerName": "abstractivesummarization",
+        "projectName": "sample_custom_summarization",
+        "multilingual": false,
+        "description": "Creating a custom summarization model",
+        "language": "en-us"
+    }
+    "assets": {
+        "projectKind": "CustomAbstractiveSummarization",
+        "documents": [
+            {
+                "summaryLocation": "conv1_summary.txt",
+                "location": "conv1.json",
+                "language": "en-us"
+            },
+            {
+                "summaryLocation": "conv2_summary.txt",
+                "location": "conv2.json",
+                "language": "en-us"
+            },
+            {
+                "summaryLocation": "conv3_summary.txt",
+                "location": "conv3.json",
                 "language": "en-us"
             }
             ]

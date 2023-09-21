@@ -20,15 +20,17 @@ items:
       href: faq.yml
 - name: Quickstarts
   items:
-    - name: GPT-3
+    - name: Completions
       href: quickstart.md
-    - name: GPT-35-Turbo & GPT-4 
+    - name: Chat
       href: chatgpt-quickstart.md  
       displayName: ChatGPT, chatgpt
     - name: DALL-E (preview)
       href: dall-e-quickstart.md
     - name: Use your data (preview)
       href: use-your-data-quickstart.md
+    - name: Whisper (preview)
+      href: whisper-quickstart.md
 - name: Concepts
   items:
     - name: Abuse monitoring
@@ -49,41 +51,57 @@ items:
       href: ./concepts/use-your-data.md
 - name: How-to 
   items:
-    - name: Resource creation & model deployment
-      href: ./how-to/create-resource.md
+  - name: Completions & chat completions
+    items:
     - name: GPT-35-Turbo & GPT-4 
       href: ./how-to/chatgpt.md
       displayName: ChatGPT, chatgpt
+    - name: Function calling
+      href: ./how-to/function-calling.md
     - name: Completions
       href: ./how-to/completions.md
-    - name: OpenAI vs Azure OpenAI (Python)
-      href: ./how-to/switching-endpoints.md
-    - name: Configure content filters
-      href: ./how-to/content-filters.md
-    - name: Work with code (Codex)
+    - name: Work with code
       href: ./how-to/work-with-code.md
-    - name: Generate embeddings
-      href: ./how-to/embeddings.md
-    - name: Prepare dataset
-      href: ./how-to/prepare-dataset.md
-    - name: Fine-tuning your model
-      href: ./how-to/fine-tuning.md
-    - name: Manage identity
-      href: ./how-to/managed-identity.md
-    - name: Manage quota
-      href: ./how-to/quota.md
-    - name: Use virtual networks
-      href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context
     - name: Use with large datasets
       href: ./how-to/integrate-synapseml.md
-    - name: Encryption of data at rest
-      href: encrypt-data-at-rest.md
-    - name: Business continuity & disaster recovery (BCDR)
-      href: ./how-to/business-continuity-disaster-recovery.md
-    - name: Monitor Azure OpenAI
-      href: ./how-to/monitoring.md
-    - name: Plan and manage costs
-      href: ./how-to/manage-costs.md
+  - name: Content filtering
+    href: ./how-to/content-filters.md
+  - name: Embeddings
+    items:
+    - name: Embeddings basics
+      href: ./how-to/embeddings.md
+    - name: Getting started with embeddings (Python)
+      href: ./tutorials/embeddings.md
+  - name: Fine-tuning
+    items:
+      - name: Prepare dataset
+        href: ./how-to/prepare-dataset.md
+      - name: Fine-tuning your model
+        href: ./how-to/fine-tuning.md
+  - name: Networking & security
+    items:
+      - name: Use virtual networks
+        href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context
+      - name: Encryption of data at rest
+        href: encrypt-data-at-rest.md
+      - name: Manage identity
+        href: ./how-to/managed-identity.md
+  - name: Service management
+    items:
+      - name: Resource creation & model deployment
+        href: ./how-to/create-resource.md
+      - name: OpenAI vs Azure OpenAI (Python)
+        href: ./how-to/switching-endpoints.md
+      - name: Manage quota
+        href: ./how-to/quota.md
+      - name: Monitor Azure OpenAI
+        href: ./how-to/monitoring.md
+      - name: Plan and manage costs
+        href: ./how-to/manage-costs.md
+      - name: Role-based access control (Azure RBAC)
+        href: ./how-to/role-based-access-control.md
+      - name: Business continuity & disaster recovery (BCDR)
+        href: ./how-to/business-continuity-disaster-recovery.md
 - name: Tutorials
   items:
     - name: Embeddings
@@ -104,21 +122,25 @@ items:
       href: /legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context
 - name: Reference
   items:
-    - name: Bicep/Azure Resource Manager/Terraform
+    - name: Azure Resource Manager/Bicep/Terraform
       href: /azure/templates/microsoft.cognitiveservices/accounts?pivots=deployment-language-bicep
       displayName: ARM, ARM template, template 
-    - name: REST API (completions & embeddings)
-      href: reference.md
-    - name: REST API (fine-tuning)
-      href: /rest/api/cognitiveservices/azureopenaistable/fine-tunes
-    - name: REST API (Resource creation & deployment)
-      href: /rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP
-    - name: .NET 
-      href: /dotnet/api/azure.ai.openai?view=azure-dotnet-preview&preserve-view=true
+    - name: Azure CLI
+      href: /cli/azure/cognitiveservices?view=azure-cli-latest&preserve-view=true
+    - name: Go
+      href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai
     - name: Java
       href: /java/api/com.azure.ai.openai?view=azure-java-preview&preserve-view=true
     - name: JavaScript
       href: /javascript/api/@azure/openai/?view=azure-node-preview&preserve-view=true
+    - name: .NET 
+      href: /dotnet/api/azure.ai.openai?view=azure-dotnet-preview&preserve-view=true
+    - name: REST API (completions & embeddings)
+      href: reference.md
+    - name: REST API (fine-tuning)
+      href: /rest/api/cognitiveservices/azureopenaistable/fine-tunes
+    - name: REST API (resource creation & deployment)
+      href: /rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP
 - name: Resources
   items: 
     - name: Support and help options

@@ -3,7 +3,7 @@ title: Source claims from an external store (SAML app)
 titleSuffix: Microsoft identity platform
 description: Use a custom claims provider to augment tokens with claims from an external identity system. Configure a SAML app to receive tokens with external claims. 
 services: active-directory
-author: yoelhor
+author: davidmu1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.date: 03/06/2023
 ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: JasSuri
-#Customer intent: As an application developer, I want to source claims from a data store that is external to Azure Active Directory.
+#Customer intent: As an application developer, I want to source claims from a data store that is external to Microsoft Entra ID.
 ---
 
 # Configure a SAML app to receive tokens with claims from an external store (preview)
@@ -26,7 +26,7 @@ This article describes how to configure a SAML application to receive tokens wit
 Before configuring a SAML application to receive tokens with external claims, first follow these sections:
 
 - [Create a custom claims provider API](custom-extension-get-started.md#step-1-create-an-azure-function-app)
-- [Register a custom claims extension](custom-extension-get-started.md#step-2-register-a-custom-extension)
+- [Register a custom claims extension](custom-extension-get-started.md#step-2-register-a-custom-authentication-extension)
 
 ## Configure a SAML application that receives enriched tokens
 
@@ -36,9 +36,15 @@ The following steps are for registering a demo [XRayClaims](https://adfshelp.mic
 
 ### Add a new SAML application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Add a new, non-gallery SAML application in your tenant:
 
-1. In the [Azure portal](https://portal.azure.com), go to **Azure Active Directory** and then **Enterprise applications**.  Select **New application** and then **Create your own application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.  
+
+1. Select **New application** and then **Create your own application**.
 
 1. Add a name for the app.  For example, **AzureADClaimsXRay**.  Select the **Integrate any other application you don't find in the gallery (Non-gallery)** option and select **Create**.
 
@@ -56,7 +62,7 @@ Set up single sign-on for the app:
 
 ### Configure claims
 
-Attributes that return by your custom claims provider API aren't automatically included in tokens returned by Azure AD.  You need to configure your application to reference attributes returned by the custom claims provider and return them as claims in tokens.
+Attributes that return by your custom claims provider API aren't automatically included in tokens returned by Microsoft Entra ID.  You need to configure your application to reference attributes returned by the custom claims provider and return them as claims in tokens.
 
 1. On the **Enterprise applications** configuration page for that new app, go to the **Single sign-on** pane.
 
@@ -66,7 +72,7 @@ Attributes that return by your custom claims provider API aren't automatically i
 
 1. Select on **Configure** for **Custom claims provider**.
 
-1. Select the custom extension you [registered previously](custom-extension-get-started.md#step-2-register-a-custom-extension) in the **Custom claims provider** dropdown.  Select **Save**.
+1. Select the custom authentication extension you [registered previously](custom-extension-get-started.md#step-2-register-a-custom-authentication-extension) in the **Custom claims provider** dropdown.  Select **Save**.
 
 1. Select **Add new claim** to add a new claim.
 
@@ -86,7 +92,7 @@ Before testing the user sign-in, you must assign a user or group of users to the
 
 1. In the **Users and groups** page, select **Add user/group**.
 
-1. Search for and select the user to sign into the app.  Select the **Assign** button.
+1. Search for and select the user to sign in to the app.  Select the **Assign** button.
 
 ### Test the application
 

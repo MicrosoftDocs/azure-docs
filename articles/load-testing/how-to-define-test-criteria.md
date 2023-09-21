@@ -14,10 +14,10 @@ ms.topic: how-to
 
 In this article, you learn how to define fail criteria or auto stop criteria for your load tests with Azure Load Testing. Fail criteria let you define performance and quality expectations for your application under load. Azure Load Testing supports various client metrics for defining fail criteria, such as error rate or response time. Auto stop criteria enable you to automatically stop your load test when the error rate surpasses a given threshold.
 
-## Prerequisites  
+## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
-- An Azure load testing resource. If you need to create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).  
+- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure load testing resource. If you need to create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
 
 ## Load test fail criteria
 
@@ -92,7 +92,7 @@ In this section, you configure test criteria for a load test in the Azure portal
     The dashboard shows each of the test criteria and their status. The overall test status is failed if at least one criterion was met.
 
     :::image type="content" source="media/how-to-define-test-criteria/test-criteria-dashboard.png" alt-text="Screenshot that shows the test criteria on the load test dashboard.":::
- 
+
 # [Azure Pipelines / GitHub Actions](#tab/pipelines+github)
 
 In this section, you configure test criteria for a load test, as part of a CI/CD workflow. Learn how to [set up automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).
@@ -121,7 +121,7 @@ To specify fail criteria in the YAML configuration file:
       - percentage(error) > 50
       - GetCustomerDetails: avg(latency) >200
     ```
-    
+
     When you define a test criterion for a specific JMeter request, the request name should match the name of the JMeter sampler in the JMX file.
 
     :::image type="content" source="media/how-to-define-test-criteria/jmeter-request-name.png" alt-text="Screenshot of the JMeter user interface, highlighting the request name.":::
@@ -169,16 +169,16 @@ To configure auto stop for your load test in the Azure portal:
 
 # [Azure Pipelines / GitHub Actions](#tab/pipelines+github)
 
-To configure auto stop for your load test in a CI/CD workflow, you update the [load test configuration YAML file](./reference-test-config-yaml.md). 
+To configure auto stop for your load test in a CI/CD workflow, you update the [load test configuration YAML file](./reference-test-config-yaml.md).
 
 To specify auto stop settings in the YAML configuration file:
 
 1. Open the YAML test configuration file for your load test in your editor of choice.
 
     - To enable auto stop, add the `autoStop` setting and specify the `errorPercentage` and `timeWindow`.
-    
+
         The following example automatically stops the load test when the error percentage exceeds 80% during any 2-minute time window:
-    
+
         ```yaml
         version: v0.1
         testId: SampleTestCICD
@@ -187,14 +187,14 @@ To specify auto stop settings in the YAML configuration file:
         description: Load test website home page
         engineInstances: 1
         autoStop:
-    	  errorPercentage: 80
-    	  timeWindow: 120
-    	```
-    
+          errorPercentage: 80
+          timeWindow: 120
+        ```
+
     - To disable auto stop, add `autoStop: disable` to the configuration file.
 
         The following example disables auto stop for your load test:
-    
+
         ```yaml
         version: v0.1
         testId: SampleTestCICD
@@ -203,8 +203,8 @@ To specify auto stop settings in the YAML configuration file:
         description: Load test website home page
         engineInstances: 1
         autoStop: disable
-    	```
-    
+        ```
+
 1. Save the YAML configuration file, and commit the changes to source control.
 
 Learn how to [set up automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).

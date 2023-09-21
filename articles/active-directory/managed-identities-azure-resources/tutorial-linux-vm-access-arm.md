@@ -21,7 +21,7 @@ ms.custom: mode-other, devx-track-arm-template
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This quickstart shows you how to use a system-assigned managed identity as a Linux virtual machine (VM)'s identity to access the Azure Resource Manager API. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. 
+This quickstart shows you how to use a system-assigned managed identity as a Linux virtual machine (VM)'s identity to access the Azure Resource Manager API. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Microsoft Entra authentication without needing to insert credentials into your code. 
 You learn how to:
 
 > [!div class="checklist"]
@@ -37,7 +37,9 @@ You learn how to:
 
 ## Grant access
 
-When you use managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication. The Azure Resource Manager API supports Azure AD authentication. First, we need to grant this VM's identity access to a resource in Azure Resource Manager, in this case, the Resource Group in which the VM is contained.  
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+When you use managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Microsoft Entra authentication. The Azure Resource Manager API supports Microsoft Entra authentication. First, we need to grant this VM's identity access to a resource in Azure Resource Manager, in this case, the Resource Group in which the VM is contained.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your administrator account.
 1. Navigate to the tab for **Resource Groups**.

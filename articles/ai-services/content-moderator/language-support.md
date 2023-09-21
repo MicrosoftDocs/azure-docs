@@ -1,7 +1,7 @@
 ---
 title: Language support - Content Moderator API
 titleSuffix: Azure AI services
-description: This is a list of natural languages that the Azure AI services Content Moderator API supports.
+description: This is a list of natural languages that the Content Moderator API supports.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -21,117 +21,155 @@ ms.author: pafarley
 > For **profanity terms** detection, use the [ISO 639-3 code](http://www-01.sil.org/iso639-3/codes.asp) of the supported languages listed in this article, or leave it empty.
 
 
-| Language detection | Profanity   | OCR    | Auto-correction     |
-| -------------------- |-------------|--------|---------------------|
-| Arabic (Romanized)   | Afrikaans   | Arabic   | Arabic |
-| Balinese | Albanian | Chinese (Simplified)    | Danish |
-| Bengali | Amharic | Chinese (Traditional)     | Dutch |
-| Buginese | Arabic | Czech                     | English |
-| Buhid | Armenian | Danish                     | Finnish |
-| Carian | Assamese | Dutch                     | French |
-| Chinese (Simplified) | Azerbaijani | English  | Greek (modern) |
-| Chinese (Traditional) | Bangla - Bangladesh | Finnish  | Italian |
-| Church (Slavic) | Bangla - India | French     | Korean |
-| Coptic | Basque | German                      | Norwegian |
-| Czech |  Belarusian | Greek (modern)         | Polish |
-| Dhivehi | Bosnian - Cyrillic | Hungarian      | Portuguese |
-| Dutch | Bosnian - Latin | Italian             | Romanian |
-| English (Creole) | Breton [non-GeoPol] | Japanese  | Russian |
-| Farsi | Bulgarian | Korean                        | Slovak |
-| French | Catalan | Norwegian                        | Spanish |
-| German | Central Kurdish | Polish        | Turkish |
-| Greek | Cherokee | Portuguese | |
-| Haitian | Chinese (Simplified) | Romanian | |
-| Hebrew | Chinese (Traditional) - Hong Kong SAR | Russian | |
-| Hindi | Chinese (Traditional) - Taiwan | Serbian Cyrillic | |
-| Hmong | Croatian | Serbian Latin | |
-| Hungarian | Czech | Slovak | |
-| Italian | Danish | Spanish | |
-| Japanese | Dari | Swedish | |
-| Korean | Dutch | Turkish | |
-| Kurdish (Arabic) | English | | |
-| Kurdish (Latin) | Estonian | | |
-| Lepcha | Filipino | | |
-| Limbu | Finnish | | |
-| Lu | French | | |
-| Lycian | | |
-| Lydian | Georgian | | |
-| Mycenaean (Greek) | German | | |
-| Nko | Greek | | |
-| Norwegian (Bokmal) | Gujarati | | |
-| Norwegian (Nynorsk) |  Hausa | | |
-| Old (Persian) | Hebrew | | |
-| Pashto | Hindi | | |
-| Polish | Hungarian | | |
-| Portuguese | Icelandic | | |
-| Punjabi | Igbo | | |
-| Rejang | Indonesian | | |
-| Russian | Inuktitut | | |
-| Santali | Irish | | |
-| Sasak | isiXhosa | | |
-| Saurashtra | isiZulu | | |
-| Serbian (Cyrillic) | Italian | | |
-| Serbian (Latin) | Japanese | | |
-| Sinhala | Kannada | | |
-| Slovenian | Kazakh | | |
-| Spanish | Khmer | | |
-| Swedish | K'iche | | |
-| Sylheti | Kinyarwanda | | |
-| Syriac | Kiswahili | | |
-| Tagbanwa | Konkani | | |
-| Tai (Nua) | Korean | | |
-| Tamashek | Kyrgyz | | |
-| Turkish | Lao | | |
-| Ugaritic | Latvian | | |
-| Uzbek (Cyrillic) | Lithuanian | | |
-| Uzbek (Latin) | Luxembourgish | | |
-| Vai | Macedonian | | |
-| Yi | Malay | | |
-| Zhuang, Chuang | Malayalam | | |
-| | Maltese | | |
-| | Maori | | |
-| | Marathi | | |
-| | Mongolian | | |
-| | Nepali | | |
-| | Norwegian (Bokmål) | | |
-| | Norwegian (Nynorsk) | | |
-| | Odia | | |
-| | Pashto | | |
-| | Persian | | |
-| | Polish | | |
-| | Portuguese - Brazil | | |
-| | Portuguese - Portugal | | |
-| | Pulaar | | |
-| | Punjabi | | |
-| | Punjabi (Pakistan) | | |
-| | Quechua (Peru) | | |
-| | Romanian | | |
-| | Russian | | |
-| | Serbian (Cyrillic) | | |
-| | Serbian (Cyrillic, Bosnia and Herzegovina) | | |
-| | Serbian (Latin) | | |
-| | Sesotho | | |
-| | Sesotho sa Leboa | | |
-| | Setswana | | |
-| | Sindhi | | |
-| | Sinhala | | |
-| | Slovak | | |
-| | Slovenian | | |
-| | Spanish | | |
-| | Swedish | | |
-| | Tajik | | |
-| | Tamil | | |
-| | Tatar | | |
-| | Telugu | | |
-| | Thai | | |
-| | Tigrinya | | |
-| | Turkish | | |
-| | Turkmen | | |
-| | Ukrainian | | |
-| | Urdu | | |
-| | Uyghur | | |
-| | Uzbek | | |
-| | Valencian | | |
-| | Vietnamese | | |
-| | Wolof | | |
-| | Yoruba | | |
+|	Language | Language detection   | Profanity | OCR    | Auto-correction     |
+| ---------- |-------------|--------|-----|----|
+|Afrikaans | |✔️ | | |
+|Albanian | |✔️ | | |
+|Amharic | |✔️ | | |
+|Arabic | |✔️ |✔️ | ✔️|
+|Arabic (Romanized) |✔️ | | | |
+|Armenian | |✔️ | | |
+|Assamese | |✔️ | | |
+|Azerbaijani | |✔️ | | |
+|Bangla - Bangladesh | |✔️ | | |
+|Balinese |✔️ | | | |
+|Basque | |✔️ | | |
+|Belarusian | |✔️ | | |
+|Bengali | ✔️| | | |
+|Bengali - India | |✔️ | | |
+|Bosnian - Cyrillic | |✔️ | | |
+|Bosnian - Latin | |✔️ | | |
+|Buginese |✔️ | | | |
+|Buhid |✔️ | | | |
+|Bulgarian | |✔️ | | |
+|Breton (non-GeoPol) | |✔️ | | |
+|Carian |✔️ | | | |
+|Catalan | |✔️ | | |
+|Central Kurdish | |✔️ | | |
+|Cherokee | |✔️ | | |
+|Chinese (Simplified) |✔️ |✔️ |✔️ | |
+|Chinese (Traditional) |✔️ | |✔️ | |
+|Chinese (Traditional) - Hong Kong SAR | |✔️ | | |
+|Chinese (Traditional) - Taiwan | |✔️ | | |
+|Church (Slavic) |✔️ | | | |
+|Coptic |✔️ | | | |
+|Croatian | |✔️ | | |
+|Czech |✔️ |✔️ |✔️ | |
+|Danish | |✔️ |✔️ |✔️ |
+|Dari |✔️ |✔️ | | |
+|Dhivehi |✔️ | | | |
+|Dutch |✔️ |✔️ |✔️ |✔️ |
+|English | |✔️ |✔️ |✔️ |
+|English (Creole) |✔️ | | | |
+|Estonian | |✔️ | | |
+|Filipino | |✔️ | | |
+|Finnish | |✔️ |✔️ |✔️ |
+|French | ✔️|✔️ |✔️ |✔️ |
+|Georgian | |✔️ | | |
+|German |✔️ |✔️ |✔️ | |
+|Greek |✔️ |✔️ | | |
+|Greek (modern) | | |✔️ |✔️ |
+|Gujarati | |✔️ | | |
+|Haitian |✔️ | | | |
+|Hausa | |✔️ | | |
+|Hebrew |✔️ |✔️ | | |
+|Hindi |✔️ |✔️ | | |
+|Hmong |✔️ | | | |
+|Hungarian |✔️ |✔️ |✔️ | |
+|Icelandic | |✔️ | | |
+|Igbo | |✔️ | | |
+|Indonesian | |✔️ | | |
+|Inuktitut | |✔️ | | |
+|Irish | |✔️ | | |
+|isiXhosa | |✔️ | | |
+|isiZulu | |✔️ | | |
+|Italian |✔️ |✔️ |✔️ |✔️ |
+|Japanese |✔️ |✔️ |✔️ | |
+|Kannada | |✔️ | | |
+|Kazakh | |✔️ | | |
+|Khmer | |✔️ | | |
+|K'iche | |✔️ | | |
+|Kinyarwanda | |✔️ | | |
+|Kiswahili | |✔️ | | |
+|Konkani | |✔️ | | |
+|Korean |✔️ |✔️ |✔️ |✔️ |
+|Kurdish (Arabic) |✔️ | | | |
+|Kurdish (Latin) |✔️ | | | |
+|Kyrgyz | |✔️ | | |
+|Lao | |✔️ | | |
+|Latvian | |✔️ | | |
+|Lepcha |✔️ | | | |
+|Limbu |✔️ | | | |
+|Lithuanian | |✔️ | | |
+|Lu |✔️ | | | |
+|Luxembourgish | |✔️ | | |
+|Lycian |✔️ | | | |
+|Lydian |✔️ | | | |
+|Macedonian | |✔️ | | |
+|Malay | |✔️ | | |
+|Malayalam | |✔️ | | |
+|Maltese | |✔️ | | |
+|Maori | |✔️ | | |
+|Marathi | |✔️ | | |
+|Mongolian | |✔️ | | |
+|Mycenaean (Greek) |✔️ | | | |
+|Nepali | |✔️ | | |
+|Nko |✔️ | | | |
+|Norwegian  | | |✔️ |✔️ |
+|Norwegian (Bokmal) |✔️ |✔️ | | |
+|Norwegian (Nynorsk) |✔️ |✔️ | | |
+|Odia | |✔️ | | |
+|Pashto |✔️ |✔️ | | |
+|Persian |✔️ |✔️ | | |
+|Polish |✔️ |✔️ |✔️ |✔️ |
+|Portuguese - Brazil |✔️ |✔️ |✔️ |✔️ |
+|Portuguese - Portugal |✔️ |✔️ |✔️ |✔️ |
+|Pulaar | |✔️ | | |
+|Punjabi |✔️ |✔️ | | |
+|Punjabi (Pakistan) | |✔️ | | |
+|Quechua (Peru) | |✔️ | | |
+|Rejang |✔️ | | | |
+|Romanian | |✔️ |✔️ |✔️ |
+|Russian |✔️ |✔️ |✔️ |✔️ |
+|Santali |✔️ | | | |
+|Sasak |✔️ | | | |
+|Saurashtra |✔️ | | | |
+|Serbian (Cyrillic) |✔️ |✔️ |✔️ | |
+|Serbian (Cyrillic, Bosnia and Herzegovina) | |✔️ | | |
+|Serbian (Latin) |✔️ |✔️ |✔️ | |
+|Sesotho | |✔️ | | |
+|Sesotho sa Leboa | |✔️ | | |
+|Setswana | |✔️ | | |
+|Sindhi | |✔️ | | |
+|Sinhala |✔️ |✔️ | | |
+|Slovak | |✔️ |✔️ |✔️ |
+|Slovenian |✔️ |✔️ | | |
+|Spanish |✔️ |✔️ |✔️ |✔️ |
+|Swedish |✔️ |✔️ |✔️ | |
+|Sylheti |✔️ | | | |
+|Syriac |✔️ | | | |
+|Tagbanwa |✔️ | | | |
+|Tai (Nua) |✔️ | | | |
+|Tajik | |✔️ | | |
+|Tamashek |✔️ | | | |
+|Tamil | |✔️ | | |
+|Tatar | |✔️ | | |
+|Telugu | |✔️ | | |
+|Thai | |✔️ | | |
+|Tigrinya | |✔️ | | |
+|Turkish |✔️ |✔️ |✔️ |✔️ |
+|Turkmen | |✔️ | | |
+|Ugaritic |✔️ | | | | 
+|Ukrainian | |✔️ | | |
+|Urdu | |✔️ | | |
+|Uyghur | |✔️ | | |
+|Uzbek (Cyrillic) |✔️ |✔️ | | |
+|Uzbek (Latin) |✔️ |✔️ | | |
+|Valencian | |✔️ | | |
+|Vai |✔️ | | | |
+|Vietnamese | |✔️ | | |
+|Wolof | |✔️ | | |
+|Yi |✔️ | | | |
+|Yoruba | |✔️ | | |
+|Zhuang, Chuang |✔️ | | | |
+

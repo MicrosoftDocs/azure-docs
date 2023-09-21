@@ -4847,7 +4847,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Speech-Service/support.md",
-            "redirect_url": "/azure/ai-services/cognitive-services-support-options?context=/azure/cognitive-services/speech-service/context/context",
+            "redirect_url": "/azure/ai-services/cognitive-services-support-options",
             "redirect_document_id": false
         },
         {
@@ -5026,12 +5026,12 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cognitive-services/Speech-Service/call-center-transcription.md ",
+            "source_path_from_root": "/articles/cognitive-services/Speech-Service/call-center-transcription.md",
             "redirect_url": "/azure/ai-services/speech-service/call-center-overview",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cognitive-services/Speech-Service/rest-speech-to-text-v3-1.md ",
+            "source_path_from_root": "/articles/cognitive-services/Speech-Service/rest-speech-to-text-v3-1.md",
             "redirect_url": "/azure/ai-services/speech-service/migrate-v3-0-to-v3-1",
             "redirect_document_id": false
         },
@@ -5157,67 +5157,67 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/quickstarts/csharp.md",
-            "redirect_url": "/azure/ai-services/text-analytics/quickstarts/text-analytics-sdk",
+            "redirect_url": "/azure/ai-services/language-service/language-detection/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/quickstarts/go-sdk.md",
-            "redirect_url": "/azure/ai-services/text-analytics/quickstarts/client-libraries-rest-api",
+            "redirect_url": "/azure/ai-services/language-service/language-detection/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/quickstarts/go.md",
-            "redirect_url": "/azure/ai-services/text-analytics/quickstarts/client-libraries-rest-api",
+            "redirect_url": "/azure/ai-services/language-service/language-detection/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/quickstarts/java.md",
-            "redirect_url": "/azure/ai-services/text-analytics/quickstarts/client-libraries-rest-api",
+            "redirect_url": "/azure/ai-services/language-service/language-detection/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/quickstarts/nodejs-sdk.md",
-            "redirect_url": "/azure/ai-services/text-analytics/quickstarts/text-analytics-sdk",
+            "redirect_url": "/azure/ai-services/language-service/language-detection/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/quickstarts/nodejs.md",
-            "redirect_url": "/azure/ai-services/text-analytics/quickstarts/client-libraries-rest-api",
+            "redirect_url": "/azure/ai-services/language-service/language-detection/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/quickstarts/php.md",
-            "redirect_url": "/azure/ai-services/text-analytics/quickstarts/client-libraries-rest-api",
+            "redirect_url": "/azure/ai-services/language-service/language-detection/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/quickstarts/python-sdk.md",
-            "redirect_url": "/azure/ai-services/text-analytics/quickstarts/text-analytics-sdk",
+            "redirect_url": "/azure/ai-services/language-service/language-detection/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/quickstarts/python.md",
-            "redirect_url": "/azure/ai-services/text-analytics/quickstarts/client-libraries-rest-api",
+            "redirect_url": "/azure/ai-services/language-service/language-detection/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/quickstarts/ruby-sdk.md",
-            "redirect_url": "/azure/ai-services/text-analytics/quickstarts/client-libraries-rest-api",
+            "redirect_url": "/azure/ai-services/language-service/language-detection/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/quickstarts/ruby.md",
-            "redirect_url": "/azure/ai-services/text-analytics/quickstarts/client-libraries-rest-api",
+            "redirect_url": "/azure/ai-services/language-service/language-detection/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/quickstarts/text-analytics-sdk-v2.md",
-            "redirect_url": "/azure/ai-services/text-analytics/quickstarts/text-analytics-sdk",
+            "redirect_url": "/azure/ai-services/language-service/language-detection/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/quickstarts/text-analytics-sdk.md",
-            "redirect_url": "/azure/ai-services/text-analytics/quickstarts/client-libraries-rest-api",
+            "redirect_url": "/azure/ai-services/language-service/language-detection/overview",
             "redirect_document_id": false
         },
         {
@@ -6118,6 +6118,11 @@
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/quickstart-translator-sdk.md",
             "redirect_url": "/azure/ai-services/Translator/quickstart-text-sdk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ai-services/computer-vision/how-to/install-sdk.md",
+            "redirect_url": "/articles/ai-services/computer-vision/sdk/install-sdk",
             "redirect_document_id": false
         }
     ]

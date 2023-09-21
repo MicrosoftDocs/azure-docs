@@ -1,6 +1,6 @@
 ---
 title: Limits - LUIS
-description: This article contains the known limits of Azure AI services Language Understanding (LUIS). LUIS has several limits areas. Model limit controls intents, entities, and features in LUIS. Quota limits based on key type. Keyboard combination controls the LUIS website.
+description: This article contains the known limits of Azure AI Language Understanding (LUIS). LUIS has several limits areas. Model limit controls intents, entities, and features in LUIS. Quota limits based on key type. Keyboard combination controls the LUIS website.
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.author: aahi

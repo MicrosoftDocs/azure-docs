@@ -4,25 +4,26 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: 🆕 What is Azure AI Document Intelligence?
+  - name: What is Azure AI Document Intelligence?
     displayName: models, develop, development, cognitive, applied, form recognizer, form, recognizer
     href: overview.md
-  - name: 🆕 Choose a model?
+  - name: Choose a model?
     href: choose-model-feature.md
   - name: Document Intelligence Studio
     displayName: get started
     href: studio-overview.md
-  - name: Document Intelligence SDK
+  - name: Document Intelligence SDKs
+    expanded: true
     items:
-      - name: Public preview
-        displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, package, version,AzureKeyCredential, Azure key credential, key, endpoint
-        href: sdk-preview.md
-      - name: General availability
-        displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, preview, beta, package, version,AzureKeyCredential, Azure key credential, key, endpoint
-        href: sdk-overview.md
+      - name: "v3.1 targets: REST API 2023-07-31 latest (GA)"
+        displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, package, version,AzureKeyCredential, Azure key credential, key, endpoint
+        href: sdk-overview-v3-1.md
+      - name:  "v3.0 targets: REST API 2022-08-31 (GA)"
+        displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, package, version,AzureKeyCredential, Azure key credential, key, endpoint
+        href: sdk-overview-v3-0.md
       - name: Changelog and release history
         displayName: latest, update, beta, package, preview, version
-        href: changelog-release-history.md  
+        href: changelog-release-history.md
   - name: Language support
     displayName: locale, handwritten, handwriting, text, detect, detection
     href: language-support.md
@@ -57,9 +58,9 @@ items:
   - name: Create a Document Intelligence resource
     displayName: endpoint, key, portal
     href:  create-document-intelligence-resource.md
-  - name: Migrate to Document Intelligence v3.0
+  - name: Migrate to Document Intelligence v3.1
     displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
-    href: v3-migration-guide.md
+    href: v3-1-migration-guide.md
   - name: Check my usage and estimate the cost
     displayName: price, metrics, dashboard, check, estimate
     href: how-to-guides/estimate-cost.md
@@ -71,12 +72,12 @@ items:
     - name: Build a custom extraction model
       displayName: tables, labels, ocr, input, train, training, sets, testing
       href: how-to-guides/build-a-custom-model.md
-    - name: 🆕 Build a custom classification model (preview)
+    - name: Build a custom classification model
       displayName: custom, classifier, splitter
       href: how-to-guides/build-a-custom-classifier.md
     - name: Project sharing with custom models
       displayName: project, share, sharing
-      href: how-to-guides/project-share-custom-models.md  
+      href: how-to-guides/project-share-custom-models.md
     - name: Compose custom extraction models
       displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
       href: how-to-guides/compose-custom-models.md
@@ -138,13 +139,13 @@ items:
   - name: Transparency notes
     items:
     - name: Document Intelligence scenarios
-      href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/ai-services/document-intelligence/context/context
+      href: /legal/cognitive-services/document-intelligence/transparency-note?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
     - name: Characteristics and limitations
-      href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/ai-services/document-intelligence/context/context
+      href: /legal/cognitive-services/document-intelligence/characteristics-and-limitations?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
   - name: Integration and responsible use
-    href: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/ai-services/document-intelligence/context/context
+    href: /legal/cognitive-services/document-intelligence/guidance-integration-responsible-use?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
   - name: Data, privacy, and security
-    href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/ai-services/document-intelligence/context/context
+    href: /legal/cognitive-services/document-intelligence/data-privacy-security?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Model overview
@@ -167,18 +168,15 @@ items:
   - name: Layout model
     displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
     href: concept-layout.md
-  - name: 🆕 Query field extraction (preview)
-    displayName: queries, fields, OpenAI, chat
-    href: concept-query-fields.md
-  - name: 🆕 Add-on capabilities (preview)
-    displayName: extract, formula, font, styles, fontStyle, ocr.highResolution, ocr.formula, high resolution, background color, inline, display
-    href: concept-add-on-capabilities.md
-  - name: 🆕 Health insurance card model
+  - name: Contract model
+    displayName: contracts, agreements, legal, terms, conditions, clauses, parties, dates, signatures
+    href: concept-contract.md
+  - name: Tax document models
+    displayName: tax, forms, 1098, 1098-E, 1098-T, W-2, wages, taxes, salary, employees, tuition, loan, interest, mortgage
+    href: concept-tax-document.md
+  - name: Health insurance card model
     displayName: health, proof, hospital
-    href: concept-insurance-card.md
-  - name: W-2 form model
-    displayName: wages, taxes, salary, employees
-    href: concept-w2.md
+    href: concept-health-insurance-card.md
   - name: Invoice model
     displayName: sales, vendors, VAT
     href: concept-invoice.md
@@ -189,20 +187,29 @@ items:
     displayName: passport, visa, ID, social security, green card
     href: concept-id-document.md
   - name: Business card model
-    displayName: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
+    displayName: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument
     href: concept-business-card.md
+  - name: Query field extraction
+    displayName: queries, fields, OpenAI, chat
+    href: concept-query-fields.md
+  - name: Add-on capabilities
+    displayName: extract, formula, font, styles, fontStyle, ocr.highResolution, ocr.formula, high resolution, background color, inline, display
+    href: concept-add-on-capabilities.md
   - name: Custom models
     items:
     - name: Custom model overview
       displayName: table, label, ocr, confidence, template, neural
       href: concept-custom.md
+    - name: Custom model lifecycle
+      displayName: custom, train, modelId, model ID
+      href: concept-custom-lifecycle.md
     - name: Custom template model
       displayName: structure, selection, labels, tables, tabular, train, template, neural, build mode, signatures, custom
       href: concept-custom-template.md
     - name: Custom neural model
       displayName: selection, structure, tables, tabular, train, template, neural, build mode, signatures, custom
       href: concept-custom-neural.md
-    - name: 🆕 Custom classification model (preview)
+    - name: Custom classification model
       displayName: custom, train, classification, splitting
       href: concept-custom-classifier.md
     - name: Custom labels
@@ -214,9 +221,12 @@ items:
     - name: Composed models
       displayName: custom, assign, modelId, model ID
       href:  concept-composed-models.md
+    - name: Custom model lifecycle
+      displayName: custom, model, expiration, train, build
+      href:  concept-custom-lifecycle.md
 - name: Tutorials
   items:
-  - name: Use Document Intelligence with Azure Logic Apps
+  - name: Create workflows using Azure Logic Apps
     displayName: connectors, automate, automation, workflows
     href: tutorial-logic-apps.md
   - name: Use managed identities to access Azure storage
@@ -225,21 +235,23 @@ items:
     expanded: true
     items:
     - name:  Custom
-      href: /ai-builder/create-form-processing-model?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+      href: /ai-builder/create-form-processing-model?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
     - name:  Invoice
-      href: /ai-builder/flow-invoice-processing?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+      href: /ai-builder/flow-invoice-processing?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
     - name: Receipt
-      href: /ai-builder/flow-receipt-processing?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+      href: /ai-builder/flow-receipt-processing?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
     - name: ID document
-      href: /ai-builder/id-reader?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/applied-ai-services/breadcrumb/toc.json
+      href: /ai-builder/id-reader?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/applied-ai-services/breadcrumb/toc.json
     - name: Business card
-      href: /ai-builder/flow-business-card-reader?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+      href: /ai-builder/flow-business-card-reader?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
   - name: Use Azure AI Document Intelligence with Cognitive Search
     href: ../../search/cognitive-search-custom-skill-form.md
   - name: Use Azure AI Document Intelligence with Azure Functions
     href: tutorial-azure-function.md
 - name: Reference
   items:
+    - name: REST API v3.1
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument
     - name: REST API v3.0
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
     - name: Error codes and messages v3.0

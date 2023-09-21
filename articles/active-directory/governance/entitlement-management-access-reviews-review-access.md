@@ -27,8 +27,8 @@ Entitlement management simplifies how enterprises manage access to groups, appli
 ## Prerequisites
 
 To review users' active access package assignments, the creator of a review must satisfy these prerequisites:
-- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
-- Global administrator, Identity Governance administrator, or User administrator
+- Microsoft Entra ID P2 or Microsoft Entra ID Governance
+- Global administrator or Identity Governance administrator
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 
@@ -92,13 +92,13 @@ If there are multiple reviewers, the last submitted response is recorded. Consid
 
 To review access for multiple users more quickly, you can use the system-generated recommendations, accepting the recommendations with a single select. The recommendations are generated based on the user's sign-in activity.
 
-1.	In the bar at the top of the page, select **Accept recommendations**.
+1. In the bar at the top of the page, select **Accept recommendations**.
     
     ![Select Accept recommendations](./media/entitlement-management-access-reviews-review-access/review-access-use-recommendations.png)
     
     You see a summary of the recommended actions.
 
-1.	Select **Submit** to accept the recommendations.
+1. Select **Submit** to accept the recommendations.
 
 ## Next steps
 

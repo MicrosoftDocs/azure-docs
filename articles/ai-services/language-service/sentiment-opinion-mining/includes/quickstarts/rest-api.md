@@ -5,12 +5,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 12/06/2022
+ms.date: 07/19/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/rest/api/language/2023-04-01/text-analysis-runtime/analyze-text)
+[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2239169)
 
 Use this quickstart to send sentiment analysis requests using the REST API. In the following example, you'll use cURL to identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
 
@@ -37,7 +37,7 @@ Use this quickstart to send sentiment analysis requests using the REST API. In t
 
 ## Create a JSON file with the example request body
 
-In a code editor, create a new file named `request_body.json` and copy the following JSON example. This example request will be sent to the API in the next step.
+In a code editor, create a new file named `test_sentiment_payload.json` and copy the following JSON example. This example request will be sent to the API in the next step.
 
 ```json
 {
@@ -58,7 +58,7 @@ In a code editor, create a new file named `request_body.json` and copy the follo
 } 
 ```
 
-Save `request_body.json` somewhere on your computer. For example, your desktop.  
+Save `test_sentiment_payload.json` somewhere on your computer. For example, your desktop.  
 
 ## Send a sentiment analysis and opinion mining API request
 
@@ -81,7 +81,7 @@ Use the following commands to send the API request using the program you're usin
 ### Command prompt
 
 ```terminal
-curl -X POST "%LANGUAGE_ENDPOINT%/language/:analyze-text?api-version=2022-05-01" ^
+curl -X POST "%LANGUAGE_ENDPOINT%/language/:analyze-text?api-version=2023-04-15-preview" ^
 -H "Content-Type: application/json" ^
 -H "Ocp-Apim-Subscription-Key: %LANGUAGE_KEY%" ^
 -d "@C:\Users\<myaccount>\Desktop\test_sentiment_payload.json"
@@ -90,7 +90,7 @@ curl -X POST "%LANGUAGE_ENDPOINT%/language/:analyze-text?api-version=2022-05-01"
 ### PowerShell
 
 ```terminal
-curl.exe -X POST $env:LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-05-01 `
+curl.exe -X POST $env:LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2023-04-15-preview `
 -H "Content-Type: application/json" `
 -H "Ocp-Apim-Subscription-Key: $env:LANGUAGE_KEY" `
 -d "@C:\Users\<myaccount>\Desktop\test_sentiment_payload.json"
@@ -101,7 +101,7 @@ curl.exe -X POST $env:LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-
 Use the following commands to send the API request using the program you're using. Replace `/home/mydir/test_sentiment_payload.json` with the location of the example JSON request file you created in the previous step.
 
 ```terminal
-curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-05-01 \
+curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2023-04-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY" \
 -d "@/home/mydir/test_sentiment_payload.json"
@@ -112,7 +112,7 @@ curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-05-01 \
 Use the following commands to send the API request using the program you're using. Replace `/home/mydir/test_sentiment_payload.json` with the location of the example JSON request file you created in the previous step.
 
 ```terminal
-curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-05-01 \
+curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2023-04-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY" \
 -d "@/home/mydir/test_sentiment_payload.json"
@@ -238,4 +238,4 @@ curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-05-01 \
 
 * [Sentiment analysis and opinion mining language support](../../language-support.md)
 * [How to call the API](../../how-to/call-api.md)  
-* [Reference documentation](/rest/api/language/2023-04-01/text-analysis-runtime/analyze-text)
+* [Reference documentation](https://go.microsoft.com/fwlink/?linkid=2239169)

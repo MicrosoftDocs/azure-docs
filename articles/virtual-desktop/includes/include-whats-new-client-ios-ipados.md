@@ -11,8 +11,17 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.4.8         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
-| Beta    | 10.4.8         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+| Public  | 10.5.0         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Beta    | 10.5.0         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+
+## Updates for version 10.5.0
+
+*Date published: July 10, 2023*
+
+In this release, we've made the following changes:
+
+- Fixed an issue with IPv6 address resolution that was blocking connectivity.
+- Addressed a deadlock that could occur in server redirection scenarios.
 
 ## Updates for version 10.4.8
 

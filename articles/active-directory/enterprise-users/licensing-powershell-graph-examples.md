@@ -18,7 +18,7 @@ ms.author: barclayn
 
 # Microsoft Graph PowerShell group-based licensing examples
 
-Group-based licensing in Azure Active Directory (Azure AD), part of Microsoft Entra, is available through the [Azure portal](https://portal.azure.com). There are useful tasks that can be performed using [Microsoft Graph PowerShell Cmdlets](/powershell/microsoftgraph/get-started). In this article, we go over some examples using Microsoft Graph PowerShell.
+Group-based licensing in Microsoft Entra ID, part of Microsoft Entra, is available through the [Azure portal](https://portal.azure.com). There are useful tasks that can be performed using [Microsoft Graph PowerShell Cmdlets](/powershell/microsoftgraph/get-started). In this article, we go over some examples using Microsoft Graph PowerShell.
 
 > [!NOTE]
 > Before you begin running cmdlets, make sure you connect to your organization first, by running the `Connect-MgGraph` cmdlet.
@@ -28,7 +28,7 @@ Group-based licensing in Azure Active Directory (Azure AD), part of Microsoft En
 
 ## Assign licenses to a group
 
-[Group based licensing](../fundamentals/active-directory-licensing-whatis-azure-portal.md) provides a convenient way to manage license assignment. You can assign one or more product licenses to a group and those licenses are assigned to all members of the group.
+[Group based licensing](../fundamentals/licensing-whatis-azure-portal.md) provides a convenient way to manage license assignment. You can assign one or more product licenses to a group and those licenses are assigned to all members of the group.
 
 ```powershell
 # Import the Microsoft.Graph.Groups module
@@ -210,46 +210,45 @@ if ($count -le 0) {
 Connect-MgGraph -Scopes "User.Read.All"
 
 # Get all users using Get-MgUser with a filter
-$users = Get-MgUser -Filter "accountEnabled eq true"
+$users = Get-MgUser -All -Property AssignedLicenses, LicenseAssignmentStates, DisplayName | Select-Object DisplayName, AssignedLicenses -ExpandProperty LicenseAssignmentStates | Select-Object DisplayName, AssignedByGroup, State, Error, SkuId
 
-# Create a hash table to store the SKU IDs for each user
-$skus = @{}
+$output = @()
 
-# Loop through all users and get their license details using Get-MgUserLicenseDetail
+
+# Loop through all users and get the AssignedByGroup Details which will list the groupId
 foreach ($user in $users) {
-    $userSkus = @{}
-
-    # Get the user's license details using Get-MgUserLicenseDetail
-    $licenseDetails = Get-MgUserLicenseDetail -UserId $user.Id
-
-    # Loop through all the licenses and add the SKU ID to the hash table
-    foreach ($license in $licenseDetails) {
-        $userSkus[$license.SkuId] = @{
-            AssignedDirectly = $license.AssignedLicenses.Count -gt 0
-            AssignedThroughGroups = $license.AssignedLicensesViaGroup.Count -gt 0
+    # Get the group ID if AssignedByGroup is not empty
+    if ($user.AssignedByGroup -ne $null)
+    {
+        $groupId = $user.AssignedByGroup
+        $groupName = Get-MgGroup -GroupId $groupId | Select-Object -ExpandProperty DisplayName  
+        Write-Host "$($user.DisplayName) is assigned by group - $($groupName)" -ErrorAction SilentlyContinue -ForegroundColor Yellow
+        $result = [pscustomobject]@{
+            User=$user.DisplayName
+            AssignedByGroup=$true
+            GroupName=$groupName
+            GroupId=$groupId
         }
+        $output += $result
     }
 
-    # Add the user's SKU IDs to the main hash table
-    $skus[$user.Id] = $userSkus
-}
-
-# Display the SKU IDs for each user
-foreach ($userId in $skus.Keys) {
-    $user = Get-MgUser -Filter "userPrincipalName eq '$userId'"
-    Write-Host "User: $($user.UserPrincipalName)"
-    Write-Host "SKU IDs:"
-
-    foreach ($skuId in $skus[$userId].Keys) {
-        $sku = Get-MgSubscribedSku -SubscribedSkuId $skuId
-        Write-Host "- $($sku.DisplayName)"
-        Write-Host "  Assigned directly: $($skus[$userId][$skuId].AssignedDirectly)"
-        Write-Host "  Assigned through groups: $($skus[$userId][$skuId].AssignedThroughGroups)"
+    else {
+    $result = [pscustomobject]@{
+            User=$user.DisplayName
+            AssignedByGroup=$false
+            GroupName="NA"
+            GroupId="NA"
+        }
+        $output += $result
+        Write-Host "$($user.DisplayName) is Not assigned by group" -ErrorAction SilentlyContinue -ForegroundColor Cyan
     }
-
-    Write-Host ""
+        
+    
 }
 
+# Display the result
+$output | ft
+```
 
 
 ## Remove direct licenses for users with group licenses
@@ -261,47 +260,96 @@ The purpose of this script is to remove unnecessary direct licenses from users w
 
 
 ```powershell
-Import-Module Microsoft.Graph
+# Import the Microsoft.Graph.Users and Microsoft.Graph.Groups modules
+Import-Module Microsoft.Graph.Users -Force
+Import-Module Microsoft.Graph.Authentication -Force
+Import-Module Microsoft.Graph.Users.Actions -Force
+Import-Module Microsoft.Graph.Groups -Force
 
-# Connect to the Microsoft Graph
-Connect-MgGraph
+Clear-Host
 
-# Get the group to be processed
-$groupId = "48ca647b-7e4d-41e5-aa66-40cab1e19101"
+if ($null -eq (Get-MgContext)) {
+    Connect-MgGraph -Scopes "Directory.Read.All, User.Read.All, Group.Read.All, Organization.Read.All" -NoWelcome
+}
 
-# Get the license to be removed - Office 365 E3
-$skuId = "contoso:ENTERPRISEPACK"
+# Get all groups with licenses assigned
+$groupsWithLicenses = Get-MgGroup -All -Property AssignedLicenses, DisplayName, Id | Where-Object { $_.assignedlicenses } | Select-Object DisplayName, Id -ExpandProperty AssignedLicenses | Select-Object DisplayName, Id, SkuId
 
-# Minimum set of service plans we know are inherited by this group
-$expectedDisabledPlans = @("Exchange Online", "SharePoint Online", "Lync Online")
+$output = @()
 
-# Get the users in the group
-$users = Get-MgUser -GroupObjectId $groupId
+# Check if there is any group that has licenses assigned or not
+if ($null -ne $groupsWithLicenses) {
+    # Loop through each group
+    foreach ($group in $groupsWithLicenses) {
+        # Get the group's licenses
+        $groupLicenses = $group.SkuId
+    
+        # Get the group's members
+        $groupMembers = Get-MgGroupMember -GroupId $group.Id -All
 
-# For each user, get the license for the specified SKU
-foreach ($user in $users) {
-    $license = GetUserLicense $user $skuId
+        # Check if the group member list is empty or not
+        if ($groupMembers) {
+            # Loop through each member
+            foreach ($member in $groupMembers) {
+                # Check if the member is a user
+                if ($member.AdditionalProperties.'@odata.type' -eq '#microsoft.graph.user') {
+                    # Get the user's direct licenses
+                    Write-Host "Fetching license details for $($member.AdditionalProperties.displayName)" -ForegroundColor Yellow
+                    
+                    # Get User With Directly Assigned Licenses Only
+                    $user = Get-MgUser -UserId $member.Id -Property AssignedLicenses, LicenseAssignmentStates, DisplayName | Select-Object DisplayName, AssignedLicenses -ExpandProperty LicenseAssignmentStates | Select-Object DisplayName, AssignedByGroup, State, Error, SkuId | Where-Object { $_.AssignedByGroup -eq $null }
 
-    # If the user has the license assigned directly, continue to the next user
-    if (UserHasLicenseAssignedDirectly $user $skuId) {
-        continue
+                    $licensesToRemove = @()
+                    if($user)
+                    {
+                        if ($user.count -ge 2) {
+                            foreach ($u in $user) {
+                                $userLicenses = $u.SkuId
+                                $licensesToRemove += $userLicenses | Where-Object { $_ -in $groupLicenses }
+                            }
+                        }
+                        else {
+                            $userLicenses = $user.SkuId
+                            $licensesToRemove = $userLicenses | Where-Object { $_ -in $groupLicenses }
+                        }  
+                    } else {
+                        Write-Host "No conflicting licenses found for the user $($member.AdditionalProperties.displayName)" -ForegroundColor Green
+                    }
+                    
+                                       
+        
+                    # Remove the licenses from the user
+                    if ($licensesToRemove) {
+                        Write-Host "Removing the license $($licensesToRemove) from user $($member.AdditionalProperties.displayName) as inherited from group $($group.DisplayName)" -ForegroundColor Green
+                        $result = Set-MgUserLicense -UserId $member.Id -AddLicenses @() -RemoveLicenses $licensesToRemove
+                        $obj = [PSCustomObject]@{
+                            User                      = $result.DisplayName
+                            Id                        = $result.Id
+                            LicensesRemoved           = $licensesToRemove
+                            LicenseInheritedFromGroup = $group.DisplayName
+                            GroupId                   = $group.Id
+                        }
+
+                        $output += $obj
+
+                    } 
+                    else {
+                        Write-Host "No action required for $($member.AdditionalProperties.displayName)" -ForegroundColor Green
+                        }
+        
+                }
+            }
+        }
+        else {
+            Write-Host "The licensed group $($group.DisplayName) has no members, exiting now!!" -ForegroundColor Yellow
+        }   
+        
     }
-
-    # If the user is inheriting the license from the specified group, continue to the next user
-    if (UserHasLicenseAssignedFromThisGroup $user $skuId $groupId) {
-        continue
-    }
-
-    # Get the list of disabled service plans for the SKU
-    $disabledPlans = GetDisabledPlansForSKU $skuId $expectedDisabledPlans
-
-    # Get the list of unexpected enabled plans for the user
-    $extraPlans = GetUnexpectedEnabledPlansForUser $user $skuId $expectedDisabledPlans
-
-    # If there are any unexpected enabled plans, print them to the console
-    if ($extraPlans.Count -gt 0) {
-        Write-Warning "The user $user has the following unexpected enabled plans for the $skuId SKU: $extraPlans"
-    }
+    
+    $output | Format-Table -AutoSize
+}
+else {
+    Write-Host "No groups found with licenses assigned." -ForegroundColor Cyan
 }
 ```
 
@@ -311,6 +359,6 @@ foreach ($user in $users) {
 
 To learn more about the feature set for license management through groups, see the following articles:
 
-* [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Assigning licenses to a group in Azure Active Directory](./licensing-groups-assign.md)
-* [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
+* [What is group-based licensing in Microsoft Entra ID?](../fundamentals/licensing-whatis-azure-portal.md)
+* [Assigning licenses to a group in Microsoft Entra ID](./licensing-groups-assign.md)
+* [Identifying and resolving license problems for a group in Microsoft Entra ID](licensing-groups-resolve-problems.md)

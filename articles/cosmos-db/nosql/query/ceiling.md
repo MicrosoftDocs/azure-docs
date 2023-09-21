@@ -48,5 +48,5 @@ The following example shows positive numeric, negative, and zero values evaluate
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`FLOOR`](floor.md)

@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Configure Tableau Cloud for automatic user provisioning with Azure Active Directory'
+title: 'Tutorial: Configure Tableau Cloud for automatic user provisioning with Microsoft Entra ID'
 
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to Tableau Cloud.
+description: Learn how to automatically provision and de-provision user accounts from Microsoft Entra ID to Tableau Cloud.
 
 services: active-directory
 author: twimmers
@@ -19,7 +19,7 @@ ms.author: thwimmer
 # Tutorial: Configure Tableau Cloud for automatic user provisioning
 
 
-This tutorial describes the steps you need to do in both Tableau Cloud and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Tableau Cloud](https://www.tableau.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to do in both Tableau Cloud and Microsoft Entra ID to configure automatic user provisioning. When configured, Microsoft Entra ID automatically provisions and de-provisions users and groups to [Tableau Cloud](https://www.tableau.com/) using the Microsoft Entra provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md). 
 
 
 
@@ -29,7 +29,7 @@ This tutorial describes the steps you need to do in both Tableau Cloud and Azure
 > [!div class="checklist"]
 > * Create users in Tableau Cloud.
 > * Remove users in Tableau Cloud when they do not require access anymore.
-> * Keep user attributes synchronized between Azure AD and Tableau Cloud.
+> * Keep user attributes synchronized between Microsoft Entra ID and Tableau Cloud.
 > * Provision groups and group memberships in Tableau Cloud.
 > * [Single sign-on](tableauonline-tutorial.md) to Tableau Cloud (recommended).
 
@@ -38,44 +38,48 @@ This tutorial describes the steps you need to do in both Tableau Cloud and Azure
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 
-* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* [A Microsoft Entra tenant](../develop/quickstart-create-new-tenant.md) 
+* A user account in Microsoft Entra ID with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * A [Tableau Cloud tenant](https://www.tableau.com/).
 * A user account in Tableau Cloud with Admin permission
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [Tableau Cloud REST API](https://onlinehelp.tableau.com/current/api/rest_api/en-us/help.htm). This API is available to Tableau Cloud developers.
+> The Microsoft Entra provisioning integration relies on the [Tableau Cloud REST API](https://onlinehelp.tableau.com/current/api/rest_api/en-us/help.htm). This API is available to Tableau Cloud developers.
 
-## Step 1. Plan your provisioning deployment
+## Step 1: Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-1. Determine what data to [map between Azure AD and Tableau Cloud](../app-provisioning/customize-application-attributes.md). 
+1. Determine what data to [map between Microsoft Entra ID and Tableau Cloud](../app-provisioning/customize-application-attributes.md). 
 
-## Step 2. Configure Tableau Cloud to support provisioning with Azure AD
+<a name='step-2-configure-tableau-cloud-to-support-provisioning-with-azure-ad'></a>
 
-Use the following steps to enable SCIM support with Azure Active Directory:
-1. The SCIM functionality requires that you configure your site to support SAML single sign-on. If you have not done this yet, complete the following sections in [Configure SAML with Azure Active Directory](https://help.tableau.com/current/online/en-us/saml_config_azure_ad.htm):
+## Step 2: Configure Tableau Cloud to support provisioning with Microsoft Entra ID
+
+Use the following steps to enable SCIM support with Microsoft Entra ID:
+1. The SCIM functionality requires that you configure your site to support SAML single sign-on. If you have not done this yet, complete the following sections in [Configure SAML with Microsoft Entra ID](https://help.tableau.com/current/online/en-us/saml_config_azure_ad.htm):
  	* Step 1: [Open the Tableau Cloud SAML Settings](https://help.tableau.com/current/online/en-us/saml_config_azure_ad.htm#open-the-tableau-online-saml-settings).
- 	* Step 2: [Add Tableau Cloud to your Azure Active Directory applications](https://help.tableau.com/current/online/en-us/saml_config_azure_ad.htm#add-tableau-online-to-your-azure-ad-applications).
+ 	* Step 2: [Add Tableau Cloud to your Microsoft Entra applications](https://help.tableau.com/current/online/en-us/saml_config_azure_ad.htm#add-tableau-online-to-your-azure-ad-applications).
 	 
   	> [!NOTE]
   	> If you don’t set up SAML single sign-on, your user will be unable to sign into Tableau Cloud after they have been provisioned unless you manually change the user’s authentication method from SAML to Tableau or Tableau MFA in Tableau Cloud. 
 
 1. In Tableau Cloud, navigate to **Settings > Authentication** page, then under **Automatic Provisioning and Group Synchronization (SCIM)**, select the **Enable SCIM** check box. This populates the **Base URL** and **Secret** boxes with values you will use in the SCIM configuration of your IdP.
   	> [!NOTE] 
-  	> The secret token is displayed only immediately after it is generated. If you lose it before you can apply it to Azure Active Directory, you can select **Generate New Secret**. In addition, the secret token is tied to the Tableau Cloud user account of the site administrator who enables SCIM support. If that user’s site role changes or the user is removed from the site, the secret token becomes invalid, and another site administrator must generate a new secret token and apply it to Azure Active Directory.
+  	> The secret token is displayed only immediately after it is generated. If you lose it before you can apply it to Microsoft Entra ID, you can select **Generate New Secret**. In addition, the secret token is tied to the Tableau Cloud user account of the site administrator who enables SCIM support. If that user’s site role changes or the user is removed from the site, the secret token becomes invalid, and another site administrator must generate a new secret token and apply it to Microsoft Entra ID.
 
 
 
-## Step 3. Add Tableau Cloud from the Azure AD application gallery
+<a name='step-3-add-tableau-cloud-from-the-azure-ad-application-gallery'></a>
 
-Add Tableau Cloud from the Azure AD application gallery to start managing provisioning to Tableau Cloud. If you have previously setup Tableau Cloud for SSO, you can use the same application. However it's recommended you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+## Step 3: Add Tableau Cloud from the Microsoft Entra application gallery
+
+Add Tableau Cloud from the Microsoft Entra application gallery to start managing provisioning to Tableau Cloud. If you have previously setup Tableau Cloud for SSO, you can use the same application. However it's recommended you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 
-## Step 4. Define who will be in scope for provisioning 
+## Step 4: Define who will be in scope for provisioning 
 
 
-The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user and group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+The Microsoft Entra provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user and group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -90,7 +94,7 @@ To keep track of role assignments, you can create two purpose-specific groups fo
 * Tableau – Explorer: Explorer
 * Etc.
 
-Once provisioning is set up, you will want to edit role changes directly in Azure Active Directory. Otherwise, you may end up with role inconsistencies between Tableau Cloud and Azure Active Directory.
+Once provisioning is set up, you will want to edit role changes directly in Microsoft Entra ID. Otherwise, you may end up with role inconsistencies between Tableau Cloud and Microsoft Entra ID.
 
 ### Valid Tableau site role values
 On the **Select a Role** page in your Azure portal, the Tableau Site Role values that are valid include the following: **Creator, SiteAdministratorCreator, Explorer, SiteAdministratorExplorer, ExplorerCanPublish, Viewer, or Unlicensed**.
@@ -99,16 +103,19 @@ On the **Select a Role** page in your Azure portal, the Tableau Site Role values
 If you select a role that is not in the above list, such as a legacy (pre-v2018.1) role, you will experience an error.
 
 
-## Step 5. Configure automatic user provisioning to Tableau Cloud 
+## Step 5: Configure automatic user provisioning to Tableau Cloud 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and groups in Tableau Cloud based on user and group assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users and groups in Tableau Cloud based on user and group assignments in Microsoft Entra ID.
 
 > [!TIP]
 > You must enable SAML-based single sign-on for Tableau Cloud. Follow the instructions in the [Tableau Cloud single sign-on tutorial](tableauonline-tutorial.md). If SAML isn't enabled, then the user that is provisioned will not be able to sign in.
 
-### To configure automatic user provisioning for Tableau Cloud in Azure AD:
+<a name='to-configure-automatic-user-provisioning-for-tableau-cloud-in-azure-ad'></a>
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+### To configure automatic user provisioning for Tableau Cloud in Microsoft Entra ID:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
@@ -127,7 +134,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-1. In the **Admin Credentials** section, input your Tableau Cloud Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Tableau Cloud. If the connection fails, ensure your Tableau Cloud account has Admin permissions and try again.
+1. In the **Admin Credentials** section, input your Tableau Cloud Tenant URL and Secret Token. Click **Test Connection** to ensure Microsoft Entra ID can connect to Tableau Cloud. If the connection fails, ensure your Tableau Cloud account has Admin permissions and try again.
 
 
 	![Token](media/tableau-online-provisioning-tutorial/tableau-test-connections.png)
@@ -144,9 +151,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Select **Save**.
 
-1. In the **Mappings** section, select **Synchronize Azure Active Directory Users to Tableau Cloud**.
+1. In the **Mappings** section, select **Synchronize Microsoft Entra users to Tableau Cloud**.
 
-1. Review the user attributes that are synchronized from Azure AD to Tableau Cloud in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Tableau Cloud for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Tableau Cloud API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Microsoft Entra ID to Tableau Cloud in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Tableau Cloud for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Tableau Cloud API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for filtering|Required by Tableau Cloud|
    |---|---|---|---|
@@ -155,10 +162,10 @@ This section guides you through the steps to configure the Azure AD provisioning
    |roles|String||
 
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Tableau Cloud**.
+1. Under the **Mappings** section, select **Synchronize Microsoft Entra groups to Tableau Cloud**.
 
 
-1. Review the group attributes that are synchronized from Azure AD to Tableau Cloud in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Tableau Cloud for update operations. Select the **Save** button to commit any changes.
+1. Review the group attributes that are synchronized from Microsoft Entra ID to Tableau Cloud in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Tableau Cloud for update operations. Select the **Save** button to commit any changes.
 
 
    |Attribute|Type|Supported for filtering|Required by Tableau Cloud|
@@ -169,7 +176,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 
-1. To enable the Azure AD provisioning service for Tableau Cloud, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Microsoft Entra provisioning service for Tableau Cloud, change the **Provisioning Status** to **On** in the **Settings** section.
 
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
@@ -184,7 +191,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to complete than next cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to complete than next cycles, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. 
 
 
 
@@ -200,22 +207,16 @@ In June 2022, Tableau released a SCIM 2.0 connector. Completing the steps below 
 >Be sure to note any changes that have been made to the settings listed above before completing the steps below. Failure to do so will result in the loss of customized settings.
 
 
-1. Sign into the [Azure portal](https://portal.azure.com).
-
-
-1. Navigate to your current Tableau Cloud app under **Azure Active Directory > Enterprise Applications**.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Tableau Cloud**.
 
 1. In the Properties section of your new custom app, copy the **Object ID**.
 
+	![Screenshot of Tableau Cloud app.](media/tableau-online-provisioning-tutorial/tableau-cloud-properties.png)	
 
-	![Screenshot of Tableau Cloud app in the Azure portal.](media/tableau-online-provisioning-tutorial/tableau-cloud-properties.png)	
-
-
-1. In a new web browser window, navigate to `https://developer.microsoft.com/graph/graph-explorer` and sign in as the administrator for the Azure AD tenant where your app is added.
+1. In a new web browser window, navigate to `https://developer.microsoft.com/graph/graph-explorer` and sign in as the administrator for the Microsoft Entra tenant where your app is added.
 
 	![Screenshot of Microsoft Graph explorer sign in page.](media/tableau-online-provisioning-tutorial/tableau-graph-explorer-signin.png)
-	
 
 1. Check to make sure the account being used has the correct permissions. The permission **Directory.ReadWrite.All** is required to make this change.
 
@@ -240,14 +241,14 @@ In June 2022, Tableau released a SCIM 2.0 connector. Completing the steps below 
 1. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with **TableauOnlineSCIM**.
 
 1. Under the Admin Credentials section, select "Bearer Authentication" as the authentication method and enter the Tenant URL and Secret Token of the Tableau instance you wish to provision to.
-	![Screenshot of Admin Credentials in Tableau Cloud in the Azure portal.](media/tableau-online-provisioning-tutorial/tableau-cloud-creds.png)
+	![Screenshot of Admin Credentials in Tableau Cloud.](media/tableau-online-provisioning-tutorial/tableau-cloud-creds.png)
 
 1. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning.
 
 >[!Note]
 >Failure to restore the previous settings may results in attributes (name.formatted for example) updating in Workplace unexpectedly. Be sure to check the configuration before enabling provisioning
 
-## Step 6. Monitor your deployment
+## Step 6: Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
@@ -261,7 +262,7 @@ Once you've configured provisioning, use the following resources to monitor your
 ## More resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

@@ -54,5 +54,5 @@ The `SUM` function is used to sum the values of the `quantity` field, when it ex
 
 ## Next steps
 
-- [System functions in Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`AVG`](average.md)

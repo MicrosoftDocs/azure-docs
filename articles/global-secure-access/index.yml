@@ -1,14 +1,14 @@
 ### YamlMime:Landing
 
 title: Global Secure Access documentation
-summary: Global Secure Access provides secure network access for both public Internet and private networks.
+summary: Microsoft Entra Internet Access and Microsoft Entra Private Access are unified under Global Secure Access in the Microsoft Entra admin center. Learn how to secure access to your public Internet and private network resources through the client, remote network connectivity, and Quick Access apps.
 
 metadata: 
    title: Global Secure Access documentation
-   description: Global Secure Access provides secure network access for both public Internet and private clouds.
+   description: Explore documentation for Microsoft's Security Service Edge solution, Global Secure Access, which is comprised of Microsoft Entra Internet Access and Microsoft Entra Private Access.
    ms.service: network-access
    ms.topic: landing-page
-   ms.date: 03/22/2023
+   ms.date: 07/27/2023
    author: shlipsey3
    ms.author: sarahlipsey
    manager: amycolannino
@@ -51,11 +51,26 @@ landingContent:
           - text: Manage the private access traffic profile
             url: how-to-manage-private-access-profile.md
 
-  - title: Conditional Access
+  - title: Quick Access and Private Access apps
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Conditional Access for the Microsoft 365 traffic profile
+          - text: Learn about Private Access
+            url: concept-private-access.md
+          - text: Configure App Proxy connectors
+            url: how-to-configure-connectors.md
+          - text: Configure a Quick Access app
+            url: how-to-configure-quick-access.md
+          - text: Configure a Private Access app
+            url: how-to-configure-per-app-access.md
+
+  - title: Access controls
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Learn about Universal Conditional Access for Global Secure Access
+            url: concept-universal-conditional-access.md
+          - text: Conditional Access for Microsoft 365 traffic
             url: how-to-target-resource-microsoft-365-profile.md
           - text: Conditional Access for Private Access apps
             url: how-to-target-resource-private-access-apps.md

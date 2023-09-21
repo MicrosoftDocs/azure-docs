@@ -1,6 +1,6 @@
 ---
-title: Configure Datawiza for Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle EBS
-description: Learn how to enable Azure AD Multi-Factor Authentication and SSO for an Oracle E-Business Suite application via Datawiza.
+title: Configure Datawiza for Microsoft Entra multifactor authentication and single sign-on to Oracle EBS
+description: Learn how to enable Microsoft Entra multifactor authentication and SSO for an Oracle E-Business Suite application via Datawiza.
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -14,17 +14,17 @@ ms.collection: M365-identity-device-management
 ms.custom: not-enterprise-apps
 ---
 
-# Configure Datawiza for Azure AD Multi-Factor Authentication and single sign-on to Oracle EBS
+# Configure Datawiza for Microsoft Entra multifactor authentication and single sign-on to Oracle EBS
 
-In this article, learn how to enable Azure Active Directory (Azure AD) Multi-Factor Authentication and single sign-on (SSO) for an Oracle E-Business Suite (Oracle EBS) application via Datawiza.
+In this article, learn how to enable Microsoft Entra multifactor authentication and single sign-on (SSO) for an Oracle E-Business Suite (Oracle EBS) application via Datawiza.
 
-Here are some benefits of integrating applications with Azure AD via Datawiza:
+Here are some benefits of integrating applications with Microsoft Entra ID via Datawiza:
 
 * A [Zero Trust](https://www.microsoft.com/security/business/zero-trust) security model adapts to modern environments and embraces a hybrid workplace while it helps protect people, devices, apps, and data.
 * [Single sign-on](https://azure.microsoft.com/solutions/active-directory-sso/#overview) provides secure and seamless access for device users and apps from any location.
-* [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) prompts users during sign-in for forms of identification, such as a code on their device or a fingerprint scan.
+* [Multifactor authentication](../authentication/concept-mfa-howitworks.md) prompts users during sign-in for forms of identification, such as a code on their device or a fingerprint scan.
 * [Conditional Access](../conditional-access/overview.md) provides policies as if/then statements. If a user wants to access a resource, then they must complete an action.
-* [Datawiza](https://www.microsoft.com/security/blog/2022/05/17/easy-authentication-and-authorization-in-azure-active-directory-with-no-code-datawiza/) provides authentication and authorization in Azure AD with no code. Use web applications such as Oracle JDE, Oracle EBS, Oracle Siebel, and home-grown apps.
+* [Datawiza](https://www.microsoft.com/security/blog/2022/05/17/easy-authentication-and-authorization-in-azure-active-directory-with-no-code-datawiza/) provides authentication and authorization in Microsoft Entra ID with no code. Use web applications such as Oracle JDE, Oracle EBS, Oracle Siebel, and home-grown apps.
 * Use the [Datawiza Cloud Management Console](https://console.datawiza.com) (DCMC) to manage access to applications in public clouds and on-premises.
 
 This article focuses on modern identity providers (IdPs) integrating with the legacy Oracle EBS application. The application requires a set of Oracle EBS service account credentials and an Oracle EBS database container (DBC) file.
@@ -33,8 +33,8 @@ This article focuses on modern identity providers (IdPs) integrating with the le
 
 The solution has the following components:
 
-* **Azure AD**: Microsoft's cloud-based identity and access management service, which helps users sign in and access external and internal resources.
-* **Oracle EBS**: The legacy application that Azure AD will help protect.
+* **Microsoft Entra ID**: Microsoft's cloud-based identity and access management service, which helps users sign in and access external and internal resources.
+* **Oracle EBS**: The legacy application that Microsoft Entra ID will help protect.
 * **Datawiza Access Proxy (DAP)**: A lightweight container-based reverse proxy that implements OIDC/OAuth or SAML for user sign-on flow. It transparently passes identity to applications through HTTP headers.
 * **DCMC**: A centralized management console that manages DAP. The console provides UI and RESTful APIs for administrators to manage the configurations of DAP and its granular access control policies.
 
@@ -43,10 +43,10 @@ The solution has the following components:
 To complete the steps in this article, you need:
 
 * An Azure subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/).
-* An Azure AD tenant linked to the Azure subscription.
-* An account with Azure AD Application Administrator permissions. For more information, see [Azure AD built-in roles](../roles/permissions-reference.md).
+* A Microsoft Entra tenant linked to the Azure subscription.
+* A [Global Administrator](../roles/permissions-reference.md#global-administrator) role.
 * Docker and Docker Compose, to run DAP. For more information, see [Get Docker](https://docs.docker.com/get-docker/) and [Docker Compose Overview](https://docs.docker.com/compose/install/).
-* User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to your on-premises directory. For more information, see [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md).
+* User identities synchronized from an on-premises directory to Microsoft Entra ID, or created in Microsoft Entra ID and flowed back to your on-premises directory. For more information, see [Microsoft Entra Connect Sync: Understand and customize synchronization](../hybrid/connect/how-to-connect-sync-whatis.md).
 * An Oracle EBS environment.
 
 ## Configure the Oracle EBS environment for SSO and create the DBC file
@@ -84,7 +84,7 @@ In the Oracle EBS Linux environment, generate a new DBC file for DAP. You need t
 
 ## Enable Oracle EBS for SSO
 
-1. To integrate JDE with Azure AD, sign in to the [Datawiza Cloud Management Console](https://console.datawiza.com/).
+1. To integrate JDE with Microsoft Entra ID, sign in to the [Datawiza Cloud Management Console](https://console.datawiza.com/).
 
    The welcome page appears.
 1. Select the orange **Getting started** button.
@@ -112,7 +112,7 @@ In the Oracle EBS Linux environment, generate a new DBC file for DAP. You need t
 
 ### IdP configuration
 
-Use the DCMC one-click integration to help you complete Azure AD configuration. With this feature, you can reduce management costs and the likelihood of configuration errors.
+Use the DCMC one-click integration to help you complete Microsoft Entra configuration. With this feature, you can reduce management costs and the likelihood of configuration errors.
 
 [![Screenshot of entries and selections for configuring IdP.](./media/datawiza-sso-mfa-oracle-ebs/configure-idp.png)](./media/datawiza-sso-mfa-oracle-ebs/configure-idp.png#lightbox)
 
@@ -143,25 +143,23 @@ Configuration on the management console is complete. You're prompted to deploy D
 
 4. Select **Save**.
 
-### Optional: Enable Multi-Factor Authentication on Azure AD
+<a name='optional-enable-multi-factor-authentication-on-azure-ad'></a>
 
-To provide more security for sign-ins, you can enable Multi-Factor Authentication in the Azure portal:
+### Optional: Enable multifactor authentication on Microsoft Entra ID
 
-1. Sign in to the Azure portal as a Global Administrator.
-2. Select **Azure Active Directory** > **Manage** > **Properties**.
-3. Under **Properties**, select **Manage security defaults**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-   [![Screenshot of selections for managing security defaults.](./media/datawiza-sso-mfa-oracle-ebs/manage-security-defaults.png)](./media/datawiza-sso-mfa-oracle-ebs/manage-security-defaults.png#lightbox)
+To provide more security for sign-ins, you can enable multifactor authentication in the Microsoft Entra admin center:
 
-4. Under **Enable security defaults**, select **Yes**.
-
-   [![Screenshot of selections for enabling security defaults.](./media/datawiza-sso-mfa-oracle-ebs/enable-security-defaults.png)](./media/datawiza-sso-mfa-oracle-ebs/enable-security-defaults.png#lightbox)
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+2. Browse to **Identity** > **Overview** > **Properties** tab.
+3. Under **Security defaults**, select **Manage security defaults**.
+4. On the **Security defaults** pane, toggle the dropdown menu to select **Enabled**.
 5. Select **Save**.
 
 ## Next steps
 
-- [Video: Enable SSO and MFA for Oracle JD Edwards with Azure AD via Datawiza](https://www.youtube.com/watch?v=_gUGWHT5m90)
-- [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](./datawiza-with-azure-ad.md)
+- [Video: Enable SSO and MFA for Oracle JD Edwards with Microsoft Entra ID via Datawiza](https://www.youtube.com/watch?v=_gUGWHT5m90)
+- [Tutorial: Configure Secure Hybrid Access with Microsoft Entra ID and Datawiza](./datawiza-configure-sha.md)
 - [Tutorial: Configure Azure AD B2C with Datawiza to provide secure hybrid access](../../active-directory-b2c/partner-datawiza.md)
 - [Datawiza user guides](https://docs.datawiza.com/)
