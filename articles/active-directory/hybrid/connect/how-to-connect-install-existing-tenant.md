@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 Most of the topics for how to use Microsoft Entra Connect assumes you start with a new Microsoft Entra tenant and that there are no users or other objects there. But if you have started with a Microsoft Entra tenant, populated it with users and other objects, and now want to use Connect, then this topic is for you.
 
 ## The basics
-An object in Microsoft Entra ID is either mastered in the cloud (Microsoft Entra ID) or on-premises. For one single object, you cannot manage some attributes on-premises and some other attributes in Microsoft Entra ID. Each object has a flag indicating where the object is managed.
+An object in Microsoft Entra ID is either mastered in the cloud or on-premises. For one single object, you cannot manage some attributes on-premises and some other attributes in Microsoft Entra ID. Each object has a flag indicating where the object is managed.
 
 You can manage some users on-premises and other in the cloud. A common scenario for this configuration is an organization with a mix of accounting workers and sales workers. The accounting workers have an on-premises AD account, but the sales workers do not, they have an account in Microsoft Entra ID. You would manage some users on-premises and some in Microsoft Entra ID.
 
