@@ -42,17 +42,17 @@ This article discusses Entra services' licensing. It is intended for IT decision
 
 [!INCLUDE [Services available in the P1](../includes/licensing-p1-license.md)]
 
-## Conditional Access
+## Microsoft Entra Conditional Access
 
-[!INCLUDE [Conditional access](../includes/licensing-conditional-access.md)]
+[!INCLUDE [Microsoft Entra Conditional access](../includes/licensing-conditional-access.md)]
 
-## Governance
+## Microsoft Entra ID Governance
 
-[!INCLUDE [governance](../includes/licensing-governance.md)]
+[!INCLUDE [Microsoft Entra ID Governance](../includes/licensing-governance.md)]
 
-## Identity protection
+## Microsoft Entra ID Protection
 
-[!INCLUDE [Identity protection](../includes/licensing-identity-protection.md)]
+[!INCLUDE [Microsoft Entra ID Protection](../includes/licensing-identity-protection.md)]
 
 ## Managed identities
 
@@ -62,25 +62,25 @@ This article discusses Entra services' licensing. It is intended for IT decision
 
 [!INCLUDE [Multi-tenant organizations](../includes/licensing-multi-tenant-organizations.md)]
 
-## Privileged identity management
+## Microsoft Entra Privileged Identity management
 
-[!INCLUDE [PIM](../includes/licensing-pim.md)]
+[!INCLUDE [Microsoft Entra Privileged Identity](../includes/licensing-pim.md)]
 
 ## Role based access control
 
 [!INCLUDE [Roles based access control](../includes/licensing-role-based-access-control.md)]
 
-## Reports and monitoring
+## Microsoft Entra reporting and monitoring
 
-[!INCLUDE [reports and monitoring](../includes/licensing-reports-monitoring.md)]
+[!INCLUDE [Microsoft Entra reporting and monitoring](../includes/licensing-reports-monitoring.md)]
 
 ## Roles
 
 [!INCLUDE [licensing-roles](../includes/licensing-roles.md)]
 
-## Verified ID
+## Microsoft Entra Verified ID
 
-[!INCLUDE [verified ID](../includes/licensing-verified-id.md)]
+[!INCLUDE [Microsoft Entra Verified ID](../includes/licensing-verified-id.md)]
 
 ## Features in preview
 
