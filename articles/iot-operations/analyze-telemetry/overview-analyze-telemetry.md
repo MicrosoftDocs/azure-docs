@@ -3,7 +3,6 @@ title: Analyze telemetry from your devices
 description: Analyze telemetry sent to the cloud from your devices in an Azure IoT Operations solution. Uses Azure Fabric and Power BI dashboards.
 author: baanders
 ms.author: baanders
-ms.service: iot-operations
 ms.topic: conceptual #Required.
 ms.date: 09/08/2023
 ---

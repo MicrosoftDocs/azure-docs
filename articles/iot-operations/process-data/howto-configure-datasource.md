@@ -3,8 +3,7 @@ title: Configure a pipeline data source stage
 description: Configure a pipeline data source stage to read messages from an Azure IoT Operations MQ for processing.
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-operations
-ms.subservice: data-processor
+# ms.subservice: data-processor
 ms.topic: how-to
 ms.date: 09/19/2023
 
@@ -193,18 +192,19 @@ Optional: You have two options for manually curated links in this pattern: Next 
 
 TODO: Add your next step link(s)
 
+<!-- 
 > [!div class="nextstepaction"]
 > [Write concepts](article-concept.md)
 
-<!-- OR -->
+OR -->
 
 ## Related content
 
 TODO: Add your next step link(s)
 
+<!--
 - [Write concepts](article-concept.md)
 
-<!--
 Remove all the comments in this template before you sign-off or merge to the main branch.
 -->
 

@@ -6,7 +6,6 @@ summary: A unified data plane for the edge # < 160 chars
 metadata:
   title: Azure IoT Operations # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: A unified data plane for the edge # Required; article description that is displayed in search results. < 160 chars.
-  ms.service: iot-operations #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   author: dominicbetts
   ms.author: dobett
