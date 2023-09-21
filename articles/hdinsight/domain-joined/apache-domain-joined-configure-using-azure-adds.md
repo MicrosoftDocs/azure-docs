@@ -31,7 +31,7 @@ There are a few prerequisites to complete before you can create an ESP-enabled H
 - Create and authorize a managed identity.
 - Complete Networking setup for DNS and related issues.
 
-Each of these items will be discussed in detail below. For a walkthrough of completing all of these steps, see [Create and configure Enterprise Security Package clusters in Azure HDInsight](apache-domain-joined-create-configure-enterprise-security-cluster.md).
+Each of these items are discussed in details. For a walkthrough of completing all of these steps, see [Create and configure Enterprise Security Package clusters in Azure HDInsight](apache-domain-joined-create-configure-enterprise-security-cluster.md).
 
 ### Enable Azure AD DS
 
@@ -102,7 +102,7 @@ Change the configuration of the DNS servers in the Azure AD DS virtual network. 
 
 It's easier to place both the Azure AD DS instance and the HDInsight cluster in the same Azure virtual network. If you plan to use different virtual networks, you must peer those virtual networks so that the domain controller is visible to HDInsight VMs. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md).
 
-After the virtual networks are peered, configure the HDInsight virtual network to use a custom DNS server. And enter the Azure AD DS private IPs as the DNS server addresses. When both virtual networks use the same DNS servers, your custom domain name will resolve to the right IP and will be reachable from HDInsight. For example, if your domain name is `contoso.com`, then after this step, `ping contoso.com` should resolve to the right Azure AD DS IP.
+After the virtual networks are peered, configure the HDInsight virtual network to use a custom DNS server. And enter the Azure AD DS private IPs as the DNS server addresses. When both virtual networks use the same DNS servers, your custom domain name resolves to the right IP and it is reachable from HDInsight. For example, if your domain name is `contoso.com`, then after this step, `ping contoso.com` should resolve to the right Azure AD DS IP.
 
 :::image type="content" source="./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png" alt-text="Configuring custom DNS servers for a peered virtual network" border="true":::
 
