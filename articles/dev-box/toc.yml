@@ -40,6 +40,8 @@ items:
       href: how-to-project-admin.md
     - name: Provide access to dev box users
       href: how-to-dev-box-user.md
+    - name: Authenticate to REST APIs
+      href: how-to-authenticate.md
     - name: Configure an Azure compute gallery
       href: how-to-configure-azure-compute-gallery.md
     - name: Manage a dev center

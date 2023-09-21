@@ -27,11 +27,11 @@ Below are some common issues that may occur during the process.
 
 - **I don’t know my Cloud Partner Program ID (Partner One ID) or I don’t know who the primary contact for the account is.** 
     1. Navigate to the [Cloud Partner Program enrollment page](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new).
-    1. Sign in with a user account in the org's primary Azure AD tenant. 
+    1. Sign in with a user account in the org's primary Microsoft Entra tenant. 
     1. If an Cloud Partner Program account already exists, this is recognized and you are added to the account. 
     1. Navigate to the [partner profile page](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) where the Partner One ID and primary account contact will be listed.
 
-- **I don’t know who my Azure AD Global Administrator (also known as company admin or tenant admin) is, how do I find them? What about the Application Administrator or Cloud Application Administrator?**
+- **I don’t know who my Microsoft Entra Global Administrator (also known as company admin or tenant admin) is, how do I find them? What about the Application Administrator or Cloud Application Administrator?**
     1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Cloud Application Adminstrator](../roles/permissions-reference.md#cloud-application-administrator).
     1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
     1. Select the desired admin role.
@@ -43,7 +43,7 @@ Below are some common issues that may occur during the process.
 - **I am getting an error saying that my Partner One ID is invalid or that I do not have access to it.**
     Follow the [remediation guidance](#mpnaccountnotfoundornoaccess).
 
-- **When I sign in to the Azure portal, I do not see any apps registered. Why?** 
+- **When I sign in to the Microsoft Entra admin center, I do not see any apps registered. Why?** 
     Your app registrations may have been created using a different user account in this tenant, a personal/consumer account, or in a different tenant. Ensure you're signed in with the correct account in the tenant where your app registrations were created.
 
 - **I'm getting an error related to multi-factor authentication. What should I do?** 
@@ -58,7 +58,7 @@ If you're having an issue but unable to understand why based on what you are see
 
 The easiest way to make these requests is to use [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). You may also consider other options like using [Postman](https://www.postman.com/), or using PowerShell to [invoke a web request](/powershell/module/microsoft.powershell.utility/invoke-webrequest).  
 
-You can use Microsoft Graph to both set and unset your app’s verified publisher and check the result after performing one of these operations. The result can be seen on both the [application](/graph/api/resources/application) object corresponding to your app registration and any [service principals](/graph/api/resources/serviceprincipal) that have been instantiated from that app. For more information on the relationship between those objects, see: [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md).  
+You can use Microsoft Graph to both set and unset your app’s verified publisher and check the result after performing one of these operations. The result can be seen on both the [application](/graph/api/resources/application) object corresponding to your app registration and any [service principals](/graph/api/resources/serviceprincipal) that have been instantiated from that app. For more information on the relationship between those objects, see: [Application and service principal objects in Microsoft Entra ID](app-objects-and-service-principals.md).  
 
 Here are examples of some useful requests:  
 
@@ -248,7 +248,7 @@ Follow the directions [here](./howto-configure-publisher-domain.md) to set a Pub
 
 The target application's Publisher Domain (`publisherDomain`) either doesn't match the domain used to perform email verification in Partner Center (`pcDomain`) or has not been verified. Ensure these domains match and have been verified then try again. 
     
-Occurs when neither the app's [Publisher Domain](howto-configure-publisher-domain.md) nor one of the [custom domains](../fundamentals/add-custom-domain.md) added to the Azure AD tenant match the domain used to perform email verification in Partner Center or has not been verified.
+Occurs when neither the app's [Publisher Domain](howto-configure-publisher-domain.md) nor one of the [custom domains](../fundamentals/add-custom-domain.md) added to the Microsoft Entra tenant match the domain used to perform email verification in Partner Center or has not been verified.
 
 See [requirements](publisher-verification-overview.md) for a list of allowed domain or sub-domain matches. 
 
@@ -265,7 +265,7 @@ See [requirements](publisher-verification-overview.md) for a list of allowed dom
 
 You aren't authorized to set the verified publisher property on application (<`AppId`).
   
-Most commonly caused by the signed-in user not being a member of the proper role for the CPP account in Azure AD- see [requirements](publisher-verification-overview.md#requirements) for a list of eligible roles and see [common issues](#common-issues) for more information.
+Most commonly caused by the signed-in user not being a member of the proper role for the CPP account in Microsoft Entra ID - see [requirements](publisher-verification-overview.md#requirements) for a list of eligible roles and see [common issues](#common-issues) for more information.
 
 **Remediation Steps**
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
@@ -286,7 +286,7 @@ Most commonly caused when the verification is being performed via Graph API, and
 
 ### MSANotSupported 
 
-This feature isn't supported for Microsoft consumer accounts. Only applications registered in Azure AD by an Azure AD user are supported.
+This feature isn't supported for Microsoft consumer accounts. Only applications registered in Microsoft Entra ID by a Microsoft Entra user are supported.
 
 Occurs when a consumer account is used for app registration (Hotmail, Messenger, OneDrive, MSN, Xbox Live, or Microsoft 365).
 

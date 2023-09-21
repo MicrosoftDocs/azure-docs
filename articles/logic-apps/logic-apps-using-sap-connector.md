@@ -178,7 +178,7 @@ Along with simple string and number inputs, the SAP connector accepts the follow
 
     **Registration of tp Microsoft.PowerBI.EnterpriseGateway from host <*host-name*> not allowed**
 
-    For more information, review [SAP Note 1850230 - GW: "Registration of tp <program ID> not allowed"](https://userapps.support.sap.com/sap/support/knowledge/1850230).
+    For more information, review [SAP Note 1850230 - GW: "Registration of tp \<program ID\> not allowed"](https://userapps.support.sap.com/sap/support/knowledge/1850230).
 
   * Set up your SAP gateway security logging to help find Access Control List (ACL) issues. For more information, review the [SAP help topic for setting up gateway logging](https://help.sap.com/docs/r/62b4de4187cb43668d15dac48fc00732/7.31.25/en-US/48b2a710ca1c3079e10000000a42189b.html).
 

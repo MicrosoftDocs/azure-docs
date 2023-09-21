@@ -1,6 +1,6 @@
 ---
 title: CSS reference guide for customizing company branding
-description: Reference guide for the CSS template selectors for customizing Azure AD sign-in page company branding.
+description: Reference guide for the CSS template selectors for customizing Microsoft Entra sign-in page company branding.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -16,7 +16,7 @@ ms.reviewer: almars
 
 # CSS template reference guide
 
-Configuring your company branding for the user sign-in process provides a seamless experience in your applications that use Azure Active Directory (Azure AD) as the identity and access management service. Use this CSS reference guide if you're using the [CSS template](https://download.microsoft.com/download/7/2/7/727f287a-125d-4368-a673-a785907ac5ab/custom-styles-template-013023.css) as part of the [customize company branding](reference-company-branding-css-template.md) process.
+Configuring your company branding for the user sign-in process provides a seamless experience in your applications that use Microsoft Entra ID as the identity and access management service. Use this CSS reference guide if you're using the [CSS template](https://download.microsoft.com/download/7/2/7/727f287a-125d-4368-a673-a785907ac5ab/custom-styles-template-013023.css) as part of the [customize company branding](reference-company-branding-css-template.md) process.
 
 
 ## HTML selectors
@@ -31,7 +31,9 @@ The following CSS styles become the default body and link styles for the whole p
     - `a:focus:hover` - When the link has focus *and* the mouse is over the link
     - `a:active` - When the link is being clicked
 
-## Azure AD CSS selectors
+<a name='azure-ad-css-selectors'></a>
+
+## Microsoft Entra CSS selectors
 
 Use the following CSS selectors to configure the details of the sign-in experience. 
 
@@ -93,4 +95,3 @@ Use the following CSS selectors to configure the details of the sign-in experien
     - `.ext-footer-links` - Links area in the footer at the bottom of the page
     - `.ext-footer-item` - Link items (such as "Terms of use" or "Privacy & cookies") in the footer at the bottom of the page
     - `.ext-debug-item` - Debug details ellipsis in the footer at the bottom of the page
-

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Application Proxy and Tableau
-description: Learn how to use Azure Active Directory (Azure AD) Application Proxy to provide remote access for your Tableau deployment.
+title: Microsoft Entra application proxy and Tableau
+description: Learn how to use Microsoft Entra application proxy to provide remote access for your Tableau deployment.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -13,9 +13,9 @@ ms.author: kenwith
 ms.reviewer: ashishj
 ---
 
-# Azure Active Directory Application Proxy and Tableau 
+# Microsoft Entra application proxy and Tableau 
 
-Azure Active Directory Application Proxy and Tableau have partnered to ensure you are easily able to use Application Proxy to provide remote access for your Tableau deployment. This article explains how to configure this scenario.  
+Microsoft Entra application proxy and Tableau have partnered to ensure you are easily able to use Application Proxy to provide remote access for your Tableau deployment. This article explains how to configure this scenario.  
 
 ## Prerequisites 
 
@@ -35,17 +35,17 @@ Application Proxy supports the OAuth 2.0 Grant Flow, which is required for Table
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To publish Tableau, you need to publish an application in the Azure portal.
+To publish Tableau, you need to publish an application in the Microsoft Entra admin center.
 
 For:
 
-- Detailed instructions of steps 1-8, see [Publish applications using Azure AD Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md). 
+- Detailed instructions of steps 1-8, see [Publish applications using Microsoft Entra application proxy](../app-proxy/application-proxy-add-on-premises-application.md). 
 - Information about how to find Tableau values for the App Proxy fields, please see the Tableau documentation.  
 
 **To publish your app**: 
 
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 
 1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
@@ -57,7 +57,7 @@ For:
 
     - **Internal URL**: This application should have an internal URL that is the Tableau URL itself. For example, `https://adventure-works.tableau.com`. 
 
-    - **Pre-authentication method**: Azure Active Directory (recommended but not required). 
+    - **Pre-authentication method**: Microsoft Entra ID (recommended but not required). 
 
 6. Select **Add** at the top of the blade. Your application is added, and the quick start menu opens. 
 
@@ -77,4 +77,4 @@ Your application is now ready to test. Access the external URL you used to publi
 
 ## Next steps
 
-For more information about Azure AD Application Proxy, see [How to provide secure remote access to on-premises applications](application-proxy.md).
+For more information about Microsoft Entra application proxy, see [How to provide secure remote access to on-premises applications](application-proxy.md).
