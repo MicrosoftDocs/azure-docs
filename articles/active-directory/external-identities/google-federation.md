@@ -191,7 +191,7 @@ First, create a new project in the Google Developers Console to obtain a client 
 
 <a name='step-2-configure-google-federation-in-azure-ad-'></a>
 
-## Step 2: Configure Google federation in Microsoft Entra ID 
+## Step 2: Configure Google federation in Microsoft Entra External ID 
 
 You'll now set the Google client ID and client secret. You can use the Microsoft Entra admin center or PowerShell to do so. Be sure to test your Google federation configuration by inviting yourself. Use a Gmail address and try to redeem the invitation with your invited Google account. 
 

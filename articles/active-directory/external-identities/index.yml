@@ -58,7 +58,7 @@ additionalContent:
           url: /azure/active-directory/external-identities/customers/concept-planning-your-solution
           # Card
         - title: Code samples for customer tenants
-          summary: Learn about our code samples for customer identity and access management (CIAM) in Microsoft Entra ID.
+          summary: Learn about our code samples for customer identity and access management (CIAM) in Microsoft Entra External ID.
           url: /azure/active-directory/external-identities/customers/samples-ciam-all
           # Card
         - title: Authentication methods and identity providers
@@ -83,7 +83,7 @@ additionalContent:
           summary: Learn about the Microsoft Entra B2B direct connect feature.
           url: /azure/active-directory/external-identities/b2b-direct-connect-overview   
         # Card
-        - title: External user properties in Microsoft Entra ID
+        - title: External user properties in Microsoft Entra External ID
           summary: Learn about the properties of a Microsoft Entra B2B collaboration user.
           url: /azure/active-directory/external-identities/user-properties 
         # Card

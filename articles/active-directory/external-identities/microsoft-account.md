@@ -1,7 +1,7 @@
 ---
 
 title: Add Microsoft account (MSA) as an identity provider
-description: Use Microsoft Entra ID to enable an external user (guest) to sign in to your Microsoft Entra apps with their Microsoft account (MSA).
+description: Use Microsoft Entra External ID to enable an external user (guest) to sign in to your Microsoft Entra apps with their Microsoft account (MSA).
 
 services: active-directory
 ms.service: active-directory
@@ -42,7 +42,7 @@ Microsoft account is an identity provider option for your self-service sign-up u
 :::image type="content" source="media/microsoft-account/microsoft-account-user-flow.png" alt-text="Screenshot of the Microsoft account in a self-service sign-up user flow.":::
 
 ## Verifying the application's publisher domain
-As of November 2020, new application registrations show up as unverified in the user consent prompt, unless [the application's publisher domain is verified](../develop/howto-configure-publisher-domain.md), ***and*** the company’s identity has been verified with the Microsoft Partner Network and associated with the application.  For Microsoft Entra user flows, the publisher’s domain appears only when using a Microsoft account or another Microsoft Entra tenant as the identity provider. To meet these new requirements, follow the steps below:
+As of November 2020, new application registrations show up as unverified in the user consent prompt, unless [the application's publisher domain is verified](../develop/howto-configure-publisher-domain.md), ***and*** the company’s identity has been verified with the Microsoft Partner Network and associated with the application.  For Microsoft Entra External ID user flows, the publisher’s domain appears only when using a Microsoft account or another Microsoft Entra tenant as the identity provider. To meet these new requirements, follow the steps below:
 
 1. [Verify your company identity using your Microsoft Partner Network (MPN) account](/partner-center/verification-responses). This process verifies information about your company and your company’s primary contact.
 1. Complete the publisher verification process to associate your MPN account with your app registration using one of the following options:

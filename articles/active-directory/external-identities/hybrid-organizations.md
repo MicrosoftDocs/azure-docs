@@ -32,7 +32,7 @@ For apps that use integrated Windows authentication (IWA) with Kerberos constrai
 - You can use Microsoft Identity Manager (MIM) 2016 SP1 and the MIM management agent for Microsoft Graph.
 - You can use a PowerShell script. (This solution doesn't require MIM.)
 
-For details about how to implement these solutions, see [Grant B2B users in Microsoft Entra ID access to your on-premises applications](hybrid-cloud-to-on-premises.md).
+For details about how to implement these solutions, see [Grant Microsoft Entra B2B users access to your on-premises applications](hybrid-cloud-to-on-premises.md).
 
 ## Grant locally managed partner accounts access to cloud resources
 
@@ -46,6 +46,6 @@ For implementation details, see [Grant locally managed partner accounts access t
  
 ## Next steps
 
-- [Grant B2B users in Microsoft Entra ID access to your on-premises applications](hybrid-cloud-to-on-premises.md)
+- [Grant Microsoft Entra B2B users access to your on-premises applications](hybrid-cloud-to-on-premises.md)
 - [B2B direct connect](b2b-direct-connect-overview.md)
 - [Grant locally managed partner accounts access to cloud resources using Microsoft Entra B2B collaboration](hybrid-on-premises-to-cloud.md)
