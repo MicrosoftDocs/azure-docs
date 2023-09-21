@@ -24,5 +24,12 @@ If your users are spread across many geo locations, this will have the added ben
 
 If your application is not geo-distributed, and you are deploying a secondary region for disaster recovery purposes only, we generally recommend that you deploy the same capacity in each region so that your application can failover instantly without any performance degradation in the case of a regional outage. Most Cassandra [client drivers](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html) provide the option to initiate application level failover, or assume that a regional outage means that the application is also down, in which case failover would happen at the load balancer level. However, to reduce the cost of provisioning a second data center, you may prefer to deploy a smaller SKU in your secondary region. This would need to be balanced agains the time required to restore your system to full capacity in the event of an outage. However, in Azure Managed Instance for Apache Cassandra, this is made easier by [turnkey vertical scaling of SKUs](create-cluster-portal.md#vertical-scale). 
 
+## Next steps
+
+In this article, we laid out some best practices for building resilient applications with Cassandra.
+
+> [!div class="nextstepaction"]
+> [Create a cluster using Azure Portal](create-cluster-portal.md)
+
 
 
