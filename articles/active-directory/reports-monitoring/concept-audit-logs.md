@@ -1,6 +1,6 @@
 ---
-title: Learn about the audit logs in Azure Active Directory
-description: Learn about the types of identity related events that are captured in Azure Active Directory audit logs.
+title: Learn about the audit logs in Microsoft Entra ID
+description: Learn about the types of identity related events that are captured in Microsoft Entra audit logs.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -14,9 +14,9 @@ ms.reviewer: besiler
 
 ---
 
-# What are Azure Active Directory audit logs?
+# What are Microsoft Entra audit logs?
 
-Azure Active Directory (Azure AD) activity logs include audit logs, which is a comprehensive report on every logged event in Azure AD. Changes to applications, groups, users, and licenses are all captured in the Azure AD audit logs.
+Microsoft Entra activity logs include audit logs, which is a comprehensive report on every logged event in Microsoft Entra ID. Changes to applications, groups, users, and licenses are all captured in the Microsoft Entra audit logs.
 
 Two other activity logs are also available to help monitor the health of your tenant:
 
@@ -27,7 +27,7 @@ This article gives you an overview of the audit logs.
 
 ## What can you do with audit logs?
 
-Audit logs in Azure AD provide access to system activity records, often needed for compliance. You can get answers to questions related to users, groups, and applications.
+Audit logs in Microsoft Entra ID provide access to system activity records, often needed for compliance. You can get answers to questions related to users, groups, and applications.
 
 **Users:**
 
@@ -70,14 +70,14 @@ Filter the audit data using the options visible in your list such as date range,
 
 There are several options available if you need to store the logs for data retention or route them to an analysis tool. Review the [How to access activity logs](howto-access-activity-logs.md) article for details on each option. 
 
-You can download the audit logs from the Azure AD portal, up to 250,000 records, by selecting the **Download** button. The exact number of records varies, based on the number of fields included in your view when you select the **Download** button. You can download the logs in either CSV or JSON format. The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).
+You can download the audit logs from the Microsoft Entra admin center, up to 250,000 records, by selecting the **Download** button. The exact number of records varies, based on the number of fields included in your view when you select the **Download** button. You can download the logs in either CSV or JSON format. The number of records you can download is constrained by the [Microsoft Entra report retention policies](reference-reports-data-retention.md).
 
 ![Screenshot of the download data option.](./media/concept-audit-logs/download.png "Download data")
 
 ## Microsoft 365 activity logs
 
-You can view Microsoft 365 activity logs from the [Microsoft 365 admin center](/office365/admin/admin-overview/about-the-admin-center). Even though Microsoft 365 activity and Azure AD activity logs share many directory resources, only the Microsoft 365 admin center provides a full view of the Microsoft 365 activity logs. 
+You can view Microsoft 365 activity logs from the [Microsoft 365 admin center](/office365/admin/admin-overview/about-the-admin-center). Even though Microsoft 365 activity and Microsoft Entra activity logs share many directory resources, only the Microsoft 365 admin center provides a full view of the Microsoft 365 activity logs. 
 
 You can also access the Microsoft 365 activity logs programmatically by using the [Office 365 Management APIs](/office/office-365-management-api/office-365-management-apis-overview).
 
-Most standalone or bundled Microsoft 365 subscriptions have back-end dependencies on some subsystems within the Microsoft 365 datacenter boundary. The dependencies require some information write-back to keep directories in sync and essentially to help enable hassle-free onboarding in a subscription opt-in for Exchange Online. For these write-backs, audit log entries show actions taken by “Microsoft Substrate Management”. These audit log entries refer to create/update/delete operations executed by Exchange Online to Azure AD. The entries are informational and don't require any action.
+Most standalone or bundled Microsoft 365 subscriptions have back-end dependencies on some subsystems within the Microsoft 365 datacenter boundary. The dependencies require some information write-back to keep directories in sync and essentially to help enable hassle-free onboarding in a subscription opt-in for Exchange Online. For these write-backs, audit log entries show actions taken by “Microsoft Substrate Management”. These audit log entries refer to create/update/delete operations executed by Exchange Online to Microsoft Entra ID. The entries are informational and don't require any action.

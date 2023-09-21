@@ -1,42 +1,42 @@
 ---
-title: Azure Stack Edge 2307 release notes
-description: Describes critical open issues and resolutions for the Azure Stack Edge running 2307 release.
+title: Azure Stack Edge 2309 release notes
+description: Describes critical open issues and resolutions for the Azure Stack Edge running 2309 release.
 services: databox
 author: alkohli
  
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/25/2023
+ms.date: 09/20/2023
 ms.author: alkohli
 ---
 
-# Azure Stack Edge 2307 release notes
+# Azure Stack Edge 2309 release notes
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-The following release notes identify the critical open issues and the resolved issues for the 2307 release for your Azure Stack Edge devices. Features and issues that correspond to a specific model of Azure Stack Edge are called out wherever applicable.
+The following release notes identify the critical open issues and the resolved issues for the 2309 release for your Azure Stack Edge devices. Features and issues that correspond to a specific model of Azure Stack Edge are called out wherever applicable.
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they're added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2307** release, which maps to software version **2.2.2257.1113**.
+This article applies to the **Azure Stack Edge 2309** release, which maps to software version **3.2.2380.1632**.
 
 ## Supported update paths
 
-This software can be applied to your device if you're running **Azure Stack Edge 2207 or later** (2.2.2026.5318).
+This software can be applied to your device if you're running **Azure Stack Edge 2209 or later** (3.2.2380.1632).
 
 You can update to the latest version using the following update paths:
 
 | Current version     | Update to | Then apply |
 | --------------------| -----------| -----------|
-|2205 and earlier     |2207        |2307
-|2207 and later       |2307        |
+|2205 and earlier     |2207        |2309 |
+|2207 and later       |2307        |    |
 
 ## What's new
 
-The 2307 release has the following new features and enhancements:
+The 2309 release has the following new features and enhancements:
 
-- New for 2307.
+- Beginning this release, you have the option of selecting Kubernetes profiles based on your workloads. You can also configure Maximum Transmission Unit (MTU) for the network interfaces on your device.
 - Starting March 2023, Azure Stack Edge devices are required to be on the 2301 release or later to create a Kubernetes cluster. In preparation for this requirement, it is highly recommended that you update to the latest version as soon as possible.
 - You can deploy Azure Kubernetes service (AKS) on an Azure Stack Edge cluster. This feature is supported only for SAP and PMEC customers. For more information, see [Deploy AKS on Azure Stack Edge](azure-stack-edge-deploy-aks-on-azure-stack-edge.md).
 
