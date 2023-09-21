@@ -40,39 +40,38 @@ You can also define how many days a user can postpone, or "snooze," the nudge. I
 
 1. User sees prompt to set up the Authenticator app to improve their sign-in experience. Only users who are allowed for the Authenticator app push notifications and don't have it currently set up will see the prompt. 
 
-   ![User performs multifactor authentication](./media/how-to-mfa-registration-campaign/user-prompt.png)
+   ![Screenshot of multifactor authentication.](./media/how-to-mfa-registration-campaign/user-prompt.png)
 
 1. User taps **Next** and steps through the Authenticator app setup. 
    1. First download the app.  
-   ![User downloads Microsoft Authenticator](media/how-to-mfa-registration-campaign/user-downloads-microsoft-authenticator.png)
+   ![Screenshot of download for Microsoft Authenticator.](media/how-to-mfa-registration-campaign/user-downloads-microsoft-authenticator.png)
 
    1. See how to set up the Authenticator app. 
    
-      ![User sets up Microsoft Authenticator](./media/how-to-nudge-authenticator-app/setup.png)
+      ![Screenshot of Microsoft Authenticator.](./media/how-to-nudge-authenticator-app/setup.png)
 
    1. Scan the QR Code. 
 
-      ![User scans QR Code](./media/how-to-nudge-authenticator-app/scan.png)
+      ![Screenshot of QR Code.](./media/how-to-nudge-authenticator-app/scan.png)
 
    1. Approve the test notification.
 
-      ![User approves the test notification](./media/how-to-nudge-authenticator-app/test.png)
+      ![Screenshot of test notification.](./media/how-to-nudge-authenticator-app/test.png)
 
    1. Notification approved.
 
-      ![Confirmation of approval](./media/how-to-nudge-authenticator-app/approved.png)
+      ![Screenshot of confirmation of approval.](./media/how-to-nudge-authenticator-app/approved.png)
 
    1. Authenticator app is now successfully set up as the user's default sign-in method.
 
-      ![Installation complete](./media/how-to-nudge-authenticator-app/finish.png)
+      ![Screenshot of installation complete.](./media/how-to-nudge-authenticator-app/finish.png)
 
 1. If a user wishes to not install the Authenticator app, they can tap **Skip for now** to snooze the prompt for up to 14 days, which can be set by an admin. Users with free and trial subscriptions can snooze the prompt up to three times.
 
-   ![Snooze option.](media/how-to-mfa-registration-campaign/snooze.png)
+   ![Screenshot of snooze option.](media/how-to-mfa-registration-campaign/snooze.png)
 
 
 ## Enable the registration campaign policy using the Microsoft Entra admin center
-
 
 To enable a registration campaign in the Microsoft Entra admin center, complete the following steps:
 
@@ -94,13 +93,13 @@ To configure the policy using Graph Explorer:
 
    To open the Permissions panel:
 
-   ![Screenshot of Graph Explorer](./media/how-to-nudge-authenticator-app/permissions.png)
+   ![Screenshot of Graph Explorer.](./media/how-to-nudge-authenticator-app/permissions.png)
 
 1. Retrieve the Authentication methods policy: `GET https://graph.microsoft.com/beta/policies/authenticationmethodspolicy`
 
 1. Update the registrationEnforcement and authenticationMethodsRegistrationCampaign section of the policy to enable the nudge on a user or group.
 
-   ![screenshot of the API response](media/how-to-mfa-registration-campaign/response.png)
+   ![Screenshot of the API response.](media/how-to-mfa-registration-campaign/response.png)
 
 To update the policy, perform a PATCH on the Authentication Methods Policy with only the updated registrationEnforcement section: `PATCH https://graph.microsoft.com/beta/policies/authenticationmethodspolicy`
 
