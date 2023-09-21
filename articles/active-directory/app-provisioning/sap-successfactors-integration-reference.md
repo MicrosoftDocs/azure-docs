@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/27/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: chmutali
 ---
@@ -157,7 +157,7 @@ To retrieve more attributes, follow the steps listed:
 1. Click on **Edit attribute list for SuccessFactors**. 
 
    > [!NOTE] 
-   > If the **Edit attribute list for SuccessFactors** option doesn't show in the Azure portal, use the URL *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* to access the page. 
+   > If the **Edit attribute list for SuccessFactors** option doesn't show in the Microsoft Entra admin center, use the URL *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* to access the page. 
 
 1. The **API expression** column in this view displays the JSONPath expressions used by the connector.
 
@@ -228,7 +228,7 @@ Let's say, in your Employee Central instance, *customString35* attribute in *Emp
 1. Edit the SuccessFactors attribute list to add a new attribute called *empJobNavCustomString35*.
 1. Set the JSONPath API expression for this attribute as: 
    `$.employmentNav.results[0].jobInfoNav.results[0].customString35`
-1. Save and reload the mapping change in the Azure portal.  
+1. Save and reload the mapping change in the Microsoft Entra admin center.  
 1. In the attribute-mapping blade, map *empJobNavCustomString35* to *physicalDeliveryOfficeName*.
 1. Save the mapping.
 
