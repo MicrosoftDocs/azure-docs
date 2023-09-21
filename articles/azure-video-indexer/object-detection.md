@@ -8,7 +8,7 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ---
 
-# Object detection
+# Azure Video Indexer object detection
 
 Azure Video Indexer can detect objects in videos. The insight in part of all standard and advanced presets. This article discusses the object detection insight.
 
@@ -34,6 +34,8 @@ Review [transparency note overview](/legal/azure-video-indexer/transparency-note
 Object detection is included in the insights that are the result of an [Upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) request.
 
 ## View the insight
+
+You can interact with the insight with the web portal or on the API page.
 
 ### [Web Portal](#tab/webportal)
 something goes here
