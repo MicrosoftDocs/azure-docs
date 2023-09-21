@@ -230,3 +230,4 @@ Azure NetApp Files SMB, dual-protocol, and NFSv4.1 Kerberos volumes support cros
 * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
 * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 * [Errors for SMB and dual-protocol volumes](troubleshoot-volumes.md#errors-for-smb-and-dual-protocol-volumes)
+* [Access SMB volumes from Azure AD joined Windows virtual machines](access-smb-volume-from-windows-client.md)
