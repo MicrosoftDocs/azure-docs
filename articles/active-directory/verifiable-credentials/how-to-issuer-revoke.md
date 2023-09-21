@@ -1,5 +1,5 @@
 ---
-title: How to Revoke a Verifiable Credential as an Issuer - Entra Verified ID
+title: How to Revoke a Verifiable Credential as an Issuer - Microsoft Entra Verified ID
 description: Learn how to revoke a Verifiable Credential that you've issued
 documentationCenter: ''
 author: barclayn
@@ -112,7 +112,7 @@ Verifiable credential data isn't stored by Microsoft. Therefore, the issuer need
 
 ## How does revocation work?
 
-Microsoft Entra Verified ID implements the [W3C StatusList2021](https://github.com/w3c-ccg/vc-status-list-2021/tree/343b8b59cddba4525e1ef355356ae760fc75904e). When presentation to the Request Service API happens, the API will do the revocation check for you. The revocation check happens over an anonymous API call to Identity Hub and does not contain any data who is checking if the verifiable credential is still valid or revoked. With the **statusList2021**, Microsoft Entra Verified ID just keeps a flag by the hashed value of the indexed claim to keep track of the revocation status. 
+Microsoft Entra Verified ID implements the [W3C StatusList2021](https://github.com/w3c/vc-status-list-2021/tree/343b8b59cddba4525e1ef355356ae760fc75904e). When presentation to the Request Service API happens, the API will do the revocation check for you. The revocation check happens over an anonymous API call to Identity Hub and does not contain any data who is checking if the verifiable credential is still valid or revoked. With the **statusList2021**, Microsoft Entra Verified ID just keeps a flag by the hashed value of the indexed claim to keep track of the revocation status. 
 
 ### Verifiable credential data 
 

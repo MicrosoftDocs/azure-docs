@@ -33,12 +33,14 @@
   expanded: true
 - name: Tutorials
   items: 
+  - name: Inspect private endpoint traffic with Azure Firewall
+    href: tutorial-inspect-traffic-azure-firewall.md
   - name: Deploy a private endpoint with a private resolver
     href: tutorial-dns-on-premises-private-resolver.md
   - name: Connect to a storage account
     href: tutorial-private-endpoint-storage-portal.md
   - name: Connect to an Azure Cosmos DB account
-    href: tutorial-private-endpoint-cosmosdb-portal.md
+    href: /azure/cosmos-db/how-to-configure-private-endpoints?toc=/azure/private-link/toc.json
   - name: SQL
     items:
     - name: Connect to a SQL server - Azure portal

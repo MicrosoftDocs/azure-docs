@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/15/2022
+ms.date: 08/25/2023
 ms.author: eur
 ---
 
@@ -16,7 +16,7 @@ ms.author: eur
 
 ## Set up the environment
 
-Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser). Check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-go) for any more requirements.
+Install the Speech SDK for Go. For requirements and instructions, see [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-go).
 
 ### Set environment variables
 
@@ -24,10 +24,10 @@ Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=pr
 
 ## Synthesize to speaker output
 
-Follow these steps to create a new GO module.
+Follow these steps to create a new Go module.
 
-1. Open a command prompt where you want the new module, and create a new file named `speech-synthesis.go`.
-1. Copy the following code into `speech_synthesis.go`:
+1. Open a console window where you want the new module, and then create a new file named *speech-synthesis.go*.
+1. Copy the following code into *speech-synthesis.go*:
 
     ```go
     package main
@@ -134,24 +134,26 @@ Follow these steps to create a new GO module.
     }
     ```
 
-1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.
+1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
 
-Run the following commands to create a `go.mod` file that links to components hosted on GitHub:
+   All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
-```cmd
-go mod init speech-synthesis
-go get github.com/Microsoft/cognitive-services-speech-sdk-go
-```
+1. Run the following commands to create a *go.mod* file that links to components hosted on GitHub:
 
-> [!IMPORTANT]
-> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+   ```console
+   go mod init speech-synthesis
+   go get github.com/Microsoft/cognitive-services-speech-sdk-go
+   ```
 
-Now build and run the code:
+   > [!IMPORTANT]
+   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
-```cmd
-go build
-go run speech-synthesis
-```
+1. Now build and run the code:
+
+   ```console
+   go build
+   go run speech-synthesis
+   ```
 
 ## Clean up resources
 

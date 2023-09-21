@@ -1,12 +1,12 @@
 ---
-title: Regions that need to opt in for Azure AD Multi-Factor Authentication (MFA) telephony verification | Azure Active Directory
-description: To protect customers, some regions require a support ticket to request to opt in to receive MFA telephony verification Azure Active Directory
+title: Regions that need to opt in for Microsoft Entra multifactor authentication telephony verification | Microsoft Entra ID
+description: To protect customers, some regions require a support ticket to request to opt in to receive MFA telephony verification Microsoft Entra ID
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/02/2023
+ms.date: 09/12/2023
 
 author: aloom3
 ms.author: justinha
@@ -24,12 +24,12 @@ As a protection for our customers, Microsoft doesn't automatically support telep
 
 In today's digital world, telecommunication services have become ingrained into our lives. But advancements come with a risk of fraudulent activities. International Revenue Share Fraud (IRSF) is a threat with severe financial implications that also makes using services more difficult. Let's look at IRSF fraud more in-depth.  
 
-IRSF is a type of telephony fraud where criminals exploit the billing system of telecommunication services providers to make profit for themselves. Bad actors gain unauthorized access to a telecommunication network and divert traffic to those networks to skim profit for every transaction that is sent to that network. To divert traffic, bad actors steal existing usernames and passwords, create new usernames and passwords, or try a host of other things to send SMS messages and voice calls through their telecommunication network. Bad actors take advantage of multifactor authentication screens, which require an SMS or voice call before a user can access their account. This activity causes exorbitant charges and makes services unreliable for our customers, causing downtime, and system errors.  
+IRSF is a type of telephony fraud where criminals exploit the billing system of telecommunication services providers to make profit for themselves. Bad actors gain unauthorized access to a telecommunication network and divert traffic to those networks to skim profit for every transaction that is sent to that network. To divert traffic, bad actors steal existing usernames and passwords, create new usernames and passwords, or try a host of other things to send text message messages and voice calls through their telecommunication network. Bad actors take advantage of multifactor authentication screens, which require a text message or voice call before a user can access their account. This activity causes exorbitant charges and makes services unreliable for our customers, causing downtime, and system errors.  
 
 Here's how an IRSF attack may happen:  
 
 1. A bad actor first gets premium rate phone numbers and registers them.  
-1. A bad actor uses automated scripts to request voice calls or SMS messages. The bad actor is colluding with number providers and the telecommunication network to drive more traffic to those services. The bad actor skims some of the profits of the increased traffic.  
+1. A bad actor uses automated scripts to request voice calls or text messages. The bad actor is colluding with number providers and the telecommunication network to drive more traffic to those services. The bad actor skims some of the profits of the increased traffic.  
 1. A bad actor will hop around different region codes to continue to drive traffic and make it hard for them to get caught.  
 
 The most common way to conduct IRSF is through an end-user experience that requires a two-factor authentication code. Bad actors add those premium rate phone numbers and pump traffic to them by requesting two-factor authentication codes. This activity results in revenue-skimming, and can lead to billions of dollars in loss.  
@@ -46,7 +46,7 @@ For SMS verification, the following region codes require an opt-in.
 | 998         |  Uzbek                                         |
 
 ## Voice verification
-For Voice verification, the following region codes require an opt-in.
+For voice verification, the following region codes require an opt-in.
 
 | Region Code | Region Name                                    |
 |:----------- |:---------------------------------------------- |
@@ -78,7 +78,7 @@ For Voice verification, the following region codes require an opt-in.
 | 236         |  Central African Republic                      |
 | 237         |  Cameroon                                      |
 | 238         | Cabo Verde                                     |
-| 239         |  Sao Tome and Principe                         |
+| 239         |  São Tomé and Príncipe                         |
 | 240         |  Equatorial Guinea                             |
 | 241         |  Gabon                                         |
 | 242         | Congo                                          |
@@ -199,4 +199,5 @@ For Voice verification, the following region codes require an opt-in.
 
 ## Next steps
 
-* [Authentication methods in Azure Active Directory](concept-authentication-authenticator-app.md)
+* [Understanding telephony fraud](concept-mfa-telephony-fraud.md)
+* [Authentication methods in Microsoft Entra ID](concept-authentication-authenticator-app.md)

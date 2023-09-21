@@ -3,7 +3,7 @@ title: Source claims from an external store (SAML app)
 titleSuffix: Microsoft identity platform
 description: Use a custom claims provider to augment tokens with claims from an external identity system. Configure a SAML app to receive tokens with external claims. 
 services: active-directory
-author: yoelhor
+author: davidmu1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.date: 03/06/2023
 ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: JasSuri
-#Customer intent: As an application developer, I want to source claims from a data store that is external to Azure Active Directory.
+#Customer intent: As an application developer, I want to source claims from a data store that is external to Microsoft Entra ID.
 ---
 
 # Configure a SAML app to receive tokens with claims from an external store (preview)
@@ -40,9 +40,11 @@ The following steps are for registering a demo [XRayClaims](https://adfshelp.mic
 
 Add a new, non-gallery SAML application in your tenant:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
-1. Go to **Azure Active Directory** and then **Enterprise applications**.  Select **New application** and then **Create your own application**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.  
+
+1. Select **New application** and then **Create your own application**.
 
 1. Add a name for the app.  For example, **AzureADClaimsXRay**.  Select the **Integrate any other application you don't find in the gallery (Non-gallery)** option and select **Create**.
 
@@ -60,7 +62,7 @@ Set up single sign-on for the app:
 
 ### Configure claims
 
-Attributes that return by your custom claims provider API aren't automatically included in tokens returned by Azure AD.  You need to configure your application to reference attributes returned by the custom claims provider and return them as claims in tokens.
+Attributes that return by your custom claims provider API aren't automatically included in tokens returned by Microsoft Entra ID.  You need to configure your application to reference attributes returned by the custom claims provider and return them as claims in tokens.
 
 1. On the **Enterprise applications** configuration page for that new app, go to the **Single sign-on** pane.
 

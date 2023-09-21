@@ -1,6 +1,6 @@
 ---
 title: Session controls in Conditional Access policy
-description: What are session controls in an Azure AD Conditional Access policy
+description: What are session controls in a Microsoft Entra Conditional Access policy
 
 services: active-directory
 ms.service: active-directory
@@ -23,7 +23,7 @@ Within a Conditional Access policy, an administrator can make use of session con
 
 ## Application enforced restrictions
 
-Organizations can use this control to require Azure AD to pass device information to the selected cloud apps. The device information allows cloud apps to know if a connection is from a compliant or domain-joined device and update the session experience. This control only supports Office 365, SharePoint Online, and Exchange Online as selected cloud apps. When selected, the cloud app uses the device information to provide users with a limited or full experience. Limited when the device isn't managed or compliant and full when the device is managed and compliant.
+Organizations can use this control to require Microsoft Entra ID to pass device information to the selected cloud apps. The device information allows cloud apps to know if a connection is from a compliant or domain-joined device and update the session experience. This control only supports Office 365, SharePoint Online, and Exchange Online as selected cloud apps. When selected, the cloud app uses the device information to provide users with a limited or full experience. Limited when the device isn't managed or compliant and full when the device is managed and compliant.
 
 For more information on the use and configuration of app-enforced restrictions, see the following articles:
 
@@ -32,7 +32,7 @@ For more information on the use and configuration of app-enforced restrictions, 
 
 ## Conditional Access application control
 
-Conditional Access App Control uses a reverse proxy architecture and is uniquely integrated with Azure AD Conditional Access. Azure AD Conditional Access allows you to enforce access controls on your organization’s apps based on certain conditions. The conditions define what user or group of users, cloud apps, and locations and networks a Conditional Access policy applies to. After you’ve determined the conditions, you can route users to [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) where you can protect data with Conditional Access App Control by applying access and session controls.
+Conditional Access App Control uses a reverse proxy architecture and is uniquely integrated with Microsoft Entra Conditional Access. Microsoft Entra Conditional Access allows you to enforce access controls on your organization’s apps based on certain conditions. The conditions define what user or group of users, cloud apps, and locations and networks a Conditional Access policy applies to. After you’ve determined the conditions, you can route users to [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) where you can protect data with Conditional Access App Control by applying access and session controls.
 
 Conditional Access App Control enables user app access and sessions to be monitored and controlled in real time based on access and session policies. Access and session policies are used within the Defender for Cloud Apps portal to refine filters and set actions to take. With the access and session policies, you can:
 
@@ -75,11 +75,11 @@ For more information, see the article [Configure authentication session manageme
 
 - **Disable** only work when **All cloud apps** are selected, no conditions are selected, and **Disable** is selected under **Session** > **Customize continuous access evaluation** in a Conditional Access policy. You can choose to disable all users or specific users and groups.
 
-:::image type="content" source="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png" alt-text="CAE Settings in a new Conditional Access policy in the Azure portal." lightbox="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png":::
+:::image type="content" source="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png" alt-text="A screenshot showing CAE Settings in a new Conditional Access policy." lightbox="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png":::
 
 ## Disable resilience defaults
 
-During an outage, Azure AD extends access to existing sessions while enforcing Conditional Access policies.
+During an outage, Microsoft Entra ID extends access to existing sessions while enforcing Conditional Access policies.
 
 If resilience defaults are disabled, access is denied once existing sessions expire. For more information, see the article [Conditional Access: Resilience defaults](resilience-defaults.md).
 

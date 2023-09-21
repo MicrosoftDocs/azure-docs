@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 08/08/2023
+ms.date: 08/16/2023
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -136,6 +136,10 @@ No. You don't need to install an agent or any software on your browser or your A
 ### <a name="rdpfeaturesupport"></a>What features are supported for VM sessions?
 
 See [About VM connections and features](vm-about.md) for supported features.
+
+### <a name="shareable-links-passwords"></a>Is Reset Password available for local users connecting via shareable link?
+
+No. Some organizations have company policies that require a password reset when a user logs into a local account for the first time. When using shareable links, the user can't change the password, even though a "Reset Password" button may appear.
 
 ### <a name="audio"></a>Is remote audio available for VMs?
 

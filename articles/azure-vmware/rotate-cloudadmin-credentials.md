@@ -4,8 +4,8 @@ description: Learn how to rotate the vCenter Server credentials for your Azure V
 ms.topic: how-to
 ms.service: azure-vmware
 ms.custom: devx-track-azurecli
-ms.date: 8/15/2023
-#Customer intent: As an Azure service administrator, I want to rotate my cloudadmin credentials so that the HCX Connector has the latest vCenter Server CloudAdmin credentials.
+ms.date: 8/16/2023
+# Customer intent: As an Azure service administrator, I want to rotate my cloudadmin credentials so that the HCX Connector has the latest vCenter Server CloudAdmin credentials.
 ---
 
 # Rotate the cloudadmin credentials for Azure VMware Solution
@@ -22,13 +22,13 @@ Consider and determine which services connect to vCenter Server as *cloudadmin@v
 
 One way to determine which services authenticate to vCenter Server with the cloudadmin user is to inspect vSphere events using the vSphere Client for your private cloud. After you identify such services, and before rotating the password, you must stop these services. Otherwise, the services won't work after you rotate the password. You'll also experience temporary locks on your vCenter Server CloudAdmin account, as these services continuously attempt to authenticate using a cached version of the old credentials. 
 
-Instead of using the cloudadmin user to connect services to vCenter Server or NSX-T, we recommend individual accounts for each service. For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
+Instead of using the cloudadmin user to connect services to vCenter Server or NSX-T Data Center, we recommend individual accounts for each service. For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
 
 ## Reset your vCenter Server credentials
 
 ### [Portal](#tab/azure-portal)
  
-1. In your Azure VMware Solution private cloud, select **VMWare credentials**.
+1. In your Azure VMware Solution private cloud, select **VMware credentials**.
 1. Select **Generate new password** under vCenter Server credentials.
 1. Select the confirmation checkbox and then select **Generate password**.
 
@@ -65,15 +65,15 @@ To begin using Azure CLI:
  
 4. Provide the new vCenter Server user credentials and select **Edit**, which saves the credentials. Save should show successful.
 
-## Reset your NSX-T manager credentials
+## Reset your NSX-T Manager credentials
 
-1. In your Azure VMware Solution private cloud, select **VMWare credentials**.
+1. In your Azure VMware Solution private cloud, select **VMware credentials**.
 1. Select **Generate new password** under NSX-T Manager credentials.
 1. Select the confirmation checkbox and then select **Generate password**.
 
 ## Next steps
 
-Now that you've covered resetting your vCenter Server and NSX-T credentials for Azure VMware Solution, you may want to learn about:
+Now that you've covered resetting your vCenter Server and NSX-T Manager credentials for Azure VMware Solution, you may want to learn about:
 
 - [Integrating Azure native services in Azure VMware Solution](integrate-azure-native-services.md)
 - [Deploying disaster recovery for Azure VMware Solution workloads using VMware HCX](deploy-disaster-recovery-using-vmware-hcx.md)

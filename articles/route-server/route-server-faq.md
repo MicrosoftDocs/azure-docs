@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: faq
-ms.date: 08/14/2023
+ms.date: 08/18/2023
 ---
 
 # Azure Route Server frequently asked questions (FAQ)
@@ -84,13 +84,17 @@ No, Azure Route Server supports only 16-bit (2 bytes) ASNs.
 
 If the route has the same AS path length, Azure Route Server will program multiple copies of the route, each with a different next hop, to the virtual machines (VMs) in the virtual network. When a VM sends traffic to the destination of this route, the VM host uses Equal-Cost Multi-Path (ECMP) routing. However, if one NVA sends the route with a shorter AS path length than other NVAs, Azure Route Server will only program the route that has the next hop set to this NVA to the VMs in the virtual network.
 
+### Does creating a Route Server affect the operation of existing virtual network gateways (VPN or ExpressRoute)?
+
+Yes. When you create or delete a Route Server in a virtual network that contains a virtual network gateway (ExpressRoute or VPN), expect downtime until the operation is complete. If you have an ExpressRoute circuit connected to the virtual network where you're creating or deleting the Route Server, the downtime doesn't affect the ExpressRoute circuit or its connections to other virtual networks.
+
 ### Does Azure Route Server exchange routes by default between NVAs and the virtual network gateways (VPN or ExpressRoute)?
 
 No. By default, Azure Route Server doesn't propagate routes it receives from an NVA and a virtual network gateway to each other. The Route Server exchanges these routes after you enable **branch-to-branch** in it.
 
 ### When the same route is learned over ExpressRoute, VPN or SDWAN, which network is preferred?
 
-ExpressRoute is preferred over VPN or SDWAN.
+By default, the route that's learned over ExpressRoute is preferred over the ones learned over VPN or SDWAN. You can configure routing preference to influence Route Server route selection. For more information, see [Routing preference (preview)](hub-routing-preference.md)
 
 ### What are the requirements for an Azure VPN gateway to work with Azure Route Server?
 
@@ -116,6 +120,10 @@ You can still use Route Server to direct traffic between subnets in different vi
 
 No, Azure Route Server provides transit only between ExpressRoute and Site-to-Site (S2S) VPN gateway connections (when enabling the *branch-to-branch* setting).
 
+### Can I create an Azure Route Server in a spoke VNet that's connected to a Virtual WAN hub?
+
+No. The spoke VNet can't have a Route Server if it's connected to the virtual WAN hub.
+
 ## Limitations
 
 ### How many Azure Route Servers can I create in a virtual network?
@@ -130,7 +138,7 @@ No, Azure Route Server doesn't support configuring a user defined route (UDR) on
 
 No, Azure Route Server doesn't support network security group association to the ***RouteServerSubnet*** subnet.
 
-### <a name = "limitations"></a>What are Azure Route Server limits?
+### <a name = "limits"></a>What are Azure Route Server limits?
 
 Azure Route Server has the following limits (per deployment).
 

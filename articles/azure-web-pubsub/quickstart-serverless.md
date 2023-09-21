@@ -164,7 +164,7 @@ In this tutorial, you learn how to:
    # [C# in-process](#tab/csharp-in-process)
 
    - Update `index.cs` and replace `Run` function with following codes.
-     ```csharp
+     ```c#
      [FunctionName("index")]
      public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req, ExecutionContext context, ILogger log)
      {
@@ -182,17 +182,17 @@ In this tutorial, you learn how to:
 
    - Update `index.cs` and replace `Run` function with following codes.
 
-     ```csharp
+     ```c#
      [Function("index")]
      public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req, FunctionContext context)
      {
          var path = Path.Combine(context.FunctionDefinition.PathToAssembly, "../index.html");
          _logger.LogInformation($"index.html path: {path}.");
 
-         var response = req.CreateResponse();
-         response.WriteString(File.ReadAllText(path));
-         response.Headers.Add("Content-Type", "text/html");
-         return response;
+      var response = req.CreateResponse();
+      response.WriteString(File.ReadAllText(path));
+      response.Headers.Add("Content-Type", "text/html");
+      return response;
      }
      ```
 
@@ -243,7 +243,7 @@ In this tutorial, you learn how to:
    # [C# in-process](#tab/csharp-in-process)
 
    - Update `negotiate.cs` and replace `Run` function with following codes.
-     ```csharp
+     ```c#
      [FunctionName("negotiate")]
      public static WebPubSubConnection Run(
          [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
@@ -255,14 +255,14 @@ In this tutorial, you learn how to:
      }
      ```
    - Add `using` statements in header to resolve required dependencies.
-     ```csharp
+     ```c#
      using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
      ```
 
    # [C# isolated process](#tab/csharp-isolated-process)
 
    - Update `negotiate.cs` and replace `Run` function with following codes.
-     ```csharp
+     ```c#
      [Function("negotiate")]
      public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
          [WebPubSubConnectionInput(Hub = "simplechat", UserId = "{headers.x-ms-client-principal-name}")] WebPubSubConnection connectionInfo)
@@ -325,7 +325,7 @@ In this tutorial, you learn how to:
    # [C# in-process](#tab/csharp-in-process)
 
    - Update `message.cs` and replace `Run` function with following codes.
-     ```csharp
+     ```c#
      [FunctionName("message")]
      public static async Task<UserEventResponse> Run(
          [WebPubSubTrigger("simplechat", WebPubSubEventType.User, "message")] UserEventRequest request,
@@ -344,7 +344,8 @@ In this tutorial, you learn how to:
      }
      ```
    - Add `using` statements in header to resolve required dependencies.
-     ```csharp
+     ```c#
+     using System.Threading.Tasks;
      using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
      using Microsoft.Azure.WebPubSub.Common;
      ```
@@ -352,7 +353,7 @@ In this tutorial, you learn how to:
    # [C# isolated process](#tab/csharp-isolated-process)
 
    - Update `message.cs` and replace `Run` function with following codes.
-     ```csharp
+     ```c#
      [Function("message")]
      [WebPubSubOutput(Hub = "simplechat")]
      public SendToAllAction Run(
@@ -516,7 +517,7 @@ Go to **Azure portal** -> Find your Function App resource -> **App keys** -> **S
 Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Add a new hub settings mapping to the one function in use. Replace the `<FUNCTIONAPP_NAME>` and `<APP_KEY>` to yours.
 
 - Hub Name: `simplechat`
-- URL Template: **https://<FUNCTIONAPP_NAME>.azurewebsites.NET/runtime/webhooks/webpubsub?code=<APP_KEY>**
+- URL Template: **https://<FUNCTIONAPP_NAME>.azurewebsites.net/runtime/webhooks/webpubsub?code=<APP_KEY>**
 - User Event Pattern: \*
 - System Events: -(No need to configure in this sample)
 
@@ -528,7 +529,7 @@ Go to **Azure portal** -> Find your Function App resource -> **Authentication**.
 
 Here we choose `Microsoft` as identify provider, which uses `x-ms-client-principal-name` as `userId` in the `negotiate` function. Besides, you can configure other identity providers following the links, and don't forget update the `userId` value in `negotiate` function accordingly.
 
-- [Microsoft(Azure AD)](../app-service/configure-authentication-provider-aad.md)
+- [Microsoft Entra ID](../app-service/configure-authentication-provider-aad.md)
 - [Facebook](../app-service/configure-authentication-provider-facebook.md)
 - [Google](../app-service/configure-authentication-provider-google.md)
 - [Twitter](../app-service/configure-authentication-provider-twitter.md)

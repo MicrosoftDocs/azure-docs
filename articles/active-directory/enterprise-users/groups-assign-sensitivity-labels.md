@@ -9,25 +9,25 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/28/2023
+ms.date: 09/08/2023
 ms.author: barclayn
 ms.reviewer: krbain
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
-# Assign sensitivity labels to Microsoft 365 groups in Azure Active Directory
+# Assign sensitivity labels to Microsoft 365 groups in Microsoft Entra ID
 
-Azure Active Directory (Azure AD), part of Microsoft Entra, supports applying sensitivity labels published by the [Microsoft Purview compliance portal](https://compliance.microsoft.com) to Microsoft 365 groups. Sensitivity labels apply to group across services like Outlook, Microsoft Teams, and SharePoint. For more information about Microsoft 365 apps support, see [Microsoft 365 support for sensitivity labels](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+Microsoft Entra ID, part of Microsoft Entra, supports applying sensitivity labels published by the [Microsoft Purview compliance portal](https://compliance.microsoft.com) to Microsoft 365 groups. Sensitivity labels apply to group across services like Outlook, Microsoft Teams, and SharePoint. For more information about Microsoft 365 apps support, see [Microsoft 365 support for sensitivity labels](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
-> To configure this feature, there must be at least one active Azure Active Directory Premium P1 license in your Azure AD organization.
+> To configure this feature, there must be at least one active Microsoft Entra ID P1 license in your Microsoft Entra organization.
 
 ## Enable sensitivity label support in PowerShell
 
-To apply published labels to groups, you must first enable the feature. These steps enable the feature in Azure AD.
+To apply published labels to groups, you must first enable the feature. These steps enable the feature in Microsoft Entra ID.
 
-1. Open a Windows PowerShell window on your computer. You can open it without elevated privileges.
+1. Open a PowerShell prompt on your computer. You can open it without elevated privileges.
 1. Run the following commands to prepare to run the cmdlets.
 
     ```powershell
@@ -37,7 +37,7 @@ To apply published labels to groups, you must first enable the feature. These st
     ```
 
     In the **Sign in to your account** page, enter your admin account and password to connect you to your service, and select **Sign in**.
-1. Fetch the current group settings for the Azure AD organization and display the current group settings.
+1. Fetch the current group settings for the Microsoft Entra organization and display the current group settings.
 
     ```powershell
     $grpUnifiedSetting = (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ)
@@ -46,7 +46,7 @@ To apply published labels to groups, you must first enable the feature. These st
     ```
 
     > [!NOTE]
-    > If no group settings have been created for this Azure AD organization, you will get an empty screen. In this case, you must first create the settings. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md) to create group settings for this Azure AD organization.  
+    > If no group settings have been created for this Microsoft Entra organization, you will get an empty screen. In this case, you must first create the settings. Follow the steps in [Microsoft Entra cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md) to create group settings for this Microsoft Entra organization.  
     
     > [!NOTE]
     > If the sensitivity label has been enabled previously, you will see **EnableMIPLabels** =  **True**. In this case, you do not need to do anything.
@@ -77,14 +77,13 @@ If you’re receiving a Request_BadRequest error, it's because the settings alre
 1. Issue the `Set-AzureADDirectorySetting -DirectorySetting $Setting -ID` cmdlet, using the ID that you retrieved in step 2.
 1. Ensure that the value is now correctly updated by issuing `$Setting.Values` again.
 
-You will also need to synchronize your sensitivity labels to Azure AD. For instructions, see [How to enable sensitivity labels for containers and synchronize labels](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
+You will also need to synchronize your sensitivity labels to Microsoft Entra ID. For instructions, see [How to enable sensitivity labels for containers and synchronize labels](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
 
 ## Assign a label to a new group in Azure portal
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Groups**, and then select **New group**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID.
+1. Choose **Groups** > **All groups** > **New group**.
 1. On the **New Group** page, select **Office 365**, and then fill out the required information for the new group and select a sensitivity label from the list.
 
    ![Assign a sensitivity label in the New groups page](./media/groups-assign-sensitivity-labels/new-group-page.png)
@@ -95,8 +94,9 @@ Your group is created and the site and group settings associated with the select
 
 ## Assign a label to an existing group in Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with a Groups admin account, or as a group owner.
-1. Browse to **Azure Active Directory** > **Groups**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID.
+1. Select **Groups**.
 1. From the **All groups** page, select the group that you want to label.
 1. On the selected group's page, select **Properties** and select a sensitivity label from the list.
 
@@ -106,14 +106,17 @@ Your group is created and the site and group settings associated with the select
 
 ## Remove a label from an existing group in Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with a Global Administrator or Groups admin account, or as a group owner.
-1. Browse to **Azure Active Directory** > **Groups**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID.
+1. Select **Groups** > **All groups**.
 1. From the **All groups** page, select the group that you want to remove the label from.
 1. On the **Group** page, select **Properties**.
 1. Select **Remove**.
 1. Select **Save** to apply your changes.
 
-## Using classic Azure AD classifications
+<a name='using-classic-azure-ad-classifications'></a>
+
+## Using classic Microsoft Entra classifications
 
 After you enable this feature, the “classic” classifications for groups will appear only existing groups and sites, and you should use them for new groups only if creating groups in apps that don’t support sensitivity labels. Your admin can convert them to sensitivity labels later if needed. Classic classifications are the old classifications you set up by defining values for the `ClassificationList` setting in Azure AD PowerShell. When this feature is enabled, those classifications will not be applied to groups.
 
@@ -123,10 +126,10 @@ After you enable this feature, the “classic” classifications for groups will
 
 The sensitivity label option is only displayed for groups when all of the following conditions are met:
 
-1. The organization has an active Azure Active Directory Premium P1 license.
+1. The organization has an active Microsoft Entra ID P1 license.
 1. The feature is enabled, EnableMIPLabels is set to True in from the Azure AD PowerShell module.
-1. In addition, the sensitivity labels are published in the Microsoft Purview compliance portal for this Azure AD organization.
-1. Labels are synchronized to Azure AD with the Execute-AzureAdLabelSync cmdlet in the Security & Compliance PowerShell module. It can take up to 24 hours after synchronization for the label to be available to Azure AD.
+1. In addition, the sensitivity labels are published in the Microsoft Purview compliance portal for this Microsoft Entra organization.
+1. Labels are synchronized to Microsoft Entra ID with the Execute-AzureAdLabelSync cmdlet in the Security & Compliance PowerShell module. It can take up to 24 hours after synchronization for the label to be available to Microsoft Entra ID.
 1. The [sensitivity label scope](/microsoft-365/compliance/sensitivity-labels?preserve-view=true&view=o365-worldwide#label-scopes) must be configured for Groups & Sites.
 3. The group is a Microsoft 365 group.
 4. The current signed-in user:
@@ -146,9 +149,10 @@ If the label you are looking for is not in the list, this could be the case for 
 
 Labels can be swapped at any time using the same steps as assigning a label to an existing group, as follows:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with a Global or Group administrator account or as group owner.
-1. Browse to **Azure Active Directory** > **Groups**.
-1. From the **All groups** page, select the group that you want to label.
+1. 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID.
+1. Select **Groups**.
+1. Choose **All groups**, select the group that you want to label.
 1. On the selected group's page, select **Properties** and select a new sensitivity label from the list.
 1. Select **Save**.
 

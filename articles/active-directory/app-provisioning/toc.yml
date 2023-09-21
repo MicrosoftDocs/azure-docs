@@ -35,7 +35,7 @@ items:
         href: on-premises-web-services-connector.md
       - name: Provisioning with custom connectors
         href: on-premises-custom-connector.md
-      - name: Provisioning to SAP ECC 7.0
+      - name: Provisioning to SAP ECC (formerly SAP R/3)
         href: on-premises-sap-connector-configure.md
     - name: API-driven inbound provisioning tutorials
       items:
@@ -102,7 +102,7 @@ items:
       - name: Export and import your configuration
         href: export-import-provisioning-configuration.md  
       - name: Provisioning reports
-        href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+        href: ../reports-monitoring/concept-provisioning-logs.md?context=/azure/active-directory/app-provisioning/context/app-provisioning-context
       - name: Provisioning insights workbook
         href: provisioning-workbook.md  
     - name: Workday provisioning scenarios
@@ -124,7 +124,7 @@ items:
       - name: Troubleshooting on-premises provisioning
         href: on-premises-ecma-troubleshoot.md
       - name: Provisioning logs
-        href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+        href: ../reports-monitoring/concept-provisioning-logs.md?context=/azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Troubleshoot HR provisioning
       items:
       - name: Attribute retrieval issues
@@ -165,7 +165,7 @@ items:
         href: provisioning-agent-release-version-history.md
     - name: Migrate connector from MIM Sync
       href: on-premises-migrate-microsoft-identity-manager.md
-    - name: Prepare AD LDS for provisioning from Azure AD
+    - name: Prepare AD LDS for provisioning from Microsoft Entra ID
       href: on-premises-ldap-connector-prepare-directory.md
     - name: Frequently asked questions (FAQs) about API-driven inbound provisioning 
       href: inbound-provisioning-api-faqs.md

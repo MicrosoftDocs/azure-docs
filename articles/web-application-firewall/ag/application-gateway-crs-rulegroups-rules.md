@@ -363,7 +363,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941150|XSS Filter - Category 5: Disallowed HTML Attributes|
 |941160|NoScript XSS InjectionChecker: HTML Injection|
 |941170|NoScript XSS InjectionChecker: Attribute Injection|
-|941180|Node-Validator Blacklist Keywords|
+|941180|Node-Validator Blocklist Keywords|
 |941190|XSS Using style sheets|
 |941200|XSS using VML frames|
 |941210|XSS using obfuscated JavaScript|
@@ -386,7 +386,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941380|AngularJS client side template injection detected|
 
 >[!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ### <a name="drs942-21"></a> SQLI - SQL Injection
 |RuleId|Description|

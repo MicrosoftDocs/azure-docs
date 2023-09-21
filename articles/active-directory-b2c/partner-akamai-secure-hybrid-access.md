@@ -40,7 +40,7 @@ To get started, you'll need:
 
 - An application that uses headers for authentication. In this sample, we'll use an application that displays headers [docker header-demo-app](https://hub.docker.com/r/mistermik/header-demo-app).
 
-- **OR** an OpenID Connect (OIDC) application. In this sample, we'll use an [ASP.NET MVC web app](../active-directory/develop/tutorial-v2-asp-webapp.md) that signs in users by using the Open Web Interface for .NET (OWIN) middleware and the Microsoft identity platform.
+- **OR** an OpenID Connect (OIDC) application. In this sample, we'll use an [ASP.NET MVC web app](../active-directory/develop/web-app-tutorial-01-register-application.md) that signs in users by using the Open Web Interface for .NET (OWIN) middleware and the Microsoft identity platform.
 
 ## Scenario description
 
@@ -398,9 +398,9 @@ Once the Application is deployed in a private environment and a connector is cap
 
 #### Option 2: OpenID Connect
 
-In this sample, we'll use a [ASP.NET MVC web app](../active-directory/develop/tutorial-v2-asp-webapp.md) that signs in users by using the Open Web Interface for .NET (OWIN) middleware and the Microsoft identity platform.
+In this sample, we'll use a [ASP.NET MVC web app](../active-directory/develop/web-app-tutorial-01-register-application.md) that signs in users by using the Open Web Interface for .NET (OWIN) middleware and the Microsoft identity platform.
 
-1. Configure the OIDC to SAML bridging in the **AZURE AD B2C SAML IdP** created with the previous steps.
+1. Configure the OIDC to SAML bridging in the **Azure AD B2C SAML IdP** created with the previous steps.
 
    [ ![Screenshot shows the akamai oidc app oidc settings.](./media/partner-akamai-secure-hybrid-access/akamai-oidc-idp-settings.png)](./media/partner-akamai-secure-hybrid-access/akamai-oidc-idp-settings.png#lightbox)
 
@@ -422,7 +422,7 @@ In this sample, we'll use a [ASP.NET MVC web app](../active-directory/develop/tu
 
    [ ![Screenshot shows the akamai oidc app claim settings.](./media/partner-akamai-secure-hybrid-access/akamai-oidc-claims-settings.png)](./media/partner-akamai-secure-hybrid-access/akamai-oidc-claims-settings.png#lightbox)
 
-7. Replace startup class with the following code in the [ASP.NET MVC web app](../active-directory/develop/tutorial-v2-asp-webapp.md).
+7. Replace startup class with the following code in the [ASP.NET MVC web app](../active-directory/develop/web-app-tutorial-01-register-application.md).
 
    These few changes configure the Authorization code flow grant, the authorization code will be redeemed for tokens at the token endpoint for the application, and it introduces the Metadata Address to set the discovery endpoint for obtaining metadata from Akamai.
 

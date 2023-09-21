@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: kritifaujdar
 author: fkriti
 ms.reviewer: larryfr
-ms.date: 05/23/2023
+ms.date: 08/24/2023
 ms.topic: how-to
 ms.custom: ignite-2022, build-2023
 ---
@@ -148,9 +148,13 @@ The response should provide an access token good for one hour. Make note of the 
 ```
 
 To create a registry, use the following command. You can edit the JSON to change the inputs as needed. Replace the `<YOUR-ACCESS-TOKEN>` value with the access token retrieved previously:
- 
+
+> [!TIP]
+> We recommend using the latest API version when working with the REST API. For a list of the current REST API versions for Azure Machine Learning, see the [Machine Learning REST API reference](/rest/api/azureml/). The current API versions are listed in the table of contents on the left side of the page.
+
 ```bash
-curl -X PUT https://management.azure.com/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/providers/Microsoft.MachineLearningServices/registries/reg-from-rest?api-version=2022-12-01-preview -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>" -H 'Content-Type: application/json' -d ' 
+```bash
+curl -X PUT https://management.azure.com/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/providers/Microsoft.MachineLearningServices/registries/reg-from-rest?api-version=2023-04-01 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>" -H 'Content-Type: application/json' -d ' 
 {
     "properties":
     {
@@ -233,7 +237,7 @@ Decide if you want to allow users to only use assets (models, environments and c
 
 ### Allow users to use assets from the registry
 
-To let a user only read assets, you can grant the user the built-in __Reader__ role. If don't want to use the built-in role, create a custom role with the following permissions
+To let a user only read assets, you can grant the user the built-in __Reader__ role. If you don't want to use the built-in role, create a custom role with the following permissions
 
 Permission | Description 
 --|--

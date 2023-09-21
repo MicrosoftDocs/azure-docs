@@ -262,7 +262,7 @@ Radar tiles, showing areas of rain, snow, ice and mixed conditions, are returned
 | Burkina Faso                           |            ✓             |           ✓             |                       |   ✓   |
 | Burundi                                |            ✓             |           ✓             |                       |   ✓   |
 | Cameroon                               |            ✓             |           ✓             |                       |   ✓   |
-| Cape Verde                             |            ✓             |           ✓             |                       |   ✓   |
+| Cabo Verde                             |            ✓             |           ✓             |                       |   ✓   |
 | Central African Republic               |            ✓             |           ✓             |                       |   ✓   |
 | Chad                                   |            ✓             |           ✓             |                       |   ✓   |
 | Comoros                                |            ✓             |           ✓             |                       |   ✓   |

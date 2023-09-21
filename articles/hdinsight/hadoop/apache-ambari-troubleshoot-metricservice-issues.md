@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.author: sairamyeturi
 author: yeturis
 ms.topic: troubleshooting
-ms.date: 07/21/2022
+ms.date: 08/21/2023
 ---
 
 # Apache Ambari Metrics Collector issues in Azure HDInsight
@@ -51,7 +51,7 @@ java.lang.OutOfMemoryError: Java heap space
    2021-04-13 05:57:37,546 INFO  [timeline] timeline.HadoopTimelineMetricsSink: No live collector to send metrics to. Metrics to be sent will be discarded. This message will be skipped for the next 20 times.
    ```
 
-2. Get the Apache Ambari Metrics Collector pid and check GC performance
+2. Get the Apache Ambari Metrics Collector `pid` and check GC performance
 
    ```
    ps -fu ams | grep 'org.apache.ambari.metrics.AMSApplicationServer'
