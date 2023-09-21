@@ -37,13 +37,13 @@ The Azure Function app settings environment variables are pulled in from a file,
 
 ## Azure Function: Search the catalog
 
-The Search [API](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/Search/__init__.py) takes a search term and searches across the documents in the Search Index, returning a list of matches. 
+The Search [API](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/search.py) takes a search term and searches across the documents in the Search Index, returning a list of matches. 
 
 Routing for the Search API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/Search/function.json) bindings.
 
 The Azure Function pulls in the search configuration information, and fulfills the query.
 
-:::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/api/Search/__init__.py" :::
+:::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/api/search.py" :::
 
 ## Client: Search from the catalog
 
@@ -53,13 +53,13 @@ Call the Azure Function in the React client with the following code.
 
 ## Azure Function: Suggestions from the catalog
 
-The `Suggest` [API](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/Suggest/__init__.py) takes a search term while a user is typing and suggests search terms such as book titles and authors across the documents in the search index, returning a small list of matches. 
+The `Suggest` [API](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/suggest.py) takes a search term while a user is typing and suggests search terms such as book titles and authors across the documents in the search index, returning a small list of matches. 
 
 The search suggester, `sg`, is defined in the [schema file](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/bulk-upload/good-books-index.json) used during bulk upload.
 
 Routing for the Suggest API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/Suggest/function.json) bindings.
 
-:::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/api/Suggest/__init__.py" :::
+:::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/api/suggest.py" :::
 
 ## Client: Suggestions from the catalog
 
@@ -69,11 +69,11 @@ The Suggest function API is called in the React app at `client\src\components\Se
 
 ## Azure Function: Get specific document 
 
-The `Lookup` [API](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/Lookup/__init__.py) takes an ID and returns the document object from the Search Index. 
+The `Lookup` [API](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/lookup.py) takes an ID and returns the document object from the Search Index. 
 
 Routing for the Lookup API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website-functions-v4/api/Lookup/function.json) bindings.
 
-:::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/api/Lookup/__init__.py" :::
+:::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/api/lookup.py" :::
 
 ## Client: Get specific document 
 

@@ -14,15 +14,15 @@ ms.custom: it-pro
 
 ---
 
-# Known issues with Microsoft Entra External ID for customers
+# Known issues with Microsoft Entra ID for customers
 
-This article describes known issues that you may experience when you use Microsoft Entra External ID for customers, and provides help to resolve these issues.
+This article describes known issues that you may experience when you use Microsoft Entra ID for customers, and provides help to resolve these issues.
 
 ## Tenant creation and management
 
 ### Tenant creation fails when you choose an unsupported region
 
-During customer tenant creation, the **Country/Region** dropdown menu lists countries and regions where  Microsoft Entra External ID for customers isn't yet available. If you choose Japan or Australia, tenant creation fails.
+During customer tenant creation, the **Country/Region** dropdown menu lists countries and regions where  Microsoft Entra ID for customers isn't yet available. If you choose Japan or Australia, tenant creation fails.
 
 **Cause**: Public preview is currently available in the Americas and Europe, with more regions to follow shortly.
 
@@ -137,4 +137,4 @@ When you create your own web API in a customer tenant (without using the app cre
 
 ## Next steps
 
-See also [Supported features in Microsoft Entra External ID for customers](concept-supported-features-customers.md)
+See also [Supported features in Microsoft Entra ID for customers](concept-supported-features-customers.md)

@@ -26,7 +26,7 @@ Audit log data is only kept for 30 days by default, which may not be long enough
 - Stream data to Event Hubs
 - Send data to a partner solution
  
-Find these options in the **Azure portal** > **Microsoft Entra ID**, **Diagnostic settings** > **Edit setting**. If you don't have a diagnostic setting, follow the instructions in the article [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md) to create one. 
+Find these options under **Identity** > **Monitoring & health** > **Diagnostic settings** > **Edit setting**. If you don't have a diagnostic setting, follow the instructions in the article [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md) to create one. 
 
 ## Use the audit log
 
@@ -47,7 +47,7 @@ Log Analytics allows organizations to query data using built in queries or custo
 
 :::image type="content" source="media/troubleshoot-policy-changes-audit-log/log-analytics-new-old-value.png" alt-text="Log Analytics query for updates to Conditional Access policies showing new and old value location" lightbox="media/troubleshoot-policy-changes-audit-log/log-analytics-new-old-value.png":::
 
-Once enabled find access to Log Analytics in the **Azure portal** > **Microsoft Entra ID** > **Log Analytics**. The table of most interest to Conditional Access administrators is **AuditLogs**.
+Once enabled find access to Log Analytics in the **Identity** > **Monitoring & health** > **Log Analytics**. The table of most interest to Conditional Access administrators is **AuditLogs**.
 
 ```kusto
 AuditLogs 
