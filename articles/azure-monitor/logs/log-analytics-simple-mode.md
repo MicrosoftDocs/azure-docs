@@ -2,7 +2,7 @@
 title: Analyze data using Log Analytics simple mode 
 description: This article explains the new Log Analytics experience and how to use simple mode to explore and analyze data in Azure Monitor Logs.
 ms.topic: conceptual
-author: guywild
+author: guywi-ms
 ms.author: guywild
 ms.reviewer: roygal
 ms.date: 09/04/2023
@@ -78,9 +78,9 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 | **Search job mode** | [Run a search job](../logs/search-jobs.md). |
 | **Switch back to classic Logs** | Switch back to the classic Log Analytics user interface. |
 
-## Start an inquiry in simple mode
+## Get started in simple mode
 
-To begin an inquiry in simple mode, either:
+To get started in simple mode, either:
 
 - Click **Select a table** and select a table from the **Tables** tab to view table data.
 
@@ -92,7 +92,7 @@ To begin an inquiry in simple mode, either:
 
 ## Explore and analyze data in simple mode 
 
-After you [initiate an inquiry in simple mode](#start-an-inquiry-in-simple-mode), you can explore and analyze data using the [top query bar](#top-query-bar). 
+After you [get started in simple mode](#get-started-in-simple-mode), you can explore and analyze data using the [top query bar](#top-query-bar). 
 
 > [!NOTE]
 > The order in which you apply filters and operators affects your inquiry and results. For example, if you apply a filter and then aggregate, Log Analytics applies the aggregation to the filtered data. If you aggregate and then filter, the aggregation is applied to the unfiltered data.
