@@ -18,7 +18,9 @@ Azure Resource Graph queries provide more functionality than the Get Summary API
 
 ## Implementation of the current Get Summary API: 
 
-GET https://management.azure.com/subscriptions/{subId}/providers/Microsoft.AlertsManagement/alertsSummary?groupby=severity,alertState&api-version=2019-03-01 
+This is the format for the calling the Get Summary API:
+    `GET https://management.azure.com/subscriptions/{subId}/providers/Microsoft.AlertsManagement/alertsSummary?groupby=severity,alertState&api-version=2019-03-01`
+
 Response: AlertSummary_Sev_Alertstate 
 
 This is an example of the output from the Get Summary API:
