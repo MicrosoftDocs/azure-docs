@@ -31,7 +31,7 @@ At a high level, the recommended approach is:
 
 ## 1) Assess Readiness
 
--   Learn about Azure Health Data Services [here.](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/)
+-   Learn about Azure Health Data Services [here.](https://learn.microsoft.com/azure/healthcare-apis/fhir/)
 -   Compare the capabilities of Azure API for FHIR with Azure Health Data Services. *(insert link to below table TODO)*
 
 | **Areas**               | **Azure API for FHIR**                                                                                                                                                 | **Azure Health Data Services**                                                                                                                                                              |
@@ -48,9 +48,9 @@ Only the capabilities that differ between the two products are called out above.
 
 -   Review your architecture and assess if any changes need to be made.
     -   Things to consider that may affect your architecture:
-        -   Sync Agent is being deprecated. If you were using Sync Agent to connect to Dataverse, please see [Overview of Data integration toolkit \| Microsoft Learn](https://learn.microsoft.com/en-us/dynamics365/industry/healthcare/data-integration-toolkit-overview?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json)
-        -   FHIR Proxy is being deprecated. If you were using FHIR Proxy for eventing in , please refer to the new [eventing](https://learn.microsoft.com/en-us/azure/healthcare-apis/events/events-overview) feature built in. Alternatives can also be customized and built using the new [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit).
-        -   SMART on FHIR proxy is being deprecated. You will need to use the new SMART on FHIR capability, more information here: <https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/smart-on-fhir>
+        -   Sync Agent is being deprecated. If you were using Sync Agent to connect to Dataverse, please see [Overview of Data integration toolkit \| Microsoft Learn](https://learn.microsoft.com/dynamics365/industry/healthcare/data-integration-toolkit-overview?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json)
+        -   FHIR Proxy is being deprecated. If you were using FHIR Proxy for eventing in , please refer to the new [eventing](https://learn.microsoft.com/azure/healthcare-apis/events/events-overview) feature built in. Alternatives can also be customized and built using the new [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit).
+        -   SMART on FHIR proxy is being deprecated. You will need to use the new SMART on FHIR capability, more information here: <https://learn.microsoft.com/azure/healthcare-apis/fhir/smart-on-fhir>
         -   
         -   Azure Health Data Services FHIR Service does not support local RBAC and custom authority. The token issuer authority will have to be the authentication endpoint for the tenant that the FHIR Service is running in.
         -   IoT Connector migration:
@@ -63,7 +63,7 @@ Only the capabilities that differ between the two products are called out above.
 
 | Migration Pattern | Details                                                                                                                                                                                          | How?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Lift and Shift    | The simplest pattern. Ideal if your data pipelines can afford large downtime.                                                                                                                    | Choose the option that works best for your organization: Configure a workflow to [\$export](https://learn.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/export-data) your data on Azure API for FHIR, then [\$import](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/configure-import-data) into Azure Health Data Services FHIR Service. The Github repo has some tips on running these commands, as well as a script to help automate creating the \$import payload [here](https://github.com/Azure/apiforfhir-migration-tool/blob/main/v0/V0_README.md).  Or, you can create your own tool to migrate the data using \$export and \$import. |
+| Lift and Shift    | The simplest pattern. Ideal if your data pipelines can afford large downtime.                                                                                                                    | Choose the option that works best for your organization: Configure a workflow to [\$export](https://learn.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/export-data) your data on Azure API for FHIR, then [\$import](https://learn.microsoft.com/azure/healthcare-apis/fhir/configure-import-data) into Azure Health Data Services FHIR Service. The Github repo has some tips on running these commands, as well as a script to help automate creating the \$import payload [here](https://github.com/Azure/apiforfhir-migration-tool/blob/main/v0/V0_README.md).  Or, you can create your own tool to migrate the data using \$export and \$import. |
 | Incremental copy  | Continuous version of lift and shift, with less downtime. Ideal for large amounts of data that take longer to copy, or if you want to continue running Azure API for FHIR during the migration.  | Choose the option that works best for your organization: We have created an OSS migration tool that can help with this migration pattern (insert link to github) Or, you can create your own tool to migrate the data in an incremental fashion.                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 -   If you choose to use the OSS migration tool, review and understand the migration tool’s capabilities and limitations (*insert link to Github below).*
@@ -75,7 +75,7 @@ Only the capabilities that differ between the two products are called out above.
         -   See “Azure API for FHIR preparation” (link to github below) for additional things to note.
 -   Deploy a new Azure Health Data Services FHIR Service server
     -   Deploy an Azure Health Data Services Workspace first
-    -   Then deploy a Azure Health Data Services FHIR Service server ([Deploy a FHIR service within Azure Health Data Services \| Microsoft Learn)](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/fhir-portal-quickstart)
+    -   Then deploy a Azure Health Data Services FHIR Service server ([Deploy a FHIR service within Azure Health Data Services \| Microsoft Learn)](https://learn.microsoft.com/azure/healthcare-apis/fhir/fhir-portal-quickstart)
         -   Configure your new Azure Health Data Services FHIR Service server. If you’d like to use the same configurations that you had in Azure API for FHIR for your new Azure Health Data Services FHIR Service server, see a recommended list of what to check for here (link to Github section [Migration Tool Documentation.docx](https://microsoft.sharepoint.com/:w:/t/msh/Eb7WohSv_6JNlG1xAI8TyvoBbAPfhxnPzr4wv9py1InEww?e=QeSbo3&nav=eyJoIjoiMTUwODIzNzMifQ)) Configure settings that are needed “pre-migration”.
 
 ## 3) Migrate data
@@ -89,9 +89,9 @@ Only the capabilities that differ between the two products are called out above.
     -   Change the endpoints on your applications so that they point to the new FHIR server’s URL.
         -   (insert link on how to find the new server’s URL)
     -   Set up permissions again for these apps.
-        -   <https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access>
+        -   <https://learn.microsoft.com/azure/storage/blobs/assign-azure-role-data-access>
 -   Reconfigure any remaining settings in the new Azure Health Data Services FHIR Service server “post-migration” (Insert link below)
-    -   If you’d like to doublecheck to make sure that the Azure Health Data Services FHIR Service and Azure API for FHIR servers have the same configurations, you can check both [metadata endpoints](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/use-postman#get-capability-statement) to compare and contrast the two servers.
+    -   If you’d like to doublecheck to make sure that the Azure Health Data Services FHIR Service and Azure API for FHIR servers have the same configurations, you can check both [metadata endpoints](https://learn.microsoft.com/azure/healthcare-apis/fhir/use-postman#get-capability-statement) to compare and contrast the two servers.
 -   Set up any jobs that were previously running in your old Azure API for FHIR server (for example, \$export jobs)
 
 ### 
@@ -114,7 +114,7 @@ Azure API for FHIR will be retired on 30 September 2026.
 
 -   Why are we retiring Azure API for FHIR?
 
-Azure API for FHIR is a service that was purpose built for protected health information (PHI), meeting regional compliance requirements. In March 2022, we announced the general availability of [Azure Health Data Services](https://learn.microsoft.com/en-us/azure/healthcare-apis/healthcare-apis-overview), that enables quick deployment of managed, enterprise-grade FHIR, DICOM, and MedTech services for diverse health data integration. See below for detailed benefits of migrating to Azure Health Data Services FHIR service. With this new experience, we’re retiring Azure API for FHIR
+Azure API for FHIR is a service that was purpose built for protected health information (PHI), meeting regional compliance requirements. In March 2022, we announced the general availability of [Azure Health Data Services](https://learn.microsoft.com/azure/healthcare-apis/healthcare-apis-overview), that enables quick deployment of managed, enterprise-grade FHIR, DICOM, and MedTech services for diverse health data integration. See below for detailed benefits of migrating to Azure Health Data Services FHIR service. With this new experience, we’re retiring Azure API for FHIR
 
 -   What are the benefits of migrating to Azure Health Data Services FHIR service?
 

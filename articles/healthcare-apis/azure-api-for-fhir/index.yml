@@ -27,10 +27,8 @@ landingContent:
             url: overview.md
       - linkListType: how-to-guide
         links:
-          - text: Get started with Azure API for FHIR
-            url: get-started-with-azure-api-fhir.md
-          - text: Deploy Azure API for FHIR
-            url: fhir-paas-portal-quickstart.md
+          - text: Migrate to Azure Health Data Services
+            url: migration-strategies.md
 
   - title: Access Azure API for FHIR
     linkLists:
