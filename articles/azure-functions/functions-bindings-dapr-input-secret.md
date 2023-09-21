@@ -350,7 +350,7 @@ You also need to set up a Dapr secret store component. You can learn more about 
 To use a Dapr secret input binding, define your `daprSecret` binding in a functions.json file.  
 
 You also need to set up a Dapr secret store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
+ 
 - [Dapr secret store component specs](https://docs.dapr.io/reference/components-reference/supported-secret-stores/)
 - [How to: Retrieve a secret](https://docs.dapr.io/developing-applications/building-blocks/secrets/howto-secrets/)
 
