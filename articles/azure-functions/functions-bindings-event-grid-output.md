@@ -532,7 +532,7 @@ The following table explains the parameters for the `EventGridAttribute`.
 |---------|---------|----------------------|
 |**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
 |**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
-|**Connection** | The name of the app setting that contains the connection string when using an [identity-based connection](#connections) to the topic.  | 
+|**Connection**<sup>*</sup> | The name of the app setting that contains the connection string when using an [identity-based connection](#connections) to the topic.  | 
 
 # [Isolated process](#tab/isolated-process)
 
@@ -542,7 +542,7 @@ The following table explains the parameters for the `EventGridOutputAttribute`.
 |---------|---------|----------------------|
 |**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
 |**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
-|**Connection** | The name of the app setting that contains the connection string when using an [identity-based connection](#connections) to the topic.  | 
+|**Connection**<sup>*</sup> | The name of the app setting that contains the connection string when using an [identity-based connection](#connections) to the topic.  | 
 
 ---
 
@@ -587,7 +587,7 @@ The following table explains the binding configuration properties that you set i
 |**name** | The variable name used in function code that represents the event. |
 |**topicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
 |**topicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
-|**connection** | The name of the app setting that contains the connection string when using an [identity-based connection](#connections) to the topic.  | 
+|**connection**<sup>*</sup> | The name of the app setting that contains the connection string when using an [identity-based connection](#connections) to the topic.  | 
 
 ---
 
@@ -604,10 +604,12 @@ The following table explains the binding configuration properties that you set i
 |**name** | The variable name used in function code that represents the event. |
 |**topicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
 |**topicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
-|**connection** | The name of the app setting that contains the connection string when using an [identity-based connection](#connections) to the topic.  | 
+|**connection**<sup>*</sup> | The name of the app setting that contains the connection string when using an [identity-based connection](#connections) to the topic.  | 
 
 ::: zone-end
-
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
+<sup>*</sup>Support for identity-based connections requires version 3.3.x or higher of the extension.
+::: zone-end
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!IMPORTANT]
