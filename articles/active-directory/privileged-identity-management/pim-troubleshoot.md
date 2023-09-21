@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Troubleshoot access to Azure resources denied in Privileged Identity Management
 
-Are you having a problem with Privileged Identity Management (PIM) in Microsoft Entra ID, part of Microsoft Entra? The information that follows can help you to get things working again.
+Are you having a problem with Privileged Identity Management (PIM) in Microsoft Entra ID? The information that follows can help you to get things working again.
 
 ## Access to Azure resources denied
 
