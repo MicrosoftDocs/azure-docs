@@ -129,7 +129,7 @@ Many organizations have a fairly complex on-premises AD DS environment that incl
 
 Microsoft Entra ID has a much simpler and flat namespace. To enable users to reliably access applications secured by Microsoft Entra ID, resolve UPN conflicts across user accounts in different forests. Managed domains use a flat OU structure, similar to Microsoft Entra ID. All user accounts and groups are stored in the *AADDC Users* container, despite being synchronized from different on-premises domains or forests, even if you've configured a hierarchical OU structure on-premises. The managed domain flattens any hierarchical OU structures.
 
-As previously detailed, there's no synchronization from Microsoft Entra DS back to Microsoft Entra ID. You can [create a custom Organizational Unit (OU)](create-ou.md) in Microsoft Entra DS and then users, groups, or service accounts within those custom OUs. None of the objects created in custom OUs are synchronized back to Microsoft Entra ID. These objects are available only within the managed domain, and aren't visible using Azure AD PowerShell cmdlets, Microsoft Graph API, or using the Microsoft Entra management UI.
+As previously detailed, there's no synchronization from Microsoft Entra DS back to Microsoft Entra ID. You can [create a custom Organizational Unit (OU)](create-ou.md) in Microsoft Entra DS and then users, groups, or service accounts within those custom OUs. None of the objects created in custom OUs are synchronized back to Microsoft Entra ID. These objects are available only within the managed domain, and aren't visible using Microsoft Graph PowerShell cmdlets, Microsoft Graph API, or using the Microsoft Entra admin center.
 
 <a name='what-isnt-synchronized-to-azure-ad-ds'></a>
 
