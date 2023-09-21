@@ -40,7 +40,7 @@ This page updates monthly, so revisit it regularly. If you're looking for items 
 **Service category:**  My Profile/Account                              
 **Product capability:**  End User Experiences                      
 
-The My Security Info management portal ([My Sign-Ins | Security Info | Microsoft.com](https://mysignins.microsoft.com/security-info)) will now support an improved end user experience of managing passwords. Users are able to change their password, and users that are capable of multifactor authentication (MFA) are able to update their passwords without providing their current password.
+The My Security Info management portal ([My Sign-Ins | Security Info | Microsoft.com](https://mysignins.microsoft.com/security-info)) will now support an improved end user experience of managing passwords. Users are able to change their password, and users capable of multifactor authentication (MFA) are able to update their passwords without providing their current password.
 
 ---
 
@@ -135,13 +135,13 @@ For more information, see: [Microsoft Admin Portals (preview)](../conditional-ac
 
 ---
 
-### 
+### Public Preview - Microsoft Graph Activity Logs
 
 **Type:** New feature             
 **Service category:** Microsoft Graph                                  
 **Product capability:** Monitoring & Reporting                       
 
-The MicrosoftGraphActivityLogs provide administrators full visibility into all HTTP requests accessing your tenant’s resources through the Microsoft Graph API. These logs can be used to find activity from compromised accounts, identify anomalous behavior, or investigate application activity.
+The *MicrosoftGraphActivityLogs* provide administrators full visibility into all HTTP requests accessing your tenant’s resources through the Microsoft Graph API. These logs can be used to find activity from compromised accounts, identify anomalous behavior, or investigate application activity.
 
 ---
 
