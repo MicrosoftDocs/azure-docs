@@ -28,7 +28,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Migrate to Azure Health Data Services
-            url: migration-strategies.md
+            url: https://learn.microsoft.com/azure/healthcare-apis/fhir/migration-strategies.md
 
   - title: Access Azure API for FHIR
     linkLists:

@@ -20,8 +20,6 @@
       href: ./azure-api-for-fhir/overview.md
     - name: Business continuity & disaster recovery
       href: business-continuity-disaster-recovery.md
-    - name: Migrate from Azure API for FHIR
-      href: migration-strategies.md
 - name: Quickstarts
   expanded: false
   items: 

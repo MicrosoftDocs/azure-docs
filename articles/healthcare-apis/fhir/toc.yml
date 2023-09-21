@@ -12,6 +12,8 @@ items:
     href: fhir-rest-api-capabilities.md
   - name: Versioning policy and history management
     href: fhir-versioning-policy-and-history-management.md
+  - name: Migration from Azure API for FHIR
+    href: migration-strategies.md
 - name: Quickstarts
   expanded: false
   items:
