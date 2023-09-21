@@ -532,6 +532,7 @@ The following table explains the parameters for the `EventGridAttribute`.
 |---------|---------|----------------------|
 |**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
 |**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
+|**Connection** | The name of the app setting that contains the connection string when using an [identity-based connection](#connections) to the topic.  | 
 
 # [Isolated process](#tab/isolated-process)
 
@@ -541,6 +542,7 @@ The following table explains the parameters for the `EventGridOutputAttribute`.
 |---------|---------|----------------------|
 |**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
 |**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
+|**Connection** | The name of the app setting that contains the connection string when using an [identity-based connection](#connections) to the topic.  | 
 
 ---
 
