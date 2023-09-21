@@ -104,9 +104,9 @@ To configure Microsoft Entra single sign-on with SAP NetWeaver, perform the foll
 
       ![The HTTP Security session](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
 
-      d. Activate below SICF services:
+   d. Activate below SICF services:
 
-         ```
+      ```
       /sap/public/bc/sec/saml2
       /sap/public/bc/sec/cdc_ext_service
       /sap/bc/webdynpro/sap/saml2
