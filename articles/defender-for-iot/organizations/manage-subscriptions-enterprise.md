@@ -49,6 +49,8 @@ This procedure describes how to start using a trial, standalone license for ente
 
 Customers with ME5/E5 Security plans have support for enterprise IoT monitoring available on by default, and don't need to start a trial. For more information, see [Get started with enterprise IoT monitoring in Microsoft 365 Defender](eiot-defender-for-endpoint.md).
 
+**To start an Enterprise IoT trial**:
+
 1. Go to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) > **Trials**.
 
 1. In the **Security trials** area, locate the **Secure your IoT devices with Defender for IoT** card.
