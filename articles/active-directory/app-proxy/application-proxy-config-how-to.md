@@ -1,6 +1,6 @@
 ---
-title: How to configure an Azure Active Directory Application Proxy application
-description: Learn how to create and configure an Azure Active Directory Application Proxy application in a few simple steps  
+title: How to configure a Microsoft Entra application proxy application
+description: Learn how to create and configure a Microsoft Entra application proxy application in a few simple steps  
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -15,19 +15,19 @@ ms.reviewer: asteen
 
 # How to configure an Application Proxy application
 
-This article helps you to understand how to configure an Application Proxy application within Azure AD to expose your on-premises applications to the cloud.
+This article helps you to understand how to configure an Application Proxy application within Microsoft Entra ID to expose your on-premises applications to the cloud.
 
 ## Recommended documents
 
-To learn about the initial configurations and creation of an Application Proxy application through the Admin Portal, follow the [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
+To learn about the initial configurations and creation of an Application Proxy application through the Admin Portal, follow the [Publish applications using Microsoft Entra application proxy](application-proxy-add-on-premises-application.md).
 
 For details on configuring Connectors, see [Enable Application Proxy in the Microsoft Entra admin center](application-proxy-add-on-premises-application.md).
 
-For information on uploading certificates and using custom domains, see [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
+For information on uploading certificates and using custom domains, see [Working with custom domains in Microsoft Entra application proxy](application-proxy-configure-custom-domain.md).
 
 ## Create the Application/Setting the URLs
 
-If you are following the steps in the [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md) documentation and are getting an error creating the application, see the error details for information and suggestions for how to fix the application. Most error messages include a suggested fix. To avoid common errors, verify:
+If you are following the steps in the [Publish applications using Microsoft Entra application proxy](application-proxy-add-on-premises-application.md) documentation and are getting an error creating the application, see the error details for information and suggestions for how to fix the application. Most error messages include a suggested fix. To avoid common errors, verify:
 
 - You are an administrator with permission to create an Application Proxy application
 - The internal URL is unique
@@ -47,7 +47,7 @@ If your connectors are inactive, this means that they are unable to reach the se
 
 ## Upload certificates for custom domains
 
-Custom Domains allow you to specify the domain of your external URLs. To use custom domains, you need to upload the certificate for that domain. For information on using custom domains and certificates, see [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
+Custom Domains allow you to specify the domain of your external URLs. To use custom domains, you need to upload the certificate for that domain. For information on using custom domains and certificates, see [Working with custom domains in Microsoft Entra application proxy](application-proxy-configure-custom-domain.md).
 
 If you are encountering issues uploading your certificate, look for the error messages in the portal for additional information on the problem with the certificate. Common certificate problems include:
 
@@ -59,4 +59,4 @@ The error message display in the top-right corner as you try to upload the certi
 
 ## Next steps
 
-[Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md)
+[Publish applications using Microsoft Entra application proxy](application-proxy-add-on-premises-application.md)

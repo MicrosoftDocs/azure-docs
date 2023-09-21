@@ -1,6 +1,6 @@
 ---
 title: Security best practices for application properties
-description: Learn about the best practices and general guidance for security related application properties in Azure Active Directory.
+description: Learn about the best practices and general guidance for security related application properties in Microsoft Entra ID.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -14,9 +14,9 @@ ms.author: davidmu
 ms.reviewer: saumadan
 ---
 
-# Security best practices for application properties in Azure Active Directory
+# Security best practices for application properties in Microsoft Entra ID
 
-Security is an important concept when registering an application in Azure Active Directory (Azure AD) and is a critical part of its business use in the organization. Any misconfiguration of an application can result in downtime or compromise. Depending on the permissions added to an application, there can be organization-wide effects.
+Security is an important concept when registering an application in Microsoft Entra ID and is a critical part of its business use in the organization. Any misconfiguration of an application can result in downtime or compromise. Depending on the permissions added to an application, there can be organization-wide effects.
 
 Because secure applications are essential to the organization, any downtime to them because of security issues can affect the business or some critical service that the business depends upon. So, it's important to allocate time and resources to ensure applications always stay in a healthy and secure state. Conduct a periodic security and health assessment of applications, much like a Security Threat Model assessment for code. For a broader perspective on security for organizations, see the [security development lifecycle](https://www.microsoft.com/securityengineering/sdl) (SDL).
 
@@ -86,7 +86,7 @@ Consider the following guidance related to defining the Application ID URI:
 
 ## App ownership configuration
 
-Owners can manage all aspects of a registered application. It's important to regularly review the ownership of all applications in the organization. For more information, see [Azure AD access reviews](../governance/access-reviews-overview.md). Under **Owners** for the application in the Azure portal, the owners of the application can be managed.
+Owners can manage all aspects of a registered application. It's important to regularly review the ownership of all applications in the organization. For more information, see [Microsoft Entra access reviews](../governance/access-reviews-overview.md). Under **Owners** for the application in the Azure portal, the owners of the application can be managed.
 
 :::image type="content" source="./media/application-registration-best-practices/app-ownership.png" alt-text="Screenshot that shows where owners of the application are managed.":::
 

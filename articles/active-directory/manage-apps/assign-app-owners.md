@@ -1,6 +1,6 @@
 ---
 title: Assign enterprise application owners
-description: Learn how to assign owners to applications in Azure Active Directory
+description: Learn how to assign owners to applications in Microsoft Entra ID
 services: active-directory
 documentationcenter: ''
 author: omondiatieno
@@ -15,18 +15,18 @@ ms.reviewer: saibandaru
 zone_pivot_groups: enterprise-apps-minus-former-powershell
 ms.custom: enterprise-apps
 
-#Customer intent: As an Azure AD administrator, I want to assign owners to enterprise applications.
+#Customer intent: As a Microsoft Entra administrator, I want to assign owners to enterprise applications.
 ---
 
 # Assign enterprise application owners
 
-An [owner of an enterprise application](overview-assign-app-owners.md) in Azure Active Directory (Azure AD) can manage the organization-specific configuration of the application, such as single sign-on, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the enterprise applications they own. In this article, you learn how to assign an owner of an application.
+An [owner of an enterprise application](overview-assign-app-owners.md) in Microsoft Entra ID can manage the organization-specific configuration of the application, such as single sign-on, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the enterprise applications they own. In this article, you learn how to assign an owner of an application.
 
 ## Prerequisites
 
-To add an enterprise application to your Azure AD tenant, you need:
+To add an enterprise application to your Microsoft Entra tenant, you need:
 
-- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
 [!INCLUDE [portal updates](../includes/portal-update.md)]
 
@@ -86,8 +86,8 @@ Content-Type: application/json
 :::zone-end
 
 > [!NOTE]
-> If the user setting **Restrict access to Azure AD administration portal** is set to `Yes`, non-admin users aren't able to use the Microsoft Entra admin center to manage the applications they own. For more information about the actions that can be performed on owned enterprise applications, see [Owned enterprise applications](../fundamentals/users-default-permissions.md#owned-enterprise-applications). 
+> If the user setting **Restrict access to Microsoft Entra administration portal** is set to `Yes`, non-admin users aren't able to use the Microsoft Entra admin center to manage the applications they own. For more information about the actions that can be performed on owned enterprise applications, see [Owned enterprise applications](../fundamentals/users-default-permissions.md#owned-enterprise-applications). 
 
 ## Next steps
 
-- [Delegate app registration permissions in Azure Active Directory](../roles/delegate-app-roles.md)
+- [Delegate app registration permissions in Microsoft Entra ID](../roles/delegate-app-roles.md)

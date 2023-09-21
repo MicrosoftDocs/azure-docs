@@ -1,6 +1,6 @@
 ---
-title: Language customization in Azure AD user flows
-description: Learn about customizing the language experience in your user flows in Azure Active Directory.
+title: Language customization in Microsoft Entra user flows
+description: Learn about customizing the language experience in your user flows in Microsoft Entra External ID.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -16,12 +16,12 @@ ms.custom: engagement-fy23
 # Customer intent: As a tenant administrator, I want to modify the user flow language, when the users are signing up via the self-service sign-up user flow.
 ---
 
-# Language customization in Azure Active Directory
+# Language customization in Microsoft Entra External ID
 
 > [!TIP]
 > This article applies to B2B collaboration user flows. If your tenant is configured for customer identity and access management, see [Customize the language of the authentication experience](customers/how-to-customize-languages-customers.md) for customers.
 
-Language customization in Azure Active Directory (Azure AD) allows your user flow to accommodate different languages to suit your user's needs. Microsoft provides the translations for [36 languages](#supported-languages). In this article, you'll learn how to customize the attribute names on the [attribute collection page](self-service-sign-up-user-flow.md#select-the-layout-of-the-attribute-collection-form), even if your experience is provided for only a single language.
+Language customization in Microsoft Entra External ID allows your user flow to accommodate different languages to suit your user's needs. Microsoft provides the translations for [36 languages](#supported-languages). In this article, you'll learn how to customize the attribute names on the [attribute collection page](self-service-sign-up-user-flow.md#select-the-layout-of-the-attribute-collection-form), even if your experience is provided for only a single language.
 
 ## How language customization works
 
@@ -144,7 +144,7 @@ Chrome and Firefox both request for their set language. If it's a supported lang
 
 ## Supported languages
 
-Azure AD includes support for the following languages. User flow languages are provided by Azure AD. The multi-factor authentication (MFA) notification languages are provided by [Azure AD MFA](../authentication/concept-mfa-howitworks.md).
+Microsoft Entra External ID includes support for the following languages. User flow languages are provided by Microsoft Entra External ID. The multifactor authentication notification languages are provided by [Microsoft Entra multifactor authentication](../authentication/concept-mfa-howitworks.md).
 
 | Language              | Language code | User flows         | MFA notifications  |
 |-----------------------| :-----------: | :----------------: | :----------------: |

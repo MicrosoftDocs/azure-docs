@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Cisco Webex'
-description: Learn how to configure single sign-on between Azure Active Directory and Cisco Webex.
+title: 'Tutorial: Microsoft Entra SSO integration with Cisco Webex'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Cisco Webex.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,25 +13,25 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure AD SSO integration with Cisco Webex
+# Tutorial: Microsoft Entra SSO integration with Cisco Webex
 
-In this tutorial, you'll learn how to integrate Cisco Webex with Azure Active Directory (Azure AD). When you integrate Cisco Webex with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Cisco Webex with Microsoft Entra ID. When you integrate Cisco Webex with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Cisco Webex.
-* Enable your users to be automatically signed-in to Cisco Webex with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Cisco Webex.
+* Enable your users to be automatically signed-in to Cisco Webex with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Cisco Webex single sign-on (SSO) enabled subscription.
 *  Service Provider Metadata file from Cisco Webex.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * Cisco Webex supports **SP** initiated SSO.
 * Cisco Webex supports [**Automated user provisioning**](./cisco-webex-provisioning-tutorial.md).
@@ -41,7 +41,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Adding Cisco Webex from the gallery
 
-To configure the integration of Cisco Webex into Azure AD, you need to add Cisco Webex from the gallery to your list of managed SaaS apps.
+To configure the integration of Cisco Webex into Microsoft Entra ID, you need to add Cisco Webex from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -50,22 +50,26 @@ To configure the integration of Cisco Webex into Azure AD, you need to add Cisco
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Cisco Webex
+<a name='configure-and-test-azure-ad-sso-for-cisco-webex'></a>
 
-Configure and test Azure AD SSO with Cisco Webex using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Cisco Webex.
+## Configure and test Microsoft Entra SSO for Cisco Webex
 
-To configure and test Azure AD SSO with Cisco Webex, perform the following steps:
+Configure and test Microsoft Entra SSO with Cisco Webex using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Cisco Webex.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
-	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Cisco Webex, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
+	1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** to test Microsoft Entra single sign-on with B.Simon.
+	1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Microsoft Entra single sign-on.
 2. **[Configure Cisco Webex SSO](#configure-cisco-webex-sso)** to configure the SSO settings on application side.
-	1. **[Create Cisco Webex test user](#create-cisco-webex-test-user)** to have a counterpart of B.Simon in Cisco Webex that is linked to the Azure AD representation of user.
+	1. **[Create Cisco Webex test user](#create-cisco-webex-test-user)** to have a counterpart of B.Simon in Cisco Webex that is linked to the Microsoft Entra representation of user.
 3. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Cisco Webex** application integration page, find the **Manage** section and select **Single sign-on**.
@@ -109,7 +113,9 @@ Follow these steps to enable Azure AD SSO.
 
    ![The Certificate download link](common/metadataxml.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -123,7 +129,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to Cisco Webex.
 
@@ -150,11 +158,11 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 	![Screenshot shows Service Provider Metadata file.](./media/cisco-spark-tutorial/sp-metadata.png)
 
-1. Click on **file browser** option to locate and upload the Azure AD metadata file. Then, select **Require certificate signed by a certificate authority in Metadata (more secure)** and click **Next**.
+1. Click on **file browser** option to locate and upload the Microsoft Entra metadata file. Then, select **Require certificate signed by a certificate authority in Metadata (more secure)** and click **Next**.
 
 	![Screenshot shows Import I d P Metadata page.](./media/cisco-spark-tutorial/idp-metadata.png)
 
-1. Select **Test SSO Connection**, and when a new browser tab opens, authenticate with Azure AD by signing in.
+1. Select **Test SSO Connection**, and when a new browser tab opens, authenticate with Microsoft Entra ID by signing in.
 
 1. Return to the **Cisco Cloud Collaboration Management** browser tab. If the test was successful, select **This test was successful. Enable Single Sign-On option** and click **Next**.
 
@@ -195,7 +203,7 @@ If you need to create a user manually, perform the following steps:
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 * Click on **Test this application**, this will redirect to Cisco Webex Sign-on URL where you can initiate the login flow. 
 

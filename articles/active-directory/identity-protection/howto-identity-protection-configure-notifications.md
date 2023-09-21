@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Identity Protection notifications
+title: Microsoft Entra ID Protection notifications
 description: Learn how notifications support your investigation activities.
 
 services: active-directory
@@ -15,9 +15,9 @@ ms.reviewer: chuqiaoshi
 
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory Identity Protection notifications
+# Microsoft Entra ID Protection notifications
 
-Azure AD Identity Protection sends two types of automated notification emails to help you manage user risk and risk detections:
+Microsoft Entra ID Protection sends two types of automated notification emails to help you manage user risk and risk detections:
 
 - Users at risk detected email
 - Weekly digest email
@@ -29,7 +29,7 @@ This article provides you with an overview of both notification emails.
 
 ## Users at risk detected email
 
-In response to a detected account at risk, Azure AD Identity Protection generates an email alert with **Users at risk detected** as subject. The email includes a link to the **[Users flagged for risk](./overview-identity-protection.md)** report. As a best practice, you should immediately investigate the users at risk.
+In response to a detected account at risk, Microsoft Entra ID Protection generates an email alert with **Users at risk detected** as subject. The email includes a link to the **[Users flagged for risk](./overview-identity-protection.md)** report. As a best practice, you should immediately investigate the users at risk.
 
 The configuration for this alert allows you to specify at what user risk level you want the alert to be generated. The email will be generated when the user's risk level reaches what you have specified. For example, if you set the policy to alert on medium user risk and your user John's user risk score moves to medium risk because of a real-time sign-in risk, you'll receive the users at risk detected email. If the user has subsequent risk detections that cause the user risk level calculation to be the specified risk level (or higher), you'll receive more user at risk detected emails when the user risk score is recalculated. For example, if a user moves to medium risk on January 1, you'll receive an email notification if your settings are set to alert on medium risk. If that same user then has another risk detection on January 5 that's also medium risk, and the user risk score is recalculated and is still medium, you'll receive another email notification. 
 
@@ -37,7 +37,7 @@ However, an extra email notification will only be sent if the time the risk dete
 
 To prevent an overload of e-mails, you'll only receive one email within a 5-second time period. This delay means that if multiple users move to the specified risk level during the same 5-second time period, we'll aggregate and send one e-mail to represent the change in risk level for all of them.
 
-If your organization has enabled self-remediation as described in the article, [User experiences with Azure AD Identity Protection](concept-identity-protection-user-experience.md) there's a chance that the user may remediate their risk before you have the opportunity to investigate. You can see risky users and risky sign-ins that have been remediated by adding "Remediated" to the **Risk state** filter in either the **Risky users** or **Risky sign-ins** reports.
+If your organization has enabled self-remediation as described in the article, [User experiences with Microsoft Entra ID Protection](concept-identity-protection-user-experience.md) there's a chance that the user may remediate their risk before you have the opportunity to investigate. You can see risky users and risky sign-ins that have been remediated by adding "Remediated" to the **Risk state** filter in either the **Risky users** or **Risky sign-ins** reports.
 
 ![Users at risk detected email](./media/howto-identity-protection-configure-notifications/01.png)
 
@@ -72,4 +72,4 @@ Configure the weekly digest email in the [Microsoft Entra admin center](https://
 
 ## See also
 
-- [Azure Active Directory Identity Protection](./overview-identity-protection.md)
+- [Microsoft Entra ID Protection](./overview-identity-protection.md)
