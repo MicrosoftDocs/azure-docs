@@ -45,8 +45,8 @@ The `spec.keyValues` has the following child properties. The `spec.keyValues.key
 |---|---|---|---|
 |selectors|The list of selectors for key-value filtering|false|object array|
 |trimKeyPrefixes|The list of key prefixes to be trimmed|false|string array|
+|refresh|The settings for refreshing data from Azure App Configuration. If the property is absent, data from Azure App Configuration will not be refreshed|false|object|
 |keyVaults|The settings for Key Vault references|conditional|object|
-|refresh|The settings for refreshing the key-values in ConfigMap or Secret|false|object|
 
 If the `spec.keyValues.selectors` property isn't set, all key-values with no label will be downloaded. It contains an array of *selector* objects, which have the following child properties.
 
@@ -55,13 +55,29 @@ If the `spec.keyValues.selectors` property isn't set, all key-values with no lab
 |keyFilter|The key filter for querying key-values|true|string|
 |labelFilter|The label filter for querying key-values|false|string|
 
+
+
+The `spec.keyValues.refresh` property has the following child properties.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|monitoring|The key-values monitored for change detection, aka sentinel keys. The data from Azure App Configuration will be refreshed only if at least one of the monitored key-values is changed|true|object|
+|interval|The interval at which the data will be refreshed from Azure App Configuration. It must be greater than or equal to 1 second. If the property is absent, a default value of 30 seconds will be used|false|duration string|
+
+The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which have the following child properties.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|key|The key of a key-value|true|string|
+|label|The label of a key-value|false|string|
+
 The `spec.keyValues.keyVaults` property has the following child properties.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|target|The destination of resolved Key Vault references in Kubernetes|true|object|
+|target|The destination of the retrieved secrets in Kubernetes|true|object|
 |auth|The authentication method to access Key Vaults|false|object|
-|refresh|The settings for periodically resolving Key Vault references|false|object|
+|refresh|The settings for refreshing data from Key Vaults. If the property is absent, data from Key Vaults will not be refreshed|false|object|
 
 The `spec.keyValues.keyVaults.target` property has the following child property.
 
@@ -89,21 +105,7 @@ The `spec.keyValues.keyVaults.refresh` property has the following child property
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|interval|The interval for Secret's refresh, must be greater than 1 minute|true|duration string|
-
-The `spec.keyValues.refresh` property has the following child properties.
-
-|Name|Description|Required|Type|
-|---|---|---|---|
-|monitoring|The key-values that are monitored by the provider, provider automatically refreshes the ConfigMap or Secret if value change in any designated key-value|true|object|
-|interval|The interval for refreshing, default value is 30 seconds, must be greater than 1 second|false|duration string|
-
-The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which have the following child properties.
-
-|Name|Description|Required|Type|
-|---|---|---|---|
-|key|The key of a key-value|true|string|
-|label|The label of a key-value|false|string|
+|interval|The interval at which the data will be refreshed from Key Vault. It must be greater than or equal to 1 minute. The Key Vault refresh is independent of the App Configuration refresh configured via `spec.keyValues.refresh`|true|duration string|
 
 ## Examples
 
@@ -292,10 +294,10 @@ spec:
             label: development
 ```
 
-### Periodically resolve KeyVault References
-Setting `spec.keyValues.keyVaults.refresh` property enables the provider periodically resolve Key Vault references to get the latest version secrets from Azure Key Vault, and update the values for associated data items in generated Kubernetes secret accordingly. 
+### Periodically reload KeyVault secrets
+Setting `spec.keyValues.keyVaults.refresh` property enables the provider periodically reload the latest version secrets from Azure Key Vault, and update the values for associated data items in generated Kubernetes secret accordingly. 
 
-The following sample instructs secret refresh with 10 mintues resolving interval. 
+The following sample instructs secret refresh with 10 minutes reloading interval. 
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
