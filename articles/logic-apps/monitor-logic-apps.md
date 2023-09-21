@@ -284,12 +284,12 @@ You can view run history only for stateful workflows, not stateless workflows. T
 
 ## Rerun a workflow with same inputs
 
-You can rerun a previously finished workflow run using the same inputs that the run previously used by resubmitting the run to Azure Logic Apps.
+You can rerun a previously finished workflow with the same inputs that the workflow previously used by resubmitting the run to Azure Logic Apps. Completing this task creates and adds a new workflow run to your workflow's run history.
 
 > [!NOTE]
 >
 > If your workflow has operations such as create or delete operations, resubmitting a run might 
-> create duplicate data or try to delete data that no longer exists, resulting in an error. 
+> create duplicate data or try to delete data that no longer exists, resulting in an error.
 
 ### [Consumption](#tab/consumption)
 
@@ -310,11 +310,13 @@ You can rerun a previously finished workflow run using the same inputs that the 
    > If the resubmitted run doesn't appear, on the **Runs history** pane toolbar, select **Refresh**. 
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 
-1. To review the resubmitted workflow run, on the **Runs history** tab, select that run.
+1. To review the inputs and outputs for the resubmitted workflow run, on the **Runs history** tab, select that run.
 
 ### [Standard](#tab/standard)
 
 You can rerun only stateful workflows, not stateless workflows. To enable run history for a stateless workflow, see [Enable run history for stateless workflows](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless).
+
+#### Rerun the entire workflow
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -330,6 +332,32 @@ You can rerun only stateful workflows, not stateless workflows. To enable run hi
    >
    > If the resubmitted run doesn't appear, on the **Overview** page toolbar, select **Refresh**. 
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
+
+1. To review the inputs and outputs from the resubmitted workflow run, on the **Run History** tab, select that run.
+
+### Rerun from a specific action (preview)
+
+You can rerun your workflow from a specific action using the same inputs and outputs from the actions that previously ran before the resubmitted action where you restarted the run. The resubmitted action and all subsequent actions run as usual. Completing this task creates and adds a new workflow run to your workflow's run history.
+
+> [!NOTE]
+>
+> This capability is in preview. For legal terms that apply to Azure features that 
+> are in beta, preview, or otherwise not yet released into general availability, see 
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this capability might change before general availability (GA).
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. If you haven't already, set up the following environment variables for your logic app resource:
+
+   1. On your logic app menu, under **Settings**, select **Environment variables**.
+   1. On the **App settings** tab, add the following setting:
+
+      
+
+1. On the workflow menu, select **Overview**. On the **Overview** page, select **Run History**, which shows the run history for the current workflow.
+
+1. On the **Run History** tab, select the run that you want to resubmit.
+
 
 ---
 
