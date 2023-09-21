@@ -1,6 +1,6 @@
 ---
-title: App Integration Tutorials for use with Azure AD
-description: Configure Azure Active Directory single sign-on integration with a variety of third-party software as a service applications.
+title: App Integration Tutorials for use with Microsoft Entra ID
+description: Configure Microsoft Entra single sign-on integration with a variety of third-party software as a service applications.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,11 +14,11 @@ ms.custom: contperf-fy21q3-portal
 ms.reviewer: celested
 ---
 
-# Tutorials for integrating applications with Azure Active Directory
+# Tutorials for integrating applications with Microsoft Entra ID
 
-To help integrate your cloud-enabled [software as a service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) and on-premises applications with Azure Active Directory, we have developed a collection of tutorials that walk you through configuration.
+To help integrate your cloud-enabled [software as a service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) and on-premises applications with Microsoft Entra ID, we have developed a collection of tutorials that walk you through configuration.
 
-For a list of all SaaS apps that have been pre-integrated into Azure AD, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
+For a list of all SaaS apps that have been pre-integrated into Microsoft Entra ID, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
 
 Use the [application network portal](../manage-apps/v2-howto-app-gallery-listing.md) to request a [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) enabled application to be added to the gallery for automatic provisioning or a SAML / OIDC enabled application to be added to the gallery for SSO.
 

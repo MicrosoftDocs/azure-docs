@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to access the Azure Resource Manager API using a Windows virtual machine with system-assigned managed identity enabled. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. You learn how to:
+This tutorial shows you how to access the Azure Resource Manager API using a Windows virtual machine with system-assigned managed identity enabled. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Microsoft Entra authentication without needing to insert credentials into your code. You learn how to:
 
 > [!div class="checklist"] 
 > * Grant your VM access to a Resource Group in Azure Resource Manager 
@@ -43,7 +43,7 @@ This tutorial shows you how to access the Azure Resource Manager API using a Win
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Using managed identities for Azure resources, your application can get access tokens to authenticate to resources that support Azure AD authentication. The Azure Resource Manager API supports Azure AD authentication. We grant this VM's identity access to a resource in Azure Resource Manager, in this case a Resource Group. We assign the [Reader](../../role-based-access-control/built-in-roles.md#reader) role to the managed-identity at the scope of the resource group. 
+Using managed identities for Azure resources, your application can get access tokens to authenticate to resources that support Microsoft Entra authentication. The Azure Resource Manager API supports Microsoft Entra authentication. We grant this VM's identity access to a resource in Azure Resource Manager, in this case a Resource Group. We assign the [Reader](../../role-based-access-control/built-in-roles.md#reader) role to the managed-identity at the scope of the resource group. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your administrator account.
 1. Navigate to the tab for **Resource Groups**.
@@ -70,7 +70,7 @@ You'll need to use **PowerShell** in this portion.  If you don’t have **PowerS
     ```
     
     > [!NOTE]
-    > The value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
+    > The value of the "resource" parameter must be an exact match for what is expected by Microsoft Entra ID. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
     
     Next, extract the full response, which is stored as a JavaScript Object Notation (JSON) formatted string in the $response object. 
     

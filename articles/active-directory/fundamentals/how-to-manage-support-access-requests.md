@@ -1,6 +1,6 @@
 ---
 title: Manage Microsoft Support access requests (preview)
-description: How to view and control support access requests to Azure Active Directory identity data
+description: How to view and control support access requests to Microsoft Entra identity data
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -18,7 +18,7 @@ You can use the Microsoft Entra admin center and the Azure portal to manage Micr
 
 ## Prerequisites
 
-Only certain Azure AD roles are authorized to manage Microsoft Support access requests. To manage Microsoft Support access requests, a role must have the permission `microsoft.azure.supportTickets/allEntities/allTasks`. To see which Azure AD roles have this permission, search the [Azure AD built-in roles](../roles/permissions-reference.md) for the required permission.
+Only certain Microsoft Entra roles are authorized to manage Microsoft Support access requests. To manage Microsoft Support access requests, a role must have the permission `microsoft.azure.supportTickets/allEntities/allTasks`. To see which Microsoft Entra roles have this permission, search the [Microsoft Entra built-in roles](../roles/permissions-reference.md) for the required permission.
 
 ## View support access requests
 

@@ -15,6 +15,8 @@ ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 
 # Create a blob container with .NET
 
+[!INCLUDE [storage-dev-guide-selector-create-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-create-container.md)]
+
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 ## Prerequisites

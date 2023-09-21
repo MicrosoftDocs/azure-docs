@@ -15,7 +15,7 @@ ms.reviewer: asteen, ashishj
 
 # Troubleshoot Kerberos constrained delegation configurations for Application Proxy
 
-The methods available for achieving SSO to published applications can vary from one application to another. One option that Azure Active Directory (Azure AD) Application Proxy offers by default is Kerberos constrained delegation (KCD). You can configure a connector, for your users, to run constrained Kerberos authentication to back-end applications.
+The methods available for achieving SSO to published applications can vary from one application to another. One option that Microsoft Entra application proxy offers by default is Kerberos constrained delegation (KCD). You can configure a connector, for your users, to run constrained Kerberos authentication to back-end applications.
 
 The procedure for enabling KCD is straightforward. It requires no more than a general understanding of the various components and authentication flow that support SSO. But sometimes, KCD SSO doesn’t function as expected. You need good sources of information to troubleshoot these scenarios.
 
@@ -23,14 +23,14 @@ This article provides a single point of reference that helps troubleshoot and se
 
 This article makes the following assumptions:
 
-- Deployment of Azure AD Application Proxy per [Get started with Application Proxy](application-proxy-add-on-premises-application.md) and general access to non-KCD applications work as expected.
+- Deployment of Microsoft Entra application proxy per [Get started with Application Proxy](application-proxy-add-on-premises-application.md) and general access to non-KCD applications work as expected.
 - The published target application is based on Internet Information Services (IIS) and the Microsoft implementation of Kerberos.
-- The server and application hosts reside in a single Azure Active Directory domain. For detailed information on cross-domain and forest scenarios, see the [KCD white paper](https://aka.ms/KCDPaper).
+- The server and application hosts reside in a single Microsoft Entra domain. For detailed information on cross-domain and forest scenarios, see the [KCD white paper](https://aka.ms/KCDPaper).
 - The subject application is published in an Azure tenant with pre-authentication enabled. Users are expected to authenticate to Azure via forms-based authentication. Rich client authentication scenarios aren't covered by this article. They might be added at some point in the future.
 
 ## Prerequisites
 
-Azure AD Application Proxy can be deployed into many types of infrastructures or environments. The architectures vary from organization to organization. The most common causes of KCD-related issues aren't the environments. Simple misconfigurations or general mistakes cause most issues.
+Microsoft Entra application proxy can be deployed into many types of infrastructures or environments. The architectures vary from organization to organization. The most common causes of KCD-related issues aren't the environments. Simple misconfigurations or general mistakes cause most issues.
 
 For this reason, it's best to make sure you've met all the prerequisites in [Using KCD SSO with the Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md) before you start troubleshooting. Note the section on configuring Kerberos constrained delegation on 2012R2. This process employs a different approach to configuring KCD on previous versions of Windows. Also, be mindful of these considerations:
 
@@ -84,7 +84,7 @@ The corresponding entries seen in the event log show as events 13019 or 12027. F
 
 1. Use an **A** record in your internal DNS for the application’s address, not a **CName**.
 1. Reconfirm that the connector host has been granted the right to delegate to the designated target account’s SPN. Reconfirm that **Use any authentication protocol** is selected. For more information, see the [SSO configuration article](application-proxy-configure-single-sign-on-with-kcd.md).
-1. Verify that there's only one instance of the SPN in existence in Azure AD. Issue `setspn -x` from a command prompt on any domain member host.
+1. Verify that there's only one instance of the SPN in existence in Microsoft Entra ID. Issue `setspn -x` from a command prompt on any domain member host.
 1. Check that a domain policy is enforced that limits the [maximum size of issued Kerberos tokens](/archive/blogs/askds/maxtokensize-and-windows-8-and-windows-server-2012). This policy stops the connector from getting a token if it's found to be excessive.
 
 A network trace that captures the exchanges between the connector host and a domain KDC is the next best step to get more low-level detail on the issues. For more information, see the [deep dive Troubleshoot paper](https://aka.ms/proxytshootpaper).
@@ -117,11 +117,11 @@ The consumer of the Kerberos ticket provided by the connector. At this stage, ex
    - With Kerberos and NTLM in place, temporarily disable pre-authentication for the application in the portal. Try to access it from the internet by using the external URL. You're prompted to authenticate. You're able to do so with the same account used in the previous step. If not, there's a problem with the back-end application, not KCD.
    - Re-enable pre-authentication in the portal. Authenticate through Azure by attempting to connect to the application via its external URL. If SSO fails, you see a forbidden error message in the browser and event 13022 in the log:
 
-     *Microsoft AAD Application Proxy Connector cannot authenticate the user because the backend server responds to Kerberos authentication attempts with an HTTP 401 error.*
+     *Microsoft Entra application proxy Connector cannot authenticate the user because the backend server responds to Kerberos authentication attempts with an HTTP 401 error.*
 
       ![Shows HTTTP 401 forbidden error](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
 
-   - Check the IIS application. Make sure that the configured application pool and the SPN are configured to use the same account in Azure AD. Navigate in IIS as shown in the following illustration:
+   - Check the IIS application. Make sure that the configured application pool and the SPN are configured to use the same account in Microsoft Entra ID. Navigate in IIS as shown in the following illustration:
 
       ![IIS application configuration window](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
 
@@ -129,9 +129,9 @@ The consumer of the Kerberos ticket provided by the connector. At this stage, ex
 
       ![Shows the SetSPN command window](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
 
-   - Check the SPN defined against the application’s settings in the portal. Make sure that the same SPN configured against the target Azure AD account is used by the application’s app pool.
+   - Check the SPN defined against the application’s settings in the portal. Make sure that the same SPN configured against the target Microsoft Entra account is used by the application’s app pool.
 
-      ![SPN configuration in the Azure portal](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
+      ![SPN configuration in the Microsoft Entra admin center](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
 
    - Go into IIS and select the **Configuration Editor** option for the application. Navigate to **system.webServer/security/authentication/windowsAuthentication**. Make sure the value **UseAppPoolCredentials** is **True**.
 
@@ -149,7 +149,7 @@ If you leave Kernel mode enabled, it improves the performance of Kerberos operat
 
 - As an additional check, disable **Extended** protection too. In some scenarios, **Extended** protection broke KCD when it was enabled in specific configurations. In those cases, an application was published as a subfolder of the default website. This application is configured for anonymous authentication only. All the dialogs are grayed out, which suggests child objects wouldn't inherit any active settings. We recommend that you test, but don’t forget to restore this value to **enabled**, where possible.
 
-  This additional check puts you on track to use your published application. You can spin up additional connectors that are also configured to delegate. For more information, read the more in-depth technical walk-through, [Troubleshooting the Azure AD Application Proxy](https://aka.ms/proxytshootpaper).
+  This additional check puts you on track to use your published application. You can spin up additional connectors that are also configured to delegate. For more information, read the more in-depth technical walk-through, [Troubleshooting the Microsoft Entra application proxy](https://aka.ms/proxytshootpaper).
 
 If you still can't make progress, Microsoft support can assist you. Create a support ticket directly within the portal. An engineer will contact you.
 

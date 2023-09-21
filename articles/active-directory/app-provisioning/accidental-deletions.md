@@ -1,6 +1,6 @@
 ---
-title: Enable accidental deletions prevention in the Azure AD provisioning service
-description: Enable accidental deletions prevention in the Azure Active Directory (Azure AD) provisioning service for applications and cross-tenant synchronization.
+title: Enable accidental deletions prevention in the Microsoft Entra provisioning service
+description: Enable accidental deletions prevention in the Microsoft Entra provisioning service for applications and cross-tenant synchronization.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/12/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
 
-# Enable accidental deletions prevention in the Azure AD provisioning service
+# Enable accidental deletions prevention in the Microsoft Entra provisioning service
 
 ::: zone pivot="app-provisioning"
-The Azure AD provisioning service includes a feature to help avoid accidental deletions. This feature ensures that users aren't disabled or deleted in an application unexpectedly.
+The Microsoft Entra provisioning service includes a feature to help avoid accidental deletions. This feature ensures that users aren't disabled or deleted in an application unexpectedly.
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
-The Azure AD provisioning service includes a feature to help avoid accidental deletions. This feature ensures that users aren't disabled or deleted in the target tenant unexpectedly.
+The Microsoft Entra provisioning service includes a feature to help avoid accidental deletions. This feature ensures that users aren't disabled or deleted in the target tenant unexpectedly.
 ::: zone-end
 
 You use accidental deletions to specify a deletion threshold. Anything above the threshold that you set requires an admin to explicitly allow the processing of the deletions.
@@ -30,28 +30,24 @@ You use accidental deletions to specify a deletion threshold. Anything above the
 
 To enable accidental deletion prevention:
 
-1.  In the Azure portal, select **Azure Active Directory**.
-
 ::: zone pivot="app-provisioning"
-2.  Select **Enterprise applications** and then select your application.
-
-3.  Select **Provisioning** and then on the provisioning page select **Edit provisioning**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Select your application.
+1. Select **Provisioning** and then on the provisioning page select **Edit provisioning**.
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
-2.  Select **Cross-tenant synchronization** > **Configurations** and then select your configuration.
-
-3.  Select **Provisioning**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **External Identities** > **Cross-tenant synchronization** > **Configurations** and then select your configuration.
+1. Select **Provisioning**.
 ::: zone-end
 
-4. Under **Settings**, select the **Prevent accidental deletions** check box and specify a deletion 
+1. Under **Settings**, select the **Prevent accidental deletions** check box and specify a deletion 
 threshold.
-
-5. Ensure the **Notification Email** address is completed.
-
+1. Ensure the **Notification Email** address is completed.
     If the deletion threshold is met, an email is sent.
-
-6. Select **Save** to save the changes.
+1. Select **Save** to save the changes.
 
 When the deletion threshold is met, the job goes into quarantine, and a notification email is sent. The quarantined job can then be allowed or rejected. To learn more about quarantine behavior, see [Application provisioning in quarantine status](application-provisioning-quarantine-status.md).
 

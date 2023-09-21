@@ -3,8 +3,8 @@ title: 'Quickstart: create an Azure Managed Grafana instance using the Azure CLI
 description: Learn how to create a Managed Grafana instance using the Azure CLI
 ms.service: managed-grafana
 ms.topic: quickstart
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.date: 12/13/2022
 ms.devlang: azurecli
 ms.custom: engagement-fy23, devx-track-azurecli

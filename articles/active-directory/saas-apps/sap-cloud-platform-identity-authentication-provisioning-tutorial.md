@@ -15,22 +15,22 @@ ms.author: thwimmer
 
 # Tutorial: Configure SAP Cloud Identity Services for automatic user provisioning
 
-This tutorial aims to demonstrate the steps for configuring Microsoft Entra ID (Azure AD) and SAP Cloud Identity Services. The goal is to set up Microsoft Entra ID to automatically provision and deprovision users to SAP Cloud Identity Services.
+This tutorial aims to demonstrate the steps for configuring Microsoft Entra ID and SAP Cloud Identity Services. The goal is to set up Microsoft Entra ID to automatically provision and deprovision users to SAP Cloud Identity Services.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Microsoft Entra ID User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
+> This tutorial describes a connector built on top of the Microsoft Entra user Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 >
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* A Microsoft Entra ID tenant
+* A Microsoft Entra tenant
 * [A Cloud Identity Services tenant](https://www.sap.com/products/cloud-platform.html)
 * A user account in SAP Cloud Identity Services with Admin permissions.
 
 > [!NOTE]
-> This integration is also available to use from Microsoft Entra ID US Government Cloud environment. You can find this application in the Microsoft Entra ID US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Assigning users to SAP Cloud Identity Services
 
@@ -41,7 +41,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Important tips for assigning users to SAP Cloud Identity Services
 
-* It's recommended that a single Microsoft Entra ID user is assigned to SAP Cloud Identity Services to test the automatic user provisioning configuration. More users may be assigned later.
+* It's recommended that a single Microsoft Entra user is assigned to SAP Cloud Identity Services to test the automatic user provisioning configuration. More users may be assigned later.
 
 * When assigning a user to SAP Cloud Identity Services, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
@@ -63,17 +63,17 @@ Before configuring and enabling automatic user provisioning, you should decide w
 1.  You'll get an email to activate your account and set up a password for the **SAP Cloud Identity Services Service**.
 
 1. Copy the **User ID** and **Password**. These values are entered in the Admin Username and Admin Password fields respectively.
-This is done in the Provisioning tab of your SAP Cloud Identity Services application in the Azure portal.
+This is done in the Provisioning tab of your SAP Cloud Identity Services application.
 
 ## Add SAP Cloud Identity Services from the gallery
 
-Before configuring SAP Cloud Identity Services for automatic user provisioning with Microsoft Entra ID, you need to add SAP Cloud Identity Services from the Microsoft Entra ID application gallery to your list of managed SaaS applications.
+Before configuring SAP Cloud Identity Services for automatic user provisioning with Microsoft Entra ID, you need to add SAP Cloud Identity Services from the Microsoft Entra application gallery to your list of managed SaaS applications.
 
-**To add SAP Cloud Identity Services from the Microsoft Entra ID application gallery, perform the following steps:**
+**To add SAP Cloud Identity Services from the Microsoft Entra application gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Microsoft Entra ID**.
 
-	![Screenshot of the Microsoft Entra ID button.](common/select-azuread.png)
+	![Screenshot of the Microsoft Entra button.](common/select-azuread.png)
 
 1. Go to **Enterprise applications**, and then select **All applications**.
 
@@ -83,20 +83,21 @@ Before configuring SAP Cloud Identity Services for automatic user provisioning w
 
 	![Screenshot of the New application button.](common/add-new-app.png)
 
-1. In the search box, enter **SAP Cloud Identity Services**, select **SAP Cloud Identity Services** in the results panel, and then click the **Add** button to add the application.
-
+1. In the search box, enter **SAP Cloud Identity Services**, select **SAP Cloud Identity Services** in the search box.
+1. Select **SAP Cloud Identity Services** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 	![Screenshot of the SAP Cloud Identity Services in the results list.](common/search-new-app.png)
 
 ## Configuring automatic user provisioning to SAP Cloud Identity Services 
 
-This section guides you through the steps to configure the Microsoft Entra ID provisioning service to create, update, and disable users in SAP Cloud Identity Services based on users assignments in Microsoft Entra ID.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users in SAP Cloud Identity Services based on users assignments in Microsoft Entra ID.
 
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for SAP Cloud Identity Services, following the instructions provided in the [SAP Cloud Identity Services Single sign-on tutorial](./sap-hana-cloud-platform-identity-authentication-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features complement each other
 
 ### To configure automatic user provisioning for SAP Cloud Identity Services in Microsoft Entra ID:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 
@@ -122,7 +123,7 @@ This section guides you through the steps to configure the Microsoft Entra ID pr
 
 1. Click **Save**.
 
-1. Under the **Mappings** section, select **Synchronize Microsoft Entra ID Users to SAP Cloud Identity Services**.
+1. Under the **Mappings** section, select **Synchronize Microsoft Entra users to SAP Cloud Identity Services**.
 
 	![Screenshot of the SAP Cloud Identity Services User Mappings.](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/mapping.png)
 
@@ -170,7 +171,7 @@ This section guides you through the steps to configure the Microsoft Entra ID pr
 
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. To enable the Microsoft Entra ID provisioning service for SAP Cloud Identity Services, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Microsoft Entra provisioning service for SAP Cloud Identity Services, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Screenshot of Provisioning Status Toggled On.](common/provisioning-toggle-on.png)
 
@@ -182,9 +183,9 @@ This section guides you through the steps to configure the Microsoft Entra ID pr
 
 	![Screenshot of Saving Provisioning Configuration.](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Microsoft Entra ID provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Microsoft Entra ID provisioning service on SAP Cloud Identity Services.
+This operation starts the initial synchronization of all users defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Microsoft Entra provisioning service on SAP Cloud Identity Services.
 
-For more information on how to read the Microsoft Entra ID provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+For more information on how to read the Microsoft Entra provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Connector limitations
 
