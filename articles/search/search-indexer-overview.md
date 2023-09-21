@@ -50,6 +50,8 @@ Indexers crawl data stores on Azure and outside of Azure.
 + [Azure Cosmos DB for MongoDB](search-howto-index-cosmosdb-mongodb.md) (in preview)
 + [Azure Cosmos DB for Apache Gremlin](search-howto-index-cosmosdb-gremlin.md) (in preview)
 
+Azure Cosmos DB for Cassandra is not supported.
+
 Indexers accept flattened row sets, such as a table or view, or items in a container or folder. In most cases, it creates one search document per row, record, or item.
 
 Indexer connections to remote data sources can be made using standard Internet connections (public) or encrypted private connections when you use Azure virtual networks for client apps. You can also set up connections to authenticate using a managed identity. For more information about secure connections, see [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) and [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).

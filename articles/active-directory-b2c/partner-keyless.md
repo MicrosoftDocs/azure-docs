@@ -107,7 +107,7 @@ Keyless appears as a new OpenID Connect (OIDC) IdP with B2C identity providers.
 12. Leave the **Multi-factor Authentication** field.
 13. Select **Enforce conditional access policies**.
 14. Under **User attributes and token claims**, in the **Collect attribute** option, select **Email Address**. 
-15. Add user attributes Azure AD collects with claims Azure AD B2C returns to the client application.
+15. Add user attributes Microsoft Entra ID collects with claims Azure AD B2C returns to the client application.
 16. Select **Create**.
 17. Select the new **User flow**.
 18. On the left panel, select **Application Claims**. 

@@ -29,9 +29,9 @@ In entitlement management, you can see who has been assigned to access packages,
 To use entitlement management and assign users to access packages, you must have one of the following licenses:
 
 
-- Azure AD Premium P2
+- Microsoft Entra ID P2
 - Enterprise Mobility + Security (EMS) E5 license
-- Microsoft Entra ID governance subscription
+- Microsoft Entra ID Governance subscription
 
 ## View who has an assignment
 

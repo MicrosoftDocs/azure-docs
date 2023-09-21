@@ -35,6 +35,8 @@ The following sections provide you with a quick guide to the default quotas and 
 | Max training job size (tokens in training file) x (# of epochs) | 2 Billion |
 | Max size of all files per upload (Azure OpenAI on your data) | 16 MB |
 
+## Regional quota limits
+
 The default quota for models varies by model and region. Default quota limits are subject to change.
 
 <table>  

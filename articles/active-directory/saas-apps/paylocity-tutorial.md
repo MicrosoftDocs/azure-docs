@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Paylocity'
-description: Learn how to configure single sign-on between Azure Active Directory and Paylocity.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with Paylocity'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Paylocity.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,30 +13,30 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Paylocity
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with Paylocity
 
-In this tutorial, you'll learn how to integrate Paylocity with Azure Active Directory (Azure AD). When you integrate Paylocity with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Paylocity with Microsoft Entra ID. When you integrate Paylocity with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Paylocity.
-* Enable your users to be automatically signed-in to Paylocity with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Paylocity.
+* Enable your users to be automatically signed-in to Paylocity with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Paylocity single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * Paylocity supports **SP and IDP** initiated SSO
 
 ## Add Paylocity from the gallery
 
-To configure the integration of Paylocity into Azure AD, you need to add Paylocity from the gallery to your list of managed SaaS apps.
+To configure the integration of Paylocity into Microsoft Entra ID, you need to add Paylocity from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -45,22 +45,26 @@ To configure the integration of Paylocity into Azure AD, you need to add Payloci
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Paylocity
+<a name='configure-and-test-azure-ad-sso-for-paylocity'></a>
 
-Configure and test Azure AD SSO with Paylocity using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Paylocity.
+## Configure and test Microsoft Entra SSO for Paylocity
 
-To configure and test Azure AD SSO with Paylocity, perform the following steps:
+Configure and test Microsoft Entra SSO with Paylocity using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Paylocity.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Paylocity, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    * **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    * **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Paylocity SSO](#configure-paylocity-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Paylocity test user](#create-paylocity-test-user)** - to have a counterpart of B.Simon in Paylocity that is linked to the Azure AD representation of user.
+    * **[Create Paylocity test user](#create-paylocity-test-user)** - to have a counterpart of B.Simon in Paylocity that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Paylocity** > **Single sign-on**.
@@ -109,7 +113,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -123,7 +129,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to Paylocity.
 
@@ -153,7 +161,7 @@ In this section, you create a user called B.Simon in Paylocity. Work with [Payl
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 
