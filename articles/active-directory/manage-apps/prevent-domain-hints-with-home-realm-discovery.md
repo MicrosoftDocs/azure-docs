@@ -17,7 +17,7 @@ ms.custom: enterprise-apps, has-azure-ad-ps-ref
 ---
 # Disable auto-acceleration sign-in
 
-Home Realm Discovery Policy (HRD) offers administrators multiple ways to control how and where their users authenticate. The `domainHintPolicy` section of the HRD policy is used to help migrate federated users to cloud managed credentials like [FIDO](../authentication/howto-authentication-passwordless-security-key.md), by ensuring that they always visit the Azure AD sign-in page and aren't auto-accelerated to a federated IDP because of domain hints. To learn more about HRD policy, see [Home Realm Discovery](home-realm-discovery-policy.md).
+Home Realm Discovery Policy (HRD) offers administrators multiple ways to control how and where their users authenticate. The `domainHintPolicy` section of the HRD policy is used to help migrate federated users to cloud managed credentials like [FIDO](../authentication/howto-authentication-passwordless-security-key.md), by ensuring that they always visit the Microsoft Entra sign-in page and aren't auto-accelerated to a federated IDP because of domain hints. To learn more about HRD policy, see [Home Realm Discovery](home-realm-discovery-policy.md).
 
 
 This policy is needed in situations where and admins can't control or update domain hints during sign-in.  For example, `outlook.com/contoso.com` sends the user to a sign-in page with the `&domain_hint=contoso.com` parameter appended, to auto-accelerate the user directly to the federated IDP for the `contoso.com` domain. Users with managed credentials sent to a federated IDP can't sign in using their managed credentials, reducing security, and frustrating users with randomized sign-in experiences. Admins rolling out managed credentials [should also set up this policy](#suggested-use-within-a-tenant) to ensure that users can always use their managed credentials.
@@ -25,7 +25,7 @@ This policy is needed in situations where and admins can't control or update dom
 
 ## DomainHintPolicy details
 
-The DomainHintPolicy section of the HRD policy is a JSON object that allows an admin to opt out certain domains and applications from domain hint usage.  Functionally, this tells the Azure AD sign-in page to behave as if a `domain_hint` parameter on the sign-in request wasn't present.
+The DomainHintPolicy section of the HRD policy is a JSON object that allows an admin to opt out certain domains and applications from domain hint usage.  Functionally, this tells the Microsoft Entra sign-in page to behave as if a `domain_hint` parameter on the sign-in request wasn't present.
 
 ### The Respect and Ignore policy sections
 
@@ -42,13 +42,13 @@ The DomainHintPolicy logic runs on each incoming request that contains a domain 
 
 - In the absence of any domain hint policy, or if none of the four sections reference the app or domain hint mentioned, [the rest of the HRD policy will be evaluated](home-realm-discovery-policy.md#priority-and-evaluation-of-hrd-policies).
 - If either one (or both) of `RespectDomainHintForApps` or `RespectDomainHintForDomains` section includes the app or domain hint in the request, then the user is auto-accelerated to the federated IDP as requested.
-- If either one (or both) of `IgnoreDomainHintsForApps` or `IgnoreDomainHintsForDomains` references the app or the domain hint in the request, and they’re not referenced by the “Respect” sections, then the request won't be auto-accelerated, and the user remains at the Azure AD sign-in page to provide a username.
+- If either one (or both) of `IgnoreDomainHintsForApps` or `IgnoreDomainHintsForDomains` references the app or the domain hint in the request, and they’re not referenced by the “Respect” sections, then the request won't be auto-accelerated, and the user remains at the Microsoft Entra sign-in page to provide a username.
 
 Once a user has entered a username at the sign-in page, they can use their managed credentials.  If they choose not to use a managed credential, or they have none registered, they are taken to their federated IDP for credential entry as usual.
 
 ## Prerequisites
 
-To disable auto-acceleration sign-in for an application in Azure AD, you need:
+To disable auto-acceleration sign-in for an application in Microsoft Entra ID, you need:
 
 - An Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, or owner of the service principal.
@@ -168,7 +168,7 @@ New-AzureADPolicy
 
 ::: zone-end
 
-After step 4 is complete all users, except those in `guestHandlingDomain.com`, can sign-in at the Azure AD sign-in page even when domain hints would otherwise cause an auto-acceleration to a federated IDP.  The exception to this is if the app requesting sign-in is one of the exempted ones - for those apps, all domain hints are still accepted.
+After step 4 is complete all users, except those in `guestHandlingDomain.com`, can sign-in at the Microsoft Entra sign-in page even when domain hints would otherwise cause an auto-acceleration to a federated IDP.  The exception to this is if the app requesting sign-in is one of the exempted ones - for those apps, all domain hints are still accepted.
 
 ::: zone pivot="graph-hrd"
 

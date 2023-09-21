@@ -15,6 +15,8 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 
 # Download a blob with Java
 
+[!INCLUDE [storage-dev-guide-selector-download](../../../includes/storage-dev-guides/storage-dev-guide-selector-download.md)]
+
 This article shows how to download a blob using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). You can download blob data to various destinations, including a local file path, stream, or text string. You can also open a blob stream and read from it.
 
 ## Prerequisites

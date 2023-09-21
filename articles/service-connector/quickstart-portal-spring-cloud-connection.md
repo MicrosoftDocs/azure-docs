@@ -1,8 +1,8 @@
 ---
 title: Create a service connection in Azure Spring Apps from the Azure portal
 description: This quickstart shows you how to create a service connection in Azure Spring Apps from the Azure portal.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
 ms.date: 08/10/2022
@@ -56,7 +56,7 @@ You'll use Service Connector to create a new service connection in Azure Spring 
     | **Subscription**    | *my-subscription*    | The subscription that contains your target service (the service you want to connect to). The default value is the subscription that contains the app deployed to Azure Spring Apps. |
     | **Connection name** | *storageblob_17d38*  | The connection name that identifies the connection between your app and target service. Use the connection name provided by Service Connector or enter your own connection name.   |
     | **Storage account** | *my-storage-account* | The target storage account you want to connect to. If you choose a different service type, select the corresponding target service instance.                                        |
-    | **Client type**     | *SpringBoot*         | The application stack that works with the target service you selected. Choose between SpringBoot and Java.                                                                          |
+    | **Client type**     | *SpringBoot*         | The application stack that works with the target service you selected. Besides SpringBoot and Java, other stacks are also supported.                                                |
 
     :::image type="content" source="./media/azure-spring-apps-quickstart/basics.png" alt-text="Screenshot of the Azure portal, filling out the Basics tab.":::
 
