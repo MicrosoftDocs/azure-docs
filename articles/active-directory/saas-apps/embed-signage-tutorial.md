@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate embed signage with Azure Active 
 
 * Control in Azure AD who has access to embed signage.
 * Enable your users to be automatically signed-in to embed signage with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ To configure and test Azure AD SSO with embed signage, perform the following ste
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **embed signage** > **Single sign-on**.
@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://app.embedsignage.com/auth/saml/login/<ID>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [embed signage Client support team](mailto:support@embedsignage.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [embed signage Client support team](mailto:support@embedsignage.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -105,7 +105,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to embed signage.
+In this section, you'll enable B.Simon to use single sign-on by granting access to embed signage.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **embed signage**.
@@ -130,7 +130,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     1. **Enable** single sign on checkbox.
 
-    1. Open the downloaded **Federation Metadata XML** from the Azure portal and upload the file into **Metadata XML file**.
+    1. Open the downloaded **Federation Metadata XML** and upload the file into **Metadata XML file**.
 
     1. Click **Save Changes**.
 
@@ -148,7 +148,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the embed signage for which you set up the SSO.
+* Click on **Test this application**, and you should be automatically signed in to the embed signage for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the embed signage tile in the My Apps, you should be automatically signed in to the embed signage for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 

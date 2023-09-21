@@ -53,7 +53,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 3. Click on the **PROVISIONING** tab.
 
-4. The **Provisioning URL** and **Provisioning Secret Token** will be displayed. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your CheckProof application in the Azure portal.
+4. The **Provisioning URL** and **Provisioning Secret Token** will be displayed. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your CheckProof application.
 
 	![tenant](media/checkproof-provisioning-tutorial/token.png)
 
