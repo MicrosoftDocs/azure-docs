@@ -52,11 +52,12 @@ After a successful installation of Step, you should open a command prompt in you
     ```powershell
     step certificate create client2-authn-ID client2-authn-ID.pem client2-authn-ID.key --ca .step/certs/intermediate_ca.crt --ca-key .step/secrets/intermediate_ca_key --no-password --insecure --not-after 2400h
     ```    
-5. 3. To view the thumbprint to use with the second client, run the Step command.
+5. To view the thumbprint to use with the second client, run the Step command.
 
     ```powershell
     step certificate fingerprint client2-authn-ID.pem
     ```
+
 ## Create a namespace
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
@@ -91,12 +92,12 @@ After a successful installation of Step, you should open a command prompt in you
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/add-client-menu.png" alt-text="Screenshot of the Clients page with Add button selected." lightbox="./media/mqtt-publish-and-subscribe-portal/add-client-menu.png":::
 1. On the **Create client** page, enter a **name** for the client. Client names must be unique in a namespace.
-1. Client authentication name is defaulted to the client name. You may change it if you want. You need to include this name as `Username` in the CONNECT packet.
+1. Client authentication name is defaulted to the client name. For this tutorial, change it to `client-authn-ID`. You need to include this name as `Username` in the CONNECT packet.
 1. In this tutorial, you use thumbprint based authentication. Include the first client certificate’s thumbprint in the **Primary Thumbprint**. 
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-client1-metadata.png" alt-text="Screenshot of client 1 configuration.":::
 6. Select **Create** on the toolbar to create another client.
-7. Repeat the above steps to create a second client named `client2`. Include the **second** client certificate’s thumbprint in the **Primary Thumbprint**. 
+7. Repeat the above steps to create a second client named `client2`. Change the authentication name to `client2-authn-ID` and include the **second** client certificate’s thumbprint in the **Primary Thumbprint**. 
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-client2-metadata.png" alt-text="Screenshot of client 2 configuration.":::
 
@@ -132,7 +133,7 @@ After a successful installation of Step, you should open a command prompt in you
 
         :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-permission-binding-1.png" alt-text="Screenshot showing creation of first permission binding.":::
 4. Select **Create** to create the permission binding.
-5. Create one more permission binding by selecting **+ Permission binding** on the toolbar.
+5. Create one more permission binding (`contososubscriberbinding`) by selecting **+ Permission binding** on the toolbar.
 6. Provide a name and give **$all** client group **Subscriber** access to the **ContosoTopicSpace** as shown.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-permission-binding-2.png" alt-text="Screenshot showing creation of second permission binding.":::
@@ -146,14 +147,13 @@ After a successful installation of Step, you should open a command prompt in you
 1. Configure client1 with  
     - **Name** as `client1` (this value can be anything)
     - **Client ID** as `client1-session1` (Client ID in the CONNECT packet is used to identify the session ID for the client connection)
-    - **Username** as `client1-authn-ID` 
+    - **Username** as `client1-authn-ID`. This value must match the value of **Client Authentication Name** that you specified when you created the client in the Azure portal. 
     
         > [!IMPORTANT]
         > Username must match the client authentication name in client metadata.
 1. Update the host name to MQTT hostname from the Overview page of the namespace.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/event-grid-namespace-overview.png" alt-text="Screenshot showing Event Grid namespace overview page, which has MQTT hostname." lightbox="./media/mqtt-publish-and-subscribe-portal/event-grid-namespace-overview.png":::
-
 1. Update the **port** to **8883**.
 1. Toggle **SSL/TLS** to ON.
 1. Toggle **SSL Secure** to ON, to ensure service certificate validation.
