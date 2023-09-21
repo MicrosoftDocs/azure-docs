@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 09/20/2023
+ms.date: 09/21/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: 
@@ -82,7 +82,7 @@ The following diagrams show what happens during customer-managed failover and fa
 
 ### Normal operation (GRS/RA-GRS)
 
-Under normal circumstances, a client writes data to a storage account in the primary region via storage service endpoints (1), and the data is then copied asynchronously from the primary region to the secondary region (2). The following image shows the normal state of a storage account configured as GRS when the primary endpoints are available:
+Under normal circumstances, a client writes data to a storage account in the primary region via storage service endpoints (1). The data is then copied asynchronously from the primary region to the secondary region (2). The following image shows the normal state of a storage account configured as GRS when the primary endpoints are available:
 
 ![Clients write data to the storage account in the primary region](media/storage-failover-customer-managed-common/pre-failover-grs.png)
 
@@ -147,7 +147,7 @@ After re-configuring the account as GRS, replication to the original secondary r
 
 ### Normal operation (GZRS/RA-GZRS)
 
-Under normal circumstances, a client writes data to a storage account in the primary region via storage service endpoints (1), and the data is then copied asynchronously from the primary region to the secondary region (2). The following image shows the normal state of a storage account configured as GZRS when the primary endpoints are available:
+Under normal circumstances, a client writes data to a storage account in the primary region via storage service endpoints (1). The data is then copied asynchronously from the primary region to the secondary region (2). The following image shows the normal state of a storage account configured as GZRS when the primary endpoints are available:
 
 ![Clients write data to the storage account in the primary region (GZRS)](media/storage-failover-customer-managed-common/pre-failover-gzrs.png)
 
@@ -160,8 +160,6 @@ If the primary storage service endpoints become unavailable for any reason (1), 
 ### The failover process (GZRS/RA-GZRS)
 
 To restore write access to your data, you can [initiate a failover](storage-initiate-account-failover.md).  The storage service endpoint URIs for blobs, tables, queues, and files remain the same but their DNS entries are changed to point to the secondary region (1) as show in this image:
-
-1. The DNS entries for the storage service endpoints are changed such that those for the secondary region become the new primary endpoints for your storage account.
 
 ![Customer initiates account failover to secondary endpoint (GZRS)](media/storage-failover-customer-managed-unplanned/failover-to-secondary-gzrs.png)
 
