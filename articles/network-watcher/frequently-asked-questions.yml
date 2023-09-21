@@ -46,16 +46,6 @@ sections:
           See [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/) for pricing details about different Network Watcher components.
 
       - question: |
-          Is the Network Watcher zone resilient? 
-        answer: |
-          Yes, the Network Watcher service is zone-resilient by default. 
-
-      - question: |
-          How do I configure the Network Watcher service to be zone-resilient? 
-        answer: |
-          No configuration is necessary to enable zone-resiliency. Zone-resiliency for Network Watcher resources is available by default and managed by the service itself. 
-
-      - question: |
           In which regions is Network Watcher currently supported and available?
         answer: |
           See [Network Watcher regions](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher) to learn about the regions that support Network Watcher.
@@ -110,7 +100,19 @@ sections:
         answer: |
           Network Watcher has the following limits:
           [!INCLUDE [network-watcher-limits](../../includes/network-watcher-limits.md)]
-          
+
+  - name: Service availability and redundancy
+    questions:
+      - question: |
+          Is the Network Watcher zone resilient?
+        answer: |
+          Yes, the Network Watcher service is zone-resilient by default.
+
+      - question: |
+          How do I configure the Network Watcher service to be zone-resilient?
+        answer: |
+          No configuration is necessary to enable zone-resiliency. Zone-resiliency for Network Watcher resources is available by default and managed by the service itself.
+
   - name: Network Watcher Agent
     questions:
       - question: |
@@ -189,7 +191,12 @@ sections:
           4. Enable NSG flow logs by creating a flow log for your target network security group using the storage account. For more information, see [Create a flow log](nsg-flow-logging.md#create-a-flow-log).
           
           You can check the storage logs after a few minutes. You should see an updated TimeStamp or a new JSON file created.
-          
+
+      - question: |
+          Can NSG flow logs send data to a storage account using an Azure Private Endpoint?
+        answer: |
+          Yes, Network Watcher support sending NSG flow logs data to a storage account enabled with a private endpoint.
+
       - question: |
           How do I use NSG flow logs with a storage account behind a Service Endpoint?
         answer: |
