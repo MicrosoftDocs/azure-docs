@@ -44,7 +44,7 @@ The following diagram shows the architecture of the system:
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- A Microsoft Entra ID tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Azure AD](../active-directory/fundamentals/create-new-tenant.md).
+- A Microsoft Entra ID tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
 - [curl](https://curl.se/download.html).
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
@@ -52,7 +52,7 @@ The following diagram shows the architecture of the system:
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- A Microsoft Entra ID tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Azure AD](../active-directory/fundamentals/create-new-tenant.md).
+- A Microsoft Entra ID tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
 - [Azure Developer CLI (AZD)](https://aka.ms/azd-install), version 1.0.2 or higher.
 - [curl](https://curl.se/download.html).
 
@@ -76,7 +76,7 @@ Use the following steps to register an application in Microsoft Entra ID, which 
 
 1. If you have access to multiple tenants, use the **Directory + subscription** filter (:::image type="icon" source="media/quickstart-deploy-restful-api-app/portal-directory-subscription-filter.png" border="false":::) to select the tenant in which you want to register an application.
 
-1. Search for and select **Azure Active Directory**.
+1. Search for and select **Microsoft Entra ID**.
 
 1. Under **Manage**, select **App registrations** > **New registration**.
 
@@ -88,7 +88,7 @@ Use the following steps to register an application in Microsoft Entra ID, which 
 
 1. On the app **Overview** page, look for the **Application (client) ID** value, and then record it for later use. You need it to acquire access token.
 
-1. Select **API permissions** > **Add a permission** > **My APIs**. Select the **ToDo** application that you registered earlier, and then select the permissions **ToDo.Read**, **ToDo.Write**, and **ToDo.Delete**. Select **Add permissions**.
+1. Select **API permissions** > **Add a permission** > **My APIs**. Select the `ToDo` application that you registered earlier, and then select the permissions **ToDo.Read**, **ToDo.Write**, and **ToDo.Delete**. Select **Add permissions**.
 
 1. Select **Grant admin consent for {your-tenant-name}** to grant admin consent for the permissions you added.
 
@@ -96,7 +96,7 @@ Use the following steps to register an application in Microsoft Entra ID, which 
 
 #### Add user to access the RESTful APIs
 
-Use the following steps to create a member user in your Microsoft Entra ID, then the user can manage the data of the ToDo application through RESTful APIs.
+Use the following steps to create a member user in your Microsoft Entra ID, then the user can manage the data of the `ToDo` application through RESTful APIs.
 
 1. Under **Manage**, select **Users** > **New user** > **Create new user**.
 
@@ -109,7 +109,7 @@ Use the following steps to create a member user in your Microsoft Entra ID, then
    > [!NOTE]
    >
    > - New users must complete the first login authentication and update their passwords, otherwise, you receive an `AADSTS50055: The password is expired` error when you get the access token.
-   > - When a new user logs in, they will receive an **Action Required** prompt. You may choose to **Ask later** to skip the validation.
+   > - When a new user logs in, they will receive an **Action Required** prompt. You may choose **Ask later** to skip the validation.
 
 1. Select **Review + create** to review your selections. Select **Create** to create the user.
 
@@ -119,11 +119,11 @@ Use the following steps to update the OAuth2 configuration for Swagger UI author
 
 1. Open the Azure Spring Apps instance in the Azure portal.
 
-1. Open your **Azure Active Directory** tenant in the Azure portal, go to the registered app `ToDoWeb`.
+1. Open your **Microsoft Entra ID** tenant in the Azure portal, and go to the registered app `ToDoWeb`.
 
 1. Under **Manage**, select **Authentication**, select **Add a platform**, and then select **Single-page application**.
 
-1. Use this format `<your-app-exposed-application-url-or-endpoint>/swagger-ui/oauth2-redirect.html` as the OAuth2 redirect url in the **Redirect URIs** field, such as `https://simple-todo-api.xxxxxxxx-xxxxxxxx.xxxxxx.azurecontainerapps.io/swagger-ui/oauth2-redirect.html`, and then select **Configure**.
+1. Use the format `<your-app-exposed-application-url-or-endpoint>/swagger-ui/oauth2-redirect.html` as the OAuth2 redirect url in the **Redirect URIs** field, such as `https://simple-todo-api.xxxxxxxx-xxxxxxxx.xxxxxx.azurecontainerapps.io/swagger-ui/oauth2-redirect.html`, and then select **Configure**.
 
    :::image type="content" source="media/quickstart-deploy-restful-api-app/aad-spa-auth.png" alt-text="Image that shows the SPA authentication in Microsoft Entra ID." lightbox="media/quickstart-deploy-restful-api-app/aad-spa-auth.png":::
 
@@ -133,21 +133,21 @@ Use the following steps to use [OAuth 2.0 authorization code flow](../active-dir
 
 1. Open the URL exposed by the app, then select **Authorize** to prepare the OAuth2 authentication.
 
-1. In the **Available authorizations** window, enter the client ID of the app `ToDoWeb` in the **client_id** field, and select all the scopes for **Scopes** field, ignore the **client_secret** field, then select **Authorize** to redirect to the Microsoft Entra ID login page.
+1. In the **Available authorizations** window, enter the client ID of the app `ToDoWeb` in the **client_id** field, select all the scopes for **Scopes** field, ignore the **client_secret** field, and then select **Authorize** to redirect to the Microsoft Entra ID login page.
 
 1. After completing the login with the previous user, you'll return to the following pop-up window:
 
-   :::image type="content" source="media/quickstart-deploy-restful-api-app/swagger-ui-logged.png" alt-text="Image that shows the logged of Swagger UI authorization." lightbox="media/quickstart-deploy-restful-api-app/swagger-ui-logged.png":::
+   :::image type="content" source="media/quickstart-deploy-restful-api-app/swagger-ui-logged.png" alt-text="Image that shows the logged in window of Swagger UI authorization." lightbox="media/quickstart-deploy-restful-api-app/swagger-ui-logged.png":::
 
 ### Access the RESTful APIs
 
 Use the following steps to access the RESTful APIs of the app `ToDo` in Swagger UI.
 
-1. Select the API **POST /api/simple-todo/lists** and select **Try it out**. Enter the following request body, then select **Execute** to create a ToDo list.
+1. Select the API **POST /api/simple-todo/lists** and select **Try it out**. Enter the following request body, and then select **Execute** to create a ToDo list.
 
    ```json
    {
-     "name": "My List"
+   "name": "My List"
    }
    ```
 
@@ -160,8 +160,8 @@ Use the following steps to access the RESTful APIs of the app `ToDo` in Swagger 
      "description": null
    }
    ```
-   
-1. Select the API **POST /api/simple-todo/lists/{listId}/items** and select **Try it out**. Enter the ToDo list ID you created in previous step for **listId** field, enter the following request body, then select **Execute** to create a ToDo item.
+
+1. Select the API **POST /api/simple-todo/lists/{listId}/items** and select **Try it out**. For **listId**, enter the ToDo list ID you created previously, enter the following request body, and then select **Execute** to create a ToDo item.
 
    ```json
    {
@@ -170,8 +170,8 @@ Use the following steps to access the RESTful APIs of the app `ToDo` in Swagger 
      "state": "todo"
    }
    ```
-   
-   Return the ToDo item:
+
+   Enter the following command to return the ToDo item:
 
    ```json
    {
@@ -187,7 +187,7 @@ Use the following steps to access the RESTful APIs of the app `ToDo` in Swagger 
 
 1. Select the API **GET /api/simple-todo/lists** and select **Execute** to query ToDo lists.
 
-   Return the ToDo lists:
+   Enter the following command to return the ToDo lists:
 
    ```json
    [
@@ -199,9 +199,9 @@ Use the following steps to access the RESTful APIs of the app `ToDo` in Swagger 
    ]
    ```
 
-1. Select the API **GET /api/simple-todo/lists/{listId}/items** and select **Try it out**. Enter the ToDo list ID you created in previous step for **listId** field, then select **Execute** to query ToDo items.
+1. Select the API **GET /api/simple-todo/lists/{listId}/items** and select **Try it out**. For **listId**, enter the ToDo list ID you created previously, and then select **Execute** to query ToDo items.
 
-   Return the ToDo item:
+   Enter the following command to return the ToDo item:
 
    ```json
    [
@@ -217,7 +217,7 @@ Use the following steps to access the RESTful APIs of the app `ToDo` in Swagger 
    ]
    ```
 
-1. Select the API **PUT /api/simple-todo/lists/{listId}/items/{itemId}** and select **Try it out**. Enter the ToDo list ID for **listId** field and ToDo item ID for **itemId** field, enter the following request body, and then select **Execute** to update the ToDo item.
+1. Select the API **PUT /api/simple-todo/lists/{listId}/items/{itemId}** and select **Try it out**. For **listId**, enter the ToDo list ID. For **itemId**, enter the ToDo item ID, enter the following request body, and then select **Execute** to update the ToDo item.
 
    ```json
    {
@@ -230,7 +230,7 @@ Use the following steps to access the RESTful APIs of the app `ToDo` in Swagger 
    }
    ```
 
-   Return the new ToDo item:
+   Enter the following command to return the new ToDo item:
 
    ```json
    {
@@ -244,7 +244,7 @@ Use the following steps to access the RESTful APIs of the app `ToDo` in Swagger 
    }
    ```
 
-1. Select the API **DELETE /api/simple-todo/lists/{listId}/items/{itemId}** and select **Try it out**. Enter the ToDo list ID for **listId** field and ToDo item ID for **itemId** field, then select **Execute** to delete the ToDo item. You should see that the server response code is `204`.
+1. Select the API **DELETE /api/simple-todo/lists/{listId}/items/{itemId}** and select **Try it out**. For **listId**, enter the ToDo list ID. For **itemId**, enter the ToDo item ID, and then select **Execute** to delete the ToDo item. You should see that the server response code is `204`.
 
 [!INCLUDE [clean-up-resources](includes/quickstart-deploy-restful-api-app/clean-up-resources.md)]
 

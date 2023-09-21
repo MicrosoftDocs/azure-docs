@@ -17,7 +17,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 To deploy the RESTful API app, the first step is to prepare the Spring project to run locally.
 
-#### [Azure portal](#tab/Azure-portal)
+### [Azure portal](#tab/Azure-portal)
 
 Use the following steps to clone and run the app locally.
 
@@ -34,7 +34,7 @@ Use the following steps to clone and run the app locally.
    ./mvnw spring-boot:run
    ```
 
-#### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
 Use the following steps to initialize the web application from Azure Developer CLI templates:
 
@@ -258,7 +258,7 @@ spring:
 
 Now, you can deploy the app to Azure Spring Apps.
 
-#### [Azure portal](#tab/Azure-portal)
+### [Azure portal](#tab/Azure-portal)
 
 Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy.
 
@@ -299,7 +299,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
 
    The output **Application url** is the base endpoint to access the ToDo API application.
 
-#### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
 Use Azure Developer CLI to package the app, provision the Azure resources required by the web application, and then deploy to Azure Spring Apps.
 
