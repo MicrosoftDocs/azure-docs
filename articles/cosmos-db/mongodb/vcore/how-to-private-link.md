@@ -17,6 +17,7 @@ ms.date: 08/28/2023
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
 {TODO: Intro paragraph}
+Edit: Private Link for vCore 
 
 ## Prerequisites
 
