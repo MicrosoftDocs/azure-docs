@@ -246,20 +246,35 @@ Data processing and metadata processing occur in parallel. Therefore, total proc
 
 ##### Example 1
 
-300 TB of data and 200 million files and folders.
+This example assumes that **300 TB** of data and **200 million** files and folders are being migrated.
 
-| Task | Estimated hours |
+| Task | Estimated time |
 |--|--|
-| Copy data (300 / 10) | 37.5 |
-| Validate data (200 / 9) | 22.22  |
-| **Data processing time (37.5 + 22.2)** | **60** |   
-| Copy metadata (200 / 4) | 50 |
-| Metadata processing (200 / 25) | 8 |
-| Metadata processing - data copy option only (200 / 50)| 4 |
-| **Metadata processing time (50 + 8 + 4)** | **62** |
-| **Total time for data copy migration (higher of the two times)** | **62** |
-| **Total time for complete migration (62 - 4)** | **58** |
+| Copy data | 300 TB / 10 TB = 30 hours |
+| Validate data | 2 million / 9 million = 22.22 hours|
+| **Data processing time** | **30 + 22.2 = 52.2 hours** |   
+| Copy metadata | 2 million / 4 million = 50 hours |
+| Metadata processing | 2 million / 25 million = 8 hours |
+| Metadata processing - data copy option only | 200 million / 50 million = 4 hours |
+| **Metadata processing time** | **50 + 8 + 4 = 62 hours** |
+| **Total time for data copy migration (higher of the two times)** | **62 hours** |
+| **Total time for a complete migration** | **62 - 4 = 58 hours** |
 
+##### Example 2
+
+This example assumes that **2 TB** of data and **56 thousand** files and folders are being migrated.
+
+| Task | Estimated time |
+|--|--|
+| Copy data | 2 TB / 10 TB = 12 minutes|
+| Validate data | (56,000 / 9 million) * 3,600 seconds = 22.22 seconds  |
+| **Data processing time** | **30 minutes + 22.2 seconds = approximately 13 minutes** |   
+| Copy metadata | (56,000 / 25 million) * 3,600 seconds  = 51 seconds |
+| Metadata processing | 56,000/ 25,000 = 8 seconds |
+| Metadata processing - data copy option only | (56,000 / 50 million) * 3,600 seconds = 4 seconds|
+| **Metadata processing time** | **51 + 8 + 4 = 63 seconds** |
+| **Total time for data copy migration (higher of the two times)** | **13 minutes** |
+| **Total time for a complete migration** | **13 minutes** |
 
 #### How much does the data migration cost?
 
