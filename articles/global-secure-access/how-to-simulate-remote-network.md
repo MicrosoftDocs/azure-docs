@@ -21,7 +21,7 @@ In order to complete the following steps, you must have these prerequisites in p
 
 - An Azure subscription and permission to create resources in the [Azure portal](https://portal.azure.com).
    - A basic understanding of [site-to-site VPN connections](/azure/vpn-gateway/tutorial-site-to-site-portal).
-- A Microsoft Entra ID tenant with the [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference#global-secure-access-administrator) role assigned.
+- A Microsoft Entra tenant with the [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference#global-secure-access-administrator) role assigned.
 - Completed the [remote network onboarding steps](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks).
 
 ## Infrastructure creation
@@ -127,7 +127,7 @@ You use the BGP IP addresses, Public IP addresses, and ASN values provided by Mi
    1. Select the **Virtual network** created previously.
    1. Keep the other networking defaults.
 1. Move to the **Management** tab
-   1. Check the box **Login with Azure AD**
+   1. Check the box **Login with Microsoft Entra ID**
    1. Keep the other management defaults.
 1. Select **Review + create**, confirm your settings.
 1. Select **Create**.
