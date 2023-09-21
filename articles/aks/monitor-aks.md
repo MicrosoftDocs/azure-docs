@@ -212,6 +212,7 @@ When the [Network Observability](/azure/aks/network-observability-overview) add-
 Principal author:
 
 - [Xuhong Liu](https://www.linkedin.com/in/xuhong-l-5937159b/) | Senior Service Engineer
+- [Srini Padala](https://www.linkedin.com/in/srinivasa-padala/) | Senior Customer Engineer
 
 Other contributors:
 
