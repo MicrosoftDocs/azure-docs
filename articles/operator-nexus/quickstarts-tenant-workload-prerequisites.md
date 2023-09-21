@@ -94,7 +94,8 @@ New-AzNetworkCloudL2Network -Name "<YourL2NetworkName>" `
 -ExtendedLocationType "CustomLocation" `
 -L2IsolationDomainId "<YourL2IsolationDomainId>" `
 -Location "<ClusterAzureRegion>" `
--InterfaceName "<InterfaceName>" -Subscription "<YourSubscription>"
+-InterfaceName "<InterfaceName>" `
+-Subscription "<YourSubscription>"
 ```
 
 ---
@@ -131,10 +132,11 @@ You need:
 ```azurepowershell-interactive
 New-AzNetworkCloudL3Network -Name "<YourL3NetworkName>" `
 -ResourceGroupName "<YourResourceGroupName>" `
--Subscription "<YourSubscription>" ``
+-Subscription "<YourSubscription>" `
 -Location "<ClusterAzureRegion>" `
 -ExtendedLocationName "<ClusterCustomLocationId>" `
--ExtendedLocationType "CustomLocation" -Vlan "<YourNetworkVlan>" `
+-ExtendedLocationType "CustomLocation" `
+-Vlan "<YourNetworkVlan>" `
 -L3IsolationDomainId "<YourL3IsolationDomainId>" `
 -Ipv4ConnectedPrefix "<YourNetworkIpv4Prefix>" `
 -Ipv6ConnectedPrefix "<YourNetworkIpv6Prefix>"
@@ -172,8 +174,10 @@ New-AzNetworkCloudTrunkedNetwork -Name "<YourTrunkedNetworkName>" `
 -ResourceGroupName "<YourResourceGroupName>" `
 -SubscriptionId "<YourSubscription>" `
 -ExtendedLocationName "<ClusterCustomLocationId>" `
--ExtendedLocationType "CustomLocation" -Location "<ClusterAzureRegion>" `
--IsolationDomainId "<YourL3IsolationDomainId>" -InterfaceName "<YourNetworkInterfaceName>" `
+-ExtendedLocationType "CustomLocation" `
+-Location "<ClusterAzureRegion>" `
+-IsolationDomainId "<YourL3IsolationDomainId>" `
+-InterfaceName "<YourNetworkInterfaceName>" `
 -Vlan "<YourVlanList>"
 ```
 
@@ -212,8 +216,10 @@ New-AzNetworkCloudServicesNetwork -CloudServicesNetworkName "<YourCloudServicesN
 -ResourceGroupName "<YourResourceGroupName>" `
 -Subscription "<YourSubscription>" `
 -ExtendedLocationName "<ClusterCustomLocationId>" `
--ExtendedLocationType "CustomLocation" -Location "<ClusterAzureRegion>" `
--AdditionalEgressEndpoint $endpointEgressList -EnableDefaultEgressEndpoint "False"
+-ExtendedLocationType "CustomLocation" `
+-Location "<ClusterAzureRegion>" `
+-AdditionalEgressEndpoint $endpointEgressList `
+-EnableDefaultEgressEndpoint "False"
 ```
 
 ---

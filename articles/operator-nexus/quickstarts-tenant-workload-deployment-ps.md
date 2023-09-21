@@ -44,8 +44,7 @@ Before you run the commands, you need to set several variables to define the con
 | ACR_URL                    | The URL of the Azure Container Registry.                                                              |
 | ACR_USERNAME               | The username for the Azure Container Registry.                                                        |
 | ACR_PASSWORD               | The password for the Azure Container Registry.                                                        |
-| VIRTIOINTERFACE            | The VirtioInterface options Modern or Transitional, defaults to Modern.                               |
-| VMDEVICEMODEL            | The VirtioInterface ignored if VMDeviceModel is specified, options T2(Modern) and T1(Transitional).     |
+| VMDEVICEMODEL            | The VMDeviceModel defaults to T2, available options T2(Modern) and T1(Transitional).     |
 | USERDATA                 | The base64 encoded string of cloud-init userdata.                                                       |
 | BOOTMETHOD                 | The Method used to boot the virutalmachine UEFI or BIOS.    |
 | OS_DISK_CREATE_OPTION       | The OS disk create specifies ephemeral disk option.    |
@@ -72,7 +71,7 @@ $BOOT_METHOD="UEFI"
 $OS_DISK_CREATE_OPTION="Ephemeral"
 $OS_DISK_DELETE_OPTION="Delete"
 $NETWORKDATA="bmV0d29ya0RhdGVTYW1wbGU="
-$VMDEVICEMODEL=""
+$VMDEVICEMODEL="T2"
 $USERDATA=""
 
 # VM credentials
@@ -117,17 +116,28 @@ After defining these variables, you can create the virtual machine by executing 
 
 ```azurepowershell-interactive
 New-AzNetworkCloudVirtualMachine -Name $VM_NAME `
--ResourceGroupName $RESOURCE_GROUP -AdminUsername $ADMIN_USERNAME `
+-ResourceGroupName $RESOURCE_GROUP `
+-AdminUsername $ADMIN_USERNAME `
 -CloudServiceNetworkAttachmentAttachedNetworkId $CSN_ARM_ID `
 -CloudServiceNetworkAttachmentIPAllocationMethod $IP_AllOCATION_METHOD `
--CpuCore $CPU_CORES -ExtendedLocationName $CUSTOM_LOCATION -ExtendedLocationType $CUSTOM_LOCATION_TYPE `
--Location $LOCATION -SubscriptionId $SUBSCRIPTION -MemorySizeGb $MEMORY_SIZE `
--OSDiskSizeGb $VM_DISK_SIZE -VMImage $VM_IMAGE -BootMethod $BOOT_METHOD `
+-CpuCore $CPU_CORES `
+-ExtendedLocationName $CUSTOM_LOCATION `
+-ExtendedLocationType $CUSTOM_LOCATION_TYPE `
+-Location $LOCATION `
+-SubscriptionId $SUBSCRIPTION `
+-MemorySizeGb $MEMORY_SIZE `
+-OSDiskSizeGb $VM_DISK_SIZE `
+-VMImage $VM_IMAGE `
+-BootMethod $BOOT_METHOD `
 -CloudServiceNetworkAttachmentDefaultGateway $CSN_ATTACHMENT_DEFAULTGATEWAY `
--CloudServiceNetworkAttachmentName $CSN_ATTACHMENT_NAME -IsolateEmulatorThread $ISOLATE_EMULATOR_THREAD `
--NetworkAttachment $NETWORKATTACHMENT -NetworkData $NETWORKDATA -OSDiskCreateOption $OS_DISK_CREATE_OPTION `
--OSDiskDeleteOption $OS_DISK_DELETE_OPTION -SshPublicKey $SSH_PUBLIC_KEY -UserData $USERDATA `
--VirtioInterface $VIRTIOINTERFACE -VMDeviceModel $VMDEVICEMODEL `
+-CloudServiceNetworkAttachmentName $CSN_ATTACHMENT_NAME `
+-IsolateEmulatorThread $ISOLATE_EMULATOR_THREAD `
+-NetworkAttachment $NETWORKATTACHMENT `
+-NetworkData $NETWORKDATA `
+-OSDiskCreateOption $OS_DISK_CREATE_OPTION `
+-OSDiskDeleteOption $OS_DISK_DELETE_OPTION `
+-SshPublicKey $SSH_PUBLIC_KEY -UserData $USERDATA `
+-VMDeviceModel $VMDEVICEMODEL `
 -VMImageRepositoryCredentialsUsername $ACR_USERNAME `
 -VMImageRepositoryCredentialsPassword $SECUREPASSWORD `
 -VMImageRepositoryCredentialsRegistryUrl $ACR_URL -Debug
