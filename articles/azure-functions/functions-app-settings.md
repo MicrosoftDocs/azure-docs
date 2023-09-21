@@ -546,7 +546,7 @@ Changing or removing this setting may cause your function app to not start. To l
 The following considerations apply when using an Azure Resource Manager (ARM) template to create a function app during deployment: 
 
 + When you don't set a `WEBSITE_CONTENTSHARE` value for the main function app or any apps in slots, unique share values are generated for you. Not setting `WEBSITE_CONTENTSHARE` is the recommended approach for an ARM template deployment.
-+ There are scenarios where you must set the `WEBSITE_CONTENTSHARE` value to a predefined share, such as when you [use a secured storage account in a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network). In this case, you must set a unique share name for the main function app and the app for each deployment slot.  
++ There are scenarios where you must set the `WEBSITE_CONTENTSHARE` value to a predefined share, such as when you [use a secured storage account in a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network). In this case, you must set a unique share name for the main function app and the app for each deployment slot. You need to ensure that the shares exists prior setting `WEBSITE_CONTENTSHARE` value.
 + Don't make `WEBSITE_CONTENTSHARE` a slot setting. 
 + When you specify `WEBSITE_CONTENTSHARE`, the value must follow [this guidance for share names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names). 
 
