@@ -35,7 +35,7 @@ Mobility Service auto detects the proxy settings from environment settings or IE
 - **Windows OS**: During Enable Replication, Mobility Service detects the proxy settings as configured in Internet Explorer for Local System user. To set up proxy for Local System account, an administrator may use `psexec` to launch a command prompt and then Internet Explorer. 
     The proxy settings are configured as environment variables `http_proxy` and `no_proxy`. 
 - **Linux OS**: The proxy settings are configured in /etc/profile or /etc/environment as environment variables `http_proxy` and `no_proxy`. 
-- **Auto-detected proxy seetings**: The auto-detected proxy settings are saved to Mobility Service proxy config file `ProxyInfo.conf` 
+- **Auto-detected proxy settings**: The auto-detected proxy settings are saved to Mobility Service proxy config file `ProxyInfo.conf` 
     The default location of ProxyInfo.conf is:
         - **Windows**: C:\ProgramData\Microsoft Azure Site Recovery\Config\ProxyInfo.conf 
         - **Linux**: /usr/local/InMage/config/ProxyInfo.conf
