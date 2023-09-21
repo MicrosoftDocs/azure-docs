@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 09/21/2023
 ms.author: ankitadutta
 
 ---
@@ -46,11 +46,13 @@ Mobility Service auto detects the proxy settings from environment settings or IE
 In this case, the customer provides custom application proxy settings in Mobility Service config file ProxyInfo.conf. This method allows customers to provide proxy only for Mobility Service or a different proxy for Azure Site Recovery Mobility Service than a proxy (or no proxy) for rest of the applications on the machine.
 
 ## Proxy template
-ProxyInfo.conf contains the following template 
-[proxy] 
-Address=http://1.2.3.4 
-Port=5678 
-BypassList=hypervrecoverymanager.windowsazure.com,login.microsoftonline.com,blob.core.windows.net. 
+
+ProxyInfo.conf contains the following template: 
+
+`[proxy]` <br>
+Address=http://1.2.3.4 <br>
+Port=5678 <br>
+BypassList=hypervrecoverymanager.windowsazure.com,login.microsoftonline.com,blob.core.windows.net. <br>
 The BypassList doesn't support wildcards like '*.windows.net' but giving windows.net is good enough to bypass. 
 
 ## Next steps:
