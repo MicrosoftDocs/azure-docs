@@ -4,7 +4,7 @@ description: Move single instance Azure virtual machines from a regional configu
 author: ankitaduttaMSFT
 ms.service: virtual-machines
 ms.topic: tutorial
-ms.date: 08/10/2023
+ms.date: 09/21/2023
 ms.author: ankitadutta
 ---
 
@@ -15,7 +15,7 @@ This article details using Azure PowerShell to move Azure single instance VMs fr
 To use an availability zone, create your virtual machine in a [supported Azure region](../availability-zones/az-region.md).
 
 > [!IMPORTANT]
-> Currently, this feature is in *Public Preview*.
+> Regional to zonal move of single instance VM(s) configuration is currently in *Public Preview*.
 
 ## Prerequisites
 

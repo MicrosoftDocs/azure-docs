@@ -13,7 +13,7 @@ ms.author: ankitadutta
 This article answers common questions about Azure single instance virtual machines - regional to zonal move.
 
 > [!IMPORTANT]
-> Currently, this feature is in *Public Preview*.
+> Regional to zonal move of single instance VM(s) configuration is currently in *Public Preview*.
 
 ## Regional to zonal move
 
