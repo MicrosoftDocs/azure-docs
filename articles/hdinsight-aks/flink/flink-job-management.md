@@ -187,7 +187,7 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
 
    `$data = Invoke-RestMethod -Uri $restUri -Method GET -Headers @{ Authorization = "Bearer $tok" }`
   
-**Authentication using Managed Identity:** Users can utilize resources that support Managed Identity to make calls to the Job REST API. For more details, please refer to the [Managed Identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-arm) documentation.
+**Authentication using Managed Identity:** Users can utilize resources that support Managed Identity to make calls to the Job REST API. For more details, please refer to the [Managed Identity](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-arm.md) documentation.
   
 #### LIST of APIs and Parameters
 
