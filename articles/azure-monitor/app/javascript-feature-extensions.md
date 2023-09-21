@@ -90,7 +90,6 @@ Users can set up the Click Analytics Auto-Collection plug-in via JavaScript (Web
 			!function(v,y,T){<!-- Removed the JavaScript (Web) SDK Loader Script code for brevity -->}(window,document,{
 					src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
 					crossOrigin: "anonymous",
-          // cr: 0,
 					cfg: configObj // configObj is defined above.
 			});
 	</script>
