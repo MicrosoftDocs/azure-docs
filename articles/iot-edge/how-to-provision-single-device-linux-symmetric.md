@@ -98,7 +98,7 @@ You can configure your IoT Edge device with symmetric key authentication using t
    ```
 
 # [Red Hat Enterprise Linux](#tab/rhel)
-<!-- Duplicate of Ubuntu+Debian to match tabs -->
+<!-- Duplicate of Ubuntu+Debian to match tab id set -->
 
 You can configure your IoT Edge device with symmetric key authentication using the following command:
 
@@ -251,6 +251,10 @@ Using curl commands, you can target the component files directly from the IoT Ed
       ```bash
       curl -L <identity service link> -o aziot-identity-service.rpm && sudo yum localinstall ./aziot-identity-service.rpm
       ```
+
+      # [Ubuntu Core snaps](#tab/snaps)
+      To do
+
       ---
 
    3. Find the **aziot-edge** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
@@ -266,6 +270,10 @@ Using curl commands, you can target the component files directly from the IoT Ed
       ```bash
       curl -L <iotedge link> -o aziot-edge.rpm && sudo yum localinstall ./aziot-edge.rpm
       ```
+
+      # [Ubuntu Core snaps](#tab/snaps)
+      To do
+
       ---
 
 Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step, which is to [Provision the device with its cloud identity](#provision-the-device-with-its-cloud-identity).
@@ -328,7 +336,8 @@ sudo apt-get autoremove --purge moby-engine
 sudo yum remove moby-cli
 sudo yum remove moby-engine
 ```
-
+# [Ubuntu Core snaps](#tab/snaps)
+To do
 ---
 
 ## Next steps
