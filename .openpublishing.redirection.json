@@ -911,6 +911,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/databox-online/azure-stack-edge-gpu-2307-release-notes.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-2309-release-notes",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-video-analyzer/video-analyzer-docs/access-policies.md",
             "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/access-policies",
             "redirect_document_id": false
