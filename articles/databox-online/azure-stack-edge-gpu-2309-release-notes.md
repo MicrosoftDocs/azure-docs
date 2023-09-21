@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/20/2023
+ms.date: 09/21/2023
 ms.author: alkohli
 ---
 
@@ -19,18 +19,27 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they're added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2309** release, which maps to software version **3.2.2380.1632**.
+This article applies to the **Azure Stack Edge 2309** release, which maps to software version **3.2.2380.1652**.
 
 ## Supported update paths
 
-This software can be applied to your device if you're running **Azure Stack Edge 2209 or later** (3.2.2380.1632).
+To apply the 2309 update, your device must be running version 2203 or later.
+
+ - If you are not running the minimum required version, you'll see this error: 
+
+   *Update package cannot be installed as its dependencies are not met.* 
+
+ - You can update to 2203 from 2207 or later, and then install 2309.
 
 You can update to the latest version using the following update paths:
 
-| Current version     | Update to | Then apply |
+| Current version of Azure Stack Edge software and Kubernetes     | Update to Azure Stack Edge software and Kubernetes  | Desired update to 2309  |
 | --------------------| -----------| -----------|
-|2205 and earlier     |2207        |2309 |
-|2207 and later       |2307        |    |
+|2207   |2303   |2309   |
+|2209   |2303   |2309   |
+|2210   |2303   |2309   |
+|2301   |2303   |2309   |
+|2303   |Directly to   |2309   |
 
 ## What's new
 
