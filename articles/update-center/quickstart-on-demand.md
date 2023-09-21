@@ -32,7 +32,7 @@ This quickstart explains how to perform manual assessment and apply updates on s
 
 1. Select one or more machines from the list and select **Check for updates** to initiate a compliance scan.
     
-    After the assessment is finished, a confirmation message appears in the upper-right corner of the page.
+After the assessment is finished, a confirmation message appears in the upper-right corner of the page.
 
 ## Configure settings
 

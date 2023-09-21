@@ -97,7 +97,7 @@ To schedule recurring updates on a single VM:
 
 1. On the **Azure Update Manager** | **Machines** page, select your subscription, select your machine, and select **Schedule updates**.
 
-1. In **Create new maintenance configuration**, you can create a schedule for a single VM and assign a machine and tags. Follow the procedure from step 3 listed in **From Overview pane** of [Schedule recurring updates on single VM](#schedule-recurring-updates-on-single-vm) to create a maintenance configuration and assign a schedule.
+1. In **Create new maintenance configuration**, you can create a schedule for a single VM and assign a machine and tags. Follow the procedure from step 3 listed in **From Overview pane** of [Schedule recurring updates on a single VM](#schedule-recurring-updates-on-a-single-vm) to create a maintenance configuration and assign a schedule.
 
 # [From a selected VM](#tab/singlevm-schedule-home)
 
@@ -186,7 +186,7 @@ You can create a new guest OS update maintenance configuration or modify an exis
 
 1. Go to **Machines** and select machines from the list.
 1. On the **Updates** pane, select **Scheduled updates**.
-1. On the **Create a maintenance configuration** pane, follow step 3 in this [procedure](#schedule-recurring-updates-on-single-vm) to create a maintenance configuration.
+1. On the **Create a maintenance configuration** pane, follow step 3 in this [procedure](#schedule-recurring-updates-on-a-single-vm) to create a maintenance configuration.
 1. On the **Basics** tab, select the **Maintenance scope** as **Guest (Azure VM, Arc-enabled VMs/servers)**.
 
    :::image type="content" source="./media/scheduled-updates/create-maintenance-configuration.png" alt-text="Screenshot that shows creating a maintenance configuration.":::
