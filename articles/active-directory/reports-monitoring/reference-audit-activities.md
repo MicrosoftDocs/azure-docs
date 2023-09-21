@@ -1,6 +1,6 @@
 ---
 
-title: Microsoft Entra ID audit activity reference
+title: Microsoft Entra audit activity reference
 description: Get an overview of the audit activities that can be logged in your audit logs in Microsoft Entra ID.
 services: active-directory
 author: shlipsey3
@@ -368,7 +368,7 @@ This set of audit logs is related to [B2C](../../active-directory-b2c/overview.m
 |Authorization|Get list of tenants|
 |Authorization|Get localized resource|
 |Authorization|Get operation status for an async operation|
-|Authorization|Get operations of Microsoft.Microsoft Entra resource provider|
+|Authorization|Get operations of Microsoft.AzureActiveDirectory resource provider|
 |Authorization|Get policy key|
 |Authorization|Get policy keys|
 |Authorization|Get resource properties of a tenant|
@@ -521,7 +521,7 @@ This set of audit logs is related to [B2C](../../active-directory-b2c/overview.m
 |ResourceManagement|Get identity providers|
 |ResourceManagement|Get localized resource|
 |ResourceManagement|Get operation status of an async operation|
-|ResourceManagement|Get operations of Microsoft.Microsoft Entra resource provider|
+|ResourceManagement|Get operations of Microsoft.AzureActiveDirectory resource provider|
 |ResourceManagement|Get policy key|
 |ResourceManagement|Get policy keys|
 |ResourceManagement|Get supported cultures|
@@ -1360,6 +1360,6 @@ The Self-service password management logs provide insight into changes made to p
 
 ## Next steps
 
-- [Microsoft Entra ID reports overview](overview-reports.md).
+- [Microsoft Entra monitoring and health overview](overview-monitoring-health.md).
 - [Audit logs report](concept-audit-logs.md). 
 - [Programmatic access to Microsoft Entra ID reports](./howto-configure-prerequisites-for-reporting-api.md)

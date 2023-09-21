@@ -81,7 +81,7 @@ In addition to providing global SLA performance, Microsoft Entra ID now provides
 To access your tenant-level SLA performance:
 
 1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com) using the Reports Reader role (or higher).
-1. Go to **Microsoft Entra ID**, select **Monitoring & health**, then select **Scenario Health** from the side menu.
+1. Browse to **Identity** > **Monitoring & health** > **Scenario Health** from the side menu.
 1. Select the **SLA Monitoring** tab.
 1. Hover over the graph to see the SLA performance for that month.
 
@@ -89,6 +89,6 @@ To access your tenant-level SLA performance:
 
 ## Next steps
 
-* [Microsoft Entra ID reports overview](overview-reports.md)
-* [Programmatic access to Microsoft Entra ID reports](./howto-configure-prerequisites-for-reporting-api.md)
+* [Microsoft Entra monitoring and health overview](overview-monitoring-health.md)
+* [Programmatic access to Microsoft Entra reports](./howto-configure-prerequisites-for-reporting-api.md)
 * [Microsoft Entra ID risk detections](../identity-protection/overview-identity-protection.md)

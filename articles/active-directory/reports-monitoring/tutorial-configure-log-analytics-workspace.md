@@ -1,6 +1,6 @@
 ---
 title: Configure a log analytics workspace in Microsoft Entra ID
-description: Learn how to configure a Microsoft Entra ID Log Analytics workspace and run Kusto queries on your identity data.
+description: Learn how to configure a Microsoft Entra Log Analytics workspace and run Kusto queries on your identity data.
 services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
@@ -93,7 +93,6 @@ To configure Diagnostic settings, you need switch to the Microsoft Entra admin c
 
 1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
 
-1. Search for **Microsoft Entra ID**.
 
 1. Select **Add diagnostic setting**.
 
