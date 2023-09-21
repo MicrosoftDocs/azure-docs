@@ -51,7 +51,7 @@ This discovery process is agentless that is, nothing is installed on the target 
 
     Some points to note:
     - Ensure that software inventory is enabled already, or provide Domain or Non-domain credentials to enable the same. Software inventory must be performed to discover SQL Server instances and web apps.
-    - Appliance will attempt to validate the Domain credentials with AD, as they're added. Ensure that appliance server has network line of sight to the AD server associated with the credentials. Non-domain credentials and credentials associated with SQL Server Authentication aren't validated.
+    - The appliance attempts to validate the domain credentials with AD, as they're added. Ensure that appliance server has network line of sight to the AD server associated with the credentials. Non-domain credentials and credentials associated with SQL Server Authentication aren't validated.
 
 3. Once the desired credentials are added, select Start Discovery, to begin the scan.
 

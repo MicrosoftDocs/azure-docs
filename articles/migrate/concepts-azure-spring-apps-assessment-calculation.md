@@ -83,7 +83,7 @@ Azure Spring Apps readiness for Spring Boot apps is based on feature compatibili
 
 The assessment summary shows the estimated monthly costs for hosting you apps in Spring Apps. In Azure Spring Apps, you pay charges per Azure Spring Apps service instance and not per app. One or more apps can be configured to run on the same service instance. Whatever apps you put into this Azure Spring Apps service instance are all up to you.
 
-For the purpose of cost estimation, we assume you would put all your accessed apps into the same Azure Spring Apps service instance. Learn more about the details of Azure Spring Apps pricing from the [pricing page](https://azure.microsoft.com/en-us/pricing/details/spring-apps/) and [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/), note that the monthly cost on this card assumes each month has 744 hours instead of 730 hours.
+For the purpose of cost estimation, we assume you would put all your accessed apps into the same Azure Spring Apps service instance. Learn more about the details of Azure Spring Apps pricing from the [pricing page](https://azure.microsoft.com/pricing/details/spring-apps/) and [pricing calculator](https://azure.microsoft.com/pricing/calculator/), note that the monthly cost on this card assumes each month has 744 hours instead of 730 hours.
 
 The estimated cost applies for both Azure Spring Apps Standard Tier and Enterprise Tier. For Enterprise Tier, there will be additional cost on [software IP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vmware-inc.azure-spring-cloud-vmware-tanzu-2?tab=PlansAndPrice) and resource consumption for Tanzu components, which are not included in cost estimation.
 
