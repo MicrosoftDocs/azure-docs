@@ -1,31 +1,31 @@
 ---
-title: Migrate from the Azure Monitor alerts Get Summary API
-description: Find out how to migrate from the Azure Monitor alerts Get Summary API, which is being deprecated
+title: Migrate from the Azure Monitor alertsSummary API
+description: Find out how to migrate from the Azure Monitor alertsSummary API, which is being deprecated
 ms.topic: how-to
 ms.date: 09/21/2023
 ms.author: abbyweisberg
 ---
 
 
-# Migrate from the Get alert summary API to ARG query
+# Migrate from the alertsSummary API to ARG queries
 
-The [Get Summary API](/rest/api/monitor/alertsmanagement/alerts/get-summary) is being deprecated as of September 30,2026. Instead of the Get Summary API, you can use Azure Resource Graph queries to get the same information.
+The [alertsSummary API](/rest/api/monitor/alertsmanagement/alerts/get-summary) is being deprecated as of September 30,2026. Instead of the alertsSummary API, you can use Azure Resource Graph queries to get the same information.
 
-Azure Resource Graph queries provide flexibility to query your Azure data and can be used for Azure monitor alerts instead of the Get Summary API.
+Azure Resource Graph queries provide flexibility to query your Azure data and can be used for Azure monitor alerts instead of the alertsSummary API.
 
-Azure Resource Graph queries provide more functionality than the Get Summary API, including: 
+Azure Resource Graph queries provide more functionality than the alertsSummary API, including: 
 * The ability to add new fields to the query that returns the alert summary.  
 * The ability to be more flexible in the query that returns the alert summary. 
 
-## Implementation of the current Get Summary API: 
+## Implementation of the current alertsSummary API: 
 
-This is the format for the calling the Get Summary API:
+This is the format for the calling the alertsSummary API:
 
   `GET https://management.azure.com/subscriptions/{subId}/providers/Microsoft.AlertsManagement/alertsSummary?groupby=severity,alertState&api-version=2019-03-01`
 
 Response: AlertSummary_Sev_Alertstate 
 
-This is an example of the output from the Get Summary API:
+This is an example of the output from the alertsSummary API:
 
 ```json
 {
@@ -64,8 +64,7 @@ This is an example of the output from the Get Summary API:
 
 ## Use the Azure Resource Graph query
 
-Use Azure Resource Graph queries instead of the Get Summary API call. 
-See these Azure Resource Graph samples that retrieve alert summary information:
+Use these Azure Resource Graph queries instead of the alertsSummary API call to retrieve alert information, or use these queries as a basis for designing your own queries.
 
 - [List Azure Monitor alerts ordered by severity](../../governance/resource-graph/samples/starter.md#list-azure-monitor-alerts-ordered-by-severity)
 - [List Azure Monitor alerts ordered by severity and alert state](../../governance/resource-graph/samples/starter.md#list-azure-monitor-alerts-ordered-by-severity-and-alert-state)

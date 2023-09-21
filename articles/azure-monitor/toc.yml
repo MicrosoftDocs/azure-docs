@@ -1604,8 +1604,8 @@ items:
       href: essentials/rest-api-walkthrough.md
     - name: Migrate to the metrics getBatch API
       href: essentials/migrate-to-batch-api.md
-    - name: Migrate from the alerts Get Summary API
-      href: alerts/migrate-from-get-summary-api.md
+    - name: Migrate from the alertsSummary API
+      href: alerts/migrate-from-alerts-summary-api.md
   - name: Azure alerts management SDK for Python
     href: /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient
   - name: Resource Manager templates
