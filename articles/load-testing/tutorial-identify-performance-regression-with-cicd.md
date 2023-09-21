@@ -13,9 +13,9 @@ ms.topic: tutorial
 
 # Tutorial: Identify performance regressions by automating load tests with CI/CD
 
-This tutorial describes how to identify performance regressions by using Azure Load Testing and CI/CD tools. Set up a CI/CD workflow in Azure Pipelines to automatically run a load test for your application. Use test fail criteria to get alerted about application changes that affect performance or stability. Use the Azure portal to evaluate how performance is trending over time.
+This tutorial describes how to identify performance regressions by using Azure Load Testing and CI/CD tools. Set up a CI/CD workflow in Azure Pipelines to automatically run a load test for your application. Use test fail criteria to get alerted about application changes that affect performance or stability.
 
-With regression testing, you want to validate that code changes don't affect the application functionality, performance, and stability. Azure Load Testing enables you to verify that your application continues to meet your performance and stability requirements when put under real-world user load. Test fail criteria give you a point-in-time check about how the application performs. With metrics trends, you can view how code changes affect the application over a longer term.
+With regression testing, you want to validate that code changes don't affect the application functionality, performance, and stability. Azure Load Testing enables you to verify that your application continues to meet your performance and stability requirements when put under real-world user load. Test fail criteria give you a point-in-time check about how the application performs.
 
 In this tutorial, you use a sample Node.js application and JMeter script. The tutorial doesn't require any coding or Apache JMeter skills.
 
@@ -27,7 +27,6 @@ You'll learn how to:
 > * Update the load test configuration in the CI/CD workflow.
 > * View the load test results in the CI/CD dashboard.
 > * Define load test fail criteria to identify performance regressions.
-> * View performance trends over multiple test runs.
 
 > [!NOTE]
 > Azure Pipelines has a 60-minute timeout on jobs that are running on Microsoft-hosted agents for private projects. If your load test is running for more than 60 minutes, you'll need to pay for [additional capacity](/azure/devops/pipelines/agents/hosted?tabs=yaml#capabilities-and-limitations). If not, the pipeline will time out without waiting for the test results. You can view the status of the load test in the Azure portal.
@@ -228,39 +227,15 @@ To define test fail criteria for the average response time and the error rate:
 
     After the test finishes, you notice that the load test and the CI/CD workflow run complete successfully.
 
-## View trends over time
-
-Now that you've configured test fail criteria, you compare how performance evolves over time and over multiple test runs. In the Azure portal, you can view the trend of client-side metrics, such as response time or error rate, over the last 10 test runs.
-
-To view trends over multiple test runs in the Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
-
-1. Go to your load testing resource and then, on the left pane, select **Tests**.
-
-    :::image type="content" source="media/how-to-compare-multiple-test-runs/choose-test-from-list.png" alt-text="Screenshot that shows the list of tests for a Load Testing resource." lightbox="media/how-to-compare-multiple-test-runs/choose-test-from-list.png":::
-
-1. Select the test that was created by Azure Pipelines.
-
-1. On the **Test details** pane, select **Trends**
-
-    The graphs show the trends for total requests, response time, error percentage, and throughput for the 10 most recent test runs.
-
-    :::image type="content" source="media/how-to-compare-multiple-test-runs/choose-trends-from-test-details.png" alt-text="Screenshot that shows the details of a Test in a Load Testing resource." lightbox="media/how-to-compare-multiple-test-runs/choose-trends-from-test-details.png":::
-   
-1. Optionally, you can select **Table view** to view the metrics trends in a tabular view.
-
-    :::image type="content" source="media/how-to-compare-multiple-test-runs/metrics-trends-in-table-view.png" alt-text="Screenshot that shows metrics trends in a tabular view." lightbox="media/how-to-compare-multiple-test-runs/metrics-trends-in-table-view.png":::
-
 ## Clean up resources
 
 [!INCLUDE [alt-delete-resource-group](../../includes/alt-delete-resource-group.md)]
 
 ## Related content
 
-In this tutorial, you've set up a new CI/CD workflow in Azure Pipelines to automatically run a load test with every code change. By using test fail criteria, you identify when a performance regression was introduced. By looking at metrics trends over time, you were able to spot if application performance and stability are improving or getting worse over time.
+In this tutorial, you've set up a new CI/CD workflow in Azure Pipelines to automatically run a load test with every code change. By using test fail criteria, you can identify when a performance regression was introduced in the application.
 
 * [Manually configure load testing in CI/CD](./how-to-configure-load-test-cicd.md) if you're using GitHub Actions, or want to use an existing workflow.
-* [Configure server-side monitoring](./how-to-monitor-server-side-metrics.md) to identify performance bottlenecks.
+* [Identify performance degradation over time by using metrics trends](./how-to-compare-multiple-test-runs.md#view-metrics-trends-across-test-runs).
+* [Monitor server-side application metrics](./how-to-monitor-server-side-metrics.md) to identify performance bottlenecks.
 * Learn more about [test fail criteria](./how-to-define-test-criteria.md).
-* Learn more about [comparing results across multiple test runs](./how-to-compare-multiple-test-runs.md).
