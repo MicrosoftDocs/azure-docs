@@ -11,7 +11,7 @@ ms.custom: engagement-fy23
 
 # Migrate a SQL Server standalone instance to Azure VMware Solution
 
-In this article, you learn how to migrate a SQL Server Standalone to Azure VMware Solution. 
+In this article, you learn how to migrate a SQL Server standalone instance to Azure VMware Solution. 
 
 When migrating a SQL Server standalone instance to Azure VMware Solution, VMware HCX offers two migration profiles:
 
@@ -39,7 +39,7 @@ This scenario was validated using the following editions and configurations:
 - Remove all cluster node VMs from any Distributed Resource Scheduler (DRS) groups and rules. 
 
 - Configure VMware HCX between your on-premises datacenter and the Azure VMware Solution private cloud that runs the migrated workloads. For more information about configuring VMware HCX, see [Azure VMware Solution documentation](install-vmware-hcx.md).
-- Ensure that all the network segments in use by the SQL Server are extended into your Azure VMware Solution private cloud. To verify this step in the procedure, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
+- Ensure that all the network segments in use by the SQL Server and workloads using it are extended into your Azure VMware Solution private cloud. To verify this step in the process, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
 
 Either VMware HCX over VPN or ExpressRoute connectivity can be used as the networking configuration for the migration. 
 
@@ -52,7 +52,7 @@ Further downtime considerations are discussed in the next section.
 ## Downtime considerations
 
 Downtime during a migration depends on the size of the database to be migrated and the speed of the private network connection to Azure cloud.
-Migration of the Microsoft SQL Server Standalone instance using the VMware HCX vMotion mechanism is intended to minimize the solution downtime, however we still recommend the migration take place during off-peak hours with a pre-approved change window.
+Migration of a  SQL Server standalone instance using the VMware HCX vMotion mechanism is intended to minimize the solution downtime, however we still recommend the migration take place during off-peak hours within an pre-approved change window.
 
 This table indicates the estimated downtime for migration of each SQL Server topology.
 
