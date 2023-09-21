@@ -189,7 +189,7 @@ When you [enable collection of Prometheus metrics](#integrations) for your clust
 The following table lists the recommended metric alert rules for AKS clusters. These alerts are based on [platform metrics](#monitoring-data) for the cluster.
 
 |  Condition | Description  |
-|:---|:---|:---|
+|:---|:---|
 | CPU Usage Percentage > 95 | Fires when the average CPU usage across all nodes exceeds the threshold. |
 | Memory Working Set Percentage > 100 | Fires when the average working set across all nodes exceeds the threshold. |
 
