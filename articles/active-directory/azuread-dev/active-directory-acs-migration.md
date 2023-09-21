@@ -20,7 +20,7 @@ ROBOTS: NOINDEX
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-Microsoft Azure Access Control Service (ACS), a service of Microsoft Entra ID, will be retired on November 7, 2018. Applications and services that currently use Access Control must be fully migrated to a different authentication mechanism by then. This article describes recommendations for current customers, as you plan to deprecate your use of Access Control. If you don't currently use Access Control, you don't need to take any action.
+Microsoft Azure Access Control Service (ACS), a service of Azure Active Directory (Azure AD), will be retired on November 7, 2018. Applications and services that currently use Access Control must be fully migrated to a different authentication mechanism by then. This article describes recommendations for current customers, as you plan to deprecate your use of Access Control. If you don't currently use Access Control, you don't need to take any action.
 
 ## Overview
 
@@ -29,7 +29,7 @@ Access Control is a cloud authentication service that offers an easy way to auth
 Use cases for Access Control can be broken down into three main categories:
 
 - Authenticating to certain Microsoft cloud services, including Azure Service Bus and Dynamics CRM. Client applications obtain tokens from Access Control to authenticate to these services to perform various actions.
-- Adding authentication to web applications, both custom and prepackaged (like SharePoint). By using Access Control "passive" authentication, web applications can support sign-in with a Microsoft account (formerly Live ID), and with accounts from Google, Facebook, Yahoo, Microsoft Entra ID, and Active Directory Federation Services (AD FS).
+- Adding authentication to web applications, both custom and prepackaged (like SharePoint). By using Access Control "passive" authentication, web applications can support sign-in with a Microsoft account (formerly Live ID), and with accounts from Google, Facebook, Yahoo, Azure AD, and Active Directory Federation Services (AD FS).
 - Securing custom web services with tokens issued by Access Control. By using "active" authentication, web services can ensure that they allow access only to known clients that have authenticated with Access Control.
 
 Each of these use cases and their recommended migration strategies are discussed in the following sections.
@@ -108,7 +108,7 @@ As of November 2017, all Access Control components are fully supported and opera
 
 Here's the schedule for deprecating Access Control components:
 
-- **November 2017**: The Microsoft Entra admin experience in the Azure classic portal [is retired](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). At this point, namespace management for Access Control is available at a new, dedicated URL: `https://manage.windowsazure.com?restoreClassic=true`. Use this URL to view your existing namespaces, enable and disable namespaces, and to delete namespaces, if you choose to.
+- **November 2017**: The Azure AD admin experience in the Azure classic portal [is retired](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). At this point, namespace management for Access Control is available at a new, dedicated URL: `https://manage.windowsazure.com?restoreClassic=true`. Use this URL to view your existing namespaces, enable and disable namespaces, and to delete namespaces, if you choose to.
 - **April 2, 2018**: The Azure classic portal is completely retired, meaning Access Control namespace management is no longer available via any URL. At this point, you can't disable or enable, delete, or enumerate your Access Control namespaces. However, the Access Control management portal will be fully functional and located at `https://<namespace>.accesscontrol.windows.net`. All other components of Access Control continue to operate normally.
 - **November 7, 2018**: All Access Control components are permanently shut down. This includes the Access Control management portal, the management service, STS, and the token transformation rule engine. At this point, any requests sent to Access Control (located at `<namespace>.accesscontrol.windows.net`) fail. You should have migrated all existing apps and services to other technologies well before this time.
 
@@ -130,7 +130,7 @@ Each Microsoft cloud service that accepts tokens that are issued by Access Contr
 | Azure Managed Cache | [Migrate to Azure Cache for Redis](../../azure-cache-for-redis/cache-faq.yml) |
 | Azure DataMarket | [Migrate to the Azure AI services APIs](https://azure.microsoft.com/services/cognitive-services/) |
 | BizTalk Services | [Migrate to the Logic Apps feature of Azure App Service](https://azure.microsoft.com/services/cognitive-services/) |
-| Azure Media Services | [Migrate to Microsoft Entra authentication](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
+| Azure Media Services | [Migrate to Azure AD authentication](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
 | Azure Backup | [Upgrade the Azure Backup agent](../../backup/backup-azure-file-folder-backup-faq.yml) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
@@ -146,7 +146,7 @@ SharePoint 2013, 2016, and SharePoint Online customers have long used ACS for au
 
 | Feature | Guidance |
 | ------- | -------- |
-| Authenticating users from Microsoft Entra ID | Previously, Microsoft Entra ID did not support SAML 1.1 tokens required by SharePoint for authentication, and ACS was used as an intermediary that made SharePoint compatible with Microsoft Entra token formats. Now, you can [connect SharePoint directly to Microsoft Entra ID using Microsoft Entra App Gallery SharePoint on premises app](../saas-apps/sharepoint-on-premises-tutorial.md). |
+| Authenticating users from Azure AD | Previously, Azure AD did not support SAML 1.1 tokens required by SharePoint for authentication, and ACS was used as an intermediary that made SharePoint compatible with Azure AD token formats. Now, you can [connect SharePoint directly to Azure AD using Azure AD App Gallery SharePoint on premises app](../saas-apps/sharepoint-on-premises-tutorial.md). |
 | [App authentication & server-to-server authentication in SharePoint on premises](/SharePoint/security-for-sharepoint-server/authentication-overview) | Not affected by ACS retirement; no changes necessary. | 
 | [Low trust authorization for SharePoint add-ins (provider hosted and SharePoint hosted)](/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Not affected by ACS retirement; no changes necessary. |
 | [SharePoint cloud hybrid search](/archive/blogs/spses/cloud-hybrid-search-service-application) | Not affected by ACS retirement; no changes necessary. |
@@ -156,7 +156,7 @@ SharePoint 2013, 2016, and SharePoint Online customers have long used ACS for au
 For web applications that use Access Control for user authentication, Access Control provides the following features and capabilities to web application developers and architects:
 
 - Deep integration with Windows Identity Foundation (WIF).
-- Federation with Google, Facebook, Yahoo, Microsoft Entra ID, and AD FS accounts, and Microsoft accounts.
+- Federation with Google, Facebook, Yahoo, Azure Active Directory, and AD FS accounts, and Microsoft accounts.
 - Support for the following authentication protocols: OAuth 2.0 Draft 13, WS-Trust, and Web Services Federation (WS-Federation).
 - Support for the following token formats: JSON Web Token (JWT), SAML 1.1, SAML 2.0, and Simple Web Token (SWT).
 - A home realm discovery experience, integrated into WIF, that allows users to pick the type of account they use to sign in. This experience is hosted by the web application and is fully customizable.
