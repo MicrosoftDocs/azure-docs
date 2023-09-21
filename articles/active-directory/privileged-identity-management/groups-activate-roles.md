@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Activate your group membership or ownership in Privileged Identity Management
 
-You can use Privileged Identity Management (PIM) In Microsoft Entra ID, previously known as Microsoft Entra ID, to have just-in-time membership in the group or just-in-time ownership of the group.
+You can use Privileged Identity Management (PIM) In Microsoft Entra ID to have just-in-time membership in the group or just-in-time ownership of the group.
 
 This article is for eligible members or owners who want to activate their group membership or ownership in PIM.
 
