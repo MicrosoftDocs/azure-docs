@@ -400,7 +400,7 @@ Once the Application is deployed in a private environment and a connector is cap
 
 In this sample, we'll use a [ASP.NET MVC web app](../active-directory/develop/web-app-tutorial-01-register-application.md) that signs in users by using the Open Web Interface for .NET (OWIN) middleware and the Microsoft identity platform.
 
-1. Configure the OIDC to SAML bridging in the **AZURE AD B2C SAML IdP** created with the previous steps.
+1. Configure the OIDC to SAML bridging in the **Azure AD B2C SAML IdP** created with the previous steps.
 
    [ ![Screenshot shows the akamai oidc app oidc settings.](./media/partner-akamai-secure-hybrid-access/akamai-oidc-idp-settings.png)](./media/partner-akamai-secure-hybrid-access/akamai-oidc-idp-settings.png#lightbox)
 

@@ -30,7 +30,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > 
 > See [How the sample works](#how-the-sample-works) for an illustration.
 > 
-> Applications must be represented by an app object in Azure Active Directory so that the Microsoft identity platform can provide tokens to your application.
+> Applications must be represented by an app object in Microsoft Entra ID so that the Microsoft identity platform can provide tokens to your application.
 > 
 > ## Prerequisites
 > 

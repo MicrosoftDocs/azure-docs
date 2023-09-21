@@ -1,6 +1,6 @@
 ---
-title: 'Disable pass-through authentication by using Azure AD Connect or PowerShell'
-description: This article describes how to disable pass-through authentication by using the Azure AD Connect Do Not Configure feature or by using PowerShell.
+title: 'Disable pass-through authentication by using Microsoft Entra Connect or PowerShell'
+description: This article describes how to disable pass-through authentication by using the Microsoft Entra Connect Do Not Configure feature or by using PowerShell.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Disable pass-through authentication 
 
-In this article, you learn how to disable pass-through authentication by using Azure Active Directory (Azure AD) Connect or PowerShell.
+In this article, you learn how to disable pass-through authentication by using Microsoft Entra Connect or PowerShell.
 
 ## Prerequisites
 
@@ -41,9 +41,11 @@ Before you begin, ensure that you have the following prerequisite.
 
 - An Azure Hybrid Identity Administrator account for running the PowerShell cmdlets.
 
-## Use Azure AD Connect
+<a name='use-azure-ad-connect'></a>
 
-If you're using pass-through authentication with Azure AD Connect and you have it set to **Do not configure**, you can disable the setting. 
+## Use Microsoft Entra Connect
+
+If you're using pass-through authentication with Microsoft Entra Connect and you have it set to **Do not configure**, you can disable the setting. 
 
 >[!NOTE]
 >If you already have password hash synchronization enabled, disabling pass-through authentication will result in a tenant fallback to password hash synchronization.
@@ -58,4 +60,4 @@ In a PowerShell session, run the following cmdlets:
 
 ## Next steps
 
-- [User sign-in with Azure AD pass-through authentication](how-to-connect-pta.md)
+- [User sign-in with Microsoft Entra pass-through authentication](how-to-connect-pta.md)
