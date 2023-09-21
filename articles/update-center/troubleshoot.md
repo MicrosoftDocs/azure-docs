@@ -2,7 +2,7 @@
 title: Troubleshoot known issues with Azure Update Manager
 description: This article provides details on known issues and how to troubleshoot any problems with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 05/30/2023
+ms.date: 09/18/2023
 ms.topic: conceptual
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -10,7 +10,7 @@ author: SnehaSudhirG
 
 # Troubleshoot issues with Azure Update Manager
 
-This article describes the errors that might occur when you deploy or use Azure Update Manager, how to resolve them, and the known issues and limitations of scheduled patching.
+This article describes the errors that might occur when you deploy or use Azure Update Manager, how to resolve them, and the known issues and limitations of scheduled patching.  
 
 ## General troubleshooting
 
@@ -108,9 +108,9 @@ To review the logs related to all actions performed by the extension, on Windows
 
 ## Known issues in schedule patching
 
-- For concurrent or conflicting schedules, only one schedule is triggered. The other schedule is triggered after a schedule is finished.
-- If a machine is newly created, the schedule might have 15 minutes of schedule trigger delay for Azure VMs.
-- Policy definition **[Preview]: Schedule recurring updates using Update Manager** with version 1.0.0-preview successfully remediates resources, but it always shows them as noncompliant. The current value of the existence condition is a placeholder that always evaluates to false.
+- For a concurrent or conflicting schedule, only one schedule is triggered. The other schedule is triggered after a schedule is finished.
+- If a machine is newly created, the schedule might have 15 minutes of schedule trigger delay in the case of Azure VMs.
+- Policy definition **Schedule recurring updates using Azure Update Manager** with version 1.0.0-preview successfully remediates resources. However, it always shows them as noncompliant. The current value of the existence condition is a placeholder that always evaluates to false.
 
 ### Unable to apply patches for the shutdown machines
 
@@ -156,5 +156,5 @@ Set a longer time range for maximum duration when you're triggering an [on-deman
 
 ## Next steps
 
-* To learn more about Update Manager, see [Overview](overview.md).
-* To view logged results from all your machines, see [Query logs and results from Update Manager](query-logs.md).
+* To learn more about Update Manager, see the [Overview](overview.md).
+* To view logged results from all your machines, see [Querying logs and results from Update Manager](query-logs.md).

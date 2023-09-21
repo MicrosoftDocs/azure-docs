@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with RedVector'
-description: Learn how to configure single sign-on between Azure Active Directory and RedVector.
+title: 'Tutorial: Microsoft Entra SSO integration with RedVector'
+description: Learn how to configure single sign-on between Microsoft Entra ID and RedVector.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,31 +12,31 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure AD SSO integration with RedVector
+# Tutorial: Microsoft Entra SSO integration with RedVector
 
-In this tutorial, you'll learn how to integrate RedVector with Azure Active Directory (Azure AD). When you integrate RedVector with Azure AD, you can:
+In this tutorial, you'll learn how to integrate RedVector with Microsoft Entra ID. When you integrate RedVector with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to RedVector.
-* Enable your users to be automatically signed-in to RedVector with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to RedVector.
+* Enable your users to be automatically signed-in to RedVector with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with RedVector, you need the following items:
+To configure Microsoft Entra integration with RedVector, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* A Microsoft Entra subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 * RedVector subscription with single sign-on enabled.
-* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD. For more information, see [Azure built-in roles](../roles/permissions-reference.md).
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Microsoft Entra ID. For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * RedVector supports **SP** initiated SSO.
 
 ## Add RedVector from the gallery
 
-To configure the integration of RedVector into Azure AD, you need to add RedVector from the gallery to your list of managed SaaS apps.
+To configure the integration of RedVector into Microsoft Entra ID, you need to add RedVector from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -45,22 +45,26 @@ To configure the integration of RedVector into Azure AD, you need to add RedVect
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for RedVector
+<a name='configure-and-test-azure-ad-sso-for-redvector'></a>
 
-Configure and test Azure AD SSO with RedVector using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in RedVector.
+## Configure and test Microsoft Entra SSO for RedVector
 
-To configure and test Azure AD SSO with RedVector, perform the following steps:
+Configure and test Microsoft Entra SSO with RedVector using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in RedVector.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with RedVector, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure RedVector SSO](#configure-redvector-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create RedVector test user](#create-redvector-test-user)** - to have a counterpart of B.Simon in RedVector that is linked to the Azure AD representation of user.
+    1. **[Create RedVector test user](#create-redvector-test-user)** - to have a counterpart of B.Simon in RedVector that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **RedVector** > **Single sign-on**.
@@ -78,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://sso2.redvector.com/adfs/<Companyname>`
 
 	> [!NOTE]
-	> This value is not real. Update this value with the actual Sign on URL. Contact [RedVector Client support team](mailto:sso@redvector.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> This value is not real. Update this value with the actual Sign on URL. Contact [RedVector Client support team](mailto:sso@redvector.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -88,9 +92,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Screenshot shows to copy configuration appropriate U R L.](common/copy-configuration-urls.png "Metadata") 
 
-### Create an Azure AD test user 
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user 
+
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -102,9 +108,11 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to RedVector.
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to RedVector.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **RedVector**.
@@ -116,7 +124,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure RedVector SSO
 
-To configure single sign-on on **RedVector** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [RedVector support team](mailto:sso@redvector.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **RedVector** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the application configuration to [RedVector support team](mailto:sso@redvector.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create RedVector test user
 
@@ -124,13 +132,13 @@ In this section, you create a user called Britta Simon in RedVector. Work with 
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to RedVector Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to RedVector Sign-on URL where you can initiate the login flow. 
 
 * Go to RedVector Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the RedVector tile in the My Apps, this will redirect to RedVector Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
+* You can use Microsoft My Apps. When you click the RedVector tile in the My Apps, this will redirect to RedVector Sign-on URL. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

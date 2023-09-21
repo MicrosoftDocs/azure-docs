@@ -30,7 +30,8 @@ The solution has the following benefits:
 
 To get started, you'll need:
 
-- An Azure AD subscription
+* An Azure subscription
+
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - An instance of [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) to store secrets used by Maverics Identity Orchestrator. Connect to Azure AD B2C or other attribute providers such as a Lightweight Directory Access Protocol (LDAP) directory or database.
@@ -99,7 +100,7 @@ You can run your Orchestrator instance on any server, whether on-premises or in 
 - **Ports**: 22 (SSH/SCP), 443, 80
 - **Root access**: For install/administrative tasks
 - **Maverics Identity Orchestrator**: Runs as user `maverics` under `systemd`
-- **Network egress**: From the server hosting Maverics Identity Orchestrator that can reach your Azure AD tenant
+- **Network egress**: From the server hosting Maverics Identity Orchestrator that can reach your Microsoft Entra tenant
 
 ### Install Maverics Identity Orchestrator
 

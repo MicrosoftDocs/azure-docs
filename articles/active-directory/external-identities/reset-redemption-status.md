@@ -1,7 +1,7 @@
 ---
 
 title: Reset redemption status for a guest user
-description: Learn how to reset the invitation redemption status for an Azure Active Directory B2B guest users in Azure AD External Identities.
+description: Learn how to reset the invitation redemption status for a Microsoft Entra B2B guest users in Microsoft Entra External ID.
 
 services: active-directory
 ms.service: active-directory
@@ -28,7 +28,9 @@ In this article, you'll learn how to update the [guest user's](user-properties.m
 
 To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use the Microsoft Entra admin center, PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while keeping the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the UserPrincipalName (UPN) of the user doesn't change, but the user's sign-in name changes to the new email. Then the user can sign in using the new email or an email you've added to the `otherMails` property of the user object.
 
-## Required Azure AD roles
+<a name='required-azure-ad-roles'></a>
+
+## Required Microsoft Entra roles
 
 To reset a user's redemption status, you'll need one of the following roles:
 
@@ -121,5 +123,5 @@ ContentType: application/json
 
 ## Next steps
 
-- [Properties of an Azure AD B2B guest user](user-properties.md)
-- [Add Azure Active Directory B2B collaboration users by using PowerShell](customize-invitation-api.md#powershell)
+- [Properties of a Microsoft Entra B2B guest user](user-properties.md)
+- [Add Microsoft Entra B2B collaboration users by using PowerShell](customize-invitation-api.md#powershell)

@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/11/2023
+ms.date: 09/18/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -72,11 +72,11 @@ Update Manager scales to all regions for both Azure VMs and Azure Arc-enabled se
 
 # [Azure virtual machine](#tab/azurevm)
 
-Update Manager is available in all Azure public regions where compute virtual machines are available.
+Azure Update Manager is available in all Azure public regions where compute virtual machines are available.
 
 # [Azure Arc-enabled servers](#tab/azurearc)
 
-Currently, Update Manager is supported in the following regions, which implies that VMs must be in the following regions.
+Azure Update Manager is currently supported in the following regions. It implies that VMs must be in the following regions.
 
 **Geography** | **Supported regions**
 --- | ---
@@ -106,9 +106,9 @@ Update Manager doesn't support CIS-hardened images.
 # [Azure VMs](#tab/azurevm-os)
 
 > [!NOTE]
-> Currently, Update Manager has the following limitation regarding operating system support:
+> Currently, Azure Update Manager has the following limitation regarding the operating system support:
 >
-> - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and *VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery* aren't fully supported for now. You can use on-demand operations such as **One-time update** and **Check for updates** in Update Manager.
+> - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and **VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery** aren't fully supported for now. However, you can **use on-demand operations such as one-time update and check for updates** in Update Manager.
 >
 > For the preceding limitation, we recommend that you use [Automation Update Management](../automation/update-management/overview.md) until support is available in Update Manager.
 
@@ -173,7 +173,7 @@ The following table lists the operating systems for Marketplace images that aren
 We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. The following table lists the operating systems that we support for generalized images. For instructions on how to start using Update Manager to manage updates on custom images, see [Custom images (preview)](manage-updates-customized-images.md).
 
    |**Windows operating system**|
-   |-- |
+   |---|
    |Windows Server 2022|
    |Windows Server 2019|
    |Windows Server 2016|
@@ -181,9 +181,8 @@ We support [generalized](../virtual-machines/linux/imaging.md#generalized-images
    |Windows Server 2012|
    |Windows Server 2008 R2 (RTM and SP1 Standard)|
 
-
    |**Linux operating system**|
-   |-- |
+   |---|
    |CentOS 7, 8|
    |Oracle Linux 7.x, 8x|
    |Red Hat Enterprise 7, 8, 9|
@@ -220,7 +219,7 @@ The following table lists the operating systems that aren't supported.
    | Virtual machine scale sets| We recommend that you use [Automatic upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) to patch the virtual machine scale sets.|
    | Azure Kubernetes Service nodes| We recommend the patching described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](/azure/aks/node-updates-kured).|
 
-The Update Manager depends on your machine's OS package manager or update service. Ensure that the Linux package manager or Windows Update client are enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [Configure Windows Update settings](configure-wu-agent.md).
+Because Update Manager depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client is enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [Configure Windows Update settings](configure-wu-agent.md).
 
 ## Next steps
 

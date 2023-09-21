@@ -2,7 +2,7 @@
 title: 'Quickstart: Deploy updates by using Update Manager in the Azure portal'
 description: This quickstart helps you to deploy updates immediately and view results for supported machines in Azure Update Manager by using the Azure portal.
 ms.service: update-management-center
-ms.date: 04/21/2022
+ms.date: 09/18/2023
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.topic: quickstart
@@ -22,39 +22,41 @@ This quickstart explains how to perform manual assessment and apply updates on s
 
 ## Check updates
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to Update Manager.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 
-1. Select **Getting started** > **On-demand assessment and updates** > **Check for updates**.
+1. Select **Get started** > **On-demand assessment and updates** > **Check for updates**.
+
+   :::image type="content" source="./media/quickstart-on-demand/quickstart-check-updates.png" alt-text="Screenshot that shows accessing check for updates.":::
 
     On the **Select resources and check for updates** pane, a table lists all the machines in the specific Azure subscription.
 
 1. Select one or more machines from the list and select **Check for updates** to initiate a compliance scan.
-
+    
     After the assessment is finished, a confirmation message appears in the upper-right corner of the page.
 
 ## Configure settings
 
-For the assessed machines that are reporting updates, you can configure [hotpatching](updates-maintenance-schedules.md#hotpatching), [patch orchestration](manage-multiple-machines.md#summary-of-machine-status), and [periodic assessment](assessment-options.md#periodic-assessment) immediately. You can also schedule the updates by defining the maintenance window.
+For the assessed machines that are reporting updates, you can configure [periodic assessment](assessment-options.md#periodic-assessment), [hot patching](updates-maintenance-schedules.md#hot-patching),and [patch orchestration](manage-multiple-machines.md#summary-of-machine-status) either immediately or schedule the updates by defining the maintenance window.
 
 To configure the settings on your machines:
 
-1. On the **Update Manager | Getting started** page, in **On-demand assessment and updates**, select **Update settings**.
+1. On the **Azure Update Manager | Get started** page, in **On-demand assessment and updates**, select **Update settings**.
 
-    On the **Change update settings** pane, **Properties** is selected by default.
-1. Select from the list of update settings to apply them to the selected machines.
+    :::image type="content" source="./media/quickstart-on-demand/quickstart-update-settings.png" alt-text="Screenshot that shows how to access the Update settings option to configure updates for virtual machines.":::
 
 1. On the **Update settings to change** page, select **Periodic assessment**, **Hotpatch**, or **Patch orchestration** to configure. Select **Next**. For more information, see [Configure settings on virtual machines](manage-update-settings.md#configure-settings-on-a-single-vm).
 
-1. On the **Machines** tab, verify the machines for which you can apply the updates. You can also add or remove machines from the list. Select **Next**.
-
 1. On the **Review and change** tab, verify the resource selection and update settings and select **Review and change**.
-    A notification confirms that the update settings were successfully applied.
+
+A notification confirms that the update settings were successfully applied.
 
 ## Install updates
 
 Based on the last assessment performed on the selected machines, you can now select resources and machines to install the updates.
 
-1. On the **Update Manager | Getting started** page, in **On-demand assessment and updates**, select **Install updates by machines**.
+1. On the **Azure Update Manager | Get started** page, in **On-demand assessment and updates**, select **Install updates by machines**.
+
+   :::image type="content" source="./media/quickstart-on-demand/quickstart-install-updates.png" alt-text="Screenshot that shows how to access the Install update settings option to install the updates for virtual machines.":::
 
 1. On the **Install one-time updates** pane, select one or more machines from the list on the **Machines** tab. Select **Next**.
 

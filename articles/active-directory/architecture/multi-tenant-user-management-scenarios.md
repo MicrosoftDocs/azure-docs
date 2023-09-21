@@ -1,6 +1,6 @@
 ---
-title: Common scenarios for using multi-tenant user management in Azure Active Directory
-description: Learn about common scenarios where guest accounts can be used to configure user access across Azure Active Directory tenants 
+title: Common scenarios for using multi-tenant user management in Microsoft Entra ID
+description: Learn about common scenarios where guest accounts can be used to configure user access across Microsoft Entra tenants 
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -16,13 +16,13 @@ ms.collection: M365-identity-device-management
 
 # Multi-tenant user management scenarios
 
-This article is the second in a series of articles that provide guidance for configuring and providing user lifecycle management in Azure Active Directory (Azure AD) multi-tenant environments. The following articles in the series provide more information as described.
+This article is the second in a series of articles that provide guidance for configuring and providing user lifecycle management in Microsoft Entra multi-tenant environments. The following articles in the series provide more information as described.
 
-- [Multi-tenant user management introduction](multi-tenant-user-management-introduction.md) is the first in the series of articles that provide guidance for configuring and providing user lifecycle management in Azure Active Directory (Azure AD) multi-tenant environments.
-- [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides guidance for these considerations: cross-tenant synchronization, directory object, Azure AD Conditional Access, additional access control, and Office 365. 
+- [Multi-tenant user management introduction](multi-tenant-user-management-introduction.md) is the first in the series of articles that provide guidance for configuring and providing user lifecycle management in Microsoft Entra multi-tenant environments.
+- [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides guidance for these considerations: cross-tenant synchronization, directory object, Microsoft Entra Conditional Access, additional access control, and Office 365. 
 - [Common solutions for multi-tenant user management](multi-tenant-common-solutions.md) when single tenancy doesn't work for your scenario, this article provides guidance for these challenges:  automatic user lifecycle management and resource allocation across tenants, sharing on-premises apps across tenants.
 
-The guidance helps to you achieve a consistent state of user lifecycle management. Lifecycle management includes provisioning, managing, and deprovisioning users across tenants using the available Azure tools that include [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) (B2B) and [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md).
+The guidance helps to you achieve a consistent state of user lifecycle management. Lifecycle management includes provisioning, managing, and deprovisioning users across tenants using the available Azure tools that include [Microsoft Entra B2B collaboration](../external-identities/what-is-b2b.md) (B2B) and [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md).
 
 This article describes three scenarios for which you can use multi-tenant user management features.
 
@@ -40,10 +40,10 @@ For example, a global professional services firm collaborates with subcontractor
 
 Here are the most widely used ways to invite end users to access tenant resources.
 
-- [**Application-based invitations.**](../external-identities/what-is-b2b.md) Microsoft applications (such as Teams and SharePoint) can enable external user invitations. Configure B2B invitation settings in both Azure AD B2B and in the relevant applications.
+- [**Application-based invitations.**](../external-identities/what-is-b2b.md) Microsoft applications (such as Teams and SharePoint) can enable external user invitations. Configure B2B invitation settings in both Microsoft Entra B2B and in the relevant applications.
 - [**MyApps.**](../manage-apps/myapps-overview.md) Users can invite and assign external users to applications using MyApps. The user account must have [application self-service sign up](../manage-apps/manage-self-service-access.md) approver permissions. Group owners can invite external users to their groups.
 - [**Entitlement management.**](../governance/entitlement-management-overview.md) Enable admins or resource owners to create access packages with resources, allowed external organizations, external user expiration, and access policies. Publish access packages to enable external user self-service sign-up for resource access.
-- [**Azure portal.**](../external-identities/add-users-administrator.md) End users with the [Guest Inviter role](../external-identities/external-collaboration-settings-configure.md) can sign in to the Azure portal and invite external users from the **Users** menu in Azure AD.
+- [**Azure portal.**](../external-identities/add-users-administrator.md) End users with the [Guest Inviter role](../external-identities/external-collaboration-settings-configure.md) can sign in to the Azure portal and invite external users from the **Users** menu in Microsoft Entra ID.
 - [**Programmatic (PowerShell, Graph API).**](../external-identities/customize-invitation-api.md) End users with the [Guest Inviter role](../external-identities/external-collaboration-settings-configure.md) can use PowerShell or Graph API to invite external users.
 
 ### Redeeming invitations
@@ -54,7 +54,7 @@ When an invited user receives an invitation, they can follow the link contained 
 
 Invited users can also try to directly access the resource, referred to as just-in-time (JIT) redemption, if either of the following scenarios are true.
 
-- The invited user already has an Azure AD or Microsoft account, or
+- The invited user already has a Microsoft Entra ID or Microsoft account, or
 - Admins have enabled [email one-time passcodes](../external-identities/one-time-passcode.md).
 
 During JIT redemption, the following considerations may apply.
@@ -63,13 +63,13 @@ During JIT redemption, the following considerations may apply.
 - PowerShell allows control over whether an email is sent when [using PowerShell](https://microsoft-my.sharepoint.com/powershell/module/azuread/new-azureadmsinvitation?view=azureadps-2.0&preserve-view=true) to invite users.
 - You can allow or block invitations to external users from specific organizations by using an [allowlist or a blocklist](../external-identities/allow-deny-list.md).
 
-For more information, see [Azure Active Directory B2B collaboration invitation redemption](../external-identities/redemption-experience.md).
+For more information, see [Microsoft Entra B2B collaboration invitation redemption](../external-identities/redemption-experience.md).
 
 ### Enabling one-time passcode authentication
 
 In scenarios where you allow for ad hoc B2B, enable [email one-time passcode authentication](../external-identities/one-time-passcode.md). This feature authenticates external users when you can't authenticate them through other means, such as:
 
-- Azure AD.
+- Microsoft Entra ID.
 - Microsoft account (MSA).
 - Gmail account through Google Federation.
 - Account from a SAML/WS-Fed IDP through Direct Federation.
@@ -103,7 +103,7 @@ When you invite users outside of entitlement management, you must create a separ
 
 In the scripted scenario, resource tenant administrators deploy a scripted pull process to automate discovery and external user provisioning.
 
-For example, a company acquires a competitor. Each company has a single Azure AD tenant. They want the following Day One scenarios to work without users having to perform any invitation or redemption steps. All users must be able to:
+For example, a company acquires a competitor. Each company has a single Microsoft Entra tenant. They want the following Day One scenarios to work without users having to perform any invitation or redemption steps. All users must be able to:
 
 - Use single sign-on to all provisioned resources.
 - Find each other and resources in a unified GAL.
@@ -143,14 +143,14 @@ In automated scenarios, resource tenant admins use an identity provisioning syst
 
 For example, within a Microsoft Commercial Cloud instance, a multi-national/regional conglomeration has multiple subsidiaries with the following requirements.
 
-- Each has their own Azure AD tenant and need to work together.
+- Each has their own Microsoft Entra tenant and need to work together.
 - In addition to synchronizing new users among tenants, automatically synchronize attribute updates and automate deprovisioning.
 - If an employee is no longer at a subsidiary, remove their account from all other tenants during the next synchronization.
 
 In an expanded, cross-cloud scenario, a Defense Industrial Base (DIB) contractor has a defense-based and commercial-based subsidiary. These have competing regulation requirements:
 
 - The US defense business resides in a US Sovereign Cloud tenant such as Microsoft 365 US Government GCC High and Azure Government.
-- The commercial business resides in a separate Azure AD tenant in Commercial such as an Azure AD environment running on the global Azure cloud.
+- The commercial business resides in a separate Microsoft Entra tenant in Commercial such as a Microsoft Entra environment running on the global Azure cloud.
 
 To act like a single company deployed into a cross-cloud architecture, all users synchronize to both tenants. This approach enables unified GAL availability across both tenants and may ensure that users automatically synchronized to both tenants include entitlements and restrictions to applications and content. Example requirements include:
 
@@ -165,7 +165,9 @@ This scenario requires automatic synchronization and identity management to conf
 
 This section describes three techniques for automating account provisioning in the automated scenario.
 
-#### Technique 1: Use the [built-in cross-tenant synchronization capability in Azure AD](../multi-tenant-organizations/cross-tenant-synchronization-overview.md)
+<a name='technique-1-use-the-built-in-cross-tenant-synchronization-capability-in-azure-ad'></a>
+
+#### Technique 1: Use the [built-in cross-tenant synchronization capability in Microsoft Entra ID](../multi-tenant-organizations/cross-tenant-synchronization-overview.md)
 
 This approach only works when all tenants that you need to synchronize are in the same cloud instance (such as Commercial to Commercial).
 
@@ -183,25 +185,27 @@ You perform a cloud-to-cloud synchronization of identity (users, contacts, and g
 
 Considerations that are outside the scope of this article include integration of on-premises applications.
 
-#### Technique 3: Provision accounts with Azure AD Connect
+<a name='technique-3-provision-accounts-with-azure-ad-connect'></a>
 
-This technique only applies for complex organizations that manage all identity in traditional Windows Server-based Active Directory Domain Services (AD DS). The approach uses Azure AD Connect as the synchronization engine as illustrated in the following diagram.
+#### Technique 3: Provision accounts with Microsoft Entra Connect
 
-:::image type="complex" source="media/multi-tenant-user-management-scenarios/diagram-Azure-ad-connect-sync-engine-inline.png" alt-text="Diagram illustrates an approach to provisioning accounts that leverages Azure AD Connect as the synchronization engine." lightbox="media/multi-tenant-user-management-scenarios/diagram-Azure-ad-connect-sync-engine-expanded.png":::
-    Diagram title: Provision accounts with Azure AD Connect. The diagram shows four main components. A box on the left represents the Customer. A cloud shape on the right represents B2B Conversion. At the top center, a box containing a cloud shape represents Microsoft Commercial Cloud. At the bottom center, a box containing a cloud shape represents Microsoft US Government Sovereign Cloud. Inside the Customer box, a Windows Server Active Directory icon connects to two boxes, each with an Azure AD Connect label. The connections are dashed red lines with arrows at both ends and a refresh icon. Inside the Microsoft Commercial Cloud shape is another cloud shape that represents Microsoft Azure Commercial. Inside is another cloud shape that represents Azure Active Directory. To the right of the Microsoft Azure Commercial cloud shape is a box that represents Office 365 with a label, Public Multi-Tenant. A solid red line with arrows at both ends connects the Office 365 box with the Microsoft Azure Commercial cloud shape and a label, Hybrid Workloads. Two dashed lines connect from the Office 365 box to the Azure Active Directory cloud shape. One has an arrow on the end that connects to Azure Active Directory. The other has arrows on both ends. A dashed line with arrows on both ends connects the Azure Active Directory cloud shape to the top Customer Azure AD Connect box. A dashed line with arrows on both ends connects the Microsoft Commercial Cloud shape to the B2B Conversion cloud shape. Inside the Microsoft US Government Sovereign Cloud box is another cloud shape that represents Microsoft Azure Government. Inside is another cloud shape that represents Azure Active Directory. To the right of the Microsoft Azure Commercial cloud shape is a box that represents Office 365 with a label, US Gov GCC-High L4. A solid red line with arrows at both ends connects the Office 365 box with the Microsoft Azure Government cloud shape and a label, Hybrid Workloads. Two dashed lines connect from the Office 365 box to the Azure Active Directory cloud shape. One has an arrow on the end that connects to Azure Active Directory. The other has arrows on both ends. A dashed line with arrows on both ends connects the Azure Active Directory cloud shape to the bottom Customer Azure AD Connect box. A dashed line with arrows on both ends connects the Microsoft Commercial Cloud shape to the B2B Conversion cloud shape.
+This technique only applies for complex organizations that manage all identity in traditional Windows Server-based Active Directory Domain Services (AD DS). The approach uses Microsoft Entra Connect as the synchronization engine as illustrated in the following diagram.
+
+:::image type="complex" source="media/multi-tenant-user-management-scenarios/diagram-Azure-ad-connect-sync-engine-inline.png" alt-text="Diagram illustrates an approach to provisioning accounts that leverages Microsoft Entra Connect as the synchronization engine." lightbox="media/multi-tenant-user-management-scenarios/diagram-Azure-ad-connect-sync-engine-expanded.png":::
+    Diagram title: Provision accounts with Microsoft Entra Connect. The diagram shows four main components. A box on the left represents the Customer. A cloud shape on the right represents B2B Conversion. At the top center, a box containing a cloud shape represents Microsoft Commercial Cloud. At the bottom center, a box containing a cloud shape represents Microsoft US Government Sovereign Cloud. Inside the Customer box, a Windows Server Active Directory icon connects to two boxes, each with a Microsoft Entra Connect label. The connections are dashed red lines with arrows at both ends and a refresh icon. Inside the Microsoft Commercial Cloud shape is another cloud shape that represents Microsoft Azure Commercial. Inside is another cloud shape that represents Microsoft Entra ID. To the right of the Microsoft Azure Commercial cloud shape is a box that represents Office 365 with a label, Public Multi-Tenant. A solid red line with arrows at both ends connects the Office 365 box with the Microsoft Azure Commercial cloud shape and a label, Hybrid Workloads. Two dashed lines connect from the Office 365 box to the Microsoft Entra cloud shape. One has an arrow on the end that connects to Microsoft Entra ID. The other has arrows on both ends. A dashed line with arrows on both ends connects the Microsoft Entra cloud shape to the top Customer Microsoft Entra Connect box. A dashed line with arrows on both ends connects the Microsoft Commercial Cloud shape to the B2B Conversion cloud shape. Inside the Microsoft US Government Sovereign Cloud box is another cloud shape that represents Microsoft Azure Government. Inside is another cloud shape that represents Microsoft Entra ID. To the right of the Microsoft Azure Commercial cloud shape is a box that represents Office 365 with a label, US Gov GCC-High L4. A solid red line with arrows at both ends connects the Office 365 box with the Microsoft Azure Government cloud shape and a label, Hybrid Workloads. Two dashed lines connect from the Office 365 box to the Microsoft Entra cloud shape. One has an arrow on the end that connects to Microsoft Entra ID. The other has arrows on both ends. A dashed line with arrows on both ends connects the Microsoft Entra cloud shape to the bottom Customer Microsoft Entra Connect box. A dashed line with arrows on both ends connects the Microsoft Commercial Cloud shape to the B2B Conversion cloud shape.
 :::image-end:::
 
 Unlike the MIM technique, all identity sources (users, contacts, and groups) come from traditional Windows Server-based Active Directory Domain Services (AD DS). The AD DS directory is typically an on-premises deployment for a complex organization that manages identity for multiple tenants. Cloud-only identity isn't in scope for this technique. All identity must be in AD DS to include them in scope for synchronization.
 
 Conceptually, this technique synchronizes a user into a home tenant as an internal member user (default behavior). Alternatively, it may synchronize a user into a resource tenant as an external user (customized behavior).
 
-Microsoft supports this dual sync user technique with careful considerations to what modifications occur in the Azure AD Connect configuration. For example, if you make modifications to the wizard-driven setup configuration, you need to document the changes if you must rebuild the configuration during a support incident.
+Microsoft supports this dual sync user technique with careful considerations to what modifications occur in the Microsoft Entra Connect configuration. For example, if you make modifications to the wizard-driven setup configuration, you need to document the changes if you must rebuild the configuration during a support incident.
 
-Out of the box, Azure AD Connect can't synchronize an external user. You must augment it with an external process (such as a PowerShell script) to convert the users from internal to external accounts.
+Out of the box, Microsoft Entra Connect can't synchronize an external user. You must augment it with an external process (such as a PowerShell script) to convert the users from internal to external accounts.
 
-Benefits of this technique include Azure AD Connect synchronizing identity with attributes stored in AD DS. Synchronization may include address book attributes, manager attributes, group memberships, and other hybrid identity attributes into all tenants within scope. It deprovisions identity in alignment with AD DS. It doesn't require a more complex IAM solution to manage the cloud identity for this specific task.
+Benefits of this technique include Microsoft Entra Connect synchronizing identity with attributes stored in AD DS. Synchronization may include address book attributes, manager attributes, group memberships, and other hybrid identity attributes into all tenants within scope. It deprovisions identity in alignment with AD DS. It doesn't require a more complex IAM solution to manage the cloud identity for this specific task.
 
-There's a one-to-one relationship of Azure AD Connect per tenant. Each tenant has its own configuration of Azure AD Connect that you can individually alter to support member and/or external user account synchronization.
+There's a one-to-one relationship of Microsoft Entra Connect per tenant. Each tenant has its own configuration of Microsoft Entra Connect that you can individually alter to support member and/or external user account synchronization.
 
 ### Choosing the right topology
 
@@ -216,15 +220,15 @@ Reference the following table as a decision tree while you design your solution.
 
 | Consideration | Mesh topology | Single resource tenant |
 | - | - |-|
-| Each company has separate Azure AD tenant with users and resources | Yes | Yes |
+| Each company has separate Microsoft Entra tenant with users and resources | Yes | Yes |
 | **Resource location and collaboration** | |  |
 | Shared apps and other resources remain in their current home tenant | Yes | No. You can share only apps and other resources in the resource tenant. You can't share apps and other resources remaining in other tenants. |
 | All viewable in individual company's GALs (Unified GAL) | Yes| No |
 | **Resource access and administration** | |  |
-| You can share ALL applications connected to Azure AD among all companies. | Yes | No. Only applications in the resource tenant are shared. You can't share applications remaining in other tenants. |
+| You can share ALL applications connected to Microsoft Entra ID among all companies. | Yes | No. Only applications in the resource tenant are shared. You can't share applications remaining in other tenants. |
 | Global resource administration | Continue at tenant level. | Consolidated in the resource tenant. |
 | Licensing: Office 365 SharePoint Online, unified GAL, Teams access all support guests; however, other Exchange Online scenarios don't. | Continues at tenant level. | Continues at tenant level. |
-| Licensing: [Azure AD (premium)](../external-identities/external-identities-pricing.md) | First 50 K Monthly Active Users are free (per tenant). | First 50 K Monthly Active Users are free. |
+| Licensing: [Microsoft Entra ID (premium)](../external-identities/external-identities-pricing.md) | First 50 K Monthly Active Users are free (per tenant). | First 50 K Monthly Active Users are free. |
 | Licensing: SaaS apps | Remain in individual tenants, may require licenses per user per tenant. | All shared resources reside in the single resource tenant. You can investigate consolidating licenses to the single tenant if appropriate. |
 
 #### Mesh topology
@@ -273,6 +277,6 @@ Automation detects object deletion in the source environment and deletes the ass
 
 ## Next steps
 
-- [Multi-tenant user management introduction](multi-tenant-user-management-introduction.md) is the first in the series of articles that provide guidance for configuring and providing user lifecycle management in Azure Active Directory (Azure AD) multi-tenant environments.
-- [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides guidance for these considerations: cross-tenant synchronization, directory object, Azure AD Conditional Access, additional access control, and Office 365. 
+- [Multi-tenant user management introduction](multi-tenant-user-management-introduction.md) is the first in the series of articles that provide guidance for configuring and providing user lifecycle management in Microsoft Entra multi-tenant environments.
+- [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides guidance for these considerations: cross-tenant synchronization, directory object, Microsoft Entra Conditional Access, additional access control, and Office 365. 
 - [Common solutions for multi-tenant user management](multi-tenant-common-solutions.md) when single tenancy doesn't work for your scenario, this article provides guidance for these challenges:  automatic user lifecycle management and resource allocation across tenants, sharing on-premises apps across tenants.
