@@ -23,7 +23,7 @@ Staged Rollout allows you to selectively test groups of users with cloud authent
 
 Before you try this feature, we suggest that you review our guide on choosing the right authentication method. For more information, see the "Comparing methods" table in [Choose the right authentication method for your Microsoft Entra hybrid identity solution](./choose-ad-authn.md#comparing-methods).
 
-For an overview of the feature, view this "Microsoft Entra ID: What is Staged Rollout?" video:
+For an overview of the feature, view this "What is Staged Rollout?" video:
 
 >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE3inQJ]
 
