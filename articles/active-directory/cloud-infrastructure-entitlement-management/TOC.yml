@@ -10,7 +10,7 @@
     items:
     - name: Quickstart guide - Microsoft Entra Permissions Management
       href: permissions-management-quickstart-guide.md  
-    - name: Onboard Permissions Management on the Azure AD tenant
+    - name: Onboard Permissions Management on the Microsoft Entra tenant
       expanded: true
       items:
       - name: Enable Permissions Management in your organization 
@@ -166,4 +166,3 @@
       href: multi-cloud-glossary.md
     - name: Microsoft Entra Permissions Management partners
       href: partner-list.md
-
