@@ -54,7 +54,7 @@ When the UE MTU is set to any valid value (see API Spec), then the other MTUs ar
   
 Rollbacks to Packet Core versions earlier than 2308 are not possible if the UE MTU field is changed following an upgrade.
 
-Full documentation of this feature can be found [here](**ROB to add link to MS Learn**)
+To change the UE MTU signaled by the packet core, see [Modify a packet core instance](modify-packet-core.md).
 
 ###	MTU Interop setting
 In this release the MTU Interop setting is deprecated and can't be set for Packet Core versions 2308 and above.
