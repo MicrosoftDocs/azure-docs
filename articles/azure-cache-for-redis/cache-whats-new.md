@@ -23,7 +23,7 @@ For more information, see [flush data operation.](cache-administration.md#flush-
 
 ### Update channel for Basic, Standard and Premium Caches (Preview)
 
-You can choose your Basic, Standard or Premium cache instance to receive early updates by configuring the "Preview" or the "Stable" update channel. 
+You can choose your Basic, Standard or Premium cache instance to receive early updates by configuring the "Preview" or the "Stable" update channel.
 
 For more information, see [update channels.](cache-administration.md#update-channel-and-schedule-updates)
 
