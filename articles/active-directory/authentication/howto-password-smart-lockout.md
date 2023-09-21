@@ -65,7 +65,7 @@ To verify your on-premises AD DS account lockout policy, complete the following 
 
 ## Manage Microsoft Entra smart lockout values
 
-Based on your organizational requirements, you can customize the Microsoft Entra smart lockout values. Customization of the smart lockout settings, with values specific to your organization, requires Microsoft Entra ID P1 or higher licenses for your users. Customization of the smart lockout settings isn't available for Microsoft Azure operated by 21Vianet tenants.
+Based on your organizational requirements, you can customize the Microsoft Entra smart lockout values. Customization of the smart lockout settings, with values specific to your organization, requires Microsoft Entra ID P1 or higher licenses for your users. Customization of the smart lockout settings is not available for Microsoft Azure operated by 21Vianet tenants.
 
 To check or modify the smart lockout values for your organization, complete the following steps:
 
@@ -86,7 +86,7 @@ To check or modify the smart lockout values for your organization, complete the 
 
 ## Testing Smart lockout
 
-When the smart lockout threshold is triggered, you'll get the following message while the account is locked:
+When the smart lockout threshold is triggered, you will get the following message while the account is locked:
 
 *Your account is temporarily locked to prevent unauthorized use. Try again later, and if you still have trouble, contact your admin.*
 
