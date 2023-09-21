@@ -927,7 +927,7 @@ You can use `opentelemetry-api` to update the status of a span and record except
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry.instrumentation</groupId>
+     <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1116,7 +1116,7 @@ you can add your spans by using the OpenTelemetry API.
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry.instrumentation</groupId>
+     <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1222,7 +1222,7 @@ You can use `opentelemetry-api` to create span events, which populate the `trace
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry.instrumentation</groupId>
+     <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1524,7 +1524,7 @@ Adding one or more span attributes populates the `customDimensions` field in the
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry.instrumentation</groupId>
+     <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -1690,7 +1690,7 @@ Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` 
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry.instrumentation</groupId>
+     <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
@@ -2041,7 +2041,7 @@ You can use `opentelemetry-api` to get the trace ID or span ID.
 
    ```xml
    <dependency>
-     <groupId>io.opentelemetry.instrumentation</groupId>
+     <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
      <version>1.0.0</version>
    </dependency>
