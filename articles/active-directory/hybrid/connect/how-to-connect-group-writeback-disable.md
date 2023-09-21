@@ -1,6 +1,6 @@
 ---
-title: 'Disable group writeback in Azure AD Connect'
-description: This article describes how to disable group writeback in Azure AD Connect by using the wizard and PowerShell. 
+title: 'Disable group writeback in Microsoft Entra Connect'
+description: This article describes how to disable group writeback in Microsoft Entra Connect by using the wizard and PowerShell. 
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -15,11 +15,11 @@ ms.collection: M365-identity-device-management
 ---
 
 # Disable group writeback 
-This article walks you through disabling group writeback in Azure Active Directory (Azure AD) Connect. 
+This article walks you through disabling group writeback in Microsoft Entra Connect. 
 
 ## Disable group writeback by using the wizard
 
-1. Open the Azure AD Connect wizard and go to the **Additional Tasks** page. Select the **Customize synchronization options task**, and then select **Next**. 
+1. Open the Microsoft Entra Connect wizard and go to the **Additional Tasks** page. Select the **Customize synchronization options task**, and then select **Next**. 
 2. On the **Optional Features** page, clear the checkbox for group writeback. In the warning that groups will be deleted, select **Yes**. 
  
    > [!IMPORTANT] 
@@ -56,7 +56,7 @@ This article walks you through disabling group writeback in Azure Active Directo
 
 ## Next steps 
 
-- [Azure AD Connect group writeback](how-to-connect-group-writeback-v2.md) 
-- [Modify Azure AD Connect group writeback default behavior](how-to-connect-modify-group-writeback.md) 
-- [Enable Azure AD Connect group writeback](how-to-connect-group-writeback-enable.md) 
+- [Microsoft Entra Connect group writeback](how-to-connect-group-writeback-v2.md) 
+- [Modify Microsoft Entra Connect group writeback default behavior](how-to-connect-modify-group-writeback.md) 
+- [Enable Microsoft Entra Connect group writeback](how-to-connect-group-writeback-enable.md) 
  

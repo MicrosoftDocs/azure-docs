@@ -95,7 +95,7 @@ No Identifier URIs configured for app.
 ### Proposed solution
 
 - Verify the application configuration for the configured Identifier URI’s in the portal. 
-- Check the Entra ID application’s manifest file. 
+- Check the Microsoft Entra application’s manifest file. 
 
 
 ## Next steps

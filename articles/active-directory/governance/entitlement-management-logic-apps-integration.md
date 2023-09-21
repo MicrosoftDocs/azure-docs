@@ -129,7 +129,7 @@ These triggers to Logic Apps are controlled in a tab within access package polic
 
     > [!NOTE]  
     > Select **New access package** if you want to create a new access package.
-    > For more information about how to create an access package, see [Create a new access package in entitlement management](entitlement-management-access-package-create.md).  For more information about how to edit an existing access package, see [Change request settings for an access package in Azure AD entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings).
+    > For more information about how to create an access package, see [Create a new access package in entitlement management](entitlement-management-access-package-create.md).  For more information about how to edit an existing access package, see [Change request settings for an access package in Microsoft Entra entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings).
 
 1. Change to the policy tab, select the policy and select **Edit**.
 
@@ -155,7 +155,7 @@ For newly created Logic Apps linked to custom extensions, these Logic Apps begin
 
 1. Select the Logic App under the Logic app column for the associated custom extension row. This allows you to edit or create the workflow in Logic App designer.  
 
-For more information on creating logic app workflows, see [Quickstart: Create an example Consumption workflow in multi-tenant Azure Logic Apps with the Azure portal](../../logic-apps/quickstart-create-example-consumption-workflow.md).
+For more information on creating logic app workflows, see [Quickstart: Create an example Consumption workflow in multi-tenant Azure Logic Apps](../../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 
 ## Configuring custom extensions that pause entitlement management processes

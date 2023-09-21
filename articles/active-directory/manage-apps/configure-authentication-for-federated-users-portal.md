@@ -14,16 +14,16 @@ ms.reviewer: ludwignick
 ms.custom: seoapril2019, contperf-fy22q2, enterprise-apps, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 zone_pivot_groups: home-realm-discovery
-#customer intent: As and admin, I want to configure Home Realm Discovery for Azure AD authentication for federated users.
+#customer intent: As and admin, I want to configure Home Realm Discovery for Microsoft Entra authentication for federated users.
 ---
 
 # Configure sign-in behavior using Home Realm Discovery
 
-This article provides an introduction to configuring Azure Active Directory (Azure AD) authentication behavior for federated users using Home Realm Discovery (HRD) policy. It covers using auto-acceleration sign-in to skip the username entry screen and automatically forward users to federated login endpoints. To learn more about HRD policy, check out the [Home Realm Discovery](home-realm-discovery-policy.md) article.
+This article provides an introduction to configuring Microsoft Entra authentication behavior for federated users using Home Realm Discovery (HRD) policy. It covers using auto-acceleration sign-in to skip the username entry screen and automatically forward users to federated login endpoints. To learn more about HRD policy, check out the [Home Realm Discovery](home-realm-discovery-policy.md) article.
 
 ## Auto-acceleration sign-in
 
-Some organizations configure domains in their Azure AD tenant to federate with another identity provider (IDP), such as AD FS for user authentication. When a user signs into an application, they're first presented with an Azure AD sign-in page. After they've typed their UPN, if they are in a federated domain they're then taken to the sign-in page of the IDP serving that domain. Under certain circumstances, administrators might want to direct users to the sign-in page when they're signing in to specific applications. As a result users can skip the initial Azure AD page. This process is referred to as "sign-in auto-acceleration." 
+Some organizations configure domains in their Microsoft Entra tenant to federate with another identity provider (IDP), such as AD FS for user authentication. When a user signs into an application, they're first presented with a Microsoft Entra sign-in page. After they've typed their UPN, if they are in a federated domain they're then taken to the sign-in page of the IDP serving that domain. Under certain circumstances, administrators might want to direct users to the sign-in page when they're signing in to specific applications. As a result users can skip the initial Microsoft Entra ID page. This process is referred to as "sign-in auto-acceleration." 
 
 For federated users with cloud-enabled credentials, such as SMS sign-in or FIDO keys, you should prevent sign-in auto-acceleration. See [Disable auto-acceleration sign-in](prevent-domain-hints-with-home-realm-discovery.md) to learn how to prevent domain hints with HRD. 
 
@@ -34,7 +34,7 @@ For federated users with cloud-enabled credentials, such as SMS sign-in or FIDO 
 
 ## Prerequisites
 
-To configure HRD policy for an application in Azure AD, you need:
+To configure HRD policy for an application in Microsoft Entra ID, you need:
 
 - An Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, or owner of the service principal.
@@ -59,15 +59,15 @@ We'll use Microsoft Graph to walk through a few scenarios, including:
 
 - Setting up HRD policy to do auto-acceleration  for an application to one of several domains that are verified for your tenant.
 
-- Setting up HRD policy to enable a legacy application to do direct username/password authentication to Azure AD for a federated user.
+- Setting up HRD policy to enable a legacy application to do direct username/password authentication to Microsoft Entra ID for a federated user.
 
 - Listing the applications for which a policy is configured.
 
 ::: zone pivot="powershell-hrd"
 
-In the following examples, you create, update, link, and delete HRD policies on application service principals in Azure AD.
+In the following examples, you create, update, link, and delete HRD policies on application service principals in Microsoft Entra ID.
 
-1. Before you begin, run the Connect command to sign in to Azure AD with your admin account:
+1. Before you begin, run the Connect command to sign in to Microsoft Entra ID with your admin account:
 
     ```powershell
     Connect-AzureAD -Confirm
@@ -89,7 +89,7 @@ In this example, you create a policy that when it's assigned to an application e
 
 - Auto-accelerates users to a federated identity provider sign-in screen when they're signing in to an application when there's a single domain in your tenant.
 - Auto-accelerates users to a federated identity provider sign-in screen if there's more than one federated domain in your tenant.
-- Enables non-interactive username/password sign-in directly to Azure AD for federated users for the applications the policy is assigned to.
+- Enables non-interactive username/password sign-in directly to Microsoft Entra ID for federated users for the applications the policy is assigned to.
 
 The following policy auto-accelerates users to a federated identity provider sign-in screen when they're signing in to an application when there's a single domain in your tenant.
 
@@ -139,7 +139,7 @@ POST /policies/homeRealmDiscoveryPolicies
 ```
 ::: zone-end
 
-The following policy enables username/password authentication for federated users directly with Azure AD for specific applications:
+The following policy enables username/password authentication for federated users directly with Microsoft Entra ID for specific applications:
 
 
 ::: zone pivot="powershell-hrd"
@@ -181,7 +181,7 @@ To apply the HRD policy after you've created it, you can assign it to multiple a
 
 You need the **ObjectID** of the service principals to which you want to assign the policy. There are several ways to find the **ObjectID** of service principals.
 
-You can use the [Azure portal](https://portal.azure.com), or you can query [Microsoft Graph](/graph/api/resources/serviceprincipal). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals.
+You can use the [Microsoft Entra admin center](https://entra.microsoft.com), or you can query [Microsoft Graph](/graph/api/resources/serviceprincipal). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Microsoft Entra account to see all your organization's service principals.
 
 Because you're using PowerShell, you can use the following cmdlet to list the service principals and their IDs.
 

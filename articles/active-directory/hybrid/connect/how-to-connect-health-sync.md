@@ -1,6 +1,6 @@
 ---
-title: Using Azure AD Connect Health with sync
-description: This is the Azure AD Connect Health page that will discuss how to monitor Azure AD Connect sync.
+title: Using Microsoft Entra Connect Health with sync
+description: This is the Microsoft Entra Connect Health page that will discuss how to monitor Microsoft Entra Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,35 +16,37 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ---
-# Monitor Azure AD Connect sync with Azure AD Connect Health
-The following documentation is specific to monitoring Azure AD Connect (Sync) with Azure AD Connect Health.  For information on monitoring AD FS with Azure AD Connect Health see [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md). Additionally, for information on monitoring Active Directory Domain Services with Azure AD Connect Health see [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md).
+# Monitor Microsoft Entra Connect Sync with Microsoft Entra Connect Health
+The following documentation is specific to monitoring Microsoft Entra Connect (Sync) with Microsoft Entra Connect Health.  For information on monitoring AD FS with Microsoft Entra Connect Health see [Using Microsoft Entra Connect Health with AD FS](how-to-connect-health-adfs.md). Additionally, for information on monitoring Active Directory Domain Services with Microsoft Entra Connect Health see [Using Microsoft Entra Connect Health with AD DS](how-to-connect-health-adds.md).
 
-![Screenshot of the Azure AD Connect Health for Sync page.](./media/how-to-connect-health-sync/syncsnapshot.png)
+![Screenshot of the Microsoft Entra Connect Health for Sync page.](./media/how-to-connect-health-sync/syncsnapshot.png)
 
 > [!IMPORTANT]
-> Azure AD Connect Health for Sync requires Azure AD Connect Sync V2. If you are still using AADConnect V1 you must upgrade to the latest version. 
-> AADConnect V1 is retired on August 31, 2022. Azure AD Connect Health for Sync will no longer work with AADConnect V1 in December 2022.
+> Microsoft Entra Connect Health for Sync requires Microsoft Entra Connect Sync V2. If you are still using AADConnect V1 you must upgrade to the latest version. 
+> AADConnect V1 is retired on August 31, 2022. Microsoft Entra Connect Health for Sync will no longer work with AADConnect V1 in December 2022.
 > 
-## Alerts for Azure AD Connect Health for sync
-The Azure AD Connect Health Alerts for sync section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation. By selecting an active or resolved alert you will see a new blade with additional information, as well as steps you can take to resolve the alert, and links to additional documentation. You can also view historical data on alerts that were resolved in the past.
+<a name='alerts-for-azure-ad-connect-health-for-sync'></a>
+
+## Alerts for Microsoft Entra Connect Health for sync
+The Microsoft Entra Connect Health Alerts for sync section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation. By selecting an active or resolved alert you will see a new blade with additional information, as well as steps you can take to resolve the alert, and links to additional documentation. You can also view historical data on alerts that were resolved in the past.
 
 By selecting an alert you will be provided with additional information as well as steps you can take to resolve the alert and links to additional documentation.
 
-![Azure AD Connect sync error](./media/how-to-connect-health-sync/alert.png)
+![Microsoft Entra Connect Sync error](./media/how-to-connect-health-sync/alert.png)
 
 ### Limited Evaluation of Alerts
-If Azure AD Connect is NOT using the default configuration (for example, if Attribute Filtering is changed from the default configuration to a custom configuration), then the Azure AD Connect Health agent will not upload the error events related to Azure AD Connect.
+If Microsoft Entra Connect is NOT using the default configuration (for example, if Attribute Filtering is changed from the default configuration to a custom configuration), then the Microsoft Entra Connect Health agent will not upload the error events related to Microsoft Entra Connect.
 
-This limits the evaluation of alerts by the service. You will see a banner that indicates this condition in the Azure portal under your service.
+This limits the evaluation of alerts by the service. You will see a banner that indicates this condition in the [Microsoft Entra admin center](https://entra.microsoft.com) under your service.
 
 ![Screenshot of the the alert banner that says Alert evaluation is limited. Update your settings to enable all alerts.](./media/how-to-connect-health-sync/banner.png)
 
-You can change this by clicking "Settings" and allowing Azure AD Connect Health agent to upload all error logs.
+You can change this by clicking "Settings" and allowing Microsoft Entra Connect Health agent to upload all error logs.
 
 ![Screenshot of the Settings option called out and the Settings section with the Save option and the ON option called out.](./media/how-to-connect-health-sync/banner2.png)
 
 ## Sync Insight
-Admins Frequently want to know about the time it takes to sync changes to Azure AD and the amount of changes taking place. This feature provides an easy way to visualize this using the below graphs:   
+Admins Frequently want to know about the time it takes to sync changes to Microsoft Entra ID and the amount of changes taking place. This feature provides an easy way to visualize this using the below graphs:   
 
 * Latency of sync operations
 * Object Change trend
@@ -54,20 +56,20 @@ This feature provides a graphical trend of latency of the sync operations (such 
 
 ![Screenshot of the Run Profile Latency from past 3 days graph.](./media/how-to-connect-health-sync/synclatency02.png)
 
-By default, only the latency of the 'Export' operation for the Azure AD connector is shown.  To see more operations on the connector or to view operations from other connectors, right-click on the chart,  select Edit Chart or click on the "Edit Latency Chart" button and choose the specific operation and connectors.
+By default, only the latency of the 'Export' operation for the Microsoft Entra connector is shown.  To see more operations on the connector or to view operations from other connectors, right-click on the chart,  select Edit Chart or click on the "Edit Latency Chart" button and choose the specific operation and connectors.
 
 ### Sync Object Changes
-This feature provides a graphical trend of the number of changes that are being evaluated and exported to Azure AD.  Today, trying to gather this information from the sync logs is difficult.  The chart gives you, not only a simpler way of monitoring the number of changes that are occurring in your environment, but also a visual view of the failures that are occurring.
+This feature provides a graphical trend of the number of changes that are being evaluated and exported to Microsoft Entra ID.  Today, trying to gather this information from the sync logs is difficult.  The chart gives you, not only a simpler way of monitoring the number of changes that are occurring in your environment, but also a visual view of the failures that are occurring.
 
-![Screenshot of the Export Statistics to Azure AD from past 3 days graph.](./media/how-to-connect-health-sync/syncobjectchanges02.png)
+![Screenshot of the Export Statistics to Microsoft Entra ID from past 3 days graph.](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
 ## Object Level Synchronization Error Report
-This feature provides a report about synchronization errors that can occur when identity data is synchronized between Windows Server AD and Azure AD using Azure AD Connect.
+This feature provides a report about synchronization errors that can occur when identity data is synchronized between Windows Server AD and Microsoft Entra ID using Microsoft Entra Connect.
 
-* The report covers errors recorded by the sync client (Azure AD Connect version 1.1.281.0 or higher)
-* It includes the errors that occurred in the last synchronization operation on the sync engine. ("Export" on the Azure AD Connector.)
-* Azure AD Connect Health agent for sync must have outbound connectivity to the required end points for the report to include the latest data.
-* The report is **updated after every 30 minutes** using the data uploaded by Azure AD Connect Health agent for sync.
+* The report covers errors recorded by the sync client (Microsoft Entra Connect version 1.1.281.0 or higher)
+* It includes the errors that occurred in the last synchronization operation on the sync engine. ("Export" on the Microsoft Entra Connector.)
+* Microsoft Entra Connect Health agent for sync must have outbound connectivity to the required end points for the report to include the latest data.
+* The report is **updated after every 30 minutes** using the data uploaded by Microsoft Entra Connect Health agent for sync.
   It provides the following key capabilities
 
   * Categorization of errors
@@ -81,9 +83,9 @@ The report categorizes the existing synchronization errors in the following cate
 
 | Category | Description |
 | --- | --- |
-| Duplicate Attribute |Errors when Azure AD Connect attempts create or update objects with duplicated values of one or more attributes in Azure AD that must be unique in a Tenant, such as proxyAddresses, UserPrincipalName. |
+| Duplicate Attribute |Errors when Microsoft Entra Connect attempts create or update objects with duplicated values of one or more attributes in Microsoft Entra ID that must be unique in a Tenant, such as proxyAddresses, UserPrincipalName. |
 | Data Mismatch |Errors when the soft-match fails to match objects that result in synchronization errors. |
-| Data Validation Failure |Errors due to invalid data, such as unsupported characters in critical attributes such as UserPrincipalName, format errors that fail validation before being written in Azure AD. |
+| Data Validation Failure |Errors due to invalid data, such as unsupported characters in critical attributes such as UserPrincipalName, format errors that fail validation before being written in Microsoft Entra ID. |
 | Federated Domain Change | Errors when accounts use a different federated domain. |
 | Large Attribute |Errors when one or more attributes are larger than the allowed size, length or count. |
 | Other |All other errors that don't fit in the above categories. Based on feedback, this category will be split in sub categories. |
@@ -100,7 +102,7 @@ Following data is available in the detailed view for each error
 
 * Highlighted conflicting attribute
 * Identifiers for the *AD Object* involved
-* Identifiers for the *Azure AD Object* involved (as applicable)
+* Identifiers for the *Microsoft Entra Object* involved (as applicable)
 * Error description and how to fix
 
 ![Sync Error Report Details](./media/how-to-connect-health-sync/duplicateAttributeSyncError.png)
@@ -115,10 +117,10 @@ Read more about [Diagnose and remediate duplicated attribute sync errors](how-to
 ## Related links
 * [Troubleshooting Errors during synchronization](tshoot-connect-sync-errors.md)
 * [Duplicate Attribute Resiliency](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
-* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
-* [Azure AD Connect Health Agent Installation](how-to-connect-health-agent-install.md)
-* [Azure AD Connect Health Operations](how-to-connect-health-operations.md)
-* [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md)
-* [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md)
-* [Azure AD Connect Health FAQ](reference-connect-health-faq.yml)
-* [Azure AD Connect Health Version History](reference-connect-health-version-history.md)
+* [Microsoft Entra Connect Health](./whatis-azure-ad-connect.md)
+* [Microsoft Entra Connect Health Agent Installation](how-to-connect-health-agent-install.md)
+* [Microsoft Entra Connect Health Operations](how-to-connect-health-operations.md)
+* [Using Microsoft Entra Connect Health with AD FS](how-to-connect-health-adfs.md)
+* [Using Microsoft Entra Connect Health with AD DS](how-to-connect-health-adds.md)
+* [Microsoft Entra Connect Health FAQ](reference-connect-health-faq.yml)
+* [Microsoft Entra Connect Health Version History](reference-connect-health-version-history.md)
