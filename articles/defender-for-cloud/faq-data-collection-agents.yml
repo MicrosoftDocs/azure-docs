@@ -124,7 +124,7 @@ sections:
             1. Select the relevant subscription.
             1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
 
-                :::image type="content" source="./media/enable-data-collection/select-server-setting.png" alt-text="Screenshot showing selecting service plan settings for server." lightbox="./media/enable-data-collection/select-server-setting.png" lightbox="media/enable-data-collection/select-server-setting.png":::
+                :::image type="content" source="./media/enable-data-collection/select-server-setting.png" alt-text="Screenshot showing selecting service plan settings for server." lightbox="./media/enable-data-collection/select-server-setting.png":::
           
             1. Turn off the extension you want to stop being automatically provisioned.
         
@@ -300,7 +300,7 @@ sections:
           1. Select **Apply**.
 
           1. Select **Continue**.
-          
+
           1. Select **Save** and confirm that you want to reconfigure monitored VMs.
 
               > [!IMPORTANT]
