@@ -24,6 +24,11 @@ In this tutorial, you learn how to:
 > [!NOTE]
 > Requires azure-appconfiguration-provider package version 1.1.0b1 or later.
 
+## Prerequisites
+
+- An Azure subscription - [create one for free](https://azure.microsoft.com/free)
+- We assume you already have an App Configuration store. If you want to create one, [create an App Configuration store](quickstart-aspnet-core-app.md).
+
 ## Sentinel key
 
 A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your App Configuration store, compared to monitoring all keys for changes.
