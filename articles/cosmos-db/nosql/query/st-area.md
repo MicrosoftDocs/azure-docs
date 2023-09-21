@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/24/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -51,7 +51,7 @@ The following example shows how to return the area of a polygon.
 - Using this function to calculate the area of zero or one-dimensional figures like GeoJSON **Points** and **LineStrings** results in an area of `0`.
 - The GeoJSON specification requires that points within a Polygon be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`ST_WITHIN`](st-within.md)

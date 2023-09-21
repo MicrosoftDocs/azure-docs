@@ -45,7 +45,7 @@ Adds an `AlternativeSecurityId` to an `alternativeSecurityIdCollection` claim. C
 
 The following example links a new social identity with an existing account. To link a new social identity:
 
-1. In the **Microsoft Entra ID-UserReadUsingAlternativeSecurityId** and **Microsoft Entra ID-UserReadUsingObjectId** technical profiles, output the user's **alternativeSecurityIds** claim.
+1. In the `AAD-UserReadUsingAlternativeSecurityId` and `AAD-UserReadUsingObjectId` technical profiles, output the user's `alternativeSecurityIds` claim.
 1. Ask the user to sign in with one of the identity providers that aren't associated with this user.
 1. Using the **CreateAlternativeSecurityId** claims transformation, create a new **alternativeSecurityId** claim type with a name of `AlternativeSecurityId2`
 1. Call the **AddItemToAlternativeSecurityIdCollection** claims transformation to add the **AlternativeSecurityId2** claim to the existing **AlternativeSecurityIds** claim.
@@ -190,7 +190,7 @@ Removes an **AlternativeSecurityId** from an **alternativeSecurityIdCollection**
 
 The following example unlinks one of the social identities with an existing account. To unlink a social identity:
 
-1. In the **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingObjectId** technical profiles, output the user's **alternativeSecurityIds** claim.
+1. In the `AAD-UserReadUsingAlternativeSecurityId` and `AAD-UserReadUsingObjectId` technical profiles, output the user's `alternativeSecurityIds` claim.
 2. Ask the user to select which social account to remove from the list identity providers that are associated with this user.
 3. Call a claims transformation technical profile that calls the **RemoveAlternativeSecurityIdByIdentityProvider** claims transformation, that removed the selected social identity, using identity provider name.
 4. Persist the **alternativeSecurityIds** claim to the user account.

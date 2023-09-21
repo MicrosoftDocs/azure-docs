@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -334,7 +334,7 @@ FROM
 ]
 ```
 
-## Next steps
+## Related content
 
 - [``SELECT`` clause](select.md)
 - [``WHERE`` clause](where.md)
