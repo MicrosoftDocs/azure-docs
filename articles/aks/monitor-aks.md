@@ -205,6 +205,20 @@ Depending on the alerting scenario required, log queries need to be created comp
 
 When the [Network Observability](/azure/aks/network-observability-overview) add-on is enabled, it collects and converts useful metrics into Prometheus format, which can be visualized in Grafana. When enabled, the collected metrics are automatically ingested into Azure Monitor managed service for Prometheus. A Grafana dashboard is available in the Grafana public dashboard repo to visualize the network observability metrics collected by Prometheus. For more information, see [Network Observability setup](./network-observability-managed-cli?tabs=non-cilium) for detailed instructions.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Xuhong Liu](https://www.linkedin.com/in/xuhong-l-5937159b/) | Senior Service Engineer
+
+Other contributors:
+
+- [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 <!-- Add additional links. You can change the wording of these and add more if useful.   -->
