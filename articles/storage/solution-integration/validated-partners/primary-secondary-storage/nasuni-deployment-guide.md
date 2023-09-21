@@ -35,16 +35,16 @@ This procedure uses the Azure portal.
 If you don't already have a storage account in Microsoft Azure, create a storage account in Microsoft Azure by following these steps:
 1. Sign in to the [Azure portal](https://portal.azure.com). The Microsoft Azure dashboard page appears.
 2. On the top left of the page, select “Create a resource." The “Create a resource” dialog appears.
-XXImagePlaceXX
+:::image type="content" source="./media/nasuni-quick-start-guide/win_azure_create_resource_93.png" alt-text="Screenshot of Azure Create Resource panel" lightbox="./media/nasuni-quick-start-guide/win_azure_create_resource_93.png":::
 3. In the Search box, enter “storage account" then select Storage account from the list of results. The Storage account pane appears.
-XXImagePlaceXX
+:::image type="content" source="./media/nasuni-quick-start-guide/win_storage_account_90.png" alt-text="Screenshot of Azure Create Storage Account panel" lightbox="./media/nasuni-quick-start-guide/win_storage_account_90.png":::
 4. Select Create. The “Create a storage account” pane appears.
-XXImagePlaceXX
+:::image type="content" source="./media/nasuni-quick-start-guide/win_create_storage_account_90.png" alt-text="Screenshot of Azure Create Storage Account details" lightbox="./media/nasuni-quick-start-guide/win_create_storage_account_90":::
 5. If there is more than one subscription, from the Subscription drop-down list, select the subscription to use for this storage account.
 6. To select an existing Resource Group, select an existing Resource Group from the Resource Group drop-down list.
     Alternatively, create a new Resource Group by clicking “Create new” and then entering a name for the new Resource Group and clicking OK.
 7. Select Next: Advanced. The Advanced pane appears.
-XXImagePlaceXX
+:::image type="content" source="./media/nasuni-quick-start-guide/win_azure_create_storage_account_security_93.png" alt-text="Screenshot of Azure Create Storage Account Advanced pane" lightbox="./media/nasuni-quick-start-guide/win_azure_create_storage_account_security_93":::
 8. If your security policy requires it, enable “Require secure transfer for REST API operations."
 9. For “Access tier,” select Cool for production data.
 > [!NOTE]
@@ -52,13 +52,13 @@ XXImagePlaceXX
 10. Set “Azure Files” to disabled.
 11. Configure other features according to your needs.
 12. Select “Next: Networking >.” The Networking pane appears.
-XXImagePlaceXX
+:::image type="content" source="./media/nasuni-quick-start-guide/win_networking_90.png" alt-text="Screenshot of Azure Create Storage Account Networking pane" lightbox="./media/nasuni-quick-start-guide/win_networking_90":::
 13. Select the “Connectivity method” to match your security requirements.
 > [!NOTE]
 > Consider where Edge Appliances will be deployed and how they will access the storage account, for example, via the Internet, Azure ExpressRoute, or a VPN connection to Azure. Most customers select the default “Public endpoint (all networks)”.
 14. Configure other features according to your needs
 15. Select “Next: Data protection.” The Data protection pane appears.
-XXImagePlaceXX
+:::image type="content" source="./media/nasuni-quick-start-guide/win_data_protection_90.png" alt-text="Screenshot of Azure Create Storage Account Data Protection pane" lightbox="./media/nasuni-quick-start-guide/win_data_protection_90":::
 16. Nasuni recommends enabling Soft Delete for all storage accounts being used for Nasuni volumes. If data is deleted, instead of the data being permanently lost, the data changes to a “soft deleted” state and remains available for a configurable number of days. 
     
     Enable “Enable soft delete for blobs." 
@@ -89,10 +89,10 @@ Storage account firewalls must be configured to allow connections from the inter
 To configure storage account firewalls, follow these steps:
 1. Select the storage account.
 2. In the left-hand column, select Networking, then select the “Firewalls and virtual networks” tab. The “Firewalls and virtual networks” pane appears.
-XXImagePlaceXX
+:::image type="content" source="./media/nasuni-quick-start-guide/win_azure_firewalls_virtual_networks_93.png" alt-text="Screenshot of Azure Firewalls and Virtual Networks pane" lightbox="./media/nasuni-quick-start-guide/win_azure_firewalls_virtual_networks_93":::
 3. Select “Selected networks.”
     Alternatively, if allowing access from all networks, select “All networks” and skip to step 7.
-XXImagePlaceXX
+:::image type="content" source="./media/nasuni-quick-start-guide/win_azure_firewalls_selected_networks_93.png" alt-text="Screenshot of Azure Firewalls and Selected Networks pane" lightbox="./media/nasuni-quick-start-guide/win_azure_firewalls_selected_networks_93":::
 4. To add an existing virtual network, in the Virtual Networks area, select “Add existing virtual network.” Select Virtual networks and Subnets options, and then select Add.
 5. To create a new virtual network and grant it access, in the Virtual Networks area, select “Add new virtual network.” Provide the information necessary to create the new virtual network, and then select Create.
 6. To grant access to an IP range, in the Firewall area, enter the IP address or address range (in CIDR format) in Address Range. Include the internal customer network and other networks that Edge Appliances exist on or are using. Take network routing into account. For example, if connecting to the storage account over a private connection, use internal subnets; if connecting to the storage account over the public Internet, use public IPs.
