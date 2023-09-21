@@ -2,17 +2,19 @@
   href: index.yml
 - name: Get started
   items:
-      - name: About API Management
-        displayName: Overview
-        href: api-management-key-concepts.md
-      - name: API Management features availability
-        href: api-management-features.md
-      - name: API gateway
-        href: api-management-gateways-overview.md  
-      - name: Terminology
-        href: api-management-terminology.md  
-      - name: Service limits
-        href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json#api-management-limits
+      - name: Overview
+        items:
+        - name: About API Management
+          displayName: Overview
+          href: api-management-key-concepts.md
+        - name: API Management features availability
+          href: api-management-features.md
+        - name: API gateway
+          href: api-management-gateways-overview.md  
+        - name: Terminology
+          href: api-management-terminology.md  
+        - name: Service limits
+          href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json#api-management-limits
       - name: Quickstarts
         items:
           - name: Create an instance - CLI
@@ -107,42 +109,8 @@
         href: api-management-configuration-repository-git.md
       - name: DevOps and CI/CD
         href: devops-api-development-templates.md 
-  - name: Self-host the gateway
-    items:
-      - name: Self-hosted gateway overview
-        href: self-hosted-gateway-overview.md
-      - name: Provision a self-hosted gateway
-        href: api-management-howto-provision-self-hosted-gateway.md
-      - name: Deploy an Azure API Management gateway on Azure Arc
-        href: how-to-deploy-self-hosted-gateway-azure-arc.md
-      - name: Deploy a self-hosted gateway to Azure Kubernetes Service
-        href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
-      - name: Deploy a self-hosted gateway to Kubernetes (YAML)
-        href: how-to-deploy-self-hosted-gateway-kubernetes.md
-      - name: Deploy a self-hosted gateway to Kubernetes (Helm)
-        href: how-to-deploy-self-hosted-gateway-kubernetes-helm.md
-      - name: Deploy self-hosted gateway to Kubernetes with OpenTelemetry Collector integration
-        href: how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md
-      - name: Deploy a self-hosted gateway to Docker
-        href: how-to-deploy-self-hosted-gateway-docker.md
-      - name: Configure custom domain for self-hosted gateway
-        href: api-management-howto-configure-custom-domain-gateway.md
-      - name: Configure cloud metrics and logs for self-hosted gateway
-        href: how-to-configure-cloud-metrics-logs.md
-      - name: Configure local metrics and logs for self-hosted gateway
-        href: how-to-configure-local-metrics-logs.md
-      - name: Enable Dapr support on self-hosted gateway
-        href: self-hosted-gateway-enable-dapr.md  
-      - name: Use Azure AD authentication on self-hosted gateway
-        href: self-hosted-gateway-enable-azure-ad.md
-      - name: Guidance for running on Kubernetes
-        href: how-to-self-hosted-gateway-on-kubernetes-in-production.md
-      - name: Migrate to self-hosted gateway v2
-        href: self-hosted-gateway-migration-guide.md
-      - name: Support policy for self-hosted gateway
-        href: self-hosted-gateway-support-policies.md
-- name: Resiliency
-  items: 
+  - name: Resiliency
+    items: 
     - name: High availability features
       href: high-availability.md
       displayName: reliability, resilience, resiliency  
@@ -154,32 +122,32 @@
     - name: Set up DR using backup/restore
       displayName: disaster, recovery
       href: api-management-howto-disaster-recovery-backup-restore.md
-- name: Networking and security
-  items:
-  - name: Network isolation
+  - name: Networking and security
     items:
-      - name: Networking options
-        href: virtual-network-concepts.md
-      - name: Connect to a virtual network
-        href: api-management-using-with-vnet.md
-      - name: Connect to an internal virtual network
-        href: api-management-using-with-internal-vnet.md
-      - name: Integrate Application Gateway in an internal virtual network
-        href: api-management-howto-integrate-internal-vnet-appgateway.md
-      - name: Connect privately using private endpoint
-        href: private-endpoint.md
-      - name: Retrieve IP addresses
-        href: api-management-howto-ip-addresses.md
-      - name: Defend against DDoS attacks
-        href: protect-with-ddos-protection.md
-      - name: Configure Front Door
-        href: front-door-api-management.md
-  - name: Security
-    items:
-    - name: Security controls by Azure Policy
-      href: ./security-controls-policy.md
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
+    - name: Network isolation
+      items:
+        - name: Networking options
+          href: virtual-network-concepts.md
+        - name: Connect to a virtual network
+          href: api-management-using-with-vnet.md
+        - name: Connect to an internal virtual network
+          href: api-management-using-with-internal-vnet.md
+        - name: Integrate Application Gateway in an internal virtual network
+          href: api-management-howto-integrate-internal-vnet-appgateway.md
+        - name: Connect privately using private endpoint
+          href: private-endpoint.md
+        - name: Retrieve IP addresses
+          href: api-management-howto-ip-addresses.md
+        - name: Defend against DDoS attacks
+          href: protect-with-ddos-protection.md
+        - name: Configure Front Door
+          href: front-door-api-management.md
+    - name: Security
+      items:
+      - name: Security controls by Azure Policy
+        href: ./security-controls-policy.md
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
 - name: Define and manage APIs
   items:
     - name: Create APIs
@@ -253,32 +221,66 @@
             href: api-management-howto-cache-external.md
           - name: Custom caching
             href: api-management-sample-cache-by-key.md
-    - name: Define API policies
-      items:
-          - name: API Management policies overview
-            href: api-management-howto-policies.md
-          - name: Set or edit policies
-            href: set-edit-policies.md
-          - name: Debug policies in VS Code
-            href: api-management-debug-policies.md
-          - name: Policy expressions
-            href: api-management-policy-expressions.md
-          - name: Reuse policy configurations
-            href: policy-fragments.md
-            displayName: policy fragments
-          - name: Error handling
-            href: api-management-error-handling-policies.md
-          - name: Advanced monitoring
-            href: api-management-log-to-eventhub-sample.md
-          - name: Advanced request throttling
-            href: api-management-sample-flexible-throttling.md
-          - name: Using external services
-            href: api-management-sample-send-request.md
-          - name: Manage secrets using named values
-            displayName: Azure CLI, az apim nv
-            href: api-management-howto-properties.md
-          - name: Configure a GraphQL resolver
-            href: configure-graphql-resolver.md
+- name: Define API policies
+  items:
+      - name: API Management policies overview
+        href: api-management-howto-policies.md
+      - name: Set or edit policies
+        href: set-edit-policies.md
+      - name: Debug policies in VS Code
+        href: api-management-debug-policies.md
+      - name: Policy expressions
+        href: api-management-policy-expressions.md
+      - name: Reuse policy configurations
+        href: policy-fragments.md
+        displayName: policy fragments
+      - name: Error handling
+        href: api-management-error-handling-policies.md
+      - name: Advanced monitoring
+        href: api-management-log-to-eventhub-sample.md
+      - name: Advanced request throttling
+        href: api-management-sample-flexible-throttling.md
+      - name: Using external services
+        href: api-management-sample-send-request.md
+      - name: Manage secrets using named values
+        displayName: Azure CLI, az apim nv
+        href: api-management-howto-properties.md
+      - name: Configure a GraphQL resolver
+        href: configure-graphql-resolver.md
+- name: Self-host the gateway
+  items:
+    - name: Self-hosted gateway overview
+      href: self-hosted-gateway-overview.md
+    - name: Provision a self-hosted gateway
+      href: api-management-howto-provision-self-hosted-gateway.md
+    - name: Deploy an Azure API Management gateway on Azure Arc
+      href: how-to-deploy-self-hosted-gateway-azure-arc.md
+    - name: Deploy a self-hosted gateway to Azure Kubernetes Service
+      href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
+    - name: Deploy a self-hosted gateway to Kubernetes (YAML)
+      href: how-to-deploy-self-hosted-gateway-kubernetes.md
+    - name: Deploy a self-hosted gateway to Kubernetes (Helm)
+      href: how-to-deploy-self-hosted-gateway-kubernetes-helm.md
+    - name: Deploy self-hosted gateway to Kubernetes with OpenTelemetry Collector integration
+      href: how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md
+    - name: Deploy a self-hosted gateway to Docker
+      href: how-to-deploy-self-hosted-gateway-docker.md
+    - name: Configure custom domain for self-hosted gateway
+      href: api-management-howto-configure-custom-domain-gateway.md
+    - name: Configure cloud metrics and logs for self-hosted gateway
+      href: how-to-configure-cloud-metrics-logs.md
+    - name: Configure local metrics and logs for self-hosted gateway
+      href: how-to-configure-local-metrics-logs.md
+    - name: Enable Dapr support on self-hosted gateway
+      href: self-hosted-gateway-enable-dapr.md  
+    - name: Use Azure AD authentication on self-hosted gateway
+      href: self-hosted-gateway-enable-azure-ad.md
+    - name: Guidance for running on Kubernetes
+      href: how-to-self-hosted-gateway-on-kubernetes-in-production.md
+    - name: Migrate to self-hosted gateway v2
+      href: self-hosted-gateway-migration-guide.md
+    - name: Support policy for self-hosted gateway
+      href: self-hosted-gateway-support-policies.md
 - name: Secure your APIs
   items:
     - name: Secure API access
@@ -317,7 +319,7 @@
       items:
       - name: Mutual certificate authentication
         href: api-management-howto-mutual-certificates.md
-- name: Publish APIs
+- name: Publish APIs to developers
   items:
       - name: Use subscriptions
         items:
@@ -331,26 +333,6 @@
               href: api-management-howto-create-or-invite-developers.md
             - name: Manage groups
               href: api-management-howto-create-groups.md
-            - name: Secure access to developer portal
-              items:
-                - name: Options to secure developer portal access
-                  href: secure-developer-portal-access.md
-                - name: Authenticate with username and password
-                  href: developer-portal-basic-authentication.md
-                - name: Authenticate with Azure AD
-                  href: api-management-howto-aad.md
-                - name: Authenticate with Azure AD B2C
-                  href: api-management-howto-aad-b2c.md
-                - name: Delegate authentication
-                  href: api-management-howto-setup-delegation.md
-            - name: Email notifications and templates
-              href: api-management-howto-configure-notifications.md
-      - name: Monetize APIs
-        items:
-          - name: Monetization overview
-            href: monetization-overview.md
-          - name: How API Management supports monetization
-            href: monetization-support.md
       - name: Customize the developer portal
         items:
             - name: Understand the developer portal
@@ -376,7 +358,27 @@
           - name: Alternative approaches to self-hosting
             href: developer-portal-alternative-processes-self-host.md
           - name: Test self-hosted portal
-            href: developer-portal-testing.md
+            href: developer-portal-testing.md    
+          - name: Secure access to developer portal
+            items:
+              - name: Options to secure developer portal access
+                href: secure-developer-portal-access.md
+              - name: Authenticate with username and password
+                href: developer-portal-basic-authentication.md
+              - name: Authenticate with Azure AD
+                href: api-management-howto-aad.md
+              - name: Authenticate with Azure AD B2C
+                href: api-management-howto-aad-b2c.md
+              - name: Delegate authentication
+                href: api-management-howto-setup-delegation.md
+          - name: Email notifications and templates
+            href: api-management-howto-configure-notifications.md
+      - name: Monetize APIs
+        items:
+          - name: Monetization overview
+            href: monetization-overview.md
+          - name: How API Management supports monetization
+            href: monetization-support.md
 - name: Export APIs
   items:
   - name: Test and monitor APIs in Postman
