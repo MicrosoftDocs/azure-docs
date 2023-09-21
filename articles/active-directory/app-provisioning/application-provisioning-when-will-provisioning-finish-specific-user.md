@@ -95,5 +95,11 @@ Summary of factors that influence the time it takes to complete an **initial cyc
 
 In most cases, the **incremental cycle** completes in 30 minutes. However, when there are hundreds or thousands of user changes or group membership changes, the incremental cycle time will increase proportionally with the number of changes to process and can take several hours. Using **sync assigned users and groups** and minimizing the number of users / groups in scope for provisioning will help to reduce the sync time.
 
+## Recommendations for reducing the time to provision a user and / or group:
+1. Set the provisioning scope to sync `assigned users and groups`, rather than `sync all users and groups`.
+2. Minimize the number of users and groups in scope for provisioning.
+3. Create multiple provisioning jobs targeting the same system. When doing this, each sync job will operate independently, reducing the time to process changes. Please make sure that the scope of users is distinct between these provisioning jobs to avoid changes from one job impacting another. 
+4. Add scoping filters to further limit the number of users and groups in scope for provisioning.
+
 ## Next steps
 [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](user-provisioning.md)
