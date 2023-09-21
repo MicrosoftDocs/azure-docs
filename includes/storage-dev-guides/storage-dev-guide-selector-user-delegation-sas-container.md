@@ -12,6 +12,6 @@ ms.custom: include file
 
 > [!div class="op_single_selector"]
 >
-> - [.NET](../../articles/storage/blobs/sas-service-create-dotnet-container.md)
-> - [Java](../../articles/storage/blobs/sas-service-create-java-container.md)
-> - [Python](../../articles/storage/blobs/sas-service-create-python-container.md)
+> - [.NET](../../articles/storage/blobs/storage-blob-container-user-delegation-sas-create-dotnet.md)
+> - [Java](../../articles/storage/blobs/storage-blob-container-user-delegation-sas-create-java.md)
+> - [Python](../../articles/storage/blobs/storage-blob-container-user-delegation-sas-create-python.md)
