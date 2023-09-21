@@ -58,12 +58,9 @@ az rest --method get --uri '/subscriptions/{subscriptionId}/locations?api-versio
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-
 $subscriptionId = (Get-AzContext).Subscription.ID
 $response = Invoke-AzRestMethod -Method GET -Path "/subscriptions/$subscriptionId/locations?api-version=2022-12-01"
 $locations = ($response.Content | ConvertFrom-Json).value
-
-```
 ---
 
 ## Availability zones and Azure updates
