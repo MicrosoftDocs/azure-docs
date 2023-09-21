@@ -17,11 +17,11 @@ ms.custom: enterprise-apps
 
 # One-click app configuration of single sign-on
 
- In this tutorial, you learn how to perform one-click, single sign-on (SSO) configuration for SAML-supporting, Azure Active Directory (Azure AD) applications from the Azure Marketplace.
+ In this tutorial, you learn how to perform one-click, single sign-on (SSO) configuration for SAML-supporting, Microsoft Entra applications from the Azure Marketplace.
 
 ## Introduction to one-click SSO
 
-The one-click SSO feature is designed to configure single sign-on for Azure Marketplace apps that support SAML protocol. On the Azure AD SSO configuration page, this option allows you to automatically configure the Azure AD metadata on the application side. In this way, you can quickly set up SSO with minimal manual effort.
+The one-click SSO feature is designed to configure single sign-on for Azure Marketplace apps that support SAML protocol. On the Microsoft Entra SSO configuration page, this option allows you to automatically configure the Microsoft Entra metadata on the application side. In this way, you can quickly set up SSO with minimal manual effort.
 
 ## Advantages of one-click SSO
 
@@ -76,5 +76,5 @@ The one-click SSO feature is designed to configure single sign-on for Azure Mark
 
 ## Additional resources
 
-- [List of tutorials on how to integrate SaaS apps with Azure Active Directory](../saas-apps/tutorial-list.md)
+- [List of tutorials on how to integrate SaaS apps with Microsoft Entra ID](../saas-apps/tutorial-list.md)
 - [What is the My Apps Secure Sign-in browser extension?](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)

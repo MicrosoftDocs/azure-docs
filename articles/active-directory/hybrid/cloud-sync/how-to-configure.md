@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect cloud sync new agent configuration'
+title: 'Microsoft Entra Connect cloud sync new agent configuration'
 description: This article describes how to install cloud sync.
 services: active-directory
 author: billmath
@@ -13,11 +13,11 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Create a new configuration for Azure AD Connect cloud sync
+# Create a new configuration for Microsoft Entra Connect cloud sync
 
-The following document will guide you through configuring Azure AD Connect cloud sync.  
+The following document will guide you through configuring Microsoft Entra Connect cloud sync.  
 
-The following documentation demonstrates the new guided user experience for Azure AD Connect cloud sync.  If you are not seeing the images below, you need to select the **Preview features** at the top.  You can select this again to revert back to the old experience.
+The following documentation demonstrates the new guided user experience for Microsoft Entra Connect cloud sync.  If you are not seeing the images below, you need to select the **Preview features** at the top.  You can select this again to revert back to the old experience.
 
  :::image type="content" source="media/how-to-configure/new-ux-configure-19.png" alt-text="Screenshot of enable preview features." lightbox="media/how-to-configure/new-ux-configure-19.png":::
 
@@ -48,8 +48,8 @@ To configure provisioning, follow these steps.
 
 |Section|Description|
 |-----|-----|
-|1. Add [scoping filters](#scope-provisioning-to-specific-users-and-groups)|Use this section to define what objects appear in Azure AD|
-|2. Map [attributes](#attribute-mapping)|Use this section to map attributes between your on-premises users/groups with Azure AD objects|
+|1. Add [scoping filters](#scope-provisioning-to-specific-users-and-groups)|Use this section to define what objects appear in Microsoft Entra ID|
+|2. Map [attributes](#attribute-mapping)|Use this section to map attributes between your on-premises users/groups with Microsoft Entra objects|
 |3. [Test](#on-demand-provisioning)|Test your configuration before deploying it|
 |4. View [default properties](#accidental-deletions-and-email-notifications)|View the default setting prior to enabling them and make changes where appropriate|
 |5. Enable [your configuration](#enable-your-configuration)|Once ready, enable the configuration and users/groups will begin synchronizing|
@@ -83,7 +83,7 @@ You can configure groups and organizational units within a configuration.
  7. Once you've changed the scope, you should [restart provisioning](#restart-provisioning) to initiate an immediate synchronization of the changes.
 
 ## Attribute mapping
-Azure AD Connect cloud sync allows you to easily map attributes between your on-premises user/group objects and the objects in Azure AD.  
+Microsoft Entra Connect cloud sync allows you to easily map attributes between your on-premises user/group objects and the objects in Microsoft Entra ID.  
 
 :::image type="content" source="media/how-to-configure/new-ux-configure-6.png" alt-text="Screenshot of map attributes icon." lightbox="media/how-to-configure/new-ux-configure-6.png":::
 
@@ -99,14 +99,14 @@ After saving, you should see a message telling you what you still need to do to 
 For more information, see [attribute mapping](how-to-attribute-mapping.md).
 
 ## Directory extensions and custom attribute mapping.
-Azure AD Connect cloud sync allows you to extend the directory with extensions and provides for custom attribute mapping.  For more information see [Directory extensions and custom attribute mapping](custom-attribute-mapping.md).
+Microsoft Entra Connect cloud sync allows you to extend the directory with extensions and provides for custom attribute mapping.  For more information see [Directory extensions and custom attribute mapping](custom-attribute-mapping.md).
 
 ## On-demand provisioning
-Azure AD Connect cloud sync allows you to test configuration changes, by applying these changes to a single user or group.  
+Microsoft Entra Connect cloud sync allows you to test configuration changes, by applying these changes to a single user or group.  
 
 :::image type="content" source="media/how-to-configure/new-ux-configure-8.png" alt-text="Screenshot of test icon." lightbox="media/how-to-configure/new-ux-configure-8.png":::
 
-You can use this to validate and verify that the changes made to the configuration were applied properly and are being correctly synchronized to Azure AD.  
+You can use this to validate and verify that the changes made to the configuration were applied properly and are being correctly synchronized to Microsoft Entra ID.  
 
 :::image type="content" source="media/how-to-configure/new-ux-configure-9.png" alt-text="Screenshot of on-demand provisioning." lightbox="media/how-to-configure/new-ux-configure-9.png":::
 
@@ -173,4 +173,4 @@ To delete a configuration, follow these steps.
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)

@@ -1,6 +1,6 @@
 ---
-title: Create a role-assignable group in Azure Active Directory
-description: Learn how to a role-assignable group in Azure Active Directory using the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
+title: Create a role-assignable group in Microsoft Entra ID
+description: Learn how to a role-assignable group in Microsoft Entra ID using the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -16,18 +16,18 @@ ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
-# Create a role-assignable group in Azure Active Directory
+# Create a role-assignable group in Microsoft Entra ID
 
-With Azure AD Premium P1 or P2, you can create [role-assignable groups](groups-concept.md) and assign Azure AD roles to these groups. You create a new role-assignable group by setting **Azure AD roles can be assigned to the group** to **Yes** or by setting the `isAssignableToRole` property set to `true`. A role-assignable group can't be of dynamic membership type and you can create a maximum of 500 groups in a single tenant.
+With Microsoft Entra ID P1 or P2, you can create [role-assignable groups](groups-concept.md) and assign Microsoft Entra roles to these groups. You create a new role-assignable group by setting **Microsoft Entra roles can be assigned to the group** to **Yes** or by setting the `isAssignableToRole` property set to `true`. A role-assignable group can't be of dynamic membership type and you can create a maximum of 500 groups in a single tenant.
 
 This article describes how to create a role-assignable group using the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
 
 ## Prerequisites
 
-- Azure AD Premium P1 or P2 license
+- Microsoft Entra ID P1 or P2 license
 - [Privileged Role Administrator](./permissions-reference.md#privileged-role-administrator)
 - Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation?branch=main)
-- AzureAD module when using [Azure AD PowerShell](/powershell/azure/active-directory/overview?branch=main)
+- Azure AD PowerShell module when using [Azure AD PowerShell](/powershell/azure/active-directory/overview?branch=main)
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
@@ -44,7 +44,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 1. On the **New Group** page, provide group type, name and description.
 
-1. Set **Azure AD roles can be assigned to the group** to **Yes**.
+1. Set **Microsoft Entra roles can be assigned to the group** to **Yes**.
 
     This option is visible to only Privileged Role Administrators and Global Administrators because these are only two roles that can set this option.
 
@@ -56,7 +56,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
     You see the following message:
     
-    Creating a group to which Azure AD roles can be assigned is a setting that cannot be changed later. Are you sure you want to add this capability?
+    Creating a group to which Microsoft Entra roles can be assigned is a setting that cannot be changed later. Are you sure you want to add this capability?
 
     :::image type="content" source="media/groups-create-eligible/group-create-message.png" alt-text="Screenshot of confirm message when creating a role-assignable group." lightbox="media/groups-create-eligible/group-create-message.png":::
 
@@ -145,6 +145,6 @@ For this type of group, `isPublic` will always be false and `isSecurityEnabled` 
 
 ## Next steps
 
-- [Assign Azure AD roles to groups](groups-assign-role.md)
-- [Use Azure AD groups to manage role assignments](groups-concept.md)
-- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.yml)
+- [Assign Microsoft Entra roles to groups](groups-assign-role.md)
+- [Use Microsoft Entra groups to manage role assignments](groups-concept.md)
+- [Troubleshoot Microsoft Entra roles assigned to groups](groups-faq-troubleshooting.yml)

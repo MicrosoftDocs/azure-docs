@@ -29,7 +29,7 @@ Use the Visual IEF Editor to:
 
 To get started with the IEF Editor, ensure the following prerequisites are met:
 
-- An Azure AD subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/).
+- A Microsoft Entra subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/).
 - An Azure AD B2C tenant linked to the Azure subscription. Learn more at [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
 - [Visual IEF Editor](https://www.gritiefedit.com) is free and works only with Google Chrome browser.
 - Review and download policies from [Azure AD B2C customer policies starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)

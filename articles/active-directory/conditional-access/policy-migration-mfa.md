@@ -24,7 +24,7 @@ This article shows how to migrate a classic policy that requires **multifactor a
 The migration process consists of the following steps:
 
 1. [Open the classic policy](#open-a-classic-policy) to get the configuration settings.
-1. Create a new Azure AD Conditional Access policy to replace your classic policy. 
+1. Create a new Microsoft Entra Conditional Access policy to replace your classic policy. 
 1. Disable the classic policy.
 
 ## Open a classic policy
