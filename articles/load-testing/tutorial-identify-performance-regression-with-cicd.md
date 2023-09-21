@@ -96,7 +96,7 @@ To create a load test by uploading a JMeter script in the Azure portal:
 1. Select **Review + Create**, review the values, and then select **Create** to create and run the load test.
 
     > [!NOTE]
-    > It might take a few minutes for the load test finish running.
+    > After creating the load test, it might take a few minutes for the load test to finish running.
 
 ## Set up the CI/CD workflow from the Azure portal
 
