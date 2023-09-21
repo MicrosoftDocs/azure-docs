@@ -53,7 +53,7 @@ If you're unable to find answers by using self-help resources, you can open an o
 
     1. For **Subscription**, select your Azure subscription.
 
-    1. For **Service type**, select **Microsoft Entra Business to Consumer (B2C)**. This action shows **Summary** and **Problem type** fields. 
+    1. For **Service type**, select **Azure Active Directory Business to Consumer (B2C)**. This action shows **Summary** and **Problem type** fields. 
     
     1. For **Summary**, write a descriptive summary for your request. The summary needs to be under 140 characters.
   
