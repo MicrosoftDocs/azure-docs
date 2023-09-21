@@ -657,7 +657,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 ---
 
-## <a name="alerts-severity"></a>List alerts ordered by severity
+## List Azure Monitor alerts ordered by severity
 
 ```kusto
 alertsmanagementresources  
@@ -667,7 +667,7 @@ alertsmanagementresources
 | summarize AlertsCount = count() by Severity
  
 ```
-## <a name="alerts-severity-state"></a>List alerts ordered by severity and alert state
+## List Azure Monitor alerts ordered by severity and alert state
 
 ```kusto
 alertsmanagementresources
@@ -678,7 +678,7 @@ alertsmanagementresources
 | summarize AlertsCount = count() by Severity, AlertState
 ```
 
-## <a name="alerts-severity-service-type"></a>List alerts ordered by severity, monitor service, and target resource type 
+## List Azure Monitor alerts ordered by severity, monitor service, and target resource type 
 
 ```kusto
 alertsmanagementresources  
