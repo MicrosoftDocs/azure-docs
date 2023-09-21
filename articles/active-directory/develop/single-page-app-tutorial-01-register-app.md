@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Register a Single-page application with the Microsoft identity platform"
-description: Register an application in an Azure Active Directory tenant.
+description: Register an application in a Microsoft Entra tenant.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
@@ -15,7 +15,7 @@ ms.date: 02/27/2023
 
 # Tutorial: Register a Single-page application with the Microsoft identity platform
 
-To interact with the Microsoft identity platform, Azure Active Directory (Azure AD) must be made aware of the application you create. This tutorial shows you how to register a single-page application (SPA) in a tenant on the Microsoft Entra admin center.
+To interact with the Microsoft identity platform, Microsoft Entra ID must be made aware of the application you create. This tutorial shows you how to register a single-page application (SPA) in a tenant on the Microsoft Entra admin center.
 
 In this tutorial:
 
@@ -27,7 +27,7 @@ In this tutorial:
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-* This Azure account must have permissions to manage applications. Any of the following Azure AD roles include the required permissions:
+* This Azure account must have permissions to manage applications. Any of the following Microsoft Entra roles include the required permissions:
   * Application administrator
   * Application developer
   * Cloud application administrator

@@ -1,5 +1,5 @@
 ---
-title: Sign in with Microsoft branding guidelines | Azure AD
+title: Sign in with Microsoft branding guidelines | Microsoft Entra ID
 description: Learn about application branding guidelines for Microsoft identity platform.
 services: active-directory
 author: rwike77
@@ -17,11 +17,11 @@ ms.custom: aaddev, signin_art
 
 # Sign in with Microsoft: Branding guidelines for applications
 
-When developing applications with the Microsoft identity platform, you need to direct your customers when they want to use their work or school account (managed in Azure AD), or their personal account for sign-up and sign-in to your application.
+When developing applications with the Microsoft identity platform, you need to direct your customers when they want to use their work or school account (managed in Microsoft Entra ID), or their personal account for sign-up and sign-in to your application.
 
 In this article, you will:
 
-- Learn about the two kinds of user accounts managed by Microsoft and how to refer to Azure AD accounts in your application
+- Learn about the two kinds of user accounts managed by Microsoft and how to refer to Microsoft Entra accounts in your application
 - Learn the requirements for using the Microsoft logo in your app
 - Download the official **Sign in** or **Sign in with Microsoft** images to use in your app
 - Learn about the branding and navigation do's and don'ts
@@ -31,11 +31,13 @@ In this article, you will:
 Microsoft manages two kinds of user accounts:
 
 - **Personal accounts** (formerly known as Windows Live ID). These accounts represent the relationship between *individual* users and Microsoft, and are used to access consumer devices and services from Microsoft. These accounts are intended for personal use.
-- **Work or school accounts.** These accounts are managed by Microsoft on behalf of organizations that use Azure Active Directory. These accounts are used to sign in to Microsoft 365 and other business services from Microsoft.
+- **Work or school accounts.** These accounts are managed by Microsoft on behalf of organizations that use Microsoft Entra ID. These accounts are used to sign in to Microsoft 365 and other business services from Microsoft.
 
-Microsoft work or school accounts are typically assigned to end users (employees, students, federal employees) by their organizations (company, school, government agency). These accounts are mastered directly in the cloud (in the Azure AD platform) or synced to Azure AD from an on-premises directory, such as Windows Server Active Directory. Microsoft is the *custodian* of the work or school accounts, but the accounts are owned and controlled by the organization.
+Microsoft work or school accounts are typically assigned to end users (employees, students, federal employees) by their organizations (company, school, government agency). These accounts are mastered directly in the cloud (in Microsoft Entra ID) or synced to Microsoft Entra ID from an on-premises directory, such as Windows Server Active Directory. Microsoft is the *custodian* of the work or school accounts, but the accounts are owned and controlled by the organization.
 
-## Referring to Azure AD accounts in your application
+<a name='referring-to-azure-ad-accounts-in-your-application'></a>
+
+## Referring to Microsoft Entra accounts in your application
 
 Microsoft doesn’t expose end users to the Azure or the Active Directory brand names, and neither should you.
 
@@ -46,17 +48,19 @@ Microsoft doesn’t expose end users to the Azure or the Active Directory brand 
 
 In an earlier version of these guidelines, we recommended using a “blue badge” pictogram. Based on user and developer feedback, we now recommend the use of the Microsoft logo instead. The Microsoft logo helps users understand that they can reuse the account they use with Microsoft 365 or other Microsoft business services to sign into your app.
 
-## Signing up and signing in with Azure AD
+<a name='signing-up-and-signing-in-with-azure-ad'></a>
+
+## Signing up and signing in with Microsoft Entra ID
 
 Your app may present separate paths for sign-up and sign-in and the following sections provide visual guidance for both scenarios.
 
-**If your app supports end-user sign-up (for example, free to trial or freemium model)**: You can show a **sign-in** button that allows users to access your app with their work account or their personal account. Azure AD shows a consent prompt the first time they access your app.
+**If your app supports end-user sign-up (for example, free to trial or freemium model)**: You can show a **sign-in** button that allows users to access your app with their work account or their personal account. Microsoft Entra ID shows a consent prompt the first time they access your app.
 
 **If your app requires permissions that only admins can consent to, or if your app requires organizational licensing**: Separate admin acquisition from user sign-in. The **“get this app” button** will redirect admins to sign in then ask them to grant consent on behalf of users in their organization, which has the added benefit of suppressing end-user consent prompts to your app.
 
 ## Visual guidance for app acquisition
 
-Your “get the app” link must redirect the user to the Azure AD grant access (authorize) page, to allow an organization’s administrator to authorize your app to have access to their organization’s data, which is hosted by Microsoft. Details on how to request access are discussed in the [Integrating Applications with Azure Active Directory](./quickstart-register-app.md) article.
+Your “get the app” link must redirect the user to the Microsoft Entra grant access (authorize) page, to allow an organization’s administrator to authorize your app to have access to their organization’s data, which is hosted by Microsoft. Details on how to request access are discussed in the [Integrating Applications with Microsoft Entra ID](./quickstart-register-app.md) article.
 
 After admins consent to your app, they can choose to add it to their users’ Microsoft 365 app launcher experience (accessible from the waffle and from [https://www.office.com/](https://www.office.com/)). If you want to advertise this capability, you can use terms like “Add this app to your organization” and show a button like the following example:
 
@@ -74,11 +78,11 @@ To download the official Microsoft logo for use in your app, right-click the one
 
 ## Visual guidance for sign-in
 
-Your app should display a sign-in button that redirects users to the sign-in endpoint that corresponds to the protocol you use to integrate with Azure AD. The following section provides details on what that button should look like.
+Your app should display a sign-in button that redirects users to the sign-in endpoint that corresponds to the protocol you use to integrate with Microsoft Entra ID. The following section provides details on what that button should look like.
 
 ### Pictogram and “Sign in with Microsoft”
 
-It’s the association of the Microsoft logo and the “Sign in with Microsoft” terms that uniquely represent Azure AD amongst other identity providers your app may support. If you don’t have enough space for “Sign in with Microsoft,” it’s ok to shorten it to “Sign in.” You can use a light or dark color scheme for the buttons.
+It’s the association of the Microsoft logo and the “Sign in with Microsoft” terms that uniquely represent Microsoft Entra ID amongst other identity providers your app may support. If you don’t have enough space for “Sign in with Microsoft,” it’s ok to shorten it to “Sign in.” You can use a light or dark color scheme for the buttons.
 
 The following diagram shows the Microsoft-recommended redlines when using the assets with your app. The redlines apply to "Sign in with Microsoft" or the shorter "Sign in" version.
 
@@ -103,7 +107,7 @@ Microsoft UI string translations can be used to ensure that translations in the 
 
 **DO** use “work or school account” in combination with the "Sign in with Microsoft" button to provide additional explanation to help end users recognize whether they can use it. **DON’T** use other terms such as “enterprise account”, “business account” or “corporate account.”
 
-**DON’T** use “Microsoft 365 ID” or “Azure ID.” Microsoft 365 is also the name of a consumer offering from Microsoft, which doesn’t use Azure AD for authentication.
+**DON’T** use “Microsoft 365 ID” or “Azure ID.” Microsoft 365 is also the name of a consumer offering from Microsoft, which doesn’t use Microsoft Entra ID for authentication.
 
 **DON’T** alter the Microsoft logo.
 

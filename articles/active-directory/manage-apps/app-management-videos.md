@@ -1,6 +1,6 @@
 ---
 title: Application management videos
-description: A list of videos about app registrations, enterprise apps, consent and permissions, and app ownership and assignment in Azure AD
+description: A list of videos about app registrations, enterprise apps, consent and permissions, and app ownership and assignment in Microsoft Entra ID
 services: azure AD
 author: omondiatieno
 manager: CelesteDG
@@ -21,7 +21,7 @@ Learn about the key concepts of application management such as App registrations
 
 ## App registrations and Enterprise apps
 
-Learn about the different use cases and personas involved in App Registrations and Enterprise Apps and how developers and admins interact with each option to manage applications in Azure AD.
+Learn about the different use cases and personas involved in App Registrations and Enterprise Apps and how developers and admins interact with each option to manage applications in Microsoft Entra ID.
 ___
 
 :::row:::
@@ -75,7 +75,7 @@ ___
 
 :::row:::
     :::column:::
-        1 - [How can you ensure healthy ownership to manage your Azure AD app ecosystem?](https://www.youtube.com/watch?v=akOrP3mP4UQ&list=PLlrxD0HtieHiBPIyUWkqVzoMrgfwKi4dY&index=1)(2:13)
+        1 - [How can you ensure healthy ownership to manage your Microsoft Entra app ecosystem?](https://www.youtube.com/watch?v=akOrP3mP4UQ&list=PLlrxD0HtieHiBPIyUWkqVzoMrgfwKi4dY&index=1)(2:13)
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/akOrP3mP4UQ]
@@ -100,9 +100,11 @@ ___
     :::column-end:::
 :::row-end:::
 
-## Phases of migrating apps from ADFS to Azure AD
+<a name='phases-of-migrating-apps-from-adfs-to-azure-ad'></a>
 
-Learn about the different phases of migrating apps from ADFS to Azure AD and the steps involved in each phase. View a demo on how to migrate a simple app from ADFS to Azure AD and the steps you need to take to ensure a successful migration.
+## Phases of migrating apps from ADFS to Microsoft Entra ID
+
+Learn about the different phases of migrating apps from ADFS to Microsoft Entra ID and the steps involved in each phase. View a demo on how to migrate a simple app from ADFS to Microsoft Entra ID and the steps you need to take to ensure a successful migration.
 
 ___
 
