@@ -15,15 +15,15 @@ ms.custom: devx-track-azurecli
 
 **Applies to:** :heavy_check_mark: Hardened Linux Images
 
-Virtual machine scale set deployments using images from Azure marketplace can be done follwoing the steps described for standard [VMSS deployments](/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-cli). 
+Virtual machine scale set deployments using images from Azure marketplace can be done following the steps described for standard [VMSS deployments](/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-cli). 
 
-However, if you have chosen to create a hardened linux image by removing the Azure guest agents, it's crucial to comprehend what functionalities the VM loses before deciding to remove the Azure Linux Agent, and how it affects vmss deployment.
+However, if you have chosen to create a hardened linux image by removing the Azure guest agents, it's crucial to comprehend what functionalities the VM loses before you decide to remove the Azure Linux Agent, and how it affects vmss deployment.
 
 This "how to" document describes the steps to deploy a virtual machine scale set instance while comprehending the functional limitations of the hardened image on deploying the vmss instance.
 ## Prerequisites
 
 - Azure subscription - If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- If your free trial accounts doesn't have access to the VMs used in this tutorial, one option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
+- If your free trial accounts don't have access to the VMs used in this tutorial, one option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
 - A hardened linux image - you can create one from this [article](/articles/confidential-computing/harden-a-linux-image-to-remove-azure-guest-agent.md).
   
 ### VMSS confidential VM deployment from a hardened Linux image
@@ -36,7 +36,7 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
    
     [Harden a Linux image to remove sudo users](/articles/confidential-computing/harden-the-linux-image-to-remove-sudo-users.md).
 
-2. Log into the Azure CLI.
+2. Log in to the Azure CLI.
 
     Make sure that you've installed the latest [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-az-cli2) and are logged in to an Azure account with [az login](https://learn.microsoft.com/en-us/cli/azure/reference-index).
 
@@ -95,7 +95,7 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 
 6. Access the virtual machine scale set from the portal.
 
-    You can access you cvm scale set and use the admin username and password set previosuly to login. Please note that if you choose to update the amind credentilas, do so directly in the scale set model using the cli.
+    You can access your cvm scale set and use the admin username and password set previously to log in. Please note that if you choose to update the admin credentials, do so directly in the scale set model using the cli.
 
 > [!NOTE]
 > If you are looking to deploy cvm scaled scale using the custom hardened image, please note that some features related to auto scaling will be restricted. Will manual scaling rules continue to work as expected, the autoscaling ability will be limited due to the agentless custom image. More details on the restrictions can be found here for the [provisioning agent](/azure/virtual-machines/linux/disable-provisioning). Alternatively, you can navigate to the metrics tab on the azure portal and confirm the same.
@@ -103,4 +103,4 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 
 ## Next Steps
 
-In this article, you learned how to deploy a virtual machine scale set instance with a hardedned linux image. For more information about CVM, see [DCasv5 and ECasv5 series confidential VMs](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-vm-overview).
+In this article, you learned how to deploy a virtual machine scale set instance with a hardened linux image. For more information about CVM, see [DCasv5 and ECasv5 series confidential VMs](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-vm-overview).
