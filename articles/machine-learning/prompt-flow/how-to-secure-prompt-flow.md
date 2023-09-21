@@ -48,23 +48,24 @@ Workspace managed virtual network is the recommended way to support network isol
 
     2.1 Go to azure portal, find the workspace.
 
-    ![From AzureML portal to Azure portal](./media/how-to-secure-prompt-flow/go_to_azure_portal.png)
+    :::image type="content" source="./media/how-to-secure-prompt-flow/go-to-azure-portal.png" alt-text="Diagram showing how to go from AzureML portal to Azure portal." lightbox = "./media/how-to-secure-prompt-flow/go-to-azure-portal.png":::
+
 
     2.2 Find the storage account linked with workspace.
 
-    ![Find workspace linked storage account in Azure portal](./media/how-to-secure-prompt-flow/linked_storage.png)
+    :::image type="content" source="./media/how-to-secure-prompt-flow/linked-storage.png" alt-text="Diagram showing how to find workspace linked storage account in Azure portal." lightbox = "./media/how-to-secure-prompt-flow/linked-storage.png":::
 
     2.3 Jump to role assignment page of storage account.
 
-    ![Jump to role assignment of storage account](./media/how-to-secure-prompt-flow/add_role_storage.png)
+    :::image type="content" source="./media/how-to-secure-prompt-flow/add-role-storage.png" alt-text="Diagram showing how to jump to role assignment of storage account." lightbox = "./media/how-to-secure-prompt-flow/add-role-storage.png":::
 
     2.4 Find storage file data privileged contributor role.
 
-    ![find storage file data privileged contributor role](./media/how-to-secure-prompt-flow/storage-file-data-privileged-contributor.png)
+    :::image type="content" source="./media/how-to-secure-prompt-flow/storage-file-data-privileged-contributor.png" alt-text="Diagram showing how to find storage file data privileged contributor role." lightbox = "./media/how-to-secure-prompt-flow/storage-file-data-privileged-contributor.png":::
     
     2.5 Assign storage file data privileged contributor role to workspace managed identity.
 
-    ![Assign storage file data privileged contributor role to workspace managed identity](./media/how-to-secure-prompt-flow/managed-identity-workspace.png)
+    :::image type="content" source="./media/how-to-secure-prompt-flow/managed-identity-workspace.png" alt-text="Diagram showing how to assign storage file data privileged contributor role to workspace managed identity." lightbox = "./media/how-to-secure-prompt-flow/managed-identity-workspace.png":::
 
     > [!NOTE]
     > This operation may take several minutes to take effect.
@@ -75,24 +76,24 @@ Workspace managed virtual network is the recommended way to support network isol
 
     :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-private-endpoint-approve.png" alt-text="Screenshot of user approve private endpoint." lightbox = "./media/how-to-secure-prompt-flow/outbound-private-endpoint-approve.png":::
 
-3. If you're restricting outbound traffic to only allow specific destinations, you must add a corresponding user-defined outbound rule to allow the relevant FQDN.
+4. If you're restricting outbound traffic to only allow specific destinations, you must add a corresponding user-defined outbound rule to allow the relevant FQDN.
 
     :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-rule-non-azure-resources.png" alt-text="Screenshot of user defined outbound rule for non Azure resource." lightbox = "./media/how-to-secure-prompt-flow/outbound-rule-non-azure-resources.png":::
 
-4. In workspace which enable managed VNet, you can only deploy prompt flow to managed online endpoint. You can follow [Secure your managed online endpoints with network isolation](../how-to-secure-kubernetes-inferencing-environment.md) to secure your managed online endpoint.
+5. In workspaces that enable managed VNet, you can only deploy prompt flow to managed online endpoint. You can follow [Secure your managed online endpoints with network isolation](../how-to-secure-kubernetes-inferencing-environment.md) to secure your managed online endpoint.
 
 ## Secure prompt flow use your own virtual network
 
 - To set up Azure Machine Learning related resources as private, see [Secure workspace resources](../how-to-secure-workspace-vnet.md).
 - Add workspace MSI as `Storage File Data Privileged Contributor` to storage account linked with workspace. Please follow step 2 in [Secure prompt flow with workspace managed virtual network](#secure-prompt-flow-with-workspace-managed-virtual-network).
 - Meanwhile, you can follow [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md) to make them as private.
-- If you want to deploy prompt flow in workspace which secured by your own virtual network, you can deploy it to AKS cluster which is in the same virtual network. You can follow [Secure your RAG workflows with network isolation](../how-to-secure-rag-workflows.md) to secure your AKS cluster.
+- If you want to deploy prompt flow in workspace which secured by your own virtual network, you can deploy it to AKS cluster which is in the same virtual network. You can follow [Secure Azure Kubernetes Service inferencing environment](../how-to-secure-kubernetes-inferencing-environment.md) to secure your AKS cluster.
 - You can either create private endpoint to the same virtual network or leverage virtual network peering to make them communicate with each other.
 
 ## Known limitations
 
 - Workspace hub / lean workspace and AI studio don't support bring your own virtual network.
-- Org registry didn't suport managed virtual network.
+- Org registry didn't support managed virtual network.
 - Managed online endpoint only supports workspace with managed virtual network. If you want to use your own virtual network, you may need one workspace for prompt flow authoring with your virtual network and another workspace for prompt flow deployment using managed online endpoint with workspace managed virtual network.
 
 ## Next steps
