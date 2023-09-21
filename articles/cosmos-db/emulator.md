@@ -47,7 +47,7 @@ Every request made against the emulator must be authenticated using a key over T
 | **Connection string** | `AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;` |
 
 > [!TIP]
-> With the Windows (local) emulator, you can also customize the key used by the emulator. For more information, see [Windows emulator arguments](emulator-command-line-parameters.md#manage-the-emulator-with-command-line-syntax).
+> With the Windows (local) emulator, you can also customize the key used by the emulator. For more information, see [Windows emulator arguments](emulator-windows-arguments.md).
 
 ## Import emulator certificate
 
@@ -56,4 +56,4 @@ In some cases, you may wish to manually import the TLS/SS certificate from the e
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Get started with Azure Cosmos DB](../index.yml)
+> [Get started using the Azure Comsos DB emulator for development](how-to-develop-emulator.md)
