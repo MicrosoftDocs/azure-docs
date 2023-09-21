@@ -182,8 +182,10 @@ sudo mv ./bicep /usr/local/bin/bicep
 # Verify you can now access the 'bicep' command
 bicep --help
 # Done!
-
 ```
+
+> [!NOTE]
+> The installation of Bicep CLI version 0.16 or newer does not need Gatekeeper exception. However, [nightly builds](#install-the-nightly-builds) of the Bicep CLI still require the exception.
 
 ### Windows
 
