@@ -11,8 +11,6 @@ ms.subservice: report-monitor
 ms.date: 09/21/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
-
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft Entra recommendation: Migrate to Microsoft Authenticator (preview)

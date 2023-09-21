@@ -12,8 +12,6 @@ ms.subservice: report-monitor
 ms.date: 09/21/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
-
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft Entra recommendation: Switch from per-user MFA to Conditional Access MFA
