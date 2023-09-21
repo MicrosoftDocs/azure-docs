@@ -96,7 +96,7 @@ Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in,
 
 ## User flow authentication methods (beta)
 
-Choose a mechanism for letting users register via local accounts. Local accounts are the accounts where Microsoft Entra ID does the identity assertion. For more information, see [b2cAuthenticationMethodsPolicy resource type](/graph/api/resources/b2cauthenticationmethodspolicy).
+Choose a mechanism for letting users register via local accounts. Local accounts are the accounts where Azure AD B2C does the identity assertion. For more information, see [b2cAuthenticationMethodsPolicy resource type](/graph/api/resources/b2cauthenticationmethodspolicy).
 
 - [Get](/graph/api/b2cauthenticationmethodspolicy-get)
 - [Update](/graph/api/b2cauthenticationmethodspolicy-update)

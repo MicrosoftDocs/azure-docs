@@ -54,7 +54,7 @@ With [Conditional Access](conditional-access-identity-protection-overview.md) us
 1. Select **User flows**.
 1. Select the user flow for which you want to enable MFA. For example, *B2C_1_signinsignup*.
 1. Select **Properties**.
-1. In the **multifactor authentication** section, select the desired **Type of method**. Then under **MFA enforcement** select an option:
+1. In the **Multifactor authentication** section, select the desired **Type of method**. Then under **MFA enforcement** select an option:
 
    - **Off** - MFA is never enforced during sign-in, and users are not prompted to enroll in MFA during sign-up or sign-in.
    - **Always on** - MFA is always required, regardless of your Conditional Access setup. During sign-up, users are prompted to enroll in MFA. During sign-in, if users aren't already enrolled in MFA, they're prompted to enroll.

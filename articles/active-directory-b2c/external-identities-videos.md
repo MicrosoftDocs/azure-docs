@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Microsoft Azure Active Directory B2C external identity video series
 
-Learn the basics of External Identities - Azure Active Directory B2C (Azure AD B2C) and Microsoft Entra B2B (Microsoft Entra B2B) in the Microsoft identity platform.
+Learn the basics of External Identities - Azure Active Directory B2C (Azure AD B2C) and Microsoft Entra B2B in the Microsoft identity platform.
 
 ## Azure Active Directory B2C architecture deep dive series
 

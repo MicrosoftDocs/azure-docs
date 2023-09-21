@@ -59,7 +59,8 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 Go to docs.datawiza.com to: 
 
-1. Learn how to register your web application in an Azure AD B2C tenant, and configure a sign up-and sign-in user flow . See, [Microsoft Entra B2C](https://docs.datawiza.com/idp/azureb2c.html#microsoft-azure-ad-b2c-configuration).
+1. Learn how to register your web application in an Azure AD B2C tenant, and configure a sign up-and sign-in user flow. For more info, see [Azure AD B2C](https://docs.datawiza.com/idp/azureb2c.html#microsoft-azure-ad-b2c-configuration).
+
 2. [Configure a user flow](https://docs.datawiza.com/idp/azureb2c.html#configure-a-user-flow) in the Azure portal.
 
 >[!NOTE]

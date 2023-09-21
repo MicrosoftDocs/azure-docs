@@ -23,7 +23,7 @@ The following tables provide links to samples for applications including iOS, An
 |--------| ----------- |
 | [dotnet-webapp-and-webapi](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi) | A combined sample for a .NET web application that calls a .NET Web API, both secured using Azure AD B2C. |
 | [dotnetcore-webapp-openidconnect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C) | An ASP.NET Core web application that uses OpenID Connect to sign in users in Azure AD B2C. |
-| [dotnetcore-webapp-MSAL-api](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C) | An ASP.NET Core web application that can sign in a user using Azure AD B2C, get an access token using MSAL.NET and call an API. |
+| [dotnetcore-webapp-msal-api](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C) | An ASP.NET Core web application that can sign in a user using Azure AD B2C, get an access token using MSAL.NET and call an API. |
 | [auth-code-flow-nodejs](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp) | A Node.js app that shows how to enable authentication (sign in, sign out and profile edit) in a Node.js web application using Azure Active Directory B2C. The web app uses MSAL-node.|
 | [javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | A small Node.js Web API for Azure AD B2C that shows how to protect your web api and accept B2C access tokens using passport.js. |
 | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/main/README_B2C.md) | Demonstrate how to Integrate B2C of Microsoft identity platform with a Python web application.  |
@@ -41,8 +41,8 @@ The following tables provide links to samples for applications including iOS, An
 
 | Sample | Description |
 |--------| ----------- |
-| [ios-swift-native-MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal) | An iOS sample in Swift that authenticates Azure AD B2C users and calls an API using OAuth 2.0 |
-| [android-native-MSAL](https://github.com/Azure-Samples/ms-identity-android-java#b2cmodefragment-class) | A simple Android app showcasing how to use MSAL to authenticate users via Azure Active Directory B2C, and access a Web API with the resulting tokens. |
+| [ios-swift-native-msal](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal) | An iOS sample in Swift that authenticates Azure AD B2C users and calls an API using OAuth 2.0 |
+| [android-native-msal](https://github.com/Azure-Samples/ms-identity-android-java#b2cmodefragment-class) | A simple Android app showcasing how to use MSAL to authenticate users via Azure Active Directory B2C, and access a Web API with the resulting tokens. |
 | [ios-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth) | A sample that shows how you can use a third-party library to build an iOS application in Objective-C that authenticates Microsoft identity users to our Azure AD B2C identity service. |
 | [android-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth) | A sample that shows how you can use a third-party library to build an Android application that authenticates Microsoft identity users to our B2C identity service and calls a web API using OAuth 2.0 access tokens. |
 | [dotnet-desktop](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) | A sample that shows how a Windows Desktop .NET (WPF) application can sign in a user using Azure AD B2C, get an access token using MSAL.NET and call an API. |

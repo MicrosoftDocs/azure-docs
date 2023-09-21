@@ -96,7 +96,7 @@ Now that you've registered your management application and have granted it the r
 * [Use the access token to call Microsoft Graph](/graph/auth-v2-service#4-get-an-access-token)
 * [B2C operations supported by Microsoft Graph](microsoft-graph-operations.md)
 * [Manage Azure AD B2C user accounts with Microsoft Graph](microsoft-graph-operations.md)
-* [Get audit logs with the Microsoft Entra ID reporting API](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
+* [Get audit logs with the Microsoft Entra reporting API](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->
 [ms-graph]: /graph/

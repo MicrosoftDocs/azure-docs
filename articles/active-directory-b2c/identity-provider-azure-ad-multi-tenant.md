@@ -209,6 +209,6 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 ## Next steps
 
 - Learn how to [pass the Microsoft Entra token to your application](idp-pass-through-user-flow.md).
-- Check out the Microsoft Entra multi-tenant federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory), and how to pass Microsoft Entra ID access token [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory-with-access-token)
+- Check out the Microsoft Entra multi-tenant federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory), and how to pass Microsoft Entra access token [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory-with-access-token)
 
 ::: zone-end
