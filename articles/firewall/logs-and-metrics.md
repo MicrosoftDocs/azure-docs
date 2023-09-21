@@ -169,7 +169,7 @@ The following metrics are available for Azure Firewall:
   - Status: Possible values are *Healthy*, *Degraded*, *Unhealthy*.
   - Reason: Indicates the reason for the corresponding status of the firewall. 
 
-     If SNAT ports are used > 95%, they are considered exhausted and the health is 50% with status=**Degraded** and reason=**SNAT port**. The firewall keeps processing traffic and existing connections are not affected. However, new connections may not be established intermittently.
+     If SNAT ports are used > 95%, they're considered exhausted and the health is 50% with status=**Degraded** and reason=**SNAT port**. The firewall keeps processing traffic and existing connections aren't affected. However, new connections may not be established intermittently.
 
      If SNAT ports are used < 95%, then firewall is considered healthy and health is shown as 100%.
 
@@ -185,9 +185,9 @@ The following metrics are available for Azure Firewall:
 
 - **AZFW Latency Probe** - Estimates Azure Firewall average latency.
 
-   Unit: m/s
+   Unit: ms
 
-   This metric measures the overall or average latency of Azure Firewall. Administrators can use this metric for the following purposes: 
+   This metric measures the overall or average latency of Azure Firewall in milliseconds. Administrators can use this metric for the following purposes: 
 
    - Diagnose if Azure Firewall is the cause of latency in the network 
 
@@ -195,10 +195,13 @@ The following metrics are available for Azure Firewall:
 
    - There may be various reasons that can cause high latency in Azure Firewall. For example, high CPU utilization, high throughput, or a possible networking issue.
 
-     This metric does not measure end-to-end latency of a given network path. In other words, this latency health probe does not measure how much latency Azure Firewall adds.
+     This metric doesn't measure end-to-end latency of a given network path. In other words, this latency health probe doesn't measure how much latency Azure Firewall adds.
 
-   - When the latency metric is not functioning as expected, a value of 0 appears in the metrics dashboard.
-   - As a reference, the average expected latency for a firewall is approximately 1 m/s. This may vary depending on deployment size and environment.   
+   - When the latency metric isn't functioning as expected, a value of 0 appears in the metrics dashboard.
+   - As a reference, the average expected latency for a firewall is approximately 1 ms. This may vary depending on deployment size and environment.
+   -  The latency probe is based on Microsoft's Ping Mesh technology. So, intermittent spikes in the latency metric are to be expected. These spikes are normal and don't signal an issue with the Azure Firewall. They're part of the standard host networking setup that supports the system.
+   
+      As a result, if you experience consistent high latency that last longer than typical spikes, consider filing a Support ticket for assistance.
 
 ## Next steps
 

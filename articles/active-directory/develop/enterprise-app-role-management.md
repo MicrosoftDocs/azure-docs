@@ -1,6 +1,6 @@
 ---
 title: Configure the role claim
-description: Learn how to configure the role claim issued in the SAML token for enterprise applications in Azure Active Directory.
+description: Learn how to configure the role claim issued in the SAML token for enterprise applications in Microsoft Entra ID.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -20,7 +20,7 @@ You can customize the role claim in the access token that is received after an a
 
 ## Prerequisites
 
-- An Azure AD subscription with a configured tenant. For more information, see [Quickstart: Set up a tenant](quickstart-create-new-tenant.md).
+- A Microsoft Entra subscription with a configured tenant. For more information, see [Quickstart: Set up a tenant](quickstart-create-new-tenant.md).
 - An enterprise application that has been added to the tenant. For more information, see [Quickstart: Add an enterprise application](../manage-apps/add-application-portal.md).
 - Single sign-on (SSO) configured for the application. For more information, see [Enable single sign-on for an enterprise application](../manage-apps/add-application-portal-setup-sso.md).
 - A user account that is assigned to the role. For more information, see [Quickstart: Create and assign a user account](../manage-apps/add-application-portal-assign-users.md).

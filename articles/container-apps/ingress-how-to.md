@@ -39,8 +39,6 @@ You can configure ingress for your container app using the Azure CLI, an ARM tem
 
 ::: zone pivot="azure-cli"
 
-# [Azure CLI](#tab/azure-cli)
-
 This `az containerapp ingress enable` command enables ingress for your container app.  You must specify the target port, and you can optionally set the exposed port if your transport type is `tcp`.
 
 ```azurecli
@@ -68,8 +66,6 @@ az containerapp ingress enable \
 
 ::: zone pivot="azure-portal"
 
-# [Portal](#tab/portal)
-
 Enable ingress for your container app by using the portal.
 
 You can enable ingress when you create your container app, or you can enable ingress for an existing container app.  
@@ -79,7 +75,6 @@ You can enable ingress when you create your container app, or you can enable ing
 ### Enabling ingress for your container app:
 
 You can configure ingress when you create your container app by using the Azure portal.
-
 
 1. Set **Ingress** to **Enabled**.
 1. Configure the ingress settings for your container app.
@@ -95,8 +90,6 @@ The **Ingress** settings page for your container app also allows you to configur
 ::: zone-end
 
 ::: zone pivot="azure-resource-manager"
-
-# [ARM template](#tab/arm-template)
 
 Enable ingress for your container app by using the `ingress` configuration property.  Set the `external` property to `true`, and set your `transport` and `targetPort` properties.  
 -`external` property can be set to *true* for external or *false* for internal ingress.
@@ -118,15 +111,11 @@ Enable ingress for your container app by using the `ingress` configuration prope
 }
 ```
 
----
-
 ::: zone-end
 
 ::: zone pivot="azure-cli"
 
 ## Disable ingress
-
-# [Azure CLI](#tab/azure-cli)
 
 Disable ingress for your container app by using the `az containerapp ingress` command.
 
@@ -140,8 +129,6 @@ az containerapp ingress disable \
 
 ::: zone pivot="azure-portal"
 
-# [Portal](#tab/portal)
-
 You can disable ingress for your container app  using the portal.
 
 1. Select **Ingress** from the **Settings** menu of the container app page.
@@ -154,11 +141,7 @@ You can disable ingress for your container app  using the portal.
 
 ::: zone pivot="azure-resource-manager"
 
-# [ARM template](#tab/arm-template)
-
 Disable ingress for your container app by omitting the `ingress` configuration property from `properties.configuration` entirely.
-
----
 
 ::: zone-end
 
@@ -168,8 +151,6 @@ You can expose additional TCP ports from your application. To learn more, see th
 
 
 ::: zone pivot="azure-cli"
-
-# [Azure CLI](#tab/azure-cli)
 
 Adding additional TCP ports can be done through the CLI by referencing a YAML file with your TCP port configurations.
 
@@ -219,15 +200,11 @@ type: Microsoft.App/containerApps
 
 ::: zone pivot="azure-portal"
 
-# [Portal](#tab/portal)
-
 This feature is not supported in the Azure portal.
 
 ::: zone-end
 
 ::: zone pivot="azure-resource-manager"
-
-# [ARM template](#tab/arm-template)
 
 The following ARM template provides an example of how you can add additional ports to your container apps. Each additional port should be added under `additionalPortMappings` within the `ingress` section for `configuration` within `properties` for the container app. The following is an example:
 
@@ -251,8 +228,6 @@ The following ARM template provides an example of how you can add additional por
   ...
 }
 ```
-
----
 
 ::: zone-end
 

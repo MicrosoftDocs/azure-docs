@@ -54,11 +54,9 @@ These triggers to Logic Apps are controlled in a tab within access package polic
 
 **Prerequisite roles:** Global administrator, Identity Governance administrator, Catalog owner or Resource Group Owner 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**. 
-
-1. In the left menu, select **Catalogs**. 
+1. Browse to **Identity governance** > **Catalogs**.
 
 1. Select the catalog for which you want to add a custom extension and then in the left menu, select **Custom Extensions**. 
 
@@ -123,17 +121,15 @@ These triggers to Logic Apps are controlled in a tab within access package polic
 
 **Prerequisite roles:** Global administrator, Identity Governance administrator, Catalog owner, or Access package manager 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**. 
-
-1. In the left menu, select **Access packages**. 
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
 1. Select the access package you want to add a custom extension (logic app) to from the list of access packages that have already been created.  
 
     > [!NOTE]  
     > Select **New access package** if you want to create a new access package.
-    > For more information about how to create an access package, see [Create a new access package in entitlement management](entitlement-management-access-package-create.md).  For more information about how to edit an existing access package, see [Change request settings for an access package in Azure AD entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings).
+    > For more information about how to create an access package, see [Create a new access package in entitlement management](entitlement-management-access-package-create.md).  For more information about how to edit an existing access package, see [Change request settings for an access package in Microsoft Entra entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings).
 
 1. Change to the policy tab, select the policy and select **Edit**.
 
@@ -159,7 +155,7 @@ For newly created Logic Apps linked to custom extensions, these Logic Apps begin
 
 1. Select the Logic App under the Logic app column for the associated custom extension row. This allows you to edit or create the workflow in Logic App designer.  
 
-For more information on creating logic app workflows, see [Quickstart: Create an example Consumption workflow in multi-tenant Azure Logic Apps with the Azure portal](../../logic-apps/quickstart-create-example-consumption-workflow.md).
+For more information on creating logic app workflows, see [Quickstart: Create an example Consumption workflow in multi-tenant Azure Logic Apps](../../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 
 ## Configuring custom extensions that pause entitlement management processes

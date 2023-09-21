@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to integrate SAP NetWeaver with Azure Active 
 
 * Control in Azure AD who has access to SAP NetWeaver.
 * Enable your users to be automatically signed-in to SAP NetWeaver with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
@@ -44,10 +44,8 @@ To get started, you need the following items:
 
 To configure the integration of SAP NetWeaver into Azure AD, you need to add SAP NetWeaver from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **SAP NetWeaver** in the search box.
 1. Select **SAP NetWeaver** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
@@ -69,7 +67,7 @@ To configure and test Azure AD SSO with SAP NetWeaver, perform the following ste
 
 ## Configure Azure AD SSO
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+In this section, you enable Azure AD single sign-on.
 
 To configure Azure AD single sign-on with SAP NetWeaver, perform the following steps:
 
@@ -98,7 +96,7 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 
 	c. Double-click on relevant client to enable HTTP security session.
 
-	![The HTTP Security session ](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
+	![The HTTP Security session](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
 
 	d. Activate below SICF services:
     ```
@@ -132,9 +130,10 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 
 	c. Save the generated **Metadata XML file** on your computer and upload it in **Basic SAML Configuration** section to autopopulate the **Identifier** and **Reply URL** values in Azure portal.
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO.
 
-1. In the Azure portal, on the **SAP NetWeaver** application integration page, find the **Manage** section and select **Single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SAP NetWeaver** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -186,22 +185,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   	1. In the **Name** field, enter `B.Simon`.  
-   	1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   	1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   	1. Click **Create**.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to SAP NetWeaver.
+In this section, you'll enable B.Simon to use single sign-on by granting access to SAP NetWeaver.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **SAP NetWeaver**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SAP NetWeaver**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
@@ -220,7 +221,7 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 	![Configure Single Sign-On 2](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_uploadmetadata.png)
 
-4. Upload metadata file, which you have downloaded from the Azure portal.
+4. Upload metadata file, which you have downloaded.
 
 	![Configure Single Sign-On 3](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
 
@@ -262,7 +263,7 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 1. Give the **User ID Source** value as **Assertion Attribute**, **User ID mapping mode** value as **Email** and **Assertion Attribute Name** as `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-	![Configure Single Sign-On ](./media/sapnetweaver-tutorial/nameid-format.png)
+	![Configure Single Sign-On](./media/sapnetweaver-tutorial/nameid-format.png)
 
 14. Note that **User ID Source** and **User ID mapping mode** values determine the link between SAP user and Azure AD claim.
 

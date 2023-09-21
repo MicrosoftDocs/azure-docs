@@ -1,7 +1,6 @@
 ---
-
-title: How to use the Sign-in diagnostic
-description: Information on how to use the Sign-in diagnostic in Azure Active Directory.
+title: How to use Azure Active Directory Sign-in diagnostics
+description: How to use the Sign-in diagnostic in tool Azure Active Directory to troubleshoot sign-in related scenarios.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -9,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/22/2023
+ms.date: 08/24/2023
 ms.author: sarahlipsey
 ms.reviewer: tspring  
 
@@ -23,7 +22,16 @@ Determining the reason for a failed sign-in can quickly become a challenging tas
 
 This article gives you an overview of what the Sign-in diagnostic is and how you can use it to troubleshoot sign-in related errors. 
 
-## How it works  
+## Prerequisites
+
+To use the Sign-in diagnostic:
+- You must be signed as at least a **Global Reader**.
+- With the correct access level, you can start the Sign-in diagnostic from more than one place.
+- Flagged sign-in events can also be reviewed from the Sign-in diagnostic.
+    - Flagged sign-in events are captured *after* a user has enabled flagging during their sign-in experience.
+    - For more information, see [flagged sign-ins](overview-flagged-sign-ins.md).
+
+## How does it work?
 
 In Azure AD, sign-in attempts are controlled by:
 
@@ -38,19 +46,14 @@ Due to the greater flexibility of the system to respond to a sign-in attempt, yo
 - Displaying information about what happened.  
 - Providing recommendations to resolve problems.  
 
-## How to access it
-
-To use the Sign-in diagnostic, you must be signed into the tenant as a **Global Reader** or **Global Administrator**. With the correct access level, you can start the Sign-in diagnostic from more than one place.
-
-Flagged sign-in events can also be reviewed from the Sign-in diagnostic. Flagged sign-in events are captured *after* a user has enabled flagging during their sign-in experience. For more information, see [flagged sign-ins](overview-flagged-sign-ins.md).
-
 ### From Diagnose and Solve Problems
 
 You can start the Sign-in diagnostic from the **Diagnose and Solve Problems** area of Azure AD. From Diagnose and Solve Problems you can review any flagged sign-in events or search for a specific sign-in event. You can also start this process from the Conditional Access Diagnose and Solve Problems area.
 
 **To search for sign-in events**:
-1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privilege role.
-1. Browse to **Azure AD** or **Azure AD Conditional Access** > **Diagnose and Solve Problems**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
+1. Browse to **Learn & support** > **Diagnose & solve problems** or **Protection** **Conditional Access** > **Diagnose and Solve Problems**. 
+1. Select the **Troubleshoot** link on the **Sign-in Diagnostic** tile.
 1. Select the **All Sign-In Events** tab to start a search. 
 1. Enter as many details as possible into the search fields.
     - **User**: Provide the name or email address of who made the sign-in attempt.
@@ -64,7 +67,7 @@ You can start the Sign-in diagnostic from the **Diagnose and Solve Problems** ar
 
 You can start the Sign-in diagnostic from a specific sign-in event in the Sign-in logs. When you start the process from a specific sign-in event, the diagnostics start right away. You aren't prompted to enter details first.
 
-1. Browse to **Azure AD** > **Monitoring** > **Sign-in logs** and select a sign-in event.
+1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs** and select a sign-in event.
     - You can filter your list to make it easier to find specific sign-in events. 
 1. From the Activity Details window that opens, select the **Launch the Sign-in diagnostic** link.
 
@@ -75,7 +78,7 @@ You can start the Sign-in diagnostic from a specific sign-in event in the Sign-i
 
 If you're in the middle of creating a support request *and* the options you selected are related to sign-in activity, you'll be prompted to run the Sign-in diagnostics during the support request process.
 
-1. Browse to **Azure AD** > **Diagnose and Solve Problems**.
+1. Browse to **Diagnose and Solve Problems**.
 1. Select the appropriate fields as necessary. For example:
     - **Service type**: Azure Active Directory Sign-in and Multi-Factor Authentication
     - **Problem type**: Multi-Factor Authentication
@@ -88,15 +91,15 @@ If you're in the middle of creating a support request *and* the options you sele
 
 After the Sign-in diagnostic completes its search, a few things appear on the screen:
 
-- The **Authentication Summary** lists all of the events that match the details you provided.
+- The **Authentication summary** lists all of the events that match the details you provided.
     - Select the **View Columns** option in the upper-right corner of the summary to change the columns that appear.
-- The **diagnostic Results** describe what happened during the sign-in events.
+- The **Diagnostic results** describe what happened during the sign-in events.
     - Scenarios could include MFA requirements from a Conditional Access policy, sign-in events that may need to have a Conditional Access policy applied, or a large number of failed sign-in attempts over the past 48 hours.
     - Related content and links to troubleshooting tools may be provided. 
     - Read through the results to identify any actions that you can take.
     - Because it's not always possible to resolve issues without more help, a recommended step might be to open a support ticket. 
     
-    ![Screenshot of the diagnostic Results for a scenario.](media/howto-use-sign-in-diagnostics/diagnostic-result-mfa-proofup.png)
+    ![Screenshot of the Diagnostic results for a scenario.](media/howto-use-sign-in-diagnostics/diagnostic-result-mfa-proofup.png)
     
 - Provide feedback on the results to help improve the feature.
 

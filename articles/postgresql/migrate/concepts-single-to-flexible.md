@@ -123,7 +123,7 @@ Along with data migration, the tool automatically provides the following built-i
 > The following limitations are applicable only for flexible servers on which the migration of users/roles functionality is enabled.
 
 - AAD users present on your source server will not be migrated to target server. To mitigate this limitation, manually create all AAD users on your target server using this [link](../flexible-server/how-to-manage-azure-ad-users.md) before triggering a migration. If AAD users are not created on target server, migration will fail with appropriate error message.
-- If the target flexible server uses SCRAM-SHA-256 password encrpytion method, connection to flexible server using the users/roles on single server will fail since the passwords are encrypted using md5 algorithm. To mitigate this limitation, please choose the option **MD5** for **password_encryption** server parameter on your flexible server.
+- If the target flexible server uses SCRAM-SHA-256 password encryption method, connection to flexible server using the users/roles on single server will fail since the passwords are encrypted using md5 algorithm. To mitigate this limitation, please choose the option **MD5** for **password_encryption** server parameter on your flexible server.
 - Though the ownership of database objects such as tables, views, sequences, etc. are copied to the target server, the owner of the database in your target server will be the migration user of your target server. The limitation can be mitigated by executing the following command 
 
 ```sql
@@ -214,21 +214,16 @@ The following table summarizes the list of networking scenarios supported by the
 
 ##### Allow list required extensions
 
-Use the following select command in the Single Server databases to list all the extensions that are being used.
+The migration tool automatically allow lists all extensions used by your single server databases on your flexible server except for the ones whose libraries need to be loaded at the server start. 
+
+Use the following select command to list all the extensions used on your Single server databases.
 
 ```sql
     select * from pg_extension;
 ```
 
-Search for the **azure.extensions** parameter on the Server Parameters blade on your Flexible server. Select the list of extensions obtained by running the above query on your Single server database to this server parameter and select Save. You should wait for the deployment to complete before proceeding further.
-
-:::image type="content" source="./media/concepts-single-to-flexible/allowlist-extensions.png" alt-text="Diagram that shows allow listing of extensions on Flexible Server." lightbox="./media/concepts-single-to-flexible/allowlist-extensions.png":::
-
-> [!NOTE]  
-> If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER or PG_PARTMAN extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
-
 Check if the list contains any of the following extensions:
-- PG_CRON65
+- PG_CRON
 - PG_HINT_PLAN
 - PG_PARTMAN_BGW
 - PG_PREWARM
@@ -239,16 +234,18 @@ Check if the list contains any of the following extensions:
 
 If yes, then follow the below steps.
 
-Go to the server parameters blade and search for **shared_preload_libraries** parameter. This parameter indicates the set of extension libraries that are preloaded at the server restart. Pg_cron and pg_stat_statements extensions are selected by default. Select the list of above extensions used by the single server database to this parameter and select on Save.
+Go to the server parameters blade and search for **shared_preload_libraries** parameter. PG_CRON and PG_STAT_STATEMENTS extensions are selected by default. Select the list of above extensions used by your single server databases to this parameter and select Save.
 
 :::image type="content" source="./media/concepts-single-to-flexible/shared-preload-libraries.png" alt-text="Diagram that shows allow listing of shared preload libraries on Flexible Server." lightbox="./media/concepts-single-to-flexible/shared-preload-libraries.png":::
 
-The changes to this server parameter would require a server restart to come into effect.
+For the changes to take effect, server restart would be required.
 
 :::image type="content" source="./media/concepts-single-to-flexible/save-and-restart.png" alt-text="Diagram that shows save and restart option on Flexible Server." lightbox="./media/concepts-single-to-flexible/save-and-restart.png":::
 
-Use the **Save and Restart** option and wait for the postgresql server to restart.
+Use the **Save and Restart** option and wait for the flexible server to restart.
 
+> [!NOTE]  
+> If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, POSTGRES_FDW or PG_PARTMAN extensions are used in your single server, please raise a support request since the migration tool does not handle these extensions.
 
 ##### Create AAD users on target server
 > [!NOTE]  

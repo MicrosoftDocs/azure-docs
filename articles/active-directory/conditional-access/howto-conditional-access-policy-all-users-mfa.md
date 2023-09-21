@@ -57,7 +57,7 @@ After administrators confirm the settings using [report-only mode](howto-conditi
 
 ### Named locations
 
-Organizations may choose to incorporate known network locations known as **Named locations** to their Conditional Access policies. These named locations may include trusted IPv4 networks like those for a main office location. For more information about configuring named locations, see the article [What is the location condition in Azure Active Directory Conditional Access?](location-condition.md)
+Organizations may choose to incorporate known network locations known as **Named locations** to their Conditional Access policies. These named locations may include trusted IPv4 networks like those for a main office location. For more information about configuring named locations, see the article [What is the location condition in Microsoft Entra Conditional Access?](location-condition.md)
 
 In the previous example policy, an organization may choose to not require multifactor authentication if accessing a cloud app from their corporate network. In this case they could add the following configuration to the policy:
 

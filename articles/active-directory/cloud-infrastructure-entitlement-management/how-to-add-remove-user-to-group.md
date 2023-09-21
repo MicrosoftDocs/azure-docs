@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 09/14/2023
 ms.author: jfields
 ---
 
@@ -17,12 +17,12 @@ ms.author: jfields
 This article describes how you can add or remove a new user for a group in Permissions Management. 
 
 > [!NOTE] 
-> Permissions Management entitlements work through group-based access. To add a new user, you must add a user to a group through Azure Active Directory (AD).
+> Permissions Management entitlements work through group-based access. To add a new user, you must add a user to a group through Microsoft Entra ID.
 
 ## Add a user
 
-1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com/#home).
-1. From the Azure Active Directory tile, select **Go to Azure Active Directory**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/#home) as a Global Administrator.
+1. Browse to **Microsoft Entra ID** > **Go to Microsoft Entra ID**. 
 1. From the navigation pane, select the **Groups** drop-down menu, then **All groups**.
 1. Select the group name for the group you want to add the user to.
 1. From the group's **Manage** menu, click **Members**.
@@ -37,8 +37,8 @@ This article describes how you can add or remove a new user for a group in Permi
 
 ## Remove a user
 
-1. Navigate to the Microsoft [Entra admin center](https://entra.microsoft.com/#home). 
-1. From the Azure Active Directory tile, select **Go to Azure Active Directory**. 
+1. Sign in to the Microsoft [Microsoft Entra admin center](https://entra.microsoft.com/#home) as a Global Administrator. 
+1. Browse to **Microsoft Entra ID** > **Go to Microsoft Entra ID**. 
 1. From the navigation pane, select the **Groups** drop-down menu, then **All groups**.
 1. Select the group name for the group you want to remove the user from.
 1. From the groups **Manage** menu, click **Members**.

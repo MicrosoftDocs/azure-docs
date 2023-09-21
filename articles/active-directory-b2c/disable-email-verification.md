@@ -93,8 +93,8 @@ The **LocalAccountSignUpWithLogonEmail** technical profile is a [self-asserted](
 ## Update and test the relying party file
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant. Select the **Directories + Subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
+1. Make sure you're using the directory that contains your Microsoft Entra tenant. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **Identity Experience Framework**.
 1. Select **Upload Custom Policy**, and then upload the two policy files that you changed.
@@ -107,4 +107,3 @@ The **LocalAccountSignUpWithLogonEmail** technical profile is a [self-asserted](
 ## Next steps
 
 - Learn how to [customize the user interface in Azure Active Directory B2C](customize-ui-with-html.md)
-

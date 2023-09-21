@@ -214,14 +214,14 @@ To configure those you follow these steps:
 
 1. On the left of the screen, select **Identity**. 
 
-1. Under the system assigned tab, enable the status to register it with Azure Active Directory.
+1. Under the system assigned tab, enable the status to register it with Microsoft Entra ID.
 
 1. Select Save.    
 
 ## Configure authorization policy for custom task extension with POP security token type
 If the security token type is **Proof of Possession (POP)** for your custom task extension, you'd set the authorization policy by following these steps:
 
-1. For Logic Apps authorization policy, we need the managed identities **Application ID**. Since the Azure portal only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications in the Azure AD Portal** to find the required Application ID.
+1. For Logic Apps authorization policy, we need the managed identities **Application ID**. Since the Microsoft Entra admin center only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications in the Microsoft Entra portal** to find the required Application ID.
 
 1. Go back to the logic app you created, and select **Authorization**.
 
@@ -252,7 +252,7 @@ If the security token type is **Proof of Possession (POP)** for your custom task
 
 If the security token type is **Normal** for your custom task extension, you'd set the authorization policy by following these steps:
 
-1. For Logic Apps authorization policy, we need the managed identities **Application ID**. Since the Azure portal only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications in the Azure AD Portal** to find the required Application ID.
+1. For Logic Apps authorization policy, we need the managed identities **Application ID**. Since the Microsoft Entra admin center only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications in the Microsoft Entra portal** to find the required Application ID.
 
 1. Go back to the logic app you created, and select **Authorization**.
 
@@ -260,7 +260,7 @@ If the security token type is **Normal** for your custom task extension, you'd s
 
     Policy name: AzureADLifecycleWorkflowsAuthPolicy 
 
-    Policy type: AAD  
+    Policy type: Microsoft Entra ID  
     
     |Claim  |Value  |
     |---------|---------|
@@ -270,7 +270,7 @@ If the security token type is **Normal** for your custom task extension, you'd s
 
     Policy name: AzureADLifecycleWorkflowsAuthPolicyV2App 
 
-    Policy type: AAD   
+    Policy type: Microsoft Entra ID   
  
     |Claim  |Value  |
     |---------|---------|

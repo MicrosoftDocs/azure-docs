@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions
-description: Find answers to some of the most frequently asked questions about Microsoft Entra External ID for customers, also known as Azure Active Directory (Azure AD) for customers. 
+description: Find answers to some of the most frequently asked questions about Microsoft Entra External ID for customers, also known as Microsoft Entra ID for customers. 
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -15,7 +15,7 @@ ms.custom: it-pro
 
 # Microsoft Entra External ID for customers frequently asked questions
 
-This article answers frequently asked questions about Microsoft Entra External ID for customers, also known as Azure Active Directory (Azure AD) for customers. This document offers guidance to help customers better understand Microsoft’s current external identities capabilities and the journey for our next generation platform (Microsoft Entra External ID).
+This article answers frequently asked questions about Microsoft Entra External ID for customers, also known as Microsoft Entra ID for customers. This document offers guidance to help customers better understand Microsoft’s current external identities capabilities and the journey for our next generation platform (Microsoft Entra External ID).
 
 This FAQ references customer identity and access management (CIAM). CIAM is an industry recognized category that covers solutions that manage identity, authentication, and authorization for external identity use cases (partners, customers, and citizens). Common functionality includes self-service capabilities, adaptive access, single sign-on (SSO), and bring your own identity (BYOI).
 
@@ -66,6 +66,12 @@ Opt for the next generation Microsoft Entra External ID platform if:
 
 - You’re starting fresh building identities into apps or you're in the early stages of product discovery.
 - The benefits of rapid innovation, new features and capabilities are a priority.
+
+<a name='why-is-azure-ad-b2c-not-part-of-entra-idexternal-id'></a>
+
+### Why is Azure AD B2C not part of Microsoft Entra External ID?
+
+Microsoft Entra External ID and Azure AD B2C are two separate platforms powered by ESTS and IEF respectively. Microsoft Entra External ID is our new converged platform which is future proof and developer friendly to meet all your identity needs – B2E, B2B and B2C. At the same time, we will still continue to support Azure AD B2C as a separate product offering with no change in SLA, and we’ll continue investments in the product to ensure security, availability, and reliability.
 
 ## Next steps
 

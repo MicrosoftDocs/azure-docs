@@ -44,14 +44,14 @@ Make sure that you have the following permissions and credentials before using A
 > - Some data connectors depend on a parser based on a [Kusto Function](/azure/data-explorer/kusto/query/functions/user-defined-functions) to work as expected. See the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page for links to instructions to create the Kusto function and alias.
 
 
-### STEP 1 - Get your source system's API credentials
+### Step 1: Get your source system's API credentials
 
 Follow your source system's instructions to get its **API credentials / authorization keys / tokens**. Copy and paste them into a text file for later.
 
 You can find details on the exact credentials you'll need, and links to your product's instructions for finding or creating them, on the data connector page in the portal and in the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.
 
 You may also need to configure logging or other settings on your source system. You'll find the relevant instructions together with those in the preceding paragraph.
-### STEP 2 - Deploy the connector and the associated Azure Function App
+### Step 2: Deploy the connector and the associated Azure Function App
 
 #### Choose a deployment option
 
@@ -68,7 +68,7 @@ This method provides an automated deployment of your Azure Function-based connec
 1. The **Custom deployment** screen will appear.
     - Select a **subscription**, **resource group**, and **region** in which to deploy your Function App.
 
-    - Enter your API credentials / authorization keys / tokens that you saved in [Step 1](#step-1---get-your-source-systems-api-credentials) above.
+    - Enter your API credentials / authorization keys / tokens that you saved in [Step 1](#step-1-get-your-source-systems-api-credentials) above.
 
     - Enter your Microsoft Sentinel **Workspace ID** and **Workspace Key** (primary key) that you copied and put aside.
 
