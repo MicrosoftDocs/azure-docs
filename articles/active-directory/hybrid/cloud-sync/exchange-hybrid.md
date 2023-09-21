@@ -56,7 +56,7 @@ Exchange Hybrid Writeback is disabled by default.
 ## Attributes synchronized
 Cloud sync writes Exchange On-line attributes back to users in order to enable Exchange hybrid scenarios.  The following table is a list of the attributes and the mappings.
 
-|Azure AD attribute|AD attribute|Object Class|Mapping Type|
+|Microsoft Entra attribute|AD attribute|Object Class|Mapping Type|
 |-----|-----|-----|-----|
 |cloudAnchor|msDS-ExternalDirectoryObjectId|User, InetOrgPerson|Direct| 
 |cloudLegacyExchangeDN|proxyAddresses|User, Contact, InetOrgPerson|Expression| 
@@ -97,4 +97,4 @@ You can use MS Graph API to enable Exchange hybrid writeback.  For more informat
 ## Next steps
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)

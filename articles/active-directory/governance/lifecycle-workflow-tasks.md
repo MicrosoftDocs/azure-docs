@@ -82,7 +82,7 @@ Lifecycle Workflows allow you to automate the sending of welcome emails to new h
 :::image type="content" source="media/lifecycle-workflow-task/welcome-email-task.png" alt-text="Screenshot of Workflows task: Welcome email task.":::
 
 
-The Azure AD prerequisite to run the **Send welcome email to new hire** task is:
+The Microsoft Entra prerequisite to run the **Send welcome email to new hire** task is:
 
 - A populated mail attribute for the user.
 
@@ -136,7 +136,7 @@ Lifecycle Workflows allow you to automate the sending of onboarding reminder ema
 :::image type="content" source="media/lifecycle-workflow-task/send-onboarding-reminder-email.png" alt-text="Screenshot of Workflows task: Send onboarding reminder email task.":::
 
 
-The Azure AD prerequisite to run the **Send onboarding reminder email** task is:
+The Microsoft Entra prerequisite to run the **Send onboarding reminder email** task is:
 
 - A populated manager attribute for the user.
 - A populated manager's mail attribute for the user.
@@ -196,14 +196,14 @@ With this task in the Microsoft Entra admin center, you're able to give the task
 - **One time use**- If the passcode can only be used once.
 :::image type="content" source="media/lifecycle-workflow-task/tap-task.png" alt-text="Screenshot of Workflows task: TAP task.":::
 
-The Azure AD prerequisites to run the **Generate Temporary Access Pass and send via email to user's manager** task are:
+The Microsoft Entra prerequisites to run the **Generate Temporary Access Pass and send via email to user's manager** task are:
 
 - A populated manager attribute for the user.
 - A populated manager's mail attribute for the user.
 - The TAP tenant policy must be enabled and the selected values for activation duration and one time use must be within the allowed range of the policy. For more information, see [Enable the Temporary Access Pass policy](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy)
 
 > [!IMPORTANT]
-> A user having this task run for them in a workflow must also not have any other authentication methods, sign-ins, or AAD role assignments for this task to work for them.
+> A user having this task run for them in a workflow must also not have any other authentication methods, sign-ins, or Microsoft Entra role assignments for this task to work for them.
 
 For Microsoft Graph, the parameters for the **Generate Temporary Access Pass and send via email to user's manager** task are as follows:
 
@@ -260,7 +260,7 @@ When a user moves within your organization Lifecycle Workflows allow you to send
 
 :::image type="content" source="media/lifecycle-workflow-task/notify-user-move-task.png" alt-text="Screenshot of the notify manager of user move task.":::
 
-The Azure AD prerequisite to run the **Send email to notify manager of user move** task are:
+The Microsoft Entra prerequisite to run the **Send email to notify manager of user move** task are:
 
 - A populated manager attribute for the user.
 - A populated manager's mail attribute for the user.
@@ -349,7 +349,7 @@ Example of usage within the workflow:
 ### Add user to groups
 
 
-Allows users to be added to Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and role-assignable groups aren't supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/connect/how-to-connect-group-writeback-v2.md). 
+Allows users to be added to Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and role-assignable groups aren't supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Microsoft Entra Connect group writeback](../hybrid/connect/how-to-connect-group-writeback-v2.md). 
 
 
 You're able to customize the task name and description for this task.
@@ -424,7 +424,7 @@ For Microsoft Graph, the parameters for the **Add user to teams** task are as fo
 
 ### Enable user account
 
-Allows cloud-only user accounts to be enabled. Users with Azure AD role assignments aren't supported, nor are users with membership or ownership of role-assignable groups. You can utilize Azure Active Directory's HR driven provisioning to on-premises Active Directory to disable and enable synchronized accounts with an attribute mapping to `accountDisabled` based on data from your HR source. For more information, see: [Workday Configure attribute mappings](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings) and [SuccessFactors Configure attribute mappings](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md#part-4-configure-attribute-mappings). You're able to customize the task name and description for this task in the Microsoft Entra admin center.
+Allows cloud-only user accounts to be enabled. Users with Microsoft Entra role assignments aren't supported, nor are users with membership or ownership of role-assignable groups. You can utilize Microsoft Entra ID's HR driven provisioning to on-premises Active Directory to disable and enable synchronized accounts with an attribute mapping to `accountDisabled` based on data from your HR source. For more information, see: [Workday Configure attribute mappings](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings) and [SuccessFactors Configure attribute mappings](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md#part-4-configure-attribute-mappings). You're able to customize the task name and description for this task in the Microsoft Entra admin center.
 
 :::image type="content" source="media/lifecycle-workflow-task/enable-task.png" alt-text="Screenshot of Workflows task: enable user account.":::
 
@@ -459,7 +459,7 @@ Workflows can be configured to launch a custom task extension. You're able to cu
 
 :::image type="content" source="media/lifecycle-workflow-task/custom-extension-task.png" alt-text="Screenshot of Workflows task: custom extension task.":::
 
-The Azure AD prerequisite to run the **Run a Custom Task Extension** task is:
+The Microsoft Entra prerequisite to run the **Run a Custom Task Extension** task is:
 
 - A Logic App that is compatible with the custom task extension. For more information, see: [Lifecycle workflow extensibility](lifecycle-workflow-extensibility.md).
 
@@ -498,7 +498,7 @@ For more information on setting up a Logic app to run with Lifecycle Workflows, 
 
 ### Disable user account
 
-Allows cloud-only user accounts to be disabled. Users with Azure AD role assignments aren't supported, nor are users with membership or ownership of role-assignable groups. You can utilize Azure Active Directory's HR driven provisioning to on-premises Active Directory to disable and enable synchronized accounts with an attribute mapping to `accountDisabled` based on data from your HR source. For more information, see: [Workday Configure attribute mappings](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings) and [SuccessFactors Configure attribute mappings](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md#part-4-configure-attribute-mappings). You're able to customize the task name and description for this task in the Microsoft Entra admin center.
+Allows cloud-only user accounts to be disabled. Users with Microsoft Entra role assignments aren't supported, nor are users with membership or ownership of role-assignable groups. You can utilize Microsoft Entra ID's HR driven provisioning to on-premises Active Directory to disable and enable synchronized accounts with an attribute mapping to `accountDisabled` based on data from your HR source. For more information, see: [Workday Configure attribute mappings](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings) and [SuccessFactors Configure attribute mappings](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md#part-4-configure-attribute-mappings). You're able to customize the task name and description for this task in the Microsoft Entra admin center.
 
 :::image type="content" source="media/lifecycle-workflow-task/disable-task.png" alt-text="Screenshot of Workflows task: disable user account.":::
 
@@ -528,7 +528,7 @@ For Microsoft Graph, the parameters for the **Disable user account** task are as
 
 ### Remove user from selected groups
 
-Allows users to be removed from Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and role-assignable groups aren't supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/connect/how-to-connect-group-writeback-v2.md). 
+Allows users to be removed from Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and role-assignable groups aren't supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Microsoft Entra Connect group writeback](../hybrid/connect/how-to-connect-group-writeback-v2.md). 
 
 
 You're able to customize the task name and description for this task in the Microsoft Entra admin center.
@@ -542,7 +542,7 @@ For Microsoft Graph, the parameters for the **Remove user from selected groups**
 |---------|---------|
 |category    |  leaver      |
 |displayName     |  Remove user from selected groups (Customizable by user)        |
-|description     |  Remove user from membership of selected Azure AD groups (Customizable by user)      |
+|description     |  Remove user from membership of selected Microsoft Entra groups (Customizable by user)      |
 |taskDefinitionId     |   1953a66c-751c-45e5-8bfe-01462c70da3c      |
 |argument     |  Argument contains a name parameter that is the "groupID", and a value parameter that is the group Id(s) of the group or groups you're removing the user from.   |
 
@@ -568,7 +568,7 @@ For Microsoft Graph, the parameters for the **Remove user from selected groups**
 
 ### Remove users from all groups
 
-Allows users to be removed from every Microsoft 365 and cloud-only security group they're a member of. Mail-enabled, distribution, dynamic and role-assignable groups aren't supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/connect/how-to-connect-group-writeback-v2.md).
+Allows users to be removed from every Microsoft 365 and cloud-only security group they're a member of. Mail-enabled, distribution, dynamic and role-assignable groups aren't supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Microsoft Entra Connect group writeback](../hybrid/connect/how-to-connect-group-writeback-v2.md).
 
 
 
@@ -583,7 +583,7 @@ For Microsoft Graph, the parameters for the **Remove users from all groups** tas
 |---------|---------|
 |category    |  leaver      |
 |displayName     |  Remove user from all groups (Customizable by user)       |
-|description     |  Remove user from all Azure AD groups memberships (Customizable by user)        |
+|description     |  Remove user from all Microsoft Entra groups memberships (Customizable by user)        |
 |taskDefinitionId     |   b3a31406-2a15-4c9a-b25b-a658fa5f07fc      |
 
 
@@ -795,7 +795,7 @@ For Microsoft Graph, the parameters for the **Remove all license assignment from
 
 ### Delete User
 
-Allows cloud-only user accounts to be deleted. Users with Azure AD role assignments aren't supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Microsoft Entra admin center.
+Allows cloud-only user accounts to be deleted. Users with Microsoft Entra role assignments aren't supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Microsoft Entra admin center.
 :::image type="content" source="media/lifecycle-workflow-task/delete-user-task.png" alt-text="Screenshot of Workflows task: Delete user account.":::
 
 
@@ -805,7 +805,7 @@ For Microsoft Graph, the parameters for the **Delete User** task are as follows:
 |---------|---------|
 |category    |  leaver      |
 |displayName     |  Delete user account (Customizable by user)      |
-|description     |  Delete user account in Azure AD (Customizable by user)      |
+|description     |  Delete user account in Microsoft Entra ID (Customizable by user)      |
 |taskDefinitionId     |   8d18588d-9ad3-4c0f-99d0-ec215f0e3dff      |
 
 
@@ -829,7 +829,7 @@ Allows an email to be sent to a user's manager before their last day. You're abl
 :::image type="content" source="media/lifecycle-workflow-task/send-email-before-last-day.png" alt-text="Screenshot of Workflows task: send email before user last day task.":::
 
 
-The Azure AD prerequisite to run the **Send email before user's last day** task are:
+The Microsoft Entra prerequisite to run the **Send email before user's last day** task are:
 
 - A populated manager attribute for the user.
 - A populated manager's mail attribute for the user.
@@ -880,7 +880,7 @@ Example of usage within the workflow:
 Allows an email to be sent to a user's manager on their last day. You're able to customize the task name and the description for this task in the Microsoft Entra admin center.
 :::image type="content" source="media/lifecycle-workflow-task/send-email-last-day.png" alt-text="Screenshot of Workflows task: task to send email last day.":::
 
-The Azure AD prerequisite to run the **Send email on user last day** task are:
+The Microsoft Entra prerequisite to run the **Send email on user last day** task are:
 
 - A populated manager attribute for the user.
 - A populated manager's mail attribute for the user.
@@ -931,7 +931,7 @@ Example of usage within the workflow:
 Allows an email containing off-boarding information to be sent to the user's manager after their last day. You're able to customize the task name and description for this task in the Microsoft Entra admin center.
 :::image type="content" source="media/lifecycle-workflow-task/offboard-email-manager.png" alt-text="Screenshot of Workflows task: send off-boarding email to users manager after their last day.":::
 
-The Azure AD prerequisite to run the **Send email to users manager after their last day** task are:
+The Microsoft Entra prerequisite to run the **Send email to users manager after their last day** task are:
 
 - A populated manager attribute for the user.
 - A populated manager's mail attribute for the user.

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with TalentLMS'
-description: Learn how to configure single sign-on between Azure Active Directory and TalentLMS.
+title: 'Tutorial: Microsoft Entra SSO integration with TalentLMS'
+description: Learn how to configure single sign-on between Microsoft Entra ID and TalentLMS.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,30 +12,30 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure AD SSO integration with TalentLMS
+# Tutorial: Microsoft Entra SSO integration with TalentLMS
 
-In this tutorial, you'll learn how to integrate TalentLMS with Azure Active Directory (Azure AD). When you integrate TalentLMS with Azure AD, you can:
+In this tutorial, you'll learn how to integrate TalentLMS with Microsoft Entra ID. When you integrate TalentLMS with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to TalentLMS.
-* Enable your users to be automatically signed-in to TalentLMS with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to TalentLMS.
+* Enable your users to be automatically signed-in to TalentLMS with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with TalentLMS, you need the following items:
+To configure Microsoft Entra integration with TalentLMS, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a Microsoft Entra environment, you can get a [free account](https://azure.microsoft.com/free/).
 * TalentLMS single sign-on enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * TalentLMS supports **SP** initiated SSO.
 
 ## Add TalentLMS from the gallery
 
-To configure the integration of TalentLMS into Azure AD, you need to add TalentLMS from the gallery to your list of managed SaaS apps.
+To configure the integration of TalentLMS into Microsoft Entra ID, you need to add TalentLMS from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -44,22 +44,26 @@ To configure the integration of TalentLMS into Azure AD, you need to add TalentL
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for TalentLMS
+<a name='configure-and-test-azure-ad-sso-for-talentlms'></a>
 
-Configure and test Azure AD SSO with TalentLMS using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in TalentLMS.
+## Configure and test Microsoft Entra SSO for TalentLMS
 
-To configure and test Azure AD SSO with TalentLMS, perform the following steps:
+Configure and test Microsoft Entra SSO with TalentLMS using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in TalentLMS.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with TalentLMS, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure TalentLMS SSO](#configure-talentlms-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create TalentLMS test user](#create-talentlms-test-user)** - to have a counterpart of B.Simon in TalentLMS that is linked to the Azure AD representation of user.
+    1. **[Create TalentLMS test user](#create-talentlms-test-user)** - to have a counterpart of B.Simon in TalentLMS that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **TalentLMS** > **Single sign-on**.
@@ -77,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<tenant-name>.TalentLMSapp.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [TalentLMS Client support team](https://www.talentlms.com/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [TalentLMS Client support team](https://www.talentlms.com/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 5. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
@@ -91,9 +95,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
+
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -105,9 +111,11 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to TalentLMS.
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to TalentLMS.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **TalentLMS**.
@@ -133,13 +141,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. From the **SSO integration type** list, select **SAML 2.0**.
 
-    b. In the **Identity provider (IDP)** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
+    b. In the **Identity provider (IDP)** textbox, paste the value of **Microsoft Entra Identifier**.
 
     c. Paste the **Thumbprint** value from Azure portal into the **Certificate fingerprint** textbox.
 
-    d.  In the **Remote sign-in URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+    d.  In the **Remote sign-in URL** textbox, paste the value of **Login URL**.
 
-    e. In the **Remote sign-out URL** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
+    e. In the **Remote sign-out URL** textbox, paste the value of **Logout URL**.
 
     f. Fill in the following:
 
@@ -155,7 +163,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create TalentLMS test user
 
-To enable Azure AD users to sign in to TalentLMS, they must be provisioned into TalentLMS. In the case of TalentLMS, provisioning is a manual task.
+To enable Microsoft Entra users to sign in to TalentLMS, they must be provisioned into TalentLMS. In the case of TalentLMS, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
@@ -176,13 +184,13 @@ To enable Azure AD users to sign in to TalentLMS, they must be provisioned into 
     d. Click **Add User**.
 
 > [!NOTE]
-> You can use any other TalentLMS user account creation tools or APIs provided by TalentLMS to provision Azure AD user accounts.
+> You can use any other TalentLMS user account creation tools or APIs provided by TalentLMS to provision Microsoft Entra user accounts.
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to TalentLMS Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to TalentLMS Sign-on URL where you can initiate the login flow. 
 
 * Go to TalentLMS Sign-on URL directly and initiate the login flow from there.
 

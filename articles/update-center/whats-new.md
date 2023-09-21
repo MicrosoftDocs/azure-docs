@@ -12,6 +12,10 @@ ms.date: 09/18/2023
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
 
+## September 2023
+
+Azure Update Manager is now generally available.  
+
 ## August 2023
 
 ### Service rebranding
@@ -28,9 +32,9 @@ SQL Server patching (preview) allows you to patch SQL Servers. You can now manag
 
 ## July 2023
 
-### Dynamic scope (preview)
+### Dynamic scope
 
-Dynamic scope (preview) is an advanced capability of schedule patching. You can now create a group of [machines based on a schedule and apply patches](dynamic-scope-overview.md) on those machines at scale. [Learn more](tutorial-dynamic-grouping-for-scheduled-patching.md).
+Dynamic scope is an advanced capability of schedule patching. You can now create a group of [machines based on a schedule and apply patches](dynamic-scope-overview.md) on those machines at scale. [Learn more](tutorial-dynamic-grouping-for-scheduled-patching.md).
  
 
 ## May 2023
