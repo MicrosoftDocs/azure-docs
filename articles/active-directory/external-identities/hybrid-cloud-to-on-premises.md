@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 # Customer intent: As a tenant administrator, I want to enable B2B user access to on-premises apps. 
 ---
 
-# Grant B2B users in Microsoft Entra ID access to your on-premises applications
+# Grant Microsoft Entra B2B users access to your on-premises applications
 
 As an organization that uses Microsoft Entra B2B collaboration capabilities to invite guest users from partner organizations, you can now provide these B2B users access to on-premises apps. These on-premises apps can use SAML-based authentication or integrated Windows authentication (IWA) with Kerberos constrained delegation (KCD).
 

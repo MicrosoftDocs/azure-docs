@@ -37,7 +37,7 @@ The user type you choose has the following limitations for apps or services (but
 
 ## Invitation redemption
 
-Now, let's see what a Microsoft Entra B2B collaboration user looks like in Microsoft Entra ID.
+Now, let's see what a Microsoft Entra B2B collaboration user looks like in Microsoft Entra External ID.
 
 ### Before invitation redemption
 
@@ -53,7 +53,7 @@ After the B2B collaboration user accepts the invitation, the **Identities** prop
 
    ![Screenshot of user profile after redemption.](media/user-properties/after-redemption-state-1.png)
 
-- If the B2B collaboration user is using credentials from another Microsoft Entra organization, **Identities** is **External Microsoft Entra ID**.
+- If the B2B collaboration user is using credentials from another Microsoft Entra organization, **Identities** is **ExternalAzureAD**.
 
 - For external users who are using internal credentials, the **Identities** property is set to the host’s organization domain. The **Directory synced** property is **Yes** if the account is homed in the organization’s on-premises Active Directory and synced with Microsoft Entra ID, or **No** if the account is a cloud-only Microsoft Entra account. The directory sync information is also available via the `onPremisesSyncEnabled` property in Microsoft Graph.
 
@@ -85,12 +85,12 @@ This property indicates the user’s primary identity provider. A user can have 
 
 Identities property value | Sign-in state
 --------------------- | -------------------------
-External Microsoft Entra ID | This user is homed in an external organization and authenticates by using a Microsoft Entra account that belongs to the other organization.
+ExternalAzureAD | This user is homed in an external organization and authenticates by using a Microsoft Entra account that belongs to the other organization.
 Microsoft account |  This user is homed in a Microsoft account and authenticates by using a Microsoft account.
 {host’s domain} | This user authenticates by using a Microsoft Entra account that belongs to this organization.
 google.com | This user has a Gmail account and has signed up by using self-service to the other organization.
 facebook.com | This user has a Facebook account and has signed up by using self-service to the other organization.
-mail | This user has signed up by using Microsoft Entra ID Email one-time passcode (OTP).
+mail | This user has signed up by using Microsoft Entra External ID email one-time passcode (OTP).
 {issuer URI} | This user is homed in an external organization that doesn't use Microsoft Entra ID as their identity provider, but instead uses a SAML/WS-Fed-based identity provider. The issuer URI is shown when the Identities field is clicked.
 
 Phone sign-in is not supported for external users. B2B accounts cannot use `phone`value as an identity provider. 
@@ -124,7 +124,7 @@ Guest users have [default restricted directory permissions](../fundamentals/user
 
 B2B guest users are not supported in Microsoft Teams shared channels. For access to shared channels see [B2B direct connect.](b2b-direct-connect-overview.md)
 
-There may be cases where you want to give your guest users higher privileges. You can add a guest user to any role and even remove the default guest user restrictions in the directory to give a user the same privileges as members. It's possible to turn off the default limitations so that a guest user in the company directory has the same permissions as a member user. For more information, check out the [Restrict guest access permissions in Microsoft Entra ID](../enterprise-users/users-restrict-guest-permissions.md) article.
+There may be cases where you want to give your guest users higher privileges. You can add a guest user to any role and even remove the default guest user restrictions in the directory to give a user the same privileges as members. It's possible to turn off the default limitations so that a guest user in the company directory has the same permissions as a member user. For more information, check out the [Restrict guest access permissions in Microsoft Entra External ID](../enterprise-users/users-restrict-guest-permissions.md) article.
 
 ![Screenshot showing the External users option in the user settings.](media/user-properties/remove-guest-limitations.png)
 

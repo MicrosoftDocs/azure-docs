@@ -73,7 +73,7 @@ Content-type: application/json
 }
 ```
 
-Only user properties and custom attributes listed in the **Microsoft Entra ID** > **External Identities** > **Custom user attributes** experience are available to be sent in the request.
+Only user properties and custom attributes listed in the **Identity** > **External Identities** > **Custom user attributes** experience are available to be sent in the request.
 
 Custom attributes exist in the **extension_\<extensions-app-id>_AttributeName**  format in the directory. Your API should expect to receive claims in this same serialized format. For more information on custom attributes, see [define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md).
 
@@ -106,7 +106,7 @@ Follow these steps to add an API connector to a self-service sign-up user flow.
 
 ## After federating with an identity provider during sign-up
 
-An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, & Microsoft Entra ID). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes.
+An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, or Microsoft Entra ID). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes.
 
 ### Example request sent to the API at this step
 ```http

@@ -1,5 +1,5 @@
 ---
-title: Secure APIs used as API connectors in Microsoft Entra self-service sign-up user flows
+title: Secure APIs used as API connectors in Microsoft Entra External ID self-service sign-up user flows
 description: Secure your custom RESTful APIs used as API connectors in self-service sign-up user flows.
 services: active-directory
 ms.service: active-directory
