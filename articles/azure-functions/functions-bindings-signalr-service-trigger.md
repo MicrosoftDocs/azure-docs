@@ -27,6 +27,13 @@ For information on setup and configuration details, see the [overview](functions
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
+# [Isolated process](#tab/isolated-process)
+
+The following sample shows a C# function that receives a message event from clients and logs the message content.
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRTriggerFunctions.cs" id="snippet_on_message":::
+
+
 # [In-process](#tab/in-process)
 
 SignalR Service trigger binding for C# has two programming models. Class based model and traditional model. Class based model provides a consistent SignalR server-side programming experience. Traditional model provides more flexibility and is similar to other function bindings.
@@ -67,13 +74,6 @@ public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMes
     logger.LogInformation($"Receive {message} from {invocationContext.ConnectionId}.");
 }
 ```
-
-
-# [Isolated process](#tab/isolated-process)
-
-The following sample shows a C# function that receives a message event from clients and logs the message content.
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRTriggerFunctions.cs" id="snippet_on_message":::
 
 
 # [C# Script](#tab/csharp-script)

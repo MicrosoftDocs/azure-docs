@@ -46,61 +46,6 @@ For more information on change tracking and how it's used by applications such a
 <a id="example"></a>
 
 
-# [In-process](#tab/in-process)
-
-More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
-
-
-The example refers to a `ToDoItem` class and a corresponding database table:
-
-:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16":::
-
-:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
-
-[Change tracking](#set-up-change-tracking-required) is enabled on the database and on the table:
-
-```sql
-ALTER DATABASE [SampleDatabase]
-SET CHANGE_TRACKING = ON
-(CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON);
-
-ALTER TABLE [dbo].[ToDo]
-ENABLE CHANGE_TRACKING;
-```
-
-The SQL trigger binds to a `IReadOnlyList<SqlChange<T>>`, a list of `SqlChange` objects each with two properties:
-- **Item:** the item that was changed. The type of the item should follow the table schema as seen in the `ToDoItem` class.
-- **Operation:** a value from `SqlChangeOperation` enum. The possible values are `Insert`, `Update`, and `Delete`.
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that is invoked when there are changes to the `ToDo` table:
-
-```cs
-using System.Collections.Generic;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Extensions.Logging;
-using Microsoft.Azure.WebJobs.Extensions.Sql;
-
-namespace AzureSQL.ToDo
-{
-    public static class ToDoTrigger
-    {
-        [FunctionName("ToDoTrigger")]
-        public static void Run(
-            [SqlTrigger("[dbo].[ToDo]", "SqlConnectionString")]
-            IReadOnlyList<SqlChange<ToDoItem>> changes,
-            ILogger logger)
-        {
-            foreach (SqlChange<ToDoItem> change in changes)
-            {
-                ToDoItem toDoItem = change.Item;
-                logger.LogInformation($"Change operation: {change.Operation}");
-                logger.LogInformation($"Id: {toDoItem.Id}, Title: {toDoItem.title}, Url: {toDoItem.url}, Completed: {toDoItem.completed}");
-            }
-        }
-    }
-}
-```
-
 # [Isolated process](#tab/isolated-process)
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-outofproc).
@@ -160,6 +105,61 @@ namespace AzureSQL.ToDo
 }
 ```
 
+
+# [In-process](#tab/in-process)
+
+More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
+
+
+The example refers to a `ToDoItem` class and a corresponding database table:
+
+:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16":::
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
+
+[Change tracking](#set-up-change-tracking-required) is enabled on the database and on the table:
+
+```sql
+ALTER DATABASE [SampleDatabase]
+SET CHANGE_TRACKING = ON
+(CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON);
+
+ALTER TABLE [dbo].[ToDo]
+ENABLE CHANGE_TRACKING;
+```
+
+The SQL trigger binds to a `IReadOnlyList<SqlChange<T>>`, a list of `SqlChange` objects each with two properties:
+- **Item:** the item that was changed. The type of the item should follow the table schema as seen in the `ToDoItem` class.
+- **Operation:** a value from `SqlChangeOperation` enum. The possible values are `Insert`, `Update`, and `Delete`.
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that is invoked when there are changes to the `ToDo` table:
+
+```cs
+using System.Collections.Generic;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.WebJobs.Extensions.Sql;
+
+namespace AzureSQL.ToDo
+{
+    public static class ToDoTrigger
+    {
+        [FunctionName("ToDoTrigger")]
+        public static void Run(
+            [SqlTrigger("[dbo].[ToDo]", "SqlConnectionString")]
+            IReadOnlyList<SqlChange<ToDoItem>> changes,
+            ILogger logger)
+        {
+            foreach (SqlChange<ToDoItem> change in changes)
+            {
+                ToDoItem toDoItem = change.Item;
+                logger.LogInformation($"Change operation: {change.Operation}");
+                logger.LogInformation($"Id: {toDoItem.Id}, Title: {toDoItem.title}, Url: {toDoItem.url}, Completed: {toDoItem.completed}");
+            }
+        }
+    }
+}
+```
 
 # [C# Script](#tab/csharp-script)
 

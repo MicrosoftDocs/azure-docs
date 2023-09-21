@@ -23,6 +23,12 @@ For information on setup and configuration details, see the [overview](functions
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
+# [Isolated process](#tab/isolated-process)
+
+The following example shows a [C# function](dotnet-isolated-process-guide.md) that acquires SignalR connection information using the input binding and returns it over HTTP.
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRNegotiationFunctions.cs" id="snippet_negotiate":::
+
 # [In-process](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that acquires SignalR connection information using the input binding and returns it over HTTP.
@@ -36,12 +42,6 @@ public static SignalRConnectionInfo Negotiate(
     return connectionInfo;
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-The following example shows a [C# function](dotnet-isolated-process-guide.md) that acquires SignalR connection information using the input binding and returns it over HTTP.
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRNegotiationFunctions.cs" id="snippet_negotiate":::
 
 # [C# Script](#tab/csharp-script)
 
@@ -155,6 +155,18 @@ App Service authentication sets HTTP headers named `x-ms-client-principal-id` an
 
 ::: zone pivot="programming-language-csharp"
 
+# [Isolated process](#tab/isolated-process)
+
+```cs
+[Function("Negotiate")]
+public static string Negotiate([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestData req,
+    [SignalRConnectionInfoInput(HubName = "serverless", UserId = "{headers.x-ms-client-principal-id}")] string connectionInfo)
+{
+    // The serialization of the connection info object is done by the framework. It should be camel case. The SignalR client respects the camel case response only.
+    return connectionInfo;
+}
+```
+
 # [In-process](#tab/in-process)
 
 You can set the `UserId` property of the binding to the value from either header using a [binding expression](#binding-expressions-for-http-trigger): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
@@ -168,18 +180,6 @@ public static SignalRConnectionInfo Negotiate(
         SignalRConnectionInfo connectionInfo)
 {
     // connectionInfo contains an access key token with a name identifier claim set to the authenticated user
-    return connectionInfo;
-}
-```
-
-# [Isolated process](#tab/isolated-process)
-
-```cs
-[Function("Negotiate")]
-public static string Negotiate([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestData req,
-    [SignalRConnectionInfoInput(HubName = "serverless", UserId = "{headers.x-ms-client-principal-id}")] string connectionInfo)
-{
-    // The serialization of the connection info object is done by the framework. It should be camel case. The SignalR client respects the camel case response only.
     return connectionInfo;
 }
 ```

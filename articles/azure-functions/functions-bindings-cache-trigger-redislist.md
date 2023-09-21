@@ -31,6 +31,10 @@ The `RedisListTrigger` pops new elements from a list and surfaces those entries 
 
 The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`:
 
+### [Isolated process](#tab/isolated-process)
+
+The isolated process examples aren't available in preview.
+
 ### [In-process](#tab/in-process)
 
 ```csharp
@@ -42,10 +46,6 @@ public static void ListsTrigger(
     logger.LogInformation($"The entry pushed to the list listTest: '{entry}'");
 }
 ```
-
-### [Isolated process](#tab/isolated-process)
-
-The isolated process examples aren't available in preview.
 
 ---
 

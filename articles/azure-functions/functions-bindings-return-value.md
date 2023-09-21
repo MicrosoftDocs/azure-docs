@@ -22,6 +22,10 @@ Set the `name` property in *function.json* to `$return`. If there are multiple o
 
 How return values are used depends on the C# mode you're using in your function app: 
 
+# [Isolated process](#tab/isolated-process)
+
+See [Output bindings in the .NET worker guide](./dotnet-isolated-process-guide.md#output-bindings) for details and examples.
+
 # [In-process](#tab/in-process)
 
 
@@ -50,10 +54,6 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
     return Task.FromResult(json);
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-See [Output bindings in the .NET worker guide](./dotnet-isolated-process-guide.md#output-bindings) for details and examples.
 
 ---
 

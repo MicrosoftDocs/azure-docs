@@ -50,6 +50,25 @@ This article supports both programming models.
 
 The code in this article defaults to .NET Core syntax, used in Functions version 2.x and higher. For information on the 1.x syntax, see the [1.x functions templates](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
+# [Isolated process](#tab/isolated-process)
+
+The following example shows an HTTP trigger that returns a "hello world" response as an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger":::
+
+The following example shows an HTTP trigger that returns a "hello, world" response as an [IActionResult], using [ASP.NET Core integration in .NET Isolated]:
+
+```csharp
+[Function("HttpFunction")]
+public IActionResult Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest req)
+{
+    return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
+}
+```
+
+[IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
+
 # [In-process](#tab/in-process)    
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that looks for a `name` parameter either in the query string or the body of the HTTP request. Notice that the return value is used for the output binding, but a return value attribute isn't required.
@@ -77,25 +96,6 @@ public static async Task<IActionResult> Run(
         : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-The following example shows an HTTP trigger that returns a "hello world" response as an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger":::
-
-The following example shows an HTTP trigger that returns a "hello, world" response as an [IActionResult], using [ASP.NET Core integration in .NET Isolated]:
-
-```csharp
-[Function("HttpFunction")]
-public IActionResult Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest req)
-{
-    return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
-}
-```
-
-[IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
 
 ---
 
@@ -645,10 +645,6 @@ The [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger
 
 ### Payload
 
-# [In-process](#tab/in-process)   
-
-The trigger input type is declared as either `HttpRequest` or a custom type. If you choose `HttpRequest`, you get full access to the request object. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
-
 # [Isolated process](#tab/isolated-process)
 
 The trigger input type is declared as one of the following types:
@@ -683,6 +679,10 @@ namespace AspNetIntegration
 }
 ```
 
+# [In-process](#tab/in-process)   
+
+The trigger input type is declared as either `HttpRequest` or a custom type. If you choose `HttpRequest`, you get full access to the request object. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
+
 ---
 
 ::: zone-end 
@@ -699,22 +699,6 @@ You can customize this route using the optional `route` property on the HTTP tri
 
 ::: zone pivot="programming-language-csharp"
 
-# [In-process](#tab/in-process)
-
-The following C# function code accepts two parameters `category` and `id` in the route and writes a response using both parameters.
-
-```csharp
-[FunctionName("Function1")]
-public static IActionResult Run(
-[HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "products/{category:alpha}/{id:int?}")] HttpRequest req,
-string category, int? id, ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
-
-    var message = String.Format($"Category: {category}, ID: {id}");
-    return (ActionResult)new OkObjectResult(message);
-}
-```
 # [Isolated process](#tab/isolated-process)
 
 The following function code accepts two parameters `category` and `id` in the route and writes a response using both parameters.
@@ -737,6 +721,22 @@ FunctionContext executionContext)
 }
 ```
 
+# [In-process](#tab/in-process)
+
+The following C# function code accepts two parameters `category` and `id` in the route and writes a response using both parameters.
+
+```csharp
+[FunctionName("Function1")]
+public static IActionResult Run(
+[HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "products/{category:alpha}/{id:int?}")] HttpRequest req,
+string category, int? id, ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    var message = String.Format($"Category: {category}, ID: {id}");
+    return (ActionResult)new OkObjectResult(message);
+}
+```
 ---
 
 ::: zone-end
@@ -1011,6 +1011,10 @@ You can also read this information from binding data. This capability is only av
 ::: zone pivot="programming-language-csharp"
 Information regarding authenticated clients is available as a [ClaimsPrincipal], which is available as part of the request context as shown in the following example:
 
+# [Isolated process](#tab/isolated-process)
+
+The authenticated user is available via [HTTP Headers](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
+
 # [In-process](#tab/in-process)
 
 ```csharp
@@ -1040,10 +1044,6 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
     return;
 }
 ```
-# [Isolated process](#tab/isolated-process)
-
-The authenticated user is available via [HTTP Headers](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
-
 ---
 
 ::: zone-end 

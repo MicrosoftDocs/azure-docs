@@ -45,6 +45,12 @@ The type of the output parameter used with an Event Grid output binding depends 
 * [In-process class library](functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
 * [Isolated worker process class library](dotnet-isolated-process-guide.md): compiled C# function that runs in a worker process isolated from the runtime.
 
+# [Isolated process](#tab/isolated-process)
+
+The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="4-49":::
+
 # [In-process](#tab/in-process)
 
 The following example shows a C# function that publishes a `CloudEvent` using version 3.x of the extension:
@@ -171,12 +177,6 @@ When you use the `Connection` property, the `topicEndpointUri` must be specified
 }
 ```
 When deployed, you must add this same information to application settings for the function app.
-
-# [Isolated process](#tab/isolated-process)
-
-The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="4-49":::
 
 ---
 

@@ -20,13 +20,13 @@ This article explains how to send text messages by using [Twilio](https://www.tw
 
 The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-# [In-process](#tab/in-process)
-
-Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-
 # [Isolated process](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
+
+# [In-process](#tab/in-process)
+
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
 # [C# script](#tab/csharp-script)
 
@@ -90,6 +90,10 @@ Unless otherwise noted, these examples are specific to version 2.x and later ver
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
+# [Isolated process](#tab/isolated-process)
+
+The Twilio binding isn't currently supported for a function app running in an isolated worker process.
+
 # [In-process](#tab/in-process)    
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that sends a text message when triggered by a queue message.
@@ -124,10 +128,6 @@ namespace TwilioQueueOutput
 ```
 
 This example uses the `TwilioSms` attribute with the method return value. An alternative is to use the attribute with an `out CreateMessageOptions` parameter or an `ICollector<CreateMessageOptions>` or `IAsyncCollector<CreateMessageOptions>` parameter.
-
-# [Isolated process](#tab/isolated-process)
-
-The Twilio binding isn't currently supported for a function app running in an isolated worker process.
 
 # [C# Script](#tab/csharp-script)
 

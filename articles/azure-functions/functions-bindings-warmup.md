@@ -32,6 +32,12 @@ The following considerations apply when using a warmup trigger:
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
+# [Isolated process](#tab/isolated-process)
+
+The following example shows a [C# function](dotnet-isolated-process-guide.md) that runs on each new instance when it's added to your app. 
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Warmup/Warmup.cs" range="4-18":::
+
 # [In-process](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that runs on each new instance when it's added to your app. 
@@ -58,12 +64,6 @@ namespace WarmupSample
     }
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-The following example shows a [C# function](dotnet-isolated-process-guide.md) that runs on each new instance when it's added to your app. 
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Warmup/Warmup.cs" range="4-18":::
 
 # [C# Script](#tab/csharp-script)
 
@@ -194,13 +194,13 @@ def main(warmupContext: func.Context) -> None:
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `WarmupTrigger` attribute to define the function. C# script instead uses a *function.json* configuration file.
 
-# [In-process](#tab/in-process)
-
-Use the `WarmupTrigger` attribute to define the function. This attribute has no parameters.   
-
 # [Isolated process](#tab/isolated-process)
 
 Use the `WarmupTrigger` attribute to define the function. This attribute has no parameters.
+
+# [In-process](#tab/in-process)
+
+Use the `WarmupTrigger` attribute to define the function. This attribute has no parameters.   
 
 # [C# script](#tab/csharp-script)
 
@@ -243,19 +243,19 @@ See the [Example section](#example) for complete examples.
 ::: zone pivot="programming-language-csharp"  
 The following considerations apply to using a warmup function in C#:
 
-# [In-process](#tab/in-process)
-
-- Your function must be named `warmup` (case-insensitive) using the `FunctionName` attribute.
-- A return value attribute isn't required.
-- You must be using version `3.0.5` of the `Microsoft.Azure.WebJobs.Extensions` package, or a later version. 
-- You can pass a `WarmupContext` instance to the function.
-
 # [Isolated process](#tab/isolated-process)
 
 - Your function must be named `warmup` (case-insensitive) using the `Function` attribute.
 - A return value attribute isn't required.
 - Use the `Microsoft.Azure.Functions.Worker.Extensions.Warmup` package
 - You can pass an object instance to the function.
+
+# [In-process](#tab/in-process)
+
+- Your function must be named `warmup` (case-insensitive) using the `FunctionName` attribute.
+- A return value attribute isn't required.
+- You must be using version `3.0.5` of the `Microsoft.Azure.WebJobs.Extensions` package, or a later version. 
+- You can pass a `WarmupContext` instance to the function.
 
 # [C# script](#tab/csharp-script)
 

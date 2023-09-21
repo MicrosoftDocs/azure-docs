@@ -20,13 +20,13 @@ This article explains how to send email by using [SendGrid](https://sendgrid.com
 
 The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-# [In-process](#tab/in-process)
-
-Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-
 # [Isolated process](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
+
+# [In-process](#tab/in-process)
+
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
 # [C# script](#tab/csharp-script)
 
@@ -87,6 +87,10 @@ You can add the extension to your project by explicitly installing the [NuGet pa
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
+
+# [Isolated process](#tab/isolated-process)
+
+We don't currently have an example for using the SendGrid binding in a function app running in an isolated worker process. 
 
 # [In-process](#tab/in-process)    
 
@@ -158,10 +162,6 @@ public class OutgoingEmail
 ```
 
 You can omit setting the attribute's `ApiKey` property if you have your API key in an app setting named "AzureWebJobsSendGridApiKey".
-
-# [Isolated process](#tab/isolated-process)
-
-We don't currently have an example for using the SendGrid binding in a function app running in an isolated worker process. 
 
 # [C# Script](#tab/csharp-script)
 

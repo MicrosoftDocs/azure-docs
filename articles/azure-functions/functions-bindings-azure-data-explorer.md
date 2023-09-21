@@ -25,16 +25,6 @@ This set of articles explains how to work with [Azure Data Explorer](/azure/data
 
 The extension NuGet package you install depends on the C# mode you're using in your function app.
 
-# [In-process](#tab/in-process)
-
-Functions run in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-
-Add the extension to your project by installing [this NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Kusto).
-
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Kusto --prerelease
-```
-
 # [Isolated process](#tab/isolated-process)
 
 Functions run in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
@@ -46,6 +36,16 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Kusto --prereleas
 ```
 
 <!-- awaiting bundle support
+# [In-process](#tab/in-process)
+
+Functions run in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
+
+Add the extension to your project by installing [this NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Kusto).
+
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Kusto --prerelease
+```
+
 # [C# script](#tab/csharp-script)
 
 Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].

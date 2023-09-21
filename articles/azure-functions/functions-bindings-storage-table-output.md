@@ -23,31 +23,6 @@ For information on setup and configuration details, see the [overview](./functio
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-# [In-process](#tab/in-process)
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that uses an HTTP trigger to write a single table row.
-
-```csharp
-public class TableStorage
-{
-    public class MyPoco
-    {
-        public string PartitionKey { get; set; }
-        public string RowKey { get; set; }
-        public string Text { get; set; }
-    }
-
-    [FunctionName("TableOutput")]
-    [return: Table("MyTable")]
-    public static MyPoco TableOutput([HttpTrigger] dynamic input, ILogger log)
-    {
-        log.LogInformation($"C# http trigger function processed: {input.Text}");
-        return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
-    }
-}
-```
-
-
 # [Isolated process](#tab/isolated-process)
 
 The following `MyTableData` class represents a row of data in the table: 
@@ -86,6 +61,31 @@ public static MyTableData Run(
     };
 }
 ```
+
+# [In-process](#tab/in-process)
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that uses an HTTP trigger to write a single table row.
+
+```csharp
+public class TableStorage
+{
+    public class MyPoco
+    {
+        public string PartitionKey { get; set; }
+        public string RowKey { get; set; }
+        public string Text { get; set; }
+    }
+
+    [FunctionName("TableOutput")]
+    [return: Table("MyTable")]
+    public static MyPoco TableOutput([HttpTrigger] dynamic input, ILogger log)
+    {
+        log.LogInformation($"C# http trigger function processed: {input.Text}");
+        return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
+    }
+}
+```
+
 
 ---
 
@@ -416,14 +416,14 @@ The following table explains the binding configuration properties that you set i
 
 The usage of the binding depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
 
-# [In-process](#tab/in-process)
-
-An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
- 
 # [Isolated process](#tab/isolated-process)
 
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.
 
+# [In-process](#tab/in-process)
+
+An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+ 
 ---
 
 Choose a version to see usage details for the mode and version. 

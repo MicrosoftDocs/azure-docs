@@ -26,25 +26,6 @@ This set of articles explains how to work with [Azure SQL](/azure/azure-sql/inde
 
 The extension NuGet package you install depends on the C# mode you're using in your function app:
 
-# [In-process](#tab/in-process)
-
-Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-
-Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql).
-
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql
-```
-
-To use a preview version of the Microsoft.Azure.WebJobs.Extensions.Sql package for [SQL trigger](functions-bindings-azure-sql-trigger.md) functionality, add the `--prerelease` flag to the command.
-
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
-```
-
-> [!NOTE]
-> Breaking changes between preview releases of the Azure SQL trigger for Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
-
 # [Isolated process](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
@@ -59,6 +40,25 @@ To use a preview version of the Microsoft.Azure.Functions.Worker.Extensions.Sql 
 
 ```bash
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql --prerelease
+```
+
+> [!NOTE]
+> Breaking changes between preview releases of the Azure SQL trigger for Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
+
+# [In-process](#tab/in-process)
+
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
+
+Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql).
+
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql
+```
+
+To use a preview version of the Microsoft.Azure.WebJobs.Extensions.Sql package for [SQL trigger](functions-bindings-azure-sql-trigger.md) functionality, add the `--prerelease` flag to the command.
+
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
 ```
 
 > [!NOTE]

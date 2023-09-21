@@ -41,6 +41,12 @@ This article supports both programming models.
 
 ::: zone pivot="programming-language-csharp"
 
+# [Isolated process](#tab/isolated-process)
+
+The following example shows a [C# function](dotnet-isolated-process-guide.md) that writes a message string to an event hub, using the method return value as the output:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-23":::
+
 # [In-process](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that writes a message to an event hub, using the method return value as the output:
@@ -81,12 +87,6 @@ public static async Task Run(
     }
 }
 ```
-# [Isolated process](#tab/isolated-process)
-
-The following example shows a [C# function](dotnet-isolated-process-guide.md) that writes a message string to an event hub, using the method return value as the output:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-23":::
-
 ---
 
 ::: zone-end 
