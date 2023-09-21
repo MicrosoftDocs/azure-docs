@@ -1,6 +1,6 @@
 ---
 title: What is Microsoft Entra Monitoring and health?
-description: Provides a general overview of Microsoft Entra ID monitoring and health.
+description: Provides a general overview of Microsoft Entra Monitoring and health.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
