@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Microsoft Entra ID reports FAQ
-  description: Frequently asked questions around Microsoft Entra ID reports.
+  title: Microsoft Entra monitoring and health FAQ
+  description: Frequently asked questions around Microsoft Entra monitoring and health, including logs and reports.
   services: active-directory
   author: shlipsey3
   manager: amycolannino
