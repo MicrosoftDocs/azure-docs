@@ -23,21 +23,21 @@ Microsoft strives to ensure that Azure services are always available. However, u
 - [Failover](#plan-for-storage-account-failover)
 - [Designing applications for high availability](#design-for-high-availability)
 
-This article focuses on failover for globally-redundant storage accounts (GRS, GZRS, and RA-GZRS), and how to design your applications to be highly available if there's an outage and subsequent failover.
+This article focuses on failover for globally redundant storage accounts (GRS, GZRS, and RA-GZRS), and how to design your applications to be highly available if there's an outage and subsequent failover.
 
 ## Choose the right redundancy option
 
 Azure Storage maintains multiple copies of your storage account to ensure durability and high availability. Which redundancy option you choose for your account depends on the degree of resiliency you need for your applications.
 
-With locally-redundant storage (LRS), three copies of your storage account are automatically stored and replicated within a single datacenter. With zone-redundant storage (ZRS), a copy is stored and replicated in each of three separate availability zones within the same region. For more information about availability zones, see [Azure availability zones](../../availability-zones/az-overview.md).
+With locally redundant storage (LRS), three copies of your storage account are automatically stored and replicated within a single datacenter. With zone-redundant storage (ZRS), a copy is stored and replicated in each of three separate availability zones within the same region. For more information about availability zones, see [Azure availability zones](../../availability-zones/az-overview.md).
 
 Recovery of a single copy of a storage account occurs automatically with LRS and ZRS.
 
-### Globally-redundant storage and failover
+### globally redundant storage and failover
 
-With globally-redundant storage (GRS, GZRS, and RA-GZRS), Azure copies your data asynchronously to a secondary geographic region at least hundreds of miles away. This allows you to recover your data if there's an outage in the primary region. A feature that distinguishes globally-redundant storage from LRS and ZRS is the ability to fail over to the secondary region if there's an outage in the primary region. The process of failing over updates the DNS entries for your storage account service endpoints such that the endpoints for the secondary region become the new primary endpoints for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoints.
+With globally redundant storage (GRS, GZRS, and RA-GZRS), Azure copies your data asynchronously to a secondary geographic region at least hundreds of miles away. This allows you to recover your data if there's an outage in the primary region. A feature that distinguishes globally redundant storage from LRS and ZRS is the ability to fail over to the secondary region if there's an outage in the primary region. The process of failing over updates the DNS entries for your storage account service endpoints such that the endpoints for the secondary region become the new primary endpoints for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoints.
 
-RA-GRS and RA-GZRS redundancy configurations provide geo-redundant storage with the added benefit of read access to the secondary endpoint if there is an outage in the prinary region. If an outage occurs in the primary endpoint, applications configured for read access to the secondary region and designed for high availability can continue to read from the secondary endpoint. Microsoft recommends RA-GZRS for maximum availability and durability of your storage accounts.
+RA-GRS and RA-GZRS redundancy configurations provide geo-redundant storage with the added benefit of read access to the secondary endpoint if there is an outage in the primary region. If an outage occurs in the primary endpoint, applications configured for read access to the secondary region and designed for high availability can continue to read from the secondary endpoint. Microsoft recommends RA-GZRS for maximum availability and durability of your storage accounts.
 
 For more information about redundancy in Azure Storage, see [Azure Storage redundancy](storage-redundancy.md).
 

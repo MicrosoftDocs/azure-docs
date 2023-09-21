@@ -6,9 +6,9 @@ author: jimmart-dev
 ms.service: azure-storage
 ms.subservice: common-concepts
 ms.topic: "include"
-ms.date: 09/06/2023
+ms.date: 09/21/2023
 ms.author: jammart
-ms.custom: "include file"
+ms.custom: "include file", references_regions
 ---
 
 > [!IMPORTANT]
