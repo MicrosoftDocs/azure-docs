@@ -1,6 +1,6 @@
 ---
-title: Code samples for Microsoft Entra v1.0
-description: Provides an index of Microsoft Entra ID (v1.0 endpoint) code samples, organized by scenario.
+title: Code samples for Azure Active Directory v1.0
+description: Provides an index of Azure Active Directory (v1.0 endpoint) code samples, organized by scenario.
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
@@ -15,13 +15,13 @@ ms.custom: aaddev
 ROBOTS: NOINDEX
 ---
 
-# Microsoft Entra ID code samples (v1.0 endpoint)
+# Azure Active Directory code samples (v1.0 endpoint)
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-You can use Microsoft Entra ID to add authentication and authorization to your web applications and web APIs.
+You can use Azure Active Directory (Azure AD) to add authentication and authorization to your web applications and web APIs.
 
-This section provides links to samples you can use to learn more about the Microsoft Entra v1.0 endpoint. These samples show you how it's done along with code snippets that you can use in your applications. On the code sample page, you'll find detailed read-me topics that help with requirements, installation, and set-up. And the code is commented to help you understand the critical sections.
+This section provides links to samples you can use to learn more about the Azure AD v1.0 endpoint. These samples show you how it's done along with code snippets that you can use in your applications. On the code sample page, you'll find detailed read-me topics that help with requirements, installation, and set-up. And the code is commented to help you understand the critical sections.
 
 > [!NOTE]
 > If you are interested in Microsoft Entra V2 code samples, see [v2.0 code samples by scenario](../develop/sample-v2-code.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).

@@ -1,6 +1,6 @@
 ---
-title: Microsoft Entra Conditional Access developer guidance
-description: Developer guidance and scenarios for Microsoft Entra Conditional Access
+title: Azure AD Conditional Access developer guidance
+description: Developer guidance and scenarios for Azure AD Conditional Access
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -16,7 +16,7 @@ ms.workload: identity
 ROBOTS: NOINDEX
 ---
 
-# Developer guidance for the Microsoft Entra Conditional Access feature
+# Developer guidance for the Azure AD Conditional Access feature
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -31,7 +31,7 @@ The Conditional Access feature in Microsoft Entra ID offers one of several ways 
 
 For more information on the full capabilities of Conditional Access, see [What is Conditional Access](../conditional-access/overview.md).
 
-For developers building apps for Microsoft Entra ID, this article shows how you can use Conditional Access and you'll also learn about the impact of accessing resources that you don't have control over that may have Conditional Access policies applied. The article also explores the implications of Conditional Access in the on-behalf-of flow, web apps, accessing Microsoft Graph, and calling APIs.
+For developers building apps for Azure AD, this article shows how you can use Conditional Access and you'll also learn about the impact of accessing resources that you don't have control over that may have Conditional Access policies applied. The article also explores the implications of Conditional Access in the on-behalf-of flow, web apps, accessing Microsoft Graph, and calling APIs.
 
 Knowledge of [single and multi-tenant](../develop/howto-convert-app-to-be-multi-tenant.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) apps and [common authentication patterns](v1-authentication-scenarios.md) is assumed.
 
@@ -63,7 +63,7 @@ Some scenarios require code changes to handle Conditional Access whereas others 
 
 Microsoft Graph has special considerations when building apps in Conditional Access environments. Generally, the mechanics of Conditional Access behave the same, but the policies your users see will be based on the underlying data your app is requesting from the graph. 
 
-Specifically, all Microsoft Graph scopes represent some dataset that can individually have policies applied. Since Conditional Access policies are assigned the specific datasets, Microsoft Entra ID will enforce Conditional Access policies based on the data behind Graph - rather than Graph itself.
+Specifically, all Microsoft Graph scopes represent some dataset that can individually have policies applied. Since Conditional Access policies are assigned the specific datasets, Azure AD will enforce Conditional Access policies based on the data behind Graph - rather than Graph itself.
 
 For example, if an app requests the following Microsoft Graph scopes,
 
@@ -77,13 +77,13 @@ An app can expect their users to fulfill all policies set on Bookings and Exchan
 
 For several different app topologies, a Conditional Access policy is evaluated when the session is established. As a Conditional Access policy operates on the granularity of apps and services, the point at which it is invoked depends heavily on the scenario you're trying to accomplish.
 
-When your app attempts to access a service with a Conditional Access policy, it may encounter a Conditional Access challenge. This challenge is encoded in the `claims` parameter that comes in a response from Microsoft Entra ID. Here's an example of this challenge parameter: 
+When your app attempts to access a service with a Conditional Access policy, it may encounter a Conditional Access challenge. This challenge is encoded in the `claims` parameter that comes in a response from Azure AD. Here's an example of this challenge parameter: 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 ```
 
-Developers can take this challenge and append it onto a new request to Microsoft Entra ID. Passing this state prompts the end user to perform any action necessary to comply with the Conditional Access policy. In the following scenarios, specifics of the error and how to extract the parameter are explained.
+Developers can take this challenge and append it onto a new request to Azure AD. Passing this state prompts the end user to perform any action necessary to comply with the Conditional Access policy. In the following scenarios, specifics of the error and how to extract the parameter are explained.
 
 ## Scenarios
 
@@ -109,7 +109,7 @@ In this scenario, we walk through the case in which a native app calls a web ser
 
 The initial token request for Web API 1 does not prompt the end user for multi-factor authentication as Web API 1 may not always hit the downstream API. Once Web API 1 tries to request a token on-behalf-of the user for Web API 2, the request fails since the user has not signed in with multi-factor authentication.
 
-Microsoft Entra ID returns an HTTP response with some interesting data:
+Azure AD returns an HTTP response with some interesting data:
 
 > [!NOTE]
 > In this instance it's a multi-factor authentication error description, but there's a wide range of `interaction_required` possible pertaining to Conditional Access.
@@ -162,7 +162,7 @@ When an app needs an access token to call a Web API, it attempts an `acquireToke
 
 Let's walk through an example with our Conditional Access scenario. The end user just landed on the site and doesn't have a session. We perform a `login()` call, get an ID token without multi-factor authentication. Then the user hits a button that requires the app to request data from a web API. The app tries to do an `acquireToken()` call but fails since the user has not performed multi-factor authentication yet and needs to comply with the Conditional Access policy.
 
-Microsoft Entra ID sends back the following HTTP response:
+Azure AD sends back the following HTTP response:
 
 ```
 HTTP 400; Bad Request

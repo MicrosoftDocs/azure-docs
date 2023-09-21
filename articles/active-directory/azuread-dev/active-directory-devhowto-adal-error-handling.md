@@ -576,12 +576,12 @@ window.Logging = {
 ## Related content
 
 * [Azure AD Authentication Libraries][AAD-Auth-Libraries]
-* [Microsoft Entra authentication Scenarios][AAD-Auth-Scenarios]
-* [Integrating Applications with Microsoft Entra ID][AAD-Integrating-Apps]
+* [Azure AD Authentication Scenarios][AAD-Auth-Scenarios]
+* [Integrating Applications with Azure AD Authentication][AAD-Integrating-Apps]
 
 Use the comments section that follows, to provide feedback and help us refine and shape our content.
 
-[![Shows the "Sign in with Microsoft" button][Sign-In]][Sign-In]
+[![Shows the "Sign in with Microsoft" button][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
@@ -589,4 +589,4 @@ Use the comments section that follows, to provide feedback and help us refine an
 [AAD-Integrating-Apps]:../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
 
 <!--Image references-->
-[Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
+[AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
