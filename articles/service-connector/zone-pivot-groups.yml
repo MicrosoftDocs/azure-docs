@@ -12,8 +12,8 @@ groups:
   - id: sql
     title: Azure SQL Database
 
-- id: howto-postgresql-authtype
-  title: Azure Database for PostgreSQL uses different authentication types
+- id: howto-authtype
+  title: Choose the authentication type
   prompt: Choose the authentication type
   pivots:
   - id: system-identity

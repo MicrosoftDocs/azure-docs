@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Declarative Provisioning Expressions'
+title: 'Microsoft Entra Connect: Declarative Provisioning Expressions'
 description: Explains the declarative provisioning expressions.
 services: active-directory
 documentationcenter: ''
@@ -17,8 +17,8 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect sync: Understanding Declarative Provisioning Expressions
-Azure AD Connect sync builds on declarative provisioning first introduced in Forefront Identity Manager 2010. It allows you to implement your complete identity integration business logic without the need to write compiled code.
+# Microsoft Entra Connect Sync: Understanding Declarative Provisioning Expressions
+Microsoft Entra Connect Sync builds on declarative provisioning first introduced in Forefront Identity Manager 2010. It allows you to implement your complete identity integration business logic without the need to write compiled code.
 
 An essential part of declarative provisioning is the expression language used in attribute flows. The language used is a subset of Microsoft® Visual Basic® for Applications (VBA). This language is used in Microsoft Office and users with experience of VBScript will also recognize it. The Declarative Provisioning Expression Language is only using functions and is not a structured language. There are no methods or statements. Functions are instead nested to express program flow.
 
@@ -88,9 +88,9 @@ For example:
 
 **Overview topics**
 
-* [Azure AD Connect sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md)
+* [Microsoft Entra Connect Sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
+* [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md)
 
 **Reference topics**
 
-* [Azure AD Connect sync: Functions Reference](reference-connect-sync-functions-reference.md)
+* [Microsoft Entra Connect Sync: Functions Reference](reference-connect-sync-functions-reference.md)

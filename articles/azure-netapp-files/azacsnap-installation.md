@@ -107,6 +107,8 @@ This section explains how to enable communication with storage. Use the followin
 
 # [Azure NetApp Files (with virtual machine)](#tab/azure-netapp-files)
 
+There are two ways to authenticate to the Azure Resource Manager using either a system-managed identity or a service principal file.  The options are described here.
+
 ### Azure system-managed identity
 
 From AzAcSnap 9, it's possible to use a system-managed identity instead of a service principal for operation. Using this feature avoids the need to store service principal credentials on a virtual machine (VM). To set up an Azure managed identity by using Azure Cloud Shell, follow these steps:
@@ -258,6 +260,8 @@ Communication with the storage back end occurs over an encrypted SSH channel. Th
     j0XvwUTLQbR4peGNfN1/cefcLxDlAgI+TmKdfgnLXIsSfbacXoTbqyBRwCi7p+bJnJD07zSc9YCZJa
     wKGAIilSg7s6Bq/2lAPDN1TqwIF8wQhAg2C7yeZHyE/ckaw/eQYuJtN+RNBD
     ```
+
+
 
 ---
 
@@ -925,27 +929,13 @@ DB20000I  The QUIT command completed successfully.
 
 ```bash
 [prj@db2-02 ~]$ exit
+```
 
 ```output
 logout
 Connection to <serverAddress> closed.
 ```
 
-After the access is working correctly, go on to configure (`azacsnap -c configure`) with the Db2 server's external IP address and test (`azacsnap -c test --test db2`) AzAcSnap database connectivity.
-
-Run the `azacsnap` test command:
-
-```bash
-cd ~/bin
-azacsnap -c test --test db2 --configfile Db2.json
-```
-
-```output
-BEGIN : Test process started for 'db2'
-BEGIN : Db2 DB tests
-PASSED: Successful connectivity to Db2 DB version v11.5.7.0
-END   : Test process complete for 'db2'
-```
 
 ---
 
@@ -1344,3 +1334,4 @@ No special database configuration is required for Db2 because you're using the i
 ## Next steps
 
 - [Configure the Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md)
+

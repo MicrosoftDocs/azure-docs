@@ -1,5 +1,5 @@
 ---
-title: Automated ServiceNow Ticket Creation with Azure AD Entitlement Management Integration
+title: Automated ServiceNow Ticket Creation with Microsoft Entra Entitlement Management Integration
 description: This tutorial walks you through Ticketed provisioning via ServiceNow integration with entitlement management using custom extensions and Logic Apps.
 author: owinfreyATL
 ms.author: owinfrey
@@ -11,7 +11,7 @@ ms.date: 05/31/2023
 ms.custom: template-tutorial 
 ---
 
-# Tutorial: Automated ServiceNow Ticket Creation with Azure AD Entitlement Management Integration
+# Tutorial: Automated ServiceNow Ticket Creation with Microsoft Entra Entitlement Management Integration
 
 
 
@@ -22,17 +22,17 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Adding a Logic App Workflow to an existing catalog.
 > * Adding a custom extension to a policy within an existing access package.
-> * Register an application in Azure AD for resuming Entitlement Management workflow
+> * Register an application in Microsoft Entra ID for resuming Entitlement Management workflow
 > * Configuring ServiceNow for Automation Authentication.
 > * Requesting access to an access package as an end-user.
 > * Receiving access to the requested access package as an end-user.
 
 ## Prerequisites
 
-- An Azure AD user account with an active Azure subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra user account with an active Azure subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - A [ServiceNow instance](https://www.servicenow.com/) of Rome or higher
-- SSO integration with ServiceNow. If this isn't already configured, see:[Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceNow](../saas-apps/servicenow-tutorial.md) before continuing.
+- SSO integration with ServiceNow. If this isn't already configured, see:[Tutorial: Microsoft Entra single sign-on (SSO) integration with ServiceNow](../saas-apps/servicenow-tutorial.md) before continuing.
 
 ## Adding Logic App Workflow to an existing Catalog for Entitlement Management
 
@@ -94,15 +94,15 @@ After setting up custom extensibility in the catalog, administrators can create 
     :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-access-package-extension.png" alt-text="Screenshot of custom extension details for an access package." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-access-package-extension.png":::
 
 > [!NOTE]
-> Select **New access package** if you want to create a new access package. For more information about how to create an access package, see: [Create a new access package in entitlement management](entitlement-management-access-package-create.md). For more information about how to edit an existing access package, see: [Change request settings for an access package in Azure AD entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings).
+> Select **New access package** if you want to create a new access package. For more information about how to create an access package, see: [Create a new access package in entitlement management](entitlement-management-access-package-create.md). For more information about how to edit an existing access package, see: [Change request settings for an access package in Microsoft Entra entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings).
 
 
 
-## Register an application with secrets in Azure portal
+## Register an application with secrets in the Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-With Azure, you're able to use [Azure Key Vault](/azure/key-vault/secrets/about-secrets) to store application secrets such as passwords. To register an application with secrets within the Azure portal, follow these steps:
+With Azure, you're able to use [Azure Key Vault](/azure/key-vault/secrets/about-secrets) to store application secrets such as passwords. To register an application with secrets within the Microsoft Entra admin center, follow these steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -118,7 +118,9 @@ With Azure, you're able to use [Azure Key Vault](/azure/key-vault/secrets/about-
 
 After registering your application, you must add a client secret by following these steps: 
 
-1. In the Azure portal, in App registrations, select your application.
+1. Browse to **Identity** > **Applications** > **App registrations**.
+
+1. select your application.
 
 1. Select Certificates & secrets > Client secrets > New client secret.
 
@@ -151,11 +153,11 @@ To authorize the created application to call the [MS Graph resume API](/graph/ap
 
 At this point it's time to configure ServiceNow for resuming the entitlement management workflow after the ServiceNow ticket closure:
 
-1. Register an Azure Active Directory application in the ServiceNow Application Registry by following these steps:
+1. Register a Microsoft Entra application in the ServiceNow Application Registry by following these steps:
     1. Sign in to ServiceNow and navigate to the Application Registry.
     1. Select “*New*” and then select “**Connect to a third party OAuth Provider**”.
     1. Provide a name for the application, and select Client Credentials in the Default Grant type.
-    1. Enter the Client Name, ID, Client Secret, Authorization URL, Token URL that were generated when you registered the Azure Active Directory application in the Microsoft Entra admin center.
+    1. Enter the Client Name, ID, Client Secret, Authorization URL, Token URL that were generated when you registered the Microsoft Entra application in the Microsoft Entra admin center.
     1. Submit the application.
         :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-application-registry.png" alt-text="Screenshot of the application registry within ServiceNow." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-application-registry.png":::
 1. Create a System Web Service REST API message by following these steps: 

@@ -173,7 +173,7 @@ You can use claims resolvers with the following elements:
 | Item | Element | Settings |
 | ----- | ----------------------- | --------|
 |Application Insights technical profile |`InputClaim` | |
-|[Azure Active Directory](active-directory-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
+|[Microsoft Entra](active-directory-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[OAuth2](oauth2-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[OpenID Connect](openid-connect-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[Claims transformation](claims-transformation-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
