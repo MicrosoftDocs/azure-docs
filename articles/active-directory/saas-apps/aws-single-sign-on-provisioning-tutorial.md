@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/20/2023
+ms.date: 08/22/2023
 ms.author: thwimmer
 ---
 
@@ -195,6 +195,9 @@ Now any end user that was made eligible for the group in PIM can get JIT access 
 
 > [!IMPORTANT]
 > The group membership is provisioned roughly a minute after the activation is complete. Please wait before attempting to sign-in to AWS. If the user is unable to access the necessary group in AWS, please review the troubleshooting tips below and provisioning logs to ensure that the user was successfully provisioned. 
+
+
+>[!VIDEO https://www.youtube.com/embed/aXp2CUFe7vk]
 
 ## Troubleshooting Tips
 
