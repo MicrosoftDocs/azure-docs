@@ -1,13 +1,13 @@
 ---
 title: Create an Oracle database in an Azure VM
 description: Learn how to quickly configure and deploy an Oracle Database 12c database in your Azure environment by using Azure Cloud Shell or the Azure CLI.
-author: dbakevlar
+author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: quickstart
 ms.date: 04/20/2023
-ms.author: kegorman
+ms.author: jacobjaygbay
 ms.custom: mode-other, devx-track-azurecli, devx-track-java, devx-track-javaee
 ms.devlang: azurecli
 ---

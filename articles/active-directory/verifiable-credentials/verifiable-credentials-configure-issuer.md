@@ -7,7 +7,7 @@ author: barclayn
 manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 08/26/2022
+ms.date: 09/15/2023
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -17,7 +17,7 @@ ms.date: 08/26/2022
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-In this tutorial, you run a sample application from your local computer that connects to your Azure Active Directory (Azure AD) tenant. Using the application, you're going to issue and verify a verified credential expert card.
+In this tutorial, you run a sample application from your local computer that connects to your Microsoft Entra tenant. Using the application, you're going to issue and verify a verified credential expert card.
 
 In this article, you learn how to:
 
@@ -32,7 +32,7 @@ In this article, you learn how to:
 
 The following diagram illustrates the Microsoft Entra Verified ID architecture and the component you configure.
 
-:::image type="content" source="media/verifiable-credentials-configure-issuer/verifiable-credentials-architecture.png" alt-text="Diagram that illustrates the Azure AD Verifiable Credentials architecture.":::
+:::image type="content" source="media/verifiable-credentials-configure-issuer/verifiable-credentials-architecture.png" alt-text="Diagram that illustrates the Microsoft Entra Verified ID architecture.":::
 
 ## Prerequisites
 
@@ -47,9 +47,12 @@ The following diagram illustrates the Microsoft Entra Verified ID architecture a
 
 ## Create the verified credential expert card in Azure
 
-In this step, you create the verified credential expert card by using Microsoft Entra Verified ID. After you create the credential, your Azure AD tenant can issue it to users who initiate the process.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Using the [Azure portal](https://portal.azure.com/), search for **Verified ID** and select it.
+In this step, you create the verified credential expert card by using Microsoft Entra Verified ID. After you create the credential, your Microsoft Entra tenant can issue it to users who initiate the process.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select **Verifiable credentials**.
 1. After you [set up your tenant](verifiable-credentials-configure-tenant.md), the **Create credential** should appear. Alternatively, you can select **Credentials** in the left hand menu and select **+ Add a credential**.
 1. In **Create credential**, select **Custom Credential** and click **Next**:
 
@@ -157,7 +160,9 @@ git clone https://github.com/Azure-Samples/active-directory-verifiable-credentia
 
 Create a client secret for the registered application that you created. The sample application uses the client secret to prove its identity when it requests tokens.
 
-1. Go to the **App registrations** page that is located inside **Azure Active Directory**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID.
+1. Go to **Applications** > **App registrations** page.
 
 1. Select the **verifiable-credentials-app** application you created earlier.
 
@@ -295,4 +300,4 @@ public async Task<ActionResult> issuanceRequest()
 
 ## Next steps
 
-In the [next step](verifiable-credentials-configure-verifier.md), learn how a third-party application, also known as a relying party application, can verify your credentials with its own Azure AD tenant verifiable credentials API service.
+In the [next step](verifiable-credentials-configure-verifier.md), learn how a third-party application, also known as a relying party application, can verify your credentials with its own Microsoft Entra tenant verifiable credentials API service.

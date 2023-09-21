@@ -5,11 +5,11 @@ description: List of Azure regions that support geo-zone-redundant storage (GZRS
 services: storage
 author: jimmart-dev
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: reference
 ms.date: 04/28/2023
 ms.author: jammart
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions
 ---
 

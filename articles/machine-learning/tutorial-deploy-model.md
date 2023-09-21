@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: This tutorial covers how to deploy a model to production using Azure Machine Learning Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: tutorial
 author: dem108
 ms.author: sehan
@@ -16,7 +16,7 @@ ms.custom: mlops, devx-track-python #add more custom tags
 
 # Deploy a model as an online endpoint
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 Learn to deploy a model to an online endpoint, using Azure Machine Learning Python SDK v2.
 
 In this tutorial, we use a model trained to predict the likelihood of defaulting on a credit card payment. The goal is to deploy this model and show its use.
@@ -48,6 +48,9 @@ The steps you'll take are:
 1. View your VM quota and ensure you have enough quota available to create online deployments. In this tutorial, you will need at least 8 cores of `STANDARD_DS3_v2` and 12 cores of `STANDARD_F4s_v2`. To view your VM quota usage and request quota increases, see [Manage resource quotas](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
 
 [!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
+
+> [!NOTE]
+>- Serverless Spark Compute does not have `Python 3.10 - SDK v2` installed by default. It is recommended that users create a compute instance and select it before proceeding with the tutorial.
 
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/main/tutorials/get-started-notebooks/deploy-model.ipynb -->
 
@@ -483,7 +486,7 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name).result()
 
 Use these steps to delete your Azure Machine Learning workspace and all compute resources.
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 ## Next Steps
 

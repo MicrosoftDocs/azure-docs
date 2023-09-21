@@ -3,7 +3,7 @@ title: Template functions - lambda
 description: Describes the lambda functions to use in an Azure Resource Manager template (ARM template)
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 05/22/2023
+ms.date: 06/22/2023
 ---
 
 # Lambda functions for ARM templates
@@ -87,7 +87,7 @@ The following examples show how to use the `filter` function.
       }
     ]
   },
-  "resources": {},
+  "resources": [],
   "outputs": {
     "oldDogs": {
       "type": "array",
@@ -116,7 +116,7 @@ The output from the preceding example shows the dogs that are five or older:
       }
     ]
   },
-  "resources": {},
+  "resources": [],
   "outputs": {
     "filteredLoop": {
       "type": "array",
@@ -199,7 +199,7 @@ The following example shows how to use the `map` function.
       }
     ]
   },
-  "resources": {},
+  "resources": [],
   "outputs": {
     "dogNames": {
       "type": "array",
@@ -289,7 +289,7 @@ The following examples show how to use the `reduce` function.
     ],
     "ages": "[map(variables('dogs'), lambda('dog', lambdaVariables('dog').age))]"
   },
-  "resources": {},
+  "resources": [],
   "outputs": {
     "totalAge": {
       "type": "int",
@@ -316,7 +316,7 @@ The output from the preceding example is:
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "resources": {},
+  "resources": [],
   "outputs": {
     "reduceObjectUnion": {
       "type": "object",
@@ -394,7 +394,7 @@ The following example shows how to use the `sort` function.
       }
     ]
   },
-  "resources": {},
+  "resources": [],
   "outputs": {
     "dogsByAge": {
       "type": "array",
@@ -471,7 +471,7 @@ The following example shows how to use the `toObject` function with the two requ
       }
     ]
   },
-  "resources": {},
+  "resources": [],
   "outputs": {
     "dogsObject": {
       "type": "object",
@@ -545,7 +545,7 @@ The following example shows how to use the `toObject` function with three parame
       }
     ]
   },
-  "resources": {},
+  "resources": [],
   "outputs": {
     "dogsObject": {
       "type": "object",

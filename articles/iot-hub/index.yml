@@ -77,7 +77,7 @@ landingContent:
    - linkListType: concept
      links:
      - text: Security best practices
-       url: ../iot/iot-security-best-practices.md?context=/azure/iot-hub/rc/rc
+       url: ../iot/iot-overview-security.md?context=/azure/iot-hub/rc/rc
      - text: Control access to IoT Hub
        url: iot-hub-devguide-security.md
 

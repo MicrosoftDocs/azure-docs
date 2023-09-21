@@ -7,7 +7,7 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: conceptual
 ms.date: 12/07/2022
 ---
@@ -49,6 +49,8 @@ Indexers crawl data stores on Azure and outside of Azure.
 + [SharePoint in Microsoft 365](search-howto-index-sharepoint-online.md) (in preview)
 + [Azure Cosmos DB for MongoDB](search-howto-index-cosmosdb-mongodb.md) (in preview)
 + [Azure Cosmos DB for Apache Gremlin](search-howto-index-cosmosdb-gremlin.md) (in preview)
+
+Azure Cosmos DB for Cassandra is not supported.
 
 Indexers accept flattened row sets, such as a table or view, or items in a container or folder. In most cases, it creates one search document per row, record, or item.
 

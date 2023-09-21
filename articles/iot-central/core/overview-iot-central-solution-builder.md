@@ -27,7 +27,7 @@ A typical IoT solution:
 - Extracts business value from your device data.
 - Is composed of multiple services and applications.
 
-:::image type="content" source="media/overview-iot-central-solution-builder/architecture.png" alt-text="Diagram of IoT Central solution architecture including integration areas.":::
+:::image type="content" source="media/overview-iot-central-solution-builder/architecture.png" alt-text="Diagram of IoT Central solution architecture including integration areas." border="false":::
 
 When you use IoT Central to create an IoT solution, tasks include:
 

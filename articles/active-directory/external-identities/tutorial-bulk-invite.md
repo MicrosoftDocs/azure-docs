@@ -7,11 +7,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 02/28/2023
+ms.date: 07/31/2023
 
 ms.author: cmulligan
 author: csmulligan
-manager: celestedg
+manager: CelesteDG
 
 # Customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.
 
@@ -21,7 +21,7 @@ ms.custom: engagement-fy23
 
 # Tutorial: Bulk invite Azure AD B2B collaboration users
 
-If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Azure portal to send bulk invitations to external users. Specifically, you'll follow these steps:
+If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Microsoft Entra admin center to send bulk invitations to external users. Specifically, you'll follow these steps:
 
 > [!div class="checklist"]
 >
@@ -29,19 +29,16 @@ If you use Azure Active Directory (Azure AD) B2B collaboration to work with exte
 > * Upload the .csv file to Azure AD
 > * Verify the users were added to the directory
 
-If you don’t have Azure Active Directory, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-
 ## Prerequisites
-
-You need two or more test email accounts that you can send the invitations to. The accounts must be from outside your organization. You can use any type of account, including social accounts such as gmail.com or outlook.com addresses.
-
+- If you don’t have Azure Active Directory, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- You need two or more test email accounts that you can send the invitations to. The accounts must be from outside your organization. You can use any type of account, including social accounts such as gmail.com or outlook.com addresses.
 
 ## Invite guest users in bulk
 
-1. Sign in to the Azure portal with an account that is a global administrator in the organization.
-2. In the navigation pane, select **Azure Active Directory**.
-3. Under **Manage**, select **All Users**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All Users**.
 4. Select **Bulk operations** > **Bulk invite**.
 
     :::image type="content" source="media/tutorial-bulk-invite/bulk-invite-button.png" alt-text="Screenshot of the bulk invite button.":::
@@ -98,13 +95,12 @@ The rows in a downloaded CSV template are as follows:
 
 ## Verify guest users in the directory
 
-Check to see that the guest users you added exist in the directory either in the Azure portal or by using PowerShell.
+Check to see that the guest users you added exist in the directory either in the Microsoft Entra admin center or by using PowerShell.
 
-### View guest users in the Azure portal
+### View guest users in the Microsoft Entra admin center
 
-1. Sign in to the Azure portal with an account that is a User administrator in the organization.
-2. In the navigation pane, select **Azure Active Directory**.
-3. Under **Manage**, select **Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
 4. Under **Show**, select **Guest users only** and verify the users you added are listed.
 
 ### View guest users with PowerShell
@@ -139,4 +135,3 @@ For example: `Remove-MgUser -UserId "lstokes_fabrikam.com#EXT#@contoso.onmicroso
 - [Bulk invite guest users via PowerShell](bulk-invite-powershell.md)
 - [Learn about the Azure AD B2B collaboration invitation redemption process](redemption-experience.md)
 - [Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)
-

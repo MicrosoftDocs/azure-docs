@@ -2,14 +2,14 @@
 title: Azure AD authentication for Application Insights
 description: Learn how to enable Azure Active Directory (Azure AD) authentication to ensure that only authenticated telemetry is ingested in your Application Insights resources.
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 06/23/2023
 ms.devlang: csharp, java, javascript, python
 ms.reviewer: rijolly
 ---
 
 # Azure AD authentication for Application Insights
 
-Application Insights now supports [Azure Active Directory (Azure AD) authentication](../../active-directory/authentication/overview-authentication.md#what-is-azure-active-directory-authentication). By using Azure AD, you can ensure that only authenticated telemetry is ingested in your Application Insights resources.
+Application Insights now supports [Azure Active Directory (Azure AD) authentication](../../active-directory/authentication/overview-authentication.md). By using Azure AD, you can ensure that only authenticated telemetry is ingested in your Application Insights resources.
 
 Using various authentication systems can be cumbersome and risky because it's difficult to manage credentials at scale. You can now choose to [opt out of local authentication](#disable-local-authentication) to ensure only telemetry exclusively authenticated by using [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your resource. This feature is a step to enhance the security and reliability of the telemetry used to make critical operational ([alerting](../alerts/alerts-overview.md#what-are-azure-monitor-alerts)and [autoscale](../autoscale/autoscale-overview.md#overview-of-autoscale-in-azure)) and business decisions.
 
@@ -161,11 +161,9 @@ The following example shows how to configure the Java agent to use system-assign
 ```JSON
 { 
   "connectionString": "App Insights Connection String with IngestionEndpoint", 
-  "preview": { 
-    "authentication": { 
-      "enabled": true, 
-      "type": "SAMI" 
-    } 
+  "authentication": { 
+    "enabled": true, 
+    "type": "SAMI" 
   } 
 } 
 ```
@@ -177,13 +175,11 @@ The following example shows how to configure the Java agent to use user-assigned
 ```JSON
 { 
   "connectionString": "App Insights Connection String with IngestionEndpoint", 
-  "preview": { 
-    "authentication": { 
-      "enabled": true, 
-      "type": "UAMI", 
-      "clientId":"<USER-ASSIGNED MANAGED IDENTITY CLIENT ID>" 
-    } 
-  }     
+  "authentication": { 
+    "enabled": true, 
+    "type": "UAMI", 
+    "clientId":"<USER-ASSIGNED MANAGED IDENTITY CLIENT ID>" 
+  } 
 } 
 ```
 :::image type="content" source="media/azure-ad-authentication/user-assigned-managed-identity.png" alt-text="Screenshot that shows user-assigned managed identity." lightbox="media/azure-ad-authentication/user-assigned-managed-identity.png":::
@@ -195,14 +191,12 @@ The following example shows how to configure the Java agent to use a service pri
 ```JSON
 { 
   "connectionString": "App Insights Connection String with IngestionEndpoint",
-   "preview": { 
-        "authentication": { 
-          "enabled": true, 
-          "type": "CLIENTSECRET", 
-          "clientId":"<YOUR CLIENT ID>", 
-          "clientSecret":"<YOUR CLIENT SECRET>", 
-          "tenantId":"<YOUR TENANT ID>" 
-    } 
+  "authentication": { 
+    "enabled": true, 
+    "type": "CLIENTSECRET", 
+    "clientId":"<YOUR CLIENT ID>", 
+    "clientSecret":"<YOUR CLIENT SECRET>", 
+    "tenantId":"<YOUR TENANT ID>" 
   } 
 } 
 ```
@@ -419,7 +413,7 @@ When developing a custom client to obtain an access token from Azure AD for the 
 | Azure cloud version | Token audience value |
 | --- | --- |
 | Azure public cloud | `https://monitor.azure.com` |
-| Azure China cloud | `https://monitor.azure.cn` |
+| Microsoft Azure operated by 21Vianet cloud | `https://monitor.azure.cn` |
 | Azure US Government cloud | `https://monitor.azure.us` |
 
 If you're using sovereign clouds, you can find the audience information in the connection string as well. The connection string follows this structure:

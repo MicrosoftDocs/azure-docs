@@ -8,7 +8,7 @@ ms.date: 09/22/2022
 ms.topic: quickstart
 ms.service: payment-hsm
 tags: azure-resource-manager
-ms.custom: mvc, mode-other, devx-track-arm-template, devx-track-azurepowershell
+ms.custom: mvc, mode-other, devx-track-arm-template, devx-track-azurepowershell, devx-track-azurecli
 #Customer intent: As a security admin who is new to Azure, I want to create a payment HSM using an Azure Resource Manager template.
 ---
 

@@ -5,8 +5,8 @@ author: KarlErickson
 ms.author: CaihuaRui
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 05/23/2023
-ms.custom: devx-track-java, devx-track-azurecli
+ms.date: 06/21/2023
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Quickstart: Enable and disable Spring Cloud Config Server in Azure Spring Apps

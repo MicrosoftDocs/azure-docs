@@ -28,7 +28,7 @@ The Microsoft Authentication Library (MSAL) supports several authorization grant
 | [Implicit grant](#implicit-grant)                                                 | User sign-in and access to web APIs on behalf of the user. _The implicit grant flow is no longer recommended - use authorization code with PKCE instead._                                        | * [Single-page app (SPA)](scenario-spa-overview.md) <br /> * [Web](scenario-web-app-call-api-overview.md)                                                                                                 |
 | [On-behalf-of (OBO)](#on-behalf-of-obo)                                           | Access from an "upstream" web API to a "downstream" web API on behalf of the user. The user's identity and delegated permissions are passed through to the downstream API from the upstream API. | [Web API](scenario-web-api-call-api-overview.md)                                                                                                                                                        |
 | [Username/password (ROPC)](#usernamepassword-ropc)                                | Allows an application to sign in the user by directly handling their password. _The ROPC flow is NOT recommended._                                                                                                | [Desktop, Mobile](scenario-desktop-acquire-token-username-password.md)                                                                                                                                  |
-| [Integrated Windows authentication (IWA)](#integrated-windows-authentication-iwa) | Allows applications on domain or Azure Active Directory (Azure AD) joined computers to acquire a token silently (without any UI interaction from the user).                                      | [Desktop, Mobile](scenario-desktop-acquire-token-integrated-windows-authentication.md)                                                                                                                  |
+| [Integrated Windows authentication (IWA)](#integrated-windows-authentication-iwa) | Allows applications on domain or Microsoft Entra joined computers to acquire a token silently (without any UI interaction from the user).                                      | [Desktop, Mobile](scenario-desktop-acquire-token-integrated-windows-authentication.md)                                                                                                                  |
 
 ## Tokens
 
@@ -103,7 +103,7 @@ In the following diagram, the application:
 
 These client credentials need to be:
 
-- Registered with Azure AD.
+- Registered with Microsoft Entra ID.
 - Passed in when constructing the confidential client application object in your code.
 
 ### Constraints for client credentials
@@ -112,7 +112,7 @@ The confidential client flow is **unsupported** on mobile platforms like Android
 
 ## Device code
 
-The [OAuth 2 device code flow](v2-oauth2-device-code.md) allows users to sign in to input-constrained devices like smart TVs, IoT devices, and printers. Interactive authentication with Azure AD requires a web browser. Where the device or operating system doesn't provide a web browser, the device code flow allows the user use another device like a computer or mobile phone to sign in interactively.
+The [OAuth 2 device code flow](v2-oauth2-device-code.md) allows users to sign in to input-constrained devices like smart TVs, IoT devices, and printers. Interactive authentication with Microsoft Entra ID requires a web browser. Where the device or operating system doesn't provide a web browser, the device code flow allows the user use another device like a computer or mobile phone to sign in interactively.
 
 By using the device code flow, the application obtains tokens through a two-step process designed for these devices and operating systems. Examples of such applications include those running on IoT devices and command-line interface (CLI) tools.
 
@@ -190,11 +190,11 @@ The following constraints apply to the applications using the ROPC flow:
 - ROPC is **supported** in .NET desktop and .NET Core applications.
 - ROPC is **unsupported** in Universal Windows Platform (UWP) applications.
 - ROPC in Azure AD B2C is supported _only_ for local accounts.
-  - For information about ROPC in MSAL.NET and Azure AD B2C, see [Using ROPC with Azure AD B2C](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc).
+  - For information about ROPC in MSAL.NET and Azure AD B2C, see [Using ROPC with Azure AD B2C](./msal-net-b2c-considerations.md#resource-owner-password-credentials-ropc).
 
 ## Integrated Windows authentication (IWA)
 
-MSAL supports integrated Windows authentication (IWA) for desktop and mobile applications that run on domain-joined or Azure AD-joined Windows computers. By using IWA, these applications acquire a token silently without requiring UI interaction by user.
+MSAL supports integrated Windows authentication (IWA) for desktop and mobile applications that run on domain-joined or Microsoft Entra joined Windows computers. By using IWA, these applications acquire a token silently without requiring UI interaction by user.
 
 In the following diagram, the application:
 
@@ -209,20 +209,20 @@ In the following diagram, the application:
 
 Integrated Windows authentication (IWA) is enabled for .NET desktop, .NET Core, and Windows Universal Platform apps.
 
-IWA supports AD FS-federated users *only* - users created in Active Directory and backed by Azure AD. Users created directly in Azure AD without Active Directory backing (managed users) can't use this authentication flow.
+IWA supports AD FS-federated users *only* - users created in Active Directory and backed by Microsoft Entra ID. Users created directly in Microsoft Entra ID without Active Directory backing (managed users) can't use this authentication flow.
 
 **Multi-factor authentication (MFA)**
 
-IWA's non-interactive (silent) authentication can fail if MFA is enabled in the Azure AD tenant and an MFA challenge is issued by Azure AD. If IWA fails, you should fall back to an [interactive method of authentication](#interactive-and-non-interactive-authentication) as described earlier.
+IWA's non-interactive (silent) authentication can fail if MFA is enabled in the Microsoft Entra tenant and an MFA challenge is issued by Microsoft Entra ID. If IWA fails, you should fall back to an [interactive method of authentication](#interactive-and-non-interactive-authentication) as described earlier.
 
-Azure AD uses AI to determine when two-factor authentication is required. Two-factor authentication is typically required when a user signs in from a different country/region, when connected to a corporate network without using a VPN, and sometimes when they _are_ connected through a VPN. Because MFA's configuration and challenge frequency may be outside of your control as the developer, your application should gracefully handle a failure of IWA's silent token acquisition.
+Microsoft Entra ID uses AI to determine when two-factor authentication is required. Two-factor authentication is typically required when a user signs in from a different country/region, when connected to a corporate network without using a VPN, and sometimes when they _are_ connected through a VPN. Because MFA's configuration and challenge frequency may be outside of your control as the developer, your application should gracefully handle a failure of IWA's silent token acquisition.
 
 **Authority URI restrictions**
 
 The authority passed in when constructing the public client application must be one of:
 
-- `https://login.microsoftonline.com/{tenant}/` - This authority indicates a single-tenant application whose sign-in audience is restricted to the users in the specified Azure AD tenant. The `{tenant}` value can be the tenant ID in GUID form or the domain name associated with the tenant.
-- `https://login.microsoftonline.com/organizations/` - This authority indicates a multi-tenant application whose sign-in audience is users in any Azure AD tenant.
+- `https://login.microsoftonline.com/{tenant}/` - This authority indicates a single-tenant application whose sign-in audience is restricted to the users in the specified Microsoft Entra tenant. The `{tenant}` value can be the tenant ID in GUID form or the domain name associated with the tenant.
+- `https://login.microsoftonline.com/organizations/` - This authority indicates a multi-tenant application whose sign-in audience is users in any Microsoft Entra tenant.
 
 Authority values must NOT contain `/common` or `/consumers` because personal Microsoft accounts (MSA) are unsupported by IWA.
 
@@ -243,7 +243,7 @@ To satisfy either requirement, one of these operations must have been completed:
 - You've provided a way for users to consent to the application; see [User consent](../manage-apps/user-admin-consent-overview.md#user-consent).
 - You've provided a way for the tenant admin to consent for the application; see [Administrator consent](../manage-apps/user-admin-consent-overview.md#admin-consent).
 
-For more information on consent, see [Permissions and consent](v2-permissions-and-consent.md#consent).
+For more information on consent, see [Permissions and consent](./permissions-consent-overview.md#consent).
 
 ## Next steps
 

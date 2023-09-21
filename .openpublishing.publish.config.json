@@ -75,6 +75,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-ciam-dotnet-tutorial",
+      "url": "https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "main",
@@ -225,6 +231,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-docs-python-v2",
+      "url": "https://github.com/Azure-Samples/functions-docs-python-v2",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "functions-docs-powershell",
       "url": "https://github.com/Azure-Samples/functions-docs-powershell",
       "branch": "master",
@@ -233,6 +245,12 @@
     {
       "path_to_root": "azure-functions-dotnet-worker",
       "url": "https://github.com/Azure/azure-functions-dotnet-worker",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-functions-nodejs-v4",
+      "url": "https://github.com/Azure/azure-functions-nodejs-samples",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -411,9 +429,9 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-vj",
+      "path_to_root": "azureml-examples-archive",
       "url": "https://github.com/azure/azureml-examples",
-      "branch": "vijetajo-patch-2",
+      "branch": "v1-archive",
       "branch_mapping": {}
     },
     {
@@ -653,6 +671,12 @@
     {
       "path_to_root": "cosmosdb-cassandra-python-sample",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-cassandra-python-getting-started",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-nosql-query-samples",
+      "url": "https://github.com/Azure-Samples/cosmos-db-nosql-query-samples",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -951,8 +975,86 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "cosmos-db-nosql-javascript-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-javascript-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cosmos-db-nosql-python-samples",
       "url": "https://github.com/azure-samples/cosmos-db-nosql-python-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-mongodb-dotnet-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-mongodb-dotnet-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-mongodb-javascript-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-mongodb-javascript-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-mongodb-python-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-mongodb-python-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-apache-cassandra-dotnet-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-apache-cassandra-dotnet-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-apache-cassandra-javascript-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-apache-cassandra-javascript-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-apache-cassandra-python-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-apache-cassandra-python-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-apache-gremlin-dotnet-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-apache-gremlin-dotnet-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-apache-gremlin-javascript-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-apache-gremlin-javascript-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-apache-gremlin-python-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-apache-gremlin-python-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-table-dotnet-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-table-dotnet-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-table-javascript-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-table-javascript-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-table-python-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-table-python-samples",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -1000,7 +1102,7 @@
 	  },
 	  {
       "path_to_root": "microsoft-graph",
-      "url": "https://github.com/MicrosoftGraph/microsoft-graph-docs",
+      "url": "https://github.com/MicrosoftGraph/microsoft-graph-docs-contrib",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -1009,7 +1111,19 @@
       "url": "https://github.com/Azure/actions-workflow-samples",
       "branch": "master",
       "branch_mapping": {}
-    }  
+    },
+    {
+      "path_to_root": "azure-proactive-resiliency-library",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-reference-other-repo",
+      "url": "https://github.com/MicrosoftDocs/azure-reference-other-pr",
+      "branch": "main",
+      "branch_mapping": {}
+    }
   ],
   "branch_target_mapping": {
     "live": ["Publish", "PDF"],
@@ -1045,7 +1159,6 @@
   ".openpublishing.redirection.baremetal-infrastructure.json",
   ".openpublishing.redirection.defender-for-cloud.json",
   ".openpublishing.redirection.defender-for-iot.json",
-  ".openpublishing.redirection.healthcare-apis.json",
   ".openpublishing.redirection.iot-hub-device-update.json",
   ".openpublishing.redirection.json",
   ".openpublishing.redirection.key-vault.json",
@@ -1055,16 +1168,20 @@
   ".openpublishing.redirection.sql-database.json",
   ".openpublishing.redirection.virtual-desktop.json",
   ".openpublishing.redirection.devops-project.json",
-  "articles/applied-ai-services/.openpublishing.redirection.applied-ai-old.json",
-  "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
+  ".openpublishing.redirection.sentinel.json",
+  "articles/ai-services/.openpublishing.redirection.ai-services-from-applied.json",
+  "articles/ai-services/.openpublishing.redirection.ai-services-from-cog.json",
+  "articles/ai-services/.openpublishing.redirection.applied-ai-old.json",
+  "articles/ai-services/.openpublishing.redirection.applied-ai-services.json",
+  "articles/ai-services/.openpublishing.redirection.cognitive-services.json",
   "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
   "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
   "articles/azure-relay/.openpublishing.redirection.relay.json",
   "articles/azure-video-analyzer/.openpublishing.redirection.azure-video-analyzer.json",
   "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json",
   "articles/cloud-shell/.openpublishing.redirection.cloud-shell.json",
-  "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json",
   "articles/communication-services/.openpublishing.redirection.communication-services.json",
+  "articles/communications-gateway/.openpublishing.redirection.communications-gateway.json",
   "articles/confidential-computing/.openpublishing.redirection.json",
   "articles/container-apps/.openpublishing.redirection.container-apps.json",
   "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
@@ -1076,6 +1193,7 @@
   "articles/event-grid/.openpublishing.redirection.event-grid.json",
   "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
   "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
+  "articles/healthcare-apis/.openpublishing.redirection.healthcare-apis.json",
   "articles/iot-accelerators/.openpublishing.redirection.iot-accelerators.json",
   "articles/iot-central/.openpublishing.redirection.iot-central.json",
   "articles/iot-develop/.openpublishing.redirection.iot-develop.json",

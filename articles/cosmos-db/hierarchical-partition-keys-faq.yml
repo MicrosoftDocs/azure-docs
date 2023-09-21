@@ -21,11 +21,11 @@ sections:
       - question: |
           Can I add hierarchical partition keys to existing containers?
         answer: |
-          This is not supported. However, you can create a new container with your desired hierarchical partition key and run a container copy job to copy data from your existing container to your new one. For more guidance on how to do this, check out our [documentation] (intra-account-container-copy.md).
+          Adding hierarchical partition keys to existing containers isn't supported. However, you can create a new container with your desired hierarchical partition key and run a container copy job to copy data from your existing container to your new one. For more information on how to do copy data, see [intra-account container copy jobs](intra-account-container-copy.md).
       - question: |
           Is there a storage limit on the size of a logical partition key?
         answer: |
-          Yes. Just like in Azure Cosmos DB today, the logical partition size is still limited to 20 GB. However, with hierarchical partition keys, the logical partition is now the entire partition key path. For example, if you partitioned by TenantId -> UserId, an example logical partition would be "Contoso_Alice". Utilizing subpartitioning means you can have 20 GB of data where the partition key value is "Contoso_Alice". The amount of storage allowed for data in "Contoso" is effectively 20 GB * number of unique UserIds for the tenant "Contoso."
+          Yes. Just like in Azure Cosmos DB today, the logical partition size is still limited to 20 GB. However, with hierarchical partition keys, the logical partition is now the entire partition key path. For example, if you partitioned by TenantId -> UserId, an example logical partition would be `Contoso_Alice`. Utilizing subpartitioning means you can have 20 GB of data where the partition key value is `Contoso_Alice`. The amount of storage allowed for data in "Contoso" is effectively 20 GB * number of unique UserIds for the tenant "Contoso."
       - question: |
           Are there any changes to storage and RU/s limits on physical partitions?
         answer: |
@@ -42,6 +42,24 @@ sections:
           Do I have to create a new property in my documents to use this feature?
         answer: |
           No. Specify the hierarchy of partition key paths you want to use during container creation. For example, if you partition by TenantId -> UserId, you don't need to create a new property with these values concatenated. Ensure that each document has a property TenantId and a property UserId. For more information, see [subpartitioning code examples](hierarchical-partition-keys.md#use-the-sdks-to-work-with-containers-with-hierarchical-partition-keys).
+      - question: |
+          I created a hierarchy of keys that doesn't have much cardinality. What should I do?
+        answer: |
+          You may be in a scenario where your workload is only hitting a few physical partitions out of all your partitions. This scenario might mean one or more levels of your hierarchical partition key has low cardinality. To troubleshoot scenario, we always recommend recreating your hierarchical partition key and you can use DTS to change your key and copy over your container's data to your new container. If this step isn't possible, there are two workarounds we suggest ensuring uniform distribution of your data
+          
+          - **Approach 1**:        
+
+          1.  You can create a container with less than 10,000 RUs to make sure you only have one physical partition. 
+          1. Ingest around 5 GB of data to ensure there are no partition splits.
+          1. Scale up to your desired RUs, continue ingesting data, and Azure Cosmos DB ensures your physical partitions are split uniformly. 
+
+          - **Approach 2**:
+
+          1. You can raise your total offer to a higher number of RUs, and ingest all your data. 
+          1. Then, perform partition merge to ensure your workload's partitions aren't fragmented and has even distribution
+          1. Once the merge is complete, scale back down to your original desired number of RUs.
+        
+          To have more control over how much throughput each partition has, you can also use throughput redistribution to ensure the partitions your workload uses have enough RUs for your future requests. 
 
 additionalContent: |
 

@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQs for Identity Protection in Azure Active Directory
-  description: Frequently asked questions Azure AD Identity Protection
+  title: FAQs for Identity Protection in Microsoft Entra ID
+  description: Frequently asked questions Microsoft Entra ID Protection
   
   services: active-directory
   ms.service: active-directory
@@ -11,9 +11,9 @@ metadata:
   ms.author: joflore
   author: MicrosoftGuyJFlo
   manager: amycolannino
-  ms.reviewer: sahandle
+  ms.reviewer: chuqiaoshi
   ms.collection: M365-identity-device-management
-title: Frequently asked questions Identity Protection in Azure Active Directory
+title: Frequently asked questions Identity Protection in Microsoft Entra ID
 summary: |
 
 sections:
@@ -53,7 +53,7 @@ sections:
 
           ### How can I close specific risk detections like I did in the old UI?
 
-          You can give feedback on risk detections by confirming the linked sign-in as compromised or safe. The feedback given on the sign-in trickles down to all the detections made on that sign-in. If you want to close detections that aren't linked to a sign-in, you can provide that feedback on the user level. For more information, see the article [How to: Give risk feedback in Azure AD Identity Protection](howto-identity-protection-risk-feedback.md).
+          You can give feedback on risk detections by confirming the linked sign-in as compromised or safe. The feedback given on the sign-in trickles down to all the detections made on that sign-in. If you want to close detections that aren't linked to a sign-in, you can provide that feedback on the user level. For more information, see the article [How to: Give risk feedback in Microsoft Entra ID Protection](howto-identity-protection-risk-feedback.md).
           
           ### How far can I go back in time to understand what’s going on with my user?
 
@@ -63,7 +63,7 @@ sections:
           
           ### How can I learn more about a specific detection?
 
-          All risk detections are documented in the article [What is risk](concept-identity-protection-risks.md#risk-types-and-detection). You can hover over the (i) symbol next to the detection on the Azure portal to learn more about a detection.
+          All risk detections are documented in the article [What is risk](concept-identity-protection-risks.md#risk-types-and-detection). You can hover over the (i) symbol next to the detection to learn more about a detection.
           
           ### How do the feedback mechanisms in Identity Protection work?
 
@@ -89,7 +89,7 @@ sections:
           
           ### Why am I seeing a user with a low (or above) risk score, even if no risky sign-ins or risk detections are shown in Identity Protection?
 
-          Given the user risk is cumulative in nature and doesn't expire, a user may have a user risk of low or above even if there are no recent risky sign-ins or risk detections shown in Identity Protection. This situation could happen if the only malicious activity on a user took place beyond the timeframe for which we store the details of risky sign-ins and risk detections. We don't expire user risk because bad actors have been known to stay in customers' environment over 140 days behind a compromised identity before ramping up their attack. Customers can review the user's risk timeline to understand why a user is at risk by going to: `Azure portal > Azure Active Directory > Risky users report > select an at-risk user > details drawer > Risk history tab`. If you believe the user isn't compromised, use Dismiss user risk through Graph API.
+          Given the user risk is cumulative in nature and doesn't expire, a user may have a user risk of low or above even if there are no recent risky sign-ins or risk detections shown in Identity Protection. This situation could happen if the only malicious activity on a user took place beyond the timeframe for which we store the details of risky sign-ins and risk detections. We don't expire user risk because bad actors have been known to stay in customers' environment over 140 days behind a compromised identity before ramping up their attack. Customers can review the user's risk timeline to understand why a user is at risk by going to the Microsoft Entra admin center > Protection > Identity Protection > Risky users > select an at-risk user > details drawer > Risk history tab`. If you believe the user isn't compromised, use Dismiss user risk through Graph API.
           
           ### Why does a sign-in have a “sign-in risk (aggregate)” score of High when the detections associated with it are of low or medium risk?
 

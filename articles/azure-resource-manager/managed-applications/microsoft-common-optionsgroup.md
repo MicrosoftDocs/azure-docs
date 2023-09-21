@@ -14,7 +14,7 @@ The OptionsGroup control lets users select one option from two or more choices. 
 
 ## UI sample
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-optionsgroup-2.png" alt-text="Microsoft.Common.OptionsGroup":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-optionsgroup-2.png" alt-text="Screenshot of Microsoft.Common.OptionsGroup UI element with vertically aligned radio buttons.":::
 
 ## Schema
 

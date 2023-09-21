@@ -4,30 +4,27 @@ titleSuffix: Azure Storage
 description: Learn how to create a blob container in your Azure Storage account using the JavaScript client library using TypeScript.
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 03/21/2023
 ms.author: pauljewell
-ms.subservice: blobs
 ms.devlang: typescript
 ms.custom: devx-track-ts, devguide-ts, devx-track-js
 ---
 
 # Create a blob container with TypeScript
 
+[!INCLUDE [storage-dev-guide-selector-create-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-create-container.md)]
+
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
-## Name a container
+## Prerequisites
 
-A container name must be a valid DNS name, as it forms part of the unique URI used to address the container or its blobs. Follow these rules when naming a container:
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to create a blob container. To learn more, see the authorization guidance for the following REST API operation:
+    - [Create Container](/rest/api/storageservices/create-container#authorization)
 
-- Container names can be between 3 and 63 characters long.
-- Container names must start with a letter or number, and can contain only lowercase letters, numbers, and the dash (-) character.
-- Two or more consecutive dash characters aren't permitted in container names.
-
-The URI for a container is in this format:
-
-`https://myaccount.blob.core.windows.net/mycontainer`
+[!INCLUDE [storage-dev-guide-about-container-naming](../../../includes/storage-dev-guides/storage-dev-guide-about-container-naming.md)]
 
 ## Create a container
 

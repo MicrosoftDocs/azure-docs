@@ -6,7 +6,7 @@ ms.service: azure-monitor
 ms.subservice: optimization-insights
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 05/01/2023
+ms.date: 07/24/2023
 ms.reviewer: ryankahng
 ---
 
@@ -23,6 +23,10 @@ With Code Optimizations, you can:
 - View real-time performance data and insights gathered from your production environment. 
 - Make informed decisions about optimizing your code.
 
+## Demo video
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/eu1P_vLTZO0]
+
 ## Requirements for using Code Optimizations
 
 Before you can use Code Optimizations on your application:
@@ -31,6 +35,7 @@ Before you can use Code Optimizations on your application:
 - Verify your application:
   - Is .NET.
   - Uses [Application Insights](../app/app-insights-overview.md).
+  - Is collecting profiles.
 
 ## Application Insights Profiler vs. Code Optimizations
 
@@ -48,7 +53,7 @@ Code Optimizations analyzes the profiling data collected by the Application Insi
 
 ## Cost
 
-While Code Optimizations incurs no extra costs, you may encounter [indirect costs associated with Application Insights](/azure/azure-monitor/faq#is-it-free-). 
+While Code Optimizations incurs no extra costs, you may encounter [indirect costs associated with Application Insights](../best-practices-cost.md#is-application-insights-free). 
 
 ## Supported regions
 

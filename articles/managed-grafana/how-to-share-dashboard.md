@@ -1,8 +1,8 @@
 ---
 title: Share an Azure Managed Grafana dashboard or panel
 description: Learn how to share a Grafana dashboard with internal and external stakeholders, such as customers or partners.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: managed-grafana
 ms.topic: how-to 
 ms.date: 03/01/2023
@@ -16,7 +16,6 @@ You can share Grafana visualizations by generating:
 
 - a direct link
 - a snapshot
-- an embedded link (for panels only)
 - a library panel (for panels only)
 - an export link (for dashboards only)
 
@@ -72,17 +71,6 @@ The **Snapshot** tab lets you share an interactive dashboard or panel publicly. 
 > [!NOTE] 
 > - Snapshots published on snapshots.raintank.io can be viewed by anyone who has the link.
 > - Users must have a Grafana Viewer permission to view snapshots shared locally.
-
-### Share a panel using an embedded link
-
-The **Embed** tab generates HTML code embedding an iframe with a panel, so that you can include it in another web page. The HTML code is automatically generated. Get it in a single step by selecting **Copy to clipboard** at the bottom of the tab. Optionally customize sharing with the options below:
-
-- **Current time range**: transforms the relative time range of the shared panel to an absolute time range, as currently displayed in your shared panel.
-- **Theme**: keep the current theme or choose a dark or a light theme.
-- **Shorten URL**: shortens the sharable link.
-
-> [!NOTE] 
-> Users must have a Grafana Viewer permission to view embedded links.
 
 ### Create a library panel
 

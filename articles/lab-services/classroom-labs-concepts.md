@@ -35,7 +35,7 @@ To create labs in Azure Lab Services, your Azure account needs to have the Lab C
 
 You use the Azure Lab Services website (https://labs.azure.com) to create labs for a lab plan. Alternately, you can also [configure Microsoft Teams integration](./how-to-configure-teams-for-lab-plans.md) or [Canvas integration](./how-to-configure-canvas-for-lab-plans.md) with Azure Lab Services to create labs directly in Microsoft Teams or Canvas.
 
-By default, access to lab virtual machines is restricted. For a lab, you can [configure the list of lab users](./how-to-configure-student-usage.md) that have access to the lab.
+By default, access to lab virtual machines is restricted. For a lab, you can [configure the list of lab users](./how-to-manage-lab-users.md) that have access to the lab.
 
 Get started by [creating a lab using the Azure portal](quick-create-connect-lab.md).
 

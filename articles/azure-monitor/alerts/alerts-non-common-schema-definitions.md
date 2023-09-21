@@ -3,8 +3,8 @@ title: Non-common alert schema definitions in Azure Monitor for test action grou
 description: Understanding the non-common alert schema definitions for Azure Monitor for the test action group feature.
 author: issahn
 ms.topic: conceptual
-ms.date: 01/25/2022
-ms.reviewer: issahn
+ms.date: 06/19/2023
+ms.reviewer: nolavime
 ---
 
 # Non-common alert schema definitions for test action group (preview)

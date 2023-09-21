@@ -7,7 +7,7 @@ ms.topic: quickstart
 author: shreyaaithal 
 ms.author: shaithal 
 ms.devlang: csharp
-ms.custom: mvc, devx-track-csharp, mode-other, devx-track-dotnet
+ms.custom: mvc, devx-track-csharp, mode-other, devx-track-dotnet, devx-track-linux
 ms.date: 05/03/2023
 ---
 

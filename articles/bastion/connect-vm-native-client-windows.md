@@ -5,7 +5,7 @@ description: Learn how to connect to a VM from a Windows computer by using Basti
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 06/12/2023
+ms.date: 08/08/2023
 ms.author: cherylmc
 ---
 
@@ -15,16 +15,13 @@ This article helps you connect to a VM in the VNet using the native client (SSH 
 
 :::image type="content" source="./media/native-client/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/native-client/native-client-architecture.png":::
 
-After you've configured Bastion for native client support, you can connect to a VM using the native Windows client. This lets you do the following:
+After you've configured Bastion for native client support, you can connect to a VM using a native Windows client. The method you use to connect depends on both the client you're connecting from, and the VM you're connecting to. The following list shows some of the available ways you can connect from a Windows native client. See [Connect to VMs](native-client.md#connect) for the full list showing available client connection/feature combinations.
 
-  * Connect using SSH or RDP.
-  * [Upload and download files](vm-upload-download-native.md#rdp) over RDP.
-  * If you want to connect using SSH and need to upload files to your target VM, you can use the instructions for the [az network bastion tunnel](connect-vm-native-client-linux.md) command instead.
-
-Limitations:
-
-* Signing in using an SSH private key stored in Azure Key Vault isn’t supported with this feature. Before signing in to your Linux VM using an SSH key pair, download your private key to a file on your local machine.
-* This feature isn't supported on Cloud Shell.
+* Connect to a Windows VM using **az network bastion rdp**.
+* Connect to a Linux VM using **az network bastion ssh**.
+* Connect to a VM using **az network bastion tunnel**.
+* [Upload and download files](vm-upload-download-native.md#rdp) over RDP.
+* Upload files over SSH using **az network bastion tunnel**.
 
 ## <a name="prereq"></a>Prerequisites
 
@@ -36,60 +33,72 @@ Verify that the following roles and ports are configured in order to connect to 
 
 [!INCLUDE [roles and ports](../../includes/bastion-native-roles-ports.md)]
 
-## <a name="connect-windows"></a>Connect to a Windows VM
+## Connect to a VM
 
-1. Sign in to your Azure account. If you have more than one subscription, select the subscription containing your Bastion resource.
+The steps in the following sections help you connect to a VM from a Windows native client using the **az network bastion** command.
 
-   ```azurecli
-   az login
-   az account list
-   az account set --subscription "<subscription ID>"
-   ```
+### <a name="connect-windows"></a>RDP to a Windows VM
 
-1. Sign in to your target Windows VM using one of the following example options. If you want to specify a custom port value, you should also include the field **--resource-port** in the sign-in command.
+[!INCLUDE [Remote Desktop Users](../../includes/bastion-remote-desktop-users.md)]
 
-   **RDP:**
+1. Sign in to your Azure account using `az login`. If you have more than one subscription, you can view them using `az account list` and select the subscription containing your Bastion resource using `az account set --subscription "<subscription ID>"`.
 
-   To connect via RDP, use the following command. You’ll then be prompted to input your credentials. You can use either a local username and password, or your Azure AD credentials. For more information, see [Azure Windows VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
+1. To connect via RDP, use the following example.
 
    ```azurecli
    az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>"
    ```
 
+1. After running the command, you're prompted to input your credentials. You can use either a local username and password, or your Azure AD credentials. Once you sign in to your target VM, the native client on your computer opens up with your VM session via **MSTSC**.
+
    > [!IMPORTANT]
-   > Remote connection to VMs that are joined to Azure AD is allowed only from Windows 10 or later PCs that are Azure AD registered (starting with Windows 10 20H1), Azure AD joined, or hybrid Azure AD joined to the *same* directory as the VM. 
+   > Remote connection to VMs that are joined to Azure AD is allowed only from Windows 10 or later PCs that are Azure AD registered (starting with Windows 10 20H1), Azure AD joined, or hybrid Azure AD joined to the *same* directory as the VM.
 
-   **SSH:**
+#### Specify authentication method
 
-   The extension can be installed by running, ```az extension add --name ssh```. To sign in using an SSH key pair, use the following example.
+Optionally, you can also specify the authentication method as part of the command.
 
-   ```azurecli
-   az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
-   ```
+* **Azure AD authentication:** `--auth-type "AAD"` For more information, see [Azure Windows VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
-   Once you sign in to your target VM, the native client on your computer opens up with your VM session; **MSTSC** for RDP sessions, and **SSH CLI extension (az ssh)** for SSH sessions.
+* **User name and password:** `--auth-type "password" --username "<Username>"`
 
-## <a name="connect-linux"></a>Connect to a Linux VM
+#### Specify a custom port
 
-1. Sign in to your Azure account. If you have more than one subscription, select the subscription containing your Bastion resource.
+You can specify a custom port when you connect to a Windows VM via RDP.
 
-   ```azurecli
-   az login
-   az account list
-   az account set --subscription "<subscription ID>"
-   ```
+One scenario where this could be especially useful would be connecting to a Windows VM via port 22. This is a potential workaround for the limitation with the *az network bastion ssh* command, which can't be used by a Windows native client to connect to a Windows VM.
 
-1. Sign in to your target Linux VM using one of the following example options. If you want to specify a custom port value, you should also include the field **--resource-port** in the sign-in command.
+To specify a custom port, include the field **--resource-port** in the sign-in command, as shown in the following example.
+
+```azurecli
+az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --resource-port "22"
+```
+
+#### RDP to a Windows VM IP address
+
+You can also connect to a VM private IP address, instead of the resource ID. Azure AD authentication, and custom ports and protocols aren't supported when using this type of connection. For more information about IP-based connections, see [Connect to a VM - IP address](connect-ip-address.md).
+
+Using the `az network bastion` command, replace `--target-resource-id` with `--target-ip-address` and the specified IP address to connect to your VM.
+
+```azurecli
+az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-address "<VMIPAddress>"
+```
+
+### <a name="connect-linux"></a>SSH to a Linux VM
+
+1. Sign in to your Azure account using `az login`. If you have more than one subscription, you can view them using `az account list` and select the subscription containing your Bastion resource using `az account set --subscription "<subscription ID>"`.
+
+1. Sign in to your target Linux VM using one of the following example options. If you want to specify a custom port value, include the field **--resource-port** in the sign-in command.
 
    **Azure AD:**
 
    If you’re signing in to an Azure AD login-enabled VM, use the following command. For more information, see [Azure Linux VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md).
 
      ```azurecli
-     az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId or VMSSInstanceResourceId>" --auth-type  "AAD"
+     az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId or VMSSInstanceResourceId>" --auth-type "AAD"
      ```
 
-   **SSH:**
+   **SSH key pair:**
 
    The extension can be installed by running, ```az extension add --name ssh```. To sign in using an SSH key pair, use the following example.
 
@@ -105,25 +114,29 @@ Verify that the following roles and ports are configured in order to connect to 
       az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId or VMSSInstanceResourceId>" --auth-type "password" --username "<Username>"
       ```
 
-   1. Once you sign in to your target VM, the native client on your computer opens up with your VM session; **MSTSC** for RDP sessions, and **SSH CLI extension (az ssh)** for SSH sessions.
+1. Once you sign in to your target VM, the native client on your computer opens up with your VM session using **SSH CLI extension (az ssh)**.
 
-## <a name="connect-IP"></a>Connect to VM via IP Address
+#### SSH to a Linux VM IP address
+
+You can also connect to a VM private IP address, instead of the resource ID. Azure AD authentication, and custom ports and protocols aren't supported when using this type of connection. For more information about IP-based connections, see [Connect to a VM - IP address](connect-ip-address.md).
+
+Using the `az network bastion` command, replace `--target-resource-id` with `--target-ip-address` and the specified IP address to connect to your VM.
+
+```azurecli
+az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-address "<VMIPAddress>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
+```
+
+## Connect to a VM - tunnel command
+
+[!INCLUDE [tunnel command](../../includes/bastion-native-connect-tunnel.md)]
+
+### <a name="tunnel-IP"></a>Tunnel to a VM IP address
 
 [!INCLUDE [IP address](../../includes/bastion-native-ip-address.md)]
 
-Use the following commands as examples:
+### Multi-connection tunnel
 
-   **RDP:**
-   
-   ```azurecli
-   az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-address "<VMIPAddress>
-   ```
-   
-   **SSH:**
-   
-   ```azurecli
-   az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-addres "<VMIPAddress>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
-   ```
+[!INCLUDE [multi-connection tunnel](../../includes/bastion-native-connect-multi-tunnel.md)]
 
 ## Next steps
 

@@ -1,14 +1,14 @@
 ---
-title: "Cisco Firepower eStreamer connector for Microsoft Sentinel"
+title: "Cisco Firepower eStreamer connector for Microsoft Sentinel (preview)"
 description: "Learn how to install the connector Cisco Firepower eStreamer to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 07/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Cisco Firepower eStreamer connector for Microsoft Sentinel
+# Cisco Firepower eStreamer connector for Microsoft Sentinel (preview)
 
 eStreamer is a Client Server API designed for the Cisco Firepower NGFW Solution. The eStreamer client requests detailed event data on behalf of the SIEM or logging solution in the Common Event Format (CEF).
 

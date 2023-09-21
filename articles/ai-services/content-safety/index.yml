@@ -1,0 +1,89 @@
+### YamlMime:Landing
+
+title: Content Safety documentation # < 60 chars
+summary: The cloud-based Content Safety API provides developers with access to advanced algorithms for processing images and text and flagging content that is potentially offensive, risky, or otherwise undesirable. # < 160 chars
+
+metadata:
+  title: Content Safety documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: The cloud-based Content Safety API provides developers with access to advanced algorithms for processing images and text and flagging content that is potentially offensive, risky, or otherwise undesirable. # Required; article description that is displayed in search results. < 160 chars.
+  services: cognitive-services
+  ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: content-safety
+  ms.custom: build-2023
+  ms.topic: landing-page # Required
+  author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
+  ms.author: pafarley #Required; microsoft alias of author; optional team alias.
+  ms.date: 04/07/2023 #Required; mm/dd/yyyy format.
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Content Safety
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Content Safety?
+            url: overview.md
+      - linkListType: get-started
+        links:
+          - text: Content Safety Studio
+            url: studio-quickstart.md
+      - linkListType: whats-new
+        links:
+          - text: What's new in Content Safety
+            url: whats-new.md
+
+  - title: Image moderation
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Harm categories
+            url: concepts/harm-categories.md
+      - linkListType: quickstart
+        links:
+          - text: Using Content Safety Studio
+            url: studio-quickstart.md?pivots=content-safety-studio
+          - text: Using the REST API or client SDKs
+            url: quickstart-image.md?pivots=programming-language-rest
+
+  - title: Text moderation
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Harm categories
+            url: concepts/harm-categories.md
+      - linkListType: quickstart
+        links:
+          - text: Using Content Safety Studio
+            url: studio-quickstart.md?pivots=content-safety-studio
+          - text: Using the REST API or client SDKs
+            url: quickstart-text.md?pivots=programming-language-rest
+      - linkListType: how-to-guide
+        links:
+          - text: Use a blocklist
+            url: how-to/use-blocklist.md
+
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Content Safety API
+            url: https://aka.ms/content-safety-api
+          - text: Content Safety Python SDK
+            url: https://aka.ms/content-safety-python-sdk
+          - text: Content Safety C# SDK
+            url: https://aka.ms/content-safety-csharp-sdk
+          - text: Azure PowerShell
+            url: /powershell/module/az.cognitiveservices/#cognitive_services
+          - text: Azure Command-Line Interface (CLI)
+            url: /cli/azure/cognitiveservices
+     
+  - title: Help and feedback
+    linkLists:
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/ai-services/content-safety/context/context

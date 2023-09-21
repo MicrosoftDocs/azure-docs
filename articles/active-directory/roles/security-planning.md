@@ -1,7 +1,7 @@
 ---
 
-title: Secure access practices for administrators in Azure AD
-description: Ensure that your organization's administrative access and administrator accounts are secure. For system architects and IT pros who configure Azure AD, Azure, and Microsoft Online Services. 
+title: Secure access practices for administrators in Microsoft Entra ID
+description: Ensure that your organization's administrative access and administrator accounts are secure. For system architects and IT pros who configure Microsoft Entra ID, Azure, and Microsoft Online Services. 
 services: active-directory 
 keywords: 
 author: rolyon
@@ -12,21 +12,21 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.reviewer: "martincoetzer; MarkMorow"
 ms.collection: M365-identity-device-management
 ---
 
-# Securing privileged access for hybrid and cloud deployments in Azure AD
+# Securing privileged access for hybrid and cloud deployments in Microsoft Entra ID
 
 The security of business assets depends on the integrity of the privileged accounts that administer your IT systems. Cyber-attackers use credential theft attacks to target administrator accounts and other privileged access to try to gain access to sensitive data.
 
 For cloud services, prevention and response are the joint responsibilities of the cloud service provider and the customer. For more information about the latest threats to endpoints and the cloud, see the [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report). This article can help you develop a roadmap toward closing the gaps between your current plans and the guidance described here.
 
 > [!NOTE]
-> Microsoft is committed to the highest levels of trust, transparency, standards conformance, and regulatory compliance. Learn more about how the Microsoft global incident response team mitigates the effects of attacks against cloud services, and how security is built into Microsoft business products and cloud services at [Microsoft Trust Center - Security](https://www.microsoft.com/trustcenter/security) and Microsoft compliance targets at [Microsoft Trust Center - Compliance](https://www.microsoft.com/trustcenter/compliance).
+> Microsoft is committed to the highest levels of trust, transparency, standards conformance, and regulatory compliance. Learn more about how the Microsoft global incident response team mitigates the effects of attacks against cloud services, and how security is built into Microsoft business products and cloud services at [Microsoft Trust Center - Security](https://www.microsoft.com/trustcenter/security) and Microsoft compliance targets at [Microsoft Trust Center - Compliance](https://www.microsoft.com/trust-center/compliance/compliance-overview).
 
-Traditionally, organizational security was focused on the entry and exit points of a network as the security perimeter. However, SaaS apps and personal devices on the Internet have made this approach less effective. In Azure AD, we replace the network security perimeter with authentication in your organization's identity layer, with users assigned to privileged administrative roles in control. Their access must be protected, whether the environment is on-premises, cloud, or a hybrid.
+Traditionally, organizational security was focused on the entry and exit points of a network as the security perimeter. However, SaaS apps and personal devices on the Internet have made this approach less effective. In Microsoft Entra ID, we replace the network security perimeter with authentication in your organization's identity layer, with users assigned to privileged administrative roles in control. Their access must be protected, whether the environment is on-premises, cloud, or a hybrid.
 
 Securing privileged access requires changes to:
 
@@ -36,7 +36,7 @@ Securing privileged access requires changes to:
 Secure your privileged access in a way that is managed and reported in the Microsoft services you care about. If you have on-premises administrator accounts, see the guidance for on-premises and hybrid privileged access in Active Directory at [Securing Privileged Access](/windows-server/identity/securing-privileged-access/securing-privileged-access).
 
 > [!NOTE]
-> The guidance in this article refers primarily to features of Azure Active Directory that are included in Azure AD Premium P1 and P2. Azure AD Premium P2 is included in the EMS E5 suite and Microsoft 365 E5 suite. This guidance assumes your organization already has Azure AD Premium P2 licenses purchased for your users. If you do not have these licenses, some of the guidance might not apply to your organization. Also, throughout this article, the term Global Administrator means the same thing as "company administrator" or "tenant administrator."
+> The guidance in this article refers primarily to features of Microsoft Entra ID that are included in Microsoft Entra ID P1 and P2. Microsoft Entra ID P2 is included in the EMS E5 suite and Microsoft 365 E5 suite. This guidance assumes your organization already has Microsoft Entra ID P2 licenses purchased for your users. If you do not have these licenses, some of the guidance might not apply to your organization. Also, throughout this article, the term Global Administrator means the same thing as "company administrator" or "tenant administrator."
 
 ## Develop a roadmap
 
@@ -62,34 +62,34 @@ Stage 1 of the roadmap is focused on critical tasks that are fast and easy to im
 
 ### General preparation
 
-#### Use Azure AD Privileged Identity Management
+<a name='use-azure-ad-privileged-identity-management'></a>
 
-We recommend that you start using Azure AD Privileged Identity Management (PIM) in your Azure AD production environment. After you start using PIM, you'll receive notification email messages for privileged access role changes. Notifications provide early warning when additional users are added to highly privileged roles.
+#### Use Microsoft Entra Privileged Identity Management
 
-Azure AD Privileged Identity Management is included in Azure AD Premium P2 or EMS E5. To help you protect access to applications and resources on-premises and in the cloud, sign up for the [Enterprise Mobility + Security free 90-day trial](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Azure AD Privileged Identity Management and Azure AD Identity Protection monitor security activity using Azure AD reporting, auditing, and alerts.
+We recommend that you start using Microsoft Entra Privileged Identity Management (PIM) in your Microsoft Entra production environment. After you start using PIM, you'll receive notification email messages for privileged access role changes. Notifications provide early warning when additional users are added to highly privileged roles.
 
-After you start using Azure AD Privileged Identity Management:
+Microsoft Entra Privileged Identity Management is included in Microsoft Entra ID P2 or EMS E5. To help you protect access to applications and resources on-premises and in the cloud, sign up for the [Enterprise Mobility + Security free 90-day trial](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Microsoft Entra Privileged Identity Management and Microsoft Entra ID Protection monitor security activity using Microsoft Entra ID reporting, auditing, and alerts.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that is a Global Administrator of your Azure AD production organization.
+After you start using Microsoft Entra Privileged Identity Management:
 
-2. To select the Azure AD organization where you want to use Privileged Identity Management, select your user name in the upper right-hand corner of the Azure portal.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
-3. On the Azure portal menu, select **All services** and filter the list for **Azure AD Privileged Identity Management**.
+1. To switch directories where you want to use Privileged Identity Management, select your user name in the upper right corner of the Microsoft Entra admin center.
 
-4. Open Privileged Identity Management from the **All services** list and pin it to your dashboard.
+1. Browse to **Identity governance** > **Privileged Identity Management**.
 
-Make sure the first person to use PIM in your organization is assigned to the **Security Administrator** and **Privileged Role Administrator** roles. Only Privileged Role Administrators can manage the Azure AD directory role assignments of users. The PIM security wizard walks you through the initial discovery and assignment experience. You can exit the wizard without making any additional changes at this time.
+Make sure the first person to use PIM in your organization is assigned to the [Security Administrator](../roles/permissions-reference.md#security-administrator) and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) roles. Only Privileged Role Administrators can manage the Microsoft Entra directory role assignments of users. The PIM security wizard walks you through the initial discovery and assignment experience. You can exit the wizard without making any additional changes at this time.
 
 #### Identify and categorize accounts that are in highly privileged roles
 
-After starting to use Azure AD Privileged Identity Management, view the users who are in the following Azure AD roles:
+After starting to use Microsoft Entra Privileged Identity Management, view the users who are in the following Microsoft Entra roles:
 
 * Global Administrator
 * Privileged Role Administrator
 * Exchange Administrator
 * SharePoint Administrator
 
-If you don't have Azure AD Privileged Identity Management in your organization, you can use the [PowerShell API](/powershell/module/azuread/get-azureaddirectoryrolemember). Start with the Global Administrator role because a Global Administrator has the same permissions across all cloud services for which your organization has subscribed. These permissions are granted no matter where they were assigned: in the Microsoft 365 admin center, the Azure portal, or by the Azure AD module for Microsoft PowerShell.
+If you don't have Microsoft Entra Privileged Identity Management in your organization, you can use the [PowerShell API](/powershell/module/azuread/get-azureaddirectoryrolemember). Start with the Global Administrator role because a Global Administrator has the same permissions across all cloud services for which your organization has subscribed. These permissions are granted no matter where they were assigned: in the Microsoft 365 admin center, the Microsoft Entra admin center, or by the Azure AD PowerShell module.
 
 Remove any accounts that are no longer needed in those roles. Then, categorize the remaining accounts that are assigned to administrator roles:
 
@@ -104,13 +104,15 @@ Remove any accounts that are no longer needed in those roles. Then, categorize t
 
 It's possible for a user to be accidentally locked out of their role. For example, if a federated on-premises identity provider isn't available, users can't sign in or activate an existing administrator account. You can prepare for accidental lack of access by storing two or more emergency access accounts.
 
-Emergency access accounts help restrict privileged access within an Azure AD organization. These accounts are highly privileged and aren't assigned to specific individuals. Emergency access accounts are limited to emergency for "break glass" scenarios where normal administrative accounts can't be used. Ensure that you control and reduce the emergency account's usage to only that time for which it's necessary.
+Emergency access accounts help restrict privileged access within a Microsoft Entra organization. These accounts are highly privileged and aren't assigned to specific individuals. Emergency access accounts are limited to emergency for "break glass" scenarios where normal administrative accounts can't be used. Ensure that you control and reduce the emergency account's usage to only that time for which it's necessary.
 
-Evaluate the accounts that are assigned or eligible for the Global Administrator role. If you don't see any cloud-only accounts using the \*.onmicrosoft.com domain (for "break glass" emergency access), create them. For more information, see [Managing emergency access administrative accounts in Azure AD](security-emergency-access.md).
+Evaluate the accounts that are assigned or eligible for the Global Administrator role. If you don't see any cloud-only accounts using the \*.onmicrosoft.com domain (for "break glass" emergency access), create them. For more information, see [Managing emergency access administrative accounts in Microsoft Entra ID](security-emergency-access.md).
 
-#### Turn on multi-factor authentication and register all other highly privileged single-user non-federated administrator accounts
+<a name='turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-administrator-accounts'></a>
 
-Require Azure AD Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD administrator roles: Global Administrator, Privileged Role Administrator, Exchange Administrator, and SharePoint Administrator. Use the guidance at [Enforce multifactor authentication on your administrators](../authentication/how-to-authentication-find-coverage-gaps.md#enforce-multifactor-authentication-on-your-administrators) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect user and device access in Microsoft 365](/microsoft-365/compliance/protect-access-to-data-and-services). 
+#### Turn on multifactor authentication and register all other highly privileged single-user non-federated administrator accounts
+
+Require Microsoft Entra multifactor authentication at sign-in for all individual users who are permanently assigned to one or more of the Microsoft Entra administrator roles: Global Administrator, Privileged Role Administrator, Exchange Administrator, and SharePoint Administrator. Use the guidance at [Enforce multifactor authentication on your administrators](../authentication/how-to-authentication-find-coverage-gaps.md#enforce-multifactor-authentication-on-your-administrators) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect user and device access in Microsoft 365](/microsoft-365/compliance/protect-access-to-data-and-services). 
 
 ## Stage 2: Mitigate frequently used attacks
 
@@ -125,19 +127,19 @@ Stage 2 of the roadmap focuses on mitigating the most frequently used attack tec
 The increase in "bring your own device" and work from home policies and the growth of wireless connectivity make it critical to monitor who is connecting to your network. A security audit can reveal devices, applications, and programs on your network that your organization doesn't support and that represent high risk. For more information, see [Azure security management and monitoring overview](../../security/fundamentals/management-monitoring-overview.md). Ensure that you include all of the following tasks in your inventory process.
 
 * Identify the users who have administrative roles and the services where they can manage.
-* Use Azure AD PIM to find out which users in your organization have administrator access to Azure AD.
-* Beyond the roles defined in Azure AD, Microsoft 365 comes with a set of administrator roles that you can assign to users in your organization. Each administrator role maps to common business functions, and gives people in your organization permissions to do specific tasks in the [Microsoft 365 admin center](https://admin.microsoft.com). Use the Microsoft 365 admin center to find out which users in your organization have administrator access to Microsoft 365, including via roles not managed in Azure AD. For more information, see [About Microsoft 365 administrator roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) and [Security practices for Office 365](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
+* Use Microsoft Entra PIM to find out which users in your organization have administrator access to Microsoft Entra ID.
+* Beyond the roles defined in Microsoft Entra ID, Microsoft 365 comes with a set of administrator roles that you can assign to users in your organization. Each administrator role maps to common business functions, and gives people in your organization permissions to do specific tasks in the [Microsoft 365 admin center](https://admin.microsoft.com). Use the Microsoft 365 admin center to find out which users in your organization have administrator access to Microsoft 365, including via roles not managed in Microsoft Entra ID. For more information, see [About Microsoft 365 administrator roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) and [Security practices for Office 365](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
 * Do the inventory in services your organization relies on, such as Azure, Intune, or Dynamics 365.
 * Ensure that your accounts that are used for administration purposes:
 
   * Have working email addresses attached to them
-  * Have registered for Azure AD Multi-Factor Authentication or use MFA on-premises
+  * Have registered for Microsoft Entra multifactor authentication or use MFA on-premises
 * Ask users for their business justification for administrative access.
 * Remove administrator access for those individuals and services that don't need it.
 
 #### Identify Microsoft accounts in administrative roles that need to be switched to work or school accounts
 
-If your initial Global Administrators reuse their existing Microsoft account credentials when they began using Azure AD, replace the Microsoft accounts with individual cloud-based or synchronized accounts.
+If your initial Global Administrators reuse their existing Microsoft account credentials when they began using Microsoft Entra ID, replace the Microsoft accounts with individual cloud-based or synchronized accounts.
 
 #### Ensure separate user accounts and mail forwarding for Global Administrator accounts
 
@@ -154,13 +156,15 @@ Ensure all users have signed into their administrative accounts and changed thei
 
 #### Turn on password hash synchronization
 
-Azure AD Connect synchronizes a hash of the hash of a user's password from on-premises Active Directory to a cloud-based Azure AD organization. You can use password hash synchronization as a backup if you use federation with Active Directory Federation Services (AD FS). This backup can be useful if your on-premises Active Directory or AD FS servers are temporarily unavailable.
+Microsoft Entra Connect synchronizes a hash of the hash of a user's password from on-premises Active Directory to a cloud-based Microsoft Entra organization. You can use password hash synchronization as a backup if you use federation with Active Directory Federation Services (AD FS). This backup can be useful if your on-premises Active Directory or AD FS servers are temporarily unavailable.
 
-Password hash sync enables users to sign in to a service by using the same password they use to sign in to their on-premises Active Directory instance. Password hash sync allows Identity Protection to detect compromised credentials by comparing password hashes with passwords known to be compromised. For more information, see [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md).
+Password hash sync enables users to sign in to a service by using the same password they use to sign in to their on-premises Active Directory instance. Password hash sync allows Identity Protection to detect compromised credentials by comparing password hashes with passwords known to be compromised. For more information, see [Implement password hash synchronization with Microsoft Entra Connect Sync](../hybrid/connect/how-to-connect-password-hash-synchronization.md).
 
-#### Require multi-factor authentication for users in privileged roles and exposed users
+<a name='require-multi-factor-authentication-for-users-in-privileged-roles-and-exposed-users'></a>
 
-Azure AD recommends that you require multi-factor authentication (MFA) for all of your users. Be sure to consider users who would have a significant impact if their account were compromised (for example, financial officers). MFA reduces the risk of an attack because of a compromised password.
+#### Require multifactor authentication for users in privileged roles and exposed users
+
+Microsoft Entra ID recommends that you require multifactor authentication for all of your users. Be sure to consider users who would have a significant impact if their account were compromised (for example, financial officers). MFA reduces the risk of an attack because of a compromised password.
 
 Turn on:
 
@@ -170,7 +174,7 @@ If you use Windows Hello for Business, the MFA requirement can be met using the 
 
 #### Configure Identity Protection
 
-Azure AD Identity Protection is an algorithm-based monitoring and reporting tool that detects potential vulnerabilities affecting your organization's identities. You can configure automated responses to those detected suspicious activities, and take appropriate action to resolve them. For more information, see [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
+Microsoft Entra ID Protection is an algorithm-based monitoring and reporting tool that detects potential vulnerabilities affecting your organization's identities. You can configure automated responses to those detected suspicious activities, and take appropriate action to resolve them. For more information, see [Microsoft Entra ID Protection](../identity-protection/overview-identity-protection.md).
 
 #### Obtain your Microsoft 365 Secure Score (if using Microsoft 365)
 
@@ -190,7 +194,7 @@ Establishing a successful incident response capability requires considerable pla
 
 #### Secure on-premises privileged administrative accounts, if not already done
 
-If your Azure Active Directory organization is synchronized with on-premises Active Directory, then follow the guidance in [Security Privileged Access Roadmap](/windows-server/identity/securing-privileged-access/securing-privileged-access): This stage includes:
+If your Microsoft Entra organization is synchronized with on-premises Active Directory, then follow the guidance in [Security Privileged Access Roadmap](/windows-server/identity/securing-privileged-access/securing-privileged-access): This stage includes:
 
 * Creating separate administrator accounts for users who need to conduct on-premises administrative tasks
 * Deploying Privileged Access Workstations for Active Directory administrators
@@ -204,17 +208,19 @@ Use the Enterprise portal and the Azure portal to identify the subscriptions in 
 
 #### Remove Microsoft accounts from administrator roles
 
-Microsoft accounts from other programs, such as Xbox, Live, and Outlook, shouldn't be used as administrator accounts for your organization's subscriptions. Remove administrator status from all Microsoft accounts, and replace with Azure AD (for example, chris@contoso.com) work or school accounts. For administrator purposes, depend on accounts that are authenticated in Azure AD and not in other services.
+Microsoft accounts from other programs, such as Xbox, Live, and Outlook, shouldn't be used as administrator accounts for your organization's subscriptions. Remove administrator status from all Microsoft accounts, and replace with Microsoft Entra ID (for example, chris@contoso.com) work or school accounts. For administrator purposes, depend on accounts that are authenticated in Microsoft Entra ID and not in other services.
 
 #### Monitor Azure activity
 
-The Azure Activity Log provides a history of subscription-level events in Azure. It offers information about who created, updated, and deleted what resources, and when these events occurred. For more information, see [Audit and receive notifications about important actions in your Azure subscription](../../azure-monitor/alerts/alerts-activity-log.md).
+The Azure Activity Log provides a history of subscription-level events in Azure. It offers information about who created, updated, and deleted what resources, and when these events occurred. For more information, see [Audit and receive notifications about important actions in your Azure subscription](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 
-### Additional steps for organizations managing access to other cloud apps via Azure AD
+<a name='additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad'></a>
+
+### Additional steps for organizations managing access to other cloud apps via Microsoft Entra ID
 
 #### Configure Conditional Access policies
 
-Prepare Conditional Access policies for on-premises and cloud-hosted applications. If you have users workplace joined devices, get more information from [Setting up on-premises Conditional Access by using Azure Active Directory device registration](../../active-directory-b2c/overview.md).
+Prepare Conditional Access policies for on-premises and cloud-hosted applications. If you have users workplace joined devices, get more information from [Setting up on-premises Conditional Access by using Microsoft Entra device registration](../../active-directory-b2c/overview.md).
 
 ## Stage 3: Take control of administrator activity
 
@@ -232,18 +238,20 @@ Your organization should have all employees handle ordinary business transaction
 
 We recommend that you:
 
-1. Determine which users are Azure AD administrators, enable on-demand, just-in-time administrator access, and role-based security controls.
+1. Determine which users are Microsoft Entra administrators, enable on-demand, just-in-time administrator access, and role-based security controls.
 2. Convert users who have no clear justification for administrator privileged access to a different role (if no eligible role, remove them).
 
 #### Continue rollout of stronger authentication for all users
 
-Require highly exposed users to have modern, strong authentication such as Azure AD MFA or Windows Hello. Examples of highly exposed users include:
+Require highly exposed users to have modern, strong authentication such as Microsoft Entra multifactor authentication or Windows Hello. Examples of highly exposed users include:
 
 * C-suite executives
 * High-level managers
 * Critical IT and security personnel
 
-#### Use dedicated workstations for administration for Azure AD
+<a name='use-dedicated-workstations-for-administration-for-azure-ad'></a>
+
+#### Use dedicated workstations for administration for Microsoft Entra ID
 
 Attackers might try to target privileged accounts so that they can disrupt the integrity and authenticity of data. They often use malicious code that alters the program logic or snoops the administrator entering a credential. Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks that is protected from Internet attacks and threat vectors. Separating these sensitive tasks and accounts from the daily use workstations and devices provides strong protection from:
 
@@ -260,7 +268,7 @@ The National Institute of Standards and Technology's (NIST) provides guidelines 
 
 #### Implement Privileged Identity Management (PIM) for JIT to additional administrative roles
 
-For Azure Active Directory, use [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md) capability. Time-limited activation of privileged roles works by enabling you to:
+For Microsoft Entra ID, use [Microsoft Entra Privileged Identity Management](../privileged-identity-management/pim-configure.md) capability. Time-limited activation of privileged roles works by enabling you to:
 
 * Activate administrator privileges to do a specific task
 * Enforce MFA during the activation process
@@ -272,11 +280,11 @@ For Azure Active Directory, use [Azure AD Privileged Identity Management](../pri
   * View audit reports
   * Create access reviews to identify every user who is eligible to activate administrator privileges
 
-If you're already using Azure AD Privileged Identity Management, adjust timeframes for time-bound privileges as necessary (for example, maintenance windows).
+If you're already using Microsoft Entra Privileged Identity Management, adjust timeframes for time-bound privileges as necessary (for example, maintenance windows).
 
 #### Determine exposure to password-based sign-in protocols (if using Exchange Online)
 
-We recommend you identify every potential user who could be catastrophic to the organization if their credentials were compromised. For those users, put in place strong authentication requirements and use Azure AD Conditional Access to keep them from signing in to their email using username and password. You can block [legacy authentication using Conditional Access](../conditional-access/block-legacy-authentication.md), and you can [block basic authentication](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) through Exchange online.
+We recommend you identify every potential user who could be catastrophic to the organization if their credentials were compromised. For those users, put in place strong authentication requirements and use Microsoft Entra Conditional Access to keep them from signing in to their email using username and password. You can block [legacy authentication using Conditional Access](../conditional-access/block-legacy-authentication.md), and you can [block basic authentication](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) through Exchange online.
 
 #### Complete a roles review assessment for Microsoft 365 roles (if using Microsoft 365)
 
@@ -288,12 +296,12 @@ You can download this report from [Security Incident Management in Microsoft 365
 
 #### Continue to secure on-premises privileged administrative accounts
 
-If your Azure Active Directory is connected to on-premises Active Directory, then follow the guidance in the [Security Privileged Access Roadmap](/windows-server/identity/securing-privileged-access/securing-privileged-access): Stage 2. In this stage, you:
+If your Microsoft Entra ID is connected to on-premises Active Directory, then follow the guidance in the [Security Privileged Access Roadmap](/windows-server/identity/securing-privileged-access/securing-privileged-access): Stage 2. In this stage, you:
 
 * Deploy Privileged Access Workstations for all administrators
 * Require MFA
 * Use Just Enough Admin for domain controller maintenance, lowering the attack surface of domains
-* Deploy Advanced Threat Assessment for attack detection
+* Deploy [Advanced Threat Analytics](/advanced-threat-analytics/) for attack detection
 
 ### Additional steps for organizations managing access to Azure
 
@@ -307,11 +315,13 @@ The [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-i
 
 #### Inventory your privileged accounts within hosted Virtual Machines
 
-You don't usually need to give users unrestricted permissions to all your Azure subscriptions or resources. Use Azure AD administrator roles to grant only the access that your users who need to do their jobs. You can use Azure AD administrator roles to let one administrator manage only VMs in a subscription, while another can manage SQL databases within the same subscription. For more information, see [What is Azure role-based access control](../../active-directory-b2c/overview.md).
+You don't usually need to give users unrestricted permissions to all your Azure subscriptions or resources. Use Microsoft Entra administrator roles to grant only the access that your users who need to do their jobs. You can use Microsoft Entra administrator roles to let one administrator manage only VMs in a subscription, while another can manage SQL databases within the same subscription. For more information, see [What is Azure role-based access control](../../active-directory-b2c/overview.md).
 
-#### Implement PIM for Azure AD administrator roles
+<a name='implement-pim-for-azure-ad-administrator-roles'></a>
 
-Use Privileged identity Management with Azure AD administrator roles to manage, control, and monitor access to Azure resources. Using PIM protects by lowering the exposure time of privileges and increasing your visibility into their use through reports and alerts. For more information, see [What is Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md).
+#### Implement PIM for Microsoft Entra administrator roles
+
+Use Privileged identity Management with Microsoft Entra administrator roles to manage, control, and monitor access to Azure resources. Using PIM protects by lowering the exposure time of privileges and increasing your visibility into their use through reports and alerts. For more information, see [What is Microsoft Entra Privileged Identity Management](../privileged-identity-management/pim-configure.md).
 
 #### Use Azure log integrations to send relevant Azure logs to your SIEM systems
 
@@ -321,11 +331,13 @@ Azure log integration enables you to integrate raw logs from your Azure resource
 * Microsoft Defender for Cloud alerts
 * Azure resource logs
 
-### Additional steps for organizations managing access to other cloud apps via Azure AD
+<a name='additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad'></a>
+
+### Additional steps for organizations managing access to other cloud apps via Microsoft Entra ID
 
 #### Implement user provisioning for connected apps
 
-Azure AD allows you to automate creating and maintaining user identities in cloud apps like Dropbox, Salesforce, and ServiceNow. For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+Microsoft Entra ID allows you to automate creating and maintaining user identities in cloud apps like Dropbox, Salesforce, and ServiceNow. For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 
 #### Integrate information protection
 
@@ -333,7 +345,7 @@ Microsoft Defender for Cloud Apps allows you to investigate files and set polici
 
 #### Configure Conditional Access
 
-Configure Conditional Access based on a group, location, and application sensitivity for [SaaS apps](https://azure.microsoft.com/overview/what-is-saas/) and Azure AD connected apps. 
+Configure Conditional Access based on a group, location, and application sensitivity for [SaaS apps](https://azure.microsoft.com/overview/what-is-saas/) and Microsoft Entra connected apps. 
 
 #### Monitor activity in connected cloud apps
 
@@ -376,17 +388,21 @@ This final ongoing stage of the Secured Privileged Access roadmap includes the f
 
 ### General preparation
 
-#### Review administrator roles in Azure AD
+<a name='review-administrator-roles-in-azure-ad'></a>
 
-Determine if current built-in Azure AD administrator roles are still up to date and ensure that users are in only the roles they need. With Azure AD, you can assign separate administrators to serve different functions. For more information, see [Azure AD built-in roles](permissions-reference.md).
+#### Review administrator roles in Microsoft Entra ID
 
-#### Review users who have administration of Azure AD joined devices
+Determine if current built-in Microsoft Entra administrator roles are still up to date and ensure that users are in only the roles they need. With Microsoft Entra ID, you can assign separate administrators to serve different functions. For more information, see [Microsoft Entra built-in roles](permissions-reference.md).
 
-For more information, see [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md).
+<a name='review-users-who-have-administration-of-azure-ad-joined-devices'></a>
+
+#### Review users who have administration of Microsoft Entra joined devices
+
+For more information, see [How to configure Microsoft Entra hybrid joined devices](../devices/hybrid-join-plan.md).
 
 #### Review members of [built-in Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
 Skip this step if you're not using Microsoft 365.
-‎
+
 #### Validate incident response plan
 
 To improve upon your plan, Microsoft recommends you regularly validate that your plan operates as expected:
@@ -399,7 +415,6 @@ To improve upon your plan, Microsoft recommends you regularly validate that your
 ### Additional steps for organizations managing access to Azure 
 
 Determine if you need to [transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md).
-‎
 
 ## "Break glass": what to do in an emergency
 
@@ -409,11 +424,11 @@ Determine if you need to [transfer ownership of an Azure subscription to another
 
 2. Review your attack playbook.
 
-3. Access your "break glass" account username and password combination to sign in to Azure AD.
+3. Access your "break glass" account username and password combination to sign in to Microsoft Entra ID.
 
 4. Get help from Microsoft by [opening an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
-5. Look at the [Azure AD sign-in reports](../reports-monitoring/overview-reports.md). There might be some time between an event occurring and when it's included in the report.
+5. Look at the [Microsoft Entra sign-in reports](../reports-monitoring/overview-reports.md). There might be some time between an event occurring and when it's included in the report.
 
 6. For hybrid environments, if your on-premises infrastructure federated and your AD FS server aren't available, you can temporarily switch from federated authentication to use password hash sync. This switch reverts the domain federation back to managed authentication until the AD FS server becomes available.
 
@@ -445,17 +460,17 @@ For more information about how Microsoft Office 365 handles security incidents, 
 
 **Answer:** Have administrators always do their day-to-day business as standard "unprivileged" users.
 
-**Q:** What are the best practices for creating administrator accounts within Azure AD?
+**Q:** What are the best practices for creating administrator accounts within Microsoft Entra ID?
 
 **Answer:** Reserve privileged access for specific administrator tasks.
 
 **Q:** What tools exist for reducing persistent administrator access?
 
-**Answer:** Privileged Identity Management (PIM) and Azure AD administrator roles.
+**Answer:** Privileged Identity Management (PIM) and Microsoft Entra administrator roles.
 
-**Q:** What is the Microsoft position on synchronizing administrator accounts to Azure AD?
+**Q:** What is the Microsoft position on synchronizing administrator accounts to Microsoft Entra ID?
 
-**Answer:** Tier 0 administrator accounts are used only for on-premises AD accounts. Such accounts aren't typically synchronized with Azure AD in the cloud. Tier 0 administrator accounts include accounts, groups, and other assets that have direct or indirect administrative control of the on-premises Active Directory forest, domains, domain controllers, and assets.
+**Answer:** Tier 0 administrator accounts are used only for on-premises AD accounts. Such accounts aren't typically synchronized with Microsoft Entra ID in the cloud. Tier 0 administrator accounts include accounts, groups, and other assets that have direct or indirect administrative control of the on-premises Active Directory forest, domains, domain controllers, and assets.
 
 **Q:** How do we keep administrators from assigning random administrator access in the portal?
 
@@ -465,7 +480,7 @@ For more information about how Microsoft Office 365 handles security incidents, 
 
 * [Microsoft Trust Center for Product Security](https://www.microsoft.com/trustcenter/security) – Security features of Microsoft cloud products and services
 
-* [Microsoft Trust Center - Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – Microsoft's comprehensive set of compliance offerings for cloud services
+* [Microsoft compliance offerings](/compliance/regulatory/offering-home) – Microsoft's comprehensive set of compliance offerings for cloud services
 
 * [Guidance on how to do a risk assessment](https://www.microsoft.com/trustcenter/guidance/risk-assessment) - Manage security and compliance requirements for Microsoft cloud services
 

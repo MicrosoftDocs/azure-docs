@@ -3,8 +3,10 @@ title: Enable diagnostics logging
 description: Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
-ms.date: 01/13/2022
+ms.date: 06/29/2023
 ms.custom: "devx-track-csharp, seodec18"
+ms.author: msangapu
+author: msangapu-msft
 
 ---
 # Enable diagnostics logging for apps in Azure App Service

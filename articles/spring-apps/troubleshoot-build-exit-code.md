@@ -32,7 +32,7 @@ The following list describes some common exit codes:
 
   - The builder you're using doesn't support the language your project used.
 
-    If you're using the default builder, check the language the default builder supports. For more information, see the [Supported APM resources with Build Service enabled](how-to-enterprise-configure-apm-integration-and-ca-certificates.md#supported-apm-resources-with-the-build-service-enabled) section of [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
+    If you're using the default builder, check the language the default builder supports. For more information, see the [Supported APM types](how-to-enterprise-configure-apm-integration-and-ca-certificates.md#supported-apm-types) section of [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
 
     If you're using the custom builder, check whether your custom builder's buildpack supports the language your project used.
 

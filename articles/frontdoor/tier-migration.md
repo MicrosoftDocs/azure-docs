@@ -89,7 +89,7 @@ The default Azure Front Door tier selected for migration gets determined by the 
 
 **Classic WAF policy with only custom rules** - the new Azure Front Door profile defaults to Standard tier and can be upgraded to Premium during the migration. If you use the portal for migration, Azure creates custom WAF rules for Standard. If you upgrade to Premium during migration, custom WAF rules are created as part of the migration process. You'll need to add managed WAF rules manually after migration if you want to use managed rules.
 
-**Classic WAF policy with only managed WAF rules, or both managed and custom WAF rules** - the new Azure Front Door profile defaults to Premium tier and can't be downgraded during the migration. If you want to use Standard tier, then you need to remove the WAF policy association or delete the manage WAF rules from the Front Door (classic) WAF policy.
+**Classic WAF policy with only managed WAF rules, or both managed and custom WAF rules** - the new Azure Front Door profile defaults to Premium tier and can't be downgraded during the migration. If you want to use Standard tier, then you need to remove the WAF policy association or delete the managed WAF rules from the Front Door (classic) WAF policy.
 
 > [!NOTE]
 > To avoid creating duplicate WAF policies during migration, the migration capability provides the option to either create copies or use an existing Azure Front Door Standard or Premium WAF policy.

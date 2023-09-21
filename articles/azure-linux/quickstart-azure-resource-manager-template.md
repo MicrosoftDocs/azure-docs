@@ -4,6 +4,7 @@ description: Learn how to quickly create an Azure Linux Container Host for AKS c
 author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
+ms.custom: devx-track-arm-template
 ms.topic: quickstart
 ms.date: 04/18/2023
 ---
@@ -49,7 +50,7 @@ For more information about creating SSH keys, see [Create and manage SSH keys fo
 
 ## Review the template
 
-The following deployment uses an ARM template from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.kubernetes/aks-mariner).
+The following deployment uses an ARM template from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.kubernetes/aks-azure-linux).
 
 ```json
 {

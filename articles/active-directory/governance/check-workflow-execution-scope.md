@@ -1,5 +1,5 @@
 ---
-title: 'Check execution user scope of a workflow - Azure Active Directory'
+title: 'Check execution user scope of a workflow - Microsoft Entra ID'
 description: Describes how to check the users who fall into the execution scope of a Lifecycle Workflow.
 services: active-directory
 author: owinfreyATL
@@ -14,23 +14,24 @@ ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ---
 
-# Check execution user scope of a workflow (Preview)
+# Check execution user scope of a workflow 
+
 
 Workflow scheduling will automatically process the workflow for users meeting the workflows execution conditions. This article walks you through the steps to check the users who fall into the execution scope of a workflow. For more information about execution conditions, see: [workflow basics](../governance/understanding-lifecycle-workflows.md#workflow-basics).
 
-## Check execution user scope of a workflow using the Azure portal
+## Check execution user scope of a workflow using the Microsoft Entra admin center
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To check the users who fall under the execution scope of a workflow, you'd follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
 
-1. Type in **Identity Governance** on the search bar near the top of the page and select it.
-
-1. In the left menu, select **Lifecycle workflows (Preview)**.
+1. Browse to **Identity governance** > **Lifecycle workflows** > **workflows**.
 
 1. From the list of workflows, select the workflow you want to check the execution scope of.
 
-1. On the workflow overview page, select **Execution conditions (Preview)**.
+1. On the workflow overview page, select **Execution conditions**.
 
 1. On the Execution conditions page, select the **Execution User Scope** tab.
 

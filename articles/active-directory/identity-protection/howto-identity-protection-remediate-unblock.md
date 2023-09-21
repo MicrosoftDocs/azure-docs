@@ -1,5 +1,5 @@
 ---
-title: Remediate risks and unblock users in Azure AD Identity Protection
+title: Remediate risks and unblock users in Microsoft Entra ID Protection
 description: Learn about the options you have close active risk detections.
 
 services: active-directory
@@ -21,29 +21,32 @@ After completing your [investigation](howto-identity-protection-investigate-risk
 
 ## Risk remediation
 
-All active risk detections contribute to the calculation of the user's risk level. The user risk level is an indicator (low, medium, high) of the probability that the user's account has been compromised. As an administrator, after thorough investigation on the risky users and the corresponding risky sign-ins and detections, you want to remediate the risky users so that they're no longer at risk and won't be blocked.
+All active risk detections contribute to the calculation of the user's risk level. The user risk level is an indicator (low, medium, high) of the probability that the user's account has been compromised. As an administrator, after thorough investigation of the risky users and the corresponding risky sign-ins and detections, you want to remediate the risky users so that they're no longer at risk and won't be blocked.
 
-Some risk detections and the corresponding risky sign-ins may be marked by Identity Protection as dismissed with risk state "Dismissed" and risk detail "Azure AD Identity Protection assessed sign-in safe" because those events were no longer determined to be risky.
+Identity Protection marks some risk detections and the corresponding risky sign-ins as dismissed with risk state "Dismissed" and risk detail "Microsoft Entra ID Protection assessed sign-in safe". It takes this action, because those events were no longer determined to be risky.
 
 Administrators have the following options to remediate:
-- Set up [risk-based policies](howto-identity-protection-configure-risk-policies.md) to allow users to self-remediate their risks
-- Manual password reset
-- Dismiss user risk
+
+- Set up [risk-based policies](howto-identity-protection-configure-risk-policies.md) to allow users to self-remediate their risks.
+- Manually reset their password.
+- Dismiss their user risk.
+- [Remediate in Microsoft Defender for Identity](/defender-for-identity/remediation-actions).
 
 ### Self-remediation with risk-based policy
 
-You can allow users to self-remediate their sign-in risks and user risks by setting up [risk-based policies](howto-identity-protection-configure-risk-policies.md). If users pass the required access control, such as Azure AD multifactor authentication (MFA) or secure password change, then their risks are automatically remediated. The corresponding risk detections, risky sign-ins, and risky users will be reported with the risk state "Remediated" instead of "At risk". 
+You can allow users to self-remediate their sign-in risks and user risks by setting up [risk-based policies](howto-identity-protection-configure-risk-policies.md). If users pass the required access control, such as Microsoft Entra multifactor authentication or secure password change, then their risks are automatically remediated. The corresponding risk detections, risky sign-ins, and risky users are reported with the risk state "Remediated" instead of "At risk". 
 
 Here are the prerequisites on users before risk-based policies can be applied to them to allow self-remediation of risks:
+
 - To perform MFA to self-remediate a sign-in risk: 
-   - The user must have registered for Azure AD MFA.
+   - The user must have registered for Microsoft Entra multifactor authentication.
 - To perform secure password change to self-remediate a user risk:
-   -  The user must have registered for Azure AD MFA.
+   -  The user must have registered for Microsoft Entra multifactor authentication.
    -  For hybrid users that are synced from on-premises to cloud, password writeback must have been enabled on them.
 
-If a risk-based policy is applied to a user during sign-in before the above prerequisites are met, then the user will be blocked because they aren't able to perform the required access control, and admin intervention will be required to unblock the user. 
+If a risk-based policy is applied to a user during sign-in before the above prerequisites are met, then the user is blocked. This block action is because they aren't able to perform the required access control, and admin intervention is required to unblock the user. 
 
-Risk-based policies are configured based on risk levels and will only apply if the risk level of the sign-in or user matches the configured level. Some detections may not raise risk to the level where the policy will apply, and administrators will need to handle those risky users manually. Administrators may determine that extra measures are necessary like [blocking access from locations](../conditional-access/howto-conditional-access-policy-location.md) or lowering the acceptable risk in their policies.
+Risk-based policies are configured based on risk levels and only apply if the risk level of the sign-in or user matches the configured level. Some detections may not raise risk to the level where the policy applies, and administrators need to handle those risky users manually. Administrators may determine that extra measures are necessary like [blocking access from locations](../conditional-access/howto-conditional-access-policy-location.md) or lowering the acceptable risk in their policies.
 
 ### Self-remediation with self-service password reset
 
@@ -57,15 +60,15 @@ Administrators are given two options when resetting a password for their users:
 
 - **Generate a temporary password** - By generating a temporary password, you can immediately bring an identity back into a safe state. This method requires contacting the affected users because they need to know what the temporary password is. Because the password is temporary, the user is prompted to change the password to something new during the next sign-in.
 
-- **Require the user to reset password** - Requiring the users to reset passwords enables self-recovery without contacting help desk or an administrator. This method only applies to users that are registered for Azure AD MFA and SSPR. For users that haven't been registered, this option isn't available.
+- **Require the user to reset password** - Requiring the users to reset passwords enables self-recovery without contacting help desk or an administrator. This method only applies to users that are registered for Microsoft Entra multifactor authentication and SSPR. For users that haven't been registered, this option isn't available.
 
 ### Dismiss user risk
 
 If after investigation and confirming that the user account isn't at risk of being compromised, then you can choose to dismiss the risky user.
 
-To **Dismiss user risk**, search for and select **Azure AD Risky users** in the Azure portal or the Entra portal, select the affected user, and select **Dismiss user(s) risk**.
+To Dismiss user risk in the [Microsoft Entra admin center](https://entra.microsoft.com), browse to **Protection** > **Identity Protection** > **Risky users**, select the affected user, and select **Dismiss user(s) risk**.
 
-When you select **Dismiss user risk**, the user will no longer be at risk, and all the risky sign-ins of this user and corresponding risk detections will be dismissed as well. 
+When you select **Dismiss user risk**, the user is no longer at risk, and all the risky sign-ins of this user and corresponding risk detections are dismissed as well. 
 
 Because this method doesn't have an impact on the user's existing password, it doesn't bring their identity back into a safe state. 
 
@@ -86,7 +89,7 @@ If after investigation, an account is confirmed compromised:
       1. [Request a password reset](#manual-password-reset).
       1. Block the user if you suspect the attacker can reset the password or do multifactor authentication for the user.
       1. Revoke refresh tokens.
-      1. [Disable any devices](../devices/device-management-azure-portal.md) that are considered compromised.
+      1. [Disable any devices](../devices/manage-device-identities.md) that are considered compromised.
       1. If using [continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md), revoke all access tokens.
 
 For more information about what happens when confirming compromise, see the section [How should I give risk feedback and what happens under the hood?](howto-identity-protection-risk-feedback.md#how-should-i-give-risk-feedback-and-what-happens-under-the-hood).
@@ -118,10 +121,10 @@ To unblock an account based on sign-in risk, administrators have the following o
 
 ## PowerShell preview
 
-Using the Microsoft Graph PowerShell SDK Preview module, organizations can manage risk using PowerShell. The preview modules and sample code can be found in the [Azure AD GitHub repo](https://github.com/AzureAD/IdentityProtectionTools). 
+Using the Microsoft Graph PowerShell SDK Preview module, organizations can manage risk using PowerShell. The preview modules and sample code can be found in the [Microsoft Entra GitHub repo](https://github.com/AzureAD/IdentityProtectionTools). 
 
 The `Invoke-AzureADIPDismissRiskyUser.ps1` script included in the repo allows organizations to dismiss all risky users in their directory.
 
 ## Next steps
 
-To get an overview of Azure AD Identity Protection, see the [Azure AD Identity Protection overview](overview-identity-protection.md).
+To get an overview of Microsoft Entra ID Protection, see the [Microsoft Entra ID Protection overview](overview-identity-protection.md).

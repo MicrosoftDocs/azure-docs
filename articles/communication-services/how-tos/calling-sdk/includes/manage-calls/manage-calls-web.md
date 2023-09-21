@@ -79,7 +79,7 @@ The `callAgent` instance emits an `incomingCall` event when the logged-in identi
 
 ```js
 const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {
-    const incomingCall = args.incomingCall;	
+    const incomingCall = args.incomingCall;    
 
     // Get incoming call ID
     var incomingCallId = incomingCall.id
@@ -116,7 +116,7 @@ When starting/joining/accepting a call with video on, if the specified video cam
 ## Hold and resume call
 
 > [!NOTE]
-> At any given moment of time, there should be only 1 active call ( in `Connected` state, with active media ). All other calls should be put on hold by a user, or programatically by application. This is common in scenarios like contact centers, where a user may need to handle multiple outbound and inbound calls, all inactive calls should be put on hold, and user should interact with others only in active call
+> At any given moment of time, there should be only 1 active call (in `Connected` state, with active media). All other calls should be put on hold by a user, or programatically by application. This is common in scenarios like contact centers, where a user may need to handle multiple outbound and inbound calls, all inactive calls should be put on hold, and user should interact with others only in active call
 
 To hold or resume the call, you can use the `hold` and `resume` asynchronous APIs:
 
@@ -322,6 +322,12 @@ const isIncoming = call.direction == 'Incoming';
 const isOutgoing = call.direction == 'Outgoing';
 ```
 
+Inspect active video streams and active screen sharing streams by checking the `localVideoStreams` collection. It returns `LocalVideoStream` objects or type `Video`, `ScreenSharing` or `RawMedia`.
+
+```js
+const localVideoStreams = call.localVideoStreams;
+```
+
 Check if the current microphone is muted. It returns `Boolean`.
 
 ```js
@@ -334,14 +340,14 @@ Check if the current incoming audio (speaker) is muted. It returns `Boolean`.
 const incomingAudioMuted = call._isIncomingAudioMuted;
 ```
 
-Find out if the screen sharing stream is being sent from a given endpoint by checking the `isScreenSharingOn` property. It returns `Boolean`.
+Check if video is on. It returns `Boolean`.
+
+```js
+const isLocalVideoStarted = call.isLocalVideoStarted;
+```
+
+Check is screen sharing is on. It returns `Boolean`.
 
 ```js
 const isScreenSharingOn = call.isScreenSharingOn;
-```
-
-Inspect active video streams by checking the `localVideoStreams` collection. It returns `LocalVideoStream` objects.
-
-```js
-const localVideoStreams = call.localVideoStreams;
 ```

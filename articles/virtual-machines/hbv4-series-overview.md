@@ -46,9 +46,9 @@ Each HBv4 VM size is similar in physical layout, features, and performance of a 
 |---------------------------------|--------------|------------------------|----------------------------------|
 Standard_HB176rs_v4               | 4            | 44                     | Dual-socket EPYC 9V33X           |
 Standard_HB176-144rs_v4           | 4            | 36                     | Dual-socket EPYC 9V33X           |
-Standard_HB176-64rs_v4            | 4            | 24                     | Dual-socket EPYC 9V33X           |
-Standard_HB176-32rs_v4            | 4            | 12                     | Dual-socket EPYC 9V33X           |
-Standard_HB176-16rs_v4            | 4            | 6                      | Dual-socket EPYC 9V33X           |
+Standard_HB176-96rs_v4            | 4            | 24                     | Dual-socket EPYC 9V33X           |
+Standard_HB176-48rs_v4            | 4            | 12                     | Dual-socket EPYC 9V33X           |
+Standard_HB176-24rs_v4            | 4            | 6                      | Dual-socket EPYC 9V33X           |
 
 > [!NOTE]
 > The constrained cores VM sizes only reduce the number of physical cores exposed to the VM. All global shared assets (RAM, memory bandwidth, L3 cache, GMI and xGMI connectivity, InfiniBand, Azure Ethernet network, local SSD) stay constant. This allows a customer to pick a VM size best tailored to a given set of workload or software licensing needs.
@@ -88,7 +88,7 @@ lstopo-no-graphics --no-io --no-legend --of txt
 <details>
 <summary>Click to view lstopo output for Standard_HB176-24rs_v4</summary>
 
-![lstopo output for HBv4-16 VM](./media/hpc/architecture/hbv4/hbv4-24-lstopo.png)
+![lstopo output for HBv4-24 VM](./media/hpc/architecture/hbv4/hbv4-24-lstopo.png)
 </details>
 
 ## InfiniBand networking
@@ -110,7 +110,7 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 | Cores                            | 176, 144, 96, 48, or 24 (SMT disabled)           | 
 | CPU                              | AMD EPYC 9V33X                   | 
 | CPU Frequency (non-AVX)          | 2.4 GHz base, 3.7 GHz peak boost    | 
-| Memory                           | 688 GB (RAM per core depends on VM size)         | 
+| Memory                           | 704 GB (RAM per core depends on VM size)         | 
 | Local Disk                       | 2 * 1.8 TB NVMe (block), 480 GB SSD (page file) | 
 | InfiniBand                       | 400 Gb/s Mellanox ConnectX-7 NDR InfiniBand | 
 | Network                          | 80 Gb/s Ethernet (40 Gb/s usable) Azure second Gen SmartNIC | 
@@ -128,14 +128,20 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 | Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
-> These VMs support only Generation 2.
-> There is no official kernel level support from AMD on CentOS. Support starts at RHEL 8.6 and a derivative of RHEL which is AlmaLinux 8.6.
-> Windows Server 2012 R2 is not supported on HBv4 and other VMs with more than 64 (virtual or physical) cores. For more information, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Windows Server 2022 is required for 144 and 176 core sizes, Windows Server 2016 also works for 24, 48, and 96 core sizes, Windows Server works for only 24 and 48 core sizes.  
+> * These VMs support only Generation 2.
+> * There is no official kernel level support from AMD on CentOS. Support starts at RHEL 8.6 and a derivative of RHEL which is AlmaLinux 8.6.
+> * Windows Server 2012 R2 is not supported on HBv4 and other VMs with more than 64 (virtual or physical) cores. For more information, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Windows Server 2022 is required for 144 and 176 core sizes, Windows Server 2016 also works for 24, 48, and 96 core sizes, Windows Server works for only 24 and 48 core sizes.  
 
 > [!IMPORTANT] 
-> Recommended image URN: almalinux:almalinux-hpc:8_7-hpc-gen2:8.7.2023060101, To deploy this image over Azure CLI, esnure the following parameters are included **--plan 8_7-hpc-gen2 --product almalinux-hpc --publisher almalinux**. For scaling tests please use the recommended URN along with the new [HPC-X tarball] (https://github.com/Azure/azhpc-images/blob/c8db6de3328a691812e58ff56acb5c0661c4d488/alma/alma-8.x/alma-8.6-hpc/install_mpis.sh#L16).
+> Recommended image URN: almalinux:almalinux-hpc:8_7-hpc-gen2:8.7.2023060101, To deploy this image over Azure CLI, ensure the following parameters are included **--plan 8_7-hpc-gen2 --product almalinux-hpc --publisher almalinux**. For scaling tests please use the recommended URN along with the new [HPC-X tarball](https://github.com/Azure/azhpc-images/blob/c8db6de3328a691812e58ff56acb5c0661c4d488/alma/alma-8.x/alma-8.6-hpc/install_mpis.sh#L16).
+
+> [!NOTE]
+> * NDR support is added in UCX 1.13 or later. Older UCX versions will report the above runtime error. UCX Error: Invalid active speed `[1677010492.951559] [updsb-vm-0:2754 :0]       ib_iface.c:1549 UCX ERROR Invalid active_speed on mlx5_ib0:1: 128`.
+> * Ibstat shows low speed (SDR): Older Mellanox OFED (MOFED) versions do not support NDR and it may report slower IB speeds. Please use MOFED versions MOFED 5.6-1.0.3.3 or above.
 
 ## Next steps
 
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
+
+

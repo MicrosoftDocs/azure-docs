@@ -30,7 +30,7 @@ You add authentication to your web app so that it can sign users in and call a w
 
 ![Web app that calls web APIs](./media/scenario-webapp/web-app.svg)
 
-Web apps that call web APIs are confidential client applications. That's why they register a secret (an application password or certificate) with Azure Active Directory (Azure AD). This secret is passed in during the call to Azure AD to get a token.
+Web apps that call web APIs are confidential client applications. That's why they register a secret (an application password or certificate) with Microsoft Entra ID. This secret is passed in during the call to Microsoft Entra ID to get a token.
 
 ## Specifics
 
@@ -40,12 +40,12 @@ This scenario covers how to call web APIs from a web app. You must get access to
 
 Development for this scenario involves;
 
-- Providing a reply URI, secret, or certificate to be shared with Azure AD during [application registration](scenario-web-app-call-api-app-registration.md). If you deploy your app to several locations, you'll provide a reply URI for each location.
-- Providing the client credentials in the [application configuration](scenario-web-app-call-api-app-configuration.md). These credentials were shared with Azure AD during application registration.
+- Providing a reply URI, secret, or certificate to be shared with Microsoft Entra ID during [application registration](scenario-web-app-call-api-app-registration.md). If you deploy your app to several locations, you'll provide a reply URI for each location.
+- Providing the client credentials in the [application configuration](scenario-web-app-call-api-app-configuration.md). These credentials were shared with Microsoft Entra ID during application registration.
 
 ## Recommended reading
 
-[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+[!INCLUDE [recommended-topics](./includes/scenarios/scenarios-prerequisites.md)]
 
 ## Next steps
 

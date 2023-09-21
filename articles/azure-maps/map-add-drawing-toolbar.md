@@ -7,12 +7,11 @@ ms.date: 06/05/2023
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.custom:
 ---
 
 # Add a drawing tools toolbar to a map
 
-This article shows you how to use the Drawing Tools module and display the drawing toolbar on the map. The [DrawingToolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) control adds the drawing toolbar on the map. You will learn how to create maps with only one and all drawing tools and how to customize the rendering of the drawing shapes in the drawing manager.
+This article shows you how to use the Drawing Tools module and display the drawing toolbar on the map. The [Drawing toolbar] control adds the drawing toolbar on the map. You learn how to create maps with only one and all drawing tools and how to customize the rendering of the drawing shapes in the drawing manager.
 
 ## Add drawing toolbar
 
@@ -28,20 +27,17 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
     });
 ```
 
-For a complete working sample that demonstrates how to add a drawing toolbar to your map, see [Add drawing toolbar to map] in the [Azure Maps Samples].
+For a complete working sample that demonstrates how to add a drawing toolbar to your map, see [Add drawing toolbar to map] in the [Azure Maps Samples]. For the source code for this sample, see [Add drawing toolbar to map source code].
 
 :::image type="content" source="./media/map-add-drawing-toolbar/add-drawing-toolbar.png" alt-text="Screenshot showing the drawing toolbar on a map.":::
 
 <!------------------------------------------------------------------------
-<iframe height="500" scrolling="no" title="Add drawing toolbar" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>Add drawing toolbar</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true]
 ------------------------------------------------------------------------>
 
 ## Limit displayed toolbar options
 
-The following code creates an instance of the drawing manager and displays the toolbar with just a polygon drawing tool on the map. 
+The following code creates an instance of the drawing manager and displays the toolbar with just a polygon drawing tool on the map.
 
 ```javascript
 //Create an instance of the drawing manager and display the drawing toolbar with polygon drawing tool.
@@ -59,17 +55,14 @@ The following screenshot shows a sample of an instance of the drawing manager th
 :::image type="content" source="./media/map-add-drawing-toolbar/limit-displayed-toolbar-options.png" alt-text="Screenshot that demonstrates an instance of the drawing manager that displays the toolbar with just a polygon drawing tool on the map.":::
 
 <!------------------------------------------------------------------------
-<iframe height="500" scrolling="no" title="Add a polygon drawing  tool" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Add a polygon drawing  tool</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true]
 ------------------------------------------------------------------------>
 
 ## Change drawing rendering style
 
 The style of the shapes that are drawn can be customized by retrieving the underlying layers of the drawing manager by using the `drawingManager.getLayers()` and `drawingManager.getPreviewLayers()` functions and then setting options on the individual layers. The drag handles that appear for coordinates when editing a shape are HTML markers. The style of the drag handles can be customized by passing HTML marker options into the `dragHandleStyle` and `secondaryDragHandleStyle` options of the drawing manager.  
 
-The following code gets the rendering layers from the drawing manager and modifies their options to change rendering style for drawing. In this case, points will be rendered with a blue marker icon. Lines will be red and four pixels wide. Polygons will have a green fill color and an orange outline. It then changes the styles of the drag handles to be square icons.
+The following code gets the rendering layers from the drawing manager and modifies their options to change rendering style for drawing. In this case, points are rendered with a blue marker icon. Lines are red and four pixels wide. Polygons have a green fill color and an orange outline. It then changes the styles of the drag handles to be square icons.
 
 ```javascript
 //Get rendering layers of drawing manager.
@@ -122,15 +115,12 @@ drawingManager.setOptions({
 });  
 ```
 
-For a complete working sample that demonstrates how to customize the rendering of the drawing shapes in the drawing manager by accessing the rendering layers, see [Change drawing rendering style] in the [Azure Maps Samples].
+For a complete working sample that demonstrates how to customize the rendering of the drawing shapes in the drawing manager by accessing the rendering layers, see [Change drawing rendering style] in the [Azure Maps Samples]. For the source code for this sample, see [Change drawing rendering style source code].
 
 :::image type="content" source="./media/map-add-drawing-toolbar/change-drawing-rendering-style.png" alt-text="Screenshot showing different drawing shaped rendered on a map.":::
 
 <!------------------------------------------------------------------------
-<iframe height="500" scrolling="no" title="Change drawing rendering style" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>Change drawing rendering style</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true]
 ------------------------------------------------------------------------>
 
 > [!NOTE]
@@ -138,28 +128,37 @@ For a complete working sample that demonstrates how to customize the rendering o
 
 ## Next steps
 
-Learn how to use additional features of the drawing tools module:
+Learn how to use more features of the drawing tools module:
 
 > [!div class="nextstepaction"]
-> [Get shape data](map-get-shape-data.md)
+> [Get shape data]
 
 > [!div class="nextstepaction"]
-> [React to drawing events](drawing-tools-events.md)
+> [React to drawing events]
 
 > [!div class="nextstepaction"]
-> [Interaction types and keyboard shortcuts](drawing-tools-interactions-keyboard-shortcuts.md)
+> [Interaction types and keyboard shortcuts]
 
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Map](/javascript/api/azure-maps-control/atlas.map)
+> [Map]
 
 > [!div class="nextstepaction"]
-> [Drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+> [Drawing toolbar]
 
 > [!div class="nextstepaction"]
-> [Drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [Drawing manager]
 
 [Azure Maps Samples]: https://samples.azuremaps.com
 [Add drawing toolbar to map]: https://samples.azuremaps.com/drawing-tools-module/add-drawing-toolbar-to-map
 [Change drawing rendering style]: https://samples.azuremaps.com/drawing-tools-module/change-drawing-rendering-style
+
+[Add drawing toolbar to map source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Add%20drawing%20toolbar%20to%20map/Add%20drawing%20toolbar%20to%20map.html
+[Change drawing rendering style source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Change%20drawing%20rendering%20style/Change%20drawing%20rendering%20style.html
+[Drawing toolbar]: /javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar
+[Get shape data]: map-get-shape-data.md
+[React to drawing events]: drawing-tools-events.md
+[Interaction types and keyboard shortcuts]: drawing-tools-interactions-keyboard-shortcuts.md
+[Map]: /javascript/api/azure-maps-control/atlas.map
+[Drawing manager]: /javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager

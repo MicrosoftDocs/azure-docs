@@ -1,17 +1,15 @@
 ---
-title: Deploy SAP security content in Microsoft Sentinel
-description: This article shows you how to deploy Microsoft Sentinel security content into your Microsoft Sentinel workspace. This content makes up the remaining parts of the Microsoft Sentinel solution for SAP® applications.
+title: Deploy the Microsoft Sentinel solution for SAP applications® from the content hub
+description: This article shows you how to deploy the Microsoft Sentinel solution for SAP applications® security content from the content hub into your Microsoft Sentinel workspace. This content makes up the remaining parts of the Microsoft Sentinel Solution for SAP.
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
 ms.date: 03/23/2023
 ---
 
-# Deploy SAP security content in Microsoft Sentinel
+# Deploy the Microsoft Sentinel solution for SAP applications® from the content hub
 
-This article shows you how to deploy Microsoft Sentinel security content into your Microsoft Sentinel workspace. This content makes up the remaining parts of the Microsoft Sentinel solution for SAP® applications.
-
-Learn about [working with the solution across multiple workspaces](cross-workspace.md) (PREVIEW), or [define multiple workspaces](#deploy-sap-security-content). 
+This article shows you how to deploy the Microsoft Sentinel solution for SAP applications® security content from the content hub into your Microsoft Sentinel workspace. This content makes up the remaining parts of the Microsoft Sentinel Solution for SAP.
 
 ## Deployment milestones
 
@@ -29,7 +27,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
 
-1. **Deploy SAP security content (*You are here*)**
+1. **Deploy the Microsoft Sentinel solution for SAP applications® from the content hub (*You are here*)**
 
 1. [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md)
 
@@ -40,7 +38,7 @@ Track your SAP solution deployment journey through this series of articles:
    - [Deploy SAP connector manually](sap-solution-deploy-alternate.md)
    - [Select SAP ingestion profiles](select-ingestion-profiles.md)
 
-## Deploy SAP security content
+## Deploy the security content from the content hub
 
 Deploy the [SAP security content](sap-solution-security-content.md) from the Microsoft Sentinel **Content hub** and **Watchlists** areas.
 
@@ -104,8 +102,8 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 - [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
 - [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Deploy SAP security content](deploy-sap-security-content.md)
 - [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
@@ -114,7 +112,6 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 Troubleshooting:
 
 - [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
-- [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 

@@ -3,7 +3,7 @@ title: Monitoring Azure Service Bus
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Service Bus. 
 ms.topic: conceptual
 ms.custom: subject-monitoring
-ms.date: 02/10/2022
+ms.date: 06/26/2023
 ---
 
 # Monitor Azure Service Bus
@@ -124,9 +124,11 @@ For a detailed reference of the logs and metrics, see [Azure Service Bus monitor
 
 Following are sample queries that you can use to help you monitor your Azure Service Bus resources: 
 
+### [AzureDiagnostics](#tab/AzureDiagnostics)
+
 + Get management operations in the last 7 days. 
 
-    ```Kusto
+    ```kusto
     AzureDiagnostics
     | where TimeGenerated > ago(7d)
     | where ResourceProvider =="MICROSOFT.SERVICEBUS"
@@ -135,17 +137,15 @@ Following are sample queries that you can use to help you monitor your Azure Ser
     ```
 + Get runtime audit logs generated in the last one hour. 
 
-    ```Kusto
+    ```kusto
     AzureDiagnostics
     | where TimeGenerated > ago(1h)
     | where ResourceProvider =="MICROSOFT.SERVICEBUS"
     | where Category == "RuntimeAuditLogs"    
     ```
-
-
 + Get access attempts to a key vault that resulted in "key not found" error.
 
-    ```Kusto
+    ```kusto
     AzureDiagnostics
     | where ResourceProvider == "MICROSOFT.SERVICEBUS" 
     | where Category == "Error" and OperationName == "wrapkey"
@@ -154,7 +154,7 @@ Following are sample queries that you can use to help you monitor your Azure Ser
 
 + Get errors from the past 7 days
 
-    ```Kusto
+    ```kusto
     AzureDiagnostics
     | where TimeGenerated > ago(7d)
     | where ResourceProvider =="MICROSOFT.SERVICEBUS"
@@ -164,7 +164,7 @@ Following are sample queries that you can use to help you monitor your Azure Ser
 
 + Get operations performed with a key vault to disable or restore the key.
 
-    ```Kusto
+    ```kusto
     AzureDiagnostics
     | where ResourceProvider == "MICROSOFT.SERVICEBUS"
     | where (Category == "info" and (OperationName == "disable" or OperationName == "restore"))
@@ -180,7 +180,51 @@ Following are sample queries that you can use to help you monitor your Azure Ser
     | where EventName_s startswith "AutoDelete"
     | summarize count() by EventName_s, _ResourceId    
     ```
-    
+ ### [Resource Specific Table](#tab/Resourcespecifictable)
+
++ Get deny connection events for namespace
+
+  ```kusto
+   AZMSVNetConnectionEvents
+   | extend NamespaceName = tostring(split(_ResourceId, "/")[8])
+   | where Provider =~ "ServiceBus"
+   | where Action == "Deny Connection"
+   | project Action, SubscriptionId, NamespaceName, AddressIp, Reason, Count
+   | summarize by Action, NamespaceName 
+    ```
+
++ Get failed operation logs  for namespace
+
+  ```kusto
+   AZMSOperationalLogs
+   | extend NamespaceName = tostring(split(_ResourceId, "/")[8])
+   | where Provider =~ "ServiceBus"
+   | where isnotnull(NamespaceName) and Status != "Succeeded"
+   | project NamespaceName, ResourceId, EventName, Status, Caller, SubscriptionId
+   | summarize by NamespaceName, EventName
+    ```
+
++ Get Send message events for namespace
+
+  ```kusto
+  AZMSRunTimeAuditLogs
+  | extend NamespaceInfo = tostring(split(_ResourceId, "/")[8])
+  | where Provider =~ "ServiceBus"
+  | where isnotnull(NamespaceInfo) and ActivityName = "SendMessage"
+  | project NamespaceInfo, ActivityName, Protocol, NetworkType, ClientIp, ResourceId
+  | summarize by NamespaceInfo, ActivityName
+    ```
++ Get Failed authorization results for AAD
+
+  ```kusto
+  AZMSRunTimeAuditLogs
+  | extend NamespaceInfo = tostring(split(_ResourceId, "/")[8])
+  | where Provider =~ "ServiceBus"
+  | where isnotnull(NamespaceInfo) and isnotnull(AuthKey) and AuthType == "AAD" and Status != "Success" 
+  | project NamespaceInfo, AuthKey, ActivityName, Protocol, NetworkType, ClientIp, ResourceId
+  | summarize by NamespaceInfo, AuthKey, ActivityName
+   ```
+
 ## Alerts
 You can access alerts for Azure Service Bus by selecting **Alerts** from the **Azure Monitor** section on the home page for your Service Bus namespace. See [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md) for details on creating alerts.
 

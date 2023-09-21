@@ -4,8 +4,8 @@ description: Learn how to use Azure PowerShell to create and manage virtual mach
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/17/2022
-ms.custom: devx-track-azurepowershell
+ms.date: 09/30/2023
+ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ---
 
 # Create DevTest Labs VMs by using Azure PowerShell

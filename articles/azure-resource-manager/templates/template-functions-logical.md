@@ -3,7 +3,7 @@ title: Template functions - logical
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to determine logical values.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 02/11/2022
+ms.date: 06/23/2023
 ---
 
 # Logical functions for ARM templates

@@ -24,13 +24,13 @@ In such cases, you can create an exemption for a recommendation to:
 
 ## Availability
 
-| Aspect                          | Details                                                      |
+ Aspect                          | Details                                                      |
 | ------------------------------- | ----------------------------------------------------------- |
 | Release state:                  | Preview<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)] |
 | Pricing:                        | This is a premium Azure Policy capability that's offered at no more cost for customers with Microsoft Defender for Cloud's enhanced security features enabled. For other users, charges might apply in the future.
-| Required roles and permissions: | **Owner** or **Resource Policy Contributor** to create an exemption<br>To create a rule, you need permissions to edit policies in Azure Policy.<br>Learn more in [Azure RBAC permissions in Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy). |
+| Required roles and permissions: | **Owner** or **Security Admin** or **Resource Policy Contributor** to create an exemption<br>To create a rule, you need permissions to edit policies in Azure Policy.<br>Learn more in [Azure RBAC permissions in Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy). |
 | Limitations:                    | Exemptions can be created only for recommendations included in Defender for Cloud's default initiative, [Microsoft cloud security benchmark](/security/benchmark/azure/introduction), or any of the supplied regulatory standard initiatives. Recommendations that are generated from custom initiatives can't be exempted. Learn more about the relationships between [policies, initiatives, and recommendations](security-policy-concept.md). |
-| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
+| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet) |
 
 ## Define an exemption
 
@@ -70,14 +70,14 @@ To create an exemption rule:
     1. Enter a description.
     1. Select **Create**.
 
-    :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="Steps to create an exemption rule to exempt a recommendation from your subscription or management group.":::
+    :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="Steps to create an exemption rule to exempt a recommendation from your subscription or management group."  lightbox="media/exempt-resource/defining-recommendation-exemption.png":::
 
     When the exemption takes effect (it might take up to 30 minutes):
     - The recommendation or resources won't impact your secure score.
     - If you've exempted specific resources, they'll be listed in the **Not applicable** tab of the recommendation details page.
     - If you've exempted a recommendation, it will be hidden by default on Defender for Cloud's recommendations page. This is because the default options of the **Recommendation status** filter on that page are to exclude **Not applicable** recommendations. The same is true if you exempt all recommendations in a security control.
 
-        :::image type="content" source="media/exempt-resource/recommendations-filters-hiding-not-applicable.png" alt-text="Default filters on Microsoft Defender for Cloud's recommendations page hide the not applicable recommendations and security controls":::
+        :::image type="content" source="media/exempt-resource/recommendations-filters-hiding-not-applicable.png" alt-text="Default filters on Microsoft Defender for Cloud's recommendations page hide the not applicable recommendations and security controls." lightbox="media/exempt-resource/recommendations-filters-hiding-not-applicable.png":::
 
     - The information strip at the top of the recommendation details page updates the number of exempted resources:
 
@@ -85,7 +85,7 @@ To create an exemption rule:
 
 1. To review your exempted resources, open the **Not applicable** tab:
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modifying an exemption.":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modifying an exemption."  lightbox="media/exempt-resource/modifying-exemption.png":::
 
     The reason for each exemption is included in the table (1).
 
@@ -96,7 +96,7 @@ To create an exemption rule:
     > [!IMPORTANT]
     > To see the specific exemptions relevant to one recommendation, filter the list according to the relevant scope and recommendation name.
 
-    :::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Azure Policy's exemption page":::
+    :::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Azure Policy's exemption page."  lightbox="media/exempt-resource/policy-page-exemption.png":::
 
     > [!TIP]
     > Alternatively, [use Azure Resource Graph to find recommendations with exemptions](#find-recommendations-with-exemptions-using-azure-resource-graph).
@@ -107,9 +107,9 @@ As explained earlier on this page, exemption rules are a powerful tool providing
 
 To keep track of how your users are exercising this capability, we've created an Azure Resource Manager (ARM) template that deploys a Logic App Playbook and all necessary API connections to notify you when an exemption has been created.
 
-- To learn more about the playbook, see the tech community blog post [How to keep track of Resource Exemptions in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
+- To learn more about the playbook, see the tech community blog post [How to keep track of Resource Exemptions in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580).
 - You'll find the ARM template in the [Microsoft Defender for Cloud GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
-- To deploy all the necessary components, [use this automated process](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json)
+- To deploy all the necessary components, [use this automated process](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json).
 
 ## Use the inventory to find resources that have exemptions applied
 
@@ -117,7 +117,7 @@ The asset inventory page of Microsoft Defender for Cloud provides a single page 
 
 The inventory page includes many filters to let you narrow the list of resources to the ones of most interest for any given scenario. One such filter is the **Contains exemptions**. Use this filter to find all resources that have been exempted from one or more recommendations.
 
-:::image type="content" source="media/exempt-resource/inventory-filter-exemptions.png" alt-text="Defender for Cloud's asset inventory page and the filter to find resources with exemptions":::
+:::image type="content" source="media/exempt-resource/inventory-filter-exemptions.png" alt-text="Defender for Cloud's asset inventory page and the filter to find resources with exemptions."  lightbox="media/exempt-resource/inventory-filter-exemptions.png":::
 
 ## Find recommendations with exemptions using Azure Resource Graph
 
@@ -127,7 +127,7 @@ To view all recommendations that have exemption rules:
 
 1. Open **Azure Resource Graph Explorer**.
 
-    :::image type="content" source="./media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
+    :::image type="content" source="./media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page."   lightbox="media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png":::
 
 1. Enter the following query and select **Run query**.
 
@@ -158,12 +158,10 @@ To view all recommendations that have exemption rules:
 Learn more in the following pages:
 
 - [Learn more about Azure Resource Graph](../governance/resource-graph/index.yml).
-- [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
-- [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/)
+- [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md).
+- [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/).
 
 
 ## Next steps
 
-In this article, you learned how to exempt a resource from a recommendation so that it doesn't impact your secure score. For more information about secure score, see:
-
-- [Secure score in Microsoft Defender for Cloud](secure-score-security-controls.md)
+In this article, you learned how to exempt a resource from a recommendation so that it doesn't impact your secure score. For more information about secure score, see [Secure score in Microsoft Defender for Cloud](secure-score-security-controls.md).

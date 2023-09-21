@@ -2,11 +2,10 @@
 title: Azure File Sync resource moves and topology changes
 description: Learn how to move sync resources across resource groups, subscriptions, and Azure Active Directory tenants.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 03/15/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Move Azure File Sync resources to a different resource group, subscription, or Azure AD tenant
@@ -143,6 +142,6 @@ A regional failover can be started by Microsoft in a catastrophic event that wil
 
 ## See also
 
-- [Overview of Azure file share and sync migration guides](../files/storage-files-migration-overview.md?toc=/azure/storage/filesync/toc.json)
-- [Troubleshoot Azure File Sync](file-sync-troubleshoot.md)
+- [Overview of Azure file share and sync migration guides](../files/storage-files-migration-overview.md?toc=/azure/storage/file-sync/toc.json)
+- [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)
 - [Planning for an Azure File Sync deployment](file-sync-planning.md)

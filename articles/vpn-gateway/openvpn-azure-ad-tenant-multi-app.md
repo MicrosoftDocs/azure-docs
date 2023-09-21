@@ -5,11 +5,11 @@ description: Learn how to set up an Azure AD tenant for P2S OpenVPN authenticati
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 08/18/2023
 ms.author: cherylmc
 ms.custom: engagement-fy23
-
 ---
+
 # Configure P2S for access based on users and groups - Azure AD authentication
 
 When you use Azure AD as the authentication method for P2S, you can configure P2S to allow different access for different users and groups. If you want different sets of users to be able to connect to different VPN gateways, you can register multiple apps in AD and link them to different VPN gateways. This article helps you set up an Azure AD tenant for P2S Azure AD authentication and create and register multiple apps in Azure AD for allowing different access for different users and groups. For more information about point-to-site protocols and authentication, see [About point-to-site VPN](point-to-site-about.md).
@@ -66,7 +66,7 @@ In this section, you can register additional applications for various users and 
     * Azure Public: `41b23e61-6c1e-4545-b367-cd054e0ed4b4`
     * Azure Government: `51bb15d4-3a4f-4ebf-9dca-40096fe32426`
     * Azure Germany: `538ee9e6-310a-468d-afef-ea97365856a9`
-    * Azure China 21Vianet: `49f817b6-84ae-4cc0-928c-73f27289b3aa`
+    * Microsoft Azure operated by 21Vianet: `49f817b6-84ae-4cc0-928c-73f27289b3aa`
 1. Select the checkbox for the **Authorized scopes** to include. Then, click **Add application**.
 
    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/add-application.png" alt-text="Screenshot of Azure Active Directory add client application page." lightbox="./media/openvpn-azure-ad-tenant-multi-app/add-application.png":::
@@ -89,7 +89,9 @@ Assign the users to your applications.
 
 1. Go to your Azure Active Directory and select **Enterprise applications**.
 1. From the list, locate the application you just registered and click to open it.
-1. Click **Properties**. On the **Properties** page, verify that **Enabled for users to sign in** is set to **Yes**. If not, change the value to **Yes**, then **Save**.
+1. Click **Properties**. On the **Properties** page, verify that **Enabled for users to sign in** is set to **Yes**. If not, change the value to **Yes**.
+1. For **Assignment required**, change the value to **Yes**. For more information about this setting, see [Application properties](../active-directory/manage-apps/application-properties.md#enabled-for-users-to-sign-in).
+1. If you've made changes, click **Save** to save your settings.
 1. In the left pane, click **Users and groups**. On the **Users and groups** page, click **+ Add user/group** to open the **Add Assignment** page.
 1. Click the link under **Users and groups** to open the **Users and groups** page. Select the users and groups that you want to assign, then click **Select**.
 1. After you finish selecting users and groups, click **Assign**.
@@ -100,7 +102,7 @@ In this step, you configure P2S Azure AD authentication for the virtual network 
 
 1. Go to the virtual network gateway. In the left pane, click **Point-to-site configuration**.
 
-   :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/enable-authentication.png" alt-text="Screenshot showing point-to-site configuration page." lightbox="./media/openvpn-azure-ad-tenant-multi-app/client-id.png":::
+   :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/enable-authentication.png" alt-text="Screenshot showing point-to-site configuration page." lightbox="./media/openvpn-azure-ad-tenant-multi-app/enable-authentication.png":::
 
    Configure the following values:
 
@@ -111,7 +113,7 @@ In this step, you configure P2S Azure AD authentication for the virtual network 
    For **Azure Active Directory** values, use the following guidelines for **Tenant**, **Audience**, and **Issuer** values.
 
    * **Tenant**: `https://login.microsoftonline.com/{TenantID}`
-   * **Audience ID**: Use the value that you created in the previous section that corresponds to **Application (client) ID**. Don't use the application ID for "Azure VPN" Azure AD Enterprise App - use application ID that you created and registered. If you use the application ID for the ""Azure VPN" Azure AD Enterprise App instead, this will grant all users access to the VPN gateway (which would be the default way to set up access), instead of granting only the users that you assigned to the application that you created and registered.
+   * **Audience ID**: Use the value that you created in the previous section that corresponds to **Application (client) ID**. Don't use the application ID for "Azure VPN" Azure AD Enterprise App - use application ID that you created and registered. If you use the application ID for the "Azure VPN" Azure AD Enterprise App instead, this will grant all users access to the VPN gateway (which would be the default way to set up access), instead of granting only the users that you assigned to the application that you created and registered.
    * **Issuer**: `https://sts.windows.net/{TenantID}`  For the Issuer value, make sure to include a trailing **/** at the end.
 
 1. Once you finish configuring settings, click **Save** at the top of the page.

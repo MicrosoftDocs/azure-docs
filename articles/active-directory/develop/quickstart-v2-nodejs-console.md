@@ -19,7 +19,7 @@ ms.custom: mode-api, devx-track-js
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 > 
-> > [Quickstart: Node.js console app that calls an API](console-app-quickstart.md?pivots=devlang-nodejs)
+> > [Quickstart: Acquire a token and call Microsoft Graph from a Node.js console app](quickstart-console-app-nodejs-acquire-token.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -85,7 +85,7 @@ ms.custom: mode-api, devx-track-js
 > node . --op getUsers
 > ```
 > 
-> You should see on the console output some JSON fragment representing a list of users in your Azure AD directory.
+> You should see on the console output some JSON fragment representing a list of users in your Microsoft Entra directory.
 > 
 > ## About the code
 > 
@@ -126,7 +126,7 @@ ms.custom: mode-api, devx-track-js
 > > |---------|---------|
 > > | `clientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
 > > | `authority`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}` for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
-> > | `clientSecret` | Is the client secret created for the application in Azure Portal. |
+> > | `clientSecret` | Is the client secret created for the application in Azure portal. |
 > 
 > For more information, please see the [reference documentation for `ConfidentialClientApplication`](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md)
 > 
@@ -144,10 +144,10 @@ ms.custom: mode-api, devx-track-js
 > 
 > > |Where:| Description |
 > > |---------|---------|
-> > | `tokenRequest` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure Portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure Portal's Application Registration. |
+> > | `tokenRequest` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure portal's Application Registration. |
 > > | `tokenResponse` | The response contains an access token for the scopes requested. |
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 

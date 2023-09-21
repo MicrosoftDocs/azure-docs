@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell compute-evergreen, devx-track-arm-template
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
 > [!IMPORTANT]
-> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 6, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
 
 These steps show you how to use Azure PowerShell commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model.
 
@@ -127,15 +127,15 @@ Set your Azure subscription for the current session. This example sets the defau
 
 
 ## Step 5: Run commands to migrate your IaaS resources
-* [Migrate VMs in a cloud service (not in a virtual network)](#step-51-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
-* [Migrate VMs in a virtual network](#step-51-option-2---migrate-virtual-machines-in-a-virtual-network)
-* [Migrate a storage account](#step-52-migrate-a-storage-account)
+* [Migrate VMs in a cloud service (not in a virtual network)](#step-5a-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
+* [Migrate VMs in a virtual network](#step-5a-option-2---migrate-virtual-machines-in-a-virtual-network)
+* [Migrate a storage account](#step-5b-migrate-a-storage-account)
 
 > [!NOTE]
 > All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform then tries the action again.
 
 
-### Step 5.1: Option 1 - Migrate virtual machines in a cloud service (not in a virtual network)
+### Step 5a: Option 1 - Migrate virtual machines in a cloud service (not in a virtual network)
 Get the list of cloud services by using the following command. Then pick the cloud service that you want to migrate. If the VMs in the cloud service are in a virtual network or if they have web or worker roles, the command returns an error message.
 
 ```powershell
@@ -216,7 +216,7 @@ If the prepared configuration looks good, you can move forward and commit the re
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-### Step 5.1: Option 2 - Migrate virtual machines in a virtual network
+### Step 5a: Option 2 - Migrate virtual machines in a virtual network
 
 To migrate virtual machines in a virtual network, you migrate the virtual network. The virtual machines automatically migrate with the virtual network. Pick the virtual network that you want to migrate.
 > [!NOTE]
@@ -259,7 +259,7 @@ If the prepared configuration looks good, you can move forward and commit the re
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-### Step 5.2: Migrate a storage account
+### Step 5b: Migrate a storage account
 After you're done migrating the virtual machines, perform the following prerequisite checks before you migrate the storage accounts.
 
 > [!NOTE]

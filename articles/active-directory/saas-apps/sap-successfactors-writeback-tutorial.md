@@ -105,8 +105,8 @@ Work with your SuccessFactors admin team or implementation partner to create or 
 
 1. In SuccessFactors Admin Center, search for *Manage Permission Roles*, then select **Manage Permission Roles** from the search results.
 1. From the **Permission Role List**, select the role that you created for API usage permissions.
-1. Under **Grant this role to...**, click **Add...** button.
-1. Select **Permission Group...** from the drop-down menu, then click **Select...** to open the Groups window to search and select the group created above. 
+1. Under **Grant this role to...**, click **Add...** Button.
+1. Select **Permission Group...** from the drop-down menu, then click **Select...** to open the Groups window to search and select the group created above.
 
    > [!div class="mx-imgBorder"]
    > ![Add permission group](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
@@ -126,7 +126,7 @@ The SuccessFactors Writeback provisioning app uses certain *code* values for set
 
 ### Identify Email and Phone Number picklist names 
 
-In SAP SuccessFactors, a *picklist* is a configurable set of options from which a user can make a selection. The different types of email and phone number (e.g. business, personal, other) are represented using a picklist. In this step, we will identify the picklists configured in your SuccessFactors tenant to store email and phone number values. 
+In SAP SuccessFactors, a *picklist* is a configurable set of options from which a user can make a selection. The different types of email and phone number (such as business, personal, and other) are represented using a picklist. In this step, we will identify the picklists configured in your SuccessFactors tenant to store email and phone number values. 
  
 1. In SuccessFactors Admin Center, search for *Manage business configuration*. 
 
@@ -156,7 +156,7 @@ In SAP SuccessFactors, a *picklist* is a configurable set of options from which 
 ### Retrieve constant value for emailType
 
 1. In SuccessFactors Admin Center, search and open *Picklist Center*. 
-1. Use the name of the email picklist captured from the previous section (e.g. ecEmailType) to find the email picklist. 
+1. Use the name of the email picklist captured from the previous section (such as ecEmailType) to find the email picklist.
 
    > [!div class="mx-imgBorder"]
    > ![Find email type picklist](./media/sap-successfactors-inbound-provisioning/find-email-type-picklist.png)
@@ -177,7 +177,7 @@ In SAP SuccessFactors, a *picklist* is a configurable set of options from which 
    > ![Get email type code](./media/sap-successfactors-inbound-provisioning/get-email-type-code.png)
 
    > [!NOTE]
-   > Drop the comma character when you copy over the value. For e.g. if the **Option ID** value is *8,448*, then set the *emailType* in Azure AD to the constant number *8448* (without the comma character). 
+   > Drop the comma character when you copy over the value. For example, if the **Option ID** value is *8,448*, then set the *emailType* in Azure AD to the constant number *8448* (without the comma character). 
 
 ### Retrieve constant value for phoneType
 
@@ -208,7 +208,7 @@ In SAP SuccessFactors, a *picklist* is a configurable set of options from which 
    > ![Get cell phone code](./media/sap-successfactors-inbound-provisioning/get-cell-phone-code.png)
 
    > [!NOTE]
-   > Drop the comma character when you copy over the value. For e.g. if the **Option ID** value is *10,606*, then set the *cellPhoneType* in Azure AD to the constant number *10606* (without the comma character). 
+   > Drop the comma character when you copy over the value. For example, if the **Option ID** value is *10,606*, then set the *cellPhoneType* in Azure AD to the constant number *10606* (without the comma character).
 
 
 ## Configuring SuccessFactors Writeback App
@@ -223,13 +223,8 @@ This section provides steps for
 
 **To configure SuccessFactors Writeback:**
 
-1. Go to the [Azure portal](https://portal.azure.com).
-
-2. In the left navigation bar, select **Azure Active Directory**
-
-3. Select **Enterprise Applications**, then **All Applications**.
-
-4. Select **Add an application**, and select the **All** category.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 
 5. Search for **SuccessFactors Writeback**, and add that app from the gallery.
 
@@ -277,7 +272,7 @@ In this section, you will configure how user data flows from SuccessFactors to A
    | 4 | true | emailIsPrimary | Use this attribute to set business email as primary in SuccessFactors. If business email is not primary, set this flag to false. |
    | 5 | userPrincipalName | [custom01 – custom15] | Using **Add New Mapping**, you can optionally write userPrincipalName or any Azure AD attribute to a custom attribute available in the SuccessFactors User object.  |
    | 6 | On Prem SamAccountName | username | Using **Add New Mapping**, you can optionally map on-premises samAccountName to SuccessFactors username attribute. Use [Azure AD Connect sync: Directory extensions](../hybrid/how-to-connect-sync-feature-directory-extensions.md) to sync samAccountName to Azure AD. It will appear in the source drop down as *extension_yourTenantGUID_samAccountName* |
-   | 7 | SSO | loginMethod | If SuccessFactors tenant is setup for [partial SSO](https://apps.support.sap.com/sap/support/knowledge/en/2320766), then using Add New Mapping, you can optionally set loginMethod to a    constant value of "SSO" or "PWD". |
+   | 7 | SSO | loginMethod | If SuccessFactors tenant is setup for [partial SSO](https://userapps.support.sap.com/sap/support/knowledge/2320766), then using Add New Mapping, you can optionally set loginMethod to a    constant value of "SSO" or "PWD". |
    | 8 | telephoneNumber | businessPhoneNumber | Use this mapping to flow *telephoneNumber* from Azure AD to SuccessFactors business / work phone number. |
    | 9 | 10605 | businessPhoneType | This constant value is the SuccessFactors ID value associated with business phone. Update this value to match your SuccessFactors environment. See the section [Retrieve constant value for phoneType](#retrieve-constant-value-for-phonetype) for steps to set this value. |
    | 10 | true | businessPhoneIsPrimary | Use this attribute to set the primary flag for business phone number. Valid values are true or false. |
@@ -312,7 +307,7 @@ In this section, you will configure how user data flows from SuccessFactors to A
 
 ## Enable and launch user provisioning
 
-Once the SuccessFactors provisioning app configurations have been completed, you can turn on the provisioning service in the Azure portal.
+Once the SuccessFactors provisioning app configurations have been completed, you can turn on the provisioning service.
 
 > [!TIP]
 > By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.

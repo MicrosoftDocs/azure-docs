@@ -5,7 +5,7 @@ description: Learn about Network Virtual Appliances in a Virtual WAN hub.
 author: wtnlee
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 06/30/2023
 ms.author: wellee
 ms.custom: references_regions
 # Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in a Virtual WAN hub.
@@ -132,8 +132,8 @@ NVA in the virtual hub is available in the following regions:
 |---|---|
 | North America| Canada Central, Canada East, Central US, East US, East US 2, South Central US, North Central US, West Central US, West US, West US 2 |
 | South America | Brazil South, Brazil Southeast |
-| Europe | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK South, UK West, West Europe|
-| Middle East | UAE North |
+| Europe | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK South, UK West, West Europe, Sweden Central|
+| Middle East | UAE North, Qatar Central |
 | Asia | East Asia, Japan East, Japan West, Korea Central, Korea South, Southeast Asia | 
 | Australia | Australia South East, Australia East, Australia Central, Australia Central 2|
 | Africa | South Africa North |

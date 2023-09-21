@@ -4,7 +4,8 @@ description: Create an Azure Migrate project, set up the Azure Migrate appliance
 author: vijain
 ms.author: vijain
 ms.topic: how-to
-ms.date: 06/15/2023
+ms.service: azure-migrate
+ms.date: 09/15/2023
 ms.custom: engagement-fy23
 ---
  
@@ -72,7 +73,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 7134EF5B61D3560A102DF4814CB91C95E44EAE9677AAF1CC68AE0A04A6DBD613 
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 7EF01AE30F7BB8F4486EDC1688481DB656FB8ECA7B9EF6363B4DAB1CFCFDA141
 
 > [!NOTE]
 > The same script can be used to set up an appliance with private endpoint connectivity for any of the chosen scenarios, such as VMware, Hyper-V, physical or other to deploy an appliance with the desired configuration.

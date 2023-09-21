@@ -15,15 +15,15 @@ ms.custom: sdkv2, cliv2, devx-track-python
 
 # How to use pipeline component to build nested pipeline job (V2) (preview)
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-When developing a complex machine learning pipeline, it's common to have sub-pipelines that use multi-step  to perform tasks such as data preprocessing and model training. These sub-pipelines can be developed and tested standalone. Pipeline component groups multi-step as a component that can be used as a single step to create complex pipelines. Which will help you share your work and better collaborate with team members.
+When developing a complex machine learning pipeline, it's common to have sub-pipelines that use multi-step to perform tasks such as data preprocessing and model training. These sub-pipelines can be developed and tested standalone. Pipeline component groups multi-step as a component that can be used as a single step to create complex pipelines. Which will help you share your work and better collaborate with team members.
 
 By using a pipeline component, the author can focus on developing sub-tasks and easily integrate them with the entire pipeline job. Furthermore, a pipeline component has a well-defined interface in terms of inputs and outputs, which means that user of the pipeline component doesn't need to know the implementation details of the component.
 
 In this article, you'll learn how to use pipeline component in Azure Machine Learning pipeline.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -33,9 +33,9 @@ In this article, you'll learn how to use pipeline component in Azure Machine Lea
 
 ## The difference between pipeline job and pipeline component
 
-In general, pipeline component is similar to pipeline job. They're both consist of a group of jobs/components. 
+In general, pipeline components are similar to pipeline jobs because they both contain a group of jobs/components.
 
-Here are some main differences you need aware when defining pipeline component:
+Here are some main differences you need to be aware of when defining pipeline components:
 
 - Pipeline component only defines the interface of inputs/outputs, which means when defining a pipeline component you need to explicitly define the type of inputs/outputs instead of directly assigning values to them.
 - Pipeline component can't have runtime settings, you can't hard-code compute, or data node in the pipeline component. Instead you need to promote them as pipeline level inputs and assign values during runtime.

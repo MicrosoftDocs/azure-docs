@@ -20,15 +20,15 @@ In this article, you learn how to visualize real-time sensor data that your IoT 
 
 ## Prerequisites
 
-This tutorial assumes that you already have an IoT hub instance in your Azure subscription and a registered IoT device sending temperature data.
-
 The web application sample for this tutorial is written in Node.js. The steps in this article assume a Windows development machine; however, you can also perform these steps on a Linux system in your preferred shell.
 
-* Use the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) or complete one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md) quickstarts to get a device sending temperature data to IoT Hub. These articles cover the following requirements:
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-  * An active Azure subscription
-  * An IoT hub under your subscription
-  * A registered device running a client application that sends messages to your IoT hub
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps to create an IoT hub using the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+
+* A device registered in your IoT hub. If you haven't registered a device yet, register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
+* A simulated device that sends telemetry messages to your IoT hub. Use the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) to get a simulated device that sends temperature data to IoT Hub.
 
 * [Node.js](https://nodejs.org) version 14 or later. To check your node version run `node --version`.
 

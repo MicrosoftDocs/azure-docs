@@ -3,7 +3,7 @@ title: "NXLog DNS Logs connector for Microsoft Sentinel"
 description: "Learn how to install the connector NXLog DNS Logs to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

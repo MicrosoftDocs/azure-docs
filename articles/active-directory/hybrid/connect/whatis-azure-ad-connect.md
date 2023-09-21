@@ -17,18 +17,31 @@ ms.collection: M365-identity-device-management
 
 Azure AD Connect is an on-premises Microsoft application that's designed to meet and accomplish your hybrid identity goals. If you're evaluating how to best meet your goals, you should also consider the cloud-managed solution [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md).
 
-[!INCLUDE [Choose cloud sync](../../../../includes/choose-cloud-sync.md)]
 
 > [!div class="nextstepaction"]
 > [Install Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594)
 > 
-Azure AD Connect provides the following features:
+
+
+ >[!IMPORTANT]
+ >Azure AD Connect V1 has been retired as of August 31, 2022 and is no longer supported. Azure AD Connect V1 installations may **stop working unexpectedly**. If you are still using a Azure AD Connect V1 you need to upgrade to Azure AD Connect V2 immediately.
+
+## Consider moving to Azure AD Connect cloud sync
+Azure AD Connect cloud sync is the future of synchronization for Microsoft.  It will replace Azure AD Connect.  
+
+> [!VIDEO https://www.youtube.com/embed/9T6lKEloq0Q]
+
+Before moving the Azure AD Connect V2.0, you should consider moving to cloud sync.  You can see if cloud sync is right for you, by accessing the [Check sync tool](https://aka.ms/M365Wizard) from the portal or via the link provided.
+
+For more information see [What is cloud sync?](../cloud-sync/what-is-cloud-sync.md)
+
+## Azure AD Connect features
      
 - [Password hash synchronization](whatis-phs.md) - A sign-in method that synchronizes a hash of a users on-premises AD password with Azure AD.
 - [Pass-through authentication](how-to-connect-pta.md) - A sign-in method that allows users to use the same password on-premises and in the cloud, but doesn't require the additional infrastructure of a federated environment.
 - [Federation integration](how-to-connect-fed-whatis.md) - Federation is an optional part of Azure AD Connect and can be used to configure a hybrid environment using an on-premises AD FS infrastructure. It also provides AD FS management capabilities such as certificate renewal and additional AD FS server deployments.
 - [Synchronization](how-to-connect-sync-whatis.md) - Responsible for creating users, groups, and other objects.  As well as, making sure identity information for your on-premises users and groups is matching the cloud.  This synchronization also includes password hashes.
-- [Health Monitoring](whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity. 
+- [Health Monitoring](whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) - Azure AD Connect Health can provide robust monitoring and provide a central location in the [Microsoft Entra admin center](https://entra.microsoft.com) to view this activity. 
 
 
 ![What is Azure AD Connect](../media/whatis-hybrid-identity/arch.png)
@@ -69,7 +82,7 @@ Key benefits and best practices:
 |Get alerted on [all critical ADFS system issues](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Server configuration and availability</br>[Performance and connectivity](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Regular maintenance|
 |Easy to deploy and manage|[Quick agent installation](how-to-connect-health-agent-install.md#install-the-agent-for-ad-fs)</br>Agent auto upgrade to the latest</br>Data available in portal within minutes|
 Rich [usage metrics](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|Top applications usage</br>Network locations and TCP connection</br>Token requests per server|
-|Great user experience|Dashboard fashion from Azure portal</br>[Alerts through emails](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
+|Great user experience|Dashboard fashion from [Microsoft Entra admin center](https://entra.microsoft.com)</br>[Alerts through emails](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 
 
 ## License requirements for using Azure AD Connect

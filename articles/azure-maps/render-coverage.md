@@ -76,11 +76,11 @@ The render coverage tables below list the countries/regions that support Azure M
 | Brunei         |    ✓     |
 | Cambodia       |    ✓     |
 | Guam           |    ✓     |
-| Hong Kong      |    ✓     |
+| Hong Kong Special Administrative Region     |    ✓     |
 | India          |    ✓     |
 | Indonesia      |    ✓     |
 | Laos           |    ✓     |
-| Macao          |    ✓     |
+| Macao Special Administrative Region         |    ✓     |
 | Malaysia       |    ✓     |
 | Myanmar        |    ✓     |
 | New Zealand    |    ✓     |
@@ -120,12 +120,12 @@ The render coverage tables below list the countries/regions that support Azure M
 | Liechtenstein      |    ✓     |
 | Lithuania          |    ✓     |
 | Luxembourg         |    ✓     |
-| Macedonia          |    ✓     |
 | Malta              |    ✓     |
 | Moldova            |    ✓     |
 | Monaco             |    ✓     |
 | Montenegro         |    ✓     |
 | Netherlands        |    ✓     |
+| North Macedonia    |    ✓     |
 | Norway             |    ✓     |
 | Poland             |    ✓     |
 | Portugal           |    ✓     |

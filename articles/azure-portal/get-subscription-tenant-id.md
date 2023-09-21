@@ -34,7 +34,7 @@ Follow these steps to retrieve the ID for an Azure AD tenant in the Azure portal
 1. Copy the **Tenant ID** by selecting the **Copy to clipboard** icon shown next to it. You can paste this value into a text document or other location.
 
 > [!TIP]
-> You can also find your tenant programmatically by using [Azure Powershell](../active-directory/fundamentals/active-directory-how-to-find-tenant.md#find-tenant-id-with-powershell) or [Azure CLI](../active-directory/fundamentals/active-directory-how-to-find-tenant.md#find-tenant-id-with-cli).
+> You can also find your tenant programmatically by using [Azure Powershell](/azure/active-directory/fundamentals/how-to-find-tenant#find-tenant-id-with-powershell) or [Azure CLI](/azure/active-directory/fundamentals/how-to-find-tenant#find-tenant-id-with-cli).
 
 ## Next steps
 

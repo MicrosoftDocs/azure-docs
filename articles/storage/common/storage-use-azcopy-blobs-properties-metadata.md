@@ -2,11 +2,11 @@
 title: Replace Azure Blob Storage properties & metadata with AzCopy (preview)
 description: This article contains a collection of AzCopy example commands that help you set properties and metadata. 
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 07/21/2022
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 
 ---
 

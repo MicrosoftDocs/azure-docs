@@ -31,7 +31,7 @@ EventProcessor features allow developers to easily build robust application that
 Call Automation's EventProcessor first need to consume events that were sent from the service. Once the event arrives in callback endpoint, pass the event to EventProcessor.
 
 > [!IMPORTANT]
-> Have you established webhook callback events endpoint? EventProcessor still needs to consume callback events through webhook callback. See **[this page](../../quickstarts/call-automation/callflows-for-customer-interactions.md)** for further assistance.
+> Have you established webhook callback events endpoint? EventProcessor still needs to consume callback events through webhook callback. See **[quickstart](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md)** that describes establishing webhook endpoints.
 
 ```csharp
 using Azure.Communication.CallAutomation;

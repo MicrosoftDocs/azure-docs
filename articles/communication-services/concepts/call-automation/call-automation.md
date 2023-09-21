@@ -1,23 +1,19 @@
 ---
 title: Call Automation overview
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Azure Communication Services Call Automation.
+description: Learn about Azure Communication Services Call Automation API.
 author: ashwinder
 ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.topic: conceptual
-ms.date: 09/06/2022
+ms.date: 06/19/2023
 ms.author: askaur
-ms.custom: public_preview
 ---
 # Call Automation Overview
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-Azure Communication Services(ACS) Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network(PSTN) channels. The SDKs, available for .NET and Java, use an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, start recording, etc.) to steer and control calls based on your business logic.
+Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network(PSTN) channels. The SDKs, available in C#, Java, JavaScript and Python, use an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, start recording, etc.) to steer and control calls based on your business logic.
 
 > [!NOTE]
-> Call Automation currently doesn't interoperate with Microsoft Teams. Actions like making or redirecting a call to a Teams user or adding them to a call using Call Automation aren't supported.
 > Call Automation currently doesn't support [Rooms](../rooms/room-concept.md) calls.
 
 ## Common use cases
@@ -39,25 +35,25 @@ Azure Communication Services Call Automation can be used to build calling workfl
 
 The following list presents the set of features that are currently available in the Azure Communication Services Call Automation SDKs.
 
-| Feature Area          | Capability                                        | .NET   | Java  |
-| ----------------------| -----------------------------------------------   | ------ | ----- |
-| Pre-call scenarios    | Answer a one-to-one call                          | ✔️    | ✔️    |
-|                       | Answer a group call                               | ✔️    | ✔️    |
-|                       | Place new outbound call to one or more endpoints  | ✔️    | ✔️    |
-|                       | Redirect* (forward) a call to one or more endpoints  | ✔️    | ✔️    |
-|                       | Reject an incoming call                           | ✔️    | ✔️    |
-| Mid-call scenarios    | Add one or more endpoints to an existing call     | ✔️    | ✔️    |
-|                       | Play Audio from an audio file                     | ✔️    | ✔️    |
-|                       | Recognize user input through DTMF                 | ✔️    | ✔️    |
-|                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |
-|                       | Blind Transfer* a 1:1 call to another endpoint    | ✔️    | ✔️    |
-|                       | Hang up a call (remove the call leg)              | ✔️    | ✔️    |
-|                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  |
-|                       | Cancel media operations                           | ✔️    |  ✔️   |
-| Query scenarios       | Get the call state                                | ✔️    | ✔️    |
-|                       | Get a participant in a call                       | ✔️    | ✔️    |
-|                       | List all participants in a call                   | ✔️    | ✔️    |
-| Call Recording        | Start/pause/resume/stop recording                 | ✔️    | ✔️    |
+| Feature Area          | Capability                                        | .NET   | Java  | JavaScript | Python |
+| ----------------------| -----------------------------------------------   | ------ | ----- | ---------- | ------ |
+| Pre-call scenarios    | Answer a one-to-one call                          | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Answer a group call                               | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Place new outbound call to one or more endpoints  | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Redirect* (forward) a call to one or more endpoints  | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Reject an incoming call                           | ✔️    | ✔️    |     ✔️         |    ✔️   |
+| Mid-call scenarios    | Add one or more endpoints to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Play Audio from an audio file                     | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Recognize user input through DTMF                 | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Blind Transfer* a 1:1 call to another endpoint    | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Hang up a call (remove the call leg)              | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  |     ✔️         |    ✔️   |
+|                       | Cancel media operations                           | ✔️    |  ✔️   |     ✔️         |    ✔️   |
+| Query scenarios       | Get the call state                                | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Get a participant in a call                       | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | List all participants in a call                   | ✔️    | ✔️    |     ✔️         |    ✔️   |
+| Call Recording        | Start/pause/resume/stop recording                 | ✔️    | ✔️    |     ✔️         |    ✔️   |
 
 *Transfer or redirect of a VoIP call to a phone number is currently not supported.
 
@@ -114,6 +110,11 @@ Whether your application has answered a one-to-one or group call, or placed an o
 
 **Cancel media operations** 
 Based on business logic your application may need to cancel ongoing and queued media operations. Depending on the media operation canceled and the ones in queue, you'll receive a webhook event indicating that the action has been canceled. 
+
+### Query scenarios
+
+**List participants**
+Returns a list of all the participants in a call. Recording and transcription bots are omitted from this list.
 
 ## Events
 

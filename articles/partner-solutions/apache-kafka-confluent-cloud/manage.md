@@ -2,6 +2,7 @@
 title: Manage a Confluent Cloud
 description: This article describes management of a Confluent Cloud on the Azure portal. How to set up single sign-on, delete a Confluent organization, and get support.
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 06/07/2021
 author: flang-msft
 ms.author: franlanglois
@@ -80,6 +81,14 @@ You're billed for prorated usage up to the time of cluster deletion. After your 
 
 ## Next steps
 
-For help with troubleshooting, see [Troubleshooting Apache Kafka for Confluent Cloud solutions](troubleshoot.md).
+- For help with troubleshooting, see [Troubleshooting Apache Kafka on Confluent Cloud solutions](troubleshoot.md).
 
-If you need to contact support, see [Get support for Confluent Cloud resource](get-support.md).
+- If you need to contact support, see [Get support for Confluent Cloud resource](get-support.md).
+
+- Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)

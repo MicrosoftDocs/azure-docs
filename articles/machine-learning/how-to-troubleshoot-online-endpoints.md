@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot some common deployment and scoring errors with online endpoints.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 03/02/2023
+ms.date: 09/19/2023
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
@@ -16,7 +16,7 @@ ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2,
 
 # Troubleshooting online endpoints deployment and scoring
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints.
@@ -213,11 +213,12 @@ If you are creating or updating a Kubernetes online deployment, you can see [Com
 
 ### ERROR: ImageBuildFailure
 
-This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location may be returned as part of the error. For example, `"The build log is available in the workspace blob store '[storage-account-name]' under the path '/azureml/ImageLogs/your-image-id/build.log'"`. In this case, "azureml" is the name of the blob container in the storage account.
+This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location may be returned as part of the error. For example, `"the build log under the storage account '[storage-account-name]' in the container '[container-name]' at the path '[path-to-the-log]'"`.
 
 This is a list of common image build failure scenarios:
 
 * [Azure Container Registry (ACR) authorization failure](#container-registry-authorization-failure)
+* [Image build compute not set in a private workspace with VNet](#image-build-compute-not-set-in-a-private-workspace-with-vnet)
 * [Generic or unknown failure](#generic-image-build-failure)
 
 We also recommend reviewing the default [probe settings](reference-yaml-deployment-managed-online.md#probesettings) in case of ImageBuild timeouts. 
@@ -229,6 +230,10 @@ The desynchronization of a workspace resource's keys can cause this error and it
 However, you can [manually call for a synchronization of keys](/cli/azure/ml/workspace#az-ml-workspace-sync-keys), which may resolve the authorization failure.
 
 Container registries that are behind a virtual network may also encounter this error if set up incorrectly. You must verify that the virtual network that you have set up properly.
+
+#### Image build compute not set in a private workspace with VNet
+
+If the error message mentions `"failed to communicate with the workspace's container registry"` and you're using virtual networks and the the workspace's Azure Container Registry is private and configured with a private endpoint, you will need to [enable Azure Container Registry](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) to allow building images in the virtual network. 
 
 #### Generic image build failure
 
@@ -341,6 +346,7 @@ This is a list of reasons you might run into this error when using either manage
 * [Subscription does not exist](#subscription-does-not-exist)
 * [Startup task failed due to authorization error](#authorization-error)
 * [Startup task failed due to incorrect role assignments on resource](#authorization-error)
+* [Invalid template function specification](#invalid-template-function-specification)
 * [Unable to download user container image](#unable-to-download-user-container-image)
 * [Unable to download user model](#unable-to-download-user-model)
 
@@ -368,6 +374,10 @@ To do these, Azure uses [managed identities](../active-directory/managed-identit
 - If you created the associated endpoint with User Assigned Identity, the user's managed identity must have Storage blob data reader permission on the storage account for the workspace, and AcrPull permission on the Azure Container Registry (ACR) for the workspace. Make sure your User Assigned Identity has the right permission.
 
 For more information, please see [Container Registry Authorization Error](#container-registry-authorization-error).
+
+#### Invalid template function specification
+
+This error occurs when a template function has been specified incorrectly. Please either fix the policy or remove the policy assignment to unblock. The error message may include the policy assignment name and the policy definition to help you debug this error, as well as the [Azure policy definition structure article](https://aka.ms/policy-avoiding-template-failures) which discusses tips to avoid template failures.
 
 #### Unable to download user container image
 
@@ -542,7 +552,7 @@ Others:
 * [InvalidDeploymentSpec](#error-invaliddeploymentspec)
 * [PodUnschedulable](#error-podunschedulable)
 * [PodOutOfMemory](#error-podoutofmemory)
-* [InferencingClientCallFailed](#error-inferencingclientcallfailed )
+* [InferencingClientCallFailed](#error-inferencingclientcallfailed)
 
 
 ### ERROR: ACRSecretError 
@@ -564,7 +574,7 @@ This is because extension cannot get principal credential from Azure because the
 
 This is because the Kubernetes cluster request AAD token failed or timeout, please check your network accessibility then try again. 
 
-* You can follow the [Configure required network traffic](../machine-learning/how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute ) to check the outbound proxy, make sure the cluster can connect to workspace. 
+* You can follow the [Configure required network traffic](../machine-learning/how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute) to check the outbound proxy, make sure the cluster can connect to workspace. 
 * The workspace endpoint url can be found in online endpoint CRD in cluster. 
 
 If your workspace is a private workspace which disabled public network access, the Kubernetes cluster should only communicate with that private workspace through the private link. 
@@ -720,7 +730,7 @@ This is a list of common model consumption errors resulting from the endpoint `i
 
 Managed online endpoints have bandwidth limits for each endpoint. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints). If your bandwidth usage exceeds the limit, your request will be delayed. To monitor the bandwidth delay:
 
-- Use metric “Network bytes” to understand the current bandwidth usage. For more information, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
+- Use metric "Network bytes" to understand the current bandwidth usage. For more information, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
 - There are two response trailers will be returned if the bandwidth limit enforced: 
     - `ms-azureml-bandwidth-request-delay-ms`: delay time in milliseconds it took for the request stream transfer.
     - `ms-azureml-bandwidth-response-delay-ms`: delay time in milliseconds it took for the response stream transfer.
@@ -824,12 +834,12 @@ We recommend that you use Azure Functions, Azure Application Gateway, or any ser
 
 ## Common network isolation issues
 
-[!INCLUDE [network isolation issues](../../includes/machine-learning-online-endpoint-troubleshooting.md)]
+[!INCLUDE [network isolation issues](includes/machine-learning-online-endpoint-troubleshooting.md)]
 
 ## Troubleshoot inference server
 In this section, we provide basic troubleshooting tips for [Azure Machine Learning inference HTTP server](how-to-inference-server-http.md). 
 
-[!INCLUDE [inference server TSGs](../../includes/machine-learning-inference-server-troubleshooting.md)]
+[!INCLUDE [inference server TSGs](includes/machine-learning-inference-server-troubleshooting.md)]
 
 ## Next steps
 

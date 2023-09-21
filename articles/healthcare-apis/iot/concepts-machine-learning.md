@@ -1,20 +1,20 @@
 ---
-title: The MedTech service and Azure Machine Learning Service - Azure Health Data Services
+title: MedTech service and Azure Machine Learning Service - Azure Health Data Services
 description: Learn how to use the MedTech service and the Azure Machine Learning Service
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 06/15/2023
+ms.date: 07/21/2023
 ms.author: jasteppe
 ---
 
-# The MedTech service and Azure Machine Learning Service
+# MedTech service and Azure Machine Learning Service
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, we explore using the MedTech service and the Azure Machine Learning Service.
+In this article, learn about using the MedTech service and the Azure Machine Learning Service.
 
 ## The MedTech service and Azure Machine Learning Service reference architecture
 

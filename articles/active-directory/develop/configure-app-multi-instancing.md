@@ -47,6 +47,8 @@ The IDP initiated SSO feature exposes the following settings for each applicatio
 
 ### Configure IDP initiated SSO
 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications**. 
 1. Open any SSO enabled enterprise app and navigate to the SAML single sign-on blade.
 1. Select **Edit** on the **User Attributes & Claims** panel.
 1. Select **Edit** to open the advanced options blade.
@@ -54,4 +56,4 @@ The IDP initiated SSO feature exposes the following settings for each applicatio
 
 ## Next steps
 
-- To learn more about how to configure this policy see [Customize app SAML token claims](active-directory-saml-claims-customization.md)
+- To learn more about how to configure this policy see [Customize app SAML token claims](./saml-claims-customization.md)

@@ -1,29 +1,28 @@
 ---
 title: Quickstart - Make an outbound call using Call Automation
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, we learn how to make an outbound PSTN call using Azure Communication Services using Call Automation
+description: In this quickstart, we learn how to make an outbound PSTN call using Azure Communication Services Call Automation
 author: anujb-msft
 ms.author: anujb-msft
-ms.date: 05/26/2023
+ms.date: 06/19/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.subservice: callautomation
+ms.subservice: call-automation
 ms.custom: mode-other
 ---
-
-Azure Communication Services (ACS) Call Automation APIs are a powerful way to create interactive calling experiences. In this quick start, we cover a way to make an outbound call and recognize various events in the call.
-
-## Sample code
-
-Find the complete sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/callautomation-outboundcalling)
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. NB: phone numbers aren't available in free subscriptions.
+- A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. If you have a free subscription, you can [get a trial phone number](../../telephony/get-trial-phone-number.md).
 - Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started)
 - [Python](https://www.python.org/downloads/) 3.7+.
+
+## Sample code
+Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/callautomation-outboundcalling).
+
+Navigate to `CallAutomation_OutboundCalling` folder and open the solution in a code editor.
 
 ## Set up the Python environment
 
@@ -68,9 +67,9 @@ CALLBACK_URI_HOST = "<CALLBACK_URI_HOST_WITH_PROTOCOL>"
 
 ## Make an outbound call
 
-To make the outbound call from ACS, first you will provide the phone number you want to receive the call. To make it simple, you can update the `target_phone_number` with a phone number in the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+To make the outbound call from ACS, first you provide the phone number you want to receive the call. To make it simple, you can update the `target_phone_number` with a phone number in the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 
-The code below will make an outbound call using the target_phone_number you've provided: 
+Make an outbound call using the target_phone_number you've provided: 
 
 ```python
 target_participant = PhoneNumberIdentifier(TARGET_PHONE_NUMBER)
@@ -124,7 +123,7 @@ call_connection_client.start_recognizing_media(input_type=RecognizeInputType.DTM
 
 ## Recognize DTMF Events
 
-When the telephony endpoint selects a DTMF tone, ACS Call Automation will trigger the webhook we have setup and notify us with the `RECOGNIZE_COMPLETED_EVENT` event. This gives us the ability to respond to a specific DTMF tone and trigger an action. 
+When the telephony endpoint selects a DTMF tone, ACS Call Automation triggers the webhook we have set up and notify us with the `RECOGNIZE_COMPLETED_EVENT` event. This event gives us the ability to respond to a specific DTMF tone and trigger an action. 
 
 ```python
 event = CloudEvent.from_dict(event_dict)

@@ -8,12 +8,12 @@ ms.subservice: automl
 author: manashgoswami 
 ms.author: magoswam
 ms.reviewer: ssalgado 
-ms.date: 11/15/2021
+ms.date: 07/20/2023
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022, ignite-2022
 ---
 
-# Set up no-code AutoML training with the studio UI 
+# Set up no-code AutoML training for tabular data with the studio UI 
 
 In this article, you learn how to set up AutoML training jobs without a single line of code using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-azure-machine-learning.md#studio).
 
@@ -35,13 +35,13 @@ For a Python code-based experience, [configure your automated machine learning e
 
 1. Select your subscription and workspace. 
 
-1. Navigate to the left pane. Select **Automated ML** under the **Author** section.
+1. Navigate to the left pane. Select **Automated ML** under the **Authoring** section.
 
-[![Azure Machine Learning studio navigation pane](media/how-to-use-automated-ml-for-ml-models/nav-pane.png)](media/how-to-use-automated-ml-for-ml-models/nav-pane-expanded.png)
+[![Azure Machine Learning studio navigation pane](media/how-to-use-automated-ml-for-ml-models/nav-pane.png)](media/how-to-use-automated-ml-for-ml-models/nav-pane-expanded.png#lightbox)
 
- If this is your first time doing any experiments, you'll see an empty list and links to documentation. 
+ If this is your first time doing any experiments, you see an empty list and links to documentation. 
 
-Otherwise, you'll see a list of your recent automated  ML experiments, including those created with the SDK. 
+Otherwise, you see a list of your recent automated  ML experiments, including those created with the SDK. 
 
 ## Create and run experiment
 
@@ -56,9 +56,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
     1. To create a new dataset from a file on your local computer, select **+Create dataset** and then select **From local file**. 
 
-    1. In the **Basic info** form, give your dataset a unique name and provide an optional description. 
-
-    1. Select **Next** to open the **Datastore and file selection form**. On this form you select where to upload your dataset; the default storage container that's automatically created with your workspace, or choose a storage container that you want to use for the experiment. 
+    1. Select **Next** to open the **Datastore and file selection form**. , you select where to upload your dataset; the default storage container that's automatically created with your workspace, or choose a storage container that you want to use for the experiment. 
     
         1. If your data is behind a virtual network, you need to enable the **skip the validation** function to ensure that the workspace can access your data. For more information, see [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md). 
     
@@ -80,10 +78,10 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
             
         Select **Next.**
 
-    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to create a data profile for your dataset using a profiling enabled compute. Learn more about [data profiling](v1/how-to-connect-data-ui.md#profile).
+    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to create a data profile for your dataset using a profiling enabled compute. 
 
         Select **Next**.
-1. Select your newly created dataset once it appears. You are also able to view a preview of the dataset and sample statistics. 
+1. Select your newly created dataset once it appears. You're also able to view a preview of the dataset and sample statistics. 
 
 1. On the **Configure job** form, select **Create new** and enter **Tutorial-automl-deploy** for the experiment name.
 
@@ -101,21 +99,16 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     Virtual machine priority| Low priority virtual machines are cheaper but don't guarantee the compute nodes. 
     Virtual machine type| Select CPU or GPU for virtual machine type.
     Virtual machine size| Select the virtual machine size for your compute.
-    Min / Max nodes| To profile data, you must specify 1 or more nodes. Enter the maximum number of nodes for your compute. The default is 6 nodes for an Azure Machine Learning Compute.
+    Min / Max nodes| To profile data, you must specify one or more nodes. Enter the maximum number of nodes for your compute. The default is six nodes for an Azure Machine Learning Compute.
     Advanced settings | These settings allow you to configure a user account and existing virtual network for your experiment. 
     
     Select **Create**. Creation of a new compute can take a few minutes.
-
-    >[!NOTE]
-    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See the section [data profiling](v1/how-to-connect-data-ui.md#profile) for more details).
 
     Select **Next**.
 
 1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [supported task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp) for more information.
 
     1. For **classification**, you can also enable deep learning.
-    
-        If deep learning is enabled, validation is limited to _train_validation split_. [Learn more about validation options (SDK v1)](./v1/how-to-configure-cross-validation-data-splits.md).
 
     1. For **forecasting** you can, 
     
@@ -123,41 +116,43 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     
         1. Select *time column*: This column contains the time data to be used.
 
-        1. Select *forecast horizon*: Indicate how many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further the model is required to predict into the future, the less accurate it becomes. [Learn more about forecasting and forecast horizon](how-to-auto-train-forecast.md).
+        1. Select *forecast horizon*: Indicate how many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further into the future the model is required to predict, the less accurate the model becomes. [Learn more about forecasting and forecast horizon](how-to-auto-train-forecast.md).
 
 1. (Optional) View addition configuration settings: additional settings you can use to better control the training job. Otherwise, defaults are applied based on experiment selection and data. 
 
     Additional configurations|Description
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#primary-metric).
-    Explain best model | Select to enable or disable, in order to show explanations for the recommended best model. <br> This functionality is not currently available for [certain forecasting algorithms](./v1/how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
+   Debug model via the Responsible AI dashboard | Generate a Responsible AI dashboard to do a holistic assessment and debugging of the recommended best model. This includes insights such as model explanations, fairness and performance explorer, data explorer, model error analysis. [Learn more about how you can generate a Responsible AI dashboard.](./how-to-responsible-ai-insights-ui.md). RAI Dashboard can only be run if 'Serverless' compute (preview) is specified in the experiment set-up step.
     Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-algorithms). <br> See the [supported algorithms for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
-    Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
-    Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. Learn more about how automated ML performs [multiple child jobs on clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
+    Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you don't spend more time on the training job than necessary.
+    Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job won't run more than the specified number of iterations. Learn more about how automated ML performs [multiple child jobs on clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
 
-1. (Optional) View featurization settings: if you choose to enable **Automatic featurization** in the **Additional configuration settings** form, default featurization techniques are applied. In the **View featurization settings** you can change these defaults and customize accordingly. Learn how to [customize featurizations](#customize-featurization). 
+1. (Optional) View featurization settings: if you choose to enable **Automatic featurization** in the **Additional configuration settings** form, default featurization techniques are applied. In the **View featurization settings**, you can change these defaults and customize accordingly. Learn how to [customize featurizations](#customize-featurization). 
 
     ![Screenshot shows the Select task type dialog box with View featurization settings called out.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 
 1. The **[Optional] Validate and test** form allows you to do the following. 
 
-    1. Specify the type of validation to be used for your training job. [Learn more about cross validation (SDK v1)](./v1/how-to-configure-cross-validation-data-splits.md#prerequisites). 
+a. Specify the type of validation to be used for your training job. If you do not explicitly specify either a `validation_data` or `n_cross_validations` parameter, automated ML applies default techniques depending on the number of rows provided in the single dataset `training_data`.
+
+| Training data size | Validation technique |
+|---|-----|
+|**Larger than 20,000 rows**| Train/validation data split is applied. The default is to take 10% of the initial training data set as the validation set. In turn, that validation set is used for metrics calculation.
+|**Smaller than 20,000& rows**| Cross-validation approach is applied. The default number of folds depends on the number of rows. <br> **If the dataset is less than 1,000 rows**, 10 folds are used. <br> **If the rows are between 1,000 and 20,000**, then three folds are used.
     
-        1. Forecasting tasks only supports k-fold cross validation.
+b. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test job is automatically triggered at the end of your experiment. This test job is only job on the best model that is recommended by automated ML. Learn how to get the [results of the remote test job](#view-remote-test-job-results-preview).
     
-    1. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test job is automatically triggered at the end of your experiment. This test job is only job on the best model that was recommended by automated ML. Learn how to get the [results of the remote test job](#view-remote-test-job-results-preview).
-    
-        >[!IMPORTANT]
-        > Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
+>[!IMPORTANT]
+> Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
+     * Test data is considered a separate from training and validation, so as to not bias the results of the test job of the recommended model. [Learn more about bias during model validation](concept-automated-ml.md#training-validation-and-test-data).
+     * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset](how-to-create-data-assets.md#create-data-assets).         
+     * The schema of the test dataset should match the training dataset. The target column is optional, but if no target column is indicated no test metrics are calculated.
+     * The test dataset shouldn't be the same as the training dataset or the validation dataset.
+     * Forecasting jobs don't support train/test split.
         
-        * Test data is considered a separate from training and validation, so as to not bias the results of the test job of the recommended model. [Learn more about bias during model validation](concept-automated-ml.md#training-validation-and-test-data).
-        * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset](./v1/how-to-create-register-datasets.md#tabulardataset).         
-        * The schema of the test dataset should match the training dataset. The target column is optional, but if no target column is indicated no test metrics are calculated.
-        * The test dataset should not be the same as the training dataset or the validation dataset.
-        * Forecasting jobs do not support train/test split.
-        
-        ![Screenshot shows the form where to select validation data and test data](media/how-to-use-automated-ml-for-ml-models/validate-test-form.png)
+![Screenshot shows the form where to select validation data and test data](media/how-to-use-automated-ml-for-ml-models/validate-test-form.png)
         
 ## Customize featurization
 
@@ -175,7 +170,7 @@ Impute with| Select what value to impute missing values with in your data.
 
 ## Run experiment and view results
 
-Select **Finish** to run your experiment. The experiment preparing process can take up to 10 minutes. Training jobs can take an additional 2-3 minutes more for each pipeline to finish running.
+Select **Finish** to run your experiment. The experiment preparing process can take up to 10 minutes. Training jobs can take an additional 2-3 minutes more for each pipeline to finish running. If you have specified to generate RAI dashboard for the best recommended model, it may take up to 40 minutes.
 
 > [!NOTE]
 > The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended model's final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
@@ -184,15 +179,15 @@ Select **Finish** to run your experiment. The experiment preparing process can t
 
 The **Job Detail** screen opens to the **Details** tab. This screen shows you a summary of the experiment job including a status bar at the top next to the job number. 
 
-The **Models** tab contains a list of the models created ordered by the metric score. By default, the model that scores the highest based on the chosen metric is at the top of the list. As the training job tries out more models, they are added to the list. Use this to get a quick comparison of the metrics for the models produced so far.
+The **Models** tab contains a list of the models created ordered by the metric score. By default, the model that scores the highest based on the chosen metric is at the top of the list. As the training job tries out more models, they're added to the list. Use this to get a quick comparison of the metrics for the models produced so far.
 
 ![Job detail](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
 
 ### View training job details
 
-Drill down on any of the completed models to see training job details. On the **Model** tab view details like a model summary and the hyperparameters used for the selected model. 
+Drill down on any of the completed models to see training job details. In the **Model** tab, you can view details like a model summary and the hyperparameters used for the selected model. 
 
-[![Hyperparameter details](media/how-to-use-automated-ml-for-ml-models/hyperparameter-button.png)](media/how-to-use-automated-ml-for-ml-models/hyperparameter-details.png)
+[![Hyperparameter details](media/how-to-use-automated-ml-for-ml-models/hyperparameter-button.png)](media/how-to-use-automated-ml-for-ml-models/hyperparameter-details.png#lightbox)
 
  You can also see model specific performance metric charts on the **Metrics** tab. [Learn more about charts](how-to-understand-automated-ml.md).
 
@@ -207,7 +202,7 @@ On the Data transformation tab, you can see a diagram of what data preprocessing
 
 ## View remote test job results (preview)
 
-If you specified a test dataset or opted for a train/test split during your experiment setup-- on the **Validate and test** form, automated ML automatically tests the recommended model by default. As a result, automated ML calculates test metrics to determine the quality of the recommended model and its predictions. 
+If you specified a test dataset or opted for a train/test split during your experiment setup--on the **Validate and test** form, automated ML automatically tests the recommended model by default. As a result, automated ML calculates test metrics to determine the quality of the recommended model and its predictions. 
 
 >[!IMPORTANT]
 > Testing your models with a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
@@ -234,7 +229,7 @@ To view the test predictions used to calculate the test metrics,
 
 Alternatively, the predictions file can also be viewed/downloaded from the Outputs + logs tab, expand Predictions folder to locate your predictions.csv file.
 
-The model test job generates the predictions.csv file that's stored in the default datastore created with the workspace. This datastore is visible to all users with the same subscription. Test jobs are not recommended for scenarios if any of the information used for or created by the test job needs to remain private.
+The model test job generates the predictions.csv file that's stored in the default datastore created with the workspace. This datastore is visible to all users with the same subscription. Test jobs aren't recommended for scenarios if any of the information used for or created by the test job needs to remain private.
 
 ## Test an existing automated ML model (preview)
 
@@ -262,20 +257,43 @@ After your experiment completes, you can test the model(s) that automated ML gen
     ![Test model form](./media/how-to-use-automated-ml-for-ml-models/test-model-form.png)
     
 
-## Model explanations (preview)
+## Responsible AI dashboard (preview)
 
-To better understand your model, you can see which data features (raw or engineered) influenced the model's predictions with the model explanations dashboard. 
+To better understand your model, you can see various insights about your model using the Responsible Ai dashboard. It allows you to evaluate and debug your best Automated machine learning model. The Responsible AI dashboard will evaluate model errors and fairness issues, diagnose why those errors are happening by evaluating your train and/or test data, and observing model explanations. Together, these insights could help you build trust with your model and pass the audit processes. Responsible AI dashboards can't be generated for an existing Automated machine learning model. It is only created for the best recommended model when a new AutoML job is created. Users should continue to just use Model Explanations (preview) until support is provided for existing models. 
 
-The model explanations dashboard provides an overall analysis of the trained model along with its predictions and explanations. It also lets you drill into an individual data point and its individual feature importance. [Learn more about the explanation dashboard visualizations](./v1/how-to-machine-learning-interpretability-aml.md#visualizations).
+To generate a Responsible AI dashboard for a particular model, 
 
-To get explanations for a particular model, 
+1. While submitting an Automated ML job, proceed to the **Task settings** section on the left nav bar and select the **View additional configuration settings** option.
+   
+2. In the new form appearing post that selection, select the **Explain best model** checkbox. 
 
-1. On the **Models** tab, select the model you want to understand. 
-1. Select the **Explain model** button, and provide a compute that can be used to generate the explanations.
-1. Check the **Child jobs** tab for the status. 
-1. Once complete, navigate to the **Explanations (preview)** tab which contains the explanations dashboard. 
 
-    ![Model explanation dashboard](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
+
+    ![Select Explain best model from the Automated ML job configuration page](media/how-to-use-automated-ml-for-ml-models/best-model-selection.png)
+
+3. Proceed to the **Compute** page of the setup form and choose the **Serverless** option for your compute.
+
+    ![Serverless compute selection](media/how-to-use-automated-ml-for-ml-models/compute-serverless.png)
+
+4. Once complete, navigate to the Models page of your Automated ML job, which contains a list of your trained models. Select on the **View Responsible AI dashboard** link: 
+
+    ![View dashboard page within an Automated ML job](media/how-to-use-automated-ml-for-ml-models/view-responsible-ai.png)
+
+The Responsible AI dashboard appears for that model as shown in this image:
+
+   ![Responsible AI dashboard](media/how-to-use-automated-ml-for-ml-models/responsible-ai-dashboard.png)
+
+In the dashboard, you'll find four components activated for your Automated ML’s best model: 
+
+| Component | What does the component show? | How to read the chart?  |
+| ---- | ---- | ---- |
+| [Error Analysis](concept-error-analysis.md) | Use error analysis when you need to: <br> Gain a deep understanding of how model failures are distributed across a dataset and across several input and feature dimensions. <br> Break down the aggregate performance metrics to automatically discover erroneous cohorts in order to inform your targeted mitigation steps. |  [Error Analysis Charts](how-to-responsible-ai-dashboard.md) |
+| [Model Overview and Fairness](concept-fairness-ml.md) | Use this component to: <br> Gain a deep understanding of your model performance across different cohorts of data. <br> Understand your model fairness issues by looking at the disparity metrics. These metrics can evaluate and compare model behavior across subgroups identified in terms of sensitive (or nonsensitive) features.  | [Model Overview and Fairness Charts](how-to-responsible-ai-dashboard.md#model-overview-and-fairness-metrics) |
+| [Model Explanations](how-to-machine-learning-interpretability.md) | Use the model explanation component to generate human-understandable descriptions of the predictions of a machine learning model by looking at: <br> Global explanations: For example, what features affect the overall behavior of a loan allocation model? <br> Local explanations: For example, why was a customer's loan application approved or rejected? | [Model Explainability Charts](how-to-responsible-ai-dashboard.md#feature-importances-model-explanations) |
+| [Data Analysis](concept-data-analysis.md) | Use data analysis when you need to: <br> Explore your dataset statistics by selecting different filters to slice your data into different dimensions (also known as cohorts). <br> Understand the distribution of your dataset across different cohorts and feature groups. <br> Determine whether your findings related to fairness, error analysis, and causality (derived from other dashboard components) are a result of your dataset's distribution. <br> Decide in which areas to collect more data to mitigate errors that come from representation issues, label noise, feature noise, label bias, and similar factors. | [Data Explorer Charts](how-to-responsible-ai-dashboard.md#data-analysis) |
+
+5. You can further create cohorts (subgroups of data points that share specified characteristics) to focus your analysis of each component on different cohorts. The name of the cohort that's currently applied to the dashboard is always shown at the top left of your dashboard. The default view in your dashboard is your whole dataset, titled "All data" (by default). Learn more about the [global control of your dashboard here.](how-to-responsible-ai-dashboard.md#global-controls)
+
 
 ## Edit and submit jobs (preview)
 
@@ -286,14 +304,14 @@ In scenarios where you would like to create a new experiment based on the settin
 
 This functionality is limited to experiments initiated from the studio UI and requires the data schema for the new experiment to match that of the original experiment. 
 
-The **Edit and submit** button opens the **Create a new Automated ML job** wizard with the data, compute and experiment settings pre-populated. You can go through each form and edit selections as needed for your new experiment. 
+The **Edit and submit** button opens the **Create a new Automated ML job** wizard with the data, compute and experiment settings prepopulated. You can go through each form and edit selections as needed for your new experiment. 
 
 ## Deploy your model
 
-Once you have the best model at hand, it is time to deploy it as a web service to predict on new data.
+Once you have the best model at hand, it's time to deploy it as a web service to predict on new data.
 
 >[!TIP]
-> If you are looking to deploy a model that was generated via the `automl` package with the Python SDK, you must [register your model](./v1/how-to-deploy-and-where.md) to the workspace. 
+> If you are looking to deploy a model that was generated via the `automl` package with the Python SDK, you must [register your model)](./how-to-deploy-online-endpoints.md) to the workspace. 
 >
 > Once you're model is registered, find it in the studio by selecting **Models** on the left pane. Once you open your model, you can select the **Deploy** button at the top of the screen, and then follow the instructions as described in **step 2** of the **Deploy your model** section.
 
@@ -319,7 +337,7 @@ Automated ML helps you with deploying the model without writing code:
     Compute type| Select the type of endpoint you want to deploy: [*Azure Kubernetes Service (AKS)*](../aks/intro-kubernetes.md) or [*Azure Container Instance (ACI)*](../container-instances/container-instances-overview.md).
     Compute name| *Applies to AKS only:* Select the name of the AKS cluster you wish to deploy to.
     Enable authentication | Select to allow for token-based or key-based authentication.
-    Use custom deployment assets| Enable this feature if you want to upload your own scoring script and environment file. Otherwise, automated ML provides these assets for you by default. [Learn more about scoring scripts](./v1/how-to-deploy-and-where.md).
+    Use custom deployment assets| Enable this feature if you want to upload your own scoring script and environment file. Otherwise, automated ML provides these assets for you by default. [Learn more about scoring scripts](how-to-deploy-online-endpoints.md).
 
     >[!Important]
     > File names must be under 32 characters and must begin and end with alphanumerics. May include dashes, underscores, dots, and alphanumerics between. Spaces are not allowed.
@@ -333,6 +351,5 @@ Now you have an operational web service to generate predictions! You can test th
 
 ## Next steps
 
-* [Learn how to consume a web service](v1/how-to-consume-web-service.md).
 * [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.

@@ -12,6 +12,8 @@ ms.author: veyaddan
 
 We support authentication of clients using X.509 certificates.  X.509 certificate provides the credentials to associate a particular client with the tenant.  In this model, authentication generally happens once during session establishment.  Then, all future operations using the same session are assumed to come from that identity.  
 
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 ## Supported authentication modes
 
 - Certificates issued by a Certificate Authority (CA)
@@ -27,7 +29,7 @@ In this method, a root or intermediate X.509 certificate is registered with the 
 
 :::image type="content" source="./media/mqtt-client-authentication/mqtt-creating-certificate-chain.png" alt-text="Screenshot showing the CA certificates page with root and intermediate certificates used to sign the client certificates.":::
 
-While registering the clients, you need to identify the certificate field used to hold the client authentication name.  Service matches the authentication name from certificate with the client's authentication name in client metadata to validate the client. Service also validates  the client certificate by verifying whether it's signed by the previously registered root or intermediary certificate.
+While registering clients, you need to identify the certificate field used to hold the client's authentication name. The service matches the authentication name from the certificate with the client's authentication name in the client metadata to validate the client. The service also validates the client certificate by verifying whether it is signed by the previously registered root or intermediary certificate.
 
 :::image type="content" source="./media/mqtt-client-authentication/mqtt-client-certificate-chain-authentication-options.png" alt-text="Screenshot showing the client metadata with the five certificate chain based validation schemes.":::
 

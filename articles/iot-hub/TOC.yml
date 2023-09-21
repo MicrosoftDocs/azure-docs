@@ -214,7 +214,7 @@
           displayName: regulatory, compliance, standards, Azure Security Benchmark, Azure Foundations Benchmark, CMMC, FedRAMP, HIPAA
           href: ./security-controls-policy.md
         - name: IoT security best practices
-          href: ../iot/iot-security-best-practices.md?context=%2fazure%2fiot-hub%2frc%2frc
+          href: ../iot/iot-overview-security.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: IoT security architecture
           href: ../iot/iot-security-architecture.md?context=%2fazure%2fiot-hub%2frc%2frc
 - name: How-to guides

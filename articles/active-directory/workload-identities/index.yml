@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Microsoft Entra Workload Identities documentation
-summary: Microsoft Entra Workload Identities helps you manage and secure identities for digital workloads, such as apps and services.
+title: Microsoft Entra Workload ID documentation
+summary: Microsoft Entra Workload ID helps you manage and secure identities for digital workloads, such as apps and services.
 
 metadata: 
   author: rwike77
@@ -95,6 +95,4 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Access reviews for service principals
-            url: ../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json)
-
-  
+            url: ../privileged-identity-management/pim-create-roles-and-resource-roles-review.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json

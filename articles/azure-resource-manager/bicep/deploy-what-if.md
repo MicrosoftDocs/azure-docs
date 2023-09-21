@@ -1,11 +1,9 @@
 ---
 title: Bicep deployment what-if
 description: Determine what changes will happen to your resources before deploying a Bicep file.
-author: tfitzmac
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 02/15/2023
-ms.author: tomfitz
+ms.date: 09/06/2023
 ---
 
 # Bicep deployment what-if operation
@@ -13,6 +11,8 @@ ms.author: tomfitz
 Before deploying a Bicep file, you can preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the Bicep file. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified Bicep file is deployed.
 
 You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
+
+During What-If operations, the evaluation and expansion of `templateLink` are not supported. As a result, any resources deployed using template links within nested deployments, including template spec references, will not be visible in the What-If operation results.
 
 ### Training resources
 
@@ -136,12 +136,13 @@ For REST API, use:
 
 ## Change types
 
-The what-if operation lists six different types of changes:
+The what-if operation lists seven different types of changes:
 
 - **Create**: The resource doesn't currently exist but is defined in the Bicep file. The resource will be created.
 - **Delete**: This change type only applies when using [complete mode](../templates/deployment-modes.md) for JSON template deployment. The resource exists, but isn't defined in the Bicep file. With complete mode, the resource will be deleted. Only resources that [support complete mode deletion](../templates/deployment-complete-mode-deletion.md) are included in this change type.
 - **Ignore**: The resource exists, but isn't defined in the Bicep file. The resource won't be deployed or modified. When you reach the limits for expanding nested templates, you will encounter this change type. See [What-if limits](#what-if-limits).
 - **NoChange**: The resource exists, and is defined in the Bicep file. The resource will be redeployed, but the properties of the resource won't change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
+- **NoEffect**: The property is ready-only and will be ignored by the service. For example, the `sku.tier` property is always set to match `sku.name` in the [`Microsoft.ServiceBus`](/azure/templates/microsoft.servicebus/namespaces) namespace.
 - **Modify**: The resource exists, and is defined in the Bicep file. The resource will be redeployed, and the properties of the resource will change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
 - **Deploy**: The resource exists, and is defined in the Bicep file. The resource will be redeployed. The properties of the resource may or may not change. The operation returns this change type when it doesn't have enough information to determine if any properties will change. You only see this condition when [ResultFormat](#result-format) is set to `ResourceIdOnly`.
 

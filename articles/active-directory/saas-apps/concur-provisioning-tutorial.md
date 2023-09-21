@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Concur for automatic user provisioning with Azure Active Directory| Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Concur.
+title: 'Tutorial: Configure Concur for automatic user provisioning with Microsoft Entra ID| Microsoft Docs'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Concur.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,39 +13,39 @@ ms.author: jeedes
 ---
 # Tutorial: Configure Concur for automatic user provisioning
 
-The objective of this tutorial is to show you the steps you need to perform in Concur and Azure AD to automatically provision and de-provision user accounts from Azure AD to Concur.
+The objective of this tutorial is to show you the steps you need to perform in Concur and Microsoft Entra ID to automatically provision and de-provision user accounts from Microsoft Entra ID to Concur.
 
 > [!WARNING]
-> This provisioning integration is no longer supported. As a result of this, the provisioning functionality of the SAP Concur application in the Azure Active Directory Enterprise App Gallery will be removed soon. The application's SSO functionality will remain intact. Microsoft is working with SAP Concur to build a new modernized provisioning integration, but there is currently no ETA on when this will be completed.
+> This provisioning integration is no longer supported. As a result of this, the provisioning functionality of the SAP Concur application in the Microsoft Entra Enterprise App Gallery will be removed soon. The application's SSO functionality will remain intact. Microsoft is working with SAP Concur to build a new modernized provisioning integration, but there is currently no ETA on when this will be completed.
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
-*   An Azure Active directory tenant.
+*   A Microsoft Entra tenant.
 *   A Concur single sign-on enabled subscription.
 *   A user account in Concur with Team Admin permissions.
 
 ## Assigning users to Concur
 
-Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Azure AD is synchronized.
+Microsoft Entra ID uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Microsoft Entra ID is synchronized.
 
-Before configuring and enabling the provisioning service, you need to decide what users and/or groups in Azure AD represent the users who need access to your Concur app. Once decided, you can assign these users to your Concur app by following the instructions here:
+Before configuring and enabling the provisioning service, you need to decide what users and/or groups in Microsoft Entra ID represent the users who need access to your Concur app. Once decided, you can assign these users to your Concur app by following the instructions here:
 
 [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to Concur
 
-*   It is recommended that a single Azure AD user be assigned to Concur to test the provisioning configuration. Additional users and/or groups may be assigned later.
+*   It is recommended that a single Microsoft Entra user be assigned to Concur to test the provisioning configuration. Additional users and/or groups may be assigned later.
 
 *   When assigning a user to Concur, you must select a valid user role. The "Default Access" role does not work for provisioning.
 
 ## Enable user provisioning
 
-This section guides you through connecting your Azure AD to Concur's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Concur based on user and group assignment in Azure AD.
+This section guides you through connecting your Microsoft Entra ID to Concur's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Concur based on user and group assignment in Microsoft Entra ID.
 
 > [!Tip] 
-> You may also choose to enabled SAML-based Single Sign-On for Concur, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+> You may also choose to enabled SAML-based Single Sign-On for Concur, following the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 ### To configure user account provisioning:
 
@@ -69,52 +69,54 @@ For the following reasons, this action should not be done with the profile they 
 
 1. Log on to your **Concur** tenant.
 
-2. From the **Administration** menu, select **Web Services**.
+1. From the **Administration** menu, select **Web Services**.
    
     ![Concur tenant](./media/concur-provisioning-tutorial/IC721729.png "Concur tenant")
 
-3. On the left side, from the **Web Services** pane, select **Enable Partner Application**.
+1. On the left side, from the **Web Services** pane, select **Enable Partner Application**.
    
     ![Enable Partner Application](./media/concur-provisioning-tutorial/ic721730.png "Enable Partner Application")
 
-4. From the **Enable Application** list, select **Azure Active Directory**, and then click **Enable**.
+1. From the **Enable Application** list, select **Microsoft Entra ID**, and then click **Enable**.
    
-    ![Microsoft Azure Active Directory](./media/concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
+    ![Microsoft Entra ID](./media/concur-provisioning-tutorial/ic721731.png "Microsoft Entra ID")
 
-5. Click **Yes** to close the **Confirm Action** dialog.
+1. Click **Yes** to close the **Confirm Action** dialog.
    
     ![Confirm Action](./media/concur-provisioning-tutorial/ic721732.png "Confirm Action")
 
-6. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications** section.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
-7. If you have already configured Concur for single sign-on, search for your instance of Concur using the search field. Otherwise, select **Add** and search for **Concur** in the application gallery. Select Concur from the search results, and add it to your list of applications.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
-8. Select your instance of Concur, then select the **Provisioning** tab.
+1. If you have already configured Concur for single sign-on, search for your instance of Concur using the search field. Otherwise, select **Add** and search for **Concur** in the application gallery. Select Concur from the search results, and add it to your list of applications.
 
-9. Set the **Provisioning Mode** to **Automatic**. 
+1. Select your instance of Concur, then select the **Provisioning** tab.
+
+1. Set the **Provisioning Mode** to **Automatic**. 
  
     ![Screenshot of the Provisioning tab for Concur in Azure portal. Provisioning Mode is set to Automatic and the Test Connection button is highlighted.](./media/concur-provisioning-tutorial/provisioning.png)
 
-10. Under the **Admin Credentials** section, enter the **user name** and the **password** of your Concur administrator.
+1. Under the **Admin Credentials** section, enter the **user name** and the **password** of your Concur administrator.
 
-11. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Concur app. If the connection fails, ensure your Concur account has Team Admin permissions.
+1. Select **Test Connection** to ensure Microsoft Entra ID can connect to your Concur app. If the connection fails, ensure your Concur account has Team Admin permissions.
 
-12. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox.
+1. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox.
 
-13. Click **Save.**
+1. Click **Save.**
 
-14. Under the Mappings section, select **Synchronize Azure Active Directory Users to Concur.**
+1. Under the Mappings section, select **Synchronize Microsoft Entra users to Concur.**
 
-15. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to Concur. The attributes selected as **Matching** properties are used to match the user accounts in Concur for update operations. Select the Save button to commit any changes.
+1. In the **Attribute Mappings** section, review the user attributes that are synchronized from Microsoft Entra ID to Concur. The attributes selected as **Matching** properties are used to match the user accounts in Concur for update operations. Select the Save button to commit any changes.
 
-16. To enable the Azure AD provisioning service for Concur, change the **Provisioning Status** to **On** in the **Settings** section
+1. To enable the Microsoft Entra provisioning service for Concur, change the **Provisioning Status** to **On** in the **Settings** section
 
-17. Click **Save.**
+1. Click **Save.**
 
 You can now create a test account. Wait for up to 20 minutes to verify that the account has been synchronized to Concur.
 
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 * [Configure Single Sign-on](concur-tutorial.md)

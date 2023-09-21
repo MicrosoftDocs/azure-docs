@@ -1,24 +1,24 @@
 ---
 title: Use Azure custom roles in PIM
-description: Learn how to use Azure custom roles in Azure AD Privileged Identity Management (PIM).
+description: Learn how to use Azure custom roles in Microsoft Entra Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: barclayn
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/27/2022
-ms.author: amsliu
+ms.date: 09/13/2023
+ms.author: barclayn
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---
 
 # Use Azure custom roles in Privileged Identity Management
 
-You might need to apply stricter just-in-time settings to some users in a privileged role in your organization in Azure Active Directory (Azure AD), part of Microsoft Entra, while providing greater autonomy for others. For example, if your organization hired several contract associates to help develop an application that will run in an Azure subscription.
+You might need to apply stricter just-in-time settings to some users in a privileged role in your organization in Microsoft Entra ID, while providing greater autonomy for others. For example, if your organization hired several contract associates to help develop an application that will run in an Azure subscription.
 
 As a resource administrator, you want employees to be eligible for access without requiring approval. However, all contract associates must be approved when they request access to the organization's resources.
 
@@ -35,7 +35,7 @@ When you create custom role, include a descriptive name so you can easily rememb
 
 ## Apply PIM settings
 
-After the role is created in your Azure AD organization, go to the **Privileged Identity Management - Azure resources** page in the Azure portal. Select the resource that the role applies to.
+After the role is created in your Microsoft Entra organization, go to the **Privileged Identity Management - Azure resources** page in the Azure portal. Select the resource that the role applies to.
 
 ![The "Privileged Identity Management - Azure resources" pane](media/pim-resource-roles-custom-role-policy/aadpim-manage-azure-resource-some-there.png)
 

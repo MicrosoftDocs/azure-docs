@@ -6,11 +6,11 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/14/2022
+ms.date: 06/30/2023
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-
 ---
+
 # About virtual hub routing
 
 The routing capabilities in a virtual hub are provided by a router that manages all routing between gateways using Border Gateway Protocol (BGP). A virtual hub can contain multiple gateways such as a Site-to-site VPN gateway, ExpressRoute gateway, Point-to-site gateway, Azure Firewall. This router also provides transit connectivity between virtual networks that connect to a virtual hub and can support up to an aggregate throughput of 50 Gbps. These routing capabilities apply to Standard Virtual WAN customers.
@@ -51,7 +51,7 @@ You can set up the routing configuration for a virtual network connection during
 
 ### <a name="association"></a>Association
 
-Each connection is associated to one route table. Associating a connection to a route table allows the traffic to be sent to the destination indicated as routes in the route table. The routing configuration of the connection will show the associated route table.  Multiple connections can be associated to the same route table. All VPN, ExpressRoute, and User VPN connections are associated to the same (default) route table.
+Each connection is associated to one route table. Associating a connection to a route table allows the traffic (from that connection) to be sent to the destination indicated as routes in the route table. The routing configuration of the connection will show the associated route table.  Multiple connections can be associated to the same route table. All VPN, ExpressRoute, and User VPN connections are associated to the same (default) route table.
 
 By default, all connections are associated to a **Default route table** in a virtual hub. Each virtual hub has its own Default route table, which can be edited to add a static route(s). Routes added statically take precedence over dynamically learned routes for the same prefixes.
 
@@ -71,7 +71,7 @@ Labels provide a mechanism to logically group route tables. This is especially h
 
 ### <a name="static"></a>Configuring static routes in a virtual network connection
 
-Configuring static routes provides a mechanism to steer traffic through a next hop IP, which could be of a Network Virtual Appliance (NVA) provisioned in a Spoke VNet attached to a virtual hub. The static route is composed of a route name, list of destination prefixes, and a next hop IP.
+Configuring static routes provides a mechanism to steer traffic from the hub through a next hop IP, which could be of a Network Virtual Appliance (NVA) provisioned in a Spoke VNet attached to a virtual hub. The static route is composed of a route name, list of destination prefixes, and a next hop IP.
 
 ## <a name="route"></a>Route tables for pre-existing routes
 
@@ -95,7 +95,6 @@ Consider the following when configuring Virtual WAN routing:
 
 * All branch connections (Point-to-site, Site-to-site, and ExpressRoute) need to be associated to the Default route table. That way, all branches will learn the same prefixes.
 * All branch connections need to propagate their routes to the same set of route tables. For example, if you decide that branches should propagate to the Default route table, this configuration should be consistent across all branches. As a result, all connections associated to the Default route table will be able to reach all of the branches.
-* Branch-to-branch via Azure Firewall is currently not supported.
 * When you use Azure Firewall in multiple regions, all spoke virtual networks must be associated to the same route table. For example, having a subset of the VNets going through the Azure Firewall while other VNets bypass the Azure Firewall in the same virtual hub isn't possible.
 * You may specify multiple next hop IP addresses on a single Virtual Network connection. However, Virtual Network Connection doesn't support ‘multiple/unique’ next hop IP to the ‘same’ network virtual appliance in a SPOKE Virtual Network 'if' one of the routes with next hop IP is indicated to be public IP address or 0.0.0.0/0 (internet)
 * All information pertaining to 0.0.0.0/0 route is confined to a local hub's route table. This route doesn't propagate across hubs.
@@ -105,3 +104,5 @@ Consider the following when configuring Virtual WAN routing:
 
 * To configure routing, see [How to configure virtual hub routing](how-to-virtual-hub-routing.md).
 * For more information about Virtual WAN, see the [FAQ](virtual-wan-faq.md).
+
+

@@ -235,7 +235,6 @@ You can use MapReduce activity to run Spark programs on your HDInsight Spark clu
 [adfgetstartedmonitoring]:data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines 
 
 [Developer Reference]: /previous-versions/azure/dn834987(v=azure.100)
-[Azure Portal]: https://portal.azure.com
 
 ## See Also
 * [Hive Activity](data-factory-hive-activity.md)

@@ -1,6 +1,6 @@
 ---
 title: Signing Key Rollover in Microsoft identity platform
-description: This article discusses the signing key rollover best practices for Azure Active Directory
+description: This article discusses the signing key rollover best practices for Microsoft Entra ID
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -35,7 +35,7 @@ How your application handles key rollover depends on variables such as the type 
 * [Web applications / APIs protecting resources and built using Azure App Services](#appservices)
 * [Web applications / APIs protecting resources using .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware](#owin)
 * [Web applications / APIs protecting resources using .NET Core OpenID Connect or  JwtBearerAuthentication middleware](#owincore)
-* [Web applications / APIs protecting resources using Node.js passport-azure-ad module](#passport)
+* [Web applications / APIs protecting resources using Node.js `passport-azure-ad` module](#passport)
 * [Web applications / APIs protecting resources and created with Visual Studio 2015 or later](#vs2015)
 * [Web applications protecting resources and created with Visual Studio 2013](#vs2013)
 * Web APIs protecting resources and created with Visual Studio 2013
@@ -44,7 +44,7 @@ How your application handles key rollover depends on variables such as the type 
 
 This guidance is **not** applicable for:
 
-* Applications added from Azure AD Application Gallery (including Custom) have separate guidance with regard to signing keys. [More information.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
+* Applications added from Microsoft Entra Application Gallery (including Custom) have separate guidance with regard to signing keys. [More information.](../manage-apps/tutorial-manage-certificates-for-federated-single-sign-on.md)
 * On-premises applications published via application proxy don't have to worry about signing keys.
 
 ### <a name="nativeclient"></a>Native client applications accessing resources
@@ -180,7 +180,7 @@ namespace JWTValidation
 
             TokenValidationParameters validationParams = new TokenValidationParameters()
             {
-                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Portal]",
+                AllowedAudience = "[Your App ID URI goes here]",
                 ValidIssuer = "[The issuer for the token goes here, such as https://sts.windows.net/68b98905-130e-4d7c-b6e1-a158a9ed8449/]",
                 SigningTokens = GetSigningCertificates(MetadataAddress)
 
@@ -281,7 +281,7 @@ Follow the steps below to verify that the key rollover logic is working.
           </keys>
    ```
 2. In the **\<add thumbprint="">** setting, change the thumbprint value by replacing any character with a different one. Save the **Web.config** file.
-3. Build the application, and then run it. If you can complete the sign-in process, your application is successfully updating the key by downloading the required information from your directory’s federation metadata document. If you are having issues signing in, ensure the changes in your application are correct by reading the [Adding Sign-On to Your Web Application Using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) article, or downloading and inspecting the following code sample: [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
+3. Build the application, and then run it. If you can complete the sign-in process, your application is successfully updating the key by downloading the required information from your directory’s federation metadata document. If you are having issues signing in, ensure the changes in your application are correct by reading the [Adding Sign-On to Your Web Application Using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) article, or downloading and inspecting the following code sample: [Multi-Tenant Cloud Application for Microsoft Entra ID](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="other"></a>Web applications / APIs protecting resources using any other libraries or manually implementing any of the supported protocols
 If you are using some other library or manually implemented any of the supported protocols, you'll need to review the library or your implementation to ensure that the key is being retrieved from either the OpenID Connect discovery document or the federation metadata document. One way to check for this is to do a search in your code or the library's code for any calls out to either the OpenID discovery document or the federation metadata document.
@@ -312,7 +312,7 @@ To check and update signing keys with PowerShell, you'll need the [MSIdentityToo
     Get-MsIdSigningKeyThumbprint
     ```
 
-1. Pick any of the key thumbprints and configure Azure Active Directory to use that key with your application (get the app ID from the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)):
+1. Pick any of the key thumbprints and configure Microsoft Entra ID to use that key with your application (get the app ID from the [Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)):
 
     ```powershell
     Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId> -KeyThumbprint <Thumbprint>
@@ -341,7 +341,7 @@ To check and update signing keys with PowerShell, you'll need the [MSIdentityToo
     Install-Module -Name MSIdentityTools
     ```
 
-1. Get the latest signing key (get the tenant ID from the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)):
+1. Get the latest signing key (get the tenant ID from the [Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)):
 
     ```powershell
     Get-MsIdSigningKeyThumbprint -Tenant <tenandId> -Latest
@@ -357,7 +357,7 @@ To check and update signing keys with PowerShell, you'll need the [MSIdentityToo
 
 1. Update your application's code or configuration to use the new key.
 
-1. Configure Azure Active Directory to use that latest key with your application (get the app ID from the [portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)):
+1. Configure Microsoft Entra ID to use that latest key with your application (get the app ID from the [Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)):
 
     ```powershell
     Get-MsIdSigningKeyThumbprint -Latest | Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId>

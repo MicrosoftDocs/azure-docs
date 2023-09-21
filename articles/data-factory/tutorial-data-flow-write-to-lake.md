@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2021
-ms.date: 09/26/2022
+ms.date: 08/10/2023
 ---
 
 # Best practices for writing to files to data lake with data flows

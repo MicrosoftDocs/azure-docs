@@ -46,6 +46,8 @@ The dashboard tabs currently available are:
 * Connection Monitors
 * Metric Definitions 
 
+[!NOTE] Displays on the Flow Distribution tab are not supported for load balancer backend pools configured by IP addresses. These are virtual machine-level metrics and can be seen by from the virtual machines / VMSS resources associated with the IP addresses attached instead.
+
 ### Overview tab
 
 The Overview tab contains a searchable grid with the overall Data Path Availability and Health Probe Status for each of the Frontend IPs attached to your Load Balancer. These metrics indicate whether the Frontend IP is responsive and the compute instances in your Backend Pool are individually responsive to inbound connections.

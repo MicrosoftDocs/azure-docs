@@ -13,13 +13,15 @@ ms.custom: mvc, devx-track-azurecli, mode-api, template-quickstart, engagement-f
 
 # Quickstart: Create an internal load balancer to load balance VMs using the Azure CLI
 
-Get started with Azure Load Balancer by using the Azure CLI to create an internal load balancer and two virtual machines.
+Get started with Azure Load Balancer by using the Azure CLI to create an internal load balancer and two virtual machines. Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
+
+:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer.":::
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
-This quickstart requires version 2.0.28 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
+- This quickstart requires version 2.0.28 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -57,10 +59,7 @@ Create a virtual network by using [az network vnet create](/cli/azure/network/vn
 In this example, you create an Azure Bastion host. The Azure Bastion host is used later in this article to securely manage the virtual machines and test the load balancer deployment.
 
  > [!IMPORTANT]
-
  > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
-
- >
 
 ### Create a bastion public IP address
 

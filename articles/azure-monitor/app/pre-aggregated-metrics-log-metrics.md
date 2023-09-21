@@ -12,7 +12,7 @@ This article explains the difference between "traditional" Application Insights 
 
 ## Log-based metrics
 
-In the past, the application monitoring telemetry data model in Application Insights was solely based on a few predefined types of events, such as requests, exceptions, dependency calls, and page views. Developers can use the SDK to emit these events manually by writing code that explicitly invokes the SDK. Or they can rely on the automatic collection of events from auto-instrumentation. In either case, the Application Insights back end stores all collected events as logs. The Application Insights panes in the Azure portal act as an analytical and diagnostic tool for visualizing event-based data from logs.
+In the past, the application monitoring telemetry data model in Application Insights was solely based on a few predefined types of events, such as requests, exceptions, dependency calls, and page views. Developers can use the SDK to emit these events manually by writing code that explicitly invokes the SDK. Or they can rely on the automatic collection of events from autoinstrumentation. In either case, the Application Insights back end stores all collected events as logs. The Application Insights panes in the Azure portal act as an analytical and diagnostic tool for visualizing event-based data from logs.
 
 Using logs to retain a complete set of events can bring great analytical and diagnostic value. For example, you can get an exact count of requests to a particular URL with the number of distinct users who made these calls. Or you can get detailed diagnostic traces, including exceptions and dependency calls for any user session. Having this type of information can improve visibility into the application health and usage. It can also cut down the time necessary to diagnose issues with an app.
 
@@ -52,7 +52,7 @@ The collection endpoint pre-aggregates events before ingestion sampling. For thi
 |-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
 | ASP.NET                 | Supported <sup>1<sup>    | Not supported                             | Not supported                           |
 | ASP.NET Core            | Supported <sup>2<sup>    | Not supported                             | Not supported                           |
-| Java                    | Not supported            | Not supported                             | [Supported](opentelemetry-enable.md?tabs=java#metrics) |
+| Java                    | Not supported            | Not supported                             | [Supported](opentelemetry-add-modify.md?tabs=java#metrics) |
 | Node.js                 | Not supported            | Not supported                             | Not supported                           |
 
 1. ASP.NET codeless attach on virtual machines/virtual machine scale sets and on-premises emits standard metrics without dimensions. The same is true for Azure App Service, but the collection level must be set to recommended. The SDK is required for all dimensions.
@@ -95,7 +95,7 @@ Selecting the [Enable alerting on custom metric dimensions](#custom-metrics-dime
 
 ## Next steps
 
-* [Metrics - Get - REST API](https://learn.microsoft.com/rest/api/application-insights/metrics/get)
+* [Metrics - Get - REST API](/rest/api/application-insights/metrics/get)
 * [Application Insights API for custom events and metrics](api-custom-events-metrics.md)
 * [Near real time alerting](../alerts/alerts-metric-near-real-time.md)
 * [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric)

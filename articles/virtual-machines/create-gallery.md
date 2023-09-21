@@ -41,7 +41,7 @@ Allowed characters for gallery name are uppercase (A-Z) and lowercase (a-z) lett
 
 
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
 1. In the **Azure Compute Gallery** page, select **Add**.
 1. On the **Create Azure Compute Gallery** page, select the correct subscription.
@@ -119,7 +119,7 @@ To start sharing a direct shared gallery with a subscription or tenant, see [Sha
 
 ### [Portal](#tab/portaldirect)
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
 1. In the **Azure Compute Gallery** page, select **Add**.
 1. On the **Create Azure Compute Gallery** page, select the correct subscription.
@@ -271,7 +271,7 @@ To start sharing the gallery to all Azure users, see [Share images using a commu
 
 Making a community gallery available to all Azure users is a two-step process. First you create the gallery with community sharing enabled, when you're ready to make it public, you share the gallery.
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
 1. In the **Azure Compute Gallery** page, click **Add**.
 1. On the **Create Azure Compute Gallery** page, select the correct subscription.
@@ -310,5 +310,3 @@ To start sharing the gallery to all Azure users, see [Share images using a commu
 - Create an [image definition and an image version](image-version.md).
 - Create a VM from a [generalized](vm-generalized-image-version.md#direct-shared-gallery) or [specialized](vm-specialized-image-version.md#direct-shared-gallery) image in a gallery.
 - [Create a VM application](vm-applications-how-to.md) in your gallery.
-
-

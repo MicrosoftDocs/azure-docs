@@ -2,13 +2,16 @@
 title: Configure agent authentication for the Container Insights agent | Microsoft Docs
 description: This article describes how to configure authentication for the containerized agent used by Container insights.
 ms.topic: conceptual
-ms.date: 06/13/2023
-ms.reviewer: damendo
+ms.date: 07/31/2023
+ms.reviewer: aul
 ---
 
 # Authentication for Container Insights 
 
 Container Insights now defaults to managed identity authentication. This secure and simplified authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a Monitoring Metrics Publisher role to the cluster.
+
+> [!Note] 
+> [ContainerLogV2](container-insights-logging-v2.md) will be default schema for customers who will be onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
 
 ## How to enable
 
@@ -18,20 +21,24 @@ Click on the relevant tab for instructions to enable Managed identity authentica
 
 When creating a new cluster from the Azure portal: On the **Integrations** tab, first check the box for *Enable Container Logs*, then check the box for *Use managed identity*.  
 
+:::image type="content" source="./media/container-insights-authentication/aks-cluster-creation.png" alt-text="Screenshot that shows the checkbox to select." lightbox="media/container-insights-authentication/aks-cluster-creation.png":::
+
 For existing clusters, you can switch to Managed Identity authentication from the *Monitor settings* panel: Navigate to your AKS cluster, scroll through the menu on the left till you see the **Monitoring** section, there click on the **Insights** tab. In the Insights tab, click on the *Monitor Settings* option and check the box for *Use managed identity*
 
-If you don't see the *Use managed identity* option, you are using an SPN clusters. In that case, you must use command line tools to migrate. See other tabs for migration instructions and templates.
+:::image type="content" source="./media/container-insights-authentication/monitor-settings.png" alt-text="Screenshot that shows the settings panel." lightbox="media/container-insights-authentication/monitor-settings.png":::
+
+If you don't see the *Use managed identity* option, you are using an SPN cluster. In that case, you must use command line tools to migrate. See other tabs for migration instructions and templates.
 
 ## [Azure CLI](#tab/cli)
 
-See [Migrate to managed identity authentication](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-enable-aks?tabs=azure-cli#migrate-to-managed-identity-authentication)
+See [Migrate to managed identity authentication](container-insights-enable-aks.md?tabs=azure-cli#migrate-to-managed-identity-authentication)
 
 ## [Resource Manager template](#tab/arm)
 
 See instructions for migrating 
 
-* [AKS clusters](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-enable-aks?tabs=arm#existing-aks-cluster)
-* [Arc-enabled clusters](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?tabs=create-cli%2Cverify-portal%2Cmigrate-arm)
+* [AKS clusters](container-insights-enable-aks.md?tabs=arm#existing-aks-cluster)
+* [Arc-enabled clusters](container-insights-enable-arc-enabled-clusters.md?tabs=create-cli%2Cverify-portal%2Cmigrate-arm)
 
 ## [Bicep](#tab/bicep)
 
@@ -51,7 +58,8 @@ curl  -L https://aka.ms/enable-monitoring-msi-bicep-parameters -o existingCluste
  - **workspaceResourceId**: Use the resource ID of your Log Analytics workspace.
  - **workspaceRegion**: Use the location of your Log Analytics workspace.
  - **resourceTagValues**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will match `MSCI-<clusterName>-<clusterRegion>` and this resource is created in the same resource group as the AKS clusters. For first time onboarding, you can set the arbitrary tag values.
- - Other parameters are for cost optimization, refer to [this guide](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters)
+ - **enabledContainerLogV2**: Set this parameter value to be true to use the default recommended ContainerLogV2 schema
+ - Other parameters are for cost optimization, refer to [this guide](container-insights-cost-config.md?tabs=create-CLI#data-collection-parameters)
 
 3.	Onboard with the following commands:
 
@@ -77,6 +85,7 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 - **workspaceResourceId**: Use the resource ID of your Log Analytics workspace.
 - **workspaceRegion**: Use the location of your Log Analytics workspace.
 - **resourceTagValues**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name match `MSCI-<clusterName>-<clusterRegion>` and this resource is created in the same resource group as the AKS clusters. For first time onboarding, you can set the arbitrary tag values.
+- - **enabledContainerLogV2**: Set this parameter value to be true to use the default recommended ContainerLogV2 
 
 3.	Onboarding with the following commands:
 
@@ -86,13 +95,13 @@ az account set --subscription "Subscription Name"
 az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./existingClusterOnboarding.bicep --parameters ./existingClusterParam.json
 ```
 
-For new aks cluster:
-Replace and use the managed cluster resources in this [guide](https://learn.microsoft.com/azure/aks/learn/quick-kubernetes-deploy-bicep?tabs=azure-cli)
+For new AKS cluster:
+Replace and use the managed cluster resources in this [guide](../../aks/learn/quick-kubernetes-deploy-bicep.md?tabs=azure-cli)
 
 
 ## [Terraform](#tab/terraform)
 
-**Enable Monitoring with MSI without syslog for new aks cluster**
+**Enable Monitoring with MSI without syslog for new AKS cluster**
 
 1.	Download Terraform template for enable monitoring msi with syslog enabled:
 https://aka.ms/enable-monitoring-msi-terraform
@@ -104,12 +113,13 @@ https://aka.ms/enable-monitoring-msi-terraform
  - **workspace_resource_id**: Use the resource ID of your Log Analytics workspace.
  - **workspace_region**: Use the location of your Log Analytics workspace.
  - **resource_tag_values**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name match `MSCI-<clusterName>-<clusterRegion>` and this resource is created in the same resource group as the AKS clusters. For first time onboarding, you can set the arbitrary tag values.
- - Other parameters are for cluster settings or cost optimization, refer to [this guide](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters)
+ - - **enabledContainerLogV2**: Set this parameter value to be true to use the default recommended ContainerLogV2 
+ - Other parameters are for cluster settings or cost optimization, refer to [this guide](container-insights-cost-config.md?tabs=create-CLI#data-collection-parameters)
 4.	Run `terraform init -upgrade` to initialize the Terraform deployment.
 5.	Run `terraform plan -out main.tfplan` to initialize the Terraform deployment.
 6.	Run `terraform apply main.tfplan` to apply the execution plan to your cloud infrastructure.
 
-**Enable Monitoring with MSI with syslog for new aks cluster** 
+**Enable Monitoring with MSI with syslog for new AKS cluster** 
 1.	Download Terraform template for enable monitoring msi with syslog enabled:
 https://aka.ms/enable-monitoring-msi-syslog-terraform
 2.	Adjust the azurerm_kubernetes_cluster resource in main.tf based on what cluster settings you're going to have
@@ -120,12 +130,12 @@ https://aka.ms/enable-monitoring-msi-syslog-terraform
  - **workspace_resource_id**: Use the resource ID of your Log Analytics workspace.
  - **workspace_region**: Use the location of your Log Analytics workspace.
  - **resource_tag_values**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name match `MSCI-<clusterName>-<clusterRegion>` and this resource is created in the same resource group as the AKS clusters. For first time onboarding, you can set the arbitrary tag values.
- - Other parameters are for cluster settings, refer [to guide](http://LinkTobeAdded.com)
+ - Other parameters are for cluster settings, refer [to guide](container-insights-cost-config.md?tabs=create-CLI#data-collection-parameters)
 4.	Run `terraform init -upgrade` to initialize the Terraform deployment.
 5.	Run `terraform plan -out main.tfplan` to initialize the Terraform deployment.
 6.	Run `terraform apply main.tfplan` to apply the execution plan to your cloud infrastructure.
 
-**Enable Monitoring with MSI for existing aks cluster:**
+**Enable Monitoring with MSI for existing AKS cluster:**
 1.	Import the existing cluster resource first with this command: ` terraform import azurerm_kubernetes_cluster.k8s <aksResourceId>`
 2.	Add the oms_agent add-on profile to the existing azurerm_kubernetes_cluster resource.
 ```
@@ -176,7 +186,7 @@ az policy assignment create --name aks-monitoring-addon --policy "AKS-Monitoring
 ---
 
 ## Limitations 
-1.	Ingestion Transformations are not supported: See [Data collection transformation](https://learn.microsoft.com/azure/azure-monitor/essentials/data-collection-transformations) to read more.    
+1.	Ingestion Transformations are not supported: See [Data collection transformation](../essentials/data-collection-transformations.md) to read more.    
 2.	Dependency on DCR/DCRA for region availability - For new AKS region, there might be chances that DCR is still not supported in the new region. In that case, onboarding Container Insights with MSI will fail. One workaround is to onboard to Container Insights through CLI with the old way (with the use of Container Insights solution)
 
 ## Timeline  

@@ -68,6 +68,9 @@ In addition to the core properties, there are other configuration options that y
 * *networkingConfiguration -> inboundIpAddressOverride*: Optional. Allow you to create an App Service Environment with your own Azure Public IP address (specify the resource ID) or define a static IP for ILB deployments. This setting can't be changed after the App Service Environment is created.
 * *customDnsSuffixConfiguration*: Optional. Allows you to specify a custom domain suffix for the App Service Environment. Requires a valid certificate from a Key Vault and access using a Managed Identity. For more information about the specific parameters, see [configuration custom domain suffix](./how-to-custom-domain-suffix.md).
 
+> [!NOTE]
+> The properties `dnsSuffix`, `multiSize`, `frontEndScaleFactor`, `userWhitelistedIpRanges`, and `ipSslAddressCount` are not supported when creating App Service Environment v3.
+
 ### Deploying the App Service Environment
 
 After creating the ARM template, for example named *azuredeploy.json* and optionally a parameters file for example named *azuredeploy.parameters.json*, you can create the App Service Environment by using the Azure CLI code snippet. Change the file paths to match the Resource Manager template-file locations on your machine. Remember to supply your own value for the resource group name:
@@ -79,7 +82,7 @@ parameterPath="PATH/azuredeploy.parameters.json"
 az deployment group create --resource-group "YOUR-RG-NAME-HERE" --template-file $templatePath --parameters $parameterPath
 ```
 
-It can take more than one hour for the App Service Environment to be created.
+Creating the App Service Environment usually takes about an hour, but if it is a zone redundant App Service Environment or we are experiencing unexpected demand in a region, the creation process can take several hours to complete.
 
 ## Next steps
 

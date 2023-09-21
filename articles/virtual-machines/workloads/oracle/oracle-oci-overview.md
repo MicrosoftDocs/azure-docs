@@ -1,16 +1,16 @@
 ---
-title: Integrate Microsoft Azure with Oracle Cloud Infrastructure | Microsoft Docs
+title: Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure
 description: Learn about solutions that integrate Oracle apps running on Microsoft Azure with databases in Oracle Cloud Infrastructure (OCI).
-author: dbakevlar
+author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
 ms.date: 04/11/2023
-ms.author: kegorman
+ms.author: jacobjaygbay
  
 ---
-# Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure
+# Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure 
 
 **Applies to:** :heavy_check_mark: Linux VMs
 

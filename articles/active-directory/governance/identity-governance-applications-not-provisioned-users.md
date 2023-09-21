@@ -1,6 +1,6 @@
 ---
-title: Govern the existing users of an application that does not support provisioning in Azure AD with Microsoft PowerShell
-description: Planning for a successful access reviews campaign for a particular application includes identifying if any users in that application have access that doesn't derive from Azure AD.  If the application does not support provisioning, then you will need to create application role assignments for the application, and supply the list of changes when a review completes.
+title: Govern the existing users of an application that does not support provisioning in Microsoft Entra ID with Microsoft PowerShell
+description: Planning for a successful access reviews campaign for a particular application includes identifying if any users in that application have access that doesn't derive from Microsoft Entra ID.  If the application does not support provisioning, then you will need to create application role assignments for the application, and supply the list of changes when a review completes.
 services: active-directory
 documentationCenter: ''
 author: markwahl-msft
@@ -17,21 +17,24 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As an IT admin, I want to ensure that access to specific applications is governed by setting up access reviews for those applications. For this, I need to have the existing users of that application assigned to the application in Azure AD.
+#Customer intent: As an IT admin, I want to ensure that access to specific applications is governed by setting up access reviews for those applications. For this, I need to have the existing users of that application assigned to the application in Microsoft Entra ID.
 
 ---
 
 # Govern the users of an application that does not support provisioning - Microsoft PowerShell
 
-There are three common scenarios in which it's necessary to populate Azure Active Directory (Azure AD) with existing users of an application before you use the application with a Microsoft Entra identity governance feature such as [access reviews](access-reviews-application-preparation.md).
+There are three common scenarios in which it's necessary to populate Microsoft Entra ID with existing users of an application before you use the application with a Microsoft Entra ID Governance feature such as [access reviews](access-reviews-application-preparation.md).
 
- - Application migrated to Azure AD after using its own identity provider
- - Application that doesn't use Azure AD as its only identity provider
- - Application does not use Azure AD as its identity provider nor does it support provisioning
+ - Application migrated to Microsoft Entra ID after using its own identity provider
+ - Application that doesn't use Microsoft Entra ID as its only identity provider
+ - Application does not use Microsoft Entra ID as its identity provider nor does it support provisioning
 
-For more information on those first two scenarios, where the application supports provisioning, or uses an LDAP directory, SQL database or relies upon Azure AD as its identity provider, see the article [govern an application's existing users](identity-governance-applications-existing-users.md). That article covers how to use identity governance features for existing users of those categories of applications.
+For more information on those first two scenarios, where the application supports provisioning, or uses an LDAP directory, SQL database, has a SOAP or REST API or relies upon Microsoft Entra ID as its identity provider, see the article [govern an application's existing users](identity-governance-applications-existing-users.md). That article covers how to use identity governance features for existing users of those categories of applications.
 
-This article covers the third scenario. For some legacy applications it might not be feasible to remove other identity providers or local credential authentication from the application, or enable support for provisioning protocols for those applications. For those applications, if you want to use Azure AD to review who has access to that application, or remove someone's access from that application, you'll need to create assignments in Azure AD that represent application users.  This article covers that scenario of an application that does not use Azure AD as its identity provider and does not support provisioning.
+This article covers the third scenario. For some legacy applications it might not be feasible to remove other identity providers or local credential authentication from the application, or enable support for provisioning protocols for those applications. For those applications, if you want to use Microsoft Entra ID to review who has access to that application, or remove someone's access from that application, you'll need to create assignments in Microsoft Entra ID that represent application users.  This article covers that scenario of an application that does not use Microsoft Entra ID as its identity provider and does not support provisioning.
+
+## License requirements
+[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
 
 ## Terminology
 
@@ -39,47 +42,49 @@ This article illustrates the process for managing application role assignments b
 
 ![Diagram that illustrates Microsoft Graph terminology.](./media/identity-governance-applications-existing-users/data-model-terminology.png)
 
-In Azure AD, a service principal (`ServicePrincipal`) represents an application in a particular organization's directory. `ServicePrincipal` has a property called `AppRoles` that lists the roles that an application supports, such as `Marketing specialist`. `AppRoleAssignment` links a user to a service principal and specifies which role that user has in that application.
+In Microsoft Entra ID, a service principal (`ServicePrincipal`) represents an application in a particular organization's directory. `ServicePrincipal` has a property called `AppRoles` that lists the roles that an application supports, such as `Marketing specialist`. `AppRoleAssignment` links a user to a service principal and specifies which role that user has in that application.
 
 You might also be using [Microsoft Entra entitlement management](entitlement-management-overview.md) access packages to give users time-limited access to the application. In entitlement management, `AccessPackage` contains one or more resource roles, potentially from multiple service principals. `AccessPackage` also has assignments (`Assignment`) for users to the access package. 
 
-When you create an assignment for a user to an access package, Azure AD entitlement management automatically creates the necessary `AppRoleAssignment` instances for the user to each application. For more information, see the [Manage access to resources in Azure AD entitlement management](/powershell/microsoftgraph/tutorial-entitlement-management) tutorial on how to create access packages through PowerShell.
+When you create an assignment for a user to an access package, Microsoft Entra entitlement management automatically creates the necessary `AppRoleAssignment` instances for the user to each application. For more information, see the [Manage access to resources in Microsoft Entra entitlement management](/powershell/microsoftgraph/tutorial-entitlement-management) tutorial on how to create access packages through PowerShell.
 
 ## Before you begin
 
 - You must have one of the following licenses in your tenant:
 
-  - Azure AD Premium P2
+  - Microsoft Entra ID P2 or Microsoft Entra ID Governance
   - Enterprise Mobility + Security E5 license
 
 - You need to have an appropriate administrative role. If this is the first time you're performing these steps, you need the Global Administrator role to authorize the use of Microsoft Graph PowerShell in your tenant.
-- Your application needs a service principal in your tenant. If a service principal does not already exist, then you can register an application to represent it in Azure AD.
+- Your application needs a service principal in your tenant. If a service principal does not already exist, then you can register an application to represent it in Microsoft Entra ID.
 
 ## Collect existing users from an application
 
-The first step toward ensuring that all users are recorded in Azure AD is to collect the list of existing users who have access to the application.  
+The first step toward ensuring that all users are recorded in Microsoft Entra ID is to collect the list of existing users who have access to the application.  
 
 Some applications might have a built-in command to export a list of current users from the data store. In other cases, the application might rely on an external directory or database.
 
-In some environments, the application might be located on a network segment or system that isn't appropriate for managing access to Azure AD. So you might need to extract the list of users from that application, directory or database, and then transfer it as a file to another system that can be used for Azure AD interactions.
+In some environments, the application might be located on a network segment or system that isn't appropriate for managing access to Microsoft Entra ID. So you might need to extract the list of users from that application, directory or database, and then transfer it as a file to another system that can be used for Microsoft Entra interactions.
 
 If your application has an LDAP directory or SQL database, then see [Collect existing users from an application](identity-governance-applications-existing-users.md#collect-existing-users-from-an-application) for recommendations on how to extract the user collection.
 
-Otherwise, if the application does not have a directory or database, you will need to contact the owner of the application and have them supply a list of users.  This could be in a format such as a CSV file, with one line per user.  Ensure that one field of each user in the file contains a unique identifier, such as an email address, that is also present on users in Azure AD.
+Otherwise, if the application does not have a directory or database, you will need to contact the owner of the application and have them supply a list of users.  This could be in a format such as a CSV file, with one line per user.  Ensure that one field of each user in the file contains a unique identifier, such as an email address, that is also present on users in Microsoft Entra ID.
 
-If this system doesn't have the Microsoft Graph PowerShell cmdlets installed or doesn't have connectivity to Azure AD, transfer the CSV file that contains the list of users to a system that has the [Microsoft Graph PowerShell cmdlets](https://www.powershellgallery.com/packages/Microsoft.Graph) installed.
+If this system doesn't have the Microsoft Graph PowerShell cmdlets installed or doesn't have connectivity to Microsoft Entra ID, transfer the CSV file that contains the list of users to a system that has the [Microsoft Graph PowerShell cmdlets](https://www.powershellgallery.com/packages/Microsoft.Graph) installed.
 
-## Confirm Azure AD has users that match users from the application
+<a name='confirm-azure-ad-has-users-that-match-users-from-the-application'></a>
 
-Now that you have a list of all the users obtained from the application, you'll match those users from the application's data store with users in Azure AD.  
+## Confirm Microsoft Entra ID has users that match users from the application
+
+Now that you have a list of all the users obtained from the application, you'll match those users from the application's data store with users in Microsoft Entra ID.  
 
 [!INCLUDE [active-directory-identity-governance-applications-retrieve-users.md](../../../includes/active-directory-identity-governance-applications-retrieve-users.md)]
 
 ## Register the application
 
-If the application is already registered in Azure AD, then continue to the next step.
+If the application is already registered in Microsoft Entra ID, then continue to the next step.
 
-The account you're using must have permission to manage applications in Azure AD. Any of the following Azure AD roles include the required permissions:
+The account you're using must have permission to manage applications in Microsoft Entra ID. Any of the following Microsoft Entra roles include the required permissions:
   - [Application administrator](../roles/permissions-reference.md#application-administrator)
   - [Application developer](../roles/permissions-reference.md#application-developer)
   - [Cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator)
@@ -94,7 +99,7 @@ The account you're using must have permission to manage applications in Azure AD
    $azuread_sp = New-MgServicePrincipal -DisplayName $azuread_app_name -AppId $azuread_app.AppId
    ```
 
-1. Add a role to the application, and tag the application as integrated with Azure AD so that its assignments can be reviewed. For example, if the role name is `General`, provide that value in the following PowerShell commands:
+1. Add a role to the application, and tag the application as integrated with Microsoft Entra ID so that its assignments can be reviewed. For example, if the role name is `General`, provide that value in the following PowerShell commands:
 
    ```powershell
    $ar0 = New-Object Microsoft.Graph.PowerShell.Models.MicrosoftGraphAppRole
@@ -115,7 +120,7 @@ The account you're using must have permission to manage applications in Azure AD
 
 ## Check for users who are not already assigned to the application
 
-The previous steps have confirmed that all the users in the application's data store exist as users in Azure AD. However, they might not all currently be assigned to the application's roles in Azure AD. So the next steps are to see which users don't have assignments to application roles.
+The previous steps have confirmed that all the users in the application's data store exist as users in Microsoft Entra ID. However, they might not all currently be assigned to the application's roles in Microsoft Entra ID. So the next steps are to see which users don't have assignments to application roles.
 
 1. Look up the service principal ID for the application's service principal.
 
@@ -127,7 +132,7 @@ The previous steps have confirmed that all the users in the application's data s
    $azuread_sp = Get-MgServicePrincipal -Filter $azuread_sp_filter -All
    ```
 
-1. Retrieve the users who currently have assignments to the application in Azure AD.
+1. Retrieve the users who currently have assignments to the application in Microsoft Entra ID.
 
    This builds upon the `$azuread_sp` variable set in the previous command.
 
@@ -172,13 +177,15 @@ The previous steps have confirmed that all the users in the application's data s
    if ($null -eq $azuread_app_role_id) { write-error "role $azuread_app_role_name not located in application manifest"}
    ```
 
-## Create app role assignments in Azure AD
+<a name='create-app-role-assignments-in-azure-ad'></a>
 
-For Azure AD to match the users in the application with the users in Azure AD, you need to create application role assignments in Azure AD.
+## Create app role assignments in Microsoft Entra ID
 
-When an application role assignment is created in Azure AD for a user to an application, and the application does not support provisioning, then
+For Microsoft Entra ID to match the users in the application with the users in Microsoft Entra ID, you need to create application role assignments in Microsoft Entra ID.
 
-- The user will remain in the application indefinitely unless they're updated outside Azure AD, or until the assignment in Azure AD is removed.
+When an application role assignment is created in Microsoft Entra ID for a user to an application, and the application does not support provisioning, then
+
+- The user will remain in the application indefinitely unless they're updated outside Microsoft Entra ID, or until the assignment in Microsoft Entra ID is removed.
 - On the next review of that application's role assignments, the user will be included in the review.
 - If the user is denied in an access review, their application role assignment will be removed.
 
@@ -190,9 +197,9 @@ When an application role assignment is created in Azure AD for a user to an appl
    }
    ```
 
-1. Wait one minute for changes to propagate within Azure AD.
+1. Wait one minute for changes to propagate within Microsoft Entra ID.
 
-1. Query Azure AD to obtain the updated list of role assignments:
+1. Query Microsoft Entra ID to obtain the updated list of role assignments:
 
    ```powershell
    $azuread_existing_assignments = @(Get-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $azuread_sp.Id -All)
@@ -217,7 +224,7 @@ When an application role assignment is created in Azure AD for a user to an appl
    }
    ```
 
-   If any users aren't assigned to application roles, check the Azure AD audit log for an error from a previous step.
+   If any users aren't assigned to application roles, check the Microsoft Entra audit log for an error from a previous step.
 
 ## Select appropriate reviewers
 
@@ -225,7 +232,7 @@ When an application role assignment is created in Azure AD for a user to an appl
 
 ## Create the review of the application role assignments
 
-Once the users are in the application roles, and you have the reviewers identified, then you can configure Azure AD to [start a review](access-reviews-application-preparation.md#create-the-reviews).
+Once the users are in the application roles, and you have the reviewers identified, then you can configure Microsoft Entra ID to [start a review](access-reviews-application-preparation.md#create-the-reviews).
 
 Follow the instructions in the [guide for creating an access review of groups or applications](create-access-review.md), to create the review of the application's role assignments.  Configure the review to apply results when it completes.
 
@@ -237,9 +244,13 @@ Follow the instructions in the [guide for creating an access review of groups or
    $res = (Get-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $azuread_sp.Id -All)
    ```
 
-1. The columns `PrincipalDisplayName` and `PrincipalId` contain the display names and Azure AD user IDs of each user who retains an application role assignment.
+1. The columns `PrincipalDisplayName` and `PrincipalId` contain the display names and Microsoft Entra user IDs of each user who retains an application role assignment.
 
+## Configure entitlement management integration with ServiceNow for ticketing (optional)
+
+If you have ServiceNow then you can optionally configure automated ServiceNow ticket creation, using the [entitlement management integration](entitlement-management-ticketed-provisioning.md) via Logic Apps.  In that scenario, entitlement management can automatically create ServiceNow tickets for manual provisioning of users who have received access package assignments.
 
 ## Next steps
 
  - [Prepare for an access review of users' access to an application](access-reviews-application-preparation.md)
+ - [Automated ServiceNow ticket creation with entitlement management integration](entitlement-management-ticketed-provisioning.md)

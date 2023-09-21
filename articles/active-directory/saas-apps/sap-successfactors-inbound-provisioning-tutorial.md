@@ -138,7 +138,7 @@ Work with your SuccessFactors admin team or implementation partner to create or 
 
 1. In SuccessFactors Admin Center, search for *Manage Permission Roles*, then select **Manage Permission Roles** from the search results.
 1. From the **Permission Role List**, select the role that you created for API usage permissions.
-1. Under **Grant this role to...**, click **Add...** button.
+1. Under **Grant this role to...**, click the **Add...** button.
 1. Select **Permission Group...** from the drop-down menu, then click **Select...** to open the Groups window to search and select the group created above. 
     > [!div class="mx-imgBorder"]
     > ![Add permission group](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
@@ -161,13 +161,8 @@ This section provides steps for user account provisioning from SuccessFactors to
 
 **To configure SuccessFactors to Active Directory provisioning:**
 
-1. Go to the [Azure portal](https://portal.azure.com).
-
-2. In the left navigation bar, select **Azure Active Directory**
-
-3. Select **Enterprise Applications**, then **All Applications**.
-
-4. Select **Add an application**, and select the **All** category.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 
 5. Search for **SuccessFactors to Active Directory User Provisioning**, and add that app from the gallery.
 
@@ -186,9 +181,10 @@ To provision to Active Directory on-premises, the Provisioning agent must be ins
 Transfer the downloaded agent installer to the server host and follow the steps listed [in the install agent section](../cloud-sync/how-to-install.md) to complete the agent configuration.
 
 ### Part 3: In the provisioning app, configure connectivity to SuccessFactors and Active Directory
-In this step, we establish connectivity with SuccessFactors and Active Directory in the Azure portal. 
+In this step, we establish connectivity with SuccessFactors and Active Directory. 
 
-1. In the Azure portal, go back to the SuccessFactors to Active Directory User Provisioning App created in [Part 1](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > SuccessFactors to Active Directory User Provisioning App created in [Part 1](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
 
 1. Complete the **Admin Credentials** section as follows:
 
@@ -251,8 +247,7 @@ In this section, you will configure how user data flows from SuccessFactors to A
      >[!NOTE]
      >For the complete list of SuccessFactors attribute supported by the application, please refer to [SuccessFactors Attribute Reference](../app-provisioning/sap-successfactors-attribute-reference.md)
 
-1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
-        mappings. An individual attribute mapping supports these properties:
+1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new mappings. An individual attribute mapping supports these properties:
 
       * **Mapping Type**
 
@@ -269,11 +264,9 @@ In this section, you will configure how user data flows from SuccessFactors to A
 
       * **Target attribute** – The user attribute in Active  Directory.
 
-      * **Match objects using this attribute** – Whether or not this mapping should be used to uniquely identify users between
-            SuccessFactors and Active Directory. This value is typically set on the  Worker ID field for SuccessFactors, which is typically mapped to one of the Employee ID attributes in Active Directory.
+      * **Match objects using this attribute** – Whether or not this mapping should be used to uniquely identify users between SuccessFactors and Active Directory. This value is typically set on the  Worker ID field for SuccessFactors, which is typically mapped to one of the Employee ID attributes in Active Directory.
 
-      * **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the
-            order defined by this field. As soon as a match is found, no  further matching attributes are evaluated.
+      * **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the order defined by this field. As soon as a match is found, no  further matching attributes are evaluated.
 
       * **Apply this mapping**
 
@@ -287,7 +280,7 @@ Once your attribute mapping configuration is complete, you can test provisioning
 
 ## Enable and launch user provisioning
 
-Once the SuccessFactors provisioning app configurations have been completed and you have verified provisioning for a single user with [on-demand provisioning](../app-provisioning/provision-on-demand.md), you can turn on the provisioning service in the Azure portal.
+Once the SuccessFactors provisioning app configurations have been completed and you have verified provisioning for a single user with [on-demand provisioning](../app-provisioning/provision-on-demand.md), you can turn on the provisioning service.
 
 > [!TIP]
 > By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or SuccessFactors data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users using [on-demand provisioning](../app-provisioning/provision-on-demand.md) before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.

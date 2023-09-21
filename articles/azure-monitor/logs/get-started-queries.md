@@ -15,7 +15,7 @@ ms.date: 10/20/2021
 >
 > If you already know how to query in Kusto Query Language (KQL) but need to quickly create useful queries based on resource types, see the saved example queries pane in [Use queries in Azure Monitor Log Analytics](../logs/queries.md).
 
-In this tutorial, you'll learn to write log queries in Azure Monitor. The article shows you how to:
+In this tutorial, you learn to write log queries in Azure Monitor. The article shows you how to:
 
 - Understand query structure.
 - Sort query results.
@@ -32,6 +32,8 @@ For more information about log queries in Azure Monitor, see [Overview of log qu
 Here's a video version of this tutorial:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
+
+[!INCLUDE [log-analytics-query-permissions](../../../includes/log-analytics-query-permissions.md)]
 
 ## Write a new query
 
@@ -66,7 +68,7 @@ search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
 
-This query searches the `SecurityEvent` table for records that contain the phrase "Cryptographic." Of those records, 10 records will be returned and displayed. If you omit the `in (SecurityEvent)` part and run only `search "Cryptographic"`, the search will go over *all* tables. The process would then take longer and be less efficient.
+This query searches the `SecurityEvent` table for records that contain the phrase "Cryptographic." Of those records, 10 records are returned and displayed. If you omit the `in (SecurityEvent)` part and run only `search "Cryptographic"`, the search goes over *all* tables. The process would then take longer and be less efficient.
 
 > [!IMPORTANT]
 > Search queries are ordinarily slower than table-based queries because they have to process more data.

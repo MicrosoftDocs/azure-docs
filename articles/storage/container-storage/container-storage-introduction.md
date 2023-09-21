@@ -2,11 +2,10 @@
 title: Introduction to Azure Container Storage Preview
 description: An overview of Azure Container Storage Preview, a service built natively for containers that enables customers to create and manage volumes for running production-scale stateful container applications.
 author: khdownie
-ms.service: storage
+ms.service: azure-container-storage
 ms.topic: overview
-ms.date: 06/09/2023
+ms.date: 09/18/2023
 ms.author: kendownie
-ms.subservice: container-storage
 ms.custom: references_regions
 ---
 
@@ -19,7 +18,18 @@ ms.custom: references_regions
 
 Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing you to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters.
 
-To sign up for Azure Container Storage Preview, complete the [onboarding survey](https://aka.ms/AzureContainerStoragePreviewSignUp). To get started using Azure Container Storage, see [Install Azure Container Storage for use with AKS](container-storage-aks-quickstart.md).
+To get started using Azure Container Storage, see [Use Azure Container Storage Preview with Azure Kubernetes Service](container-storage-aks-quickstart.md) or watch the video.
+
+We'd like input on how you plan to use Azure Container Storage. Please complete this [short survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
+
+:::row:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/I_2nCQ1FKTU]
+    :::column-end:::
+    :::column:::
+        This video provides an introduction to Azure Container Storage, an end-to-end storage management and orchestration service for stateful applications. See how simple it is to create and manage volumes for production-scale stateful container applications. Learn how to optimize the performance of stateful workloads on Azure Kubernetes Service (AKS) to effectively scale across storage services while providing a cost-effective container-native experience.
+   :::column-end:::
+:::row-end:::
 
 ## Supported storage types
 
@@ -30,17 +40,21 @@ Azure Container Storage offers persistent volume support with ReadWriteOnce acce
 | **Storage type** | **Description** | **Workloads** | **Offerings** | **Provisioning model** |
 |------------------|-----------------|---------------|---------------|------------------------|
 | **[Azure Elastic SAN Preview](../elastic-san/elastic-san-introduction.md)** | Provision on demand, fully managed resource | General purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. | Azure Elastic SAN Preview | Provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time. |
-| **[Azure Disks](../../virtual-machines/managed-disks-overview.md)** | Granular control of storage SKUs and configurations​ | Azure Disks are a good fit for tier 1 and general purpose databases such as MySQL, MongoDB, and PostgreSQL. | Premium SSD | Provisioned per target container storage pool size and maximum volume size. |
+| **[Azure Disks](../../virtual-machines/managed-disks-overview.md)** | Granular control of storage SKUs and configurations​ | Azure Disks are a good fit for tier 1 and general purpose databases such as MySQL, MongoDB, and PostgreSQL. | Premium SSD, Premium SSD v2, Standard SSD, Ultra Disk | Provisioned per target container storage pool size and maximum volume size. |
 | **Ephemeral Disk** | Utilizes local storage resources on AKS nodes | Ephemeral disk is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. | NVMe only (available on [storage optimized VM SKUs](../../virtual-machines/sizes-storage.md)) | Deployed as part of the VMs hosting an AKS cluster. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment. |
 
 ## Regional availability
 
-Azure Container Storage Preview is only available in the following Azure regions:
+[!INCLUDE [container-storage-regions](../../../includes/container-storage-regions.md)]
 
-- East US
-- West Europe
-- West US 2
-- West US 3
+## What's new in Azure Container Storage
+
+Based on feedback from customers, we've included the following capabilities in the Azure Container Storage Preview update:
+
+- Scale up by [resizing volumes](resize-volume.md) backed by Azure Disks and NVMe storage pools without downtime
+- [Clone persistent volumes](clone-volume.md) within a storage pool
+
+For more information on these features, email the Azure Container Storage team at azcontainerstorage@microsoft.com.
 
 ## Why Azure Container Storage is useful
 Until now, providing cloud storage for containers required using individual container storage interface (CSI) drivers to use storage services intended for IaaS-centric workloads and make them work for containers. This creates operational overhead and increases the risk of issues with application availability, scalability, performance, usability, and cost.
