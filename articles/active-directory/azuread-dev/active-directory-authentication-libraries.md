@@ -1,5 +1,5 @@
 ---
-title: Microsoft Entra authentication Libraries
+title: Azure Active Directory Authentication Libraries
 description: The Azure AD Authentication Library (ADAL) allows client application developers to easily authenticate users to cloud or on-premises Active Directory (AD) and then obtain access tokens for securing API calls.
 services: active-directory
 author: rwike77
@@ -15,7 +15,7 @@ ms.custom: aaddev
 ROBOTS: NOINDEX
 ---
 
-# Microsoft Entra authentication Libraries
+# Azure Active Directory Authentication Libraries
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -26,7 +26,7 @@ The Azure Active Directory Authentication Library (ADAL) v1.0 enables applicatio
 - Support for asynchronous method calls
 
 > [!NOTE]
-> Looking for the Microsoft Entra v2.0 libraries (MSAL)? Checkout the [MSAL library guide](../develop/reference-v2-libraries.md).
+> Looking for the Azure AD v2.0 libraries (MSAL)? Checkout the [MSAL library guide](../develop/reference-v2-libraries.md).
 
 
 > [!WARNING]
@@ -48,12 +48,12 @@ The Azure Active Directory Authentication Library (ADAL) v1.0 enables applicatio
 
 | Platform | Library | Download | Source Code | Sample | Reference
 | --- | --- | --- | --- | --- | --- |
-| .NET |OWIN for Microsoft Entra ID|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/main/src/Microsoft.Owin.Security.ActiveDirectory) |[MVC App](../develop/quickstart-v2-aspnet-webapp.md) | |
+| .NET |OWIN for AzureAD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/main/src/Microsoft.Owin.Security.ActiveDirectory) |[MVC App](../develop/quickstart-v2-aspnet-webapp.md) | |
 | .NET |OWIN for OpenIDConnect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/main/src/Microsoft.Owin.Security.OpenIdConnect) |[Web App](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |
 | .NET |OWIN for WS-Federation |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.WsFederation) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/main/src/Microsoft.Owin.Security.WsFederation) |[MVC Web App](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) | |
 | .NET |Identity Protocol Extensions for .NET 4.5 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
 | .NET |JWT Handler for .NET 4.5 |[NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
-| Node.js |Microsoft Entra Passport |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Web API](../develop/authentication-flows-app-scenarios.md)| |
+| Node.js |Azure AD Passport |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Web API](../develop/authentication-flows-app-scenarios.md)| |
 
 ## Scenarios
 
@@ -61,15 +61,15 @@ Here are three common scenarios for using ADAL in a client that accesses a remot
 
 ### Authenticating users of a native client application running on a device
 
-In this scenario, a developer has a mobile client or desktop application that needs to access a remote resource, such as a web API. The web API does not allow anonymous calls and must be called in the context of an authenticated user. The web API is pre-configured to trust access tokens issued by a specific Microsoft Entra tenant. Microsoft Entra ID is pre-configured to issue access tokens for that resource. To invoke the web API from the client, the developer uses ADAL to facilitate authentication with Microsoft Entra ID. The most secure way to use ADAL is to have it render the user interface for collecting user credentials (rendered as browser window).
+In this scenario, a developer has a mobile client or desktop application that needs to access a remote resource, such as a web API. The web API does not allow anonymous calls and must be called in the context of an authenticated user. The web API is pre-configured to trust access tokens issued by a specific Azure AD tenant. Azure AD is pre-configured to issue access tokens for that resource. To invoke the web API from the client, the developer uses ADAL to facilitate authentication with Azure AD. The most secure way to use ADAL is to have it render the user interface for collecting user credentials (rendered as browser window).
 
-ADAL makes it easy to authenticate the user, obtain an access token and refresh token from Microsoft Entra ID, and then call the web API using the access token.
+ADAL makes it easy to authenticate the user, obtain an access token and refresh token from Azure AD, and then call the web API using the access token.
 
-For a code sample that demonstrates this scenario using authentication to Microsoft Entra ID, see [Native Client WPF Application to Web API](https://github.com/azureadsamples/nativeclient-dotnet).
+For a code sample that demonstrates this scenario using authentication to Azure AD, see [Native Client WPF Application to Web API](https://github.com/azureadsamples/nativeclient-dotnet).
 
 ### Authenticating a confidential client application running on a web server
 
-In this scenario, a developer has an application running on a server that needs to access a remote resource, such as a web API. The web API does not allow anonymous calls, so it must be called from an authorized service. The web API is pre-configured to trust access tokens issued by a specific Microsoft Entra tenant. Microsoft Entra ID is pre-configured to issue access tokens for that resource to a service with client credentials (client ID and secret). ADAL facilitates authentication of the service with Microsoft Entra ID returning an access token that can be used to call the web API. ADAL also handles managing the lifetime of the access token by caching it and renewing it as necessary. For a code sample that demonstrates this scenario, see [Daemon console Application to Web API](https://github.com/AzureADSamples/Daemon-DotNet).
+In this scenario, a developer has an application running on a server that needs to access a remote resource, such as a web API. The web API does not allow anonymous calls, so it must be called from an authorized service. The web API is pre-configured to trust access tokens issued by a specific Azure AD tenant. Azure AD is pre-configured to issue access tokens for that resource to a service with client credentials (client ID and secret). ADAL facilitates authentication of the service with Azure AD returning an access token that can be used to call the web API. ADAL also handles managing the lifetime of the access token by caching it and renewing it as necessary. For a code sample that demonstrates this scenario, see [Daemon console Application to Web API](https://github.com/AzureADSamples/Daemon-DotNet).
 
 ### Authenticating a confidential client application running on a server, on behalf of a user
 
@@ -77,6 +77,6 @@ In this scenario, a developer has a web application running on a server that nee
 
 ## See Also
 
-- [The Microsoft Entra developer's guide](v1-overview.md)
-- [Authentication scenarios for Microsoft Entra ID](v1-authentication-scenarios.md)
-- [Microsoft Entra ID code samples](sample-v1-code.md)
+- [The Azure Active Directory developer's guide](v1-overview.md)
+- [Authentication scenarios for Azure Active Directory](v1-authentication-scenarios.md)
+- [Azure Active Directory code samples](sample-v1-code.md)

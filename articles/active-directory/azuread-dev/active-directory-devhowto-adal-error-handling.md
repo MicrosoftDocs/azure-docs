@@ -26,7 +26,7 @@ In this article, we explore the specific cases for each platform supported by AD
 - **AcquireToken**: Client can attempt silent acquisition, but can also perform interactive requests that require sign-in.
 
 > [!TIP]
-> It's a good idea to log all errors and exceptions when using ADAL and Microsoft Entra ID. Logs are not only helpful for understanding the overall health of your application, but are also important when debugging broader problems. While your application may recover from certain errors, they may hint at broader design problems that require code changes in order to resolve. 
+> It's a good idea to log all errors and exceptions when using ADAL and Azure AD. Logs are not only helpful for understanding the overall health of your application, but are also important when debugging broader problems. While your application may recover from certain errors, they may hint at broader design problems that require code changes in order to resolve. 
 > 
 > When implementing the error conditions covered in this document, you should log the error code and description for the reasons discussed earlier. See the [Error and logging reference](#error-and-logging-reference) for examples of logging code. 
 >
@@ -186,7 +186,7 @@ The operating system can also generate a set of errors, which require error hand
 
 If you're building a native client application, there are a few error handling cases to consider which relate to network issues, transient failures, and other platform-specific errors. In most cases, an application shouldn't perform immediate retries, but rather wait for end-user interaction that prompts a sign-in. 
 
-There are a few special cases in which a single retry may resolve the issue. For example, when a user needs to enable data on a device, or completed the Microsoft Entra broker download after the initial failure. 
+There are a few special cases in which a single retry may resolve the issue. For example, when a user needs to enable data on a device, or completed the Azure AD broker download after the initial failure. 
 
 In cases of failure, an application can present UI to allow the end user to perform some interaction that prompts a retry. For instance, if the device failed for an offline error, a "Try to Sign in again" button prompting an AcquireToken retry rather than immediately retrying the failure. 
 
@@ -194,8 +194,8 @@ Error handling in native applications can be defined by two cases:
 
 | Case | Description  |
 |------|-------------|
-| **Case 1**:<br>Non-Retryable Error (most cases) | 1. Do not attempt immediate retry. Present the end-user UI based on the specific error that invokes a retry (for example, "Try to Sign in again" or "Download Microsoft Entra broker application"). |
-| **Case 2**:<br>Retryable Error | 1. Perform a single retry as the end user may have entered a state that results in a success.<br><br>2. If retry fails, present the end-user UI based on the specific error that invokes a retry ("Try to Sign in again", "Download Microsoft Entra broker app", etc.). |
+| **Case 1**:<br>Non-Retryable Error (most cases) | 1. Do not attempt immediate retry. Present the end-user UI based on the specific error that invokes a retry (for example, "Try to Sign in again" or "Download Azure AD broker application"). |
+| **Case 2**:<br>Retryable Error | 1. Perform a single retry as the end user may have entered a state that results in a success.<br><br>2. If retry fails, present the end-user UI based on the specific error that invokes a retry ("Try to Sign in again", "Download Azure AD broker app", etc.). |
 
 > [!IMPORTANT]
 > If a user account is passed to ADAL in a silent call and fails, the subsequent interactive request allows the end user to sign in using a different account. After a successful AcquireToken using a user account, the application must verify the signed-in user matches the applications's local user object. A mismatch does not generate an exception (except in Objective C), but should be considered in cases where a user is known locally before the authentication requests (like a failed silent call).
@@ -575,7 +575,7 @@ window.Logging = {
 
 ## Related content
 
-* [Microsoft Entra authentication Libraries][AAD-Auth-Libraries]
+* [Azure AD Authentication Libraries][AAD-Auth-Libraries]
 * [Microsoft Entra authentication Scenarios][AAD-Auth-Scenarios]
 * [Integrating Applications with Microsoft Entra ID][AAD-Integrating-Apps]
 
