@@ -1,6 +1,6 @@
 ---
 title: Manage chamber storage in Azure Modeling and Simulation Workbench
-description: Learn how to manage chamber storage in Azure  Modeling and Simulation Workbench.
+description: Learn how to manage chamber storage in Azure Modeling and Simulation Workbench.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu

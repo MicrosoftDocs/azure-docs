@@ -73,7 +73,8 @@ Don't assign both roles to a single user. The user should be *either* a Chamber 
 
 1. Repeat steps 1 to 6 to allow more users access to the chamber as the Chamber User or Chamber Admin role.
 
-Allow five minutes for the provisioning of the users to propagate throughout the chamber, so they have a successful login experience.
+   > [!NOTE]
+   > Allow five minutes for the provisioning of the users to propagate throughout the chamber, so they have a successful login experience.
 
 ## Remove access
 
