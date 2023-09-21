@@ -233,7 +233,7 @@ Container registries that are behind a virtual network may also encounter this e
 
 #### Image build compute not set in a private workspace with VNet
 
-If the error message mentions `"failed to communicate with the workspace's container registry"` and you're using virtual networks and the the workspace's Azure Container Registry is private and configured with a private endpoint, you will need to [enable Azure Container Registry](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) to allow building images in the virtual network. 
+If the error message mentions `"failed to communicate with the workspace's container registry"` and you're using virtual networks and the the workspace's Azure Container Registry is private and configured with a private endpoint, you will need to [enable Azure Container Registry](how-to-managed-network.md#configure-image-builds) to allow building images in the virtual network. 
 
 #### Generic image build failure
 
