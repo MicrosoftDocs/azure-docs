@@ -215,7 +215,7 @@
       href: configure-ldap-over-tls.md
     - name: Join a Linux VM to an Active Directory Domain
       href: join-active-directory-domain.md
-    - name: Access SMB volume from Azure AD-joined Windows client
+    - name: Access SMB volume from Azure AD-joined Windows VM
       href: access-smb-volume-from-windows-client.md
   - name: Manage capacity pools
     items:
