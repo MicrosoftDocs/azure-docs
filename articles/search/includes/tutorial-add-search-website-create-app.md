@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 08/29/2023
+ms.date: 09/21/2023
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
