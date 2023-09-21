@@ -23,7 +23,7 @@ Smart lockout helps lock out bad actors that try to guess your users' passwords 
 
 By default, smart lockout locks the account from sign-in attempts for one minute after a number of attempts. Ten failed attempts are allowed for Azure Public and Microsoft Azure operated by 21Vianet tenants and three for Azure US Government tenants. The account locks again after each subsequent failed sign-in attempt. The lockout period is one minute at first, and longer in subsequent attempts. To minimize the ways an attacker could work around this behavior, we don't disclose the rate at which the lockout period increases after unsuccessful sign-in attempts.
 
-Smart lockout tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior won't cause the account to lock out.
+Smart lockout tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior does't cause the account to lock out.
 
 > [!NOTE]
 > Hash tracking functionality isn't available for customers with pass-through authentication enabled as authentication happens on-premises not in the cloud.
@@ -96,7 +96,7 @@ Smart lockout tracks the last three bad password hashes to avoid incrementing th
 
 
 ## Default protections
-In addition to Smart lockout, Microsoft Entra ID also protects against attacks by analyzing signals including IP traffic and identifying anomalous behavior. Microsoft Entra ID will block these malicious sign-ins by default and return [AADSTS50053 - IdsLocked error code](../develop/reference-error-codes.md), regardless of the password validity.
+In addition to Smart lockout, Microsoft Entra ID also protects against attacks by analyzing signals including IP traffic and identifying anomalous behavior. Microsoft Entra ID blocks these malicious sign-ins by default and returns [AADSTS50053 - IdsLocked error code](../develop/reference-error-codes.md), regardless of the password validity.
 
 ## Next steps
 
