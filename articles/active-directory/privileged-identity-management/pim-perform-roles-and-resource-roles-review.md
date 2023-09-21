@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Perform an access review of Azure resource and Microsoft Entra roles in PIM
 
-Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Microsoft Entra ID, part of Microsoft Entra, and other Microsoft online services like Microsoft 365 or Microsoft Intune. Follow the steps in this article to perform reviews of access to roles.
+Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Microsoft Entra ID, and other Microsoft online services like Microsoft 365 or Microsoft Intune. Follow the steps in this article to perform reviews of access to roles.
 
 If you're assigned to an administrative role, your organization's privileged role administrator may ask you to regularly confirm that you still need that role for your job. You might get an email that includes a link, or you can go straight to the [Microsoft Entra admin center](https://entra.microsoft.com) and begin.
 
