@@ -86,6 +86,9 @@ There are detection query templates for SQLi and XSS attacks in Sentinel for Azu
 1. Select the **Front Door Premium WAF - SQLi Detection** template.
 1. On the right pane, select **Create rule**.
 1. Accept all the defaults and click through to **Automated response**. You can edit these settings later to customize the rule.
+   > [!TIP]
+> If you see an error in the rule query, it might be because you don't have any WAF logs in your workspace. You can generate some logs by sending test traffic to your web app. For example, you can simulate a SQLi attack by sending a request like this: `http://x.x.x.x/?text1=%27OR%27%27=%27`. Replace `x.x.x.x` with your Front Door URL.
+
 1. On the **Automated response** page, select **Add new**.
 1. On the **Create new automation rule** page, type a name for the rule.
 1. Under **Trigger**, select **When alert is created**.
