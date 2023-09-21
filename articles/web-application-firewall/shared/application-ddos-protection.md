@@ -57,7 +57,7 @@ Application Gateway WAF SKUs can be used to mitigate many L7 DDoS attacks:
 
 ## Other considerations
 
-* Lock down access to public IPs on origin and restrict inbound traffic to only allow traffic from Azure Front Door or Application Gateway to origin. Refer to the [guidance on Azure Front Door](../../frontdoor/front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-). Application Gateways are deployed in a virtual network, ensure there isn't any publicly exposed IPs.
+* Lock down access to public IPs on origin and restrict inbound traffic to only allow traffic from Azure Front Door or Application Gateway to origin. Refer to the [guidance on Azure Front Door](../../frontdoor/front-door-faq.yml#what-are-the-steps-to-restrict-the-access-to-my-backend-to-only-azure-front-door-). Application Gateways are deployed in a virtual network, ensure there isn't any publicly exposed IPs.
 
 * Switch WAF policy to the prevention mode. Deploying the policy in detection mode operates in the log only and doesn't block traffic. After verifying and testing your WAF policy with production traffic and fine tuning to reduce any false positives, you should turn policy to Prevention mode (block/defend mode). 
 
