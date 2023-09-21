@@ -7,7 +7,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/20/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -46,7 +46,7 @@ The following example returns the logarithm value of various values.
 - This function doesn't use the index.
 - The `LOG10` and `POWER` functions are inversely related to one another.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`LOG`](log.md)

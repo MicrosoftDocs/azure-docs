@@ -37,7 +37,7 @@ To register your application and add the app's registration information to your 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Search for and select **Azure Active Directory**.
+1. Search for and select **Microsoft Entra ID**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application, for example `msal-node-cli`. Users of your app might see this name, and you can change it later.
 1. Select **Register**.
@@ -68,8 +68,8 @@ To register your application and add the app's registration information to your 
    
    Using a plaintext secret in the source code poses an increased security risk for your application. Although the sample in this quickstart uses a plaintext client secret, it's only for simplicity. We recommend using [certificate credentials](./certificate-credentials.md) instead of client secrets in your confidential client applications, especially those apps you intend to deploy to production.
 
-3. Edit *.env* and replace the Azure AD and Microsoft Graph endpoints with the following values:
-   - For the Azure AD endpoint, replace `Enter_the_Cloud_Instance_Id_Here` with `https://login.microsoftonline.com`.
+3. Edit *.env* and replace the Microsoft Entra ID and Microsoft Graph endpoints with the following values:
+   - For the Microsoft Entra endpoint, replace `Enter_the_Cloud_Instance_Id_Here` with `https://login.microsoftonline.com`.
    - For the Microsoft Graph endpoint, replace `Enter_the_Graph_Endpoint_Here` with `https://graph.microsoft.com/`.
 
 #### Step 4: Admin consent
@@ -106,7 +106,7 @@ Then, run the application via command prompt or console:
 node . --op getUsers
 ```
 
-You should see on the console output some JSON fragment representing a list of users in your Azure AD directory.
+You should see on the console output some JSON fragment representing a list of users in your Microsoft Entra directory.
 
 ## About the code
 

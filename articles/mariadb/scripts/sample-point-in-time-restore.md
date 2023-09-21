@@ -12,6 +12,8 @@ ms.date: 02/11/2022
 
 # Restore an Azure Database for MariaDB server using Azure CLI
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](../includes/azure-database-for-mariadb-deprecation.md)]
+
 This sample CLI script restores a single Azure Database for MariaDB server to a previous point in time.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
