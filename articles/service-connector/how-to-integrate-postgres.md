@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 11/29/2022
 ms.custom: event-tier1-build-2022, engagement-fy23
 zone_pivot_group_filename: service-connector/zone-pivot-groups.json
-zone_pivot_groups: howto-postgresql-authtype
+zone_pivot_groups: howto-authtype
 ---
 
 # Integrate Azure Database for PostgreSQL with Service Connector

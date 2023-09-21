@@ -558,18 +558,23 @@ For PHP, there's not a plugin or library for passwordless connections. You can g
 1. In code, get the access token via REST API with your favorite library.
 
     :::zone pivot="user-identity"
+
     App service and container Apps provides an internally accessible REST endpoint to retrieve tokens for managed identities by defining two environment variables: `IDENTITY_ENDPOINT` and `IDENTITY_HEADER`. For more details, refer to [REST endpoint reference](/azure/container-apps/managed-identity?tabs=http#rest-endpoint-reference). 
     Get the access token by making an HTTP GET request to the identity endpoint, and use `https://ossrdbms-aad.database.windows.net` as `resource` in the query. For user-assigned identity, please include the client ID from the environment variables added by Service Connector in the query as well.
+    
     :::zone-end
     
 
     ::: zone pivot="system-identity"
+
     App service and container Apps provides an internally accessible REST endpoint to retrieve tokens for managed identities by defining two environment variables: `IDENTITY_ENDPOINT` and `IDENTITY_HEADER`. For more details, refer to [REST endpoint reference](/azure/container-apps/managed-identity?tabs=http#rest-endpoint-reference). 
     Get the access token by making an HTTP GET request to the identity endpoint, and use `https://ossrdbms-aad.database.windows.net` as `resource` in the query.
+
     ::: zone-end
 
     ::: zone pivot="service-principal"
     Refer to [the Azure AD service-to-service access token request](azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see the details of how to acquire access token. Make the POST request the scope of `https://ossrdbms-aad.database.windows.net/.default` and with the tenant ID, client ID and client secret of the service principal from the environment variables added by Service Connector.
+
     ::: zone-end
 
 1. Combine the access token and the PostgreSQL connection sting from environment variables added by Service Connector service to establish the connection.
@@ -590,7 +595,9 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
     ```
 1. In code, get the access token via REST API and PostgreSQL connection information from environment variables added by Service Connector service. Combine them to establish the connection.
 
+
     :::zone pivot="user-identity"
+
     App service and container Apps provides an internally accessible REST endpoint to retrieve tokens for managed identities. For more details, refer to [REST endpoint reference](/azure/container-apps/managed-identity?tabs=http#rest-endpoint-reference).
     ```ruby
     require 'pg'
@@ -614,6 +621,7 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
     
 
     ::: zone pivot="system-identity"
+
     App service and container Apps provides an internally accessible REST endpoint to retrieve tokens for managed identities. For more details, refer to [REST endpoint reference](/azure/container-apps/managed-identity?tabs=http#rest-endpoint-reference).    
     ```ruby
     require 'pg'
@@ -635,6 +643,7 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
     ::: zone-end
 
     ::: zone pivot="service-principal"
+
     ```ruby
     require 'pg'
     require 'dotenv/load'
@@ -665,6 +674,7 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
     ```
 
     Refer to [the Azure AD service-to-service access token request](azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see more details of how to acquire access token.
+
     ::: zone-end
 
 ---
