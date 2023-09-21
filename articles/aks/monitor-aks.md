@@ -2,7 +2,7 @@
 title: Monitor Azure Kubernetes Service (AKS)
 description: Start here to learn how to monitor Azure Kubernetes Service (AKS).
 author: bwren
-ms.author: bwren
+ms.author: xuhliu
 ms.topic: conceptual
 ms.custom: subject-monitoring
 ms.date: 08/01/2023
