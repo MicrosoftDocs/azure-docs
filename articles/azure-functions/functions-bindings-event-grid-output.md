@@ -701,7 +701,7 @@ There are two ways of authenticating to an Event Grid topic when using the Event
 | Authentication method | Description |
 | ----- | ----- |
 | Using a topic key | Set the `TopicEndpointUri` and `TopicKeySetting` properties, as described in [Use a topic key](#use-a-topic-key). | 
-| Using an identity | Set the `Connection` property to the name of a shared prefix for multiple application settings, together defining an [identity-based connection](#identity-based-connections). This method is supported when using version 3.3.x or higher of the extension. | 
+| Using an identity | Set the `Connection` property to the name of a shared prefix for multiple application settings, together defining an [identity-based connection](#identity-based-connection). This method is supported when using version 3.3.x or higher of the extension. | 
 
 ### Use a topic key
 
@@ -723,7 +723,7 @@ In this mode, the extension requires the following properties:
 |--------------------|----------------------------------------------|---------------------|---------------|
 | Topic Endpoint URI | `<CONNECTION_NAME_PREFIX>__topicEndpointUri` | The topic endpoint. | `https://<topic-name>.centralus-1.eventgrid.azure.net/api/events`  |
 
-Additional properties may be set to customize the connection. See [Common properties for identity-based connections](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections).
+Additional properties may be set to customize the connection. See [Common properties for identity-based connections](functions-reference.md#common-properties-for-identity-based-connections).
 
 > [!NOTE]
 > When using [Azure App Configuration](../azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../key-vault/general/overview.md) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
