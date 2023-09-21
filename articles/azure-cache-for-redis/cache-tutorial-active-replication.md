@@ -22,7 +22,7 @@ This tutorial uses a sample inventory page which shows three different T-shirt o
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Two Azure Kubernetes Service Clusters in different regions- For more information on creating a cluster, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal). Alternately, you can host two instances of the demo application on the same AKS cluster.
+- One Azure Kubernetes Service Cluster - For more information on creating a cluster, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal). Alternately, you can host two instances of the demo application on the two different AKS clusters, which will how your production environment will be set up. However, for this tutorial, we will deploy both instances of the application on the same AKS cluster.
 
 > [!IMPORTANT]
 > This tutorial assumes that you are familiar with basic Kubernetes concepts like containers, pods and service.
@@ -45,7 +45,7 @@ This tutorial uses a sample inventory page which shows three different T-shirt o
 To demonstrate data replication across regions, we will run two instances of the same application in different regions. Let's assume one instance runs in Seattle (west) while the second in New York(east). 
 
 Update the following fields in the YAML file below and save it as app_west.yaml
-* Update environment variables REDIS_HOST and REDIS_PASSWORD with hostname and access key of your Azure Cache for Redis Enterprise instance in West US 2 or one of the two regions your chose earlier.
+* Update environment variables REDIS_HOST and REDIS_PASSWORD with endpoint (remove the suffix ":10000") and access key of your Azure Cache for Redis Enterprise instance in West US 2 or one of the two regions your chose earlier.
 * Update APP_LOCATION to display the region where this application instance is running. In this sample, we are configuring the APP_LOCATION to Seattle to indicate this application instance is running in Seattle.
 
 ```YAML
@@ -76,7 +76,7 @@ spec:
             memory: "128Mi"
         env:
          - name: REDIS_HOST
-           value: "DemoWest.westus.redisenterprise.cache.azure.net"
+           value: "DemoWest.westus2.redisenterprise.cache.azure.net"
          - name: REDIS_PASSWORD
            value: "myaccesskey"
          - name: REDIS_PORT
@@ -101,7 +101,62 @@ spec:
     app: shoppingcart
 ```
 
-Save another copy of the same YAML file as app_east.yaml. This time, update the REDIS_HOST, REDIS_PASSWORD and APP_LOCATION to point to Redis Enterprise instance in East US or your second region of choice.
+Save another copy of the same YAML file as app_east.yaml. This time, update the namespace, REDIS_HOST, REDIS_PASSWORD and APP_LOCATION to point to Redis Enterprise instance in East US or your second region of choice.
+
+It should look like below: 
+
+```YAML
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shoppingcart-app
+  namespace: east
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: shoppingcart
+  template:
+    metadata:
+      labels:
+        app: shoppingcart
+    spec:
+      containers:
+      - name: demoapp
+        image: mcr.microsoft.com/azure-redis-cache/redisactivereplicationdemo:latest
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "250Mi"
+          requests:
+            cpu: "0.5"
+            memory: "128Mi"
+        env:
+         - name: REDIS_HOST
+           value: "DemoEast.eastus.redisenterprise.cache.azure.net"
+         - name: REDIS_PASSWORD
+           value: "myaccesskey"
+         - name: REDIS_PORT
+           value: "10000"   # redis enterprise port
+         - name: HTTP_PORT
+           value: "8080"
+         - name: APP_LOCATION
+           value: "New York, NY" 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shoppingcart-svc
+  namespace: east
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  selector:
+    app: shoppingcart
+```
 
 ## Connect to your AKS cluster
 
@@ -119,14 +174,12 @@ If you use Azure Cloud Shell, _kubectl_ is already installed, and you can skip t
 Use the portal to copy the resource group and cluster name for your AKS cluster in the West US 2 region. To configure _kubectl_ to connect to your AKS cluster, use the following command with your resource group and cluster name:
 
 ```bash
- az aks get-credentials --resource-group myResourceGroup --name myClusterName -f AKS_WestUS2
+ az aks get-credentials --resource-group myResourceGroup --name myClusterName
  ```
 
 Verify that you are able to connect to your cluster by running the following command:
 
 ```bash
-set kubeconfig=AKS_WestUS2
-
 kubectl get nodes
 ```
 
@@ -138,18 +191,7 @@ aks-agentpool-21274953-vmss000001   Ready    agent   1d    v1.24.15
 aks-agentpool-21274953-vmss000003   Ready    agent   1d    v1.24.15
 aks-agentpool-21274953-vmss000006   Ready    agent   1d    v1.24.15
 ```
-
-Now, repeat the steps for getting credentials for your AKS cluster in East US region.
-
-```bash
-az aks get-credentials --resource-group myResourceGroup --name myClusterName -f AKS_EastUS
-
-set kubeconfig=AKS_EastUS
-
-kubectl get nodes
-```
-
-Thus, you now have context on your machine to connect to both the AKS clusters on your machine. 
+ 
 Alternately, you can apply the YAML files to appropriate AKS clusters through portal directly. To apply YAML through portal, go to the "Services and ingresses" blade for your AKS cluster, and click on the "Create" and choose "Apply a YAML" option. This will open an editor where you can copy paste your YAML file.
 
 
@@ -158,7 +200,7 @@ Alternately, you can apply the YAML files to appropriate AKS clusters through po
 Run the following command to deploy the application instance to your AKS cluster in **West US 2**:
 
 ```bash
-set kubeconfig=AKS_WestUS2
+kubectl create namespace west
 
 kubectl apply -f app_west.yaml
 ```
@@ -201,14 +243,15 @@ Once the External-IP is available, open a web browser to the External-IP address
 Run the same deployment steps and deploy an instance of the demo application to run in East US region.
 
 ```bash
-set kubeconfig=AKS_EastUS
+kubectl create namespace east
 
-kubectl apply -f app_east
+kubectl apply -f app_east.yaml
 
 kubectl get pods -n east
 
 kubectl get service -n east
 ```
+
 With two services opened in your browser, you should see that changing the inventory in one region is virtually instantly reflected in the other region. The inventory data is stored in the Redis Enterprise instances which are replicating data across regions.
 
 You did it! Click on the buttons and explore the demo. To reset the count, add "/reset" after the url. e.g. <IP address>/reset
@@ -219,14 +262,13 @@ You did it! Click on the buttons and explore the demo. To reset the count, add "
 To clean up your cluster, run the following commands:
 
 ```bash
-set kubeconfig=AKS_WestUS2
 kubectl delete deployment shoppingcart-app -n west
 kubectl delete service shoppingcart-svc -n west
-
-set kubeconfig=AKS_EastUS
 kubectl delete deployment shoppingcart-app -n east
 kubectl delete service shoppingcart-svc -n east
 ```
+
+Proceed with deleting your AKS cluster, your Azure Cache for Redis Enterprise instances and the resource group.
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
