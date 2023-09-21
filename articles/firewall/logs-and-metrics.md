@@ -185,9 +185,9 @@ The following metrics are available for Azure Firewall:
 
 - **AZFW Latency Probe** - Estimates Azure Firewall average latency.
 
-   Unit: m/s
+   Unit: ms
 
-   This metric measures the overall or average latency of Azure Firewall. Administrators can use this metric for the following purposes: 
+   This metric measures the overall or average latency of Azure Firewall in milliseconds. Administrators can use this metric for the following purposes: 
 
    - Diagnose if Azure Firewall is the cause of latency in the network 
 
@@ -198,7 +198,7 @@ The following metrics are available for Azure Firewall:
      This metric doesn't measure end-to-end latency of a given network path. In other words, this latency health probe doesn't measure how much latency Azure Firewall adds.
 
    - When the latency metric isn't functioning as expected, a value of 0 appears in the metrics dashboard.
-   - As a reference, the average expected latency for a firewall is approximately 1 m/s. This may vary depending on deployment size and environment.
+   - As a reference, the average expected latency for a firewall is approximately 1 ms. This may vary depending on deployment size and environment.
    -  The latency probe is based on Microsoft's Ping Mesh technology. So, intermittent spikes in the latency metric are to be expected. These spikes are normal and don't signal an issue with the Azure Firewall. They're part of the standard host networking setup that supports the system.
    
       As a result, if you experience consistent high latency that last longer than typical spikes, consider filing a Support ticket for assistance.

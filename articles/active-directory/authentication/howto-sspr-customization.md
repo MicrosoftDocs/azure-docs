@@ -1,12 +1,12 @@
 ---
 title: Customize self-service password reset
-description: Learn how to customize user display and experience options for Azure AD self-service password reset
+description: Learn how to customize user display and experience options for Microsoft Entra self-service password reset
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/01/2023
+ms.date: 09/14/2023
 
 ms.author: justinha
 author: justinha
@@ -15,9 +15,9 @@ ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
-# Customize the user experience for Azure Active Directory self-service password reset
+# Customize the user experience for Microsoft Entra self-service password reset
 
-Self-service password reset (SSPR) gives users in Azure Active Directory (Azure AD) the ability to change or reset their password, with no administrator or help desk involvement. If a user's account is locked or they forget their password, they can follow prompts to unblock themselves and get back to work. This ability reduces help desk calls and loss of productivity when a user can't sign in to their device or an application.
+Self-service password reset (SSPR) gives users in Microsoft Entra ID the ability to change or reset their password, with no administrator or help desk involvement. If a user's account is locked or they forget their password, they can follow prompts to unblock themselves and get back to work. This ability reduces help desk calls and loss of productivity when a user can't sign in to their device or an application.
 
 To improve the SSPR experience for users, you can customize the look and feel of the password reset page, email notifications, or sign-in pages. These customization options let you make it clear to the user they're in the right place, and give them confidence they're accessing company resources.
     
@@ -47,7 +47,7 @@ The default contact email is sent to recipients in the following order:
 
 In all cases, a maximum of 100 recipients are notified.
 
-To find out more about the different administrator roles and how to assign them, see [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md).
+To find out more about the different administrator roles and how to assign them, see [Assigning administrator roles in Microsoft Entra ID](../roles/permissions-reference.md).
 
 ### Disable "Contact your administrator" emails
 
@@ -58,7 +58,7 @@ If your organization doesn't want to notify administrators about password reset 
 
 ## Customize the sign-in page and access panel
 
-You can customize the sign-in page, such as to add a logo that appears along with the image that fits your company branding. For more information on how to configure company branding, see [Add company branding to your sign-in page in Azure AD](../fundamentals/how-to-customize-branding.md).
+You can customize the sign-in page, such as to add a logo that appears along with the image that fits your company branding. For more information on how to configure company branding, see [Add company branding to your sign-in page in Microsoft Entra ID](../fundamentals/how-to-customize-branding.md).
 
 The graphics you choose are shown in the following circumstances:
 
@@ -69,7 +69,7 @@ The graphics you choose are shown in the following circumstances:
 
 ### Directory name
 
-To make things look more user-friendly, you can change organization name in the portal and in the automated communications. To change the directory name attribute in the Azure portal, browse to **Azure Active Directory** > **Properties**. This friendly organization name option is the most visible in automated emails, as in the following examples:
+To make things look more user-friendly, you can change organization name in the portal and in the automated communications. To change the directory name attribute in the Microsoft Entra admin center, sign in as a Global Administrator and browse to **Identity** > **Overview** > **Properties**. This friendly organization name option is the most visible in automated emails, as in the following examples:
 
 * The friendly name in the email, for example "*Microsoft on behalf of CONTOSO demo*"
 * The subject line in the email, for example "*CONTOSO demo account email verification code*"
@@ -86,6 +86,6 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwor
 
 ## Next steps
 
-To understand the usage of SSPR in your environment, see [Reporting options for Azure AD password management](howto-sspr-reporting.md).
+To understand the usage of SSPR in your environment, see [Reporting options for Microsoft Entra password management](howto-sspr-reporting.md).
 
 If you or users have problems with SSPR, see [Troubleshoot self-service password reset](./troubleshoot-sspr.md)

@@ -1,8 +1,8 @@
 ---
 title: What's new in Azure Managed Grafana
 description: Recent updates for Azure Managed Grafana
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: managed-grafana
 ms.topic: conceptual
 ms.date: 02/06/2023

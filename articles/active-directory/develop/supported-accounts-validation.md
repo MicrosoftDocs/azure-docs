@@ -5,7 +5,7 @@ author: cilwerner
 ms.author: cwerner
 manager: CelesteDG
 ms.date: 03/24/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.subservice: develop
 ms.custom: aaddev, engagement-fy23
 ms.service: active-directory
@@ -21,8 +21,8 @@ After the application has been registered, you can check or change the account t
 | Supported account types (Register an application) | `signInAudience` (Manifest) |
 |---------------------------------------------------|-----------------------------|
 | Accounts in this organizational directory only (Single tenant) | `AzureADMyOrg` |
-| Accounts in any organizational directory (Any Azure AD directory - Multitenant) | `AzureADMultipleOrgs` |
-| Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox) | `AzureADandPersonalMicrosoftAccount` |
+| Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) | `AzureADMultipleOrgs` |
+| Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox) | `AzureADandPersonalMicrosoftAccount` |
 | Personal Microsoft accounts only | `PersonalMicrosoftAccount` |
 
 If you change this property you may need to change other properties first. 
