@@ -113,7 +113,7 @@ If the condition templates don't work for your scenario or if you want more cont
 
     :::image type="content" source="./media/shared/condition-templates.png" alt-text="Screenshot of Add role assignment condition with a list of condition templates." lightbox="./media/shared/condition-templates.png":::
 
-1. Select **Go to advanced condition builder**.
+1. Select **Open advanced condition editor**.
 
     The Add role assignment condition page appears.
 
