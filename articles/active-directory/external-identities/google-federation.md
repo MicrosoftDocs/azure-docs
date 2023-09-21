@@ -140,7 +140,7 @@ Follow [Google’s guidance](https://developers.googleblog.com/2016/08/modernizi
 
 ## Step 1: Configure a Google developer project
 
-First, create a new project in the Google Developers Console to obtain a client ID and a client secret that you can later add to Microsoft Entra ID. 
+First, create a new project in the Google Developers Console to obtain a client ID and a client secret that you can later add to Microsoft Entra External ID. 
 1. Go to the Google APIs at https://console.developers.google.com, and sign in with your Google account. We recommend that you use a shared team Google account.
 
 1. Accept the terms of service if you're prompted to do so.
@@ -178,7 +178,7 @@ First, create a new project in the Google Developers Console to obtain a client 
     - `https://login.microsoftonline.com/te/<tenant name>.onmicrosoft.com/oauth2/authresp` <br>(where `<tenant name>` is your tenant name)
    
     > [!NOTE]
-    > To find your tenant ID, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Microsoft Entra ID**, select **Properties** and copy the **Tenant ID**.
+    > To find your tenant ID, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Identity**, select **Overview** and copy the **Tenant ID**.
 
 1. Select **Create**. Copy your client ID and client secret. You'll use them when you add the identity provider in the Microsoft Entra admin center.
 
