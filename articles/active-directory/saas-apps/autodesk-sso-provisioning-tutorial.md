@@ -51,7 +51,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![Set Up Directory Sync](media/autodesk-sso-provisioning-tutorial/step2-2-set-up-directory-sync.png)
 
-3. Copy and save the Base URL and API token. These values will be entered in the Tenant URL * field and Secret Token * field respectively in the Provisioning tab of your Autodesk application in the Azure portal.
+3. Copy and save the Base URL and API token. These values will be entered in the Tenant URL * field and Secret Token * field respectively in the Provisioning tab of your Autodesk application.
 
 	![Get Credentials](media/autodesk-sso-provisioning-tutorial/step2-3-get-credentials.png)
 
@@ -74,7 +74,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Autodesk SSO in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 

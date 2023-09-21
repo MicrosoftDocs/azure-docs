@@ -18,7 +18,7 @@ Most attributes are represented the same way in Azure AD as they are in your on-
 ## Introducing shadow attributes
 Some attributes have two representations in Azure AD. Both the on-premises value and a calculated value are stored. These extra attributes are called shadow attributes. The two most common attributes where you see this behavior are **userPrincipalName** and **proxyAddress**. The change in attribute values happens when there are values in these attributes representing non-verified domains. But the sync engine in Connect reads the value in the shadow attribute so from its perspective, the attribute has been confirmed by Azure AD.
 
-You cannot see the shadow attributes using the Azure portal or with PowerShell. But understanding the concept helps you to troubleshoot certain scenarios where the attribute has different values on-premises and in the cloud.
+You cannot see the shadow attributes using the [Microsoft Entra admin center](https://entra.microsoft.com) or with PowerShell. But understanding the concept helps you to troubleshoot certain scenarios where the attribute has different values on-premises and in the cloud.
 
 To better understand the behavior, look at this example from Fabrikam:  
 ![Screenshot shows the Active Directory UPN Suffix for several examples with a corresponding Azure AD Domain value of Not Added, Not Verified, and Verified.](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  

@@ -68,7 +68,7 @@ These errors all occur when the application a user is trying to consent to is re
 
 * Consenting to the resource application
 
-* Granting the application permissions via the Azure portal
+* Granting the application permissions via the Microsoft Entra admin center
 
 * Adding the application from the Azure AD Application Gallery
 

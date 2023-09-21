@@ -80,4 +80,4 @@ After the authorization request is generated, our regulatory team will investiga
 
 - [Configure a contact profile](./contact-profile.md)
 - [Learn more about the contact profile object](./concepts-contact-profile.md)
-- [Overview of the Azure Space Partner Community](./space-partner-program-overview.md)
+
