@@ -1,12 +1,12 @@
 ---
-title: Remote-write to Azure Monitor Managed Service
-description: Describes how to configure remote-write to send data from the default Prometheus server running in your ARO cluster
+title: Remote write to Azure Monitor Managed Service
+description: Describes how to configure remote write to send data from the default Prometheus server running in your ARO cluster
 author: srpadala 
 ms.topic: conceptual
 ms.date: 09/21/2023
 ---
 
-Azure Red Hat Openshift comes preinstalled with a default Prometheus server whcich should not be removed as per the [support policy](./support-policies-v4). There are scenarios where there is a need to centralize data from self-managed Prometheus clusters for long term data retention and to create a centralized view across your clusters. Azure Monitor managed service for Prometheus allows you to collect and analyze metrics at scale using a Prometheus-compatible monitoring solution, based on the [Prometheus](https://aka.ms/azureprometheus-promio) project from the Cloud Native Computing Foundation.  you can use [remote_write](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) to send data from the in-cluster Prometheus servers into the Azure managed service.
+Azure Red Hat OpenShift comes preinstalled with a default Prometheus server which should not be removed as per the [support policy](./support-policies-v4). There are scenarios where there is a need to centralize data from self-managed Prometheus clusters for long term data retention and to create a centralized view across your clusters. Azure Monitor managed service for Prometheus allows you to collect and analyze metrics at scale using a Prometheus-compatible monitoring solution, based on the [Prometheus](https://aka.ms/azureprometheus-promio) project from the Cloud Native Computing Foundation.  you can use [remote_write](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) to send data from the in-cluster Prometheus servers into the Azure managed service.
 
 ## Prerequisites
 - Data for Azure Monitor managed service for Prometheus is stored in an [Azure Monitor workspace](../azure-monitor/essentials/azure-monitor-workspace-overview.md). You must [create a new workspace](../azure-monitor/essentials/azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace) if you don't already have one.
@@ -46,7 +46,7 @@ The application requires the *Monitoring Metrics Publisher* role on the data col
 ## Create secret in the ARO cluster
 
 We will be using the OAuth 2.0 authentication method from the [supported remote write authentication settings](https://docs.openshift.com/container-platform/4.11/monitoring/configuring-the-monitoring-stack.html#supported_remote_write_authentication_settings_configuring-the-monitoring-stack)
-To facilitate this, createa secret with the client Id and client secret
+To facilitate this, create a secret with the client Id and client secret
 
 ```
 cat << EOF | oc apply -f -
