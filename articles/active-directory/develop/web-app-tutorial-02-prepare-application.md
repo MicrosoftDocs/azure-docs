@@ -110,7 +110,7 @@ To make the certificate available to the application, it must be uploaded into t
 1. Starting from the **Overview** page of the app created earlier, under **Manage**, select **Certificates & secrets** and select the **Certificates (0)** tab.
 1. Select **Upload certificate**.
 
-    :::image type="content" source="./media/web-app-tutorial-02-prepare-application/upload-certificate-inline.png" alt-text="Screenshot of uploading a certificate into an Azure Active Directory tenant." lightbox="./media/web-app-tutorial-02-prepare-application/upload-certificate-expanded.png":::
+    :::image type="content" source="./media/web-app-tutorial-02-prepare-application/upload-certificate-inline.png" alt-text="Screenshot of uploading a certificate into a Microsoft Entra tenant." lightbox="./media/web-app-tutorial-02-prepare-application/upload-certificate-expanded.png":::
 
 1. Select the **folder** icon, then browse for and select the certificate that was previously created.
 1. Enter a description for the certificate and select **Add**.

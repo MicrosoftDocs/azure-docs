@@ -573,7 +573,7 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 <a name="community-gallery"></a>
 
-## Community gallery (preview)
+## Community gallery
 
 > [!IMPORTANT]
 > Microsoft does not provide support for images in the [community gallery](azure-compute-gallery.md#community).

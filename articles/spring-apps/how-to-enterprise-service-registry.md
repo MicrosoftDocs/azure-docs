@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, de
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use VMware Tanzu® Service Registry with the Azure Spring Apps Enterprise plan.
+This article shows you how to use VMware Tanzu Service Registry with the Azure Spring Apps Enterprise plan.
 
 Tanzu Service Registry is one of the commercial VMware Tanzu components. This component helps you apply the *service discovery* design pattern to your applications.
 

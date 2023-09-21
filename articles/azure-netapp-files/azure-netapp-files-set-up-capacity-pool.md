@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 06/15/2023
+ms.date: 09/19/2023
 ms.author: anfdocs
 ---
 # Create a capacity pool for Azure NetApp Files
@@ -21,7 +21,11 @@ Creating a capacity pool enables you to create volumes within it.
 
 ## Before you begin 
 
-You must have already [created a NetApp account](azure-netapp-files-create-netapp-account.md).   
+* You must have already [created a NetApp account](azure-netapp-files-create-netapp-account.md).
+* If you are using Azure CLI, ensure that you are using the latest version. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
+* If you are using PowerShell, ensure that you are using the latest version of the Az.NetAppFiles module. To update to the latest version, use the 'Update-Module Az.NetAppFiles' command. For more information, see [Update-Module](/powershell/module/powershellget/update-module?view=powershellget-2.x).
+* If you are using the Azure REST API, ensure that you are specifying the latest version.
+
 
 ## Steps 
 

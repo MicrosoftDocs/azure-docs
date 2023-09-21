@@ -24,7 +24,7 @@ To configure your customer premises equipment (CPE), you must have:
 - A **Global Secure Access Administrator** role in Microsoft Entra ID.
 - Sent an email to Global Secure Access onboarding according to the onboarding process in the **Remote network** area of Global Secure Access.
 - Received the connectivity information from Global Secure Access onboarding.
-- The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+- The preview requires a Microsoft Entra ID P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 
 To onboard to Global Secure Access remote network connectivity, you must have completed the [onboarding process](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks). In order to configure your CPE, you need the connectivity information provided by the Global Secure Access onboarding team.
 

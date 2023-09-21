@@ -152,4 +152,3 @@ The URL query strings are not logged by Azure Functions.
 * [Write complex queries in Analytics](../logs/log-analytics-tutorial.md)
 * [Send logs and custom telemetry to Application Insights](./asp-net-trace-logs.md)
 * [Availability overview](availability-overview.md)
-* [Troubleshooting](../faq.yml)
