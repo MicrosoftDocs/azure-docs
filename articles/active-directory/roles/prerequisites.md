@@ -78,7 +78,7 @@ Install-Module -Name AzureAD
 
 #### Update Azure AD PowerShell
 
-To update Microsoft Entra ID to the latest version, re-run [Install-Module](/powershell/module/powershellget/install-module).
+To update Azure AD PowerShell to the latest version, re-run [Install-Module](/powershell/module/powershellget/install-module).
 
 ```powershell
 Install-Module -Name AzureAD
@@ -90,7 +90,7 @@ Install-Module -Name AzureAD
 
 To use Azure AD PowerShell, follow these steps to make sure it is imported into the current session.
 
-1. Use [Get-Module](/powershell/module/microsoft.powershell.core/get-module) to check if Microsoft Entra ID is loaded into memory.
+1. Use [Get-Module](/powershell/module/microsoft.powershell.core/get-module) to check if Azure AD PowerShell is loaded into memory.
 
     ```powershell
     Get-Module -Name AzureAD
