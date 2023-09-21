@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Application requirements for the backup authentication system
 
-The Microsoft Entra backup authentication system provides resilience to applications that use supported protocols and flows. For more information about the backup authentication system, see the article [Microsoft Entra ID's backup authentication system](backup-authentication-system.md).
+The Microsoft Entra backup authentication system provides resilience to applications that use supported protocols and flows. For more information about the backup authentication system, see [Microsoft Entra ID's backup authentication system](backup-authentication-system.md).
 
 ## Application requirements for protection 
 
@@ -74,7 +74,7 @@ The backup authentication system partially supports the SAML 2.0 SSO protocol. F
 
 ##### Managed identity 
 
-Applications that use Managed Identities to acquire Microsoft Entra ID access tokens are protected. Microsoft recommends the use of user-assigned managed identities in most scenarios, however this protection applies to both [user and system-assigned managed identities](../managed-identities-azure-resources/overview.md). 
+Applications that use Managed Identities to acquire Microsoft Entra access tokens are protected. Microsoft recommends the use of user-assigned managed identities in most scenarios, however this protection applies to both [user and system-assigned managed identities](../managed-identities-azure-resources/overview.md). 
 
 ##### Service principal 
 

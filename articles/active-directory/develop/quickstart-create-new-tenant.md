@@ -33,7 +33,7 @@ You can create two types of environments. The environment depends solely on the 
 
 This quickstart addresses two scenarios for the type of app you want to build:
 
-* Work and school (Microsoft Entra ID) accounts or Microsoft accounts (such as Outlook.com and Live.com)
+* Work and school accounts (Microsoft Entra ID) or Microsoft accounts (such as Outlook.com and Live.com)
 * Social and local (Azure AD B2C) accounts
 
 ## Work and school accounts, or personal Microsoft accounts
