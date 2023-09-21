@@ -169,7 +169,7 @@ A language element describes the detected language for content specified via spa
 ### Semantic elements
 
 > [!NOTE]
-> The semantic elements discussed here apply to Document Intelligence prebuilt models. Your custom models may return different data representations. For example, date and time returned from a custom model may be in a pattern that is different from standard ISO 8601 formatting.
+> The semantic elements discussed here apply to Document Intelligence prebuilt models. Your custom models may return different data representations. For example, date and time, returned by a custom model, may be represented in a pattern that is different from standard ISO 8601 formatting.
 
 #### Document
 
