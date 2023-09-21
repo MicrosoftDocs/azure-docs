@@ -226,7 +226,7 @@ Here's a modified example so that you can see the basic structure of a response 
 
 A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, you can set up a filterable text or numeric field. 
 
-In contrast with full text search, a filter in a pure vector query is effectively processed as a post-query operation. The set of k-NN is retrieved, and then combined with the set of filtered results. As such, the value of `"k"` determines the surface over which the filter is applied. For `"k": 10`, the filter is applied to 10 most similar documents. For `"k": 100`, the filter iterates over a larger body of documents.
+In contrast with full text search, a filter in a pure vector query is effectively processed as a post-query operation. The set of k-NN is retrieved, and then combined with the set of filtered results. As such, the value of `"k"` predetermines the surface over which the filter is applied. For `"k": 10`, the filter is applied to 10 most similar documents. For `"k": 100`, the filter iterates over 100 documents (assuming the index contains 100 documents that are sufficiently similar to the query).
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
