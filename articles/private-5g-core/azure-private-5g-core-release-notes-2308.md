@@ -18,7 +18,8 @@ For more details about compatibility, see [Packet core and Azure Stack Edge comp
 
 With this release, there's a new naming scheme and Packet Core versions are now called ‘2308.0-1’ rather than ‘PMN-2308.’
 
-For this release, it's important that the packet core version is upgraded to the AP5GC 2308 release before the upgrading to the ASE 2309 release.  Upgrade to ASE 2309 before upgrading to Packet Core 2308.0.1 causes a total system outage.  Recovery requires you to delete and re-create the AKS cluster on your ASE.
+> [!WARNING]
+> For this release, it's important that the packet core version is upgraded to the AP5GC 2308 release before the upgrading to the ASE 2309 release.  Upgrade to ASE 2309 before upgrading to Packet Core 2308.0.1 causes a total system outage.  Recovery requires you to delete and re-create the AKS cluster on your ASE.
 
 ## Support lifetime
 
