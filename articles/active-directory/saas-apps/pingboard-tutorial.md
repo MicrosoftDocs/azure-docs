@@ -139,7 +139,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 	![Configure Single Sign-On](./media/pingboard-tutorial/integration.png)
 
-3. On the **Integrations** page, find the **"Microsoft Entra ID"** tile, and click it.
+3. On the **Integrations** page, find the **Microsoft Entra ID** tile, and click it.
 
 	![Pingboard Single Sign-On Integration](./media/pingboard-tutorial/directory.png)
 
