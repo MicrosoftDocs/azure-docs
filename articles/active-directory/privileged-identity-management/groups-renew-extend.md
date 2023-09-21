@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Extend or renew PIM for groups assignments 
 
-Privileged Identity Management (PIM) in Microsoft Entra ID, part of Microsoft Entra, provides controls to manage the access and assignment lifecycle for group membership and ownership. Administrators can assign start and end date-time properties for group membership and ownership. When the assignment end approaches, Privileged Identity Management sends email notifications to the affected users or groups. It also sends email notifications to administrators of the resource to ensure that appropriate access is maintained. Assignments might be renewed and remain visible in an expired state for up to 30 days, even if access isn't extended.
+Privileged Identity Management (PIM) in Microsoft Entra ID provides controls to manage the access and assignment lifecycle for group membership and ownership. Administrators can assign start and end date-time properties for group membership and ownership. When the assignment end approaches, Privileged Identity Management sends email notifications to the affected users or groups. It also sends email notifications to administrators of the resource to ensure that appropriate access is maintained. Assignments might be renewed and remain visible in an expired state for up to 30 days, even if access isn't extended.
 
 ## Who can extend and renew
 
