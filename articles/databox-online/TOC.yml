@@ -91,8 +91,9 @@
       href: azure-stack-edge-gpu-deploy-configure-certificates.md
     - name: 7 - Activate
       href: azure-stack-edge-gpu-deploy-activate.md 
- 
-      
+    - name: 8 - Configure compute
+      href: azure-stack-edge-gpu-deploy-configure-compute.md
+
   - name: Concepts
     items:
     - name: Review requirements

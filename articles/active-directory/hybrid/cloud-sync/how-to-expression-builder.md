@@ -1,5 +1,5 @@
 ---
-title: 'Use the expression builder with Azure AD Connect cloud sync'
+title: 'Use the expression builder with Microsoft Entra Connect cloud sync'
 description: This article describes how to use the expression builder with cloud sync.
 services: active-directory
 author: billmath
@@ -19,14 +19,12 @@ The expression builder is a new function in Azure located under cloud sync. It h
 ## Use the expression builder
 To access the expression builder:
 
- 1. In the Azure portal, select **Azure Active Directory**.
- 1. Select **Azure AD Connect**.
- 1. Select **Manage cloud sync**.
- 1. Under **Configuration**, select your configuration.
- 1. Under **Manage attributes**, select **Click to edit mappings**.
- 1. On the **Edit attribute mappings** pane, select **Add attribute mapping**.
- 1. Under **Mapping type**, select **Expression**.
- 1. Select **Try the expression builder (Preview)**.
+ [!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
+ 2. Under **Configuration**, select your configuration.
+ 3. Under **Manage attributes**, select **Click to edit mappings**.
+ 4. On the **Edit attribute mappings** pane, select **Add attribute mapping**.
+ 5. Under **Mapping type**, select **Expression**.
+ 6. Select **Try the expression builder (Preview)**.
  
     ![Screenshot that shows using expression builder.](media/how-to-expression-builder/expression-1.png)
 
@@ -48,14 +46,14 @@ The expression basically says, replace the mail attribute on user objects that h
 >[!NOTE]
 >Be sure to place the values in the boxes that would correspond with **oldValue** and **replacementValue** based on the syntax that occurs when you've selected **Replace**.
 
-For more information on supported expressions, see [Writing expressions for attribute mappings in Azure Active Directory](reference-expressions.md).
+For more information on supported expressions, see [Writing expressions for attribute mappings in Microsoft Entra ID](reference-expressions.md).
 
 ### Information on expression builder input boxes
 Depending on which function you selected, the boxes provided by the expression builder will accept multiple values. For example, the JOIN function will accept strings or the value that's associated with a given attribute. For example, we can use the value contained in the attribute value of **[givenName]** and join it with a string value of **@contoso.com** to create an email address.
 
   ![Screenshot that shows input box values.](media/how-to-expression-builder/expression-8.png)
 
-For more information on acceptable values and how to write expressions, see [Writing expressions for attribute mappings in Azure Active Directory](reference-expressions.md).
+For more information on acceptable values and how to write expressions, see [Writing expressions for attribute mappings in Microsoft Entra ID](reference-expressions.md).
 
 ## Test an expression
 In this section, you can test your expressions. From the dropdown list, select the **mail** attribute. Fill in the value with **@fabrikam.com**, and select **Test expression**.
@@ -81,5 +79,5 @@ To set an attribute's value to NULL, use an expression with the value of `""`. T
 
 ## Next steps 
 
-- [Writing expressions for attribute mappings in Azure Active Directory](reference-expressions.md)
+- [Writing expressions for attribute mappings in Microsoft Entra ID](reference-expressions.md)
 - [Cloud sync configuration](how-to-configure.md)

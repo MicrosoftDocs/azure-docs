@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Common Conditional Access policy: Block legacy authentication
 
-Due to the increased risk associated with legacy authentication protocols, Microsoft recommends that organizations block authentication requests using these protocols and require modern authentication. For more information about why blocking legacy authentication is important, see the article [How to: Block legacy authentication to Azure AD with Conditional Access](block-legacy-authentication.md).
+Due to the increased risk associated with legacy authentication protocols, Microsoft recommends that organizations block authentication requests using these protocols and require modern authentication. For more information about why blocking legacy authentication is important, see the article [How to: Block legacy authentication to Microsoft Entra ID with Conditional Access](block-legacy-authentication.md).
 
 ## Template deployment
 
