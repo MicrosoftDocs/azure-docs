@@ -1,7 +1,7 @@
 ---
-title: VMSS confidential VM deployment from a hardened Linux image
+title: Deploy a virtual machine scale set using a hardened Linux image
 description: Learn how to use vmss to deploy a scale set using the hardened linux image.
-author: satelsan
+author: samyaktelsang-msft
 ms.service: virtual-machines
 mms.subservice: confidential-computing
 ms.topic: how-to
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli
 
 **Applies to:** :heavy_check_mark: Hardened Linux Images
 
-Virtual machine scale set deployments using images from Azure marketplace can be done follwoing the steps described for standard [VMSS deployments](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-cli). 
+Virtual machine scale set deployments using images from Azure marketplace can be done follwoing the steps described for standard [VMSS deployments](/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-cli). 
 
 However, if you have chosen to create a hardened linux image by removing the Azure guest agents, it's crucial to comprehend what functionalities the VM loses before deciding to remove the Azure Linux Agent, and how it affects vmss deployment.
 
