@@ -332,12 +332,20 @@ sudo apt-get autoremove --purge moby-engine
 ```
 
 # [Red Hat Enterprise Linux](#tab/rhel)
+
 ```bash
 sudo yum remove moby-cli
 sudo yum remove moby-engine
 ```
+
 # [Ubuntu Core snaps](#tab/snaps)
-To do
+
+Is this correct? 
+
+```bash
+sudo snap remove docker
+```
+
 ---
 
 ## Next steps
