@@ -129,7 +129,6 @@ The **Conditions** tab will look different depending on the role you selected.
 If you selected one of the following privileged roles, follow the steps in this section.
 
 - [Owner](built-in-roles.md#owner)
-- Access Review Operator Service Role
 - [Role Based Access Control Administrator (Preview)](built-in-roles.md#role-based-access-control-administrator-preview)
 - [User Access Administrator](built-in-roles.md#user-access-administrator)
 

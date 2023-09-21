@@ -74,7 +74,7 @@ If both `SPNameQualifier` or `NameQualifier` attributes aren't presented in the 
 
 The SAML requests are sent to the identity provider as specified in the identity provider's metadata `SingleSignOnService` element. Most of the identity providers' authorization requests are carried directly in the URL query string of an HTTP GET request (as the messages are relatively short). Refer to your identity provider documentation for how to configure the bindings for both SAML requests.
 
-The following XML is an example of an Azure AD metadata single sign-on service with two bindings. The `HTTP-Redirect` takes precedence over the `HTTP-POST` because it appears first in the SAML identity provider metadata.
+The following XML is an example of a Microsoft Entra metadata single sign-on service with two bindings. The `HTTP-Redirect` takes precedence over the `HTTP-POST` because it appears first in the SAML identity provider metadata.
 
 ```xml
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -118,7 +118,7 @@ Azure AD B2C uses `Sha1` to sign the SAML request. Use the **XmlSignatureAlgorit
 
 ### Include key info
 
-When the identity provider indicates that Azure AD B2C binding is set to `HTTP-POST`, Azure AD B2C includes the signature and the algorithm in the body of the SAML request. You can also configure Azure AD to include the public key of the certificate when the binding is set to `HTTP-POST`. Use the **IncludeKeyInfo** metadata to `true`, or `false`. In the following example, Azure AD doesn't include the public key of the certificate.
+When the identity provider indicates that Azure AD B2C binding is set to `HTTP-POST`, Azure AD B2C includes the signature and the algorithm in the body of the SAML request. You can also configure Microsoft Entra ID to include the public key of the certificate when the binding is set to `HTTP-POST`. Use the **IncludeKeyInfo** metadata to `true`, or `false`. In the following example, Microsoft Entra ID doesn't include the public key of the certificate.
 
 ```xml
 <Metadata>

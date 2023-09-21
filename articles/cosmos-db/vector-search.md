@@ -1,15 +1,15 @@
 ---
-title: Use data with Azure OpenAI
+title: Vector search using Azure Cosmos DB
 titleSuffix: Azure Cosmos DB
 description: Use Retrieval Augmented Generation (RAG) and vector search to ground your Azure OpenAI models with data stored in Azure Cosmos DB. 
 author: jacodel
 ms.author: sidandrews
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/16/2023
+ms.date: 09/20/2023
 ---
 
-# Use Azure Cosmos DB data with Azure OpenAI
+# Vector search with data in Azure Cosmos DB
 
 [!INCLUDE[NoSQL, MongoDB vCore, PostgreSQL](includes/appliesto-nosql-mongodbvcore-postgresql.md)]
 
@@ -29,7 +29,7 @@ To jump right into tutorials and sample code for RAG patterns with Azure Cosmos 
 
 This section includes key concepts that are critical to implementing RAG with Azure Cosmos DB and Azure OpenAI.
 
-### Retrieval Augmented Generation (RAG)
+### Retrieval Augmented Generation (RAG) <a id="retrieval-augmented-generation"></a>
 
 RAG involves the process of retrieving supplementary data to provide the LLM with the ability to use this data when it generates responses. When presented with a user's question or prompt, RAG aims to select the most pertinent and current domain-specific knowledge from external sources, such as articles or documents. This retrieved information serves as a valuable reference for the model when generating its response. For example, a simple RAG pattern using Azure Cosmos DB for NoSQL could be:
 
@@ -88,7 +88,7 @@ Prior to sending a request to Azure OpenAI, the user input/query/request is also
 
 There are multiple ways to use RAG and vector search with your data stored in Azure Cosmos DB. 
 
-:::image type="content" source="media/rag-data-openai/vector-search-infosheet.png" alt-text="Infosheet that shows options for performing Vector Search with Azure Cosmos DB to bring your data to your AI applications." lightbox="media/rag-data-openai/vector-search-infosheet.png":::
+:::image type="content" source="media/vector-search/vector-search-infosheet.png" alt-text="Infosheet that shows options for performing Vector Search with Azure Cosmos DB to bring your data to your AI applications." lightbox="media/vector-search/vector-search-infosheet.png":::
 
 ## Azure Cosmos DB for NoSQL and Azure Cognitive Search
 
@@ -96,7 +96,7 @@ Implement RAG-patterns with Azure Cosmos DB for NoSQL and Azure Cognitive Search
 
 ### Code samples
 
-- [.NET retail chatbot demo](https://github.com/AzureCosmosDB/VectorSearchAiAssistant/tree/cognitive-search-vector)
+- [.NET retail chatbot reference solution](https://github.com/Azure/Vector-Search-AI-Assistant/tree/cognitive-search-vector)
 - [.NET samples - Hackathon project](https://github.com/AzureCosmosDB/OpenAIHackathon)
 - [.NET tutorial - recipe chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-NoSQL_CognitiveSearch)
 - [.NET tutorial - recipe chatbot w/ Semantic Kernel](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-NoSQL_CognitiveSearch_SemanticKernel)
@@ -108,7 +108,7 @@ RAG can be applied using the native vector search feature in Azure Cosmos DB for
 
 ### Code samples
 
-- [.NET retail chatbot demo](https://github.com/AzureCosmosDB/VectorSearchAiAssistant/tree/mongovcorev2)
+- [.NET retail chatbot sample](https://github.com/Azure/Vector-Search-AI-Assistant/tree/mongovcorev2)
 - [.NET tutorial - recipe chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-MongoDBvCore)
 - [Python notebook tutorial - Azure product chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-MongoDB-vCore)
 
@@ -129,6 +129,7 @@ You can employ RAG by utilizing native vector search within Azure Cosmos DB for 
 - [Vector search with Azure Cosmos DB PostgreSQL](postgresql/howto-use-pgvector.md)
 - Learn more about [Azure OpenAI embeddings](../ai-services/openai/concepts/understand-embeddings.md)
 - Learn how to [generate embeddings using Azure OpenAI](../ai-services/openai/tutorials/embeddings.md)
+
 
 
 

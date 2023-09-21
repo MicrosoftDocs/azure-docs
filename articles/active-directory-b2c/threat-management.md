@@ -43,7 +43,7 @@ To manage smart lockout settings, including the lockout threshold:
    - **Lockout threshold**: The number of failed sign-in tries that are allowed before the account is first locked out. If the first sign-in after a lockout also fails, the account locks again.
    - **Lockout duration in seconds**: The minimum duration of each lockout in seconds. If an account locks repeatedly, this duration increases.
 
-       ![Azure portal Password protection page in Azure AD settings](./media/threat-management/portal-02-password-protection.png)
+       ![Azure portal Password protection page in Microsoft Entra settings](./media/threat-management/portal-02-password-protection.png)
     <br />*Setting the lockout threshold to 5 in **Password protection** settings*.
 
 1. Select **Save**.
@@ -60,12 +60,12 @@ When testing the smart lockout feature, use a distinctive pattern for each passw
 When the smart lockout threshold is reached, you'll see the following message while the account is locked: **Your account is temporarily locked to prevent unauthorized use. Try again later**. The error messages can be [localized](localization-string-ids.md#sign-up-or-sign-in-error-messages).
 
 > [!NOTE]
-> When you test smart lockout, your sign-in requests might be handled by different datacenters due to the geo-distributed and load-balanced nature of the Azure AD authentication service. In that scenario, because each Azure AD datacenter tracks lockout independently, it might take more than your defined lockout threshold number of attempts to cause a lockout. A user has a maximum of (threshold_limit * datacenter_count) number of bad attempts before being completely locked out. For more information, see [Azure global infrastructure](https://azure.microsoft.com/global-infrastructure/).
+> When you test smart lockout, your sign-in requests might be handled by different datacenters due to the geo-distributed and load-balanced nature of the Microsoft Entra authentication service. In that scenario, because each Microsoft Entra datacenter tracks lockout independently, it might take more than your defined lockout threshold number of attempts to cause a lockout. A user has a maximum of (threshold_limit * datacenter_count) number of bad attempts before being completely locked out. For more information, see [Azure global infrastructure](https://azure.microsoft.com/global-infrastructure/).
 
 ## Viewing locked-out accounts
 
 To obtain information about locked-out accounts, you can check the Active Directory [sign-in activity report](../active-directory/reports-monitoring/concept-sign-ins.md). Under **Status**, select **Failure**. Failed sign-in attempts with a **Sign-in error code** of `50053` indicate a locked account:
 
-![Section of Azure AD sign-in report showing locked-out account](./media/threat-management/portal-01-locked-account.png)
+![Section of Microsoft Entra sign-in report showing locked-out account](./media/threat-management/portal-01-locked-account.png)
 
-To learn about viewing the sign-in activity report in Azure Active Directory, see [Sign-in activity report error codes](../active-directory/reports-monitoring/concept-sign-ins.md).
+To learn about viewing the sign-in activity report in Microsoft Entra ID, see [Sign-in activity report error codes](../active-directory/reports-monitoring/concept-sign-ins.md).
