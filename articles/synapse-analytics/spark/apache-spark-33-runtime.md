@@ -27,6 +27,9 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Python | 3.10         |
 | R (Preview) | 4.2.2        |
 
+[Synapse-Python310-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python310-CPU.yml) contains the list of libraries shipped in the default Python 3.10 environment in Azure Synapse Spark.
+
+
 >[!IMPORTANT]
 > .NET for Apache Spark
 > * The [.NET for Apache Spark](https://github.com/dotnet/spark) is an open-source project under the .NET Foundation that currently requires the .NET 3.1 library, which has reached the out-of-support status. We would like to inform users of Azure Synapse Spark of the removal of the .NET for Apache Spark library in the Azure Synapse Runtime for Apache Spark version 3.3. Users may refer to the [.NET Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) for more details on this matter.

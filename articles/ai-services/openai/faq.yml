@@ -196,7 +196,7 @@ sections:
       - question: |
           Is there a token limit on the system message?
         answer: 
-          Yes, the token limit on the system message is 200. If the system message is more than 200 tokens, the rest of the tokens beyond the first 200 will be ignored.
+          Yes, the token limit on the system message is 400. If the system message is more than 400 tokens, the rest of the tokens beyond the first 400 will be ignored.
       - question: |
           Do the query language and the data source language need to be the same?
         answer:

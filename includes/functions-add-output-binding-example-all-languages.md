@@ -12,16 +12,16 @@ The following example shows the function definition after adding a [Queue Storag
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="14-18" highlight="4":::
 
 ### [Isolated process](#tab/isolated-process)
-Because an HTTP triggered function also returns a HTTP response, the function returns a `MultiResponse` object, which represents both the HTTP and queue output.
+Because an HTTP triggered function also returns an HTTP response, the function returns a `MultiResponse` object, which represents both the HTTP and queue output.
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="11-14":::
 
-The following is the definition of the `MultiResponse` object that includes the output binding.
+This example is the definition of the `MultiResponse` object that includes the output binding:
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="33-38" highlight="3":::
 
 ---
-The way you define the output binding depends on your process model. For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=csharp#manually-add-bindings-based-on-examples).  
+Messages are sent to the queue when the function completes. The way you define the output binding depends on your process model. For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=csharp#manually-add-bindings-based-on-examples).  
 ::: zone-end  
 ::: zone pivot="programming-language-java"
 

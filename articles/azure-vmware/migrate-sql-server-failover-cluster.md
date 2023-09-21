@@ -11,7 +11,7 @@ ms.custom: engagement-fy23
 
 #  Migrate a SQL Server Always On Failover Cluster Instance to Azure VMware Solution
 
-In this article, you'll learn how to migrate a Microsoft SQL Server Failover Cluster Instance to Azure VMware Solution.
+In this article, you'll learn how to migrate a SQL Server Failover Cluster Instance to Azure VMware Solution.
 Currently Azure VMware Solution service doesn't support VMware Hybrid Linked Mode to connect an on-premises vCenter Server with one running in Azure VMware Solution.
 Due to this constraint, this process requires the use of VMware HCX for the migration.
 For more details about configuring HCX, see [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md).
@@ -22,17 +22,17 @@ However, you can overcome this limitation by performing the steps shown in this 
 :::image type="content" source="media/sql-server-hybrid-benefit/migrated-sql-failover-cluster.png" alt-text="Diagram showing the architecture of SQL Server Failover for Azure VMware Solution." border="false" lightbox="media/sql-server-hybrid-benefit/migrated-sql-failover-cluster.png":::
 
 > [!NOTE]
-> This procedure requires a full shutdown of the cluster. Since the Microsoft SQL Server service will be unavailable during the migration, plan accordingly for the downtime period.  
+> This procedure requires a full shutdown of the cluster. Since the SQL Server service will be unavailable during the migration, plan accordingly for the downtime period.  
 
 ## Prerequisites
 
 - Review and record the storage and network configuration of every node in the cluster.
 - Review and record the WSFC configuration.
-- Back up the database or databases being executed in the cluster.
+- Maintain backups of all the SQL Server databases.
 - Back up the cluster virtual machines.
 - Remove all cluster node VMs from any Distributed Resource Scheduler (DRS) groups and rules they're part of.
 - VMware HCX must be configured between your on-premises datacenter and the Azure VMware Solution private cloud that runs the migrated workloads. For more details about installing VMware HCX, see [Azure VMware Solution documentation](install-vmware-hcx.md).
-- Ensure that all the network segments in use by the Microsoft SQL Server are extended into your Azure VMware Solution private cloud. To verify this step, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
+- Ensure that all the network segments in use by SQL Server and workloads using it are extended into your Azure VMware Solution private cloud. To verify this step, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
 
 VMware HCX over VPN is supported in Azure VMware Solution for workload migration.
 However, due to the size of database workloads it isn't recommended for Microsoft SQL Server Failover Cluster Instance and Microsoft SQL Server Always On migrations, especially for production workloads.
@@ -52,9 +52,9 @@ The table below indicates the downtime for each Microsoft SQL Server topology.
 
 | **Scenario** | **Downtime expected** | **Notes** |
 |:---|:-----|:-----|
-| **Standalone instance** | Low | Migration will be done using vMotion, the DB will be available during migration time, but it isn't recommended to commit any critical data during it. |
-| **Always-On Availability Group** | Low | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
-| **Failover Cluster Instance** | High | All nodes of the cluster will be shut down and migrated using VMware HCX Cold Migration. Downtime duration will depend upon database size and private network speed to Azure cloud. |
+| **Standalone instance** | Low | Migration will be done using vMotion, the database will be available during migration time, but it isn't recommended to commit any critical data during it. |
+| **Always-On SQL Server Availability Group** | Low | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
+| **Always On SQL Server Failover Cluster Instance** | High | All nodes of the cluster will be shut down and migrated using VMware HCX Cold Migration. Downtime duration will depend upon database size and private network speed to Azure cloud. |
 
 ## Windows Server Failover Cluster quorum considerations
 
@@ -101,7 +101,7 @@ For illustration purposes, in this document we're using a two-node cluster with 
  
 1. From the **vSphere Client**, go to the HCX plugin area. Under **Services**, select **Migration** > **Migrate**. 
    - Select the second node virtual machine.
-   - Set the vSphere cluster in the remote private cloud that will run the migrated SQL cluster as the **Compute Container**.
+   - Set the vSphere cluster in the remote private cloud, which will now host the migrated SQL Server VM or VMs, as the **Compute Container**.
    - Select the **vSAN Datastore** as remote storage.
    - Select a folder if you want to place the virtual machines in specific folder, this not mandatory but is recommended to separate the different workloads in your Azure VMware Solution private cloud.
    - Keep **Same format as source**.
@@ -130,13 +130,13 @@ For illustration purposes, in this document we're using a two-node cluster with 
    - In the **Failover Cluster Manager** review that the second node appears as **Online** status.
     :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-4.png"  alt-text="Diagram showing a cluster node status in Failover Cluster Manager." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-4.png":::
 
-1. Using the **SQL Server Management Studio** connect to the SQL Server cluster resource network name. Check the database is online and accessible.
+1. Using the **SQL Server Management Studio** connect to the SQL Server cluster resource network name. Confirm all databases are online and accessible.
 
 :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-5.png" alt-text="Diagram showing a verification of SQL Server Management Studio connection  to the migrated cluster instance database." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-5.png":::
 
-Finally, check the connectivity to SQL Server from other systems and applications in your infrastructure and verify that all applications using the database(s) can still access them. 
+Finally, check the connectivity to SQL Server from other systems and applications in your infrastructure and verify that all applications using the database or databases can still access them. 
 
-## Next steps
+## More information
 
 - [Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution](enable-sql-azure-hybrid-benefit.md). 
 - [Create a placement policy in Azure VMware Solution](create-placement-policy.md)  

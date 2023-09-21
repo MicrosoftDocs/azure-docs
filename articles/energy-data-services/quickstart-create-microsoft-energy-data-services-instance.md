@@ -43,7 +43,7 @@ Client Secret | Sometimes called an application password, a client secret is a s
 1. In the search page, select *Create* on the card titled "Azure Data Manager for Energy". 
 
 
-1. A new window appears. Complete the *Basics* tab by choosing the *subscription*, *resource group*, *tier*, and the *region* in which you want to create your instance of Azure Data Manager for Energy. Enter the *App ID* that you created during the prerequisite steps. The default tier is currently the *Standard* tier. You can use the drop down to change your tier selection. Learn more about tiers [Azure Data Manager for Energy Tier Details](https://learn.microsoft.com/azure/energy-data-services/concepts-tier-details)
+1. A new window appears. Complete the *Basics* tab by choosing the *subscription*, *resource group*, *tier*, and the *region* in which you want to create your instance of Azure Data Manager for Energy. Enter the *App ID* that you created during the prerequisite steps. The default tier is currently the *Standard* tier. You can use the drop down to change your tier selection. Learn more about tiers [Azure Data Manager for Energy Tier Details](../energy-data-services/concepts-tier-details.md)
 
 
     [![Screenshot of the basic details page after you select Create for Azure Data Manager for Energy. This page allows you to enter both instance and data partition details.](media/quickstart-create-microsoft-energy-data-services-instance/input-basic-details-sku.png)](media/quickstart-create-microsoft-energy-data-services-instance/input-basic-details-sku.png#lightbox)

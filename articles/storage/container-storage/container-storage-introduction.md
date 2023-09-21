@@ -4,7 +4,7 @@ description: An overview of Azure Container Storage Preview, a service built nat
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: overview
-ms.date: 08/14/2023
+ms.date: 09/18/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -46,6 +46,15 @@ Azure Container Storage offers persistent volume support with ReadWriteOnce acce
 ## Regional availability
 
 [!INCLUDE [container-storage-regions](../../../includes/container-storage-regions.md)]
+
+## What's new in Azure Container Storage
+
+Based on feedback from customers, we've included the following capabilities in the Azure Container Storage Preview update:
+
+- Scale up by [resizing volumes](resize-volume.md) backed by Azure Disks and NVMe storage pools without downtime
+- [Clone persistent volumes](clone-volume.md) within a storage pool
+
+For more information on these features, email the Azure Container Storage team at azcontainerstorage@microsoft.com.
 
 ## Why Azure Container Storage is useful
 Until now, providing cloud storage for containers required using individual container storage interface (CSI) drivers to use storage services intended for IaaS-centric workloads and make them work for containers. This creates operational overhead and increases the risk of issues with application availability, scalability, performance, usability, and cost.
