@@ -13,7 +13,7 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Microsoft Entra single sign-on (SSO) integration with F5
+# Tutorial: Microsoft Entra single sign-on integration with F5
 
 In this tutorial, you'll learn how to integrate F5 with Microsoft Entra ID. When you integrate F5 with Microsoft Entra ID, you can:
 
