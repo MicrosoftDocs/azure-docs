@@ -153,7 +153,7 @@ The subsequent sections of the document outline how to install the `mysqlnd_azur
 
 You can also confirm redirection is configured with the below sample PHP code. Create a PHP file called `mysqlConnect.php` and paste the below code. Update the server name, username, and password with your own.
 
- ```php
+```php
 <?php
 $host = '<yourservername>.mysql.database.azure.com';
 $username = '<yourusername>@<yourservername>';
@@ -173,7 +173,7 @@ $db_name = 'testdb';
     $db->close();
   }
 ?>
- ```
+```
 
 ## Next steps
 

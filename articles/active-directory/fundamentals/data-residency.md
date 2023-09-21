@@ -76,7 +76,7 @@ Learn more:
 
 ## Data residency across Microsoft Entra components
 
-Learn more: [Microsoft Entra ID, Product overview](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
+Learn more: [Microsoft Entra product overview](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 
 > [!NOTE]
 > To understand service data location, such as Exchange Online, or Skype for Business, refer to the corresponding service documentation. 
