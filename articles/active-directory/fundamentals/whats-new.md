@@ -40,7 +40,7 @@ This page updates monthly, so revisit it regularly. If you're looking for items 
 **Service category:**  My Profile/Account                              
 **Product capability:**  End User Experiences                      
 
-The My Security Info management portal ([My Sign-Ins | Security Info | Microsoft.com](https://mysignins.microsoft.com/security-info)) will now support an improved end user experience of managing passwords. Users are able to change their password, and users that are capable of multifactor authentication (MFA) will be able to update their passwords without providing their current password.
+The My Security Info management portal ([My Sign-Ins | Security Info | Microsoft.com](https://mysignins.microsoft.com/security-info)) will now support an improved end user experience of managing passwords. Users are able to change their password, and users that are capable of multifactor authentication (MFA) are able to update their passwords without providing their current password.
 
 ---
 
@@ -52,7 +52,7 @@ The My Security Info management portal ([My Sign-Ins | Security Info | Microsoft
 
 Beginning January 2024, Microsoft Entra ID will support [device-bound passkeys](https://passkeys.dev/docs/reference/terms/#device-bound-passkey) stored on computers and mobile devices as an authentication method in preview, in addition to the existing support for FIDO2 security keys. This enables your users to perform phishing-resistant authentication using the devices that they already have.  
  
-We will expand the existing FIDO2 authentication methods policy and end user registration experience to support this preview release. If your organization requires or prefers FIDO2 authentication using physical security keys only, then please enforce key restrictions to only allow security key models that you accept in your FIDO2 policy. Otherwise, the new preview capabilities will enable your users to register for device-bound passkeys stored on Windows, macOS, iOS, and Android. Learn more about FIDO2 key restrictions [here](../authentication/howto-authentication-passwordless-security-key.md).
+We'll expand the existing FIDO2 authentication methods policy and end user registration experience to support this preview release. If your organization requires or prefers FIDO2 authentication using physical security keys only, then please enforce key restrictions to only allow security key models that you accept in your FIDO2 policy. Otherwise, the new preview capabilities enable your users to register for device-bound passkeys stored on Windows, macOS, iOS, and Android. Learn more about FIDO2 key restrictions [here](../authentication/howto-authentication-passwordless-security-key.md).
 
 ---
 
@@ -72,7 +72,7 @@ Authenticator version and higher on Android version will be FIPS 140 compliant f
 **Service category:**  Enterprise Apps                                
 **Product capability:**  Identity Lifecycle Management                        
 
-With this release, you can now recover applications along with their original service principals, eliminating the need for extensive reconfiguration and code changes ([Learn more](../manage-apps/delete-recover-faq.yml)). It significantly improves the application recovery story and addresses a long-standing customer need. This change will be beneficial to you on:
+With this release, you can now recover applications along with their original service principals, eliminating the need for extensive reconfiguration and code changes ([Learn more](../manage-apps/delete-recover-faq.yml)). It significantly improves the application recovery story and addresses a long-standing customer need. This change is beneficial to you on:
 
 - **Faster Recovery**: You can now recover their systems in a fraction of the time it used to take, reducing downtime and minimizing disruptions.
 - **Cost Savings**: With quicker recovery, you can save on operational costs associated with extended outages and labor-intensive recovery efforts.
@@ -107,7 +107,7 @@ For more information about how to better secure your organization by using autom
 
 We're thrilled to announce that as part of the Windows 11 September moment, we're releasing a new Web Sign-In experience that will expand the number of supported scenarios and greatly improve security, reliability, performance, and overall end-to-end experience for our users.
 
-Web Sign-In (WSI) is a credential provider on the Windows lock/sign-in screen for AADJ joined devices that provides a web experience used for authentication and will return an auth token back to the operating system to allow the user to unlock/sign-in to the machine.
+Web Sign-In (WSI) is a credential provider on the Windows lock/sign-in screen for AADJ joined devices that provide a web experience used for authentication and returns an auth token back to the operating system to allow the user to unlock/sign-in to the machine.
 
 Web Sign-In was initially intended to be used for a wide range of auth credential scenarios; however, it was only previously released for limited scenarios such as: [Simplified EDU Web Sign-In](/education/windows/federated-sign-in?tabs=intune) and recovery flows via [Temporary Access Password (TAP)](../authentication/howto-authentication-temporary-access-pass.md).
 
