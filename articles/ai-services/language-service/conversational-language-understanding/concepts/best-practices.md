@@ -172,3 +172,45 @@ curl --request POST \
      }
  }'
 ```
+
+## Best Practices for Copying Projects across language resources
+
+CLU projects can be easily copied from one resource to another using the Copy button in the UI. However in some cases, it might be easier to copy projects via the API. Here is how to do it. 
+
+### Step 1 
+
+Identify the  
+
+1. source-project-name 
+
+1. the target-project-name 
+
+1. the source-language-resource 
+
+1. the target-language-resource you want to copy it to. Call the authorize copy API as below to get the accessTokens for the actual Copy call (which is described in step 2) 
+```console
+curl --request POST \ 
+  --url 'https://<target-language-resource>.cognitiveservices.azure.com//language/authoring/analyze-conversations/projects/<source-project-name>/:authorize-copy?api-version=2023-04-15-preview' \ 
+  --header 'Content-Type: application/json' \ 
+  --header 'Ocp-Apim-Subscription-Key: <Your-Subscription-Key>' \ 
+  --data '{"projectKind":"Conversation","allowOverwrite":false}' 
+```
+ 
+
+### Step 2 
+
+Call the Copy API to complete the copy operation. Use the response you get in Step1 as the payload in Step2 as is. 
+```console
+curl --request POST \ 
+  --url 'https://<source-language-resource>.cognitiveservices.azure.com/language/authoring/analyze-conversations/projects/<source-project-name>/:copy?api-version=2023-04-15-preview' \ 
+  --header 'Content-Type: application/json' \ 
+  --header 'Ocp-Apim-Subscription-Key: <Your-Subscription-Key>\ 
+  --data '{ 
+"projectKind": "Conversation", 
+"targetProjectName": "<target-project-name>", 
+"accessToken": "<access-token>", 
+"expiresAt": "<expiry-date>", 
+"targetResourceId": "<target-resource-id>", 
+"targetResourceRegion": "<target-region>" 
+}'
+```
