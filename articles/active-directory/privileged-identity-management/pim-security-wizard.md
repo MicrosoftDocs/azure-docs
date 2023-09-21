@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Discovery and Insights (preview) for Microsoft Entra roles (formerly Security Wizard)
 
-If you're starting out using Privileged Identity Management (PIM) in Microsoft Entra ID, part of Microsoft Entra, to manage role assignments in your organization, you can use the **Discovery and insights (preview)** page to get started. This feature shows you who is assigned to privileged roles in your organization and how to use PIM to quickly change permanent role assignments into just-in-time assignments. You can view or make changes to your permanent privileged role assignments in **Discovery and Insights (preview)**. It's an analysis tool and an action tool.
+If you're starting out using Privileged Identity Management (PIM) in Microsoft Entra ID to manage role assignments in your organization, you can use the **Discovery and insights (preview)** page to get started. This feature shows you who is assigned to privileged roles in your organization and how to use PIM to quickly change permanent role assignments into just-in-time assignments. You can view or make changes to your permanent privileged role assignments in **Discovery and Insights (preview)**. It's an analysis tool and an action tool.
 
 ## Discovery and insights (preview)
 
