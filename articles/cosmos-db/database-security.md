@@ -278,12 +278,11 @@ After you rotate or regenerate a key, you can track its status from the Activity
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account.
 
-1. Open the **Activity log** pane and set the following filters:
-
-   * Set the **Resource type** to **Azure Cosmos DB accounts**.
-   * Set the **Operation** to **Rotate keys**.
+1. Select **Keys** from the left menu. You should see the last key regeneration date below each key.
 
    :::image type="content" source="./media/database-security/track-key-regeneration-status.png" alt-text="Status of key regeneration from Activity log" border="true":::
+
+   Microsoft recommends regenerating the keys at least once every 60 days. If your last regeneration was more than 60 days ago, you will see a warning icon. Also, you could see that your key was not recorded. If this is the case, your account was created before 2022-06-18 and the dates were not registered. However, you should be able to regenerate and see your new last regeneration date for the new key.
 
 1. You should see the key regeneration events along with its status, time at which the operation was issued, details of the user who initiated key regeneration. The key generation operation initiates with **Accepted** status, it then changes to **Started** and then to **Succeeded** when the operation completes.
 
