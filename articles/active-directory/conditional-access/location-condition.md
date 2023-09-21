@@ -21,10 +21,9 @@ Conditional Access policies are at their most basic an if-then statement combini
 
 ![Conceptual Conditional signal plus decision to get enforcement](./media/location-condition/conditional-access-signal-decision-enforcement.png)
 
-> [!IMPORTANT]
-> [IPv6 is coming to Microsoft Entra ID](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/ipv6-coming-to-azure-ad/ba-p/2967451). We will begin introducing IPv6 support into Microsoft Entra services in a phased approach, starting April 3, 2023. Organizations that use named locations in Conditional Access or Identity Protection must [take action to avoid possible service impact](/troubleshoot/azure/active-directory/azure-ad-ipv6-support#what-does-my-organization-have-to-do).
+As mentione in the blog post [IPv6 is coming to Microsoft Entra ID](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/ipv6-coming-to-azure-ad/ba-p/2967451) we now support IPv6 in Microsoft Entra services.
 
-Organizations can use this location for common tasks like: 
+Organizations can use these locations for common tasks like: 
 
 - Requiring multifactor authentication for users accessing a service when they're off the corporate network.
 - Blocking access for users accessing a service from specific countries or regions your organization never operates from.
@@ -36,7 +35,7 @@ The location found using the public IP address a client provides to Microsoft En
 
 ## Named locations
 
-Locations exist under **Microsoft Entra ID** > **Security** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations are defined by IPv4 and IPv6 address ranges or by countries/regions. 
+Locations exist under **Protection** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations are defined by IPv4 and IPv6 address ranges or by countries/regions. 
 
 > [!VIDEO https://www.youtube.com/embed/P80SffTIThY]
 
@@ -108,7 +107,7 @@ Some IP addresses don't map to a specific country or region. To capture these IP
 
 ## Define locations
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Protection** > **Conditional Access** > **Named locations**.
 1. Choose **New location**.
 1. Give your location a name.
