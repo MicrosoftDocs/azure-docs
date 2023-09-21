@@ -81,58 +81,62 @@ To configure Microsoft Entra single sign-on with SAP NetWeaver, perform the foll
 
 1. Sign on to business client of SAP System (T01), where SSO is required and activate HTTP Security session Management.
 
-	a. Go to Transaction code **SICF_SESSIONS**. It displays all relevant profile parameters with current values. They look like below:-
-    ```
-	login/create_sso2_ticket = 2
-	login/accept_sso2_ticket = 1
-	login/ticketcache_entries_max = 1000
-	login/ticketcache_off = 0  login/ticket_only_by_https = 0 
-	icf/set_HTTPonly_flag_on_cookies = 3
-	icf/user_recheck = 0  http/security_session_timeout = 1800
-	http/security_context_cache_size = 2500
-	rdisp/plugin_auto_logout = 1800
-	rdisp/autothtime = 60
-    ```
-	>[!NOTE]
-	> Adjust above parameters as per your organization requirements, Above parameters are given here as indication only.
+   a. Go to Transaction code **SICF_SESSIONS**. It displays all relevant profile parameters with current values. They look like below:-
 
-	b. If necessary adjust parameters, in the instance/default profile of SAP system and restart SAP system.
+      ```
+      login/create_sso2_ticket = 2
+      login/accept_sso2_ticket = 1
+      login/ticketcache_entries_max = 1000
+      login/ticketcache_off = 0  login/ticket_only_by_https = 0 
+      icf/set_HTTPonly_flag_on_cookies = 3
+      icf/user_recheck = 0  http/security_session_timeout = 1800
+      http/security_context_cache_size = 2500
+      rdisp/plugin_auto_logout = 1800
+      rdisp/autothtime = 60
+      ```
 
-	c. Double-click on relevant client to enable HTTP security session.
+      >[!NOTE]
+      > Adjust above parameters as per your organization requirements, Above parameters are given here as indication only.
 
-	![The HTTP Security session](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
+   b. If necessary adjust parameters, in the instance/default profile of SAP system and restart SAP system.
 
-	d. Activate below SICF services:
-    ```
-	/sap/public/bc/sec/saml2
-	/sap/public/bc/sec/cdc_ext_service
-	/sap/bc/webdynpro/sap/saml2
-	/sap/bc/webdynpro/sap/sec_diag_tool (This is only to enable / disable trace)
-    ```
+   c. Double-click on relevant client to enable HTTP security session.
+
+      ![The HTTP Security session](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
+
+      d. Activate below SICF services:
+
+         ```
+      /sap/public/bc/sec/saml2
+      /sap/public/bc/sec/cdc_ext_service
+      /sap/bc/webdynpro/sap/saml2
+      /sap/bc/webdynpro/sap/sec_diag_tool (This is only to enable / disable trace)
+      ```
+
 1. Go to Transaction code **SAML2** in business client of SAP system [T01/122]. It will open a user interface in a browser. In this example, we assumed 122 as SAP business client.
 
-	![Transaction code](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_sapbusinessclient.png)
+   ![Transaction code](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_sapbusinessclient.png)
 
 1. Provide your username and password to enter in user interface and click **Edit**.
 
-	![username and password](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
+   ![username and password](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
 
 1. Replace **Provider Name** from T01122 to `http://T01122` and click on **Save**.
 
-	> [!NOTE]
-	> By default provider name come as `<sid><client>` format but Microsoft Entra ID expects name in the format of `<protocol>://<name>`, recommending to maintain provider name as `https://<sid><client>` to allow multiple SAP NetWeaver ABAP engines to configure in Microsoft Entra ID.
+   > [!NOTE]
+   > By default provider name come as `<sid><client>` format but Microsoft Entra ID expects name in the format of `<protocol>://<name>`, recommending to maintain provider name as `https://<sid><client>` to allow multiple SAP NetWeaver ABAP engines to configure in Microsoft Entra ID.
 
-	![The multiple SAP NetWeaver ABAP engines](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
+   ![The multiple SAP NetWeaver ABAP engines](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 
 1. **Generating Service Provider Metadata**:- Once we are done with configuring the **Local Provider** and **Trusted Providers** settings on SAML 2.0 User Interface, the next step would be to generate the service provider’s metadata file (which would contain all the settings, authentication contexts and other configurations in SAP). Once this file is generated we need to upload this in Microsoft Entra ID.
 
-	![Generating Service Provider Metadata](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_generatesp.png)
+   ![Generating Service Provider Metadata](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_generatesp.png)
 
-	a. Go to **Local Provider tab**.
+   a. Go to **Local Provider tab**.
 
-	b. Click on **Metadata**.
+   b. Click on **Metadata**.
 
-	c. Save the generated **Metadata XML file** on your computer and upload it in **Basic SAML Configuration** section to autopopulate the **Identifier** and **Reply URL** values in Azure portal.
+   c. Save the generated **Metadata XML file** on your computer and upload it in **Basic SAML Configuration** section to autopopulate the **Identifier** and **Reply URL** values in Azure portal.
 
 Follow these steps to enable Microsoft Entra SSO.
 
@@ -145,21 +149,21 @@ Follow these steps to enable Microsoft Entra SSO.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
 
-    a. Click **Upload metadata file** to upload the **Service Provider metadata file**, which you have obtained earlier.
+   a. Click **Upload metadata file** to upload the **Service Provider metadata file**, which you have obtained earlier.
 
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
+   b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section textbox as shown below:
+   c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section textbox as shown below:
 
-	d. In the **Sign-on URL** text box, type a URL using the following pattern:
+   d. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<your company instance of SAP NetWeaver>`
 
-	> [!NOTE]
-	> We have seen few customers reporting an error of incorrect Reply URL configured for their instance. If you receive any such error, you can use following PowerShell script as a work around to set the correct Reply URL for your instance.:
-    > ```
-    > Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
-    > ``` 
-	> ServicePrincipal Object ID is to be set by yourself first or you can pass that also here.
+   > [!NOTE]
+   > We have seen few customers reporting an error of incorrect Reply URL configured for their instance. If you receive any such error, you can use following PowerShell script as a work around to set the correct Reply URL for your instance.:
+   > ```
+   > Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
+   > ``` 
+   > ServicePrincipal Object ID is to be set by yourself first or you can pass that also here.
 
 1. SAP NetWeaver application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
