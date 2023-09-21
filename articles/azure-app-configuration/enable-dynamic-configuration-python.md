@@ -22,12 +22,12 @@ In this tutorial, you learn how to:
 > * Set up your app to update its configuration in response to changes in an App Configuration store.
 
 > [!NOTE]
-> Requires azure-appconfiguration-provider package version 1.1.0b1 or later.
+> Requires [azure-appconfiguration-provider](https://pypi.org/project/azure-appconfiguration-provider/1.1.0b1/) package version 1.1.0b1 or later.
 
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free)
-- We assume you already have an App Configuration store. If you want to create one, [create an App Configuration store](quickstart-aspnet-core-app.md).
+- We assume you already have an App Configuration store. To create one, [create an App Configuration store](quickstart-aspnet-core-app.md).
 
 ## Sentinel key
 
