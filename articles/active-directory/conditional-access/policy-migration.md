@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access classic policy migration
 
-Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies. Conditional Access is at the heart of the new identity driven control plane. While the purpose is still the same, the release of the new Azure portal has introduced significant improvements to how Conditional Access works.
+Conditional Access is the tool used by Microsoft Entra ID to bring signals together, to make decisions, and enforce organizational policies. Conditional Access is at the heart of the new identity driven control plane. While the purpose is still the same, the release of the new Azure portal has introduced significant improvements to how Conditional Access works.
 
 Consider migrating the policies you haven't created in the Azure portal because:
 
@@ -31,7 +31,7 @@ This article explains what you need to know to migrate your existing Conditional
 
 ## Classic policies
 
-In the [Azure portal](https://portal.azure.com), Conditional Access policies can be found under **Azure Active Directory** > **Security** > **Conditional Access**. Your organization might also have older Conditional Access policies not created using this page. These policies are known as *classic policies*. Classic policies are Conditional Access policies, you've created in:
+In the [Azure portal](https://portal.azure.com), Conditional Access policies can be found under **Microsoft Entra ID** > **Security** > **Conditional Access**. Your organization might also have older Conditional Access policies not created using this page. These policies are known as *classic policies*. Classic policies are Conditional Access policies, you've created in:
 
 - The Azure classic portal
 - The Intune classic portal
@@ -39,7 +39,7 @@ In the [Azure portal](https://portal.azure.com), Conditional Access policies can
 
 On the **Conditional Access** page, you can access your classic policies by clicking [**Classic policies**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) in the **Manage** section. 
 
-![Conditional Access in Azure AD showing classic policies view](./media/policy-migration/71.png)
+![Conditional Access in Microsoft Entra ID showing classic policies view](./media/policy-migration/71.png)
 
 The **Classic policies** view provides you with an option to:
 
@@ -60,7 +60,7 @@ By changing the selected groups or by excluding specific groups, you can test th
  
 ## Migration considerations
 
-In this article, Azure AD Conditional Access policies are also referred to as *new policies*.
+In this article, Microsoft Entra Conditional Access policies are also referred to as *new policies*.
 Your classic policies continue to work side by side with your new policies until you disable or delete them. 
 
 The following aspects are important in the context of a policy consolidation:
@@ -117,4 +117,4 @@ In a new policy, you need to select the [device platforms](concept-conditional-a
 
 - [Use report-only mode for Conditional Access to determine the impact of new policy decisions.](concept-conditional-access-report-only.md)
 - If you want to know how to configure a Conditional Access policy, see [Conditional Access common policies](concept-conditional-access-policy-common.md).
-- If you're ready to configure Conditional Access policies for your environment, see the article [How To: Plan your Conditional Access deployment in Azure Active Directory](plan-conditional-access.md). 
+- If you're ready to configure Conditional Access policies for your environment, see the article [How To: Plan your Conditional Access deployment in Microsoft Entra ID](plan-conditional-access.md). 

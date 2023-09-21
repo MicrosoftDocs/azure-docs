@@ -1,6 +1,6 @@
 ---
-title: Create an Azure AD app and service principal in the portal
-description: Create a new Azure Active Directory app and service principal to manage access to resources with role-based access control in Azure Resource Manager.
+title: Create a Microsoft Entra app and service principal in the portal
+description: Create a new Microsoft Entra app and service principal to manage access to resources with role-based access control in Azure Resource Manager.
 services: active-directory
 author: cilwerner
 manager: CelesteDG
@@ -13,28 +13,30 @@ ms.author: cwerner
 ms.custom: aaddev, identityplatformtop40, subject-rbac-steps, devx-track-arm-template
 ---
 
-# Create an Azure Active Directory application and service principal that can access resources
+# Create a Microsoft Entra application and service principal that can access resources
 
-In this article, you'll learn how to create an Azure Active Directory (Azure AD) application and service principal that can be used with the role-based access control. When you register a new application in Azure AD, a service principal is automatically created for the app registration. The service principal is the app's identity in the Azure AD tenant. Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. For security reasons, it's always recommended to use service principals with automated tools rather than allowing them to sign in with a user identity.
+In this article, you'll learn how to create a Microsoft Entra application and service principal that can be used with the role-based access control. When you register a new application in Microsoft Entra ID, a service principal is automatically created for the app registration. The service principal is the app's identity in the Microsoft Entra tenant. Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. For security reasons, it's always recommended to use service principals with automated tools rather than allowing them to sign in with a user identity.
 
 In this article, you'll create a single tenant application in the Azure portal. This example is applicable for line-of-business applications used within one organization. You can also [use Azure PowerShell](howto-authenticate-service-principal-powershell.md) or the [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli) to create a service principal.
 
 > [!IMPORTANT]
-> Instead of creating a service principal, consider using managed identities for Azure resources for your application identity. If your code runs on a service that supports managed identities and accesses resources that support Azure AD authentication, managed identities are a better option for you. To learn more about managed identities for Azure resources, including which services currently support it, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
+> Instead of creating a service principal, consider using managed identities for Azure resources for your application identity. If your code runs on a service that supports managed identities and accesses resources that support Microsoft Entra authentication, managed identities are a better option for you. To learn more about managed identities for Azure resources, including which services currently support it, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
 
-For more information on the relationship between app registration, application objects, and service principals, read [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md).
+For more information on the relationship between app registration, application objects, and service principals, read [Application and service principal objects in Microsoft Entra ID](app-objects-and-service-principals.md).
 
 ## Prerequisites
 
-To register an application in your Azure AD tenant, you need:
+To register an application in your Microsoft Entra tenant, you need:
 
-- An Azure AD user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Permissions required for registering an app
 
-You must have sufficient permissions to register an application with your Azure AD tenant, and assign to the application a role in your Azure subscription. To complete these tasks, you require `Application.ReadWrite.All`permission.
+You must have sufficient permissions to register an application with your Microsoft Entra tenant, and assign to the application a role in your Azure subscription. To complete these tasks, you require `Application.ReadWrite.All`permission.
 
-## Register an application with Azure AD and create a service principal
+<a name='register-an-application-with-azure-ad-and-create-a-service-principal'></a>
+
+## Register an application with Microsoft Entra ID and create a service principal
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -47,7 +49,7 @@ You must have sufficient permissions to register an application with your Azure 
 
    :::image type="content" source="media/howto-create-service-principal-portal/create-app.png" alt-text="Type a name for your application.":::
 
-You've created your Azure AD application and service principal.
+You've created your Microsoft Entra application and service principal.
 
 ## Assign a role to the application
 
@@ -62,7 +64,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 1. In the **Role** tab, select the role you wish to assign to the application in the list. For example, to allow the application to execute actions like reboot, start and stop instances, select the **Contributor** role.
 1. Select the **Next**.
 1. On the **Members** tab. Select **Assign access to**, then select **User, group, or service principal**
-1. Select **Select members**. By default, Azure AD applications aren't displayed in the available options. To find your application, Search for it by its name. 
+1. Select **Select members**. By default, Microsoft Entra applications aren't displayed in the available options. To find your application, Search for it by its name. 
 1. Select the **Select** button, then select **Review + assign**.
 
     :::image type="content" source="media/howto-create-service-principal-portal/add-role-assignment.png" alt-text="Screenshot showing role assignment.":::
