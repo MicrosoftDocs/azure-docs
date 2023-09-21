@@ -1,6 +1,6 @@
 ---
 title: Restore or permanently remove recently deleted user
-description: How to view restorable users, restore a deleted user, or permanently delete a user with Azure Active Directory.
+description: How to view restorable users, restore a deleted user, or permanently delete a user with Microsoft Entra ID.
 services: active-directory
 author: barclayn
 manager: amycolannino
@@ -89,4 +89,4 @@ After you've restored or deleted your users, you can:
 
 - [Add guest users from another organization](../external-identities/what-is-b2b.md)
 
-For more information about other available user management tasks, [Azure AD user management documentation](../enterprise-users/index.yml).
+For more information about other available user management tasks, [Microsoft Entra user management documentation](../enterprise-users/index.yml).

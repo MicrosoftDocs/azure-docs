@@ -14,7 +14,7 @@ ms.date: 03/06/2023
 ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: JasSuri
-#Customer intent: As an application developer, I want to source claims from a data store that is external to Azure Active Directory.
+#Customer intent: As an application developer, I want to source claims from a data store that is external to Microsoft Entra ID.
 ---
 
 # Configure a SAML app to receive tokens with claims from an external store (preview)
@@ -62,7 +62,7 @@ Set up single sign-on for the app:
 
 ### Configure claims
 
-Attributes that return by your custom claims provider API aren't automatically included in tokens returned by Azure AD.  You need to configure your application to reference attributes returned by the custom claims provider and return them as claims in tokens.
+Attributes that return by your custom claims provider API aren't automatically included in tokens returned by Microsoft Entra ID.  You need to configure your application to reference attributes returned by the custom claims provider and return them as claims in tokens.
 
 1. On the **Enterprise applications** configuration page for that new app, go to the **Single sign-on** pane.
 
