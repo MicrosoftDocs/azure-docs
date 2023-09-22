@@ -2068,7 +2068,9 @@
       - name: QReserve
         href: qreserve-tutorial.md
       - name: Qualaroo
-        href: qualaroo-tutorial.md  
+        href: qualaroo-tutorial.md
+      - name: Quarem
+        href: quarem-tutorial.md
       - name: Quantum Workplace
         href: quantum-workplace-tutorial.md
       - name: Questetra BPM Suite
