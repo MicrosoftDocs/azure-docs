@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Microsoft Entra SSO integration with Flock Safety
 
-In this tutorial, you'll learn how to integrate Flock Safety with Microsoft Entra ID. When you integrate Flock Safety with Microsoft Entra ID, you can:
+In this tutorial, you learn how to integrate Flock Safety with Microsoft Entra ID. When you integrate Flock Safety with Microsoft Entra ID, you can:
 
 * Control in Microsoft Entra ID who has access to Flock Safety.
 * Enable your users to be automatically signed-in to Flock Safety with their Microsoft Entra accounts.
@@ -96,7 +96,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 
 ### Create a Microsoft Entra ID test user
 
-In this section, you'll create a test user in the Microsoft Entra admin center called B.Simon.
+In this section, you create a test user in the Microsoft Entra admin center called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -110,14 +110,14 @@ In this section, you'll create a test user in the Microsoft Entra admin center c
 
 ### Assign the Microsoft Entra ID test user
 
-In this section, you'll enable B.Simon to use Microsoft Entra single sign-on by granting access to Flock Safety.
+In this section, you enable B.Simon to use Microsoft Entra single sign-on by granting access to Flock Safety.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Flock Safety**.
 1. In the app's overview page, select **Users and groups**.
 1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
    1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. If you're expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
    1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Flock Safety SSO
@@ -126,7 +126,7 @@ To configure single sign-on on **Flock Safety** side, you need to send the downl
 
 ### Create Flock Safety test user
 
-In this section, a user called Britta Simon is created in Flock Safety. Flock Safety supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Flock Safety, a new one is created after authentication.
+In this section, a user called Britta Simon is created in Flock Safety. Flock Safety supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in Flock Safety, a new one is created after authentication.
 
 ## Test SSO 
 
