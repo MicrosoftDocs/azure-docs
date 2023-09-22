@@ -14,6 +14,9 @@ ms.custom: mvc, engagement-fy24
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (September 2023)
+- Azure Migrate now supports discovery and assessment of Spring Boot apps using the Azure Migrate: Discovery and assessment tool. [Learn more](how-to create-azure-spring-apps-assessment.md).
+
 ## Update (August 2023)
 - Azure Migrate now helps you gain deeper insights into the support posture of your IT estate by providing insights into Windows server and SQL Server license support information. You can stay ahead of license support deadlines with *Support ends in* information that helps to understand the time left until the end of support for respective servers and databases.
 - Azure Migrate also provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
