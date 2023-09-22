@@ -64,7 +64,7 @@ Try the following fixes:
 
 ::: zone-end
 ::: zone pivot="nodejs-model-v3"
-- Make sure your app has the [required folder structure](./functions-reference-node?pivots=nodejs-model-v3#folder-structure) with a *host.json* at the root and a folder for each function containing a *function.json* file.
+- Make sure your app has the [required folder structure](./functions-reference-node.md?pivots=nodejs-model-v3#folder-structure) with a *host.json* at the root and a folder for each function containing a *function.json* file.
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4"
