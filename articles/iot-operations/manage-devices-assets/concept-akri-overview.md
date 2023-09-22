@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Akri overview
+title: Akri overview
 description: Understand how Azure IoT Akri works and how it enables you to detect IoT leaf devices and assets, and project them into your cluster. 
 author: timlt
 ms.author: timlt
