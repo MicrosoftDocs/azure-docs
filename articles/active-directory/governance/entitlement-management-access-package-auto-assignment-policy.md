@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 # Configure an automatic assignment policy for an access package in entitlement management
 
-You can use rules to determine access package assignment based on user properties in Azure Active Directory (Azure AD), part of Microsoft Entra.  In Entitlement Management, an access package can have multiple policies, and each policy establishes how users get an assignment to the access package, and for how long.  As an administrator, you can establish a policy for automatic assignments by supplying a membership rule, that Entitlement Management will follow to create and remove assignments automatically.  Similar to a [dynamic group](../enterprise-users/groups-create-rule.md), when an automatic assignment policy is created, user attributes are evaluated for matches with the policy's membership rule. When an attribute changes for a user, these automatic assignment policy rules in the access packages are processed for membership changes. Assignments to users are then added or removed depending on whether they meet the rule criteria.
+You can use rules to determine access package assignment based on user properties in Microsoft Entra ID, part of Microsoft Entra.  In Entitlement Management, an access package can have multiple policies, and each policy establishes how users get an assignment to the access package, and for how long.  As an administrator, you can establish a policy for automatic assignments by supplying a membership rule, that Entitlement Management will follow to create and remove assignments automatically.  Similar to a [dynamic group](../enterprise-users/groups-create-rule.md), when an automatic assignment policy is created, user attributes are evaluated for matches with the policy's membership rule. When an attribute changes for a user, these automatic assignment policy rules in the access packages are processed for membership changes. Assignments to users are then added or removed depending on whether they meet the rule criteria.
 
 You can have at most one automatic assignment policy in an access package, and the policy can only be created by an administrator.  (Catalog owners and access package managers cannot create automatic assignment policies.)
 
@@ -30,13 +30,15 @@ This article describes how to create an access package automatic assignment poli
 
 ## Before you begin
 
-You'll need to have attributes populated on the users who will be in scope for being assigned access.  The attributes you can use in the rules criteria of an access package assignment policy are those attributes listed in [supported properties](../enterprise-users/groups-dynamic-membership.md#supported-properties), along with [extension attributes and custom extension properties](../enterprise-users/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties).  These attributes can be brought into Azure AD from [Graph](/graph/api/resources/user), an HR system such as [SuccessFactors](../app-provisioning/sap-successfactors-integration-reference.md), [Azure AD Connect cloud sync](../hybrid/cloud-sync/how-to-attribute-mapping.md) or [Azure AD Connect sync](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md).  The rules can include up to 5000 users per policy.
+You'll need to have attributes populated on the users who will be in scope for being assigned access.  The attributes you can use in the rules criteria of an access package assignment policy are those attributes listed in [supported properties](../enterprise-users/groups-dynamic-membership.md#supported-properties), along with [extension attributes and custom extension properties](../enterprise-users/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties).  These attributes can be brought into Microsoft Entra ID from [Graph](/graph/api/resources/user), an HR system such as [SuccessFactors](../app-provisioning/sap-successfactors-integration-reference.md), [Microsoft Entra Connect cloud sync](../hybrid/cloud-sync/how-to-attribute-mapping.md) or [Microsoft Entra Connect Sync](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md).  The rules can include up to 5000 users per policy.
 
 ## License requirements
 
 [!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
 
 ## Create an automatic assignment policy
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To create a policy for an access package, you need to start from the access package's policy tab. Follow these steps to create a new automatic assignment policy for an access package.
 
@@ -55,7 +57,7 @@ To create a policy for an access package, you need to start from the access pack
 1. Provide a dynamic membership rule, using the [membership rule builder](../enterprise-users/groups-dynamic-membership.md) or by clicking **Edit** on the rule syntax text box.
 
    > [!NOTE]
-   > The rule builder might not be able to display some rules constructed in the text box, and validating a rule currently requires the you to be in the Global administrator role. For more information, see [rule builder in the Entra admin center](../enterprise-users/groups-create-rule.md#rule-builder-in-the-azure-portal).
+   > The rule builder might not be able to display some rules constructed in the text box, and validating a rule currently requires the you to be in the Global administrator role. For more information, see [rule builder in the Microsoft Entra admin center](../enterprise-users/groups-create-rule.md#rule-builder-in-the-azure-portal).
 
     ![Screenshot of an access package automatic assignment policy rule configuration.](./media/entitlement-management-access-package-auto-assignment-policy/auto-assignment-rule-configuration.png)
 
@@ -75,7 +77,7 @@ To create a policy for an access package, you need to start from the access pack
    > [!NOTE]
    > At this time, Entitlement management will automatically create a dynamic security group corresponding to each policy, in order to evaluate the users in scope. This group should not be modified except by Entitlement Management itself.  This group may also be modified or deleted automatically by Entitlement Management, so don't use this group for other applications or scenarios.
 
-1. Azure AD will evaluate the users in the organization that are in scope of this rule, and create assignments for those users who don't already have assignments to the access package. A policy can include at most 5000 users in its rule. It may take several minutes for the evaluation to occur, or for subsequent updates to user's attributes to be reflected in the access package assignments.
+1. Microsoft Entra ID will evaluate the users in the organization that are in scope of this rule, and create assignments for those users who don't already have assignments to the access package. A policy can include at most 5000 users in its rule. It may take several minutes for the evaluation to occur, or for subsequent updates to user's attributes to be reflected in the access package assignments.
 
 ## Create an automatic assignment policy programmatically
 

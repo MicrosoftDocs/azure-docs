@@ -610,9 +610,15 @@ Batch geocoding is the process of taking a large number of addresses or places, 
 
 Bing Maps allows up to 200,000 addresses to be passed in a single batch geocode request. This request goes into a queue and usually processes over a period of time, anywhere from a few minutes to a few hours depending on the size of the data set and the load on the service. Each address in the request generated a transaction.
 
-Azure Maps has a batch geocoding service, however it allows up to 10,000 addresses to be passed in a single request and is processed over seconds to a few minutes depending on the size of the data set and the load on the service. Each address in the request generated a transaction. In Azure Maps, the batch geocoding service is only available the Gen 2 or S1 pricing tier. For more information on pricing tiers, see [Choose the right pricing tier in Azure Maps].
+Azure Maps has a batch geocoding service, however it allows up to 10,000 addresses to be passed in a single request and is processed over seconds to a few minutes depending on the size of the data set and the load on the service. Each address in the request generated a transaction.
 
-Another option for geocoding a large number addresses with Azure Maps is to make parallel requests to the standard search APIs. These services only accept a single address per request but can be used with the S0 tier that also provides free usage limits. The S0 tier allows up to 50 requests per second to the Azure Maps platform from a single account. So if you process limit these to stay within that limit, it's possible to geocode upwards of 180,000 address an hour. The Gen 2 or S1 pricing tier doesn’t have a documented limit on the number of queries per second that can be made from an account, so a lot more data can be processed faster when using that pricing tier, however using the batch geocoding service helps reduce the total amount of data transferred, reducing network traffic.
+Another option for geocoding a large number addresses with Azure Maps is to make parallel requests to the standard search APIs. These services only accept a single address per request but can be used with the S0 tier that also provides free usage limits. The S0 tier allows up to 50 requests per second to the Azure Maps platform from a single account. So if you process limit these to stay within that limit, it's possible to geocode upwards of 180,000 address an hour. The Gen2 or Gen1 (S1) pricing tier doesn’t have a documented limit on the number of queries per second that can be made from an account, so a lot more data can be processed faster when using that pricing tier, however using the batch geocoding service helps reduce the total amount of data transferred, reducing network traffic.
+
+> [!NOTE]
+>
+> **Azure Maps Gen1 pricing tier retirement**
+>
+> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1). If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing tier before it’s retired, otherwise it will automatically be updated. For more information on the Gen1 pricing tier retirement, see [Manage the pricing tier of your Azure Maps account].
 
 * [Free-form address geocoding]: Specify a single address string (like `"1 Microsoft way, Redmond, WA"`) and process the request immediately. This service is recommended if you need to geocode individual addresses quickly.
 * [Structured address geocoding]: Specify the parts of a single address, such as the street name, city, country/region, and postal code and process the request immediately. This service is recommended if you need to geocode individual addresses quickly and the data is already parsed into its individual address parts.
@@ -689,7 +695,6 @@ Learn more about the Azure Maps REST services.
 [Best practices for Azure Maps Route service]: how-to-use-best-practices-for-routing.md
 [Best practices for Azure Maps Search service]: how-to-use-best-practices-for-search.md
 [Calculate route]: /rest/api/maps/route/getroutedirections
-[Choose the right pricing tier in Azure Maps]: choose-pricing-tier.md
 [Cross street reverse geocoder]: /rest/api/maps/search/getsearchaddressreversecrossstreet
 [free account]: https://azure.microsoft.com/free/
 [Free-form address geocoding]: /rest/api/maps/search/getsearchaddress
@@ -698,9 +703,10 @@ Learn more about the Azure Maps REST services.
 [Geolocation API]: /rest/api/maps/geolocation/get-ip-to-location
 [Localization support in Azure Maps]: supported-languages.md
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
 [Map image render]: /rest/api/maps/render/getmapimagerytile
 [Map imagery tile]: /rest/api/maps/render/getmapimagerytile
-[Map Tiles]: /rest/api/maps/render/getmaptile
+[Map Tiles]: /rest/api/maps/render-v2/get-map-tile
 [nearby search]: /rest/api/maps/search/getsearchnearby
 [NetTopologySuite]: https://github.com/NetTopologySuite/NetTopologySuite
 [POI category search]: /rest/api/maps/search/get-search-poi-category
@@ -708,7 +714,7 @@ Learn more about the Azure Maps REST services.
 [POST Route directions]: /rest/api/maps/route/postroutedirections
 [quadtree tile pyramid math]: zoom-levels-and-tile-grid.md
 [Render custom data on a raster map]: how-to-render-custom-data.md
-[Render]: /rest/api/maps/render/getmapimage
+[Render]: /rest/api/maps/render-v2/get-map-static-image
 [Route directions]: /rest/api/maps/route/getroutedirections
 [Route Matrix]: /rest/api/maps/route/postroutematrixpreview
 [Route Range]: /rest/api/maps/route/getrouterange

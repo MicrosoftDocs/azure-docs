@@ -14,7 +14,7 @@ ms.custom:
 
 IPSec tunnel is a bidirectional communication. This article provides the steps to set up the policy side the communication channel using the Microsoft Graph API. The other side of the communication is configured on your customer premises equipment. 
 
-For more information about creating a remote network and the custom IKE policy, see [Create a remote network](how-to-create-remote-networks.md#create-a-remote-network-with-the-microsoft-entra-admin-center) and [Remote network configurations](reference-remote-network-configurations.md).
+For more information about creating a remote network and the custom IKE policy, see [Create a remote network](how-to-create-remote-networks.md#create-a-remote-network) and [Remote network configurations](reference-remote-network-configurations.md).
 
 
 ## Prerequisites
@@ -24,7 +24,7 @@ To create a remote network with a custom IKE policy, you must have:
 - A **Global Secure Access Administrator** role in Microsoft Entra ID.
 - Sent an email to Global Secure Access onboarding team according to the [onboarding process](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks).
 - Received the connectivity information from Global Secure Access onboarding.
-- The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+- The preview requires a Microsoft Entra ID P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 
 ## How to use Microsoft Graph to create a remote network with a custom IKE policy
 

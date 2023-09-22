@@ -514,14 +514,14 @@ Learn more about Azure Maps REST services:
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Map image render]: /rest/api/maps/render/getmapimagerytile
 [Map imagery tile]: /rest/api/maps/render/getmapimagerytile
-[Map tile]: /rest/api/maps/render/getmaptile
+[Map tile]: /rest/api/maps/render-v2/get-map-tile
 [Nearby search]: /rest/api/maps/search/getsearchnearby
 [npm package]: https://www.npmjs.com/package/azure-maps-rest
 [NuGet package]: https://www.nuget.org/packages/AzureMapsRestToolkit
 [POI category search]: /rest/api/maps/search/getsearchpoicategory
 [POI search]: /rest/api/maps/search/getsearchpoi
 [Render custom data on a raster map]: how-to-render-custom-data.md
-[Render]: /rest/api/maps/render/getmapimage
+[Render]: /rest/api/maps/render-v2/get-map-static-image
 [Reverse geocode a coordinate]: #reverse-geocode-a-coordinate
 [Route Matrix]: /rest/api/maps/route/postroutematrixpreview
 [Route]: /rest/api/maps/route

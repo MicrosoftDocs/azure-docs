@@ -353,7 +353,7 @@ In this article, you learned how to create and manage system node pools in an AK
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/sizes.md
 [use-multiple-node-pools]: create-node-pools.md
-[maximum-pods]: configure-azure-cni.md#maximum-pods-per-node
+[maximum-pods]: azure-cni-overview.md#maximum-pods-per-node
 [update-node-pool-mode]: use-system-pools.md#update-existing-cluster-system-and-user-node-pools
 [start-stop-nodepools]: ./start-stop-nodepools.md
 [node-affinity]: operator-best-practices-advanced-scheduler.md#node-affinity

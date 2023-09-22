@@ -1,5 +1,5 @@
 ---
-title: Create a lifecycle workflow - Azure AD
+title: Create a lifecycle workflow - Microsoft Entra ID
 description: This article guides you in creating a lifecycle workflow. 
 author: OWinfreyATL
 ms.author: owinfrey
@@ -28,7 +28,7 @@ You can create and customize workflows for common scenarios by using templates, 
 
 ## Create a lifecycle workflow by using a template in the Microsoft Entra admin center
 
-
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 If you're using the Microsoft Entra admin center to create a workflow, you can customize existing templates to meet your organization's needs. These templates include one for pre-hire common scenarios.
 

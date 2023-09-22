@@ -4,12 +4,12 @@ description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 09/13/2023
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
 
-# Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
+# Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Microsoft Entra ID to improve and secure user sign-in events.
 ---
 # How to use additional context in Microsoft Authenticator notifications - Authentication methods policy
 
@@ -17,7 +17,7 @@ This topic covers how to improve the security of user sign-in by adding the appl
 
 ## Prerequisites
 
-- Your organization needs to enable Microsoft Authenticator passwordless and push notifications for some users or groups by using the new Authentication methods policy. You can edit the Authentication methods policy by using the Azure portal or Microsoft Graph API. 
+- Your organization needs to enable Microsoft Authenticator passwordless and push notifications for some users or groups by using the new Authentication methods policy. You can edit the Authentication methods policy by using the Microsoft Entra admin center or Microsoft Graph API. 
 
   >[!NOTE]
   >The policy schema for Microsoft Graph APIs has been improved. The older policy schema is now deprecated. Make sure you use the new schema to help prevent errors.
@@ -73,7 +73,7 @@ https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMetho
 | Property | Type | Description |
 |----------|------|-------------|
 | authenticationMode | String | Possible values are:<br>**any**: Both passwordless phone sign-in and traditional second factor notifications are allowed.<br>**deviceBasedPush**: Only passwordless phone sign-in notifications are allowed.<br>**push**: Only traditional second factor push notifications are allowed. |
-| id | String | Object ID of an Azure AD user or group. |
+| id | String | Object ID of a Microsoft Entra user or group. |
 | targetType | authenticationMethodTargetType | Possible values are: **user**, **group**.|
 
 #### MicrosoftAuthenticator featureSettings properties
@@ -94,7 +94,7 @@ https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMetho
 |----------|------|-------------|
 | excludeTarget | featureTarget | A single entity that is excluded from this feature. <br>You can only exclude one group for each feature.|
 | includeTarget | featureTarget | A single entity that is included in this feature. <br>You can only include one group for each feature.|
-| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
+| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Microsoft Entra ID to manage whether the feature is enabled or not for the selected group. |
 
 #### Feature target properties
 
@@ -165,7 +165,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 #### Example of how to enable application name and geographic location for separate groups
  
 In **featureSettings**, change **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** from **default** to **enabled.** 
-Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure portal.
+Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Microsoft Entra admin center.
 
 You need to PATCH the entire schema to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The following example shows an update to **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
 
@@ -222,7 +222,7 @@ GET https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationM
 #### Example of how to disable application name and only enable geographic location 
  
 In **featureSettings**, change the state of **displayAppInformationRequiredState** to **default** or **disabled** and **displayLocationInformationRequiredState** to **enabled.** 
-Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure portal.
+Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Microsoft Entra admin center.
 
 You need to PATCH the entire schema to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The following example shows an update to **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
 
@@ -273,9 +273,9 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 #### Example of how to exclude a group from application name and geographic location 
  
 In **featureSettings**, change the states of **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** from **default** to **enabled.** 
-Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure portal.
+Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Microsoft Entra admin center.
 
-In addition, for each of the features, you'll change the id of the excludeTarget to the ObjectID of the group from the Azure portal. This change excludes that group from seeing application name or geographic location.
+In addition, for each of the features, you'll change the id of the excludeTarget to the ObjectID of the group from the Microsoft Entra admin center. This change excludes that group from seeing application name or geographic location.
 
 You need to PATCH the entire schema to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The following example shows an update to **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
 
@@ -408,11 +408,12 @@ To turn off additional context, you'll need to PATCH **displayAppInformationRequ
 }
 ```
 
-## Enable additional context in the portal
+## Enable additional context in the Microsoft Entra admin center
 
-To enable application name or geographic location in the Azure portal, complete the following steps:
+To enable application name or geographic location in the Microsoft Entra admin center, complete the following steps:
 
-1. In the Azure portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Microsoft Authenticator**.
 1. On the **Basics** tab, click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Any**. 
    
    Only users who are enabled for Microsoft Authenticator here can be included in the policy to show the application name or geographic location of the sign-in, or excluded from it. Users who aren't enabled for Microsoft Authenticator can't see application name or geographic location.
@@ -437,5 +438,4 @@ Additional context isn't supported for Network Policy Server (NPS) or Active Dir
 
 ## Next steps
 
-[Authentication methods in Azure Active Directory - Microsoft Authenticator app](concept-authentication-authenticator-app.md)
-
+[Authentication methods in Microsoft Entra ID - Microsoft Authenticator app](concept-authentication-authenticator-app.md)

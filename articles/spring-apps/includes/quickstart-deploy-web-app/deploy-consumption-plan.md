@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: xiada
 ms.service: spring-apps
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.topic: include
 ms.date: 08/31/2023
 ---
@@ -56,8 +56,7 @@ Use the following steps to initialize the web application from the Azure Develop
 
    The following list describes the command interactions:
 
-   - **OAuth2 login**: Authorize the login to Azure based on the OAuth2 protocol.
-   - **Please enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group created to hold all the Azure resources. This name should be unique within your Azure subscription.
+   - **Enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group created to hold all the Azure resources. This name should be unique within your Azure subscription.
 
    The console outputs messages similar to the following example:
 
@@ -70,7 +69,7 @@ Use the following steps to initialize the web application from the Azure Develop
 
    SUCCESS: New project initialized!
    You can view the template code in your directory: <your-local-path>
-   Learn more about running 3rd party code on our DevHub: https://learn.microsoft.com/azure/developer/azure-developer-cli/azd-templates#guidelines-for-using-azd-templates
+   Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
    ```
 
 ---
@@ -160,10 +159,10 @@ Use the following steps to connect your service instances:
    azd auth login
    ```
 
-1. Use the following command to enable Azure Spring Apps feature:
+   The console outputs messages similar to the following example:
 
-   ```bash
-   azd config set alpha.springapp on
+   ```text
+   Logged in to Azure.
    ```
 
 1. Use the following command to provision the template's infrastructure to Azure:
@@ -244,6 +243,12 @@ Use the following steps to package the app, provision the Azure resources requir
    azd package
    ```
 
+   The console outputs messages similar to the following example:
+
+   ```output
+   SUCCESS: Your application was packaged for Azure in xx seconds.
+   ```
+
 1. Use the following command to deploy the application code to those newly provisioned resources:
 
    ```bash
@@ -255,11 +260,9 @@ Use the following steps to package the app, provision the Azure resources requir
    ```output
    Deploying services (azd deploy)
 
-   WARNING: Feature 'springapp' is in alpha stage.
-   To learn more about alpha features and their support, visit https://aka.ms/azd-feature-stages.
-
    (✓) Done: Deploying service simple-todo-web
-   - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io/
+   - Endpoint: https://demo.xxx.<your-azure-location>.azurecontainerapps.io
+
 
    SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:

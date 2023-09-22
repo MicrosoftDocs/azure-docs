@@ -11,6 +11,8 @@ ms.date: 08/25/2023
 recommendations: false
 ---
 
+## Add your data using Azure OpenAI Studio
+
 Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
 1. Select the **Chat playground** tile.

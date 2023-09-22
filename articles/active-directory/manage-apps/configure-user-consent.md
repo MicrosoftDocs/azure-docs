@@ -39,11 +39,11 @@ To configure user consent, you need:
 
 :::zone pivot="portal"
 
-To configure user consent settings through the Azure portal:
+To configure user consent settings through the Microsoft Entra admin center:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
-1. Select **Azure Active Directory** > **Enterprise applications** > **Consent and permissions** > **User consent settings**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Consent and permissions** > **User consent settings**.
 
 1. Under **User consent for applications**, select which consent setting you want to configure for all users.
 
@@ -59,13 +59,14 @@ To choose which app consent policy governs user consent for applications, you ca
 
 ### Connect to Microsoft Graph PowerShell
 
-Connect to Microsoft Graph PowerShell using the least-privilege permission needed. For reading the current user consent settings, use *Policy.Read.All*. For reading and changing the user consent settings, use *Policy.ReadWrite.Authorization*.
+Connect to Microsoft Graph PowerShell using the least-privilege permission needed. For reading the current user consent settings, use *Policy.Read.All*. For reading and changing the user consent settings, use *Policy.ReadWrite.Authorization*. You need to sign in as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
 ```powershell
 Connect-MgGraph -Scopes "Policy.ReadWrite.Authorization"
 ```
 
 ### Disable user consent
+
 To disable user consent, ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include other current `ManagePermissionGrantsForOwnedResource.*` policies if any while updating the collection. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
 
 ```powershell
@@ -80,6 +81,7 @@ Update-MgPolicyAuthorizationPolicy -AuthorizationPolicyId authorizationPolicy -B
 ```
 
 ### Allow user consent subject to an app consent policy
+
 To allow user consent, choose which app consent policy should govern users' authorization to grant consent to apps. Please ensure that the consent policies (`PermissionGrantPoliciesAssigned`) include other current `ManagePermissionGrantsForOwnedResource.*` policies if any while updating the collection. This way, you can maintain your current configuration for user consent settings and other resource consent settings.
 
 ```powershell
