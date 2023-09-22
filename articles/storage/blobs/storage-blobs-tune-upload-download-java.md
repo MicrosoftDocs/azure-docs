@@ -74,7 +74,7 @@ The following code example shows how to set values for [ParallelTransferOptions]
 ```java
 ParallelTransferOptions parallelTransferOptions = new ParallelTransferOptions()
         .setBlockSizeLong((long) (4 * 1024 * 1024)) // 4 MiB block size
-        .setMaxConcurrency(1)
+        .setMaxConcurrency(2)
         .setMaxSingleUploadSizeLong((long) 8 * 1024 * 1024); // 8 MiB max size for single request upload
 
 BlobUploadFromFileOptions options = new BlobUploadFromFileOptions("<localFilePath>");
@@ -120,7 +120,7 @@ The following code example shows how to set values for [ParallelTransferOptions]
 ```java
 ParallelTransferOptions parallelTransferOptions = new ParallelTransferOptions()
         .setBlockSizeLong((long) (4 * 1024 * 1024)) // 4 MiB block size
-        .setMaxConcurrency(1);
+        .setMaxConcurrency(2);
 
 BlobDownloadToFileOptions options = new BlobDownloadToFileOptions("<localFilePath>");
 options.setParallelTransferOptions(parallelTransferOptions);
