@@ -1,5 +1,6 @@
 ---
-title: Performance tuning for uploads and downloads with Azure Storage client library for Python - Azure Storage
+title: Performance tuning for uploads and downloads with Azure Storage client library for Python
+titleSuffix: Azure Storage
 description: Learn how to tune your uploads and downloads for better performance with Azure Storage client library for Python. 
 services: storage
 author: pauljewellmsft
@@ -11,7 +12,7 @@ ms.devlang: python
 ms.custom: devx-track-python, devguide-python, devx-track-python
 ---
 
-# Performance tuning for uploads and downloads with the Azure Storage client library for Python
+# Performance tuning for uploads and downloads with Python
 
 When an application transfers data using the Azure Storage client library for Python, there are several factors that can affect speed, memory usage, and even the success or failure of the request. To maximize performance and reliability for data transfers, it's important to be proactive in configuring client library transfer options based on the environment your app runs in.
 
