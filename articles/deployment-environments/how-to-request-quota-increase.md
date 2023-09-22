@@ -1,6 +1,6 @@
 ---
-title:  Request a quota limit increase for Dev Box resources
-description: Learn how to request a quota increase to expand the number of dev box resources you can use in your subscription. Request an increase for dev box cores and other resources.
+title:  Request a quota limit increase for Azure Deployment Environments resources
+description: Learn how to request a quota increase to expand the number of Deployment Environments resources you can use in your subscription. 
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -11,17 +11,16 @@ ms.date: 08/22/2023
 
 # Request a quota limit increase
 
-This article describes how to submit a support request for increasing the number of resources for Microsoft Dev Box in your Azure subscription. 
+This article describes how to submit a support request for increasing the number of resources for Azure Deployment Environments in your Azure subscription. 
 
-When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase, or a quota increase) to extend the number of resources available. The request process allows the Microsoft Dev Box team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
+When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase, or a quota increase) to extend the number of resources available. The request process allows the Azure Deployment Environments team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
-The time it takes to increase your quota varies depending on the VM size, region, and number of resources requested.  You won't have to go through the process of requesting extra capacity often, but to ensure you have the resources you require when you need them, you should:
+The time it takes to increase your quota varies depending on the number of resources requested in which region. You won't have to go through the process of requesting extra capacity often, but to ensure you have the resources you require when you need them, you should:
 
 - Request capacity as far in advance as possible.
 - If possible, be flexible on the region where you're requesting capacity.
-- Recognize that capacity remains assigned for the lifetime of a subscription. When dev box resources are deleted, the capacity remains assigned to the subscription. 
+- Recognize that capacity remains assigned for the lifetime of a subscription. When deployment environments resources are deleted, the capacity remains assigned to the subscription. 
 - Request extra capacity only if you need more than is already assigned to your subscription. 
-- Make incremental requests for VM cores rather than making large, bulk requests. Break requests for large numbers of cores into smaller requests for extra flexibility in how those requests are fulfilled.
 
 Learn more about the general [process for creating Azure support requests](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
@@ -40,22 +39,15 @@ You'll find submitting a support request for additional quota is quicker if you 
 
 - **Determine the region for the additional quota**
 
-   Dev Box resources can exist in many regions. You can choose to deploy resources in multiple regions close to your dev box users. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
+   Deployment Environments resources can exist in many regions. You can choose to deploy resources in multiple regions close to your Deployment Environments users. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
 - **Choose the quota type of the additional quota.**
 
-   The following Dev Box resources are limited by subscription. You can request an increase in the number of resources for each of these types.
+   The following Deployment Environments resources are limited by subscription. You can request an increase in the number of resources for each of these types.
 
-   - Dev box definitions
-   - Dev centers
-   - Network settings
-   - Pools
-   - Projects
-   - Network connections
-   - Dev Box general cores
-   - Other
- 
-   When you want to increase the number of dev boxes available to your developers, you should request an increase in the number of Dev Box general cores. 
+   - Runtime limit per month (mins)
+   - Runtime limit per deployment (mins)
+   - Storage limit per environment (GBs)
 
 ## Submit a new support request
 
@@ -73,9 +65,10 @@ Follow these steps to request a limit increase:
 
     | Name              | Value   |
     | ----------------- | ------- |
+    | **What is your issue related to?** | *Azure services* |
     | **Issue type**    | *Service and subscription limits (quotas)* |
     | **Subscription**  | Select the subscription to which the request applies. |
-    | **Quota type**    | *Microsoft Dev Box* |
+    | **Quota type**    | *Azure Deployment Environments* |
 
 1. On the **Additional details** tab, in the **Problem details** section, select **Enter details**.
  
@@ -85,11 +78,10 @@ Follow these steps to request a limit increase:
  
     | Name              | Value   |
     | ----------------- | ------- |
+    | **Quota type**    | Select the **Quota type** that you want to increase. | 
     | **Region**        | Select the **Region** in which you want to increase your quota. | 
-    | **Quota type**    | When you select a Region, Azure displays your current usage and your current for all quota types. </br> Select the **Quota type** that you want to increase. | 
-    | **New total limit** | Enter the new total limit that you want to request. |
-    | **Is it a limit decrease?** | Select **Yes** or **No**. |
-    | **Additional information** | Enter any extra information about your request. |
+    | **Additional quota** | Enter the additional number of minutes that you need, or GBs per environment for Storage limit increases. |
+    | **Additional info** | Enter any extra information about your request. |
 
     :::image type="content" source="media/how-to-request-capacity-increase/quota-details.png" alt-text="Screenshot of the Quota details pane." lightbox="media/how-to-request-capacity-increase/quota-details.png":::
 
@@ -135,4 +127,4 @@ To complete the support request, enter the following information:
 ## Related content
 
 - To learn how to check your quota usage, see [Determine usage and quota](./how-to-determine-your-quota-usage.md).
-- Check the default quota for each resource type by subscription type: [Microsoft Dev Box limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#microsoft-dev-box-limits)
+- Check the default quota for each resource type by subscription type: [Azure Deployment Environments limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-deployment-environments-limits)

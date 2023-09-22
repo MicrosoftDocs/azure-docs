@@ -1,8 +1,8 @@
 --- 
 title: How to determine your resource usage and quota 
-description: Learn how to determine where the Dev Box resources for your subscription are used and if you have any spare capacity against your quota.  
-services: dev-box
-ms.service: dev-box
+description: Learn how to determine where the Deployment Environments resources for your subscription are used and if you have any spare capacity against your quota.  
+services: deployment-environments
+ms.service: deployment-environments
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to 
@@ -11,7 +11,7 @@ ms.date: 08/21/2023
 
 # Determine resource usage and quota  
 
-To ensure that resources are available for customers, Microsoft Dev Box has a limit on the number of each type of resource that can be used in a subscription. This limit is called a quota. You can see the default quota for each resource type by subscription type here: 
+To ensure that resources are available for customers, Azure Deployment Environments has a limit on the number of each type of resource that can be used in a subscription. This limit is called a quota. You can see the default quota for each resource type by subscription type here: 
 
 Keeping track of how your quota of VM cores is being used across your subscriptions can be difficult. You may want to know what your current usage is, how much you have left, and in what regions you have capacity. To help you understand where and how you're using your quota, Azure provides the Usage + Quotas page. 
 
@@ -23,9 +23,9 @@ Keeping track of how your quota of VM cores is being used across your subscripti
 
    :::image type="content" source="media/how-to-determine-your-quota-usage/subscription-overview.png" alt-text="Screenshot showing the Subscription overview left menu, with Usage and quotas highlighted." lightbox="media/how-to-determine-your-quota-usage/subscription-overview.png"::: 
  
-1. To view Usage + quotas information about Microsoft Dev Box, select **Dev Box**.  
+1. To view Usage + quotas information about Storage used by Azure Deployment Environments, select **Storage**.  
 
-   :::image type="content" source="media/how-to-determine-your-quota-usage/select-dev-box.png" alt-text="Screenshot showing the Usage and quotas page, with Dev Box highlighted." lightbox="media/how-to-determine-your-quota-usage/select-dev-box.png":::    
+   :::image type="content" source="media/how-to-determine-your-quota-usage/select-storage.png" alt-text="Screenshot showing the Usage and quotas page, with Storage highlighted." lightbox="media/how-to-determine-your-quota-usage/select-dev-box.png":::    
  
 1. In this example, you can see the **Quota name**, the **Region**, the **Subscription** the quota is assigned to, the **Current Usage**, and whether or not the limit is **Adjustable**.
 
@@ -53,9 +53,9 @@ Keeping track of how your quota of VM cores is being used across your subscripti
 
 1. Select **Apply**. 
 
- Each subscription has its own Usage + quotas page, which covers all the various services in the subscription, not just Microsoft Dev Box. 
+ Each subscription has its own Usage + quotas page, which covers all the various services in the subscription, not just Azure Deployment Environments. 
 
 ## Related content 
 
-- Check the default quota for each resource type by subscription type: [Microsoft Dev Box limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#microsoft-dev-box-limits).
+- Check the default quota for each resource type by subscription type: [Azure Deployment Environments limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-deployment-environments-limits).
 - To learn how to request a quota increase, see [Request a quota limit increase](./how-to-request-quota-increase.md). 
