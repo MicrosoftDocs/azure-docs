@@ -80,7 +80,7 @@ To request additional VM cores:
 1. If you created a temporary lab plan, you can delete it at this point.  Deleting lab plans has no impact on your subscription or the capacity you have available. Capacity is assigned to your subscription.
 
 > [!IMPORTANT]
-> You can't request capacity for the classic VM sizes. You can only get access to the classic VM sizes by [requesting a transfer of your lab account VM core capacity](#1a-transfer-vm-cores-from-lab-accounts).
+> You can't request capacity for the classic VM sizes. You can only get access to the classic VM sizes by [requesting a transfer of your lab account VM core capacity](#transfer-vm-cores-from-lab-accounts).
 
 ### Tips for requesting a capacity increase
 
