@@ -232,7 +232,7 @@ new_item =   {
       "description":"Pick up strawberries",
       "isComplete":False
    }
-result = container.scripts.execute_stored_procedure(sproc=created_sproc,params=[[new_item]], partition_key=new_id) 
+result = container.scripts.execute_stored_procedure(sproc=created_sproc,params=[new_item], partition_key=new_id) 
 ```
 
 ---
