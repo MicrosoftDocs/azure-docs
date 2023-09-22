@@ -1,8 +1,8 @@
 ---
 title: Integrate Azure Queue Storage with Service Connector
 description: Integrate Azure Queue Storage into your application with Service Connector
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 08/11/2022
@@ -23,35 +23,13 @@ This page shows the supported authentication types and client types of Azure Que
 
 Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
 
-### [Azure App Service](#tab/app-service)
-
 | Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
 |--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
 | .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot | ![yes icon](./media/green-check.png) |                                      |                                      |                                      |
+|Java - Spring Boot  |                                      |                                      | ![yes icon](./media/green-check.png) |        |
 | Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-
-### [Azure Container Apps](#tab/container-apps)
-
-| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
-|--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
-| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot | ![yes icon](./media/green-check.png) |                                      |                                      |                                      |
-| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-
-### [Azure Spring Apps](#tab/spring-apps)
-
-| Client type        | System-assigned managed identity     | User-assigned managed identity | Secret / connection string           | Service principal                    |
-|--------------------|--------------------------------------|--------------------------------|--------------------------------------|--------------------------------------|
-| .NET               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot | ![yes icon](./media/green-check.png) |                                |                                      |                                      |
-| Node.js            | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python             | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 ---
 
@@ -60,28 +38,36 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 Use the connection details below to connect compute services to Queue Storage. For each example below, replace the placeholder texts
 `<account name>`, `<account-key>`, `<client-ID>`,  `<client-secret>`, `<tenant-ID>`, and `<storage-account-name>` with your own account name, account key, client ID, client secret, tenant ID and storage account name.
 
-### .NET, Java, Node.JS, Python
+### Secret/ connection string
 
-#### Secret/ connection string
+#### .NET, Java, Node.JS, Python
 
 | Default environment variable name   | Description                     | Example value                                                                                                        |
 |-------------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | AZURE_STORAGEQUEUE_CONNECTIONSTRING | Queue storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
 
-#### System-assigned managed identity
+#### Java - Spring Boot
+
+| Application properties                 | Description                | Example value            |
+|----------------------------------------|----------------------------|--------------------------|
+| spring.cloud.azure.storage.account     | Queue storage account name | `<storage-account-name>` |
+| spring.cloud.azure.storage.access-key  | Queue storage account key  | `<account-key>`          |
+
+### System-assigned managed identity
 
 | Default environment variable name   | Description            | Example value                                            |
 |-------------------------------------|------------------------|----------------------------------------------------------|
 | AZURE_STORAGEQUEUE_RESOURCEENDPOINT | Queue storage endpoint | `https://<storage-account-name>.queue.core.windows.net/` |
 
-#### User-assigned managed identity
+
+### User-assigned managed identity
 
 | Default environment variable name   | Description            | Example value                                            |
 |-------------------------------------|------------------------|----------------------------------------------------------|
 | AZURE_STORAGEQUEUE_RESOURCEENDPOINT | Queue storage endpoint | `https://<storage-account-name>.queue.core.windows.net/` |
 | AZURE_STORAGEQUEUE_CLIENTID         | Your client ID         | `<client-ID>`                                            |
 
-#### Service principal
+### Service principal
 
 | Default environment variable name   | Description            | Example value                                            |
 |-------------------------------------|------------------------|----------------------------------------------------------|
@@ -90,14 +76,6 @@ Use the connection details below to connect compute services to Queue Storage. F
 | AZURE_STORAGEQUEUE_CLIENTSECRET     | Your client secret     | `<client-secret>`                                        |
 | AZURE_STORAGEQUEUE_TENANTID         | Your tenant ID         | `<tenant-ID>`                                            |
 
-### Azure Spring Apps
-
-#### Java - Spring Boot secret / connection string
-
-| Application properties                 | Description                | Example value            |
-|----------------------------------------|----------------------------|--------------------------|
-| spring.cloud.azure.storage.account     | Queue storage account name | `<storage-account-name>` |
-| spring.cloud.azure.storage.access-key  | Queue storage account key  | `<account-key>`          |
 
 ## Next steps
 

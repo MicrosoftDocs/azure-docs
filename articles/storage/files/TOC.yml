@@ -47,10 +47,10 @@
     items:
     - name: Understanding performance
       href: understand-performance.md
-    - name: SMB Multichannel performance
-      href: storage-files-smb-multichannel-performance.md
-    - name: NFS nconnect performance
-      href: nfs-nconnect-performance.md
+    - name: SMB performance
+      href: smb-performance.md
+    - name: NFS performance
+      href: nfs-performance.md
     - name: Scalability and performance targets
       href: storage-files-scale-targets.md
   - name: Authentication and authorization
@@ -191,6 +191,10 @@
     items:
     - name: Monitor Azure Files
       href: storage-files-monitoring.md
+    - name: Analyze metrics
+      href: analyze-files-metrics.md
+    - name: Create alerts
+      href: files-monitoring-alerts.md           
   - name: Migrate
     items:
     - name: Migrate to Azure file shares
@@ -295,6 +299,8 @@
       href: /troubleshoot/azure/azure-storage/files-troubleshoot-create-alerts?toc=/azure/storage/files/toc.json
     - name: Troubleshoot backing up file shares
       href: ../../backup/troubleshoot-azure-files.md?toc=/azure/storage/files/toc.json
+    - name: Troubleshoot ClientOtherErrors
+      href: /troubleshoot/azure/azure-storage/files-client-other-errors?toc=/azure/storage/files/toc.json      
 - name: Reference
   items:
   - name: APIs for data access

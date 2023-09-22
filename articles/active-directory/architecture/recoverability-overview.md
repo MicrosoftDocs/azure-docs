@@ -1,5 +1,5 @@
 ---
-title: Recoverability best practices in Azure Active Directory
+title: Recoverability best practices in Microsoft Entra ID
 description: Learn the best practices for increasing recoverability.
 services: active-directory
 author: janicericketts
@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 
 Unintended deletions and misconfigurations will happen to your tenant. To minimize the impact of these unintended events, you must prepare for their occurrence.
 
-Recoverability is the preparatory processes and functionality that enable you to return your services to a prior functioning state after an unintended change. Unintended changes include the soft or hard deletion or misconfiguration of applications, groups, users, policies, and other objects in your Azure Active Directory (Azure AD) tenant.
+Recoverability is the preparatory processes and functionality that enable you to return your services to a prior functioning state after an unintended change. Unintended changes include the soft or hard deletion or misconfiguration of applications, groups, users, policies, and other objects in your Microsoft Entra tenant.
 
-Recoverability helps your organization be more resilient. Resilience, while related, is different. Resilience is the ability to endure disruption to system components and recover with minimal impact to your business, users, customers, and operations. For more information about how to make your systems more resilient, see [Building resilience into identity and access management with Azure Active Directory](resilience-overview.md).
+Recoverability helps your organization be more resilient. Resilience, while related, is different. Resilience is the ability to endure disruption to system components and recover with minimal impact to your business, users, customers, and operations. For more information about how to make your systems more resilient, see [Building resilience into identity and access management with Microsoft Entra ID](resilience-overview.md).
 
 This article describes the best practices in preparing for deletions and misconfigurations to minimize the unintended consequences to your organization's business.
 
@@ -33,7 +33,7 @@ Deletions and misconfigurations have different impacts on your tenant.
 
 The impact of deletions depends on the object type.
 
-Users, Microsoft 365 Groups, and applications can be soft deleted. Soft-deleted items are sent to the Azure AD recycle bin. While in the recycle bin, items aren't available for use. However, they retain all their properties and can be restored via a Microsoft Graph API call or in the Azure portal. Items in the soft-delete state that aren't restored within 30 days are permanently, or hard, deleted.
+Users, Microsoft 365 Groups, and applications can be soft deleted. Soft-deleted items are sent to the Microsoft Entra ID recycle bin. While in the recycle bin, items aren't available for use. However, they retain all their properties and can be restored via a Microsoft Graph API call or in the Azure portal. Items in the soft-delete state that aren't restored within 30 days are permanently, or hard, deleted.
 
 ![Diagram that shows that users, Microsoft 365 Groups, and applications are soft deleted and then hard deleted after 30 days.](media/recoverability/overview-deletes.png)
 
@@ -99,14 +99,14 @@ Create a process of predefined communications to make others aware of the issue 
 
 Document the state of your tenant and its objects regularly. Then if a hard delete or misconfiguration occurs, you have a roadmap to recovery. The following tools can help you document your current state:
 
-- [Microsoft Graph APIs](/graph/overview) can be used to export the current state of many Azure AD configurations.
-- [Entra Exporter](https://github.com/microsoft/entraexporter) is a tool you can use to export your configuration settings.
+- [Microsoft Graph APIs](/graph/overview) can be used to export the current state of many Microsoft Entra configurations.
+- [Microsoft Entra Exporter](https://github.com/microsoft/entraexporter) is a tool you can use to export your configuration settings.
 - [Microsoft 365 Desired State Configuration](https://github.com/microsoft/Microsoft365DSC/wiki/What-is-Microsoft365DSC) is a module of the PowerShell Desired State Configuration framework. You can use it to export configurations for reference and application of the prior state of many settings.
 - [Conditional Access APIs](https://github.com/Azure-Samples/azure-ad-conditional-access-apis) can be used to manage your Conditional Access policies as code.
 
 ### Commonly used Microsoft Graph APIs
 
-You can use Microsoft Graph APIs to export the current state of many Azure AD configurations. The APIs cover most scenarios where reference material about the prior state, or the ability to apply that state from an exported copy, could become vital to keeping your business running.
+You can use Microsoft Graph APIs to export the current state of many Microsoft Entra configurations. The APIs cover most scenarios where reference material about the prior state, or the ability to apply that state from an exported copy, could become vital to keeping your business running.
 
 Microsoft Graph APIs are highly customizable based on your organizational needs. To implement a solution for backups or reference material requires developers to engineer code to query for, store, and display the data. Many implementations use online code repositories as part of this functionality.
 
@@ -124,7 +124,7 @@ Microsoft Graph APIs are highly customizable based on your organizational needs.
 
 *Securely store these configuration exports with access provided to a limited number of admins.
 
-The [Entra Exporter](https://github.com/microsoft/entraexporter) can provide most of the documentation you need:
+The [Microsoft Entra Exporter](https://github.com/microsoft/entraexporter) can provide most of the documentation you need:
 
 - Verify that you've implemented the desired configuration.
 - Use the exporter to capture current configurations.
@@ -132,8 +132,8 @@ The [Entra Exporter](https://github.com/microsoft/entraexporter) can provide mos
 - Store the output in a secure location with limited access.
 
 > [!NOTE]
-> Settings in the legacy multifactor authentication portal for Application Proxy and federation settings might not be exported with the Entra Exporter, or with the Microsoft Graph API.
-The [Microsoft 365 Desired State Configuration](https://github.com/microsoft/Microsoft365DSC/wiki/What-is-Microsoft365DSC) module uses Microsoft Graph and PowerShell to retrieve the state of many of the configurations in Azure AD. This information can be used as reference information or, by using PowerShell Desired State Configuration scripting, to reapply a known good state.
+> Settings in the legacy multifactor authentication portal for Application Proxy and federation settings might not be exported with the Microsoft Entra Exporter, or with the Microsoft Graph API.
+The [Microsoft 365 Desired State Configuration](https://github.com/microsoft/Microsoft365DSC/wiki/What-is-Microsoft365DSC) module uses Microsoft Graph and PowerShell to retrieve the state of many of the configurations in Microsoft Entra ID. This information can be used as reference information or, by using PowerShell Desired State Configuration scripting, to reapply a known good state.
 
  Use [Conditional Access Graph APIs](https://github.com/Azure-Samples/azure-ad-conditional-access-apis) to manage policies like code. Automate approvals to promote policies from preproduction environments, backup and restore, monitor change, and plan ahead for emergencies.
 
@@ -152,7 +152,7 @@ The deletion of some objects can cause a ripple effect because of dependencies. 
 
 ## Monitoring and data retention
 
-The [Azure AD Audit log](../reports-monitoring/concept-audit-logs.md) contains information on all delete and configuration operations performed in your tenant. We recommend that you export these logs to a security information and event management tool such as [Microsoft Sentinel](../../sentinel/overview.md). You can also use Microsoft Graph to audit changes and build a custom solution to monitor differences over time. For more information on finding deleted items by using Microsoft Graph, see [List deleted items - Microsoft Graph v1.0 ](/graph/api/directory-deleteditems-list?tabs=http).
+The [Microsoft Entra audit log](../reports-monitoring/concept-audit-logs.md) contains information on all delete and configuration operations performed in your tenant. We recommend that you export these logs to a security information and event management tool such as [Microsoft Sentinel](../../sentinel/overview.md). You can also use Microsoft Graph to audit changes and build a custom solution to monitor differences over time. For more information on finding deleted items by using Microsoft Graph, see [List deleted items - Microsoft Graph v1.0](/graph/api/directory-deleteditems-list?tabs=http).
 
 ### Audit logs
 
@@ -190,7 +190,7 @@ The [Sensitive operations report workbook](../reports-monitoring/workbook-sensit
 - Directory role and group membership updates for service principals.
 - Modified federation settings.
 
-The [Cross-tenant access activity workbook ](../reports-monitoring/workbook-cross-tenant-access-activity.md)can help you monitor which applications in external tenants your users are accessing and which applications in your tenant external users are accessing. Use this workbook to look for anomalous changes in either inbound or outbound application access across tenants.
+The [Cross-tenant access activity workbook](../reports-monitoring/workbook-cross-tenant-access-activity.md)can help you monitor which applications in external tenants your users are accessing and which applications in your tenant external users are accessing. Use this workbook to look for anomalous changes in either inbound or outbound application access across tenants.
 
 ## Operational security
 

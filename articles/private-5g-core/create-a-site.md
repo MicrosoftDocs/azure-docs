@@ -123,7 +123,7 @@ If you decided not to configure diagnostics packet collection or use a user assi
   
     :::image type="content" source="media/create-a-site/site-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/create-a-site/site-related-resources.png":::
 
-1. If you want to assign additional packet cores to the site, for each new packet core resource see LINK
+1. If you want to assign additional packet cores to the site, for each new packet core resource see [Create additional Packet Core instances for a site  using the Azure portal](create-additional-packet-core.md).
 
 ## Next steps
 
