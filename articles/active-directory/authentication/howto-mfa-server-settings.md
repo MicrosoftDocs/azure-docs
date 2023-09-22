@@ -55,7 +55,7 @@ You can set a time period to allow authentication attempts after a user is authe
 Caching is primarily used when on-premises systems, such as VPN, send multiple verification requests while the first request is still in progress. This feature allows the subsequent requests to succeed automatically, after the user succeeds the first verification in progress.
 
 >[!NOTE]
-> The caching feature is not intended to be used for sign-ins to Azure Active Directory (Azure AD).
+> The caching feature is not intended to be used for sign-ins to Microsoft Entra ID.
 
 To set up caching, complete the following steps:
 

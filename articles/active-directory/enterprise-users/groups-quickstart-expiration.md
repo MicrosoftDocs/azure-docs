@@ -14,9 +14,9 @@ ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro, mode-other
 ms.collection: M365-identity-device-management
-#Customer intent: As a new Azure AD identity administrator, I want user-created Microsoft 365 groups in my organization to expire so I can reduce the number of unused groups.
+#Customer intent: As a new Microsoft Entra identity administrator, I want user-created Microsoft 365 groups in my organization to expire so I can reduce the number of unused groups.
 ---
-# Quickstart: Set Microsoft 365 groups to expire in Azure Active Directory
+# Quickstart: Set Microsoft 365 groups to expire in Microsoft Entra ID
 
 In this quickstart, you set the expiration policy for your Microsoft 365 groups. When users can set up their own groups, unused groups can multiply. One way to manage unused groups is to set those groups to expire, to reduce the maintenance of manually deleting groups.
 
@@ -25,10 +25,10 @@ Expiration policy is simple:
 - Groups with user activities are automatically renewed as the expiration nears
 - Group owners are notified to renew an expiring group
 - A group that is not renewed is deleted
-- A deleted Microsoft 365 group can be restored within 30 days by a group owner or by an Azure AD administrator
+- A deleted Microsoft 365 group can be restored within 30 days by a group owner or by a Microsoft Entra administrator
 
 > [!NOTE]
-> Azure Active Directory (Azure AD), part of Microsoft Entra, uses intelligence to automatically renew groups based on whether they have been in recent use. This renewal decision is based on user activity in groups across Microsoft 365 services like Outlook, SharePoint, Teams, Yammer, and others.
+> Microsoft Entra ID, part of Microsoft Entra, uses intelligence to automatically renew groups based on whether they have been in recent use. This renewal decision is based on user activity in groups across Microsoft 365 services like Outlook, SharePoint, Teams, Yammer, and others.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 

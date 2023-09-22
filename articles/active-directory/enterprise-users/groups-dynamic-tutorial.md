@@ -13,13 +13,13 @@ ms.date: 09/08/2023
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
-#Customer intent: As a new Azure AD identity administrator, I want to automatically add or remove users, so I don't have to manually do it."
+#Customer intent: As a new Microsoft Entra identity administrator, I want to automatically add or remove users, so I don't have to manually do it."
 ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Add or remove group members automatically
 
-In Azure Active Directory (Azure AD), part of Microsoft Entra, you can automatically add or remove users to security groups or Microsoft 365 groups, so you don't always have to do it manually. Whenever any properties of a user or device change, Azure AD evaluates all dynamic group rules in your Azure AD organization to see if the change should add or remove members.
+In Microsoft Entra ID, part of Microsoft Entra, you can automatically add or remove users to security groups or Microsoft 365 groups, so you don't always have to do it manually. Whenever any properties of a user or device change, Microsoft Entra ID evaluates all dynamic group rules in your Microsoft Entra organization to see if the change should add or remove members.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -31,9 +31,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-This feature requires one Azure AD Premium license for you as the global administrator of the organization. If you don't have one, in Azure AD, select **Licenses** > **Products** > **Try/Buy**.
+This feature requires one Microsoft Entra ID P1 or P2 license for you as the global administrator of the organization. If you don't have one, in Microsoft Entra ID, select **Licenses** > **Products** > **Try/Buy**.
 
-You're not required to assign licenses to the users for them to be members in dynamic groups. You only need the minimum number of available Azure AD Premium P1 licenses in the organization to cover all such users. 
+You're not required to assign licenses to the users for them to be members in dynamic groups. You only need the minimum number of available Microsoft Entra ID P1 licenses in the organization to cover all such users. 
 
 ## Create a group of guest users
 
@@ -42,7 +42,7 @@ You're not required to assign licenses to the users for them to be members in dy
 First, you'll create a group for your guest users who all are from a single partner company. They need special licensing, so it's often more efficient to create a group for this purpose.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
-1. Select Microsoft Entra ID (Azure AD).
+1. Select Microsoft Entra ID.
 2. Select **Groups** > **All groups** > **New group**.
    ![select command to start a new group](./media/groups-dynamic-tutorial/new-group.png)
 3. On the **Group** blade:
@@ -88,7 +88,7 @@ Perhaps your ultimate administrative plan is to assign all of your guest users t
 ### To remove the guest users group
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
-1. Browse to Select **Groups** > **All groups**. 
+1. Browse to **Groups** > **All groups**. 
 1. Select the **Guest users Contoso** group, select the ellipsis (...), and then select **Delete**. When you delete the group, any assigned licenses are removed.
 
 ### To restore the All Users group

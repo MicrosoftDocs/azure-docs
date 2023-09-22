@@ -1,6 +1,6 @@
 ---
 title: Validate rules for dynamic group membership (preview)
-description: How to test members against a membership rule for a dynamic group in Azure Active Directory.
+description: How to test members against a membership rule for a dynamic group in Microsoft Entra ID.
 services: active-directory
 documentationcenter: ''
 author: barclayn
@@ -16,7 +16,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Validate a dynamic group membership rule (preview) in Azure Active Directory
+# Validate a dynamic group membership rule (preview) in Microsoft Entra ID
 
 Microsoft Entra ID provides the means to validate dynamic group rules (in public preview). On the **Validate rules** tab, you can validate your dynamic rule against sample group members to confirm the rule is working as expected. When you create or update dynamic group rules, you want to know whether a user or a device will be a member of the group. This knowledge helps you evaluate whether a user or device meets the rule criteria and help you troubleshoot when membership isn't expected.
 
@@ -25,7 +25,6 @@ To evaluate the dynamic group rule membership feature, the administrator must ha
 
 > [!TIP]
 > Assigning one of required roles via indirect group membership is not yet supported.
->
 
 ## Step-by-step walk-through
 

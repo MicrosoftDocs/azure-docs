@@ -26,19 +26,19 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> The following quickstart uses a ASP.NET Core web API code sample to demonstrate how to restrict resource access to authorized accounts. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
+> The following quickstart uses a ASP.NET Core web API code sample to demonstrate how to restrict resource access to authorized accounts. The sample supports authorization of personal Microsoft accounts and accounts in any Microsoft Entra organization.
 >
 >
 > ## Prerequisites
 > 
 > - Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-> - [Azure Active Directory tenant](quickstart-create-new-tenant.md)
+> - [Microsoft Entra tenant](quickstart-create-new-tenant.md)
 > - [.NET Core SDK 6.0+](https://dotnet.microsoft.com/)
 > - [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
 > 
 > ## Step 1: Register the application
 > 
-> First, register the web API in your Azure AD tenant and add a scope by following these steps:
+> First, register the web API in your Microsoft Entra tenant and add a scope by following these steps:
 > 
 > 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 > 1. Browse to **Identity** > **Applications** > **App registrations**.

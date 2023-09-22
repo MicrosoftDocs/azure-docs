@@ -1,8 +1,8 @@
 ---
 title: Integrate the Azure Cosmos DB for Table with Service Connector
 description: Integrate the Azure Cosmos DB for Table into your application with Service Connector
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 08/11/2022

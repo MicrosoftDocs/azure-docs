@@ -68,8 +68,13 @@ To register your application and add the app's registration information to your 
    
    Using a plaintext secret in the source code poses an increased security risk for your application. Although the sample in this quickstart uses a plaintext client secret, it's only for simplicity. We recommend using [certificate credentials](./certificate-credentials.md) instead of client secrets in your confidential client applications, especially those apps you intend to deploy to production.
 
+<<<<<<< HEAD
 1. Edit *.env* and replace the Azure AD and Microsoft Graph endpoints with the following values:
    - For the Azure AD endpoint, replace `Enter_the_Cloud_Instance_Id_Here` with `https://login.microsoftonline.com`.
+=======
+3. Edit *.env* and replace the Microsoft Entra ID and Microsoft Graph endpoints with the following values:
+   - For the Microsoft Entra endpoint, replace `Enter_the_Cloud_Instance_Id_Here` with `https://login.microsoftonline.com`.
+>>>>>>> 89ae6f906bf2a9742f18c04ce327dd16860ba801
    - For the Microsoft Graph endpoint, replace `Enter_the_Graph_Endpoint_Here` with `https://graph.microsoft.com/`.
 
 #### Step 4: Admin consent
@@ -106,7 +111,7 @@ Then, run the application via command prompt or console:
 node . --op getUsers
 ```
 
-You should see on the console output some JSON fragment representing a list of users in your Azure AD directory.
+You should see on the console output some JSON fragment representing a list of users in your Microsoft Entra directory.
 
 ## About the code
 

@@ -29,8 +29,8 @@ sections:
       questions:
         - question: Where does Azure Data Manager for Energy store customer data?
           answer: >
-            Azure Data Manager for Energy stores/process customer data. By default, customer data is replicated to the paired region. For region with data residency requirements, customer data is always kept within the same region
-
+            Azure Data Manager for Energy stores/process customer data. By default, customer data is replicated to the other paired regions for resiliency, but Microsoft doesn't replicate or move data outside the geography. For region with data residency requirements, customer data is always kept within the same region. Please check the [Reliability in Azure Data Manager for Energy](reliability-energy-data-services.md) for more details on the regions which support disaster recovery and cross region data replication.
+            
     - name: Pricing and Billing
       questions:
         - question: Where can I learn about the pricing for Azure Data Manager for Energy?

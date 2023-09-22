@@ -12,7 +12,7 @@ ms.date: 08/16/2022
 ROBOTS: NOINDEX
 ms.author: dmwendia
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:aspnet-core", mode-other
-#Customer intent: As an application developer, I want to know how to write an ASP.NET Core web app that can sign in personal accounts, as well as work and school accounts, from any Azure Active Directory instance.
+#Customer intent: As an application developer, I want to know how to write an ASP.NET Core web app that can sign in personal accounts, as well as work and school accounts, from any Microsoft Entra instance.
 ---
 
 # Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app
@@ -27,7 +27,7 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 > # Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app
 >
-> In this quickstart, you download and run a code sample that demonstrates how an ASP.NET Core web app can sign in users from any Azure Active Directory (Azure AD) organization.  
+> In this quickstart, you download and run a code sample that demonstrates how an ASP.NET Core web app can sign in users from any Microsoft Entra organization.  
 > 
 > ### Step 1: Configure your application in the Azure portal
 > For the code sample in this quickstart to work:

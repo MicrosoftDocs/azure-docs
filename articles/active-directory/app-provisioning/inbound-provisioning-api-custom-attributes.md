@@ -22,7 +22,7 @@ By default, API-driven provisioning apps support processing attributes that are 
 
 ## Example scenario
 
-You have configured API-driven provisioning app. You're provisioning app is successfully consuming the attributes that are part of the standard SCIM Core User and Enterprise User schema and provisioning users in Azure AD. You now want to send two custom attributes `HireDate` and `JobCode` from your HR system to the inbound provisioning API endpoint. You'd like to map these two custom attributes to Azure AD attributes `employeeHireDate` and `jobTitle`.
+You have configured API-driven provisioning app. You're provisioning app is successfully consuming the attributes that are part of the standard SCIM Core User and Enterprise User schema and provisioning users in Microsoft Entra ID. You now want to send two custom attributes `HireDate` and `JobCode` from your HR system to the inbound provisioning API endpoint. You'd like to map these two custom attributes to Microsoft Entra attributes `employeeHireDate` and `jobTitle`.
 
 ## Step 1 - Extend the provisioning app schema
 
@@ -56,13 +56,13 @@ Let's now add these extensions to the provisioning app attribute mapping.
 1. Map the `urn:ietf:params:scim:schemas:extension:contoso:1.0:User:HireDate` attribute to `employeeHireDate`. Click **OK**. <br>
     :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/hire-date-mapping.png" alt-text="Screenshot of hire date mapping." lightbox="./media/inbound-provisioning-api-custom-attributes/hire-date-mapping.png":::
 1. Next, select the existing mapping for `title` and click on it to edit the mapping.
-1. Edit the attribute mapping to an expression that will include the `urn:ietf:params:scim:schemas:extension:contoso:1.0:User:JobCode` as part of the `jobTitle` Azure AD attribute.
+1. Edit the attribute mapping to an expression that will include the `urn:ietf:params:scim:schemas:extension:contoso:1.0:User:JobCode` as part of the `jobTitle` Microsoft Entra attribute.
    ```
      Join("", [title], "(", [urn:ietf:params:scim:schemas:extension:contoso:1.0:User:JobCode], ")")
    ```
     :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/job-title-mapping.png" alt-text="Screenshot of job title mapping." lightbox="./media/inbound-provisioning-api-custom-attributes/job-title-mapping.png":::
 
-    With this expression mapping, if the `title` is "Tour Lead"  and  `JobCode`is "TL-1001", then the Azure AD attribute `jobTitle` will be set to "Tour Lead (TL-1001)". 
+    With this expression mapping, if the `title` is "Tour Lead"  and  `JobCode`is "TL-1001", then the Microsoft Entra attribute `jobTitle` will be set to "Tour Lead (TL-1001)". 
 1. Save the attribute mappings. 
 
 ## Step 3 - Upload bulk request with custom attributes
@@ -73,7 +73,7 @@ Let's now add these extensions to the provisioning app attribute mapping.
     :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/upload-bulk-request.png" alt-text="Screenshot of bulk upload request." lightbox="./media/inbound-provisioning-api-custom-attributes/upload-bulk-request.png":::
 1. After some time, you can check the provisioning logs to verify the attribute change. <br>
     :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/verify-provisioning-logs.png" alt-text="Screenshot of provisioning logs." lightbox="./media/inbound-provisioning-api-custom-attributes/verify-provisioning-logs.png":::
-1. You can also verify the change in the Azure AD user profile. The value for `Employee hire date` reflects your tenant time zone. <br>
+1. You can also verify the change in the Microsoft Entra user profile. The value for `Employee hire date` reflects your tenant time zone. <br>
     :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/verify-user-profile.png" alt-text="Screenshot of user profile." lightbox="./media/inbound-provisioning-api-custom-attributes/verify-user-profile.png":::
 
 ## Appendix

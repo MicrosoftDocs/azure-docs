@@ -12,12 +12,12 @@ ms.custom: devx-track-dotnet
 ms.subservice: ciam
 ms.topic: tutorial
 ms.date: 07/27/2023
-#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my .NET browserless app with Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my .NET browserless app with Microsoft Entra ID for customers tenant
 ---
 
 # Tutorial: Sign in users to your .NET browserless application
 
-In this tutorial, you build your own .NET browserless app and authenticate a user using Azure Active Directory (Azure AD) for customers.
+In this tutorial, you build your own .NET browserless app and authenticate a user using Microsoft Entra ID for customers.
 
 In this tutorial, you learn how to:
 

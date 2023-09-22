@@ -6,14 +6,14 @@ editor: ''
  
 ms.service: api-center
 ms.topic: overview
-ms.date: 06/05/2023
+ms.date: 09/19/2023
 ms.author: danlep
 ms.custom: references_regions
 ---
 
 # What is Azure API Center (preview)?
 
-API Center enables tracking all of your APIs in a centralized location for discovery, reuse, and governance. Use API Center to develop and maintain a structured and organized inventory of your organization's APIs - regardless of their type, lifecycle stage, or deployment location - along with related information such as version details, specification files, and common metadata. 
+API Center enables tracking all of your APIs in a centralized location for discovery, reuse, and governance. Use API Center to develop and maintain a structured and organized inventory of your organization's APIs - regardless of their type, lifecycle stage, or deployment location - along with related information such as version details, API definition files, and common metadata. 
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
@@ -33,11 +33,10 @@ With API Center, stakeholders throughout your organization - including API progr
 In preview, create and use an API Center in the Azure portal for the following:
 
 * **API inventory management** - Register all of your organization's APIs for inclusion in a centralized inventory.
-* **Real-world API representation** - Add real-world information about each API including versions and specifications such as OpenAPI specifications. List API deployments and associate them with runtime environments, for example representing API management solutions.
+* **Real-world API representation** - Add real-world information about each API including versions and definitions such as OpenAPI definitions. List API deployments and associate them with runtime environments, for example representing API management solutions.
 * **Metadata properties** - Organize and filter APIs and related resources using built-in and custom metadata properties, to help with API governance and discoverability by API consumers.  
-* **Workspaces** - Enable multiple teams to work independently in API Center by creating workspaces with permissions based on role-based access control.
 
-For more information about the information assets and capabilities in API Center, see [Key concepts](key-concepts.md).
+For more information about the information you can manage and the capabilities in API Center, see [Key concepts](key-concepts.md).
 
 ## Preview limitations
 
@@ -47,6 +46,7 @@ For more information about the information assets and capabilities in API Center
    * East US
    * UK South
    * West Europe 
+
                
 ## Frequently asked questions
 
@@ -59,10 +59,6 @@ A: API Center is a stand-alone Azure service that's complementary to Azure API M
 A: Yes, all data in API Center is encrypted at rest.
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Get access to the preview](https://aka.ms/apicenter/joinpreview)
-
 
 > [!div class="nextstepaction"]
 > [Set up your API center](set-up-api-center.md)
