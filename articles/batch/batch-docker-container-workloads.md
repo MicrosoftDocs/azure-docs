@@ -76,13 +76,14 @@ For Linux container workloads, Batch currently supports the following Linux imag
   - Offer: `ubuntu-hpc`
 
 #### Notes
-  The docker data root of the above images lie in different places:
-  - for the batch image  `microsoft-azure-batch` (Offer: `centos-container-rdma`, etc), the docker data root is mapped to `/mnt/batch/docker`, which is usually located on the temporary disk.
-  - for the HPC image, or  `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc), the docker data root is unchanged from the Docker default which is `/var/lib/docker` on Linux and `C:\ProgramData\Docker` on windows. This folders are usually located on the OS disk.
+  The docker data root of the above images lies in different places:
+  - For the batch image `microsoft-azure-batch` (Offer: `centos-container-rdma`, etc), the docker data root is mapped to `/mnt/batch/docker`, which is usually located on the temporary disk.
+  - For the HPC image, or `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc), the docker data root is unchanged from the Docker default which is `/var/lib/docker` on Linux and `C:\ProgramData\Docker` on Windows. These folders are usually located on the OS disk.
 
     When using non-Batch images, the OS disk has the potential risk of being filled up quickly as container images are downloaded.
-    #### Potential Solutions for Customer
-a) Change the docker data root in a start task when creating a pool in BatchExplorer，example of Start Task command like this:
+#### Potential Solutions for Customer
+
+Change the docker data root in a start task when creating a pool in BatchExplorer. Here's an example of the Start Task command:
 ```csharp
 1)  sudo systemctl stop docker
 2)  sudo vi /lib/systemd/system/docker.service
