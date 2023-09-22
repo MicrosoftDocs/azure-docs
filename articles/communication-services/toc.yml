@@ -396,8 +396,12 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Add a bot to your chat app
       href: quickstarts/chat/quickstart-botframework-integration.md
-    - name: Add file sharing to your application with UI Library
-      href: tutorials/file-sharing-tutorial.md
+    - name: Add file sharing with UI Library in Azure Communication Service Chat
+      href: tutorials/file-sharing-tutorial-acs-chat.md
+    - name: Add file sharing with UI Library in Teams Interoperability Chat
+      href: tutorials/file-sharing-tutorial-interop-chat.md
+    - name: Add inline image support with UI Library in Teams Interoperability Chat
+      href: tutorials/inline-image-tutorial-interop-chat.md
     - name: Integrate with data loss prevention policies
       href: how-tos/chat-sdk/data-loss-prevention.md
     - name: Connect to Teams

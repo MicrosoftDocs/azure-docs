@@ -1,5 +1,10 @@
 {
     "redirections": [
+	{
+            "source_path": "articles/communication-services/tutorials/file-sharing-tutorial.md",
+            "redirect_URL": "/azure/communication-services/tutorials/file-sharing-tutorial-acs-chat",
+            "redirect_document_id": false
+        },
         {
           "source_path": "articles/azure-resource-manager/bicep/bicep-import-providers.md",
           "redirect_URL": "bicep-import",

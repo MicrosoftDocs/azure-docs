@@ -1,7 +1,7 @@
 ---
-title: Enable file sharing using UI Library and Azure Blob Storage
+title: Enable file sharing using UI Library and Azure Blob Storage in an Azure communication Chat
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to use Azure Communication Services with the UI Library to enable file sharing through chat leveraging Azure Blob Storage.
+description: Learn how to use Azure Communication Services with the UI Library to enable file sharing through chat using Azure Blob Storage.
 author: anjulgarg
 manager: alkwa
 services: azure-communication-services
@@ -13,20 +13,21 @@ ms.service: azure-communication-services
 ms.subservice: chat
 ---
 
-# Enable file sharing using UI Library and Azure Blob Storage
+# Enable file sharing using UI Library in Azure Communication Service Chat with Azure Blob storage
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-In this tutorial, we are configuring the Azure Communication Services UI Library Chat Composite to enable file sharing. The UI Library Chat Composite provides a set of rich components and UI controls that can be used to enable file sharing. We are using Azure Blob Storage to enable the storage of the files that are shared through the chat thread.
+In an Azure Communication Service Chat ("ACS Chat"), we can enable file sharing between communication users. Note, ACS Chat is different from the Teams Interoperability Chat ("Interop Chat"). If you want to enable file sharing in an Interop Chat, refer to [Add file sharing with UI Library in Teams Interoperability Chat](./file-sharing-tutorial-interop-chat.md).
+
+In this tutorial, we're configuring the Azure Communication Services UI Library Chat Composite to enable file sharing. The UI Library Chat Composite provides a set of rich components and UI controls that can be used to enable file sharing. We're using Azure Blob Storage to enable the storage of the files that are shared through the chat thread.
 
 >[!IMPORTANT]
->Azure Communication Services doesn't provide a file storage service. You need to use your own file storage service for sharing files. For the pupose of this tutorial, we are be using Azure Blob Storage.**
->
-> This tutorial is about file sharing between Azure Communication Services end user in an Azure Communication Services Chat. For file sharing in a Teams interoperability chat, see the documentation in our storybook for [Adding file sharing in Teams Interop Chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example#in-teams-interop-meeting-chat-thread).  Note that for Teams Interoperability chat, we only support Azure Communication Services end user to receive file attachments from Teams users at this time. See [Web UI library use cases](../concepts/ui-library/ui-library-use-cases.md) for more information.
+>Azure Communication Services doesn't provide a file storage service. You need to use your own file storage service for sharing files. For the pupose of this tutorial, we're using Azure Blob Storage.**
+
 
 ## Download code
 
-Access the full code for this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-filesharing-chat-composite). If you want to leverage file sharing using UI Components, reference [this sample](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-filesharing-ui-components).
+Access the full code for this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-filesharing-chat-composite). If you want to use file sharing using UI Components, reference [this sample](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-filesharing-ui-components).
 
 ## Prerequisites
 
@@ -35,7 +36,7 @@ Access the full code for this tutorial on [GitHub](https://github.com/Azure-Samp
 - [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended). Use the `node --version` command to check your version.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
 
-This tutorial assumes that you already know how to setup and run a Chat Composite. You can follow the [Chat Composite tutorial](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-composites--page) to learn how to set up and run a Chat Composite.
+This tutorial assumes that you already know how to set up and run a Chat Composite. You can follow the [Chat Composite tutorial](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-composites--page) to learn how to set up and run a Chat Composite.
 
 ## Overview
 
@@ -47,30 +48,30 @@ The UI Library Chat Composite supports file sharing by enabling developers to pa
 4. File Icons for a wide variety of file types.
 5. File upload/download cards with progress indicators.
 6. Ability to dynamically validate each file upload and display errors on the UI.
-7. Ability to cancel an upload and remove an uploaded file before it is sent.
+7. Ability to cancel an upload and remove an uploaded file before it's sent.
 8. View uploaded files in MessageThread, download them. Allows asynchronous downloads.
 
-This diagram shows a typical flow of a file sharing scenario for both upload and download. The section marked as `Client Managed` shows the building blocks that need to be implemented by developers.
+The diagram shows a typical flow of a file sharing scenario for both upload and download. The section marked as `Client Managed` shows the building blocks where developers need to have them implemented.
 
 ![Filesharing typical flow](./media/filesharing-typical-flow.png "Diagram that shows the the file sharing typical flow.")
 
-## Setup File Storage using Azure Blob
+## Set up file storage using Azure Blob
 
 You can follow the tutorial [Upload file to Azure Blob Storage with an Azure Function](/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload) to write the backend code required for file sharing.
 
-Once implemented, you can call this Azure Function inside the `uploadHandler` function to upload files to Azure Blob Storage. For the remaining of the tutorial, we assume you have generated the function using the tutorial for Azure Blob Storage linked above.
+Once implemented, you can call this Azure Function inside the `uploadHandler` function to upload files to Azure Blob Storage. For the remaining of the tutorial, we assume you have generated the function using the tutorial for Azure Blob Storage linked previously.
 
-### Securing your Azure Blob Storage Container
+### Securing your Azure Blob storage container
 
-Note that the tutorial above assumes that your Azure blob storage container allows public access to the files you upload. Making your Azure storage containers public isn't recommended for real world production applications.
+This tutorial assumes that your Azure blob storage container allows public access to the files you upload. Making your Azure storage containers public isn't recommended for real world production applications.
 
-For downloading the files you upload to Azure blob storage, you can use shared access signatures (SAS). A shared access signature (SAS) provides secure delegated access to resources in your storage account. With a SAS, you have granular control over how a client can access your data.
+For downloading the files, you upload to Azure blob storage, you can use shared access signatures (SAS). A shared access signature (SAS) provides secure delegated access to resources in your storage account. With a SAS, you have granular control over how a client can access your data.
 
 The downloadable [GitHub sample](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-filesharing-chat-composite) showcases the use of SAS for creating SAS URLs to Azure Storage contents. Additionally, you can [read more about SAS](../../storage/common/storage-sas-overview.md). 
 
-UI Library requires a React environment to be setup. Next we do that. If you already have a React App, you can skip this section.
+UI Library requires a React environment to be set up. Next we do that. If you already have a React App, you can skip this section.
 
-### Set Up React App
+### Set up react app
 
 We use the create-react-app template for this quickstart. For more information, see: [Get Started with React](https://reactjs.org/docs/create-a-new-react-app.html)
 
@@ -83,9 +84,9 @@ cd ui-library-quickstart-composites
 ```
 
 At the end of this process, you should have a full application inside of the folder `ui-library-quickstart-composites`.
-For this quickstart, we are modifying files inside of the `src` folder.
+For this quickstart, we're modifying files inside of the `src` folder.
 
-### Install the Package
+### Install the package
 
 Use the `npm install` command to install the beta Azure Communication Services UI Library for JavaScript.
 
@@ -105,7 +106,7 @@ npm install @azure/communication-chat@1.2.0
 
 ```
 
-### Run Create React App
+### Create React app
 
 Let's test the Create React App installation by running:
 
@@ -115,7 +116,7 @@ npm run start
 
 ```
 
-## Configuring Chat Composite to enable File Sharing
+## Configuring Chat Composite to enable file sharing
 
 You need to replace the variable values for both common variable required to initialize the chat composite.
 
@@ -205,7 +206,7 @@ const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
 
 const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
   // You need to handle the file upload here and upload it to Azure Blob Storage.
-  // This is a code snippet for how to configure the upload
+  // This is how you can configure the upload
   // Optionally, you can also update the file upload progress.
   fileUpload.notifyUploadProgressChanged(0.2);
   return {
@@ -222,9 +223,9 @@ const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
 
 ```
 
-## Configure upload method to use Azure Blob Storage
+## Configure upload method to use Azure Blob storage
 
-To enable Azure Blob Storage upload, we need to modify the `uploadFileToAzureBlob` method we declared above with the following code. You need to replace the Azure Function information below to enable to upload.
+To enable Azure Blob Storage upload, we modify the `uploadFileToAzureBlob` method we declared previously with the following code. You need to replace the Azure Function information to upload files.
 
 `App.tsx`
 
@@ -242,7 +243,7 @@ const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
   // Following is an example of calling an Azure Function to handle file upload
   // The https://learn.microsoft.com/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload
   // tutorial uses 'username' parameter to specify the storage container name.
-  // Note that the container in the tutorial is private by default. To get default downloads working in
+  // the container in the tutorial is private by default. To get default downloads working in
   // this sample, you need to change the container's access level to Public via Azure Portal.
   const username = 'ui-library';
   
@@ -274,13 +275,13 @@ const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
 
 ```
 
-## Error Handling
+## Error handling
     
-When an upload fails, the UI Library Chat Composite would display an error message. 
+When an upload fails, the UI Library Chat Composite displays an error message. 
 
 ![File Upload Error Bar](./media/file-too-big.png "Screenshot that shows the File Upload Error Bar.")
 
-Here is sample code showcasing how you can fail an upload due to a size validation error by changing the `fileUploadHandler` above.
+Here's sample code showcasing how you can fail an upload due to a size validation error by changing the `fileUploadHandler`:
 
 `App.tsx`
 
@@ -298,9 +299,9 @@ const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
 }
 ```
 
-## File Downloads - Advanced Usage
+## File downloads - advanced usage
 
-By default, the file `url` provided through `notifyUploadCompleted` method need be used to trigger a file download. However, if you need to handle a download in a different way, you can provide a custom `downloadHandler` to ChatComposite. Below we need to modify the `fileDownloadHandler` that we declared above to check for an authorized user before allowing to download the file.
+By default, the file `url` provided through `notifyUploadCompleted` method is used to trigger a file download. However, if you need to handle a download in a different way, you can provide a custom `downloadHandler` to ChatComposite. Next, we modify the `fileDownloadHandler` that we declared previously to check for an authorized user before allowing to download the file.
 
 `App.tsx`
 
@@ -313,7 +314,7 @@ const isUnauthorizedUser = (userId: string): boolean => {
 
 const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
   if (isUnauthorizedUser(userId)) {
-    // Error message to be displayed to the user.
+    // Error message is displayed to the user.
     return { errorMessage: 'You don’t have permission to download this file.' };
   } else {
     // If this function returns a Promise that resolves a URL string, 
@@ -323,7 +324,7 @@ const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
 }
 ```
 
-Download error message shown in an error bar on top of the Chat Composite.
+Download errors are displayed to users in an error bar on top of the Chat Composite.
 
 ![File Download Error](./media/download-error.png "Screenshot that shows the File Download Error.")
 
@@ -343,3 +344,6 @@ You may also want to:
 - [Creating user access tokens](../quickstarts/identity/access-tokens.md)
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
 - [Learn about authentication](../concepts/authentication.md)
+- [Add file sharing with UI Library in Teams Interoperability Chat](./file-sharing-tutorial-interop-chat.md)
+- [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md)
+- [Add inline image with UI Library in Teams Interoperability Chat](./inline-image-tutorial-interop-chat.md)
