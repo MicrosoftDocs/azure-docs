@@ -28,8 +28,6 @@ Currently in preview, the following v2 tiers are available:
 
 * **Simplified networking** - The Standard v2 tier supports [outbound connections](#networking-options) to network-isolated backends.
 
-* **Built-in analytics** -  The v2 tiers include built-in analytics based on Azure Log Analytics workbooks.
-
 * **More options for production workloads** - The v2 tiers are all supported with an SLA. Upgrade from Basic v2 to Standard v2 to add more production options.
 
 * **Consumption-based pricing** - The v2 tiers have a consumption-based pricing model, based on the number of API calls made through your API Management gateway. For details, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
@@ -87,12 +85,14 @@ Currently, the following API Management capabilities are unavailable in the v2 t
 * Multiple custom domain names (*Standard v2*)
 * Capacity metric
 * Autoscaling
+* Built-in analytics
 * Inbound connection using a private endpoint
 * Upgrade to v2 tiers from v1 tiers 
 * Workspaces
 
 **Developer portal**
 * Delegation of user registration and product subscription
+* Reports
 
 **Gateway**
 * Self-hosted gateway (*Standard v2*)
