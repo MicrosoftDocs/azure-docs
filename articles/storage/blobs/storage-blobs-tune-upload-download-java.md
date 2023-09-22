@@ -83,7 +83,7 @@ options.setParallelTransferOptions(parallelTransferOptions);
 Response<BlockBlobItem> blockBlob = blobClient.uploadFromFileWithResponse(options, null, null);
 ```
 
-In this example, we set the number of parallel transfer workers to 1 using the `setMaxConcurrency` method. We also set `maxSingleUploadSize` to 8 MiB using the `setMaxSingleUploadSizeLong` method. If the blob size is smaller than 8 MiB, only a single request is necessary to complete the upload operation. If the blob size is larger than 8 MiB, the blob is uploaded in chunks with a maximum chunk size of 4 MiB, which we set using the `setBlockSizeLong` method.
+In this example, we set the maximum number of parallel transfer workers to 2 using the `setMaxConcurrency` method. We also set `maxSingleUploadSize` to 8 MiB using the `setMaxSingleUploadSizeLong` method. If the blob size is smaller than 8 MiB, only a single request is necessary to complete the upload operation. If the blob size is larger than 8 MiB, the blob is uploaded in chunks with a maximum chunk size of 4 MiB, which we set using the `setBlockSizeLong` method.
 
 ### Performance considerations for uploads
 
