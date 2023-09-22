@@ -80,7 +80,7 @@
     - name: Authenticate requests
       href: authentication.md
     - name: Disable local authentication
-      href: disable-local-authentication.md
+      href: disable-local-auth.md
     - name: Rotate keys
       href: rotate-keys.md
     - name: Use environment variables
