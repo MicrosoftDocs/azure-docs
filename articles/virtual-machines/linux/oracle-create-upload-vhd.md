@@ -22,12 +22,12 @@ This article assumes that you've already installed an Oracle Linux operating sys
 ## Oracle Linux installation notes
 * See also [General Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
 * Hyper-V and Azure support Oracle Linux with either the Unbreakable Enterprise Kernel (UEK) or the Red Hat Compatible Kernel.
-* Oracle's UEK2 is not supported on Hyper-V and Azure as it does not include the required drivers.
+* Oracle's UEK2 isn't supported on Hyper-V and Azure as it doesn't include the required drivers.
 * The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 * **Kernel support for mounting UDF file systems is required.** At first boot on Azure, the provisioning configuration is passed to the Linux VM via UDF-formatted media that is attached to the guest. The Azure Linux agent must be able to mount the UDF file system to read its configuration and provision the VM.
-* When installing the Linux system, it is recommended that you use standard partitions rather than LVM (often the default for many installations). These standard partitions avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
-* Linux kernel versions earlier than 2.6.37 do not support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in Oracle Linux 6.6 and later
-* Do not configure a swap partition on the OS disk.
+* When installing the Linux system, we recommend that you use standard partitions rather than LVM (often the default for many installations). These standard partitions avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
+* Linux kernel versions earlier than 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel and was fixed in Oracle Linux 6.6 and later.
+* Don't configure a swap partition on the OS disk.
 * All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD, you must ensure that the raw disk size is a multiple of 1 MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 * Make sure that the `Addons` repository is enabled. Edit the file `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.
 
@@ -95,15 +95,15 @@ You must complete specific configuration steps in the operating system for the v
 
    This setting ensures all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
    
-   In addition to the above, it is recommended to *remove* the following parameters:
+   In addition to the above, we recommend to *remove* the following parameters:
 
     ```config-grub
     rhgb quiet crashkernel=auto
     ```
 
-   Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
+   Graphical and quiet boot aren't useful in a cloud environment where we want all the logs to be sent to the serial port.
    
-   The `crashkernel` option may be left configured if desired but note that this parameter reduces the amount of available memory in the VM by 128 MB or more, which may be problematic on the smaller VM sizes.
+   The `crashkernel` option may be left configured if desired, but note that this parameter reduces the amount of available memory in the VM by 128 MB or more, which may be problematic on the smaller VM sizes.
 
 10. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 11. Install the Azure Linux Agent by running the following command. The latest version is 2.0.15.
@@ -112,7 +112,7 @@ You must complete specific configuration steps in the operating system for the v
     sudo yum install WALinuxAgent
     ```
 
-    Installing the WALinuxAgent package removes the NetworkManager and NetworkManager-gnome packages if they were not already removed as described in step 2.
+    Installing the WALinuxAgent package removes the NetworkManager and NetworkManager-gnome packages if they weren't already removed as described in step 2.
 
 12. Don't create swap space on the OS disk.
     
@@ -143,7 +143,7 @@ You must complete specific configuration steps in the operating system for the v
 Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux 6, however there are several significant  differences worth noting:
 
 * Azure supports Oracle Linux with either the Unbreakable Enterprise Kernel (UEK) or the Red Hat Compatible Kernel. Oracle Linux with UEK is recommended.
-* The NetworkManager package no longer conflicts with the Azure Linux agent. This package is installed by default, and we recommend that it is not removed.
+* The NetworkManager package no longer conflicts with the Azure Linux agent. This package is installed by default, and we recommend that it's not removed.
 * GRUB2 is now used as the default bootloader, so the procedure for editing kernel parameters has changed (see below).
 * XFS is now the default file system. The ext4 file system can still be used if desired.
 
@@ -207,9 +207,9 @@ Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux
        rhgb quiet crashkernel=auto
     ```
  
-   Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
+   Graphical and quiet boot aren't useful in a cloud environment where we want all the logs to be sent to the serial port.
    
-   The `crashkernel` option may be left configured if desired but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more, which may be problematic on the smaller VM sizes.
+   The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more, which may be problematic on the smaller VM sizes.
 
 10. Once you're done editing "/etc/default/grub" per above, run the following command to rebuild the grub configuration:
 
@@ -275,7 +275,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux
     EOF
     ```
 
-15. Swap configuration. Do not create swap space on the operating system disk.
+15. Swap configuration. Don't create swap space on the operating system disk.
 
      Previously, the Azure Linux Agent was used automatically to configure swap space by using the local resource disk that is attached to the virtual machine after the virtual   machine is provisioned on Azure. However, this is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk create the swap file, modify the following parameters in `/etc/waagent.conf` appropriately:
 
@@ -320,9 +320,9 @@ Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux
     ```
 
     > [!NOTE]
-    > If you're migrating a specific virtual machine and do not want to create a generalized image, skip the deprovision step.
+    > If you're migrating a specific virtual machine and don't want to create a generalized image, skip the deprovision step.
 
 16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
 ## Next steps
-You are now ready to use your Oracle Linux .vhd to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).
+You're now ready to use your Oracle Linux .vhd to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).
