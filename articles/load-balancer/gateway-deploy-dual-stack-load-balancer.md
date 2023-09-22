@@ -298,4 +298,3 @@ feid=$(az network lb frontend-ip show \
 ## Next steps
 
 - Learn more about [Azure Gateway Load Balancer partners](./gateway-partners.md) for deploying network appliances.
-- 
