@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 08/22/2023
 ---
 
-# Request a quota limit increase
+# Request a quota limit increase for Mictosoft Dev Box resources
 
 This article describes how to submit a support request for increasing the number of resources for Microsoft Dev Box in your Azure subscription. 
 
