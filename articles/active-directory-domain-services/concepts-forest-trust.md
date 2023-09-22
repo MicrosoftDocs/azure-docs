@@ -24,11 +24,11 @@ The access control mechanisms provided by AD DS and the Windows distributed secu
 The trust path is implemented by the Net Logon service using an authenticated remote procedure call (RPC) connection to the trusted domain authority. A secured channel also extends to other AD DS domains through interdomain trust relationships. This secured channel is used to obtain and verify security information, including security identifiers (SIDs) for users and groups.
 
 >[!NOTE]
->Microsoft Entra DS only supports one-way transitive trusts where the managed domain will trust other domains, but no other directions or trust types are supported.
+>Domain Services only supports one-way transitive trusts where the managed domain will trust other domains, but no other directions or trust types are supported.
 
-For an overview of how trusts apply to Microsoft Entra DS, see [Forest concepts and features][create-forest-trust].
+For an overview of how trusts apply to Domain Services, see [Forest concepts and features][create-forest-trust].
 
-To get started using trusts in Microsoft Entra DS, [create a managed domain that uses forest trusts][tutorial-create-advanced].
+To get started using trusts in Domain Services, [create a managed domain that uses forest trusts][tutorial-create-advanced].
 
 ## Trust relationship flows
 
@@ -156,7 +156,7 @@ When two forests are connected by a forest trust, authentication requests made u
 When a forest trust is first established, each forest collects all of the trusted namespaces in its partner forest and stores the information in a [trusted domain object](#trusted-domain-object). Trusted namespaces include domain tree names, user principal name (UPN) suffixes, service principal name (SPN) suffixes, and security ID (SID) namespaces used in the other forest. TDO objects are replicated to the global catalog.
 
 >[!NOTE]
->Alternate UPN suffixes on trusts are not supported. If an on-premises domain uses the same UPN suffix as Microsoft Entra DS, sign in must use **sAMAccountName**.  
+>Alternate UPN suffixes on trusts are not supported. If an on-premises domain uses the same UPN suffix as Domain Services, sign in must use **sAMAccountName**.  
 
 Before authentication protocols can follow the forest trust path, the service principal name (SPN) of the resource computer must be resolved to a location in the other forest. An SPN can be one of the following names:
 
@@ -280,7 +280,7 @@ Administrators can use *Active Directory Domains and Trusts*, *Netdom* and *Nlte
 
 ## Next steps
 
-To get started with creating a managed domain with a forest trust, see [Create and configure a Microsoft Entra DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain][create-forest-trust].
+To get started with creating a managed domain with a forest trust, see [Create and configure a Domain Services managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [tutorial-create-advanced]: tutorial-create-instance-advanced.md

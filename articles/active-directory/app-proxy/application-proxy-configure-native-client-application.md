@@ -96,7 +96,7 @@ if (authResult != null)
   //Use the Access Token to access the Proxy Application
 
   HttpClient httpClient = new HttpClient();
-  HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+  httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
   HttpResponseMessage response = await httpClient.GetAsync("<Proxy App Url>");
  }
 ```

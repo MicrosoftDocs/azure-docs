@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/24/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -48,7 +48,7 @@ The following example checks if the string `abc` starts with `b` or `ab`.
 
 - This function performs a precise index scan.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`ENDSWITH`](endswith.md)

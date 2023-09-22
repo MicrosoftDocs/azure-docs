@@ -16,14 +16,14 @@ ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 
 # Create a Microsoft Entra Domain Services forest trust to an on-premises domain using Azure PowerShell
 
-In environments where you can't synchronize password hashes, or you have users that exclusively sign in using smart cards so they don't know their password, you can create a one-way outbound trust from Microsoft Entra Domain Services (Microsoft Entra DS) to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Microsoft Entra DS managed domain. In this case, on-premises password hashes are never synchronized.
+In environments where you can't synchronize password hashes, or you have users that exclusively sign in using smart cards so they don't know their password, you can create a one-way outbound trust from Microsoft Entra Domain Services to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Domain Services managed domain. In this case, on-premises password hashes are never synchronized.
 
-![Diagram of forest trust from Microsoft Entra DS to on-premises AD DS](./media/create-forest-powershell/forest-trust-relationship.png)
+![Diagram of forest trust from Domain Services to on-premises AD DS](./media/create-forest-powershell/forest-trust-relationship.png)
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Microsoft Entra DS forest using Azure PowerShell
+> * Create a Domain Services forest using Azure PowerShell
 > * Create a one-way outbound forest trust in the managed domain using Azure PowerShell
 > * Configure DNS in an on-premises AD DS environment to support managed domain connectivity
 > * Create a one-way inbound forest trust in an on-premises AD DS environment
@@ -49,8 +49,8 @@ To complete this article, you need the following resources and privileges:
 * Install and configure Azure AD PowerShell.
     * If needed, follow the instructions to [install the Azure AD PowerShell module and connect to Microsoft Entra ID](/powershell/azure/active-directory/install-adv2).
     * Make sure that you sign in to your Microsoft Entra tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
-* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Microsoft Entra roles in your tenant to enable Microsoft Entra DS.
-* You need [Domain Services Contributor](../role-based-access-control/built-in-roles.md#contributor) Azure role to create the required Microsoft Entra DS resources.
+* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Microsoft Entra roles in your tenant to enable Domain Services.
+* You need [Domain Services Contributor](../role-based-access-control/built-in-roles.md#contributor) Azure role to create the required Domain Services resources.
 
 ## Sign in to the Microsoft Entra admin center
 
@@ -72,9 +72,9 @@ Before you start, make sure you understand the [network considerations, forest n
 
 ## Create the Microsoft Entra service principal
 
-Microsoft Entra DS requires a service principal synchronize data from Microsoft Entra ID. This principal must be created in your Microsoft Entra tenant before you created the managed domain forest.
+Domain Services requires a service principal synchronize data from Microsoft Entra ID. This principal must be created in your Microsoft Entra tenant before you created the managed domain forest.
 
-Create a Microsoft Entra service principal for Microsoft Entra DS to communicate and authenticate itself. A specific application ID is used named *Domain Controller Services* with an ID of *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Don't change this application ID.
+Create a Microsoft Entra service principal for Domain Services to communicate and authenticate itself. A specific application ID is used named *Domain Controller Services* with an ID of *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Don't change this application ID.
 
 Create a Microsoft Entra service principal using the [New-AzureADServicePrincipal][New-AzureADServicePrincipal] cmdlet:
 
@@ -104,20 +104,20 @@ To create a managed domain, you use the `New-AzureAaddsForest` script. This scri
 
     | Name                         | Script parameter          | Description |
     |:-----------------------------|---------------------------|:------------|
-    | Subscription                 | *-azureSubscriptionId*    | Subscription ID used for Microsoft Entra DS billing. You can get the list of subscriptions using the [Get-AzureRMSubscription][Get-AzureRMSubscription] cmdlet. |
+    | Subscription                 | *-azureSubscriptionId*    | Subscription ID used for Domain Services billing. You can get the list of subscriptions using the [Get-AzureRMSubscription][Get-AzureRMSubscription] cmdlet. |
     | Resource Group               | *-aaddsResourceGroupName* | Name of the resource group for the managed domain and associated resources. |
-    | Location                     | *-aaddsLocation*          | The Azure region to host your managed domain. For available regions, see [supported regions for Microsoft Entra DS.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
-    | Microsoft Entra DS administrator    | *-aaddsAdminUser*         | The user principal name of the first managed domain administrator. This account must be an existing cloud user account in your Microsoft Entra ID. The user, and the user running the script, is added to the *AAD DC Administrators* group. |
-    | Microsoft Entra DS domain name      | *-aaddsDomainName*        | The FQDN of the managed domain, based on the previous guidance on how to choose a forest name. |
+    | Location                     | *-aaddsLocation*          | The Azure region to host your managed domain. For available regions, see [supported regions for Domain Services.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
+    | Domain Services administrator    | *-aaddsAdminUser*         | The user principal name of the first managed domain administrator. This account must be an existing cloud user account in your Microsoft Entra ID. The user, and the user running the script, is added to the *AAD DC Administrators* group. |
+    | Domain Services domain name      | *-aaddsDomainName*        | The FQDN of the managed domain, based on the previous guidance on how to choose a forest name. |
 
-    The `New-AzureAaddsForest` script can create the Azure virtual network and Microsoft Entra DS subnet if these resources don't already exist. The script can optionally create the workload subnets, when specified:
+    The `New-AzureAaddsForest` script can create the Azure virtual network and Domain Services subnet if these resources don't already exist. The script can optionally create the workload subnets, when specified:
 
     | Name                              | Script parameter                  | Description |
     |:----------------------------------|:----------------------------------|:------------|
     | Virtual network name              | *-aaddsVnetName*                  | Name of the virtual network for the managed domain.|
     | Address space                     | *-aaddsVnetCIDRAddressSpace*      | Virtual network's address range in CIDR notation (if creating the virtual network).|
-    | Microsoft Entra DS subnet name           | *-aaddsSubnetName*                | Name of the subnet of the *aaddsVnetName* virtual network hosting the managed domain. Don't deploy your own VMs and workloads into this subnet. |
-    | Microsoft Entra DS address range         | *-aaddsSubnetCIDRAddressRange*    | Subnet address range in CIDR notation for the Microsoft Entra DS instance, such as *192.168.1.0/24*. Address range must be contained by the address range of the virtual network, and different from other subnets. |
+    | Domain Services subnet name           | *-aaddsSubnetName*                | Name of the subnet of the *aaddsVnetName* virtual network hosting the managed domain. Don't deploy your own VMs and workloads into this subnet. |
+    | Domain Services address range         | *-aaddsSubnetCIDRAddressRange*    | Subnet address range in CIDR notation for the Domain Services instance, such as *192.168.1.0/24*. Address range must be contained by the address range of the virtual network, and different from other subnets. |
     | Workload subnet name (optional)   | *-workloadSubnetName*             | Optional name of a subnet in the *aaddsVnetName* virtual network to create for your own application workloads. VMs and applications and also be connected to a peered Azure virtual network instead. |
     | Workload address range (optional) | *-workloadSubnetCIDRAddressRange* | Optional subnet address range in CIDR notation for application workload, such as *192.168.2.0/24*. Address range must be contained by the address range of the virtual network, and different from other subnets.|
 
@@ -165,7 +165,7 @@ Before you start, make sure you understand the [network considerations and recom
 
 1. In the Microsoft Entra admin center, search for and select **Microsoft Entra Domain Services**. Choose your managed domain, such as *aaddscontoso.com* and wait for the status to report as **Running**.
 
-    When running, [update DNS settings for the Azure virtual network](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network) and then [enable user accounts for Microsoft Entra DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) to finalize the configurations for your managed domain.
+    When running, [update DNS settings for the Azure virtual network](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network) and then [enable user accounts for Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) to finalize the configurations for your managed domain.
 
 1. Make a note of the DNS addresses shown on the overview page. You need these addresses when you configure the on-premises Active Directory side of the trust relationship in a following section.
 1. Restart the management VM for it to receive the new DNS settings, then [join the VM to the managed domain](join-windows-vm.md#join-the-vm-to-the-managed-domain).
@@ -195,7 +195,7 @@ Now provide the script the following information:
 
 | Name                               | Script parameter     | Description |
 |:-----------------------------------|:---------------------|:------------|
-| Microsoft Entra DS domain name            | *-ManagedDomainFqdn* | FQDN of the managed domain, such as *aaddscontoso.com* |
+| Domain Services domain name            | *-ManagedDomainFqdn* | FQDN of the managed domain, such as *aaddscontoso.com* |
 | On-premises AD DS domain name      | *-TrustFqdn*         | The FQDN of the trusted forest, such as *onprem.contoso.com* |
 | Trust friendly name                | *-TrustFriendlyName* | Friendly name of the trust relationship. |
 | On-premises AD DS DNS IP addresses | *-TrustDnsIPs*       | A comma-delimited list of DNS server IPv4 addresses for the trusted domain listed. |
@@ -246,8 +246,8 @@ To configure inbound trust on the on-premises AD DS domain, complete the followi
 
 The following common scenarios let you validate that forest trust correctly authenticates users and access to resources:
 
-* [On-premises user authentication from the Microsoft Entra DS forest](#on-premises-user-authentication-from-the-azure-ad-ds-forest)
-* [Access resources in the Microsoft Entra DS forest as an on-premises user](#access-resources-in-azure-ad-ds-as-an-on-premises-user)
+* [On-premises user authentication from the Domain Services forest](#on-premises-user-authentication-from-the-azure-ad-ds-forest)
+* [Access resources in the Domain Services forest as an on-premises user](#access-resources-in-azure-ad-ds-as-an-on-premises-user)
     * [Enable file and printer sharing](#enable-file-and-printer-sharing)
     * [Create a security group and add members](#create-a-security-group-and-add-members)
     * [Create a file share for cross-forest access](#create-a-file-share-for-cross-forest-access)
@@ -255,7 +255,7 @@ The following common scenarios let you validate that forest trust correctly auth
 
 <a name='on-premises-user-authentication-from-the-azure-ad-ds-forest'></a>
 
-### On-premises user authentication from the Microsoft Entra DS forest
+### On-premises user authentication from the Domain Services forest
 
 You should have Windows Server virtual machine joined to the managed domain resource domain. Use this virtual machine to test your on-premises user can authenticate on a virtual machine.
 
@@ -281,7 +281,7 @@ You should have Windows Server virtual machine joined to the managed domain reso
 
 <a name='access-resources-in-azure-ad-ds-as-an-on-premises-user'></a>
 
-### Access resources in Microsoft Entra DS as an on-premises user
+### Access resources in Domain Services as an on-premises user
 
 Using the Windows Server VM joined to the managed domain, you can test the scenario where users can access resources hosted in the forest when they authenticate from computers in the on-premises domain with users from the on-premises domain. The following examples show you how to create and test various common scenarios.
 
@@ -407,7 +407,7 @@ In this article, you learned how to:
 > * Create a one-way inbound forest trust in an on-premises AD DS environment
 > * Test and validate the trust relationship for authentication and resource access
 
-For more conceptual information about forest types in Microsoft Entra DS, see [How do forest trusts work in Microsoft Entra DS?][concepts-trust]
+For more conceptual information about forest types in Domain Services, see [How do forest trusts work in Domain Services?][concepts-trust]
 
 <!-- INTERNAL LINKS -->
 [concepts-trust]: concepts-forest-trust.md
