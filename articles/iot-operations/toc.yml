@@ -22,7 +22,7 @@ items:
           href: manage-devices-assets/concept-akri-overview.md
         - name: OPC UA broker overview
           href: manage-devices-assets/concept-opcua-broker-overview.md
-      - name: How-to 
+      - name: How to 
         items: 
         - name: Manage assets remotely
           href: manage-devices-assets/howto-manage-assets-remotely.md

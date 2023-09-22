@@ -1,5 +1,5 @@
 ---
-title: Azure IoT OPC UA Broker overview
+title: OPC UA Broker overview
 description: Understand how OPC UA broker works and how it enables you to detect OPC UA assets. 
 author: timlt
 ms.author: timlt
