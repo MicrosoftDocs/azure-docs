@@ -26,31 +26,6 @@ With marketplace images, support is validated even before Update Manager operati
 
 For instance, an assessment call attempts to fetch the latest patch that's available from the image's OS family to check support. It stores this support-related data in an Azure Resource Graph table, which you can query to see the support status for your Azure Compute Gallery image.
 
-## Enable a subscription for public preview
-
-To self-register your subscription for public preview in the Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **More services**.
-
-   :::image type="content" source="./media/manage-updates-customized-images/access-more-services.png" alt-text="Screenshot that shows how to access the More services option.":::
-
-1. On the **All services** page, search for **Preview features**.
-   
-    :::image type="content" source="./media/manage-updates-customized-images/access-preview-services.png" alt-text="Screenshot that shows how to access preview features.":::
-
-1. On the **Preview features** page, enter **gallery** and select **VM Guest Patch Gallery Image Preview**.
-
-   :::image type="content" source="./media/manage-updates-customized-images/access-gallery.png" alt-text="Screenshot that shows how to access the gallery.":::
-    
-1. On the **VM Guest Patch Gallery Image Preview** page, select **Register** to register your subscription.
-    
-   :::image type="content" source="./media/manage-updates-customized-images/register-preview.png" alt-text="Screenshot that shows how to register the Preview feature.":::
-
-## Prerequisites to test the Azure Compute Gallery custom images
-
-- Register the subscription for preview by following the steps in [Enable a subscription for public preview](#enable-a-subscription-for-public-preview).
-- Ensure that the VM where you intend to run the API calls is in the same subscription that's enrolled for the feature.
-
 ## Check the preview
 
 Start the asynchronous support check by using either one of the following APIs:

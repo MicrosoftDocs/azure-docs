@@ -4,14 +4,14 @@
   items:
   - name: About Azure Update Manager
     href: overview.md
+  - name: Support matrix
+    href: support-matrix.md
   - name: What's New 
     href: whats-new.md
   - name: What's upcoming
     href: whats-upcoming.md
   - name: FAQ
     href: update-manager-faq.md
-  - name: Support matrix
-    href: support-matrix.md
 - name: Quickstarts
   items:
   - name: Check and install on-demand updates
@@ -30,7 +30,7 @@
     href: prerequsite-for-schedule-patching.md
   - name: Assessment options
     href: assessment-options.md
-  - name: Dynamic scope (preview)
+  - name: Dynamic scope
     href: dynamic-scope-overview.md
   - name: Query resources with Azure Resource Graph
     href: query-logs.md 
@@ -62,7 +62,7 @@
       href: deploy-updates.md
     - name: Schedule updates
       href: scheduled-patching.md
-    - name: Manage dynamic scope (preview)
+    - name: Manage dynamic scope
       href: manage-dynamic-scoping.md
     - name: Manage update settings
       href: manage-update-settings.md
