@@ -130,6 +130,7 @@ var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnecti
 
 log.info("Start recognizing result: " + recognizeResponse.getStatusCode()); 
 ```
+For speech-to-text flows, Call Automation recognize action also supports the use of custom speech models. Features like custom speech models can be useful when you're building an application that needs to listen for complex words which the default speech-to-text models may not be capable of understanding, a good example of this can be when you're building an application for the telemedical industry and your virtual agent needs to be able to recognize medical terms. You can learn more about creating and deploying custom speech models [here](https://learn.microsoft.com/azure/ai-services/speech-service/how-to-custom-speech-create-project?pivots=speech-studio).
 
 ### Speech-to-Text Choices (Public Preview)
 ``` java
@@ -152,7 +153,9 @@ var recognizeOptions = new CallMediaRecognizeChoiceOptions(targetParticipant, ch
   .setInterruptPrompt(true)
   .setInitialSilenceTimeout(Duration.ofSeconds(30))
   .setPlayPrompt(playSource)
-  .setOperationContext("AppointmentReminderMenu");
+  .setOperationContext("AppointmentReminderMenu")
+  //Optional parameter if you have a custom speech model
+  .setSpeechRecognitionModelEndpointId("YourCustomSpeechModelEndpointID"); 
 var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnectionId)
   .getCallMediaAsync()
   .startRecognizingWithResponse(recognizeOptions)
@@ -168,7 +171,9 @@ var playSource = new TextSource()
     .setVoiceName("en-US-ElizabethNeural"); 
 var recognizeOptions = new CallMediaRecognizeSpeechOptions(targetParticipant, Duration.ofMillis(1000)) 
     .setPlayPrompt(playSource) 
-    .setOperationContext("OpenQuestionSpeech"); 
+    .setOperationContext("OpenQuestionSpeech")
+    //Optional parameter if you have a custom speech model
+    .setSpeechRecognitionModelEndpointId("YourCustomSpeechModelEndpointID");  
 var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnectionId) 
     .getCallMediaAsync() 
     .startRecognizingWithResponse(recognizeOptions) 
@@ -187,7 +192,9 @@ var recognizeOptions = new CallMediaRecognizeSpeechOrDtmfOptions(targetParticipa
     .setPlayPrompt(playSource) 
     .setInitialSilenceTimeout(Duration.ofSeconds(30)) 
     .setInterruptPrompt(true) 
-    .setOperationContext("OpenQuestionSpeechOrDtmf"); 
+    .setOperationContext("OpenQuestionSpeechOrDtmf")
+    //Optional parameter if you have a custom speech model
+    .setSpeechRecognitionModelEndpointId("YourCustomSpeechModelEndpointID");  
 var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnectionId) 
     .getCallMediaAsync() 
     .startRecognizingWithResponse(recognizeOptions) 
