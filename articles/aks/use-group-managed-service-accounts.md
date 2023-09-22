@@ -366,7 +366,7 @@ You can either [grant access to your key vault for the identity after cluster cr
         --disable-windows-gmsa 
     ```
 > [!NOTE]
-> You can re-enable GMSA on an existing cluster by using the [ az aks update ][az-aks-update] command.
+> You can re-enable GMSA on an existing cluster by using the [az aks update][az-aks-update] command.
 
 ## Troubleshooting
 
