@@ -84,6 +84,16 @@ data:
               - "https://monitor.azure.com/.default"
 ```
 
+## Visualize metrics using Azure Managed Grafana Workspace
+The captured metrics can be visualized using community Grafana dashboards or create contextual dashboards as required.
+
+1. Create an [Azure Managed Grafana workspace](../managed-grafana/quickstart-managed-grafana-portal)
+2. [Link](../azure-monitor/essentials/azure-monitor-workspace-manage?tabs=azure-portal#link-a-grafana-workspace) the created Grafana workspace to the Azure Monitor workspace
+3. [Import](../managed-grafana/how-to-create-dashboard?tabs=azure-portal#import-a-grafana-dashboard) the community Grafana Dashbord with id 3870 [Opensshift/K8 Cluster Overview](https://grafana.com/grafana/dashboards/3870-openshift-k8-cluster-overview/) into the Grafana workspace
+4. Specify the Azure Monitor Workspace as the datasource
+5. Save the dashboard
+6. Access the dashboard from **Home -> Dashboards**   
+
 ## Troubleshooting
 See [Azure Monitor managed service for Prometheus remote write](../azure-monitor/containers/prometheus-remote-write#hitting-your-ingestion-quota-limit).
 
