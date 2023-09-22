@@ -57,8 +57,8 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
     az group create --name myResourceGroup --location eastus
     ```
 
-> [!NOTE]
-> Confidential VMs are not available in all locations. For currently supported locations, see which [VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+    > [!NOTE]
+    > Confidential VMs are not available in all locations. For currently supported locations, see which [VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 5. Create a Virtual Machine Scale Set.
 
@@ -68,37 +68,37 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
     In this case, the username is auto set to azureuser.
     For the admin credentials, you will be able to use the credentials that you set from the hardened image while you create the vm.
 
-> [!NOTE]
-> For specalized images, [osprofile properties](/azure/virtual-machines/shared-image-galleries) are handled differently than generalized images.
-> Using a [load balancer](/azure/load-balancer/load-balancer-overview) is optional but is encouraged for these reasons.
+    > [!NOTE]
+    > For specalized images, [osprofile properties](/azure/virtual-machines/shared-image-galleries) are handled differently than generalized images.
+    > Using a [load balancer](/azure/load-balancer/load-balancer-overview) is optional but is encouraged for these reasons.
+    
+    ```azurecli-interactive
+    az vmss create \
+      --resource-group myResourceGroup \
+      --name myScaleSet \
+      --vm-sku "Standard_DC4as_v5" \
+      --security-type ConfidentialVM \
+      --os-disk-security-encryption-type DiskwithVMGuestState \
+      --os-disk-secure-vm-disk-encryption-set "/subscriptions/.../disk-encryption-sets/<des-name>" \
+      --image "/subscriptions/.../images/<imageName>/versions/<version>" \
+      --enable-vtpm true \
+      --enable-secure-boot true \
+      --vnet-name <virtual-network-name> \
+      --subnet <subnet-name> \
+      --lb "/subscriptions/.../loadBalancers/<lb-name>" \
+      --specialized true \
+      --instance-count 2 \
+      --admin-username "azureuser" \
+      --admin-password ""
+    ```
 
-```azurecli-interactive
-az vmss create \
-  --resource-group myResourceGroup \
-  --name myScaleSet \
-  --vm-sku "Standard_DC4as_v5" \
-  --security-type ConfidentialVM \
-  --os-disk-security-encryption-type DiskwithVMGuestState \
-  --os-disk-secure-vm-disk-encryption-set "/subscriptions/.../disk-encryption-sets/<des-name>" \
-  --image "/subscriptions/.../images/<imageName>/versions/<version>" \
-  --enable-vtpm true \
-  --enable-secure-boot true \
-  --vnet-name <virtual-network-name> \
-  --subnet <subnet-name> \
-  --lb "/subscriptions/.../loadBalancers/<lb-name>" \
-  --specialized true \
-  --instance-count 2 \
-  --admin-username "azureuser" \
-  --admin-password ""
-```
-
-5. Access the virtual machine scale set from the portal.
+6. Access the virtual machine scale set from the portal.
 
     You can access your cvm scale set and use the admin username and password set previously to log in. Please note that if you choose to update the admin credentials, do so directly in the scale set model using the cli.
 
-> [!NOTE]
-> If you are looking to deploy cvm scaled scale using the custom hardened image, please note that some features related to auto scaling will be restricted. Will manual scaling rules continue to work as expected, the autoscaling ability will be limited due to the agentless custom image. More details on the restrictions can be found here for the [provisioning agent](/azure/virtual-machines/linux/disable-provisioning). Alternatively, you can navigate to the metrics tab on the azure portal and confirm the same.
-> However, you can continue to set up custom rules based on load balancer metrics such as SYN count, SNAT connection count, etc. 
+    > [!NOTE]
+    > If you are looking to deploy cvm scaled scale using the custom hardened image, please note that some features related to auto scaling will be restricted. Will manual scaling rules continue to work as expected, the autoscaling ability will be limited due to the agentless custom image. More details on the restrictions can be found here for the [provisioning agent](/azure/virtual-machines/linux/disable-provisioning). Alternatively, you can navigate to the metrics tab on the azure portal and confirm the same.
+    > However, you can continue to set up custom rules based on load balancer metrics such as SYN count, SNAT connection count, etc. 
 
 ## Next Steps
 
