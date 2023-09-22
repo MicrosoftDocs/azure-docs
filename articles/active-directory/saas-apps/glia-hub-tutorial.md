@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory SSO integration with Glia Hub
-description: Learn how to configure single sign-on between Azure Active Directory and Glia Hub.
+title: Microsoft Entra SSO integration with Glia Hub
+description: Learn how to configure single sign-on between Microsoft Entra ID and Glia Hub.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,51 +9,66 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/02/2023
+ms.date: 09/22/2023
 ms.author: jeedes
 
 ---
 
-# Azure Active Directory SSO integration with Glia Hub
+# Microsoft Entra SSO integration with Glia Hub
 
-In this article, you'll learn how to integrate Glia Hub with Azure Active Directory (Azure AD). Glia Hub is the leading Digital Customer Service (DCS) solution that enriches customer touchpoints on web, mobile and phone through various communication channels (text, audio, video, Cobrowsing, etc.). When you integrate Glia Hub with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Glia Hub with Microsoft Entra ID. When you integrate Glia Hub with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Glia Hub.
-* Enable your users to be automatically signed-in to Glia Hub with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
-
-You'll configure and test Azure AD single sign-on for Glia Hub in a test environment. Glia Hub supports both **SP** and **IDP** initiated single sign-on and **Just In Time** user provisioning.
+* Control in Microsoft Entra ID who has access to Glia Hub.
+* Enable your users to be automatically signed-in to Glia Hub with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To integrate Azure Active Directory with Glia Hub, you need:
+To integrate Microsoft Entra ID with Glia Hub, you need:
 
-* An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Glia Hub single sign-on (SSO) enabled subscription.
 
-## Add application and assign a test user
+## Scenario description
 
-Before you begin the process of configuring single sign-on, you need to add the Glia Hub application from the Azure AD gallery. You need a test user account to assign to the application and test the single sign-on configuration.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-### Add Glia Hub from the Azure AD gallery
+* Glia Hub supports **SP and IDP** initiated SSO
 
-Add Glia Hub from the Azure AD application gallery to configure single sign-on with Glia Hub. For more information on how to add application from the gallery, see the [Quickstart: Add application from the gallery](../manage-apps/add-application-portal.md).
+* Glia Hub supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial)
 
-### Create and assign Azure AD test user
+## Adding Glia Hub from the gallery
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+To configure the integration of Glia Hub into Microsoft Entra ID, you need to add Glia Hub from the gallery to your list of managed SaaS apps.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Glia Hub** in the search box.
+1. Select **Glia Hub** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure Azure AD SSO
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-Complete the following steps to enable Azure AD single sign-on in the Azure portal.
+## Configure and test Microsoft Entra SSO for Glia Hub
 
-1. In the Azure portal, on the **Glia Hub** application integration page, find the **Manage** section and select **single sign-on**.
+Configure and test Microsoft Entra SSO with Glia Hub using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Glia Hub.
+
+To configure and test Microsoft Entra SSO with Glia Hub, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-microsoft-entra-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra ID test user](#create-a-microsoft-entra-id-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra ID test user](#assign-the-microsoft-entra-id-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
+1. **[Configure Glia Hub SSO](#configure-glia-hub-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Glia Hub test user](#create-glia-hub-test-user)** - to have a counterpart of B.Simon in Glia Hub that is linked to the Microsoft Entra ID representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin center.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Glia Hub** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
@@ -79,12 +94,12 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	> [!NOTE]
     > These values are not real. Update these values with the actual Identifier, Reply URL, Sign on URL, Relay State and Logout Url. Contact [Glia Hub support team](mailto:support@glia.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1.  Your Glia Hub application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Glia Hub expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
+1. Glia Hub application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![Screenshot shows the image of attributes configuration.](common/default-attributes.png "Image")
 
-1. In addition to above, Glia Hub application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
-
+1. In addition to above, Glia Hub application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+	
 	| Name |  Source Attribute|
 	| ---------------|  --------- |
 	| idp_name_attribute | user.userprincipalname |
@@ -93,9 +108,31 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
 
-1. On the **Set up Glia Hub** section, copy the appropriate URL(s) based on your requirement.
+### Create a Microsoft Entra ID test user
 
-	![Screenshot shows to copy configuration appropriate U R L.](common/copy-configuration-urls.png "Attributes")
+In this section, you'll create a test user in the Microsoft Entra admin center called B.Simon.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
+
+### Assign the Microsoft Entra ID test user
+
+In this section, you'll enable B.Simon to use Microsoft Entra single sign-on by granting access to Glia Hub.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Glia Hub**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Glia Hub SSO
 
@@ -103,29 +140,25 @@ To configure single sign-on on **Glia Hub** side, you need to send the **App Fed
 
 ### Create Glia Hub test user
 
-In this section, a user called B.Simon is created in Glia Hub. Glia Hub supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in Glia Hub, a new one is commonly created after authentication. If you want to add users manually in the Glia Hub SSO platform, then please contact [Glia Hub support team](mailto:support@glia.com). Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Glia Hub. Work with [Glia Hub support team](mailto:support@prosci.com) to add the users in the Glia Hub platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
-
+In this section, you test your Azure AD single sign-on configuration with following options.
+ 
 #### SP initiated:
-
-* Click on **Test this application** in Azure portal. This will redirect to Glia Hub Sign-on URL where you can initiate the login flow.  
-
+ 
+* Click on **Test this application** in Azure portal. This will redirect to Glia Hub Sign on URL where you can initiate the login flow.  
+ 
 * Go to Glia Hub Sign-on URL directly and initiate the login flow from there.
-
+ 
 #### IDP initiated:
+ 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Glia Hub for which you set up the SSO.
+ 
+You can also use Microsoft My Apps to test the application in any mode. When you click the Glia Hub tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Glia Hub for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Glia Hub for which you set up the SSO. 
+## Next Steps
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Glia Hub tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Glia Hub for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+Once you configure Glia Hub you can enforce session control, which protects exfiltration and infiltration of your organization�s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
 
-## Additional resources
-
-* [What is single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Plan a single sign-on deployment](../manage-apps/plan-sso-deployment.md).
-
-## Next steps
-
-Once you configure Glia Hub you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
