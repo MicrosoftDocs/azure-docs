@@ -38,9 +38,9 @@ When you use lab plans, you're now assigned your own [dedicated VM cores quota](
 
 Even if you're already using lab accounts, you still need to request capacity because your VM cores are not automatically available for creating labs with lab plans. You can request your capacity to be transferred to lab plans.
 
-### 1a. Transfer VM cores from lab accounts
+### Transfer VM cores from lab accounts
 
-If you're currently using lab accounts, when you create a lab for a lab plan, you can view the VM sizes that were previously available for your lab account. In the Azure Lab Services user interface, these VM sizes are marked as *classic* VM sizes.
+When you create a lab plan and you still have lab accounts in your Azure subscription, then you can select from the list of VM sizes that were available for lab accounts. In the Azure Lab Services user interface, these VM sizes are marked as *classic* VM sizes.
 
 :::image type="content" source="./media/how-to-migrate-lab-acounts-to-lab-plans/create-lab-classic-virtual-machine-sizes.png" alt-text="Screenshot that shows the Create lab window, highlighting the classic VM sizes.":::
 
@@ -58,7 +58,7 @@ To request a transfer of your lab account VM core capacity:
 > [!TIP]
 > It's recommended to request a transfer of your VM cores capacity to lab plans to minimize the time needed to allocate capacity for your lab plans.
 
-### 1b. Request capacity for lab plans
+### Request capacity for lab plans
 
 If you don't want to transfer your existing capacity from lab accounts to lab plans, or if you require additional VM cores, you should request capacity for lab plans.
 
