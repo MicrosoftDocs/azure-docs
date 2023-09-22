@@ -59,7 +59,7 @@ To revoke permissions in the **Admin consent** tab:
 
 1. View the list of permissions in the **Admin consent** tab.
 1. Choose the permission you would like to revoke, then select the **...** control for that permission.
-   :::image type="content" source="./media/manage-application-permissions/revoke-permissions.png" alt-text="Screenshot shows how to revoke admin consent.":::
+   :::image type="content" source="media/manage-application-permissions/revoke-permissions.png" alt-text="Screenshot shows how to revoke admin consent.":::
 1.  Select **Revoke permission**.
 
 :::zone-end
