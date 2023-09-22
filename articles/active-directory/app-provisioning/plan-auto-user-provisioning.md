@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/17/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -144,7 +144,7 @@ Widen the rollout to larger groups of users by increasing the scope of the group
 
 ## Plan application connections and administration
 
-Use the Azure portal to view and manage all the applications that support provisioning. See [Finding your apps in the portal](../app-provisioning/configure-automatic-user-provisioning-portal.md).
+Use the Microsoft Entra admin center to view and manage all the applications that support provisioning. See [Finding your apps in the portal](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 
 ### Determine the type of connector to use
 
@@ -172,7 +172,7 @@ While some applications require the admin username and password, others may requ
 
 ## Plan user and group provisioning
 
-If you enable user provisioning for enterprise apps, the [Azure portal](https://portal.azure.com/) controls its attribute values through attribute mapping.
+If you enable user provisioning for enterprise apps, the [Microsoft Entra admin center](https://entra.microsoft.com) controls its attribute values through attribute mapping.
 
 ### Determine operations for each SaaS app
 
@@ -257,7 +257,7 @@ The provisioning service stores the state of both systems after the initial cycl
 
 ### Configure automatic user provisioning
 
-Use the [Azure portal](https://portal.azure.com/) to manage automatic user account provisioning and deprovisioning for applications that support it. Follow the steps in [How do I set up automatic provisioning to an application?](../app-provisioning/user-provisioning.md)
+Use the [Microsoft Entra admin center](https://entra.microsoft.com) to manage automatic user account provisioning and deprovisioning for applications that support it. Follow the steps in [How do I set up automatic provisioning to an application?](../app-provisioning/user-provisioning.md)
 
 The Microsoft Entra user provisioning service can also be configured and managed using the [Microsoft Graph API](/graph/api/resources/synchronization-overview).
 
@@ -269,7 +269,7 @@ Now that you've deployed, you need to manage the solution.
 
 After a successful [initial cycle](../app-provisioning/user-provisioning.md), the Microsoft Entra provisioning service will run incremental updates indefinitely, at intervals specific to each application, until one of the following events occurs:
 
-* The service is manually stopped, and a new initial cycle is triggered using the [Azure portal](https://portal.azure.com/), or using the appropriate [Microsoft Graph API](/graph/api/resources/synchronization-overview) command.
+* The service is manually stopped, and a new initial cycle is triggered using the [Microsoft Entra admin center](https://entra.microsoft.com), or using the appropriate [Microsoft Graph API](/graph/api/resources/synchronization-overview) command.
 
 * A new initial cycle triggers a change in attribute mappings or scoping filters.
 
