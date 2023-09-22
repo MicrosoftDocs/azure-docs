@@ -72,24 +72,24 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 > For specalized images, [osprofile properties](/azure/virtual-machines/shared-image-galleries) are handled differently than generalized images.
 > Using a [load balancer](/azure/load-balancer/load-balancer-overview) is optional but is encouraged for these reasons.
 
-```
+```azurecli-interactive
 az vmss create \
---resource-group myResourceGroup \
---name myScaleSet \
---vm-sku "Standard_DC4as_v5" \
---security-type ConfidentialVM \
---os-disk-security-encryption-type DiskwithVMGuestState \
---os-disk-secure-vm-disk-encryption-set "/subscriptions/.../disk-encryption-sets/<des-name>" \
---image "/subscriptions/.../images/<imageName>/versions/<version>" \
---enable-vtpm true \
---enable-secure-boot true \
---vnet-name <virtual-network-name> \
---subnet <subnet-name> \
---lb "/subscriptions/.../loadBalancers/<lb-name>" \
---specialized true \
---instance-count 2 \
---admin-username "azureuser" \
---admin-password ""
+  --resource-group myResourceGroup \
+  --name myScaleSet \
+  --vm-sku "Standard_DC4as_v5" \
+  --security-type ConfidentialVM \
+  --os-disk-security-encryption-type DiskwithVMGuestState \
+  --os-disk-secure-vm-disk-encryption-set "/subscriptions/.../disk-encryption-sets/<des-name>" \
+  --image "/subscriptions/.../images/<imageName>/versions/<version>" \
+  --enable-vtpm true \
+  --enable-secure-boot true \
+  --vnet-name <virtual-network-name> \
+  --subnet <subnet-name> \
+  --lb "/subscriptions/.../loadBalancers/<lb-name>" \
+  --specialized true \
+  --instance-count 2 \
+  --admin-username "azureuser" \
+  --admin-password ""
 ```
 
 5. Access the virtual machine scale set from the portal.
