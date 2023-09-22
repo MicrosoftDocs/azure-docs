@@ -16,7 +16,7 @@ ms.author: justinha
 ---
 # Delete a Microsoft Entra Domain Services managed domain
 
-If you no longer need a Microsoft Entra Domain Services (Microsoft Entra DS) managed domain, you can delete it. There's no option to turn off or temporarily disable a Microsoft Entra DS managed domain. Deleting the managed domain doesn't delete or otherwise adversely impact the Microsoft Entra tenant.
+If you no longer need a Microsoft Entra Domain Services managed domain, you can delete it. There's no option to turn off or temporarily disable a Domain Services managed domain. Deleting the managed domain doesn't delete or otherwise adversely impact the Microsoft Entra tenant.
 
 This article shows you how to use the Microsoft Entra admin center to delete a managed domain.
 
@@ -42,9 +42,9 @@ It can take 15-20 minutes or more to delete the managed domain.
 
 ## Next steps
 
-Consider [sharing feedback][feedback] for the features that you would like to see in Microsoft Entra DS.
+Consider [sharing feedback][feedback] for the features that you would like to see in Domain Services.
 
-If you want to get started with Microsoft Entra DS again, see [Create and configure a Microsoft Entra Domain Services managed domain][create-instance].
+If you want to get started with Domain Services again, see [Create and configure a Microsoft Entra Domain Services managed domain][create-instance].
 
 <!-- INTERNAL LINKS -->
 [feedback]: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789?c=5d63b5b7-ae25-ec11-b6e6-000d3a4f0789
