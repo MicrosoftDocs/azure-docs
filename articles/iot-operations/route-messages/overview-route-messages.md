@@ -24,8 +24,7 @@ Required: Use an H1 that includes the feature name and the product or service na
 
 -->
 
-# Publish and subscribe to messages by using IoT MQ broker
-TODO: Add your heading
+# Publish and subscribe to messages using IoT MQ broker
 
 <!-- 2. Overview ------------------------------------------------------------------------
 
@@ -35,8 +34,7 @@ image that provides a high-level view of how the feature works.
 
 -->
 
-[Overview]
-TODO: Add your overview
+IoT MQ broker is a set of composable first-party Kubernetes services. You can aggregate data from on-premises assets including OPC UA servers into an industrial-grade MQTT Broker then add highly available edge compute and set up bi-directional data flow with a variety of services in the cloud.
 
 <!-- 3. Use cases -----------------------------------------------------------------------
 
