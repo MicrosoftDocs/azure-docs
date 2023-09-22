@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
 
 # Data Encryption for Device Update for IoT Hub
 
-## Encyption with Microsoft-managed keys
+## Encryption with Microsoft-managed keys
 
 Device Update for IoT Hub provides data protection though encryption at rest and in-transit as it's written in the datastores; the data is encrypted when read and decrypted when written.
 Data in a new Device Update account is encrypted with Microsoft-managed keys by default. 
