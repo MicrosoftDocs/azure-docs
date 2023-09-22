@@ -54,13 +54,19 @@ To configure the integration of Bynder into Microsoft Entra ID, you need to add 
 Configure and test Microsoft Entra SSO with Bynder using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Bynder.
 
 To configure and test Microsoft Entra SSO with Bynder, perform the following steps:
-
+1. **[Create new Bynder Configuration](#create-login-configuration)** - to get configuration identifier needed for Azure.
 1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with Britta Simon.
    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Entra single sign-on.
-2. **[Configure Bynder SSO](#configure-bynder-sso)** - to configure the Single Sign-On settings on application side.
+1. **[Configure Bynder SSO](#configure-bynder-sso)** - to configure the Single Sign-On settings on application side.
    1. **[Create Bynder test user](#create-bynder-test-user)** - to have a counterpart of Britta Simon in Bynder that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+
+<a name='create-login-configuration'></a>
+
+## Сreate a new login configuration in your portal
+
+First you need to log in to your Bynder account and follow [these steps](https://support.bynder.com/hc/en-us/articles/6614562131474#UUID-4f8db699-3079-496d-d29e-706b28e4631a_section-idm4615912229660833479548407237) to create a new login configuration in your portal. This way you will generate all identifiers necessary to set up your connection with Azure AD. Save new config's identifier, you will need it to setup Azure SAML SSO.
 
 <a name='configure-azure-ad-sso'></a>
 
@@ -75,36 +81,38 @@ Follow these steps to enable Microsoft Entra SSO.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
+   
+	> [!NOTE]
+	> For BYNDER_CONFIG_ID use an identifier you got **[at this step](#create-login-configuration)** 
+
+
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     
     For a Default Domain: 
-    `https://<COMPANY_NAME>.bynder.com`
+    `https://<COMPANY_NAME>.bynder.com/v7/idp/sso/saml/<BYNDER_CONFIG_ID>/metadata`
     
     For a Custom Domain: 
-    `https://<SUBDOMAIN>.<DOMAIN>.com`
+    `https://<SUBDOMAIN>.<DOMAIN>.com/v7/idp/sso/saml/<BYNDER_CONFIG_ID>/metadata`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     
      For a Default Domain: 
-    `https://<COMPANY_NAME>.bynder.com/sso/SAML/authenticate/`
+    `https://<COMPANY_NAME>.bynder.com/v7/idp/sso/saml/<BYNDER_CONFIG_ID>/acs`
     
     For a Custom Domain: 
-    `https://<SUBDOMAIN>.<DOMAIN>.com/sso/SAML/authenticate/`
+    `https://<SUBDOMAIN>.<DOMAIN>.com/v7/idp/sso/saml/<BYNDER_CONFIG_ID>/acs`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     
      For a Default Domain: 
-    `https://<COMPANY_NAME>.bynder.com/login/`
+    `https://<COMPANY_NAME>.bynder.com/v7/idp/sso/saml/<BYNDER_CONFIG_ID>/acs`
     
-     For a Custom Domain: 
-    ` https://<SUBDOMAIN>.<DOMAIN>.com/login/`
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Bynder Client support team](https://www.bynder.com/en/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
+    For a Custom Domain: 
+    `https://<SUBDOMAIN>.<DOMAIN>.com/v7/idp/sso/saml/<BYNDER_CONFIG_ID>/acs`
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -146,7 +154,9 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 ## Configure Bynder SSO
 
-To configure single sign-on on **Bynder** side, you need to send the downloaded **Metadata XML** and appropriate copied URLs from the application configuration to [Bynder support team](https://www.bynder.com/en/support/). They set this setting to have the SAML SSO connection set properly on both sides.
+You may configure SSO on **Bynder** side by following this documentation [Configure SAML SSO](https://support.bynder.com/hc/en-us/articles/6614562131474#UUID-4f8db699-3079-496d-d29e-706b28e4631a_section-idm4615912229660833479548407237)
+
+If you would like let us to configure it for you, you need to send the downloaded **Metadata XML** and appropriate copied URLs from the application configuration to [Bynder support team](https://www.bynder.com/en/support/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 
 ### Create Bynder test user
