@@ -21,6 +21,10 @@ To enable the WhatsApp feature in Azure Communication Services, you need to crea
 
 WhatsApp data follows the data handling policy defined in the Meta Terms, which may not include the EU Data Boundary commitments.
 
+## Support Data Transfer
+
+Some support cases may require you to authorize the transfer of your data to Meta. Any data that Microsoft collects will be handled in accordance with the Microsoft Product Terms. The Meta software and any data that you provide to Meta or authorize Microsoft to provide Meta will be covered by the Meta Terms.
+
 ## Service Level Agreement
 
 Azure Communication Services provides an SLA for its customers as outlined in the Azure Terms. Once data is transferred to WhatsApp, it follows the service levels detailed in the Meta Terms.
