@@ -264,7 +264,7 @@ shoppingcart-svc       LoadBalancer   10.0.166.147   20.69.136.105   80:30390/TC
 
 Once the External-IP is available, open a web browser to the External-IP address of your service and you see the application running as follows:
 
-<!-- screenshot for Seattle -->
+:::image type="content" source="media/cache-tutorial-active-replication/cache-two-browser-region-small.png" alt-text="Screenshot of two matching browser with shopping cart app running in to different regions showing the same data." lightbox="media/cache-tutorial-active-replication/cache-two-browser-region.png":::
 
 Run the same deployment steps and deploy an instance of the demo application to run in East US region.
 
