@@ -11,13 +11,13 @@ ms.date: 07/18/2023
 
 # Reliability in Virtual Machines
 
-This article contains [specific reliability recommendations for Virtual Machines](#reliability-recommendations), as well as detailed information on VM regional resiliency with [availability zones](#availability-zone-support) and [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuityss-continuityss-continuity). 
+This article contains [specific reliability recommendations for Virtual Machines](#reliability-recommendations), as well as detailed information on VM regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
+
 
 For an architectural overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 
 ## Reliability recommendations
-This section contains recommendations for achieving resiliency and availability for your Azure Virtual Machines.  
 
 [!INCLUDE [Reliability recommendations](includes/reliability-recommendations-include.md)]
  
@@ -47,7 +47,6 @@ This section contains recommendations for achieving resiliency and availability 
 |[**Compliance**](#compliance)| :::image type="icon" source="media/icon-recommendation-low.svg":::  |[Ensure that your VMs are compliant with Azure Policies](#-ensure-that-your-vms-are-compliant-with-azure-policies) |
 |[**Monitoring**](#monitoring)| :::image type="icon" source="media/icon-recommendation-low.svg":::  |[Enable VM Insights](#-enable-vm-insights) | 
 ||:::image type="icon" source="media/icon-recommendation-low.svg"::: |[Configure diagnostic settings for all Azure resources](#-configure-diagnostic-settings-for-all-azure-resources) | 
-
 
 ### High availability
  
@@ -477,10 +476,9 @@ To learn how to migrate a VM to availability zone support, see [Migrate Virtual 
 - [Move Azure VMs to availability zones](../site-recovery/move-azure-vms-avset-azone.md)
 - [Move region maintenance configuration resources](../virtual-machines/move-region-maintenance-configuration-resources.md)
   
-## Cross-region recovery and business continuity
+## Cross-region disaster recovery and business continuity
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
-
 
 You can use Cross Region restore to restore Azure VMs via paired regions. With Cross Region restore, you can restore all the Azure VMs for the selected recovery point if the backup is done in the secondary region. For more information on Cross Region restore, refer to the Cross Region table row entry in our [restore options](../backup/backup-azure-arm-restore-vms.md#restore-options).
 
@@ -532,4 +530,4 @@ For deploying virtual machines, you can use [flexible orchestration](../virtual-
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Resiliency in Azure](/azure/reliability/availability-zones-overview)
+> [Reliability in Azure](/azure/reliability/availability-zones-overview)

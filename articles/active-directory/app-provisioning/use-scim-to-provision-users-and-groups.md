@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/08/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -204,8 +204,8 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 ### Retrieving Resources:
 
 * Response to a query/filter request should always be a `ListResponse`.
-* Microsoft Entra-only uses the following operators: `eq`, `and`
-* The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com), see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md).
+* Microsoft Azure AD only uses the following operators: `eq`, `and`
+* The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Microsoft Entra admin center](https://entra.microsoft.com), see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md).
 
 ### /Users:
 
@@ -1316,8 +1316,8 @@ Applications that support the SCIM profile described in this article can be conn
 
 **To connect an application that supports SCIM:**
 
-1. Sign in to the [Azure portal](https://portal.azure.com). You can get access a free trial for Microsoft Entra ID with P2 licenses by signing up for the [developer program](https://developer.microsoft.com/microsoft-365/dev-program))
-1. Browse to **Microsoft Entra ID** > **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. A list of all configured apps is shown, including apps that were added from the gallery.
 1. Select **+ New application** > **+ Create your own application**.
 1. Enter a name for your application, choose the option "*integrate any other application you don't find in the gallery*" and select **Add** to create an app object. The new app is added to the list of enterprise applications and opens to its app management screen.
@@ -1329,9 +1329,9 @@ Applications that support the SCIM profile described in this article can be conn
 1. In the app management screen, select **Provisioning** in the left panel.
 1. In the **Provisioning Mode** menu, select **Automatic**.
     
-    The following screenshot shows the configuring provisioning settings in the Azure portal:
+    The following screenshot shows the configuring provisioning settings in the Microsoft Entra admin center:
 
-   ![Screenshot of app provisioning page in the Azure portal.](media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)
+   ![Screenshot of app provisioning page in the Microsoft Entra admin center.](media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)
 
 1. In the **Tenant URL** field, enter the URL of the application's SCIM endpoint. Example: `https://api.contoso.com/scim/`
 1. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Microsoft Entra ID, then copy the required OAuth bearer token into the optional **Secret Token** field. If this field is left blank, Microsoft Entra ID includes an OAuth bearer token issued from Microsoft Entra ID with each request. Apps that use Microsoft Entra ID as an identity provider can validate this Microsoft Entra ID-issued token. 
@@ -1412,14 +1412,14 @@ The provisioning service supports the [authorization code grant](https://tools.i
 It's recommended, but not required, that you support multiple secrets for easy renewal without downtime.
 
 #### How to set up OAuth code grant flow
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application** > **Provisioning** and select **Authorize**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), go to **Enterprise applications** > **Application** > **Provisioning** and select **Authorize**.
-
-   1. Azure portal redirects user to the Authorization URL (sign in page for the third party app).
+   1. Microsoft Entra admin center redirects user to the Authorization URL (sign in page for the third party app).
 
    1. Admin provides credentials to the third party application. 
 
-   1. Third party app redirects user back to Azure portal and provides the grant code 
+   1. Third party app redirects user back to Microsoft Entra admin center and provides the grant code 
 
    1. Microsoft Entra provisioning service calls the token URL and provides the grant code. The third party application responds with the access token, refresh token, and expiry date
 

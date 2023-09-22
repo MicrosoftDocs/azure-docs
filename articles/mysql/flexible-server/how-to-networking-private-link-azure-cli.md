@@ -115,7 +115,8 @@ az network private-endpoint create \
     --subnet mySubnet \
     --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMySQL/flexibleServers" --query "id" -o tsv) \
     --group-id mysqlServer \
-    --connection-name myConnection
+    --connection-name myConnection \
+    --location location
  ```
 
 ### Configure the Private DNS Zone

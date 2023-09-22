@@ -18,12 +18,12 @@ ms.author: justinha
 
 Organizational units (OUs) in an Active Directory Domain Services (AD DS) managed domain let you logically group objects such as user accounts, service accounts, or computer accounts. You can then assign administrators to specific OUs, and apply group policy to enforce targeted configuration settings.
 
-Microsoft Entra DS managed domains include the following two built-in OUs:
+Domain Services managed domains include the following two built-in OUs:
 
 * *AADDC Computers* - contains computer objects for all computers that are joined to the managed domain.
 * *AADDC Users* - includes users and groups synchronized in from the Microsoft Entra tenant.
 
-As you create and run workloads that use Microsoft Entra DS, you may need to create service accounts for applications to authenticate themselves. To organize these service accounts, you often create a custom OU in the managed domain and then create service accounts within that OU.
+As you create and run workloads that use Domain Services, you may need to create service accounts for applications to authenticate themselves. To organize these service accounts, you often create a custom OU in the managed domain and then create service accounts within that OU.
 
 In a hybrid environment, OUs created in an on-premises AD DS environment aren't synchronized to the managed domain. Managed domains use a flat OU structure. All user accounts and groups are stored in the *AADDC Users* container, despite being synchronized from different on-premises domains or forests, even if you've configured a hierarchical OU structure there.
 
@@ -39,7 +39,7 @@ To complete this article, you need the following resources and privileges:
     * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
     * If needed, complete the tutorial to [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
-* A Windows Server management VM that is joined to the Microsoft Entra DS managed domain.
+* A Windows Server management VM that is joined to the Domain Services managed domain.
     * If needed, complete the tutorial to [create a management VM][tutorial-create-management-vm].
 * A user account that's a member of the *Microsoft Entra DC administrators* group in your Microsoft Entra tenant.
 
