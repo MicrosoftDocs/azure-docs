@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 08/31/2023
+ms.date: 09/25/2023
 ms.author: greglin
 ---
 
@@ -18,8 +18,8 @@ In addition to using default health probe monitoring, you can also customize the
 
 The order and logic of health probing is as follows:
 1. Use definition of HealthCheckPolicy Custom Resource (CR).
-2. If there's no HealthCheckPolicy CR, then use Readiness probe
-3. If there's no Readiness probe defined, use a default value
+2. If there's no HealthCheckPolicy CR, then use [Readiness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes)
+3. If there's no Readiness probe defined, use the [default health probe](#default-health-probe)
 
 The following properties make up custom health probes:
 
@@ -30,7 +30,6 @@ The following properties make up custom health probes:
 | timeout | how long in seconds the request should wait until it's deemed a failure  The minimum interval must be > 0 seconds. |
 | healthyThreshold | number of health probes before marking the target endpoint healthy. The minimum interval must be > 0. |
 | unhealthyTreshold | number of health probes to fail before the backend target should be labeled unhealthy. The minimum interval must be > 0. |
-| port | port number used to initiate connections to the backend target. |
 | protocol| specifies either non-encrypted `HTTP` traffic or encrypted traffic via TLS as `HTTPS` |
 | (http) host | the hostname specified in the request to the backend target. |
 | (http) path | the specific path of the request. If a single file should be loaded, the path may be /index.html as an example. |
@@ -56,9 +55,9 @@ When the default health probe is used, the following values for each health prob
 
 ## Custom health probe
 
-# [Gateway API](#tab/custom-health-probe-gateway-api)
+In both Gateway API and Ingress API, a custom health probe can be defined by defining a [_HealthCheckPolicyPolicy_ resource](api-specification-kubernetes.md#alb.networking.azure.io/v1.HealthCheckPolicy) and referencing a service the health probes should check against.  As the service is referenced by an HTTPRoute or Ingress resource with a class reference to Application Gateway for Containers, the custom health probe will be used for each reference.
 
-In Gateway API, a custom health probe can be defined by creating a HealthCheckPolicy policy and referencing a service.  As the service is referenced by Application Gateway for Containers, the following custom health probe is used for each reference.
+In this example, the health probe emitted by Application Gateway for Containers will send the hostname contoso.com to the pods that make up _test-service_.  The request path will be `/`, a probe will be emitted every 5 seconds and wait 3 seconds before determinig the connection has timed out. If a response is received, an HTTP response code between 200 and 299 (inclusive of 200 and 299) will be considered healthy, all other responses will be considered unhealthy.
 
 ```bash
 kubectl apply -f - <<EOF
@@ -71,11 +70,11 @@ spec:
   targetRef:
     group: ""
     kind: Service
-    name: http-test
+    name: test-service
     namespace: test-infra
   default:
-    interval: 1s
-    timeout: 1s
+    interval: 5s
+    timeout: 3s
     healthyThreshold: 1
     unhealthyThreshold: 1
     protocol: HTTP
@@ -85,38 +84,8 @@ spec:
       match:
         statusCodes: 
         - start: 200
-          end: 201
+          end: 299
 EOF
 ```
 
-# [Ingress API](#tab/custom-health-probe-ingress-api)
-
-In Ingress API, a custom health probe may be defined by creating an IngressExtension resource and defining a healthCheck object within the backendSettings.  The healthCheck policy initiates a health probe to the backend using the defined properties.
-
-```bash
-kubectl apply -f - <<EOF
-apiVersion: alb.networking.azure.io/v1
-kind: IngressExtension
-metadata:
-  name: ingress-extension
-  namespace: test-infra
-spec:
-  backendSettings:
-    - service: http-test
-      healthCheck:
-        interval: 1s
-        timeout: 1s
-        unhealthyThreshold: 1
-        healthyThreshold: 1
-        protocol: HTTP
-        http:
-          host: contoso.com
-          path: /
-          match:
-            statusCodes: 
-            - start: 200
-              end: 201
-EOF
-```
----
 

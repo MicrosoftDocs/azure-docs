@@ -8,7 +8,7 @@ ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 08/31/2023
+ms.date: 09/25/2023
 ms.author: greglin
 ---
 
@@ -138,25 +138,35 @@ You need to complete the following tasks prior to deploying Application Gateway 
 2. Install ALB Controller using Helm
 
     ### For new deployments
+    
+    To install ALB Controller, use the `helm install` command.
+
+    When the `helm install` command is run, it will deploy the helm chart to the  _default_ namespace.  When alb-controller is deployed, it will deploy to the _azure-alb-system_ namespace.  Both of these namespaces may be overriden independently as desired.  To override the namespace the helm chart is deployed to, you may specify the --namespace (or -n) parameter.  To override the _azure-alb-system_ namespace used by alb-controller, you may set the albController.namespace property during installation (`--set albController.namespace`).  If neither the `--namespace` or `--set albController.namespace` parameters are defined, the _default_ namespace will be used for the helm chart and the _azure-alb-system_ namespace will be used for the ALB controller componenets. Lastly, if the namespace the for the helm chart resource is not yet defined, ensure the `--create-namespace` parameter is also specified along with the `--namespace` or `-n` parameters.
+    
     ALB Controller can be installed by running the following commands:
 
     ```azurecli-interactive
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
-         --version 0.4.023971 \
+         --namespace <helm-resource-namespace> \
+         --version 0.5.024542 \
+         --set albController.namespace=<alb-controller-namespace> \
          --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
     ```
 
-    > [!Note]
-    > ALB Controller will automatically be provisioned into a namespace called azure-alb-system. The namespace name may be changed by defining the _--namespace <namespace_name>_ parameter when executing the helm command.  During upgrade, please ensure you specify the --namespace parameter.
 
     ### For existing deployments
-    ALB can be upgraded by running the following commands (ensure you add the `--namespace namespace_name` parameter to define the namespace if the previous installation did not use the namespace _azure-alb-system_):
+    ALB can be upgraded by running the following commands:
+    
+    > [!Note]
+    > During upgrade, please ensure you specify the `--namespace` or `--set albController.namespace` parameters if the namespaces were overridden in the previously installed installation.  To determine the previous namespaces used, you may run the `helm list` command for the helm namespace and `kubectl get pod -A -l app=alb-controller` for the ALB controller.
+
     ```azurecli-interactive
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
-         --version 0.4.023971 \
-         --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
+        --namespace <helm-resource-namespace> \
+        --version 0.5.024542 \
+        --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
     ```
 
 ### Verify the ALB Controller installation
