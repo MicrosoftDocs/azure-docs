@@ -20,7 +20,7 @@ Datacenter locations are selected by using rigorous vulnerability risk assessmen
 
 The following diagram shows several example Azure regions. Regions 1 and 2 support availability zones.
 
-![Image showing physically separate availability zone locations within an Azure region.](media/regions-availability-zones.png)
+:::image type="content" source="media/regions-availability-zones.png" alt-text="Screenshot of physically separate availability zone locations within an Azure region.":::
 
 To see which regions support availability zones, see [Azure regions with availability zone support](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
