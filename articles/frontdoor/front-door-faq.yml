@@ -45,7 +45,7 @@ sections:
 
           - You want to balance the traffic not only globally, but also within your VNET. Front Door can only do path-based load balancing at the global level, but Application Gateway can do it within your VNET.
           - You need Connection Draining, which Front Door doesn't support. Application Gateway can enable Connection Draining for your VMs or containers.
-          - You want to offload all the TLS/SSL processing and use only HTTP requests in your VNET. Application Gateway behind Front Door can achieve this set up.
+          - You want to offload all the TLS/SSL processing and use only HTTP requests in your VNET. Application Gateway behind Front Door can achieve this setup.
           - You want to use session affinity at both the regional and the server level. Front Door can send the traffic from a user session to the same backend in a region, but Application Gateway can send it to the same server in the backend.
           
       - question: |
@@ -89,7 +89,7 @@ sections:
           Azure Front Door isn't limited to any Azure region, but operates globally. The only location you have to choose when you create a Front Door is the location of the resource group, which determines where the resource group's metadata get stored. The Front Door profile is a global resource and its configuration is distributed to all edge locations worldwide.
 
       - question: |
-          What are the locations of the Azure Front Door POPs (point-of-presences)?
+          What are the locations of the Azure Front Door POPs (points-of-presences)?
         answer: |
           For the complete list of points of presence (POPs) that provide global load balancing and content delivery for Azure Front Door, see [Azure Front Door POP locations](edge-locations-by-region.md). This list is updated regularly as new POPs are added or removed. You can also use the Azure Resource Manager API to query the current list of POPs programmatically.
           
@@ -111,7 +111,7 @@ sections:
       - question: |
           What are the steps to restrict the access to my backend to only Azure Front Door?
         answer: |
-          To ensure optimal performance of Front Door's features, you should only allow traffic that comes from Azure Front Door to reach your origin. As a result, unauthorized or malicious requests encounter the security and routing policies of Front Door and be denied access. To learn how to secure your origin, see [Secure traffic to Azure Front Door origins](origin-security.md).
+          To ensure optimal performance of Front Door's features, you should only allow traffic that comes from Azure Front Door to reach your origin. As a result, unauthorized or malicious requests encounter the security and routing policies of Front Door and are denied access. To learn how to secure your origin, see [Secure traffic to Azure Front Door origins](origin-security.md).
 
       - question: |
           Does the anycast IP of my Front Door remain the same throughout its lifetime?
@@ -180,7 +180,7 @@ sections:
       - question: |
           Is it possible to configure Azure Front Door behind another Front Door profile or the other way around?
         answer:  |
-          The fact that both profiles would use the same Azure edge sites to handle incoming requests causes this limitation that prevents you from nesting one Azure Front Door profile behind another. This set up would cause routing conflicts and performance issues. Therefore, you should ensure that your Azure Front Door profiles are independent and not chained together, if you need to use multiple profiles for your applications.
+          The fact that both profiles would use the same Azure edge sites to handle incoming requests causes this limitation that prevents you from nesting one Azure Front Door profile behind another. This setup would cause routing conflicts and performance issues. Therefore, you should ensure that your Azure Front Door profiles are independent and not chained together, if you need to use multiple profiles for your applications.
 
       - question: |
           What are the network service tags that Front Door supports?
@@ -243,7 +243,7 @@ sections:
           We recommend that you review your existing Azure Front Door and Azure CDN Standard from Microsoft (classic) resources and ensure that they don't rely on domain fronting behavior. If you have any questions or concerns, contact our support team.
          
           When Front Door blocks a request due to a mismatch: 
-          - The client receives an HTTP `421 Misdirected Request`` error code response. 
+          - The client receives an HTTP `421 Misdirected Request` error code response. 
           - Azure Front Door logs the block in the diagnostic logs under the **Error Info** property with the value **SSLMismatchedSNI**.
           
           For more information about domain fronting, see [Securing our approach to domain fronting within Azure](https://www.microsoft.com/security/blog/2021/03/26/securing-our-approach-to-domain-fronting-within-azure/).
@@ -290,5 +290,5 @@ additionalContent: |
 
   ## Next steps
   
-  - Learn how to [create an Front Door](quickstart-create-front-door.md) profile.
+  - Learn how to [create an Azure Front Door](quickstart-create-front-door.md) profile.
   - Learn about the [Azure Front Door architecture](front-door-routing-architecture.md).
