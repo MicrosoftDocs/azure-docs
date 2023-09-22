@@ -68,6 +68,8 @@ To configure and test Microsoft Entra SSO with Bynder, perform the following ste
 
 First you need to log in to your Bynder account and follow [these steps](https://support.bynder.com/hc/en-us/articles/6614562131474#UUID-4f8db699-3079-496d-d29e-706b28e4631a_section-idm4615912229660833479548407237) to create a new login configuration in your portal. This way you will generate all identifiers necessary to set up your connection with Azure AD. Save the new configuration's identifier, you will need it to set up Azure SAML SSO.
 
+![Config ID example](common/bynder-url-id.png)
+
 <a name='configure-azure-ad-sso'></a>
 
 ## Configure Microsoft Entra SSO
@@ -113,6 +115,8 @@ Follow these steps to enable Microsoft Entra SSO.
     
     For a Custom Domain: 
     `https://<SUBDOMAIN>.<DOMAIN>.com/v7/idp/sso/saml/<BYNDER_CONFIG_ID>/acs`
+
+   ![Filled SAML example](common/bynder-azure-saml-example.png)
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
