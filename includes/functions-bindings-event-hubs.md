@@ -45,6 +45,8 @@ Add the extension to your project by installing the [NuGet package], version 3.x
 
 # [Functions v1.x](#tab/functionsv1/in-process)
 
+[!INCLUDE [functions-runtime-1x-retirement-note](./functions-runtime-1x-retirement-note.md)]
+
 Version 1.x of the Functions runtime doesn't require an extension. 
 
 # [Extension v5.x+](#tab/extensionv5/isolated-process)
@@ -221,7 +223,7 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
 
 |Property  |Default | Description |
 |---------|---------|---------|
-| maxEventBatchSize| 10| The maximum number of events included in a batch for a single invocation. Must be at least 1.|
+| maxEventBatchSize<sup>2</sup>| 100 | The maximum number of events included in a batch for a single invocation. Must be at least 1.|
 | minEventBatchSize<sup>1</sup>|  1| The minimum number of events desired in a batch.  The minimum applies only when the function is receiving multiple events and must be less than `maxEventBatchSize`.<br/>The minimum size isn't strictly guaranteed.  A partial batch is dispatched when a full batch can't be prepared before the `maxWaitTime` has elapsed.  Partial batches are also likely for the first invocation of the function after scaling takes place.|
 | maxWaitTime<sup>1</sup>| 00:01:00| The maximum interval that the trigger should wait to fill a batch before invoking the function. The wait time is only considered when `minEventBatchSize` is larger than 1 and is otherwise ignored. If less than `minEventBatchSize` events were available before the wait time elapses, the function is invoked with a partial batch. The longest allowed wait time is 10 minutes.<br/><br/>**NOTE:** This interval is not a strict guarantee for the exact timing on which the function is invoked. There is a small magin of error due to timer precision.  When scaling takes place, the first invocation with a partial batch may occur more quickly or may take up to twice the configured wait time.|
 | batchCheckpointFrequency| 1| The number of batches to process before creating  a checkpoint for the event hub.|
@@ -239,6 +241,8 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
 | clientRetryOptions/maximumRetries | 3 | The maximum number of retry attempts before considering the associated operation to have failed.|
 
 <sup>1</sup> Using `minEventBatchSize` and `maxWaitTime` requires [v5.3.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.3.0) of the `Microsoft.Azure.WebJobs.Extensions.EventHubs` package, or a later version.
+
+<sup>2</sup> The default `maxEventBatchSize` changed in [v6.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/6.0.0) of the `Microsoft.Azure.WebJobs.Extensions.EventHubs` package.  In earlier versions, this was 10.
 
 The `clientRetryOptions` are used to retry operations between the Functions host and Event Hubs (such as fetching events and sending events).  Refer to guidance on [Azure Functions error handling and retries](../articles/azure-functions/functions-bindings-error-pages.md#retries) for information on applying retry policies to individual functions.
 

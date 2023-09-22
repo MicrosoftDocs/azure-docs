@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 06/04/2022
+ ms.date: 09/15/2023
  ms.author: cherylmc
 ---
 
@@ -28,6 +28,8 @@
 (*) Use [Virtual WAN](../articles/virtual-wan/virtual-wan-about.md) if you need more than 100 S2S VPN tunnels.
 
 * The resizing of VpnGw SKUs is allowed within the same generation, except resizing of the Basic SKU. The Basic SKU is a legacy SKU and has feature limitations. In order to move from Basic to another SKU, you must delete the Basic SKU VPN gateway and create a new gateway with the desired Generation and SKU size combination. (see [Working with Legacy SKUs](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md)).
+
+* The Basic SKU can only be configured using PowerShell or Azure CLI.
 
 * These connection limits are separate. For example, you can have 128 SSTP connections and also 250 IKEv2 connections on a VpnGw1 SKU.
 

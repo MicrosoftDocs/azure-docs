@@ -12,7 +12,7 @@ ms.subservice: ciam
 ms.topic: tutorial
 ms.date: 07/27/2023
 ms.custom: developer, devx-track-js
-#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Microsoft Entra ID for customers tenant
 ---
 
 # Tutorial: Prepare a Node.js web application for authentication
@@ -115,7 +115,7 @@ npm install express dotenv hbs express-session axios cookie-parser http-errors m
         </table>
         <a href="/">Go back</a>
     ```
-    We use this view to display ID token claims that Azure AD for customers returns to this app after a user successfully signs in.  
+    We use this view to display ID token claims that Microsoft Entra ID for customers returns to this app after a user successfully signs in.  
 
 1. In your code editor, open *views/error.hbs* file, then add the following code:
 

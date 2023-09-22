@@ -19,10 +19,10 @@ items:
     href: best-practices-plan.md
   - name: Configure data collection
     href: best-practices-data-collection.md
-  - name: Analysis and visualizations
+  - name: Understand analysis and visualization tools
     href: best-practices-analysis.md
-  - name: Configure alerts and automated actions
-    href: best-practices-alerts.md
+  - name: Plan alerts and automated actions
+    href: alerts/alerts-plan.md
   - name: Optimize costs
     href: best-practices-cost.md
 - name: Monitoring scenarios
@@ -141,8 +141,6 @@ items:
             href: app/javascript-sdk-upgrade.md
           - name: Troubleshooting
             href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
-          - name: FAQ
-            href: /azure/azure-monitor/faq#can-i-filter-out-or-modify-some-telemetry-
         - name: Advanced SDK topics
           items:
           - name: Application Insights API summary
@@ -400,8 +398,6 @@ items:
       items:
       - name: Create an Azure support ticket
         href: https://azure.microsoft.com/support/create-ticket
-      - name: Application Insights FAQ
-        href: /azure/azure-monitor/faq#application-insights
       - name: Q&A forum (general questions)
         href: /answers/topics/24223/azure-monitor
       - name: Stack Overflow (coding questions)
@@ -1308,6 +1304,8 @@ items:
       href: alerts/alerts-overview.md
     - name: Alert types
       href: alerts/alerts-types.md
+    - name: Best practices
+      href: best-practices-alerts.md
     - name: Alert rules
       items:
         - name: Create or edit an alert rule
@@ -1606,6 +1604,8 @@ items:
       href: essentials/rest-api-walkthrough.md
     - name: Migrate to the metrics getBatch API
       href: essentials/migrate-to-batch-api.md
+    - name: Migrate from the alertsSummary API
+      href: alerts/migrate-from-alerts-summary-api.md
   - name: Azure alerts management SDK for Python
     href: /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient
   - name: Resource Manager templates

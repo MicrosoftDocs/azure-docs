@@ -389,7 +389,7 @@ Each field can have one of the following types of values:
 |Type  |Example  |When triggered  |
 |---------|---------|---------|
 |A specific value |<nobr>`0 5 * * * *`</nobr>| Once every hour of the day at minute 5 of each hour |
-|All values (`*`)|<nobr>`0 * 5 * * *`</nobr>| At every minute in the hour, beginning at hour 5 |
+|All values (`*`)|<nobr>`0 * 5 * * *`</nobr>| At every minute in the hour, during hour 5 |
 |A range (`-` operator)|<nobr>`5-7 * * * * *`</nobr>| Three times a minute - at seconds 5 through 7 during every minute of every hour of each day |
 |A set of values (`,` operator)|<nobr>`5,8,10 * * * * *`</nobr>| Three times a minute - at seconds 5, 8, and 10 during every minute of every hour of each day |
 |An interval value (`/` operator)|<nobr>`0 */5 * * * *`</nobr>| 12 times an hour - at second 0 of every 5th minute of every hour of each day |

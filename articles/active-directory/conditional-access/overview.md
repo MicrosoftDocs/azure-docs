@@ -1,5 +1,5 @@
 ---
-title: What is Conditional Access in Azure Active Directory?
+title: What is Conditional Access in Microsoft Entra ID?
 description: Conditional Access is the Zero Trust policy engine at the heart of the new identity-driven control plane.
 
 services: active-directory
@@ -22,7 +22,7 @@ The modern security perimeter extends beyond an organization's network perimeter
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4MwZs]
 
-Azure AD Conditional Access brings signals together, to make decisions, and enforce organizational policies. Conditional Access is Microsoft's [Zero Trust policy engine](/security/zero-trust/deploy/identity) taking signals from various sources into account when enforcing policy decisions.
+Microsoft Entra Conditional Access brings signals together, to make decisions, and enforce organizational policies. Conditional Access is Microsoft's [Zero Trust policy engine](/security/zero-trust/deploy/identity) taking signals from various sources into account when enforcing policy decisions.
 
 :::image type="content" source="media/overview/conditional-access-signal-decision-enforcement.png" alt-text="Diagram showing concept of Conditional Access signals plus decision to enforce organizational policy.":::
 
@@ -70,7 +70,7 @@ These signals include:
       - Require multifactor authentication
       - Require authentication strength
       - Require device to be marked as compliant
-      - Require Hybrid Azure AD joined device
+      - Require Microsoft Entra hybrid joined device
       - Require approved client app
       - Require app protection policy
       - Require password change

@@ -1,6 +1,6 @@
 ---
-title: Prerequisites to use PowerShell or Graph Explorer for Azure AD roles
-description: Prerequisites to use PowerShell or Graph Explorer for Azure Active Directory roles.
+title: Prerequisites to use PowerShell or Graph Explorer for Microsoft Entra roles
+description: Prerequisites to use PowerShell or Graph Explorer for Microsoft Entra roles.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,9 +16,9 @@ ms.custom: oldportal, it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
-# Prerequisites to use PowerShell or Graph Explorer for Azure AD roles
+# Prerequisites to use PowerShell or Graph Explorer for Microsoft Entra roles
 
-If you want to manage Azure Active Directory (Azure AD) roles using PowerShell or Graph Explorer, you must have the required prerequisites. This article describes the PowerShell and Graph Explorer prerequisites for different Azure AD role features.
+If you want to manage Microsoft Entra roles using PowerShell or Graph Explorer, you must have the required prerequisites. This article describes the PowerShell and Graph Explorer prerequisites for different Microsoft Entra role features.
 
 ## Microsoft Graph PowerShell
 
@@ -31,7 +31,9 @@ You must have the Microsoft Graph PowerShell SDK installed:
 
 - [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation)
 
-## AzureAD module
+<a name='azuread-module'></a>
+
+## Azure AD PowerShell module
 
 To use PowerShell commands to do the following:
 
@@ -41,12 +43,14 @@ To use PowerShell commands to do the following:
 
 You must have the following module installed:
 
-- [AzureAD](https://www.powershellgallery.com/packages/AzureAD) (current version)
+- [Microsoft Entra ID](https://www.powershellgallery.com/packages/AzureAD) (current version)
 
 
-#### Check AzureAD version
+<a name='check-azuread-version'></a>
 
-To check which version of AzureAD you have installed, use [Get-InstalledModule](/powershell/module/powershellget/get-installedmodule).
+#### Check Azure AD PowerShell version
+
+To check which version of Azure AD PowerShell you have installed, use [Get-InstalledModule](/powershell/module/powershellget/get-installedmodule).
 
 ```powershell
 Get-InstalledModule -Name AzureAD
@@ -60,33 +64,39 @@ Version    Name                                Repository           Description
 2.0.2.140  AzureAD                             PSGallery            Azure Active Directory V2 General Availability M...
 ```
 
-#### Install AzureAD
+<a name='install-azuread'></a>
 
-If you don't have AzureAD installed, use [Install-Module](/powershell/module/powershellget/install-module) to install AzureAD.
+#### Install Azure AD PowerShell
 
-```powershell
-Install-Module -Name AzureAD
-```
-
-#### Update AzureAD
-
-To update AzureAD to the latest version, re-run [Install-Module](/powershell/module/powershellget/install-module).
+If you don't have Azure AD PowerShell installed, use [Install-Module](/powershell/module/powershellget/install-module) to install Azure AD PowerShell.
 
 ```powershell
 Install-Module -Name AzureAD
 ```
 
-#### Use AzureAD
+<a name='update-azuread'></a>
 
-To use AzureAD, follow these steps to make sure it is imported into the current session.
+#### Update Azure AD PowerShell
 
-1. Use [Get-Module](/powershell/module/microsoft.powershell.core/get-module) to check if AzureAD is loaded into memory.
+To update Azure AD PowerShell to the latest version, re-run [Install-Module](/powershell/module/powershellget/install-module).
+
+```powershell
+Install-Module -Name AzureAD
+```
+
+<a name='use-azuread'></a>
+
+#### Use Azure AD PowerShell
+
+To use Azure AD PowerShell, follow these steps to make sure it is imported into the current session.
+
+1. Use [Get-Module](/powershell/module/microsoft.powershell.core/get-module) to check if Azure AD PowerShell is loaded into memory.
 
     ```powershell
     Get-Module -Name AzureAD
     ```
 
-1. If you don't see any output in the previous step, use [Import-Module](/powershell/module/microsoft.powershell.core/import-module) to import AzureAD. The `-Force` parameter removes the loaded module and then imports it again.
+1. If you don't see any output in the previous step, use [Import-Module](/powershell/module/microsoft.powershell.core/import-module) to import Azure AD PowerShell. The `-Force` parameter removes the loaded module and then imports it again.
 
     ```powershell
     Import-Module -Name AzureAD -Force
@@ -186,11 +196,11 @@ To use AzureADPreview, follow these steps to make sure it is imported into the c
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To manage Azure AD roles using the [Microsoft Graph API](/graph/overview) and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview), you must do the following:
+To manage Microsoft Entra roles using the [Microsoft Graph API](/graph/overview) and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview), you must do the following:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory** > **Enterprise applications**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. In the applications list, find and select **Graph explorer**.
 
@@ -205,5 +215,5 @@ To manage Azure AD roles using the [Microsoft Graph API](/graph/overview) and [G
 ## Next steps
 
 - [Install Azure Active Directory PowerShell for Graph](/powershell/azure/active-directory/install-adv2)
-- [AzureAD module docs](/powershell/module/azuread/)
+- [Azure AD PowerShell module docs](/powershell/module/azuread/)
 - [Graph Explorer](/graph/graph-explorer/graph-explorer-overview)

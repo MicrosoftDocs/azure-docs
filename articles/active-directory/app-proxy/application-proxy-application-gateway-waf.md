@@ -1,6 +1,6 @@
 ---
 title: Using Application Gateway WAF to protect your application
-description: How to add Web Application Firewall protection for apps published with Azure Active Directory Application Proxy.
+description: How to add Web Application Firewall protection for apps published with Microsoft Entra application proxy.
 services: active-directory
 author: beatrizsilv
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.reviewer: ashishj
 
 # Using Application Gateway WAF to protect your application
 
-When using Azure Active Directory (Azure AD) Application Proxy to expose applications deployed on-premises, on sealed Azure Virtual Networks, or in other public clouds, you can integrate a Web Application Firewall (WAF) in the data flow in order to protect your application from malicious attacks.
+When using Microsoft Entra application proxy to expose applications deployed on-premises, on sealed Azure Virtual Networks, or in other public clouds, you can integrate a Web Application Firewall (WAF) in the data flow in order to protect your application from malicious attacks.
 
 ## What is Azure Web Application Firewall?
 
@@ -22,13 +22,13 @@ Azure Web Application Firewall (WAF) on Azure Application Gateway provides centr
 
 ## Deployment steps
 
-This article guides you through the steps to securely expose a web application on the Internet, by integrating the Azure AD Application Proxy with Azure WAF on Application Gateway. In this guide we'll be using the Azure portal. The reference architecture for this deployment is represented below.   
+This article guides you through the steps to securely expose a web application on the Internet, by integrating the Microsoft Entra application proxy with Azure WAF on Application Gateway. In this guide we'll be using the Microsoft Entra admin center. The reference architecture for this deployment is represented below.   
 
 ![Diagram of deployment described.](./media/application-proxy-waf/application-proxy-waf.png)
 
 ### Configure Azure Application Gateway to send traffic to your internal application.
 
-Some steps of the Application Gateway configuration will be omitted in this article. For a detailed guide on how to create and configure an Application Gateway, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal][appgw_quick].
+Some steps of the Application Gateway configuration will be omitted in this article. For a detailed guide on how to create and configure an Application Gateway, see [Quickstart: Direct web traffic with Azure Application Gateway - Microsoft Entra admin center][appgw_quick].
 
 ##### 1. Create a private-facing HTTPS listener.
 
@@ -57,21 +57,23 @@ This will determine how requests will reach the backend pool servers.
  
  ![Screenshot of enabling waf in Application Gateway.](./media/application-proxy-waf/application-gateway-enable-waf.png)
  
- ### Configure your application to be remotely accessed through Application Proxy in Azure AD.
+ <a name='configure-your-application-to-be-remotely-accessed-through-application-proxy-in-azure-ad'></a>
+
+### Configure your application to be remotely accessed through Application Proxy in Microsoft Entra ID.
  
 As represented in the diagram above, both connector VMs, the Application Gateway, and the backend servers were deployed in the same VNET in Azure. This setup also applies to applications and connectors deployed on-premises. 
 
-For a detailed guide on how to add your application to Application Proxy in Azure AD, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory][appproxy-add-app]. For more information about performance considerations concerning the Application Proxy connectors, see [Optimize traffic flow with Azure Active Directory Application Proxy][appproxy-optimize]. 
+For a detailed guide on how to add your application to Application Proxy in Microsoft Entra ID, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Microsoft Entra ID][appproxy-add-app]. For more information about performance considerations concerning the Application Proxy connectors, see [Optimize traffic flow with Microsoft Entra application proxy][appproxy-optimize]. 
  
 ![Screenshot of Application Proxy configuration.](./media/application-proxy-waf/application-proxy-configuration.png)
 
-In this example, the same URL was configured as the internal and external URL. Remote clients will access the application over the Internet on port 443, through the Application Proxy, whereas clients connected to the corporate network will access the application privately through the Application Gateway directly, also on port 443. For a detailed step on how to configure custom domains in Application Proxy, see [Configure custom domains with Azure AD Application Proxy][appproxy-custom-domain].
+In this example, the same URL was configured as the internal and external URL. Remote clients will access the application over the Internet on port 443, through the Application Proxy, whereas clients connected to the corporate network will access the application privately through the Application Gateway directly, also on port 443. For a detailed step on how to configure custom domains in Application Proxy, see [Configure custom domains with Microsoft Entra application proxy][appproxy-custom-domain].
 
 To ensure the connector VMs send requests to the Application Gateway, an [Azure Private DNS zone][private-dns] was created with an A record pointing www.fabrikam.one to the private frontend IP of the Application Gateway.
 
 ### Test the application.
 
-After [adding a user for testing](./application-proxy-add-on-premises-application.md#add-a-user-for-testing), you can test the application by accessing https://www.fabrikam.one. The user will be prompted to authenticate in Azure AD, and upon successful authentication, will access the application. 
+After [adding a user for testing](./application-proxy-add-on-premises-application.md#add-a-user-for-testing), you can test the application by accessing https://www.fabrikam.one. The user will be prompted to authenticate in Microsoft Entra ID, and upon successful authentication, will access the application. 
 
 ![Screenshot of authentication step.](./media/application-proxy-waf/sign-in-2.png)
 ![Screenshot of server response.](./media/application-proxy-waf/application-gateway-response.png)

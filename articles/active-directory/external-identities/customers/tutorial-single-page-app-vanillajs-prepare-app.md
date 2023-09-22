@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Prepare a Vanilla JavaScript single-page app (SPA) for authentication in a customer tenant 
-description: Learn how to prepare a Vanilla JavaScript single-page app (SPA) for authentication and authorization with your Azure Active Directory (AD) for customers tenant.
+description: Learn how to prepare a Vanilla JavaScript single-page app (SPA) for authentication and authorization with your Microsoft Entra ID for customers tenant.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.subservice: ciam
 ms.custom: devx-track-js
 ms.topic: tutorial
 ms.date: 08/17/2023
-#Customer intent: As a developer, I want to learn how to configure Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure AD for customers tenant.
+#Customer intent: As a developer, I want to learn how to configure Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Microsoft Entra ID for customers tenant.
 ---
 
 # Tutorial: Prepare a Vanilla JavaScript single-page app for authentication in a customer tenant
 
-In the [previous article](tutorial-single-page-app-vanillajs-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (AD) for customers tenant. This article shows you how to create a Vanilla JavaScript (JS) single-page app (SPA) and configure it to sign in and sign out users with your customer tenant.
+In the [previous article](tutorial-single-page-app-vanillajs-prepare-tenant.md), you registered an application and configured user flows in your Microsoft Entra ID for customers tenant. This article shows you how to create a Vanilla JavaScript (JS) single-page app (SPA) and configure it to sign in and sign out users with your customer tenant.
 
 In this tutorial;
 
@@ -109,7 +109,7 @@ In this tutorial;
 
     ```
 
-In this code, the **app** variable is initialized with the **express** module and **express** is used to serve the public assets. **Msal-browser** is served as a static asset and is used to initiate the authentication flow.
+In this code, the **app** variable is initialized with the **express** module and **express** is used to serve the public assets. **MSAL-browser** is served as a static asset and is used to initiate the authentication flow.
 
 ## Next steps
 

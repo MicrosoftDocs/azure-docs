@@ -1,6 +1,6 @@
 ---
-title: Assign Azure AD roles at different scopes
-description: Learn how to assign roles at different scopes in Azure Active Directory
+title: Assign Microsoft Entra roles at different scopes
+description: Learn how to assign roles at different scopes in Microsoft Entra ID
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -14,9 +14,9 @@ ms.custom: it-pro, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
-# Assign Azure AD roles at different scopes
+# Assign Microsoft Entra roles at different scopes
 
-In Azure Active Directory (Azure AD), you typically assign Azure AD roles so that they apply to the entire tenant. However, you can also assign Azure AD roles for different resources, such as administrative units or application registrations. For example, you could assign the Helpdesk Administrator role so that it just applies to a particular administrative unit and not the entire tenant. The resources that a role assignment applies to is also called the scope. This article describes how to assign Azure AD roles at tenant, administrative unit, and application registration scopes. For more information about scope, see [Overview of RBAC in Azure AD](custom-overview.md#scope).
+In Microsoft Entra ID, you typically assign Microsoft Entra roles so that they apply to the entire tenant. However, you can also assign Microsoft Entra roles for different resources, such as administrative units or application registrations. For example, you could assign the Helpdesk Administrator role so that it just applies to a particular administrative unit and not the entire tenant. The resources that a role assignment applies to is also called the scope. This article describes how to assign Microsoft Entra roles at tenant, administrative unit, and application registration scopes. For more information about scope, see [Overview of RBAC in Microsoft Entra ID](custom-overview.md#scope).
 
 ## Prerequisites
 
@@ -30,15 +30,15 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 This section describes how to assign roles at the tenant scope.
 
-### Azure portal
+### Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 
-    ![Roles and administrators page in Azure Active Directory.](./media/common/roles-and-administrators.png)
+    ![Roles and administrators page in Microsoft Entra ID.](./media/common/roles-and-administrators.png)
 
 1. Select a role to see its assignments. To help you find the role you need, use **Add filters** to filter the roles.
 
@@ -50,7 +50,7 @@ This section describes how to assign roles at the tenant scope.
 
 ### PowerShell
 
-Follow these steps to assign Azure AD roles using PowerShell.
+Follow these steps to assign Microsoft Entra roles using PowerShell.
 
 1. Open a PowerShell window and use [Import-Module](/powershell/module/microsoft.powershell.core/import-module) to import the AzureADPreview module. For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
@@ -122,19 +122,19 @@ Follow these instructions to assign a role using the Microsoft Graph API in [Gra
 
 This section describes how to assign roles at an [administrative unit](administrative-units.md) scope.
 
-### Azure portal
+### Microsoft Entra admin center
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory > Administrative units** to see the list of all administrative units.
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
 
 1. Select an administrative unit.
 
-    ![Administrative Units in Azure Active Directory.](./media/assign-roles-different-scopes/admin-units.png)
+    ![Administrative Units in Microsoft Entra ID.](./media/assign-roles-different-scopes/admin-units.png)
 
 1. Select **Roles and administrators** from the left nav menu to see the list of all roles available to be assigned over an administrative unit.
 
-    ![Roles and administrators menu under administrative Units in Azure Active Directory.](./media/assign-roles-different-scopes/admin-units-roles.png)
+    ![Roles and administrators menu under administrative Units in Microsoft Entra ID.](./media/assign-roles-different-scopes/admin-units-roles.png)
 
 1. Select the desired role.
 
@@ -143,11 +143,11 @@ This section describes how to assign roles at an [administrative unit](administr
 1. Select **Add** to assign the role scoped over the administrative unit.
 
 >[!Note] 
->You will not see the entire list of Azure AD built-in or custom roles here. This is expected. We show the roles which have permissions related to the objects that are supported within the administrative unit. Refer to [this documentation](administrative-units.md) to see the list of objects supported within an administrative unit.
+>You will not see the entire list of Microsoft Entra built-in or custom roles here. This is expected. We show the roles which have permissions related to the objects that are supported within the administrative unit. Refer to [this documentation](administrative-units.md) to see the list of objects supported within an administrative unit.
 
 ### PowerShell
 
-Follow these steps to assign Azure AD roles at administrative unit scope using PowerShell.
+Follow these steps to assign Microsoft Entra roles at administrative unit scope using PowerShell.
 
 1. Open a PowerShell window and use [Import-Module](/powershell/module/microsoft.powershell.core/import-module) to import the AzureADPreview module. For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
@@ -223,46 +223,46 @@ Follow these instructions to assign a role at administrative unit scope using th
     ```
     
 >[!Note] 
->Here directoryScopeId is specified as */administrativeUnits/foo*, instead of */foo*. It is by design. The scope */administrativeUnits/foo* means the principal can manage the members of the administrative unit (based on the role that she is assigned), not the administrative unit itself. The scope of */foo* means the principal can manage that Azure AD object itself. In the subsequent section, you will see that the scope is */foo* because a role scoped over an app registration grants the privilege to manage the object itself.
+>Here directoryScopeId is specified as */administrativeUnits/foo*, instead of */foo*. It is by design. The scope */administrativeUnits/foo* means the principal can manage the members of the administrative unit (based on the role that she is assigned), not the administrative unit itself. The scope of */foo* means the principal can manage that Microsoft Entra object itself. In the subsequent section, you will see that the scope is */foo* because a role scoped over an app registration grants the privilege to manage the object itself.
 
 ## Assign roles scoped to an app registration
 
 This section describes how to assign roles at an application registration scope.
 
-### Azure portal
+### Microsoft Entra admin center
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory > App registrations** to see the list of all app registrations.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. Select an application. You can use search box to find the desired app.
 
-    ![App registrations in Azure Active Directory.](./media/assign-roles-different-scopes/app-reg.png)
+    ![App registrations in Microsoft Entra ID.](./media/assign-roles-different-scopes/app-reg.png)
 
 1. Select **Roles and administrators** from the left nav menu to see the list of all roles available to be assigned over the app registration.
 
-    ![Roles for an app registrations in Azure Active Directory.](./media/assign-roles-different-scopes/app-reg-roles.png)
+    ![Roles for an app registrations in Microsoft Entra ID.](./media/assign-roles-different-scopes/app-reg-roles.png)
 
 1. Select the desired role.
 
 1. Select **Add assignments** and then select the users or group you want to assign this role to.
 
-    ![Add role assignment scoped to an app registrations in Azure Active Directory.](./media/assign-roles-different-scopes/app-reg-add-assignment.png)
+    ![Add role assignment scoped to an app registrations in Microsoft Entra ID.](./media/assign-roles-different-scopes/app-reg-add-assignment.png)
 
 1. Select **Add** to assign the role scoped over the app registration. 
 
-    ![Successfully added role assignment scoped to an app registrations in Azure Active Directory.](./media/assign-roles-different-scopes/app-reg-assignment.png)
+    ![Successfully added role assignment scoped to an app registrations in Microsoft Entra ID.](./media/assign-roles-different-scopes/app-reg-assignment.png)
     
-    ![Role assigned to the user scoped to an app registrations in Azure Active Directory.](./media/assign-roles-different-scopes/app-reg-scoped-assignment.png)
+    ![Role assigned to the user scoped to an app registrations in Microsoft Entra ID.](./media/assign-roles-different-scopes/app-reg-scoped-assignment.png)
     
 
 >[!Note] 
->You will not see the entire list of Azure AD built-in or custom roles here. This is expected. We show the roles which have permissions related to managing app registrations only. 
+>You will not see the entire list of Microsoft Entra built-in or custom roles here. This is expected. We show the roles which have permissions related to managing app registrations only. 
 
 
 ### PowerShell
 
-Follow these steps to assign Azure AD roles at application scope using PowerShell.
+Follow these steps to assign Microsoft Entra roles at application scope using PowerShell.
 
 1. Open a PowerShell window and use [Import-Module](/powershell/module/microsoft.powershell.core/import-module) to import the AzureADPreview module. For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
@@ -339,11 +339,11 @@ Follow these instructions to assign a role at application scope using the Micros
     ```
 
 >[!Note] 
->Here directoryScopeId is specified as */foo*, unlike the section above. It is by design. The scope of */foo* means the principal can manage that Azure AD object. The scope */administrativeUnits/foo* means the principal can manage the members of the administrative unit (based on the role that she is assigned), not the administrative unit itself.
+>Here directoryScopeId is specified as */foo*, unlike the section above. It is by design. The scope of */foo* means the principal can manage that Microsoft Entra object. The scope */administrativeUnits/foo* means the principal can manage the members of the administrative unit (based on the role that she is assigned), not the administrative unit itself.
 
 
 ## Next steps
 
-* [List Azure AD role assignments](view-assignments.md).
-* [Assign Azure AD roles to users](manage-roles-portal.md).
-* [Assign Azure AD roles to groups](groups-assign-role.md)
+* [List Microsoft Entra role assignments](view-assignments.md).
+* [Assign Microsoft Entra roles to users](manage-roles-portal.md).
+* [Assign Microsoft Entra roles to groups](groups-assign-role.md)

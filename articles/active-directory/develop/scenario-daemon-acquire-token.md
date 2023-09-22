@@ -20,7 +20,7 @@ After you've constructed a confidential client application, you can acquire a to
 
 ## Scopes to request
 
-The scope to request for a client credential flow is the name of the resource followed by `/.default`. This notation tells Azure Active Directory (Azure AD) to use the *application-level permissions* declared statically during application registration. Also, these API permissions must be granted by a tenant administrator.
+The scope to request for a client credential flow is the name of the resource followed by `/.default`. This notation tells Microsoft Entra ID to use the *application-level permissions* declared statically during application registration. Also, these API permissions must be granted by a tenant administrator.
 
 # [.NET](#tab/idweb)
 
@@ -74,12 +74,14 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 ---
 
-### Azure AD (v1.0) resources
+<a name='azure-ad-v10-resources'></a>
+
+### Microsoft Entra ID (v1.0) resources
 
 The scope used for client credentials should always be the resource ID followed by `/.default`.
 
 > [!IMPORTANT]
-> When MSAL requests an access token for a resource that accepts a version 1.0 access token, Azure AD parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier.
+> When MSAL requests an access token for a resource that accepts a version 1.0 access token, Microsoft Entra ID parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier.
 > So if, like Azure SQL Database (`https://database.windows.net`), the resource expects an audience that ends with a slash (for Azure SQL Database, `https://database.windows.net/`), you'll need to request a scope of `https://database.windows.net//.default`. (Note the double slash.) See also MSAL.NET issue [#747: `Resource url's trailing slash is omitted, which caused sql auth failure`](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## AcquireTokenForClient API

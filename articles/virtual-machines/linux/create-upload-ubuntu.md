@@ -26,7 +26,7 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
 
 * Please see also [General Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
 * The VHDX format isn't supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the `Convert-VHD` cmdlet.
-* When installing the Linux system it's recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
+* When installing the Linux system, it's recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
 * Don't configure a swap partition or swapfile on the OS disk. The cloud-init provisioning agent can be configured to create a swap file or a swap partition on the temporary resource disk. More information about this can be found in the steps below.
 * All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 
@@ -92,7 +92,7 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
     ```
 
    > [!Note]
-   >  The `walinuxagent` package may remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
+   > The `walinuxagent` package may remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
 
 8. Remove cloud-init default configs and leftover `netplan` artifacts that may conflict with cloud-init provisioning on Azure:
 
@@ -171,7 +171,7 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
     > The `sudo waagent -force -deprovision+user` command generalizes the image by attempting to clean the system and make it suitable for re-provisioning. The `+user` option deletes the last provisioned user account and associated data.
 
     > [!WARNING]
-    > Deprovisioning using the command above does not guarantee that the image is cleared of all sensitive information and is suitable for redistribution.
+    > Deprovisioning using the command above doesn't guarantee the image is cleared of all sensitive information and is suitable for redistribution.
 
     ```bash
      sudo waagent -force -deprovision+user

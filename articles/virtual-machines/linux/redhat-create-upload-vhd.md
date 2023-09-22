@@ -87,8 +87,10 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
 > [!NOTE]
-> When using Accelerated Networking (AN) the synthetic interface that is created must be configured to be unmanaged using a udev rule. This will prevent NetworkManager from assigning the same ip to it as the primary interface. <br>
-     To apply it:<br>
+> ** When using Accelerated Networking (AN) the synthetic interface that is created must me configured to be unmanaged using a udev rule. This will prevents NetworkManager from assigning the same ip to it as the primary interface. <br>
+
+ To apply it:<br>
+
 ```
 sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules
 # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
@@ -624,8 +626,10 @@ This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) o
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
 > [!NOTE]
-> ** When using Accelerated Networking (AN) the synthetic interface that is created must be configured to be unmanaged using a udev rule. This will prevent NetworkManager from assigning the same ip to it as the primary interface. <br>
-     To apply it:<br>
+> ** When using Accelerated Networking (AN) the synthetic interface that is created must me configured to be unmanaged using a udev rule. This will prevents NetworkManager from assigning the same ip to it as the primary interface. <br>
+
+ To apply it:<br>
+
 ```
 sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules  
 # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
@@ -1009,8 +1013,10 @@ This section assumes that you have already installed a RHEL virtual machine in V
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
 > [!NOTE]
-> ** When using Accelerated Networking (AN) the synthetic interface that is created must be configured to be unmanaged using a udev rule. This will prevent NetworkManager from assigning the same ip to it as the primary interface. <br>
-     To apply it:<br>
+> ** When using Accelerated Networking (AN) the synthetic interface that is created must me configured to be unmanaged using a udev rule. This will prevents NetworkManager from assigning the same ip to it as the primary interface. <br>
+
+To apply it:<br>
+
 ```
 sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules  
 # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
