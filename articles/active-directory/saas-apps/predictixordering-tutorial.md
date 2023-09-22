@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Predictix Ordering'
-description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and Predictix Ordering.
+title: 'Tutorial: Microsoft Entra SSO integration with Predictix Ordering'
+description: In this tutorial, you'll learn how to configure single sign-on between Microsoft Entra ID and Predictix Ordering.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,60 +12,63 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure AD SSO integration with Predictix Ordering
+# Tutorial: Microsoft Entra SSO integration with Predictix Ordering
 
-In this tutorial, you'll learn how to integrate Predictix Ordering with Azure Active Directory (Azure AD). When you integrate Predictix Ordering with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Predictix Ordering with Microsoft Entra ID. When you integrate Predictix Ordering with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Predictix Ordering.
-* Enable your users to be automatically signed-in to Predictix Ordering with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to Predictix Ordering.
+* Enable your users to be automatically signed-in to Predictix Ordering with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with Predictix Ordering, you need to have:
+To configure Microsoft Entra integration with Predictix Ordering, you need to have:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/pricing/free-trial/).
+* A Microsoft Entra subscription. If you don't have a Microsoft Entra environment, you can get a [free account](https://azure.microsoft.com/pricing/free-trial/).
 * A Predictix Ordering subscription that has single sign-on enabled.
-* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Microsoft Entra ID.
 For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
-In this tutorial, you'll configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you'll configure and test Microsoft Entra single sign-on in a test environment.
 
 * Predictix Ordering supports SP-initiated SSO.
 
 ## Add Predictix Ordering from the gallery
 
-To configure the integration of Predictix Ordering into Azure AD, you need to add Predictix Ordering from the gallery to your list of managed SaaS apps.
+To configure the integration of Predictix Ordering into Microsoft Entra ID, you need to add Predictix Ordering from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **Predictix Ordering** in the search box.
 1. Select **Predictix Ordering** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Predictix Ordering
+<a name='configure-and-test-azure-ad-sso-for-predictix-ordering'></a>
 
-Configure and test Azure AD SSO with Predictix Ordering using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Predictix Ordering.
+## Configure and test Microsoft Entra SSO for Predictix Ordering
 
-To configure and test Azure AD SSO with Predictix Ordering, perform the following steps:
+Configure and test Microsoft Entra SSO with Predictix Ordering using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Predictix Ordering.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-   1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-   1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Predictix Ordering, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+   1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+   1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Predictix Ordering SSO](#configure-predictix-ordering-sso)** - to configure the single sign-on settings on application side.
-   1. **[Create a Predictix Ordering test user](#create-a-predictix-ordering-test-user)** - to have a counterpart of B.Simon in Predictix Ordering that is linked to the Azure AD representation of user.
+   1. **[Create a Predictix Ordering test user](#create-a-predictix-ordering-test-user)** - to have a counterpart of B.Simon in Predictix Ordering that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
 
-1. In the Azure portal, on the **Predictix Ordering** application integration page, find the **Manage** section and select **Single sign-on**.
+Follow these steps to enable Microsoft Entra SSO.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Predictix Ordering** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -84,9 +87,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<companyname-pricing>.ordering.predictix.com/sso/request`
 
 	> [!NOTE]
-	> These values are placeholders. Update these values with the actual Identifier and Sign on URL. Contact the [Predictix Ordering support team](https://www.predix.io/support/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
+	> These values are placeholders. Update these values with the actual Identifier and Sign on URL. Contact the [Predictix Ordering support team](https://www.predix.io/support/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer:
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer:
 
 	![Certificate download link](common/certificatebase64.png)
 
@@ -94,24 +97,30 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy the configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+In this section, you'll create a test user called B.Simon.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Predictix Ordering.
+### Assign the Microsoft Entra test user
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Predictix Ordering**.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Predictix Ordering.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Predictix Ordering**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
@@ -120,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Predictix Ordering SSO
 
-To configure single sign-on on the Predictix Ordering side, you need to send the certificate that you downloaded and the URLs that you copied from the Azure portal to the [Predictix Ordering support team](https://www.predix.io/support/). This team ensures the SAML SSO connection is set properly on both sides.
+To configure single sign-on on the Predictix Ordering side, you need to send the certificate that you downloaded and the URLs that you copied to the [Predictix Ordering support team](https://www.predix.io/support/). This team ensures the SAML SSO connection is set properly on both sides.
 
 ### Create a Predictix Ordering test user
 
@@ -128,13 +137,13 @@ Next, you need to create a user named Britta Simon in Predictix Ordering. Work w
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Predictix Ordering Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Predictix Ordering Sign-on URL where you can initiate the login flow. 
 
 * Go to Predictix Ordering Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Predictix Ordering tile in the My Apps, this will redirect to Predictix Ordering Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Predictix Ordering tile in the My Apps, this will redirect to Predictix Ordering Sign-on URL. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

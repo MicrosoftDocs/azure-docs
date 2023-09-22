@@ -5,7 +5,7 @@ ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022
-ms.date: 08/28/2023
+ms.date: 09/04/2023
 ---
 
 # Protect your Kubernetes data plane hardening
@@ -74,7 +74,7 @@ If you disabled the "Azure Policy Extension for Azure Arc" settings under the GC
 You can manually configure the Azure Policy for Kubernetes on existing Kubernetes clusters through the Recommendations page. Once enabled, the hardening recommendations become available (some of the recommendations require another configuration to work).
 
 > [!NOTE]
-> For AWS it isn't possible to do onboarding at scale using the connector, but it can be installed on all existing clusters or on specific clusters using the recommendation [Azure Arc-enabled Kubernetes clusters should have the Azure policy extension for Kubernetes should be installed](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/0642d770-b189-42ef-a2ce-9dcc3ec6c169/subscriptionIds~/%5B%22212f9889-769e-45ae-ab43-6da33674bd26%22%2C%2204cd6fff-ef34-415e-b907-3c90df65c0e5%22%5D/showSecurityCenterCommandBar~/false/assessmentOwners~/null).
+> For AWS it isn't possible to do onboarding at scale using the connector, but it can be installed on all existing clusters or on specific clusters using the recommendation [Azure Arc-enabled Kubernetes clusters should have the Azure policy extension for Kubernetes extension installed](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/0642d770-b189-42ef-a2ce-9dcc3ec6c169/subscriptionIds~/%5B%22212f9889-769e-45ae-ab43-6da33674bd26%22%2C%2204cd6fff-ef34-415e-b907-3c90df65c0e5%22%5D/showSecurityCenterCommandBar~/false/assessmentOwners~/null).
 
 **To deploy the** **Azure Policy for Kubernetes** **to specified clusters**:
 
@@ -82,7 +82,7 @@ You can manually configure the Azure Policy for Kubernetes on existing Kubernete
 
    - **Azure -** `"Azure Kubernetes Service clusters should have the Azure Policy add-on for Kubernetes installed"`
    - **GCP** - `"GKE clusters should have the Azure Policy extension"`.
-   - **AWS and On-premises** - `"Azure Arc-enabled Kubernetes clusters should have the Azure policy extension for Kubernetes should be installed"`.
+   - **AWS and On-premises** - `"Azure Arc-enabled Kubernetes clusters should have the Azure policy extension for Kubernetes extension installed"`.
            :::image type="content" source="./media/kubernetes-workload-protections/azure-kubernetes-service-clusters-recommendation.png" alt-text="Screenshot showing the Azure Kubernetes service clusters recommendation." lightbox="media/kubernetes-workload-protections/azure-kubernetes-service-clusters-recommendation.png":::
 
       > [!TIP]

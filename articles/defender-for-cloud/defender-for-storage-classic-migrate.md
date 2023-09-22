@@ -61,7 +61,7 @@ To help you better understand the differences between the classic plan and the n
 
 | Category | New Defender for Storage plan | Classic (per-transaction plan) | Classic (per-storage account plan) |
 | --- | --- | --- | --- |
-| Pricing structure | Cost is based on the number of storage accounts you protect\*. Add-on costs for GB scanned for malware, if enabled (free during preview) | Cost is based on the number of transactions processed | Cost is based on the number of storage accounts you protect* |
+| Pricing structure | Cost is based on the number of storage accounts you protect\*. Add-on costs for GB scanned for malware, if enabled| Cost is based on the number of transactions processed | Cost is based on the number of storage accounts you protect* |
 | Enablement options | Subscription and resource level | Subscription and resource level | Subscription only |
 | Exclusion of storage accounts from protected subscriptions | Yes | Yes | No |
 | Activity monitoring (security alerts) | Yes | Yes | Yes |
@@ -81,5 +81,6 @@ In this article, you learned about migrating to the new Microsoft Defender for S
 
 > [!div class="nextstepaction"]
 > [Enable Defender for Storage](enable-enhanced-security.md)
+
 
 

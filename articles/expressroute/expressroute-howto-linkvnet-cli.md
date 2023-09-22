@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 07/18/2022
+ms.date: 09/15/2023
 ms.author: duau
 ms.custom: template-tutorial, devx-track-azurecli
 ---
@@ -19,6 +19,8 @@ This tutorial shows you how to link virtual networks (VNets) to Azure ExpressRou
 > * [Azure CLI](expressroute-howto-linkvnet-cli.md)
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
+
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit.":::
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]

@@ -1,6 +1,6 @@
 ---
-title: Understand and solve Azure Active Directory Application Proxy CORS issues
-description: Provides an understanding of CORS in Azure Active Directory Application Proxy, and how to identify and solve CORS issues. 
+title: Understand and solve Microsoft Entra application proxy CORS issues
+description: Provides an understanding of CORS in Microsoft Entra application proxy, and how to identify and solve CORS issues. 
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
 
-# Understand and solve Azure Active Directory Application Proxy CORS issues
+# Understand and solve Microsoft Entra application proxy CORS issues
 
-[Cross-origin resource sharing (CORS)](https://www.w3.org/TR/cors/) can sometimes present challenges for the apps and APIs you publish through the Azure Active Directory Application Proxy. This article discusses Azure AD Application Proxy CORS issues and solutions.
+[Cross-origin resource sharing (CORS)](https://www.w3.org/TR/cors/) can sometimes present challenges for the apps and APIs you publish through the Microsoft Entra application proxy. This article discusses Microsoft Entra application proxy CORS issues and solutions.
 
 Browser security usually prevents a web page from making AJAX requests to another domain. This restriction is called the *same-origin policy*, and prevents a malicious site from reading sensitive data from another site. However, sometimes you might want to let other sites call your web API. CORS is a W3C standard that lets a server relax the same-origin policy and allow some cross-origin requests while rejecting others.
 
@@ -47,11 +47,11 @@ In the following screenshot, selecting the **Try It** button caused a CORS error
 
 ## CORS challenges with Application Proxy
 
-The following example shows a typical Azure AD Application Proxy CORS scenario. The internal server hosts a **CORSWebService** web API controller, and a **CORSWebClient** that calls **CORSWebService**. There's an AJAX request from **CORSWebClient** to **CORSWebService**.
+The following example shows a typical Microsoft Entra application proxy CORS scenario. The internal server hosts a **CORSWebService** web API controller, and a **CORSWebClient** that calls **CORSWebService**. There's an AJAX request from **CORSWebClient** to **CORSWebService**.
 
 ![On-premises same-origin request](./media/application-proxy-understand-cors-issues/image1.png)
 
-The CORSWebClient app works when you host it on-premises, but either fails to load or errors out when published through Azure AD Application Proxy. If you published the CORSWebClient and CORSWebService apps separately as different apps through Application Proxy, the two apps are hosted at different domains. An AJAX request from CORSWebClient to CORSWebService is a cross-origin request, and it fails.
+The CORSWebClient app works when you host it on-premises, but either fails to load or errors out when published through Microsoft Entra application proxy. If you published the CORSWebClient and CORSWebService apps separately as different apps through Application Proxy, the two apps are hosted at different domains. An AJAX request from CORSWebClient to CORSWebService is a cross-origin request, and it fails.
 
 ![Application Proxy CORS request](./media/application-proxy-understand-cors-issues/image2.png)
 
@@ -61,13 +61,13 @@ You can resolve the preceding CORS issue in any one of several ways.
 
 ### Option 1: Set up a custom domain
 
-Use an Azure AD Application Proxy [custom domain](./application-proxy-configure-custom-domain.md) to publish from the same origin, without having to make any changes to app origins, code, or headers. 
+Use a Microsoft Entra application proxy [custom domain](./application-proxy-configure-custom-domain.md) to publish from the same origin, without having to make any changes to app origins, code, or headers. 
 
 ### Option 2: Publish the parent directory
 
 Publish the parent directory of both apps. This solution works especially well if you have only two apps on the web server. Instead of publishing each app separately, you can publish the common parent directory, which results in the same origin.
 
-The following examples show the portal Azure AD Application Proxy page for the CORSWebClient app.  When the **Internal URL** is set to *contoso.com/CORSWebClient*, the app can't make successful requests to the *contoso.com/CORSWebService* directory, because they're cross-origin. 
+The following examples show the portal Microsoft Entra application proxy page for the CORSWebClient app.  When the **Internal URL** is set to *contoso.com/CORSWebClient*, the app can't make successful requests to the *contoso.com/CORSWebService* directory, because they're cross-origin. 
 
 ![Publish app individually](./media/application-proxy-understand-cors-issues/image4.png)
 
@@ -109,9 +109,9 @@ You can change your app to support CORS by adding the Access-Control-Allow-Origi
 
 ### Option 5: Extend the lifetime of the access token
 
-Some CORS issues can't be resolved, such as when your app redirects to *login.microsoftonline.com* to authenticate, and the access token expires. The CORS call then fails. A workaround for this scenario is to extend the lifetime of the access token, to prevent it from expiring during a user’s session. For more information about how to do this, see [Configurable token lifetimes in Azure AD](../develop/configurable-token-lifetimes.md).
+Some CORS issues can't be resolved, such as when your app redirects to *login.microsoftonline.com* to authenticate, and the access token expires. The CORS call then fails. A workaround for this scenario is to extend the lifetime of the access token, to prevent it from expiring during a user’s session. For more information about how to do this, see [Configurable token lifetimes in Microsoft Entra ID](../develop/configurable-token-lifetimes.md).
 
 ## See also
-- [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md) 
-- [Plan an Azure AD Application Proxy deployment](application-proxy-deployment-plan.md) 
-- [Remote access to on-premises applications through Azure Active Directory Application Proxy](application-proxy.md)
+- [Tutorial: Add an on-premises application for remote access through Application Proxy in Microsoft Entra ID](../app-proxy/application-proxy-add-on-premises-application.md) 
+- [Plan a Microsoft Entra application proxy deployment](application-proxy-deployment-plan.md) 
+- [Remote access to on-premises applications through Microsoft Entra application proxy](application-proxy.md)

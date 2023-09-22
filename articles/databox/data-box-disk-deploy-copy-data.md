@@ -2,13 +2,13 @@
 title: Tutorial to copy data to Azure Data Box Disk| Microsoft Docs
 description: In this tutorial, learn how to copy data from your host computer to Azure Data Box Disk and then generate checksums to verify data integrity.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/07/2023
-ms.author: alkohli
+ms.date: 11/18/2022
+ms.author: shaas
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 
@@ -91,7 +91,7 @@ Perform the following steps to connect and copy data from your computer to the D
 
     :::image type="content" source="media/data-box-disk-deploy-copy-data/content-sml.png" alt-text="Contents of the disk drive" lightbox="media/data-box-disk-deploy-copy-data/content.png":::
 
-1. Copy data to be imported as block blobs into the *BlockBlob* folder. Copy data to be stored as block blobs in the archive tier into the *BlockBlob_Archive* folder. Similarly, copy VHD or VHDX data to the *PageBlob* folder, and file share data into *AzureFile* folder.
+1. Copy data to be imported as block blobs into the *BlockBlob* folder. Copy data to be stored as block blobs with the archive tier into the *BlockBlob_Archive* folder. Similarly, copy VHD or VHDX data to the *PageBlob* folder, and file share data into *AzureFile* folder.
 
    A container is created in the Azure storage account for each subfolder within the *BlockBlob* and *PageBlob* folders. All files copied to the *BlockBlob* and *PageBlob* folders are copied into a default `$root` container within the Azure Storage account. Any files in the `$root` container are always uploaded as block blobs.
 

@@ -61,6 +61,8 @@ additionalContent:
               url: ../../web-application-firewall/overview.md
             - text: Implement the Zero Trust model
               url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/zero-trust-with-azure-network-security/ba-p/3668280
+            - text: Apply Zero Trust principles to an Azure Virtual WAN deployment
+              url: /security/zero-trust/azure-virtual-wan
             - text: Manage my network firewall
               url: ../../firewall-manager/overview.md
             - text: Learn more about Azure Firewall
@@ -85,6 +87,12 @@ additionalContent:
         # Card
         - title: I want to...
           links:
+            - text: Secure networks with Zero Trust
+              url: /security/zero-trust/deploy/networks
+            - text: Apply Zero Trust principles to a spoke virtual network in Azure
+              url: /security/zero-trust/azure-infrastructure-iaas
+            - text: Apply Zero Trust principles to a hub virtual network in Azure
+              url: /security/zero-trust/azure-infrastructure-networking
             - text: Filter network traffic between Azure resources
               url: ../../virtual-network/network-security-groups-overview.md
             - text: Secure access to Azure services
@@ -107,11 +115,15 @@ additionalContent:
               url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
             - text: Choose between virtual network peering and VPN gateways
               url: /azure/architecture/reference-architectures/hybrid-networking/vnet-peering
-    - title: Protect your apps
+    - title: Protect your apps and services
       items:
         # Card
         - title: I want to...
           links:
+            - text: Apply Zero Trust principles to a spoke virtual network with Azure PaaS Services
+              url: /security/zero-trust/azure-infrastructure-paas
+            - text: Zero-trust network for web applications with Azure Firewall and Application Gateway
+              url: /azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall
             - text: Protect my service from DDoS attacks
               url: ../../ddos-protection/ddos-protection-overview.md
             - text: Protect against PaperCut vulnerability

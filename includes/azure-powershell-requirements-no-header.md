@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 * If you choose to use Azure PowerShell locally:
-  * [Install the Az PowerShell module](/powershell/azure/install-azure-powershell).
+  * [Install the latest version of the Az PowerShell module](/powershell/azure/install-azure-powershell).
   * Connect to your Azure account using the
     [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 * If you choose to use Azure Cloud Shell:

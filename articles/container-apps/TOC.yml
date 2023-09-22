@@ -58,6 +58,8 @@
   items:
     - name: Deploy an app with containerapp up
       href: containerapp-up.md
+    - name: Scale a container app
+      href: tutorial-scaling.md
     - name: Create and deploy a container app using the CLI
       href: tutorial-deploy-first-app-cli.md
     - name: Connect to apps & services
@@ -115,7 +117,7 @@
         - name: With a job
           href: tutorial-event-driven-jobs.md
     - name: Reliability in Azure Container Apps
-      href: disaster-recovery.md
+      href: ../reliability/reliability-azure-container-apps.md
 - name: Logs and monitoring
   items:
     - name: Overview
@@ -273,6 +275,8 @@
       href: /rest/api/containerapps/
     - name: Supported regions
       href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-apps
+    - name: Hardware reference
+      href: hardware.md
     - name: Management SDKs
       items:
         - name: .NET

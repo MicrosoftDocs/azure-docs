@@ -4,6 +4,8 @@ description: Learn how Azure App Service updates the OS and runtimes, what runti
 ms.topic: article
 ms.date: 01/21/2021
 ms.custom: UpdateFrequency3
+author: cephalin
+ms.author: cephalin
 ---
 
 # OS and runtime patching in Azure App Service

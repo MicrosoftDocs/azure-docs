@@ -22,31 +22,30 @@ With [API connectors](api-connectors-overview.md), you can integrate with your o
 
 This article gives an example of how to integrate with an approval system. In this example, the self-service sign-up user flow collects user data during the sign-up process and passes it to your approval system. Then, the approval system can:
 
-- Automatically approve the user and allow Azure AD to create the user account.
+- Automatically approve the user and allow Microsoft Entra ID to create the user account.
 - Trigger a manual review. If the request is approved, the approval system uses Microsoft Graph to provision the user account. The approval system can also notify the user that their account has been created.
 
 > [!IMPORTANT]
 >
-> - **Starting July 12, 2021**,  if Azure AD B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
-> - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+> - **Starting July 12, 2021**,  if Microsoft Entra B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+> - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Microsoft Entra B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
 
 ## Register an application for your approval system
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-You need to register your approval system as an application in your Azure AD tenant so it can authenticate with Azure AD and have permission to create users. Learn more about [authentication and authorization basics for Microsoft Graph](/graph/auth/auth-concepts).
+You need to register your approval system as an application in your Microsoft Entra tenant so it can authenticate with Microsoft Entra ID and have permission to create users. Learn more about [authentication and authorization basics for Microsoft Graph](/graph/auth/auth-concepts).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
-2. Under **Azure services**, select **Azure Active Directory**.
-3. In the left menu, select **App registrations**, and then select **New registration**.
-4. Enter a **Name** for the application, for example, _Sign-up Approvals_.
-5. Select **Register**. You can leave other fields at their defaults.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Applications** > **App registrations**, and then select **New registration**.
+1. Enter a **Name** for the application, for example, _Sign-up Approvals_.
+1. Select **Register**. You can leave other fields at their defaults.
 
 :::image type="content" source="media/self-service-sign-up-add-approvals/register-approvals-app.png" alt-text="Screenshot that highlights the Register button.":::
 
-6. Under **Manage** in the left menu, select **API permissions**, and then select **Add a permission**.
-7. On the **Request API permissions** page, select **Microsoft Graph**, and then select **Application permissions**.
-8. Under **Select permissions**, expand **User**, and then select the **User.ReadWrite.All** check box. This permission allows the approval system to create the user upon approval. Then select **Add permissions**.
+1. Under **Manage** in the left menu, select **API permissions**, and then select **Add a permission**.
+1. On the **Request API permissions** page, select **Microsoft Graph**, and then select **Application permissions**.
+1. Under **Select permissions**, expand **User**, and then select the **User.ReadWrite.All** check box. This permission allows the approval system to create the user upon approval. Then select **Add permissions**.
 
 :::image type="content" source="media/self-service-sign-up-add-approvals/request-api-permissions.png" alt-text="Screenshot of requesting API permissions.":::
 
@@ -57,7 +56,7 @@ You need to register your approval system as an application in your Azure AD ten
 
 :::image type="content" source="media/self-service-sign-up-add-approvals/client-secret-value-copy.png" alt-text="Screenshot of copying the client secret. ":::
 
-13. Configure your approval system to use the **Application ID** as the client ID and the **client secret** you generated to authenticate with Azure AD.
+13. Configure your approval system to use the **Application ID** as the client ID and the **client secret** you generated to authenticate with Microsoft Entra ID.
 
 ## Create the API connectors
 
@@ -77,11 +76,9 @@ To create these connectors, follow the steps in [create an API connector](self-s
 
 Now you'll add the API connectors to a self-service sign-up user flow with these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
-2. Under **Azure services**, select **Azure Active Directory**.
-3. In the left menu, select **External Identities**.
-4. Select **User flows**, and then select the user flow you want to enable the API connector for.
-5. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **External identities** > **User flows**, and then select the user flow you want to enable the API connector for.
+1. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
 
    - **After federating with an identity provider during sign-up**: Select your approval status API connector, for example _Check approval status_.
    - **Before creating the user**: Select your approval request API connector, for example _Request approval_.
@@ -89,7 +86,7 @@ Now you'll add the API connectors to a self-service sign-up user flow with these
 :::image type="content" source="media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png" alt-text="Screenshot of API connector in a user flow.":::
 
 
-6. Select **Save**.
+1. Select **Save**.
 
 ## Control the sign-up flow with API responses
 
@@ -223,7 +220,7 @@ Content-type: application/json
 ```
 
 > [!IMPORTANT]
-> If a continuation response is received, Azure AD creates a user account and directs the user to the application.
+> If a continuation response is received, Microsoft Entra ID creates a user account and directs the user to the application.
 
 #### Blocking Response for "Request approval"
 
@@ -327,9 +324,11 @@ Content-type: application/json
 | \<otherBuiltInAttribute>                            | No       | Other built-in attributes like `displayName`, `city`, and others. Parameter names are the same as the parameters sent by the API connector.                            |
 | \<extension\_\{extensions-app-id}\_CustomAttribute> | No       | Custom attributes about the user. Parameter names are the same as the parameters sent by the API connector.                                                            |
 
-### For a federated Azure Active Directory user or Microsoft account user
+<a name='for-a-federated-azure-active-directory-user-or-microsoft-account-user'></a>
 
-If a user signs in with a federated Azure Active Directory account or a Microsoft account, you must use the [invitation API](/graph/api/invitation-post) to create the user and then optionally the [user update API](/graph/api/user-update) to assign more attributes to the user.
+### For a federated Microsoft Entra user or Microsoft account user
+
+If a user signs in with a federated Microsoft Entra account or a Microsoft account, you must use the [invitation API](/graph/api/invitation-post) to create the user and then optionally the [user update API](/graph/api/user-update) to assign more attributes to the user.
 
 1. The approval system receives the HTTP request from the user flow.
 

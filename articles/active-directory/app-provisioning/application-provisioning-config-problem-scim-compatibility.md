@@ -1,6 +1,6 @@
 ---
 title: Known issues with System for Cross-Domain Identity Management (SCIM) 2.0 protocol compliance
-description: How to solve common protocol compatibility issues faced when adding a non-gallery application that supports SCIM 2.0 to Azure AD
+description: How to solve common protocol compatibility issues faced when adding a non-gallery application that supports SCIM 2.0 to Microsoft Entra ID
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/06/2022
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# Known issues and resolutions with SCIM 2.0 protocol compliance of the Azure AD User Provisioning service
+# Known issues and resolutions with SCIM 2.0 protocol compliance of the Microsoft Entra user provisioning service
 
-Azure Active Directory (Azure AD) can automatically provision users and groups to any application or system that is fronted by a web service with the interface defined in the [System for Cross-Domain Identity Management (SCIM) 2.0 protocol specification](https://tools.ietf.org/html/draft-ietf-scim-api-19). 
+Microsoft Entra ID can automatically provision users and groups to any application or system that is fronted by a web service with the interface defined in the [System for Cross-Domain Identity Management (SCIM) 2.0 protocol specification](https://tools.ietf.org/html/draft-ietf-scim-api-19). 
 
-Azure AD's support for the SCIM 2.0 protocol is described in [Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md), which lists the specific parts of the protocol that it implements in order to automatically provision users and groups from Azure AD to applications that support SCIM 2.0.
+Microsoft Entra ID support for the SCIM 2.0 protocol is described in [Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Microsoft Entra ID to applications](use-scim-to-provision-users-and-groups.md), which lists the specific parts of the protocol that it implements in order to automatically provision users and groups from Microsoft Entra ID to applications that support SCIM 2.0.
 
-This article describes current and past issues with the Azure AD user provisioning service's adherence to the SCIM 2.0 protocol, and how to work around these issues.
+This article describes current and past issues with the Microsoft Entra user provisioning service's adherence to the SCIM 2.0 protocol, and how to work around these issues.
 
 ## Understanding the provisioning job
 The provisioning service uses the concept of a job to operate against an application. The jobID can be found in the [progress bar](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar). All new provisioning applications are created with a jobID starting with "scim". The scim job represents the current state of the service. Older jobs have the ID "customappsso". This job represents the state of the service in 2018. 
@@ -34,7 +34,7 @@ In the table below, any item marked as fixed means that the proper behavior can 
 
 | **SCIM 2.0 compliance issue** |  **Fixed?** | **Fix date**  |  **Backwards compatibility** |
 |---|---|---|
-| Azure AD requires "/scim" to be in the root of the application's SCIM endpoint URL  | Yes  |  December 18, 2018 | downgrade to customappSSO |
+| Microsoft Entra ID requires "/scim" to be in the root of the application's SCIM endpoint URL  | Yes  |  December 18, 2018 | downgrade to customappSSO |
 | Extension attributes use dot "." notation before attribute names instead of colon ":" notation |  Yes  | December 18, 2018  | downgrade to customappSSO |
 | Patch requests for multi-value attributes contain invalid path filter syntax | Yes  |  December 18, 2018  | downgrade to customappSSO |
 | Group creation requests contain an invalid schema URI | Yes  |  December 18, 2018  |  downgrade to customappSSO |
@@ -236,11 +236,12 @@ Below are sample requests to help outline what the sync engine currently sends v
 ## Upgrading from the older customappsso job to the SCIM job
 Following the steps below will delete your existing customappsso job and create a new SCIM job.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the **Azure Active Directory > Enterprise Applications** section of the Azure portal, locate and select your existing SCIM application.
-3. In the **Properties** section of your existing SCIM app, copy the **Object ID**.
-4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Azure AD tenant where your app is added.
-5. In the Graph Explorer, run the command below to locate the ID of your provisioning job. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Locate and select your existing SCIM application.
+1. In the **Properties** section of your existing SCIM app, copy the **Object ID**.
+1. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Microsoft Entra tenant where your app is added.
+1. In the Graph Explorer, run the command below to locate the ID of your provisioning job. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.
 
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
@@ -275,11 +276,13 @@ Following the steps below will delete your existing customappsso job and create 
 ## Downgrading from the SCIM job to the customappsso job (not recommended)
  We allow you to downgrade back to the old behavior but don't recommend it as the customappsso does not benefit from some of the updates we make, and may not be supported forever. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the **Azure Active Directory > Enterprise Applications > Create application** section of the Azure portal, create a new **Non-gallery** application.
-3. In the **Properties** section of your new custom app, copy the **Object ID**.
-4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Azure AD tenant where your app is added.
-5. In the Graph Explorer, run the command below to initialize the provisioning configuration for your app.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+
+1. In the **Create application** section, create a new **Non-gallery** application.
+1. In the **Properties** section of your new custom app, copy the **Object ID**.
+1. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Microsoft Entra tenant where your app is added.
+1. In the Graph Explorer, run the command below to initialize the provisioning configuration for your app.
    Replace "[object-id]" with the service principal ID (object ID) copied from the third step.
 
    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
