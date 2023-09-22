@@ -15,7 +15,7 @@ As part of your migration journey to Azure, you assess your on-premises workload
 This article shows you how to assess discovered Spring Boot apps for migration to Azure Spring Apps, using the Azure Migrate for Spring apps.
 
 > [!Note]
-> Discovery and assessment of Spring Boot apps is now in preview. If you want to try out this feature in an existing project, please ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
+> Discovery and assessment of Spring Boot apps is now in preview. If you want to try out this feature in an existing project, ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
 
 ## Before you start
 
@@ -37,13 +37,17 @@ An Azure Spring Apps assessment provides one sizing criteria:
 Run an assessment as follows:
 
 1. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
-    :::image type="content" source="./media/tutorial-assess-spring-apps/discover-assess-migrate.png" alt-text="Overview page for Azure Migrate":::
+
+    :::image type="content" source="./media/tutorial-assess-spring-apps/discover-assess-migrate.png" alt-text="Overview page for Azure Migrate.":::
+
 2. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure Spring Apps**.
-    :::image type="content" source="./media/tutorial-assess-spring-apps/assess.png" alt-text="Dropdown to choose assessment type as Web apps on Azure":::
+
+    :::image type="content" source="./media/tutorial-assess-spring-apps/assess.png" alt-text="Dropdown to choose assessment type as Web apps on Azure.":::
+
 3. In **Create assessment**, you'll see the assessment type pre-selected as **Web apps on Azure**, the scenario pre-selected as **Spring Boot to Azure Spring Apps**, and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
 4. Select **Edit** to review the assessment properties.
 
-    :::image type="content" source="./media/tutorial-assess-spring-apps/assess-spring-apps.png" alt-text="Edit button from where assessment properties can be customized":::
+    :::image type="content" source="./media/tutorial-assess-spring-apps/assess-spring-apps.png" alt-text="Edit button from where assessment properties can be customized.":::
 
 1. Here's what's included in Azure Spring Apps assessment properties:
 
@@ -63,9 +67,12 @@ Run an assessment as follows:
 1. Select the appliance, and select the servers you want to add to the group. Select **Next**.
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** tile and refresh the tile data by clicking on the **Refresh** option on top of the tile. Wait for data to get refreshed.
-     :::image type="content" source="./media/tutorial-assess-spring-apps/tile-refresh.png" alt-text="Refresh discovery and assessment tool data":::
+
+     :::image type="content" source="./media/tutorial-assess-spring-apps/tile-refresh.png" alt-text="Refresh discovery and assessment tool data.":::
+
 1. Select the number next to Azure Spring Apps assessment.
-     :::image type="content" source="./media/tutorial-assess-spring-apps/assessment-webapps-navigation.png" alt-text="Navigation to created assessment":::
+     :::image type="content" source="./media/tutorial-assess-spring-apps/assessment-webapps-navigation.png" alt-text="Navigation to created assessment.":::
+
 1. Select the assessment name that you wish to view.
 
 ## Review an assessment
@@ -83,7 +90,7 @@ This card shows the distribution of assessed apps based on their readiness. In a
 
 #### Azure Spring Apps
 
-This card shows the list of assessed apps with the average memory consumption and estimated CPU consumption for each app instance. You can drill down to understand details around migration issues/warnings that you can remediate before migration to Azure Spring Apps. [Learn More](concepts-azure-spring-apps-assessment-calculation.md)
+This card shows the list of assessed apps with the average memory consumption and estimated CPU consumption for each app instance. You can drill down to understand details around migration issues/warnings that you can remediate before migration to Azure Spring Apps. [Learn more](concepts-azure-spring-apps-assessment-calculation.md).
 
 ### Review cost estimates
 
@@ -93,12 +100,14 @@ For estimating cost, we assume you would put all your accessed apps into the sam
 
 The estimated cost applies for both Azure Spring Apps Standard Tier and Enterprise Tier. For Enterprise Tier, there is an additional cost on [software IP](https://azuremarketplace.microsoft.com/marketplace/apps/vmware-inc.azure-spring-cloud-vmware-tanzu-2?tab=PlansAndPrice) and resource consumption for Tanzu components, which aren't included in cost estimation.
 
-   :::image type="content" source="./media/tutorial-assess-spring-apps/assessment-webapps-cost.png" alt-text="Cost details":::
+   :::image type="content" source="./media/tutorial-assess-spring-apps/assessment-webapps-cost.png" alt-text="Screenshot of Cost details.":::
 
 ### Review readiness
 
 1. Select **Azure Spring Apps**.
-    :::image type="content" source="./media/tutorial-assess-spring-apps/assessment-webapps-readiness.png" alt-text="Azure Spring Apps readiness details":::
+
+    :::image type="content" source="./media/tutorial-assess-spring-apps/assessment-webapps-readiness.png" alt-text="Azure Spring Apps readiness details.":::
+
 1. Review Azure Spring Apps readiness column in table, for the assessed apps:
     1. If there are no compatibility issues found, the readiness is marked as **Ready** for the target deployment type.
     1. If there are non-critical compatibility issues, such as degraded or unsupported features that do not block the migration, the readiness is marked as **Ready with conditions** (hyperlinked) with **warning** details and recommended remediation guidance. You may migrate such apps first and optimize later.

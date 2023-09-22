@@ -36,15 +36,23 @@ This discovery process is agentless that is, nothing is installed on the target 
 
 1. In your Azure Migrate project, either
     - Select **Not enabled** on the Hub tile, or
-        :::image type="content" source="./media/how-to-discover-sql-existing-project/hub-not-enabled.png" alt-text="Azure Migrate hub tile with SQL and web apps discovery not enabled":::
-    - Select **Not enabled** on any entry in the Server discovery page under SQL instances or Web apps column
-        :::image type="content" source="./media/how-to-discover-sql-existing-project/discovery-not-enabled.png" alt-text="Azure Migrate discovered servers blade with SQL and web apps discovery not enabled":::
+
+        :::image type="content" source="./media/how-to-discover-sql-existing-project/hub-not-enabled.png" alt-text="Screenshot of Azure Migrate hub tile with SQL and web apps discovery not enabled.":::
+
+    - Select **Not enabled** on any entry in the Server discovery page under SQL instances or Web apps column.
+
+        :::image type="content" source="./media/how-to-discover-sql-existing-project/discovery-not-enabled.png" alt-text="Screenshot of Azure Migrate discovered servers blade with SQL and web apps discovery not enabled.":::
+
 2. To discover web apps and SQL Server instances and databases follow the steps entailed:
     - Select **Upgrade**, to create the required resource.
-        :::image type="content" source="./media/how-to-discover-sql-existing-project/discovery-upgrade-appliance.png" alt-text="Button to upgrade the Azure Migrate appliance":::
+
+        :::image type="content" source="./media/how-to-discover-sql-existing-project/discovery-upgrade-appliance.png" alt-text="Button to upgrade the Azure Migrate appliance.":::
+
     - Validate that the services running on the appliance are updated to the latest versions. To do so, launch the Appliance configuration manager from your appliance server and select view appliance services from the Setup prerequisites panel.
         - Appliance and its components are automatically updated
-         :::image type="content" source="./media/how-to-discover-sql-existing-project/appliance-services-version.png" alt-text="Check the appliance version":::
+
+         :::image type="content" source="./media/how-to-discover-sql-existing-project/appliance-services-version.png" alt-text="Screenshot to check the appliance version.":::
+         
     - In the manage credentials and discovery sources panel of the Appliance configuration manager, add Domain or SQL Server Authentication credentials that have Sysadmin access on the SQL Server instance and databases to be discovered or have [these permissions](migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance.
     - Web apps discovery works with both domain and non-domain Windows OS credentials as long as the account used has local admin privileges on servers.
     You can leverage the automatic credential-mapping feature of the appliance, as highlighted [here](./tutorial-discover-vmware.md#start-continuous-discovery).
