@@ -257,7 +257,7 @@
         href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure VPN Gateway
         href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Test resiliency
+    - name: Test reliability
       items: 
       - name: Chaos engineering
         href: /azure/well-architected/resiliency/chaos-engineering?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
