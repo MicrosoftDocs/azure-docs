@@ -38,7 +38,7 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 
 2. Log in to the Azure CLI.
 
-    Make sure that you've installed the latest [Azure CLI](https://learn.microsoft.com/cli/azure/install-az-cli2) and are logged in to an Azure account with [az login](https://learn.microsoft.com/cli/azure/reference-index).
+    Make sure that you've installed the latest [Azure CLI](/cli/azure/install-azure-cli) and are logged in to an Azure account with [az login](/cli/azure/reference-index).
 
 3. Launch Azure Cloud Shell.
 
