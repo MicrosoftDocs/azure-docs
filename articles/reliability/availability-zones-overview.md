@@ -1,5 +1,5 @@
 ---
-title: What are Azure regions and availability zones?
+title: What are Azure availability zones?
 description: Learn about availability zones and how they work to help you achieve reliability
 ms.service: reliability
 ms.subservice: availability-zones
@@ -61,7 +61,7 @@ $locations = ($response.Content | ConvertFrom-Json).value
 
 ## Availability zones and Azure updates
 
-Microsoft aims to deploy updates to Azure services to a single availability zone at a time. This approach reduces the impact that updates might have on an active workload, because the workload can continue to run in other zones while the update is in process. For more information about how Azure deploys updates, see [Advancing safe deployment practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/).
+Microsoft aims to deploy updates to Azure services to a single availability zone at a time. This approach reduces the impact that updates might have on an active workload, because the workload can continue to run in other zones while the update is in process. You need to run your workload across multiple zones to take advantage of this benefit. For more information about how Azure deploys updates, see [Advancing safe deployment practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/).
 
 
 ## Paired and unpaired regions
