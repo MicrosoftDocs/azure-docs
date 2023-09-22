@@ -16,7 +16,7 @@ Microsoft Defender for Cloud has two main goals:
 
 The central feature in Defender for Cloud that enables you to achieve those goals is the **secure score**.
 
-All Defender for Cloud customers automatically gain access to the secure score when they enable Defender for Cloud. Microsoft Cloud Security Benchmark (MCSB), formerly known as Azure Security Benchmark, is automatically applied to your environments and will generate all the built-in recommendations that are part of this default initiative.
+All Defender for Cloud customers automatically gain access to the secure score when they enable Defender for Cloud. Microsoft Cloud Security Benchmark (MCSB), formerly known as Microsoft Cloud Security Benchmark, is automatically applied to your environments and will generate all the built-in recommendations that are part of this default initiative.
 
 Defender for Cloud continually assesses your cross-cloud resources for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.
 
@@ -100,7 +100,7 @@ In this example:
 
 ### Which recommendations are included in the secure score calculations?
 
-Only built-in recommendations that are part of the default initiative, Azure Security Benchmark, have an impact on the secure score.
+Only built-in recommendations that are part of the default initiative, Microsoft Cloud Security Benchmark, have an impact on the secure score.
 Recommendations flagged as **Preview** aren't included in the calculations of your secure score. They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
 
 Preview recommendations are marked with: :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false":::
@@ -122,7 +122,7 @@ We recommend every organization carefully reviews their assigned Azure Policy in
 > [!TIP]
 > For details about reviewing and editing your initiatives, see [manage security policies](tutorial-security-policy.md).
 
-Even though Defender for Cloud's default security initiative, the Azure Security Benchmark, is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. It's sometimes necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies, industry standards, regulatory standards, and benchmarks.<br><br>
+Even though Defender for Cloud's default security initiative, the Microsoft Cloud Security Benchmark, is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. It's sometimes necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies, industry standards, regulatory standards, and benchmarks.<br><br>
 
 [!INCLUDE [security-center-controls-and-recommendations](../../includes/asc/security-control-recommendations.md)]
 
