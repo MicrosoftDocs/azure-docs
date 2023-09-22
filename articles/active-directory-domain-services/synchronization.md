@@ -1,6 +1,6 @@
 ---
 title: How synchronization works in Microsoft Entra Domain Services | Microsoft Docs
-description: Learn how the synchronization process works for objects and credentials from a Microsoft Entra tenant or on-premises Active Directory Domain Services environment to a Microsoft Entra Domain Services managed domain.
+description: Learn how the synchronization process works between Microsoft Entra or an on-premises environment to a Microsoft Entra Domain Services managed domain.
 services: active-directory-ds
 author: justinha
 manager: amycolannino
