@@ -153,9 +153,11 @@ When you set up your Azure Lab Services resources, you're required to provide a 
 
 ## VM sizing
 
-When administrators or Lab Creators create a lab, they can choose from various VM sizes, depending on the needs of their classroom. Remember that the size availability depends on the region that your lab plan is located in.
+When administrators or lab Creators create a lab, they can choose from various VM sizes, depending on the needs of their classroom. The availability of specific VM sizes depends on the region that your lab plan is located in. Learn how you can [request additional capacity](./how-to-request-capacity-increase.md).
 
 For information on VM sizes and their cost, see the [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
+
+### Default VM sizes
 
 | Size | Minimum vCPUs | Minimum memory: GiB | Series | Suggested use |
 | ---- | ----- |  ----- | ------ | ------------- |
@@ -168,8 +170,27 @@ For information on VM sizes and their cost, see the [Azure Lab Services Pricing]
 | Small GPU (visualization) | 8 | 28 | [Standard_NVas_v4](../virtual-machines/nvv4-series.md) **Windows only* | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
 | Medium GPU (visualization) | 12 | 112 | [Standard_NV12s_v3](../virtual-machines/nvv3-series.md)  | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
 
-> [!NOTE]
-> You may not see some of the expected VM sizes in the list when creating a lab. The list is populated based on the current capacity in the selected region.
+### Alternative VM sizes
+
+In addition to the default VM sizes, you can select from a list of *alternative* VM sizes if you need more capacity than there's available in the requested Azure region.
+
+| Size | Minimum vCPUs | Minimum memory: GiB | Series | Suggested use |
+| ---- | ----- |  ----- | ------ | ------------- |
+| Alternative Small GPU (Compute) | 6 | 112 |  | Best suited for computer-intensive applications such as AI and deep learning. |
+| Alternative GPU Visualization small (NVadsA10v5) | 6 | 55 | [Standard_NV6ads_A10_v5](../virtual-machines/nva10v5-series.md) | (Windows only) Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Alternative GPU Visualization medium (NVadsA10v5) | 12 | 110 | [Standard_NV12ads_A10_v5](../virtual-machines/nva10v5-series.md) | (Windows only) Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+
+### Classic VM sizes
+
+When you create a lab plan and you still have lab accounts in your Azure subscription, then you can select from the list of VM sizes that were available for lab accounts. In the Azure Lab Services user interface, these VM sizes are marked as *classic* VM sizes.
+
+| Size | Minimum vCPUs | Minimum memory: GiB | Series | Suggested use |
+| ---- | ----- |  ----- | ------ | ------------- |
+| Classic small (Av2)| 2 | 4 | [Standard_A2_v2](../virtual-machines/av2-series.md) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
+| Classic medium (Av2) | 4 | 8 | [Standard_A4_v2](../virtual-machines/av2-series.md) | Best suited for relational databases, in-memory caching, and analytics. |
+| Classic Nested Virtualization medium (Dsv3) | 4  | 16 | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md) | Best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization.
+| Classic large (Av2) | 8 | 16  |  [Standard_A8_v2](../virtual-machines/av2-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
+| Classic Nested Virtualization large (Dsv3) | 8 | 32 | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches.  This size also supports nested virtualization. |
 
 ## RBAC roles
 
