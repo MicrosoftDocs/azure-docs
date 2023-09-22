@@ -22,7 +22,7 @@ This article shows you how to configure email notification recipients for a mana
 
 ## Email notification overview
 
-To alert you of issues with a managed domain, you can configure email notifications. These email notifications specify the managed domain that the alert is present on, as well as giving the time of detection and a link to the health page in the Microsoft Entra admin center. You can then follow the provided troubleshooting advice to resolve the issues.
+To alert you of issues with a managed domain, you can configure email notifications. These email notifications specify the managed domain that the alert is present on, give the time of detection, and a link to the health page in the Microsoft Entra admin center. You can then follow the provided troubleshooting advice to resolve the issues.
 
 The following example email notification indicates a critical warning or alert was generated on the managed domain:
 
@@ -37,21 +37,21 @@ Domain Services sends email notifications for important updates about the manage
 
 Domain Services doesn't send emails for advertisement, updates, or sales purposes.
 
-### When will I receive email notifications?
+### When do I receive email notifications?
 
-A notification is sent immediately when a [new alert][troubleshoot-alerts] is found on a managed domain. If the alert isn't resolved, additional email notifications are sent as a reminder every four days.
+A notification is sent immediately when a [new alert][troubleshoot-alerts] is found on a managed domain. If the alert isn't resolved, another email notification is sent as a reminder every four days.
 
 ### Who should receive the email notifications?
 
 The list of email recipients for Domain Services should be composed of people who are able to administer and make changes to the managed domain. This email list should be thought of as your "first responders" to any alerts and issues.
 
-You can add up to five additional emails recipients for email notifications. If you want more than five recipients for email notifications, create a distribution list and add that to the notification list instead.
+You can add up to five more recipients for email notifications. If you want more than five recipients for email notifications, create a distribution list and add that to the notification list instead.
 
 You can also choose to have all *Global Administrators* of the Microsoft Entra directory and every member of the *AAD DC Administrators* group receive email notifications. Domain Services only sends notification to up to 100 email addresses, including the list of global administrators and AAD DC Administrators.
 
 ## Configure email notifications
 
-To review the existing email notification recipients or add additional recipients, complete the following steps:
+To review the existing email notification recipients, or add recipients, complete the following steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../active-directory/roles/permissions-reference.md#authentication-policy-administrator).
 1. Search for and select **Microsoft Entra Domain Services**.
@@ -67,7 +67,7 @@ To review the existing email notification recipients or add additional recipient
 
 ### I received an email notification for an alert but when I logged on to the Microsoft Entra admin center there was no alert. What happened?
 
-If an alert is resolved, the alert is cleared from the Microsoft Entra admin center. The most likely reason is that someone else who receives email notifications resolved the alert on the managed domain, or it was autoresolved by Azure platform.
+If an alert is resolved, the alert is cleared from the Microsoft Entra admin center. The most likely reason is that someone else who receives email notifications resolved the alert on the managed domain, or it was automatically resolved by Azure platform.
 
 ### Why can I not edit the notification settings?
 
