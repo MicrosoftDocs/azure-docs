@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Domain Services (Azure AD DS) feature availability in Azure Government
-description: Learn which Azure AD DS features are available in Azure Government. 
+title: Microsoft Entra Domain Services feature availability in Azure Government
+description: Learn which Domain Services features are available in Azure Government. 
 
 ms.service: active-directory
 ms.subservice: domain-services
@@ -15,11 +15,11 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ---
 
-# Azure Active Directory Domain Services feature availability
+# Microsoft Entra Domain Services feature availability
 
 <!---Jeremy said there are additional features that don't fit nicely in this list that we need to add later--->
 
-This following table lists Azure Active Directory Domain Services (Azure AD DS) feature availability in Azure Government.
+This following table lists Microsoft Entra Domain Services feature availability in Azure Government.
 
 
 | Feature | Availability |
@@ -37,7 +37,7 @@ This following table lists Azure Active Directory Domain Services (Azure AD DS) 
 | Auditing and Azure Monitor Workbooks templates | &#x2705; | 
 | Domain join Windows VMs | &#x2705; | 
 | Domain join Linux VMs | &#x2705; | 
-| Deploy Azure AD Application Proxy | &#x2705; | 
+| Deploy Microsoft Entra application proxy | &#x2705; | 
 | Enable profile sync for SharePoint  | &#x2705; | 
 
 ## Next steps

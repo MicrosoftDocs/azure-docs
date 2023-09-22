@@ -1,21 +1,21 @@
 ---
-title: Manage logic apps in the Azure portal
-description: Edit, enable, disable, or delete logic apps by using the Azure portal.
+title: Manage logic app workflows in the Azure portal
+description: Edit, enable, disable, or delete logic app resources and their workflows using the Azure portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 04/01/2022
+ms.date: 09/20/2023
 ---
 
-# Manage logic apps in the Azure portal
+# Manage logic app workflows in the Azure portal
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-This article shows how to edit, disable, enable, or delete Consumption logic apps with the Azure portal. You can also [manage Consumption logic apps in Visual Studio](manage-logic-apps-with-visual-studio.md).
+This guide shows how to manage Consumption logic app workflows through the Azure portal and perform tasks such as edit, disable, enable, and delete workflows. You can also [manage Consumption logic apps in Visual Studio](manage-logic-apps-with-visual-studio.md).
 
-To manage Standard logic apps, review [Create a Standard workflow with single-tenant Azure Logic Apps in the Azure portal](create-single-tenant-workflows-azure-portal.md). If you're new to Azure Logic Apps, review [What is Azure Logic Apps](logic-apps-overview.md)?
+To manage Standard logic app workflows, see [Create a Standard workflow with single-tenant Azure Logic Apps in the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
 ## Prerequisites
 
