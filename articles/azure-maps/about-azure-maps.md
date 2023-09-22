@@ -63,9 +63,15 @@ For more information, see the [Geolocation service] documentation.
 
 ### Render service
 
-[Render V2 service] introduces a new version of the [Get Map Tile V2 API] that supports using Azure Maps tiles not only in the Azure Maps SDKs but other map controls as well. It includes raster and vector tile formats, 256x256 or 512x512 tile sizes (where applicable) and numerous map types such as road, weather, contour, or map tiles. For a complete list, see [TilesetID] in the REST API documentation. It's recommended that you use Render V2 service instead of Render service V1. You're required to display the appropriate copyright attribution on the map anytime you use the Azure Maps Render V2 service, either as basemaps or layers, in any third-party map control. For more information, see [How to use the Get Map Attribution API].
+> [!NOTE]
+>
+> **Azure Maps Render v1 service retirement**
+>
+> The Azure Maps [Render v1] service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use [Render v2] API by 9/17/26.
 
-:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Example of a map from the Render V2 service":::
+[Render v2] service introduces a new version of the [Get Map Tile v2 API] that supports using Azure Maps tiles not only in the Azure Maps SDKs but other map controls as well. It includes raster and vector tile formats, 256x256 or 512x512 tile sizes (where applicable) and numerous map types such as road, weather, contour, or map tiles. For a complete list, see [TilesetID] in the REST API documentation. You're required to display the appropriate copyright attribution on the map anytime you use the Azure Maps Render v2 service, either as basemaps or layers, in any third-party map control. For more information, see [How to use the Get Map Attribution API].
+
+:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Example of a map from the Render v2 service":::
 
 ### Route service
 
@@ -157,7 +163,7 @@ The Weather service offers API to retrieve weather information for a particular 
 
 Developers can use the [Get Weather along route API] to retrieve weather information along a particular route. Also, the service supports the generation of weather notifications for waypoints affected by weather hazards, such as flooding or heavy rain.
 
-The [Get Map Tile V2 API] allows you to request past, current, and future radar and satellite tiles.
+The [Get Map Tile v2 API] allows you to request past, current, and future radar and satellite tiles.
 
 ![Example of map with real-time weather radar tiles](media/about-azure-maps/intro_weather.png)
 
@@ -217,9 +223,10 @@ Stay up to date on Azure Maps:
 <!---------   REST API Links     --------------->
 [Data service]: /rest/api/maps/data-v2
 [Geolocation service]: /rest/api/maps/geolocation
-[Get Map Tile V2 API]: /rest/api/maps/render-v2/get-map-tile
+[Get Map Tile v2 API]: /rest/api/maps/render-v2/get-map-tile
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
-[Render V2 service]: /rest/api/maps/render-v2
+[Render v1]: /rest/api/maps/render
+[Render v2]: /rest/api/maps/render-v2
 [REST APIs]: /rest/api/maps/
 [Route service]: /rest/api/maps/route
 [Search service]: /rest/api/maps/search

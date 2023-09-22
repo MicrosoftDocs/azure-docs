@@ -352,6 +352,8 @@ items:
         href: continuous-integration-delivery.md
       - name: Automate with Azure Pipelines releases
         href: continuous-integration-delivery-automate-azure-pipelines.md
+      - name: Automate with GitHub Actions
+        href: continuous-integration-delivery-automate-github-actions.md
       - name: Manually promote a Resource Manager template for each environment
         href: continuous-integration-delivery-manual-promotion.md
       - name: Use custom parameters with a Resource Manager template
