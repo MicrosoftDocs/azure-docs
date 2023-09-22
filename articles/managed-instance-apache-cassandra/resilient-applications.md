@@ -54,7 +54,7 @@ Backups are automatic in Azure Managed Instance for Apache Cassandra, but you ca
    > [!IMPORTANT]
    > The intention of backups is purely to mitigate accidental data loss or data corruption. We do **not** recommend backups as a disaster recovery strategy. Backups are not geo-redundant, and even if they were, it can take a very long time to recover a database from backups. Therefore, we strongly recommend a multi-region deployments, coupled with enabling availability zones where possible, to mitigate against disaster scenarios, and to be able to recover effectively from them. This is particularly important in the rare scenarios where the failed region cannot be covered, where without multi-region replication, all data may be lost.
 
-   :::image type="content" source="./media/resilient-applications/backup.png" alt-text="Backup schedule configuration page." lightbox="./media/resilient-applications/backup.png" border="true":::
+   :::image type="content" source="./media/resilient-applications/backup.png" alt-text="Screenshot of backup schedule configuration page." lightbox="./media/resilient-applications/backup.png" border="true":::
 
 ## Next steps
 
