@@ -339,6 +339,12 @@ You can rerun only stateful workflows, not stateless workflows. To enable run hi
 
 You can rerun a previously finished workflow starting at a specific action using the same inputs and outputs from the preceding actions. The resubmitted action and all subsequent actions run as usual. When the resubmitted actions finish, a new workflow run appears in your workflow's run history.
 
+> [!NOTE]
+>
+> This capability is in preview. For legal terms that apply to Azure features that 
+> are in beta, preview, or otherwise not yet released into general availability, see 
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this capability might change before general availability (GA).
+
 The resubmit capability is available for all actions except for non-sequential and complex concurrency scenarios and per the following limitations:
 
 | Actions | Resubmit available? |
@@ -348,12 +354,6 @@ The resubmit capability is available for all actions except for non-sequential a
 | **Switch** action and all actions in the **Default** path and **Case** paths | - Yes for **Switch** action <br>- No for actions in the **Default** path and **Case** paths |
 | **Until** action and all actions inside the loop | No for all actions |
 | **Scope** | Yes, but only at the final  |
-
-> [!NOTE]
->
-> This capability is in preview. For legal terms that apply to Azure features that 
-> are in beta, preview, or otherwise not yet released into general availability, see 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this capability might change before general availability (GA).
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
@@ -378,9 +378,10 @@ The resubmit capability is available for all actions except for non-sequential a
 
    1. Above the console window, in the directory table, next to the **host.json** file, select **Edit**.
 
-   1. In the **host.json** file, immediately under `"versions"`, add the following JSON object named `"extensions"`:
+   1. In the **host.json** file, following the `"versions"` attribute, add the following JSON object named `"extensions"`:
 
       ```json
+      "version": "[1.*, 2.0.0)",
       "extensions": {
           "workflow": {
               "settings": {
@@ -390,7 +391,7 @@ The resubmit capability is available for all actions except for non-sequential a
       }
       ```
 
-   1. Remember to add a comma (**,**) immediately after `"versions"`.
+   1. Remember to add a comma (**,**) immediately following `"versions"`.
 
    1.	When you're done, on the toolbar, select **Save**.
 
