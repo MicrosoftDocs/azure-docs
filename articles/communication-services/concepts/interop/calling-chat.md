@@ -157,7 +157,7 @@ While in private preview, a Communication Services user can do various actions u
 -    Communication Services users can't send images, or files to the Teams user. But they can receive images and files from the Teams user. Links to files and images can also be shared.
 -    Communication Services users can delete the chat. This action removes the Teams user from the chat thread and hides the message history from the Teams client.
 - Known issue: Communication Services users aren't displayed correctly in the participant list. They're currently displayed as External, but their people cards show inconsistent data. In addition, their displayname might not be shown properly in the Teams client.
-- Known issue: The typing event from Teams side might contains a blank display name.
+- Known issue: The typing event from Teams side might contain a blank display name.
 - Known issue: A chat can't be escalated to a call from within the Teams app. 
 - Known issue: Editing of messages by the Teams user isn't supported. 
 
