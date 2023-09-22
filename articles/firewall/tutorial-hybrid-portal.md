@@ -58,7 +58,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 First, create the resource group to contain the resources:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the Azure portal's home page, select **Resource groups** > **Create**.
+1. On the Azure portal home page, select **Resource groups** > **Create**.
 1. For **Subscription**, select your subscription.
 1. For **Resource group**, enter **RG-fw-hybrid-test**.
 1. For **Region**, select a region. All resources that you create later must be in the same region.
@@ -70,7 +70,7 @@ Now, create the virtual network.
 > [!NOTE]
 > The size of the **AzureFirewallSubnet** subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
-1. From the Azure portal's home page, select **Create a resource**.
+1. On the Azure portal home page, select **Create a resource**.
 1. In the search box, enter **virtual network**.
 1. Select **Virtual network**, and then select **Create**.
 1. For **Resource group**, select **RG-fw-hybrid-test**.
@@ -96,7 +96,7 @@ Create a second subnet for the gateway:
 
 ## Create the spoke virtual network
 
-1. From the Azure portal's home page, select **Create a resource**.
+1. On the Azure portal home page, select **Create a resource**.
 1. In the search box, enter **virtual network**.
 1. Select **Virtual network**, and then select **Create**.
 1. For **Resource group**, select **RG-fw-hybrid-test**.
@@ -116,7 +116,7 @@ Create a second subnet for the gateway:
 
 ## Create the on-premises virtual network
 
-1. From the Azure portal's home page, select **Create a resource**.
+1. On the Azure portal home page, select **Create a resource**.
 1. In the search box, enter **virtual network**.
 1. Select **Virtual network**, and then select **Create**.
 1. For **Resource group**, select **RG-fw-hybrid-test**.
@@ -146,7 +146,7 @@ Now, create a second subnet for the gateway:
 
 Deploy the firewall into the firewall hub's virtual network:
 
-1. From the Azure portal's home page, select **Create a resource**.
+1. On the Azure portal home page, select **Create a resource**.
 1. In the search box, enter **firewall**.
 1. Select **Firewall**, and then select **Create**.
 1. On the **Create a Firewall** page, use the following table to configure the firewall:
@@ -206,7 +206,7 @@ The hub and on-premises virtual networks are connected via VPN gateways.
 
 Create the VPN gateway for the hub virtual network. Network-to-network configurations require a route-based VPN type. Creating a VPN gateway can often take 45 minutes or more, depending on the SKU that you select.
 
-1. From the Azure portal's home page, select **Create a resource**.
+1. On the Azure portal home page, select **Create a resource**.
 1. In the search box, enter **virtual network gateway**.
 1. Select **Virtual network gateway**, and then select **Create**.
 1. For **Name**, enter **GW-hub**.
@@ -224,7 +224,7 @@ Create the VPN gateway for the hub virtual network. Network-to-network configura
 
 Create the VPN gateway for the on-premises virtual network. Network-to-network configurations require a route-based VPN type. Creating a VPN gateway can often take 45 minutes or more, depending on the SKU that you select.
 
-1. From the Azure portal's home page, select **Create a resource**.
+1. On the Azure portal home page, select **Create a resource**.
 1. In the search box, enter **virtual network gateway**.
 1. Select **Virtual network gateway**, and then select **Create**.
 1. For **Name**, enter **GW-Onprem**.
@@ -306,6 +306,8 @@ Now, peer the hub and spoke virtual networks:
 
 1. Select **Add**.
 
+The following screenshot shows the settings to use when you peer hub and spoke virtual networks:
+
 :::image type="content" source="media/tutorial-hybrid-portal/firewall-peering.png" alt-text="Screenshot that shows selections for peering hub and spoke virtual networks.":::
 
 ## Create the routes
@@ -315,7 +317,9 @@ In the following steps, you create these routes:
 - A route from the hub gateway subnet to the spoke subnet through the firewall IP address
 - A default route from the spoke subnet through the firewall IP address
 
-1. From the Azure portal's home page, select **Create a resource**.
+To create the routes:
+
+1. On the Azure portal home page, select **Create a resource**.
 1. In the search box, enter **route table**.
 1. Select **Route table**, and then select **Create**.
 1. For the resource group, select **RG-fw-hybrid-test**.
@@ -343,7 +347,7 @@ Now, associate the route to the subnet:
 
 Create the default route from the spoke subnet:
 
-1. From the Azure portal's home page, select **Create a resource**.
+1. On the Azure portal home page, select **Create a resource**.
 1. In the search box, enter **route table**.
 1. Select **Route table**, and then select **Create**.
 1. For the resource group, select **RG-fw-hybrid-test**.
@@ -378,7 +382,7 @@ Create the spoke workload and on-premises virtual machines, and place them in th
 
 Create a virtual machine in the spoke virtual network that runs Internet Information Services (IIS) and has no public IP address:
 
-1. From the Azure portal's home page, select **Create a resource**.
+1. On the Azure portal home page, select **Create a resource**.
 1. Under **Popular Marketplace products**, select **Windows Server 2019 Datacenter**.
 1. Enter these values for the virtual machine:
     - **Resource group**: Select **RG-fw-hybrid-test**.
@@ -398,7 +402,7 @@ Create a virtual machine in the spoke virtual network that runs Internet Informa
 
 ### Install IIS
 
-1. From the Azure portal, open Azure Cloud Shell and make sure that it's set to **PowerShell**.
+1. On the Azure portal, open Azure Cloud Shell and make sure that it's set to **PowerShell**.
 1. Run the following command to install IIS on the virtual machine, and change the location if necessary:
 
    ```azurepowershell-interactive
@@ -417,7 +421,7 @@ Create a virtual machine in the spoke virtual network that runs Internet Informa
 
 Create a virtual machine that you use to connect via remote access to the public IP address. From there, you can connect to the spoke server through the firewall.
 
-1. From the Azure portal's home page, select **Create a resource**.
+1. On the Azure portal home page, select **Create a resource**.
 1. Under **Popular**, select **Windows Server 2019 Datacenter**.
 1. Enter these values for the virtual machine:
     - **Resource group**: Select **Existing**, and then select **RG-fw-hybrid-test**.
@@ -440,7 +444,7 @@ Create a virtual machine that you use to connect via remote access to the public
 
 1. Note the private IP address for the **VM-Spoke-01** virtual machine.
 
-1. From the Azure portal, connect to the **VM-Onprem** virtual machine.
+1. On the Azure portal, connect to the **VM-Onprem** virtual machine.
 
 1. Open a web browser on **VM-Onprem**, and browse to `http://<VM-Spoke-01 private IP>`.
 
