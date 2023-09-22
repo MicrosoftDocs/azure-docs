@@ -7,68 +7,67 @@ ms.topic: conceptual
 
 # Connect Windows Server machines to Azure through Azure Arc Setup
 
-Windows Server machines can be onboarded directly to Azure Arc through a graphical wizard included in Windows Server. Using the wizard automates the onboarding process by checking the necessary prerequisites for successful Arc onboarding and fetching and installing the latest version of the Connected Machine agent. Once the wizard process completes, you're directed to your Window Server machine in the Azure portal, successfully onboarded to Azure Arc.
+Windows Server machines can be onboarded directly to Azure Arc through a graphical wizard included in Windows Server. The wizard automates the onboarding process by checking the necessary prerequisites for successful Arc onboarding and fetching and installing the latest version of the Connected Machine agent. Once the wizard process completes, you're directed to your Window Server machine in the Azure portal, now successfully onboarded to Azure Arc.
 
-
-
-
-
-
-
-
-
-
-
-You can enable Azure Arc-enabled servers for one or more Windows machines in your environment by performing a set of steps manually. Or you can use [Windows Admin Center](/windows-server/manage/windows-admin-center/understand/what-is) to deploy the Connected Machine agent and register your on-premises servers without having to perform any steps outside of this tool.
+The Azure Arc Setup wizard is launched from a dialog window of the Server Manager when the Azure Arc Setup feature is enabled. This feature is enabled by default.
 
 ## Prerequisites
 
 * Azure Arc-enabled servers - Review the [prerequisites](prerequisites.md) and verify that your subscription, your Azure account, and resources meet the requirements.
 
-* Windows Admin Center - Review the requirements to [prepare your environment](/windows-server/manage/windows-admin-center/deploy/prepare-environment) to deploy and [configure Azure integration](/windows-server/manage/windows-admin-center/azure/azure-integration).
-
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* The target Windows servers that you want to manage must have Internet connectivity to access Azure.
+## Launch Arc Server Setup and connect to Azure Arc
 
-### Security
+1. From the Server Manager pop-up window, select **Launch Setup**.
 
-This deployment method requires that you have administrator rights on the target Windows machine or server to install and configure the agent. You also need to be a member of the [**Gateway users**](/windows-server/manage/windows-admin-center/plan/user-access-options#gateway-access-roles) role.
+    :::image type="content" source="media/onboard-windows-server/server-manager-popup.png" alt-text="Screenshot of Server Manager pop-up window showing Launch Setup link.":::
+    
+    Alternatively you can launch the Azure Arc setup wizard by running the file `AzureArcSetup.exe` on the machine you're onboarding.
 
-## Deploy
+1. The Azure Arc Setup wizard starts by explaining the benefits of onboarding your machine to Azure Arc. When you're ready to proceed, click **Next**.
 
-Perform the following steps to configure the Windows server with Azure Arc-enabled servers.
+    :::image type="content" source="media/onboard-windows-server/get-started-with-arc.png" alt-text="Screenshot of the intro page of the wizard.":::
 
-1. Sign in to Windows Admin Center.
+1. The wizard automatically checks for the prerequisites necessary to install the Azure Connected Machine agent on your Windows Server machine. Once this process completes and the agent is installed, select **Configure**.
 
-1. From the connection list on the **Overview** page, in the list of connected Windows servers, select a server from the list to connect to it.
+1. The configuration window details the steps required to configure the agent. When you're ready to begin configuration, select **Next**.
 
-1. From the left-hand pane, select **Azure hybrid services**.
+    :::image type="content" source="media/onboard-windows-server/configure-arc.png" alt-text="Screenshot of the Configure Arc window showing the configuration steps.":::
 
-1. On the **Azure hybrid services** page, select **Discover Azure services**.
+1. Sign-in to Azure by selecting the applicable Azure cloud, and then selecting **Sign in to Azure**. You'll be asked to provide your sign-in credentials.
 
-1. On the **Discover Azure services** page, under **Leverage Azure policies and solutions to manage your servers with Azure Arc**, select **Set up**.
+1. Provide the resource details of how your machine will work within Azure Arc, such as the **Subscription** and **Resource group**, and then select **Next**.
 
-1. On the **Settings\Azure Arc for servers** page, if prompted authenticate to Azure and then select **Get started**.
+    :::image type="content" source="media/onboard-windows-server/resource-details.png" alt-text="Screenshot of resource details window with fields.":::
 
-1. On the **Connect server to Azure** page, provide the following:
+1. Select an option for enabling Azure Automanage on your machine, and then click **Next**.
 
-    1. In the **Azure subscription** drop-down list, select the Azure subscription.
-    1. For **Resource group**, either select **New** to create a new resource group, or under the **Resource group** drop-down list, select an existing resource group to register and manage the machine from.
-    1. In the **Region** drop-down list, select the Azure region to store the servers metadata.
-    1. If the machine or server is communicating through a proxy server to connect to the internet, select the option **Use proxy server**. Using this configuration, the agent communicates through the proxy server using the HTTP protocol. Specify the proxy server IP address or the name, and port number that the machine will use to communicate with the proxy server.
+    Azure Automanage machine best practices help enhance reliability, security, and management for virtual machines. To learn more, see [Azure Automanage machine best practices](/azure/automanage/overview-about).
 
-1. Select **Set up** to proceed with configuring the Windows server with Azure Arc-enabled servers.
+1. Once the configuration completes and your machine is onboarded to Azure Arc, select **Finish**.
 
-The Windows server will connect to Azure, download the Connected Machine agent, install it and register with Azure Arc-enabled servers. To track the progress, select **Notifications** in the menu.
+1. Go to the Server Manager and select **Local Server** to view the status of the machine in the **Azure Arc Management** field. A successfully onboarded machine has a status of **Enabled**.
 
-To confirm installation of the Connected Machine Agent, in Windows Admin Center select [**Events**](/windows-server/manage/windows-admin-center/use/manage-servers#events) from the left-hand pane to review *MsiInstaller* events in the Application Event Log.
+    :::image type="content" source="media/onboard-windows-server/server-manager-enabled.png" alt-text="Screenshot of Server Manager local server pane showing machine status is enabled.":::
+
+
+
+
+
+
 
 ## Verify the connection with Azure Arc
 
-After you install the agent and configure it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the server has successfully connected. View your machine in the [Azure portal](https://portal.azure.com).
 
-:::image type="content" source="./learn/media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="A successful machine connection" border="false":::
+
+
+
+
+
+
+
+
 
 ## Next steps
 
