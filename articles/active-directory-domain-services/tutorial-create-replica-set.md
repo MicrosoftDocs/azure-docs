@@ -17,9 +17,9 @@ ms.author: justinha
 
 # Tutorial: Create and use replica sets for resiliency or geolocation in Microsoft Entra Domain Services
 
-To improve the resiliency of a Microsoft Entra Domain Services (Microsoft Entra DS) managed domain, or deploy to additional geographic locations close to your applications, you can use *replica sets*. Every Microsoft Entra DS managed domain namespace, such as *aaddscontoso.com*, contains one initial replica set. The ability to create additional replica sets in other Azure regions provides geographical resiliency for a managed domain.
+To improve the resiliency of a Microsoft Entra Domain Services managed domain, or deploy to additional geographic locations close to your applications, you can use *replica sets*. Every Domain Services managed domain namespace, such as *aaddscontoso.com*, contains one initial replica set. The ability to create additional replica sets in other Azure regions provides geographical resiliency for a managed domain.
 
-You can add a replica set to any peered virtual network in any Azure region that supports Microsoft Entra DS.
+You can add a replica set to any peered virtual network in any Azure region that supports Domain Services.
 
 In this tutorial, you learn how to:
 
@@ -50,13 +50,13 @@ In this tutorial, you create and manage replica sets using the Microsoft Entra a
 
 ## Networking considerations
 
-The virtual networks that host replica sets must be able to communicate with each other. Applications and services that depend on Microsoft Entra DS also need network connectivity to the virtual networks hosting the replica sets. Azure virtual network peering should be configured between all virtual networks to create a fully meshed network. These peerings enable effective intra-site replication between replica sets.
+The virtual networks that host replica sets must be able to communicate with each other. Applications and services that depend on Domain Services also need network connectivity to the virtual networks hosting the replica sets. Azure virtual network peering should be configured between all virtual networks to create a fully meshed network. These peerings enable effective intra-site replication between replica sets.
 
-Before you can use replica sets in Microsoft Entra DS, review the following Azure virtual network requirements:
+Before you can use replica sets in Domain Services, review the following Azure virtual network requirements:
 
 * Avoid overlapping IP address spaces to allow for virtual network peering and routing.
 * Create subnets with enough IP addresses to support your scenario.
-* Make sure Microsoft Entra DS has its own subnet. Don't share this virtual network subnet with application VMs and services.
+* Make sure Domain Services has its own subnet. Don't share this virtual network subnet with application VMs and services.
 * Peered virtual networks are NOT transitive.
 
 > [!TIP]
@@ -66,9 +66,9 @@ Before you can use replica sets in Microsoft Entra DS, review the following Azur
 
 ## Create a replica set
 
-When you create a managed domain, such as *aaddscontoso.com*, an initial replica set is created. Additional replica sets share the same namespace and configuration. Changes to Microsoft Entra DS, including configuration, user identity and credentials, groups, group policy objects, computer objects, and other changes are applied to all replica sets in the managed domain using AD DS replication.
+When you create a managed domain, such as *aaddscontoso.com*, an initial replica set is created. Additional replica sets share the same namespace and configuration. Changes to Domain Services, including configuration, user identity and credentials, groups, group policy objects, computer objects, and other changes are applied to all replica sets in the managed domain using AD DS replication.
 
-In this tutorial, you create an additional replica set in an Azure region different than the initial Microsoft Entra DS replica set.
+In this tutorial, you create an additional replica set in an Azure region different than the initial Domain Services replica set.
 
 To create an additional replica set, complete the following steps:
 
@@ -82,7 +82,7 @@ To create an additional replica set, complete the following steps:
 
 1. In the *Add a replica set* window, select the destination region, such as *East US*.
 
-    Select a virtual network in the destination region, such as *vnet-eastus*, then choose a subnet such as *aadds-subnet*. If needed, choose **Create new** to add a virtual network in the destination region, then **Manage** to create a subnet for Microsoft Entra DS.
+    Select a virtual network in the destination region, such as *vnet-eastus*, then choose a subnet such as *aadds-subnet*. If needed, choose **Create new** to add a virtual network in the destination region, then **Manage** to create a subnet for Domain Services.
 
     If they don't already exist, the Azure virtual network peerings are automatically created between your existing managed domain's virtual network and the destination virtual network.
 
@@ -111,7 +111,7 @@ To delete a replica set, complete the following steps:
 1. Choose your managed domain, such as *aaddscontoso.com*.
 1. On the left-hand side, select **Replica sets**. From the list of replica sets, select the **...** context menu next to the replica set you want to delete.
 1. Select **Delete** from the context menu, then confirm you want to delete the replica set.
-1. In the Microsoft Entra DS management VM, access the DNS console and manually delete DNS records for the domain controllers from the deleted replica set.
+1. In the Domain Services management VM, access the DNS console and manually delete DNS records for the domain controllers from the deleted replica set.
 
 > [!NOTE]
 > Replica set deletion may be a time-consuming operation.
@@ -127,7 +127,7 @@ In this tutorial, you learned how to:
 > * Create a replica set in a different geographic region
 > * Delete a replica set
 
-For more conceptual information, learn how replica sets work in Microsoft Entra DS.
+For more conceptual information, learn how replica sets work in Domain Services.
 
 > [!div class="nextstepaction"]
 > [Replica sets concepts and features][concepts-replica-sets]
