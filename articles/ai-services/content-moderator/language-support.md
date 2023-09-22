@@ -32,11 +32,11 @@ ms.author: pafarley
 |Assamese | |✔️ | | |
 |Azerbaijani | |✔️ | | |
 |Bangla - Bangladesh | |✔️ | | |
-|Bangla - India | |✔️ | | |
 |Balinese |✔️ | | | |
 |Basque | |✔️ | | |
 |Belarusian | |✔️ | | |
 |Bengali | ✔️| | | |
+|Bengali - India | |✔️ | | |
 |Bosnian - Cyrillic | |✔️ | | |
 |Bosnian - Latin | |✔️ | | |
 |Buginese |✔️ | | | |

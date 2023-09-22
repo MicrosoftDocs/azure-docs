@@ -80,4 +80,6 @@ To use an Enterprise CA to generate a certificate to use with Azure Firewall Pre
 
 ## Next steps
 
-[Azure Firewall Premium in the Azure portal](premium-portal.md)
+- [Azure Firewall Premium in the Azure portal](premium-portal.md)
+- [Building a POC for TLS inspection in Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/building-a-poc-for-tls-inspection-in-azure-firewall/ba-p/3676723)
+

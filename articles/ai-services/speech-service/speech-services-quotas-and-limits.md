@@ -82,7 +82,7 @@ You can use real-time text to speech with the [Speech SDK](speech-sdk.md) or the
 
 #### Batch synthesis
 
-These limits aren't adjustable.
+These limits aren't adjustable. For more information on batch synthesis latency, refer to [the batch synthesis latency and best practices](batch-synthesis.md#batch-synthesis-latency-and-best-practices).
 
 | Quota | Free (F0) | Standard (S0) |
 |--|--|--|
@@ -101,7 +101,7 @@ These limits aren't adjustable.
 | Max number of simultaneous dataset uploads | N/A | 5 |
 | Max data file size for data import per dataset | N/A | 2 GB |
 | Upload of long audios or audios without script | N/A | Yes |
-| Max number of simultaneous model trainings | N/A | 3 |
+| Max number of simultaneous model trainings | N/A | 4 |
 | Max number of custom endpoints | N/A | 50 |
 
 #### Audio Content Creation tool

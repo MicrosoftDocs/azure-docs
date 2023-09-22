@@ -1,6 +1,6 @@
 ---
-title: Group membership for Azure AD dynamic groups with memberOf
-description: How to create a dynamic membership group that can contain members of other groups in Azure Active Directory. 
+title: Group membership for Microsoft Entra dynamic groups with memberOf
+description: How to create a dynamic membership group that can contain members of other groups in Microsoft Entra ID. 
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,9 +16,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Group membership in a dynamic group (preview) in Azure Active Directory
+# Group membership in a dynamic group (preview) in Microsoft Entra ID
 
-This feature preview in Azure Active Directory (Azure AD), part of Microsoft Entra, enables admins to create dynamic groups and administrative units that populate by adding members of other groups using the memberOf attribute. Apps that couldn't read group-based membership previously in Azure AD can now read the entire membership of these new memberOf groups. Not only can these groups be used for apps, they can also be used for licensing assignments. The following diagram illustrates how you could create Dynamic-Group-A with members of Security-Group-X and Security-Group-Y. Members of the groups inside of Security-Group-X and Security-Group-Y don't become members of Dynamic-Group-A.
+This feature preview in Microsoft Entra ID, part of Microsoft Entra, enables admins to create dynamic groups and administrative units that populate by adding members of other groups using the memberOf attribute. Apps that couldn't read group-based membership previously in Microsoft Entra ID can now read the entire membership of these new memberOf groups. Not only can these groups be used for apps, they can also be used for licensing assignments. The following diagram illustrates how you could create Dynamic-Group-A with members of Security-Group-X and Security-Group-Y. Members of the groups inside of Security-Group-X and Security-Group-Y don't become members of Dynamic-Group-A.
  
 :::image type="content" source="./media/groups-dynamic-rule-member-of/member-of-diagram.png" alt-text="Diagram showing how the memberOf attribute works.":::
 
@@ -26,11 +26,11 @@ With this preview, admins can configure dynamic groups with the memberOf attribu
 
 ## Prerequisites
 
-Only administrators in the Global Administrator, Intune Administrator, or User Administrator role can use the memberOf attribute to create an Azure AD dynamic group. You must have an Azure AD Premium license for the Azure AD tenant.
+Only administrators in the Global Administrator, Intune Administrator, or User Administrator role can use the memberOf attribute to create a Microsoft Entra dynamic group. You must have a Microsoft Entra ID P1 or P2 license for the Microsoft Entra tenant.
 
 ## Preview limitations
 
-- Each Azure AD tenant is limited to 500 dynamic groups using the memberOf attribute. memberOf groups do count towards the total dynamic group member quota of 5,000.
+- Each Microsoft Entra tenant is limited to 500 dynamic groups using the memberOf attribute. memberOf groups do count towards the total dynamic group member quota of 5,000.
 - Each dynamic group can have up to 50 member groups. 
 - When adding members of security groups to memberOf dynamic groups, only direct members of the security group become members of the dynamic group.
 - You can't use one memberOf dynamic group to define the membership of another memberOf dynamic groups. For example, Dynamic Group A, with members of group B and C in it, can't be a member of Dynamic Group D).
@@ -44,8 +44,9 @@ This feature can be used in the Azure portal, Microsoft Graph, and in PowerShell
 
 ### Steps to create a memberOf dynamic group
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that has Global Administrator, Intune Administrator, or User Administrator role permissions.
-1. Select **Azure Active Directory** > **Groups**, and then select **New group**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Groups** > **All groups**.
+1. Select **New group**.
 1. Fill in group details. The group type can be Security or Microsoft 365, and the membership type can be set to **Dynamic User** or **Dynamic Device**.
 1. Select **Add dynamic query**.
 1. MemberOf isn't yet supported in the rule builder. Select **Edit** to write the rule in the **Rule syntax** box.

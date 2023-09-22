@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 11/30/2022
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
@@ -73,8 +73,7 @@ You can delete all tags by passing an empty JSON object into the setTags method.
 
 To get tags, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then use the following method: 
 
-- [BlobClient.getTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-gettags
-)
+- [BlobClient.getTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-gettags)
 
 The following example shows how to get and iterate over the blob's tags.
 

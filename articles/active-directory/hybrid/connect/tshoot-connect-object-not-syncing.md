@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot an object that is not syncing with Azure Active Directory'
-description: Troubleshoot an object that is not syncing with Azure Active Directory.
+title: Troubleshoot an object that is not syncing with Microsoft Entra ID'
+description: Troubleshoot an object that is not syncing with Microsoft Entra ID.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -11,24 +11,25 @@ ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
+ms.custom: has-azure-ad-ps-ref
 ms.topic: troubleshooting
 ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
-# Troubleshoot an object that is not synchronizing with Azure Active Directory
+# Troubleshoot an object that is not synchronizing with Microsoft Entra ID
 
-If an object is not syncing as expected with Microsoft Azure Active Directory (Azure AD), it can be because of several reasons. If you have received an error email from Azure AD or you see the error in Azure AD Connect Health, read [Troubleshooting errors during synchronization](tshoot-connect-sync-errors.md) instead. But if you are troubleshooting a problem where the object is not in Azure AD, this article is for you. It describes how to find errors in the on-premises component Azure AD Connect synchronization.
+If an object is not syncing as expected with Microsoft Entra ID, it can be because of several reasons. If you have received an error email from Microsoft Entra ID or you see the error in Microsoft Entra Connect Health, read [Troubleshooting errors during synchronization](tshoot-connect-sync-errors.md) instead. But if you are troubleshooting a problem where the object is not in Microsoft Entra ID, this article is for you. It describes how to find errors in the on-premises component Microsoft Entra Connect synchronization.
 
 >[!IMPORTANT]
->For Azure AD Connect deployment with version 1.1.749.0 or higher, use the [troubleshooting task](tshoot-connect-objectsync.md) in the wizard to troubleshoot object syncing issues. 
+>For Microsoft Entra Connect deployment with version 1.1.749.0 or higher, use the [troubleshooting task](tshoot-connect-objectsync.md) in the wizard to troubleshoot object syncing issues. 
 
 ## Synchronization process
 
-Before we investigate syncing issues, let’s understand the Azure AD Connect syncing process:
+Before we investigate syncing issues, let’s understand the Microsoft Entra Connect syncing process:
 
-  ![Diagram of Azure AD Connect sync process](./media/tshoot-connect-object-not-syncing/syncingprocess.png)
+  ![Diagram of Microsoft Entra Connect Sync process](./media/tshoot-connect-object-not-syncing/syncingprocess.png)
 
 ### **Terminology**
 
@@ -40,13 +41,13 @@ The syncing process involves following steps:
 
 1. **Import from AD:** Active Directory objects are brought into the Active Directory CS.
 
-2. **Import from Azure AD:** Azure AD objects are brought into the Azure AD CS.
+2. **Import from Microsoft Entra ID:** Microsoft Entra objects are brought into the Microsoft Entra CS.
 
 3. **Synchronization:** Inbound synchronization rules and outbound synchronization rules are run in the order of precedence number, from lower to higher. To view the synchronization rules, go to the Synchronization Rules Editor from the desktop applications. The inbound synchronization rules bring in data from CS to MV. The outbound synchronization rules move data from MV to CS.
 
 4. **Export to AD:** After syncing, objects are exported from the Active Directory CS to Active Directory.
 
-5. **Export to Azure AD:** After syncing, objects are exported from the Azure AD CS to Azure AD.
+5. **Export to Microsoft Entra ID:** After syncing, objects are exported from the Microsoft Entra CS to Microsoft Entra ID.
 
 ## Troubleshooting
 
@@ -94,7 +95,7 @@ The line after the heading shows the error. In the preceding figure, the error i
 If the error does not give enough information, it's time to look at the data itself. Select the link with the object identifier and continue troubleshooting the [connector space imported object](#cs-import).
 
 ## Connector space object properties
-If the [**Operations**](#operations) tab shows no errors, follow the connector space object from Active Directory to the metaverse to Azure AD. In this path, you should find where the problem is.
+If the [**Operations**](#operations) tab shows no errors, follow the connector space object from Active Directory to the metaverse to Microsoft Entra ID. In this path, you should find where the problem is.
 
 ### Searching for an object in the CS
 
@@ -104,9 +105,9 @@ In the **Scope** box, select **RDN** when you want to search on the CN attribute
  
 ![Screenshot of a connector space search](./media/tshoot-connect-object-not-syncing/cssearch.png)  
 
-If you don't find the object you're looking for, it might have been filtered with [domain-based filtering](how-to-connect-sync-configure-filtering.md#domain-based-filtering) or [OU-based filtering](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering). To verify that the filtering is configured as expected, read [Azure AD Connect sync: Configure filtering](how-to-connect-sync-configure-filtering.md).
+If you don't find the object you're looking for, it might have been filtered with [domain-based filtering](how-to-connect-sync-configure-filtering.md#domain-based-filtering) or [OU-based filtering](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering). To verify that the filtering is configured as expected, read [Microsoft Entra Connect Sync: Configure filtering](how-to-connect-sync-configure-filtering.md).
 
-You can perform another useful search by selecting the Azure AD Connector. In the **Scope** box, select **Pending Import**, and then select the **Add** check box. This search gives you all synced objects in Azure AD that cannot be associated with an on-premises object.  
+You can perform another useful search by selecting the Microsoft Entra Connector. In the **Scope** box, select **Pending Import**, and then select the **Add** check box. This search gives you all synced objects in Microsoft Entra ID that cannot be associated with an on-premises object.  
 
 ![Screenshot of orphans in a connector space search](./media/tshoot-connect-object-not-syncing/cssearchorphan.png) 
  
@@ -132,7 +133,7 @@ In the preceding figure, the **Action** column shows an inbound synchronization 
 
 ![Screenshot of a lineage window on the Lineage tab in the Connector Space Object Properties window](./media/tshoot-connect-object-not-syncing/cslineageout.png)  
 
-In the preceding figure, you can also see in the **PasswordSync** column that the inbound connector space can contribute changes to the password since one synchronization rule has the value **True**. This password is sent to Azure AD through the outbound rule.
+In the preceding figure, you can also see in the **PasswordSync** column that the inbound connector space can contribute changes to the password since one synchronization rule has the value **True**. This password is sent to Microsoft Entra ID through the outbound rule.
 
 From the **Lineage** tab, you can get to the metaverse by selecting [**Metaverse Object Properties**](#mv-attributes).
 
@@ -146,7 +147,7 @@ In the preview you can inspect the object and see which rule applied for a parti
 ![Screenshot of the Preview page, showing Import Attribute Flow](./media/tshoot-connect-object-not-syncing/previewresult.png)
 
 ### Log
-Next to the **Preview** button, select the **Log** button to open the **Log** page. Here you can see the password sync status and history. For more information, see [Troubleshoot password hash synchronization with Azure AD Connect sync](tshoot-connect-password-hash-synchronization.md).
+Next to the **Preview** button, select the **Log** button to open the **Log** page. Here you can see the password sync status and history. For more information, see [Troubleshoot password hash synchronization with Microsoft Entra Connect Sync](tshoot-connect-password-hash-synchronization.md).
 
 ## Metaverse object properties
 It's usually better to start searching from the source Active Directory connector space. But you can also start searching from the metaverse.
@@ -171,8 +172,10 @@ View each rule in the list from above and check the **Scoping filter**. In the f
 
 Go to the [CS Import](#cs-import) attribute list and check which filter is blocking the object from moving to the MV. The **Connector Space** attribute list will show only non-null and non-empty attributes. For example, if **isCriticalSystemObject** doesn't show up in the list, the value of this attribute is null or empty.
 
-### Object not found in the Azure AD CS
-If the object is not present in the connector space of Azure AD but is present in the MV, look at the scoping filter of the outbound rules of the corresponding connector space, and find out if the object is filtered out because the [MV attributes](#mv-attributes) don't meet the criteria.
+<a name='object-not-found-in-the-azure-ad-cs'></a>
+
+### Object not found in the Microsoft Entra CS
+If the object is not present in the connector space of Microsoft Entra ID but is present in the MV, look at the scoping filter of the outbound rules of the corresponding connector space, and find out if the object is filtered out because the [MV attributes](#mv-attributes) don't meet the criteria.
 
 To look at the outbound scoping filter, select the applicable rules for the object by adjusting the filter below. View each rule and look at the corresponding [MV attribute](#mv-attributes) value.
 
@@ -196,12 +199,12 @@ The **Connectors** tab shows all connector spaces that have a representation of 
 You should have a connector to:
 
 - Each Active Directory forest the user is represented in. This representation can include **foreignSecurityPrincipals** and **Contact** objects.
-- A connector in Azure AD.
+- A connector in Microsoft Entra ID.
 
-If you're missing the connector to Azure AD, review the section on [MV attributes](#mv-attributes) to verify the criteria for provisioning to Azure AD.
+If you're missing the connector to Microsoft Entra ID, review the section on [MV attributes](#mv-attributes) to verify the criteria for provisioning to Microsoft Entra ID.
 
 From the **Connectors** tab you can also go to the [connector space object](#connector-space-object-properties). Select a row and click **Properties**.
 
 ## Next steps
-- Learn more about [Azure AD Connect sync](how-to-connect-sync-whatis.md).
+- Learn more about [Microsoft Entra Connect Sync](how-to-connect-sync-whatis.md).
 - Learn more about [hybrid identity](../whatis-hybrid-identity.md).

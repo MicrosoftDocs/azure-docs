@@ -36,9 +36,9 @@ Azure payment HSM meets following compliance standards:
 To download latest certification and attestation reports, please go to [Service Trust Portal Home Page (microsoft.com)](https://servicetrust.microsoft.com/ViewPage/HomePageVNext)
 
 For example, the latest PCI certification reports and shared responsibility matrices are:
-- [Azure PCI PIN V3.1](https://servicetrust.microsoft.com/DocumentPage/52eb9daa-f254-4914-aec6-46d40287a106) (2022-09-16)
-- [Azure PCI DSS V4.0](https://servicetrust.microsoft.com/DocumentPage/3be58cb9-de55-426b-9c3d-0ba90dd29572) (2023-03-07)
-- [Azure PCI 3DS V1.0](https://servicetrust.microsoft.com/DocumentPage/a9fe4984-3c73-4abf-bf88-a197c3821690) (2023-03-07)
+- [Azure - PCI PIN 3.1 Package (September 2023)](https://servicetrust.microsoft.com/DocumentPage/8265dc10-540f-4178-b167-b333775ddc6b) (2023-09-14)
+- [Azure - PCI DSS v4.0 Package (2023)](https://servicetrust.microsoft.com/DocumentPage/3be58cb9-de55-426b-9c3d-0ba90dd29572) (2023-03-07)
+- [Azure - PCI 3DS v1.0 Package (2023)](https://servicetrust.microsoft.com/DocumentPage/a9fe4984-3c73-4abf-bf88-a197c3821690) (2023-03-07)
 
 Thales payShield 10K HSMs are certified to FIPS 140-2 Level 3 and PCI HSM v3.
 

@@ -1,6 +1,6 @@
 ---
-title: Authenticate users in an Azure AD for customers tenant using a sample Node.js CLI application. 
-description: Learn how to authenticate users in an Azure Active Directory (Azure AD) for customers tenant using a sample Node.js CLI application
+title: Authenticate users in a Microsoft Entra ID for customers tenant using a sample Node.js CLI application. 
+description: Learn how to authenticate users in a Microsoft Entra ID for customers tenant using a sample Node.js CLI application
 services: active-directory
 author: Dickson-Mwendia
 manager: mwongerapk
@@ -11,14 +11,13 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: sample
 ms.date: 08/04/2023
-ms.custom: developer
-
-#Customer intent: As a dev, devops, I want to learn how to authenticate users in an Azure Active Directory (Azure AD) for customers tenant using a sample Node.js CLI application
+ms.custom: developer, devx-track-js
+#Customer intent: As a dev, devops, I want to learn how to authenticate users in a Microsoft Entra ID for customers tenant using a sample Node.js CLI application
 ---
 
 # Sign in users in a sample Node.js CLI application. 
 
-This guide uses a sample Node Command Line Interface (CLI) application to sign in users in an Azure Active Directory (Azure AD) for customers tenant. The sample application uses the [Microsoft Authentication Library for Node](/javascript/api/%40azure/msal-node) (MSAL Node) to handle authentication.
+This guide uses a sample Node Command Line Interface (CLI) application to sign in users in a Microsoft Entra ID for customers tenant. The sample application uses the [Microsoft Authentication Library for Node](/javascript/api/%40azure/msal-node) (MSAL Node) to handle authentication.
 
 In this article, you complete the following tasks:
 
@@ -26,7 +25,7 @@ In this article, you complete the following tasks:
 
 - Create a sign-up and sign-in user flow in the Microsoft Entra admin center, and then associate the CLI application with it.
 
-- Update the sample CLI application to use your Azure AD for customers tenant details.
+- Update the sample CLI application to use your External ID for customers tenant details.
 
 - Run and test the sample CLI application. 
 
@@ -37,7 +36,7 @@ In this article, you complete the following tasks:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- An Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
+- A Microsoft Entra ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
 ## Register the Node.js CLI app
 

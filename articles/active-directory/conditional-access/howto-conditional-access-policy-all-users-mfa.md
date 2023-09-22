@@ -40,8 +40,8 @@ Organizations that use [Subscription Activation](/windows/deployment/windows-10-
 
 The following steps help create a Conditional Access policy to require all users do multifactor authentication.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
@@ -57,7 +57,7 @@ After administrators confirm the settings using [report-only mode](howto-conditi
 
 ### Named locations
 
-Organizations may choose to incorporate known network locations known as **Named locations** to their Conditional Access policies. These named locations may include trusted IPv4 networks like those for a main office location. For more information about configuring named locations, see the article [What is the location condition in Azure Active Directory Conditional Access?](location-condition.md)
+Organizations may choose to incorporate known network locations known as **Named locations** to their Conditional Access policies. These named locations may include trusted IPv4 networks like those for a main office location. For more information about configuring named locations, see the article [What is the location condition in Microsoft Entra Conditional Access?](location-condition.md)
 
 In the previous example policy, an organization may choose to not require multifactor authentication if accessing a cloud app from their corporate network. In this case they could add the following configuration to the policy:
 

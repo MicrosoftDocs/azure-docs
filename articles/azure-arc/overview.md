@@ -64,7 +64,6 @@ The following Azure Arc control plane functionality is offered at no extra cost:
 * Searching and indexing through Azure Resource Graph
 * Access and security through Azure Role-based access control (RBAC)
 * Environments and automation through templates and extensions
-* Update management
 
 Any Azure service that is used on Azure Arc-enabled servers, such as Microsoft Defender for Cloud or Azure Monitor, will be charged as per the pricing for that service. For more information, see the [Azure pricing page](https://azure.microsoft.com/pricing/).
 

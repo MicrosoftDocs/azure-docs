@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Snowflake for automatic user provisioning with Azure Active Directory'
-description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Snowflake.
+title: 'Tutorial: Configure Snowflake for automatic user provisioning with Microsoft Entra ID'
+description: Learn how to configure Microsoft Entra ID to automatically provision and deprovision user accounts to Snowflake.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -15,7 +15,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure Snowflake for automatic user provisioning
 
-This tutorial demonstrates the steps that you perform in Snowflake and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and deprovision users and groups to [Snowflake](https://www.Snowflake.com/pricing/). For important details on what this service does, how it works, and frequently asked questions, see [What is automated SaaS app user provisioning in Azure AD?](../app-provisioning/user-provisioning.md). 
+This tutorial demonstrates the steps that you perform in Snowflake and Microsoft Entra ID to configure Microsoft Entra ID to automatically provision and deprovision users and groups to [Snowflake](https://www.Snowflake.com/pricing/). For important details on what this service does, how it works, and frequently asked questions, see [What is automated SaaS app user provisioning in Microsoft Entra ID?](../app-provisioning/user-provisioning.md). 
 
 ## Capabilities supported
 
@@ -23,7 +23,7 @@ This tutorial demonstrates the steps that you perform in Snowflake and Azure Act
 >
 > * Create users in Snowflake
 > * Remove users in Snowflake when they don't require access anymore
-> * Keep user attributes synchronized between Azure AD and Snowflake
+> * Keep user attributes synchronized between Microsoft Entra ID and Snowflake
 > * Provision groups and group memberships in Snowflake
 > * Allow [single sign-on](./snowflake-tutorial.md) to Snowflake (recommended)
 
@@ -31,8 +31,8 @@ This tutorial demonstrates the steps that you perform in Snowflake and Azure Act
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md)
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (Application Administrator, Cloud Application Administrator, Application Owner, or Global Administrator)
+* [A Microsoft Entra tenant](../develop/quickstart-create-new-tenant.md)
+* A user account in Microsoft Entra ID with [permission](../roles/permissions-reference.md) to configure provisioning (Application Administrator, Cloud Application Administrator, Application Owner, or Global Administrator)
 * [A Snowflake tenant](https://www.Snowflake.com/pricing/)
 * At least one user in Snowflake with the **ACCOUNTADMIN** role.
 
@@ -40,11 +40,13 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-1. Determine what data to [map between Azure AD and Snowflake](../app-provisioning/customize-application-attributes.md). 
+1. Determine what data to [map between Microsoft Entra ID and Snowflake](../app-provisioning/customize-application-attributes.md). 
 
-## Step 2: Configure Snowflake to support provisioning with Azure AD
+<a name='step-2-configure-snowflake-to-support-provisioning-with-azure-ad'></a>
 
-Before you configure Snowflake for automatic user provisioning with Azure AD, you need to enable System for Cross-domain Identity Management (SCIM) provisioning on Snowflake.
+## Step 2: Configure Snowflake to support provisioning with Microsoft Entra ID
+
+Before you configure Snowflake for automatic user provisioning with Microsoft Entra ID, you need to enable System for Cross-domain Identity Management (SCIM) provisioning on Snowflake.
 
 1. Sign in to Snowflake as an administrator and execute the following from either the Snowflake worksheet interface or SnowSQL.
 
@@ -66,7 +68,7 @@ Before you configure Snowflake for automatic user provisioning with Azure AD, yo
 
     ![Screenshot of a worksheet in the Snowflake UI with the SCIM access token called out.](media/Snowflake-provisioning-tutorial/step-2.png)
 
-1. Create the custom role AAD_PROVISIONER. All users and roles in Snowflake created by Azure AD will be owned by the scoped down AAD_PROVISIONER role.
+1. Create the custom role AAD_PROVISIONER. All users and roles in Snowflake created by Microsoft Entra ID will be owned by the scoped down AAD_PROVISIONER role.
 
     ![Screenshot showing the custom role.](media/Snowflake-provisioning-tutorial/step-3.png)
 
@@ -78,13 +80,15 @@ Before you configure Snowflake for automatic user provisioning with Azure AD, yo
 
     ![Screenshot showing the token generation.](media/Snowflake-provisioning-tutorial/step-5.png)
 
-## Step 3: Add Snowflake from the Azure AD application gallery
+<a name='step-3-add-snowflake-from-the-azure-ad-application-gallery'></a>
 
-Add Snowflake from the Azure AD application gallery to start managing provisioning to Snowflake. If you previously set up Snowflake for single sign-on (SSO), you can use the same application. However, we recommend that you create a separate app when you're initially testing the integration. [Learn more about adding an application from the gallery](../manage-apps/add-application-portal.md).
+## Step 3: Add Snowflake from the Microsoft Entra application gallery
+
+Add Snowflake from the Microsoft Entra application gallery to start managing provisioning to Snowflake. If you previously set up Snowflake for single sign-on (SSO), you can use the same application. However, we recommend that you create a separate app when you're initially testing the integration. [Learn more about adding an application from the gallery](../manage-apps/add-application-portal.md).
 
 ## Step 4: Define who will be in scope for provisioning
 
-The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application, or based on attributes of the user or group. If you choose to scope who will be provisioned to your app based on assignment, you can use the [steps to assign users and groups to the application](../manage-apps/assign-user-or-group-access-portal.md). If you choose to scope who will be provisioned based solely on attributes of the user or group, you can [use a scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+The Microsoft Entra provisioning service allows you to scope who will be provisioned based on assignment to the application, or based on attributes of the user or group. If you choose to scope who will be provisioned to your app based on assignment, you can use the [steps to assign users and groups to the application](../manage-apps/assign-user-or-group-access-portal.md). If you choose to scope who will be provisioned based solely on attributes of the user or group, you can [use a scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 Keep these tips in mind:
 
@@ -94,11 +98,12 @@ Keep these tips in mind:
 
 ## Step 5: Configure automatic user provisioning to Snowflake
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and groups in Snowflake. You can base the configuration on user and group assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users and groups in Snowflake. You can base the configuration on user and group assignments in Microsoft Entra ID.
 
-To configure automatic user provisioning for Snowflake in Azure AD:
+To configure automatic user provisioning for Snowflake in Microsoft Entra ID:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise applications** > **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
     ![Screenshot that shows the Enterprise applications pane.](common/enterprise-applications.png)
 
@@ -118,7 +123,7 @@ To configure automatic user provisioning for Snowflake in Azure AD:
     >[!NOTE]
     >The Snowflake SCIM endpoint consists of the Snowflake account URL appended with `/scim/v2/`. For example, if your Snowflake account name is `acme` and your Snowflake account is in the `east-us-2` Azure region, the **Tenant URL** value is `https://acme.east-us-2.azure.snowflakecomputing.com/scim/v2`.
 
-   Select **Test Connection** to ensure that Azure AD can connect to Snowflake. If the connection fails, ensure that your Snowflake account has admin permissions and try again.
+   Select **Test Connection** to ensure that Microsoft Entra ID can connect to Snowflake. If the connection fails, ensure that your Snowflake account has admin permissions and try again.
 
     ![Screenshot that shows boxes for tenant URL and secret token, along with the Test Connection button.](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -128,9 +133,9 @@ To configure automatic user provisioning for Snowflake in Azure AD:
 
 1. Select **Save**.
 
-1. In the **Mappings** section, select **Synchronize Azure Active Directory Users to Snowflake**.
+1. In the **Mappings** section, select **Synchronize Microsoft Entra users to Snowflake**.
 
-1. Review the user attributes that are synchronized from Azure AD to Snowflake in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Snowflake for update operations. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Microsoft Entra ID to Snowflake in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Snowflake for update operations. Select the **Save** button to commit any changes.
 
    |Attribute|Type|
    |---|---|
@@ -149,11 +154,11 @@ To configure automatic user provisioning for Snowflake in Azure AD:
     >* DEFAULT_SECONDARY_ROLES
     >* SNOWFLAKE NAME AND LOGIN_NAME FIELDS TO BE DIFFERENT
 
-    > How to set up Snowflake custom extension attributes in Azure AD SCIM user provisioning is explained [here](https://community.snowflake.com/s/article/HowTo-How-to-Set-up-Snowflake-Custom-Attributes-in-Azure-AD-SCIM-for-Default-Roles-and-Default-Warehouses).
+    > How to set up Snowflake custom extension attributes in Microsoft Entra SCIM user provisioning is explained [here](https://community.snowflake.com/s/article/HowTo-How-to-Set-up-Snowflake-Custom-Attributes-in-Azure-AD-SCIM-for-Default-Roles-and-Default-Warehouses).
 
-1. In the **Mappings** section, select **Synchronize Azure Active Directory Groups to Snowflake**.
+1. In the **Mappings** section, select **Synchronize Microsoft Entra groups to Snowflake**.
 
-1. Review the group attributes that are synchronized from Azure AD to Snowflake in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Snowflake for update operations. Select the **Save** button to commit any changes.
+1. Review the group attributes that are synchronized from Microsoft Entra ID to Snowflake in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Snowflake for update operations. Select the **Save** button to commit any changes.
 
     |Attribute|Type|
     |---|---|
@@ -162,7 +167,7 @@ To configure automatic user provisioning for Snowflake in Azure AD:
 
 1. To configure scoping filters, see the instructions in the      [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. To enable the Azure AD provisioning service for Snowflake, change **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Microsoft Entra provisioning service for Snowflake, change **Provisioning Status** to **On** in the **Settings** section.
 
     ![Screenshot that shows Provisioning Status switched on.](common/provisioning-toggle-on.png)
 
@@ -176,7 +181,7 @@ To configure automatic user provisioning for Snowflake in Azure AD:
 
     ![Screenshot of the button for saving a provisioning configuration.](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs. Subsequent syncs occur about every 40 minutes, as long as the Azure AD provisioning service is running.
+This operation starts the initial synchronization of all users and groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs. Subsequent syncs occur about every 40 minutes, as long as the Microsoft Entra provisioning service is running.
 
 ## Step 6: Monitor your deployment
 
@@ -192,7 +197,7 @@ Snowflake-generated SCIM tokens expire in 6 months. Be aware that you need to re
 
 ## Troubleshooting tips
 
-The Azure AD provisioning service currently operates under particular [IP ranges](../app-provisioning/use-scim-to-provision-users-and-groups.md#ip-ranges). If necessary, you can restrict other IP ranges and add these particular IP ranges to the allowlist of your application. That technique will allow traffic flow from the Azure AD provisioning service to your application.
+The Microsoft Entra provisioning service currently operates under particular [IP ranges](../app-provisioning/use-scim-to-provision-users-and-groups.md#ip-ranges). If necessary, you can restrict other IP ranges and add these particular IP ranges to the allowlist of your application. That technique will allow traffic flow from the Microsoft Entra provisioning service to your application.
 
 ## Change log
 
@@ -202,7 +207,7 @@ The Azure AD provisioning service currently operates under particular [IP ranges
 ## Additional resources
 
 * [Managing user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What are application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What are application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

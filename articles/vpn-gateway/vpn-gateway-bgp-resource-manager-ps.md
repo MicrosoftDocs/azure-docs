@@ -162,7 +162,7 @@ To establish a cross-premises connection, you need to create a *local network ga
 
 Before proceeding, make sure you enabled BGP for the VPN gateway in the previous section.
 
-### Step 1 - Create and configure the local network gateway
+### Step 1: Create and configure the local network gateway
 
 #### 1. Declare your variables
 
@@ -198,7 +198,7 @@ Create the local network gateway. Notice the two additional parameters for the l
 New-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
 ```
 
-### Step 2 - Connect the VNet gateway and local network gateway
+### Step 2: Connect the VNet gateway and local network gateway
 
 #### 1. Get the two gateways
 
@@ -250,7 +250,7 @@ This section adds a VNet-to-VNet connection with BGP, as shown in the Diagram 4.
 
 The following instructions continue from the previous steps. You must first complete the steps in the [Enable BGP for the VPN gateway](#enablebgp) section to create and configure TestVNet1 and the VPN gateway with BGP.
 
-### Step 1 - Create TestVNet2 and the VPN gateway
+### Step 1: Create TestVNet2 and the VPN gateway
 
 It's important to make sure that the IP address space of the new virtual network, TestVNet2, doesn't overlap with any of your VNet ranges.
 
@@ -313,7 +313,7 @@ Create the VPN gateway with the AS number. You must override the default ASN on 
 New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gwipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet2ASN
 ```
 
-### Step 2 - Connect the TestVNet1 and TestVNet2 gateways
+### Step 2: Connect the TestVNet1 and TestVNet2 gateways
 
 In this example, both gateways are in the same subscription. You can complete this step in the same PowerShell session.
 

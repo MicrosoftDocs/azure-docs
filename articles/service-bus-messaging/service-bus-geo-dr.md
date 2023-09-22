@@ -189,7 +189,7 @@ If you try to create a pairing between a primary namespace with a private endpoi
 > [!NOTE]
 > When you try to pair the primary namespace with a private endpoint and the secondary namespace, the validation process only checks whether a private endpoint exists on the secondary namespace. It doesn't check whether the endpoint works or will work after failover. It's your responsibility to ensure that the secondary namespace with private endpoint will work as expected after failover.
 >
-> To test that the private endpoint configurations are same, send a [Get queues](/rest/api/servicebus/stable/queues/get) request to the secondary namespace from outside the virtual network, and verify that you receive an error message from the service.
+> To test that the private endpoint configurations are same, send a [Get queues](/rest/api/servicebus/controlplane-stable/queues/get) request to the secondary namespace from outside the virtual network, and verify that you receive an error message from the service.
 
 ### Existing pairings
 If pairing between primary and secondary namespace already exists, private endpoint creation on the primary namespace will fail. To resolve, create a private endpoint on the secondary namespace first and then create one for the primary namespace.
@@ -223,7 +223,7 @@ Azure Active Directory (Azure AD) role-based access control (RBAC) assignments t
 
 ## Next steps
 
-- See the Geo-disaster recovery [REST API reference here](/rest/api/servicebus/stable/disasterrecoveryconfigs).
+- See the Geo-disaster recovery [REST API reference here](/rest/api/servicebus/controlplane-stable/disaster-recovery-configs).
 - Run the Geo-disaster recovery [sample on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).
 - See the Geo-disaster recovery [sample that sends messages to an alias](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1).
 

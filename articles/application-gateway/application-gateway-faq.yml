@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: application-gateway
   ms.topic: faq
-  ms.date: 07/03/2023
+  ms.date: 08/22/2023
   ms.author: greglin
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
@@ -189,7 +189,11 @@ sections:
       - question: Can Application Gateway communicate with instances outside of its virtual network or outside of its subscription?
         answer: |
           As long as you have IP connectivity, Application Gateway can communicate with instances outside of the virtual network that it's in. Application Gateway can also communicate with instances outside of the subscription it's in. If you plan to use internal IPs as backend pool members, use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) or [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-       
+
+      - question: How is the IP address for FQDN-based backend server updated?
+        answer: |
+          Like any DNS resolver, the Application Gateway resource honors the TTL (Time to live) value of the backend server's DNS record. After the TTL expires, the gateway performs a lookup to update that DNS information. During this lookup, if your application gateway encounters a problem getting a response (or no DNS record is found), the gateway continues using the last-known-good DNS value to serve the traffic. [Know more](how-application-gateway-works.md#backend-server-dns-resolution).
+     
       - question: Why am I seeing 502 errors or unhealthy backend servers after I changed the DNS servers for the virtual network?
         answer: The instances of your application gateway use the virtual network's DNS configuration for name resolution. After changing any DNS server configuration, you need to restart (Stop and Start) the application gateway for the new DNS servers to get assigned. Until then, FQDN-based name resolutions for outbound connectivity could fail.
        

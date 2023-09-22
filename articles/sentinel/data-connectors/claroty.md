@@ -10,7 +10,7 @@ ms.author: cwatson
 
 # Claroty connector for Microsoft Sentinel
 
-The [Claroty](https://claroty.com/) data connector provides the capability to ingest [Continuous Threat Detection](https://claroty.com/continuous-threat-detection/) and [Secure Remote Access](https://claroty.com/secure-remote-access/) events into Microsoft Sentinel.
+The [Claroty](https://claroty.com/) data connector provides the capability to ingest [Continuous Threat Detection](https://claroty.com/resources/datasheets/continuous-threat-detection) and [Secure Remote Access](https://claroty.com/secure-remote-access/) events into Microsoft Sentinel.
 
 ## Connector attributes
 

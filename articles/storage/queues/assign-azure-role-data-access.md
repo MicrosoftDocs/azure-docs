@@ -3,14 +3,13 @@ title: Assign an Azure role for access to queue data
 titleSuffix: Azure Storage
 description: Learn how to assign permissions for queue data to an Azure Active Directory security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication and authorization via Azure AD.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-queue-storage
 ms.topic: how-to
 ms.date: 07/13/2021
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: dineshm
-ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---

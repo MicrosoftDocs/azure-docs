@@ -4,7 +4,7 @@ description: Learn how to track custom operations with the Application Insights 
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
-ms.date: 11/26/2019
+ms.date: 08/11/2023
 ms.reviewer: mmcc
 ---
 
@@ -80,6 +80,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
         catch (Exception e)
         {
             requestTelemetry.Success = false;
+            requestTelemetry.ResponseCode;
             telemetryClient.TrackException(e);
             throw;
         }

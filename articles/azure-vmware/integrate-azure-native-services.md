@@ -40,7 +40,7 @@ The diagram shows the integrated monitoring architecture for Azure VMware Soluti
 :::image type="content" source="media/concepts/integrated-azure-monitoring-architecture.png" alt-text="Diagram showing the integrated Azure monitoring architecture."lightbox="media/concepts/integrated-azure-monitoring-architecture.png" border="false":::
 
 >[!NOTE]
-> If you're new to Azure or not familiar with the services previously mentioned, see [Enable Azure Monitor for VMs overview](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-enable-overview) for guidance.
+> If you're new to Azure or not familiar with the services previously mentioned, see [Enable Azure Monitor for VMs overview](/azure/azure-monitor/vm/vminsights-enable-overview) for guidance.
 
 ## Enable guest management and install extension
 The guest management must be enabled on the VMware vSphere virtual machine (VM) before you can install an extension. Use the following prerequisite steps to enable guest management.

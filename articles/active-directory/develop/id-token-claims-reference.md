@@ -35,7 +35,7 @@ The following table shows header claims present in ID tokens.
 
 ## Payload claims
 
-The following table shows the claims that are in most ID tokens by default (except where noted).  However, your app can use [optional claims](active-directory-optional-claims.md) to request more claims in the ID token. Optional claims can range from the `groups` claim to information about the user's name.
+The following table shows the claims that are in most ID tokens by default (except where noted).  However, your app can use [optional claims](./optional-claims.md) to request more claims in the ID token. Optional claims can range from the `groups` claim to information about the user's name.
 
 | Claim | Format | Description |
 |-------|--------|-------------|
@@ -49,7 +49,7 @@ The following table shows the claims that are in most ID tokens by default (exce
 | `at_hash` | String | The access token hash is included in ID tokens only when the ID token is issued from the `/authorize` endpoint with an OAuth 2.0 access token. It can be used to validate the authenticity of an access token. To understand how to do this validation, see the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken). This claim isn't returned on ID tokens from the `/token` endpoint. |
 | `aio` | Opaque String | An internal claim that's used to record data for token reuse. Should be ignored. |
 | `preferred_username` | String | The primary username that represents the user. It could be an email address, phone number, or a generic username without a specified format. Its value is mutable and might change over time. Since it's mutable, this value can't be used to make authorization decisions. It can be used for username hints and in human-readable UI as a username. The `profile` scope is required to receive this claim. Present only in v2.0 tokens. |
-| `email` | String | Present by default for guest accounts that have an email address. Your app can request the email claim for managed users (from the same tenant as the resource) using the `email` [optional claim](active-directory-optional-claims.md). This value isn't guaranteed to be correct and is mutable over time. Never use it for authorization or to save data for a user. If you require an addressable email address in your app, request this data from the user directly by using this claim as a suggestion or prefill in your UX. On the v2.0 endpoint, your app can also request the `email` OpenID Connect scope - you don't need to request both the optional claim and the scope to get the claim. |
+| `email` | String | Present by default for guest accounts that have an email address. Your app can request the email claim for managed users (from the same tenant as the resource) using the `email` [optional claim](./optional-claims.md). This value isn't guaranteed to be correct and is mutable over time. Never use it for authorization or to save data for a user. If you require an addressable email address in your app, request this data from the user directly by using this claim as a suggestion or prefill in your UX. On the v2.0 endpoint, your app can also request the `email` OpenID Connect scope - you don't need to request both the optional claim and the scope to get the claim. |
 | `name` | String | The `name` claim provides a human-readable value that identifies the subject of the token. The value isn't guaranteed to be unique, it can be changed, and should be used only for display purposes. The `profile` scope is required to receive this claim. |
 | `nonce` | String | The nonce matches the parameter included in the original authorize request to the IDP. If it doesn't match, your application should reject the token. |
 | `oid` | String, a GUID | The immutable identifier for an object, in this case, a user account. This ID uniquely identifies the user across applications - two different applications signing in the same user receives the same value in the `oid` claim. Microsoft Graph returns this ID as the `id` property for a user account. Because the `oid` allows multiple apps to correlate users, the `profile` scope is required to receive this claim. If a single user exists in multiple tenants, the user contains a different object ID in each tenant - they're considered different accounts, even though the user logs into each account with the same credentials. The `oid` claim is a GUID and can't be reused. |
@@ -97,4 +97,4 @@ To ensure that the token size doesn't exceed HTTP header size limits, the number
 
 ## Next steps
 
-- Learn more about the [ID tokens used in Azure AD](id-tokens.md).
+- Learn more about the [ID tokens used in Microsoft Entra ID](id-tokens.md).

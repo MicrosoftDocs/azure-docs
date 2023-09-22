@@ -1,5 +1,5 @@
 ---
-title: Create and use managed identities with Document Intelligence
+title: Create and use managed identities with Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Understand how to create and  use managed identity with Document Intelligence
 author: laujan

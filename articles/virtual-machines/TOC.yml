@@ -135,6 +135,8 @@
   items:
   - name: Red Hat
     href: ./workloads/redhat/overview.md
+  - name: Ubuntu
+    href: ./workloads/canonical/ubuntu-pro-in-place-upgrade.md
   - name: OpenShift
     items:
     - name: OpenShift Container Platform 4.x
@@ -191,6 +193,8 @@
         href: av2-series.md
       - name: B-series burstable
         items:
+        - name: B-series CPU Credit Model
+          href: ./b-series-cpu-credit-model/b-series-cpu-credit-model.md
         - name: B-series V1
           href: sizes-b-series-burstable.md
         - name: Bsv2-series 
@@ -278,6 +282,8 @@
         href: msv2-mdsv2-series.md
       - name: Mv2-series
         href: mv2-series.md
+      - name: Msv3 and Mdsv3 Medium Memory Series
+        href: msv3-mdsv3-medium-series.md
       - name: Constrained vCPUs
         href: constrained-vcpu.md
     - name: Storage optimized
@@ -709,7 +715,7 @@
         href: ./linux/image-builder-troubleshoot.md
       - name: Image Builder Reliability
         displayName: Image builder, images, building, reliability, resiliency, recovery
-        href: image-builder-reliability.md
+        href: ../reliability/reliability-image-builder.md?toc=/azure/virtual-machines/toc.json&bc=/azure/virtual-machines/breadcrumb/toc.json
       - name: Image Optimization
         displayName: Image builder, images, building, boot, optimization, prefetch
         href: vm-boot-optimization.md
@@ -1657,8 +1663,12 @@
       DisplayName: Trusted Launch, shielded VM
     - name: Deploy Trusted Launch VM
       href: trusted-launch-portal.md
-    - name: Boot integrity monitoring overview
+    - name: Enable Trusted Launch on existing VM
+      href: trusted-launch-existing-vm.md
+    - name: Boot integrity monitoring
       href: boot-integrity-monitoring-overview.md
+    - name: Trusted Launch FAQs
+      href: trusted-launch-faq.md
  
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md
@@ -1816,7 +1826,7 @@
     href: automatic-extension-upgrade.md
   - name: Update Management in Azure Automation
     href: ../automation/update-management/overview.md?toc=/azure/virtual-machines/toc.json
-  - name: Update management center (preview)
+  - name: Update Manager
     href: ../update-center/index.yml
   - name: Maintenance
     items:

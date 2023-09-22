@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Sign in users and call the Microsoft Graph API from an ASP.NET web app"
-description: Download and run a code sample that shows how an ASP.NET web app can sign in Azure AD users.
+description: Download and run a code sample that shows how an ASP.NET web app can sign in Microsoft Entra users.
 services: active-directory
 author: cilwerner
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.author: cwerner
 
 ms.reviewer: jmprieur
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1"
-# Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Azure AD users.
+# Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Microsoft Entra users.
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an ASP.NET web app
 
-In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Azure Active Directory (Azure AD) accounts. 
+In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Microsoft Entra accounts. 
 
 See [How the sample works](#how-the-sample-works) for an illustration.
 
@@ -38,7 +38,7 @@ You have two options to start building your application: automatic or manual con
 
 If you want to automatically configure your app and then download the code sample, follow these steps:
 
-1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/AngularSpaQuickstartPage/sourceType/docs) quickstart experience.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/AngularSpaQuickstartPage/sourceType/docs) quickstart experience as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
 1. Enter a name for your application and select **Register**.
 1. Follow the instructions to download and automatically configure your new application in one click.
 
@@ -48,10 +48,9 @@ If you want to manually configure your application and code sample, use the foll
 
 #### Step 1: Register your application
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
+1. Browse to **Identity** > **Applications** > **App registrations** and select **New registration**.
 1. For **Name**, enter a name for your application. For example, enter **ASPNET-Quickstart**. Users of your app will see this name, and you can change it later.
 1. Set the **Redirect URI** type to **Web** and value to `https://localhost:44368/`.
 1. Select **Register**.
@@ -83,12 +82,12 @@ If you want to manually configure your application and code sample, use the foll
    ```
    In that code:
 
-   - `Enter_the_Application_Id_here` is the application (client) ID of the app registration that you created earlier. Find the application (client) ID on the app's **Overview** page in **App registrations** in the Azure portal.
+   - `Enter_the_Application_Id_here` is the application (client) ID of the app registration that you created earlier. Find the application (client) ID on the app's **Overview** page in **App registrations** in the Microsoft Entra admin center.
    - `Enter_the_Tenant_Info_Here` is one of the following options:
-     - If your application supports **My organization only**, replace this value with the directory (tenant) ID or tenant name (for example, `contoso.onmicrosoft.com`). Find the directory (tenant) ID on the app's **Overview** page in **App registrations** in the Azure portal.
+     - If your application supports **My organization only**, replace this value with the directory (tenant) ID or tenant name (for example, `contoso.onmicrosoft.com`). Find the directory (tenant) ID on the app's **Overview** page in **App registrations** in the Microsoft Entra admin center.
      - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`.
      - If your application supports **All Microsoft account users**, replace this value with `common`.
-   - `redirectUri` is the **Redirect URI** you entered earlier in **App registrations** in the Azure portal.
+   - `redirectUri` is the **Redirect URI** you entered earlier in **App registrations** in the Microsoft Entra admin center.
 
 ## More information
 
@@ -188,4 +187,4 @@ You can call Microsoft Graph from the controller by getting the instance of Grap
 For a complete step-by-step guide on building applications and new features, including a full explanation of this quickstart, try out the ASP.NET tutorial.
 
 > [!div class="nextstepaction"]
-> [Add sign-in to an ASP.NET web app](tutorial-v2-asp-webapp.md)
+> [Add sign-in to an ASP.NET web app](./web-app-tutorial-01-register-application.md)

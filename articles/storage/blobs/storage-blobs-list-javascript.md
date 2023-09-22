@@ -6,15 +6,17 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 11/30/2022
+ms.date: 08/16/2023
 
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
 ---
 
 # List blobs with JavaScript
+
+[!INCLUDE [storage-dev-guide-selector-list-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-list-blob.md)]
 
 This article shows how to list blobs using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
@@ -40,11 +42,11 @@ Related functionality can be found in the following methods:
 
 ### Manage how many results are returned
 
-By default, a listing operation returns up to 5000 results at a time, but you can specify the number of results that you want each listing operation to return. The examples presented in this article show you how to return results in pages.
+By default, a listing operation returns up to 5000 results at a time, but you can specify the number of results that you want each listing operation to return. The examples presented in this article show you how to return results in pages. To learn more about pagination concepts, see [Pagination with the Azure SDK for JavaScript](/azure/developer/javascript/core/use-azure-sdk#asynchronous-paging-of-results).
 
 ### Filter results with a prefix
 
-To filter the list of blobs, specify a string for the `prefix` property in the [list options](/javascript/api/@azure/storage-blob/containerlistblobsoptions). The prefix string can include one or more characters. Azure Storage then returns only the blobs whose names start with that prefix.
+To filter the list of blobs, specify a string for the `prefix` property in [ContainerListBlobsOptions](/javascript/api/@azure/storage-blob/containerlistblobsoptions). The prefix string can include one or more characters. Azure Storage then returns only the blobs whose names start with that prefix.
 
 ```javascript
 const listOptions = {
@@ -72,8 +74,6 @@ Blobs in Azure Storage are organized in a flat paradigm, rather than a hierarchi
 To organize blobs into virtual directories, use a delimiter character in the blob name. The default delimiter character is a forward slash (/), but you can specify any character as the delimiter.
 
 If you name your blobs using a delimiter, then you can choose to list blobs hierarchically. For a hierarchical listing operation, Azure Storage returns any virtual directories and blobs beneath the parent object. You can call the listing operation recursively to traverse the hierarchy, similar to how you would traverse a classic file system programmatically.
-
-If you've enabled the hierarchical namespace feature on your account, directories are not virtual. Instead, they are concrete, independent objects. Therefore, directories appear in the list as zero-length blobs.
 
 ## Use a flat listing
 
@@ -134,6 +134,9 @@ Flat listing: 4: folder1/b2
 Flat listing: 5: folder2/sub1/c
 Flat listing: 6: folder2/sub1/d
 ```
+
+> [!NOTE]
+> The sample output shown assumes that you have a storage account with a flat namespace. If you've enabled the hierarchical namespace feature for your storage account, directories are not virtual. Instead, they are concrete, independent objects. As a result, directories appear in the list as zero-length blobs.</br></br>For an alternative listing option when working with a hierarchical namespace, see [List directory contents (Azure Data Lake Storage Gen2)](data-lake-storage-directory-file-acl-javascript.md#list-directory-contents).
 
 ## Use a hierarchical listing
 

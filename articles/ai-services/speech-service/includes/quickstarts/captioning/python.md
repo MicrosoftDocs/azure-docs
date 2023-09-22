@@ -20,7 +20,7 @@ The Speech SDK for Python is available as a [Python Package Index (PyPI) module]
 - You must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, and 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
 - On Linux, you must use the x64 target architecture.
 
-1. Install a version of [Python from 3.7 or later](https://www.python.org/downloads/). First check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements 
+1. Install a version of [Python from 3.10 or later](https://www.python.org/downloads/). First check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements 
 1. You must also install [GStreamer](~/articles/ai-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
 
 ### Set environment variables
@@ -44,7 +44,7 @@ Follow these steps to build and run the captioning quickstart code example.
     > [!IMPORTANT]
     > Make sure that the paths specified by `--input` and `--output` are valid. Otherwise you must change the paths.
     > 
-    > Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). Otherwise use the `--key` and `--region` arguments.
+    > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [above](#set-environment-variables). Otherwise use the `--key` and `--region` arguments.
 
 ## Check results
 
