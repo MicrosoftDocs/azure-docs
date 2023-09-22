@@ -50,15 +50,12 @@ Choose a search client that supports preview APIs on the query request. Here are
 
 ## 2 - Create a semantic configuration
 
-> [!IMPORTANT]
-> A semantic configuration is required for the 2021-04-30-Preview and later REST APIs, Search explorer, and some beta SDKs. In 2020-06-30-Preview REST API, you had to use `searchFields` for field inputs. This approach only worked in 2020-06-30-Preview and is now obsolete.
-
 A *semantic configuration* establishes field inputs for semantic ranking. You can add or update a semantic configuration to an index definition at any time, no rebuild necessary. At query time, specify one on a query request.
 
 + Fields must be `searchable` and `retrievable`.
 + Fields must be a string: `Edm.String`, `Edm.ComplexType`,`Collection(Edm.String)`.
 
-  String subfields of `Collection(Edm.ComplexType)` fields aren't currently supported by semantic search and aren't used for semantic ranking, captions, or answers.
+  String subfields of `Collection(Edm.ComplexType)` fields aren't currently supported in semantic ranking, captions, or answers.
 
 A semantic configuration has a name and the following properties:
 
@@ -85,6 +82,9 @@ You can only specify one title field, but you can specify as many content and ke
    Select **OK** to save the changes.
 
 ### [**REST API**](#tab/rest)
+
+> [!IMPORTANT]
+> A semantic configuration was added and is now required in 2021-04-30-Preview and newer API versions. In the 2020-06-30-Preview REST API, `searchFields` was used for field inputs. This approach only worked in 2020-06-30-Preview and is now obsolete.
 
 1. Formulate a [Create or Update Index (Preview)](/rest/api/searchservice/preview-api/create-or-update-index?branch=main) request.
 
