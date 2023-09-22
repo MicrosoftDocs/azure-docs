@@ -22,7 +22,7 @@ Data stored in your Azure Cosmos DB account is automatically and seamlessly encr
 You must store customer-managed keys in [Azure Key Vault](../key-vault/general/overview.md) and provide a key for each Azure Cosmos DB account that is enabled with customer-managed keys. This key is used to encrypt all the data stored in that account.
 
 > [!NOTE]
-> Currently, customer-managed keys are available only for new Azure Cosmos DB accounts. You should configure them during account creation.
+> Currently, customer-managed keys are available only for new Azure Cosmos DB accounts. You should configure them during account creation. Enabling customer-managed keys on your existing accounts is available for preview. You can refer to the link [here](how-to-setup-customer-managed-keys-existing-accounts.md) for more details
 
 > [!WARNING]
 > The following field names are reserved on Cassandra API tables in accounts using Customer-managed Keys:
@@ -156,16 +156,16 @@ Here, create a new key using Azure Key Vault and retrieve the unique identifier.
 
    :::image type="content" source="media/how-to-setup-customer-managed-keys/new-customer-managed-key.png" lightbox="media/how-to-setup-customer-managed-keys/new-customer-managed-key.png" alt-text="Screenshot of the dialog to create a new key.":::
 
-  > [!TIP]
-  > Alternatively, you can use the Azure CLI to generate a key with:
-  >
-  > ```azurecli
-  > az keyvault key create \
-  >     --vault-name <name-of-key-vault> \
-  >     --name <name-of-key>
-  > ```
-  >
-  > For more information on managing a key vault with the Azure CLI, see [manage Azure Key Vault with the Azure CLI](../key-vault/general/manage-with-cli2.md).
+     > [!TIP]
+     > Alternatively, you can use the Azure CLI to generate a key with:
+     >
+     > ```azurecli
+     > az keyvault key create \
+     >     --vault-name <name-of-key-vault> \
+     >     --name <name-of-key>
+     > ```
+     >
+     > For more information on managing a key vault with the Azure CLI, see [manage Azure Key Vault with the Azure CLI](../key-vault/general/manage-with-cli2.md).
 
 1. After the key is created, select the newly created key and then its current version.
 
@@ -704,7 +704,7 @@ The following conditions are necessary to successfully restore a periodic backup
 
 ### How do customer-managed keys affect continuous backups?
 
-Azure Cosmos DB gives you the option to configure [continuous backups](./continuous-backup-restore-introduction.md) on your account. With continuous backups, you can restore your data to any point in time within the past 30 days. To use continuous backups on an account where customer-managed keys are enabled, you must use a user-assigned managed identity in the Key Vault access policy. Azure Cosmos DB first-party identities or system-assigned managed identities aren't currently supported on accounts using continuous backups.
+Azure Cosmos DB gives you the option to configure [continuous backups](./continuous-backup-restore-introduction.md) on your account. With continuous backups, you can restore your data to any point in time within the past 30 days. To use continuous backups on an account where customer-managed keys are enabled, you must use a system-assigned or user-assigned managed identity in the Key Vault access policy. Azure Cosmos DB first-party identities is not currently supported on accounts using continuous backups.
 
 The following conditions are necessary to successfully perform a point-in-time restore:
 

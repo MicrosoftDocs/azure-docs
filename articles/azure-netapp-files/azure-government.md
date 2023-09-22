@@ -36,7 +36,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 | Azure NetApp Files customer-managed keys | Public preview | No |
 | Azure NetApp Files large volumes | Public preview | No |
 | Edit network features for existing volumes | Public preview | No |
-| Standard network features | Generally available (GA) | No |
+| Standard network features | Generally available (GA) | Public preview [(in select regions)](azure-netapp-files-network-topologies.md#supported-regions) |
 
 ## Portal access
 

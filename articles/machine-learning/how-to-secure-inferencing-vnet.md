@@ -14,10 +14,13 @@ ms.date: 09/06/2022
 
 # Secure an Azure Machine Learning inferencing environment with virtual networks
 
-
 In this article, you learn how to secure inferencing environments (online endpoints) with a virtual network in Azure Machine Learning. There are two inference options that can be secured using a VNet:
 
 * Azure Machine Learning managed online endpoints
+
+   > [!TIP]
+   > Microsoft recommends using an Azure Machine Learning **managed virtual networks** (preview) instead of the steps in this article when securing managed online endpoints. With a managed virtual network, Azure Machine Learning handles the job of network isolation for your workspace and managed computes. You can also add private endpoints for resources needed by the workspace, such as Azure Storage Account. For more information, see [Workspace managed network isolation](how-to-managed-network.md).
+
 * Azure Kubernetes Service 
 
 > [!TIP]
@@ -36,7 +39,7 @@ In this article, you learn how to secure inferencing environments (online endpoi
 
 + Read the [Network security overview](how-to-network-security-overview.md) article to understand common virtual network scenarios and overall virtual network architecture.
 
-+ An existing virtual network and subnet, that is used to secure the Azure Machine Learning workspace.
++ An existing virtual network and subnet that is used to secure the Azure Machine Learning workspace.
 
 [!INCLUDE [network-rbac](includes/network-rbac.md)]
 
@@ -57,7 +60,7 @@ To use Azure Kubernetes Service cluster for secure inference, use the following 
  
    * CLI v2 - https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/kubernetes
    * Python SDK V2 - https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/kubernetes
-   * Studio UI - Follow the steps in [managed online endpoint deployment](how-to-use-managed-online-endpoint-studio.md) through the Studio. After entering the __Endpoint name__ select __Kubernetes__ as the compute type instead of __Managed__ 
+   * Studio UI - Follow the steps in [managed online endpoint deployment](how-to-use-managed-online-endpoint-studio.md) through the Studio. After you enter the __Endpoint name__, select __Kubernetes__ as the compute type instead of __Managed__.
 
 
 ## Limit outbound connectivity from the virtual network

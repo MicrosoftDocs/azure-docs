@@ -17,7 +17,7 @@ ms.custom: aaddev, fasttrack-edit, contperf-fy21q2, devx-track-js
 
 # Application types for the Microsoft identity platform
 
-The Microsoft identity platform supports authentication for various modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](./v2-protocols.md). This article describes the types of apps that you can build by using Microsoft identity platform, regardless of your preferred language or platform. The information is designed to help you understand high-level scenarios before you start working with the code in the [application scenarios](authentication-flows-app-scenarios.md#application-scenarios).
+The Microsoft identity platform supports authentication for various modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](./v2-protocols.md). This article describes the types of apps that you can build by using Microsoft identity platform, regardless of your preferred language or platform. The information is designed to help you understand high-level scenarios before you start working with the code in the [application scenarios](authentication-flows-app-scenarios.md#application-types).
 
 ## The basics
 
@@ -112,7 +112,7 @@ In this flow, the app receives an authorization code from the Microsoft identity
 ![Shows the native app authentication flow](./media/v2-app-types/convergence-scenarios-native.svg)
 
 > [!NOTE]
-> If the application uses the default system webview, check the information about "Confirm My Sign-In" functionality and error code AADSTS50199 in [Azure AD authentication and authorization error codes](reference-error-codes.md).
+> If the application uses the default system webview, check the information about "Confirm My Sign-In" functionality and error code AADSTS50199 in [Microsoft Entra authentication and authorization error codes](reference-error-codes.md).
 
 ## Daemons and server-side apps
 

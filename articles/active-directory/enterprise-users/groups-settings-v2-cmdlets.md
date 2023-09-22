@@ -1,6 +1,6 @@
 ---
 title: PowerShell V2 examples for managing groups 
-description: This page provides PowerShell examples to help you manage your groups in Azure Active Directory
+description: This page provides PowerShell examples to help you manage your groups in Microsoft Entra ID
 keywords: Azure AD, Azure Active Directory, PowerShell, Groups, Group management
 services: active-directory
 author: barclayn
@@ -15,7 +15,7 @@ ms.reviewer: krbain
 ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory version 2 cmdlets for group management
+# Microsoft Entra version 2 cmdlets for group management
 
 > [!div class="op_single_selector"]
 > - [Azure portal](../fundamentals/how-to-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 >
 >
 
-This article contains examples of how to use PowerShell to manage your groups in Azure Active Directory (Azure AD), part of Microsoft Entra.  It also tells you how to get set up with the Microsoft Graph PowerShell module. First, you must [download the Microsoft Graph PowerShell module](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true).
+This article contains examples of how to use PowerShell to manage your groups in Microsoft Entra ID, part of Microsoft Entra.  It also tells you how to get set up with the Microsoft Graph PowerShell module. First, you must [download the Microsoft Graph PowerShell module](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true).
 
 ## Install the Microsoft Graph PowerShell module
 
@@ -332,7 +332,7 @@ If you want to remove an owner from a group, use the Remove-MgGroupOwnerByRef  c
 
 ## Reserved aliases
 
-When a group is created, certain endpoints allow the end user to specify a mailNickname or alias to be used as part of the email address of the group. Groups with the following highly privileged email aliases can only be created by an Azure AD global administrator. 
+When a group is created, certain endpoints allow the end user to specify a mailNickname or alias to be used as part of the email address of the group. Groups with the following highly privileged email aliases can only be created by a Microsoft Entra Global Administrator. 
   
 * abuse
 * admin
@@ -348,17 +348,17 @@ When a group is created, certain endpoints allow the end user to specify a mailN
 
 ## Group writeback to on-premises (preview)
 
-Today, many groups are still managed in on-premises Active Directory. To answer requests to sync cloud groups back to on-premises, Microsoft 365 groups writeback feature for Azure AD is now available for preview.
+Today, many groups are still managed in on-premises Active Directory. To answer requests to sync cloud groups back to on-premises, Microsoft 365 groups writeback feature for Microsoft Entra ID is now available for preview.
 
-Microsoft 365 groups are created and managed in the cloud. The writeback capability allows you to write back Microsoft 365 groups as distribution groups to an Active Directory forest with Exchange installed. Users with on-premises Exchange mailboxes can then send and receive emails from these groups. The group writeback feature doesn't support Azure AD security groups or distribution groups.
+Microsoft 365 groups are created and managed in the cloud. The writeback capability allows you to write back Microsoft 365 groups as distribution groups to an Active Directory forest with Exchange installed. Users with on-premises Exchange mailboxes can then send and receive emails from these groups. The group writeback feature doesn't support Microsoft Entra security groups or distribution groups.
 
-For more details, please refer to documentation for the [Azure AD Connect sync service](../hybrid/connect/how-to-connect-syncservice-features.md).
+For more details, please refer to documentation for the [Microsoft Entra Connect Sync service](../hybrid/connect/how-to-connect-syncservice-features.md).
 
-Microsoft 365 group writeback is a public preview feature of Azure Active Directory (Azure AD) and is available with any paid Azure AD license plan. For some legal information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Microsoft 365 group writeback is a public preview feature of Microsoft Entra ID and is available with any paid Microsoft Entra ID license plan. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Next steps
 
-You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](/powershell/azure/active-directory/install-adv2).
+You can find more Azure Active Directory PowerShell documentation at [Microsoft Entra Cmdlets](/powershell/azure/active-directory/install-adv2).
 
-* [Managing access to resources with Azure Active Directory groups](../fundamentals/concept-learn-about-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
-* [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+* [Managing access to resources with Microsoft Entra groups](../fundamentals/concept-learn-about-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+* [Integrating your on-premises identities with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)

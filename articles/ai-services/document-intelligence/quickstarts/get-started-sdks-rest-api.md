@@ -17,14 +17,23 @@ monikerRange: '<=doc-intel-3.1.0'
 
 # Get started with Document Intelligence
 
-**This article applies to:**![Document Intelligence v3.1 checkmark](../media/yes-icon.png) [**Document Intelligence v3.1**](?view=doc-intel-3.1.0&preserve-view=true) . **Earlier versions:** [**Document Intelligence v3.0**](?view=doc-intel-3.0.0&preserve-view=true) &#9679; [**Document Intelligence v2.1**](?view=doc-intel-2.1.0&preserve-view=true)
+[!INCLUDE [applies to v3.1 and v3.0](../includes/applies-to-v3-1-v3-0.md)]
 
 > [!IMPORTANT]
-> Azure Cognitive Services Form Recognizer is now Azure AI Document Intelligence. However, some platforms are still awaiting naming updates. All references to Form Recognizer or Document Intelligence in documentation refer to the same Azure service.
+>
+> * Azure Cognitive Services Form Recognizer is now Azure AI Document Intelligence.
+> * Some platforms are still awaiting the renaming update.
+> * All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
 
 ::: moniker range="doc-intel-3.1.0"
 
-Get started with Azure AI Document Intelligence latest GA version (v3.1). Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, tables and key data from your documents. You can easily integrate Document Intelligence models into your workflows and applications by using an SDK in the programming language of your choice or calling the REST API.  For this quickstart, we recommend that you use the free service while you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+* Get started with Azure AI Document Intelligence latest GA version (v3.1).
+
+* Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, tables and key data from your documents.
+
+* You can easily integrate Document Intelligence models into your workflows and applications by using an SDK in the programming language of your choice or calling the REST API.
+
+* For this quickstart, we recommend that you use the free service while you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 To learn more about Document Intelligence features and development options, visit our [Overview](../overview.md) page.
 
@@ -86,7 +95,7 @@ To learn more about Document Intelligence features and development options, visi
 
 That's it, congratulations!
 
-In this quickstart, you used a form Document Intelligence model to analyze various forms and documents. Next, explore the Document Intelligence Studio and reference documentation to learn about Document Intelligence API in depth.
+In this quickstart, you used a document Intelligence model to analyze various forms and documents. Next, explore the Document Intelligence Studio and reference documentation to learn about Document Intelligence API in depth.
 
 ## Next steps
 
@@ -155,7 +164,7 @@ That's it, congratulations! In this quickstart, you used Document Intelligence m
 
 ## Next steps
 
-* For an enhanced experience and advanced model quality, try the [Document Intelligence v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
+* For an enhanced experience and advanced model quality, try the [Document Intelligence v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 * The v3.0 Studio supports any model trained with v2.1 labeled data.
 

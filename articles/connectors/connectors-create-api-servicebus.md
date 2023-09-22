@@ -137,7 +137,7 @@ To increase the timeout for sending a message, [add the `ServiceProviders.Servic
 
 <a name="permissions-connection-string"></a>
 
-## Step 1 - Check access to Service Bus namespace
+## Step 1: Check access to Service Bus namespace
 
 To confirm that your logic app resource has permissions to access your Service Bus namespace, use the following steps:
 
@@ -147,7 +147,7 @@ To confirm that your logic app resource has permissions to access your Service B
 
    ![Screenshot showing the Azure portal, Service Bus namespace, and 'Shared access policies' selected.](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
 
-## Step 2 - Get connection authentication requirements
+## Step 2: Get connection authentication requirements
 
 Later, when you add a Service Bus trigger or action for the first time, you're prompted for connection information, including the connection authentication type. Based on your logic app workflow type, Service Bus connector version, and selected authentication type, you'll need the following items:
 

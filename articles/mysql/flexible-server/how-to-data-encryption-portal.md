@@ -22,6 +22,11 @@ In this tutorial, you learn how to:
 - Configure data encryption for restoration.
 - Configure data encryption for replica servers.
 
+  > [!NOTE]  
+> Azure key vault access configuration now supports two types of permission models - [Azure role-based access control](../../role-based-access-control/overview.md) and [Vault access policy](../../key-vault/general/assign-access-policy.md). The tutorial describes configuring data encryption for Azure Database for MySQL - Flexible server using Vault access policy. However, you can choose to use Azure RBAC as permission model to grant access to Azure Key Vault. To do so, you need any built-in or custom role that has below three permissions and assign it through "role assignments" using Access control (IAM) tab in the keyvault: a) KeyVault/vaults/keys/wrap/action b) KeyVault/vaults/keys/unwrap/action c) KeyVault/vaults/keys/read
+
+
+
 ## Prerequisites
 
 - An Azure account with an active subscription.
@@ -97,3 +102,5 @@ After your Azure Database for MySQL - Flexible Server is encrypted with a custom
 
 - [Customer managed keys data encryption](concepts-customer-managed-key.md)
 - [Data encryption with Azure CLI](how-to-data-encryption-cli.md)
+
+

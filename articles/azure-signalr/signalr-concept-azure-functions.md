@@ -56,7 +56,7 @@ An example of how to use the SignalR Service bindings is using Azure Functions t
 
 ### Authentication and users
 
-SignalR Service allows you to broadcast messages to all or a subset of clients, such as those belonging to a single user. You can combine the SignalR Service bindings for Azure Functions with App Service authentication to authenticate users with providers such as Azure Active Directory, Facebook, and Twitter. You can then send messages directly to these authenticated users.
+SignalR Service allows you to broadcast messages to all or a subset of clients, such as those belonging to a single user. You can combine the SignalR Service bindings for Azure Functions with App Service authentication to authenticate users with providers such as Microsoft Entra ID, Facebook, and Twitter. You can then send messages directly to these authenticated users.
 
 ## Next steps
 

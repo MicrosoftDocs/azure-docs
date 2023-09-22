@@ -4,12 +4,12 @@ description: include file
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: include
-ms.date: 08/07/2023
+ms.date: 09/19/2023
 ms.author: rogarana
 ms.custom: include file
 ---
 
-Ultra disks can't be used as OS disks, they can only be created as empty data disks. Ultra disks also can't be used with some features and functionality, including disk export, changing disk type, trusted launch, VM images, availability sets, or Azure disk encryption. The size of an Ultra Disk can't be expanded without either deallocating the VM or detaching the disk. Azure Backup and Azure Site Recovery do not support ultra disks. In addition, only un-cached reads and un-cached writes are supported. Snapshots for ultra disks are available but have additional limitations. See [Incremental snapshots of Premium SSD v2 and Ultra Disks](../articles/virtual-machines/disks-incremental-snapshots.md#incremental-snapshots-of-premium-ssd-v2-and-ultra-disks) for details.
+Ultra disks can't be used as OS disks, they can only be created as empty data disks. Ultra disks also can't be used with some features and functionality, including disk export, changing disk type, trusted launch, VM images, availability sets, or Azure disk encryption. The size of an Ultra Disk can't be expanded without either deallocating the VM or detaching the disk.Azure Site Recovery doesn't support ultra disks. In addition, only un-cached reads and un-cached writes are supported. Snapshots for ultra disks are available but have additional limitations. See [Incremental snapshots of Premium SSD v2 and Ultra Disks](../articles/virtual-machines/disks-incremental-snapshots.md#incremental-snapshots-of-premium-ssd-v2-and-ultra-disks) for details. Azure Backup support for VMs with Ultra Disks is currently in [public preview](../articles/backup/backup-support-matrix-iaas.md#vm-storage-support). 
 
 Ultra disks support a 4k physical sector size by default. A 512E sector size is available as a generally available offering with no sign-up required. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
 

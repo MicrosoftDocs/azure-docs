@@ -87,7 +87,7 @@ key = "YOUR_FORM_RECOGNIZER_KEY"
 
 > [!div class="checklist"]
 >
-> * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * For this example, you'll need a **document file at a URI**. You can use our [sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 > * We've added the file URI value to the `formUrl` variable near the top of the file.
 > * To analyze a given file at a URI, you'll use the `begin_recognize_content_from_url` method.
 
@@ -101,7 +101,7 @@ key = "YOUR_FORM_RECOGNIZER_KEY"
     return ", ".join(["[{}, {}]".format(p.x, p.y) for p in bounding_box])
 
  def recognize_content():
-    # sample form document
+    # sample document
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
     form_recognizer_client = FormRecognizerClient(

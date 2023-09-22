@@ -1,6 +1,6 @@
 ---
 title: Receive activity log alerts on Azure service notifications using Bicep
-description: Get notified via SMS, email, or webhook when Azure service occurs.
+description: Get notified via SMS, email, or webhook when Azure service occurs using a Bicep file.
 ms.date: 05/13/2022
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep

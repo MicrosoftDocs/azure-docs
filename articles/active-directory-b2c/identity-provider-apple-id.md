@@ -261,10 +261,9 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ## Customize your user interface
 
-Follow the guidelines how to [offer Sign in with Apple](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple/overview/introduction/). Apple provides several **Sign in with Apple** buttons you can use to let people set up an account and sign in. If necessary, create a custom button to offer Sign in with Apple. Learn how to [display a Sign in with Apple button](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple/overview/buttons/).
+Follow the guidelines how to [offer Sign in with Apple](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple). Apple provides several **Sign in with Apple** buttons you can use to let people set up an account and sign in. If necessary, create a custom button to offer Sign in with Apple. Learn how to [display a Sign in with Apple button](https://developer.apple.com/design/human-interface-guidelines/buttons).
 
 To align with the Apple user interface guidelines:
 
 - [Customize the user interface with HTML templates](customize-ui-with-html.md)
 - [Localize](language-customization.md) the identity provider name.
-

@@ -6,30 +6,23 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 05/24/2023
+ms.date: 09/20/2023
 ms.author: saraic
 ms.reviewer: cynthn, mattmcinnes
 ms.custom: template-how-to
 ms.devlang: azurecli
 ---
 
-# Share images using a community gallery (preview)
+# Share images using a community gallery
 
-To share a gallery with all Azure users, you can create a [community gallery (preview)](azure-compute-gallery.md#community-gallery). Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
+To share a gallery with all Azure users, you can create a [community gallery](azure-compute-gallery.md#community-gallery). Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
 
-Sharing images to the community is a new capability in [Azure Compute Gallery](./azure-compute-gallery.md#community). In the preview, you can make your image galleries public, and share them to all Azure customers. When a gallery is marked as a community gallery, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private.
+Sharing images to the community is a new capability in [Azure Compute Gallery](./azure-compute-gallery.md#community). You can make your image galleries public, and share them to all Azure customers. When a gallery is marked as a community gallery, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private.
 
 
 > [!IMPORTANT]
-> Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 > Microsoft does not provide support for images you share to the community.
 > 
-> [!INCLUDE [community-gallery-artifacts](./includes/community-gallery-artifacts.md)]
-> 
-> To publish a community gallery, you'll need to enable the preview feature using the Azure CLI: `az feature register --name CommunityGalleries --namespace Microsoft.Compute` or PowerShell: `Register-AzProviderFeature -FeatureName "CommunityGalleries" -ProviderNamespace "Microsoft.Compute"`. For more information on enabling preview features and checking the status, see [Set up preview features in your Azure subscription](../azure-resource-manager/management/preview-features.md). Creating VMs from community gallery images is open to all Azure users. 
-> 
-> You can't currently create a Flexible virtual machine scale set from an image shared by another tenant.
 
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
@@ -40,13 +33,18 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 | RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
 | RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |
 
+## Disclaimer
+
+[!INCLUDE [community-gallery-artifacts](./includes/community-gallery-artifacts.md)]
+
 ## Limitations for images shared to the community
 
 There are some limitations for sharing your gallery to the community:
-- For the preview, image resources need to be created in the same region as the gallery. For example, if you create a gallery in West US, the image definitions and image versions should be created in West US if you want to make them available during the public preview.
-- For the preview, you can't share [VM Applications](vm-applications.md) to the community.
-- The image version region in the gallery should be same as the region home region, creating of cross-region version where the home region is different than the gallery isn't supported, however once the image is in the home region it can be replicated to other regions
-- To find images shared to the community from the Azure portal, you need to go through the VM create or scale set creation pages. You can't search the portal or Azure Marketplace for the images
+- You can't convert an existing private gallery(RBAC enabled gallery) to Community gallery.
+- You can't use a third party image from Marketplace and publish it to the community. For a list of approved operating system base images, please see: [approved base images](https://go.microsoft.com/fwlink/?linkid=2245050).
+- Encrypted images are not supported
+- Image resources need to be created in the same region as the gallery. For example, if you create a gallery in West US, the image definitions and image versions should be created in West US if you want to make them available.
+- You can't share [VM Applications](vm-applications.md) to the community yet.
 
 
 ## How sharing with the community works
@@ -59,7 +57,7 @@ The end-users can only interact with the proxy resources, they never interact wi
 
 Azure users can see the latest image versions shared to the community in the portal, or query for them using the CLI. Only the latest version of an image is listed in the community gallery.
 
-When creating a community gallery, you will need to provide contact information for your images. The objective and underlying intention of this information is to facilitate communication between the consumer of the image and the publisher, like if the consumer needs assistance. Be aware that Microsoft does not offer support for these images. This information will be shown **publicly**, so be careful when providing it:
+When creating a community gallery, you will need to provide contact information for your images. The objective and underlying intention of this information is to facilitate communication between the consumer of the image and the publisher, like if the consumer needs assistance. Microsoft doesn't offer support for these images. This information will be shown **publicly**, so be careful when providing it:
 - Community gallery prefix
 - Publisher support email
 - Publisher URL
@@ -69,8 +67,7 @@ Information from your image definitions will also be publicly available, like wh
 
 > [!WARNING]
 > If you want to stop sharing a gallery publicly, you can update the gallery to stop sharing, but making the gallery private will prevent existing virtual machine scale set users from scaling their resources.
->
-> If you stop sharing your gallery during the preview, you won't be able to re-share it.
+
 
 ## Why share to the community?
 
@@ -93,20 +90,25 @@ Why use a marketplace mage?
 - Microsoft certified images
 - Can be used for production workloads
 - First party and third party images
-- Free and Paid images with additional software offerings
+- Paid images with additional software offerings
 - Supported by Microsoft
 
 When to use a community image?
 - You trust and know how to contact the publisher
 - You're looking for a community version of an image published by open-source community
 - Using the image for testing
-"- Community images are free images. However, if the image used to build the community image was an Azure marketplace image with a cost associated with it, you will be billed for those same costs. You can see what costs are associated with a Marketplace image by looking at the **Plans + Pricing** tab for the image in the Azure portal."
+- Community images are free
 - Supported by the owner of the image, not Microsoft.
 
 ## Reporting issues with a community image
 Using community-submitted virtual machine images has several risks. Images could contain malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images when you see these issues.
 
-Use the following links to report issues:
+The easiest way to report issues with a community gallery is to use the portal, which will pre-fill information for the report:
+- For issues with links or other information in the fields of an image definition, select **Report community image**.
+- If an image version contains malicious code or there are other issues with a specific version of an image, select **Report** under the **Report version** column in the table of image versions.
+
+You can also use the following links to report issues, but the forms won't be pre-filled:
+
 - Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).
 - Intellectual Property violations: Contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
  
